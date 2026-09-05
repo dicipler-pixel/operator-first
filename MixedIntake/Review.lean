@@ -64,7 +64,9 @@ theorem laws_same_first_two_moments :
 
 theorem laws_different_endpoint_odds :
     law0 0 / law0 4 = 1 ∧ law1 0 / law1 4 = 241/240 := by
-  norm_num [law0,law1]
+  change (24/625 : ℚ)/(24/625)=1 ∧
+    (241/6250 : ℚ)/(240/6250)=241/240
+  norm_num
 
 /-- The original threshold was weak <= 67/40. This variant is STRICT < 67/40. -/
 theorem strict_granularity (p q : ℕ) (hq : q < 43) (h : 40*p < 67*q) :
