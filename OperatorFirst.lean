@@ -7,12 +7,12 @@ Jeromie Beasley -- https://doi.org/10.5281/zenodo.22124938
   Part I   the commutator identity  [S+K, S-K] = -2 [S,K], and reciprocity
   Part II  the pure-marker identity D^2 + V^2 = 1
 
-Single module on purpose: everything lives in this one file so the library has
-no subdirectory to go missing. The definitions of D and V are mathematical;
-an operational state-discrimination interpretation is a separate obligation.
+The offset core is imported explicitly below. The definitions of D and V are
+mathematical; an operational state-discrimination interpretation is separate.
 -/
 
 import Mathlib
+import OperatorFirst.OffsetFock
 
 open Matrix
 
@@ -149,7 +149,6 @@ theorem distinguishability_of_orthogonal (u v : E) (h : ⟪u, v⟫ = 0) :
 
 end OperatorFirst
 
-/-! Explicit dependency reports for every theorem in this module. -/
 #print axioms OperatorFirst.comm_add_sub
 #print axioms OperatorFirst.normal_iff_comm_zero
 #print axioms OperatorFirst.transpose_mul_of_symm

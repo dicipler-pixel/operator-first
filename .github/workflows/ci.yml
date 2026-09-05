@@ -5,6 +5,10 @@ on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
 
+concurrency:
+  group: proof-${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,8 +33,21 @@ jobs:
         uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
         with:
           use-mathlib-cache: true
+          use-github-cache: false
           build: true
           leanchecker: true
-          leanchecker-args: OperatorFirst
+          leanchecker-args: OperatorFirst OperatorFirst.Offset OperatorFirst.OffsetFock
           axiom-audit: true
           axiom-audit-allow: propext,Classical.choice,Quot.sound
+
+      - name: explicit offset checks and negative controls
+        run: python3 scripts/verify_offset.py
+
+      - name: preserve compiler evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: offset-proof-evidence
+          path: verification/offset/
+          if-no-files-found: warn
+          retention-days: 30
