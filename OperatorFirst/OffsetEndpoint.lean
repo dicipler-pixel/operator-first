@@ -30,7 +30,8 @@ theorem band_complement_conjugation (x y v E : ℂ) :
     band x y (-v) E = sigma*(1-band x y v E)*sigma := by
   ext i j
   fin_cases i <;> fin_cases j <;>
-    simp [band,sigma,bloch,Matrix.mul_apply,Fin.sum_univ_two,Matrix.one_apply] <;> ring
+    simp [band,sigma,bloch,Matrix.mul_apply,Matrix.vecMul,dotProduct,
+      Fin.sum_univ_two,Matrix.one_apply,Matrix.sub_apply,Matrix.smul_apply] <;> ring
 
 section Matrices
 variable {ι κ : Type*} [Fintype ι] [DecidableEq ι] [Fintype κ] [DecidableEq κ]
@@ -77,7 +78,7 @@ theorem even_part_cancels (F : ℝ → ℝ) (v : ℝ) :
     evenPart F (-v)-evenPart F v=0 := by simp [evenPart]; ring
 
 theorem offset_is_odd (F : ℝ → ℝ) (v : ℝ) :
-    F (-(-v))-F (-v) = -(F (-v)-F v) := by simp; ring
+    F (-(-v))-F (-v) = -(F (-v)-F v) := by simp
 
 theorem rate_difference_is_offset_difference (fp₁ fm₁ fp₂ fm₂ : ℝ) :
     ((fp₂-fp₁)-(fm₂-fm₁))/2 = -((fm₂-fp₂)-(fm₁-fp₁))/2 := by ring
@@ -140,11 +141,11 @@ theorem tanh_half_exp (T : ℝ) :
   have h2 : (Real.exp (T/2))^2+1 ≠ 0 := by positivity
   field_simp [h0,h1,h2] <;> ring
 
-theorem exp_scalarOffset (p m : ℝ) (hp : 0<p) (hm : 0<m) :
+theorem exp_scalarOffset (p m : ℝ) (hp : 0 < p) (hm : 0 < m) :
     Real.exp (Offset.scalarOffset p m)=m/p := by
   rw [Offset.scalarOffset,Real.exp_sub,Real.exp_log hm,Real.exp_log hp]
 
-theorem asymmetry_eq_tanh (p m : ℝ) (hp : 0<p) (hm : 0<m) :
+theorem asymmetry_eq_tanh (p m : ℝ) (hp : 0 < p) (hm : 0 < m) :
     Offset.asymmetry p m = Real.tanh (Offset.scalarOffset p m/2) := by
   rw [tanh_half_exp,exp_scalarOffset p m hp hm]
   unfold Offset.asymmetry
