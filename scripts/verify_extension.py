@@ -11,7 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT/'verification'/'extension'
 OUT.mkdir(parents=True,exist_ok=True)
 MODULES = ['OperatorFirst.RestrictionBridge','OperatorFirst.KakeyaExtension',
-           'OperatorFirst.EarthMoon','OperatorFirst.FCSMoments']
+           'OperatorFirst.EarthMoon','OperatorFirst.FCSMoments',
+           'OperatorFirst.KakeyaSeedingControl']
 report = {'status':'RUNNING','checks':{},'sources':{},'named_theorems':0,
           'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()}
 
@@ -51,6 +52,7 @@ try:
                 raise RuntimeError('unapproved axiom in '+name)
         run(mod+'_recheck',['lake','env','leanchecker',mod])
     negatives={
+        'false_no_seed_witness':'import OperatorFirst.KakeyaSeedingControl\nexample : ¬ OperatorFirst.KakeyaSeedingControl.Step OperatorFirst.KakeyaSeedingControl.coeff₁ ∅ 2 := by decide\n',
         'false_join_count':'import OperatorFirst.EarthMoon\nexample : EarthMoon.joinEdges.length = 104 := by decide\n',
         'false_granularity':'import Mathlib\nexample : (3 : Nat)*72 ≤ 5*43 := by decide\n',
         'false_endpoint_symmetry':'import OperatorFirst.FCSMoments\nexample : OperatorFirst.FCSMoments.law (1/24) 0 = OperatorFirst.FCSMoments.law (1/24) 3 := by norm_num [OperatorFirst.FCSMoments.law]\n',
