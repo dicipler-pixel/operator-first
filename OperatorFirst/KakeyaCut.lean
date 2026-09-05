@@ -45,7 +45,7 @@ theorem restriction_of_integer_combination {V I : Type*}
   rw [Finset.sum_comm]
   apply Finset.sum_congr rfl
   intro g hg
-  exact (Finset.smul_sum S (w g) (c g)).symm
+  exact Finset.smul_sum.symm
 
 theorem first_vertex_restriction {V : Type*} [DecidableEq V]
     (S : Finset V) (e : V) (w : V → Label) (he : e ∈ S)
