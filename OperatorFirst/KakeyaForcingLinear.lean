@@ -68,10 +68,10 @@ variable {E W : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
 theorem projector_detects_forcing (A : E →ₗ[ℝ] W) (P : E →ₗ[ℝ] E)
     (hAP : ∀ c, A (P c) = 0)
     (hfix : ∀ c, A c = 0 → P c = c)
-    (hsym : ∀ x y, ⟪x, P y⟫_ℝ = ⟪P x, y⟫_ℝ) (v : E) :
-    (∃ c, A c = 0 ∧ ⟪v, c⟫_ℝ ≠ 0) ↔ 0 < ⟪v, P v⟫_ℝ := by
+    (hsym : ∀ x y, inner ℝ x (P y) = inner ℝ (P x) y) (v : E) :
+    (∃ c, A c = 0 ∧ inner ℝ v c ≠ 0) ↔ 0 < inner ℝ v (P v) := by
   have hid : P (P v) = P v := hfix (P v) (hAP v)
-  have heq : ⟪v, P v⟫_ℝ = ⟪P v, P v⟫_ℝ := by
+  have heq : inner ℝ v (P v) = inner ℝ (P v) (P v) := by
     have h := hsym v (P v)
     rwa [hid] at h
   constructor
@@ -80,8 +80,8 @@ theorem projector_detects_forcing (A : E →ₗ[ℝ] W) (P : E →ₗ[ℝ] E)
       intro hz
       apply hn
       calc
-        ⟪v, c⟫_ℝ = ⟪v, P c⟫_ℝ := by rw [hfix c hc]
-        _ = ⟪P v, c⟫_ℝ := hsym v c
+        inner ℝ v c = inner ℝ v (P c) := by rw [hfix c hc]
+        _ = inner ℝ (P v) c := hsym v c
         _ = 0 := by rw [hz]; simp
     rw [heq]
     exact lt_of_le_of_ne real_inner_self_nonneg (Ne.symm (inner_self_eq_zero.not.mpr hp))
@@ -90,7 +90,7 @@ theorem projector_detects_forcing (A : E →ₗ[ℝ] W) (P : E →ₗ[ℝ] E)
 end Projection
 
 theorem normalized_label_sum (a b : ℚ) (h : a+b ≠ 0) :
-    a/(a+b) + b/(a+b) = 1 := by field_simp [h]; ring
+    a/(a+b) + b/(a+b) = 1 := by field_simp [h]
 
 theorem normalized_difference (t s : ℚ) :
     (t-s, (1-t)-(1-s)) = (t-s, -(t-s)) := by congr 1 <;> ring
