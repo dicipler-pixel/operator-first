@@ -1,0 +1,68 @@
+name: Mixed scoped proofs
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+concurrency:
+  group: mixed-core-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  proofs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      LEAN_NUM_THREADS: 2
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: install and resolve
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan.sh"
+          bash "$RUNNER_TEMP/elan.sh" -y --default-toolchain "$(cat lean-toolchain)"
+          export PATH="$HOME/.elan/bin:$PATH"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          lake update
+          lake exe cache get
+      - name: Compile and audit the actual additions
+        run: |
+          python3 - <<'PY'
+          import pathlib,subprocess,json,hashlib,re,sys
+          root=pathlib.Path('.');out=root/'verification/mixed-core';out.mkdir(parents=True,exist_ok=True)
+          report={'status':'RUNNING','commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'checks':{}}
+          def run(name,args,fail=False):
+            r=subprocess.run(args,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=240)
+            (out/(name+'.log')).write_text(r.stdout);print(name,r.returncode,r.stdout,flush=True)
+            report['checks'][name]={'argv':args,'exit_code':r.returncode,'expected_failure':fail}
+            if not fail and r.returncode!=0: raise RuntimeError(name+' failed')
+            if fail and (r.returncode==0 or not re.search(r'unsolved goals|proved that the proposition',r.stdout)):
+              raise RuntimeError('false control not properly rejected')
+            return r.stdout
+          try:
+            run('build',['lake','build','OperatorFirst.MixedAudit'])
+            src=root/'OperatorFirst/MixedAudit.lean';text=src.read_text();names=re.findall(r'^theorem\s+(\w+)',text,re.M)
+            report['source_sha256']=hashlib.sha256(src.read_bytes()).hexdigest();report['named_theorems']=len(names)
+            log=run('direct_elaboration',['lake','env','lean',str(src)])
+            matches=re.findall(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]",log)
+            empty=re.findall(r"'([^']+)' does not depend on any axioms",log)
+            found={n for n,_ in matches}|set(empty)
+            for n in names:
+              if 'OperatorFirst.MixedAudit.'+n not in found:raise RuntimeError('missing axiom report '+n)
+            for n,axs in matches:
+              if {x.strip() for x in axs.split(',') if x.strip()}-{'propext','Classical.choice','Quot.sound'}:raise RuntimeError('axiom violation '+n)
+            run('kernel_recheck',['lake','env','leanchecker','OperatorFirst.MixedAudit'])
+            p=out/'false_floor.lean';p.write_text('import Mathlib\nexample : ¬ ((9 : Nat)*1 < 16*1) := by norm_num\n')
+            run('false_floor',['lake','env','lean',str(p)],True)
+            p=out/'false_clock.lean';p.write_text('import OperatorFirst.MixedAudit\nopen OperatorFirst.MixedAudit\nexample : braidPhaseDifference (1 : ZMod 3) 0 0 1 1 1 ≠ 0 := by norm_num [braidPhaseDifference]\n')
+            run('false_clock',['lake','env','lean',str(p)],True)
+            report['status']='PASS'
+          except Exception as e:report['status']='FAIL';report['error']=str(e)
+          (out/'report.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2),flush=True)
+          sys.exit(0 if report['status']=='PASS' else 1)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mixed-core-compiler-evidence
+          path: verification/mixed-core/
+          if-no-files-found: error
+          retention-days: 30
