@@ -57,7 +57,21 @@ theorem project_mode : project mode = mode := by
 
 theorem mode_is_kernel : constraints mode = 0 := by
   funext i
-  fin_cases i <;> change (0 : ℚ)=0 <;> rfl
+  fin_cases i
+  · change ((-1 : ℚ)+(1 : ℚ))=0
+    norm_num
+  · change ((2 : ℚ)*(1 : ℚ)+(-2 : ℚ))=0
+    norm_num
+  · change ((-1 : ℚ)-(1 : ℚ)+(2 : ℚ))=0
+    norm_num
+  · change (-(2 : ℚ)*(1 : ℚ)+(2 : ℚ))=0
+    norm_num
+  · change (-(-1 : ℚ)+(-1 : ℚ))=0
+    norm_num
+  · change (-(-1 : ℚ)+(-1 : ℚ))=0
+    norm_num
+  · change ((-(-1 : ℚ))+((-1 : ℚ)))=0
+    norm_num
 
 theorem kernel_is_mode_line (v : Vec) (h : constraints v = 0) :
     v = fun i => v 2 * mode i := by
@@ -146,7 +160,23 @@ theorem projector_target_positive : 0 < dot targetVector (project targetVector) 
 theorem exact_first_witness :
     KakeyaAtlasFamily.witness 2 mode = ![0,0,0,0,1,-1,0,0] := by
   funext i
-  fin_cases i <;> rfl
+  fin_cases i
+  · change ((-1 : ℚ)+(1 : ℚ))=(0 : ℚ)
+    norm_num
+  · change ((2 : ℚ)*(1 : ℚ)+(-2 : ℚ))=(0 : ℚ)
+    norm_num
+  · change ((-1 : ℚ)-(1 : ℚ)+(2 : ℚ))=(0 : ℚ)
+    norm_num
+  · change (-(2 : ℚ)*(1 : ℚ)+(2 : ℚ))=(0 : ℚ)
+    norm_num
+  · change (-(-1 : ℚ))=(1 : ℚ)
+    norm_num
+  · change ((-1 : ℚ))=(-1 : ℚ)
+    norm_num
+  · change (-(-1 : ℚ)+(-1 : ℚ))=(0 : ℚ)
+    norm_num
+  · change (-(-1 : ℚ)+(-1 : ℚ))=(0 : ℚ)
+    norm_num
 
 theorem kernel_line_iff (v : Vec) : constraints v = 0 ↔ ∃ a : ℚ, v = fun i => a*mode i := by
   constructor

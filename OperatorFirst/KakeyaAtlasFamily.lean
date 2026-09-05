@@ -151,54 +151,54 @@ def coeff₄ : Fin 7 → ℚ := ![0,-1,0,1,0,0,0]
 
 theorem q_two_first : Step 2 coeff₁ ∅ 2 := by
   refine ⟨?_, ?_, ?_⟩
-  · change (1 : ℚ) ≠ 0
+  · change (-(-1 : ℚ)) ≠ 0
     norm_num
-  · change (1 : ℚ) + (-1) = 0
+  · change (-(-1 : ℚ)) + ((-1 : ℚ)) = 0
     norm_num
   · intro v hv he
     fin_cases v
-    · change (0 : ℚ)=0 ∧ (0 : ℚ)=0
-      exact ⟨rfl,rfl⟩
-    · change (0 : ℚ)=0 ∧ (0 : ℚ)=0
-      exact ⟨rfl,rfl⟩
+    · change ((-1 : ℚ)+(1 : ℚ))=0 ∧ ((2 : ℚ)*(1 : ℚ)+(-2 : ℚ))=0
+      norm_num
+    · change ((-1 : ℚ)-(1 : ℚ)+(2 : ℚ))=0 ∧ (-(2 : ℚ)*(1 : ℚ)+(2 : ℚ))=0
+      norm_num
     · exact (he rfl).elim
-    · change (0 : ℚ)=0 ∧ (0 : ℚ)=0
-      exact ⟨rfl,rfl⟩
+    · change (-(-1 : ℚ)+(-1 : ℚ))=0 ∧ (-(-1 : ℚ)+(-1 : ℚ))=0
+      norm_num
 
 theorem q_two_second : Step 2 coeff₂ {2} 0 := by
   refine ⟨?_, ?_, ?_⟩
-  · change (2 : ℚ) ≠ 0
+  · change ((3 : ℚ)+(-1 : ℚ)) ≠ 0
     norm_num
-  · change (2 : ℚ) + (-2) = 0
+  · change ((3 : ℚ)+(-1 : ℚ)) + ((2 : ℚ)*(-1 : ℚ)+(0 : ℚ)) = 0
     norm_num
   · intro v hv he
     fin_cases v
     · exact (he rfl).elim
-    · change (0 : ℚ)=0 ∧ (0 : ℚ)=0
-      exact ⟨rfl,rfl⟩
+    · change ((1 : ℚ)-(-1 : ℚ)+(-2 : ℚ))=0 ∧ (-(2 : ℚ)*(-1 : ℚ)+(-2 : ℚ))=0
+      norm_num
     · exact (hv (by decide)).elim
-    · change (0 : ℚ)=0 ∧ (0 : ℚ)=0
-      exact ⟨rfl,rfl⟩
+    · change (-(1 : ℚ)+(1 : ℚ))=0 ∧ (-(1 : ℚ)+(1 : ℚ))=0
+      norm_num
 
 theorem q_two_third : Step 2 coeff₃ {2,0} 1 := by
   refine ⟨?_, ?_, ?_⟩
-  · change (1 : ℚ) ≠ 0
+  · change ((0 : ℚ)-(2 : ℚ)+(3 : ℚ)) ≠ 0
     norm_num
-  · change (1 : ℚ) + (-1) = 0
+  · change ((0 : ℚ)-(2 : ℚ)+(3 : ℚ)) + (-(2 : ℚ)*(2 : ℚ)+(3 : ℚ)) = 0
     norm_num
   · intro v hv he
     fin_cases v
     · exact (hv (by decide)).elim
     · exact (he rfl).elim
     · exact (hv (by decide)).elim
-    · change (0 : ℚ)=0 ∧ (0 : ℚ)=0
-      exact ⟨rfl,rfl⟩
+    · change (-(0 : ℚ)+(0 : ℚ))=0 ∧ (-(0 : ℚ)+(0 : ℚ))=0
+      norm_num
 
 theorem q_two_fourth : Step 2 coeff₄ {2,0,1} 3 := by
   refine ⟨?_, ?_, ?_⟩
-  · change (1 : ℚ) ≠ 0
+  · change (-(-1 : ℚ)+(0 : ℚ)) ≠ 0
     norm_num
-  · change (1 : ℚ) + (-1) = 0
+  · change (-(-1 : ℚ)+(0 : ℚ)) + (-(1 : ℚ)+(0 : ℚ)) = 0
     norm_num
   · intro v hv he
     fin_cases v
@@ -232,19 +232,19 @@ theorem generic_family_cannot_start (q : ℚ) (h1 : q ≠ 1) (h2 : q ≠ 2) :
 
 theorem q_one_first : Step 1 ![0,0,1,0,1,0,-2] ∅ 0 := by
   refine ⟨?_, ?_, ?_⟩
-  · change (1 : ℚ) ≠ 0
+  · change ((0 : ℚ)+(1 : ℚ)) ≠ 0
     norm_num
-  · change (1 : ℚ) + (-1) = 0
+  · change ((0 : ℚ)+(1 : ℚ)) + ((1 : ℚ)*(1 : ℚ)+(-2 : ℚ)) = 0
     norm_num
   · intro v hv he
     fin_cases v
     · exact (he rfl).elim
-    · change (0 : ℚ)=0 ∧ (0 : ℚ)=0
-      exact ⟨rfl,rfl⟩
-    · change (0 : ℚ)=0 ∧ (0 : ℚ)=0
-      exact ⟨rfl,rfl⟩
-    · change (0 : ℚ)=0 ∧ (0 : ℚ)=0
-      exact ⟨rfl,rfl⟩
+    · change ((0 : ℚ)-(1 : ℚ)+(1 : ℚ))=0 ∧ (-(1 : ℚ)*(1 : ℚ)+(1 : ℚ))=0
+      norm_num
+    · change (-(0 : ℚ))=0 ∧ ((0 : ℚ))=0
+      norm_num
+    · change (-(0 : ℚ)+(0 : ℚ))=0 ∧ (-(0 : ℚ)+(0 : ℚ))=0
+      norm_num
 
 theorem fixed_family_score : ((4+3 : ℚ)/4) = 7/4 := by norm_num
 theorem fixed_family_misses_target : (67/40 : ℚ) < (4+3)/4 := by norm_num
