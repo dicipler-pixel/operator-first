@@ -12,7 +12,9 @@ OUT = ROOT/'verification'/'extension'
 OUT.mkdir(parents=True,exist_ok=True)
 MODULES = ['OperatorFirst.RestrictionBridge','OperatorFirst.KakeyaExtension',
            'OperatorFirst.EarthMoon','OperatorFirst.FCSMoments',
-           'OperatorFirst.KakeyaSeedingControl','OperatorFirst.KakeyaCut']
+           'OperatorFirst.KakeyaSeedingControl','OperatorFirst.KakeyaCut',
+           'OperatorFirst.KakeyaForcingLinear','OperatorFirst.KakeyaAtlasFamily',
+           'OperatorFirst.KakeyaAtlasProjector']
 report = {'status':'RUNNING','checks':{},'sources':{},'named_theorems':0,
           'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()}
 
@@ -52,6 +54,8 @@ try:
                 raise RuntimeError('unapproved axiom in '+name)
         run(mod+'_recheck',['lake','env','leanchecker',mod])
     negatives={
+        'false_family_q_one':'import OperatorFirst.KakeyaAtlasFamily\nexample : OperatorFirst.KakeyaAtlasFamily.Complete 1 := by rw [OperatorFirst.KakeyaAtlasFamily.completion_iff_q_two]; norm_num\n',
+        'false_projector_value':'import OperatorFirst.KakeyaAtlasProjector\nexample : OperatorFirst.KakeyaAtlasProjector.dot OperatorFirst.KakeyaAtlasProjector.targetVector (OperatorFirst.KakeyaAtlasProjector.project OperatorFirst.KakeyaAtlasProjector.targetVector) = 0 := by norm_num [OperatorFirst.KakeyaAtlasProjector.projector_target_value]\n',
         'false_no_seed_witness':'import OperatorFirst.KakeyaSeedingControl\nexample : ¬ OperatorFirst.KakeyaSeedingControl.Step OperatorFirst.KakeyaSeedingControl.coeff₁ ∅ 2 := by decide\n',
         'false_join_count':'import OperatorFirst.EarthMoon\nset_option maxRecDepth 100000\nset_option maxHeartbeats 2000000\nexample : EarthMoon.joinEdges.length = 104 := by decide\n',
         'false_granularity':'import Mathlib\nexample : (3 : Nat)*72 ≤ 5*43 := by decide\n',
