@@ -1,0 +1,49 @@
+name: Mixed-file intake
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+concurrency:
+  group: mixed-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  originals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install the claimed and current toolchains
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan.sh"
+          bash "$RUNNER_TEMP/elan.sh" -y --default-toolchain "$(cat lean-toolchain)"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install leanprover/lean4:v4.9.0
+      - name: Test exact supplied sources and record every exit code
+        run: |
+          python3 - <<'PY'
+          import subprocess, pathlib, json, hashlib, re, sys
+          out=pathlib.Path('verification/mixed-originals'); out.mkdir(parents=True,exist_ok=True)
+          report={'commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'tests':[]}
+          for version in ['v4.9.0',pathlib.Path('lean-toolchain').read_text().strip().split(':')[-1]]:
+            for file in ['FCS_original','AK_original']:
+              p=pathlib.Path('MixedIntake')/(file+'.lean')
+              cmd=['elan','run','leanprover/lean4:'+version,'lean',str(p)]
+              r=subprocess.run(cmd,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=180)
+              (out/(file+'_'+version+'.log')).write_text(r.stdout)
+              clean=not re.search(r'sorryAx|declaration uses .sorry.',r.stdout)
+              passed=r.returncode==0 and clean
+              item={'version':version,'file':str(p),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'exit_code':r.returncode,'no_sorry_reported':clean,'status':'PASS' if passed else 'FAIL'}
+              report['tests'].append(item)
+              print(json.dumps(item),flush=True);print(r.stdout,flush=True)
+          report['status']='PASS' if all(x['status']=='PASS' for x in report['tests']) else 'FAIL'
+          (out/'original_report.json').write_text(json.dumps(report,indent=2))
+          sys.exit(0 if report['status']=='PASS' else 1)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mixed-original-compiler-evidence
+          path: verification/mixed-originals/
+          if-no-files-found: error
+          retention-days: 30
