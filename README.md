@@ -1,48 +1,43 @@
 # operator-first
 
-Machine-checked statements from the operator-first corpus.
+Lean statements from the operator-first corpus, with verification tied to the exact CI commit.
 
 Jeromie Beasley — source paper *Light Keeps the Ledger*,
 https://doi.org/10.5281/zenodo.22124938
 
-## What is here
+## What the default build checks
 
-Two warm-up theorems, each stated in the most general setting in which it is
-actually true.
+`OperatorFirst.lean` is the single library root. It contains 14 theorem declarations:
 
-**T1 — the commutator identity.**  For any ring and any `S`, `K`,
+- **Commutator algebra:** `[S + K, S - K] = -2 [S, K]`, and the zero-commutator equivalence under an explicit hypothesis that multiplication by two has trivial kernel. Calling the partner a transpose or adjoint requires the corresponding identification.
+- **Reciprocity:** if `Bᵀ = B` and `Vᵀ B = B V`, then `B V` is symmetric and the bilinear response is symmetric in its probes. No positivity or invertibility of `B` is assumed.
+- **Pure-marker Gram algebra:** conjugate-symmetry and determinant identities, Cauchy–Schwarz, and the identity `D² + V² = 1` for unit markers with `V = ‖⟪u,v⟫‖` and `D = sqrt(1 - V²)`. The operational state-discrimination interpretation of `D` is not independently proved by defining it this way.
 
-    [S + K, S - K] = -2 [S, K]
+The root emits `#print axioms` for every theorem. The older `Warmup.lean` and `Warmup (1).lean` uploads are retained unchanged, but are **not** default build targets. This repository's CI does not certify files merely because they are present in the tree.
 
-so that `C = S + K` with `Cᵀ = S - K` is normal exactly when `S` and `K`
-commute.  The corollary carries an explicit hypothesis ruling out
-characteristic two, where `-2x = 0` for every `x` and the statement is empty.
-Real and complex matrices satisfy it.
+## Pinned toolchain and build
 
-**T2 — reciprocity.**  For square matrices over a commutative ring, if
-`Bᵀ = B` and `Vᵀ B = B V`, then `B V` is symmetric, hence
-`xᵀ(BV)y = yᵀ(BV)x` for every pair of vectors.  The hypotheses are minimal: positivity,
-definiteness and invertibility of `B` are never used.
+The project uses Lean `v4.33.0` and the matching mathlib tag.
 
-## Two builds
+```sh
+lake update
+lake exe cache get
+lake build OperatorFirst
+lake env leanchecker OperatorFirst
+```
 
-`standalone/Warmup.lean` depends on **nothing**.  It defines its own ring
-axioms and proves both theorems from them.  It compiles under plain Lean 4
-with no library:
+## CI verification boundary
 
-    lean standalone/Warmup.lean
+The workflow in `.github/workflows/ci.yml` runs on pushes and pull requests. It must:
 
-`#print axioms` reports that all three results *do not depend on any axioms* —
-not choice, not propositional extensionality, nothing.  They are constructive
-consequences of the ring axioms as written.
+1. Build the actual `OperatorFirst` library.
+2. Recheck that module with `leanchecker` (the imported compiled libraries remain part of the trusted foundation).
+3. Run the compiled-environment axiom audit, allowing only `propext`, `Classical.choice`, and `Quot.sound`.
 
-`OperatorFirst/Warmup.lean` is the mathlib version, which is the one that
-belongs in a library and can be built on.  Build it with
+An installation step passing, a file containing no visible `sorry`, or a green run on a different commit is not a verification result for the current source. Inspect the build/recheck/audit steps of the exact commit. A failed or pending job is not a proof certificate.
 
-    lake exe cache get
-    lake build
+The September 5 repair restores TOML accidentally replaced by workflow YAML and repairs Matrix notation and a complex norm cast proof. The associated pull request records actual run results; edits alone do not establish verification.
 
-## CI
+## Scope
 
-`.github/workflows/ci.yml` runs `lake build` against the mathlib cache on every
-push.  The green check is the verification.
+This project checks the encoded mathematical statements and their explicit hypotheses. It does not certify the whole paper or its physical interpretations. The separate light, offset, gravity, and hypersurface candidate archives from the research conversation are not included in this 14-theorem build.
