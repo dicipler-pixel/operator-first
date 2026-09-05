@@ -1,11 +1,28 @@
-name = "operator-first"
-version = "0.1.0"
-defaultTargets = ["OperatorFirst"]
+name: CI
 
-[[require]]
-name = "mathlib"
-git = "https://github.com/leanprover-community/mathlib4.git"
-rev = "v4.33.0"
+on: [push, pull_request, workflow_dispatch]
 
-[[lean_lib]]
-name = "OperatorFirst"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: install elan
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+          bash elan-init.sh -y --default-toolchain leanprover/lean4:v4.33.0
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: resolve dependencies
+        run: lake update
+
+      - name: fetch mathlib cache
+        run: lake exe cache get
+
+      - name: build
+        run: lake build 2>&1 | tee build.log
+
+      - name: show errors
+        if: always()
+        run: grep -n -A6 "error" build.log || echo "no errors found"
