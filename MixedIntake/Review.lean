@@ -2,11 +2,12 @@ import Mathlib
 
 /-!
 Four-file review, 5 September 2026, Jeromie Beasley corpus.
-Original FCS/AK files are preserved separately. This module formalizes precisely
-stated algebra, not their unproved narrative extensions. In particular the Euler
-bound is an explicit premise; the full planarity and arboricity theorems are not
-encoded. No cosmological identification, optical-needle theorem, full YB operator
-entropy bound, or fixed-cumulant impossibility theorem is claimed here.
+Original FCS/AK files remain separate. These are scoped algebraic checks, not
+proofs of all prose claims. The Euler layer bound is a premise; full planarity
+and arboricity are not encoded. No cosmological identification, optical-needle
+theorem, full YB entropy bound, or fixed-cumulant impossibility is claimed.
+This revision repairs three errors reported by the actual compiler: explicit
+finite-index reduction, an already completed tactic, and Boolean precedence.
 -/
 noncomputable section
 open scoped BigOperators
@@ -30,7 +31,7 @@ theorem real_logquadratic_zero_iff (a b c L : ℝ) (hL : L ≠ 0) :
     rw [h]
     ring
 
-/-- A Gaussian's extreme odds depend on variance, not the mean alone. -/
+/-- The variance matters as well as the mean. -/
 theorem gaussian_mean_variance (L mu variance : ℝ) (hv : variance ≠ 0) :
     (-(0-mu)^2/(2*variance)) - (-(L-mu)^2/(2*variance)) =
       L*(L-2*mu)/(2*variance) := by
@@ -41,7 +42,6 @@ theorem third_filling_sign (a b L : ℝ) (h : 3*b = -2*a*L) :
     3*(-L*(a*L+b)) = -a*L^2 := by
   linear_combination -L*h
 
-/-- Algebraic reciprocal endpoints: not a theorem about a particular material. -/
 theorem common_mean_different_gaussian_odds :
     (4 : ℚ)*(4-2*1)/(2*1) = 4 ∧
     (4 : ℚ)*(4-2*1)/(2*2) = 2 := by norm_num
@@ -64,21 +64,19 @@ theorem laws_same_first_two_moments :
 
 theorem laws_different_endpoint_odds :
     law0 0 / law0 4 = 1 ∧ law1 0 / law1 4 = 241/240 := by
-  change (24/625 : ℚ)/(24/625)=1 ∧
-    (241/6250 : ℚ)/(240/6250)=241/240
+  change (24/625 : ℚ)/(24/625) = 1 ∧ (241/6250 : ℚ)/(240/6250) = 241/240
   norm_num
 
-/-- The original threshold was weak <= 67/40. This variant is STRICT < 67/40. -/
+/-- This is strict < 67/40, unlike the original weak threshold. -/
 theorem strict_granularity (p q : ℕ) (hq : q < 43) (h : 40*p < 67*q) :
     3*p ≤ 5*q := by omega
 
 theorem strict_threshold_sharp : 40*72 < 67*43 ∧ 5*43 < 3*72 := by omega
 
-/-- A genuine exclusion needs a floor hypothesis, not h -> h. -/
+/-- The substantive floor hypothesis must be supplied independently. -/
 theorem floor_exclusion_conditional (p q : ℕ) (hfloor : 16*q ≤ 9*p) :
     ¬ 9*p < 16*q := by omega
 
-/-- Nonnegative bookkeeping gives a LOWER bound on score, not its monotonicity. -/
 theorem density_le_score (m n r t : ℝ) (hm : 0 ≤ m) (hn : 0 < n)
     (hr : 0 ≤ r) (ht : 0 ≤ t) (hnt : t < n) :
     m/n ≤ (m+r)/(n-t) := by
@@ -87,10 +85,9 @@ theorem density_le_score (m n r t : ℝ) (hm : 0 ≤ m) (hn : 0 < n)
 
 theorem product_density_adds (m1 n1 m2 n2 : ℚ) (hn1 : n1 ≠ 0) (hn2 : n2 ≠ 0) :
     (m1*n2+n1*m2)/(n1*n2) = m1/n1+m2/n2 := by
-  field_simp
-  ring
+  field_simp <;> ring
 
-/-- Given the density bound, even the second self-product of the 7/6 core is excluded. -/
+/-- This uses a specified lower bound, not an assumed graph construction. -/
 theorem katz_tao_product_budget (k : ℕ) (score : ℝ)
     (hlower : (k : ℝ)*(7/6) ≤ score) (hupper : score ≤ 67/40) : k ≤ 1 := by
   by_contra h
@@ -98,7 +95,7 @@ theorem katz_tao_product_budget (k : ℕ) (score : ℝ)
   have hkr : (2 : ℝ) ≤ k := by exact_mod_cast hk
   nlinarith
 
-/-- An arithmetic countermodel only; no feasible graph/forcing pair is asserted. -/
+/-- Arithmetic countermodel only; no feasible forcing graph is asserted. -/
 theorem density_not_score_monotonicity :
     (1 : ℚ)/10 < 20/100 ∧
     (20 : ℚ)/100 < (1+19)/10 := by norm_num
@@ -115,8 +112,7 @@ theorem phase_defect_expansion (a b k x y z : R) :
   unfold phaseDefect
   ring
 
-/-- Over ZMod d these are the exact exponent congruences. The translation map
-has identical output triples; equality of root phases is the modular criterion. -/
+/-- In ZMod d these are exponent congruences; the character interpretation is separate. -/
 theorem phase_defect_zero_iff (a b k : R) :
     (∀ x y z : R, phaseDefect a b k x y z = 0) ↔
     k*(a+b)=0 ∧ k*(a-b)=0 := by
@@ -138,8 +134,6 @@ theorem unshifted_phase_braids (k x y z : R) : phaseDefect 0 0 k x y z = 0 := by
   ring
 end Braid
 
-/-- In odd characteristic with invertible k, nonzero shifts are excluded.
-The two nonzero factors are explicit; this is NOT a ban on phase-dressed braids. -/
 theorem odd_field_shift_constraint {F : Type*} [Field F]
     (a b k : F) (hk : k ≠ 0) (h2 : (2:F) ≠ 0)
     (h : k*(a+b)=0 ∧ k*(a-b)=0) : a=0 ∧ b=0 := by
@@ -149,7 +143,7 @@ theorem odd_field_shift_constraint {F : Type*} [Field F]
   have hb : 2*b=0 := by linear_combination hp-hm
   exact ⟨(mul_eq_zero.mp ha).resolve_left h2, (mul_eq_zero.mp hb).resolve_left h2⟩
 
-/-- The Euler layer bounds and edge cover are premises, not a formalization of planarity. -/
+/-- Planarity is not encoded; its Euler inequalities and edge cover are premises. -/
 theorem trianglefree_two_layer_bound (N edges e1 e2 : ℤ)
     (hcover : edges ≤ e1+e2) (h1 : e1 ≤ 2*N-4) (h2 : e2 ≤ 2*N-4) :
     edges ≤ 4*N-8 := by omega
@@ -172,13 +166,12 @@ def cycle7Adj (i j : Fin 7) : Bool :=
   decide ((i.val+1)%7=j.val ∨ (j.val+1)%7=i.val)
 
 theorem cycle7_trianglefree :
-    ∀ i j k : Fin 7, cycle7Adj i j && cycle7Adj j k && cycle7Adj k i = false := by
+    ∀ i j k : Fin 7, (cycle7Adj i j && cycle7Adj j k && cycle7Adj k i) = false := by
   decide
 
-/-- Fibre labels do not add triangles to the join-only graph. -/
 theorem inflated_cycle7_trianglefree :
     ∀ x y z : Fin 7 × Fin 4,
-    cycle7Adj x.1 y.1 && cycle7Adj y.1 z.1 && cycle7Adj z.1 x.1 = false := by
+    (cycle7Adj x.1 y.1 && cycle7Adj y.1 z.1 && cycle7Adj z.1 x.1) = false := by
   intro x y z
   exact cycle7_trianglefree x.1 y.1 z.1
 
