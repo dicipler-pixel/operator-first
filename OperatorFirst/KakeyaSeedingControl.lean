@@ -63,6 +63,16 @@ theorem seeding_claim_counterexample :
 theorem labels_admissible :
     (1 : ℤ)+0 ≠ 0 ∧ (1 : ℤ)+2 ≠ 0 ∧ (0 : ℤ)+1 ≠ 0 ∧ (1 : ℤ)+1 ≠ 0 := by decide
 
+/-- Combinatorial counts for six sites and seven distinct labels. This counts
+candidate sets, not completing objects. Independent pairs are automatic only
+for the paper's particular seven pairwise nonparallel labels. -/
+theorem missing_distributed_pattern_counts :
+    Nat.choose 42 3 = 11480 ∧
+    Nat.choose 6 3 * 7^3 = 6860 ∧
+    6 * Nat.choose 7 2 * 5 * 7 = 4410 ∧
+    6 * Nat.choose 7 3 = 210 ∧
+    6860+4410+210=11480 := by decide
+
 end OperatorFirst.KakeyaSeedingControl
 #print axioms OperatorFirst.KakeyaSeedingControl.first_witness
 #print axioms OperatorFirst.KakeyaSeedingControl.first_step
@@ -74,3 +84,4 @@ end OperatorFirst.KakeyaSeedingControl
 #print axioms OperatorFirst.KakeyaSeedingControl.complete_forcing_sequence
 #print axioms OperatorFirst.KakeyaSeedingControl.seeding_claim_counterexample
 #print axioms OperatorFirst.KakeyaSeedingControl.labels_admissible
+#print axioms OperatorFirst.KakeyaSeedingControl.missing_distributed_pattern_counts
