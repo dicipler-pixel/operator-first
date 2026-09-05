@@ -193,15 +193,15 @@ theorem reflection_allows_linear_growth (n : ℕ) (v : ℝ) :
   rw [logistic_reflection,logistic_offset]
 
 /-- A finite initial drop followed by a constant tail refutes item 9 exactly. -/
-def nonmonotoneExample (n : ℕ) : ℝ := if n=1 then 1/2 else if n=2 then 1/4 else 1
+def nonmonotoneExample (n : ℕ) : ℝ := if n=1 then 1/4 else if n=2 then 1/8 else 1/2
 
 theorem nonmonotone_bounded (n : ℕ) :
-    0≤nonmonotoneExample n ∧ nonmonotoneExample n≤1 := by
+    0<nonmonotoneExample n ∧ nonmonotoneExample n≤1/2 := by
   unfold nonmonotoneExample
   split_ifs <;> norm_num
 
-theorem nonmonotone_tends : Tendsto nonmonotoneExample atTop (nhds 1) := by
-  have he : ∀ᶠ n : ℕ in atTop, nonmonotoneExample n=1 := by
+theorem nonmonotone_tends : Tendsto nonmonotoneExample atTop (nhds (1/2)) := by
+  have he : ∀ᶠ n : ℕ in atTop, nonmonotoneExample n=1/2 := by
     apply Filter.eventually_atTop.2
     refine ⟨3,?_⟩
     intro n hn
@@ -216,12 +216,12 @@ theorem nonmonotone_not_monotone : ¬ Monotone nonmonotoneExample := by
   norm_num [nonmonotoneExample] at hh
 
 theorem bounded_convergence_not_monotonicity :
-    ¬ (∀ a : ℕ → ℝ, (∀ n, |a n|≤1) → Tendsto a atTop (nhds 1) → Monotone a) := by
+    ¬ (∀ a : ℕ → ℝ, (∀ n, |a n|≤1/2) → Tendsto a atTop (nhds (1/2)) → Monotone a) := by
   intro h
   apply nonmonotone_not_monotone
   apply h nonmonotoneExample
   · intro n
-    rw [abs_of_nonneg (nonmonotone_bounded n).1]
+    rw [abs_of_nonneg (le_of_lt (nonmonotone_bounded n).1)]
     exact (nonmonotone_bounded n).2
   · exact nonmonotone_tends
 

@@ -12,7 +12,7 @@ The band-product inequality includes both positive band-edge squares. The claim 
 
 The shear determinant remains one while the known parity-eigenvector claim fails. This finite multiplicative determinant fact is not a theorem about a Fredholm determinant, tau function, selected minor or an endpoint factor after projection.
 
-The proposed item 9 ('bounded by the limit and converging implies monotonicity') is false even as a conditional theorem. The module gives a nonnegative sequence bounded above by one, converging to one, with a strict drop between indices one and two. The false control tests that drop.
+The proposed item 9 ('bounded by the limit and converging implies monotonicity') is false even as a conditional theorem. The module gives a strictly positive sequence bounded above by one half, converging to one half, with a strict drop between indices one and two. The false control tests that drop.
 
 ## Remaining analytic task
 
