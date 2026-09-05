@@ -12,7 +12,7 @@ mathematical; an operational state-discrimination interpretation is separate.
 -/
 
 import Mathlib
-import OperatorFirst.Offset
+import OperatorFirst.OffsetFock
 
 open Matrix
 
