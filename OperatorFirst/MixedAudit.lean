@@ -63,7 +63,10 @@ theorem laws_same_second_moment :
 theorem laws_distinct_endpoint_odds :
     law0 0 / law0 4 = 1 ∧ law1 0 / law1 4 = 241/240 ∧
     law0 0 / law0 4 ≠ law1 0 / law1 4 := by
-  norm_num [law0,law1]
+  change (240/6250 : ℚ)/(240/6250)=1 ∧
+    (241/6250 : ℚ)/(240/6250)=241/240 ∧
+    (240/6250 : ℚ)/(240/6250) ≠ (241/6250)/(240/6250)
+  norm_num
 
 /-- Rational-score interpretation requires positive denominators. -/
 theorem granularity_guarded (p q : ℕ) (hq0 : 0 < q) (hq : q < 40)
