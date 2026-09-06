@@ -95,8 +95,8 @@ theorem asymmetry_variance (p m : ℝ) (hs : m+p ≠ 0) :
   field_simp [hs]
   <;> ring
 
-/-- The sharp factor 1-g² in manuscript E26 is retained. -/
-theorem relative_error_bound_sharp {p m dp dm eps : ℝ}
+/-- The variance factor 1-g² in manuscript E26 is retained. -/
+theorem relative_error_bound_with_variance {p m dp dm eps : ℝ}
     (hp : 0 < p) (hm : 0 < m) (he0 : 0 ≤ eps) (he1 : eps < 1)
     (hdp : |dp| ≤ eps*p) (hdm : |dm| ≤ eps*m) :
     |asymmetry (p+dp) (m+dm)-asymmetry p m| ≤
@@ -142,7 +142,7 @@ theorem relative_error_bound {p m dp dm eps : ℝ}
     (hp : 0 < p) (hm : 0 < m) (he0 : 0 ≤ eps) (he1 : eps < 1)
     (hdp : |dp| ≤ eps*p) (hdm : |dm| ≤ eps*m) :
     |asymmetry (p+dp) (m+dm)-asymmetry p m| ≤ eps/(1-eps) := by
-  apply (relative_error_bound_sharp hp hm he0 he1 hdp hdm).trans
+  apply (relative_error_bound_with_variance hp hm he0 he1 hdp hdm).trans
   apply div_le_div_of_nonneg_right _ (sub_nonneg.mpr he1.le)
   nlinarith [mul_nonneg he0 (sq_nonneg (asymmetry p m))]
 
@@ -242,7 +242,7 @@ end OperatorFirst.EndpointTransfer
 #print axioms OperatorFirst.EndpointTransfer.perturbation_positive
 #print axioms OperatorFirst.EndpointTransfer.perturbation_defect
 #print axioms OperatorFirst.EndpointTransfer.asymmetry_variance
-#print axioms OperatorFirst.EndpointTransfer.relative_error_bound_sharp
+#print axioms OperatorFirst.EndpointTransfer.relative_error_bound_with_variance
 #print axioms OperatorFirst.EndpointTransfer.relative_error_bound
 #print axioms OperatorFirst.EndpointTransfer.limit_of_relative_errors
 #print axioms OperatorFirst.EndpointTransfer.signed_limit_of_relative_errors

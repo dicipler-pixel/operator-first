@@ -13,7 +13,7 @@ All merges remain on hold. This work extends draft PR #6; it does not change
   interpolation identity between matrices with equal band invariants.
 - An all-size interpolation, **if supplied**, transfers the signed endpoint.
 - Relative determinant perturbations preserve positivity when epsilon < 1.
-- The exact perturbation identity and the sharp bound
+- The exact perturbation identity and the bound retaining the variance factor
   `|a-g| <= epsilon*(1-g^2)/(1-epsilon)`, hence `epsilon/(1-epsilon)`.
 - Vanishing relative errors transfer ordinary and parity-corrected limits.
 - The parity-corrected limit implies the half-offset magnitude limit, even
@@ -75,9 +75,11 @@ the previous endpoint checks. It compiles each module, audits every named
 theorem against the standard `propext`, `Classical.choice`, and `Quot.sound`
 axioms, then rechecks its compiled environment with `leanchecker`.
 
-Three deliberately false controls must fail mathematically: reversing the
-transfer sign, replacing the error denominator by `1+epsilon`, and asserting
-strict complementary positivity from projection identities alone.
+Four deliberately false controls must fail mathematically: reversing the
+transfer sign, replacing the error denominator by `1+epsilon`, excluding an
+explicit decoupled band vector, and asserting strict complementary positivity
+from projection identities alone. The variance bound is not claimed to be an
+optimal perturbation estimate.
 
 `verification/offset_completion/report.json` records the actual checked commit,
 source hashes, theorem inventory and each check result. A source draft or this

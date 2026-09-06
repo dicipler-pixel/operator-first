@@ -21,7 +21,7 @@ theorem squared_band_identity (a b A v : ℂ) (U W : Polynomial ℂ)
   apply Polynomial.eq_of_infinite_eval_eq
   apply hS.mono
   intro z hz
-  simp only [Polynomial.eval_mul, Polynomial.eval_pow, Polynomial.eval_X]
+  simp only [Set.mem_setOf_eq, Polynomial.eval_mul, Polynomial.eval_pow, Polynomial.eval_X]
   rw [← hdisp z hz]
   have hr : (numerator a b v U W).eval z = z*E z*U.eval z := by
     simpa only [numerator, Polynomial.eval_sub, Polynomial.eval_mul,
@@ -46,7 +46,7 @@ theorem polynomial_band_vector_zero (a b A v : ℂ) (hab : a*b ≠ 0)
     apply Polynomial.eq_of_infinite_eval_eq
     apply hS.mono
     intro z hz
-    simp only [Polynomial.eval_mul, Polynomial.eval_add, Polynomial.eval_C,
+    simp only [Set.mem_setOf_eq, Polynomial.eval_mul, Polynomial.eval_add, Polynomial.eval_C,
       Polynomial.eval_X, Polynomial.eval_zero]
     have h := hband z hz
     simp only [hU, Polynomial.eval_zero, mul_zero, zero_sub] at h
