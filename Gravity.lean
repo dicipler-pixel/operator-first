@@ -89,7 +89,7 @@ forces the other diagonal nonnegative. The positive-first-diagonal hypothesis ma
 theorem proxy_second_diagonal (a b c omega : ℝ) (ha : 0<a)
     (h : omega^2 ≤ 4*(a*c-b^2)) : 0 ≤ c := by
   have hac : 0 ≤ a*c := by nlinarith [sq_nonneg omega, sq_nonneg b]
-  exact nonneg_of_mul_nonneg_left hac ha
+  exact nonneg_of_mul_nonneg_left (by simpa only [mul_comm] using hac) ha
 
 /-- Diag(0,-1) disproves the weakened PSD criterion with only a≥0. -/
 theorem proxy_missing_diagonal_counterexample :
@@ -147,18 +147,18 @@ theorem selfadjoint_point_negative_tangent :
   · ext i j; fin_cases i <;> fin_cases j <;> norm_num [pointP,pointD,Matrix.mul_apply,Fin.sum_univ_two]
   · norm_num [pointD,Matrix.trace,Matrix.mul_apply,Fin.sum_univ_two]
 
-/-- Universal rank-one chart, over the real field; the complex chart uses the same algebra. -/
-def chartP (z w : ℝ) : M2 := !![1/(1+z*w),w/(1+z*w);z/(1+z*w),z*w/(1+z*w)]
+/-- Universal rank-one chart over the complex field used by the moving-wall example. -/
+def chartP (z w : ℂ) : Matrix (Fin 2) (Fin 2) ℂ := !![1/(1+z*w),w/(1+z*w);z/(1+z*w),z*w/(1+z*w)]
 
-theorem chart_idempotent (z w : ℝ) (h : 1+z*w≠0) : chartP z w*chartP z w=chartP z w := by
+theorem chart_idempotent (z w : ℂ) (h : 1+z*w≠0) : chartP z w*chartP z w=chartP z w := by
   ext i j; fin_cases i <;> fin_cases j <;>
     simp [chartP,Matrix.mul_apply,Fin.sum_univ_two] <;> field_simp <;> ring
 
-theorem chart_trace_one (z w : ℝ) (h : 1+z*w≠0) : (chartP z w).trace=1 := by
+theorem chart_trace_one (z w : ℂ) (h : 1+z*w≠0) : (chartP z w).trace=1 := by
   simp [chartP,Matrix.trace,Fin.sum_univ_two]
   field_simp
 
-theorem chart_overlap (z w Z W : ℝ) (h : 1+z*w≠0) (h' : 1+Z*W≠0) :
+theorem chart_overlap (z w Z W : ℂ) (h : 1+z*w≠0) (h' : 1+Z*W≠0) :
     (chartP z w*chartP Z W).trace=(1+w*Z)*(1+W*z)/((1+z*w)*(1+Z*W)) := by
   simp [chartP,Matrix.trace,Matrix.mul_apply,Fin.sum_univ_two]
   field_simp
