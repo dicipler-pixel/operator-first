@@ -1,3 +1,5 @@
+> **Status update, 6 September 2026:** The all-size odd-block transfer formerly left open in section 5 is now proved in [moduli_transfer/ALL_SIZE_TRANSFER.md](moduli_transfer/ALL_SIZE_TRANSFER.md). Combined with sections 3–4 below, it establishes the fixed-parameter general endpoint analytically. The new proof is not Lean-certified; sharp remainders and cosmological calibration remain open. Earlier open-status language below records the preceding research checkpoint.
+
 # Rice–Mele endpoint: scalar Hankel reduction and a finite transfer target
 
 Jeromie N. Beasley research workspace — 6 September 2026  

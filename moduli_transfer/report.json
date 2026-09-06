@@ -1,0 +1,647 @@
+{
+  "status": "PASS",
+  "scope": "Exact finite checks and numerical tests; all-size proof is in ALL_SIZE_TRANSFER.md; not Lean-certified.",
+  "versions": {
+    "python": "3.12.13",
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0"
+  },
+  "source_sha256": "d886441f4e4a587f31a0331e7535b47a340ba2adfa01a65be07c1406bee8b9dc",
+  "block_identity": [
+    {
+      "L": 3,
+      "equation_9": "PASS",
+      "column_degree_bound": "PASS"
+    },
+    {
+      "L": 5,
+      "equation_9": "PASS",
+      "column_degree_bound": "PASS"
+    },
+    {
+      "L": 7,
+      "equation_9": "PASS",
+      "column_degree_bound": "PASS"
+    }
+  ],
+  "symbolic_characteristic": [
+    {
+      "L": 1,
+      "status": "PASS",
+      "coefficients": [
+        {
+          "x_power": 0,
+          "v_degree": 1,
+          "coefficient": "g0*v"
+        },
+        {
+          "x_power": 1,
+          "v_degree": 0,
+          "coefficient": "1"
+        }
+      ]
+    },
+    {
+      "L": 3,
+      "status": "PASS",
+      "coefficients": [
+        {
+          "x_power": 0,
+          "v_degree": 1,
+          "coefficient": "-v*(g0 - g1)*(g0 + g1)*(A*g0 + 2*g1*p)"
+        },
+        {
+          "x_power": 1,
+          "v_degree": 0,
+          "coefficient": "-A*g0**2 - A*g1**2 - 4*g0*g1*p"
+        },
+        {
+          "x_power": 2,
+          "v_degree": 1,
+          "coefficient": "g0*v"
+        },
+        {
+          "x_power": 3,
+          "v_degree": 0,
+          "coefficient": "1"
+        }
+      ]
+    },
+    {
+      "L": 5,
+      "status": "PASS",
+      "coefficients": [
+        {
+          "x_power": 0,
+          "v_degree": 1,
+          "coefficient": "-v*(g0 - g2)*(g0**2 + g0*g2 - 2*g1**2)*(-A*g0 + A*g1 + g0*p - 2*g1*p + g2*p)*(A*g0 + A*g1 + g0*p + 2*g1*p + g2*p)"
+        },
+        {
+          "x_power": 1,
+          "v_degree": 0,
+          "coefficient": "A**2*g0**4 - A**2*g0**2*g1**2 + A**2*g0**2*g2**2 - 4*A**2*g0*g1**2*g2 + 2*A**2*g1**4 + A**2*g1**2*g2**2 + 4*A*g0**3*g1*p - 6*A*g0**2*g1*g2*p + 2*A*g1*g2**3*p - g0**4*p**2 - 4*g0**3*g2*p**2 + 10*g0**2*g1**2*p**2 - 4*g0**2*g2**2*p**2 + 4*g0*g1**2*g2*p**2 - 8*g1**4*p**2 + 2*g1**2*g2**2*p**2 + g2**4*p**2"
+        },
+        {
+          "x_power": 2,
+          "v_degree": 1,
+          "coefficient": "-v*(2*A*g0**3 + A*g0*g1**2 - A*g0*g2**2 - 2*A*g1**2*g2 + 6*g0**2*g1*p - 2*g1**3*p - 4*g1*g2**2*p)"
+        },
+        {
+          "x_power": 3,
+          "v_degree": 0,
+          "coefficient": "-2*A*g0**2 - 3*A*g1**2 - A*g2**2 - 8*g0*g1*p - 4*g1*g2*p"
+        },
+        {
+          "x_power": 4,
+          "v_degree": 1,
+          "coefficient": "g0*v"
+        },
+        {
+          "x_power": 5,
+          "v_degree": 0,
+          "coefficient": "1"
+        }
+      ]
+    }
+  ],
+  "rational_pencils": [
+    {
+      "L": 1,
+      "parameters": [
+        "1/2",
+        "2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 1,
+      "parameters": [
+        "2",
+        "1/2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 1,
+      "parameters": [
+        "1/2",
+        "2",
+        "-2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 1,
+      "parameters": [
+        "-2",
+        "-1/2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 3,
+      "parameters": [
+        "1/2",
+        "2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 3,
+      "parameters": [
+        "2",
+        "1/2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 3,
+      "parameters": [
+        "1/2",
+        "2",
+        "-2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 3,
+      "parameters": [
+        "-2",
+        "-1/2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 5,
+      "parameters": [
+        "1/2",
+        "2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 5,
+      "parameters": [
+        "2",
+        "1/2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 5,
+      "parameters": [
+        "1/2",
+        "2",
+        "-2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 5,
+      "parameters": [
+        "-2",
+        "-1/2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 7,
+      "parameters": [
+        "1/2",
+        "2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 7,
+      "parameters": [
+        "2",
+        "1/2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 7,
+      "parameters": [
+        "1/2",
+        "2",
+        "-2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 7,
+      "parameters": [
+        "-2",
+        "-1/2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 11,
+      "parameters": [
+        "1/2",
+        "2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 11,
+      "parameters": [
+        "2",
+        "1/2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 11,
+      "parameters": [
+        "1/2",
+        "2",
+        "-2"
+      ],
+      "full_determinant_pencil": "PASS"
+    },
+    {
+      "L": 11,
+      "parameters": [
+        "-2",
+        "-1/2",
+        "2"
+      ],
+      "full_determinant_pencil": "PASS"
+    }
+  ],
+  "false_controls": [
+    {
+      "false_claim": "the identity extends to an even cut",
+      "status": "REJECTED",
+      "exact_defect": "3"
+    },
+    {
+      "false_claim": "the identity survives an arbitrary one-sided onsite change",
+      "status": "REJECTED",
+      "exact_defect": "-3/40"
+    }
+  ],
+  "physical": {
+    "dps": 200,
+    "interval_certified": false,
+    "p": "0.6",
+    "e_squared": ".32",
+    "maximum_relative_determinant_error": "4.3641010471486765319e-182",
+    "rows": [
+      {
+        "theta_over_pi": "0/6",
+        "L": 1,
+        "relative_determinant_error": "0.0",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "0.0"
+      },
+      {
+        "theta_over_pi": "0/6",
+        "L": 5,
+        "relative_determinant_error": "9.63105317258e-201",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "0.0"
+      },
+      {
+        "theta_over_pi": "0/6",
+        "L": 13,
+        "relative_determinant_error": "3.19355662735e-191",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "0.0"
+      },
+      {
+        "theta_over_pi": "0/6",
+        "L": 21,
+        "relative_determinant_error": "1.29520379389e-182",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "0.0"
+      },
+      {
+        "theta_over_pi": "1/6",
+        "L": 1,
+        "relative_determinant_error": "1.12336423533e-201",
+        "asymmetry_error": "8.16512610394e-202",
+        "remainder_transport_error": "8.42028629469e-202"
+      },
+      {
+        "theta_over_pi": "1/6",
+        "L": 5,
+        "relative_determinant_error": "3.46058342186e-198",
+        "asymmetry_error": "5.19710276516e-199",
+        "remainder_transport_error": "5.19710288975e-199"
+      },
+      {
+        "theta_over_pi": "1/6",
+        "L": 13,
+        "relative_determinant_error": "2.41643451842e-190",
+        "asymmetry_error": "5.44466151745e-193",
+        "remainder_transport_error": "5.44466151745e-193"
+      },
+      {
+        "theta_over_pi": "1/6",
+        "L": 21,
+        "relative_determinant_error": "3.47636481753e-182",
+        "asymmetry_error": "7.84840865973e-183",
+        "remainder_transport_error": "7.84840865973e-183"
+      },
+      {
+        "theta_over_pi": "2/6",
+        "L": 1,
+        "relative_determinant_error": "0.0",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "1.02064076299e-202"
+      },
+      {
+        "theta_over_pi": "2/6",
+        "L": 5,
+        "relative_determinant_error": "1.01710501724e-197",
+        "asymmetry_error": "3.67104069633e-198",
+        "remainder_transport_error": "3.67130111422e-198"
+      },
+      {
+        "theta_over_pi": "2/6",
+        "L": 13,
+        "relative_determinant_error": "7.07748367439e-191",
+        "asymmetry_error": "3.4191067543e-192",
+        "remainder_transport_error": "3.41910675459e-192"
+      },
+      {
+        "theta_over_pi": "2/6",
+        "L": 21,
+        "relative_determinant_error": "4.36410104715e-182",
+        "asymmetry_error": "1.63992462744e-182",
+        "remainder_transport_error": "1.63992462744e-182"
+      },
+      {
+        "theta_over_pi": "3/6",
+        "L": 1,
+        "relative_determinant_error": "0.0",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "0.0"
+      },
+      {
+        "theta_over_pi": "3/6",
+        "L": 5,
+        "relative_determinant_error": "0.0",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "0.0"
+      },
+      {
+        "theta_over_pi": "3/6",
+        "L": 13,
+        "relative_determinant_error": "0.0",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "0.0"
+      },
+      {
+        "theta_over_pi": "3/6",
+        "L": 21,
+        "relative_determinant_error": "0.0",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "0.0"
+      },
+      {
+        "theta_over_pi": "4/6",
+        "L": 1,
+        "relative_determinant_error": "0.0",
+        "asymmetry_error": "8.16512610394e-202",
+        "remainder_transport_error": "4.59288343347e-202"
+      },
+      {
+        "theta_over_pi": "4/6",
+        "L": 5,
+        "relative_determinant_error": "4.22613046359e-198",
+        "asymmetry_error": "1.31050273968e-198",
+        "remainder_transport_error": "1.30994662004e-198"
+      },
+      {
+        "theta_over_pi": "4/6",
+        "L": 13,
+        "relative_determinant_error": "6.09786814854e-191",
+        "asymmetry_error": "4.79154824695e-191",
+        "remainder_transport_error": "4.791548247e-191"
+      },
+      {
+        "theta_over_pi": "4/6",
+        "L": 21,
+        "relative_determinant_error": "2.74349288864e-182",
+        "asymmetry_error": "9.48671478712e-183",
+        "remainder_transport_error": "9.48671478712e-183"
+      },
+      {
+        "theta_over_pi": "5/6",
+        "L": 1,
+        "relative_determinant_error": "0.0",
+        "asymmetry_error": "8.16512610394e-202",
+        "remainder_transport_error": "7.39964553169e-202"
+      },
+      {
+        "theta_over_pi": "5/6",
+        "L": 5,
+        "relative_determinant_error": "2.57671146563e-198",
+        "asymmetry_error": "1.04309485978e-198",
+        "remainder_transport_error": "1.04309483486e-198"
+      },
+      {
+        "theta_over_pi": "5/6",
+        "L": 13,
+        "relative_determinant_error": "1.64834119131e-190",
+        "asymmetry_error": "7.33783237319e-191",
+        "remainder_transport_error": "7.33783237319e-191"
+      },
+      {
+        "theta_over_pi": "5/6",
+        "L": 21,
+        "relative_determinant_error": "2.70162530483e-183",
+        "asymmetry_error": "2.81600721568e-183",
+        "remainder_transport_error": "2.81600721568e-183"
+      },
+      {
+        "theta_over_pi": "6/6",
+        "L": 1,
+        "relative_determinant_error": "0.0",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "0.0"
+      },
+      {
+        "theta_over_pi": "6/6",
+        "L": 5,
+        "relative_determinant_error": "1.18654575086e-198",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "0.0"
+      },
+      {
+        "theta_over_pi": "6/6",
+        "L": 13,
+        "relative_determinant_error": "9.01326511762e-191",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "0.0"
+      },
+      {
+        "theta_over_pi": "6/6",
+        "L": 21,
+        "relative_determinant_error": "1.20244053137e-182",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "0.0"
+      },
+      {
+        "theta_over_pi": "7/6",
+        "L": 1,
+        "relative_determinant_error": "2.565322032e-201",
+        "asymmetry_error": "1.22476891559e-201",
+        "remainder_transport_error": "1.25028493467e-201"
+      },
+      {
+        "theta_over_pi": "7/6",
+        "L": 5,
+        "relative_determinant_error": "1.42437106634e-198",
+        "asymmetry_error": "3.40730712317e-198",
+        "remainder_transport_error": "3.40730713563e-198"
+      },
+      {
+        "theta_over_pi": "7/6",
+        "L": 13,
+        "relative_determinant_error": "2.05935318556e-190",
+        "asymmetry_error": "2.51355177874e-190",
+        "remainder_transport_error": "2.51355177874e-190"
+      },
+      {
+        "theta_over_pi": "7/6",
+        "L": 21,
+        "relative_determinant_error": "1.66537816614e-182",
+        "asymmetry_error": "2.72768545915e-182",
+        "remainder_transport_error": "2.72768545915e-182"
+      },
+      {
+        "theta_over_pi": "8/6",
+        "L": 1,
+        "relative_determinant_error": "1.10855100543e-201",
+        "asymmetry_error": "4.08256305197e-202",
+        "remainder_transport_error": "2.04128152598e-202"
+      },
+      {
+        "theta_over_pi": "8/6",
+        "L": 5,
+        "relative_determinant_error": "7.92373438953e-199",
+        "asymmetry_error": "1.41828240425e-198",
+        "remainder_transport_error": "1.41772633445e-198"
+      },
+      {
+        "theta_over_pi": "8/6",
+        "L": 13,
+        "relative_determinant_error": "6.262369499e-191",
+        "asymmetry_error": "4.41003406001e-191",
+        "remainder_transport_error": "4.41003405995e-191"
+      },
+      {
+        "theta_over_pi": "8/6",
+        "L": 21,
+        "relative_determinant_error": "2.42128799715e-183",
+        "asymmetry_error": "1.64125667535e-182",
+        "remainder_transport_error": "1.64125667535e-182"
+      },
+      {
+        "theta_over_pi": "9/6",
+        "L": 1,
+        "relative_determinant_error": "0.0",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "0.0"
+      },
+      {
+        "theta_over_pi": "9/6",
+        "L": 5,
+        "relative_determinant_error": "5.06564186829e-199",
+        "asymmetry_error": "2.06414387908e-198",
+        "remainder_transport_error": "2.06414387908e-198"
+      },
+      {
+        "theta_over_pi": "9/6",
+        "L": 13,
+        "relative_determinant_error": "2.16008765149e-191",
+        "asymmetry_error": "1.14470819748e-190",
+        "remainder_transport_error": "1.14470819748e-190"
+      },
+      {
+        "theta_over_pi": "9/6",
+        "L": 21,
+        "relative_determinant_error": "1.20257912153e-183",
+        "asymmetry_error": "1.10208510469e-182",
+        "remainder_transport_error": "1.10208510469e-182"
+      },
+      {
+        "theta_over_pi": "10/6",
+        "L": 1,
+        "relative_determinant_error": "0.0",
+        "asymmetry_error": "1.22476891559e-201",
+        "remainder_transport_error": "4.08256305197e-202"
+      },
+      {
+        "theta_over_pi": "10/6",
+        "L": 5,
+        "relative_determinant_error": "8.17933872467e-199",
+        "asymmetry_error": "8.2957681216e-199",
+        "remainder_transport_error": "8.29020680059e-199"
+      },
+      {
+        "theta_over_pi": "10/6",
+        "L": 13,
+        "relative_determinant_error": "1.37588652924e-190",
+        "asymmetry_error": "1.64581572791e-190",
+        "remainder_transport_error": "1.64581572791e-190"
+      },
+      {
+        "theta_over_pi": "10/6",
+        "L": 21,
+        "relative_determinant_error": "4.8683724496e-183",
+        "asymmetry_error": "2.10307348368e-182",
+        "remainder_transport_error": "2.10307348368e-182"
+      },
+      {
+        "theta_over_pi": "11/6",
+        "L": 1,
+        "relative_determinant_error": "0.0",
+        "asymmetry_error": "0.0",
+        "remainder_transport_error": "3.06192228898e-202"
+      },
+      {
+        "theta_over_pi": "11/6",
+        "L": 5,
+        "relative_determinant_error": "4.87206421227e-199",
+        "asymmetry_error": "7.68746622686e-199",
+        "remainder_transport_error": "7.68338416217e-199"
+      },
+      {
+        "theta_over_pi": "11/6",
+        "L": 13,
+        "relative_determinant_error": "6.23071345776e-191",
+        "asymmetry_error": "2.0244660436e-190",
+        "remainder_transport_error": "2.02446604361e-190"
+      },
+      {
+        "theta_over_pi": "11/6",
+        "L": 21,
+        "relative_determinant_error": "1.2868422053e-183",
+        "asymmetry_error": "2.96667856183e-183",
+        "remainder_transport_error": "2.96667856183e-183"
+      }
+    ]
+  },
+  "elapsed_seconds": 1.549
+}

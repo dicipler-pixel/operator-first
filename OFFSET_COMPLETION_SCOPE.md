@@ -52,10 +52,13 @@ independent new physical predictions.
    now formalizes the band-equation-to-polynomial contradiction. The Fourier,
    almost-everywhere, and integral-to-matrix identifications remain to be built;
    the generic finite compression theorem does not replace that construction.
-2. Prove the unequal-hopping interpolation for arbitrary block size, or prove
-   model-specific relative errors tending to zero. The interpolation is
-   formally established at three sites. Numerical agreement at larger sizes
-   remains numerical evidence.
+2. Formalize the all-size unequal-hopping interpolation proved in
+   [ALL_SIZE_TRANSFER.md](moduli_transfer/ALL_SIZE_TRANSFER.md). The new
+   ordinary algebraic proof uses reflection and sign conjugacies, polynomial
+   invariants, an explicit block similarity, and a Laurent-degree bound.
+   It closes the mathematical transfer gap for all odd sizes. The Lean
+   interpolation remains formally established at three sites; the all-size
+   polynomial/Laurent proof has not yet been translated into Lean.
 3. Formalize the equal-hopping Fourier/Hankel reduction and the applicable
    Hankel asymptotic theorem. The existing analytic proof remains distinct
    from Lean certification.

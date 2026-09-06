@@ -40,6 +40,26 @@ There are 28 new named theorems, bringing the Offset modules to 119 named
 theorems (53 core, 30 endpoint, 8 earlier progress, 28 in this batch). This is
 an inventory of formal statements, not a count of new physical discoveries.
 
+## All-size analytic transfer completed after the finite Lean batch
+
+The moduli-space argument in
+[ALL_SIZE_TRANSFER.md](moduli_transfer/ALL_SIZE_TRANSFER.md) proves the
+unequal-hopping interpolation for every odd block size. It first reduces
+the determinant to a polynomial in the bulk invariants and v, then bounds
+its degree in v by isolating one unpaired boundary column.
+
+The fixed-parameter general Rice–Mele endpoint follows by combining this
+identity with the existing equal-hopping Hankel argument. The remainder
+itself transfers with the same v/e factor, so its successive ratio is
+unchanged along the isospectral family wherever defined.
+
+This is an ordinary mathematical proof, not a new Lean certificate.
+The 119 named Offset Lean statements and their sources are unchanged.
+The companion verifier supplies exact symbolic finite checks, exact rational
+determinant-pencil checks, two rejected false controls, and independent
+200-digit physical determinant tests. Its numerical output is not an
+interval enclosure.
+
 ## Proof work still open
 
 These entries remain open. They are not fixed by merging, and they are not
@@ -48,7 +68,7 @@ being marked complete because a finite example or a conditional theorem passes.
 | Area | Missing argument |
 |---|---|
 | Offset covariance | Formal Fourier construction, the almost-everywhere step and the integral-to-matrix identification connecting the band obstruction to the physical restricted covariance |
-| Offset endpoint | All-size unequal-hopping interpolation, or a model-specific vanishing relative-error bound |
+| Offset endpoint formalization | The all-size interpolation is now proved in moduli_transfer/ALL_SIZE_TRANSFER.md; formalize its invariant-polynomial reduction, block similarity, and Laurent-degree argument in Lean |
 | Offset analytic limit | Lean formalization of the equal-hopping Fourier/Hankel reduction and its asymptotic theorem |
 | Offset remainder and cosmology | A sharp remainder proof and a justified physical calibration to the cosmological constant |
 | Kakeya general rank | Assemble the general iterative forcing/subset-rank argument and lattice-rank conclusion beyond the checked finite examples |
