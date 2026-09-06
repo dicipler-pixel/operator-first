@@ -1,6 +1,6 @@
 name = "operator-first"
 version = "0.1.0"
-defaultTargets = ["OperatorFirst"]
+defaultTargets = ["OperatorFirst", "LightBridges", "OpticalMetric", "Rigidity"]
 
 [[require]]
 name = "mathlib"
@@ -9,3 +9,12 @@ rev = "v4.33.0"
 
 [[lean_lib]]
 name = "OperatorFirst"
+
+[[lean_lib]]
+name = "LightBridges"
+
+[[lean_lib]]
+name = "OpticalMetric"
+
+[[lean_lib]]
+name = "Rigidity"
