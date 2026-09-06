@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "commit": "824fa79fe755ff2e9d877940e75ac2b76c4efb58",
+  "checks": {
+    "build": {
+      "exit_code": 0,
+      "argv": [
+        "lake",
+        "build",
+        "OperatorFirst.EndpointProgress"
+      ],
+      "expected_failure": false
+    },
+    "elaborate": {
+      "exit_code": 0,
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "OperatorFirst/EndpointProgress.lean"
+      ],
+      "expected_failure": false
+    },
+    "recheck": {
+      "exit_code": 0,
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "OperatorFirst.EndpointProgress"
+      ],
+      "expected_failure": false
+    },
+    "false_gap_free_strict": {
+      "exit_code": 1,
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "verification/endpoint_progress/false_gap_free_strict.lean"
+      ],
+      "expected_failure": true
+    },
+    "false_monotonicity": {
+      "exit_code": 1,
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "verification/endpoint_progress/false_monotonicity.lean"
+      ],
+      "expected_failure": true
+    },
+    "false_odd_sign": {
+      "exit_code": 1,
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "verification/endpoint_progress/false_odd_sign.lean"
+      ],
+      "expected_failure": true
+    }
+  },
+  "named_theorems": 8,
+  "theorems": [
+    "three_site_affine",
+    "three_site_reflected_sum",
+    "three_site_reflected_difference",
+    "three_site_asymmetry",
+    "odd_valuation_obstruction",
+    "dispersion_square_obstruction",
+    "normalized_defect",
+    "log_ratio_limit"
+  ],
+  "source_sha256": "d543af190e4377c92d540922e58bdf865a0ea81d3c9d582b929751232ec522cc",
+  "workflow_url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34005800655"
+}
