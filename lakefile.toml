@@ -1,6 +1,6 @@
 name = "operator-first"
 version = "0.1.0"
-defaultTargets = ["OperatorFirst", "LightBridges", "OpticalMetric", "Rigidity", "LightCompletion"]
+defaultTargets = ["OperatorFirst", "LightBridges", "OpticalMetric", "Rigidity", "LightCompletion", "Gravity"]
 
 [[require]]
 name = "mathlib"
@@ -21,3 +21,6 @@ name = "Rigidity"
 
 [[lean_lib]]
 name = "LightCompletion"
+
+[[lean_lib]]
+name = "Gravity"
