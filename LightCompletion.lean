@@ -94,7 +94,7 @@ theorem weighted_matrix_kernel (J : Matrix m n ℝ) (W : Matrix m m ℝ)
   have heq : x ⬝ᵥ ((J.transpose * W * J) *ᵥ x) =
       (J *ᵥ x) ⬝ᵥ (W *ᵥ (J *ᵥ x)) := by
     rw [Matrix.mul_assoc, ← Matrix.mulVec_mulVec, Matrix.dotProduct_mulVec,
-      Matrix.vecMul_transpose]
+      Matrix.vecMul_transpose, ← Matrix.mulVec_mulVec]
   constructor
   · intro h
     by_contra hx
