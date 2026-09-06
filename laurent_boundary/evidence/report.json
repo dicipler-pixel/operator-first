@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "checks": {
+    "build_all": {
+      "exit_code": 0,
+      "expected_failure": false,
+      "argv": [
+        "lake",
+        "build",
+        "OperatorFirst.LaurentBoundary"
+      ]
+    },
+    "LaurentBoundary_build": {
+      "exit_code": 0,
+      "expected_failure": false,
+      "argv": [
+        "lake",
+        "build",
+        "OperatorFirst.LaurentBoundary"
+      ]
+    },
+    "LaurentBoundary_axioms": {
+      "exit_code": 0,
+      "expected_failure": false,
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "OperatorFirst/LaurentBoundary.lean"
+      ]
+    },
+    "LaurentBoundary_kernel": {
+      "exit_code": 0,
+      "expected_failure": false,
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "OperatorFirst.LaurentBoundary"
+      ]
+    },
+    "false_two_columns_affine": {
+      "exit_code": 1,
+      "expected_failure": true,
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "verification/laurent_boundary/false_two_columns_affine.lean"
+      ]
+    },
+    "false_top_coefficient_sign": {
+      "exit_code": 1,
+      "expected_failure": true,
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "verification/laurent_boundary/false_top_coefficient_sign.lean"
+      ]
+    }
+  },
+  "modules": {
+    "OperatorFirst.LaurentBoundary": {
+      "named_theorems": 20,
+      "theorems": [
+        "bounded_zero",
+        "bounded_mono",
+        "bounded_C",
+        "bounded_monomial",
+        "bounded_add",
+        "bounded_neg",
+        "bounded_mul",
+        "bounded_sum",
+        "bounded_prod",
+        "determinant_column_bound",
+        "determinant_one_boundary_column",
+        "determinant_boundary_set",
+        "coeff_mul_top",
+        "bounded_pow_one",
+        "coeff_pow_top",
+        "bounded_eval\u2082",
+        "coeff_eval\u2082_top",
+        "polynomial_degree_le_one",
+        "boundary_forces_polynomial_degree",
+        "polynomial_affine_of_degree"
+      ],
+      "source_sha256": "ee5a646e558a6c4c62005e1b20d4e4bf21144c0ccdaaffc8a49f3c738199f05f"
+    }
+  },
+  "commit": "6ab87323c7030e07a040fd12a5f7aee3279ef278",
+  "lean_version": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "manifest_sha256": "fb654d6812c9343b8520222138a0bda26711fa89636b4a206442ec8a1a5a8bb7",
+  "named_theorems": 20
+}

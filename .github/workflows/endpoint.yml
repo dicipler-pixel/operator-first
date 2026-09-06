@@ -24,11 +24,15 @@ jobs:
           lake update
           lake exe cache get
       - name: Compile, audit, independently recheck and reject false controls
-        run: python3 scripts/verify_endpoint.py
+        run: |
+          python3 scripts/verify_laurent_boundary.py
+          python3 scripts/verify_endpoint.py
+          python3 scripts/verify_endpoint_progress.py
+          python3 scripts/verify_offset_completion.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: offset-endpoint-proof-evidence
-          path: verification/endpoint/
+          path: verification/
           if-no-files-found: warn
           retention-days: 30

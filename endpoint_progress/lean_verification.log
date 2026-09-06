@@ -1,0 +1,170 @@
+⚠ [8708/8708] Built OperatorFirst.EndpointProgress (4.1s)
+warning: OperatorFirst/EndpointProgress.lean:28:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: OperatorFirst/EndpointProgress.lean:87:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: OperatorFirst/EndpointProgress.lean:100:0: 'OperatorFirst.EndpointProgress.three_site_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/EndpointProgress.lean:101:0: 'OperatorFirst.EndpointProgress.three_site_reflected_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/EndpointProgress.lean:102:0: 'OperatorFirst.EndpointProgress.three_site_reflected_difference' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: OperatorFirst/EndpointProgress.lean:103:0: 'OperatorFirst.EndpointProgress.three_site_asymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/EndpointProgress.lean:104:0: 'OperatorFirst.EndpointProgress.odd_valuation_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/EndpointProgress.lean:105:0: 'OperatorFirst.EndpointProgress.dispersion_square_obstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: OperatorFirst/EndpointProgress.lean:106:0: 'OperatorFirst.EndpointProgress.normalized_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/EndpointProgress.lean:107:0: 'OperatorFirst.EndpointProgress.log_ratio_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8708 jobs).
+
+elaborate 0 OperatorFirst/EndpointProgress.lean:28:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+OperatorFirst/EndpointProgress.lean:87:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'OperatorFirst.EndpointProgress.three_site_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.EndpointProgress.three_site_reflected_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.EndpointProgress.three_site_reflected_difference' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OperatorFirst.EndpointProgress.three_site_asymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.EndpointProgress.odd_valuation_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.EndpointProgress.dispersion_square_obstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OperatorFirst.EndpointProgress.normalized_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.EndpointProgress.log_ratio_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+recheck 0 
+false_gap_free_strict 1 verification/endpoint_progress/false_gap_free_strict.lean:2:51: error: unsolved goals
+⊢ False
+
+false_monotonicity 1 verification/endpoint_progress/false_monotonicity.lean:2:115: error: unsolved goals
+⊢ False
+
+false_odd_sign 1 verification/endpoint_progress/false_odd_sign.lean:2:116: error: unsolved goals
+⊢ False
+
+{
+  "status": "PASS",
+  "commit": "824fa79fe755ff2e9d877940e75ac2b76c4efb58",
+  "checks": {
+    "build": {
+      "exit_code": 0,
+      "argv": [
+        "lake",
+        "build",
+        "OperatorFirst.EndpointProgress"
+      ],
+      "expected_failure": false
+    },
+    "elaborate": {
+      "exit_code": 0,
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "OperatorFirst/EndpointProgress.lean"
+      ],
+      "expected_failure": false
+    },
+    "recheck": {
+      "exit_code": 0,
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "OperatorFirst.EndpointProgress"
+      ],
+      "expected_failure": false
+    },
+    "false_gap_free_strict": {
+      "exit_code": 1,
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "verification/endpoint_progress/false_gap_free_strict.lean"
+      ],
+      "expected_failure": true
+    },
+    "false_monotonicity": {
+      "exit_code": 1,
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "verification/endpoint_progress/false_monotonicity.lean"
+      ],
+      "expected_failure": true
+    },
+    "false_odd_sign": {
+      "exit_code": 1,
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "verification/endpoint_progress/false_odd_sign.lean"
+      ],
+      "expected_failure": true
+    }
+  },
+  "named_theorems": 8,
+  "theorems": [
+    "three_site_affine",
+    "three_site_reflected_sum",
+    "three_site_reflected_difference",
+    "three_site_asymmetry",
+    "odd_valuation_obstruction",
+    "dispersion_square_obstruction",
+    "normalized_defect",
+    "log_ratio_limit"
+  ],
+  "source_sha256": "d543af190e4377c92d540922e58bdf865a0ea81d3c9d582b929751232ec522cc"
+}
+Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+##[group]Run actions/upload-artifact@v4
+with:
+  name: offset-endpoint-proof-evidence
+  path: verification/
+  if-no-files-found: warn
+  retention-days: 30
+  compression-level: 6
+  overwrite: false
+  include-hidden-files: false
+env:
+  LEAN_NUM_THREADS: 2
+##[endgroup]
+(node:3685) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+With the provided path, there will be 20 files uploaded
+Artifact name is valid!
+Root directory input is valid!
+Beginning upload of artifact content to blob storage
+(node:3685) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+Uploaded bytes 10260
+Finished uploading artifact content to blob storage!
+SHA256 digest of uploaded artifact zip is bd905955bb8e4cadc3dacba323b4053a682433f08e96ce039f4c1ec0407d4357
+Finalizing artifact upload
+Artifact offset-endpoint-proof-evidence.zip successfully finalized. Artifact ID 9980921484
+Artifact offset-endpoint-proof-evidence has been successfully uploaded! Final size is 10260 bytes. Artifact ID is 9980921484
+Artifact download URL: https://github.com/dicipler-pixel/operator-first/actions/runs/34005800655/artifacts/9980921484
+Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Post job cleanup.
+[command]/usr/bin/git version
+git version 2.55.0
+Temporarily overriding HOME='/home/runner/work/_temp/12cf45d4-1774-4181-a467-33b87701e049' before making global git config changes
+Adding repository directory to the temporary git global config as a safe directory
+[command]/usr/bin/git config --global --add safe.directory /home/runner/work/operator-first/operator-first
+[command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+[command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+[command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+[command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+[command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+[command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Cleaning up orphan processes
+##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

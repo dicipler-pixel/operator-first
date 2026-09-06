@@ -4,10 +4,10 @@ import hashlib,json,re,subprocess,sys
 from pathlib import Path
 from source_revision import source_revision
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/'verification'/'endpoint'
+OUT=ROOT/'verification'/'endpoint_progress'
 OUT.mkdir(parents=True,exist_ok=True)
-MOD='OperatorFirst.OffsetEndpoint'
-SOURCE=ROOT/'OperatorFirst'/'OffsetEndpoint.lean'
+MOD='OperatorFirst.EndpointProgress'
+SOURCE=ROOT/'OperatorFirst'/'EndpointProgress.lean'
 report={'status':'RUNNING','commit':source_revision(ROOT),'checks':{}}
 def run(name,args,negative=False):
     p=subprocess.run(args,cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=360)

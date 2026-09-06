@@ -4,6 +4,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+from source_revision import source_revision
 import re
 import subprocess
 import sys
@@ -34,7 +35,7 @@ def run(name: str, argv: list[str], expected_failure: bool = False) -> str:
     return text
 
 try:
-    report["git_commit"] = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    report["git_commit"] = source_revision(ROOT)
     report["toolchain"] = (ROOT / "lean-toolchain").read_text().strip()
     modules = [ROOT / "OperatorFirst" / "Offset.lean"]
     fock = ROOT / "OperatorFirst" / "OffsetFock.lean"
@@ -82,3 +83,4 @@ finally:
     (OUT / "verification_report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     print(json.dumps(report, indent=2), flush=True)
 sys.exit(0 if report["status"] == "PASS" else 1)
+

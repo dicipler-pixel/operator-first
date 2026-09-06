@@ -1,0 +1,29 @@
+⚠ [8706/8706] Built OperatorFirst.LaurentBoundary (4.8s)
+warning: OperatorFirst/LaurentBoundary.lean:153:12: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+info: OperatorFirst/LaurentBoundary.lean:250:0: 'OperatorFirst.LaurentBoundary.bounded_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:251:0: 'OperatorFirst.LaurentBoundary.bounded_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:252:0: 'OperatorFirst.LaurentBoundary.bounded_C' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:253:0: 'OperatorFirst.LaurentBoundary.bounded_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:254:0: 'OperatorFirst.LaurentBoundary.bounded_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:255:0: 'OperatorFirst.LaurentBoundary.bounded_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:256:0: 'OperatorFirst.LaurentBoundary.bounded_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:257:0: 'OperatorFirst.LaurentBoundary.bounded_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:258:0: 'OperatorFirst.LaurentBoundary.bounded_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:259:0: 'OperatorFirst.LaurentBoundary.determinant_column_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:260:0: 'OperatorFirst.LaurentBoundary.determinant_one_boundary_column' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:261:0: 'OperatorFirst.LaurentBoundary.determinant_boundary_set' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:262:0: 'OperatorFirst.LaurentBoundary.coeff_mul_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:263:0: 'OperatorFirst.LaurentBoundary.bounded_pow_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:264:0: 'OperatorFirst.LaurentBoundary.coeff_pow_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:265:0: 'OperatorFirst.LaurentBoundary.bounded_eval₂' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:266:0: 'OperatorFirst.LaurentBoundary.coeff_eval₂_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:267:0: 'OperatorFirst.LaurentBoundary.polynomial_degree_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:268:0: 'OperatorFirst.LaurentBoundary.boundary_forces_polynomial_degree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: OperatorFirst/LaurentBoundary.lean:270:0: 'OperatorFirst.LaurentBoundary.polynomial_affine_of_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8706 jobs).
