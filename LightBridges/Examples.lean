@@ -41,7 +41,7 @@ theorem separatedGram_value :
 
 theorem separatedGram_singular : separatedGram.det = 0 := by
   rw [separatedGram_value]
-  norm_num [Matrix.det_fin_three]
+  norm_num [Matrix.det_fin_three, Matrix.cons_val_two, Matrix.cons_val_one, Matrix.cons_val_zero, Matrix.vecHead, Matrix.vecTail]
 
 /-- All three pairwise squared-sine separations exceed or equal 16/25. -/
 theorem pairwise_separation_values :
@@ -58,7 +58,7 @@ theorem stress_commutator :
     stressC * stressC.transpose - stressC.transpose * stressC = !![4,0;0,-4] := by
   ext i j
   fin_cases i <;> fin_cases j <;>
-    norm_num [stressC, Matrix.mul_apply, Fin.sum_univ_two]
+    norm_num [stressC, Matrix.mul_apply, Matrix.transpose_apply, Matrix.vecMul, dotProduct, Fin.sum_univ_two]
 
 theorem stress_exceeds_one : (1/2:ℚ) * (4^2 + (-4)^2) = 16 := by norm_num
 

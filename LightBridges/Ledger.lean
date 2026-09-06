@@ -82,7 +82,9 @@ theorem real_pairing_zero {α : Type*} (sigma : α → α) (f : α → ℝ)
   have hn : ((l.map sigma).map f).sum = -(l.map f).sum := by
     induction l with
     | nil => simp
-    | cons a rest ih => simp [hf, ih]
+    | cons a rest ih =>
+      simp only [List.map_cons, List.sum_cons, hf, ih]
+      abel
   rw [hn] at hp
   linarith
 

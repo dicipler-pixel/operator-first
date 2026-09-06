@@ -4,6 +4,7 @@ import Mathlib
 model equations, not a derivation of material permittivity from intrinsic rigidity.
 STATUS: uncompiled candidate formalization. -/
 set_option autoImplicit false
+noncomputable section
 
 namespace LightBridges
 

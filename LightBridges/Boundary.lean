@@ -10,6 +10,7 @@ noncomputable section
 
 namespace LightBridges
 open Matrix
+open scoped ComplexOrder
 
 section Reduction
 variable {n k : Type*} [Fintype n] [Fintype k]
@@ -89,7 +90,8 @@ theorem cayley_defect_identity (Z W : Matrix n n ℂ)
     1 - ((Z - 1) * W).conjTranspose * ((Z - 1) * W) =
       W.conjTranspose * ((Z + 1).conjTranspose * (Z + 1) -
         (Z - 1).conjTranspose * (Z - 1)) * W := by
-      rw [Matrix.mul_sub, Matrix.sub_mul, hone]
+      simp only [Matrix.mul_sub, Matrix.sub_mul]
+      rw [hone]
       simp only [Matrix.conjTranspose_mul, Matrix.mul_assoc]
     _ = _ := by rw [hpoly, Matrix.mul_add, Matrix.add_mul]
 

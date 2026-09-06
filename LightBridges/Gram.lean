@@ -8,6 +8,7 @@ noncomputable section
 
 namespace LightBridges
 open Matrix
+open scoped ComplexOrder
 
 section Gram
 variable {n m k a : Type*}

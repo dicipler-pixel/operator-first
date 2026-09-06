@@ -4,7 +4,7 @@ import hashlib,json,re,subprocess,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'verification/light';OUT.mkdir(parents=True,exist_ok=True)
-modules=['LightBridges.'+x for x in ['Algebra','Gram','Census','Coherence','Boundary','Ledger','ScalarOptics','Examples']]+['OpticalMetric','Rigidity']
+modules=['LightBridges.'+x for x in ['Algebra','Gram','Census','Coherence','Boundary','Ledger','ScalarOptics','Examples']]+['OpticalMetric','Rigidity','LightCompletion']
 report={'status':'RUNNING','modules':{},'controls':{}}
 def run(name,args,negative=False):
  p=subprocess.run(args,cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=600)
@@ -16,10 +16,11 @@ def run(name,args,negative=False):
  elif p.returncode:raise RuntimeError(name+' failed')
  return p.stdout
 try:
+ run('all_build',['lake','build','LightBridges','OpticalMetric','Rigidity','LightCompletion'])
  for mod in modules:
   src=ROOT/(mod.replace('.','/')+'.lean')
   names=re.findall(r'^theorem\s+(\w+)',src.read_text(),re.M)
-  ns='LightConstitutive' if mod=='OpticalMetric' else 'LightRigidity' if mod=='Rigidity' else 'LightBridges'
+  ns='LightConstitutive' if mod=='OpticalMetric' else 'LightRigidity' if mod=='Rigidity' else 'LightCompletion' if mod=='LightCompletion' else 'LightBridges'
   qualified=[ns+'.'+x for x in names]
   report['modules'][mod]={'source_sha256':hashlib.sha256(src.read_bytes()).hexdigest(),'theorems':qualified}
   run(mod+'_build',['lake','build',mod])

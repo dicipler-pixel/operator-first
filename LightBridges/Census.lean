@@ -64,7 +64,7 @@ theorem census_equals_coupling_count {ι : Type*} [Fintype ι]
   classical
   apply Finset.sum_congr rfl
   intro i hi
-  rw [transition_window_iff_weight eps (nu i) heps]
+  simp only [transition_window_iff_weight eps (nu i) heps]
 
 /-- Boundary mixing is maximal at half occupation. -/
 theorem boundary_mixing_peak (x : ℝ) :

@@ -55,7 +55,7 @@ theorem weighted_zero_iff (w q : ι → ℝ) (hw : ∀ i, 0 < w i) :
   constructor
   · intro h i
     have hle : w i * (q i) ^ 2 ≤ ∑ j, w j * (q j) ^ 2 := by
-      apply Finset.single_le_sum
+      apply Finset.single_le_sum (f := fun j => w j * (q j)^2)
       · intro j hj
         exact mul_nonneg (le_of_lt (hw j)) (sq_nonneg (q j))
       · exact Finset.mem_univ i
