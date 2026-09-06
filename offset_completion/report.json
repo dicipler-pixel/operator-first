@@ -1,0 +1,196 @@
+{
+  "checks": {
+    "BandObstruction_axioms": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "OperatorFirst/BandObstruction.lean"
+      ],
+      "exit_code": 0,
+      "expected_failure": false
+    },
+    "BandObstruction_build": {
+      "argv": [
+        "lake",
+        "build",
+        "OperatorFirst.BandObstruction"
+      ],
+      "exit_code": 0,
+      "expected_failure": false
+    },
+    "BandObstruction_kernel": {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "OperatorFirst.BandObstruction"
+      ],
+      "exit_code": 0,
+      "expected_failure": false
+    },
+    "EndpointTransfer_axioms": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "OperatorFirst/EndpointTransfer.lean"
+      ],
+      "exit_code": 0,
+      "expected_failure": false
+    },
+    "EndpointTransfer_build": {
+      "argv": [
+        "lake",
+        "build",
+        "OperatorFirst.EndpointTransfer"
+      ],
+      "exit_code": 0,
+      "expected_failure": false
+    },
+    "EndpointTransfer_kernel": {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "OperatorFirst.EndpointTransfer"
+      ],
+      "exit_code": 0,
+      "expected_failure": false
+    },
+    "FiniteCovariance_axioms": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "OperatorFirst/FiniteCovariance.lean"
+      ],
+      "exit_code": 0,
+      "expected_failure": false
+    },
+    "FiniteCovariance_build": {
+      "argv": [
+        "lake",
+        "build",
+        "OperatorFirst.FiniteCovariance"
+      ],
+      "exit_code": 0,
+      "expected_failure": false
+    },
+    "FiniteCovariance_kernel": {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "OperatorFirst.FiniteCovariance"
+      ],
+      "exit_code": 0,
+      "expected_failure": false
+    },
+    "build_all": {
+      "argv": [
+        "lake",
+        "build",
+        "OperatorFirst.EndpointTransfer",
+        "OperatorFirst.FiniteCovariance",
+        "OperatorFirst.BandObstruction"
+      ],
+      "exit_code": 0,
+      "expected_failure": false
+    },
+    "false_decoupled_obstruction": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "verification/offset_completion/false_decoupled_obstruction.lean"
+      ],
+      "exit_code": 1,
+      "expected_failure": true
+    },
+    "false_error_denominator": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "verification/offset_completion/false_error_denominator.lean"
+      ],
+      "exit_code": 1,
+      "expected_failure": true
+    },
+    "false_strictness_from_projection_alone": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "verification/offset_completion/false_strictness_from_projection_alone.lean"
+      ],
+      "exit_code": 1,
+      "expected_failure": true
+    },
+    "false_transfer_sign": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "verification/offset_completion/false_transfer_sign.lean"
+      ],
+      "exit_code": 1,
+      "expected_failure": true
+    }
+  },
+  "commit": "88fc1f350cd460384e162605f8725bc17af63e9b",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "lean_version": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "manifest_sha256": "fb654d6812c9343b8520222138a0bda26711fa89636b4a206442ec8a1a5a8bb7",
+  "modules": {
+    "OperatorFirst.BandObstruction": {
+      "named_theorems": 2,
+      "source_sha256": "51c6696358a5c372a3330c3b8bc4a304ab5453c5d2477fc5849a4d03b22c732f",
+      "theorems": [
+        "squared_band_identity",
+        "polynomial_band_vector_zero"
+      ]
+    },
+    "OperatorFirst.EndpointTransfer": {
+      "named_theorems": 17,
+      "source_sha256": "95663f7098c60f0848a24249b826850a94a332a8d9e80f3ba22ecf81bf73d5f9",
+      "theorems": [
+        "mix_reflection",
+        "mix_sum",
+        "mix_difference",
+        "mix_positive",
+        "mix_asymmetry",
+        "mass_within_gap",
+        "three_site_transfer",
+        "signed_limit_of_exact_transfer",
+        "perturbation_positive",
+        "perturbation_defect",
+        "asymmetry_variance",
+        "relative_error_bound_with_variance",
+        "relative_error_bound",
+        "limit_of_relative_errors",
+        "signed_limit_of_relative_errors",
+        "half_offset_magnitude_of_signed_limit",
+        "endpoint_of_approximate_transfer"
+      ]
+    },
+    "OperatorFirst.FiniteCovariance": {
+      "named_theorems": 9,
+      "source_sha256": "e22c5877d26bea1ac1423eb61216ac09ccd9b64d373400be452167c7f74c4e56",
+      "theorems": [
+        "compression_gram",
+        "complement_projection",
+        "complement_compression",
+        "compression_posSemidef",
+        "compression_posDef",
+        "compression_strict",
+        "formation_determinants_positive",
+        "eigenvalue_in_unit_interval",
+        "compression_formation_domain"
+      ]
+    }
+  },
+  "named_theorems": 28,
+  "status": "PASS"
+}

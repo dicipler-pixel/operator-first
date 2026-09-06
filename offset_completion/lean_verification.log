@@ -1,0 +1,1074 @@
+2026-09-06T05:11:27.5799565Z build_all 0 ⚠ [8706/8711] Replayed OperatorFirst.Offset
+2026-09-06T05:11:27.5802610Z warning: OperatorFirst/Offset.lean:81:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:27.5803380Z 
+2026-09-06T05:11:27.5803839Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:27.5804904Z warning: OperatorFirst/Offset.lean:166:35: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:27.5805507Z 
+2026-09-06T05:11:27.5805845Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:27.5806733Z warning: OperatorFirst/Offset.lean:268:26: this tactic is never executed
+2026-09-06T05:11:27.5807277Z 
+2026-09-06T05:11:27.5807695Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:27.5809009Z warning: OperatorFirst/Offset.lean:268:26: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:27.5809618Z 
+2026-09-06T05:11:27.5809987Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:27.5811713Z warning: OperatorFirst/Offset.lean:270:0: automatically included section variable(s) unused in theorem `OperatorFirst.Offset.involution_cancels_quadratic`:
+2026-09-06T05:11:27.5812918Z   [Fintype k]
+2026-09-06T05:11:27.5813244Z   [DecidableEq k]
+2026-09-06T05:11:27.5814038Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-06T05:11:27.5815023Z   omit [Fintype k] [DecidableEq k] in theorem ...
+2026-09-06T05:11:27.5815393Z 
+2026-09-06T05:11:27.5815775Z Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-06T05:11:27.5816687Z warning: OperatorFirst/Offset.lean:301:35: This simp argument is unused:
+2026-09-06T05:11:27.5817343Z   Matrix.one_apply
+2026-09-06T05:11:27.5817551Z 
+2026-09-06T05:11:27.5817728Z Hint: Omit it from the simp argument list.
+2026-09-06T05:11:27.5818234Z   [apply] simp [shear, Matrix.det_fin_two]
+2026-09-06T05:11:27.5818809Z 
+2026-09-06T05:11:27.5819218Z Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+2026-09-06T05:11:27.5820254Z warning: OperatorFirst/Offset.lean:301:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:27.5820904Z 
+2026-09-06T05:11:27.5821306Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:27.5822621Z info: OperatorFirst/Offset.lean:449:0: 'OperatorFirst.Offset.energy_eq_log_odds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5824287Z info: OperatorFirst/Offset.lean:450:0: 'OperatorFirst.Offset.energy_flip' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5825997Z info: OperatorFirst/Offset.lean:451:0: 'OperatorFirst.Offset.spectrumOffset_flip' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5827806Z info: OperatorFirst/Offset.lean:452:0: 'OperatorFirst.Offset.protected_zero_of_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5830048Z info: OperatorFirst/Offset.lean:453:0: 'OperatorFirst.Offset.exp_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5832080Z info: OperatorFirst/Offset.lean:454:0: 'OperatorFirst.Offset.lambda_energy_dictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5833266Z info: OperatorFirst/Offset.lean:455:0: 'OperatorFirst.Offset.emptyProbability_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5834291Z info: OperatorFirst/Offset.lean:456:0: 'OperatorFirst.Offset.fullProbability_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5835257Z info: OperatorFirst/Offset.lean:457:0: 'OperatorFirst.Offset.finite_log_odds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5836169Z info: OperatorFirst/Offset.lean:458:0: 'OperatorFirst.Offset.asymmetry_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5837082Z info: OperatorFirst/Offset.lean:459:0: 'OperatorFirst.Offset.commonScale_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5838715Z info: OperatorFirst/Offset.lean:460:0: 'OperatorFirst.Offset.commonScale_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5839686Z info: OperatorFirst/Offset.lean:461:0: 'OperatorFirst.Offset.asymmetry_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5840596Z info: OperatorFirst/Offset.lean:462:0: 'OperatorFirst.Offset.asymmetry_abs_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5841507Z info: OperatorFirst/Offset.lean:463:0: 'OperatorFirst.Offset.common_factor_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5842423Z info: OperatorFirst/Offset.lean:464:0: 'OperatorFirst.Offset.endpoint_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5843552Z info: OperatorFirst/Offset.lean:465:0: 'OperatorFirst.Offset.scalarOffset_eq_logRatio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5844496Z info: OperatorFirst/Offset.lean:466:0: 'OperatorFirst.Offset.logRatio_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5845411Z info: OperatorFirst/Offset.lean:467:0: 'OperatorFirst.Offset.logRatio_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5846311Z info: OperatorFirst/Offset.lean:468:0: 'OperatorFirst.Offset.abs_logRatio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5847201Z info: OperatorFirst/Offset.lean:469:0: 'OperatorFirst.Offset.abs_scalarOffset' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5848139Z info: OperatorFirst/Offset.lean:470:0: 'OperatorFirst.Offset.cancel_common_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5849415Z info: OperatorFirst/Offset.lean:471:0: 'OperatorFirst.Offset.offset_of_assumed_connection_factors' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5850448Z info: OperatorFirst/Offset.lean:472:0: 'OperatorFirst.Offset.complement_det_eq_of_conjugacy' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5851436Z info: OperatorFirst/Offset.lean:473:0: 'OperatorFirst.Offset.protected_detLogOdds_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5852386Z info: OperatorFirst/Offset.lean:474:0: 'OperatorFirst.Offset.schur_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5853325Z info: OperatorFirst/Offset.lean:475:0: 'OperatorFirst.Offset.schur_determinant_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5854296Z info: OperatorFirst/Offset.lean:476:0: 'OperatorFirst.Offset.involution_cancels_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5855302Z info: OperatorFirst/Offset.lean:477:0: 'OperatorFirst.Offset.shear_in_parity_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5856455Z info: OperatorFirst/Offset.lean:478:0: 'OperatorFirst.Offset.shear_characteristic_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5857461Z info: OperatorFirst/Offset.lean:479:0: 'OperatorFirst.Offset.plus_parity_not_eigenvector' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5858679Z info: OperatorFirst/Offset.lean:480:0: 'OperatorFirst.Offset.scalar_shift_eigenspace' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5859686Z info: OperatorFirst/Offset.lean:481:0: 'OperatorFirst.Offset.scalar_response_has_silent_direction' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5860703Z info: OperatorFirst/Offset.lean:482:0: 'OperatorFirst.Offset.counter_occupations_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5861671Z info: OperatorFirst/Offset.lean:483:0: 'OperatorFirst.Offset.counterFull_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5862624Z info: OperatorFirst/Offset.lean:484:0: 'OperatorFirst.Offset.counterEmpty_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5863613Z info: OperatorFirst/Offset.lean:485:0: 'OperatorFirst.Offset.counter_probability_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5864616Z info: OperatorFirst/Offset.lean:486:0: 'OperatorFirst.Offset.counter_probability_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5865622Z info: OperatorFirst/Offset.lean:487:0: 'OperatorFirst.Offset.counter_linear_response_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5866773Z info: OperatorFirst/Offset.lean:488:0: 'OperatorFirst.Offset.census_cutoff_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5867764Z info: OperatorFirst/Offset.lean:489:0: 'OperatorFirst.Offset.occupation_window_iff_odds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5869084Z info: OperatorFirst/Offset.lean:490:0: 'OperatorFirst.Offset.positive_errors_do_not_fix_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5870077Z info: OperatorFirst/Offset.lean:491:0: 'OperatorFirst.Offset.logRatio_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5871032Z info: OperatorFirst/Offset.lean:492:0: 'OperatorFirst.Offset.offset_limit_of_asymmetry_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5872051Z info: OperatorFirst/Offset.lean:493:0: 'OperatorFirst.Offset.magnitude_limit_of_asymmetry_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5872929Z ⚠ [8707/8711] Replayed OperatorFirst.OffsetEndpoint
+2026-09-06T05:11:27.5873390Z warning: OperatorFirst/OffsetEndpoint.lean:27:61: this tactic is never executed
+2026-09-06T05:11:27.5873712Z 
+2026-09-06T05:11:27.5873934Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:27.5874498Z warning: OperatorFirst/OffsetEndpoint.lean:27:61: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:27.5874856Z 
+2026-09-06T05:11:27.5875054Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:27.5875568Z warning: OperatorFirst/OffsetEndpoint.lean:142:28: this tactic is never executed
+2026-09-06T05:11:27.5875884Z 
+2026-09-06T05:11:27.5876094Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:27.5876690Z warning: OperatorFirst/OffsetEndpoint.lean:137:12: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:27.5877075Z 
+2026-09-06T05:11:27.5877305Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:27.5878528Z warning: OperatorFirst/OffsetEndpoint.lean:142:28: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:27.5879154Z 
+2026-09-06T05:11:27.5879371Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:27.5880289Z warning: OperatorFirst/OffsetEndpoint.lean:154:43: this tactic is never executed
+2026-09-06T05:11:27.5880621Z 
+2026-09-06T05:11:27.5880903Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:27.5881690Z warning: OperatorFirst/OffsetEndpoint.lean:154:43: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:27.5882401Z 
+2026-09-06T05:11:27.5882865Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:27.5883464Z warning: OperatorFirst/OffsetEndpoint.lean:173:22: this tactic is never executed
+2026-09-06T05:11:27.5883778Z 
+2026-09-06T05:11:27.5884161Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:27.5884776Z warning: OperatorFirst/OffsetEndpoint.lean:173:22: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:27.5885192Z 
+2026-09-06T05:11:27.5885505Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:27.5886091Z warning: OperatorFirst/OffsetEndpoint.lean:181:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:27.5886640Z 
+2026-09-06T05:11:27.5886876Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:27.5887823Z info: OperatorFirst/OffsetEndpoint.lean:230:0: 'OperatorFirst.OffsetEndpoint.sigma_involution' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5889371Z info: OperatorFirst/OffsetEndpoint.lean:231:0: 'OperatorFirst.OffsetEndpoint.sublattice_conjugation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5890860Z info: OperatorFirst/OffsetEndpoint.lean:232:0: 'OperatorFirst.OffsetEndpoint.band_complement_conjugation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5892244Z info: OperatorFirst/OffsetEndpoint.lean:233:0: 'OperatorFirst.OffsetEndpoint.diagonal_conjugation_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5893551Z info: OperatorFirst/OffsetEndpoint.lean:234:0: 'OperatorFirst.OffsetEndpoint.block_complement_conjugation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5894889Z info: OperatorFirst/OffsetEndpoint.lean:235:0: 'OperatorFirst.OffsetEndpoint.det_involution_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5896090Z info: OperatorFirst/OffsetEndpoint.lean:236:0: 'OperatorFirst.OffsetEndpoint.complement_determinant_reflection' depends on axioms: [propext,
+2026-09-06T05:11:27.5896808Z  Classical.choice,
+2026-09-06T05:11:27.5897005Z  Quot.sound]
+2026-09-06T05:11:27.5897816Z info: OperatorFirst/OffsetEndpoint.lean:237:0: 'OperatorFirst.OffsetEndpoint.determinant_offset_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5899245Z info: OperatorFirst/OffsetEndpoint.lean:238:0: 'OperatorFirst.OffsetEndpoint.offset_is_negative_twice_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5900492Z info: OperatorFirst/OffsetEndpoint.lean:239:0: 'OperatorFirst.OffsetEndpoint.even_part_cancels' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5901695Z info: OperatorFirst/OffsetEndpoint.lean:240:0: 'OperatorFirst.OffsetEndpoint.offset_is_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5902894Z info: OperatorFirst/OffsetEndpoint.lean:241:0: 'OperatorFirst.OffsetEndpoint.rate_difference_is_offset_difference' depends on axioms: [propext,
+2026-09-06T05:11:27.5903672Z  Classical.choice,
+2026-09-06T05:11:27.5903867Z  Quot.sound]
+2026-09-06T05:11:27.5904643Z info: OperatorFirst/OffsetEndpoint.lean:242:0: 'OperatorFirst.OffsetEndpoint.equal_rates_iff_equal_offsets' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5906123Z info: OperatorFirst/OffsetEndpoint.lean:243:0: 'OperatorFirst.OffsetEndpoint.band_product_excess' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5907345Z info: OperatorFirst/OffsetEndpoint.lean:244:0: 'OperatorFirst.OffsetEndpoint.band_product_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5908770Z info: OperatorFirst/OffsetEndpoint.lean:245:0: 'OperatorFirst.OffsetEndpoint.critical_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5910042Z info: OperatorFirst/OffsetEndpoint.lean:246:0: 'OperatorFirst.OffsetEndpoint.gamma_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5911227Z info: OperatorFirst/OffsetEndpoint.lean:247:0: 'OperatorFirst.OffsetEndpoint.tanh_half_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5912440Z info: OperatorFirst/OffsetEndpoint.lean:248:0: 'OperatorFirst.OffsetEndpoint.exp_scalarOffset' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5913712Z info: OperatorFirst/OffsetEndpoint.lean:249:0: 'OperatorFirst.OffsetEndpoint.asymmetry_eq_tanh' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5914927Z info: OperatorFirst/OffsetEndpoint.lean:250:0: 'OperatorFirst.OffsetEndpoint.shear_det_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5916164Z info: OperatorFirst/OffsetEndpoint.lean:251:0: 'OperatorFirst.OffsetEndpoint.shear_det_one_and_mixes' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5917471Z info: OperatorFirst/OffsetEndpoint.lean:252:0: 'OperatorFirst.OffsetEndpoint.logistic_probabilities' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5919099Z info: OperatorFirst/OffsetEndpoint.lean:253:0: 'OperatorFirst.OffsetEndpoint.logistic_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5920441Z info: OperatorFirst/OffsetEndpoint.lean:254:0: 'OperatorFirst.OffsetEndpoint.logistic_offset' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5921635Z info: OperatorFirst/OffsetEndpoint.lean:255:0: 'OperatorFirst.OffsetEndpoint.reflection_allows_linear_growth' depends on axioms: [propext,
+2026-09-06T05:11:27.5922412Z  Classical.choice,
+2026-09-06T05:11:27.5922614Z  Quot.sound]
+2026-09-06T05:11:27.5923222Z info: OperatorFirst/OffsetEndpoint.lean:256:0: 'OperatorFirst.OffsetEndpoint.nonmonotone_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5924508Z info: OperatorFirst/OffsetEndpoint.lean:257:0: 'OperatorFirst.OffsetEndpoint.nonmonotone_tends' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5925834Z info: OperatorFirst/OffsetEndpoint.lean:258:0: 'OperatorFirst.OffsetEndpoint.nonmonotone_not_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5927063Z info: OperatorFirst/OffsetEndpoint.lean:259:0: 'OperatorFirst.OffsetEndpoint.bounded_convergence_not_monotonicity' depends on axioms: [propext,
+2026-09-06T05:11:27.5927700Z  Classical.choice,
+2026-09-06T05:11:27.5927887Z  Quot.sound]
+2026-09-06T05:11:27.5928492Z ⚠ [8708/8711] Replayed OperatorFirst.EndpointProgress
+2026-09-06T05:11:27.5929242Z warning: OperatorFirst/EndpointProgress.lean:28:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:27.5929779Z 
+2026-09-06T05:11:27.5930006Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:27.5930774Z warning: OperatorFirst/EndpointProgress.lean:87:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:27.5931175Z 
+2026-09-06T05:11:27.5931392Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:27.5932383Z info: OperatorFirst/EndpointProgress.lean:100:0: 'OperatorFirst.EndpointProgress.three_site_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5933932Z info: OperatorFirst/EndpointProgress.lean:101:0: 'OperatorFirst.EndpointProgress.three_site_reflected_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5935228Z info: OperatorFirst/EndpointProgress.lean:102:0: 'OperatorFirst.EndpointProgress.three_site_reflected_difference' depends on axioms: [propext,
+2026-09-06T05:11:27.5935938Z  Classical.choice,
+2026-09-06T05:11:27.5936131Z  Quot.sound]
+2026-09-06T05:11:27.5936908Z info: OperatorFirst/EndpointProgress.lean:103:0: 'OperatorFirst.EndpointProgress.three_site_asymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5938185Z info: OperatorFirst/EndpointProgress.lean:104:0: 'OperatorFirst.EndpointProgress.odd_valuation_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5939669Z info: OperatorFirst/EndpointProgress.lean:105:0: 'OperatorFirst.EndpointProgress.dispersion_square_obstruction' depends on axioms: [propext,
+2026-09-06T05:11:27.5940427Z  Classical.choice,
+2026-09-06T05:11:27.5940652Z  Quot.sound]
+2026-09-06T05:11:27.5941262Z info: OperatorFirst/EndpointProgress.lean:106:0: 'OperatorFirst.EndpointProgress.normalized_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5942352Z info: OperatorFirst/EndpointProgress.lean:107:0: 'OperatorFirst.EndpointProgress.log_ratio_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5943333Z ⚠ [8709/8711] Built OperatorFirst.BandObstruction (4.2s)
+2026-09-06T05:11:27.5943916Z warning: OperatorFirst/BandObstruction.lean:24:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+2026-09-06T05:11:27.5944697Z warning: OperatorFirst/BandObstruction.lean:49:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+2026-09-06T05:11:27.5945784Z info: OperatorFirst/BandObstruction.lean:64:0: 'OperatorFirst.BandObstruction.squared_band_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5947109Z info: OperatorFirst/BandObstruction.lean:65:0: 'OperatorFirst.BandObstruction.polynomial_band_vector_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5947937Z ⚠ [8710/8711] Built OperatorFirst.FiniteCovariance (5.2s)
+2026-09-06T05:11:27.5948941Z warning: OperatorFirst/FiniteCovariance.lean:14:0: automatically included section variable(s) unused in theorem `OperatorFirst.FiniteCovariance.compression_gram`:
+2026-09-06T05:11:27.5949659Z   [DecidableEq ι]
+2026-09-06T05:11:27.5949873Z   [Fintype κ]
+2026-09-06T05:11:27.5950077Z   [DecidableEq κ]
+2026-09-06T05:11:27.5950522Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-06T05:11:27.5951166Z   omit [DecidableEq ι] [Fintype κ] [DecidableEq κ] in theorem ...
+2026-09-06T05:11:27.5951433Z 
+2026-09-06T05:11:27.5951665Z Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-06T05:11:27.5952517Z warning: OperatorFirst/FiniteCovariance.lean:26:0: automatically included section variable(s) unused in theorem `OperatorFirst.FiniteCovariance.complement_compression`:
+2026-09-06T05:11:27.5953239Z   [Fintype κ]
+2026-09-06T05:11:27.5953819Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-06T05:11:27.5954395Z   omit [Fintype κ] in theorem ...
+2026-09-06T05:11:27.5954555Z 
+2026-09-06T05:11:27.5954775Z Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-06T05:11:27.5955591Z info: OperatorFirst/FiniteCovariance.lean:103:0: 'OperatorFirst.FiniteCovariance.compression_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5956715Z info: OperatorFirst/FiniteCovariance.lean:104:0: 'OperatorFirst.FiniteCovariance.complement_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5958019Z info: OperatorFirst/FiniteCovariance.lean:105:0: 'OperatorFirst.FiniteCovariance.complement_compression' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5959391Z info: OperatorFirst/FiniteCovariance.lean:106:0: 'OperatorFirst.FiniteCovariance.compression_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5960514Z info: OperatorFirst/FiniteCovariance.lean:107:0: 'OperatorFirst.FiniteCovariance.compression_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5961625Z info: OperatorFirst/FiniteCovariance.lean:108:0: 'OperatorFirst.FiniteCovariance.compression_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5962676Z info: OperatorFirst/FiniteCovariance.lean:109:0: 'OperatorFirst.FiniteCovariance.formation_determinants_positive' depends on axioms: [propext,
+2026-09-06T05:11:27.5963310Z  Classical.choice,
+2026-09-06T05:11:27.5963503Z  Quot.sound]
+2026-09-06T05:11:27.5964142Z info: OperatorFirst/FiniteCovariance.lean:110:0: 'OperatorFirst.FiniteCovariance.eigenvalue_in_unit_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5965314Z info: OperatorFirst/FiniteCovariance.lean:111:0: 'OperatorFirst.FiniteCovariance.compression_formation_domain' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5966168Z ⚠ [8711/8711] Built OperatorFirst.EndpointTransfer (5.4s)
+2026-09-06T05:11:27.5966692Z warning: OperatorFirst/EndpointTransfer.lean:62:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:27.5967165Z 
+2026-09-06T05:11:27.5967466Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:27.5968080Z warning: OperatorFirst/EndpointTransfer.lean:89:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:27.5968767Z 
+2026-09-06T05:11:27.5969140Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:27.5969760Z warning: OperatorFirst/EndpointTransfer.lean:96:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:27.5970151Z 
+2026-09-06T05:11:27.5970371Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:27.5970914Z warning: OperatorFirst/EndpointTransfer.lean:139:49: this tactic is never executed
+2026-09-06T05:11:27.5971236Z 
+2026-09-06T05:11:27.5971451Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:27.5972017Z warning: OperatorFirst/EndpointTransfer.lean:139:49: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:27.5972387Z 
+2026-09-06T05:11:27.5972586Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:27.5973380Z info: OperatorFirst/EndpointTransfer.lean:234:0: 'OperatorFirst.EndpointTransfer.mix_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5974436Z info: OperatorFirst/EndpointTransfer.lean:235:0: 'OperatorFirst.EndpointTransfer.mix_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5975477Z info: OperatorFirst/EndpointTransfer.lean:236:0: 'OperatorFirst.EndpointTransfer.mix_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5976538Z info: OperatorFirst/EndpointTransfer.lean:237:0: 'OperatorFirst.EndpointTransfer.mix_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5977590Z info: OperatorFirst/EndpointTransfer.lean:238:0: 'OperatorFirst.EndpointTransfer.mix_asymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5978942Z info: OperatorFirst/EndpointTransfer.lean:239:0: 'OperatorFirst.EndpointTransfer.mass_within_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5980037Z info: OperatorFirst/EndpointTransfer.lean:240:0: 'OperatorFirst.EndpointTransfer.three_site_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5981223Z info: OperatorFirst/EndpointTransfer.lean:241:0: 'OperatorFirst.EndpointTransfer.signed_limit_of_exact_transfer' depends on axioms: [propext,
+2026-09-06T05:11:27.5981843Z  Classical.choice,
+2026-09-06T05:11:27.5982039Z  Quot.sound]
+2026-09-06T05:11:27.5982669Z info: OperatorFirst/EndpointTransfer.lean:242:0: 'OperatorFirst.EndpointTransfer.perturbation_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5983795Z info: OperatorFirst/EndpointTransfer.lean:243:0: 'OperatorFirst.EndpointTransfer.perturbation_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5984908Z info: OperatorFirst/EndpointTransfer.lean:244:0: 'OperatorFirst.EndpointTransfer.asymmetry_variance' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5985971Z info: OperatorFirst/EndpointTransfer.lean:245:0: 'OperatorFirst.EndpointTransfer.relative_error_bound_with_variance' depends on axioms: [propext,
+2026-09-06T05:11:27.5986608Z  Classical.choice,
+2026-09-06T05:11:27.5986797Z  Quot.sound]
+2026-09-06T05:11:27.5987405Z info: OperatorFirst/EndpointTransfer.lean:246:0: 'OperatorFirst.EndpointTransfer.relative_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5988798Z info: OperatorFirst/EndpointTransfer.lean:247:0: 'OperatorFirst.EndpointTransfer.limit_of_relative_errors' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:27.5989867Z info: OperatorFirst/EndpointTransfer.lean:248:0: 'OperatorFirst.EndpointTransfer.signed_limit_of_relative_errors' depends on axioms: [propext,
+2026-09-06T05:11:27.5990484Z  Classical.choice,
+2026-09-06T05:11:27.5990671Z  Quot.sound]
+2026-09-06T05:11:27.5991234Z info: OperatorFirst/EndpointTransfer.lean:249:0: 'OperatorFirst.EndpointTransfer.half_offset_magnitude_of_signed_limit' depends on axioms: [propext,
+2026-09-06T05:11:27.5992002Z  Classical.choice,
+2026-09-06T05:11:27.5992225Z  Quot.sound]
+2026-09-06T05:11:27.5992775Z info: OperatorFirst/EndpointTransfer.lean:250:0: 'OperatorFirst.EndpointTransfer.endpoint_of_approximate_transfer' depends on axioms: [propext,
+2026-09-06T05:11:27.5993485Z  Classical.choice,
+2026-09-06T05:11:27.5993837Z  Quot.sound]
+2026-09-06T05:11:27.5994228Z Build completed successfully (8711 jobs).
+2026-09-06T05:11:27.5994425Z 
+2026-09-06T05:11:32.0005119Z EndpointTransfer_build 0 ⚠ [8706/8709] Replayed OperatorFirst.Offset
+2026-09-06T05:11:32.0006277Z warning: OperatorFirst/Offset.lean:81:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:32.0006924Z 
+2026-09-06T05:11:32.0007331Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:32.0008565Z warning: OperatorFirst/Offset.lean:166:35: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:32.0009057Z 
+2026-09-06T05:11:32.0009501Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:32.0010328Z warning: OperatorFirst/Offset.lean:268:26: this tactic is never executed
+2026-09-06T05:11:32.0010671Z 
+2026-09-06T05:11:32.0010922Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:32.0011544Z warning: OperatorFirst/Offset.lean:268:26: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:32.0011933Z 
+2026-09-06T05:11:32.0012170Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:32.0013078Z warning: OperatorFirst/Offset.lean:270:0: automatically included section variable(s) unused in theorem `OperatorFirst.Offset.involution_cancels_quadratic`:
+2026-09-06T05:11:32.0013832Z   [Fintype k]
+2026-09-06T05:11:32.0014022Z   [DecidableEq k]
+2026-09-06T05:11:32.0014484Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-06T05:11:32.0015040Z   omit [Fintype k] [DecidableEq k] in theorem ...
+2026-09-06T05:11:32.0015524Z 
+2026-09-06T05:11:32.0015746Z Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-06T05:11:32.0016282Z warning: OperatorFirst/Offset.lean:301:35: This simp argument is unused:
+2026-09-06T05:11:32.0016649Z   Matrix.one_apply
+2026-09-06T05:11:32.0016767Z 
+2026-09-06T05:11:32.0016872Z Hint: Omit it from the simp argument list.
+2026-09-06T05:11:32.0017154Z   [apply] simp [shear, Matrix.det_fin_two]
+2026-09-06T05:11:32.0017330Z 
+2026-09-06T05:11:32.0017540Z Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+2026-09-06T05:11:32.0018099Z warning: OperatorFirst/Offset.lean:301:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:32.0018770Z 
+2026-09-06T05:11:32.0019034Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:32.0019785Z info: OperatorFirst/Offset.lean:449:0: 'OperatorFirst.Offset.energy_eq_log_odds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0020708Z info: OperatorFirst/Offset.lean:450:0: 'OperatorFirst.Offset.energy_flip' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0021619Z info: OperatorFirst/Offset.lean:451:0: 'OperatorFirst.Offset.spectrumOffset_flip' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0022575Z info: OperatorFirst/Offset.lean:452:0: 'OperatorFirst.Offset.protected_zero_of_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0023498Z info: OperatorFirst/Offset.lean:453:0: 'OperatorFirst.Offset.exp_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0024410Z info: OperatorFirst/Offset.lean:454:0: 'OperatorFirst.Offset.lambda_energy_dictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0025558Z info: OperatorFirst/Offset.lean:455:0: 'OperatorFirst.Offset.emptyProbability_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0026582Z info: OperatorFirst/Offset.lean:456:0: 'OperatorFirst.Offset.fullProbability_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0027512Z info: OperatorFirst/Offset.lean:457:0: 'OperatorFirst.Offset.finite_log_odds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0028636Z info: OperatorFirst/Offset.lean:458:0: 'OperatorFirst.Offset.asymmetry_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0029546Z info: OperatorFirst/Offset.lean:459:0: 'OperatorFirst.Offset.commonScale_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0030470Z info: OperatorFirst/Offset.lean:460:0: 'OperatorFirst.Offset.commonScale_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0031389Z info: OperatorFirst/Offset.lean:461:0: 'OperatorFirst.Offset.asymmetry_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0032299Z info: OperatorFirst/Offset.lean:462:0: 'OperatorFirst.Offset.asymmetry_abs_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0033209Z info: OperatorFirst/Offset.lean:463:0: 'OperatorFirst.Offset.common_factor_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0034116Z info: OperatorFirst/Offset.lean:464:0: 'OperatorFirst.Offset.endpoint_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0035041Z info: OperatorFirst/Offset.lean:465:0: 'OperatorFirst.Offset.scalarOffset_eq_logRatio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0035959Z info: OperatorFirst/Offset.lean:466:0: 'OperatorFirst.Offset.logRatio_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0036866Z info: OperatorFirst/Offset.lean:467:0: 'OperatorFirst.Offset.logRatio_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0038647Z info: OperatorFirst/Offset.lean:468:0: 'OperatorFirst.Offset.abs_logRatio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0039605Z info: OperatorFirst/Offset.lean:469:0: 'OperatorFirst.Offset.abs_scalarOffset' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0040561Z info: OperatorFirst/Offset.lean:470:0: 'OperatorFirst.Offset.cancel_common_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0041580Z info: OperatorFirst/Offset.lean:471:0: 'OperatorFirst.Offset.offset_of_assumed_connection_factors' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0042631Z info: OperatorFirst/Offset.lean:472:0: 'OperatorFirst.Offset.complement_det_eq_of_conjugacy' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0043639Z info: OperatorFirst/Offset.lean:473:0: 'OperatorFirst.Offset.protected_detLogOdds_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0044595Z info: OperatorFirst/Offset.lean:474:0: 'OperatorFirst.Offset.schur_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0045534Z info: OperatorFirst/Offset.lean:475:0: 'OperatorFirst.Offset.schur_determinant_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0046504Z info: OperatorFirst/Offset.lean:476:0: 'OperatorFirst.Offset.involution_cancels_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0047489Z info: OperatorFirst/Offset.lean:477:0: 'OperatorFirst.Offset.shear_in_parity_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0048759Z info: OperatorFirst/Offset.lean:478:0: 'OperatorFirst.Offset.shear_characteristic_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0049941Z info: OperatorFirst/Offset.lean:479:0: 'OperatorFirst.Offset.plus_parity_not_eigenvector' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0050920Z info: OperatorFirst/Offset.lean:480:0: 'OperatorFirst.Offset.scalar_shift_eigenspace' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0051920Z info: OperatorFirst/Offset.lean:481:0: 'OperatorFirst.Offset.scalar_response_has_silent_direction' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0052929Z info: OperatorFirst/Offset.lean:482:0: 'OperatorFirst.Offset.counter_occupations_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0053888Z info: OperatorFirst/Offset.lean:483:0: 'OperatorFirst.Offset.counterFull_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0054839Z info: OperatorFirst/Offset.lean:484:0: 'OperatorFirst.Offset.counterEmpty_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0055833Z info: OperatorFirst/Offset.lean:485:0: 'OperatorFirst.Offset.counter_probability_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0056840Z info: OperatorFirst/Offset.lean:486:0: 'OperatorFirst.Offset.counter_probability_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0057853Z info: OperatorFirst/Offset.lean:487:0: 'OperatorFirst.Offset.counter_linear_response_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0059191Z info: OperatorFirst/Offset.lean:488:0: 'OperatorFirst.Offset.census_cutoff_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0060221Z info: OperatorFirst/Offset.lean:489:0: 'OperatorFirst.Offset.occupation_window_iff_odds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0061216Z info: OperatorFirst/Offset.lean:490:0: 'OperatorFirst.Offset.positive_errors_do_not_fix_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0062329Z info: OperatorFirst/Offset.lean:491:0: 'OperatorFirst.Offset.logRatio_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0063281Z info: OperatorFirst/Offset.lean:492:0: 'OperatorFirst.Offset.offset_limit_of_asymmetry_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0064303Z info: OperatorFirst/Offset.lean:493:0: 'OperatorFirst.Offset.magnitude_limit_of_asymmetry_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0065149Z ⚠ [8707/8709] Replayed OperatorFirst.OffsetEndpoint
+2026-09-06T05:11:32.0065609Z warning: OperatorFirst/OffsetEndpoint.lean:27:61: this tactic is never executed
+2026-09-06T05:11:32.0065933Z 
+2026-09-06T05:11:32.0066160Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:32.0066730Z warning: OperatorFirst/OffsetEndpoint.lean:27:61: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:32.0067091Z 
+2026-09-06T05:11:32.0067303Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:32.0067816Z warning: OperatorFirst/OffsetEndpoint.lean:142:28: this tactic is never executed
+2026-09-06T05:11:32.0068134Z 
+2026-09-06T05:11:32.0068589Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:32.0069196Z warning: OperatorFirst/OffsetEndpoint.lean:137:12: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:32.0069584Z 
+2026-09-06T05:11:32.0069812Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:32.0070391Z warning: OperatorFirst/OffsetEndpoint.lean:142:28: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:32.0070748Z 
+2026-09-06T05:11:32.0070943Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:32.0071454Z warning: OperatorFirst/OffsetEndpoint.lean:154:43: this tactic is never executed
+2026-09-06T05:11:32.0071920Z 
+2026-09-06T05:11:32.0072142Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:32.0072702Z warning: OperatorFirst/OffsetEndpoint.lean:154:43: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:32.0073052Z 
+2026-09-06T05:11:32.0073247Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:32.0073749Z warning: OperatorFirst/OffsetEndpoint.lean:173:22: this tactic is never executed
+2026-09-06T05:11:32.0074061Z 
+2026-09-06T05:11:32.0074269Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:32.0074824Z warning: OperatorFirst/OffsetEndpoint.lean:173:22: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:32.0075180Z 
+2026-09-06T05:11:32.0075371Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:32.0075961Z warning: OperatorFirst/OffsetEndpoint.lean:181:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:32.0076351Z 
+2026-09-06T05:11:32.0076577Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:32.0077387Z info: OperatorFirst/OffsetEndpoint.lean:230:0: 'OperatorFirst.OffsetEndpoint.sigma_involution' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0078718Z info: OperatorFirst/OffsetEndpoint.lean:231:0: 'OperatorFirst.OffsetEndpoint.sublattice_conjugation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0079855Z info: OperatorFirst/OffsetEndpoint.lean:232:0: 'OperatorFirst.OffsetEndpoint.band_complement_conjugation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0080982Z info: OperatorFirst/OffsetEndpoint.lean:233:0: 'OperatorFirst.OffsetEndpoint.diagonal_conjugation_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0082127Z info: OperatorFirst/OffsetEndpoint.lean:234:0: 'OperatorFirst.OffsetEndpoint.block_complement_conjugation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0083361Z info: OperatorFirst/OffsetEndpoint.lean:235:0: 'OperatorFirst.OffsetEndpoint.det_involution_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0084377Z info: OperatorFirst/OffsetEndpoint.lean:236:0: 'OperatorFirst.OffsetEndpoint.complement_determinant_reflection' depends on axioms: [propext,
+2026-09-06T05:11:32.0084999Z  Classical.choice,
+2026-09-06T05:11:32.0085195Z  Quot.sound]
+2026-09-06T05:11:32.0085835Z info: OperatorFirst/OffsetEndpoint.lean:237:0: 'OperatorFirst.OffsetEndpoint.determinant_offset_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0086977Z info: OperatorFirst/OffsetEndpoint.lean:238:0: 'OperatorFirst.OffsetEndpoint.offset_is_negative_twice_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0088434Z info: OperatorFirst/OffsetEndpoint.lean:239:0: 'OperatorFirst.OffsetEndpoint.even_part_cancels' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0090283Z info: OperatorFirst/OffsetEndpoint.lean:240:0: 'OperatorFirst.OffsetEndpoint.offset_is_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0091484Z info: OperatorFirst/OffsetEndpoint.lean:241:0: 'OperatorFirst.OffsetEndpoint.rate_difference_is_offset_difference' depends on axioms: [propext,
+2026-09-06T05:11:32.0092115Z  Classical.choice,
+2026-09-06T05:11:32.0092432Z  Quot.sound]
+2026-09-06T05:11:32.0093094Z info: OperatorFirst/OffsetEndpoint.lean:242:0: 'OperatorFirst.OffsetEndpoint.equal_rates_iff_equal_offsets' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0094375Z info: OperatorFirst/OffsetEndpoint.lean:243:0: 'OperatorFirst.OffsetEndpoint.band_product_excess' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0095871Z info: OperatorFirst/OffsetEndpoint.lean:244:0: 'OperatorFirst.OffsetEndpoint.band_product_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0097294Z info: OperatorFirst/OffsetEndpoint.lean:245:0: 'OperatorFirst.OffsetEndpoint.critical_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0098661Z info: OperatorFirst/OffsetEndpoint.lean:246:0: 'OperatorFirst.OffsetEndpoint.gamma_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0099935Z info: OperatorFirst/OffsetEndpoint.lean:247:0: 'OperatorFirst.OffsetEndpoint.tanh_half_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0101141Z info: OperatorFirst/OffsetEndpoint.lean:248:0: 'OperatorFirst.OffsetEndpoint.exp_scalarOffset' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0102369Z info: OperatorFirst/OffsetEndpoint.lean:249:0: 'OperatorFirst.OffsetEndpoint.asymmetry_eq_tanh' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0103579Z info: OperatorFirst/OffsetEndpoint.lean:250:0: 'OperatorFirst.OffsetEndpoint.shear_det_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0104780Z info: OperatorFirst/OffsetEndpoint.lean:251:0: 'OperatorFirst.OffsetEndpoint.shear_det_one_and_mixes' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0106017Z info: OperatorFirst/OffsetEndpoint.lean:252:0: 'OperatorFirst.OffsetEndpoint.logistic_probabilities' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0107254Z info: OperatorFirst/OffsetEndpoint.lean:253:0: 'OperatorFirst.OffsetEndpoint.logistic_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0108578Z info: OperatorFirst/OffsetEndpoint.lean:254:0: 'OperatorFirst.OffsetEndpoint.logistic_offset' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0109798Z info: OperatorFirst/OffsetEndpoint.lean:255:0: 'OperatorFirst.OffsetEndpoint.reflection_allows_linear_growth' depends on axioms: [propext,
+2026-09-06T05:11:32.0110748Z  Classical.choice,
+2026-09-06T05:11:32.0110954Z  Quot.sound]
+2026-09-06T05:11:32.0111739Z info: OperatorFirst/OffsetEndpoint.lean:256:0: 'OperatorFirst.OffsetEndpoint.nonmonotone_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0112964Z info: OperatorFirst/OffsetEndpoint.lean:257:0: 'OperatorFirst.OffsetEndpoint.nonmonotone_tends' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0114208Z info: OperatorFirst/OffsetEndpoint.lean:258:0: 'OperatorFirst.OffsetEndpoint.nonmonotone_not_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0115420Z info: OperatorFirst/OffsetEndpoint.lean:259:0: 'OperatorFirst.OffsetEndpoint.bounded_convergence_not_monotonicity' depends on axioms: [propext,
+2026-09-06T05:11:32.0116201Z  Classical.choice,
+2026-09-06T05:11:32.0116398Z  Quot.sound]
+2026-09-06T05:11:32.0116767Z ⚠ [8708/8709] Replayed OperatorFirst.EndpointProgress
+2026-09-06T05:11:32.0117475Z warning: OperatorFirst/EndpointProgress.lean:28:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:32.0117878Z 
+2026-09-06T05:11:32.0118114Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:32.0119006Z warning: OperatorFirst/EndpointProgress.lean:87:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:32.0119597Z 
+2026-09-06T05:11:32.0119836Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:32.0120827Z info: OperatorFirst/EndpointProgress.lean:100:0: 'OperatorFirst.EndpointProgress.three_site_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0122127Z info: OperatorFirst/EndpointProgress.lean:101:0: 'OperatorFirst.EndpointProgress.three_site_reflected_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0123580Z info: OperatorFirst/EndpointProgress.lean:102:0: 'OperatorFirst.EndpointProgress.three_site_reflected_difference' depends on axioms: [propext,
+2026-09-06T05:11:32.0124462Z  Classical.choice,
+2026-09-06T05:11:32.0124670Z  Quot.sound]
+2026-09-06T05:11:32.0125370Z info: OperatorFirst/EndpointProgress.lean:103:0: 'OperatorFirst.EndpointProgress.three_site_asymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0126783Z info: OperatorFirst/EndpointProgress.lean:104:0: 'OperatorFirst.EndpointProgress.odd_valuation_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0128050Z info: OperatorFirst/EndpointProgress.lean:105:0: 'OperatorFirst.EndpointProgress.dispersion_square_obstruction' depends on axioms: [propext,
+2026-09-06T05:11:32.0129173Z  Classical.choice,
+2026-09-06T05:11:32.0129455Z  Quot.sound]
+2026-09-06T05:11:32.0130080Z info: OperatorFirst/EndpointProgress.lean:106:0: 'OperatorFirst.EndpointProgress.normalized_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0131515Z info: OperatorFirst/EndpointProgress.lean:107:0: 'OperatorFirst.EndpointProgress.log_ratio_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0132473Z ⚠ [8709/8709] Replayed OperatorFirst.EndpointTransfer
+2026-09-06T05:11:32.0133184Z warning: OperatorFirst/EndpointTransfer.lean:62:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:32.0133577Z 
+2026-09-06T05:11:32.0133808Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:32.0134607Z warning: OperatorFirst/EndpointTransfer.lean:89:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:32.0135001Z 
+2026-09-06T05:11:32.0135359Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:32.0136000Z warning: OperatorFirst/EndpointTransfer.lean:96:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:32.0136498Z 
+2026-09-06T05:11:32.0136799Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:32.0137535Z warning: OperatorFirst/EndpointTransfer.lean:139:49: this tactic is never executed
+2026-09-06T05:11:32.0138071Z 
+2026-09-06T05:11:32.0138528Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:32.0139317Z warning: OperatorFirst/EndpointTransfer.lean:139:49: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:32.0139786Z 
+2026-09-06T05:11:32.0140023Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:32.0141163Z info: OperatorFirst/EndpointTransfer.lean:234:0: 'OperatorFirst.EndpointTransfer.mix_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0142725Z info: OperatorFirst/EndpointTransfer.lean:235:0: 'OperatorFirst.EndpointTransfer.mix_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0144213Z info: OperatorFirst/EndpointTransfer.lean:236:0: 'OperatorFirst.EndpointTransfer.mix_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0145635Z info: OperatorFirst/EndpointTransfer.lean:237:0: 'OperatorFirst.EndpointTransfer.mix_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0147083Z info: OperatorFirst/EndpointTransfer.lean:238:0: 'OperatorFirst.EndpointTransfer.mix_asymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0148603Z info: OperatorFirst/EndpointTransfer.lean:239:0: 'OperatorFirst.EndpointTransfer.mass_within_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0150097Z info: OperatorFirst/EndpointTransfer.lean:240:0: 'OperatorFirst.EndpointTransfer.three_site_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0151476Z info: OperatorFirst/EndpointTransfer.lean:241:0: 'OperatorFirst.EndpointTransfer.signed_limit_of_exact_transfer' depends on axioms: [propext,
+2026-09-06T05:11:32.0152380Z  Classical.choice,
+2026-09-06T05:11:32.0152958Z  Quot.sound]
+2026-09-06T05:11:32.0153770Z info: OperatorFirst/EndpointTransfer.lean:242:0: 'OperatorFirst.EndpointTransfer.perturbation_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0208590Z info: OperatorFirst/EndpointTransfer.lean:243:0: 'OperatorFirst.EndpointTransfer.perturbation_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0210609Z info: OperatorFirst/EndpointTransfer.lean:244:0: 'OperatorFirst.EndpointTransfer.asymmetry_variance' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0212169Z info: OperatorFirst/EndpointTransfer.lean:245:0: 'OperatorFirst.EndpointTransfer.relative_error_bound_with_variance' depends on axioms: [propext,
+2026-09-06T05:11:32.0212848Z  Classical.choice,
+2026-09-06T05:11:32.0213050Z  Quot.sound]
+2026-09-06T05:11:32.0213689Z info: OperatorFirst/EndpointTransfer.lean:246:0: 'OperatorFirst.EndpointTransfer.relative_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0214828Z info: OperatorFirst/EndpointTransfer.lean:247:0: 'OperatorFirst.EndpointTransfer.limit_of_relative_errors' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:32.0215905Z info: OperatorFirst/EndpointTransfer.lean:248:0: 'OperatorFirst.EndpointTransfer.signed_limit_of_relative_errors' depends on axioms: [propext,
+2026-09-06T05:11:32.0216530Z  Classical.choice,
+2026-09-06T05:11:32.0216728Z  Quot.sound]
+2026-09-06T05:11:32.0217298Z info: OperatorFirst/EndpointTransfer.lean:249:0: 'OperatorFirst.EndpointTransfer.half_offset_magnitude_of_signed_limit' depends on axioms: [propext,
+2026-09-06T05:11:32.0217932Z  Classical.choice,
+2026-09-06T05:11:32.0218122Z  Quot.sound]
+2026-09-06T05:11:32.0218992Z info: OperatorFirst/EndpointTransfer.lean:250:0: 'OperatorFirst.EndpointTransfer.endpoint_of_approximate_transfer' depends on axioms: [propext,
+2026-09-06T05:11:32.0219866Z  Classical.choice,
+2026-09-06T05:11:32.0220062Z  Quot.sound]
+2026-09-06T05:11:32.0220270Z Build completed successfully (8709 jobs).
+2026-09-06T05:11:32.0220465Z 
+2026-09-06T05:11:38.1070026Z EndpointTransfer_axioms 0 OperatorFirst/EndpointTransfer.lean:62:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:38.1071244Z 
+2026-09-06T05:11:38.1071789Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:38.1072892Z OperatorFirst/EndpointTransfer.lean:89:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:38.1073635Z 
+2026-09-06T05:11:38.1073985Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:38.1075051Z OperatorFirst/EndpointTransfer.lean:96:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:38.1075490Z 
+2026-09-06T05:11:38.1076057Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:38.1077111Z OperatorFirst/EndpointTransfer.lean:139:49: warning: this tactic is never executed
+2026-09-06T05:11:38.1077490Z 
+2026-09-06T05:11:38.1078030Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:38.1079254Z OperatorFirst/EndpointTransfer.lean:139:49: warning: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:38.1079768Z 
+2026-09-06T05:11:38.1080222Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:38.1080873Z 'OperatorFirst.EndpointTransfer.mix_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:38.1081617Z 'OperatorFirst.EndpointTransfer.mix_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:38.1082330Z 'OperatorFirst.EndpointTransfer.mix_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:38.1083292Z 'OperatorFirst.EndpointTransfer.mix_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:38.1084032Z 'OperatorFirst.EndpointTransfer.mix_asymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:38.1084763Z 'OperatorFirst.EndpointTransfer.mass_within_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:38.1085527Z 'OperatorFirst.EndpointTransfer.three_site_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:38.1086249Z 'OperatorFirst.EndpointTransfer.signed_limit_of_exact_transfer' depends on axioms: [propext,
+2026-09-06T05:11:38.1086710Z  Classical.choice,
+2026-09-06T05:11:38.1086912Z  Quot.sound]
+2026-09-06T05:11:38.1087378Z 'OperatorFirst.EndpointTransfer.perturbation_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:38.1088170Z 'OperatorFirst.EndpointTransfer.perturbation_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:38.1089221Z 'OperatorFirst.EndpointTransfer.asymmetry_variance' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:38.1089964Z 'OperatorFirst.EndpointTransfer.relative_error_bound_with_variance' depends on axioms: [propext,
+2026-09-06T05:11:38.1090650Z  Classical.choice,
+2026-09-06T05:11:38.1090980Z  Quot.sound]
+2026-09-06T05:11:38.1091814Z 'OperatorFirst.EndpointTransfer.relative_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:38.1092920Z 'OperatorFirst.EndpointTransfer.limit_of_relative_errors' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:38.1093940Z 'OperatorFirst.EndpointTransfer.signed_limit_of_relative_errors' depends on axioms: [propext,
+2026-09-06T05:11:38.1094559Z  Classical.choice,
+2026-09-06T05:11:38.1095015Z  Quot.sound]
+2026-09-06T05:11:38.1095803Z 'OperatorFirst.EndpointTransfer.half_offset_magnitude_of_signed_limit' depends on axioms: [propext,
+2026-09-06T05:11:38.1096451Z  Classical.choice,
+2026-09-06T05:11:38.1096932Z  Quot.sound]
+2026-09-06T05:11:38.1097707Z 'OperatorFirst.EndpointTransfer.endpoint_of_approximate_transfer' depends on axioms: [propext,
+2026-09-06T05:11:38.1098812Z  Classical.choice,
+2026-09-06T05:11:38.1099282Z  Quot.sound]
+2026-09-06T05:11:38.1099578Z 
+2026-09-06T05:11:47.7089226Z EndpointTransfer_kernel 0 
+2026-09-06T05:11:52.1022618Z FiniteCovariance_build 0 ⚠ [8706/8708] Replayed OperatorFirst.Offset
+2026-09-06T05:11:52.1023424Z warning: OperatorFirst/Offset.lean:81:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:52.1023856Z 
+2026-09-06T05:11:52.1024123Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:52.1024808Z warning: OperatorFirst/Offset.lean:166:35: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:52.1025231Z 
+2026-09-06T05:11:52.1025487Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:52.1026083Z warning: OperatorFirst/Offset.lean:268:26: this tactic is never executed
+2026-09-06T05:11:52.1026499Z 
+2026-09-06T05:11:52.1026751Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:52.1027372Z warning: OperatorFirst/Offset.lean:268:26: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:52.1027745Z 
+2026-09-06T05:11:52.1027975Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:52.1029178Z warning: OperatorFirst/Offset.lean:270:0: automatically included section variable(s) unused in theorem `OperatorFirst.Offset.involution_cancels_quadratic`:
+2026-09-06T05:11:52.1029941Z   [Fintype k]
+2026-09-06T05:11:52.1030153Z   [DecidableEq k]
+2026-09-06T05:11:52.1030678Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-06T05:11:52.1031328Z   omit [Fintype k] [DecidableEq k] in theorem ...
+2026-09-06T05:11:52.1031564Z 
+2026-09-06T05:11:52.1031816Z Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-06T05:11:52.1032591Z warning: OperatorFirst/Offset.lean:301:35: This simp argument is unused:
+2026-09-06T05:11:52.1032973Z   Matrix.one_apply
+2026-09-06T05:11:52.1033099Z 
+2026-09-06T05:11:52.1033204Z Hint: Omit it from the simp argument list.
+2026-09-06T05:11:52.1033487Z   [apply] simp [shear, Matrix.det_fin_two]
+2026-09-06T05:11:52.1033672Z 
+2026-09-06T05:11:52.1033928Z Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+2026-09-06T05:11:52.1034485Z warning: OperatorFirst/Offset.lean:301:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:52.1034847Z 
+2026-09-06T05:11:52.1035071Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:52.1035810Z info: OperatorFirst/Offset.lean:449:0: 'OperatorFirst.Offset.energy_eq_log_odds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1036758Z info: OperatorFirst/Offset.lean:450:0: 'OperatorFirst.Offset.energy_flip' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1037669Z info: OperatorFirst/Offset.lean:451:0: 'OperatorFirst.Offset.spectrumOffset_flip' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1038899Z info: OperatorFirst/Offset.lean:452:0: 'OperatorFirst.Offset.protected_zero_of_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1039822Z info: OperatorFirst/Offset.lean:453:0: 'OperatorFirst.Offset.exp_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1040731Z info: OperatorFirst/Offset.lean:454:0: 'OperatorFirst.Offset.lambda_energy_dictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1041713Z info: OperatorFirst/Offset.lean:455:0: 'OperatorFirst.Offset.emptyProbability_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1042706Z info: OperatorFirst/Offset.lean:456:0: 'OperatorFirst.Offset.fullProbability_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1043819Z info: OperatorFirst/Offset.lean:457:0: 'OperatorFirst.Offset.finite_log_odds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1044734Z info: OperatorFirst/Offset.lean:458:0: 'OperatorFirst.Offset.asymmetry_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1045645Z info: OperatorFirst/Offset.lean:459:0: 'OperatorFirst.Offset.commonScale_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1046570Z info: OperatorFirst/Offset.lean:460:0: 'OperatorFirst.Offset.commonScale_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1047490Z info: OperatorFirst/Offset.lean:461:0: 'OperatorFirst.Offset.asymmetry_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1048697Z info: OperatorFirst/Offset.lean:462:0: 'OperatorFirst.Offset.asymmetry_abs_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1050312Z info: OperatorFirst/Offset.lean:463:0: 'OperatorFirst.Offset.common_factor_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1051911Z info: OperatorFirst/Offset.lean:464:0: 'OperatorFirst.Offset.endpoint_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1053547Z info: OperatorFirst/Offset.lean:465:0: 'OperatorFirst.Offset.scalarOffset_eq_logRatio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1055178Z info: OperatorFirst/Offset.lean:466:0: 'OperatorFirst.Offset.logRatio_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1056767Z info: OperatorFirst/Offset.lean:467:0: 'OperatorFirst.Offset.logRatio_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1058687Z info: OperatorFirst/Offset.lean:468:0: 'OperatorFirst.Offset.abs_logRatio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1060287Z info: OperatorFirst/Offset.lean:469:0: 'OperatorFirst.Offset.abs_scalarOffset' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1061941Z info: OperatorFirst/Offset.lean:470:0: 'OperatorFirst.Offset.cancel_common_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1063719Z info: OperatorFirst/Offset.lean:471:0: 'OperatorFirst.Offset.offset_of_assumed_connection_factors' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1065519Z info: OperatorFirst/Offset.lean:472:0: 'OperatorFirst.Offset.complement_det_eq_of_conjugacy' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1067254Z info: OperatorFirst/Offset.lean:473:0: 'OperatorFirst.Offset.protected_detLogOdds_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1069107Z info: OperatorFirst/Offset.lean:474:0: 'OperatorFirst.Offset.schur_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1070771Z info: OperatorFirst/Offset.lean:475:0: 'OperatorFirst.Offset.schur_determinant_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1072514Z info: OperatorFirst/Offset.lean:476:0: 'OperatorFirst.Offset.involution_cancels_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1074336Z info: OperatorFirst/Offset.lean:477:0: 'OperatorFirst.Offset.shear_in_parity_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1076065Z info: OperatorFirst/Offset.lean:478:0: 'OperatorFirst.Offset.shear_characteristic_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1077720Z info: OperatorFirst/Offset.lean:479:0: 'OperatorFirst.Offset.plus_parity_not_eigenvector' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1078929Z info: OperatorFirst/Offset.lean:480:0: 'OperatorFirst.Offset.scalar_shift_eigenspace' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1080123Z info: OperatorFirst/Offset.lean:481:0: 'OperatorFirst.Offset.scalar_response_has_silent_direction' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1081138Z info: OperatorFirst/Offset.lean:482:0: 'OperatorFirst.Offset.counter_occupations_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1082115Z info: OperatorFirst/Offset.lean:483:0: 'OperatorFirst.Offset.counterFull_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1083071Z info: OperatorFirst/Offset.lean:484:0: 'OperatorFirst.Offset.counterEmpty_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1084065Z info: OperatorFirst/Offset.lean:485:0: 'OperatorFirst.Offset.counter_probability_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1085087Z info: OperatorFirst/Offset.lean:486:0: 'OperatorFirst.Offset.counter_probability_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1086114Z info: OperatorFirst/Offset.lean:487:0: 'OperatorFirst.Offset.counter_linear_response_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1087533Z info: OperatorFirst/Offset.lean:488:0: 'OperatorFirst.Offset.census_cutoff_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1089255Z info: OperatorFirst/Offset.lean:489:0: 'OperatorFirst.Offset.occupation_window_iff_odds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1090492Z info: OperatorFirst/Offset.lean:490:0: 'OperatorFirst.Offset.positive_errors_do_not_fix_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1091677Z info: OperatorFirst/Offset.lean:491:0: 'OperatorFirst.Offset.logRatio_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1093120Z info: OperatorFirst/Offset.lean:492:0: 'OperatorFirst.Offset.offset_limit_of_asymmetry_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1094347Z info: OperatorFirst/Offset.lean:493:0: 'OperatorFirst.Offset.magnitude_limit_of_asymmetry_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1095369Z ⚠ [8707/8708] Replayed OperatorFirst.OffsetEndpoint
+2026-09-06T05:11:52.1095826Z warning: OperatorFirst/OffsetEndpoint.lean:27:61: this tactic is never executed
+2026-09-06T05:11:52.1096311Z 
+2026-09-06T05:11:52.1096542Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:52.1097179Z warning: OperatorFirst/OffsetEndpoint.lean:27:61: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:52.1097612Z 
+2026-09-06T05:11:52.1097821Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:52.1098602Z warning: OperatorFirst/OffsetEndpoint.lean:142:28: this tactic is never executed
+2026-09-06T05:11:52.1098943Z 
+2026-09-06T05:11:52.1099164Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:52.1099922Z warning: OperatorFirst/OffsetEndpoint.lean:137:12: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:52.1100325Z 
+2026-09-06T05:11:52.1100549Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:52.1101278Z warning: OperatorFirst/OffsetEndpoint.lean:142:28: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:52.1101634Z 
+2026-09-06T05:11:52.1101833Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:52.1102501Z warning: OperatorFirst/OffsetEndpoint.lean:154:43: this tactic is never executed
+2026-09-06T05:11:52.1102822Z 
+2026-09-06T05:11:52.1103039Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:52.1104124Z warning: OperatorFirst/OffsetEndpoint.lean:154:43: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:52.1104999Z 
+2026-09-06T05:11:52.1105332Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:52.1106190Z warning: OperatorFirst/OffsetEndpoint.lean:173:22: this tactic is never executed
+2026-09-06T05:11:52.1106727Z 
+2026-09-06T05:11:52.1107123Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:11:52.1108143Z warning: OperatorFirst/OffsetEndpoint.lean:173:22: Unused tactic linter: `ring` does nothing
+2026-09-06T05:11:52.1108983Z 
+2026-09-06T05:11:52.1109333Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:11:52.1110362Z warning: OperatorFirst/OffsetEndpoint.lean:181:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:11:52.1111080Z 
+2026-09-06T05:11:52.1111487Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:11:52.1112967Z info: OperatorFirst/OffsetEndpoint.lean:230:0: 'OperatorFirst.OffsetEndpoint.sigma_involution' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1114990Z info: OperatorFirst/OffsetEndpoint.lean:231:0: 'OperatorFirst.OffsetEndpoint.sublattice_conjugation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1117052Z info: OperatorFirst/OffsetEndpoint.lean:232:0: 'OperatorFirst.OffsetEndpoint.band_complement_conjugation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1119417Z info: OperatorFirst/OffsetEndpoint.lean:233:0: 'OperatorFirst.OffsetEndpoint.diagonal_conjugation_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1121557Z info: OperatorFirst/OffsetEndpoint.lean:234:0: 'OperatorFirst.OffsetEndpoint.block_complement_conjugation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1123768Z info: OperatorFirst/OffsetEndpoint.lean:235:0: 'OperatorFirst.OffsetEndpoint.det_involution_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1125691Z info: OperatorFirst/OffsetEndpoint.lean:236:0: 'OperatorFirst.OffsetEndpoint.complement_determinant_reflection' depends on axioms: [propext,
+2026-09-06T05:11:52.1127037Z  Classical.choice,
+2026-09-06T05:11:52.1127460Z  Quot.sound]
+2026-09-06T05:11:52.1128951Z info: OperatorFirst/OffsetEndpoint.lean:237:0: 'OperatorFirst.OffsetEndpoint.determinant_offset_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1131306Z info: OperatorFirst/OffsetEndpoint.lean:238:0: 'OperatorFirst.OffsetEndpoint.offset_is_negative_twice_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1133579Z info: OperatorFirst/OffsetEndpoint.lean:239:0: 'OperatorFirst.OffsetEndpoint.even_part_cancels' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1135790Z info: OperatorFirst/OffsetEndpoint.lean:240:0: 'OperatorFirst.OffsetEndpoint.offset_is_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1137759Z info: OperatorFirst/OffsetEndpoint.lean:241:0: 'OperatorFirst.OffsetEndpoint.rate_difference_is_offset_difference' depends on axioms: [propext,
+2026-09-06T05:11:52.1139083Z  Classical.choice,
+2026-09-06T05:11:52.1139412Z  Quot.sound]
+2026-09-06T05:11:52.1140537Z info: OperatorFirst/OffsetEndpoint.lean:242:0: 'OperatorFirst.OffsetEndpoint.equal_rates_iff_equal_offsets' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1142550Z info: OperatorFirst/OffsetEndpoint.lean:243:0: 'OperatorFirst.OffsetEndpoint.band_product_excess' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1144517Z info: OperatorFirst/OffsetEndpoint.lean:244:0: 'OperatorFirst.OffsetEndpoint.band_product_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1146534Z info: OperatorFirst/OffsetEndpoint.lean:245:0: 'OperatorFirst.OffsetEndpoint.critical_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1148881Z info: OperatorFirst/OffsetEndpoint.lean:246:0: 'OperatorFirst.OffsetEndpoint.gamma_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1150836Z info: OperatorFirst/OffsetEndpoint.lean:247:0: 'OperatorFirst.OffsetEndpoint.tanh_half_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1152837Z info: OperatorFirst/OffsetEndpoint.lean:248:0: 'OperatorFirst.OffsetEndpoint.exp_scalarOffset' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1154861Z info: OperatorFirst/OffsetEndpoint.lean:249:0: 'OperatorFirst.OffsetEndpoint.asymmetry_eq_tanh' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1156853Z info: OperatorFirst/OffsetEndpoint.lean:250:0: 'OperatorFirst.OffsetEndpoint.shear_det_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1159137Z info: OperatorFirst/OffsetEndpoint.lean:251:0: 'OperatorFirst.OffsetEndpoint.shear_det_one_and_mixes' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1161553Z info: OperatorFirst/OffsetEndpoint.lean:252:0: 'OperatorFirst.OffsetEndpoint.logistic_probabilities' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1163674Z info: OperatorFirst/OffsetEndpoint.lean:253:0: 'OperatorFirst.OffsetEndpoint.logistic_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1165721Z info: OperatorFirst/OffsetEndpoint.lean:254:0: 'OperatorFirst.OffsetEndpoint.logistic_offset' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1167646Z info: OperatorFirst/OffsetEndpoint.lean:255:0: 'OperatorFirst.OffsetEndpoint.reflection_allows_linear_growth' depends on axioms: [propext,
+2026-09-06T05:11:52.1168976Z  Classical.choice,
+2026-09-06T05:11:52.1169320Z  Quot.sound]
+2026-09-06T05:11:52.1170656Z info: OperatorFirst/OffsetEndpoint.lean:256:0: 'OperatorFirst.OffsetEndpoint.nonmonotone_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1172730Z info: OperatorFirst/OffsetEndpoint.lean:257:0: 'OperatorFirst.OffsetEndpoint.nonmonotone_tends' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1174819Z info: OperatorFirst/OffsetEndpoint.lean:258:0: 'OperatorFirst.OffsetEndpoint.nonmonotone_not_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1176858Z info: OperatorFirst/OffsetEndpoint.lean:259:0: 'OperatorFirst.OffsetEndpoint.bounded_convergence_not_monotonicity' depends on axioms: [propext,
+2026-09-06T05:11:52.1178043Z  Classical.choice,
+2026-09-06T05:11:52.1178549Z  Quot.sound]
+2026-09-06T05:11:52.1179164Z ⚠ [8708/8708] Replayed OperatorFirst.FiniteCovariance
+2026-09-06T05:11:52.1180576Z warning: OperatorFirst/FiniteCovariance.lean:14:0: automatically included section variable(s) unused in theorem `OperatorFirst.FiniteCovariance.compression_gram`:
+2026-09-06T05:11:52.1181932Z   [DecidableEq ι]
+2026-09-06T05:11:52.1182295Z   [Fintype κ]
+2026-09-06T05:11:52.1182651Z   [DecidableEq κ]
+2026-09-06T05:11:52.1183468Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-06T05:11:52.1184652Z   omit [DecidableEq ι] [Fintype κ] [DecidableEq κ] in theorem ...
+2026-09-06T05:11:52.1185117Z 
+2026-09-06T05:11:52.1185512Z Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-06T05:11:52.1187112Z warning: OperatorFirst/FiniteCovariance.lean:26:0: automatically included section variable(s) unused in theorem `OperatorFirst.FiniteCovariance.complement_compression`:
+2026-09-06T05:11:52.1188672Z   [Fintype κ]
+2026-09-06T05:11:52.1189661Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-06T05:11:52.1190969Z   omit [Fintype κ] in theorem ...
+2026-09-06T05:11:52.1191314Z 
+2026-09-06T05:11:52.1192239Z Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-06T05:11:52.1193668Z info: OperatorFirst/FiniteCovariance.lean:103:0: 'OperatorFirst.FiniteCovariance.compression_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1195075Z info: OperatorFirst/FiniteCovariance.lean:104:0: 'OperatorFirst.FiniteCovariance.complement_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1196423Z info: OperatorFirst/FiniteCovariance.lean:105:0: 'OperatorFirst.FiniteCovariance.complement_compression' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1197775Z info: OperatorFirst/FiniteCovariance.lean:106:0: 'OperatorFirst.FiniteCovariance.compression_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1199498Z info: OperatorFirst/FiniteCovariance.lean:107:0: 'OperatorFirst.FiniteCovariance.compression_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1200778Z info: OperatorFirst/FiniteCovariance.lean:108:0: 'OperatorFirst.FiniteCovariance.compression_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1201846Z info: OperatorFirst/FiniteCovariance.lean:109:0: 'OperatorFirst.FiniteCovariance.formation_determinants_positive' depends on axioms: [propext,
+2026-09-06T05:11:52.1202474Z  Classical.choice,
+2026-09-06T05:11:52.1202725Z  Quot.sound]
+2026-09-06T05:11:52.1203465Z info: OperatorFirst/FiniteCovariance.lean:110:0: 'OperatorFirst.FiniteCovariance.eigenvalue_in_unit_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1204639Z info: OperatorFirst/FiniteCovariance.lean:111:0: 'OperatorFirst.FiniteCovariance.compression_formation_domain' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:52.1205379Z Build completed successfully (8708 jobs).
+2026-09-06T05:11:52.1205572Z 
+2026-09-06T05:11:57.7723842Z FiniteCovariance_axioms 0 OperatorFirst/FiniteCovariance.lean:14:0: warning: automatically included section variable(s) unused in theorem `OperatorFirst.FiniteCovariance.compression_gram`:
+2026-09-06T05:11:57.7725585Z   [DecidableEq ι]
+2026-09-06T05:11:57.7725971Z   [Fintype κ]
+2026-09-06T05:11:57.7726268Z   [DecidableEq κ]
+2026-09-06T05:11:57.7726782Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-06T05:11:57.7727847Z   omit [DecidableEq ι] [Fintype κ] [DecidableEq κ] in theorem ...
+2026-09-06T05:11:57.7728157Z 
+2026-09-06T05:11:57.7728705Z Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-06T05:11:57.7729737Z OperatorFirst/FiniteCovariance.lean:26:0: warning: automatically included section variable(s) unused in theorem `OperatorFirst.FiniteCovariance.complement_compression`:
+2026-09-06T05:11:57.7730613Z   [Fintype κ]
+2026-09-06T05:11:57.7731139Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-06T05:11:57.7731799Z   omit [Fintype κ] in theorem ...
+2026-09-06T05:11:57.7731982Z 
+2026-09-06T05:11:57.7732235Z Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-06T05:11:57.7732998Z 'OperatorFirst.FiniteCovariance.compression_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:57.7733928Z 'OperatorFirst.FiniteCovariance.complement_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:57.7734879Z 'OperatorFirst.FiniteCovariance.complement_compression' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:57.7735833Z 'OperatorFirst.FiniteCovariance.compression_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:57.7736774Z 'OperatorFirst.FiniteCovariance.compression_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:57.7737714Z 'OperatorFirst.FiniteCovariance.compression_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:57.7739050Z 'OperatorFirst.FiniteCovariance.formation_determinants_positive' depends on axioms: [propext,
+2026-09-06T05:11:57.7739529Z  Classical.choice,
+2026-09-06T05:11:57.7739725Z  Quot.sound]
+2026-09-06T05:11:57.7740213Z 'OperatorFirst.FiniteCovariance.eigenvalue_in_unit_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:57.7741063Z 'OperatorFirst.FiniteCovariance.compression_formation_domain' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:11:57.7741537Z 
+2026-09-06T05:12:07.2814996Z FiniteCovariance_kernel 0 
+2026-09-06T05:12:11.6844330Z BandObstruction_build 0 ⚠ [8706/8709] Replayed OperatorFirst.Offset
+2026-09-06T05:12:11.6845284Z warning: OperatorFirst/Offset.lean:81:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:12:11.6845948Z 
+2026-09-06T05:12:11.6846396Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:12:11.6847208Z warning: OperatorFirst/Offset.lean:166:35: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:12:11.6847605Z 
+2026-09-06T05:12:11.6847854Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:12:11.6848757Z warning: OperatorFirst/Offset.lean:268:26: this tactic is never executed
+2026-09-06T05:12:11.6849089Z 
+2026-09-06T05:12:11.6849326Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:12:11.6849913Z warning: OperatorFirst/Offset.lean:268:26: Unused tactic linter: `ring` does nothing
+2026-09-06T05:12:11.6850267Z 
+2026-09-06T05:12:11.6850482Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:12:11.6851324Z warning: OperatorFirst/Offset.lean:270:0: automatically included section variable(s) unused in theorem `OperatorFirst.Offset.involution_cancels_quadratic`:
+2026-09-06T05:12:11.6852037Z   [Fintype k]
+2026-09-06T05:12:11.6852516Z   [DecidableEq k]
+2026-09-06T05:12:11.6853024Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-06T05:12:11.6853620Z   omit [Fintype k] [DecidableEq k] in theorem ...
+2026-09-06T05:12:11.6853847Z 
+2026-09-06T05:12:11.6854079Z Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-06T05:12:11.6854629Z warning: OperatorFirst/Offset.lean:301:35: This simp argument is unused:
+2026-09-06T05:12:11.6855034Z   Matrix.one_apply
+2026-09-06T05:12:11.6855158Z 
+2026-09-06T05:12:11.6855273Z Hint: Omit it from the simp argument list.
+2026-09-06T05:12:11.6855622Z   [apply] simp [shear, Matrix.det_fin_two]
+2026-09-06T05:12:11.6855819Z 
+2026-09-06T05:12:11.6856037Z Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+2026-09-06T05:12:11.6856648Z warning: OperatorFirst/Offset.lean:301:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:12:11.6857043Z 
+2026-09-06T05:12:11.6857293Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:12:11.6858100Z info: OperatorFirst/Offset.lean:449:0: 'OperatorFirst.Offset.energy_eq_log_odds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6859351Z info: OperatorFirst/Offset.lean:450:0: 'OperatorFirst.Offset.energy_flip' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6860360Z info: OperatorFirst/Offset.lean:451:0: 'OperatorFirst.Offset.spectrumOffset_flip' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6861360Z info: OperatorFirst/Offset.lean:452:0: 'OperatorFirst.Offset.protected_zero_of_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6862304Z info: OperatorFirst/Offset.lean:453:0: 'OperatorFirst.Offset.exp_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6863225Z info: OperatorFirst/Offset.lean:454:0: 'OperatorFirst.Offset.lambda_energy_dictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6864396Z info: OperatorFirst/Offset.lean:455:0: 'OperatorFirst.Offset.emptyProbability_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6865375Z info: OperatorFirst/Offset.lean:456:0: 'OperatorFirst.Offset.fullProbability_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6866307Z info: OperatorFirst/Offset.lean:457:0: 'OperatorFirst.Offset.finite_log_odds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6867203Z info: OperatorFirst/Offset.lean:458:0: 'OperatorFirst.Offset.asymmetry_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6868108Z info: OperatorFirst/Offset.lean:459:0: 'OperatorFirst.Offset.commonScale_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6869306Z info: OperatorFirst/Offset.lean:460:0: 'OperatorFirst.Offset.commonScale_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6870249Z info: OperatorFirst/Offset.lean:461:0: 'OperatorFirst.Offset.asymmetry_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6871152Z info: OperatorFirst/Offset.lean:462:0: 'OperatorFirst.Offset.asymmetry_abs_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6872096Z info: OperatorFirst/Offset.lean:463:0: 'OperatorFirst.Offset.common_factor_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6873009Z info: OperatorFirst/Offset.lean:464:0: 'OperatorFirst.Offset.endpoint_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6873941Z info: OperatorFirst/Offset.lean:465:0: 'OperatorFirst.Offset.scalarOffset_eq_logRatio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6875010Z info: OperatorFirst/Offset.lean:466:0: 'OperatorFirst.Offset.logRatio_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6875931Z info: OperatorFirst/Offset.lean:467:0: 'OperatorFirst.Offset.logRatio_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6876833Z info: OperatorFirst/Offset.lean:468:0: 'OperatorFirst.Offset.abs_logRatio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6877721Z info: OperatorFirst/Offset.lean:469:0: 'OperatorFirst.Offset.abs_scalarOffset' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6878893Z info: OperatorFirst/Offset.lean:470:0: 'OperatorFirst.Offset.cancel_common_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6879912Z info: OperatorFirst/Offset.lean:471:0: 'OperatorFirst.Offset.offset_of_assumed_connection_factors' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6880944Z info: OperatorFirst/Offset.lean:472:0: 'OperatorFirst.Offset.complement_det_eq_of_conjugacy' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6881936Z info: OperatorFirst/Offset.lean:473:0: 'OperatorFirst.Offset.protected_detLogOdds_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6882884Z info: OperatorFirst/Offset.lean:474:0: 'OperatorFirst.Offset.schur_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6884403Z info: OperatorFirst/Offset.lean:475:0: 'OperatorFirst.Offset.schur_determinant_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6885476Z info: OperatorFirst/Offset.lean:476:0: 'OperatorFirst.Offset.involution_cancels_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6886504Z info: OperatorFirst/Offset.lean:477:0: 'OperatorFirst.Offset.shear_in_parity_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6887539Z info: OperatorFirst/Offset.lean:478:0: 'OperatorFirst.Offset.shear_characteristic_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6889003Z info: OperatorFirst/Offset.lean:479:0: 'OperatorFirst.Offset.plus_parity_not_eigenvector' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6890010Z info: OperatorFirst/Offset.lean:480:0: 'OperatorFirst.Offset.scalar_shift_eigenspace' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6891011Z info: OperatorFirst/Offset.lean:481:0: 'OperatorFirst.Offset.scalar_response_has_silent_direction' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6892025Z info: OperatorFirst/Offset.lean:482:0: 'OperatorFirst.Offset.counter_occupations_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6892985Z info: OperatorFirst/Offset.lean:483:0: 'OperatorFirst.Offset.counterFull_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6893956Z info: OperatorFirst/Offset.lean:484:0: 'OperatorFirst.Offset.counterEmpty_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6894945Z info: OperatorFirst/Offset.lean:485:0: 'OperatorFirst.Offset.counter_probability_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6895968Z info: OperatorFirst/Offset.lean:486:0: 'OperatorFirst.Offset.counter_probability_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6896987Z info: OperatorFirst/Offset.lean:487:0: 'OperatorFirst.Offset.counter_linear_response_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6897991Z info: OperatorFirst/Offset.lean:488:0: 'OperatorFirst.Offset.census_cutoff_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6899495Z info: OperatorFirst/Offset.lean:489:0: 'OperatorFirst.Offset.occupation_window_iff_odds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6900527Z info: OperatorFirst/Offset.lean:490:0: 'OperatorFirst.Offset.positive_errors_do_not_fix_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6901477Z info: OperatorFirst/Offset.lean:491:0: 'OperatorFirst.Offset.logRatio_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6902421Z info: OperatorFirst/Offset.lean:492:0: 'OperatorFirst.Offset.offset_limit_of_asymmetry_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6903431Z info: OperatorFirst/Offset.lean:493:0: 'OperatorFirst.Offset.magnitude_limit_of_asymmetry_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6904278Z ⚠ [8707/8709] Replayed OperatorFirst.OffsetEndpoint
+2026-09-06T05:12:11.6904737Z warning: OperatorFirst/OffsetEndpoint.lean:27:61: this tactic is never executed
+2026-09-06T05:12:11.6905056Z 
+2026-09-06T05:12:11.6905287Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:12:11.6905858Z warning: OperatorFirst/OffsetEndpoint.lean:27:61: Unused tactic linter: `ring` does nothing
+2026-09-06T05:12:11.6906213Z 
+2026-09-06T05:12:11.6906415Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:12:11.6906922Z warning: OperatorFirst/OffsetEndpoint.lean:142:28: this tactic is never executed
+2026-09-06T05:12:11.6907237Z 
+2026-09-06T05:12:11.6907451Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:12:11.6908049Z warning: OperatorFirst/OffsetEndpoint.lean:137:12: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:12:11.6908686Z 
+2026-09-06T05:12:11.6908916Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:12:11.6909497Z warning: OperatorFirst/OffsetEndpoint.lean:142:28: Unused tactic linter: `ring` does nothing
+2026-09-06T05:12:11.6909850Z 
+2026-09-06T05:12:11.6910207Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:12:11.6910715Z warning: OperatorFirst/OffsetEndpoint.lean:154:43: this tactic is never executed
+2026-09-06T05:12:11.6911031Z 
+2026-09-06T05:12:11.6911377Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:12:11.6912363Z warning: OperatorFirst/OffsetEndpoint.lean:154:43: Unused tactic linter: `ring` does nothing
+2026-09-06T05:12:11.6912998Z 
+2026-09-06T05:12:11.6913313Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:12:11.6914310Z warning: OperatorFirst/OffsetEndpoint.lean:173:22: this tactic is never executed
+2026-09-06T05:12:11.6914872Z 
+2026-09-06T05:12:11.6915264Z Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-06T05:12:11.6916306Z warning: OperatorFirst/OffsetEndpoint.lean:173:22: Unused tactic linter: `ring` does nothing
+2026-09-06T05:12:11.6916980Z 
+2026-09-06T05:12:11.6917357Z Note: This linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-06T05:12:11.6918661Z warning: OperatorFirst/OffsetEndpoint.lean:181:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:12:11.6919371Z 
+2026-09-06T05:12:11.6919796Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:12:11.6921285Z info: OperatorFirst/OffsetEndpoint.lean:230:0: 'OperatorFirst.OffsetEndpoint.sigma_involution' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6923324Z info: OperatorFirst/OffsetEndpoint.lean:231:0: 'OperatorFirst.OffsetEndpoint.sublattice_conjugation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6925444Z info: OperatorFirst/OffsetEndpoint.lean:232:0: 'OperatorFirst.OffsetEndpoint.band_complement_conjugation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6927785Z info: OperatorFirst/OffsetEndpoint.lean:233:0: 'OperatorFirst.OffsetEndpoint.diagonal_conjugation_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6930129Z info: OperatorFirst/OffsetEndpoint.lean:234:0: 'OperatorFirst.OffsetEndpoint.block_complement_conjugation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6932217Z info: OperatorFirst/OffsetEndpoint.lean:235:0: 'OperatorFirst.OffsetEndpoint.det_involution_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6934143Z info: OperatorFirst/OffsetEndpoint.lean:236:0: 'OperatorFirst.OffsetEndpoint.complement_determinant_reflection' depends on axioms: [propext,
+2026-09-06T05:12:11.6935318Z  Classical.choice,
+2026-09-06T05:12:11.6935680Z  Quot.sound]
+2026-09-06T05:12:11.6936886Z info: OperatorFirst/OffsetEndpoint.lean:237:0: 'OperatorFirst.OffsetEndpoint.determinant_offset_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6939218Z info: OperatorFirst/OffsetEndpoint.lean:238:0: 'OperatorFirst.OffsetEndpoint.offset_is_negative_twice_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6941286Z info: OperatorFirst/OffsetEndpoint.lean:239:0: 'OperatorFirst.OffsetEndpoint.even_part_cancels' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6943163Z info: OperatorFirst/OffsetEndpoint.lean:240:0: 'OperatorFirst.OffsetEndpoint.offset_is_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6944895Z info: OperatorFirst/OffsetEndpoint.lean:241:0: 'OperatorFirst.OffsetEndpoint.rate_difference_is_offset_difference' depends on axioms: [propext,
+2026-09-06T05:12:11.6946086Z  Classical.choice,
+2026-09-06T05:12:11.6946529Z  Quot.sound]
+2026-09-06T05:12:11.6947849Z info: OperatorFirst/OffsetEndpoint.lean:242:0: 'OperatorFirst.OffsetEndpoint.equal_rates_iff_equal_offsets' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6950338Z info: OperatorFirst/OffsetEndpoint.lean:243:0: 'OperatorFirst.OffsetEndpoint.band_product_excess' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6952891Z info: OperatorFirst/OffsetEndpoint.lean:244:0: 'OperatorFirst.OffsetEndpoint.band_product_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6955089Z info: OperatorFirst/OffsetEndpoint.lean:245:0: 'OperatorFirst.OffsetEndpoint.critical_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6957032Z info: OperatorFirst/OffsetEndpoint.lean:246:0: 'OperatorFirst.OffsetEndpoint.gamma_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6959071Z info: OperatorFirst/OffsetEndpoint.lean:247:0: 'OperatorFirst.OffsetEndpoint.tanh_half_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6961009Z info: OperatorFirst/OffsetEndpoint.lean:248:0: 'OperatorFirst.OffsetEndpoint.exp_scalarOffset' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6962980Z info: OperatorFirst/OffsetEndpoint.lean:249:0: 'OperatorFirst.OffsetEndpoint.asymmetry_eq_tanh' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6964875Z info: OperatorFirst/OffsetEndpoint.lean:250:0: 'OperatorFirst.OffsetEndpoint.shear_det_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6966787Z info: OperatorFirst/OffsetEndpoint.lean:251:0: 'OperatorFirst.OffsetEndpoint.shear_det_one_and_mixes' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6968964Z info: OperatorFirst/OffsetEndpoint.lean:252:0: 'OperatorFirst.OffsetEndpoint.logistic_probabilities' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6970976Z info: OperatorFirst/OffsetEndpoint.lean:253:0: 'OperatorFirst.OffsetEndpoint.logistic_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6973173Z info: OperatorFirst/OffsetEndpoint.lean:254:0: 'OperatorFirst.OffsetEndpoint.logistic_offset' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6975037Z info: OperatorFirst/OffsetEndpoint.lean:255:0: 'OperatorFirst.OffsetEndpoint.reflection_allows_linear_growth' depends on axioms: [propext,
+2026-09-06T05:12:11.6976132Z  Classical.choice,
+2026-09-06T05:12:11.6976450Z  Quot.sound]
+2026-09-06T05:12:11.6977531Z info: OperatorFirst/OffsetEndpoint.lean:256:0: 'OperatorFirst.OffsetEndpoint.nonmonotone_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6979750Z info: OperatorFirst/OffsetEndpoint.lean:257:0: 'OperatorFirst.OffsetEndpoint.nonmonotone_tends' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6981796Z info: OperatorFirst/OffsetEndpoint.lean:258:0: 'OperatorFirst.OffsetEndpoint.nonmonotone_not_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6983771Z info: OperatorFirst/OffsetEndpoint.lean:259:0: 'OperatorFirst.OffsetEndpoint.bounded_convergence_not_monotonicity' depends on axioms: [propext,
+2026-09-06T05:12:11.6984912Z  Classical.choice,
+2026-09-06T05:12:11.6985225Z  Quot.sound]
+2026-09-06T05:12:11.6985794Z ⚠ [8708/8709] Replayed OperatorFirst.EndpointProgress
+2026-09-06T05:12:11.6986696Z warning: OperatorFirst/EndpointProgress.lean:28:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:12:11.6987391Z 
+2026-09-06T05:12:11.6987779Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:12:11.6989045Z warning: OperatorFirst/EndpointProgress.lean:87:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-06T05:12:11.6989753Z 
+2026-09-06T05:12:11.6990137Z Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-06T05:12:11.6991637Z info: OperatorFirst/EndpointProgress.lean:100:0: 'OperatorFirst.EndpointProgress.three_site_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6993732Z info: OperatorFirst/EndpointProgress.lean:101:0: 'OperatorFirst.EndpointProgress.three_site_reflected_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.6995887Z info: OperatorFirst/EndpointProgress.lean:102:0: 'OperatorFirst.EndpointProgress.three_site_reflected_difference' depends on axioms: [propext,
+2026-09-06T05:12:11.6997032Z  Classical.choice,
+2026-09-06T05:12:11.6997348Z  Quot.sound]
+2026-09-06T05:12:11.6998649Z info: OperatorFirst/EndpointProgress.lean:103:0: 'OperatorFirst.EndpointProgress.three_site_asymmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.7000756Z info: OperatorFirst/EndpointProgress.lean:104:0: 'OperatorFirst.EndpointProgress.odd_valuation_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.7002722Z info: OperatorFirst/EndpointProgress.lean:105:0: 'OperatorFirst.EndpointProgress.dispersion_square_obstruction' depends on axioms: [propext,
+2026-09-06T05:12:11.7003856Z  Classical.choice,
+2026-09-06T05:12:11.7004186Z  Quot.sound]
+2026-09-06T05:12:11.7005293Z info: OperatorFirst/EndpointProgress.lean:106:0: 'OperatorFirst.EndpointProgress.normalized_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.7007297Z info: OperatorFirst/EndpointProgress.lean:107:0: 'OperatorFirst.EndpointProgress.log_ratio_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.7008897Z ⚠ [8709/8709] Replayed OperatorFirst.BandObstruction
+2026-09-06T05:12:11.7009904Z warning: OperatorFirst/BandObstruction.lean:24:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+2026-09-06T05:12:11.7011314Z warning: OperatorFirst/BandObstruction.lean:49:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+2026-09-06T05:12:11.7013024Z info: OperatorFirst/BandObstruction.lean:64:0: 'OperatorFirst.BandObstruction.squared_band_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.7015234Z info: OperatorFirst/BandObstruction.lean:65:0: 'OperatorFirst.BandObstruction.polynomial_band_vector_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:11.7016559Z Build completed successfully (8709 jobs).
+2026-09-06T05:12:11.7016880Z 
+2026-09-06T05:12:16.4073339Z BandObstruction_axioms 0 OperatorFirst/BandObstruction.lean:24:13: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+2026-09-06T05:12:16.4075191Z OperatorFirst/BandObstruction.lean:49:15: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+2026-09-06T05:12:16.4077086Z 'OperatorFirst.BandObstruction.squared_band_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:16.4079439Z 'OperatorFirst.BandObstruction.polynomial_band_vector_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-06T05:12:16.4081068Z 
+2026-09-06T05:12:25.8565398Z BandObstruction_kernel 0 
+2026-09-06T05:12:30.4312968Z false_transfer_sign 1 verification/offset_completion/false_transfer_sign.lean:4:70: error: unsolved goals
+2026-09-06T05:12:30.4314222Z ⊢ False
+2026-09-06T05:12:30.4314419Z 
+2026-09-06T05:12:34.9879727Z false_error_denominator 1 verification/offset_completion/false_error_denominator.lean:3:63: error: unsolved goals
+2026-09-06T05:12:34.9881003Z ⊢ False
+2026-09-06T05:12:34.9881193Z 
+2026-09-06T05:12:39.5885019Z false_decoupled_obstruction 1 verification/offset_completion/false_decoupled_obstruction.lean:5:71: error: unsolved goals
+2026-09-06T05:12:39.5886332Z ⊢ False
+2026-09-06T05:12:39.5886542Z 
+2026-09-06T05:12:44.1430841Z false_strictness_from_projection_alone 1 verification/offset_completion/false_strictness_from_projection_alone.lean:2:56: error: unsolved goals
+2026-09-06T05:12:44.1432203Z ⊢ False
+2026-09-06T05:12:44.1432372Z 
+2026-09-06T05:12:44.1432494Z {
+2026-09-06T05:12:44.1432761Z   "status": "PASS",
+2026-09-06T05:12:44.1433077Z   "checks": {
+2026-09-06T05:12:44.1433367Z     "build_all": {
+2026-09-06T05:12:44.1433665Z       "exit_code": 0,
+2026-09-06T05:12:44.1434351Z       "expected_failure": false,
+2026-09-06T05:12:44.1434761Z       "argv": [
+2026-09-06T05:12:44.1435055Z         "lake",
+2026-09-06T05:12:44.1435359Z         "build",
+2026-09-06T05:12:44.1435726Z         "OperatorFirst.EndpointTransfer",
+2026-09-06T05:12:44.1436206Z         "OperatorFirst.FiniteCovariance",
+2026-09-06T05:12:44.1436707Z         "OperatorFirst.BandObstruction"
+2026-09-06T05:12:44.1437187Z       ]
+2026-09-06T05:12:44.1437476Z     },
+2026-09-06T05:12:44.1437804Z     "EndpointTransfer_build": {
+2026-09-06T05:12:44.1438216Z       "exit_code": 0,
+2026-09-06T05:12:44.1438815Z       "expected_failure": false,
+2026-09-06T05:12:44.1439223Z       "argv": [
+2026-09-06T05:12:44.1439535Z         "lake",
+2026-09-06T05:12:44.1439847Z         "build",
+2026-09-06T05:12:44.1440224Z         "OperatorFirst.EndpointTransfer"
+2026-09-06T05:12:44.1440663Z       ]
+2026-09-06T05:12:44.1440965Z     },
+2026-09-06T05:12:44.1441188Z     "EndpointTransfer_axioms": {
+2026-09-06T05:12:44.1441443Z       "exit_code": 0,
+2026-09-06T05:12:44.1441659Z       "expected_failure": false,
+2026-09-06T05:12:44.1441921Z       "argv": [
+2026-09-06T05:12:44.1442098Z         "lake",
+2026-09-06T05:12:44.1442268Z         "env",
+2026-09-06T05:12:44.1442441Z         "lean",
+2026-09-06T05:12:44.1442659Z         "OperatorFirst/EndpointTransfer.lean"
+2026-09-06T05:12:44.1442946Z       ]
+2026-09-06T05:12:44.1443107Z     },
+2026-09-06T05:12:44.1443313Z     "EndpointTransfer_kernel": {
+2026-09-06T05:12:44.1443546Z       "exit_code": 0,
+2026-09-06T05:12:44.1443753Z       "expected_failure": false,
+2026-09-06T05:12:44.1444342Z       "argv": [
+2026-09-06T05:12:44.1444692Z         "lake",
+2026-09-06T05:12:44.1445022Z         "env",
+2026-09-06T05:12:44.1445337Z         "leanchecker",
+2026-09-06T05:12:44.1445813Z         "OperatorFirst.EndpointTransfer"
+2026-09-06T05:12:44.1446276Z       ]
+2026-09-06T05:12:44.1446522Z     },
+2026-09-06T05:12:44.1446712Z     "FiniteCovariance_build": {
+2026-09-06T05:12:44.1446951Z       "exit_code": 0,
+2026-09-06T05:12:44.1447366Z       "expected_failure": false,
+2026-09-06T05:12:44.1447607Z       "argv": [
+2026-09-06T05:12:44.1447785Z         "lake",
+2026-09-06T05:12:44.1447959Z         "build",
+2026-09-06T05:12:44.1448174Z         "OperatorFirst.FiniteCovariance"
+2026-09-06T05:12:44.1448776Z       ]
+2026-09-06T05:12:44.1448973Z     },
+2026-09-06T05:12:44.1449286Z     "FiniteCovariance_axioms": {
+2026-09-06T05:12:44.1449624Z       "exit_code": 0,
+2026-09-06T05:12:44.1449840Z       "expected_failure": false,
+2026-09-06T05:12:44.1450063Z       "argv": [
+2026-09-06T05:12:44.1450243Z         "lake",
+2026-09-06T05:12:44.1450421Z         "env",
+2026-09-06T05:12:44.1450599Z         "lean",
+2026-09-06T05:12:44.1450845Z         "OperatorFirst/FiniteCovariance.lean"
+2026-09-06T05:12:44.1451118Z       ]
+2026-09-06T05:12:44.1451287Z     },
+2026-09-06T05:12:44.1451472Z     "FiniteCovariance_kernel": {
+2026-09-06T05:12:44.1451706Z       "exit_code": 0,
+2026-09-06T05:12:44.1451913Z       "expected_failure": false,
+2026-09-06T05:12:44.1452144Z       "argv": [
+2026-09-06T05:12:44.1452322Z         "lake",
+2026-09-06T05:12:44.1452493Z         "env",
+2026-09-06T05:12:44.1452676Z         "leanchecker",
+2026-09-06T05:12:44.1452907Z         "OperatorFirst.FiniteCovariance"
+2026-09-06T05:12:44.1453170Z       ]
+2026-09-06T05:12:44.1453332Z     },
+2026-09-06T05:12:44.1453517Z     "BandObstruction_build": {
+2026-09-06T05:12:44.1453746Z       "exit_code": 0,
+2026-09-06T05:12:44.1453951Z       "expected_failure": false,
+2026-09-06T05:12:44.1454174Z       "argv": [
+2026-09-06T05:12:44.1454353Z         "lake",
+2026-09-06T05:12:44.1454526Z         "build",
+2026-09-06T05:12:44.1454736Z         "OperatorFirst.BandObstruction"
+2026-09-06T05:12:44.1454991Z       ]
+2026-09-06T05:12:44.1455152Z     },
+2026-09-06T05:12:44.1455337Z     "BandObstruction_axioms": {
+2026-09-06T05:12:44.1455573Z       "exit_code": 0,
+2026-09-06T05:12:44.1455777Z       "expected_failure": false,
+2026-09-06T05:12:44.1456000Z       "argv": [
+2026-09-06T05:12:44.1456341Z         "lake",
+2026-09-06T05:12:44.1456518Z         "env",
+2026-09-06T05:12:44.1456694Z         "lean",
+2026-09-06T05:12:44.1456907Z         "OperatorFirst/BandObstruction.lean"
+2026-09-06T05:12:44.1457170Z       ]
+2026-09-06T05:12:44.1457332Z     },
+2026-09-06T05:12:44.1457518Z     "BandObstruction_kernel": {
+2026-09-06T05:12:44.1457750Z       "exit_code": 0,
+2026-09-06T05:12:44.1457960Z       "expected_failure": false,
+2026-09-06T05:12:44.1458193Z       "argv": [
+2026-09-06T05:12:44.1458726Z         "lake",
+2026-09-06T05:12:44.1458920Z         "env",
+2026-09-06T05:12:44.1459111Z         "leanchecker",
+2026-09-06T05:12:44.1459346Z         "OperatorFirst.BandObstruction"
+2026-09-06T05:12:44.1459604Z       ]
+2026-09-06T05:12:44.1459773Z     },
+2026-09-06T05:12:44.1459955Z     "false_transfer_sign": {
+2026-09-06T05:12:44.1460180Z       "exit_code": 1,
+2026-09-06T05:12:44.1460387Z       "expected_failure": true,
+2026-09-06T05:12:44.1460608Z       "argv": [
+2026-09-06T05:12:44.1460783Z         "lake",
+2026-09-06T05:12:44.1460970Z         "env",
+2026-09-06T05:12:44.1461153Z         "lean",
+2026-09-06T05:12:44.1461414Z         "verification/offset_completion/false_transfer_sign.lean"
+2026-09-06T05:12:44.1461730Z       ]
+2026-09-06T05:12:44.1461893Z     },
+2026-09-06T05:12:44.1462076Z     "false_error_denominator": {
+2026-09-06T05:12:44.1462306Z       "exit_code": 1,
+2026-09-06T05:12:44.1462510Z       "expected_failure": true,
+2026-09-06T05:12:44.1462728Z       "argv": [
+2026-09-06T05:12:44.1462903Z         "lake",
+2026-09-06T05:12:44.1463076Z         "env",
+2026-09-06T05:12:44.1463251Z         "lean",
+2026-09-06T05:12:44.1463530Z         "verification/offset_completion/false_error_denominator.lean"
+2026-09-06T05:12:44.1463863Z       ]
+2026-09-06T05:12:44.1464027Z     },
+2026-09-06T05:12:44.1464213Z     "false_decoupled_obstruction": {
+2026-09-06T05:12:44.1464457Z       "exit_code": 1,
+2026-09-06T05:12:44.1464659Z       "expected_failure": true,
+2026-09-06T05:12:44.1464877Z       "argv": [
+2026-09-06T05:12:44.1465191Z         "lake",
+2026-09-06T05:12:44.1465367Z         "env",
+2026-09-06T05:12:44.1465539Z         "lean",
+2026-09-06T05:12:44.1465822Z         "verification/offset_completion/false_decoupled_obstruction.lean"
+2026-09-06T05:12:44.1466172Z       ]
+2026-09-06T05:12:44.1466332Z     },
+2026-09-06T05:12:44.1466531Z     "false_strictness_from_projection_alone": {
+2026-09-06T05:12:44.1466806Z       "exit_code": 1,
+2026-09-06T05:12:44.1467009Z       "expected_failure": true,
+2026-09-06T05:12:44.1467226Z       "argv": [
+2026-09-06T05:12:44.1467399Z         "lake",
+2026-09-06T05:12:44.1467572Z         "env",
+2026-09-06T05:12:44.1467743Z         "lean",
+2026-09-06T05:12:44.1468061Z         "verification/offset_completion/false_strictness_from_projection_alone.lean"
+2026-09-06T05:12:44.1468800Z       ]
+2026-09-06T05:12:44.1469095Z     }
+2026-09-06T05:12:44.1469372Z   },
+2026-09-06T05:12:44.1469663Z   "modules": {
+2026-09-06T05:12:44.1469918Z     "OperatorFirst.EndpointTransfer": {
+2026-09-06T05:12:44.1470198Z       "named_theorems": 17,
+2026-09-06T05:12:44.1470418Z       "theorems": [
+2026-09-06T05:12:44.1470616Z         "mix_reflection",
+2026-09-06T05:12:44.1470825Z         "mix_sum",
+2026-09-06T05:12:44.1471015Z         "mix_difference",
+2026-09-06T05:12:44.1471225Z         "mix_positive",
+2026-09-06T05:12:44.1471433Z         "mix_asymmetry",
+2026-09-06T05:12:44.1471648Z         "mass_within_gap",
+2026-09-06T05:12:44.1471874Z         "three_site_transfer",
+2026-09-06T05:12:44.1472115Z         "signed_limit_of_exact_transfer",
+2026-09-06T05:12:44.1472385Z         "perturbation_positive",
+2026-09-06T05:12:44.1472627Z         "perturbation_defect",
+2026-09-06T05:12:44.1472860Z         "asymmetry_variance",
+2026-09-06T05:12:44.1473107Z         "relative_error_bound_with_variance",
+2026-09-06T05:12:44.1473500Z         "relative_error_bound",
+2026-09-06T05:12:44.1473740Z         "limit_of_relative_errors",
+2026-09-06T05:12:44.1473997Z         "signed_limit_of_relative_errors",
+2026-09-06T05:12:44.1474286Z         "half_offset_magnitude_of_signed_limit",
+2026-09-06T05:12:44.1474730Z         "endpoint_of_approximate_transfer"
+2026-09-06T05:12:44.1474986Z       ],
+2026-09-06T05:12:44.1475312Z       "source_sha256": "95663f7098c60f0848a24249b826850a94a332a8d9e80f3ba22ecf81bf73d5f9"
+2026-09-06T05:12:44.1475729Z     },
+2026-09-06T05:12:44.1475937Z     "OperatorFirst.FiniteCovariance": {
+2026-09-06T05:12:44.1476210Z       "named_theorems": 9,
+2026-09-06T05:12:44.1476425Z       "theorems": [
+2026-09-06T05:12:44.1476630Z         "compression_gram",
+2026-09-06T05:12:44.1476872Z         "complement_projection",
+2026-09-06T05:12:44.1477122Z         "complement_compression",
+2026-09-06T05:12:44.1477368Z         "compression_posSemidef",
+2026-09-06T05:12:44.1477613Z         "compression_posDef",
+2026-09-06T05:12:44.1477846Z         "compression_strict",
+2026-09-06T05:12:44.1478091Z         "formation_determinants_positive",
+2026-09-06T05:12:44.1478626Z         "eigenvalue_in_unit_interval",
+2026-09-06T05:12:44.1478906Z         "compression_formation_domain"
+2026-09-06T05:12:44.1479150Z       ],
+2026-09-06T05:12:44.1479491Z       "source_sha256": "e22c5877d26bea1ac1423eb61216ac09ccd9b64d373400be452167c7f74c4e56"
+2026-09-06T05:12:44.1479903Z     },
+2026-09-06T05:12:44.1480102Z     "OperatorFirst.BandObstruction": {
+2026-09-06T05:12:44.1480366Z       "named_theorems": 2,
+2026-09-06T05:12:44.1480581Z       "theorems": [
+2026-09-06T05:12:44.1480794Z         "squared_band_identity",
+2026-09-06T05:12:44.1481194Z         "polynomial_band_vector_zero"
+2026-09-06T05:12:44.1481438Z       ],
+2026-09-06T05:12:44.1481761Z       "source_sha256": "51c6696358a5c372a3330c3b8bc4a304ab5453c5d2477fc5849a4d03b22c732f"
+2026-09-06T05:12:44.1482164Z     }
+2026-09-06T05:12:44.1482329Z   },
+2026-09-06T05:12:44.1482552Z   "commit": "88fc1f350cd460384e162605f8725bc17af63e9b",
+2026-09-06T05:12:44.1483131Z   "lean_version": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+2026-09-06T05:12:44.1483830Z   "lean_toolchain": "leanprover/lean4:v4.33.0",
+2026-09-06T05:12:44.1484275Z   "manifest_sha256": "fb654d6812c9343b8520222138a0bda26711fa89636b4a206442ec8a1a5a8bb7",
+2026-09-06T05:12:44.1484698Z   "named_theorems": 28
+2026-09-06T05:12:44.1484898Z }
