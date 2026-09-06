@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'verification' / 'offset_completion'
-MODULES = ('EndpointTransfer', 'FiniteCovariance')
+MODULES = ('EndpointTransfer', 'FiniteCovariance', 'BandObstruction')
 ALLOWED = {'propext', 'Classical.choice', 'Quot.sound'}
 OUT.mkdir(parents=True, exist_ok=True)
 report = {'status': 'RUNNING', 'checks': {}, 'modules': {}}
@@ -47,6 +47,7 @@ try:
     manifest = ROOT / 'lake-manifest.json'
     if manifest.exists():
         report['manifest_sha256'] = hashlib.sha256(manifest.read_bytes()).hexdigest()
+    run('build_all', ['lake', 'build'] + ['OperatorFirst.' + short for short in MODULES])
     for short in MODULES:
         module = 'OperatorFirst.' + short
         source = ROOT / 'OperatorFirst' / (short + '.lean')

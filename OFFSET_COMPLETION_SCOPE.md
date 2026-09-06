@@ -34,7 +34,13 @@ All merges remain on hold. This work extends draft PR #6; it does not change
 - `compression_formation_domain` connects the construction to the strict
   determinant-asymmetry domain needed by the endpoint formula.
 
-These are finite algebra and conditional limit theorems. They are not 26
+`OperatorFirst/BandObstruction.lean` contains two named theorems. They derive
+the cleared polynomial identity from the exact band equation on an infinite
+set, and then prove that both polynomial components must vanish when `ab != 0`.
+The energy may be either signed branch. This connects the earlier valuation
+obstruction to the band equation without assuming strict covariance positivity.
+
+These are finite algebra and conditional limit theorems. They are not 28
 independent new physical predictions.
 
 ## What remains outside these formal proofs
@@ -42,8 +48,10 @@ independent new physical predictions.
 1. Construct the infinite-chain Rice–Mele Fourier operator in Lean and prove
    that its two finite-block projected embeddings are injective. The analytic
    argument in `ENDPOINT_PROGRESS.md` and the polynomial obstruction in
-   `EndpointProgress.lean` explain why this should hold; the new generic finite
-   compression theorem does not replace this construction.
+   `EndpointProgress.lean` explain why this should hold. `BandObstruction.lean`
+   now formalizes the band-equation-to-polynomial contradiction. The Fourier,
+   almost-everywhere, and integral-to-matrix identifications remain to be built;
+   the generic finite compression theorem does not replace that construction.
 2. Prove the unequal-hopping interpolation for arbitrary block size, or prove
    model-specific relative errors tending to zero. The interpolation is
    formally established at three sites. Numerical agreement at larger sizes

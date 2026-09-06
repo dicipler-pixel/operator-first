@@ -31,7 +31,8 @@ theorem mix_positive {t p m : ℝ} (ht : |t| ≤ 1)
   have h1 : 0 ≤ (1-t)/2 := by linarith
   by_cases h : t = -1
   · simp [mix, h, hm]
-  · have hh : 0 < (1+t)/2 := by linarith
+  · have hlt : -1 < t := lt_of_le_of_ne ht0 (Ne.symm h)
+    have hh : 0 < (1+t)/2 := by linarith
     exact add_pos_of_pos_of_nonneg (mul_pos hh hp) (mul_nonneg h1 hm.le)
 
 theorem mix_asymmetry (t p m : ℝ) :
@@ -155,7 +156,10 @@ theorem limit_of_relative_errors (p m dp dm eps : ℕ → ℝ) (gamma : ℝ)
     (hg : Tendsto (fun n => asymmetry (p n) (m n)) atTop (nhds gamma)) :
     Tendsto (fun n => asymmetry (p n+dp n) (m n+dm n)) atTop (nhds gamma) := by
   have hb : Tendsto (fun n => eps n/(1-eps n)) atTop (nhds 0) := by
-    simpa using heps.div (tendsto_const_nhds.sub heps) (by norm_num : (1:ℝ)-0 ≠ 0)
+    convert heps.div (tendsto_const_nhds.sub heps) (by norm_num : (1:ℝ)-0 ≠ 0) using 1
+    · ext n
+      rfl
+    · norm_num
   have ha : Tendsto (fun n => |asymmetry (p n+dp n) (m n+dm n)-asymmetry (p n) (m n)|)
       atTop (nhds 0) :=
     squeeze_zero (fun n => abs_nonneg _) (fun n =>
@@ -174,7 +178,10 @@ theorem signed_limit_of_relative_errors (p m dp dm eps s : ℕ → ℝ) (gamma :
     (hg : Tendsto (fun n => s n*asymmetry (p n) (m n)) atTop (nhds gamma)) :
     Tendsto (fun n => s n*asymmetry (p n+dp n) (m n+dm n)) atTop (nhds gamma) := by
   have hb : Tendsto (fun n => eps n/(1-eps n)) atTop (nhds 0) := by
-    simpa using heps.div (tendsto_const_nhds.sub heps) (by norm_num : (1:ℝ)-0 ≠ 0)
+    convert heps.div (tendsto_const_nhds.sub heps) (by norm_num : (1:ℝ)-0 ≠ 0) using 1
+    · ext n
+      rfl
+    · norm_num
   have ha : Tendsto (fun n => |s n*asymmetry (p n+dp n) (m n+dm n)-
       s n*asymmetry (p n) (m n)|) atTop (nhds 0) := by
     apply squeeze_zero (fun n => abs_nonneg _) _ hb

@@ -20,7 +20,8 @@ theorem compression_gram (P : Matrix ι ι ℝ) (E : Matrix ι κ ℝ)
 
 theorem complement_projection (P : Matrix ι ι ℝ) (hPP : P*P = P) :
     (1-P)*(1-P) = 1-P := by
-  noncomm_ring [hPP]
+  simp only [Matrix.sub_mul, Matrix.mul_sub, Matrix.one_mul, Matrix.mul_one, hPP]
+  abel
 
 theorem complement_compression (P : Matrix ι ι ℝ) (E : Matrix ι κ ℝ)
     (hE : Eᵀ*E = 1) :
