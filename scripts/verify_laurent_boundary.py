@@ -11,6 +11,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from source_revision import source_revision
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'verification' / 'laurent_boundary'
@@ -39,8 +40,7 @@ def run(name, argv, negative=False):
 
 
 try:
-    commit = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True, capture_output=True)
-    report['commit'] = commit.stdout.strip() if commit.returncode == 0 else 'standalone archive; see SOURCE_REVISION.txt'
+    report['commit'] = source_revision(ROOT)
     report['lean_version'] = subprocess.check_output(
         ['lake', 'env', 'lean', '--version'], cwd=ROOT, text=True).strip()
     report['lean_toolchain'] = (ROOT / 'lean-toolchain').read_text().strip()

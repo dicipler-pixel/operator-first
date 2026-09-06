@@ -2,12 +2,13 @@
 """Compile and independently recheck all endpoint declarations and false controls."""
 import hashlib,json,re,subprocess,sys
 from pathlib import Path
+from source_revision import source_revision
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'verification'/'endpoint_progress'
 OUT.mkdir(parents=True,exist_ok=True)
 MOD='OperatorFirst.EndpointProgress'
 SOURCE=ROOT/'OperatorFirst'/'EndpointProgress.lean'
-report={'status':'RUNNING','commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'checks':{}}
+report={'status':'RUNNING','commit':source_revision(ROOT),'checks':{}}
 def run(name,args,negative=False):
     p=subprocess.run(args,cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=360)
     (OUT/(name+'.log')).write_text(p.stdout)
@@ -49,3 +50,4 @@ finally:
     (OUT/'report.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report,indent=2),flush=True)
 sys.exit(0 if report['status']=='PASS' else 1)
+

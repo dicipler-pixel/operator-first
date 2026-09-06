@@ -37,7 +37,8 @@ theorem bounded_C (a : R) : Bounded (C a) 0 := by
 theorem bounded_monomial (a : R) (d : ℤ) : Bounded (C a * T d) d := by
   intro k hk
   rw [← single_eq_C_mul_T]
-  simp [AddMonoidAlgebra.coeff_single, ne_of_gt hk, (ne_of_gt hk).symm]
+  change (Finsupp.single d a) k = 0
+  exact Finsupp.single_eq_of_ne (ne_of_gt hk)
 
 theorem bounded_add {f g : LaurentPolynomial R} {d : ℤ}
     (hf : Bounded f d) (hg : Bounded g d) : Bounded (f + g) d := by
@@ -60,6 +61,7 @@ theorem bounded_mul {f g : LaurentPolynomial R} {a b : ℤ}
   have hia : i ≤ a := by
     by_contra hn
     exact hi' (hf i (lt_of_not_ge hn))
+  change f.coeff i * g.coeff (-i + k) = 0
   rw [hg (-i + k) (by omega), mul_zero]
 
 theorem bounded_sum {ι : Type*} (s : Finset ι)
@@ -127,6 +129,7 @@ theorem coeff_mul_top {f g : LaurentPolynomial R} {a b : ℤ}
     (f * g).coeff (a + b) = f.coeff a * g.coeff b := by
   classical
   rw [AddMonoidAlgebra.coeff_mul_apply_left]
+  change (∑ i ∈ f.coeff.support, f.coeff i * g.coeff (-i + (a + b))) = _
   rw [Finset.sum_eq_single a]
   · simp
   · intro i hi hia
@@ -147,7 +150,7 @@ theorem bounded_pow_one {f : LaurentPolynomial R} (hf : Bounded f 1) (n : ℕ) :
 theorem coeff_pow_top {f : LaurentPolynomial R} (hf : Bounded f 1) (n : ℕ) :
     (f ^ n).coeff (n : ℤ) = (f.coeff 1) ^ n := by
   induction n with
-  | zero => simp [AddMonoidAlgebra.coeff_one]
+  | zero => simpa using (LaurentPolynomial.C_apply (1 : R) (0 : ℤ))
   | succ n ih =>
     simpa [pow_succ, Nat.cast_add, Nat.cast_one, ih] using
       (coeff_mul_top (bounded_pow_one hf n) hf)
@@ -180,7 +183,8 @@ theorem coeff_eval₂_top (φ : R →+* LaurentPolynomial S)
       (φ p.leadingCoeff).coeff 0 * (x.coeff 1) ^ p.natDegree := by
   classical
   rw [Polynomial.eval₂_eq_sum, Polynomial.sum_def]
-  simp only [AddMonoidAlgebra.coeff_sum, Finset.sum_apply]
+  simp only [AddMonoidAlgebra.coeff_sum]
+  rw [Finset.sum_apply']
   rw [Finset.sum_eq_single p.natDegree]
   · simpa [Polynomial.coeff_natDegree, coeff_pow_top hx] using
       coeff_mul_top (hφ (p.coeff p.natDegree)) (bounded_pow_one hx p.natDegree)
