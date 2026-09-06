@@ -81,4 +81,36 @@ theorem no_fixed_calibration_for_field_jacobian (g h eta k c : ℝ)
   have eq := mul_left_cancel₀ hc eqp
   exact (ne_of_lt (calibration_product_strict g h eta k hg hgh he hk)) eq
 
+section MatrixKernels
+open Matrix
+variable {m n : Type*} [Fintype m] [Fintype n] [DecidableEq m] [DecidableEq n]
+
+/-- Full matrix nullspace statement for a positive response weighting. -/
+theorem weighted_matrix_kernel (J : Matrix m n ℝ) (W : Matrix m m ℝ)
+    (hW : W.PosDef) :
+    LinearMap.ker (J.transpose * W * J).mulVecLin = LinearMap.ker J.mulVecLin := by
+  ext x
+  simp only [LinearMap.mem_ker, Matrix.mulVecLin_apply]
+  have heq : x ⬝ᵥ ((J.transpose * W * J) *ᵥ x) =
+      (J *ᵥ x) ⬝ᵥ (W *ᵥ (J *ᵥ x)) := by
+    rw [Matrix.mul_assoc, ← Matrix.mulVec_mulVec, Matrix.dotProduct_mulVec,
+      Matrix.vecMul_transpose]
+  constructor
+  · intro h
+    by_contra hx
+    have hp : 0 < (J *ᵥ x) ⬝ᵥ (W *ᵥ (J *ᵥ x)) := by
+      simpa only [star_trivial] using hW.dotProduct_mulVec_pos hx
+    rw [← heq, h, dotProduct_zero] at hp
+    exact (lt_irrefl 0) hp
+  · intro h
+    rw [← Matrix.mulVec_mulVec, h, Matrix.mulVec_zero]
+
+/-- The weighted response and the metric Gram have identical full kernels. -/
+theorem response_metric_matrix_kernels (J : Matrix m n ℝ) (W : Matrix m m ℝ)
+    (hW : W.PosDef) :
+    LinearMap.ker (J.transpose * W * J).mulVecLin =
+      LinearMap.ker (J.transpose * J).mulVecLin := by
+  rw [weighted_matrix_kernel J W hW, Matrix.ker_mulVecLin_transpose_mul_self]
+
+end MatrixKernels
 end LightCompletion

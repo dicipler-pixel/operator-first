@@ -80,6 +80,7 @@ theorem real_pairing_zero {α : Type*} (sigma : α → α) (f : α → ℝ)
     (hs : l.Perm (l.map sigma)) : (l.map f).sum = 0 := by
   have hp : (l.map f).sum = ((l.map sigma).map f).sum := (hs.map f).sum_eq
   have hn : ((l.map sigma).map f).sum = -(l.map f).sum := by
+    clear hs hp
     induction l with
     | nil => simp
     | cons a rest ih =>

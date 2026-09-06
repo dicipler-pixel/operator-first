@@ -90,8 +90,11 @@ theorem cayley_defect_identity (Z W : Matrix n n ℂ)
     1 - ((Z - 1) * W).conjTranspose * ((Z - 1) * W) =
       W.conjTranspose * ((Z + 1).conjTranspose * (Z + 1) -
         (Z - 1).conjTranspose * (Z - 1)) * W := by
-      simp only [Matrix.mul_sub, Matrix.sub_mul]
-      rw [hone]
+      have hdist (X Y : Matrix n n ℂ) :
+          W.conjTranspose * (X-Y) * W =
+          W.conjTranspose * X * W - W.conjTranspose * Y * W := by
+        noncomm_ring
+      rw [hdist, hone]
       simp only [Matrix.conjTranspose_mul, Matrix.mul_assoc]
     _ = _ := by rw [hpoly, Matrix.mul_add, Matrix.add_mul]
 
