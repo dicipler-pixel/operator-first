@@ -121,10 +121,10 @@ $$
 \begin{pmatrix}
 H+\frac{ip}{2t}\Delta&
 -2iG-\frac{cG+ip\Sigma/2}{t^2}&
-\frac{\eta}{2}-it\gamma-\frac{c\gamma+ip\zeta}{2t}\$$2pt]
+\frac{\eta}{2}-it\gamma-\frac{c\gamma+ip\zeta}{2t}\\[2pt]
 -cG+\frac{ip}{2}\Sigma&
 H-\frac{ip}{2t}\Delta&
-\frac{t\eta}{2}+\frac{-c\gamma+ip\zeta}{2}\$$2pt]
+\frac{t\eta}{2}+\frac{-c\gamma+ip\zeta}{2}\\[2pt]
 \eta^{\mathsf T}+\frac{(-c\gamma+ip\zeta)^{\mathsf T}}t&
 \frac{\eta^{\mathsf T}}t-2i\gamma^{\mathsf T}
 -\frac{(c\gamma+ip\zeta)^{\mathsf T}}{t^2}&
