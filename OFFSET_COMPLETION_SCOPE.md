@@ -57,8 +57,10 @@ independent new physical predictions.
    ordinary algebraic proof uses reflection and sign conjugacies, polynomial
    invariants, an explicit block similarity, and a Laurent-degree bound.
    It closes the mathematical transfer gap for all odd sizes. The Lean
-   interpolation remains formally established at three sites; the all-size
-   polynomial/Laurent proof has not yet been translated into Lean.
+   interpolation remains formally established at three sites; the general
+   column-bound and faithful-substitution mechanism is now encoded in
+   LaurentBoundary.lean. The model-specific invariant-polynomial representation,
+   block similarity, and actual chart hypotheses remain to be encoded.
 3. Formalize the equal-hopping Fourier/Hankel reduction and the applicable
    Hankel asymptotic theorem. The existing analytic proof remains distinct
    from Lean certification.

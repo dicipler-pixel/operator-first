@@ -10,7 +10,7 @@ equal-hopping reference.
 
 This directory contains a mathematical proof, a runnable verifier, and a
 saved local verification report. It does not contain old manuscript versions.
-No new Lean certification is claimed.
+The additional `OperatorFirst/LaurentBoundary.lean` module handles the general all-size degree argument; its verification evidence and remaining model-specific hypotheses are recorded in `laurent_boundary/FORMAL_BOUNDARY_SCOPE.md`. The complete physical sine law is not yet Lean-certified.
 
 ## Reproduce
 
@@ -38,5 +38,5 @@ in the note, not an extrapolation from these finite checks.
 
 The dedicated GitHub workflow repeats these checks and uploads its report.
 Existing Lean workflows continue checking the unchanged formal statements.
-The new all-size proof still needs Lean formalization. The sharp remainder
+The invariant-polynomial and explicit-similarity application still needs Lean formalization. The sharp remainder
 law and cosmological calibration also remain open.

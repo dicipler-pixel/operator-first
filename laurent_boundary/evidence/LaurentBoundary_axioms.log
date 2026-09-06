@@ -1,0 +1,27 @@
+OperatorFirst/LaurentBoundary.lean:153:12: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'OperatorFirst.LaurentBoundary.bounded_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.bounded_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.bounded_C' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.bounded_monomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.bounded_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.bounded_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.bounded_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.bounded_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.bounded_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.determinant_column_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.determinant_one_boundary_column' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OperatorFirst.LaurentBoundary.determinant_boundary_set' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.coeff_mul_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.bounded_pow_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.coeff_pow_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.bounded_eval₂' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.coeff_eval₂_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.polynomial_degree_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OperatorFirst.LaurentBoundary.boundary_forces_polynomial_degree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OperatorFirst.LaurentBoundary.polynomial_affine_of_degree' depends on axioms: [propext, Classical.choice, Quot.sound]

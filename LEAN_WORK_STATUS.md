@@ -60,6 +60,24 @@ determinant-pencil checks, two rejected false controls, and independent
 200-digit physical determinant tests. Its numerical output is not an
 interval enclosure.
 
+## General all-size degree argument formalized
+
+`OperatorFirst/LaurentBoundary.lean` contains 20 additional named statements.
+They cover Laurent coefficient bounds, arbitrary finite determinants with
+column budgets, the one-boundary specialization, survival of the leading
+coefficient under a faithful chart, and the literal affine-polynomial result.
+The verification report supplies the exact checked source and allowed axioms.
+
+This is the general algebraic mechanism. Applying it to the actual Rice–Mele
+matrix still requires the invariant-polynomial representation, explicit
+similarity identity, and concrete chart hypotheses in Lean. The complete
+written proof remains valid; these are remaining formalization steps.
+See `laurent_boundary/FORMAL_BOUNDARY_SCOPE.md` for the line-by-line scope map.
+
+The verifiers now accept extracted supplements with no research checkout.
+They record Git provenance when present, otherwise the supplied source revision
+and exact file hashes. This changes provenance handling, not theorem statements.
+
 ## Proof work still open
 
 These entries remain open. They are not fixed by merging, and they are not
@@ -68,7 +86,7 @@ being marked complete because a finite example or a conditional theorem passes.
 | Area | Missing argument |
 |---|---|
 | Offset covariance | Formal Fourier construction, the almost-everywhere step and the integral-to-matrix identification connecting the band obstruction to the physical restricted covariance |
-| Offset endpoint formalization | The all-size interpolation is now proved in moduli_transfer/ALL_SIZE_TRANSFER.md; formalize its invariant-polynomial reduction, block similarity, and Laurent-degree argument in Lean |
+| Offset endpoint formalization | The all-size interpolation is now proved in moduli_transfer/ALL_SIZE_TRANSFER.md; the general Laurent-degree and faithful-substitution mechanism is formalized; encode the model-specific invariant-polynomial reduction, block similarity, and concrete chart hypotheses |
 | Offset analytic limit | Lean formalization of the equal-hopping Fourier/Hankel reduction and its asymptotic theorem |
 | Offset remainder and cosmology | A sharp remainder proof and a justified physical calibration to the cosmological constant |
 | Kakeya general rank | Assemble the general iterative forcing/subset-rank argument and lattice-rank conclusion beyond the checked finite examples |

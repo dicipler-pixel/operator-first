@@ -2,8 +2,20 @@
 
 Jeromie N. Beasley research workspace — 6 September 2026
 
-Verification status is recorded in the accompanying execution report. A Lean
-source file by itself is not a verification certificate.
+**Verified: 20 named statements PASS**, including compilation, per-theorem
+axiom auditing, independent leanchecker rechecking, and two false controls.
+
+- Source commit: `c6cdbeea35acd0c1ddd0f6d4d98d58ef38215daa`.
+- Tested PR merge: `6ab87323c7030e07a040fd12a5f7aee3279ef278`.
+- [Successful workflow](https://github.com/dicipler-pixel/operator-first/actions/runs/34041125969).
+- Source SHA-256: `ee5a646e558a6c4c62005e1b20d4e4bf21144c0ccdaaffc8a49f3c738199f05f`.
+- Evidence artifact SHA-256: `319f76dbf216195b31a554e59dc8f216836c96e4afc3004a2a6daa799e7b585d`.
+
+The downloaded report and actual logs were inspected. Both false controls
+reduced to False; neither failed because of a missing import or syntax issue.
+The earlier draft compiler errors were repaired before this successful run.
+One harmless style linter suggestion remains. Allowed axioms are propext,
+Classical.choice, and Quot.sound; imported dependencies remain trusted.
 
 ## The mathematical target
 
