@@ -1,0 +1,45 @@
+name: Peel constitutive formal verification
+on:
+  pull_request:
+    paths: ['proofs/peel_constitutive/**', '.github/workflows/peel-constitutive.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      LEAN_NUM_THREADS: 2
+    defaults:
+      run:
+        working-directory: proofs/peel_constitutive
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.elan
+            proofs/peel_constitutive/.lake
+          key: peel-lean433-v1
+      - name: Install pinned Lean and dependencies
+        run: |
+          if [ ! -x "$HOME/.elan/bin/lake" ]; then
+            curl --retry 3 -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan.sh"
+            bash "$RUNNER_TEMP/elan.sh" -y --default-toolchain "$(cat lean-toolchain)"
+          fi
+          export PATH="$HOME/.elan/bin:$PATH"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          lake update
+          lake exe cache get
+      - name: Compile, audit axioms, and independently recheck
+        run: python3 verify.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: peel-constitutive-evidence
+          path: proofs/peel_constitutive/evidence/
+          retention-days: 30
