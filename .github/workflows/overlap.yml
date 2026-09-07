@@ -1,0 +1,42 @@
+name: C1 projector overlap bridge
+on:
+  pull_request:
+    paths: ['GravityOverlap.lean', 'verify_overlap.py', '.github/workflows/overlap.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      LEAN_NUM_THREADS: 2
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.elan
+            .lake
+          key: overlap-lean433-v1
+      - name: Install pinned Lean and dependencies
+        run: |
+          if [ ! -x "$HOME/.elan/bin/lake" ]; then
+            curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan.sh"
+            bash "$RUNNER_TEMP/elan.sh" -y --default-toolchain "$(cat lean-toolchain)"
+          fi
+          export PATH="$HOME/.elan/bin:$PATH"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          lake update
+          lake exe cache get
+      - name: Compile and audit overlap bridge
+        run: python3 verify_overlap.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: overlap-proof-evidence
+          path: evidence/
+          retention-days: 30
