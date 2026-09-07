@@ -55,10 +55,10 @@ theorem weighted_zero_iff (w q : ι → ℝ) (hw : ∀ i, 0 < w i) :
   constructor
   · intro h i
     have hle : w i * (q i) ^ 2 ≤ ∑ j, w j * (q j) ^ 2 := by
-      apply Finset.single_le_sum
-      · intro j hj
-        exact mul_nonneg (le_of_lt (hw j)) (sq_nonneg (q j))
-      · exact Finset.mem_univ i
+      simpa using (Finset.single_le_sum (s := Finset.univ)
+        (f := fun j => w j * (q j) ^ 2)
+        (fun j hj => mul_nonneg (le_of_lt (hw j)) (sq_nonneg (q j)))
+        (Finset.mem_univ i))
     change w i * (q i) ^ 2 ≤ weightedForm w q at hle
     rw [h] at hle
     have hz : w i * (q i) ^ 2 = 0 :=
