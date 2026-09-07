@@ -11,7 +11,7 @@ open Filter Matrix
 open scoped Topology
 namespace GravityOverlap
 
-variable {n : Type*} [Fintype n] [DecidableEq n]
+variable {n : Type*} [Fintype n]
 
 def overlap (P Q : Matrix n n ℂ) : ℝ := (P * Q).trace.re
 def metric (D : Matrix n n ℂ) : ℝ := (D * D).trace.re / 2
@@ -43,8 +43,8 @@ theorem difference_square_limit (P : ℝ → Matrix n n ℂ) (D : Matrix n n ℂ
       ((t⁻¹ • (P t-P 0)) * (t⁻¹ • (P t-P 0))).trace)
       (𝓝[≠] 0) (𝓝 ((D*D).trace)) := by
     simp only [Matrix.trace, Matrix.diag_apply, Matrix.mul_apply]
-    exact tendsto_finset_sum _ (fun i _ =>
-      tendsto_finset_sum _ (fun j _ => (hs i j).mul (hs j i)))
+    exact tendsto_finsetSum _ (fun i _ =>
+      tendsto_finsetSum _ (fun j _ => (hs i j).mul (hs j i)))
   exact Complex.continuous_re.continuousAt.tendsto.comp hh
 
 /-- The full quadratic overlap limit, obtained without a second derivative. -/
@@ -63,10 +63,10 @@ theorem overlap_quadratic_limit (P : ℝ → Matrix n n ℂ) (D : Matrix n n ℂ
       htr.filter_mono nhdsWithin_le_nhds, self_mem_nhdsWithin] with t hp hq ht
     have ht0 : t ≠ 0 := by simpa using ht
     rw [overlap_exact (P 0) (P t) k hP0 hp htr0 hq]
-    simp only [smul_mul_smul, Matrix.trace_smul, RCLike.smul_re, smul_eq_mul]
+    simp only [smul_mul_smul, Matrix.trace_smul, Complex.smul_re, smul_eq_mul]
     field_simp
     <;> ring
-  exact (by simpa only [neg_div] using hl).congr' he.symm
+  simpa only [neg_div] using hl.congr' he.symm
 
 /-- Quantified small-o remainder: every positive quadratic tolerance is attained. -/
 theorem overlap_remainder_bound (P : ℝ → Matrix n n ℂ) (D : Matrix n n ℂ) (k : ℝ)
@@ -85,7 +85,7 @@ theorem overlap_remainder_bound (P : ℝ → Matrix n n ℂ) (D : Matrix n n ℂ
   have ht0 : t ≠ 0 := by simpa using ht
   have hp : 0 < t^2 := sq_pos_of_ne_zero ht0
   have hid : (overlap (P 0) (P t)-k)/t^2+metric D =
-      (overlap (P 0) (P t)-k+metric D*t^2)/t^2 := by field_simp; ring
+      (overlap (P 0) (P t)-k+metric D*t^2)/t^2 := by field_simp <;> ring
   simp only [Real.dist_eq, sub_zero, hid, abs_div, abs_of_pos hp] at he
   exact (div_lt_iff₀ hp).mp he
 
@@ -98,7 +98,7 @@ theorem negative_direction_exceeds_cap (P : ℝ → Matrix n n ℂ) (D : Matrix 
     (hg : metric D < 0) :
     ∀ᶠ t in 𝓝[≠] (0:ℝ), k < overlap (P 0) (P t) := by
   have hl := overlap_quadratic_limit P D k hd hP0 htr0 hP htr
-  have he := hl.eventually (gt_mem_nhds (show 0 < -metric D by linarith))
+  have he := hl.eventually (lt_mem_nhds (show 0 < -metric D by linarith))
   filter_upwards [he, self_mem_nhdsWithin] with t he ht
   have ht0 : t ≠ 0 := by simpa using ht
   have hp : 0 < t^2 := sq_pos_of_ne_zero ht0
