@@ -12,6 +12,7 @@ Finite covariance and endpoint algebra; written transfer/Hankel argument and par
 ## Reusable results
 
 - [Laurent determinant column budgets](../../atlas/ALG-BOUNDARY-DEGREE.md)
+- [Sign-correct positive-block gluing](../../atlas/UPG-GLUING-SIGN.md)
 
 ## Next step
 

@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def render():
  data=json.loads((ROOT/'catalog/papers.json').read_text());cards=json.loads((ROOT/'atlas/cards.json').read_text())
- lines=['# Master paper register','','This is an initial source register, not a complete census of the 20+ paper corpus. Six research projects have been seeded. Published titles, versions and DOIs require source reconciliation where marked.','', '| Project | Source state | Next concrete step |','|---|---|---|']
+ lines=['# Master paper register','','This is an initial source register, not a complete census of the 20+ paper corpus. The project coverage is listed below. Published titles, versions and DOIs require source reconciliation where marked.','', '| Project | Source state | Next concrete step |','|---|---|---|']
  for p in data['projects']:
   lines.append(f"| [{p['title']}](../papers/{p['id']}/README.md) | {p['state']} | {p['next_step']} |")
  lines+=['','## Intake queue','','These entries are leads supplied in the research conversation, not verified publication records. No missing code is assumed to exist in GitHub.','']
