@@ -182,5 +182,135 @@
     "credit": "Research sources are attributed through their pinned links. Inclusion is not a priority or novelty claim; borrowed tools require their original citations when reused.",
     "sources": [],
     "next_step": "Register exact certificate formats when the delivered supplement enters GitHub."
+  },
+  {
+    "id": "UPG-FEEDBACK",
+    "title": "Hermitian redistribution and elimination memory",
+    "papers": [
+      "upg",
+      "peeling-cascade",
+      "compound-eye"
+    ],
+    "statement": "For an orthogonal split of a finite Hermitian H, F=0 iff cross block B=0 iff K(t)=B exp(-itD) B*=0 identically; norm(F)^2=2 Tr K(0).",
+    "assumptions": "Finite Hermitian fixed generator, orthogonal retained/hidden split, hbar=1; initial hidden forcing treated separately.",
+    "failure_mode": "Non-Hermitian one-way coupling can give F nonzero and zero feedback. Elimination memory does not alone imply lack of CP divisibility.",
+    "evidence_status": "Written proof plus 213-case integration suite; no new Lean compilation",
+    "verification_scope": "See research/upg/verification.json and integration report; original UPG gates are numerical, and paper interpretations are not certified by them.",
+    "credit": "Jeromie N. Beasley research program; standard projector, Schur, spectral and knot methods retain their original attribution. No broad novelty claim.",
+    "sources": [
+      {
+        "label": "UPG integration report",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/UPG_Cascade_Integration.md"
+      },
+      {
+        "label": "Input identities and hashes",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/input_manifest.json"
+      }
+    ],
+    "next_step": "Run the exact block equivalence through Lean, then formalize its connection to existing Schur results."
+  },
+  {
+    "id": "UPG-GLUING-SIGN",
+    "title": "Sign-correct positive-block gluing",
+    "papers": [
+      "upg",
+      "offset",
+      "peeling-cascade"
+    ],
+    "statement": "For [[A,B],[B*,D]] positive definite, the logdet correction is logdet(I-D^(-1/2) B* A^(-1) B D^(-1/2)) <= 0.",
+    "assumptions": "Positive definite full Hermitian block, consistent real logarithm.",
+    "failure_mode": "Positive diagonal blocks alone do not suffice. The claimed plus sign in UPG Eq.5 is contradicted already by A=D=1, B=1/2.",
+    "evidence_status": "Exact scalar counterexample and numerical Schur controls",
+    "verification_scope": "See research/upg/verification.json and integration report; original UPG gates are numerical, and paper interpretations are not certified by them.",
+    "credit": "Jeromie N. Beasley research program; standard projector, Schur, spectral and knot methods retain their original attribution. No broad novelty claim.",
+    "sources": [
+      {
+        "label": "UPG integration report",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/UPG_Cascade_Integration.md"
+      },
+      {
+        "label": "Input identities and hashes",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/input_manifest.json"
+      }
+    ],
+    "next_step": "Choose the intended physical functional and derive its sign before using an interface energy interpretation."
+  },
+  {
+    "id": "UPG-GAP-RANK",
+    "title": "Projector susceptibility and the separating gap",
+    "papers": [
+      "upg",
+      "three-body",
+      "peeling-cascade"
+    ],
+    "statement": "[H,dot(P)]=[P,dot(H)]; cross-cluster derivative entries have denominators equal to eigenvalue separations.",
+    "assumptions": "Differentiable Hermitian family with an isolated selected cluster.",
+    "failure_mode": "An eigenvalue passing zero need not close a cluster gap; a full-rank operator can have a degenerate selected cluster.",
+    "evidence_status": "Written spectral derivative plus independent finite-difference and refusal controls",
+    "verification_scope": "See research/upg/verification.json and integration report; original UPG gates are numerical, and paper interpretations are not certified by them.",
+    "credit": "Jeromie N. Beasley research program; standard projector, Schur, spectral and knot methods retain their original attribution. No broad novelty claim.",
+    "sources": [
+      {
+        "label": "UPG integration report",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/UPG_Cascade_Integration.md"
+      },
+      {
+        "label": "Input identities and hashes",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/input_manifest.json"
+      }
+    ],
+    "next_step": "Connect a calibrated electrical response to the chosen H and its parameter derivative."
+  },
+  {
+    "id": "UPG-CURRENCY-GUARDS",
+    "title": "Winding, signature and eta remain distinct",
+    "papers": [
+      "upg",
+      "compound-eye"
+    ],
+    "statement": "Finite commutator winding is integer-valued away from its log branch; knot signature plateaus can cancel despite Alexander roots.",
+    "assumptions": "Unitary relator with explicit branch guard; separate knot Seifert form and holonomy conventions.",
+    "failure_mode": "Dimension-two clock-shift closes the branch. A knot signature is not automatically the minimal unit record or an APS eta invariant.",
+    "evidence_status": "Source winding replay and independent signature cancellation control",
+    "verification_scope": "See research/upg/verification.json and integration report; original UPG gates are numerical, and paper interpretations are not certified by them.",
+    "credit": "Jeromie N. Beasley research program; standard projector, Schur, spectral and knot methods retain their original attribution. No broad novelty claim.",
+    "sources": [
+      {
+        "label": "UPG integration report",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/UPG_Cascade_Integration.md"
+      },
+      {
+        "label": "Input identities and hashes",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/input_manifest.json"
+      }
+    ],
+    "next_step": "Specify manifold, operator and representation before testing an eta/CS/torsion bridge."
+  },
+  {
+    "id": "CASCADE-FOUR-RECORDS",
+    "title": "Four records of a reduction",
+    "papers": [
+      "peeling-cascade",
+      "matter",
+      "compound-eye",
+      "upg"
+    ],
+    "statement": "Track support, projector motion, hidden feedback and a separately named topological invariant during a cascade.",
+    "assumptions": "Each record carries its own operator, units, boundary and evidence stage.",
+    "failure_mode": "Covariance overlap is not dynamical memory; an energy descent is not automatically work; a window count can increase under a positive peel.",
+    "evidence_status": "Instrument architecture plus preserved QHE and cascade controls",
+    "verification_scope": "See research/upg/verification.json and integration report; original UPG gates are numerical, and paper interpretations are not certified by them.",
+    "credit": "Jeromie N. Beasley research program; standard projector, Schur, spectral and knot methods retain their original attribution. No broad novelty claim.",
+    "sources": [
+      {
+        "label": "UPG integration report",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/UPG_Cascade_Integration.md"
+      },
+      {
+        "label": "Input identities and hashes",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/input_manifest.json"
+      }
+    ],
+    "next_step": "Specify the UPG feature map, measured response, independent splits and energy costs for the next acquisition test."
   }
 ]

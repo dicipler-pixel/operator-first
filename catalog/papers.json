@@ -160,12 +160,106 @@
         }
       ],
       "publication_identity": "title/version/DOI reconciliation pending"
+    },
+    {
+      "id": "upg",
+      "title": "Universal Projector Geometry from Electrical Measurements",
+      "state": "Uploaded August 2026 v2; five scientific gates replayed; corrections recorded",
+      "scope": "Finite redistribution algebra, guarded commutator winding, projector geometry; physical, knot-classification and calibration bridges have separate obligations.",
+      "next_step": "Correct the gluing sign and path-bound claims; specify the raw-IQ feature map and test the held-out refraction model.",
+      "sources": [
+        {
+          "label": "UPG integration report",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/UPG_Cascade_Integration.md"
+        },
+        {
+          "label": "Input identities and hashes",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/input_manifest.json"
+        }
+      ],
+      "publication_identity": "source identity recorded; publication DOI not established in this intake"
+    },
+    {
+      "id": "three-body",
+      "title": "The Three-Body Problem, Operator-First",
+      "state": "Uploaded v3 repeated exactly; supplied source archive is v2 and incomplete",
+      "scope": "Relational Gram family, distinct rank/gap loci, reciprocity and orbit records. Unequal-mass numerical replay is blocked by an absent helper.",
+      "next_step": "Recover unequal_check.py and the complete v3 source; qualify the Z3-only symmetry explanation.",
+      "sources": [
+        {
+          "label": "UPG integration report",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/UPG_Cascade_Integration.md"
+        },
+        {
+          "label": "Input identities and hashes",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/input_manifest.json"
+        }
+      ],
+      "publication_identity": "source identity recorded; publication DOI not established in this intake"
+    },
+    {
+      "id": "matter",
+      "title": "Matter at a Scale",
+      "state": "Matter v5 included in prior portable cascade analysis; publication identity pending",
+      "scope": "Scale-dependent compressed projector spectra and effective channel counts; window counts need not be monotone under a positive peel.",
+      "next_step": "Use the archived window-count counterexample and link each physical scale to its actual measured observable.",
+      "sources": [
+        {
+          "label": "UPG integration report",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/UPG_Cascade_Integration.md"
+        },
+        {
+          "label": "Input identities and hashes",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/input_manifest.json"
+        }
+      ],
+      "publication_identity": "source identity recorded; publication DOI not established in this intake"
+    },
+    {
+      "id": "peeling-cascade",
+      "title": "Peeling Cascades and What They Leave Behind",
+      "state": "Research draft plus positive-peel Lean PR 11; UPG integration added",
+      "scope": "Positive support peeling, Schur reduction and hidden-sector memory are distinct operations; no atomic removal law has been established.",
+      "next_step": "Add the Hermitian feedback criterion with the gap-controlled projector derivative; formalize the finite block bridge before the analytic time-domain bridge.",
+      "sources": [
+        {
+          "label": "UPG integration report",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/UPG_Cascade_Integration.md"
+        },
+        {
+          "label": "Input identities and hashes",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/input_manifest.json"
+        },
+        {
+          "label": "Positive peel and constitutive Lean module (PR 11)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/4675da5baf7ca4d35d57fae1004fe63466a31b5b/proofs/peel_constitutive/OpticalMetric.lean",
+          "pr": 11,
+          "sha": "4675da5baf7ca4d35d57fae1004fe63466a31b5b",
+          "path": "proofs/peel_constitutive/OpticalMetric.lean"
+        }
+      ],
+      "publication_identity": "source identity recorded; publication DOI not established in this intake"
+    },
+    {
+      "id": "compound-eye",
+      "title": "Compound Eye Universal",
+      "state": "Portable release 2.1: 172 eye versions, 153 implemented",
+      "scope": "Versioned research instrument with explicit source stages, scoped diagnostics and expected refusal cases; the catalog is not an independent scientific vote.",
+      "next_step": "Recover the eight-feature UPG covariance map and use independent acquisition/calibration partitions for the next physical test.",
+      "sources": [
+        {
+          "label": "UPG integration report",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/UPG_Cascade_Integration.md"
+        },
+        {
+          "label": "Input identities and hashes",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/input_manifest.json"
+        }
+      ],
+      "publication_identity": "source identity recorded; publication DOI not established in this intake"
     }
   ],
   "intake_queue": [
-    "Matter at a Scale \u2014 resolve latest manuscript and release ZIP.",
-    "UPG \u2014 reconcile title, proof sources and publication version.",
-    "Three-body operator-first paper \u2014 locate current source and verification records.",
     "Four-body / shape-space work \u2014 locate current manuscript and code.",
     "Directional capacity / Price of a Direction \u2014 keep separate from arithmetic Kakeya exponent claims.",
     "Non-Hermitian defectiveness and clock-exponent work \u2014 reconcile overlap with Gravity without merging paper identities.",
