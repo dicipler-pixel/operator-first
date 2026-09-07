@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Compile and axiom-audit the overlap bridge, with an independent kernel recheck."""
-import hashlib, json, pathlib, re, subprocess, sys
+import hashlib, json, pathlib, re, subprocess, sys, shutil
 ROOT = pathlib.Path(__file__).resolve().parent
 OUT = ROOT / 'evidence'
 OUT.mkdir(exist_ok=True)
@@ -20,6 +20,10 @@ def run(name, args, negative=False):
         raise RuntimeError(name+' failed')
     return p.stdout
 try:
+    for filename in ['lake-manifest.json', 'lean-toolchain']:
+        shutil.copyfile(ROOT/filename, OUT/filename)
+    run('toolchain',['lake','env','lean','--version'])
+    run('examples',[sys.executable,'check_examples.py'])
     source = ROOT / 'GravityOverlap.lean'
     report['sha256'] = hashlib.sha256(source.read_bytes()).hexdigest()
     report['theorems'] = ['GravityOverlap.'+x for x in re.findall(r'^theorem\s+(\w+)',source.read_text(),re.M)]

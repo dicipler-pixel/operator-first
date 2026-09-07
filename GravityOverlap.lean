@@ -65,7 +65,7 @@ theorem overlap_quadratic_limit (P : ℝ → Matrix n n ℂ) (D : Matrix n n ℂ
     rw [overlap_exact (P 0) (P t) k hP0 hp htr0 hq]
     simp only [smul_mul_smul, Matrix.trace_smul, Complex.smul_re, smul_eq_mul]
     field_simp
-    <;> ring
+    ring
   simpa only [neg_div] using hl.congr' he.symm
 
 /-- Quantified small-o remainder: every positive quadratic tolerance is attained. -/
@@ -85,7 +85,7 @@ theorem overlap_remainder_bound (P : ℝ → Matrix n n ℂ) (D : Matrix n n ℂ
   have ht0 : t ≠ 0 := by simpa using ht
   have hp : 0 < t^2 := sq_pos_of_ne_zero ht0
   have hid : (overlap (P 0) (P t)-k)/t^2+metric D =
-      (overlap (P 0) (P t)-k+metric D*t^2)/t^2 := by field_simp <;> ring
+      (overlap (P 0) (P t)-k+metric D*t^2)/t^2 := by field_simp
   simp only [Real.dist_eq, sub_zero, hid, abs_div, abs_of_pos hp] at he
   exact (div_lt_iff₀ hp).mp he
 
@@ -102,7 +102,7 @@ theorem negative_direction_exceeds_cap (P : ℝ → Matrix n n ℂ) (D : Matrix 
   filter_upwards [he, self_mem_nhdsWithin] with t he ht
   have ht0 : t ≠ 0 := by simpa using ht
   have hp : 0 < t^2 := sq_pos_of_ne_zero ht0
-  have := (div_pos_iff_of_pos hp).mp he
+  have := (lt_div_iff₀ hp).mp he
   linarith
 
 /-- A local upper overlap cap requires a nonnegative tangent trace form. -/
