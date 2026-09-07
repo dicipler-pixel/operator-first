@@ -1,48 +1,35 @@
-# operator-first
+# Operator-first research directory
 
-Machine-checked statements from the operator-first corpus.
+Jeromie N. Beasley research corpus: paper projects, reusable mathematics, code and verification evidence.
 
-Jeromie Beasley — source paper *Light Keeps the Ledger*,
-https://doi.org/10.5281/zenodo.22124938
+Start with the [master paper register](catalog/README.md) or the [reusable-results Atlas](atlas/README.md). This first index covers six research projects and seven reusable-result cards. It is a partial inventory of the 20+ paper corpus, not a declaration that the remaining papers have been audited or imported.
 
-## What is here
+## Where the work currently lives
 
-Two warm-up theorems, each stated in the most general setting in which it is
-actually true.
+The research sources remain in the existing draft PR branches. This directory links to pinned commits so a moving branch cannot silently change an entry's source. [The branch snapshot](catalog/source_snapshot.json) records nine research PRs inspected for this intake. It is a historical snapshot, not a live status dashboard.
 
-**T1 — the commutator identity.**  For any ring and any `S`, `K`,
+- [Light](papers/light/README.md)
+- [Offset](papers/offset/README.md)
+- [Gravity](papers/gravity/README.md)
+- [Arithmetic Kakeya](papers/arithmetic-kakeya/README.md)
+- [Earth–Moon](papers/earth-moon/README.md)
+- [CMF calibration and transport](papers/cmf-transport/README.md)
 
-    [S + K, S - K] = -2 [S, K]
+The default branch's original Lean sources are retained. This catalog does not merge or recertify any research branch. Its arrival on a branch must not be read as a new proof build.
 
-so that `C = S + K` with `Cᵀ = S - K` is normal exactly when `S` and `K`
-commute.  The corollary carries an explicit hypothesis ruling out
-characteristic two, where `-2x = 0` for every `x` and the statement is empty.
-Real and complex matrices satisfy it.
+## Reuse and verification
 
-**T2 — reciprocity.**  For square matrices over a commutative ring, if
-`Bᵀ = B` and `Vᵀ B = B V`, then `B V` is symmetric, hence
-`xᵀ(BV)y = yᵀ(BV)x` for every pair of vectors.  The hypotheses are minimal: positivity,
-definiteness and invertibility of `B` are never used.
+Read [the catalog policy](catalog/POLICY.md) before adding a card or applying one in another paper. Written proof, Lean compilation, per-theorem axiom audit, independent kernel recheck, exact certificates and numerical experiments are different evidence fields. An application still has to establish the source theorem's hypotheses.
 
-## Two builds
+Generate and check the directory with Python's standard library:
 
-`standalone/Warmup.lean` depends on **nothing**.  It defines its own ring
-axioms and proves both theorems from them.  It compiles under plain Lean 4
-with no library:
+```
+python3 scripts/build_catalog.py
+python3 scripts/validate_catalog.py
+```
 
-    lean standalone/Warmup.lean
+These commands validate the directory only. Paper-specific proof reproduction commands live at the pinned source links.
 
-`#print axioms` reports that all three results *do not depend on any axioms* —
-not choice, not propositional extensionality, nothing.  They are constructive
-consequences of the ring axioms as written.
+## Next work
 
-`OperatorFirst/Warmup.lean` is the mathlib version, which is the one that
-belongs in a library and can be built on.  Build it with
-
-    lake exe cache get
-    lake build
-
-## CI
-
-`.github/workflows/ci.yml` runs `lake build` against the mathlib cache on every
-push.  The green check is the verification.
+Follow [the implementation queue](catalog/ROADMAP.md). Light is the pilot for a fully mapped, self-contained release. Each release should bundle the precise proof/code dependencies it uses, while keeping earlier published manuscripts out of the supplement.

@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "coverage": "partial",
+  "projects": [
+    {
+      "id": "light",
+      "title": "Light Keeps the Ledger",
+      "state": "PR #7 draft; later written additions await GitHub intake",
+      "scope": "Finite projector, boundary, optical weighting, rigidity and nullspace results. Keep continuum and physical calibration extensions separate.",
+      "next_step": "Pilot a complete release manifest; import and formalize the two-frequency addition with explicit lossless assumptions.",
+      "sources": [
+        {
+          "label": "PR #7",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/7"
+        },
+        {
+          "label": "LIGHT_README.md (pinned PR #7)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/41d9523a53ad679d2240e5e40ed07a7ea0cc2bac/LIGHT_README.md",
+          "pr": 7,
+          "path": "LIGHT_README.md",
+          "sha": "41d9523a53ad679d2240e5e40ed07a7ea0cc2bac"
+        },
+        {
+          "label": "LightCompletion.lean (pinned PR #7)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/41d9523a53ad679d2240e5e40ed07a7ea0cc2bac/LightCompletion.lean",
+          "pr": 7,
+          "path": "LightCompletion.lean",
+          "sha": "41d9523a53ad679d2240e5e40ed07a7ea0cc2bac"
+        }
+      ],
+      "publication_identity": "title/version/DOI reconciliation pending"
+    },
+    {
+      "id": "offset",
+      "title": "The Offset Belongs to the Boundary",
+      "state": "PRs #2, #5 and #6 draft",
+      "scope": "Finite covariance and endpoint algebra; written transfer/Hankel argument and partial formalization have distinct scope.",
+      "next_step": "Map the written endpoint proof to exact model-specific Lean obligations and the pinned standalone supplement.",
+      "sources": [
+        {
+          "label": "PR #2",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/2"
+        },
+        {
+          "label": "PR #5",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/5"
+        },
+        {
+          "label": "PR #6",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/6"
+        },
+        {
+          "label": "laurent_boundary/FORMAL_BOUNDARY_SCOPE.md (pinned PR #6)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/10efd332626e1f861fc74082b7f67dd135712e5e/laurent_boundary/FORMAL_BOUNDARY_SCOPE.md",
+          "pr": 6,
+          "path": "laurent_boundary/FORMAL_BOUNDARY_SCOPE.md",
+          "sha": "10efd332626e1f861fc74082b7f67dd135712e5e"
+        }
+      ],
+      "publication_identity": "title/version/DOI reconciliation pending"
+    },
+    {
+      "id": "gravity",
+      "title": "Gravity / finite projector overlap",
+      "state": "PRs #8 and #9 draft",
+      "scope": "Projector algebra and overlap remainder; no gravitational field equation follows merely from the finite trace form.",
+      "next_step": "Reconcile the seven-theorem overlap follow-up with the preceding 23-theorem module and its paper version.",
+      "sources": [
+        {
+          "label": "PR #8",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/8"
+        },
+        {
+          "label": "PR #9",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/9"
+        },
+        {
+          "label": "GravityOverlap.lean (pinned PR #9)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/63c11a656ea78097d1cd61a0994cb9baa0e3bc8e/GravityOverlap.lean",
+          "pr": 9,
+          "path": "GravityOverlap.lean",
+          "sha": "63c11a656ea78097d1cd61a0994cb9baa0e3bc8e"
+        },
+        {
+          "label": "gravity/OVERLAP_BRIDGE.md (pinned PR #9)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/63c11a656ea78097d1cd61a0994cb9baa0e3bc8e/gravity/OVERLAP_BRIDGE.md",
+          "pr": 9,
+          "path": "gravity/OVERLAP_BRIDGE.md",
+          "sha": "63c11a656ea78097d1cd61a0994cb9baa0e3bc8e"
+        }
+      ],
+      "publication_identity": "title/version/DOI reconciliation pending"
+    },
+    {
+      "id": "arithmetic-kakeya",
+      "title": "Arithmetic Kakeya",
+      "state": "PR #4 draft; newer exact search awaits intake",
+      "scope": "Forcing, kernel duality, restricted family classification, and finite search certificates. The target construction is still open.",
+      "next_step": "Catalog the exact search family and terminal certificates, then record a genuinely new search region.",
+      "sources": [
+        {
+          "label": "PR #4",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/4"
+        },
+        {
+          "label": "ATLAS_LEAN_SCOPE.md (pinned PR #4)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/41fbf3b9e6ad8143d597928e477a9d94adb6d6d6/ATLAS_LEAN_SCOPE.md",
+          "pr": 4,
+          "path": "ATLAS_LEAN_SCOPE.md",
+          "sha": "41fbf3b9e6ad8143d597928e477a9d94adb6d6d6"
+        },
+        {
+          "label": "OperatorFirst/KakeyaForcingLinear.lean (pinned PR #4)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/41fbf3b9e6ad8143d597928e477a9d94adb6d6d6/OperatorFirst/KakeyaForcingLinear.lean",
+          "pr": 4,
+          "path": "OperatorFirst/KakeyaForcingLinear.lean",
+          "sha": "41fbf3b9e6ad8143d597928e477a9d94adb6d6d6"
+        }
+      ],
+      "publication_identity": "title/version/DOI reconciliation pending"
+    },
+    {
+      "id": "earth-moon",
+      "title": "Earth\u2013Moon / biplanarity obstructions",
+      "state": "PR #4 draft",
+      "scope": "Finite subgraph capacity and explicit graph algebra. Planarity inputs and exhaustive enumerations need their own evidence.",
+      "next_step": "Attach the graph-generation and planarity certificates to the precise formal capacity statements.",
+      "sources": [
+        {
+          "label": "PR #4",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/4"
+        },
+        {
+          "label": "OperatorFirst/EarthMoon.lean (pinned PR #4)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/41fbf3b9e6ad8143d597928e477a9d94adb6d6d6/OperatorFirst/EarthMoon.lean",
+          "pr": 4,
+          "path": "OperatorFirst/EarthMoon.lean",
+          "sha": "41fbf3b9e6ad8143d597928e477a9d94adb6d6d6"
+        },
+        {
+          "label": "OperatorFirst/RestrictionBridge.lean (pinned PR #4)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/41fbf3b9e6ad8143d597928e477a9d94adb6d6d6/OperatorFirst/RestrictionBridge.lean",
+          "pr": 4,
+          "path": "OperatorFirst/RestrictionBridge.lean",
+          "sha": "41fbf3b9e6ad8143d597928e477a9d94adb6d6d6"
+        }
+      ],
+      "publication_identity": "title/version/DOI reconciliation pending"
+    },
+    {
+      "id": "cmf-transport",
+      "title": "CMF calibration / What Transport Keeps",
+      "state": "Earlier diagnostic repository found; follow-up intake pending",
+      "scope": "Recurrence transport and calibration programme. Historical diagnostic classifications remain heuristics unless separately proved.",
+      "next_step": "Import the actual latest CMF/Atlas supplement and reconcile it against the earlier diagnostic; do not promote historical classifications automatically.",
+      "sources": [
+        {
+          "label": "Earlier recurrence diagnostic (pinned)",
+          "url": "https://github.com/dicipler-pixel/ramanujan-normality-diagnostic/tree/ffdf81020df43081f12a8ef0038b2c83203dffbf"
+        }
+      ],
+      "publication_identity": "title/version/DOI reconciliation pending"
+    }
+  ],
+  "intake_queue": [
+    "Matter at a Scale \u2014 resolve latest manuscript and release ZIP.",
+    "UPG \u2014 reconcile title, proof sources and publication version.",
+    "Three-body operator-first paper \u2014 locate current source and verification records.",
+    "Four-body / shape-space work \u2014 locate current manuscript and code.",
+    "Directional capacity / Price of a Direction \u2014 keep separate from arithmetic Kakeya exponent claims.",
+    "Non-Hermitian defectiveness and clock-exponent work \u2014 reconcile overlap with Gravity without merging paper identities.",
+    "Topology, knots, ordered spectral flow, and confinement series \u2014 establish individual paper identities before creating numbered records.",
+    "Remaining corpus \u2014 reconcile the user\u2019s complete publication list; do not manufacture entries to reach a target count."
+  ]
+}
