@@ -1,5 +1,19 @@
 # Current project master — 8 September 2026
 
+## Current observation session
+
+`tools/compound-eye/projects/all_eyes/` contains the completed All Eyes Observatory.
+The whole-registry pass accounted for all 191 versions: 171 fresh successful
+implementations, one missing-nuclear-data refusal, 17 specifications and two
+archive reads. Thirteen coordinated studies use 58 distinct versions across
+1,256 frames and 5,103 evaluations, with 704 independent/consistency checks.
+The live local server recomputes registered Python eyes at new parameter values.
+Its 11 UI handler tests include actual HTTP calls and stale-response protection;
+no fresh full-browser screenshot is claimed. Runtime 1.0.1 fixes legacy source
+folder resolution; all eye definitions and implementations remain unchanged.
+The finite Kakeya and Earth–Moon family obstructions remain, and the six
+Diophantine equations remain unresolved. See the session README and findings.
+
 ## Current instrument
 
 **Compound Eye Universal 3.2** is the synchronized release in `tools/compound-eye/`.

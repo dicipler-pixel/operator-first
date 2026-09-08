@@ -27,6 +27,11 @@ integration="""<section id="integration" hidden><h2>One current Compound Eye</h2
 <h3>Proof boundaries retained</h3><p>The finite projector overlap expansion has a verified differentiability-based proof with explicit local trace assumptions. The complete Offset transfer has a written proof with partial Lean coverage. The six Diophantine targets, physical cascade calibration, and APS knot-operator bridge remain open in this project.</p></section>"""
 arithmetic='<section id="arithmetic" hidden><h2>Diophantine evolution</h2><iframe title="Recorded arithmetic results" style="width:100%;height:1000px;border:0" sandbox="allow-scripts allow-downloads" srcdoc="'+html_module.escape(findings,quote=True)+'"></iframe></section>'
 page=page.replace('</main>',integration+arithmetic+'</main>',1)
+observatory=ROOT/'projects/all_eyes/All_Eyes_Observatory.html'
+if observatory.exists():
+    page=page.replace('<button data-tab="integration">','<button data-tab="observatory">All Eyes Observatory</button><button data-tab="integration">',1)
+    panel='<section id="observatory" hidden><h2>Coordinated observation sessions</h2><p>Open the standalone observatory for recorded sweeps. Its included local Python server enables fresh recomputation at new parameter values.</p><iframe title="All Eyes Observatory" style="width:100%;height:1500px;border:0" sandbox="allow-scripts allow-downloads" srcdoc="'+html_module.escape(observatory.read_text(),quote=True)+'"></iframe></section>'
+    page=page.replace('</main>',panel+'</main>',1)
 page=page.replace('Read START_HERE.md, CHAT_HANDOFF.md and projects/horizon_compare/FINDINGS.md and MANUAL.md.','Read START_HERE.md, CHAT_HANDOFF.md and projects/master_sync/MASTER_STATUS.md, then reports relevant to your task.')
 (ROOT/'START_HERE.html').write_text(page)
 (ROOT/'release_counts.json').write_text(json.dumps(counts,indent=2)+'\n')

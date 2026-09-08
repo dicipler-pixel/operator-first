@@ -10,7 +10,7 @@ from pathlib import Path
 import argparse, hashlib, importlib.util, json, math, re, sys, threading, time
 
 ROOT=Path(__file__).resolve().parent
-VERSION='1.0.0'
+VERSION='1.0.1'
 KINDS={'acquisition','calibration','processed','evaluated','inferred','synthetic','theoretical'}
 
 def canonical(x):return json.dumps(x,sort_keys=True,separators=(',',':'),allow_nan=False)
@@ -137,6 +137,16 @@ class Runtime:
             except BaseException as exc:future.set_exception(exc)
         return deepcopy(future.result())
 
+class SourceRuntime:
+    """A preserved adapter's source layout, sharing the current run's cache.
+
+    This changes file resolution only. Registered implementation bytes, requests,
+    results, dependency scheduling and cache keys remain those of the active run.
+    """
+    def __init__(self, runtime, root):
+        self.root=root
+        self.shared=runtime.shared
+
 def validate_context(ctx):
     for key in ['object_id','model_id','basis_id','boundary_id','coordinate','unit_system','source','assumptions']:
         need(key in ctx,'Context missing '+key)
@@ -186,7 +196,12 @@ def execute(request,selected,root=ROOT,workers=4):
                     m=importlib.util.spec_from_file_location('eye_'+impl['sha256'],path);mod=importlib.util.module_from_spec(m);m.loader.exec_module(mod);modules[impl['sha256']]=mod
                 handler=getattr(modules[impl['sha256']],impl['function'])
             payload={k:deepcopy(inputs[k]['value']) for k in spec['inputs']}
-            output=handler(payload,deepcopy(ctx),deepcopy(deps),deepcopy(spec),runtime)
+            source_runtime=runtime
+            if impl['path']=='plugins/eyes.py' and not (runtime.root/'preserved/compound-eye-0.4').is_dir():
+                source_root=runtime.root/'preserved/original_modular_release'
+                need((source_root/'preserved/compound-eye-0.4').is_dir(),'Preserved legacy source layout is missing.')
+                source_runtime=SourceRuntime(runtime,source_root)
+            output=handler(payload,deepcopy(ctx),deepcopy(deps),deepcopy(spec),source_runtime)
             canonical(output)
             if isinstance(output,dict) and output.get('_status')=='blocked':return dict(base,status='blocked',reason=output['reason'])
             return dict(base,status='ok',value=output,value_sha256=digest(output))
