@@ -2,6 +2,13 @@
 
 Open `START_HERE.html` for the Eye Mixer, boundary lab, complete catalog and recorded arithmetic viewer. This combines Universal 2.2 and independently developed Universal 3.1. They share 167 byte-identical eye versions. The union has **191 eye versions in 29 sets**: **172 implemented**, **17 specified**, and **two archived results**.
 
+The new **All Eyes Observatory** is in `projects/all_eyes/`. It adds coordinated
+parameter sweeps and live registered Python recomputation. Open its standalone
+HTML or run `python projects/all_eyes/serve.py`. The fresh whole-registry pass
+executes 171 implementations; the nuclear-data gate remains blocked. Thirteen
+coordinated studies use 58 distinct eye versions across 1,256 frames. Read its
+README for source stages, exact scope, reproduction and the legacy source-path repair.
+
 The mixer remains version 1.0.0. It is a display-composition module, not an extra scientific eye or a physical fusion law. Read `projects/eye_mixer/GUIDE.md` for controls, imports, source-unit checks, saved recipes and exports. The original illustrated guide is `projects/eye_mixer/Eye_Mixer_Guide.html`.
 
 ## Reproduce the integrated release

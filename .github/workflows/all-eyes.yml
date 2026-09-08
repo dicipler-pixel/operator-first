@@ -1,0 +1,39 @@
+name: All Eyes coordinated observations
+on:
+  push:
+    paths: ['tools/compound-eye/machine.py', 'tools/compound-eye/projects/all_eyes/**', '.github/workflows/all-eyes.yml']
+  pull_request:
+    paths: ['tools/compound-eye/machine.py', 'tools/compound-eye/projects/all_eyes/**', '.github/workflows/all-eyes.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  coordinated-observations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m pip install -r tools/compound-eye/requirements.txt
+      - run: python scripts/verify_compound_eye_release.py
+      - run: python tools/compound-eye/projects/all_eyes/coverage.py
+      - run: python tools/compound-eye/projects/all_eyes/sweeps.py
+      - run: python tools/compound-eye/projects/all_eyes/verify_findings.py
+      - run: python tools/compound-eye/projects/all_eyes/build_viewer.py
+      - run: python tools/compound-eye/projects/all_eyes/verify_live.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coordinated-observation-evidence
+          path: |
+            tools/compound-eye/projects/all_eyes/results/coverage.json
+            tools/compound-eye/projects/all_eyes/results/findings.json
+            tools/compound-eye/projects/all_eyes/results/ui_checks.json

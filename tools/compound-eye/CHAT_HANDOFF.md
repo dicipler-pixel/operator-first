@@ -2,6 +2,13 @@
 
 Read START_HERE.md and projects/master_sync/MASTER_STATUS.md, then the report for the user's active problem. This combines 2.2's UPG/arithmetic extensions with 3.1's horizon comparison and Eye Mixer: 191 eye versions, 29 sets, and both histories.
 
+The user's current emphasis is coordinated observation: turn on every compatible
+eye and follow the same object as inputs vary. `projects/all_eyes/README.md`
+describes the completed session and live viewer. Distinguish whole-registry
+calibration coverage (171 fresh successful implementations) from the coordinated
+sweeps (58 distinct versions, 13 studies, 1,256 frames). Runtime 1.0.1 repairs
+legacy source resolution without changing registered scientific implementations.
+
 Preserve registered definitions and installed implementation bytes. Add a new semantic version when a scientific implementation changes. Use Registry.add and Registry.add_set. Do not rewrite old hashes. Historical conflicting top-level files are in preserved/synchronization_3_2/.
 
 Keep model, object, observer, metric, units, boundary, common coordinate and evidence stage explicit. Mixing is a declared display operation. Prime averages are not automatically spectral flow, entropy, charge or quantum memory.
