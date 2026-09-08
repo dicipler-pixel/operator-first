@@ -24,7 +24,7 @@ theorem cross_commutator (h p : R) (hp : p*p=p) :
       p*p*h-h*p*p-2*(p*p*h*p)+2*(p*h*p*p) := by
         unfold cross
         noncomm_ring
-    _ = p*h-h*p := by rw [hpph, hhpp, hpphp, hphpp]; noncomm_ring
+    _ = p*h-h*p := by rw [hpph, hhpp, hphpp]; noncomm_ring
 
 theorem cross_zero_iff_commutes (h p : R) (hp : p*p=p) :
     cross h p=0 ↔ p*h=h*p := by
@@ -36,10 +36,11 @@ theorem cross_zero_iff_commutes (h p : R) (hp : p*p=p) :
   · intro hc
     have hphp : p*h*p = p*h := by
       rw [hc, mul_assoc, hp]
-      exact hc.symm
     rw [cross_expansion, hphp, hc]
     noncomm_ring
 end Peirce
+
+noncomputable section
 
 def characteristic (s x : ℝ) : ℝ := x^2-s*x-1
 def denominator (s x : ℝ) : ℝ := (characteristic s x)^2+(x-s)^2
@@ -55,7 +56,7 @@ theorem denominator_positive (s x : ℝ) : 0 < denominator s x := by
   by_cases h : x-s=0
   · have hx : x=s := sub_eq_zero.mp h
     subst x
-    norm_num [denominator, characteristic]
+    norm_num [denominator, characteristic, pow_two]
   · have q := sq_pos_of_ne_zero h
     have z := sq_nonneg (characteristic s x)
     unfold denominator
