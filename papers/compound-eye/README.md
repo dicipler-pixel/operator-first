@@ -12,6 +12,9 @@ Versioned research instrument with explicit source stages, scoped diagnostics an
 - [Hermitian redistribution and elimination memory](../../atlas/UPG-FEEDBACK.md)
 - [Winding, signature and eta remain distinct](../../atlas/UPG-CURRENCY-GUARDS.md)
 - [Four records of a reduction](../../atlas/CASCADE-FOUR-RECORDS.md)
+- [Persistent rational section with finite integer image](../../atlas/DIO-SECTION-INTEGRAL.md)
+- [Finite-field transfer with the omitted domain point](../../atlas/DIO-TRACE-BOUNDARY.md)
+- [Candidate evolution without false rank certificates](../../atlas/DIO-SEARCH-LIMITS.md)
 
 ## Next step
 

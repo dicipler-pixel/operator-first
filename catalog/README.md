@@ -15,6 +15,7 @@ This is an initial source register, not a complete census of the 20+ paper corpu
 | [Matter at a Scale](../papers/matter/README.md) | Matter v5 included in prior portable cascade analysis; publication identity pending | Use the archived window-count counterexample and link each physical scale to its actual measured observable. |
 | [Peeling Cascades and What They Leave Behind](../papers/peeling-cascade/README.md) | Research draft plus positive-peel Lean PR 11; UPG integration added | Add the Hermitian feedback criterion with the gap-controlled projector derivative; formalize the finite block bridge before the analytic time-domain bridge. |
 | [Compound Eye Universal](../papers/compound-eye/README.md) | Portable release 2.1: 172 eye versions, 153 implemented | Recover the eight-feature UPG covariance map and use independent acquisition/calibration partitions for the next physical test. |
+| [Diophantine evolution: persistent sections and integer gates](../papers/diophantine-eye/README.md) | PR #13 draft; exact controls and isolated Lean CI passed | Search explicit integral escape routes on the six unresolved surfaces; retain solved equations as positive controls. |
 
 ## Intake queue
 
