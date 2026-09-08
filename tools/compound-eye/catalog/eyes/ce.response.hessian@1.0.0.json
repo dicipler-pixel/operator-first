@@ -1,0 +1,26 @@
+{
+  "id": "ce.response.hessian",
+  "version": "1.0.0",
+  "title": "Energy-response Hessian",
+  "family": "deformation",
+  "status": "implemented",
+  "inputs": {
+    "deformation": "model_energy deformation"
+  },
+  "unit_system": "model",
+  "depends_on": [],
+  "assumptions": [
+    "Hermitian H(q)=H0+sum q_i V_i in a declared Hilbert pairing.",
+    "Selected eigenstate is simple and isolated.",
+    "q is dimensionless; supplied classical energy is one half q^T K q."
+  ],
+  "output_meaning": "Energy-response Hessian",
+  "evidence_class": "model_calculation",
+  "limits": "Generalized energy response, not spacetime stress or a gravitational metric. Degenerate branches require another eye.",
+  "implementation": {
+    "path": "plugins/eyes.py",
+    "sha256": "95b8c1300c95260277ed2b22f6af939267b2b72ae093bdc2bc7d86edf8bbd79c",
+    "function": "response"
+  },
+  "selector": "hessian"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "ce.search.scoped_obstructions",
+  "version": "1.0.0",
+  "title": "Reusable obstructions",
+  "family": "decision DAG",
+  "status": "implemented",
+  "inputs": {
+    "dag_certificate": "exact certificate"
+  },
+  "unit_system": "exact",
+  "depends_on": [],
+  "assumptions": [
+    "Use only the stated model, input contract, and coordinate convention."
+  ],
+  "output_meaning": "Fixed-context integer separators, nine-colorings, and triangle-free density witnesses.",
+  "evidence_class": "model_calculation",
+  "limits": "A scoped calculation; no universal physical interpretation or new Lean certificate is implied.",
+  "implementation": {
+    "path": "plugins/eyes.py",
+    "sha256": "95b8c1300c95260277ed2b22f6af939267b2b72ae093bdc2bc7d86edf8bbd79c",
+    "function": "search"
+  },
+  "adapter": "obstructions",
+  "origin": {
+    "legacy_id": "scoped_obstructions"
+  }
+}

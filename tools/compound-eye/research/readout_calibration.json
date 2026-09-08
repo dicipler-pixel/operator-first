@@ -1,0 +1,123 @@
+{
+  "means": [
+    [
+      0.09736318027900971,
+      -0.018683480426139577
+    ],
+    [
+      0.18027444396008815,
+      0.010235473628803251
+    ],
+    [
+      0.2770850346034363,
+      -0.023116508261134764
+    ],
+    [
+      0.302793049542964,
+      -0.17835987710669138
+    ]
+  ],
+  "covariances": [
+    [
+      [
+        0.0011083673969080592,
+        1.7743220214245084e-06
+      ],
+      [
+        1.774322021424508e-06,
+        0.00104967702764698
+      ]
+    ],
+    [
+      [
+        0.0013688335998522452,
+        2.4665411778864057e-05
+      ],
+      [
+        2.466541177886405e-05,
+        0.001487119700146729
+      ]
+    ],
+    [
+      [
+        0.0018837180620779714,
+        -0.00021248641217976773
+      ],
+      [
+        -0.00021248641217976784,
+        0.002732273137934449
+      ]
+    ],
+    [
+      [
+        0.0027271326734756222,
+        0.0003314224455997683
+      ],
+      [
+        0.00033142244559976824,
+        0.006684858638166804
+      ]
+    ]
+  ],
+  "original_scale_selection_matrix": [
+    [
+      0.3935903,
+      0.0353684,
+      1.13e-05,
+      0.0
+    ],
+    [
+      0.0317992,
+      0.3935202,
+      0.0355188,
+      1.1e-05
+    ],
+    [
+      0.0001126,
+      0.0302674,
+      0.3936502,
+      0.0379337
+    ],
+    [
+      1.05e-05,
+      0.0007153,
+      0.0391306,
+      0.3935184
+    ]
+  ],
+  "matched_narrow_selection_matrix": [
+    [
+      0.1813577,
+      0.0105035,
+      1.1e-06,
+      0.0
+    ],
+    [
+      0.0108558,
+      0.1813007,
+      0.0097906,
+      7e-07
+    ],
+    [
+      2.64e-05,
+      0.0105859,
+      0.1812014,
+      0.0083769
+    ],
+    [
+      2.6e-06,
+      0.0002237,
+      0.0148781,
+      0.1811691
+    ]
+  ],
+  "samples_per_gaussian": 10000000,
+  "changes_from_notebook": [
+    "Seeded five-start GMM and deterministic prepared-mean label assignment replace random index retry.",
+    "Chunked Monte Carlo with same 10 million samples/state.",
+    "No plotting or full Qutip thermodynamic simulation."
+  ],
+  "original_map_convention": "corr[prepared_state, readout_region]",
+  "notebook_application": "counts = corr @ counts, then normalize; acquisition covariance scale 0.4 while original corr sampling uses scale 1.0",
+  "inference_status": "Partial pipeline replay plus forward-model diagnostic; no corrected efficiency asserted."
+}

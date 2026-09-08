@@ -1,0 +1,20 @@
+{
+  "id": "ce.extensions.translation",
+  "version": "1.0.0",
+  "title": "Cross-paper translation",
+  "family": "extensions",
+  "status": "specified",
+  "inputs": {},
+  "unit_system": "model",
+  "depends_on": [],
+  "assumptions": [
+    "Use only the stated model, input contract, and coordinate convention."
+  ],
+  "output_meaning": "Requires explicit maps preserving the declared pairings, readouts and units between different models.",
+  "evidence_class": "model_calculation",
+  "limits": "A scoped calculation; no universal physical interpretation or new Lean certificate is implied.",
+  "implementation": null,
+  "origin": {
+    "legacy_id": "translation"
+  }
+}

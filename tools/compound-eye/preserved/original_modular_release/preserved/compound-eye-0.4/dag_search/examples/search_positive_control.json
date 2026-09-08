@@ -1,0 +1,39 @@
+{
+  "problem": {
+    "schema": "arithmetic-kakeya-tower-v1",
+    "name": "complete interface control",
+    "dims": [
+      1
+    ],
+    "X": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "levels": [
+      []
+    ],
+    "initial_known": [],
+    "generators": []
+  },
+  "pool": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "generator_budget": 2
+}

@@ -1,0 +1,33 @@
+{
+  "id": "ce.quantum.memory",
+  "version": "1.0.0",
+  "title": "Memory",
+  "family": "quantum",
+  "status": "implemented",
+  "inputs": {},
+  "unit_system": "model",
+  "depends_on": [
+    "ce.quantum.hilbert@1.0.0"
+  ],
+  "assumptions": [
+    "Closed three-site Hermitian chain; g=1, delta=0.5, hbar=1.",
+    "Initial amplitude vector (1,0,0); fixed site basis."
+  ],
+  "output_meaning": "Overlap with the initial ray; tracks recurrence of the specified preparation.",
+  "evidence_class": "model_calculation",
+  "limits": "A scoped calculation; no universal physical interpretation or new Lean certificate is implied.",
+  "implementation": {
+    "path": "plugins/eyes.py",
+    "sha256": "95b8c1300c95260277ed2b22f6af939267b2b72ae093bdc2bc7d86edf8bbd79c",
+    "function": "quantum"
+  },
+  "selector": "memory",
+  "models": [
+    "closed-hermitian-chain-v1"
+  ],
+  "origin": {
+    "snapshot": "compound-eye-0.4",
+    "legacy_id": "memory",
+    "source": "preserved/compound-eye-0.4/compound_eye.py"
+  }
+}

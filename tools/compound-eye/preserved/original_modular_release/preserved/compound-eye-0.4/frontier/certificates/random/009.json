@@ -1,0 +1,124 @@
+{
+  "schema": "compound-eye-ak-certificate-v1",
+  "problem": {
+    "schema": "arithmetic-kakeya-tower-v1",
+    "name": "deterministic random control 9",
+    "X": [
+      [
+        0,
+        0
+      ],
+      [
+        -1,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        -1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "dims": [
+      3
+    ],
+    "levels": [
+      [
+        {
+          "prefix": [
+            1
+          ],
+          "label": [
+            1,
+            0
+          ]
+        },
+        {
+          "prefix": [
+            2
+          ],
+          "label": [
+            1,
+            2
+          ]
+        }
+      ]
+    ],
+    "initial_known": [
+      [
+        2
+      ],
+      [
+        1
+      ]
+    ],
+    "generators": []
+  },
+  "input_sha256": "35654182c4d1c6fbcec91ffd0f7b4f38b7a98d530439412db3958e5da037cdb2",
+  "arithmetic": "exact integer input and integer certificates; rational elimination only inside producer",
+  "source_rules": "https://epoch.ai/frontiermath/open-problems/arithmetic-kakeya",
+  "n": 3,
+  "m": 2,
+  "r": 0,
+  "t": 2,
+  "score": "2",
+  "forcing_complete": false,
+  "forced_vertices": [
+    [
+      1
+    ],
+    [
+      2
+    ]
+  ],
+  "steps": [],
+  "stalled_dual_certificates": [
+    {
+      "vertex": [
+        3
+      ],
+      "constraint_weights": [
+        1
+      ],
+      "target_multiplier": 3
+    }
+  ],
+  "goal1_score_passes": false,
+  "goal1_candidate_passes_public_conditions": false,
+  "official_epoch_verifier_run": false,
+  "status": "incomplete_forcing",
+  "scope": "The private Epoch verifier has not been run. No search-space exhaustion follows from this one certificate.",
+  "cut_eye": {
+    "status": "exhausted",
+    "subsets_checked": 1,
+    "obstructions": [
+      {
+        "subset": [
+          [
+            3
+          ]
+        ],
+        "rank": 1
+      }
+    ],
+    "logical_role": "necessary for completion, not sufficient"
+  }
+}

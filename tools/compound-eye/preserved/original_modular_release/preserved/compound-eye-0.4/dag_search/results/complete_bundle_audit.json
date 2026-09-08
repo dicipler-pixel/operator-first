@@ -1,0 +1,28 @@
+{
+  "all_passed": true,
+  "ak_proof_bundles_checked": 231,
+  "ak_new_regions_checked": 230,
+  "core_families_all_initial_sets_checked": 33,
+  "ak_unique_configurations_including_old_baseline": 481712,
+  "ak_distinct_new_configurations": 470232,
+  "earth_new_configurations": 24976,
+  "all_distinct_new_configurations": 495208,
+  "positive_epoch_candidates": 0,
+  "earth_audit": {
+    "all_passed": true,
+    "configurations_certified": 24976,
+    "density_rejections": 19620,
+    "nine_coloring_rejections": 5356,
+    "unresolved": 0,
+    "nodes_checked": 11635,
+    "nine_colorings_checked": 28,
+    "density_witnesses_checked": 120,
+    "seconds": 0.10703481700329576,
+    "scope": "Remove the eight joins from vertices 24 and 25 to vertices 0..3 of the labelled C7[K4]. Add exactly two distinct edges absent from the original host. This certificate covers these 24976 graphs only.",
+    "epoch_target_solved": false
+  },
+  "seconds": 27.370406714006094,
+  "scope": "Exactly the declared finite domains; equal generator selections in nested pools counted once.",
+  "official_epoch_verifier_run": false,
+  "lean_formalized": false
+}

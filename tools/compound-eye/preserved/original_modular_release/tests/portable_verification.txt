@@ -1,0 +1,39 @@
+test_all_legacy_registry_names_retained (__main__.ContractTests.test_all_legacy_registry_names_retained) ... ok
+test_all_preserved_bytes (__main__.ContractTests.test_all_preserved_bytes) ... ok
+test_all_sets_resolve (__main__.ContractTests.test_all_sets_resolve) ... ok
+test_dependency_cycle_rejected (__main__.ContractTests.test_dependency_cycle_rejected) ... ok
+test_future_extensions_stay_blocked (__main__.ContractTests.test_future_extensions_stay_blocked) ... ok
+test_nan_rejected (__main__.ContractTests.test_nan_rejected) ... ok
+test_no_duplicate_vote_or_execution (__main__.ContractTests.test_no_duplicate_vote_or_execution) ... ok
+test_old_version_cannot_be_overwritten (__main__.ContractTests.test_old_version_cannot_be_overwritten) ... ok
+test_parallel_results_equal_serial (__main__.ContractTests.test_parallel_results_equal_serial) ... ok
+test_raw_experiment_is_explicitly_blocked (__main__.ContractTests.test_raw_experiment_is_explicitly_blocked) ... ok
+test_required_input_missing (__main__.ContractTests.test_required_input_missing) ... ok
+test_sixteen_eyes_share_one_computation (__main__.ContractTests.test_sixteen_eyes_share_one_computation) ... ok
+test_stale_input_context_rejected (__main__.ContractTests.test_stale_input_context_rejected) ... ok
+test_tampered_set_detected (__main__.ContractTests.test_tampered_set_detected) ... ok
+test_versioned_extension_and_set_work (__main__.ContractTests.test_versioned_extension_and_set_work) ... ok
+test_wrong_quantum_basis_rejected (__main__.ContractTests.test_wrong_quantum_basis_rejected) ... ok
+test_wrong_units_do_not_produce_result (__main__.ContractTests.test_wrong_units_do_not_produce_result) ... ok
+test_charge_same_width_different (__main__.PhysicsTests.test_charge_same_width_different) ... ok
+test_closed_channel_width_zero (__main__.PhysicsTests.test_closed_channel_width_zero) ... ok
+test_continuum_causality_and_threshold (__main__.PhysicsTests.test_continuum_causality_and_threshold) ... ok
+test_deformation_gradient_hessian_against_independent_formula (__main__.PhysicsTests.test_deformation_gradient_hessian_against_independent_formula) ... ok
+test_degenerate_branch_blocked (__main__.PhysicsTests.test_degenerate_branch_blocked) ... ok
+test_feshbach_identity (__main__.PhysicsTests.test_feshbach_identity) ... ok
+test_finite_eta_broadening_vanishes_off_poles (__main__.PhysicsTests.test_finite_eta_broadening_vanishes_off_poles) ... ok
+test_imaginary_scalar_control_changes_norm (__main__.PhysicsTests.test_imaginary_scalar_control_changes_norm) ... ok
+test_negative_eta_rejected (__main__.PhysicsTests.test_negative_eta_rejected) ... ok
+test_nonhermitian_input_not_silently_hermitianized (__main__.PhysicsTests.test_nonhermitian_input_not_silently_hermitianized) ... ok
+test_real_scalar_phase_has_no_decay (__main__.PhysicsTests.test_real_scalar_phase_has_no_decay) ... ok
+test_retarded_dissipation_factorization (__main__.PhysicsTests.test_retarded_dissipation_factorization) ... ok
+test_retarded_surface_against_independent_finite_recursion (__main__.PhysicsTests.test_retarded_surface_against_independent_finite_recursion) ... ok
+test_shared_calibration_uncertainty_preserved (__main__.PhysicsTests.test_shared_calibration_uncertainty_preserved) ... ok
+test_winding_survives_admissible_stretch (__main__.PhysicsTests.test_winding_survives_admissible_stretch) ... ok
+test_winding_through_puncture_rejected (__main__.PhysicsTests.test_winding_through_puncture_rejected) ... ok
+test_zero_coupling_width_zero (__main__.PhysicsTests.test_zero_coupling_width_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 0.485s
+
+OK

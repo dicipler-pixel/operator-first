@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "context": {
+    "object_id": "quantum-experiment-001",
+    "model_family": "quantum-v1",
+    "coordinate": 0.0,
+    "coordinate_kind": "time",
+    "basis": "left,middle,right",
+    "boundary": "open three-site chain",
+    "units_convention": "declared model units"
+  },
+  "eyes": {
+    "left_weight": {
+      "units": "1",
+      "measurement_radius": 0.01,
+      "prediction_radius": 0.0,
+      "cost": 1.0,
+      "meaning": "",
+      "dependency_group": "model-state"
+    },
+    "middle_weight": {
+      "units": "1",
+      "measurement_radius": 0.01,
+      "prediction_radius": 0.0,
+      "cost": 1.0,
+      "meaning": "",
+      "dependency_group": "model-state"
+    },
+    "energy_gap": {
+      "units": "model energy",
+      "measurement_radius": 0.01,
+      "prediction_radius": 0.0,
+      "cost": 1.0,
+      "meaning": "",
+      "dependency_group": "model-state"
+    },
+    "bond_current": {
+      "units": "1/model time",
+      "measurement_radius": 0.01,
+      "prediction_radius": 0.0,
+      "cost": 1.0,
+      "meaning": "",
+      "dependency_group": "model-state"
+    },
+    "real_coherence": {
+      "units": "1",
+      "measurement_radius": 0.01,
+      "prediction_radius": 0.0,
+      "cost": 1.2,
+      "meaning": "",
+      "dependency_group": "model-state"
+    }
+  },
+  "candidates": [
+    {
+      "id": "phase-0",
+      "parameters": {
+        "phase_radians": 0.0,
+        "g": 1.0,
+        "delta": 0.5
+      },
+      "predictions": {
+        "left_weight": 0.5,
+        "middle_weight": 0.5,
+        "energy_gap": 1.5,
+        "bond_current": -0.0,
+        "real_coherence": 0.4999999999999999
+      }
+    },
+    {
+      "id": "phase-90",
+      "parameters": {
+        "phase_radians": 1.5707963267948966,
+        "g": 1.0,
+        "delta": 0.5
+      },
+      "predictions": {
+        "left_weight": 0.5,
+        "middle_weight": 0.5,
+        "energy_gap": 1.5,
+        "bond_current": -0.9999999999999998,
+        "real_coherence": 3.0616169978683824e-17
+      }
+    },
+    {
+      "id": "phase-180",
+      "parameters": {
+        "phase_radians": 3.141592653589793,
+        "g": 1.0,
+        "delta": 0.5
+      },
+      "predictions": {
+        "left_weight": 0.5,
+        "middle_weight": 0.5,
+        "energy_gap": 1.5,
+        "bond_current": -1.224646799147353e-16,
+        "real_coherence": -0.4999999999999999
+      }
+    },
+    {
+      "id": "phase-270",
+      "parameters": {
+        "phase_radians": 4.71238898038469,
+        "g": 1.0,
+        "delta": 0.5
+      },
+      "predictions": {
+        "left_weight": 0.5,
+        "middle_weight": 0.5,
+        "energy_gap": 1.5,
+        "bond_current": 0.9999999999999998,
+        "real_coherence": -9.184850993605147e-17
+      }
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-1",
+      "eye": "left_weight",
+      "value": 0.5,
+      "radius": 0.01,
+      "units": "1",
+      "context": {
+        "object_id": "quantum-experiment-001",
+        "model_family": "quantum-v1",
+        "coordinate": 0.0,
+        "coordinate_kind": "time",
+        "basis": "left,middle,right",
+        "boundary": "open three-site chain",
+        "units_convention": "declared model units"
+      },
+      "evidence_group": "synthetic-demonstration",
+      "source": "declared synthetic observation"
+    },
+    {
+      "id": "obs-2",
+      "eye": "middle_weight",
+      "value": 0.5,
+      "radius": 0.01,
+      "units": "1",
+      "context": {
+        "object_id": "quantum-experiment-001",
+        "model_family": "quantum-v1",
+        "coordinate": 0.0,
+        "coordinate_kind": "time",
+        "basis": "left,middle,right",
+        "boundary": "open three-site chain",
+        "units_convention": "declared model units"
+      },
+      "evidence_group": "synthetic-demonstration",
+      "source": "declared synthetic observation"
+    },
+    {
+      "id": "obs-3",
+      "eye": "energy_gap",
+      "value": 1.5,
+      "radius": 0.01,
+      "units": "model energy",
+      "context": {
+        "object_id": "quantum-experiment-001",
+        "model_family": "quantum-v1",
+        "coordinate": 0.0,
+        "coordinate_kind": "time",
+        "basis": "left,middle,right",
+        "boundary": "open three-site chain",
+        "units_convention": "declared model units"
+      },
+      "evidence_group": "synthetic-demonstration",
+      "source": "declared synthetic observation"
+    },
+    {
+      "id": "obs-4",
+      "eye": "bond_current",
+      "value": 0.0,
+      "radius": 0.01,
+      "units": "1/model time",
+      "context": {
+        "object_id": "quantum-experiment-001",
+        "model_family": "quantum-v1",
+        "coordinate": 0.0,
+        "coordinate_kind": "time",
+        "basis": "left,middle,right",
+        "boundary": "open three-site chain",
+        "units_convention": "declared model units"
+      },
+      "evidence_group": "synthetic-demonstration",
+      "source": "declared synthetic observation"
+    }
+  ]
+}

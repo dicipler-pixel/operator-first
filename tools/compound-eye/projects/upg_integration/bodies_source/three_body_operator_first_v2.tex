@@ -1,0 +1,419 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\S}{Sec.~}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Tr}{\operatorname{Tr}}
+\title{The Three-Body Problem, Operator-First\\
+\large A complete spectral anatomy of relational transport on the shape sphere,\\
+a conserved record measured along the figure-eight,\\
+and the shape manifold read as a birefringent crystal}
+\author{Jeromie Beasley}
+\date{August 22, 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The planar three-body problem is treated as a question about one operator: the Gram matrix
+of the differential of the map that sends a shape to its three mutual distances. Four
+results follow. (i) That operator is coordinate-free and its singular values are
+$\cos^2\vartheta$ and $1$ exactly, with $\vartheta$ the polar angle on the shape sphere and
+no dependence on longitude -- replacing an earlier weighted tensor two of whose three
+degeneracy loci were coordinate artefacts. (ii) The two singular loci are of different
+species and were previously conflated: at syzygy the operator drops rank while its spectral
+gap is \emph{maximal}, and at the equilateral configurations the gap closes while the
+operator stays invertible. (iii) The equilateral degeneracy is \emph{not} a diabolical
+point: the gap closes quadratically, $\mathrm{gap}/\vartheta^{2}\to1.000000$, the soft
+direction returns with holonomy $+1$ rather than a sign, and the line field carries integer
+index $+1$ at each pole -- so the obstruction to a global choice of most-rigid direction is
+$\chi(S^{2})=2$ and there is no Berry phase to collect. (iv) Along the
+Chenciner--Montgomery figure-eight the metric layer collapses at every one of six syzygies
+per period, with $R=\sigma_{\min}^{-2}$ reaching $2.5\times10^{16}$, while the contour count
+holds at $2$ to $5.1\times10^{-15}$ and the shifted trace-log equals
+$\log(1+\sigma_{\min})+\log2$ to $2.2\times10^{-15}$ at every step. The unshifted ledger
+fails, and fails for the stated reason: its branch point is enclosed by the contour. The
+record outlives the metric on a real orbit, and the branch condition is doing visible work.
+(v)~The open problem of the previous version is closed in the direction it predicted:
+breaking the mass symmetry replaces the protected touching by a genuine conical
+intersection, with the gap closing linearly and the eigenvector returning negated,
+$-1.000000$ at every radius tested. (vi)~The two singular values are two index sheets, so
+the degeneracies are optic axes, and the family is a crystal: equal masses are uniaxial
+with one axis, unequal masses biaxial with exactly two, and a residual symmetry confines
+both axes to its plane. A single point then admits a circle of ray directions rather than
+one --- conical refraction, in shape space. (vii)~At a generic collinear configuration of
+$N$ bodies the rank of $d\Phi$ is $N-2$ for a reason available in one line, so the
+three-body rank drop is the smallest member of a family.
+\end{abstract}
+
+\section{What is and is not being solved}
+
+No closed-form solution is offered and none is possible. What is offered is a complete and
+coordinate-free spectral anatomy of \emph{relational transport} -- how much the three mutual
+distances resist change per unit motion of the shape -- together with two quantities that
+survive the places where that anatomy degenerates. The claim to novelty is narrow: the
+singular behaviour of side-length coordinates at collinear configurations is ninety years
+old (Murnaghan 1936; Lema\^itre 1952), and what is new here is its statement as a rank drop
+of an explicit operator, the correct separation of two loci that the literature and my own
+earlier draft treated as one, and the measurement of a conserved record through them on an
+actual orbit.
+
+\section{The operator, and why this one}
+
+Let $S^2$ be the Kendall shape sphere of the planar three-body problem in the coordinates
+$w=(\sin\vartheta\cos\varphi,\sin\vartheta\sin\varphi,\cos\vartheta)$, with $w_3$ the signed
+area, so the equator $w_3=0$ is the collinear (syzygy) locus and the poles are the
+equilateral (Lagrange) configurations.
+
+The three squared mutual distances $r_{ij}^2$ are affine in $(w_1,w_2)$ and independent of
+$w_3$. Write $\Phi:S^2\to\mathbb R^2$ for that map. The object of study is
+\begin{equation}
+M \;=\; d\Phi^{\!\top}d\Phi ,
+\label{eq:M}
+\end{equation}
+the Gram matrix of its differential, read in an orthonormal frame of the round metric.
+
+\begin{theorem}[Exact spectrum]\label{t:spec}
+In the frame $\{e_\vartheta,e_\varphi\}$,
+$d\Phi(e_\vartheta)=(\cos\vartheta\cos\varphi,\cos\vartheta\sin\varphi)$ and
+$d\Phi(e_\varphi)=(-\sin\varphi,\cos\varphi)$, so
+\[
+M=\begin{pmatrix}\cos^{2}\vartheta&0\\[2pt]0&1\end{pmatrix},
+\qquad
+\sigma_{\min}=\cos^{2}\vartheta,\quad\sigma_{\max}=1 ,
+\]
+with no dependence on $\varphi$ and no free constant.
+\end{theorem}
+\begin{proof}
+Direct substitution of the embedding derivatives into \eqref{eq:M}; the cross term is
+$-\cos\vartheta\cos\varphi\sin\varphi+\cos\vartheta\sin\varphi\cos\varphi=0$.
+\end{proof}
+
+\begin{remark}[What this replaces, and why the replacement was forced]
+An earlier draft used the weighted tensor $T(w)=\operatorname{diag}(w_1^2,w_2^2,w_3^2)$.
+That object is \emph{axis-dependent}: its determinant on the sphere is
+$\tfrac34\sin^6\vartheta\cos^2\vartheta\sin^2 2\varphi$, which vanishes on the great circles
+$\varphi=0$ and $\varphi=\pi/2$ at generic latitude -- two degeneracy loci with no invariant
+meaning, since only $w_3=0$ is coordinate-free. Theorem~\ref{t:spec} keeps the one locus
+that survives a change of axes and discards the two that do not. The relational rigidity
+\[
+R=\sigma_{\min}^{-2}=\sec^{4}\vartheta
+\]
+is unchanged by the replacement, and now has prefactor exactly $1$ and no longitude
+dependence, where the earlier route reported a $\varphi$-averaged constant.
+\end{remark}
+
+\section{Two degeneracies, of different species}
+
+\begin{proposition}[Rank drop at syzygy; the gap is maximal there]\label{p:syzygy}
+At $\vartheta=\pi/2$ the smaller eigenvalue of $M$ vanishes while the larger equals $1$, so
+the spectral gap is $1-\cos^{2}\vartheta=\sin^{2}\vartheta$, which attains its
+\emph{maximum} exactly on the syzygy locus.
+\end{proposition}
+
+\begin{proposition}[Degeneracy at the equilateral points; the operator stays invertible]
+At $\vartheta\to0,\pi$ both eigenvalues tend to $1$; the gap closes while $\det M\to1$.
+\end{proposition}
+
+\noindent
+These are opposite situations and the distinction is not cosmetic. A Riesz projector
+requires a gap, not invertibility: it continues real-analytically through syzygy, where the
+gap is widest, and it is only at the equilateral points that the two spectral subspaces
+cease to be separable. Any ``diabolical point'' or projector-collapse language belongs at
+the poles, and any regularisation introduced to carry a projector across the equator is
+unnecessary -- there is nothing there to regularise.
+
+\section{The equilateral degeneracy is not diabolical}
+
+A generic degeneracy of a real symmetric $2\times2$ family in two parameters is a conical
+intersection: the gap closes linearly, the eigenvector line field winds by half a turn, and
+one circuit returns the eigenvector multiplied by $-1$. None of that happens here.
+
+\begin{theorem}[Quadratic closing, integer index, no Berry phase]\label{t:lagrange}
+Near a pole the gap closes quadratically,
+$\mathrm{gap}/\vartheta^{2}\to1$; the softest eigendirection transported once around the
+pole returns with holonomy $+1$; and as a line field on the sphere it has index $+1$ at each
+pole.
+\end{theorem}
+\begin{proof}[Proof and verification]
+$\mathrm{gap}=1-\cos^{2}\vartheta=\sin^{2}\vartheta$, so the ratio to $\vartheta^{2}$ tends
+to $1$: measured $0.996671$, $0.999967$, $1.000000$, $1.000000$ at
+$\vartheta=10^{-1},10^{-2},10^{-3},10^{-4}$. The soft direction is $e_\vartheta$, which is
+smooth and single-valued along any circle of constant latitude, so the transported vector
+returns to itself: measured holonomy $+1.000000$ at $\vartheta=0.3,0.05,0.01$ with zero sign
+flips during continuation. Its winding in the coordinate frame is $0$ and, as a field on the
+sphere, $+1$ -- the coordinate frame supplies the whole rotation
+(\texttt{LAGRANGE-PHASE-01}).
+\end{proof}
+
+\begin{corollary}[The obstruction is topological, not local]
+Two poles of index $+1$ sum to $2=\chi(S^{2})$. There is therefore no global smooth choice
+of ``most rigid direction'' on the shape sphere, and the obstruction is the Euler
+characteristic rather than any stratum.
+\end{corollary}
+
+\begin{remark}[Why the linear term is absent]
+The equilateral configuration is fixed by the $Z_3$ relabelling of the three bodies, and an
+invariant symmetric $2$-tensor at a fixed point of that action must be a multiple of the
+identity to leading order. The linear anisotropy is forbidden by symmetry, which is why the
+degeneracy is quadratic and the winding integer rather than half-integer. A generic
+three-body problem with unequal masses breaks $Z_3$ and is the place to look for a genuine
+conical intersection.
+\end{remark}
+
+\section{The $\cos^{4}$ law is a fold, not a three-body fact}
+
+\begin{proposition}[$A_2$ normal form]\label{p:fold}
+Near the syzygy locus write $\vartheta=\pi/2+\epsilon$. Then
+$w_1=\cos\epsilon\cos\varphi\sim(1-\epsilon^{2}/2)\cos\varphi$: the displacement of the
+image of $\Phi$ is quadratic in $\epsilon$, which is Whitney's fold $x\mapsto x^{2}/2$. The
+singular value of $d\Phi$ has a simple zero, the Gram matrix squares it, and $R$ squares it
+again, giving $\sec^{4}$.
+\end{proposition}
+
+\noindent
+So the exponent $4$ is two bookkeeping squarings on top of a simple zero, and the invariant
+content of the ``$\cos^4$ rigidity law'' is only that $d\Phi$ has a simple zero on a
+codimension-one locus. Since a fold is the generic singularity of a map between
+equal-dimensional manifolds, the same exponent must appear for any relational rigidity
+defined this way at a generic degenerate locus. That converts a recurring coincidence into a
+theorem and predicts where it should fail: at an $A_3$ cusp, which the equal-mass problem
+does not have and which unequal masses or four bodies may supply.
+
+\section{The transport form is pinched, and by two independent mechanisms}
+
+The shape sphere is the $d=2$ rung of the square case $N=d+1$, whose transport operator on
+the eigenvalue block is $A=D_t-g\,t^{\!\top}$.
+
+\begin{theorem}[Reciprocity]\label{t:recip}
+$A$ is complex-symmetric with respect to the bilinear pairing
+$B=\operatorname{diag}(t/g)$: $A^{\!\top}B=BA$ exactly, with left eigenvectors $\ell_n=BR_n$.
+Consequently, for probes symmetric under the same pairing the outbound and return
+amplitudes coincide, the round-trip form is a perfect square, the rank measure $W$ vanishes,
+and $\det g\le0$ with equality when the amplitudes are phase-aligned.
+\end{theorem}
+
+\noindent
+This is the symmetrisation theorem $D_t-g\,t^{\!\top}=S(D_t-uu^{\!\top})S^{-1}$ read as a
+pairing rather than a similarity, with $B=S^{-2}$. Because the operator, the pairing and the
+spectrum are all real on the regular stratum, the amplitudes are real, their relative phase
+is zero, and $\det g=0$ \emph{exactly}: measured $W=1.7\times10^{-16}$ and $\det g=0.00$ with
+$B$-symmetric probes, against $W=0.17$ and $\det g=-1.5\times10^{-4}$ with generic probes on
+the same operator (\texttt{BODY-RECIP-01}). The transport form carries no cone anywhere on
+the regular stratum, and $\|B\|=\max_i t_i/g_i$ diverges exactly on the collision divisor --
+so the only place the geometry could open is the boundary.
+
+\section{The record along the figure-eight}
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.94\textwidth]{fig_fig8.pdf}
+\caption{The two layers along one period of the Chenciner--Montgomery figure-eight
+(\texttt{FIG8-LEDGER-01}). Above: the signed area $w_3$, whose six zeros are the syzygies.
+Middle: the metric layer $R=\sigma_{\min}^{-2}$, spiking through sixteen orders at every
+crossing. Below: the contour count and the shifted trace-log, flat through all six.}
+\label{f:fig8}
+\end{figure}
+
+Everything above is a statement about the shape sphere. The orbit supplies the test: the
+figure-eight walks the system through the degenerate locus repeatedly and unassisted.
+
+\paragraph{Protocol.} Equal masses, the standard initial data, integrated by fourth-order
+Runge--Kutta at $h=2\times10^{-5}$ over one period $T=6.32591398$; closure
+$|q(T)-q(0)|=4.1\times10^{-5}$. At each step the configuration is mapped to the shape sphere
+and the spectrum $\{\cos^{2}\vartheta,1\}$ of Theorem~\ref{t:spec} is formed. Two contour
+quantities are then evaluated on a circle of radius $0.9$ about $0.5$, which encloses both
+eigenvalues with margin: the count $N=\frac{1}{2\pi i}\oint\Tr R(z)\,dz$ and the shifted
+trace-log $Z=\frac{1}{2\pi i}\oint\log(z+\eta)\Tr R(z)\,dz$ with $\eta=1$.
+
+\begin{theorem}[Measured: the record outlives the metric]\label{t:fig8}
+Along one period the orbit crosses syzygy six times -- confirmed independently by the sign
+changes of the raw triangle area -- and
+\begin{itemize}
+\item the metric layer collapses at every crossing: $\sigma_{\min}$ falls to
+$6.3\times10^{-9}$ at the sampled points and to $0$ at the crossings themselves, with
+$R=\sigma_{\min}^{-2}$ reaching $2.5\times10^{16}$;
+\item the count holds: $\max|N-2|=5.1\times10^{-15}$ over the whole orbit, crossings
+included;
+\item the shifted trace-log holds: $Z=\log(1+\sigma_{\min})+\log2$ to
+$2.2\times10^{-15}$ at every step, finite everywhere, taking its minimum $\log2$ exactly at
+each syzygy.
+\end{itemize}
+\end{theorem}
+
+\begin{remark}[The branch condition is not a technicality]
+Repeating the computation with $\eta=0$ breaks it, and breaks it for the stated reason: the
+branch point of the logarithm then sits at the origin, which is \emph{inside} the contour,
+so the integrand is not meromorphic in the enclosed region and the result is not the sum of
+the enclosed logarithms (measured minimum $-0.580$, against $\log2=0.693$ for the correct
+evaluation). The hypothesis under which the ledger is defined -- a branch analytic on and
+inside $\Gamma$ -- is doing visible work here, and the orbit shows what its failure looks
+like. It is a branch condition, not a positivity condition, and the shift is what restores
+it.
+\end{remark}
+
+
+\section{The symmetry broken: a genuine conical intersection}
+
+Theorem~\ref{t:lagrange} attributes the trivial holonomy to $Z_3$ and therefore predicts
+that breaking the mass symmetry should produce the generic alternative. It does.
+
+\begin{theorem}[Conical intersection at unequal masses]\label{t:conical}
+For $m=(1,2,3)$ the two singular values coincide at isolated points of the shape sphere.
+At one of them, $a=0.845154255$, $\psi=5.034139535$, both equal $\sqrt2$ and the gap closes
+to $1.5\times10^{-14}$. On a circle of radius $r$ about that point the gap is
+\emph{linear}, $\mathrm{gap}/r = 2.16437,\,2.16294,\,2.16281,\,2.16280$ at
+$r=10^{-2},3\times10^{-3},10^{-3},3\times10^{-4}$, and the softest eigenvector transported
+once around returns \emph{negated}: holonomy $-1.000000$ at every radius tested.
+\end{theorem}
+
+\noindent
+Linear closing, sign flip, Berry phase $\pi$: the generic real-symmetric degeneracy in two
+parameters, appearing exactly when the protection is removed. The prediction was recorded
+before the test (\texttt{UNEQUAL-CHECK-01}).
+
+\section{The shape manifold is a birefringent crystal}
+
+The two singular values of $M$ are two sheets of an index surface, so a point where they
+coincide is an \emph{optic axis}, and the classification of such points is the
+classification of crystals. That correspondence is exact here, not decorative.
+
+\begin{theorem}[Uniaxial, biaxial, and the symmetry plane]\label{t:crystal}
+Counting coincidences over the whole sphere (\texttt{BIAXIAL-01}):
+equal masses give two points, $a=1/\sqrt2$ at $\psi=\pi/2,3\pi/2$, i.e.\ \emph{one} axis
+meeting the sphere twice --- the uniaxial case, with the touching forced by symmetry.
+Masses $(1,2,3)$ give \emph{four} points in two pairs, at $a^2=5/7$ and $a^2=2/7$, both
+carrying $\sigma_1=\sigma_2=\sqrt2$ --- two axes, the biaxial case. Masses $(1,1,5/2)$,
+which retain one reflection, also give four points, but every one lies at
+$\psi=\pi/2$ or $3\pi/2$: the axes are confined to the symmetry meridian.
+\end{theorem}
+
+\begin{remark}[The crystallographic reading, and what it predicts]
+A uniaxial crystal has its sheets touching along a single symmetry-forced axis; a biaxial
+crystal has no such symmetry and exactly two isolated optic axes; and a crystal retaining
+one symmetry plane has both axes lying in it. The three rows of Theorem~\ref{t:crystal} are
+those three statements. The prediction that transfers is Hamilton's: at a biaxial optic
+axis the sheets meet conically, so the surface normal --- the ray direction --- is
+undefined there, and a single incident ray refracts into a hollow cone.
+\end{remark}
+
+\begin{proposition}[A circle of ray directions]\label{p:ray}
+Near an optic axis write the traceless part of $M$ as a linear map $J$ of the two shape
+coordinates; $\det J=-4.463$, so the cone is nondegenerate. Approaching the axis from
+twelve equally spaced directions, the gradient of the lower sheet points in ten distinct
+directions, with $|\nabla\lambda|$ ranging over $0.638$ to $8.080$
+(\texttt{CONICAL-RAY-01}).
+\end{proposition}
+
+\noindent
+So a single point of shape space admits a circle of ray directions rather than one. This is
+the only statement in the paper about what a \emph{trajectory} would do rather than what an
+operator's spectrum is, and it is the natural next computation.
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.96\textwidth]{fig_crystal.pdf}
+\caption{The crystal reading. Left and centre: coincidences of the two singular values on
+the shape sphere, two points for equal masses (one optic axis) and four for $m=(1,2,3)$
+(two axes). Right: the ray direction against the direction of approach at one axis --- the
+gradient does not converge, which is what makes the refraction conical.}
+\label{f:crystal}
+\end{figure}
+
+\section{The rank drop is the smallest member of a family}
+
+\begin{proposition}[Collinear rank for $N$ bodies]\label{p:rankN}
+At a generic collinear configuration of $N$ planar bodies, $\operatorname{rank}d\Phi=N-2$,
+so the kernel also has dimension $N-2$ in the $(2N-4)$-dimensional shape space.
+\end{proposition}
+\begin{proof}
+Squared distances depend on the transverse offsets quadratically:
+$\partial r_{ij}^2/\partial y_k \propto (y_i-y_j)$, which vanishes identically when all
+$y=0$. Every transverse direction is therefore in the kernel, and the transverse
+displacements number $N-2$ after removing translation and the rotation that acts as
+$y_i\propto x_i$.
+\end{proof}
+
+\noindent
+\emph{Verified} for $N=3,\dots,8$: ranks $1,2,3,4,5,6$ against shape dimensions
+$2,4,6,8,10,12$ (\texttt{LADDER-CHECK-01}). At $N=3$ a single direction collapses, which is
+the syzygy result of \S3; for larger $N$ several collapse at once, so the three-body case is
+the unusually clean member rather than the representative one. The regular polygons carry
+structured degeneracies of their own --- the square gives $\{\sqrt8,2,2,2\}$ with a
+threefold degeneracy that splits linearly under perturbation, the pentagon
+$\{\sqrt{5+\sqrt5},\sqrt{5+\sqrt5},2,2,\sqrt{5-\sqrt5},\sqrt{5-\sqrt5}\}$ in three pairs.
+
+\section{Transient amplification of the figure-eight}\label{s:transient}
+
+The orbit is linearly stable, which is a statement about eigenvalues. Non-normal operator
+theory supplies a second, independent rate, and it is the one that governs finite
+perturbations over one period.
+
+\begin{proposition}[Measured]\label{p:transient}
+In mass-weighted Jacobi coordinates --- where translation and boost are absent by
+construction and the Euclidean norm is the kinetic-energy norm --- perturbations restricted
+to the energy and angular-momentum level set and measured modulo the time-shift and
+rotation directions are amplified by $45.7$ in energy, $6.8\times$ in amplitude, within one
+period, returning to $9.6$ at the end. Energy is conserved to $6.5\times10^{-14}$ and
+angular momentum to $2.2\times10^{-14}$ (\texttt{TB-TRANSIENT-03}).
+\end{proposition}
+
+\noindent
+The amplification is timed by the shape: the mean gain in the quartile of the orbit closest
+to syzygy is $10.58$, and in the quartile farthest from it $26.10$. The burst lives on the
+triangular configurations, not at the wall --- which is what \S6 requires, since at syzygy
+the transport form is degenerate and there is no geometry left to amplify through.
+
+\begin{remark}[What this is not]
+The quotient used is an orthogonal complement of the symmetry and integral directions, and
+that complement is not invariant under the flow. The object measured is therefore a
+compression of the propagator, not a restriction, and its eigenvalues are \emph{not} the
+Floquet multipliers; only the gain is quoted. The practical reading is nonetheless
+available: a perturbation of size $\epsilon$ reaches $\approx7\epsilon$ before the neutral
+multipliers return it, so the orbit's usable basin is set by that excursion rather than by
+its linear stability.
+\end{remark}
+
+\section{What is claimed}
+
+Not a solution of the three-body problem. Not a new integral of motion in the classical
+sense: $N$ and $Z$ are functions of the shape alone, and $Z$ varies smoothly along the orbit
+between $\log 2$ and $1.045$. What is claimed is that they are \emph{insensitive to the
+degeneracy that destroys the metric layer}, at machine precision, on a real solution, six
+times per period -- and that this is the same ordering measured on synthetic operator
+families, now realised in celestial mechanics with no dial to turn by hand.
+
+The remaining content is the anatomy: an invariant operator with an exact spectrum, two
+degeneracies correctly separated, an equilateral degeneracy that is quadratic rather than
+conical and therefore carries no geometric phase, a $\cos^4$ law identified as a fold normal
+form and therefore universal, a transport form pinched everywhere on the regular stratum by
+two independent mechanisms, a genuine conical intersection the moment the mass symmetry is
+broken, the uniaxial/biaxial classification with its optic axes located, the collinear rank
+law for all $N$, and a transient amplification of the figure-eight that its linear stability
+does not predict.
+
+\section{Open}
+
+\begin{enumerate}
+\item The relation $a_1^2+a_2^2=1$ between the two optic axes, and the exact rationals
+$a^2=5/7,\,2/7$ at $m=(1,2,3)$ against a total mass of $6$. Observed to the printed digits;
+not derived.
+\item A closed form for the regular-$N$-gon spectra. The hexagon's spectrum contains the
+pentagon's values, which a table of special cases would not do.
+\item Proposition~\ref{p:fold} predicts a different exponent at an $A_3$ cusp. The
+equal-mass shape sphere has folds only; where the first cusp appears is not known.
+\item The ledger \emph{on} the divisor, where the pairing $B$ of Theorem~\ref{t:recip} is
+undefined and the count is the only surviving object.
+\item A genuinely reduced monodromy for \S\ref{s:transient}: the quotient used there is an
+orthogonal complement and therefore a compression, not a restriction, so its spectrum is
+not the Floquet spectrum. The symplectic complement inside $\ker dE\cap\ker dL$ would make
+it one.
+\item Conical refraction at the level of trajectories rather than of ray directions:
+integrate an orbit into an optic axis and ask what the reduced dynamics does there.
+\end{enumerate}
+
+\end{document}

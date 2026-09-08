@@ -1,0 +1,26 @@
+{
+  "id": "ce.dynamics.norm_balance",
+  "version": "1.0.0",
+  "title": "Phase versus norm decay",
+  "family": "dynamics",
+  "status": "implemented",
+  "inputs": {
+    "scalar_factor": "model_energy",
+    "amplitude": "1",
+    "hbar": "model_action"
+  },
+  "unit_system": "model",
+  "depends_on": [],
+  "assumptions": [
+    "Scalar equation i hbar dpsi/dt=F psi.",
+    "The real/imaginary parts of F and psi are supplied; hbar>0."
+  ],
+  "output_meaning": "Norm derivative from a scalar evolution factor.",
+  "evidence_class": "model_calculation",
+  "limits": "No physical nuclear coupling is derived by supplying an imaginary factor.",
+  "implementation": {
+    "path": "plugins/installed/c9b5680819e4c6d7d45f07db1de5a37a4522ab5715d7fa793bee2d5e7cfa6b17.py",
+    "sha256": "c9b5680819e4c6d7d45f07db1de5a37a4522ab5715d7fa793bee2d5e7cfa6b17",
+    "function": "run"
+  }
+}

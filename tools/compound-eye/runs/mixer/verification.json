@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "engine": "1.0.0",
+  "tests": 21,
+  "checks": [
+    "Four complete declared presets",
+    "Linear superposition, not averaging",
+    "Disabled channel contributes nothing",
+    "Exact outside cancellation for different interiors",
+    "Opposite phase cancellation",
+    "Routes change X/Y while retaining all-channel signal",
+    "Source-unit mismatch refused",
+    "RMS transformation recorded and reversible before sum",
+    "Centering removes constants only when requested",
+    "Gap propagation is strict; no zero fill",
+    "Smoothing cannot bridge a missing sample",
+    "Smoothing plus residual reconstructs the original",
+    "Recipes retain raw data exactly",
+    "Quoted CSV headers and empty cells parse",
+    "Misaligned, nonfinite and short imports refused",
+    "SVG cannot execute imported labels or colors",
+    "No enabled channels yields a zero trace",
+    "Noise is deterministic and is an optional channel",
+    "Baseline with another coordinate is refused",
+    "CSV export reconstructs its display column",
+    "All presets render trace and shape views"
+  ],
+  "scope": "Composition mathematics, provenance-preserving transformations, import/export and SVG rendering; not new physical inference."
+}

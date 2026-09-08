@@ -1,0 +1,35 @@
+name: UPG catalog and independent controls
+on:
+  push:
+    paths:
+      - 'catalog/**'
+      - 'atlas/**'
+      - 'papers/**'
+      - 'research/upg/**'
+      - 'scripts/**'
+      - '.github/workflows/upg-catalog.yml'
+  pull_request:
+    paths:
+      - 'catalog/**'
+      - 'atlas/**'
+      - 'papers/**'
+      - 'research/upg/**'
+      - 'scripts/**'
+      - '.github/workflows/upg-catalog.yml'
+permissions:
+  contents: read
+jobs:
+  finite-controls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r research/upg/requirements.txt
+      - run: python scripts/validate_catalog.py
+      - run: python research/upg/verify_upg.py --output upg-ci-verification.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: upg-finite-controls
+          path: upg-ci-verification.json

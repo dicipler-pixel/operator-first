@@ -1,0 +1,20 @@
+{
+  "id": "ce.extensions.scale",
+  "version": "1.0.0",
+  "title": "Change of scale",
+  "family": "extensions",
+  "status": "specified",
+  "inputs": {},
+  "unit_system": "model",
+  "depends_on": [],
+  "assumptions": [
+    "Use only the stated model, input contract, and coordinate convention."
+  ],
+  "output_meaning": "Requires a family of coarse-graining maps and error estimates between resolutions.",
+  "evidence_class": "model_calculation",
+  "limits": "A scoped calculation; no universal physical interpretation or new Lean certificate is implied.",
+  "implementation": null,
+  "origin": {
+    "legacy_id": "scale"
+  }
+}

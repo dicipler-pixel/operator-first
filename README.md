@@ -1,48 +1,23 @@
-# operator-first
+# Operator-first research master
 
-Machine-checked statements from the operator-first corpus.
+Jeromie N. Beasley’s current research directory: **13 projects**, **18 Atlas cards**, and **Compound Eye Universal 3.2**.
 
-Jeromie Beasley — source paper *Light Keeps the Ledger*,
-https://doi.org/10.5281/zenodo.22124938
+Start with [current project status](MASTER_STATUS.md), the [paper register](catalog/README.md), or the [reusable-results Atlas](atlas/README.md).
 
-## What is here
+The [complete instrument](tools/compound-eye/START_HERE.md) contains **191 eye versions in 29 sets**: 172 implemented, 17 specified, and 2 archived results. It combines the independent Universal 2.2 and 3.1 lines with Eye Mixer 1.0.0.
 
-Two warm-up theorems, each stated in the most general setting in which it is
-actually true.
+## Use or share the tool
 
-**T1 — the commutator identity.**  For any ring and any `S`, `K`,
+Download this repository and open `tools/compound-eye/START_HERE.html`, or build the standalone package with `python scripts/package_compound_eye.py --output release-output`. The full scientific replay command is `python tools/compound-eye/run_all.py` after installing its requirements; Node.js is needed for the mixer checks. The HTML works offline. The package builder restores the large raw dataset automatically from checked repository pieces. For a raw-source audit directly in a clone, first run `python scripts/restore_large_files.py`.
 
-    [S + K, S - K] = -2 [S, K]
+The [original 3.1 upload backup](backups/2026-09-08-universal-3-1/README.md) and [earlier complete backup](backups/2026-09-08/README.md) preserve both release lines. Every registered source definition and installed implementation is retained.
 
-so that `C = S + K` with `Cᵀ = S - K` is normal exactly when `S` and `K`
-commute.  The corollary carries an explicit hypothesis ruling out
-characteristic two, where `-2x = 0` for every `x` and the statement is empty.
-Real and complex matrices satisfy it.
+## Research and proof scope
 
-**T2 — reciprocity.**  For square matrices over a commutative ring, if
-`Bᵀ = B` and `Vᵀ B = B V`, then `B V` is symmetric, hence
-`xᵀ(BV)y = yᵀ(BV)x` for every pair of vectors.  The hypotheses are minimal: positivity,
-definiteness and invertibility of `B` are never used.
+The root build incorporates the repair from PR #1 and checks its finite core. The [source snapshot](catalog/source_snapshot.json) records exact heads and available workflow evidence for the other proof branches. Their independent status and mathematical limits remain explicit in the register. A successful instrument integration does not establish new physical calibration or solve the six Diophantine equations.
 
-## Two builds
+## Keep the master current
 
-`standalone/Warmup.lean` depends on **nothing**.  It defines its own ring
-axioms and proves both theorems from them.  It compiles under plain Lean 4
-with no library:
+Read [AGENTS.md](AGENTS.md) and [catalog policy](catalog/POLICY.md). Fetch branches before importing another chat’s work; compare source inventories, then add missing versions without rewriting existing ones. Run `python scripts/build_catalog.py`, `python scripts/validate_catalog.py` and `python scripts/verify_compound_eye_release.py` after relevant changes.
 
-    lean standalone/Warmup.lean
-
-`#print axioms` reports that all three results *do not depend on any axioms* —
-not choice, not propositional extensionality, nothing.  They are constructive
-consequences of the ring axioms as written.
-
-`OperatorFirst/Warmup.lean` is the mathlib version, which is the one that
-belongs in a library and can be built on.  Build it with
-
-    lake exe cache get
-    lake build
-
-## CI
-
-`.github/workflows/ci.yml` runs `lake build` against the mathlib cache on every
-push.  The green check is the verification.
+The register remains a partial inventory of the wider 20+ paper corpus. Unresolved publication identities and missing source material remain in the intake queue.

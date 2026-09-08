@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "context": {
+    "object_id": "geometry-experiment-001",
+    "model_family": "geometry-v1",
+    "coordinate": 0.0,
+    "coordinate_kind": "angle increment from candidate preparation",
+    "basis": "fixed probe axes e0,e1",
+    "boundary": "fixed rank-one probe e0",
+    "units_convention": "declared model units"
+  },
+  "eyes": {
+    "lower_energy": {
+      "units": "model energy",
+      "measurement_radius": 0.01,
+      "prediction_radius": 0.0,
+      "cost": 1.0,
+      "meaning": "",
+      "dependency_group": "model-state"
+    },
+    "probe_weight": {
+      "units": "1",
+      "measurement_radius": 0.01,
+      "prediction_radius": 0.0,
+      "cost": 1.0,
+      "meaning": "",
+      "dependency_group": "model-state"
+    },
+    "signed_pair_overlap": {
+      "units": "1",
+      "measurement_radius": 0.01,
+      "prediction_radius": 0.0,
+      "cost": 1.0,
+      "meaning": "",
+      "dependency_group": "model-state"
+    },
+    "weight_derivative": {
+      "units": "1/radian",
+      "measurement_radius": 0.01,
+      "prediction_radius": 0.0,
+      "cost": 2,
+      "meaning": "",
+      "dependency_group": "model-state"
+    }
+  },
+  "candidates": [
+    {
+      "id": "angle-30",
+      "parameters": {
+        "initial_angle_radians": 0.5235987755982988
+      },
+      "predictions": {
+        "lower_energy": -1.0,
+        "probe_weight": 0.7500000000000001,
+        "signed_pair_overlap": 0.4330127018922193,
+        "weight_derivative": -0.8660254037844386
+      }
+    },
+    {
+      "id": "angle-150",
+      "parameters": {
+        "initial_angle_radians": 2.6179938779914944
+      },
+      "predictions": {
+        "lower_energy": -1.0,
+        "probe_weight": 0.7500000000000001,
+        "signed_pair_overlap": -0.4330127018922193,
+        "weight_derivative": 0.8660254037844386
+      }
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-1",
+      "eye": "lower_energy",
+      "value": -1.0,
+      "radius": 0.01,
+      "units": "model energy",
+      "context": {
+        "object_id": "geometry-experiment-001",
+        "model_family": "geometry-v1",
+        "coordinate": 0.0,
+        "coordinate_kind": "angle increment from candidate preparation",
+        "basis": "fixed probe axes e0,e1",
+        "boundary": "fixed rank-one probe e0",
+        "units_convention": "declared model units"
+      },
+      "evidence_group": "synthetic-demonstration",
+      "source": "declared synthetic observation"
+    },
+    {
+      "id": "obs-2",
+      "eye": "probe_weight",
+      "value": 0.75,
+      "radius": 0.01,
+      "units": "1",
+      "context": {
+        "object_id": "geometry-experiment-001",
+        "model_family": "geometry-v1",
+        "coordinate": 0.0,
+        "coordinate_kind": "angle increment from candidate preparation",
+        "basis": "fixed probe axes e0,e1",
+        "boundary": "fixed rank-one probe e0",
+        "units_convention": "declared model units"
+      },
+      "evidence_group": "synthetic-demonstration",
+      "source": "declared synthetic observation"
+    }
+  ]
+}

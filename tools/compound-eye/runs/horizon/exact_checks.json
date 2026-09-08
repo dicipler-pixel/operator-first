@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "kind": "exact_symbolic_checks",
+  "checks": {
+    "shape_operator_selfadjoint_in_quotient_metric": true,
+    "signed_tangent_intertwining_off_wall": true,
+    "lifted_limit_scalar_on_jordan_condition": true,
+    "horizontal_path_metric_qq": true,
+    "finite_length_primitive": true,
+    "gram_path_even_in_signed_coordinate": true,
+    "one_way_exterior_observability_rank_one": true,
+    "one_way_exterior_resolvent_independent_of_hidden_rate": true,
+    "fixed_energy_velocity_amplitude_constant": true
+  },
+  "domain": "Positive Gram eigenvalues for metric identities; q!=0 for similarity, smooth limit evaluated separately; 0<a<1 and |q|<1 for path.",
+  "formal_status": "SymPy simplification and exact finite linear algebra; no new Lean proof."
+}

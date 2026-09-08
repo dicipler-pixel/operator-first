@@ -1,0 +1,38 @@
+name: Compound Eye synchronized release
+on:
+  push:
+    paths: ['tools/compound-eye/**', 'scripts/**', 'catalog/**', 'atlas/**', '.github/workflows/compound-eye.yml']
+  pull_request:
+    paths: ['tools/compound-eye/**', 'scripts/**', 'catalog/**', 'atlas/**', '.github/workflows/compound-eye.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  integrated-instrument:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m pip install -r tools/compound-eye/requirements.txt
+      - run: python scripts/restore_large_files.py
+      - run: python scripts/validate_catalog.py
+      - run: python scripts/verify_compound_eye_release.py
+      - run: python tools/compound-eye/run_all.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: compound-eye-integrated-evidence
+          path: |
+            tools/compound-eye/runs/universal_verification.json
+            tools/compound-eye/projects/master_sync/reconciliation.json
+            tools/compound-eye/runs/mixer/*verification.json

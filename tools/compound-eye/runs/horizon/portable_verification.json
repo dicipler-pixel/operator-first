@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "fresh_extraction": true,
+  "invoked_from_parent_directory": true,
+  "new_suite_summary": {
+    "all_assertions_passed": true,
+    "previous_eye_versions_preserved": 167,
+    "new_eyes": 11,
+    "eye_versions": 178,
+    "sets": 27,
+    "single_eye_evaluations": 86,
+    "concurrent_frame_evaluations": 4,
+    "expected_blocks": 13,
+    "numerical_assertions": 165,
+    "exact_symbolic_checks": 9,
+    "inherited_eyes_used": [
+      "ce.cascade.affine_scale@1.0.0",
+      "ce.cascade.memory_certificate@1.0.0",
+      "ce.cascade.schur_cascade@1.0.0",
+      "ce.cascade.time_memory@1.0.0",
+      "ce.cascade.tomography@1.0.0"
+    ],
+    "source_stage": "Theoretical or synthetic. No physical interior inferred.",
+    "formal_status": "No new Lean formalization."
+  },
+  "scope": "Python horizon suite from delivered archive contents, with installed pinned dependencies. Does not execute every historical project."
+}

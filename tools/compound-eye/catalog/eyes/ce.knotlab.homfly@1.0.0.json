@@ -1,0 +1,24 @@
+{
+  "id": "ce.knotlab.homfly",
+  "version": "1.0.0",
+  "title": "Homfly",
+  "family": "knot memory and fields",
+  "status": "implemented",
+  "inputs": {
+    "case": "declared model data"
+  },
+  "unit_system": "model",
+  "depends_on": [],
+  "assumptions": [
+    "See per-eye output scope and declared model inputs.",
+    "Mathematical/model calculation unless explicitly identified otherwise."
+  ],
+  "output_meaning": "Scoped computed diagnostic, not independent evidence for a universal physical interpretation.",
+  "evidence_class": "model_calculation",
+  "limits": "Calibration implementation; see result scope.",
+  "implementation": {
+    "path": "plugins/installed/69db0c2e81e7c8e980f420d531e7aac55f9f863bdfa20925d561bee33ae6e420.py",
+    "sha256": "69db0c2e81e7c8e980f420d531e7aac55f9f863bdfa20925d561bee33ae6e420",
+    "function": "homfly"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "event_logic": "passed",
+  "readouts": 16,
+  "frames": 801,
+  "extensions": 9,
+  "checked_diagram_widths": [
+    320,
+    360,
+    736,
+    1024
+  ],
+  "controls": [
+    "run",
+    "pause",
+    "next frame",
+    "restart",
+    "export",
+    "earth closure slider",
+    "arithmetic candidate selector",
+    "forcing-step slider"
+  ],
+  "all_share_one_frame": true,
+  "frontier_replays": {
+    "earth_steps": 17,
+    "arithmetic_cases": 3,
+    "all_checked": true
+  },
+  "full_browser_layout": "not checked: browser unavailable in this session",
+  "method": "Minimal Node DOM adapter; actual application scripts and datasets executed."
+}

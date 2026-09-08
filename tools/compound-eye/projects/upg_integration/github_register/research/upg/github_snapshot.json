@@ -1,0 +1,601 @@
+{
+  "repository": "dicipler-pixel/operator-first",
+  "retrieved_at_utc": "2026-09-07T23:01:58.297094+00:00",
+  "main": "032ec75a360fa55caa83c687d2038558103a36fb",
+  "pull_requests": [
+    {
+      "number": 11,
+      "title": "Formalize positive-channel peel and optical metric response",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/11",
+      "head_ref": "formal/peel-constitutive-20260907",
+      "head_sha": "4675da5baf7ca4d35d57fae1004fe63466a31b5b",
+      "base_ref": "main",
+      "base_sha": "032ec75a360fa55caa83c687d2038558103a36fb",
+      "workflows": [
+        {
+          "id": 34157983201,
+          "name": "Peel constitutive formal verification",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34157983201"
+        },
+        {
+          "id": 34157983166,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34157983166"
+        },
+        {
+          "id": 34157980773,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34157980773"
+        }
+      ],
+      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+    },
+    {
+      "number": 10,
+      "title": "Add master paper register and reusable-results Atlas",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/10",
+      "head_ref": "catalog/paper-atlas-register",
+      "head_sha": "3fd7d5efb7a4e20c790d905c2a3e5a21bfb290ec",
+      "base_ref": "main",
+      "base_sha": "032ec75a360fa55caa83c687d2038558103a36fb",
+      "workflows": [
+        {
+          "id": 34137290148,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34137290148"
+        },
+        {
+          "id": 34137287997,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34137287997"
+        }
+      ],
+      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+    },
+    {
+      "number": 9,
+      "title": "Finite projector overlap: close the Taylor bridge under C1 assumptions",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/9",
+      "head_ref": "gravity/c1-overlap-bridge",
+      "head_sha": "63c11a656ea78097d1cd61a0994cb9baa0e3bc8e",
+      "base_ref": "gravity/finite-projector-proof-audit",
+      "base_sha": "2ded71b0e7a73e4df994faff2694beacbf8ffff4",
+      "workflows": [
+        {
+          "id": 34130027515,
+          "name": "Light ledger verification",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34130027515"
+        },
+        {
+          "id": 34130027417,
+          "name": "C1 projector overlap bridge",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34130027417"
+        },
+        {
+          "id": 34130027413,
+          "name": "Gravity finite-projector verification",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34130027413"
+        },
+        {
+          "id": 34130027400,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34130027400"
+        },
+        {
+          "id": 34130023570,
+          "name": "Light ledger verification",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34130023570"
+        },
+        {
+          "id": 34130023555,
+          "name": "Gravity finite-projector verification",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34130023555"
+        },
+        {
+          "id": 34130023552,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34130023552"
+        }
+      ],
+      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+    },
+    {
+      "number": 6,
+      "title": "Offset endpoint: all-size written proof and verified Laurent boundary mechanism",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/6",
+      "head_ref": "proof-check/endpoint-scalar-progress-2026-09-06",
+      "head_sha": "10efd332626e1f861fc74082b7f67dd135712e5e",
+      "base_ref": "proof-check/offset-endpoint-2026-09-05",
+      "base_sha": "7818a3c4ac8750a2ce676cfc5534fddd87c94854",
+      "workflows": [
+        {
+          "id": 34041636884,
+          "name": "Offset moduli transfer checks",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34041636884"
+        },
+        {
+          "id": 34041636876,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34041636876"
+        },
+        {
+          "id": 34041636870,
+          "name": "Offset endpoint reformulation",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34041636870"
+        },
+        {
+          "id": 34041634324,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34041634324"
+        },
+        {
+          "id": 34041634322,
+          "name": "Offset endpoint reformulation",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34041634322"
+        },
+        {
+          "id": 34041634339,
+          "name": "Offset moduli transfer checks",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34041634339"
+        }
+      ],
+      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+    },
+    {
+      "number": 8,
+      "title": "Gravity: verified projector algebra and exact moving-wall example",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/8",
+      "head_ref": "gravity/finite-projector-proof-audit",
+      "head_sha": "2ded71b0e7a73e4df994faff2694beacbf8ffff4",
+      "base_ref": "proof-check/light-ledger-2026-09-06",
+      "base_sha": "41d9523a53ad679d2240e5e40ed07a7ea0cc2bac",
+      "workflows": [
+        {
+          "id": 34129337143,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34129337143"
+        },
+        {
+          "id": 34129337177,
+          "name": "Gravity finite-projector verification",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34129337177"
+        },
+        {
+          "id": 34129337167,
+          "name": "Light ledger verification",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34129337167"
+        },
+        {
+          "id": 34035655097,
+          "name": "Gravity finite-projector verification",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34035655097"
+        },
+        {
+          "id": 34035655125,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34035655125"
+        },
+        {
+          "id": 34035655112,
+          "name": "Light ledger verification",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34035655112"
+        },
+        {
+          "id": 34035653128,
+          "name": "Gravity finite-projector verification",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34035653128"
+        },
+        {
+          "id": 34035653120,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34035653120"
+        },
+        {
+          "id": 34035653140,
+          "name": "Light ledger verification",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34035653140"
+        }
+      ],
+      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+    },
+    {
+      "number": 7,
+      "title": "Light ledger: verify 82 supplement theorems and add 9 finite completion steps",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/7",
+      "head_ref": "proof-check/light-ledger-2026-09-06",
+      "head_sha": "41d9523a53ad679d2240e5e40ed07a7ea0cc2bac",
+      "base_ref": "proof-check/ci-repair-2026-09-05",
+      "base_sha": "9bbc220aabf9d0b2afbfd2630a84cb971b7b7390",
+      "workflows": [
+        {
+          "id": 34034732711,
+          "name": "Light ledger verification",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34034732711"
+        },
+        {
+          "id": 34034732700,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34034732700"
+        },
+        {
+          "id": 34015381100,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34015381100"
+        },
+        {
+          "id": 34015381110,
+          "name": "Light ledger verification",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34015381110"
+        },
+        {
+          "id": 34015379241,
+          "name": "Light ledger verification",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34015379241"
+        },
+        {
+          "id": 34015379246,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34015379246"
+        }
+      ],
+      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+    },
+    {
+      "number": 5,
+      "title": "Verified Offset extension: 30 endpoint reflection and correction theorems",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/5",
+      "head_ref": "proof-check/offset-endpoint-2026-09-05",
+      "head_sha": "7818a3c4ac8750a2ce676cfc5534fddd87c94854",
+      "base_ref": "proof-check/offset-core-2026-09-05",
+      "base_sha": "92a95a427ddf4e9a8c3216aab4af2a65730a050f",
+      "workflows": [
+        {
+          "id": 33991660104,
+          "name": "Offset endpoint reformulation",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33991660104"
+        },
+        {
+          "id": 33991660136,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33991660136"
+        },
+        {
+          "id": 33991658318,
+          "name": "Offset endpoint reformulation",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33991658318"
+        },
+        {
+          "id": 33991658316,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33991658316"
+        }
+      ],
+      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+    },
+    {
+      "number": 4,
+      "title": "Verified extension: 95 Lean theorems, Kakeya classification and seeding correction",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/4",
+      "head_ref": "proof-check/earth-moon-kakeya-extension-2026-09-05",
+      "head_sha": "41fbf3b9e6ad8143d597928e477a9d94adb6d6d6",
+      "base_ref": "proof-check/mixed-intake-2026-09-05",
+      "base_sha": "1619b042f2e39434d9b8d64949bd080d2090867b",
+      "workflows": [
+        {
+          "id": 33989244187,
+          "name": "Mixed-file intake",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989244187"
+        },
+        {
+          "id": 33989244152,
+          "name": "Mixed review proofs",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989244152"
+        },
+        {
+          "id": 33989244284,
+          "name": "Mixed scoped proofs",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989244284"
+        },
+        {
+          "id": 33989244155,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989244155"
+        },
+        {
+          "id": 33989244224,
+          "name": "Earth-Moon and restriction extension",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989244224"
+        },
+        {
+          "id": 33989241486,
+          "name": "Mixed review proofs",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989241486"
+        },
+        {
+          "id": 33989241489,
+          "name": "Mixed-file intake",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989241489"
+        },
+        {
+          "id": 33989241537,
+          "name": "Earth-Moon and restriction extension",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989241537"
+        },
+        {
+          "id": 33989241483,
+          "name": "Mixed scoped proofs",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989241483"
+        },
+        {
+          "id": 33989241587,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989241587"
+        }
+      ],
+      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+    },
+    {
+      "number": 3,
+      "title": "Mixed-file audit: original Gaussian and Kakeya Lean files, with scope controls",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/3",
+      "head_ref": "proof-check/mixed-intake-2026-09-05",
+      "head_sha": "1619b042f2e39434d9b8d64949bd080d2090867b",
+      "base_ref": "proof-check/offset-core-2026-09-05",
+      "base_sha": "92a95a427ddf4e9a8c3216aab4af2a65730a050f",
+      "workflows": [
+        {
+          "id": 33981714108,
+          "name": "Mixed scoped proofs",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981714108"
+        },
+        {
+          "id": 33981714121,
+          "name": "Mixed review proofs",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981714121"
+        },
+        {
+          "id": 33981714133,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981714133"
+        },
+        {
+          "id": 33981714115,
+          "name": "Mixed-file intake",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981714115"
+        },
+        {
+          "id": 33981712500,
+          "name": "Mixed review proofs",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981712500"
+        },
+        {
+          "id": 33981712583,
+          "name": "Mixed scoped proofs",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981712583"
+        },
+        {
+          "id": 33981712491,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981712491"
+        },
+        {
+          "id": 33981712494,
+          "name": "Mixed-file intake",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981712494"
+        }
+      ],
+      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+    },
+    {
+      "number": 2,
+      "title": "Offset paper: finite log-odds proofs, correction controls, and identity-sector distinction",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/2",
+      "head_ref": "proof-check/offset-core-2026-09-05",
+      "head_sha": "92a95a427ddf4e9a8c3216aab4af2a65730a050f",
+      "base_ref": "proof-check/ci-repair-2026-09-05",
+      "base_sha": "9bbc220aabf9d0b2afbfd2630a84cb971b7b7390",
+      "workflows": [
+        {
+          "id": 33979557482,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33979557482"
+        },
+        {
+          "id": 33976842609,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33976842609"
+        },
+        {
+          "id": 33976826381,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33976826381"
+        }
+      ],
+      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+    },
+    {
+      "number": 1,
+      "title": "Repair Lean build and require explicit kernel/axiom verification",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/1",
+      "head_ref": "proof-check/ci-repair-2026-09-05",
+      "head_sha": "9bbc220aabf9d0b2afbfd2630a84cb971b7b7390",
+      "base_ref": "main",
+      "base_sha": "032ec75a360fa55caa83c687d2038558103a36fb",
+      "workflows": [
+        {
+          "id": 33976523757,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33976523757"
+        },
+        {
+          "id": 33974837543,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33974837543"
+        },
+        {
+          "id": 33974835707,
+          "name": "CI",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33974835707"
+        }
+      ],
+      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+    }
+  ],
+  "scope": "Read-only current metadata. No proof reruns or automatic grade changes.",
+  "changed_heads": [
+    {
+      "number": 11,
+      "before": null,
+      "after": "4675da5baf7ca4d35d57fae1004fe63466a31b5b"
+    },
+    {
+      "number": 10,
+      "before": null,
+      "after": "3fd7d5efb7a4e20c790d905c2a3e5a21bfb290ec"
+    }
+  ]
+}

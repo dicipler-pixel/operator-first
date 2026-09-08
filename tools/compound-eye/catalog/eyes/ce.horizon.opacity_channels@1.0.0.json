@@ -1,0 +1,23 @@
+{
+  "id": "ce.horizon.opacity_channels",
+  "version": "1.0.0",
+  "title": "Opacity versus causal closure",
+  "family": "Inside/outside comparison",
+  "status": "implemented",
+  "inputs": {
+    "case": "declared boundary comparison"
+  },
+  "depends_on": [],
+  "assumptions": [
+    "Pure absorption proxy and local linear acoustic characteristics in declared units.",
+    "Evidence stage and observer must be explicit."
+  ],
+  "output_meaning": "Opacity versus causal closure within the stated model.",
+  "evidence_class": "declared_model_calculation",
+  "limits": "Not a calibrated solar atmosphere or a full radiative-MHD calculation.",
+  "implementation": {
+    "path": "plugins/installed/b03e02b91cb1c46436ea9376bad1383f342ab4e8023c4ad8fcaace2542572a68.py",
+    "sha256": "b03e02b91cb1c46436ea9376bad1383f342ab4e8023c4ad8fcaace2542572a68",
+    "function": "opacity_channels"
+  }
+}

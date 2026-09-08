@@ -1,0 +1,186 @@
+{
+  "all_baseline_outcomes_agree": true,
+  "all_4120_noncut_closures_agree": true,
+  "repetitions": 3,
+  "mode_results": {
+    "legacy_search": [
+      {
+        "seconds": 0.7465742559943465,
+        "configurations": 11480,
+        "cut_rejections": 7360,
+        "closure_calls": 4120,
+        "complete_configurations": 0
+      },
+      {
+        "seconds": 0.7381040120017133,
+        "configurations": 11480,
+        "cut_rejections": 7360,
+        "closure_calls": 4120,
+        "complete_configurations": 0
+      },
+      {
+        "seconds": 0.7428439399955096,
+        "configurations": 11480,
+        "cut_rejections": 7360,
+        "closure_calls": 4120,
+        "complete_configurations": 0
+      }
+    ],
+    "integer_flat_search": [
+      {
+        "seconds": 0.6760992239942425,
+        "configurations": 11480,
+        "cut_rejections": 7360,
+        "closure_calls": 4120,
+        "complete_configurations": 0
+      },
+      {
+        "seconds": 0.7363318450006773,
+        "configurations": 11480,
+        "cut_rejections": 7360,
+        "closure_calls": 4120,
+        "complete_configurations": 0
+      },
+      {
+        "seconds": 0.7776169310018304,
+        "configurations": 11480,
+        "cut_rejections": 7360,
+        "closure_calls": 4120,
+        "complete_configurations": 0
+      }
+    ],
+    "dag_only": [
+      {
+        "seconds": 1.349977970996406,
+        "nodes": 9997,
+        "merged_visits": 3617,
+        "transition_cache_hits": 96,
+        "distinct_insertions": 6954,
+        "closure_calls": 2947,
+        "obstructions": 2863,
+        "obstruction_queries": 0,
+        "configurations": 11480,
+        "complete_configurations": 0,
+        "mode": "dag_only"
+      },
+      {
+        "seconds": 1.369660700998793,
+        "nodes": 9997,
+        "merged_visits": 3617,
+        "transition_cache_hits": 96,
+        "distinct_insertions": 6954,
+        "closure_calls": 2947,
+        "obstructions": 2863,
+        "obstruction_queries": 0,
+        "configurations": 11480,
+        "complete_configurations": 0,
+        "mode": "dag_only"
+      },
+      {
+        "seconds": 1.5678321629966376,
+        "nodes": 9997,
+        "merged_visits": 3617,
+        "transition_cache_hits": 96,
+        "distinct_insertions": 6954,
+        "closure_calls": 2947,
+        "obstructions": 2863,
+        "obstruction_queries": 0,
+        "configurations": 11480,
+        "complete_configurations": 0,
+        "mode": "dag_only"
+      }
+    ],
+    "dag_with_obstructions": [
+      {
+        "seconds": 0.7424353440001141,
+        "nodes": 6647,
+        "merged_visits": 1919,
+        "transition_cache_hits": 29,
+        "distinct_insertions": 4336,
+        "closure_calls": 1460,
+        "obstructions": 1471,
+        "obstruction_queries": 6647,
+        "configurations": 11480,
+        "complete_configurations": 0,
+        "mode": "dag_with_obstructions"
+      },
+      {
+        "seconds": 0.7529303949995665,
+        "nodes": 6647,
+        "merged_visits": 1919,
+        "transition_cache_hits": 29,
+        "distinct_insertions": 4336,
+        "closure_calls": 1460,
+        "obstructions": 1471,
+        "obstruction_queries": 6647,
+        "configurations": 11480,
+        "complete_configurations": 0,
+        "mode": "dag_with_obstructions"
+      },
+      {
+        "seconds": 0.7325427719988511,
+        "nodes": 6647,
+        "merged_visits": 1919,
+        "transition_cache_hits": 29,
+        "distinct_insertions": 4336,
+        "closure_calls": 1460,
+        "obstructions": 1471,
+        "obstruction_queries": 6647,
+        "configurations": 11480,
+        "complete_configurations": 0,
+        "mode": "dag_with_obstructions"
+      }
+    ]
+  },
+  "median_seconds": {
+    "legacy_search": 0.7428439399955096,
+    "integer_flat_search": 0.7363318450006773,
+    "dag_only": 1.369660700998793,
+    "dag_with_obstructions": 0.7424353440001141
+  },
+  "independent_dag_audits": {
+    "dag_only": {
+      "all_passed": true,
+      "context_sha256": "64d3fd376ba45fd35f850cfb5a2f435ef7fccb8fa52100aaaa25c6de87b648a4",
+      "nodes_checked": 9997,
+      "obstructions_checked": 2863,
+      "rational_transitions_checked": 6954,
+      "configurations_certified": 11480,
+      "complete_configurations": 0,
+      "positive_certificates_checked": 0,
+      "seconds": 0.8756107320004958,
+      "arithmetic": "standard-library integers and independent Fraction Gauss-Jordan",
+      "official_epoch_verifier_run": false,
+      "lean_formalized": false
+    },
+    "dag_with_obstructions": {
+      "all_passed": true,
+      "context_sha256": "64d3fd376ba45fd35f850cfb5a2f435ef7fccb8fa52100aaaa25c6de87b648a4",
+      "nodes_checked": 6647,
+      "obstructions_checked": 1471,
+      "rational_transitions_checked": 4336,
+      "configurations_certified": 11480,
+      "complete_configurations": 0,
+      "positive_certificates_checked": 0,
+      "seconds": 0.5162502039966057,
+      "arithmetic": "standard-library integers and independent Fraction Gauss-Jordan",
+      "official_epoch_verifier_run": false,
+      "lean_formalized": false
+    }
+  },
+  "fresh_original_certificate_baseline": {
+    "seconds": 44.408487667999,
+    "certificates": 4120,
+    "integer_steps": 1780,
+    "integer_duals": 22940,
+    "scope": "Fresh generation plus independent checking; no disk serialization."
+  },
+  "closure_call_reduction_against_original": 0.645631067961165,
+  "search_speed_ratio_original_over_dag": 1.0005503455603204,
+  "scope": "Same fixed 11480-case baseline. DAG times include obstruction and proof-graph production; flat search times do not produce certificates. Shared context construction and file I/O excluded. Proof production improvements cannot be attributed to state merging alone.",
+  "verified_pipeline_seconds": {
+    "original": 45.15133160799451,
+    "new": 1.2586855479967198,
+    "ratio": 35.871812209058724
+  }
+}

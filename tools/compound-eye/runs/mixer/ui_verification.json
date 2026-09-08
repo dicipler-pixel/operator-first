@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "tests": 12,
+  "checks": [
+    "Initial state actually draws a combined SVG",
+    "All off and all on change the real output",
+    "Weight handler changes composition",
+    "Pin holds the previous settings",
+    "Phase and frequency are wired",
+    "Play advances the shared coordinate and pauses",
+    "Adding then resetting retains the new channel",
+    "Study switching and restoring retains settings",
+    "Mixed source units are visibly refused",
+    "Pasted import replaces the displayed case",
+    "SVG, CSV and complete recipe export handlers execute",
+    "An invalid import does not discard current data"
+  ],
+  "method": "Real UI JavaScript executed against a DOM harness",
+  "not_tested": [
+    "Full browser rendering",
+    "Browser file-picker interaction",
+    "PNG encoding in a browser",
+    "Fullscreen API availability"
+  ]
+}

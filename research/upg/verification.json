@@ -1,0 +1,30 @@
+{
+  "summary": {
+    "status": "PASS",
+    "eye_evaluations": 213,
+    "successful": 206,
+    "expected_blocks": 7,
+    "standalone_or_registry": "standalone",
+    "seed": 20260907,
+    "new_eyes": 5,
+    "independent_controls": {
+      "gluing_claim_log_one_plus": 0.22314355131420976,
+      "actual_gluing_log_one_minus": -0.2876820724517809,
+      "commuting_potential_linear_path": "163/150",
+      "commuting_potential_fast_path": "19/150",
+      "oblique_projector_metric_speed": "-1",
+      "single_differential_kernel_dimension": 2,
+      "full_hodge_homology_dimension": 1,
+      "Z3_equivariant_linear_anisotropy": "[[x,-y],[-y,-x]]; exact rotation identity verified",
+      "nonprimitive_closed_loop_winding": [
+        2,
+        0
+      ],
+      "chart_fold_max_phase_step": 4.685296279639817e-05,
+      "projector_derivative_max_fd_error": 2.8460345034492746e-08,
+      "interpretation": "Counterexamples refute specified universal statements; they do not refute the entire research program."
+    },
+    "formal_status": "Written mathematics and numerical/symbolic controls; no new Lean compilation."
+  },
+  "details": "Full generated cases are in the portable release; running verify_upg.py writes them locally."
+}

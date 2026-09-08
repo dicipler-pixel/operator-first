@@ -1,0 +1,47 @@
+{
+  "release": "3.2",
+  "source_releases": [
+    "2.2",
+    "3.1"
+  ],
+  "shared_eye_versions": 167,
+  "eye_versions": 191,
+  "sets": 29,
+  "imported_eyes": [
+    "ce.upg.redistribution_memory@1.0.0",
+    "ce.upg.spectral_susceptibility@1.0.0",
+    "ce.upg.gluing_sign@1.0.0",
+    "ce.upg.nct_anchor@1.0.0",
+    "ce.upg.signature_flow@1.0.0",
+    "ce.dio.integer_witness@1.0.0",
+    "ce.dio.discriminant@1.0.0",
+    "ce.dio.fibre_transfer@1.0.0",
+    "ce.dio.prime_evolution@1.0.0",
+    "ce.dio.twist_selection@1.0.0",
+    "ce.dio.polynomial_identity@1.0.0",
+    "ce.dio.integral_cover@1.0.0",
+    "ce.dio.pell_orbit@1.0.0"
+  ],
+  "imported_sets": [
+    "ce.set.upg@1.0.0",
+    "ce.set.diophantine@1.0.0"
+  ],
+  "immutable_conflicts": [],
+  "historical_file_conflicts_preserved": [
+    "CHAT_HANDOFF.md",
+    "CITATION.cff",
+    "START_HERE.html",
+    "START_HERE.md",
+    "UNIVERSAL_MANIFEST.json",
+    "build_portal.py",
+    "catalog/history.jsonl",
+    "catalog/set_history.jsonl",
+    "release_counts.json",
+    "run_all.py",
+    "runs/portal_verification.json",
+    "runs/qhe/summary.json",
+    "runs/universal_verification.json"
+  ],
+  "all_source_eye_set_and_implementation_bytes_preserved": true,
+  "scope": "Source reconciliation and registry validation; not a scientific rerun."
+}

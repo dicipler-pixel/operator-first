@@ -1,0 +1,66 @@
+[
+  {
+    "source": "upg_source/dirac_spine_01.py",
+    "exit_code": 0,
+    "seconds": 1.2639334201812744,
+    "note": "Original supplied program",
+    "status": "ran",
+    "last_line": "  check: ln(1+a_hc) = 0.8224670334   vs   pi^2/12 = 0.8224670334"
+  },
+  {
+    "source": "upg_source/upg_gate_01.py",
+    "exit_code": 0,
+    "seconds": 0.0962522029876709,
+    "note": "Original supplied program",
+    "status": "ran",
+    "last_line": "  commuting pair gives ||F|| = 8.92e-16"
+  },
+  {
+    "source": "upg_source/upg_gate_02.py",
+    "exit_code": 0,
+    "seconds": 0.8500807285308838,
+    "note": "Original supplied program",
+    "status": "ran",
+    "last_line": "  d=4   clock-shift              w=+1.000000000  w_chord=+1.000000000  delta=2.000000e+00  g=1.414214  delta+g^2=4.000000000  bound=1.4142  PASS"
+  },
+  {
+    "source": "upg_source/upg_nct_figs.py",
+    "exit_code": 0,
+    "seconds": 0.7983732223510742,
+    "note": "Working copy changes only hardcoded figure output directory; original retained.",
+    "status": "ran",
+    "last_line": "ratio measured/floor (asymptotic) = 2.4674011002723395"
+  },
+  {
+    "source": "upg_source/upg_prove_01a.py",
+    "exit_code": 0,
+    "seconds": 0.1716899871826172,
+    "note": "Original supplied program",
+    "status": "ran",
+    "last_line": "  gap= 0.001:  sigma_min = 9.5783e-04   R = 1.090e+06"
+  },
+  {
+    "source": "upg_source/upg_prove_02.py",
+    "exit_code": 0,
+    "seconds": 0.9249448776245117,
+    "note": "Original supplied program",
+    "status": "ran",
+    "last_line": "  delta= -1.000:  C = -0.0000   vol_g = 0.0850"
+  },
+  {
+    "source": "bodies_source/biaxial.py",
+    "exit_code": 1,
+    "seconds": 0.07452392578125,
+    "note": "Original supplied program",
+    "status": "blocked_or_failed",
+    "last_line": "FileNotFoundError: [Errno 2] No such file or directory: '/home/claude/unequal_check.py'"
+  },
+  {
+    "source": "bodies_source/conical_ray.py",
+    "exit_code": 1,
+    "seconds": 0.06139540672302246,
+    "note": "Original supplied program",
+    "status": "blocked_or_failed",
+    "last_line": "FileNotFoundError: [Errno 2] No such file or directory: '/home/claude/unequal_check.py'"
+  }
+]

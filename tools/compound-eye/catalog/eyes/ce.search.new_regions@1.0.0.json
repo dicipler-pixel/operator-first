@@ -1,0 +1,25 @@
+{
+  "id": "ce.search.new_regions",
+  "version": "1.0.0",
+  "title": "Unexcluded finite regions",
+  "family": "decision DAG",
+  "status": "archived_result",
+  "inputs": {},
+  "unit_system": "exact",
+  "depends_on": [],
+  "assumptions": [
+    "Use only the stated model, input contract, and coordinate convention."
+  ],
+  "output_meaning": "33 specified AK tower-and-pool families across all initial sets at the target score; 24976 specified Earth-Moon extensions.",
+  "evidence_class": "archived_computational_evidence",
+  "limits": "A scoped calculation; no universal physical interpretation or new Lean certificate is implied.",
+  "implementation": {
+    "path": "plugins/eyes.py",
+    "sha256": "95b8c1300c95260277ed2b22f6af939267b2b72ae093bdc2bc7d86edf8bbd79c",
+    "function": "search"
+  },
+  "adapter": "regions",
+  "origin": {
+    "legacy_id": "new_regions"
+  }
+}

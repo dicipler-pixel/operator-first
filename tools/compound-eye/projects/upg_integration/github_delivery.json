@@ -1,0 +1,16 @@
+{
+  "repository": "dicipler-pixel/operator-first",
+  "pr": 12,
+  "url": "https://github.com/dicipler-pixel/operator-first/pull/12",
+  "head_sha": "b99a58256f2ecaa7d3523080d310cc04cf24aa28",
+  "branch": "catalog/upg-cascade-sync-20260907",
+  "base": "catalog/paper-atlas-register",
+  "scope": "Draft integration; no merges; original 11-PR snapshot retained separately.",
+  "tested_merge_sha": "6ffa3c6ea0653e66b46105b375af7f6fbb54b8f5",
+  "dedicated_run": 34168992526,
+  "dedicated_run_result": "success",
+  "root_run": 34168992474,
+  "root_run_result": "failure",
+  "root_failure": "Inherited malformed lakefile.toml; fails before Lean theorem compilation.",
+  "logs_inspected": true
+}

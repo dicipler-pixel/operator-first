@@ -1,0 +1,255 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>B84 &mdash; Two sectors say what, one says why.</title>
+<style>
+:root{
+  --ground:#0C161C;
+  --ground2:#101F27;
+  --ink:#DCE6E8;
+  --ink-dim:#8FA3AC;
+  --ink-faint:#4E6470;
+  --rule:#22333D;
+  --L0:#9AA9B2;
+  --L1:#4FA3C7;
+  --L2:#E0793A;
+  --L3:#D8534F;
+  --L4:#C9A227;
+  --L5:#79C089;
+  --L6:#9B7FD4;
+  --L7:#E8E3D4;
+  --sans:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+  --serif:"Iowan Old Style","Hoefler Text","Palatino Linotype",Palatino,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:var(--serif);font-size:17px;line-height:1.6;
+  background-image:
+    linear-gradient(rgba(255,255,255,.014) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px 120px}
+
+/* ---------- cartographic lettering ---------- */
+.chart-label{
+  font-family:var(--sans);text-transform:uppercase;
+  letter-spacing:.24em;font-size:11px;font-weight:600;color:var(--ink-dim);
+}
+.plate-num{
+  font-family:var(--sans);text-transform:uppercase;letter-spacing:.3em;
+  font-size:10px;color:var(--ink-faint);font-weight:700;
+}
+h1,h2,h3{font-family:var(--sans);font-weight:300;margin:0}
+
+/* ---------- masthead ---------- */
+.masthead{padding:96px 0 34px;border-bottom:1px solid var(--rule)}
+.masthead h1{
+  font-size:clamp(34px,6.6vw,74px);letter-spacing:.03em;line-height:1.02;
+  text-transform:uppercase;font-weight:200;
+}
+.masthead h1 b{font-weight:600;letter-spacing:.01em}
+.deck{
+  font-family:var(--serif);font-size:clamp(17px,2.1vw,23px);
+  color:var(--ink-dim);max-width:47ch;margin:22px 0 0;font-style:italic;
+}
+.imprint{
+  margin-top:34px;display:flex;flex-wrap:wrap;gap:12px 34px;
+  font-family:var(--sans);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-faint);
+}
+
+/* ---------- grade legend ---------- */
+.legend{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);margin:40px 0 0;
+}
+.legend div{background:var(--ground);padding:16px 18px}
+.legend b{
+  font-family:var(--mono);font-size:13px;color:var(--ink);
+  display:block;margin-bottom:5px;letter-spacing:.04em;
+}
+.legend span{font-family:var(--sans);font-size:12px;color:var(--ink-dim);line-height:1.5}
+
+/* ---------- plates ---------- */
+.plate{padding:88px 0 0;border-top:1px solid var(--rule);margin-top:78px}
+.plate:first-of-type{border-top:none}
+.plate-head{display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:8px}
+.plate h2{
+  font-size:clamp(22px,3vw,34px);letter-spacing:.11em;text-transform:uppercase;font-weight:300;
+}
+.plate .sheet{
+  font-family:var(--serif);font-style:italic;color:var(--ink-dim);
+  font-size:19px;max-width:56ch;margin:16px 0 0;
+}
+
+/* ---------- layer stratum ---------- */
+.stratum{padding:74px 0 0;border-top:1px solid var(--rule);margin-top:64px}
+.stratum-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.stratum-eyebrow .code{
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+  border:1px solid currentColor;padding:3px 9px;border-radius:2px;
+}
+.stratum-eyebrow .nm{
+  font-family:var(--sans);text-transform:uppercase;letter-spacing:.26em;
+  font-size:13px;font-weight:600;
+}
+.felt{
+  font-size:clamp(23px,3.6vw,38px);line-height:1.24;letter-spacing:-.005em;
+  margin:0 0 34px;max-width:22ch;font-weight:400;
+}
+.felt em{font-style:italic;color:var(--ink-dim)}
+.strat-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:start}
+@media(max-width:880px){.strat-grid{grid-template-columns:1fr;gap:36px}.felt{max-width:none}}
+
+/* ---------- hero equation ---------- */
+.hero-eq{
+  border-left:2px solid currentColor;padding:6px 0 6px 22px;margin:0 0 26px;
+}
+.hero-eq .e{
+  font-family:var(--serif);font-size:clamp(24px,3.4vw,36px);
+  line-height:1.34;letter-spacing:.01em;color:var(--ink);
+}
+.hero-eq .cap{
+  font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-faint);margin-top:12px;
+}
+.eq{font-family:var(--serif)}
+i.v{font-style:italic}
+
+/* ---------- notes ---------- */
+.notes{margin:0;padding:0;list-style:none}
+.notes li{
+  padding:15px 0;border-top:1px solid var(--rule);
+  font-size:15.5px;color:var(--ink-dim);line-height:1.55;
+}
+.notes li:last-child{border-bottom:1px solid var(--rule)}
+.notes b{color:var(--ink);font-weight:400;font-family:var(--serif)}
+.g{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+  padding:1px 6px;border:1px solid var(--ink-faint);border-radius:2px;
+  color:var(--ink-dim);margin-right:9px;white-space:nowrap;
+}
+.g.t{border-color:#79C089;color:#79C089}
+.g.v{border-color:#4FA3C7;color:#4FA3C7}
+.g.c{border-color:#C9A227;color:#C9A227}
+.g.h{border-color:#9AA9B2;color:#9AA9B2}
+.g.x{border-color:#D8534F;color:#D8534F}
+
+figure{margin:0}
+figcaption{
+  font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-faint);margin-top:14px;line-height:1.7;
+}
+svg{display:block;width:100%;height:auto;overflow:visible}
+
+/* ---------- bridge table ---------- */
+.bridges{width:100%;border-collapse:collapse;margin-top:34px;font-size:15px}
+.bridges th{
+  font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-faint);text-align:left;padding:0 14px 12px 0;font-weight:600;
+  border-bottom:1px solid var(--rule);
+}
+.bridges td{padding:15px 14px 15px 0;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink-dim)}
+.bridges td.id{font-family:var(--mono);font-size:13px;color:var(--ink);white-space:nowrap}
+.bridges td.rt{font-family:var(--mono);font-size:12px;letter-spacing:.05em;white-space:nowrap}
+.bridges td.st{color:var(--ink)}
+@media(max-width:760px){
+  .bridges,.bridges tbody,.bridges tr,.bridges td{display:block;width:100%}
+  .bridges thead{display:none}
+  .bridges tr{border-bottom:1px solid var(--rule);padding:16px 0}
+  .bridges td{border:none;padding:2px 0}
+}
+
+/* ---------- option cards ---------- */
+.phantom{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:36px}
+.phantom article{background:var(--ground);padding:24px 22px}
+.phantom h3{
+  font-family:var(--serif);font-size:19px;font-weight:400;color:var(--ink);
+  margin:0 0 9px;text-decoration:line-through;text-decoration-color:var(--L3);
+  text-decoration-thickness:1px;
+}
+.phantom p{margin:0;font-size:15px;color:var(--ink-dim);line-height:1.55}
+.phantom .sounding{
+  font-family:var(--mono);font-size:11px;color:var(--L3);letter-spacing:.1em;
+  display:block;margin-top:12px;
+}
+
+/* ---------- rules block ---------- */
+.rules{counter-reset:r;margin-top:34px;padding:0;list-style:none}
+.rules li{
+  position:relative;padding:20px 0 20px 62px;border-top:1px solid var(--rule);
+  font-size:16.5px;color:var(--ink);line-height:1.55;
+}
+.rules li:last-child{border-bottom:1px solid var(--rule)}
+.rules li::before{
+  counter-increment:r;content:counter(r,upper-roman);
+  position:absolute;left:0;top:20px;font-family:var(--mono);font-size:12px;
+  color:var(--ink-faint);letter-spacing:.1em;
+}
+.watch{
+  border:1px solid var(--L4);padding:26px 26px;margin-top:44px;
+}
+.watch .chart-label{color:var(--L4);margin-bottom:12px;display:block}
+.watch p{margin:0 0 10px;color:var(--ink-dim);font-size:15.5px}
+.watch p:last-child{margin-bottom:0}
+
+.colophon{
+  margin-top:96px;padding-top:34px;border-top:1px solid var(--rule);
+  font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--L1);outline-offset:3px}
+
+.bridge{padding:64px 0;border-bottom:1px solid var(--rule)}
+.bridge:first-of-type{padding-top:38px}
+.bhead{display:flex;align-items:baseline;gap:16px;margin-bottom:26px}
+.bnum{font-family:var(--mono);font-size:26px;color:currentColor;letter-spacing:.02em}
+.broute{font-family:var(--mono);font-size:12px;color:var(--ink-faint);letter-spacing:.14em}
+.bgrade{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;border:1px solid currentColor;padding:2px 8px;border-radius:2px;margin-left:auto}
+.bgrade.T{color:#79C089}.bgrade.V{color:#4FA3C7}.bgrade.C{color:#C9A227}.bgrade.H{color:#9AA9B2}.bgrade.D{color:#9B7FD4}
+.bbody{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.bridge.flip .bbody{direction:rtl}
+.bridge.flip .btext,.bridge.flip .bart{direction:ltr}
+.bhero{font-size:clamp(23px,3.1vw,34px);line-height:1.24;color:var(--ink);margin:0 0 22px;font-weight:400;max-width:20ch}
+.bsay{font-size:16.5px;color:var(--ink-dim);margin:0;max-width:52ch}
+.bart{margin:0}.bart svg{display:block;width:100%;height:auto;overflow:visible}
+.beq{border-left:2px solid currentColor;padding:4px 0 4px 20px;margin:0 0 24px}
+.beq .e{font-family:var(--serif);font-size:clamp(19px,2.4vw,26px);line-height:1.4;color:var(--ink);letter-spacing:.01em}
+.beq .c{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-top:11px}
+.beq sub,.beq sup{font-size:.62em}
+@media(max-width:900px){.bbody{grid-template-columns:1fr;gap:32px}.bridge.flip .bbody{direction:ltr}.bhero{max-width:none}}
+.scrgrid{margin-top:36px;display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.scr{background:var(--ground);padding:24px 22px}
+.scrhead{display:flex;align-items:baseline;gap:14px}
+.scrname{font-family:var(--mono);font-size:13px;color:#79C089;letter-spacing:.06em}
+.scrblurb{font-size:15px;color:var(--ink-dim);margin:9px 0 14px;max-width:74ch}
+.scr pre{margin:0;background:#081116;border:1px solid var(--rule);border-radius:3px;padding:16px 18px;overflow-x:auto}
+.scr code{font-family:var(--mono);font-size:11.5px;line-height:1.55;color:#9FB4BE;white-space:pre}
+</style>
+<style>
+ body{background:var(--bg,#0a0c0f);margin:0;padding:44px 46px;
+       display:flex;justify-content:center}
+ .cardwrap{max-width:1120px;width:100%}
+ .bridge,.bridge.flip{break-inside:avoid}
+ .stamp{margin-top:26px;color:#4E6470;font-family:ui-monospace,Menlo,monospace;
+         font-size:11px;letter-spacing:.08em}
+</style></head><body><div class="cardwrap">
+<section class="bridge" style="color:var(--L2)">
+  <div class="bhead">
+    <span class="bnum">B84</span><span class="broute">L2 → L3</span>
+    <span class="bgrade T">theorem</span>
+  </div>
+  <div class="bbody">
+    <div class="btext">
+      <p class="bhero">Two sectors say what, one says why.</p>
+      <div class="beq"><div class="e">H<sub>N</sub>(&#949;) = A + D&#8320; + &#949;E</div><div class="c">transport &#183; obstruction &#183; generator — the symmetric part itself splits, and the split is where the wall sector lives</div></div>
+      <p class="bsay">The symmetric part of the operator is not one thing. It splits into a transport background that behaves like most operators in mathematical physics, and an obstruction sector of symmetric Hessians that reshapes the energy landscape while preserving the spectral character. Together those two account for everything the eigenvalues do. The skew sector is neither a potential nor a transport term: it is the generator of non-normality, and the pseudospectrum is where it terminates — the spectrum explains what, the generator explains why the spectrum stops being the whole story. One honesty clause rides with the split: the generator is skew only to leading order in the gradient. At the next order it acquires a genuine symmetric correction and the sectors blend. The decomposition is exact; the clean separation of roles is asymptotic.</p>
+    </div>
+    <figure class="bart"><svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="2.2" fill="none"><path d="M70,120 H150"/><path d="M142,113 L152,120 L142,127"/><path d="M70,146 H150"/><path d="M142,139 L152,146 L142,153"/></g><text x="110" y="184" text-anchor="middle" fill="currentColor" font-family="Georgia,serif" font-size="14" font-style="italic">A &#183; transport</text><path d="M210,150 C234,150 240,104 262,104 C284,104 290,150 314,150" fill="none" stroke="#C9A227" stroke-width="2.4"/><text x="262" y="184" text-anchor="middle" fill="#C9A227" font-family="Georgia,serif" font-size="14" font-style="italic">D&#8320; &#183; obstruction</text><path d="M380,150 C398,132 386,112 404,104 C426,96 448,116 444,138" fill="none" stroke="#D8534F" stroke-width="2.4"/><ellipse cx="470" cy="128" rx="34" ry="20" fill="none" stroke="#D8534F" stroke-width="1.6" stroke-dasharray="4 4"/><text x="430" y="184" text-anchor="middle" fill="#D8534F" font-family="Georgia,serif" font-size="14" font-style="italic">&#949;E &#183; generator</text><path d="M92,206 H430" stroke="#22333D" stroke-width="1.2"/><path d="M110,226 H314 M212,226 V244" stroke="#8FA3AC" stroke-width="1.6" fill="none"/><text x="212" y="266" text-anchor="middle" fill="#8FA3AC" font-family="Georgia,serif" font-size="14" font-style="italic">spectrum — what</text><path d="M380,226 H460 M420,226 V244" stroke="#8FA3AC" stroke-width="1.6" fill="none"/><text x="420" y="266" text-anchor="middle" fill="#D8534F" font-family="Georgia,serif" font-size="14" font-style="italic">pseudospectrum — why</text><text x="280" y="66" text-anchor="middle" fill="#4E6470" font-family="Georgia,serif" font-size="13" font-style="italic">skew to leading order only — the sectors blend at the next order</text></svg></figure>
+  </div>
+</section>
+<div class="stamp">B84 &middot; L2-L3 &middot; THE OPERATOR-FIRST ATLAS &middot; Jeromie Beasley</div>
+</div></body></html>
