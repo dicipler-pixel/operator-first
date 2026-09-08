@@ -1,0 +1,53 @@
+import OpticalMetric
+import ElementalFoundations
+import PauliMemory
+
+#print axioms LightConstitutive.response_is_weighted_metric
+#print axioms LightConstitutive.response_weight_positive
+#print axioms LightConstitutive.static_response
+#print axioms LightConstitutive.weighted_zero_iff
+#print axioms LightConstitutive.gram_zero_iff
+#print axioms LightConstitutive.matching_null_directions
+#print axioms LightConstitutive.response_lower_bound
+#print axioms LightConstitutive.response_upper_bound
+#print axioms LightConstitutive.constant_gap_factor
+#print axioms LightConstitutive.numerator_zero_away_from_poles
+#print axioms LightConstitutive.tune_out_metric_nonzero
+#print axioms LightConstitutive.squared_phase_matching
+#print axioms LightConstitutive.weighted_mono
+#print axioms LightConstitutive.weighted_nonneg
+#print axioms LightConstitutive.peel_null_persists
+#print axioms LightConstitutive.positive_reweighting_null_equivalence
+#print axioms ElementalFoundations.cross_expansion
+#print axioms ElementalFoundations.cross_commutator
+#print axioms ElementalFoundations.cross_zero_iff_commutes
+#print axioms ElementalFoundations.centered_characteristic
+#print axioms ElementalFoundations.denominator_positive
+#print axioms ElementalFoundations.denominator_expansion
+#print axioms ElementalFoundations.mirror_transmission
+#print axioms ElementalFoundations.initial_plus
+#print axioms ElementalFoundations.initial_minus
+#print axioms ElementalFoundations.isolated_optical_equal
+#print axioms ElementalFoundations.plus_later
+#print axioms ElementalFoundations.minus_later
+#print axioms ElementalFoundations.later_distinct
+#print axioms ElementalFoundations.plus_first_order_remainder
+#print axioms ElementalFoundations.minus_first_order_remainder
+#print axioms ElementalFoundations.no_conductance_only_predictor
+#print axioms PauliMemory.pauli_gram_identity
+#print axioms PauliMemory.pair_density_nonnegative
+#print axioms PauliMemory.coincident_pair_density_zero
+#print axioms PauliMemory.silent_pair_iff_zero_wedge
+#print axioms PauliMemory.noncoincident_pair_witness
+#print axioms PauliMemory.instantaneous_velocity_invisible
+#print axioms PauliMemory.delayed_opposite_velocity_difference
+#print axioms PauliMemory.paired_signal_constraint
+#print axioms PauliMemory.delayed_readouts_differ
+#print axioms PauliMemory.no_instantaneous_only_predictor
+#print axioms PauliMemory.exclusion_box_cube_ratio
+#print axioms PauliMemory.exclusion_box_length_increases
+#print axioms PauliMemory.equal_initial_color
+#print axioms PauliMemory.next_surface_color_differs
+#print axioms PauliMemory.no_color_only_next_filter_predictor
+#print axioms PauliMemory.force_memory_is_gap_weighted_metric
+#print axioms PauliMemory.force_memory_weight_positive

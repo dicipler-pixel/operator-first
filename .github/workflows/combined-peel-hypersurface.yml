@@ -1,0 +1,39 @@
+name: Combined elemental and hypersurface certificates
+on:
+  push:
+    branches: [research/combined-peel-hypersurface-20260908]
+    paths:
+      - 'research/combined_peel_hypersurface/**'
+      - '.github/workflows/combined-peel-hypersurface.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [lean_4_19_0, lean_4_33_0]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install Lean version manager
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Compile positive sources and reject false controls
+        run: python3 research/combined_peel_hypersurface/formal/run_lean_checks.py ${{ matrix.project }}
+      - name: Record source and evidence hashes
+        if: always()
+        run: |
+          find research/combined_peel_hypersurface/formal/${{ matrix.project }} -path '*/.lake' -prune -o -type f -print0 | sort -z | xargs -0 sha256sum
+      - name: Upload compiler evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: combined-formal-${{ matrix.project }}
+          path: research/combined_peel_hypersurface/formal/${{ matrix.project }}/evidence/
