@@ -1,0 +1,30 @@
+COLOR-PROJECTOR-CHECK-01
+Analytic-model verification, not a laboratory experiment or color fit.
+
+d_max   conductivity/(e^2/hbar) from current elements    target d^2/8
+ 0.00             0.000000000000                       0.000000000000
+ 0.25             0.007812500000                       0.007812500000
+ 0.50             0.031250000000                       0.031250000000
+ 0.75             0.070312500000                       0.070312500000
+ 1.00             0.125000000000                       0.125000000000
+
+Largest absolute residuals (all masses, shells and angular samples):
+  spectrum                  9.99201e-16
+  idempotency               3.14093e-16
+  quantum_metric            7.10543e-15
+  current_metric_identity   4.44089e-15
+  gauge_invariance          4.44089e-15
+  distance                  2.22045e-16
+  conductivity              5.55112e-17
+  trace_log                 4.44089e-16
+
+Chord/arc example for 0, pi/6, pi/3:
+  endpoint chord: 0.866025403784; two chord pieces: 1.000000000000
+  intrinsic arc: 1.047197551197; induced local metric g_tt=1
+
+Isospectral control at k=(0.8,0.6), M=1:
+  d=0: |v_cv|^2 = 0.0
+  d=1: |v_cv|^2 = 0.3599999999999998
+  eigenvalues in both = [-0.5, 0.5]
+
+ALL IDENTITY CHECKS PASS. No perceptual-color or non-Hermitian claim is certified.

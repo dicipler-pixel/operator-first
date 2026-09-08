@@ -22,3 +22,5 @@ Cards describe exact scope. Their presence here does not upgrade a written proof
 | [Declared metric and finite wall path](HORIZON-METRIC-WALL.md) | Preserved source analysis and executable controls; no new Lean theorem | horizon-comparison, compound-eye, peeling-cascade |
 | [Different interiors with identical exterior response](OBS-INTERIOR-AMBIGUITY.md) | Preserved source analysis and executable controls; no new Lean theorem | horizon-comparison, compound-eye, peeling-cascade |
 | [Reproducible composition of chosen eye traces](DISPLAY-EYE-MIXER.md) | Preserved source analysis and executable controls; no new Lean theorem | horizon-comparison, compound-eye, peeling-cascade |
+| [Elemental spacing and probe-dependent channels](ELEMENTAL-SPACING-COUPLING.md) | Written derivation and fresh numerical checks; no new Lean compilation | elemental-peel, light |
+| [Boundary reduction retains eliminated-sector feedback](HYPERSURFACE-RETAINED-FEEDBACK.md) | Recovered source verifier: 328 checks passed; finite transport controls freshly reproduced | hypersurface, elemental-peel, light |

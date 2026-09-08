@@ -1,3 +1,13 @@
+# Latest elemental extension — 8 September 2026
+
+Current registry: 198 versions / 30 sets; all 191 earlier definitions preserved.
+Read `projects/elemental_peel/README.md`, `FINDINGS.md`, `METHODS.md` and the new
+paper section. Run `run_study.py`, `extend_observations.py`, `build_artifacts.py`
+and `check_viewer.py` in that project for the focused elemental replay.
+The recovered hypersurface and color sources are explicitly restored there.
+Do not identify ionization thresholds, interband gaps and Fermi-level channels.
+Do not treat the following historical release counts as the current inventory.
+
 # Receiving-chat handoff — Universal 3.2
 
 Read START_HERE.md and projects/master_sync/MASTER_STATUS.md, then the report for the user's active problem. This combines 2.2's UPG/arithmetic extensions with 3.1's horizon comparison and Eye Mixer: 191 eye versions, 29 sets, and both histories.

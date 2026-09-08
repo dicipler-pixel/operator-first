@@ -1,0 +1,22 @@
+{
+  "id": "ce.elemental.channels",
+  "version": "1.0.0",
+  "title": "Open-channel moments and identifiability",
+  "family": "Elemental peeling laboratory",
+  "status": "implemented",
+  "inputs": {
+    "case": "declared elemental data"
+  },
+  "depends_on": [],
+  "assumptions": [
+    "Declared element, physical regime, boundary, energy units and intervention; inspect per-eye output scope."
+  ],
+  "output_meaning": "Element-specific data transformation or explicitly identified electronic/optical model.",
+  "evidence_class": "elemental_data_or_declared_model",
+  "limits": "No identification of ionization energy with a solid band gap; no nuclear transmutation or universal spacing law inferred.",
+  "implementation": {
+    "path": "plugins/installed/123676ec5c1a65737331e4ca3ec5b2291423cdbf00277d7e9fda41f645c49fc0.py",
+    "sha256": "123676ec5c1a65737331e4ca3ec5b2291423cdbf00277d7e9fda41f645c49fc0",
+    "function": "channels"
+  }
+}

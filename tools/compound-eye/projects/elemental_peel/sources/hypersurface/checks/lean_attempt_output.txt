@@ -1,0 +1,24 @@
+{
+  "time_utc": "2026-09-05T14:50:48.638253+00:00",
+  "kernel_verified": false,
+  "certified_declarations": 0,
+  "state": "BLOCKED_NO_LAKE",
+  "steps": [
+    {
+      "command": [
+        "lake",
+        "--version"
+      ],
+      "error": "FileNotFoundError(2, 'No such file or directory')"
+    }
+  ],
+  "scope": "Only the exact Lean theorem statements; not validation of material or gravity hypotheses.",
+  "source_sha256": {
+    "lean/Hypersurface/Boundary.lean": "43d4fb37f6f421d77b1708301bf2167799df2059f4be70843119074451972570",
+    "lean/Hypersurface/Hall.lean": "7e577345c89ae846823b257d91bec459753cf1409686abe46b4f1328ce27d861",
+    "lean/Hypersurface/ScopeControls.lean": "0a25aff78bdbc2ce9605f608f7f061634ef04885bb8eba5cfb8b01f1411b7bc3",
+    "lean/Hypersurface.lean": "c6c238dd22e599d086588212800b8a906502dbcbd3e2aa2399bb192a9cd63c46",
+    "lean/Audit.lean": "f43055c4af396a2e46f8508fd3e237e3f49e0a2b0c2d75c274d9349920d0ce62"
+  },
+  "static_scan": "NO_PLACEHOLDERS_FOUND (NOT A TYPECHECK)"
+}
