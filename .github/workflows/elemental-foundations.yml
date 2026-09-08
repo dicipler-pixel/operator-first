@@ -1,0 +1,50 @@
+name: Elemental foundations certificates
+on:
+  push:
+    paths: ['research/elemental_foundations/formal/**', '.github/workflows/elemental-foundations.yml']
+  pull_request:
+    paths: ['research/elemental_foundations/formal/**', '.github/workflows/elemental-foundations.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lean-certificates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      LEAN_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain leanprover/lean4:v4.33.0
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve pinned dependency
+        working-directory: research/elemental_foundations/formal
+        run: lake update
+      - name: Compile, audit and independently recheck
+        uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
+        with:
+          lake-package-directory: research/elemental_foundations/formal
+          use-mathlib-cache: true
+          build: true
+          leanchecker: true
+          leanchecker-args: ElementalFoundations
+          axiom-audit: true
+          axiom-audit-allow: propext,Classical.choice,Quot.sound
+      - name: Reject a false prediction
+        working-directory: research/elemental_foundations/formal
+        run: |
+          if lake env lean FalseControl.lean > false-control.log 2>&1; then
+            cat false-control.log
+            exit 1
+          fi
+          grep -q 'unsolved goals' false-control.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: elemental-foundations-formal-evidence
+          path: |
+            research/elemental_foundations/formal/lake-manifest.json
+            research/elemental_foundations/formal/false-control.log
