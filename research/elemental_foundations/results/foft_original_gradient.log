@@ -1,0 +1,20 @@
+=== TEST A: which candidate matches the finite-difference directional derivative ===
+seed 0:  FD=+833.184696   pred[[C],K]=+833.184696   pred[[C],K+]=+1998.892391
+seed 1:  FD=-184.962635   pred[[C],K]=-184.962635   pred[[C],K+]=+293.202446
+seed 2:  FD=-194.622104   pred[[C],K]=-194.622104   pred[[C],K+]=+422.827785
+seed 3:  FD=+390.268539   pred[[C],K]=+390.268539   pred[[C],K+]=-638.949582
+
+=== TEST B: paper's descent identity dPhi/dt = -4||[[C],K+]||^2 along the paper's own flow ===
+seed 100:  actual dPhi/dt = -29447.3475   paper's claimed value = -390277.6737
+seed 101:  actual dPhi/dt = +149148.4949   paper's claimed value = -600319.7014
+seed 102:  actual dPhi/dt = +18143.8222   paper's claimed value = -803356.1882
+seed 103:  actual dPhi/dt = +213087.4677   paper's claimed value = -428372.8538
+
+=== TEST C: 2x2 nilpotent K=[[0,1],[0,0]] -- clean counterexample ===
+K nilpotent: actual dPhi/dt along paper flow = +0.000000;  paper's formula predicts -16.000000
+
+=== TEST D: the TRUE gradient flow dK/dt=-2[[C],K] is isospectral (eigenvalues frozen) ===
+eigenvalue drift after long integration: 8.788214778150882e-10
+residual non-normality ||[K,K+]|| : 2.5086690435803008e-09
+initial non-normality              : 17.493074519797077
+distance of final K from -Lam*I? final eigenvalues: [-2.038+1.002j  0.326-1.956j  0.582-0.711j  0.976+1.653j  1.102-1.286j]

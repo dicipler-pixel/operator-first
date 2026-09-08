@@ -1,0 +1,3113 @@
+
+
+
+
+
+
+
+
+Light Keeps the Ledger
+
+
+
+
+
+Research edition 4 — draft addition, 7 September 2026. Sections 4.9a–b add the two-frequency silent-subspace theorem and exact probe certificates. Original imagery and prior verification records are retained. New results have written proofs and exact checks; no new Lean compilation is claimed.
+
+Light Keeps the Ledger
+
+Matter, Direction, and the Wall Between Them
+
+Jeromie Beasley
+
+Research edition 3 · 6 September 2026
+
+
+
+
+Abstract
+
+0. Grades,
+conventions, and the scope of this edition
+
+1.
+Introduction: what is held, what is transported, what is
+recorded
+
+2. The
+instrument
+
+2.1 Symmetric and skew parts
+
+2.2 Rigidity is not a
+metric eigenvalue
+
+2.3
+Resolvent representation and stability of rigidity
+
+
+
+3. The ground: projector
+geometry
+
+3.1 The tangent
+constraint, metric, and curvature
+
+3.2 Redistribution and
+the interaction probe
+
+3.3 The noncommutative
+anchor
+
+3.4 A
+realization calibrated against published data
+
+3.5
+Matter’s boundary count and a conditional scale dictionary
+
+3.6 What the
+discrete continuum check establishes
+
+3.7
+The subspace is the vehicle; orthogonal range projectors grade
+it
+
+
+
+4. What light is, on the
+evidence
+
+4.1 No rest frame
+does not mean no state geometry
+
+4.2
+Complementarity and two different Gram matrices
+
+4.3 An integer through an
+interaction
+
+4.4 Limits on dispersion and
+mass
+
+4.5 Light scattering from
+light
+
+4.6 The
+environment and the measured photon profile
+
+4.7
+Weak measurement and scalar parity are different claims
+
+4.8
+From an electric-field-driven projector to polarizability
+
+4.9
+The same silent directions below the gap, and a different zero between
+poles
+
+4.9a Two frequencies recover the silent subspace
+
+4.9b What a collection of probes actually determines
+
+4.10 From response to a
+material coefficient
+
+4.11
+Color: optical state relations before perceptual distance
+
+
+
+5. The
+reference: direction, the census, and rigidity
+
+5.1
+Directional resolution is not automatically a channel rank
+
+5.2
+Overflow, a driven crossing, and the scalar rigidity law
+
+5.3
+Two boundary evolutions, not a universal classification of
+light
+
+5.4 The
+fixed-family ledger is even to every order
+
+5.5
+What the local-geometric null gates do and do not exclude
+
+
+
+6. Does light exhibit the
+Kakeya effect?
+
+6.1 Three different
+questions
+
+6.2
+A packet has a wavelength, a width, and a propagation length
+
+6.3 The wave estimate
+that would be needed
+
+
+
+7. What approximation
+and reduction retain
+
+7.1
+Normalization can change which information is stable
+
+7.2
+The displacement Gram and an exact projector realization
+
+7.3 The same
+graph geometry has a Cayley coordinate
+
+7.4 Curvature before the
+defect norm
+
+7.5 Coherent composition
+after a reduction
+
+
+
+8. What
+survives a wall, and what a boundary measures
+
+8.1 Different
+failures must have different names
+
+8.2 Reciprocity: a
+precise real-domain statement
+
+8.3
+Self-adjointness supplies a Gram, not every possible response
+
+8.4 The
+contour condition is the continuation condition
+
+8.5 An
+individual mode fails while the pair remains
+
+8.6 Schur
+elimination and the exact boundary response
+
+8.7
+Surface coupling, absorption, and the Smith coordinate
+
+8.8 A numerator retains
+the probe relation
+
+
+
+9. Discriminating
+measurements and model tests
+
+10. Future work
+
+10.1
+Physical identification of transport rigidity and optical
+response
+
+10.2 Continuum optical
+directional capacity
+
+10.3 Long-lived light-source
+dynamics
+
+
+
+11. Conclusion
+
+Appendix
+A. Reproducibility and the verification record
+
+A.1 What was executed
+for this edition
+
+A.2 Independent
+boundary and census checks
+
+A.3 Independent
+constitutive checks
+
+A.4 Rigidity and regulator
+audit
+
+
+
+Appendix B. Formalization
+scope
+
+Appendix C. Publication
+files
+
+References
+
+
+
+Abstract
+
+A transported spectral subspace supports two distinct readings: an
+intrinsic tangent pairing and a contour-defined spectral record. The
+pairing can become degenerate along a parameter family while the
+spectral record remains well defined, provided its contour and analytic
+branch remain admissible. This paper develops that distinction as an
+operator-first framework for investigating light–matter response. It
+separates orthogonal-projector geometry from biorthogonal extensions,
+and spectral scalars from measurements that retain the orientation of a
+subspace relative to a probe.
+
+Three connections are established within explicitly stated
+finite-dimensional models. First, a ground-state projector split across
+a spatial cut satisfies \(C_A-C_A^2=BB^\dagger\): its
+transition-window census is exactly a singular-value count of the
+cross-boundary coupling. This gives a rigorous bound on
+boundary-filtered directional channels and reproduces the original
+lattice census. Second, Schur elimination followed by a Smith/Cayley
+transform pulls the boundary’s non-returned response back to the
+Hermitian part of the interior operator, without requiring normality.
+Third, electric-field-driven projector geometry determines a
+transition-resolved optical polarizability through excitation-energy
+weights. Below the gap the metric and the symmetric response have
+identical real nullspaces; between resonances an exact numerator zero
+can cancel the response while the metric stays nonzero.
+
+Directional rigidity is fixed throughout as \(R_\eta=[\sigma_{\min}(A_{\mathrm{intr}})^2+\eta]^{-1}\)
+in declared inner products. Its resolvent representation, stability
+bound, and the refraction law of a specified scalar transport action are
+proved. The independently calculated optical coefficient is not
+identified with this rigidity without a constitutive map. The fixed
+symmetric-plus-skew family has an even scalar contour ledger to all
+orders, while directed boundary response can change at first order.
+Permutation holonomies, graph-subspace angles, and compression
+identities supply additional tests of information lost by scalar
+readings or intermediate reductions.
+
+The assignment of the two registers to light and matter is an
+organizing physical interpretation, not a consequence of the finite
+algebra alone. Experiments motivate the questions; the computations
+reported here are model calculations. Three research extensions are
+reserved for future work: a physical identification of transport
+rigidity with the optical coefficient, a continuum optical
+directional-capacity bound, and a dynamical test of the long-lived
+light-source architecture. The accompanying Lean formalization verifies
+91 finite theorem declarations; the physical interpretation and
+continuum extensions are outside that certification.
+
+
+
+The two-register interpretation. The
+metric is a local pairing and the ledger is a spectral record defined on
+an admissible domain. The assignment to matter and light is [H]; it is
+not an assertion that arbitrary optical phase survives every
+interface.
+
+0. Grades,
+conventions, and the scope of this edition
+
+The organizing order is retained from the original manuscript:
+admissibility first, transported subspace second, intrinsic
+geometry and spectral ledger as different readings, directional capacity
+downstream. This edition incorporates the boundary,
+constitutive, and coherence derivations into the paper itself. It does
+not make the whole programme depend on a separate speculative
+identification.
+
+A claim marked [T] has a written mathematical proof
+under its displayed hypotheses. [V] identifies an
+executed computation or an explicitly attributed source computation.
+[C] identifies a result from the cited literature.
+[H] identifies an interpretation, constitutive
+assumption, or open physical identification. A [T] label is not a
+priority claim: standard tools and their applications are distinguished.
+The finite-dimensional linear algebra uses complex Hilbert spaces with
+fixed inner products unless a real domain is specified. The dagger
+denotes the adjoint and the superscript \(\top\) denotes the transpose.
+
+The symbols that would otherwise collide are separated:
+
+
+
+
+
+
+
+
+Symbol
+Meaning
+
+
+
+
+
+\(P\),
+\(\Pi_\Gamma\)
+Orthogonal projector; possibly oblique
+Riesz projector of a cluster
+
+
+
+\(g\),
+\(\Omega\), \(Q\)
+Intrinsic real metric, curvature form, and
+complex tangent pairing
+
+
+
+\(\varepsilon\), \(\tau\)
+Census window or pairwise resolution
+threshold; output eigenvalue threshold
+
+
+
+\(\eta>0\)
+Rigidity regularizer, with the units of a
+squared transport singular value
+
+
+
+\(t\)
+Strength of a fixed skew deformation
+
+
+
+\(\rho_A\), \(w\)
+Aperture/disc radius; transverse width of
+a needle or packet
+
+
+
+\(R_\eta\), \(R_{\mathrm{opt}}\)
+Transport rigidity; independently derived
+squared-index coefficient
+
+
+
+\(g_{\mathrm{br}}\)
+Spectral branch guard, not the intrinsic
+metric
+
+
+
+\(Z_f\),
+\(Z_b\), \(S_b\)
+Scalar contour ledger; boundary
+impedance-like matrix; its Cayley response
+
+
+
+
+For tangent vectors to an orthogonal projector, the convention is
+\[
+Q_P(V,W)=\operatorname{Tr}(PVW)
+=g_P(V,W)-\frac{i}{2}\Omega_P(V,W),\qquad
+\Omega_P(V,W)=i\operatorname{Tr}(P[V,W]).
+\tag{0.1}
+\] In particular \(g_P(V,V)=\operatorname{Tr}(PV^2)=\tfrac12\operatorname{Tr}(V^2)\).
+A real parameter pullback of this positive metric can lose rank. A
+biorthogonal extension can have different definiteness properties, but
+it must be defined separately; orthogonal-projector positivity is not
+transferred to it by notation.
+
+Formal-verification status. All 91 light-specific
+finite theorem declarations passed compilation, the per-theorem axiom
+audit, and separate module rechecks with leanchecker at commit
+41d9523a53ad679d2240e5e40ed07a7ea0cc2bac. All four false
+controls were rejected; inherited core CI also passed. Exact logs and
+source hashes accompany VERIFICATION_STATUS.md and draft PR
+#7. Certification applies to those declarations, not to unformalized
+physical or continuum connecting arguments [1].
+
+Publication scope and supplement. The results of
+this paper are the stated finite projector geometry, cross-boundary
+census and filtered-channel bound, exact boundary-response identities,
+transition-resolved optical response, and tune-out and nullspace
+consequences. Section 10 sets out three future research directions. The
+accompanying Light_Ledger_Proofs_and_Code.zip contains the
+verified Lean sources, runnable numerical checks, and verification
+evidence. Earlier published manuscripts remain separate from this
+supplement.
+
+1.
+Introduction: what is held, what is transported, what is recorded
+
+A relation is more informative than the labels of the objects it
+connects. An optical transition depends on an initial state, a final
+state, and the interaction that couples them. A transported subspace
+depends on an operator and on which spectral cluster can be continued. A
+boundary response depends on an interior operator, a division into
+interior and boundary, and a specified input and output. An eigenvalue
+list does not contain all of these relations.
+
+The operator-first programme begins with a family \(H(q)\) and asks whether a continuation is
+admissible. For a chosen spectral cluster, admissibility means that a
+contour \(\Gamma\) can be kept in the
+resolvent set and that the scalar function used in the functional
+calculus is analytic on the relevant domain. The Riesz projector is
+\[
+\Pi_\Gamma(q)=\frac{1}{2\pi i}\oint_\Gamma(zI-H(q))^{-1}\,dz.
+\tag{1.1}
+\] If \(H(q)\) is analytic and
+the contour remains admissible, this projector is analytic. Its rank is
+locally constant. Individual eigenvectors inside the cluster may become
+poorly conditioned or cease to be individually continuable at a
+collision, without destroying the projector of the whole isolated
+cluster [2]. [C]
+
+The local question is different. For a smooth orthogonal projector
+\(P(q)\), its derivative tells us
+whether a parameter variation changes the subspace. The pullback of
+(0.1) prices that change. A direction can be null because the projector
+does not change in that direction, even though the spectrum used to
+define it remains separated. The contour question and the metric
+question therefore have different hypotheses and different failure
+modes.
+
+A scalar spectral ledger is \[
+Z_f(q)=\frac{1}{2\pi i}\oint_\Gamma
+f(z)\operatorname{Tr}(zI-H(q))^{-1}\,dz.
+\tag{1.2}
+\] For \(f=1\) this counts the
+algebraic multiplicity inside the contour. For a specified analytic
+logarithm it gives a branch-dependent trace-log. Such a trace-log may
+vary smoothly while the integer rank remains fixed. It is not the entire
+optical phase, and it does not determine a Berry holonomy or the
+orientation of spectral residues relative to a detector.
+
+The physical reading is that matter supplies localized interactions
+and persistent records, while light is especially suited to transporting
+phase and conserved charges between interactions. These are the paper’s
+two rails. [H] They are not two additional fields, and
+the assignment is not exclusive: light has quantum-state geometry,
+matter supports phase coherence, and measurements can depend on both.
+The mathematical contribution is to specify which reading remains valid
+under which continuation, and how a probe-dependent response reconnects
+them.
+
+
+
+The operator-first architecture, with
+corrected metric normalization and explicit branch conditions. The Riesz
+projection and the orthogonal projection onto its range are
+distinguished in Section 3.7. The bottom layer names finite instruments
+and research targets, not an already proved continuum or optical
+identification.
+
+The exposition follows the original eleven-section structure.
+Sections 2–3 define the instrument and intrinsic geometry. Section 4
+distinguishes experimental motivation from a finite electronic
+constitutive calculation. Section 5 proves the boundary census, fixes
+rigidity, and derives the conditional interface law and all-orders
+parity. Section 6 formulates the wave-packet and Kakeya connection
+without identifying width with wavelength. Section 7 retains nonabelian
+and higher-composition information. Section 8 connects interior response
+to the boundary and separates the different walls. Sections 9–11 state
+discriminating tests, remaining questions, and conclusions. Appendix A
+is a reproducibility catalogue, not a claim that every numerical script
+certifies every physical interpretation around it.
+
+2. The instrument
+
+2.1 Symmetric and skew parts
+
+For a real square matrix \(C\),
+write \(C=S+K\) with \[
+S=\frac12(C+C^\top),\qquad K=\frac12(C-C^\top).
+\] Then \[
+[C,C^\top]=-2[S,K].
+\tag{2.1}
+\] Proof. Expand \((S+K)(S-K)-(S-K)(S+K)\). The two square
+terms cancel and the mixed terms give \(-2(SK-KS)\). Thus \(C\) is normal precisely when \(S\) and \(K\) commute. [T]
+
+The raw stress is \[
+\Phi(C)=\frac12\|[C,C^\top]\|_F^2=2\|[S,K]\|_F^2.
+\tag{2.2}
+\] It obeys \(\Phi(aC)=a^4\Phi(C)\) and is not generally
+a squared sine. For \(C=\left(\begin{smallmatrix}0&2\\0&0\end{smallmatrix}\right)\),
+\(\Phi=16\). Any bounded angular
+interpretation requires a separately specified normalization. The
+original unrestricted equality \(\Phi=\sin^2\theta\) is not used in this
+edition.
+
+A complex operator has an analogous Hermitian/skew-Hermitian split
+using the adjoint. Results that use a transpose symmetry are not
+automatically valid after replacing transposes by adjoints. This
+distinction is essential to the ledger parity theorem.
+
+2.2 Rigidity is not a
+metric eigenvalue
+
+The authoritative definition is \[
+\boxed{R_\eta(A_{\mathrm{intr}})
+=\frac{1}{\sigma_{\min}(A_{\mathrm{intr}})^2+\eta}},\qquad \eta>0.
+\tag{2.3}
+\] Here \(A_{\mathrm{intr}}\) is
+the declared transport operator, represented in fixed Hilbert-space
+inner products. In a finite domain, \[
+\sigma_{\min}(A)=\min_{\|v\|=1}\|Av\|.
+\] This definition includes a domain kernel; a rectangular
+numerical implementation must not omit zero singular directions merely
+because its economy-size SVD returns fewer entries. The examples and
+formal matrix statements below may be taken square.
+
+The original alternative \([\lambda_{\min}(Q)+\eta]^{-1}\) is retired
+as a rigidity definition. The exact two-band control in Section 3.1
+shows why: the complex Gram can have a null eigenvalue even when its
+real metric is strictly positive on the real parameter directions.
+Equation (2.3) retains the intended diagnostic of weak transport,
+without reinterpreting the complex rank of the tangent Gram.
+
+Normalization is part of the definition. Unitary
+changes of input and output frames leave singular values unchanged.
+Arbitrary rescalings of units or nonorthogonal coordinate changes need
+their corresponding inner-product transformation; they are not numerical
+invariances of an unweighted matrix SVD. In a dimensionless model one
+can use a fixed reference transport scale. A different pointwise
+normalization would define a different rigidity field and must not be
+introduced during a fit.
+
+2.3
+Resolvent representation and stability of rigidity
+
+Proposition 2.1 (regularized weak-transport
+response). For a finite operator \(A\), \[
+K_\eta=A^\dagger A+\eta I>0,\qquad
+\boxed{R_\eta(A)=\|K_\eta^{-1}\|_2}.
+\tag{2.4}
+\] Consequently \(0<R_\eta(A)\le1/\eta\), with equality
+exactly when \(A\) has a nonzero
+kernel.
+
+Proof. The eigenvalues of \(K_\eta\) are \(\sigma_j(A)^2+\eta\). Its inverse is
+positive Hermitian, so its operator norm is the reciprocal of the
+smallest one. [T]
+
+For two operators between the same spaces, \[
+\boxed{|R_\eta(A)-R_\eta(B)|
+\le\frac{(\|A\|_2+\|B\|_2)\|A-B\|_2}{\eta^2}}.
+\tag{2.5}
+\] Indeed, \[
+K_A^{-1}-K_B^{-1}
+=K_A^{-1}(B^\dagger B-A^\dagger A)K_B^{-1},
+\] while \(\|K_A^{-1}\|_2,\|K_B^{-1}\|_2\le1/\eta\)
+and \[
+B^\dagger B-A^\dagger A=B^\dagger(B-A)+(B^\dagger-A^\dagger)A.
+\] The reverse triangle inequality for operator norms completes
+the proof. [T] The bound becomes poorly conditioned as
+the regularizer is removed; that dependence is expected, not
+suppressed.
+
+If a family satisfies \(\sigma_{\min}(A(s))\sim a|s|^p\), with
+\(a>0\) and \(p>0\), then \[
+R_\eta(s)=\frac{1}{a^2|s|^{2p}[1+o(1)]+\eta}.
+\tag{2.6}
+\] At fixed \(\eta\) it
+saturates at \(1/\eta\). An
+unregularized power-law divergence belongs to the regime \(\eta\ll a^2|s|^{2p}\) or to a stated joint
+limit. The singular-value exponent must be derived for the actual
+operator. A refraction formula does not independently prove that
+exponent.
+
+3. The ground: projector
+geometry
+
+3.1 The tangent
+constraint, metric, and curvature
+
+Let \(P=P^\dagger=P^2\) and let
+\(V=V^\dagger\) be a derivative of a
+smooth curve of such projectors. Differentiating \(P^2=P\) gives \[
+V=PV+VP,\qquad PVP=0,
+\] and therefore \[
+V=PV(I-P)+(I-P)VP.
+\tag{3.1}
+\] Thus the tangent is off-diagonal between the occupied subspace
+and its complement. Put \(X_V=(I-P)VP\). Then \[
+Q_P(V,W)=\operatorname{Tr}(X_V^\dagger X_W),\qquad
+Q_P(V,V)=\|X_V\|_F^2.
+\tag{3.2}
+\] It is a Gram pairing. For two real parameter tangents \(V,W\), positivity of its \(2\times2\) Gram gives \[
+\boxed{|\Omega_P(V,W)|\le
+2\sqrt{g_P(V,V)g_P(W,W)-g_P(V,W)^2}}.
+\tag{3.3}
+\] Proof. The determinant is \(g(V,V)g(W,W)-g(V,W)^2-\Omega(V,W)^2/4\ge0\).
+Equality means that the off-diagonal maps \(X_V,X_W\) are linearly dependent over the
+complex numbers, including a zero map. [T]
+
+For a Hermitian two-band family \(h(\mathbf
+k)=\mathbf d\cdot\boldsymbol\sigma\) with \(\mathbf d\ne0\), \[
+P_\pm=\frac12(I\pm\hat{\mathbf d}\cdot\boldsymbol\sigma).
+\] A rank-one band has a one-dimensional complex complement, so
+(3.3) is saturated for every tangent pair. This does not mean that every
+real tangent direction is null.
+
+The decisive control is \[
+P=\frac{I+\sigma_z}{2},\quad V=\frac{\sigma_x}{2},\quad
+W=\frac{\sigma_y}{2},
+\] for which \[
+Q=\frac14\begin{pmatrix}1&i\\-i&1\end{pmatrix},\quad
+\operatorname{spec}Q=\{0,\tfrac12\},\qquad
+g=\frac14I,\quad\det g=\frac1{16}.
+\tag{3.4}
+\] The full complex Gram is singular while the real two-direction
+metric is regular. This is the exact reason for keeping the rigidity
+definition (2.3) separate.
+
+3.2 Redistribution and
+the interaction probe
+
+For an orthogonal projector \(P\)
+and Hermitian generator \(D\), define
+\[
+F(D,P)=(I-P)DP+PD(I-P).
+\tag{3.5}
+\] It is Hermitian, traceless, and off-diagonal. In the block
+decomposition given by \(P\), it
+vanishes exactly when \([D,P]=0\).
+Equivalently \(F=[P,[P,D]]\).
+[T]
+
+In orthonormal occupied and unoccupied bases, \[
+\boxed{\frac12\|F(D,P)\|_F^2
+=\sum_{n\in\mathrm{occ},\,m\in\mathrm{unocc}}
+|\langle m|D|n\rangle|^2}.
+\tag{3.6}
+\] The two off-diagonal blocks are adjoints and have equal
+Frobenius norm, which proves the formula. It is an unweighted
+transition-strength sum. An absorption spectrum additionally needs
+energies, occupations, frequency dependence, and a broadening
+prescription. Section 4 derives that weighting for a finite ground-state
+model.
+
+3.3 The noncommutative anchor
+
+Let \(U,V\in U(d)\) and let \(\mathcal U=UVU^\dagger V^\dagger\). Define
+\[
+\delta=\frac1d\|\mathcal U-I\|_F^2,\quad
+g_{\mathrm{br}}=\min_j|\lambda_j(\mathcal U)+1|,\quad
+\mathfrak w=\frac{1}{2\pi}\sum_j\operatorname{Arg}\lambda_j(\mathcal U).
+\] Proposition 3.1. If \(g_{\mathrm{br}}>0\), then \(\mathfrak w\in\mathbb Z\), \(|\mathfrak w|\le\lfloor(d-1)/2\rfloor\),
+and \[
+\boxed{\delta+g_{\mathrm{br}}^2\le4}.
+\tag{3.7}
+\] The integer is unchanged along a continuous commutator family
+for which the branch guard stays positive. [T]
+
+Proof. The determinant of a multiplicative
+commutator is one. Thus the sum of the principal eigenphases is an
+integer multiple of \(2\pi\). Each
+phase lies strictly between \(-\pi\)
+and \(\pi\), giving the integer bound.
+Continuity and integer-valuedness give local constancy. For each unit
+eigenvalue, \(|\lambda-1|^2+|\lambda+1|^2=4\). Average
+the first term and bound the second below by its minimum. Equality in
+(3.7) holds exactly when all eigenvalues have the same real part.
+
+Also \(|\theta|\le(\pi/2)|e^{i\theta}-1|\) for
+\(|\theta|\le\pi\). Cauchy–Schwarz
+therefore gives \[
+|\mathfrak w|\le\frac d4\sqrt\delta.
+\tag{3.8}
+\] Clock and shift attain \(\delta+g_{\mathrm{br}}^2=4\), with the
+principal branch excluded at \(d=2\).
+Their higher winding examples approach the sharp constant \(1/4\) in (3.8). The source’s determinant is
+always one; the branch-resolved phase sum retains information that this
+determinant alone discards. This is the familiar obstruction setting of
+almost-commuting unitaries [3], not an identification with every
+conserved optical charge.
+
+
+
+The admissible domain in its actual
+coordinates: the boundary is \(\delta=4-g_{\mathrm{br}}^2\), not a
+quarter-circle. Clock-and-shift examples lie on it. The excluded
+two-dimensional example is at \((4,0)\). This replaces the original
+schematic axis placement.
+
+3.4 A
+realization calibrated against published data
+
+Yi and collaborators extract the quantum geometric tensor of an
+optical Raman lattice by Bloch-state tomography [4]. The supplied
+calibration script uses its stated two-band tight-binding parameters and
+reports \(C=-0.99931\) against the
+manuscript’s cited experimental value \(-1.00\pm0.02\). Its finite-difference
+metric–curvature ratio has mean \(0.999958\), with minimum \(0.818160\) near poorly resolved small
+quantities, and its reported quantum volume is \(1.1454\). The exact pointwise identity is
+(3.3); the finite-grid ratios are numerical diagnostics, not a
+replacement for it. [C]+[V]
+
+The calibration script was rerun for this edition. It is a
+calculation based on a published model and measurement, not laboratory
+data produced by this programme. The source scripts and their parameter
+values are preserved so that a changed discretization or sign convention
+can be compared rather than silently substituted.
+
+3.5
+Matter’s boundary count and a conditional scale dictionary
+
+The boundary census is defined operationally in Section 5.1 from a
+restricted orthogonal projector. Interpreting it as a count of matter’s
+active boundary degrees of freedom is a model reading. Area-law
+intuition does not make every substance a gapped state, and condensation
+is not universally equivalent to opening a gap. For free fermions,
+logarithmically enhanced entropy at a Fermi surface has a precise
+literature [5]; translating entropy bounds into a particular threshold
+count requires the count’s definition and assumptions.
+
+The earlier conditional scale argument is retained in its actual
+scope. With \(\hbar,c,\alpha\) held
+fixed, \[
+a_0=\frac{\hbar}{\alpha mc}
+\] forces a proposed scaling \(a_0\propto\ell\) to have \(m\propto\ell^{-1}\). If an energy scale is
+\(mc^2\) and time is defined through
+\(E=\hbar/t\), then \(t\propto\ell\). Under the additional
+assumption \(M_{\mathrm{Pl}}\propto
+m\), the relation \(M_{\mathrm{Pl}}^2=\hbar c/G\) gives \(G\propto\ell^2\) and invariant \(Gm^2/(\hbar c)\). These are algebraic
+consequences of the premises. [T] No cosmological
+scaling, variable fundamental constant, or photon dispersion law is
+inferred from them. None of the constitutive results below depends on
+these extra premises.
+
+3.6 What the
+discrete continuum check establishes
+
+For a sufficiently smooth periodic scalar field, the centered
+difference \[
+\Delta_h\psi(x)=\frac{\psi(x+h)-2\psi(x)+\psi(x-h)}{h^2}
+\] has \(L^2\) consistency error
+\(O(h^2)\), for example with \(\psi\in H^4\) and the usual
+translation-based comparison. Taylor’s formula with integral remainder
+or Fourier multipliers gives a bound proportional to \(h^2\|\psi^{(4)}\|_2\). [T]
+The source sine-wave gate approaches second-order convergence as the
+mesh is refined. [V]
+
+This proves consistency of this derivative on this regularity class.
+Spectral projectors, threshold counts, singular strata, nonlinear
+feedback, and wave-packet concentration each require additional
+stability or convergence estimates. They do not inherit a continuum
+theorem merely because the second difference is consistent.
+
+3.7
+The subspace is the vehicle; orthogonal range projectors grade it
+
+Let \(Q_0,Q\) be orthonormal frames
+for two rank-\(k\) subspaces, and let
+\(P_0^o=Q_0Q_0^\dagger\), \(P^o=QQ^\dagger\). Their principal angles
+satisfy \[
+\boxed{\frac1k\operatorname{Tr}(P_0^oP^o)
+=\frac1k\|Q_0^\dagger Q\|_F^2
+=\frac1k\sum_{j=1}^k\cos^2\theta_j}.
+\tag{3.9}
+\] This follows by taking the singular values of the
+frame-overlap matrix. [T] For \(k=1\) it is a ray overlap. For \(k>1\), a selected vector may rotate
+substantially within a subspace whose range barely changes.
+
+For a nonnormal spectral family, the Riesz projection \(\Pi_\Gamma\) need not be orthogonal.
+Equation (3.9) applies to orthogonal projections onto its ranges, not in
+general to \(\operatorname{Tr}(\Pi_{\Gamma,0}\Pi_\Gamma)\).
+The exact idempotents \[
+P_0=\begin{pmatrix}1&0\\0&0\end{pmatrix},\quad
+P_1=\begin{pmatrix}2&-2\\1&-1\end{pmatrix}
+\] have \(\operatorname{Tr}(P_0P_1)=2\), outside the
+rank-one principal-angle range.
+
+The source QR-based range calculation is retained with this
+distinction. It tracks the three lowest-real-part modes and reports
+larger range persistence than its selected single-vector overlap.
+Sorting by real part is not itself an admissible spectral-contour
+continuation across a collision with a fourth mode. The graph is a range
+diagnostic of that selection, not a theorem that the same isolated
+cluster crosses every collision.
+
+
+
+Source range-persistence diagnostic under
+a skew deformation. The subspace curve uses orthonormalized ranges.
+Around a collision with an excluded eigenvalue, the sorted-mode
+selection must not be called an automatically admissible rank-three
+Riesz continuation.
+
+4. What light is, on the
+evidence
+
+The historical wave–particle discussion becomes more useful when
+translated into specified measurements. A click is a recorded
+interaction; an interference pattern depends on coherence between
+alternatives; an optical spectrum depends on the relation between
+material states and an electromagnetic probe. These descriptions
+overlap. The experiments in this section motivate the two-register
+interpretation, but do not uniquely establish it against all other
+formulations of quantum theory.
+
+
+
+An evidence map, not an exclusivity
+theorem. Localization constraints, coherence, angular-momentum
+correlations, and light-by-light scattering probe different aspects of
+quantum light. The arrows denote an interpretive comparison, not a
+sequence through an on-shell electron–positron pair. Numerical limits
+depend on the models and confidence conventions used by their
+sources.
+
+4.1 No rest frame
+does not mean no state geometry
+
+A photon has no inertial rest frame. Photon localization also has
+special constraints: the Newton–Wigner construction does not provide the
+ordinary massive-particle position observable for a photon under its
+localization assumptions [6]. Nevertheless, position-representation
+electromagnetic wavefunctions, local fields, and detection probabilities
+have rigorous formulations; the relation between the Bialynicki-Birula
+and Landau–Peierls constructions is studied in [7].
+[C]
+
+These facts do not imply that photons lack a metric on their quantum
+states, or that an absence of rest frame proves a contour ledger’s
+stability. The intrinsic metric in this paper lives on a family of
+subspaces, not on a preassigned particle position. The ledger needs an
+admissible resolvent contour, not a rest-frame hypothesis. Keeping those
+domains separate is essential to the two-register interpretation rather
+than an exception to it.
+
+4.2
+Complementarity and two different Gram matrices
+
+The 2025 single-atom experiments of Fedoseev and collaborators and
+Zhang and collaborators realize complementary versions of
+recoil-sensitive light scattering [8,9]. They support describing fringe
+coherence through the overlap of matter states after alternative kicks.
+Trapping, wave-packet spread, and marker mixedness must be specified;
+there is not one universal visibility formula for every atomic state.
+[C]
+
+Proposition 4.1 (pure balanced marker). For
+normalized marker states \(|m_+\rangle,|m_-\rangle\), set \(v=\langle m_+|m_-\rangle\) and \(V=|v|\). With equal path priors and optimal
+discrimination, \[
+G=\begin{pmatrix}1&v\\\bar v&1\end{pmatrix},\quad
+D^2=\det G=1-V^2,\qquad D^2+V^2=1.
+\tag{4.1}
+\] Proof. The density-matrix difference of the
+two pure states is supported on their span and has nonzero eigenvalues
+\(\pm\sqrt{1-|v|^2}\). Its half trace
+norm is therefore \(D=\sqrt{1-|v|^2}\).
+Direct evaluation of the Gram determinant proves the rest.
+[T] The mixed-marker visibility/distinguishability
+inequality is discussed by Englert [10].
+
+The marker Gram in (4.1) has rank two whenever \(D>0\). It has rank one only when \(V=1\). By contrast, the tangent Gram in
+Section 3.1 can have complex rank one throughout a two-band family while
+its real metric has rank two. The common tool is Gram positivity; these
+are not the same Gram or the same rank condition.
+
+
+
+The Gaussian pure-marker control, with
+the original numerical curves retained. Every point satisfies \(D^2+V^2=1\), but the marker Gram
+determinant is \(D^2\) and is nonzero
+when distinguishability is nonzero. The former rank-one label has been
+corrected.
+
+The source Gaussian gate uses displaced momentum packets and obtains
+\(V=e^{-2\eta_{\mathrm{LD}}^2}\), where
+\(\eta_{\mathrm{LD}}\) is its
+kick-to-spread parameter, not the rigidity regularizer. Its
+truncated-oscillator mixed-state gate gives \(D^2+V^2<1\) for the stated thermal
+populations. These are retained model checks. A loss of visibility is
+not, by itself, a negative direction in the physical marker Gram.
+
+Proposition 4.2 (mixed-marker positivity at every
+rank). Let \(\rho=WW^\dagger\ge0\) and let \(U_a\) be the transformations associated
+with the alternatives. Then \[
+G_{ab}=\operatorname{Tr}(\rho U_a^\dagger U_b)
+=\operatorname{Tr}[(U_aW)^\dagger U_bW]
+\] is positive semidefinite, since \[
+\boxed{c^\dagger Gc=\left\|\sum_a c_aU_aW\right\|_F^2\ge0}.
+\tag{4.2}
+\] Thus mixedness can change visibility, distinguishability, and
+rank, but cannot make this Gram indefinite. [T] A
+proposed earlier-failing intrinsic licence must involve a different,
+explicitly defined form and a demonstrated relation to the
+measurement.
+
+4.3 An integer through an
+interaction
+
+Kopf and collaborators study orbital-angular-momentum conservation in
+spontaneous parametric down-conversion driven by single photons [11]. In
+the selected angular-momentum modes the correlations obey the
+pump–signal–idler conservation rule. This supplies an example of a
+conserved relation across an interaction that does not preserve the
+incoming photon as an individual object. [C]
+
+An ensemble average and a single-photon coincidence measurement
+answer different statistical questions. It is too strong to say that all
+averages erase integers, or that the finite commutator winding in
+Section 3.3 is the same observable as optical orbital angular momentum.
+Their shared lesson is that a normalized amplitude reading and a
+conserved charge need not contain the same information.
+
+
+
+Selected orbital-angular-momentum
+channels in a single-photon-pumped down-conversion process [11]. The
+illustrated charges sum to the pump charge. This is experimental
+motivation for tracking relations across an interaction, not a proof
+that every contour winding equals an optical charge.
+
+4.4 Limits on dispersion and
+mass
+
+Time-of-flight studies of GRB 221009A constrain specified
+Lorentz-invariance-violating dispersion models. Piran and Ofengeim
+report lower linear-effect scales of approximately \(5.9\) and \(6.2\) Planck energies for their subluminal
+and superluminal analyses [12]. Those numbers are parameter bounds, not
+observations of photons with Planck-scale energies. Fast-radio-burst
+analyses also bound photon mass within their propagation and statistical
+models [13]. [C]
+
+Such results constrain physical models of propagation. They do not
+prove exact scale independence of every conceivable correction, and do
+not identify a spectral ledger with the electromagnetic field. This
+edition uses them as context, not as premises in a mathematical
+theorem.
+
+4.5 Light scattering from
+light
+
+Classical Maxwell theory in vacuum is linear. Quantum field theory
+permits photon–photon scattering through virtual charged contributions.
+ATLAS and CMS have measured light-by-light scattering in ultraperipheral
+heavy-ion collisions [14,15]. Their fiducial selections and
+uncertainties must be retained when numerical cross sections are
+compared. [C]
+
+A virtual electron loop is not a period in which a photon acquires a
+literal rest frame or occupies a classical material census. The phrase
+“light borrows the low rail and returns” is an interpretation of an
+interaction diagram. [H] It is not used to derive the
+electronic response formula below, which has its own Hamiltonian and
+probe.
+
+4.6 The
+environment and the measured photon profile
+
+An emitter’s electromagnetic environment changes its available modes
+and couplings. Yuen and Demetriadou provide a pseudomode quantization
+for radiative photonic environments [16]. [C] This
+supports studying the coupled emitter–environment response rather than
+assigning an emitted wave packet’s shape to an isolated carrier alone.
+It does not establish that every pseudomode of the finite crossing model
+in Section 5 is a physical optical mode.
+
+4.7
+Weak measurement and scalar parity are different claims
+
+Weak-measurement reconstructions of average photon flow, including
+the two-slit measurements of Kocsis and collaborators and subsequent
+relativistic formulations, provide useful operational examples [17,18].
+[C] They do not make the fixed skew-family trace-log
+cancellation a universal explanation for weak-measurement back-action.
+Section 5.4 proves that cancellation for its displayed operator family;
+a weak-measurement instrument has additional state, coupling, pointer,
+and conditioning data.
+
+4.8
+From an electric-field-driven projector to polarizability
+
+Electronic energies alone do not specify optical coupling. The
+interaction matrix elements are also required, as emphasized in
+quantum-geometric optical-response theory [19,20]. The following finite
+construction supplies the precise parameter and probe needed to connect
+the intrinsic metric to a material response.
+
+Let \(H_0\) be Hermitian with a
+nondegenerate ground state \(|0\rangle\), excited states \(|m\rangle\), and positive gaps \(\Delta_m=E_m-E_0\). Let \(D_i\) be Hermitian electric-dipole
+operators and specify \[
+H(\mathcal E)=H_0-\sum_i\mathcal E_iD_i.
+\tag{4.3}
+\] All derivatives below are taken at zero applied electric
+field. Put \(a_{mi}=\langle
+m|D_i|0\rangle\). Differentiating the eigenvalue equation and
+projecting onto \(m>0\) gives \[
+\langle m|\partial_i0\rangle=\frac{a_{mi}}{\Delta_m}.
+\] The gauge-dependent component along \(|0\rangle\) disappears from the projector
+derivative, so \[
+Q_{ij}=\sum_{m>0}\frac{\overline{a_{mi}}a_{mj}}{\Delta_m^2},\qquad
+g_{ij}=\sum_m g^{(m)}_{ij},\quad
+g^{(m)}_{ij}=\frac{\operatorname{Re}(\overline{a_{mi}}a_{mj})}{\Delta_m^2}.
+\tag{4.4}
+\] Each \(g^{(m)}\) is positive
+semidefinite on real field directions because \(e^\top g^{(m)}e=|\sum_i
+a_{mi}e_i|^2/\Delta_m^2\).
+
+For time dependence \(e^{-i\omega
+t}\), photon energy \(x=\hbar\omega\), ground-state occupation,
+and lossless weak-field response, the linearized density matrix
+satisfies \[
+[H_0,\delta\rho_j]-x\delta\rho_j=[D_j,P].
+\] Its driven matrix elements are \[
+(\delta\rho_j)_{m0}=\frac{a_{mj}}{\Delta_m-x},\qquad
+(\delta\rho_j)_{0m}=\frac{\overline{a_{mj}}}{\Delta_m+x}.
+\] At zero frequency the adiabatic derivative is chosen with no
+first-order population change. Undriven resonances elsewhere in the
+Liouvillian are handled by continuation of this driven response. Reading
+the dipole yields \[
+\alpha_{ij}(x)=\sum_m\left[
+\frac{\overline{a_{mi}}a_{mj}}{\Delta_m-x}
++\frac{a_{mi}\overline{a_{mj}}}{\Delta_m+x}
+\right].
+\tag{4.5}
+\]
+
+Theorem 4.3 (transition-resolved constitutive
+weighting). Away from the transition poles, the
+transpose-symmetric part of the lossless response is \[
+\boxed{\alpha_s(x)=\sum_m
+\frac{2\Delta_m^3}{\Delta_m^2-x^2}\,g^{(m)}}.
+\tag{4.6}
+\] Proof. Symmetrizing (4.5) replaces each
+transition numerator by its real part. The sum of its two denominators
+is \(2\Delta_m/(\Delta_m^2-x^2)\), and
+the real numerator is \(\Delta_m^2g^{(m)}\). Multiply and sum.
+[T]
+
+In particular \(\alpha(0)=2\sum_m\Delta_mg^{(m)}\). For one
+excitation gap, \[
+\alpha_s(x)=\frac{2\Delta^3}{\Delta^2-x^2}\,g.
+\tag{4.7}
+\] The excitation-energy weights are essential. A total metric
+alone does not in general determine the frequency-dependent
+polarizability. The full tensor can also have an antisymmetric,
+gyrotropic part, which has not been replaced by the real metric.
+
+4.9
+The same silent directions below the gap, and a different zero between
+poles
+
+Corollary 4.4 (subgap nullspaces). If \(|x|<\min_m\Delta_m\), write \(w_m=2\Delta_m^3/(\Delta_m^2-x^2)>0\).
+Then \[
+w_{\min}g\preceq\alpha_s(x)\preceq w_{\max}g,
+\qquad
+\boxed{\ker\alpha_s(x)=\ker g}.
+\tag{4.8}
+\] Proof. Each quadratic form is a sum of the
+same nonnegative squared transition amplitudes, with strictly positive
+weights. A sum vanishes precisely when every contributing amplitude
+vanishes. Equivalently, stack real and imaginary amplitudes into \(J\) to obtain \(g=J^\top J\) and \(\alpha_s=J^\top WJ\) with \(W>0\); both kernels are \(\ker J\). [T]
+
+These are directions in the applied electric-field parameter, not
+automatically spatial wavevector directions or aperture modes. Equal
+rank does not imply equal thresholded capacity: nonzero response
+magnitudes change under reweighting.
+
+The positive-weight hypothesis has an exact negative control. Let
+\[
+H_0=\operatorname{diag}(0,1,2),\qquad
+D=\begin{pmatrix}0&1&2\\1&0&0\\2&0&0\end{pmatrix}.
+\] Then \(g_{\mathcal E\mathcal
+E}=2\), while, with \(y=x^2\),
+\[
+\alpha(y)=\frac2{1-y}+\frac{16}{4-y}
+=\frac{24-18y}{(1-y)(4-y)}.
+\tag{4.9}
+\] At \(y=4/3\), \(\alpha=0\) although \(g=2\) and neither denominator vanishes. The
+two transitions cancel. [T] This is a response zero,
+not a metric null or a gap closing.
+
+Proposition 4.5 (unique two-pole tune-out). For
+squared-gap poles \(a<b\) and
+residues \(A,B>0\), the lossless
+scalar response \[
+f(y)=\frac{A}{a-y}+\frac{B}{b-y}
+\] has exactly one zero away from the poles: \[
+y_* = \frac{Ab+Ba}{A+B},\qquad a<y_*<b.
+\] Indeed, its numerator is \(Ab+Ba-(A+B)y\), and positive residues place
+its root strictly between the poles. The example (4.9) is the case \((a,b,A,B)=(1,4,2,16)\). This theorem
+concerns the stated two-pole rational model, without linewidth.
+[T]
+
+Exact metric-only control. In the scalar transition
+model \(g=d^2/\Delta^2\) and \(\alpha(0)=2d^2/\Delta\), the choices \((d,\Delta)=(1,1)\) and \((2,2)\) have the same \(g=1\) but static responses two and four.
+Even static response therefore needs excitation-energy information in
+addition to the total field metric. [T]
+
+A prescribed positive linewidth changes the model. Replacing \(x\) by \(x+i\gamma\) gives, for one real
+polarization and \(x,\gamma>0\),
+\[
+\operatorname{Im}\alpha(x+i\gamma)
+=\sum_m\frac{4\Delta_m^3x\gamma\,g^{(m)}(e,e)}
+{(\Delta_m^2-x^2+\gamma^2)^2+4x^2\gamma^2}\ge0.
+\] An exact zero of the complex response is then generally
+removed. This linewidth is phenomenological; it is not a microscopic
+derivation of dissipation.
+
+4.9a Two
+frequencies recover the silent subspace
+
+A zero in one reading need not be a missing coupling. The useful
+question is what second reading forces the distinction. The
+exact-closure approach used in the arithmetic Kakeya investigation
+suggests retaining both sides of that question: a certificate when the
+readings determine the target, and an explicit obstruction when they do
+not. The optical consequence below follows from the Light model itself;
+it does not import a Kakeya construction into a material.
+
+Assumptions. Retain the finite, ground-state,
+weak-field, lossless model of Section 4.8, with fixed positive gaps and
+fixed dipole matrix elements. The field direction \(e\) is real. Write \(y=x^2\), \(p_m=\Delta_m^2\), \(c_m=2\Delta_m^3>0\), and \(R(y)=\alpha_s(\sqrt y)\) for \(y\ge0\). Choose \(y_1<y_2\) with no transition pole in the
+closed interval \([y_1,y_2]\). No
+linewidth, frequency-dependent transition numerator, or change of state
+is included.
+
+Proposition 4.5a (positive response difference).
+Define \[
+\beta_m=\frac{c_m}{(p_m-y_1)(p_m-y_2)}>0,
+\qquad
+B_{12}=\frac{R(y_2)-R(y_1)}{y_2-y_1}.
+\] Then \[
+B_{12}=\sum_m\beta_m g^{(m)},\qquad
+\beta_{\min}g\preceq B_{12}\preceq\beta_{\max}g,
+\qquad
+\ker B_{12}=\ker g.
+\] The extrema are over the finite transition list, assumed
+nonempty. In particular, \[
+e^\top R(y_1)e=e^\top R(y_2)e=0
+\quad\Longleftrightarrow\quad e\in\ker g,
+\qquad
+\ker R(y_1)\cap\ker R(y_2)=\ker g.
+\] Proof. Subtract each rational weight: \[
+\frac{1}{p-y_2}-\frac{1}{p-y_1}
+=\frac{y_2-y_1}{(p-y_1)(p-y_2)}.
+\] The two factors in the denominator have the same sign because
+no pole is crossed. Each \(g^{(m)}\) is
+positive semidefinite, and their sum is \(g\), giving the bounds. A positive weighted
+sum has zero quadratic form precisely when every summand does; for
+positive semidefinite matrices this is equivalent to membership in every
+summand’s kernel. If both scalar responses vanish, their difference
+vanishes and therefore \(ge=0\).
+Conversely \(ge=0\) kills each
+transition contribution at every non-pole frequency. The matrix-kernel
+intersection follows by the same argument. [T]
+
+Thus even between resonances, where a single response may cancel, its
+divided difference retains precisely the metric’s silent subspace. In
+fact equal scalar responses at two such frequencies already imply that
+both are zero. For a coupled direction the scalar response is strictly
+increasing in \(y\) on each pole-free
+interval. There is at most one tune-out in that interval. This
+generalizes the uniqueness aspect of Proposition 4.5 to any finite
+number of positive-residue transitions; it does not assert a zero exists
+in every interval for every direction.
+
+Quantitative reading with declared errors. Let
+measured scalar readings be \(z_i\)
+with deterministic error bounds \(|z_i-e^\top
+R(y_i)e|\le\epsilon_i\). Then \[
+0\le e^\top g e\le
+\frac{z_2-z_1+\epsilon_1+\epsilon_2}
+{(y_2-y_1)\beta_{\min}}.
+\] A negative numerator is inconsistent with the model and the
+declared error bounds. If \(|z_i|\le\tau_i\), a conservative upper
+bound replaces that numerator by \(\tau_1+\tau_2+\epsilon_1+\epsilon_2\).
+Exact darkness requires exact zeros; finite precision certifies an upper
+bound on coupling. The constant requires transition-gap information or a
+justified positive lower bound. This is an error propagation statement,
+not an instrument specification. [T]
+
+Checks and failure modes. In the paper’s example,
+\(R(y)=2/(1-y)+16/(4-y)\) and \(g=2\). The tune-out is \(y_1=4/3\); a second reading at \(y_2=2\) gives \(R(y_2)=6\). Both points lie between the
+same two poles. The original dark-direction ambiguity is resolved
+without measuring either transition separately. [V] If
+a pole is crossed, the sign proof fails. For instance \(1/(1-y)+1/(4-y)+1/(9-y)\) has two zeros
+\(7/3\) and \(7\) in different intervals despite nonzero
+coupling. Signed residues also invalidate the result: \(1/(1-y)-(8/5)/(4-y)+(63/5)/(9-y)\) vanishes
+at both \(y=2\) and \(y=3\) in one pole-free interval. These are
+exact negative controls. [T]
+
+4.9b What a
+collection of probes actually determines
+
+For a fixed real symmetric response \(R\in\mathrm{Sym}_d\), a real probe \(u\) reads \(q_R(u)=u^\top
+Ru=\operatorname{Tr}(Ruu^\top)\). Consider known probes \(u_i\) and a desired linear observable \(\operatorname{Tr}(RF)\) with \(F\) real symmetric.
+
+Proposition 4.5b (probe certificate or invisible
+perturbation). The known readings determine the target for
+every real symmetric \(R\) if and only
+if \[
+F\in\operatorname{span}_{\mathbb R}\{u_i u_i^\top\}.
+\] A certificate \(F=\sum_i a_i u_i
+u_i^\top\) gives the exact reconstruction \(\operatorname{Tr}(RF)=\sum_i a_i
+q_R(u_i)\). Otherwise there exists a symmetric \(H\) with \[
+u_i^\top H u_i=0\quad\text{for every }i,
+\qquad \operatorname{Tr}(HF)\ne0.
+\] Proof. The forward reconstruction follows by
+linearity. If \(F\) is outside the
+span, its nonzero orthogonal component in the Frobenius inner product
+supplies \(H\): its inner product with
+\(F\) is its squared norm. Then \(R\) and \(R+tH\) have identical known readings but
+different targets for \(t\ne0\). Taking
+\(R=cI\) with \(c>|t|\|H\|_{\mathrm{op}}\) makes both
+matrices positive definite, so ambiguity also occurs within that class.
+This is a uniform identifiability statement. Special observed values,
+such as exact zero readings on a positive semidefinite boundary, can
+imply extra information. Additional structural constraints need a
+separate analysis. [T]
+
+For rational probes and a rational target, both alternatives admit
+rational certificates and exact verification. An implementation
+vectorizes the upper triangle: diagonal coefficients are \(u_i^2\) and off-diagonal coefficients are
+\(2u_i u_j\). The factor two matters.
+Standard row-space duality supplies the method; no priority claim is
+made for that linear algebra.
+
+For example, the two axial probes in dimension two leave \(H=\left(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\right)\)
+invisible. Adding the unnormalized probe \((1,1)\) gives \[
+R_{12}=\tfrac12\{q_R(1,1)-q_R(1,0)-q_R(0,1)\}.
+\] The axial probes and every pairwise sum reconstruct a general
+real symmetric \(d\)-dimensional
+response using \(d(d+1)/2\) scalar
+readings. With reading error bounds \(\epsilon_i\), a displayed certificate has
+target error at most \(\sum_i|a_i|\epsilon_i\). Full complex
+Hermitian response additionally requires probes that resolve imaginary
+cross components. [T]
+
+The gain for the programme is operational: retain the orientation of
+the coupling, identify the readings that close the question, and expose
+what remains invisible. The arithmetic search and the optical
+reconstruction share this exact linear-algebra discipline. They do not
+thereby establish a physical identification between their objects.
+
+Verification scope of this addition. The new
+supplement executes symbolic identities, exact rational matrix cases,
+reconstruction and obstruction certificates, and negative controls.
+[V] The general statements above have written proofs.
+They have not been compiled in Lean; the earlier 91-declaration
+inventory is unchanged. The earlier numerical replay record remains the
+record of edition 3, not a claim that every historical gate was rerun
+for this addition.
+
+
+4.10 From response to a
+material coefficient
+
+Assume independent identical dipoles at density \(N\), local weak-field response, and no
+local-field or many-body correction. The constitutive model is \[
+\epsilon_r(x)=I+\frac{N}{\epsilon_0}\alpha(x).
+\tag{4.10}
+\] For an isotropic nonmagnetic medium, or a decoupled TE sector
+with diagonal permittivity and field along \(y\), define \(R_{\mathrm{opt}}=\epsilon_{r,yy}\). The
+homogeneous wave equation gives \[
+k_\parallel^2+k_z^2=k_0^2R_{\mathrm{opt}},\qquad k_0=\omega/c.
+\tag{4.11}
+\] The electromagnetic interface conditions and their relation to
+refraction and reflection are standard [21]. [C] The
+content supplied here is that (4.10) is evaluated using the explicit
+transition data of (4.3)–(4.6), rather than inferred from energy levels
+alone.
+
+For \(H_\vartheta=(\Delta/2)(\cos\vartheta\,\sigma_z+\sin\vartheta\,\sigma_x)\)
+and a fixed physical probe \(D=d\sigma_z\), the energies remain \(\pm\Delta/2\), while \(g_{\mathcal E\mathcal
+E}=d^2\sin^2\vartheta/\Delta^2\). In the dimensionless example
+\(\Delta=2,d=1,x=1,N/\epsilon_0=1/4\):
+
+
+
+
+
+
+
+
+
+
+Electronic rotation
+\(g_{\mathcal
+E\mathcal E}\)
+\(R_{\mathrm{opt}}\)
+Transmitted phase angle from \(45^\circ\) incidence
+
+
+
+
+
+\(0\)
+\(0\)
+\(1\)
+\(45.000000^\circ\)
+
+
+
+\(\pi/4\)
+\(1/8\)
+\(7/6\)
+\(40.893395^\circ\)
+
+
+
+\(\pi/2\)
+\(1/4\)
+\(4/3\)
+\(37.761244^\circ\)
+
+
+
+
+The angle \(\vartheta\) rotates
+electronic states relative to a fixed probe; it is not an incidence
+angle or a simultaneous change of coordinates on everything. The
+independent density-matrix solve agrees with the weighted-metric
+calculation across 48 finite models, with maximum relative discrepancy
+\(4.88\times10^{-15}\).
+[V] This demonstrates a specified mechanism, not a
+measured material. Identifying (4.10) with (2.3) remains an additional
+constitutive question.
+
+4.11
+Color: optical state relations before perceptual distance
+
+Bujack and collaborators revisit Schrödinger’s geometric definitions
+of hue, saturation, and lightness in a non-Riemannian perceptual metric
+[22]. This concerns judged color similarity, not an electronic
+eigenvalue problem. Oh and Kim’s theoretical color/transparency models
+explicitly examine changing quantum-state geometry while preserving band
+dispersion [23]. Together with [19,20], this motivates an explicit chain
+from states and transition strengths to outgoing spectra and then to an
+observer response; it does not identify the geometries at the two ends.
+[C]+[H]
+
+There is an elementary constraint on any proposed projector-only hue
+model. Pure intensity rescaling \(|\psi_I\rangle=\sqrt I|\psi\rangle\) leaves
+the normalized ray projector unchanged. A hue rule depending only on
+that ray cannot reproduce an intensity-dependent hue shift. It must
+retain intensity separately or include a corresponding material/observer
+response. [T]
+
+Finite distinguishability also need not be intrinsic path length. For
+\(|\psi(t)\rangle=(\cos t,\sin
+t)^\top\), \[
+\frac{\|P(t)-P(s)\|_F}{\sqrt2}=|\sin(t-s)|,
+\qquad \frac12\operatorname{Tr}[(dP)^2]=dt^2.
+\tag{4.12}
+\] The first quantity is an endpoint chord distance; the second
+defines arc length. This exact distinction is a tool for formulating a
+perceptual model, not a fit to human vision and not evidence of an
+indefinite metric.
+
+5. The
+reference: direction, the census, and rigidity
+
+5.1
+Directional resolution is not automatically a channel rank
+
+Two normalized feature rays represented by rank-one orthogonal
+projectors obey \[
+\frac12\|P_u-P_v\|_F^2=1-|\langle u,v\rangle|^2=\sin^2\theta.
+\tag{5.1}
+\] Thus the chosen pairwise distinction threshold is \(\sin^2\theta\ge\varepsilon\). For an
+angular separation \(\delta\), this
+gives \(\varepsilon=\sin^2\delta\) and
+angular depth \(\Lambda=-\log\varepsilon=2\log(1/\sin\delta)\).
+[T] This is a definition of resolution in the feature
+space, not a universal detector law.
+
+Pairwise separation does not guarantee independent channels. For
+example the three unit vectors \((1,0)\), \((3/5,4/5)\), and \((3/5,-4/5)\) are separated by squared sines
+at least \(16/25\), yet their linear
+span has dimension two. A multi-input capacity therefore needs its own
+Gram or singular-value definition, input normalization, and
+threshold.
+
+The source lattice uses projected, restricted, normalized Gaussian
+needles as the columns of \(\Phi\) and
+counts eigenvalues of \(\Phi^\dagger\Phi\) above a threshold. On
+its finite periodic two-band lattice, this is a well-defined collective
+response reading. An absolute Gram threshold can depend on how the input
+dictionary is sampled or duplicated. It must not be treated as an
+invariant of the aperture without a continuum and input-measure
+specification.
+
+The exact cross-boundary
+census
+
+Let a finite orthogonal ground-state projector split across region
+\(A\) and its complement as \[
+P=\begin{pmatrix}C_A&B\\B^\dagger&C_{\bar A}\end{pmatrix}.
+\] Theorem 5.1 (coupling census). For \(0<\varepsilon\le1/2\), \[
+\boxed{C_A-C_A^2=BB^\dagger},
+\tag{5.2}
+\] \[
+\boxed{N_\varepsilon(A)
+=\#\{j:s_j(B)^2\ge\varepsilon(1-\varepsilon)\}},
+\qquad
+N_\varepsilon(A)\le\frac{\|B\|_F^2}{\varepsilon(1-\varepsilon)}.
+\tag{5.3}
+\] Here \(N_\varepsilon(A)\)
+counts the eigenvalues of \(C_A\) in
+\([\varepsilon,1-\varepsilon]\),
+including multiplicity.
+
+Proof. The upper-left block of \(P^2=P\) gives (5.2). Since \(0\le C_A\le I\), its eigenvalues are in
+\([0,1]\), and those of \(BB^\dagger\) are \(\nu_j(1-\nu_j)\). The factorization \[
+\nu(1-\nu)-\varepsilon(1-\varepsilon)
+=(\nu-\varepsilon)(1-\varepsilon-\nu)
+\] shows that this is nonnegative exactly on the stated
+transition window. Any surplus zero eigenvalues in a rectangular
+singular-value convention are below the positive threshold. Summing the
+minimum contribution of every counted eigenvalue proves the norm bound.
+[T]
+
+The boundary census is therefore a count of resolved cross-cut
+coupling strengths. The proof uses orthogonal idempotence. A generic
+finite-temperature correlation matrix, or an oblique Riesz projector,
+needs a modified statement.
+
+Corollary 5.2 (filtered channel bound). Set \(F_\varepsilon=\mathbf1_{[\varepsilon,1-\varepsilon]}(C_A)\).
+For any response dictionary \(\Phi\)
+and any \(\tau>0\), \[
+\boxed{\#\{\lambda_j(\Phi^\dagger F_\varepsilon\Phi)\ge\tau\}
+\le\operatorname{rank}(F_\varepsilon\Phi)
+\le N_\varepsilon(A)}.
+\tag{5.4}
+\] Proof. The Gram equals \((F_\varepsilon\Phi)^\dagger(F_\varepsilon\Phi)\)
+and has the same rank. Its positive-threshold count cannot exceed that
+rank. Its output range lies in \(\operatorname{Ran}F_\varepsilon\).
+[T] The filtered columns are not individually
+normalized afterward. The two thresholds have different purposes.
+
+The original
+lattice and the new filtered reading
+
+The supplied capacity gate uses a \(32\times32\) periodic two-band lattice,
+mass \(0.3\), transverse Gaussian width
+one lattice site, and 64 input directions. Its carrier-wave parameter is
+\(k_0=0\); these are mathematical
+needle features, not yet monochromatic Maxwell wave packets. The
+projector is checked for Hermiticity and idempotence before the reading.
+An independent FFT implementation reproduces all ten source
+capacity/census pairs and calculates the additional filtered column
+below. For this comparison only, \(\tau=\varepsilon\).
+
+
+
+
+
+
+
+
+
+
+
+Disc radius \(\rho_A\)
+\(\varepsilon\)
+Source channels
+Census
+Filtered channels
+
+
+
+
+
+4
+\(10^{-1}\)
+7
+0
+0
+
+
+
+4
+\(10^{-2}\)
+9
+24
+8
+
+
+
+4
+\(10^{-3}\)
+11
+40
+11
+
+
+
+4
+\(10^{-4}\)
+13
+42
+12
+
+
+
+4
+\(10^{-5}\)
+14
+48
+14
+
+
+
+7
+\(10^{-1}\)
+11
+0
+0
+
+
+
+7
+\(10^{-2}\)
+15
+44
+14
+
+
+
+7
+\(10^{-3}\)
+18
+72
+18
+
+
+
+7
+\(10^{-4}\)
+20
+76
+20
+
+
+
+7
+\(10^{-5}\)
+22
+88
+22
+
+
+
+
+The squared cross-cut norms are \(1.181415474820\) and \(1.998085312791\). The relative
+block-identity errors are \(1.30\times10^{-15}\) and \(3.80\times10^{-15}\), respectively. The
+singular-value census matches at every threshold. [V]
+In particular, the zero-census rows still have nonzero unfiltered
+capacity, demonstrating why the filter is a substantive hypothesis
+rather than a decorative operation.
+
+
+
+Original lattice capacity and census
+curves. The radii and needle widths are lattice quantities. The guide
+\(\pi\rho_A/w\) is not a proved
+ceiling: the smaller-disc count overshoots it and the data cover
+finitely many thresholds and input dictionaries. The exact result
+supplied by this edition is the filtered bound (5.4).
+
+These measurements do not prove a universal aperture ceiling,
+indefinitely logarithmic growth with depth, or a continuum optical
+limit. The norm bound in (5.3) is deliberately coarse. A sharper
+geometric law must use locality and the actual kernel rather than only
+its Frobenius norm.
+
+5.2
+Overflow, a driven crossing, and the scalar rigidity law
+
+The source crossing model uses \(H=A+D_0+tE\): a lattice Laplacian, a
+prescribed intensity-dependent detuning, and skew couplings built from
+an intensity gradient. The dominant selected mode concentrates near a
+\(3\times3\) crossing cell. At the
+reported detuning depth one, eight or more needles give weight about
+\(0.628\), against \(0.466\) for the normal control; the uniform
+fraction is \(9/784\simeq0.0115\). A
+shallow-detuning setting gives a smaller skew/normal ratio and an
+overdriven setting disperses the mode. These source computations were
+replayed for this edition. [V]
+
+The concentration is real within the finite model, but the light
+field is prescribed in constructing the coefficients; the code does not
+solve a closed nonlinear emitter–field–medium evolution. Nor does
+finite-dimensional rank overflow prove an exhaustive physical dichotomy
+between full-dimensional support and a lower-dimensional wall. Loss of
+throughput, loss of resolution, and other responses must be considered
+in a physical model.
+
+
+
+The crossing-cell concentration gate with
+its normal controls. It demonstrates parameter-dependent concentration
+in the prescribed finite operator. It does not yet establish a
+self-consistent optical wall or the applicability of the scalar
+refraction law to that wall.
+
+A
+conditional variational theorem, with the action stated
+
+The scalar \(R_\eta\) from (2.3) is
+a weak-transport diagnostic. To use it as a dynamical coefficient, an
+effective action must be specified. Consider a locally planar interface
+in a coordinate patch with a common Euclidean reference norm and the
+model action \[
+\mathcal S[q]=\int\left[\frac12R_\eta(q)|\dot q|^2-V(q)\right]d\tau.
+\tag{5.5}
+\] This reference norm specifies the scalar isotropic reduction
+in that patch; it is not a derivation that the full intrinsic tensor is
+Euclidean, nor an identification of \(q\) with spacetime. For anisotropic
+intrinsic transport the full tensor action has to be retained. The
+scalar action is a stated modelling assumption. [H]
+
+Proposition 5.3 (interface matching for the scalar
+action). Assume that the two regions have positive constant
+coefficients \(R_1,R_2\), the interface
+is stationary, the coefficients and potentials are translation-invariant
+in its tangential direction, and the crossing path satisfies the
+variational corner conditions. Let \(E>V_i\) be its common conserved energy,
+and let \(\theta_i\) be its velocity
+angle from the interface normal in the common reference norm. Then \[
+\boxed{R_1(E-V_1)\sin^2\theta_1
+=R_2(E-V_2)\sin^2\theta_2}.
+\tag{5.6}
+\] For equal potentials this reduces to \[
+\boxed{R_1\sin^2\theta_1=R_2\sin^2\theta_2}.
+\tag{5.7}
+\] Proof. Translation invariance and
+stationarity at the crossing give a common tangential canonical momentum
+\(p_\parallel=R_i v_i\sin\theta_i\).
+The autonomous action has \(E-V_i=R_iv_i^2/2\). Squaring the first
+relation gives \(p_\parallel^2=2R_i(E-V_i)\sin^2\theta_i\)
+on both sides. [T]
+
+These angles are tangent-space velocity angles relative to an
+interface. They are not defined merely by the principal angles of two
+finite endpoint subspaces. An explicit path/coordinate map is required
+to compare them with (3.9).
+
+
+
+The scalar-action transmission branch for
+\(R_2>R_1\). Angles are measured
+from the interface normal. The coefficient is rigidity, not a count of
+channels; the old labels equating greater rigidity with more channels
+have been removed. Equation (5.7) requires the action and matching
+assumptions above.
+
+Substituting the authoritative definition, and writing \(s_i=\sigma_{\min}(A_{\mathrm{intr},i})\),
+gives \[
+\boxed{\sin^2\theta_2
+=\frac{s_2^2+\eta}{s_1^2+\eta}\sin^2\theta_1}
+\tag{5.8}
+\] for equal potentials and a common regularizer. A real
+transmission angle requires the right side to be at most one. When \(s_2\to0\) at fixed \(\eta\), the factor approaches \(\eta/(s_1^2+\eta)\), not zero. The collapse
+toward a normal transmitted direction is a zero-regularizer limit with
+\(s_1\) bounded away from zero. For
+unequal potentials, the factor \((E-V_1)/(E-V_2)\) remains.
+
+Optical
+matching and the remaining constitutive test
+
+At a stationary, unpatterned planar optical interface, tangential
+phase matching in (4.11) gives \[
+R_{\mathrm{opt},1}\sin^2\theta_1
+=R_{\mathrm{opt},2}\sin^2\theta_2
+\tag{5.9}
+\] for propagating positive-index modes in the scalar/decoupled
+TE setting. Here the coefficient has already been calculated from the
+electronic response in Section 4.10. It is not defined using \(\sigma_{\min}(A_{\mathrm{intr}})\).
+
+The two laws have the same form. Their identification requires the
+two angle maps to agree and, over the intended class of media, \[
+\frac{R_\eta(q_1)}{R_\eta(q_2)}
+=\frac{R_{\mathrm{opt}}(q_1)}{R_{\mathrm{opt}}(q_2)}.
+\tag{5.10}
+\] Equivalently, \(R_\eta(q)=c_*R_{\mathrm{opt}}(q)\) with a
+fixed calibration factor on that class. Agreement at one point does not
+establish this relation. The input operator, its norms, physical probe,
+and frequency dependence must be independently specified. This is the
+remaining rigidity–constitutive identification, not a premise hidden
+inside the theorem.
+
+Proposition 5.1 (a specific calibration
+obstruction). Consider the natural scalar field-Jacobian choice
+\(\sigma_{\min}^2=g\ge0\), with fixed
+\(\eta>0\) and optical law \(R_{\mathrm{opt}}=1+kg\), \(k>0\). Then \[
+\frac{R_\eta}{R_{\mathrm{opt}}}
+=\frac{1}{(g+\eta)(1+kg)}
+\] is strictly decreasing in \(g\). In fact, for \(0\le g<h\) the denominator difference is
+\[
+(h-g)\bigl[1+k(h+g+\eta)\bigr]>0.
+\] Consequently no fixed calibration can identify these two
+coefficients at two distinct metric values. [T] This
+excludes the specified field-Jacobian identification; it does not
+exclude every transport operator or a separately specified device model.
+Any proposed constitutive bridge must supply a different operator
+dependence or additional physical structure and test it
+independently.
+
+The square-root
+propagation threshold
+
+For a lossless TE half-space, set \(D=R_{\mathrm{opt},2}-(k_\parallel/k_0)^2\).
+Its outgoing normal wavevector is \[
+k_{z,2}=k_0\sqrt D.
+\tag{5.11}
+\] The square root has the outgoing/decaying branch. With \(\zeta=k_0z\), the scalar equation \(u''+Du=0\) has a first-order
+representation \[
+\frac{d}{d\zeta}\begin{pmatrix}u\\u'\end{pmatrix}
+=M(D)\begin{pmatrix}u\\u'\end{pmatrix},\qquad
+M(D)=\begin{pmatrix}0&1\\-D&0\end{pmatrix}.
+\] Since \(M^2=-DI\), its
+separated projectors are \[
+P_\pm=\frac12\left(I\pm\frac{M}{\sqrt{-D}}\right),\qquad D\ne0.
+\] At \(D=0\) the propagation
+generator is defective; individual projectors become singular, while
+\(P_++P_-=I\) remains regular.
+[T] This is a spatial propagation generator, not an
+electronic Hamiltonian and not the intrinsic metric. Evanescence for
+\(D<0\) does not by itself mean
+absorption.
+
+For equal permeabilities and incident reference \(a=k_{z,1}/k_0>0\), the impedance ratio
+is \(a/\sqrt D\). Its Smith coordinate
+is \[
+\Gamma(D)=\frac{a-\sqrt D}{a+\sqrt D}
+=1-\frac2a\sqrt D+O(D),\qquad D\downarrow0.
+\tag{5.12}
+\] For \(D=-\kappa^2\), \(|\Gamma|=1\) and \(\arg\Gamma=-2\arctan(\kappa/a)\). The chart
+stays finite but retains the square-root threshold. This derivation
+holds \(a\) fixed; varying the
+incidence angle also varies that reference.
+
+5.3
+Two boundary evolutions, not a universal classification of light
+
+The source’s reflecting model is a finite periodic real skew matrix
+\(H_{\mathrm{ref}}\). Consequently
+\(e^{tH_{\mathrm{ref}}}\) is orthogonal
+and preserves norm. Its directed comparison is instead \[
+H_{\mathrm{one}}=-\lambda I+cN,
+\] where \(N\) is a strictly
+lower shift and is nilpotent. Then \[
+e^{tH_{\mathrm{one}}}=e^{-\lambda t}\sum_{j=0}^{n-1}\frac{(ctN)^j}{j!}.
+\tag{5.13}
+\] All its eigenvalues are \(-\lambda\), and the polynomial transfer is
+eventually dominated by the exponential decay. [T] The
+source uses \(n=5,c=1,\lambda=1.2\) and
+reports norm approximately \(2.6\times10^{-7}\) at time twenty.
+[V]
+
+The two models differ in their connectivity as well as damping.
+Merely adding uniform damping to the periodic skew matrix would shift
+imaginary eigenvalues into the left half-plane, not make them all real.
+Neither diagram proves that every physical interface has only these two
+outcomes. Photon condensation in a microcavity is a distinct
+thermalizing physical realization [33], not a consequence of norm
+preservation in the finite skew model.
+
+
+
+Conceptual blocked and transmitted
+continuations retained from the source illustration. They are hypotheses
+about possible physical behavior, not an exhaustive theorem or a
+numerical solution of the optical interface problem.
+
+
+
+The actual algebraic comparison: a
+periodic skew generator versus a directed nilpotent chain with uniform
+decay. A bounded norm and an eventually decaying norm are proved for
+these respective operators; the laboratory realization needs its own
+model.
+
+5.4 The
+fixed-family ledger is even to every order
+
+Let \(H(t)=H_0+tE\) with \(H_0^\top=H_0\) and \(E^\top=-E\). The matrix entries may be
+complex for the transpose identity; the positive-shift formula below
+assumes real matrices.
+
+Theorem 5.4 (scalar parity). At every common
+resolvent point, \[
+\operatorname{Tr}(zI-H(-t))^{-1}
+=\operatorname{Tr}(zI-H(t))^{-1}.
+\tag{5.14}
+\] Hence a contour ledger with the same admissible contour and
+analytic function is even in \(t\).
+
+Proof. \(H(-t)=H(t)^\top\), the inverse commutes
+with transposition, and the trace of a transpose is unchanged. Integrate
+the identical scalar integrands. Analyticity then implies that every odd
+Taylor coefficient vanishes. [T]
+
+For real \(H_0,E\), choose \(c\) with \(M=H_0+cI>0\), and set \(J=M^{-1/2}EM^{-1/2}\). The nonzero
+eigenvalues of the real skew matrix \(J\) are pairs \(\pm i\omega_j\). Factoring \(M+tE=M^{1/2}(I+tJ)M^{1/2}\) gives \[
+\boxed{Z(t)-Z(0)=\sum_j\log(1+t^2\omega_j^2)},
+\qquad Z''(0)=\|J\|_F^2.
+\tag{5.15}
+\] The positive Hermitian part keeps the spectrum in the right
+half-plane, so the principal trace-log is well defined and equals the
+log determinant here. This proves the exact all-orders scalar response
+for this fixed family, not merely the first-order cancellation. The
+ledger is even, not constant.
+
+
+
+The source tip–tail interpretation, with
+its scope made explicit. Scalar parity is proved for fixed symmetric and
+skew operators. Directed response can have odd terms, and
+self-consistent intensity-dependent feedback is not solved by this
+identity.
+
+The physical tip–tail reading remains [H]. Allowing \(H_0\) or \(E\) themselves to depend on the driven
+field requires a new symmetry check of the complete family. Replacing
+transpose symmetry by Hermitian/skew-Hermitian adjoint symmetry
+generally yields conjugation symmetry, not an even complex ledger; \(\log(1+it)\) is an elementary
+counterexample.
+
+5.5
+What the local-geometric null gates do and do not exclude
+
+The source fold and near-conical gates measure coverage by a fixed
+angular fan in specified smooth local families. The reported
+fold-to-control area ratios remain near one over the tested resolutions,
+and the conical-family coverage remains near \(24.3\%\)–\(24.7\%\) as the tested domain shrinks.
+These are numerical null results for those constructions.
+[V]
+
+They do not prove that no smooth family can ever produce another
+scaling law. Higher-order degeneracy, nonuniform limits, global
+arrangement, and different parameter-to-space maps are not exhausted by
+two examples. The stronger universality assertion is removed from the
+abstract and conclusion. A useful negative test identifies a mechanism
+that failed under specified controls; it does not certify a theorem
+about every mechanism not tested.
+
+
+
+The original fold and conical coverage
+plots. They are retained as finite-family null tests, not as a universal
+no-compression theorem. The unchanged fold script was replayed
+completely for this edition.
+
+6. Does light exhibit the
+Kakeya effect?
+
+6.1 Three different questions
+
+A geometric Kakeya set contains a unit segment in every direction. A
+thickened tube problem studies the volume and overlap of neighborhoods
+of such segments. A wave estimate controls a coherent superposition,
+including its oscillation and interference. These questions are related,
+but a theorem about tube unions is not itself a theorem about every
+optical field.
+
+Wang and Zahl establish full Hausdorff and Minkowski dimension for
+Kakeya sets in three dimensions [24]. Guth, Wang, and Zhang prove the
+sharp cone square-function estimate underlying the
+two-spatial-dimensional local-smoothing result [25]. These are external
+mathematical inputs, not consequences of the finite capacity gate.
+[C] The particular critical three-spatial-dimensional
+wave estimate below is still an open target in the primary-source
+account [26]. A proof must supply a spacetime norm estimate, not just a
+bound on a matrix rank.
+
+6.2
+A packet has a wavelength, a width, and a propagation length
+
+Let a narrow-band paraxial packet have central wavenumber \(k_0\), transverse width \(w\), and angular spread \(\Delta\theta\). Fourier uncertainty gives
+the scaling \[
+\Delta\theta\gtrsim\frac{1}{k_0w}.
+\] Keeping the angular spread within a comparable width over
+propagation length \(L\) requires \(L\Delta\theta\lesssim w\), hence \[
+\boxed{w^2\gtrsim L/k_0\sim\lambda L.}
+\tag{6.1}
+\] Constants depend on the definitions of width and bandwidth.
+This is a paraxial scaling argument, not a universal compact-support
+assertion. A plane wave has a direction but no finite transverse width.
+A wavelength-scale focus is not automatically a long wavelength-width
+tube. The usual wave-packet decomposition at frequency scale \(R\) uses angular scale \(R^{-1/2}\) and corresponding anisotropic
+spatial scales [25].
+
+The source illustration’s identity \(\delta=\lambda\) is therefore replaced by a
+scale dictionary. In a tube estimate, \(\delta\) is the transverse tube width after
+normalizing its length. In an optical realization, the bandwidth,
+propagation length, aperture, polarization, and normalization must
+determine that \(\delta\). None is
+supplied by the name “needle.”
+
+
+
+A direction family and a wave-packet
+model, with width distinguished from wavelength. Geometric overlap and
+coherent concentration are different observables. The scale relation
+displayed is a paraxial estimate, not a claim that all optical packets
+have the same shape.
+
+6.3 The wave estimate
+that would be needed
+
+One critical Euclidean target in three spatial dimensions is \[
+\left\|e^{it\sqrt{-\Delta}}f\right\|_{L^3(\mathbb R^3\times[0,1])}
+\le C_\beta\|f\|_{W^{\beta,3}(\mathbb R^3)},\qquad \beta>0.
+\tag{6.2}
+\] The endpoint index and the positive derivative loss are part
+of the statement [26]. The finite Gram, trace-log, or Schur identities
+in this paper do not establish (6.2). In particular, scalar transpose
+parity is not a bound on the absolute value of a spatially resolved
+interference sum.
+
+The original lattice dictionary uses normalized Gaussian directional
+profiles with zero longitudinal carrier wavenumber in the executed gate.
+It is an instrument for comparing projected shapes on a lattice, not an
+already calibrated high-frequency Maxwell packet decomposition. Its
+reproduction is evidence about that instrument. An optical comparison
+must replace or derive the dictionary and keep the input-power and
+output-noise normalization visible.
+
+The constructive opportunity is specific: build a spatial response
+operator, derive its singular-channel bounds at a controlled resolution,
+and compare those bounds with a wave-packet norm estimate. The geometric
+theorem remains an input. The census theorem says exactly which finite
+channels it bounds; it does not license a claim that smooth geometry has
+been excluded from every possible approach.
+
+7. What approximation
+and reduction retain
+
+7.1
+Normalization can change which information is stable
+
+The clock-and-shift construction separates a branch-protected integer
+from a normalized defect that can become small as the ambient dimension
+grows. Results on almost commuting matrices in normalized
+Hilbert–Schmidt distance [27,28] explain why a small dimension-averaged
+error need not control an operator-norm obstruction.
+[C] This is a statement about specified invariants and
+approximation regimes, not a theorem that every integer is erased by
+every normalized norm.
+
+For permutation matrices \(U,V\) on
+\(n\) points, direct counting gives
+\[
+\boxed{\|U-V\|_F^2=2n\,d_H(U,V).}
+\tag{7.1}
+\] Each differing column contributes two to the squared Frobenius
+norm. The operator norm is not always two: relative transpositions
+attain two, while a relative three-cycle has distance \(\sqrt3\) from the identity. One must
+identify the actual relative permutation before asserting a norm
+value.
+
+Sofic and related approximation programmes concern coherent
+approximate multiplication and separation requirements, not just one
+norm identity. No conclusion about the existence of non-sofic groups is
+used in this paper. The scalar regularized torsion and complete-complex
+results from the companion permutation work are separate mathematical
+problems. Their useful contribution here is the distinction between a
+summed defect and the arrangement that produced it.
+
+7.2
+The displacement Gram and an exact projector realization
+
+For a unitary \(U\), define \[
+G_U=I-\frac{U+U^\dagger}{2}
+=\frac12(U-I)^\dagger(U-I),\qquad K_U=G_U/2.
+\tag{7.2}
+\] Thus \(0\le K_U\le I\). For a
+permutation, the trace of \(G_U\)
+counts its moved points. On a cycle of length \(\ell\), \[
+\lambda_j(G_U)=2\sin^2(\pi j/\ell),\qquad 0\le j<\ell.
+\tag{7.3}
+\] This follows by diagonalizing the cyclic shift in its discrete
+Fourier basis. A two-cycle is represented by two opposite displacement
+vectors: their Gram off-diagonal entry is \(-1\), not \(-1/2\). Formula (7.2) handles that case
+without an ambiguous simple-cycle convention. [T]
+
+Define orthonormal graph frames and their range projectors by \[
+Q_U=\frac1{\sqrt2}\begin{pmatrix}I\\U\end{pmatrix},\qquad
+Q_I=\frac1{\sqrt2}\begin{pmatrix}I\\I\end{pmatrix},\qquad
+\mathcal P_U=Q_UQ_U^\dagger,\quad\mathcal P_I=Q_IQ_I^\dagger.
+\] Since \(Q_I^\dagger
+Q_U=(I+U)/2\), \[
+\boxed{Q_U^\dagger(I-\mathcal P_I)Q_U=K_U.}
+\tag{7.4}
+\] The eigenvalues of \(K_U\)
+are exactly the squared sines of the principal angles between these
+graph subspaces. For two permutation matrices, \[
+\boxed{d_H(U,V)=\frac1n\|\mathcal P_U-\mathcal P_V\|_F^2.}
+\tag{7.5}
+\] Indeed, the off-diagonal blocks of the projector difference
+are \((U-V)/2\) and its adjoint. This
+is an explicit map from a discrete permutation reading to
+orthogonal-projector geometry. It is not a replacement for an oblique
+Riesz projector.
+
+The fixed normalization \(K_U=G_U/2\) is essential. For binary
+entropy \(h(x)=-x\log
+x-(1-x)\log(1-x)\) with \(h(0)=h(1)=0\), \[
+\boxed{\operatorname{Tr}h(K_U)=0\quad\Longleftrightarrow\quad U^2=I.}
+\tag{7.6}
+\] Proof. An eigenphase \(e^{i\phi}\) contributes \(\sin^2(\phi/2)\) to \(K_U\). Entropy vanishes exactly when each
+such number is zero or one, equivalently every eigenphase is \(+1\) or \(-1\). Unitary diagonalizability then gives
+\(U^2=I\). For a permutation on its
+moved support, this is the transposition-only condition.
+[T]
+
+Normalizing each specimen by its own largest Gram eigenvalue does not
+have this property: a three-cycle has Gram spectrum \(\{0,3/2,3/2\}\), which becomes \(\{0,1,1\}\). The repaired fixed
+normalization instead gives \(\{0,3/4,3/4\}\) and positive entropy. This
+correction is to the reading, not to the underlying displacement
+construction.
+
+7.3 The same
+graph geometry has a Cayley coordinate
+
+On \(\ker(I-U)^\perp\), where \(I-U\) is invertible, set \[
+Z=(I+U)(I-U)^{-1}=iX,\qquad X=X^\dagger.
+\] For an eigenphase \(e^{i\phi}\ne1\), \(X=\cot(\phi/2)\) in the same eigenbasis.
+Hence \[
+\boxed{K_U=(I+X^2)^{-1}},\qquad
+U=(Z-I)(Z+I)^{-1}.
+\tag{7.7}
+\] The principal-angle threshold is therefore \[
+\sin^2\theta\ge\varepsilon
+\quad\Longleftrightarrow\quad
+|x|\le\sqrt{\varepsilon^{-1}-1}
+\tag{7.8}
+\] mode by mode. The fixed subspace of \(U\) is a pole of this chart; it must be
+retained separately rather than declared nonexistent. The displacement
+Gram loses orientation: \(G_U=G_{U^\dagger}\). The full \(U\) or signed \(X\) retains information that the
+squared-angle reading discards. This is a lossless algebraic Cayley
+construction, not yet an identification of a permutation with an optical
+scattering matrix.
+
+7.4 Curvature before the
+defect norm
+
+Let \(U_{ij}\) transport the \(j\)-fiber to the \(i\)-fiber, with \(U_{ji}=U_{ij}^{-1}\). Define triangle
+holonomy \(F_{ijk}=U_{ij}U_{jk}U_{ki}\)
+and covariant differences \[
+(d_U^0s)_{ij}=U_{ij}s_j-s_i,\qquad
+(d_U^1t)_{ijk}=U_{ij}t_{jk}-t_{ik}+t_{ij}.
+\] Expanding and canceling the terms at the first two vertices
+proves \[
+\boxed{(d_U^1d_U^0s)_{ijk}=(F_{ijk}-I)U_{ik}s_k.}
+\tag{7.9}
+\] Thus the local transports compose as a differential exactly on
+flat triangles. For unitary transports, \[
+\frac12\|U_{ij}U_{jk}-U_{ik}\|_F^2
+=\operatorname{Tr}G_{F_{ijk}}.
+\tag{7.10}
+\] For permutation transports, summing the right side gives the
+integer moved-point numerator in the companion complete-complex ratio.
+Its vanishing has an exact compatibility meaning. It is not a
+scattering-amplitude numerator, although both warn against studying only
+a denominator.
+
+The face holonomies satisfy an additional ordered identity: \[
+\boxed{F_{012}F_{023}=U_{01}F_{123}U_{10}F_{013}.}
+\tag{7.11}
+\] Proof. Both sides reduce, by adjacent inverse
+cancellation, to \(U_{01}U_{12}U_{23}U_{30}\). This holds in
+any group. [T] The finite companion gate checks all
+\(6^6=46{,}656\) assignments of \(\mathrm{Sym}(3)\) to the six edges. A
+scalar norm of each face does not preserve the full ordered
+identity.
+
+7.5 Coherent composition
+after a reduction
+
+Let \(P\) now be a linear projection
+on an associative algebra, not a band projector, and define \(x\star y=P(xy)\) on its image. Then \[
+\boxed{(x\star y)\star z-x\star(y\star z)
+=P\big[x(I-P)(yz)-(I-P)(xy)z\big].}
+\tag{7.12}
+\] Proof. Substitute \(P=I-(I-P)\) in the two inner
+multiplications; associativity cancels \((xy)z-x(yz)\). Linearity gives the
+displayed identity. [T] Information removed at an
+intermediate product can contribute at a later product. For real
+matrices with \(P(X)=(X+X^\top)/2\),
+taking \(Z=\sigma_z\) and \(X=\sigma_x\) gives associator \(-Z\) for \((Z,X,X)\), an exact nonzero control.
+
+Sullivan’s fluid-algebra discussion explicitly uses tree-indexed
+homotopy corrections and connects their construction to Feynman trees
+[30]. The homotopy-transfer treatment of tree scattering amplitudes
+supplies a separate rigorous example [31]. Those published constructions
+require a differential, compatible operations, and contraction data such
+as \(pi=I\) and \(dh+hd=I-ip\). The nonflat operator in (7.9)
+does not satisfy an ordinary \(d^2=0\)
+premise. Its curvature cannot be discarded before applying such a
+theorem. The associahedron organizes coherence; it does not turn an
+arbitrary projected product into a coherent homotopy algebra by
+itself.
+
+Figueiredo and collaborators’ hidden-zero and numerator constructions
+[29,35] motivate retaining cancellations and factorization data. Their
+specific scattering theories are not identified with the finite
+transport model here. Browder’s surgery perspective [34] likewise
+motivates naming permissible modifications and their obstructions; a
+finite gauge repair is not automatically a manifold-surgery
+obstruction.
+
+One additional square-root mechanism is worth separating from
+refraction. Catalan composition satisfies \(C(t)=1+tC(t)^2\), so \(C(t)=(1-\sqrt{1-4t})/(2t)\). Polygon
+triangulations and square-root field parametrizations meet through that
+quadratic relation in [35]. A combinatorial branch and a propagation
+threshold can share quadratic algebra without having the same physical
+cause.
+
+8. What
+survives a wall, and what a boundary measures
+
+8.1 Different
+failures must have different names
+
+The framework now distinguishes at least five objects: a pullback
+metric losing rank; a smallest transport singular value tending to zero;
+a spectral cluster meeting its contour; a numerator cancellation in a
+specified response; and a loss of positivity in a separately defined
+response or biorthogonal form. Their loci need not agree.
+
+For the orthogonal-projector tensor of Section 3, positivity and the
+metric–curvature inequality cannot fail while its hypotheses remain
+true. A general real symmetric \(g\)
+and real antisymmetric \(\Omega\) can
+be combined into a Hermitian matrix \(Q=g-i\Omega/2\) that loses positivity even
+when \(g\) remains positive. In two
+parameters, that is tested by the diagonal conditions and \(\det g-\Omega_{12}^2/4\ge0\). But such an
+independently assigned \(Q\) is not
+automatically an orthogonal tangent Gram. A biorthogonal application
+must define its form and verify this identification rather than infer it
+from the same symbols.
+
+The source’s assertion that a curve and a point cannot meet is also
+too strong. Generic codimension statements require a specified family
+and transversality hypotheses; intersections are possible. No
+codimension slogan proves that a geometric wall and an exceptional point
+are distinct in every model. The examples and their operators
+decide.
+
+8.2 Reciprocity: a
+precise real-domain statement
+
+Let \(B>0\) be real symmetric and
+let \(V^\top B=BV\). Then \(BV\) is symmetric, and for any real vectors
+\(x,y\), \[
+x^\top BVy=y^\top BVx.
+\tag{8.1}
+\] For positive real \(N_i,N_j\)
+and a nonzero real gap, the expression \[
+\frac{(x_i^\top BVx_j)(x_j^\top BVx_i)}
+{N_iN_j(\lambda_i-\lambda_j)^2}
+\ge0
+\tag{8.2}
+\] is a real square divided by a positive number.
+[T] This equality does not require the vectors to be
+eigenvectors of a \(B\)-symmetric
+generator.
+
+It also does not identify (8.2) with every nonnormal
+spectral-projector response. For a general nonnormal generator, left
+eigenvectors need not be \(B\) times
+its right eigenvectors. The actual residues and round-trip factors must
+be calculated with the appropriate left/right pairing. A complex square
+is not an order-positive real number merely because it is a square.
+
+
+
+The reciprocity diagram, restricted to
+the real symmetric-probe bilinear form that is actually proved.
+Positivity of a true biorthogonal spectral response needs additional
+hypotheses relating the left and right vectors.
+
+8.3
+Self-adjointness supplies a Gram, not every possible response
+
+For an orthogonal projector tangent \(V\), write \(X=PV(I-P)\) and \(Y=(I-P)VP\). Self-adjointness gives \(Y=X^\dagger\). The metric is then a
+positive Gram of cross-subspace blocks, as Section 3 proves. Breaking
+this relation removes that proof of positivity; it does not compel a
+negative eigenvalue in every non-Hermitian example.
+
+Similarly, the physical marker Gram in Section 4 remains positive at
+arbitrary mixed-state rank. A mixed marker can reduce duality saturation
+without producing a negative Gram direction. “Loss of visibility,”
+“degeneracy,” and “indefiniteness” are different events. The edition
+retains the non-Hermitian programme while removing an unsupported
+identification of these events.
+
+8.4 The
+contour condition is the continuation condition
+
+Let \(M_\Gamma=\sup_{z\in\Gamma}\|(zI-H)^{-1}\|\)
+and let \(\|E\|M_\Gamma<1\). The
+Neumann expansion gives a resolvent on the same contour for \(H+E\) and \[
+\sup_\Gamma\|(zI-H-E)^{-1}\|
+\le\frac{M_\Gamma}{1-M_\Gamma\|E\|}.
+\] The resolvent identity and the contour length bound give \[
+\boxed{\|\Pi_\Gamma(H+E)-\Pi_\Gamma(H)\|
+\le\frac{\operatorname{length}(\Gamma)}{2\pi}
+\frac{M_\Gamma^2\|E\|}{1-M_\Gamma\|E\|}.}
+\tag{8.3}
+\] This is a local, contour-dependent stability theorem; it uses
+a resolvent bound, not merely distance to eigenvalues of a nonnormal
+matrix [2]. An analytic \(f\) has a
+corresponding bound with \(\sup_\Gamma|f|\). [T]
+
+A degeneracy of a parameter pullback metric need not affect any of
+these hypotheses. Conversely, if the spectrum reaches the selected
+contour, this representation ceases to be admissible. For a logarithmic
+ledger, the analytic logarithm domain must also remain available. An
+internal collision of eigenvalues within the enclosed cluster does not
+necessarily destroy the cluster projector.
+
+8.5 An
+individual mode fails while the pair remains
+
+For \[
+H(\gamma)=\sigma_x+i\gamma\sigma_z,
+\] the eigenvalues for \(0\le\gamma<1\) are \(\pm\sqrt{1-\gamma^2}\).
+Euclidean-normalized left and right eigenvectors of an individual mode
+have overlap magnitude \(\sqrt{1-\gamma^2}\), and the corresponding
+Petermann factor is \((1-\gamma^2)^{-1}\). The individual
+spectral projectors are \[
+P_\pm=\frac12\left(I\pm\frac{H}{\sqrt{1-\gamma^2}}\right).
+\tag{8.4}
+\] They become singular as \(\gamma\to1\), whereas \(P_++P_-=I\). A fixed contour enclosing the
+pair and remaining off the spectrum retains rank two at the collision.
+The entire finite matrix resolvent is bounded on a fixed compact such
+contour near this finite collision; divergence of a shrinking or
+single-mode contour is not a theorem that every admissible contour
+diverges.
+
+For a sufficiently large positive shift \(c\), the pair trace-log is \[
+\operatorname{Tr}\log(cI+H)=\log(c^2-1+\gamma^2)
+\tag{8.5}
+\] on the common principal branch. It is smooth near \(\gamma=1\) but not constant. This separates
+the invariant pair count from a varying scalar ledger and from singular
+individual-mode amplitudes. [T]
+
+
+
+The source individual-mode overlap and
+pair-count example. The square-root collapse is an individual pairing;
+the integer two is the projector rank of the whole isolated pair. The
+trace-log is smooth, not generally constant.
+
+The broader entropy and gravity comparisons in the earlier manuscript
+are not used as proofs of this separation. An entanglement entropy, a
+relative entropy, and a trace-log are distinct functionals. Connecting
+any of them to a spacetime field equation requires its own state,
+variation, normalization, and physical hypotheses. This paper confines
+its entropy claims to the specified finite spectra and leaves broader
+spacetime comparisons to separate work.
+
+8.6 Schur
+elimination and the exact boundary response
+
+Let \(L\) be a finite complex
+operator with \(\operatorname{Herm}L=(L+L^\dagger)/2\ge0\).
+Partition interior and boundary indices, assume \(L_{ii}\) is invertible, and define \[
+Z_b=L_{bb}-L_{bi}L_{ii}^{-1}L_{ib},\qquad
+W=\begin{pmatrix}-L_{ii}^{-1}L_{ib}\\I\end{pmatrix}.
+\tag{8.6}
+\] The lift \(Wb\) solves the
+interior equation with boundary value \(b\). Since \(LW=(0,Z_b)^\top\), multiplication gives
+\[
+\boxed{\operatorname{Herm}Z_b=W^\dagger\operatorname{Herm}L\,W\ge0.}
+\tag{8.7}
+\] No normality is needed. Positivity implies that \(Z_b+I\) is invertible: a vector with \(Z_bx=-x\) would have negative real
+quadratic form unless \(x=0\).
+
+Use a real positive reference normalization and set \(V_b=(Z_b+I)^{-1}\) and \(S_b=(Z_b-I)V_b\). Expanding the difference
+\((Z_b+I)^\dagger(Z_b+I)-(Z_b-I)^\dagger(Z_b-I)\)
+proves \[
+\boxed{I-S_b^\dagger S_b
+=4V_b^\dagger\operatorname{Herm}Z_bV_b
+=4(WV_b)^\dagger\operatorname{Herm}L\,(WV_b).}
+\tag{8.8}
+\] [T] For an input \(a\), this is the exact quadratic-form
+identity \[
+\|a\|^2-\|S_ba\|^2
+=4(WV_ba)^\dagger\operatorname{Herm}L\,(WV_ba).
+\tag{8.9}
+\] It retains how the interior modes meet a specified drive. It
+is a pullback of a response form, not a proof that this form equals the
+intrinsic tangent metric. The response is contractive, but power not
+returned through the selected ports can include transmission to other
+ports rather than irreversible absorption.
+
+Positive eigenvalues alone do not suffice. For \(Z_b=\left(\begin{smallmatrix}1&4\\0&1\end{smallmatrix}\right)\),
+both eigenvalues are one, yet \(S_b=\left(\begin{smallmatrix}0&2\\0&0\end{smallmatrix}\right)\)
+has largest singular value two. The Hermitian part is indefinite,
+exactly the missing hypothesis.
+
+For real \(M>0\), real skew \(E\), and \(L_t(\omega)=M+tE-i\omega I\), the Hermitian
+part stays \(M>0\). For the same
+partition, transposition also gives \[
+Z_b(-t)=Z_b(t)^\top,\qquad S_b(-t)=S_b(t)^\top.
+\tag{8.10}
+\] Consequently diagonal responses are even, but \(S_{ij}-S_{ji}\) is odd and can have a
+first-order term. Scalar ledger parity does not mean all observable
+directional response has no first-order change.
+
+Operator-graph language gives another exact reading. With \(\mathcal W=(I,S_b)^\top\) and \(\mathcal J=\operatorname{diag}(I,-I)\),
+\[
+\mathcal W^\dagger\mathcal J\mathcal W=I-S_b^\dagger S_b.
+\tag{8.11}
+\] Contractivity is positivity of the ambient indefinite form on
+the response graph. This is a useful point of contact with Nag–Sullivan
+operator-graph geometry [32], but a period-map interpretation requires
+additional symplectic and analytic structure. A common graph coordinate
+does not identify its various possible metrics.
+
+8.7
+Surface coupling, absorption, and the Smith coordinate
+
+To make one physical boundary realization explicit, assume a local,
+infinitely thin electric sheet of independent dipoles at normal
+incidence, with identical lossless media on each side. Let its
+conductivity be \(\sigma_s=-i\omega
+N_s\alpha(\omega)\) for time dependence \(e^{-i\omega t}\), and write \(\zeta=Z_0\sigma_s\). Tangential electric
+continuity and the magnetic jump give \[
+t=1+r,\qquad -2r=\zeta t.
+\] Thus \[
+r=-\frac{\zeta}{2+\zeta},\qquad t=\frac2{2+\zeta}.
+\tag{8.12}
+\] Looking into the outgoing medium plus the sheet gives
+normalized impedance \(z_b=1/(1+\zeta)\), whose Smith transform is
+exactly \(r=(z_b-1)/(z_b+1)\). The
+power fractions satisfy \[
+\mathcal R=\frac{|\zeta|^2}{|2+\zeta|^2},\quad
+\mathcal T=\frac4{|2+\zeta|^2},\quad
+\mathcal A=\frac{4\operatorname{Re}\zeta}{|2+\zeta|^2},\quad
+\mathcal R+\mathcal T+\mathcal A=1.
+\tag{8.13}
+\] For a passive sheet \(\operatorname{Re}\zeta\ge0\). In this
+particular symmetric one-sided electric-sheet model, \[
+\frac12-\mathcal A
+=\frac{(\operatorname{Re}\zeta-2)^2+(\operatorname{Im}\zeta)^2}
+{2|2+\zeta|^2}\ge0.
+\tag{8.14}
+\] The one-half bound is a conditional matching result. A backing
+mirror, two coherent inputs, magnetic response, or unequal media changes
+its hypotheses. The model shows explicitly why no reflection does not
+imply complete absorption: \(\zeta=0\)
+has \(r=0\), \(t=1\), and \(\mathcal A=0\).
+
+Microscopic surface electronic response can also require information
+beyond a bulk permittivity. Feibelman response functions describe such
+boundary corrections; broadband measurements at a gold–air interface
+provide a recent example [36]. [C] These functions
+describe induced charge/current response, not the position of a single
+surface electron. The sheet and bulk models in this paper do not imply
+that electrons exist only at a surface or that all refraction consists
+of real photon absorption and delayed re-emission.
+
+8.8 A numerator retains
+the probe relation
+
+For fixed input \(b\), output \(a\), and \(z\) off the spectrum, \[
+T_{ab}(z)=a^\dagger(zI-H)^{-1}b
+=\frac{a^\dagger\operatorname{adj}(zI-H)b}{\det(zI-H)}.
+\tag{8.15}
+\] The denominator records the possible spectral poles. The
+numerator also records the probe relation. At a simple eigenvalue \(E_j\), comparison of residues gives \[
+N_{ab}(E_j)=D'(E_j)\,a^\dagger P_jb.
+\tag{8.16}
+\] An uncoupled spectral mode can have its possible pole canceled
+in that response. For Hermitian \(H\)
+and \(a=b\), the residue is \(\|P_jb\|^2\).
+
+Take \(H=\left(\begin{smallmatrix}c&s\\s&-c\end{smallmatrix}\right)\)
+with \(c^2+s^2=1\) and \(b=e_1\). Then \(D(z)=z^2-1\) while \(T_{bb}(z)=(z+c)/(z^2-1)\). A numerator zero
+moves at fixed eigenvalues. This is an exact finite response example,
+not a claim that its numerator is the canonical form of a particular
+amplitude geometry.
+
+The scalar ledger can regain probe sensitivity through an explicit
+insertion. For \(M>0\), the
+determinant lemma gives \[
+\frac{\det(M+tbb^\dagger)}{\det M}=1+t\,b^\dagger M^{-1}b,
+\qquad
+\left.\frac{d}{dt}\log\det(M+tbb^\dagger)\right|_{t=0}
+=b^\dagger M^{-1}b.
+\tag{8.17}
+\] A scalar without a probe discards orientation. Its response to
+a specified probe need not. This identity connects the determinant,
+resolvent, and boundary-response instruments without conflating them.
+[T]
+
+9. Discriminating
+measurements and model tests
+
+A physical test must measure the operator or response used in the
+theorem, with its units and thresholds fixed in advance. The following
+programme keeps the original experimental direction but separates the
+distinct tests.
+
+Marker response. Vary the trap state, recoil, and
+mixing while estimating visibility and operational distinguishability.
+The mixed-state marker Gram remains positive by Section 4, so a negative
+direction would concern a different constructed form or a violated
+modeling assumption. A shortfall in duality saturation is not by itself
+an independent intrinsic-licence boundary. The thermal-marker
+calculation remains a model prediction, not an additional laboratory
+measurement.
+
+Boundary-filtered channels. Measure or reconstruct
+the region projector, its cross-cut coupling, and the specified input
+dictionary. Determine the transition-window filter independently of the
+measured channel count. Report the two thresholds \(\varepsilon,\tau\), raw output strengths,
+noise floor, and power calibration. Renormalizing every filtered output
+would erase the suppression the census theorem is supposed to measure. A
+structured-light aperture experiment needs a physical implementation or
+derivation of this filter; a finite matrix rank bound does not supply
+that implementation.
+
+Electronic geometry and optical response. Hold
+transition energies approximately fixed while varying the electronic
+eigenstates relative to a fixed dipole/polarization probe. Measure
+response strengths, not only peak positions. Below the gap, test the
+positive-weight nullspace prediction; between resonances, distinguish a
+tune-out zero from a spectral gap closure. In a many-body or dissipative
+material, use the appropriate response theory rather than importing the
+independent finite-dipole assumptions unchanged.
+
+Rigidity and refraction. Reconstruct \(A_{\mathrm{intr}}\) in fixed, declared
+domain and range inner products. Choose one physical normalization and
+one regulator procedure, then predict rigidity ratios without fitting
+them to measured angles. Independently obtain \(R_{\mathrm{opt}}\) from the optical
+response. The hypothesis that the scalar transport law describes the
+optical interface requires compatible coordinates and an independently
+justified proportionality of the coefficients across the compared
+states. A parameter-space principal angle is not automatically a
+physical incidence angle. The cap \(R_\eta\le1/\eta\) and the order of
+regularizer/threshold limits must be reported.
+
+Recycling and feedback. Compare a plain emitter, a
+conventional recycling cavity, and the proposed structured/non-Hermitian
+architecture at equal input energy and thermal constraints. The figure
+of merit is useful output per input energy, including losses and
+external pumping. A passive return loop cannot supply net energy from
+the difference between two mathematical readings. Any improvement must
+come from redistribution, storage, extraction, or reduced dissipation
+within an explicit energy balance. The intensity-generated wall and the
+fixed-family parity theorem do not yet solve the nonlinear feedback
+dynamics. [H]
+
+These tests can challenge the proposed physical identifications
+without invalidating identities that remain true for their stated
+mathematical objects. Conversely, a passing numerical gate does not
+establish a physical identification it never tested.
+
+10. Future work
+
+The finite results proved here define the scope of this paper. Three
+extensions motivate further research; none is a premise of the
+projector, census, boundary-response, or finite constitutive
+results.
+
+10.1
+Physical identification of transport rigidity and optical response
+
+Retain \(R_\eta=[\sigma_{\min}(A_{\mathrm{intr}})^2+\eta]^{-1}\)
+with its specified inner products and regularizer. A physical
+identification with \(R_{\mathrm{opt}}\) requires an
+independently derived transport operator, probe coupling, units, and
+parameter-to-space map, followed by a test of proportionality over the
+intended class of states. Agreement of two squared-Snell equations alone
+does not supply this map. Proposition 5.1 excludes the particular scalar
+choice \(\sigma_{\min}^2=g\) with fixed
+positive \(\eta\) and \(R_{\mathrm{opt}}=1+kg\), \(k>0\); it leaves other independently
+specified constructions open.
+
+Related questions concern the measurement of a biorthogonal response
+form and conditions under which actual nonnormal spectral pairings
+inherit probe reciprocity. These require their own response maps; the
+physical mixed-marker Gram remains positive.
+
+10.2 Continuum optical
+directional capacity
+
+The finite direction geometry and filtered census bound are
+established. Extending them to a universal optical aperture bound
+requires a physical response dictionary, a realizable boundary filter,
+fixed normalization and thresholds, and a controlled continuum limit. A
+spatial wave estimate must relate those data to wavelength, packet
+width, and propagation distance. Any proposed local-smoothing
+consequence must address the norm estimate in (6.2) directly.
+
+The fold and conical gates are finite-family null tests. A general
+geometric exclusion would need hypotheses covering additional
+degeneracies, global arrangements, and nonuniform limits. The continuum
+scaling and its prefactor remain future targets, while the exact finite
+bound retains its present scope.
+
+10.3 Long-lived light-source
+dynamics
+
+The architecture calls for a closed emitter–field–medium model with
+stated input power, useful optical output, internal losses, and thermal
+response. Its feedback equations must be solved for existence and
+stability rather than inferred from fixed-family ledger parity. A
+meaningful test compares performance against a conventional cavity under
+matched input, coupling, and loss conditions. Distributed conservative
+emitter operation and thermal management can be incorporated as
+engineering choices in that comparison.
+
+The programme includes testing whether nonnormal response improves
+useful extraction or redistributes stress, and separating those effects
+from transient amplification or instability. Predicting perceptual color
+additionally requires the outgoing spectrum and an observer model.
+Neither the finite identities nor the calibration obstruction decide the
+architecture’s engineering outcome.
+
+Further formalization of spectral differentiation, analytic contours,
+and the connecting dynamical arguments can accompany these extensions.
+The current declaration-level proof scope is recorded in Appendix B.
+
+11. Conclusion
+The finite response results now give a direct way to ask whether silence is coupling lost or contributions cancelled. Two distinct squared photon energies in one pole-free interval recover the metric kernel through a positive response difference. A single tune-out can hide active transitions; two exact scalar zeros in that interval cannot, under the stated lossless assumptions. Probe-span certificates separately identify which tensor readings are determined and which perturbations remain invisible. These additions strengthen the finite measurement programme without supplying the three physical extensions reserved above. [T]
+
+The central distinction survives the stricter formulation: local
+geometry, spectral continuation, and measured response are different
+readings of related operator data. A pullback metric can lose rank
+without a spectral contour becoming inadmissible. An individual mode can
+become singular while the projector of its entire isolated cluster stays
+regular. A scalar ledger can be even or isospectrally constant while a
+directed, probe-dependent response changes.
+
+The paper establishes five concrete components: orthogonal-projector
+geometry; the exact cross-boundary census and its filtered-channel
+bound; the Schur–Cayley interior-to-boundary response identity; the
+transition-resolved connection between electric-field geometry and
+optical polarizability; and exact tune-out and nullspace results. The
+response weights preserve the metric’s real kernel below the gap, while
+positive-residue transitions admit a unique lossless two-pole tune-out
+between resonances. Equal total metrics can nevertheless have unequal
+static response. Rigidity has a controlled regularizer, resolvent
+representation, finite stability bound, and conditional scalar-action
+refraction law.
+
+The relational information cannot all be compressed to eigenvalues, a
+determinant, a defect norm, or a list of directions. Probe couplings,
+holonomy order, boundary maps, and coherent composition retain different
+parts of it. The permutation and homotopy-algebra connections are useful
+precisely when their maps and hypotheses are stated, and cease to be
+useful when shared notation is mistaken for a proof of physical
+equivalence.
+
+Light and matter provide the organizing physical interpretation.
+[H] The mathematical contribution is the finite
+operator framework and its explicit response relations, supported by
+reproducible model calculations and 91 verified light-specific Lean
+declarations. Physical rigidity–optical identification, continuum
+directional capacity, and the long-lived source architecture are the
+three future directions in Section 10. The present results stand under
+their displayed hypotheses independently of how those extensions
+develop.
+
+Appendix A.
+Reproducibility and the verification record
+
+A.1 What was executed
+for this edition
+
+The proofs-and-code supplement contains the eighteen numerical
+verification programs under numerical_gates/, their replay
+outputs under verification/numerical_gates/, and the
+independent verifiers under checks/. Earlier published HTML
+and PDF versions are not included. All eighteen original verification
+scripts executed successfully in this edition. The fold replay used the
+unchanged 1201-by-1201 grid and returned fold/control ratios 1.0000,
+1.0837, 0.8854, 0.9802, 0.9904, 1.0207, and 1.0451. The direction count
+grows as acceptance narrows over a fixed fan, so these values are not a
+fixed-input shrinking-tube scaling law. Original figure reproduction and
+symbolic finite checks are not substitutes for a proof of the prose
+surrounding a figure.
+
+
+
+
+
+
+
+
+
+Original gate
+Reading retained in this edition
+Replay
+
+
+
+
+
+NCA-GATE-01
+Winding integrality and guarded defect
+domain
+Completed
+
+
+
+BEC-CHERN-GATE-01
+Externally calibrated band
+calculation
+Completed
+
+
+
+COMPLEMENTARITY-GRAM-GATE-01
+Pure-marker overlap and duality
+Completed
+
+
+
+WINDING-LADDER-GATE-01
+Clock/shift powers and integer costs
+Completed
+
+
+
+KAKEYA-CAPACITY-GATE-01
+Finite dictionary capacity and census
+Completed
+
+
+
+KAKEYA-BULGE-GATE-01
+Driven crossing concentration
+Completed
+
+
+
+BOUNDARY-GATE-05
+Two explicitly different finite
+generators
+Completed
+
+
+
+TIPTAIL-GATE-02
+Fixed-family first derivative control
+Completed
+
+
+
+RECIPROCITY-GATE-03
+Real \(B\)-symmetric probe form
+Completed
+
+
+
+PSD-GATE-01
+Orthogonal versus non-Hermitian
+blocks
+Completed
+
+
+
+KAKEYA-FOLD-COVER-03
+Specified local-family null test
+Completed
+
+
+
+KAKEYA-CONICAL-03
+Specified near-conical coverage
+Completed
+
+
+
+LAPLACIAN-GATE-01
+Second-difference consistency
+Completed
+
+
+
+LEDGER-WALL-GATE-03
+Chosen contour and changing local
+form
+Completed
+
+
+
+LEDGER-AMPLITUDE-GATE-01
+Individual overlap versus pair trace
+Completed
+
+
+
+CONTOUR-BOUND-GATE-02
+Selected contour-margin conditioning
+Completed
+
+
+
+SUBSPACE-PERSISTENCE-GATE-01
+QR range angles of selected modes
+Completed
+
+
+
+MARKER-MIXED-GATE-01
+Thermal marker calculation
+Completed
+
+
+
+
+The replayed scripts are source provenance, not blanket validation of
+their original theorem annotations. The principal-angle script selects a
+range by eigenvalue sorting; the contour scripts examine their specified
+margins; the reciprocity script tests a bilinear form. The revised text
+states those scopes explicitly. A nonzero program exit or a violated
+numerical assertion would be a computational failure; a zero exit does
+not certify an untested interpretation.
+
+A.2 Independent
+boundary and census checks
+
+The independent bridge verifier uses both exact algebraic controls
+and floating-point matrix tests. It checks 216 \(\mathrm{Sym}(3)\) triangle assignments,
+46,656 tetrahedron assignments, forty physical marker Gram instances,
+and sixty-four complex nonnormal boundary reductions. Its largest
+relative residual in the combined harmonic-lift/Cayley identity is \(1.1272\times10^{-15}\).
+
+The Fourier reconstruction of the periodic \(32\times32\) two-band lattice reproduces
+all ten original 64-direction capacity/census pairs. For the radius-four
+and radius-seven discs, \(\|B\|_F^2\)
+is respectively \(1.181415474820\) and
+\(1.998085312791\). The block-projector
+residuals are approximately \(1.30\times10^{-15}\) and \(3.80\times10^{-15}\). The cross-boundary
+singular count equals the census at every tested threshold; the
+separately measured filtered counts are reported in Section 5.1.
+
+The supplied negative controls include an oblique projector for which
+the naive principal-angle trace fails, more pairwise-separated vectors
+than the rank of their span, raw stress equal to sixteen, and a matrix
+with positive eigenvalues but a noncontractive Cayley response. They
+distinguish assumptions, not numerical tolerances chosen after a
+failure.
+
+A.3 Independent
+constitutive checks
+
+The constitutive verifier solves the full density-matrix
+linear-response equation independently of the weighted-metric
+expression. Forty-eight Hermitian systems of sizes two through seven,
+each with three dipole probes, give a largest relative discrepancy of
+\(4.88\times10^{-15}\). Independent
+finite differences of the ground-state projector and static polarization
+agree to about \(6.3\times10^{-10}\).
+An imposed dependent-probe direction produces no nullspace failures.
+
+The three-level tune-out example is exact rational algebra. The
+fixed-energy refraction table is a dimensionless model evaluation, not
+material data. The scripts report their frequency, coupling, broadening,
+and field conventions. A finite-difference discrepancy near a degeneracy
+would require a separate stability analysis, not a hidden change of the
+spectral branch.
+
+A.4 Rigidity and regulator
+audit
+
+A separate edition verifier checks the approved definition against
+the inverse of \(A^\dagger A+\eta I\),
+two-sided unitary invariance, the fixed-\(\eta\) cap, and the perturbation bound. It
+includes the exact Pauli example showing that the complex two-direction
+tangent Gram can be singular while its real metric is positive. It
+checks the scalar corner-condition algebra with unequal potentials as
+well as the equal-potential specialization. The raw result and status
+are included in checks/rigidity_results.json.
+
+Appendix B. Formalization
+scope
+
+The supplied formalization contains 62 bridge declarations, 12
+constitutive declarations, and eight rigidity declarations. The
+completion module adds nine statements: the same-metric control, four
+two-pole identities, two calibration results, and two full matrix-kernel
+results. Thus the light-specific inventory contains 91 named theorem
+declarations. The inherited operator-first core is a separate
+14-statement inventory; counts do not measure novelty or imply that
+every proposition in this manuscript has been formalized.
+
+
+
+
+
+
+
+
+
+Formal area
+Declaration scope
+Not certified by that algebra alone
+
+
+
+
+
+Projector blocks
+Off-diagonal identities and Gram
+forms
+Identification with an experiment
+
+
+
+Census
+Scalar window equivalence, finite
+count/rank bounds
+Spectral functional calculus or continuum
+limit
+
+
+
+Boundary
+Schur equations and Cayley pullback
+Electromagnetic realization of every input
+operator
+
+
+
+Ledger
+Finite transpose/determinant/trace
+identities
+Contour integration and analytic
+continuation
+
+
+
+Constitutive
+Weighting, positivity, null-direction
+algebra
+Microscopic response and
+homogenization
+
+
+
+Coherence
+Ordered group and compression
+identities
+A completed homotopy-transfer
+construction
+
+
+
+Rigidity
+Positive scalar regularization and
+matching algebra
+A transport-to-permittivity
+identification
+
+
+
+Completion
+Full real weighted-Gram kernels; scalar
+controls
+Derivation of the physical field Jacobian
+itself
+
+
+
+
+The complete kernel equality in Corollary 4.4 is represented by
+weighted_matrix_kernel and
+response_metric_matrix_kernels: for a finite real matrix
+\(J\) and positive-definite real \(W\), the kernels of \(J^\top WJ\), \(J^\top J\), and \(J\) agree. Obtaining \(J\) and \(W\) from spectral perturbation remains a
+written derivation.
+
+The verification workflow builds every module, prints every theorem’s
+axiom dependencies, and separately rechecks each module with
+leanchecker. Four false controls must fail. The exact source revision,
+logs, and outcome appear in the accompanying verification record and draft PR
+#7. This finite audit passed for all 91 declarations and all four
+false controls. Its certification does not extend to unformalized
+physical or analytic claims [1].
+
+Appendix C. Publication
+files
+
+The PDF and gold HTML contain the same research text and all
+seventeen integrated illustrations. The HTML embeds its mathematics
+renderer for offline use. The proofs-and-code supplement supplies the
+Lean project, numerical programs, execution records, and verification
+instructions. It contains no manuscript versions.
+
+The exact verified source commit is
+41d9523a53ad679d2240e5e40ed07a7ea0cc2bac in draft PR
+#7. Source hashes and successful workflow records appear in
+verification/report.json and
+VERIFICATION_STATUS.md. The finite proofs, model
+computations, and future research claims have the distinct scopes stated
+in this paper.
+
+References
+
+[1] Lean Language Reference. Validating a Lean Proof.
+Official documentation, consulted 5 September 2026.
+https://lean-lang.org/doc/reference/latest/ValidatingProofs/.
+
+[2] T. Kato. Perturbation Theory for Linear Operators.
+Second edition, Springer, 1995 printing.
+
+[3] R. Exel and T. A. Loring. “Invariants of almost commuting
+unitaries.” Journal of Functional Analysis 95,
+364–376 (1991).
+
+[4] C.-R. Yi et al. “Extracting the quantum geometric tensor of an
+optical Raman lattice by Bloch-state tomography.” arXiv:2301.06090
+(2023). https://arxiv.org/abs/2301.06090.
+
+[5] D. Gioev and I. Klich. “Entanglement entropy of fermions in any
+dimension and the Widom conjecture.” Physical Review Letters
+96, 100503 (2006).
+
+[6] T. D. Newton and E. P. Wigner. “Localized states for elementary
+systems.” Reviews of Modern Physics 21, 400
+(1949).
+
+[7] M. Federico and H. R. Jauslin. “Isomorphism between the
+Bialynicki-Birula and the Landau–Peierls Fock space quantization of the
+electromagnetic field in position representation.” arXiv:2212.05849
+(2022). https://arxiv.org/abs/2212.05849.
+
+[8] V. Fedoseev et al. “Coherent and incoherent light scattering by
+single-atom wave packets.” Physical Review Letters
+135, 043601 (2025). DOI: 10.1103/zwhd-1k2t;
+arXiv:2410.19671.
+
+[9] Y.-C. Zhang et al. “Tunable Einstein–Bohr recoiling-slit
+gedankenexperiment at the quantum limit.” Physical Review
+Letters 135, 230202 (2025); arXiv:2410.10664.
+
+[10] B.-G. Englert. “Fringe visibility and which-way information: an
+inequality.” Physical Review Letters 77,
+2154–2157 (1996).
+
+[11] L. Kopf, R. Barros, S. Prabhakar, E. Giese, and R. Fickler.
+“Conservation of angular momentum on a single-photon level.”
+Physical Review Letters 134, 203601 (2025);
+arXiv:2409.09139.
+
+[12] T. Piran and D. D. Ofengeim. “Lorentz invariance violation
+limits from GRB 221009A.” Physical Review D
+109, L081501 (2024); arXiv:2308.03031.
+
+[13] J.-Y. Ran, B. Wang, and J.-J. Wei. “Cosmology-independent photon
+mass limits from localized fast radio bursts by using artificial neural
+networks.” Chinese Physics Letters 41, 059501
+(2024); arXiv:2404.17154.
+
+[14] ATLAS Collaboration. “Observation of light-by-light scattering
+in ultraperipheral Pb+Pb collisions with the ATLAS detector.”
+Physical Review Letters 123, 052001 (2019);
+arXiv:1904.03536.
+
+[15] CMS Collaboration. “Measurement of light-by-light scattering and
+the Breit–Wheeler process, and search for axion-like particles in
+ultraperipheral PbPb collisions at 5.02 TeV.” Journal of High Energy
+Physics 08 (2025), 006. DOI:
+10.1007/JHEP08(2025)006.
+
+[16] B. Yuen and A. Demetriadou. “Exact quantum electrodynamics of
+radiative photonic environments.” Physical Review Letters
+133, 203604 (2024); arXiv:2406.10164.
+
+[17] S. Kocsis et al. “Observing the average trajectories of single
+photons in a two-slit interferometer.” Science
+332, 1170–1173 (2011).
+
+[18] J. Foo, E. Asmodelle, A. P. Lund, and T. C. Ralph. “Relativistic
+Bohmian trajectories of photons via weak measurements.” Nature
+Communications 13, 4002 (2022).
+
+[19] W. Chen. “Dielectric and optical markers originating from
+quantum geometry.” Physical Review B 111,
+085202 (2025). DOI: 10.1103/PhysRevB.111.085202; arXiv:2409.04893.
+
+[20] J. Ahn et al. “Riemannian geometry of resonant optical
+responses.” Nature Physics 18, 290–295 (2022).
+DOI: 10.1038/s41567-021-01465-z.
+
+[21] R. P. Feynman, R. B. Leighton, and M. Sands. The Feynman
+Lectures on Physics, Volume II, Chapter 33, “Reflection from
+Surfaces.” https://www.feynmanlectures.caltech.edu/II_33.html.
+
+[22] R. Bujack, E. N. Stark, T. L. Turton, J. M. Miller, and D. H.
+Rogers. “The geometry of color in the light of a non-Riemannian space.”
+Computer Graphics Forum 44(3), e70136 (2025).
+DOI: 10.1111/cgf.70136.
+
+[23] C.-g. Oh and S.-W. Kim. “Color and transparency from quantum
+geometry.” arXiv:2507.20904 (2025). Theoretical preprint.
+https://arxiv.org/abs/2507.20904.
+
+[24] H. Wang and J. Zahl. “Volume estimates for unions of convex
+sets, and the Kakeya set conjecture in three dimensions.”
+arXiv:2502.17655 (2025). https://arxiv.org/abs/2502.17655.
+
+[25] L. Guth, H. Wang, and R. Zhang. “A sharp square function
+estimate for the cone in \(\mathbb
+R^3\).” Annals of Mathematics 192,
+551–581 (2020); arXiv:1909.10693.
+
+[26] J. Rozendaal and R. Schippa. “Local smoothing for rough wave
+equations.” arXiv:2608.01440 (2026). Its introduction states the
+critical Euclidean conjecture separately from the proved
+rough-coefficient estimates. https://arxiv.org/abs/2608.01440.
+
+[27] L. Glebsky. “Almost commuting matrices with respect to
+normalized Hilbert–Schmidt norm.” arXiv:1002.3082 (2010).
+https://arxiv.org/abs/1002.3082.
+
+[28] N. Filonov and I. Kachkovskiy. “A Hilbert–Schmidt analog of
+Huaxin Lin’s theorem.” arXiv:1008.4002 (2010).
+https://arxiv.org/abs/1008.4002.
+
+[29] N. Arkani-Hamed, Q. Cao, J. Dong, C. Figueiredo, and S. He.
+“Hidden zeros for particle/string amplitudes and the unity of colored
+scalars, pions and gluons.” arXiv:2312.16282.
+https://arxiv.org/abs/2312.16282.
+
+[30] D. Sullivan. “Algebra, topology and algebraic topology of 3D
+ideal fluids.” arXiv:1010.2721 (2010).
+https://arxiv.org/abs/1010.2721.
+
+[31] R. Bonezzi, C. Chiaffrino, F. Díaz-Jaramillo, and O. Hohm.
+“Tree-level scattering amplitudes via homotopy transfer.”
+arXiv:2312.09306. https://arxiv.org/abs/2312.09306.
+
+[32] S. Nag and D. Sullivan. “Teichmüller theory and the universal
+period mapping via quantum calculus and the \(H^{1/2}\) space on the circle.” Osaka
+Journal of Mathematics 32(1), 1–34 (1995).
+
+[33] J. Klaers, J. Schmitt, F. Vewinger, and M. Weitz. “Bose–Einstein
+condensation of photons in an optical microcavity.” Nature
+468, 545–548 (2010). DOI: 10.1038/nature09567.
+
+[34] W. Browder. Surgery on Simply-Connected Manifolds.
+Springer, 1972. DOI: 10.1007/978-3-642-50020-6.
+
+[35] N. Arkani-Hamed and C. Figueiredo. “Circles and triangles, the
+NLSM and \(\operatorname{Tr}(\Phi^3)\).”
+arXiv:2403.04826. https://arxiv.org/abs/2403.04826.
+
+[36] Z. Chen et al. “Broadband measurement of Feibelman’s quantum
+surface response functions.” Proceedings of the National Academy of
+Sciences 122(23), e2501121122 (2025). DOI:
+10.1073/pnas.2501121122; arXiv:2409.16616.
+
+Author materials and computational provenance.
+Jeromie Beasley, Light Keeps the Ledger — Matter, Direction, and the
+Wall Between Them, August 2026 source HTML and scripts; associated
+transport manuscript and the dated boundary, constitutive, coherence,
+and formalization notes supplied for this revision. The current proof
+sources, numerical code, checksums, and execution-status records are
+supplied in the accompanying proofs-and-code supplement; earlier
+published manuscripts remain separate. Companion research is not
+represented as independently published confirmation of its own physical
+interpretation.
+
+
+

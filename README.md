@@ -1,10 +1,10 @@
 # Operator-first research master
 
-Jeromie N. Beasley’s current research directory: **15 projects**, **20 Atlas cards**, and **Compound Eye Universal 3.2**.
+Jeromie N. Beasley’s current research directory: **16 projects**, **21 Atlas cards**, and **Compound Eye Universal 3.2**.
 
 Start with [current project status](MASTER_STATUS.md), the [paper register](catalog/README.md), or the [reusable-results Atlas](atlas/README.md).
 
-The [complete instrument](tools/compound-eye/START_HERE.md) contains **198 eye versions in 30 sets**: 179 implemented, 17 specified, and 2 archived results. It combines the independent Universal 2.2 and 3.1 lines with Eye Mixer 1.0.0.
+The [complete instrument](tools/compound-eye/START_HERE.md) contains **204 eye versions in 32 sets**: 185 implemented, 17 specified, and 2 archived results. It combines the independent Universal 2.2 and 3.1 lines with Eye Mixer 1.0.0.
 
 ## Use or share the tool
 

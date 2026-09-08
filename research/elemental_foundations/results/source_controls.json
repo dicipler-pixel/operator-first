@@ -1,0 +1,3622 @@
+{
+  "normal_counterexample": {
+    "phi": 0.0,
+    "norm_derivative": 0.0,
+    "minus_eight_phi": -0.0,
+    "stress_derivative": -0.0,
+    "henrici_budget": 8.881784197001252e-16,
+    "scalar_residual": 0.7071067811865476,
+    "scope": "Isospectral mathematical relaxation. Normality does not imply isotropy, and the Frobenius budget is not physical heat without a device model."
+  },
+  "range_vs_riesz": {
+    "orthogonal_commutator": 2.0,
+    "riesz_commutator": 0
+  },
+  "flow": {
+    "times": [
+      0.0,
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.06,
+      0.07,
+      0.08,
+      0.09,
+      0.1,
+      0.11,
+      0.12,
+      0.13,
+      0.14,
+      0.15,
+      0.16,
+      0.17,
+      0.18,
+      0.19,
+      0.2,
+      0.21,
+      0.22,
+      0.23,
+      0.24,
+      0.25,
+      0.26,
+      0.27,
+      0.28,
+      0.29,
+      0.3,
+      0.31,
+      0.32,
+      0.33,
+      0.34,
+      0.35000000000000003,
+      0.36,
+      0.37,
+      0.38,
+      0.39,
+      0.4,
+      0.41000000000000003,
+      0.42,
+      0.43,
+      0.44,
+      0.45,
+      0.46,
+      0.47000000000000003,
+      0.48,
+      0.49,
+      0.5,
+      0.51,
+      0.52,
+      0.53,
+      0.54,
+      0.55,
+      0.56,
+      0.5700000000000001,
+      0.58,
+      0.59,
+      0.6,
+      0.61,
+      0.62,
+      0.63,
+      0.64,
+      0.65,
+      0.66,
+      0.67,
+      0.68,
+      0.6900000000000001,
+      0.7000000000000001,
+      0.71,
+      0.72,
+      0.73,
+      0.74,
+      0.75,
+      0.76,
+      0.77,
+      0.78,
+      0.79,
+      0.8,
+      0.81,
+      0.8200000000000001,
+      0.8300000000000001,
+      0.84,
+      0.85,
+      0.86,
+      0.87,
+      0.88,
+      0.89,
+      0.9,
+      0.91,
+      0.92,
+      0.93,
+      0.9400000000000001,
+      0.9500000000000001,
+      0.96,
+      0.97,
+      0.98,
+      0.99,
+      1.0,
+      1.01,
+      1.02,
+      1.03,
+      1.04,
+      1.05,
+      1.06,
+      1.07,
+      1.08,
+      1.09,
+      1.1,
+      1.11,
+      1.12,
+      1.1300000000000001,
+      1.1400000000000001,
+      1.1500000000000001,
+      1.16,
+      1.17,
+      1.18,
+      1.19,
+      1.2,
+      1.21,
+      1.22,
+      1.23,
+      1.24,
+      1.25,
+      1.26,
+      1.27,
+      1.28,
+      1.29,
+      1.3,
+      1.31,
+      1.32,
+      1.33,
+      1.34,
+      1.35,
+      1.36,
+      1.37,
+      1.3800000000000001,
+      1.3900000000000001,
+      1.4000000000000001,
+      1.41,
+      1.42,
+      1.43,
+      1.44,
+      1.45,
+      1.46,
+      1.47,
+      1.48,
+      1.49,
+      1.5,
+      1.51,
+      1.52,
+      1.53,
+      1.54,
+      1.55,
+      1.56,
+      1.57,
+      1.58,
+      1.59,
+      1.6,
+      1.61,
+      1.62,
+      1.6300000000000001,
+      1.6400000000000001,
+      1.6500000000000001,
+      1.6600000000000001,
+      1.67,
+      1.68,
+      1.69,
+      1.7,
+      1.71,
+      1.72,
+      1.73,
+      1.74,
+      1.75,
+      1.76,
+      1.77,
+      1.78,
+      1.79,
+      1.8,
+      1.81,
+      1.82,
+      1.83,
+      1.84,
+      1.85,
+      1.86,
+      1.87,
+      1.8800000000000001,
+      1.8900000000000001,
+      1.9000000000000001,
+      1.9100000000000001,
+      1.92,
+      1.93,
+      1.94,
+      1.95,
+      1.96,
+      1.97,
+      1.98,
+      1.99,
+      2.0
+    ],
+    "phi": [
+      32.0,
+      14.31985118444332,
+      7.779800636910434,
+      4.6854326582356745,
+      3.00058243106967,
+      1.9982482586669472,
+      1.3657446831182265,
+      0.9501248680523332,
+      0.6691680446753183,
+      0.4753894768819765,
+      0.3398077939134814,
+      0.24396321916857397,
+      0.17570505227637062,
+      0.12683228158923832,
+      0.09170367614291237,
+      0.06638316907299927,
+      0.0480951716059342,
+      0.03486700681521845,
+      0.025288516951099096,
+      0.01834737123563421,
+      0.013314571919795041,
+      0.009663962135767486,
+      0.007015157318157342,
+      0.0050928272097749945,
+      0.003697507148364833,
+      0.0026846015312055973,
+      0.0019492417125477595,
+      0.001415345563540724,
+      0.0010277020301682272,
+      0.0007462385888133149,
+      0.0005418665914144719,
+      0.0003934686054980436,
+      0.00028571300064329395,
+      0.00020746819140178744,
+      0.00015065175758244287,
+      0.00010939506450606483,
+      7.943682324414714e-05,
+      5.76828158490683e-05,
+      4.1886238495473464e-05,
+      3.0415608180787073e-05,
+      2.2086241627139753e-05,
+      1.6037890949404042e-05,
+      1.1645892640991955e-05,
+      8.456650386126155e-06,
+      6.1407867669956095e-06,
+      4.459125435817499e-06,
+      3.2379891771541344e-06,
+      2.3512624394559837e-06,
+      1.7073668378068235e-06,
+      1.2398027064950917e-06,
+      9.002814995626511e-07,
+      6.537385353228125e-07,
+      4.7471159518714913e-07,
+      3.447113561012439e-07,
+      2.503118178318405e-07,
+      1.8176368741942572e-07,
+      1.319875281536214e-07,
+      9.584261721855079e-08,
+      6.959602456185287e-08,
+      5.053708643875688e-08,
+      3.66974570285871e-08,
+      2.6647823547811817e-08,
+      1.9350291713592506e-08,
+      1.4051195744772129e-08,
+      1.0203261962521311e-08,
+      7.4090883313487146e-09,
+      5.3801020374629176e-09,
+      3.906756238293383e-09,
+      2.836887972714836e-09,
+      2.0600033751197635e-09,
+      1.4958690497373865e-09,
+      1.0862239941730745e-09,
+      7.887608849282441e-10,
+      5.727576871109554e-10,
+      4.1590742663260557e-10,
+      3.0201102577112216e-10,
+      2.1930480128034155e-10,
+      1.5924810990502995e-10,
+      1.1563784631706626e-10,
+      8.397026128597015e-11,
+      6.097501921250153e-11,
+      4.42768628932498e-11,
+      3.2151695503488195e-11,
+      2.3346848461932346e-11,
+      1.6953360849419216e-11,
+      1.231061532536181e-11,
+      8.939383419326403e-12,
+      6.4913007169183e-12,
+      4.7136634780352915e-12,
+      3.4228293620832107e-12,
+      2.4854694229515954e-12,
+      1.8048437651125096e-12,
+      1.3105680772292994e-12,
+      9.516757481983085e-13,
+      6.910634972289818e-13,
+      5.018054425566629e-13,
+      3.643937307836764e-13,
+      2.646039699013148e-13,
+      1.9213708896965866e-13,
+      1.3952502155538324e-13,
+      1.013166221405745e-13,
+      7.356750609426695e-14,
+      5.34228599603359e-14,
+      3.8795043939017725e-14,
+      2.816891238110236e-14,
+      2.0454429413963442e-14,
+      1.485451319118595e-14,
+      1.0786877008043265e-14,
+      7.831814498474166e-15,
+      5.687040390362939e-15,
+      4.130399680601074e-15,
+      2.9995154735709397e-15,
+      2.177596957768308e-15,
+      1.581084286360515e-15,
+      1.1483643955424979e-15,
+      8.341821006776614e-16,
+      6.056594287823862e-16,
+      4.396026030247791e-16,
+      3.1917707956052976e-16,
+      2.3187879162375535e-16,
+      1.6850465809575035e-16,
+      1.223580498237076e-16,
+      8.877394240185114e-17,
+      6.441844848820315e-17,
+      4.6788133595116395e-17,
+      3.4020345899361825e-17,
+      2.4743918638824128e-17,
+      1.796620057873801e-17,
+      1.3022677421184291e-17,
+      9.438412311007368e-18,
+      6.849942095017756e-18,
+      4.982790339714494e-18,
+      3.6323401510076934e-18,
+      2.648023128264617e-18,
+      1.922373479600576e-18,
+      1.3902065256667245e-18,
+      1.0041239544316897e-18,
+      7.263805669338962e-19,
+      5.276407340331609e-19,
+      3.855140445959749e-19,
+      2.832008600491849e-19,
+      2.0830208026985854e-19,
+      1.5189895666623926e-19,
+      1.094727618421749e-19,
+      7.834299367556e-20,
+      5.593145383730721e-20,
+      4.006833857953857e-20,
+      2.898901627093369e-20,
+      2.13037357467727e-20,
+      1.5949658404579163e-20,
+      1.2130011988501859e-20,
+      9.255594882976902e-21,
+      6.898952334578988e-21,
+      4.938595347466302e-21,
+      3.442403589040499e-21,
+      2.3488244284063205e-21,
+      1.583262017261423e-21,
+      1.0698035880358826e-21,
+      7.397699163564177e-22,
+      5.366530003437225e-22,
+      4.175919783453684e-22,
+      3.5163481318886024e-22,
+      3.1638674089515774e-22,
+      2.934376794623289e-22,
+      2.6554392654757944e-22,
+      2.1660241232920567e-22,
+      1.5138141601514671e-22,
+      9.477720110996599e-23,
+      5.19051988680112e-23,
+      2.3699650751233063e-23,
+      8.122681437729107e-24,
+      1.5455445685485111e-24,
+      1.2045018554206477e-26,
+      2.7008901343821224e-25,
+      4.184512671744857e-25,
+      9.135078307788524e-26,
+      2.0192512033987498e-25,
+      2.295647159774204e-24,
+      7.657013689933523e-24,
+      1.6405477085922405e-23,
+      2.678413160052705e-23,
+      3.5074688555343976e-23,
+      3.648715347247306e-23,
+      2.8328542477347144e-23,
+      1.884693502744256e-23,
+      1.1182222055074078e-23,
+      5.737620444222175e-24,
+      2.404919679327353e-24,
+      7.1964851737202265e-25,
+      1.017883003224776e-25,
+      4.361414729740668e-28,
+      2.749022482514182e-26,
+      1.5346401442556408e-26,
+      7.511533539514474e-27,
+      1.8860599281612342e-25,
+      7.681221464532041e-25,
+      1.842385334396965e-24,
+      3.2761093626684636e-24,
+      4.64449470456606e-24,
+      5.30097015596424e-24,
+      4.60802211504362e-24
+    ],
+    "norm_squared": [
+      14.0,
+      12.280169527534547,
+      11.432171417176988,
+      10.947105810487265,
+      10.645861377902751,
+      10.449132143972431,
+      10.316407710893849,
+      10.224887607959712,
+      10.160825778418392,
+      10.115511634773839,
+      10.08322053415322,
+      10.060088158104799,
+      10.04345419627133,
+      10.031460627625489,
+      10.022796004579352,
+      10.016527502681182,
+      10.01198786567025,
+      10.008697838605027,
+      10.006312168369705,
+      10.004581595054706,
+      10.0033258776141,
+      10.002414533041417,
+      10.001753021058063,
+      10.001272801795357,
+      10.000924163266811,
+      10.00067103780914,
+      10.000487251074365,
+      10.000353805096323,
+      10.000256909006808,
+      10.000186550946582,
+      10.000135462060328,
+      10.000098364732283,
+      10.00007142697451,
+      10.000051866375292,
+      10.000037662584699,
+      10.000027348579001,
+      10.000019859107056,
+      10.000014420651825,
+      10.000010471532084,
+      10.0000076038875,
+      10.000005521552723,
+      10.000004009468672,
+      10.000002911470958,
+      10.000002114161402,
+      10.000001535196056,
+      10.000001114780972,
+      10.000000809497084,
+      10.000000587815457,
+      10.000000426841616,
+      10.000000309950588,
+      10.000000225070307,
+      10.000000163434578,
+      10.00000011867784,
+      10.00000008617778,
+      10.0000000625779,
+      10.00000004544087,
+      10.00000003299683,
+      10.000000023960606,
+      10.000000017398955,
+      10.00000001263422,
+      10.000000009174315,
+      10.000000006661907,
+      10.000000004837526,
+      10.000000003512751,
+      10.000000002550768,
+      10.000000001852225,
+      10.00000000134498,
+      10.000000000976643,
+      10.000000000709175,
+      10.000000000514957,
+      10.000000000373921,
+      10.000000000271509,
+      10.000000000197144,
+      10.000000000143142,
+      10.000000000103931,
+      10.00000000007546,
+      10.000000000054781,
+      10.000000000039766,
+      10.000000000028862,
+      10.000000000020945,
+      10.000000000015199,
+      10.000000000011026,
+      10.000000000007995,
+      10.000000000005793,
+      10.000000000004194,
+      10.000000000003032,
+      10.000000000002188,
+      10.000000000001577,
+      10.000000000001135,
+      10.000000000000814,
+      10.000000000000577,
+      10.000000000000405,
+      10.000000000000284,
+      10.000000000000195,
+      10.00000000000013,
+      10.00000000000008,
+      10.000000000000046,
+      10.000000000000023,
+      10.000000000000004,
+      9.999999999999993,
+      9.999999999999982,
+      9.999999999999973,
+      9.99999999999997,
+      9.999999999999964,
+      9.999999999999963,
+      9.999999999999963,
+      9.99999999999996,
+      9.99999999999996,
+      9.99999999999996,
+      9.99999999999996,
+      9.99999999999996,
+      9.99999999999996,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956,
+      9.999999999999956
+    ],
+    "eigenvalue_drift": 2.6270787769398543e-12,
+    "final": [
+      [
+        1.29289321881346,
+        0.707106781187076
+      ],
+      [
+        0.7071067811860026,
+        2.7071067811865404
+      ]
+    ]
+  },
+  "checks": [
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normalized Gram forgets reflected scale",
+      "passed": true
+    },
+    {
+      "name": "orientation and size are retained separately",
+      "passed": true
+    },
+    {
+      "name": "determinant square identity",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "rank-one angle and normalized scaling",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "tensor direction cosines multiply",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "exact Henrici derivative",
+      "passed": true
+    },
+    {
+      "name": "gradient direction",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "normal need not isotropic",
+      "passed": true
+    },
+    {
+      "name": "range projector can fail to commute",
+      "passed": true
+    },
+    {
+      "name": "Riesz projector commutes",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "positive diagonal similarity",
+      "passed": true
+    },
+    {
+      "name": "zero and strict interior interlacing",
+      "passed": true
+    },
+    {
+      "name": "flow solves and preserves spectrum",
+      "passed": true
+    },
+    {
+      "name": "stress decreases",
+      "passed": true
+    },
+    {
+      "name": "nondegenerate equilibrium remains nonscalar",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "out-of-domain refuses",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "out-of-domain refuses",
+      "passed": true
+    },
+    {
+      "name": "eye executes without error",
+      "passed": true
+    },
+    {
+      "name": "out-of-domain refuses",
+      "passed": true
+    }
+  ],
+  "requests": 340,
+  "expected_refusals": 3,
+  "scope": "Focused independent controls of claims used in the combined paper; no wholesale replay of large lattice scans or all source claims."
+}

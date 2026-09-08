@@ -1,0 +1,155 @@
+                          The spectral stress is an angle
+                            A strengthening of Propositions 3 and 4
+
+
+                       Insert for The Companion-Matrix Projector Diagnostic
+
+                                               12 August 2026
+
+                                                   Abstract
+       The paper already computes Φ∞ = 1 − (u1·v1 )2 in five places without naming the quantity. It is
+       sin2 of the principal angle between the transport’s left and right dominant singular directions.
+       Naming it costs one lemma and upgrades two propositions: the value of a polynomial continued
+       fraction becomes the tangent of that angle, and the Kronecker composition law becomes the
+       statement that direction cosines multiply. Figure 8’s Φ scale becomes an angle scale on [0◦ , 90◦ ].
+       Nothing in the paper changes; the same numbers acquire a geometric name. All claims verified
+       to 60 digits; script prop4-angle-01.
+
+
+1      The lemma
+    DROP-IN TEXT — new lemma, immediately before Proposition 3 (Section 9.1)
+    Lemma 1 (The spectral stress is an angle). Let Φ(P ) = 12 ∥[P, P⊤ ]∥2F for a Frobenius-normalised trans-
+    port product, and suppose P has collapsed to rank one with left and right dominant singular directions
+    u1 , v1 . Let θ ∈ [0, π/2] be the principal angle between span(u1 ) and span(v1 ). Then
+
+                                                  Φ = sin2 θ.
+
+    Proof. Write P = u1 v⊤                            ⊤        ⊤       ⊤         ⊤     ⊤        ⊤       ⊤
+                          1 with ∥P ∥F = 1. Then P P = u1 u1 and P P = v1 v1 , so [P, P ] = u1 u1 − v1 v1
+             ⊤       ⊤ 2                  2                         2         2
+    and ∥u1 u1 − v1 v1 ∥F = 2 − 2(u1 ·v1 ) . Hence Φ = 1 − (u1 ·v1 ) = 1 − cos θ.
+
+    The identity Φ = 1 − (u1 ·v1 )2 is the one already used throughout; the content of the lemma is only
+    that the quantity so computed is a principal angle, and therefore an intrinsic Grassmannian invariant of
+    the pair of one-dimensional subspaces the transport distinguishes. In particular it is unchanged under
+    P 7→ cP for any c > 0, which is what the Frobenius normalisation in the definition of the diagnostic
+    secures.
+
+Verified for d = 2, 3, 4, 6: Φ against sin2 θ agrees to 0–8 × 10−16 .
+
+
+2      Proposition 4 in angle form
+    DROP-IN TEXT — replacing the second sentence of Proposition 4 (Section 10.1)
+    Proposition 1 (The continued fraction is a tangent). Let a polynomial continued fraction have a
+    minimal solution and value K, so that v1 (N ) → normalize(1, K). If moreover an → ∞, so that
+    u1 → (1, 0), then in the notation of Lemma 1
+
+                                                                        K2
+                         tan θ = |K|,       equivalently     Φ∞ =            = sin2 θ,
+                                                                      1 + K2
+
+
+
+                                                        1
+    and the sign of K is carried by the orientation of v1 .
+
+
+So the diagnostic does not merely return the continued fraction: it returns it as the slope of one
+subspace against the other, and Φ∞ is the squared sine of the angle between them. Confirmed on
+the three calibrated fractions whose hypothesis holds, to full working precision:
+
+                        fraction                            K            θ   |K| − tan θ
+                        Question 1 (π)    −0.375079835586       20.560055◦     4 × 10−62
+                        e-fraction         0.581976706869       30.198408◦             0
+                        π-fraction         0.273239544735       15.282434◦             0
+
+    DROP-IN TEXT — new remark, immediately after Proposition 1
+    Remark 1 (The hypothesis√     an → ∞ is load-bearing). Apéry’s ζ(3) recurrence has an → 34, so
+    u1 → normalize(17 + 12 2, 1) rather than (1, 0) and Proposition 1 does not apply. The measured
+    value is Φ∞ = 0.001442113945, giving θ = 2.1763◦ , whereas arctan |K| = 0.4902◦ for K = 6/ζ(3) − 5.
+    Lemma 1 still holds — Φ∞ is still sin2 of the angle — but the angle is between v1 and the true u1 ,
+    not between v1 and e1 . Apéry’s recurrence is the calibrated example that shows the hypothesis is not
+    decorative.
+
+
+3      Proposition 3 in angle form
+    DROP-IN TEXT — new corollary to Proposition 3 (Section 9.1)
+    Proposition 2 (Direction cosines multiply). For transport sequences A(n), B(n) to which the diagnostic
+                                                                A⊗B
+    applies and T (n) = A(n) ⊗ B(n), the composition law 1 − Φ∞     = (1 − ΦA         B
+                                                                             ∞ )(1 − Φ∞ ) is precisely
+
+                                           cos θA⊗B = cos θA cos θB .
+                                                              2      2    2    2  2
+    Equivalently, in terms of the continued-fraction values, KA⊗B = KA + KB + KA KB .
+
+
+This is the classical rule for angles between subspaces of a tensor product, and it says the non-
+normality of a Kronecker product is the geometric composition of its factors’ angles rather than
+an unrelated bookkeeping law. Verified on Question 3: θe = 30.198408◦ , θπ = 15.282434◦ , θQ3 =
+33.516584◦ ; the product of the first                                         −62
+                                  p two cosines matches the third to 8 × 10 , and tan θQ3 =
+0.6623018907912486 agrees with Ke2 + Kπ2 + Ke2 Kπ2 to the same precision.
+
+
+4      Figure 8 becomes an angle scale
+    DROP-IN TEXT — replacement caption / accompanying sentence for Figure 8
+
+    By Lemma 1 the spectral-stress scale is an angle scale. Each calibrated transport occupies a position
+    in [0◦ , 90◦ ] according to how far its left and right dominant directions have separated: Question 8’s
+    transport becomes asymptotically normal, and its angle vanishes; Problem 2.5’s reaches exactly 90◦ , at
+    which the two directions are orthogonal.
+
+
+
+
+                                                        2
+                   system                     Φ∞               θ
+                        √
+                   Q8     10005/π                0        0.000◦   asymptotically normal
+                   Apéry ζ(3)        0.0014421139        2.176◦
+                   Q1 π (PCF)         0.1233336964       20.560◦
+                   Q3 π + e           0.3049009047       33.517◦   Kronecker
+                   2.6 ζ(2) + ζ(3)       2809/4178       55.081◦   exact rational Φ∞
+                   2.7 ζ(2) + ζ(3)    0.7618951393       60.793◦   tied recessive pair
+                   Q2 γ               0.9442325877       76.341◦
+                   2.5 Catalan G                 1       90.000◦   u1 ⊥ v1
+
+Adding Apéry’s recurrence to the figure is free and worth doing: it is the one calibrated transport
+that is almost normal without being trivially so, and it sits between Question 8 and Question 1
+where the figure is currently empty.
+
+
+5    End-to-end check on Question 1
+Running the real transport and measuring the angle directly against the closed form built from the
+official proof’s exact anchors:
+
+                                 N    measured θ           |θ − arctan |K||
+                                                     ◦
+                                50    20.5600534304        3.5 × 10−8
+                               200    20.5600553769◦       5.6 × 10−10
+                               800    20.5600554083◦       8.8 × 10−12
+                        closed form   20.5600554088◦       K = 6(22 − 7π)/(3 − π)
+
+
+6    Where this goes, and what it does not change
+    • Lemma 1: new, immediately before Proposition 3 in Section 9.1.
+    • Proposition 1: replaces the second sentence of Proposition 4, Section 10.1.
+    • The an → ∞ remark: immediately after it. This is a strengthening, not a correction — the
+      existing statement already carries the hypothesis.
+    • Proposition 2: a corollary to Proposition 3, Section 9.1.
+    • Figure 8: caption sentence, plus the Apéry row.
+    • Summary item 7 gains the tangent statement; item 6 gains the cosine law.
+    • Appendix: prop4-angle-01 as a fifteenth listing.
+No numerical value in the paper changes. No proof is corrected. Every quantity in the tables above
+is one the paper already reports; what is new is the name of the quantity and the two composition
+laws that follow once it has one.
+One structural remark worth making in the Summary: the same invariant appears in three other-
+wise unrelated sectors of this work — the principal angle here, the cos2 principal angles that index
+a boundary channel census, P  and the sin2 form of the refraction law. The Hilbert–Schmidt distance
+between two projectors is 2 i sin2 θi by construction, so any diagnostic built from projector dis-
+tances is natively sin2 -valued in principal angles. That is not a coincidence between the sectors; it
+is the same measurement performed on different pairs of subspaces.
+
+                                                     3
+

@@ -1,0 +1,22 @@
+{
+  "id": "ce.foundation.graph",
+  "version": "1.0.0",
+  "title": "Boundary amplitude to orthogonal graph geometry",
+  "family": "Elemental foundations",
+  "status": "implemented",
+  "inputs": {
+    "case": "declared foundation data"
+  },
+  "depends_on": [],
+  "assumptions": [
+    "Fixed physical channels, explicit preparation, unitary elastic scattering for the graph construction; inspect model scope."
+  ],
+  "output_meaning": "A complete boundary amplitude record and its reduced scalar/angle observations.",
+  "evidence_class": "exact_finite_model",
+  "limits": "No physical identification of atomic number with projector rank; no general prediction from one boundary snapshot without a dynamical model.",
+  "implementation": {
+    "path": "plugins/installed/37bcb90234a554a4a8c5bf6629a064e8d8c99969325a7f795d03f98fcc17b66a.py",
+    "sha256": "37bcb90234a554a4a8c5bf6629a064e8d8c99969325a7f795d03f98fcc17b66a",
+    "function": "graph"
+  }
+}

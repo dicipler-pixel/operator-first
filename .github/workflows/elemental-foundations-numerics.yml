@@ -1,0 +1,27 @@
+name: Elemental foundations numerics
+on:
+  push:
+    paths:
+      - 'research/elemental_foundations/**'
+      - 'tools/compound-eye/**'
+      - '.github/workflows/elemental-foundations-numerics.yml'
+  pull_request:
+    paths:
+      - 'research/elemental_foundations/**'
+      - 'tools/compound-eye/**'
+      - '.github/workflows/elemental-foundations-numerics.yml'
+permissions:
+  contents: read
+jobs:
+  finite-controls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy scipy sympy pyyaml matplotlib
+      - run: python research/elemental_foundations/run_experiments.py
+      - run: python research/elemental_foundations/run_source_controls.py
+      - run: python scripts/verify_compound_eye_release.py
+      - run: python scripts/validate_catalog.py

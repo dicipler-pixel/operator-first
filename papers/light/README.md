@@ -15,6 +15,7 @@ Finite projector, boundary, optical weighting, rigidity and nullspace results. K
 - [Probe reconstruction or an invisible perturbation](../../atlas/OBS-PROBE-SPAN.md)
 - [Elemental spacing and probe-dependent channels](../../atlas/ELEMENTAL-SPACING-COUPLING.md)
 - [Boundary reduction retains eliminated-sector feedback](../../atlas/HYPERSURFACE-RETAINED-FEEDBACK.md)
+- [Identical reduced observations can conceal opposite response slopes](../../atlas/predictive-boundary-record.md)
 
 ## Next step
 

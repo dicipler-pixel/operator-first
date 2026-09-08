@@ -1,0 +1,1093 @@
+Universal Projector Geometry from Electrical Measurements:
+ A Coordinate-Free Framework for Transport, Persistence,
+                  and Emergent Structure
+
+                                     Jeromie N. Beasley
+
+                                         August 2026
+
+                                            Abstract
+    We present a unified, operator-first framework in which macroscopic geometric structure
+emerges from the continuous tracking of persistent spectral projection bundles on stratified
+configuration spaces, bypassing the conventional requirement of an a priori background met-
+ric tensor. The electric side of the framework rests on a single root operator: Dirac’s, whose
+algebra, paired spectrum, and integer invariants organize every observable developed here. Mod-
+ule I (Geometric Admissibility) develops the intrinsic Hilbert–Schmidt quantum metric of the
+Grassmannian and a canonical redistribution operator F (Ω, Π) quantifying the incompatibility
+of structural change with the current transport decomposition; its algebraic theorems are gated
+numerically, and its twisted torus anchor is carried onto a finite noncommutative torus, where
+the integer record acquires an explicit domain of validity and an amplitude floor. Module II
+(Topological Continuation) uses character varieties and the A-polynomial of the figure-eight
+knot complement as a structural laboratory for global continuability, with the integer transport
+record carried by a verified winding invariant whose self-adjoint ancestor is the Levine–Tristram
+signature. Module III (Covariance Realization) defines every intrinsic observable — principal
+angles, transport capacity, chirality, rigidity, persistence, refraction, and effective dimension —
+with explicit estimators, realizes the framework on published Bloch-state tomography of a Bose–
+Einstein condensate where the winding currency reproduces the measured Chern number, and
+specifies the independence protocol under which the interface refraction test becomes falsifiable
+on the instrument’s archived data. Every claim carries an explicit grade; verification scripts are
+included as the proof of record.
+
+
+
+
+                                                1
+Figure 1: From electrical measurements to intrinsic transport geometry. Raw electrical data →
+covariance operators → spectral projectors → universal projector geometry → transport invariants
+→ physical interpretation.
+                                               2
+1    What is claimed, and at what grade
+Every claim in this paper carries one of five grades, never silently promoted: [T] exact/derived
+(closed forms and identities); [V] verified (gated numerical checks, scripts in Appendix B); [C]
+cited (established literature, attributed); [D] data-reported (empirical values from the instrument
+pipeline, quoted with the protocol that must accompany any re-run); [H] hypothesis, protocol, or
+interpretation. Where a chain mixes grades, the weakest link is named.
+
+
+1    Framework Overview: the Redistribution Operator
+The framework begins with raw electrical measurements and extracts coordinate-free geometric
+structure through a two-phase pipeline. In Phase I (data-driven), covariance matrices are formed
+from single-shot I/Q quadrature data and decomposed into rank-k spectral projectors Πk (t) on the
+Grassmannian. In Phase II (framework-dependent), intrinsic geometric quantities are computed
+from these projectors (§6).
+To describe how admissible subspaces change under structural evolution we introduce a second
+fundamental operator.
+Definition 1.1 (Structural Transition Generator). A structural transition generator Ω is an opera-
+tor on the underlying Hilbert space representing an infinitesimal or discrete structural deformation
+of the current spectral decomposition. Unlike the projector Π, which identifies the presently admis-
+sible transport subspace, Ω is not required to preserve that decomposition and may transfer spec-
+tral weight between the projector and its orthogonal complement. Ω may be realized by weighted
+transport operators, Jacobi stiffness operators, Grassmannian connection generators, experimen-
+tally inferred covariance deformations, or effective Hamiltonian perturbations; the development
+depends only on the algebra relating Ω and Π (Appendix A).
+Given such a generator, the redistribution operator is
+
+                             F (Ω, Π) = (I − Π) Ω Π + Π Ω (I − Π).                               (1)
+
+Theorem 1.2 (Equivalent forms and structural properties; [T]+[V]). F (Ω, Π) admits the equivalent
+representations F = [Ω, Π]Π + Π[Π, Ω] and F = ΩΠ + ΠΩ − 2ΠΩΠ. Moreover F is traceless and
+purely off-diagonal with respect to the decomposition induced by Π: ΠF Π = 0 and (I −Π)F (I −Π) =
+0.
+Theorem 1.3 (Compatibility criterion; [T]+[V]). F (Ω, Π) = 0 if and only if [Ω, Π] = 0.
+Corollary 1.4. The scalar transport intensity T (Ω, Π) := ∥F (Ω, Π)∥F is non-negative, vanishes
+precisely when the generator commutes with the projector, and is invariant under unitary changes
+of basis.
+All identities of Theorems 1.2–1.3 are gated numerically: equivalent forms, tracelessness, and cross-
+subspace support hold over 200 random Hermitian-generator trials, and the constructive direction
+of the compatibility criterion holds to 9 × 10−16 (Appendix B).
+Hypothesis 1 (Hysteresis under topological driving). When a control parameter is driven forward
+and backward across a topological critical point at finite rate, the geometric quantities extracted
+from the evolving projectors (in particular deff and C(∆t)) exhibit history dependence, visible as a
+statistically significant nonzero area between forward and backward trajectories.
+
+
+                                                 3
+Hypothesis 2 (Correlations with transport intensity). Larger T (Ω, Π) correlates with increased
+projector redistribution, larger changes in effective dimensionality, and stronger persistence effects
+across rigidity interfaces.
+
+
+2    The Dirac Foundation of the Electric Side
+The electric side of this framework has one root operator. Dirac’s equation, in linearizing energy,
+produced three permanent structures: the σ-algebra, which every two-level and two-band system
+since has inherited; the paired ± spectrum, the first chiral spectrum in physics; and the electron
+itself, whose transport is the subject of every covariance matrix measured in this work. The
+framework’s observables, currencies, and material realizations are organized as consequences of this
+single foundation.
+
+The integer currencies. A Dirac operator carries its topology in integers: zero modes counted
+by the index; spectral asymmetry measured by ρ-invariants, which on knot-complement boundaries
+take the form of the Levine–Tristram signature σK : S 1 → Z — an integer step function whose
+plateaus jump exactly at the Alexander roots on the holonomy circle [T]; and the winding of the
+mass vector, whose loop integrals are exact integers [V]. These three integers — index, asymmetry,
+winding — are the currencies in which every topological claim of this framework is denominated.
+Modern index theory realizes the same structure in topological matter, where phases are classified
+by η-invariants and spectral flow under Atiyah–Patodi–Singer boundary conditions [C].
+
+The geometric identity. Every two-band Hamiltonian h(k) · σ is a Dirac Hamiltonian with a
+momentum-dependent mass vector, and for its band projectors the metric–curvature bound of §6.2
+holds with equality — an exact identity of the Dirac class [T], verified to machine precision and
+realized on measured data in §6.5. Multi-band systems obey the same bound as an inequality; its
+saturation is the signature of an effectively Dirac sector.
+
+The material ladder. The Dirac operator’s laboratory realizations span the platforms
+                                                                                  √          of this
+                                                                                                √
+program. Graphene realizes the massless operator: the Landau ladder En = vF 2ℏeBn [V: n
+ratios exact to 10−6 on the ladder operator], with a single n = 0 level seating the parity anomaly
+and a Berry phase of exactly π around the cone [V], anchored by the measured vF = 1.10 × 106 m/s
+giving E1 (10 T) = 126 meV, the scale of the observed scanning-tunneling ladder [C]. The charge-
+neutrality point is the Dirac point occupied by a quantum-critical electron fluid whose viscous
+flow has been imaged directly [C]; the quantum-anomalous-Hall lattice bands realized in cold-atom
+tomography are lattice Dirac operators with mass textures [C]; the nonlinear-Hall hotspots of the
+quantum-metric-dipole experiments are massive Dirac points [C]; and the transmon qubit is the
+bare σ-kernel — the Dirac algebra with the field stripped away, which is why covariance data from
+a driven transmon engine furnishes a faithful substrate for projector geometry.
+
+The chiral spectral class. Spectra symmetric        under λ → −λ form the Dirac operator’s ensemble
+class, and the ledger functional Z/M = 12 ρ(λ) ln(1 + λ2 ) dλ is native to it: the half-Cauchy family
+                                           R
+
+gives Z/M = ln(1 + a) in closed form [T], and the chiral-Gaussian ensemble (Marchenko–Pastur
+singular-value law) matches its integral at finite size to 5 × 10−5 [V]. The constant π 2 /12 is realized
+                                                  2
+at a calibrated width in each family: a∗ = eπ /12 − 1 = 1.276108 (half-Cauchy) and a∗ = 2.665
+(chiral Gaussian) [T+V].
+
+
+
+                                                   4
+Scope. Non-normal advective and dissipative flow operators belong to a different class and are
+outside this paper. What extends beyond the Dirac family is not the operator but the currencies
+— chirality, winding, spectral flow — each an integer record carried by a spectral object through
+a wall. The electric side is where those currencies are minted, and they are minted by Dirac’s
+operator.
+
+
+3     Global Admissibility and Axiomatic Bulk Structure
+Definition 3.1 (Admissible bulk). A compact, orientable 3-manifold X with boundary ∂X is an
+admissible bulk if: (1) each component of ∂X supports a first-order elliptic boundary operator
+whose holonomy family carries the integer winding record of §4.1; (2) the boundary data arise as
+the restriction of a global bulk structure and flat U (1) connection on X; (3) π1 (∂X) ,→ π1 (X)
+is injective up to conjugacy (incompressible boundary); (4) Spectral rigidity: the integer record
+is locally constant in the holonomy parameters, with jumps confined to a discrete wall set; (5)
+Minimality: the total record satisfies |ntotal | = 1.
+
+
+4     Module I: Twisted Boundary Transport and Continuation Ob-
+      structions
+4.1   The torus anchor and phase-transport calculus
+Let T 2 = R2 /Z2 carry the twisted operator family
+
+                                                         λ±
+                                                                      p
+         Dα,β = iσ1 (∂x + 2πiα) + iσ2 (∂y + 2πiβ),        m,n = ±2π    (m + α)2 + (n + β)2 .        (2)
+
+With the complex mode
+                     coordinate Zm,n = 2π[(m + α) + i(n + β)], the positive-sector projector is
+              1 Z̄/|Z|
+Pm,n = 12   Z/|Z| 1
+                         and the eigenspace orientation is the phase eiΦm,n = Z/|Z|.
+
+Theorem 4.1 (Phase keeps the record; [T]+[V]). Along any smooth deformation (α(t), β(t)), the
+scalar eigenvalue λ = |Z| compresses directional input into an orientation-blind magnitude, while
+the phase obeys the transport law
+
+                                   dΦm,n   (m + α)β̇ − (n + β)α̇
+                                         =                       ,                                  (3)
+                                     dt     (m + α)2 + (n + β)2
+
+a gauge-invariant angular velocity on the holonomy torus. Loop integrals of (3) around the spectral
+zero are exact integers: winding 0 for non-enclosing loops, +1 per enclosure, +2 for a double loop
+(verified to 10−6 , Appendix B).
+
+The currency. The spectrum of (2) is symmetric under λ → −λ by the exact chiral symmetry
+{σ3 , Dα,β } = 0, so the spectral-asymmetry invariant η vanishes identically on this family; the integer
+content of transport resides in the winding record of Theorem 4.1. Its self-adjoint knot-theoretic
+ancestor is the Levine–Tristram signature σK : S 1 → Z, an integer step function jumping exactly
+at the Alexander roots on the holonomy circle (trefoil: plateau −2 between holonomies 1/6 and
+5/6; the amphichiral 41 : σ ≡ 0) [T].
+
+
+
+
+                                                   5
+4.2   Local neutrality and global obstruction lower bounds
+The obstruction curvature is formalized via the regularized quartic potential UC (T ) = (T 2 −
+a2 IN )2 + ϵI√                                          2    2
+             N with curvature operator RC (T ) = 4(3T − a IN ); local neutral sectors occur at
+T∗ = ±(a/R a 1 3)IN , where ker RC (T∗ ) ̸= 0. The global obstruction along a normalized path is
+O(γ) = −a N Tr UC (T (t)) dt.
+Theorem 4.2 (Persistence of the global bound; [T], commuting reduction). Local neutral sectors
+do not permit the global obstruction to vanish along a continuous deformation. For the commuting
+reduction T (t) = tIN ,
+                               Z a
+                                                               16 5
+                     Omin ≥ 2      (t4 − 2a2 t2 + a4 + ϵ) dt =    a + 2aϵ > 0.               (4)
+                                 0                             15
+The fully non-commutative lower bound remains conjectural; this verification relies on the commut-
+ing reduction, and the grade is stated accordingly.
+
+4.3   Interface gluing anomalies
+When continuation patches A and B are glued along a boundary component Σ, the combined
+                             RA ϵBΣ
+connection operator is RM = ϵ† RB .
+                                   BΣ
+
+Assumption 1. (I + RA ) and (I + RB ) are strictly positive definite and ϵBΣ is bounded.
+Theorem 4.3 (Interface anomaly; [T] under Assumption 1). Gluing under Assumption 1 yields
+a strictly positive non-local interface correction: by Schur decomposition and trace-log equivalence,
+O(A ∪Σ B) = O(A) + O(B) + ∆interface with
+                                                                   X
+           ∆interface = Tr log I + ϵ†BΣ (I + RA )−1 ϵBΣ (I + RB )−1 =    log(1 + ϵ2 µk ) > 0,     (5)
+                                                                           k
+
+with µk > 0 the eigenvalues of the localized boundary product.
+
+4.4   The noncommutative torus anchor
+The torus family of §4.1 carries its holonomy in two parameters α, β that commute. Nothing in
+the winding currency requires them to. Replacing the two holonomy coordinates by two unitary
+operators that fail to commute by a scalar moves the same anchor onto a finite-dimensional non-
+commutative torus, and the integer record survives the move with an explicit domain of validity.
+Definition 4.4 (Noncommutative anchor and its readouts). Let U, V ∈ U(d) and set the relator
+                            R = U V U †V †,         λ1 , . . . , λd = spec(R).                   (6)
+The defect, the branch guard, and the winding record are
+                                                                                  d
+                     ∥R − I∥2F                                              1 X
+                δ=             ,        g = min |λj + 1|,     w(U, V ) =        arg λj ,         (7)
+                        d                    j                             2π
+                                                                                 j=1
+
+with arg the principal branch. The anchor is admissible at tolerance τ when g > τ .
+The defect is the normalised Hilbert–Schmidt distance of the relator from the identity: the ampli-
+tude by which the two generators fail to commute. The winding is the phase that failure accumulates
+across the spectrum, and it is the same currency the smooth family of §4.1 carries around a spectral
+zero.
+
+                                                    6
+Theorem 4.5 (Integrality and invariance; [T]+[V]). Let g > 0. Then (i) w(U, V ) ∈ Z, and
+|w| ≤ d/2; (ii) w(QU Q† , QV Q† ) = w(U, V ) for every Q ∈ U(d); (iii) w(eiθ U, eiφ V ) = w(U, V )
+for all θ, φ ∈ R; (iv) w(U, V ) is the winding number about the origin of the closed loop t 7→
+det (1 − t)I + tR , t ∈ [0, 1].
+                                                                       Q
+Proof.
+P        R is a commutator of unitaries, so det R = 1 and hence j λj = 1. Taking arguments,
+   j arg λj ∈ 2πZ, which is (i); the bound follows from | arg λj | < π. For (ii), conjugation carries R
+to QRQ† and preserves the spectrum. For (iii), the scalars cancel identically inside the commutator.
+For (iv), det R = 1 at t = 1 and det I = 1 at t = 0, so the path closes; the identification of its winding
+with the summed principal arguments is the Exel–Loring formula [C], whose two formulations —
+K-theoretic and winding-number — were proved to agree.
+
+The determinant of the relator is identically one. That triviality is not an obstacle to reading the
+record; it is the reason the record is an integer.
+Theorem 4.6 (The admissible domain; [T]+[V]). For every U, V ∈ U(d),
+
+                                              δ + g 2 ≤ 4,                                            (8)
+
+with equality if and only if Re λj is constant over the spectrum of R.
+
+                                                   2          2        2
+             j lies on the unit circle, so |λj − 1| + |λj + 1| = 2|λj | + 2 = 4. Averaging over j
+Proof. Each λP
+gives δ + d−1 j |λj + 1|2 = 4 exactly. Since g 2 is the minimum of the quantities being averaged,
+g 2 ≤ d−1 j |λj + 1|2 = 4 − δ. Equality holds precisely when every |λj + 1|2 = 2 + 2 Re λj takes
+          P
+the same value.
+
+Corollary 4.7 (Forced refusal). g 2 ≤ 4 − δ: the branch guard is capped by the defect. Consequently
+no anchor with δ > 4 − τ 2 is admissible at tolerance τ , in any dimension and for any pair of
+generators.
+A large defect and a safe branch cannot coexist. The refusal at the boundary is therefore a statement
+about the anchor rather than about the estimator: at δ = 4 the relator is −I, the guard has closed,
+and the principal branch no longer selects a value.
+
+The readouts are half-angles. Write λj = eiϑj . Then |λj − 1|2 = 4 sin2 (ϑj /2) and |λj + 1|2 =
+4 cos2 (ϑj /2), so the defect is four times the mean of sin2 of the half-angles and the guard squared
+is four times their minimum cos2 . Equation (8) then reads
+
+                              meanj sin2 (ϑj /2) + min cos2 (ϑj /2) ≤ 1 :                             (9)
+                                                         j
+
+the Pythagorean identity, with a minimum standing where a mean belongs, and equality exactly
+when the half-angles agree [T]. This places the anchor in the same currency as the rest of the
+framework’s projector observables, which are natively P  sin2 -valued in principal angles because the
+Hilbert–Schmidt distance between two projectors is 2 i sin2 θi by construction. The defect is a
+squared sine, the guard its cosine, and the wall is the right angle.
+Theorem 4.8 (Amplitude floor; [T]+[V]). For every U, V ∈ U(d) with g > 0,
+
+                                  d√                                                16
+                   |w(U, V )| ≤      δ,      hence           w(U, V ) ̸= 0 =⇒ δ ≥      .             (10)
+                                  4                                                 d2
+
+                                                     7
+Proof. With λj = eiϑj , ϑj ∈ (−π, π], we have |λj − 1| = 2| sin(ϑj /2)|. Concavity of the sine on
+[0, π/2] gives sin x ≥ 2x/π there, hence |ϑj | ≤ π2 |λj − 1|. Summing and applying Cauchy–Schwarz,
+
+                                                                             π √
+                                                              s X
+                             X              πX            π
+                  2π|w| ≤         |ϑj | ≤      |λj − 1| ≤      d  |λj − 1|2 = d δ.
+                                            2             2                  2
+                             j                j                   j
+
+                             √
+If w ̸= 0 then |w| ≥ 1 and       δ ≥ 4/d.
+
+An integer record cannot be carried by an arbitrarily small defect. The amplitude may collapse as
+the dimension grows — and on the realisation below it does — but not faster than d−2 , or there is
+nothing left for the record to ride on.
+Proposition 4.9 (Clock and shift; [T]+[V]). Let ω = e2πi/d , let U = diag(1, ω, . . . , ω d−1 ) and let
+V be the cyclic shift. Then U V = ω V U , R = ωI, and
+                                π                     π
+                      δ = 4 sin2 ,           g = 2 cos ,      w(U, V ) = 1   (d ≥ 3).               (11)
+                                d                     d
+Every half-angle equals π/d, so the family
+                                     √      realises equality in (8) at every d, and it saturates (10)
+up to the constant π/2: the bound d4 δ = d2 sin(π/d) decreases to π/2 while w stays at 1. At d = 2
+the half-angle reaches π/2, the relator is −I, δ = 4, g = 0, and the anchor is inadmissible.
+The gate of Appendix B returns w = 1.000000000 by both estimators of Theorem 4.5 at d =
+3, 5, 7, 11, 17, 31, 53, 97, with the defect falling from 3.000 to 4.194 × 10−3 and δ + g 2 = 4.000000000
+on every row; w = 0 on commuting pairs; w unchanged under conjugation and under either
+generator rephasing; w = 1 preserved under unitary perturbations at η = 10−1 down to 10−4 ,
+where the relator leaves the scalar locus and δ + g 2 falls strictly below 4; no violation of (8) in 1000
+random unitary pairs at d = 12 (largest observed 2.310779); and refusal at d = 2.
+
+One currency, two realisations. The record of Definition 4.4 is the winding currency of §2
+evaluated on a noncommutative holonomy rather than a smooth one. Its literature name is the
+Exel–Loring invariant, equivalently the Bott index, and it was constructed to separate pairs of
+unitaries that admit commuting approximants from pairs that do not [C]. On a lattice on a two-
+torus the Bott index of the pair of projected position unitaries equals the Chern number, under the
+hypotheses that the Hamiltonian is short-ranged, bounded and gapped, and in the thermodynamic
+limit [C]. Those hypotheses are what places the measured Chern number of §6.5 and the winding
+of Proposition 4.9 in the same currency; an explicit normalisation carrying the loop integral of (3)
+onto w on a common family is not established here and is carried at [H].
+
+Scope. The obstruction read by w is an obstruction to approximation in the operator norm. It is
+not an obstruction in the normalised Hilbert–Schmidt or Hamming metrics, where the clock–shift
+family lies close to a commuting pair despite carrying w = 1; the amplitude floor of Theorem 4.8
+bounds the defect from below at fixed d and says nothing as d → ∞. Statements about metric
+approximation of groups belong to that second setting and are outside this anchor.
+
+
+
+
+                                                      8
+Figure 2: The admissible domain of Theorem 4.6. Every anchor lies in the shaded triangle; scalar
+relators lie on its hypotenuse, where the clock–shift family sits at every d. Decreasing d slides the
+family into the corner at which the guard closes.
+
+5     Module II: Character-Variety Substrates and Topological Con-
+      tinuation
+5.1   The continuation laboratory
+Continuation trajectories are constrained to the character variety of the figure-eight knot comple-
+ment MK = S 3 \ 41 , XK = Hom(π1 (MK ), SL2 (C))//SL2 (C), with peripheral torus governed by
+meridian and longitude holonomies u = log M , v = log L, and admissible trajectories confined to
+the zero locus of the A-polynomial
+
+                A41 (L, M ) = L2 M 4 + L(−M 8 + M 6 + 2M 4 + M 2 − 1) + M 4 = 0.                (12)
+
+The continuation philosophy — global admissibility determined by higher-dimensional continuation
+rather than local presentation — is methodologically inspired by trace-construction reasoning in
+four-dimensional topology; no result of that field is used or claimed here.
+
+5.2   Tangent Jacobians and kinematic coupling
+With JM = M ∂AK /∂M and JL = L ∂AK /∂L, implicit differentiation of (12) yields u̇ = −(JL /JM )v̇,
+and lifting the phase-velocity law (3) into curve coordinates gives the interaction field
+                                                                              
+                   dΦ    (m + u)v̇ − (n + v)u̇      (m + u) + (n + v)(JL /JM )
+                       =                       =                                 v̇.        (13)
+                   dt     (m + u)2 + (n + v)2          (m + u)2 + (n + v)2
+Parallel flows (v̇1 ≈ v̇2 ) drive dΦ/dt → 0 (compressed bands); opposed flows near zero modes
+produce superlinear amplification — transport-resistance walls where continuation is structurally
+threatened.
+
+                                                 9
+Figure 3: The amplitude floor of Theorem 4.8. Below the boundary no integer record is available at
+that dimension. The clock–shift family rides a constant factor π 2 /4 above the floor while carrying
+w = 1.
+
+5.3   Chirality forcing
+Corollary 5.1 (Chirality forcing). A statically amphichiral substrate carries a vanishing integer
+record: the Levine–Tristram plateau function of an amphichiral knot is identically zero (41 : verified),
+so minimal admissibility |n| = 1 cannot be realized at a static amphichiral basepoint. Persistent
+spectral distinction therefore requires either an intrinsically chiral substrate or a dynamic trajec-
+tory that breaks amphichiral symmetry — on the 41 laboratory, the transport field (13) drives the
+configuration away from the symmetric origin, culminating in the discrete staircase jumps of §5.5.
+
+5.4   Minimality of multi-component boundaries
+Definition
+Fk             5.2 (Minimal admissible realization). A Pmulti-toroidal boundary configuration ∂X =
+      T 2 , with integer records n and total n       =
+  i=1 i                           i            total    i ni , is minimal when exactly one component
+carries ni = ±1 and all others are neutral.
+Remark 5.3. Additivity of the winding record over disjoint boundary tori holds by construction;
+the “exactly one” clause is the definition of minimality, adopted as a design principle of the admis-
+sibility axioms. Neutral components are spectrally inert and may be filled by Dehn surgery without
+altering the global record, reducing the configuration effectively to a single-component complement.
+
+5.5   Phase-lock rupture and staircase jumps
+The locked leading phase is governed by the second-order field d2 Φ/dt2 = N (u, v, u̇, v̇, ü, v̈)/((m +
+u)2 + (n + v)2 )2 . Rupture occurs at the zero locus of the meridian Jacobian, JM → 0: the curve
+exhibits a vertical tangent, the ratio JL /JM diverges, tracking regularity breaks, and the phase
+profile executes a discrete non-adiabatic jump ∆θ = π · sgn(dΦ/dt).
+
+
+                                                  10
+5.6   The stable trichotomy
+Theorem 5.4 (Exhaustive trichotomy; [T], lattice argument). Every stress-minimizing configura-
+tion on a multi-toroidal boundary cluster falls into exactly one of: (1) open boundary flows (wind-
+ing vector undefined globally; source/sink conduits); (2) chiral loops (primitive homology class,
+gcd(wα , wβ ) = 1, protected by homotopy invariance); (3) neutral loops (w = (0, 0), contractible,
+metastable). Composite vectors split under generic perturbation into primitive components; the
+trichotomy is exhaustive on Z2 .
+
+5.7   The rigidity class
+Theorem 5.5 (Realization by knot complements). The rigidity class demanded by the axioms
+— an integer record on a single toroidal boundary, locally constant in holonomy with jumps con-
+fined to a discrete wall set — is realized by knot complements in S 3 : on the holonomy circle the
+Levine–Tristram signature is an integer step function whose wall set is the Alexander-root locus [T].
+Exhaustiveness of the exclusion of alternatives rests on Lemmas 5.5 and 5.6 at their stated grades.
+Lemma 5.6 (Torus bundles excluded by the rigidity axiom). Admissibility requires the boundary
+invariant to be locally constant in the holonomy parameters with integer jumps on a discrete wall
+set. Torus bundles over S 1 carry boundary holonomies constrained along continuous representation
+families fixed by the monodromy and do not support an integer-plateau invariant of this type; they
+are excluded by the axiom. (For the product-type boundary operators of §4.1, chiral symmetry forces
+η ≡ 0 identically, so no asymmetry-based invariant is available on this family; the plateau axiom is
+stated in the winding currency.)
+Lemma 5.7 (Seifert substrates excluded at [C]). Fractional ρ/η values on Seifert-fibered pieces are
+established in the literature (Nicolaescu-type adiabatic analysis) [C]. Fractional plateaus violate the
+integer-jump axiom; Seifert substrates are therefore excluded at grade [C].
+
+
+6     Module III: Covariance Realization and the Intrinsic Observ-
+      ables
+Module III tests whether physical nature realizes the admissible transport pathways derived above.
+The instrument is a flux-tunable transmon quantum heat engine (circuit QED) executing a driven
+Otto cycle; for each stroke s, amplitude a, and shot j the complex amplitude xs,a,j = Is,a,j + iQs,a,j
+is recorded (3 cycles × 6 strokes × 29 amplitudes × 9949 shots). After removal of invalid shots
+and centering, the covariance Tsym (s, a) is formed, eigendecomposed Tsym = U ΛU † , and lifted to
+rank-k projectors Πk = Uk Uk† on Gr(k, 8).
+
+6.1   The intrinsic quantities: definitions and estimators
+All observables below are functionals of the projector path alone.
+Principal angles. cos θi (t) = σi (Πk (t)Πk (t + ∆t)), 0 ≤ θ1 ≤ · · · ≤ θk ≤ π/2. [D at k = 4: 32.33◦ ,
+23.29◦ , 13.22◦ , 4.72◦ .]
+Transport capacity (metric). For a tangent V = dΠk /dt, C(V ) = gΠk (V, V ) = 12 Tr(V 2 ) ≥ 0:
+the intrinsic cost of transport in direction V ; bosonically, this is the superfluid-weight functional of
+the quantum-geometry literature (§6.9).
+
+
+
+                                                   11
+                                                 p
+Alignment and chirality. cos θG = gΠk (V, W )/ C(V )C(W ), and the oriented area (signed
+geometric flux) ΩΠk (V, W ) = −i Tr(Πk [V, W ]).
+Rigidity (anisotropy). R(t) = 1/(σmin (Aintr (t))2 + ϵ), diverging at singular loci (gap closings,
+degeneracies) and acting as a local geometric refractive index.
+Persistence (memory). C(∆t) = Tr(Πk (t)Πk (t + ∆t)) = ki=1 cos2 θi (∆t), with 0 ≤ C ≤ k.
+                                                             P
+
+Participation and effective dimension. IPR = i p2i with pi = λi / j λj , and DC = 1/IPR ≤
+                                                    P                 P
+k. The baseline DC = 8 reflects rank saturation of the uniform state; the physical signal is
+the collapse deff → 1 across the cycle. [D: IPR ≈ 0.1251; autocorrelation AV (28) ≈ 0.10448,
+Ana (28) ∈ [0.42686, 0.56003].]
+
+6.2   The metric–curvature bound
+Theorem 6.1 (Fundamental inequality; [T]+[V]). For any tangents V, W at Πk ,
+                       q                                          p
+      |ΩΠk (V, W )| ≤ 2 gΠk (V, V ) gΠk (W, W ) − gΠk (V, W )2 = 2 C(V )C(W ) sin θG .              (14)
+
+The bound holds over 1000 random Grassmannian trials with zero violations, saturates exactly for
+the two-band Dirac class (§2), and bounds the geometric flux capacity; its family has classical-wave
+experimental verification [C].
+
+6.3   Geometric refraction across interfaces
+At a rigidity interface Σ12 separating regions of refractive index R1 , R2 , continuity of curvature-flux
+yields the intrinsic refraction law
+
+                           R1 sin2 θ1 = R2 sin2 θ2 ,     R2 → ∞ ⇒ θ2 → 0                            (15)
+
+(only longitudinal transport survives the singular limit).
+
+6.4   The refraction pipeline: independence protocol
+The reported refraction angle θref = 14.22◦ against the predicted window [14.21◦ , 14.23◦ ] is graded
+[D] pending execution of the following protocol on the archived shots. (i) Split: partition shots into
+disjoint halves SA (odd) and SB (even). (ii) Predict from SA : estimate R1 , R2 on the two sides of
+the interface via the rigidity estimator of §6.1 on SA alone; propagate bootstrap uncertainty to a
+predicted window for θ2 through the refraction law. (iii) Measure from SB : extract the transport
+direction change across the interface from the projector path on SB alone, with no reference to
+R1 , R2 . (iv) Report: the prediction and the measurement are independent by construction; agree-
+ment is then evidence, and the entry upgrades to [V]. Any report that cannot exhibit this split
+carries the [D] grade.
+
+6.5   Realization on published tomography data
+The framework’s Phase I–II pipeline exists independently in the laboratory record: complete Bloch-
+state tomography of a two-dimensional optical Raman lattice realized with ultracold 87 Rb Bose–
+Einstein condensates reconstructs band eigenfunctions from measured spin textures and assembles
+the full quantum geometric tensor across the Brillouin zone [C]. On the experimentally calibrated
+tight-binding band of that system (t0 = 0.09, tso = −0.05, δ = −0.2 in recoil units), the framework’s
+
+                                                   12
+observables evaluate as follows (Appendix B): the winding currency returns Chern number −0.99931
+against the published measurement −1.00 ± 0.02 [C+V]; the bound (14) saturates pointwise as the
+two-band identity requires (grid mean 0.99996, exact analytically); the integrated strictness pattern
+of the quantum-volume inequality volg ≥ |C| reproduces the published behavior (volg = 1.145 > |C|
+in the topological phase; strict and small on the trivial side); and the rigidity observable R = 1/gap2
+sweeps from 25 to 106 approaching the transitions at δ = 0 and δ = −8t0 , with the quantum
+volume rising toward the wall — metric concentration at degeneracy, the mechanism by which
+local quantum geometry governs flat-band condensate stability [C]. A published Bose–Einstein-
+condensate experiment thereby realizes the framework’s projector pipeline, its integer currency, its
+fundamental inequality, and its rigidity divergence on one calibrated band.
+
+6.6   Dimensional collapse and extremal framing
+The cycle drives the system from the uniform baseline (deff = 8) to a single dominant channel
+(deff → 1). This collapse is analyzed in the spirit of the auxiliary-function optimization philosophy
+introduced by Viazovska; no linear-programming bound of sphere-packing type is claimed or used.
+The demonstrated facts are: deff saturates its trivial bounds 1 ≤ deff ≤ 8, the baseline reflecting
+rank saturation and the collapse constituting the physical signal.
+
+6.7   Finite-time friction shields
+Work lost to inner-dissipative quantum friction across a stroke scales with the Frobenius norm of
+the Hamiltonian-derivative commutator. The measured suppression of anti-symmetric off-diagonal
+correlations (Tanti ∼ O(10−4 )) forces the non-adiabatic friction work to scale as O(10−8 ) — a
+macroscopic friction shield, the physical consequence of the directional filtering of Module II. [D+H:
+the suppression is measured; the mechanism attribution is interpretive.]
+
+6.8   Weak-value phase separation
+Protocol 1 (Weak-value phase separation; [H]). Let |ψi ⟩, |ψf ⟩ be pre- and post-selected states of
+the network and decompose Atotal = Arigid eiδ + Πphase . The protocol conjectures a joint alignment
+(γ = 1, δ = π/2 − 2Φ) — with γ the pre/post selection-overlap alignment parameter to be defined
+operationally on the instrument — at which the rigid matrix elements cancel from the weak-value
+numerator, leaving ⟨Atotal ⟩w = ⟨ψf |Πphase |ψi ⟩/⟨ψf |ψi ⟩ =
+                                                            ̸ 0: direct access to the structural phase
+with anomalous amplification ∝ |⟨ψf |ψi ⟩|−1 (the amplification itself is standard weak-value theory
+[C]). The cancellation is conjectural pending the explicit model computation.
+
+6.9   Convergence with the quantum-geometry literature
+The core observables of §6.1 are individually measured or formalized in the current literature: the
+complete quantum-metric tensor has been measured momentum-resolved in solids; the quantum-
+metric-dipole nonlinear Hall effect is experimentally established and field-tunable, with the intrinsic
+nonlinear Hall conductivity decomposed into quantum-geometric contributions within a projector-
+based formalism; the inequality (14) family has classical-wave experimental verification; and the
+superfluid weight of flat-band condensates is proportional to the quantum metric, with stability
+decided by the local-vs-global distribution of the metric — the bosonic realization of the transport-
+capacity functional C(V ). What is unified here, and not available elsewhere, is the single operator-
+first architecture connecting these observables, the topological continuation layer above them, and
+a raw-covariance pipeline realizing all of them on one instrument.
+
+
+                                                  13
+7    Bridging the Continuum: the Khovanov Spectral Complex
+Let C i,j (D) be the bigraded Khovanov chain complex of a link diagram D over R with differen-
+tial di and adjoint d∗i induced by declaring the standard cube-basis elements orthonormal. The
+combinatorial Laplacian and Dirac operator are
+
+                                                               0 d∗i
+                                                                    
+                                     ∗    ∗
+                           ∆Kh = di di + di−1 di−1 ,  DKh =            ,                   (16)
+                                                               di 0
+
+standard combinatorial Hodge theory [T]: ker ∆Kh ∼  = Khovanov homology,     and the graded Eu-
+                                                                                           i,j
+ler characteristic recovers the unnormalized Jones polynomial, χ = i,j (−1)i q j dim ker(DKh
+                                                                     P
+                                                                                               ) =
+VK (q). The proposed alignment of the non-harmonic spectrum with continuum connection-velocity
+gradients, and of phase-lock rupture (JM → 0) with discrete recombination through the harmonic
+boundary, is a structural hypothesis [H]; the harmonic-sector statements are theorems of the con-
+struction.
+
+
+8    Projector Persistence: the Lipschitz Stability Bound
+Theorem 8.1 (Local Lipschitz stability; [T], Kato-type). Let A be a bounded non-normal operator,
+A′ = A + E with ∥E∥ ≤ ϵ, and Γ an isolated contour tracking a spectral cluster with gap δgap =
+dist(Γ, σ(A) \ σΓ (A)) > 0 and growth factor CΓ = supλ∈Γ ∥(λI − A)−1 ∥ · δgap . If ϵ < δgap /CΓ , the
+Riesz projectors satisfy
+
+                                                             ℓ(Γ)CΓ2
+                         ∥Π′ − Π∥ ≤ KΓ ϵ,       KΓ =                        ,                   (17)
+                                                       2πδgap (δgap − ϵCΓ )
+
+so the persistence functional P (A, E) = 1 − ∥Π − Π′ ∥ obeys P ≥ 1 − KΓ ϵ: the map from operators
+to Grassmannian projector data is locally Lipschitz — higher-level subspaces remain stable and
+continuable even where individual eigenvectors break down.
+
+Proof. Π′ −Π = − 2πi
+                   1
+                     H
+                       Γ RA (λ) E RA (λ) dλ by the resolvent identity; the Neumann bound ∥RA ∥ ≤
+                                    ′                                                       ′
+
+∥RA ∥/(1 − ∥RA ∥ϵ) and the triangle inequality for integrals give the constant.
+
+
+9    Conclusion
+Module I established which transport directions are geometrically possible, with its operator algebra
+gated and its torus anchor carried onto a noncommutative holonomy where the integer record
+acquires a proved domain and an amplitude floor; Module II filtered which trajectories are globally
+continuable, with its integer currency verified and its knot-theoretic ancestry made exact; Module
+III defined every intrinsic observable with an estimator, realized the framework on a published Bose–
+Einstein-condensate experiment where its integer currency reproduces a measured Chern number,
+and specified the protocol under which its flagship instrument test becomes falsifiable. Beneath
+all three modules stands one operator: the Dirac foundation supplies the algebra of every two-
+band sector, the paired spectra of the chiral ensemble class, and the integer currencies — index,
+asymmetry, winding — in which the framework’s topology is denominated. Structural evolution
+is represented by transition generators; incompatibility with the current spectral decomposition
+is quantified by the canonical redistribution operator; and geometry emerges from the interaction
+between what presently exists and what attempts to change it.
+
+
+                                                 14
+A     The Canonical Structural Transition Generator
+The projector Π describes what presently exists; the generator Ω describes what attempts to change
+it. Geometry emerges from their interaction, measured entirely by [Ω, Π]. The redistribution
+operator F (Ω, Π) = [Ω, Π]Π + Π[Π, Ω] = ΩΠ + ΠΩ − 2ΠΩΠ = (I − Π)ΩΠ + ΠΩ(I − Π) satisfies:
+(1) F = 0 iff [Ω, Π] = 0; (2) Tr F = 0; (3) F acts exclusively across the projector boundary;
+(4) larger commutators produce stronger redistribution. No microscopic realization is required:
+all results depend only on the algebra relating Ω and Π. Experimentally, nonzero [Ω, Π] predicts
+correlated changes in persistence, participation, effective dimension, and directional hysteresis —
+testable hypotheses, not algebraic consequences.
+
+
+B     Scripts: proof of record
+B.1    Operator algebra and winding gates
+# SCRIPT: UPG-GATE-01 (Module I winding law; Section 1 F(Omega,Pi) theorems)
+import numpy as np
+
+print("=== G1: phase-transport -- winding around the zero is the honest integer ===")
+
+def winding(loop_pts):
+   a, b = loop_pts[:, 0], loop_pts[:, 1]
+   ph = np.unwrap(np.arctan2(b, a))
+   return (ph[-1] - ph[0]) / (2*np.pi)
+
+th = np.linspace(0, 2*np.pi, 4001)
+m, n = 0, 0
+enc = np.stack([0.30 + 0.25*np.cos(th) + m, 0.30 + 0.25*np.sin(th) + n], 1)
+enc2 = np.stack([0.10*np.cos(th), 0.10*np.sin(th)], 1)
+enc3 = np.stack([0.10*np.cos(2*th), 0.10*np.sin(2*th)], 1)
+print(f" loop not enclosing zero: winding = {winding(enc):+.6f}")
+print(f" loop enclosing zero: winding = {winding(enc2):+.6f}")
+print(f" double loop: winding = {winding(enc3):+.6f}")
+print()
+
+print("=== G3: Theorems 1.2/1.3 -- F(Omega,Pi) identities, random gates ===")
+rng = np.random.default_rng(5)
+ok_forms = ok_iff = ok_trace = ok_cross = True
+for trial in range(200):
+   N, k = 8, 3
+   A = rng.normal(size=(N, N)) + 1j*rng.normal(size=(N, N))
+   Om = A + A.conj().T
+   Q, _ = np.linalg.qr(rng.normal(size=(N, k)) + 1j*rng.normal(size=(N, k)))
+   Pi = Q @ Q.conj().T
+   I = np.eye(N)
+   F1 = (I - Pi) @ Om @ Pi + Pi @ Om @ (I - Pi)
+   F2 = Om @ Pi + Pi @ Om - 2*Pi @ Om @ Pi
+   C = Om @ Pi - Pi @ Om
+   ok_forms &= np.allclose(F1, F2, atol=1e-10)
+   ok_trace &= abs(np.trace(F1)) < 1e-10
+   ok_cross &= (np.allclose(Pi @ F1 @ Pi, 0, atol=1e-10) and
+             np.allclose((I - Pi) @ F1 @ (I - Pi), 0, atol=1e-10))
+   ok_iff &= (np.linalg.norm(F1) < 1e-10) == (np.linalg.norm(C) < 1e-10)
+
+w = np.sort(rng.normal(size=8))
+U, _ = np.linalg.qr(rng.normal(size=(8, 8)) + 1j*rng.normal(size=(8, 8)))
+Om = U @ np.diag(w) @ U.conj().T
+Pi = U[:, :3] @ U[:, :3].conj().T
+F = (np.eye(8) - Pi) @ Om @ Pi + Pi @ Om @ (np.eye(8) - Pi)
+print(f" equivalent forms agree (200 trials): {ok_forms}")
+print(f" Tr F = 0 (200 trials): {ok_trace}")
+print(f" cross-subspace only (Pi F Pi = 0 = Qc F Qc): {ok_cross}")
+print(f" F=0 <=> [Om,Pi]=0, generic direction: {ok_iff}")
+
+
+                                                15
+print(f" commuting pair gives ||F|| = {np.linalg.norm(F):.2e}")
+
+
+B.2   Inequality, saturation, persistence, rigidity gates
+# SCRIPT: UPG-PROVE-01a (metric-curvature bound, its saturation, persistence
+# identity, rigidity divergence)
+import numpy as np
+rng = np.random.default_rng(11)
+
+print("=== P1: bound |Omega| <= 2 sqrt(g11 g22 - g12ˆ2), 1000 random trials ===")
+
+def tangent(Pi, N):
+   X = rng.normal(size=(N, N)) + 1j*rng.normal(size=(N, N))
+   X = (X + X.conj().T)/2
+   I = np.eye(N)
+   return (I - Pi) @ X @ Pi + Pi @ X @ (I - Pi)
+
+viol = 0
+margins = []
+for t in range(1000):
+   N, k = 8, 3
+   Q, _ = np.linalg.qr(rng.normal(size=(N, k)) + 1j*rng.normal(size=(N, k)))
+   Pi = Q @ Q.conj().T
+   V, W = tangent(Pi, N), tangent(Pi, N)
+   g11 = 0.5*np.trace(V @ V).real
+   g22 = 0.5*np.trace(W @ W).real
+   g12 = 0.5*np.trace(V @ W).real
+   Om = (-1j*np.trace(Pi @ (V @ W - W @ V))).real
+   bound = 2*np.sqrt(max(g11*g22 - g12**2, 0))
+   if abs(Om) > bound + 1e-9:
+      viol += 1
+   margins.append(bound - abs(Om))
+print(f" violations: {viol}/1000; min margin = {min(margins):.3e}")
+print()
+
+print("=== P2: saturation for the two-band Dirac model (rank-1 on Cˆ2) ===")
+
+def bloch_pi(th, ph):
+   n = np.array([np.sin(th)*np.cos(ph), np.sin(th)*np.sin(ph), np.cos(th)])
+   sx = np.array([[0, 1], [1, 0]])
+   sy = np.array([[0, -1j], [1j, 0]])
+   sz = np.array([[1, 0], [0, -1]])
+   return 0.5*(np.eye(2) + n[0]*sx + n[1]*sy + n[2]*sz)
+
+th0, ph0, h = 1.1, 0.7, 1e-5
+P0 = bloch_pi(th0, ph0)
+V = (bloch_pi(th0 + h, ph0) - bloch_pi(th0 - h, ph0))/(2*h)
+W = (bloch_pi(th0, ph0 + h) - bloch_pi(th0, ph0 - h))/(2*h)
+g11 = 0.5*np.trace(V @ V).real
+g22 = 0.5*np.trace(W @ W).real
+g12 = 0.5*np.trace(V @ W).real
+Om = (-1j*np.trace(P0 @ (V @ W - W @ V))).real
+bd = 2*np.sqrt(g11*g22 - g12**2)
+print(f" |Omega| = {abs(Om):.8f} bound = {bd:.8f} ratio = {abs(Om)/bd:.8f}")
+print()
+
+print("=== P3: persistence identity C(dt) = Tr(Pi Pi’) = sum cosˆ2 theta_i ===")
+ok = True
+for t in range(200):
+   N, k = 8, 4
+   Q1, _ = np.linalg.qr(rng.normal(size=(N, k)) + 1j*rng.normal(size=(N, k)))
+   Q2, _ = np.linalg.qr(rng.normal(size=(N, k)) + 1j*rng.normal(size=(N, k)))
+   P1, P2 = Q1 @ Q1.conj().T, Q2 @ Q2.conj().T
+   s = np.linalg.svd(P1 @ P2, compute_uv=False)[:k]
+   ok &= abs(np.trace(P1 @ P2).real - np.sum(s**2)) < 1e-9
+print(f" identity holds (200 trials): {ok}")
+print()
+
+
+
+                                               16
+print("=== P4: rigidity R = 1/(sigma_minˆ2 + eps) at a synthetic gap closing ===")
+eps = 1e-12
+for gap in [1.0, 0.1, 0.01, 0.001]:
+   A = np.diag([1.0, gap]) @ np.array([[1, 0.3], [0, 1.0]])
+   smin = np.linalg.svd(A, compute_uv=False).min()
+   print(f" gap={gap:6.3f}: sigma_min = {smin:.4e} R = {1/(smin**2+eps):.3e}")
+
+
+B.3    Realization on the published tomography band
+# SCRIPT: UPG-PROVE-02 (the framework on PUBLISHED data: Yi et al. arXiv:2301.06090
+# Raman-lattice QAH band, calibrated t0=0.09, tso=-0.05, delta=-0.2 in E_r units;
+# their measured C = -1.00 +/- 0.02)
+import numpy as np
+
+t0, tso = 0.09, -0.05
+
+def hvec(qx, qy, dlt):
+   return np.array([2*tso*np.sin(qy),
+                2*tso*np.sin(qx),
+                dlt/2 - 2*t0*(np.cos(qx) + np.cos(qy))])
+
+def band_data(dlt, N=201):
+   qs = np.linspace(-np.pi, np.pi, N, endpoint=False)
+   h = np.array([[hvec(qx, qy, dlt) for qy in qs] for qx in qs])
+   nrm = np.linalg.norm(h, axis=2)
+   gapm = 2*nrm.min()
+   n = -h/nrm[:, :, None]
+   dq = qs[1] - qs[0]
+   dnx = (np.roll(n, -1, axis=0) - np.roll(n, 1, axis=0))/(2*dq)
+   dny = (np.roll(n, -1, axis=1) - np.roll(n, 1, axis=1))/(2*dq)
+   gxx = 0.25*np.sum(dnx*dnx, axis=2)
+   gyy = 0.25*np.sum(dny*dny, axis=2)
+   gxy = 0.25*np.sum(dnx*dny, axis=2)
+   F = -0.5*np.sum(n*np.cross(dnx, dny), axis=2)
+   detg = gxx*gyy - gxy**2
+   ratio = np.abs(F)/(2*np.sqrt(np.maximum(detg, 1e-300)))
+   C = np.sum(F)*dq*dq/(2*np.pi)
+   volg = np.sum(np.sqrt(np.maximum(detg, 0)))*dq*dq/np.pi
+   return C, volg, ratio, gapm
+
+print("=== calibrated band (delta = -0.2 E_r); published C = -1.00 +/- 0.02 ===")
+C, volg, ratio, gap = band_data(-0.2)
+print(f" framework Chern (winding currency) = {C:+.5f}")
+print(f" pointwise saturation |F| = 2 sqrt(det g):")
+print(f" mean = {ratio.mean():.8f} min = {ratio.min():.8f} max = {ratio.max():.8f}")
+print(f" quantum volume vol_g = {volg:.5f} vs |C| = {abs(C):.5f}")
+
+qs = np.linspace(-np.pi, np.pi, 201, endpoint=False)
+h = np.array([[hvec(qx, qy, -0.2) for qy in qs] for qx in qs])
+n = -h/np.linalg.norm(h, axis=2)[:, :, None]
+dq = qs[1] - qs[0]
+dnx = (np.roll(n, -1, 0) - np.roll(n, 1, 0))/(2*dq)
+dny = (np.roll(n, -1, 1) - np.roll(n, 1, 1))/(2*dq)
+F = -0.5*np.sum(n*np.cross(dnx, dny), axis=2)
+print(f" F <= 0 everywhere: {bool(np.all(F <= 1e-12))}")
+print()
+
+print("=== rigidity at the walls: gap closings at delta = 0 and -8 t0 = -0.72 ===")
+for dlt in [-0.6, -0.71, -0.719, -0.4, -0.2, -0.05, -0.005]:
+   C, volg, ratio, gap = band_data(dlt, N=141)
+   R = 1/(gap**2 + 1e-12)
+   print(f" delta={dlt:+7.3f}: C = {C:+7.4f} gap = {gap:.5f}"
+        f" R = {R:11.2f} vol_g = {volg:.4f}")
+print()
+
+print("=== trivial side (|delta| > 0.72): C -> 0, vol_g stays positive ===")
+for dlt in [-0.85, -1.0]:
+   C, volg, ratio, gap = band_data(dlt, N=141)
+
+
+                                                17
+  print(f" delta={dlt:+7.3f}: C = {C:+7.4f} vol_g = {volg:.4f}")
+
+
+B.4   Dirac ladder and chiral-ensemble gates
+# SCRIPT: DIRAC-SPINE-01 (the graphene Dirac ladder on published parameters;
+# the chiral-ensemble ledger)
+import numpy as np
+from scipy.integrate import quad
+from scipy.optimize import brentq
+
+print("=== B: graphene -- the measured Dirac spectrum through the framework ===")
+Nl = 60
+a = np.diag(np.sqrt(np.arange(1, Nl)), 1)
+H = np.block([[np.zeros((Nl, Nl)), a], [a.T, np.zeros((Nl, Nl))]])
+ev = np.sort(np.linalg.eigvalsh(H))
+pos = ev[ev > 1e-12][:8]
+print(" ladder E_n / E_1 vs sqrt(n): " +
+    " ".join(f"{pos[n]/pos[0]:.6f}/{np.sqrt(n+1):.6f}" for n in range(4)))
+nz = int(np.sum(np.abs(ev) < 1e-12))
+print(f" zero modes: {nz}")
+
+th = np.linspace(0, 2*np.pi, 2001)
+ph = 0.0
+for i in range(len(th) - 1):
+   k1, k2 = th[i], th[i+1]
+   u1 = np.array([-np.exp(-1j*k1), 1])/np.sqrt(2)
+   u2 = np.array([-np.exp(-1j*k2), 1])/np.sqrt(2)
+   ph += np.angle(np.vdot(u1, u2))
+print(f" Berry phase around the Dirac point = {ph:.6f} (pi = {np.pi:.6f})")
+
+hbar, e = 1.0546e-34, 1.602e-19
+vF, B = 1.10e6, 10.0
+E1 = vF*np.sqrt(2*hbar*e*B)/e*1000
+print(f" with published v_F = 1.10e6 m/s: E_1(10 T) = {E1:.1f} meV")
+print()
+
+print("=== C: the chiral-ensemble ledger on the Dirac random-matrix class ===")
+rng = np.random.default_rng(3)
+M = 1200
+X = (rng.normal(size=(M, M)) + 1j*rng.normal(size=(M, M)))/np.sqrt(2*M)
+s = np.linalg.svd(X, compute_uv=False)
+Z_sample = np.mean(0.5*np.log(1 + s**2))
+rho = lambda t: np.sqrt(np.maximum(4 - t**2, 0))/np.pi
+Z_MP, _ = quad(lambda t: rho(t)*0.5*np.log(1 + t**2), 0, 2)
+print(f" chGUE sample (M=1200): Z/M = {Z_sample:.6f} MP integral: {Z_MP:.6f}")
+
+target = np.pi**2/12
+f = lambda aa: quad(lambda t: rho(t)*0.5*np.log(1 + (aa*t)**2), 0, 2)[0] - target
+a_mp = brentq(f, 0.1, 10)
+a_hc = np.exp(target) - 1
+print(f" piˆ2/12 realized at a* = {a_mp:.6f} (chGUE/MP) and a* = {a_hc:.6f} (half-Cauchy)")
+print(f" check: ln(1+a_hc) = {np.log(1+a_hc):.10f} vs piˆ2/12 = {target:.10f}")
+
+
+B.5   The noncommutative torus anchor
+# SCRIPT: UPG-GATE-02 (Module I, noncommutative torus anchor: winding integrality
+# and invariance; the admissible domain delta + gˆ2 <= 4; the amplitude floor
+# |w| <= (d/4) sqrt(delta))
+#
+# R = U V Uˆdagger Vˆdagger, lambda_i = eig(R)
+# w = (1/2pi) sum_i arg(lambda_i) [principal branch]
+# delta = ||R - I||_Fˆ2 / d
+# g = min_i |lambda_i + 1| [branch guard]
+# second estimator: winding of t -> det((1-t)I + tR) on [0,1]
+
+import numpy as np
+
+
+
+
+                                               18
+TAU = 1e-3
+rng = np.random.default_rng(20260820)
+
+
+def clock_shift(d):
+   w = np.exp(2j*np.pi/d)
+   U = np.diag([w**k for k in range(d)])
+   V = np.roll(np.eye(d, dtype=complex), 1, axis=0)
+   return U, V
+
+
+def commuting_pair(d):
+   U = np.diag(np.exp(1j*rng.uniform(0, 2*np.pi, d)))
+   V = np.diag(np.exp(1j*rng.uniform(0, 2*np.pi, d)))
+   return U, V
+
+
+def relator(U, V):
+   return U @ V @ U.conj().T @ V.conj().T
+
+
+def unitary_kick(U, eta):
+   d = U.shape[0]
+   H = rng.normal(size=(d, d)) + 1j*rng.normal(size=(d, d))
+   H = (H + H.conj().T)/2
+   H /= np.linalg.norm(H, 2)
+   ev, W = np.linalg.eigh(H)
+   return U @ (W @ np.diag(np.exp(1j*eta*ev)) @ W.conj().T)
+
+
+def readout(R):
+   d = R.shape[0]
+   lam = np.linalg.eigvals(R)
+   g = np.min(np.abs(lam + 1.0))
+   delta = np.linalg.norm(R - np.eye(d), ’fro’)**2 / d
+   w = np.sum(np.angle(lam)) / (2*np.pi)
+   return lam, g, delta, w
+
+
+def winding_chord(R, nt=20001):
+   lam = np.linalg.eigvals(R)
+   t = np.linspace(0.0, 1.0, nt)[:, None]
+   ang = np.unwrap(np.angle((1.0 - t) + t*lam[None, :]), axis=0)
+   return np.sum(ang[-1] - ang[0]) / (2*np.pi)
+
+
+def report(tag, R, expect=None):
+   d = R.shape[0]
+   lam, g, delta, w = readout(R)
+   if g < TAU:
+      print(f"{tag:<32s} REFUSED g={g:.2e} delta={delta:.6f}"
+          f" delta+gˆ2={delta+g*g:.9f}")
+      return
+   w2 = winding_chord(R)
+   floor = d*np.sqrt(delta)/4
+   ok = "" if expect is None else (
+      " PASS" if abs(w-expect) < 1e-9 and abs(w2-expect) < 1e-6 else " FAIL")
+   print(f"{tag:<32s} w={w:+.9f} w_chord={w2:+.9f} delta={delta:.6e}"
+       f" g={g:.6f} delta+gˆ2={delta+g*g:.9f} bound={floor:.4f}{ok}")
+
+
+print("="*116)
+print("G1 INTEGRALITY AND THE SCALAR EQUALITY CASE: clock and shift.")
+print(" w = 1 at every d; delta + gˆ2 = 4 exactly; bound = (d/4)sqrt(delta) -> pi/2.")
+print("="*116)
+for d in [3, 5, 7, 11, 17, 31, 53, 97]:
+   U, V = clock_shift(d)
+   report(f" d={d:<4d} exact", relator(U, V), expect=1.0)
+
+
+
+                                               19
+print()
+print("="*116)
+print("G2 NEGATIVE CONTROL: commuting pair. w = 0, delta = 0, g = 2.")
+print("="*116)
+for d in [7, 31, 97]:
+   U, V = commuting_pair(d)
+   report(f" d={d:<4d} commuting", relator(U, V), expect=0.0)
+
+print()
+print("="*116)
+print("G3 STABILITY AND THE STRICT INEQUALITY: kicked clock-shift, d=31.")
+print(" w stays 1; the relator leaves the scalar locus so delta + gˆ2 < 4.")
+print("="*116)
+for eta in [1e-1, 1e-2, 1e-3, 1e-4]:
+   U, V = clock_shift(31)
+   report(f" eta={eta:.0e}", relator(unitary_kick(U, eta),
+                             unitary_kick(V, eta)), expect=1.0)
+
+print()
+print("="*116)
+print("G4 INVARIANCE: unitary conjugation and generator rephasing leave w fixed.")
+print("="*116)
+U, V = clock_shift(31)
+report(" baseline", relator(U, V), expect=1.0)
+X = rng.normal(size=(31, 31)) + 1j*rng.normal(size=(31, 31))
+Q, _ = np.linalg.qr(X)
+report(" conjugated", relator(Q @ U @ Q.conj().T, Q @ V @ Q.conj().T), expect=1.0)
+report(" U -> eˆ{i th} U", relator(np.exp(0.7371j)*U, V), expect=1.0)
+report(" both rephased", relator(np.exp(0.7371j)*U, np.exp(-2.11j)*V), expect=1.0)
+
+print()
+print("="*116)
+print("G5 THE DOMAIN BOUND OVER RANDOM RELATORS: delta + gˆ2 <= 4, strict off")
+print(" the scalar locus. 1000 random unitary pairs, d = 12.")
+print("="*116)
+worst = -1.0
+viol = 0
+for _ in range(1000):
+   A = rng.normal(size=(12, 12)) + 1j*rng.normal(size=(12, 12))
+   B = rng.normal(size=(12, 12)) + 1j*rng.normal(size=(12, 12))
+   QA, _ = np.linalg.qr(A)
+   QB, _ = np.linalg.qr(B)
+   _, g, delta, _ = readout(relator(QA, QB))
+   s = delta + g*g
+   worst = max(worst, s)
+   if s > 4 + 1e-9:
+      viol += 1
+print(f" violations: {viol}/1000 max delta+gˆ2 = {worst:.9f} (bound 4)")
+
+print()
+print("="*116)
+print("G6 THE BOUNDARY: d=2 places an eigenvalue at -1. The gate refuses.")
+print("="*116)
+U, V = clock_shift(2)
+report(" d=2 clock-shift", relator(U, V))
+U, V = clock_shift(4)
+report(" d=4 clock-shift", relator(U, V), expect=1.0)
+
+
+References
+ [1] M. F. Atiyah, V. K. Patodi, I. M. Singer, Spectral asymmetry and Riemannian geometry I,
+     Math. Proc. Camb. Phil. Soc. 77, 43 (1975).
+ [2] D. Cooper, M. Culler, H. Gillet, D. D. Long, P. B. Shalen, Plane curves associated to character
+
+
+                                                20
+    varieties of 3-manifolds, Invent. Math. 118, 47 (1994).
+ [3] S. Garoufalidis, T. T. Le, Asymptotics of the colored Jones polynomial and the A-polynomial
+     of a knot, Geom. Topol. 9, 1253 (2005).
+ [4] J. Levine, Knot cobordism groups in codimension two, Comment. Math. Helv. 44, 229 (1969).
+ [5] A. G. Tristram, Some cobordism invariants for links, Proc. Camb. Phil. Soc. 66, 251 (1969).
+ [6] L. I. Nicolaescu, Adiabatic limits of the Seiberg–Witten equations on Seifert manifolds, Comm.
+     Anal. Geom. 6, 331 (1998).
+ [7] K. van den Dungen, Dirac–Schrödinger operators, index theory, and spectral flow, J. London
+     Math. Soc. 112, e70301 (2025).
+ [8] R. Kosloff, Quantum thermodynamics: a dynamical viewpoint, Entropy 15, 2100 (2013).
+ [9] Y. Aharonov, D. Z. Albert, L. Vaidman, How the result of a measurement of a component of
+     the spin of a spin-1/2 particle can turn out to be 100, Phys. Rev. Lett. 60, 1351 (1988).
+[10] M. V. Berry, Quantal phase factors accompanying adiabatic changes, Proc. R. Soc. Lond. A
+     392, 45 (1984).
+[11] L. Piccirillo, The Conway knot is not slice, Ann. Math. 191, 581 (2020).
+[12] M. S. Viazovska, The sphere packing problem in dimension 8, Ann. Math. 185, 991 (2017).
+[13] T. Kato, Perturbation Theory for Linear Operators, Springer (1995).
+[14] C. Davis, W. M. Kahan, The rotation of eigenvectors by a perturbation III, SIAM J. Numer.
+     Anal. 7, 1 (1970).
+[15] A. Edelman, T. A. Arias, S. T. Smith, The geometry of algorithms with orthogonality con-
+     straints, SIAM J. Matrix Anal. Appl. 20, 303 (1998).
+[16] B. Simon, Holonomy, the quantum adiabatic theorem, and Berry’s phase, Phys. Rev. Lett. 51,
+     2167 (1983).
+[17] M. Khovanov, A categorification of the Jones polynomial, Duke Math. J. 101, 359 (2000).
+[18] J. J. M. Verbaarschot, T. Wettig, Random matrix theory and chiral symmetry in QCD, Ann.
+     Rev. Nucl. Part. Sci. 50, 343 (2000).
+[19] C.-R. Yi et al., Extracting the quantum geometric tensor of an optical Raman lattice by
+     Bloch-state tomography, arXiv:2301.06090 (2023).
+[20] Direct measurement of the complete quantum geometric tensor in solids, Science 388, 1050
+     (2025).
+[21] A. Gao et al., Quantum metric nonlinear Hall effect in a topological antiferromagnetic het-
+     erostructure, Science 381, 181 (2023).
+[22] N. Wang et al., Quantum-metric-induced nonlinear transport in a topological antiferromagnet,
+     Nature 621, 487 (2023).
+[23] Quantum geometric origin of the intrinsic nonlinear Hall effect, Phys. Rev. B 113, L201107
+     (2026).
+[24] Quantum geometric inequality and its classical wave verification, Phys. Rev. Lett. 136 (2026).
+
+                                                21
+[25] P. Törmä et al., Superfluid weight and quantum geometry of flat bands: bosonic condensates
+     and the local-vs-global metric distribution, arXiv:2603.08791 (2026), and references therein.
+[26] M. J. H. Ku et al., Imaging viscous flow of the Dirac fluid in graphene, Nature 583, 537 (2020).
+[27] D. L. Miller et al., Observing the quantization of zero mass carriers in graphene, Science 324,
+     924 (2009).
+[28] R. Exel, T. A. Loring, Invariants of almost commuting unitaries, J. Funct. Anal. 95, 364
+     (1991).
+[29] M. B. Hastings, T. A. Loring, Topological insulators and C ∗ -algebras: theory and numerical
+     practice, Ann. Physics 326, 1699 (2011).
+[30] D. Toniolo, On the Bott index of unitary matrices on a finite torus, Lett. Math. Phys. 112,
+     126 (2022).
+
+
+
+
+                                                 22
+

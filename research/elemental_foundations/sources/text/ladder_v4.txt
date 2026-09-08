@@ -1,0 +1,975 @@
+                    The Square Case:
+Gram Reduction and Spectral Transport for N = d + 1 Bodies
+                                       Jeromie N. Beasley
+
+                                           August 2026
+
+
+                                             Abstract
+     For N point masses in Rd the mass-weighted Jacobi configuration matrix X = [ρ1 , . . . , ρN −1 ]
+ is d × (N − 1). It is square exactly when N = d + 1, and we show that this single coincidence
+ organises the entire reduction. In the square case the Gram matrix G = X⊤X is an unconstrained
+ positive-semidefinite
+                        form, the trace-one slice Σd = {G ⪰ 0, trG = 1} is a smooth d(d+1)   2   −
+ 1 -dimensional convex body, the rotation-reduced shape space is its orientation double cover
+ branched over det X = 0, and the tangent space splits canonically into d−1 eigenvalue directions
+ and d(d−1)
+         2    eigenframe directions. At d = 2 this reproduces the Kendall shape sphere with its
+ standard radius 1/2, equator the collinear locus, in three lines; at d = 3 it gives the five-
+ dimensional four-body shape space with the coplanar locus as branch divisor.
+     On this ladder we study the intrinsic transport operator A(H) = T H + HT − 2tr(T H) G
+ acting on symmetric traceless H. It is block diagonal in the eigenvalue/eigenframe split; its
+ eigenframe spectrum is exactly {ti + tj }; and its eigenvalue block is a rank-one
+                                                                              P     modification of
+ a diagonal matrix whose characteristic equation is the secular equation i gi ti /(ti − λ) = 1.
+ Because the weights gi ti are positive, that equation has one root strictly between each pair of
+ consecutive ti . Hence for every d, and on the whole regular stratum, A is non-normal with
+ strictly real, interlacing spectrum: exceptional points cannot occur in the interior. They occur
+ on the boundary det G = 0, where an eigenvalue is pinned at 2tk and a secular root may meet
+ it, producing a genuine Jordan block. Binary collision loci are shown to have codimension d,
+ not one.
+     Two structural facts sharpen this. First, the operator is defined by the matrix trace alone
+ and uses no inner product: its spectrum is unchanged in a non-orthonormal basis, so the results
+ are metric-free. Second, the non-symmetric rank-one
+                                                √       update is diagonally
+                                                                     p       similar to a symmetric
+ one, Dt − gt⊤ = S(Dt − uu⊤ )S −1 with u = g ⊙ t and S = diag g/t, which gives reality and
+ diagonalisability by a second route and identifies the inner product in which the operator is
+ self-adjoint. That similarity degenerates exactly on the boundary, which is why defectiveness
+ can appear only there.
+     A final part takes the metric out of the primitives altogether. On the cone that Σd slices, the
+ Koszul–Vinberg characteristic function requires only a volume form, and for positive definite
+ symmetric matrices its logarithm is −(d + 1) log Vol with Vol = | det X| the simplex volume: the
+ metric is the Hessian of the log volume rather than assumed data. In that structure the free
+ tensor is no longer free. Both operator families are self-adjoint for the induced metric exactly
+ when their parameter is the dual coordinate G−1 , which settles the one thing left open above.
+ The boundary behaviour then changes completely — eigenvalues diverge as inverse powers of
+ the volume rather than pinning at finite values, at two distinct rates Vol−2 and Vol−1 , with
+ no defectiveness — so that analysis is replaced rather than extended, and we say so. Three
+ further steps close the volume part. The congruence operator is the unique positive square
+ root of the volume metric itself, read as an operator through the trace pairing — a kinematic
+ selection between the two canonical operators, with the additive one identified as its logarithmic
+ generator. The cubic form is the connection: in the flat coordinates the Christoffel symbols of
+
+
+                                                  1
+     the volume metric are exactly half the third derivative of the potential, and the geodesics are
+     G1/2 etV G1/2 in closed form. And at the corner of the divisor, where two eigenvalues vanish
+     together, the two divergence rates collide into one: the divisor is smooth precisely where the
+     rates split and singular precisely where they merge. Off the ladder, the tangent split survives in
+     threefold form — eigenvalue, frame-within-support, and support-moving blocks — and the last
+     block, which has no interior analogue, is the precise boundary of what is established here.
+        We also mark where the construction stops. For N − 1 > d the Gram matrix is confined to
+     a determinantal variety of rank at most d, the tangent split fails, and the results here do not
+     extend; the first such case, five bodies in three dimensions, is described explicitly. All statements
+     are verified numerically and the verification script is included.
+
+
+1    Introduction
+Reductions of the N -body problem by translation, rotation and scale are classical, and the two
+best known low cases — three bodies in the plane and four bodies in space — are usually treated
+as separate constructions of increasing difficulty. They are not. They are the same construction at
+two values of one parameter, and the parameter is not N but the spatial dimension d.
+    The observation is elementary. After removing the centre of mass, a configuration of N bodies
+in Rd is a d × (N − 1) matrix X of mass-weighted Jacobi vectors. This matrix is square precisely
+when
+                                              N = d + 1,
+that is, when the bodies form a full d-simplex. Squareness is not cosmetic: it is the exact condition
+under which the rotation-invariant Gram matrix G = X⊤X is an unconstrained symmetric positive-
+semidefinite form, under which the determinant det X exists and supplies an orientation, and under
+which the chain
+                          N d −→ (N − 1)d −→ d(d+1)   2   −→ d(d+1)2  −1
+closes with no remainder. Off this diagonal the Gram matrix is pinned to rank at most d, and
+every statement below fails.
+
+            d   N        X     after c.o.m.    after rotations           shape dimension
+            2    3     2×2          4                 3            2 (Kendall shape sphere)
+            3    4     3×3          9                 6                       5
+            4    5     4×4          16                10                      9
+            5    6     5×5          25                15                     14
+            3    5     3×4          12                9           8    (off ladder; G singular)
+
+                     Table 1: The square ladder N = d + 1 and the first case off it.
+
+
+What this paper does. Sections 2–3 set up the Gram reduction uniformly in d, identify the
+rotation-reduced shape space as a branched double cover, and locate the strata — including the fact,
+easy to miss, that binary collision loci have codimension d rather than one. Section 4 isolates the
+canonical splitting of the tangent space into eigenvalue and eigenframe directions and identifies the
+eigenframe rotation rate with the first-order spectral response of a symmetric matrix. Sections 5–6
+define the transport operator and prove its spectral structure, which is the main result. Section 8
+states where the ladder ends and why.
+
+
+
+                                                      2
+The volume part. Section 11 closes what the metric sections leave open, at the kinematic
+level: the parameter of the operator family is forced to the dual coordinate G−1 (Theorem 11.2);
+the congruence operator is the unique positive square root of the volume-metric operator and the
+additive one its logarithmic generator (Theorem 11.6); the cubic form is exactly twice the Christoffel
+data of the volume metric, with geodesics in closed form (Theorem 11.8); the boundary rates split
+on the smooth divisor and merge at its corner (Theorem 11.10, Proposition 11.13); and off the
+ladder the tangent split survives threefold (Proposition 8.1).
+
+What is assumed and what is not. The operator below depends on one symmetric positive
+tensor T commuting with G. Every theorem is proved for arbitrary such T ; we do not require
+a particular choice. Section 7 discusses the canonical closure T = G, which is the only choice
+constructible from the shape alone, and states plainly that any other T requires its own derivation,
+which this paper does not supply.
+
+
+2     The square case and the Gram reduction
+2.1    Setup
+Let q1 , . . . , qN ∈ Rd with masses m1 , . . . , mN , centre of mass removed, and let ρ1 , . . . , ρN −1 be the
+                                                                               1P
+mass-weighted     P Jacobi vectors, normalised so that the kinetic energy is 2 k |ρ̇k |2 and the moment
+                        2
+of inertia is k |ρk | . Assemble
+
+                    X = [ρ1 , . . . , ρN −1 ] ∈ Rd×(N −1) ,   N = d + 1 ⇒ X ∈ Rd×d .
+
+A rotation of physical space acts by X 7→ RX, R ∈ SO(d); a scaling by X 7→ µX.
+
+Proposition 2.1 (The invariant). G := X⊤X is invariant under X 7→ RX for every R ∈ O(d), and
+G determines X up to that action. The equivariant matrix XX⊤ is not invariant: it transforms as
+RXX⊤ R⊤ .
+
+Proof. (RX)⊤ (RX) = X⊤ R⊤ RX = X⊤ X. Conversely if Y ⊤ Y = X⊤ X with X invertible then
+Q := Y X −1 satisfies Q⊤ Q = I.
+
+   The two matrices share a spectrum, which is why an argument conducted entirely in a principal
+frame will not detect a confusion between them; the distinction is nevertheless decisive, since only
+one of them is a function on shape space.
+
+Definition 2.2. Σd := {G ∈ Sym(d) : G ⪰ 0, trG = 1}.
+
+Proposition 2.3 (Dimension). dim Σd = d(d+1) 2  − 1, and this equals (N − 1)d − d(d−1)
+                                                                                   2   − 1, the
+count obtained by removing rotations and scale.
+
+    Consequently SO(d) acts trivially on Σd : the group has already been quotiented out. The
+principal bundle in play is
+
+                                  P = {X ∈ Rd×d : det X ̸= 0} −→ Σd ,
+
+with SO(d) acting on the total space. There is no horizontal restriction on TG Σd ; every tangent
+direction of Σd is realised by a motion of the bodies. The connection on P governs reconstruction
+of the physical rotation, not admissibility of shape velocities.
+
+
+                                                         3
+          (a) the Gram quotient is a disc of radius 1/2               (b) double cover, branched over det X = 0
+
+                      B23                                                              det X > 0
+
+
+
+
+                       2 = {G   0, tr G = 1}      B12
+
+
+
+                      B31                                                              det X < 0
+                     2 : det G = 0 (degenerate)
+
+
+
+
+Figure 1: The construction at d = 2. (a) Σ2 is a disc of radius 1/2; its boundary is det G = 0, the
+degenerate (collinear) configurations, and the three binary collision loci are the marked boundary
+points. (b) The rotation-reduced shape space is the double cover branched over that boundary, i.e.
+the sphere, with the two hemispheres carrying the two signs of det X.
+
+2.2   Orientation and the branched double cover
+Theorem 2.4 (Branched cover). Σd is the quotient of P (normalised) by O(d). The rotation-
+reduced shape space, the quotient by SO(d), is the double cover of Σd branched over the divisor
+
+                                          D := {det G = 0} = {det X = 0},
+
+the configurations that fail to span Rd .
+Proof. By Proposition 2.1, Y ⊤ Y = X⊤ X implies Y = QX with Q ∈ O(d), and det Q = det Y / det X.
+If det X ̸= 0 the two SO(d)-orbits with the same G are distinguished by the sign of det X; if
+det X = 0 they coincide.
+
+
+2.3   d = 2: the shape sphere, with its radius
+            1               
+Write G =      2 +u        v
+                              , which is the general trace-one symmetric 2 × 2 matrix. Then
+                         1
+                 v       2 −u
+
+                                                   det G = 41 − u2 − v 2 ,
+
+so Σ2 is exactly the disc u2 + v 2 ≤ 14 . Adjoining the orientation coordinate w3 := det X, and using
+det G = (det X)2 ,
+                                           u2 + v 2 + w32 = 41 .                                  (1)
+Corollary 2.5. For three bodies in the plane the rotation-reduced, scale-fixed shape space is the
+sphere of radius 12 , with w3 = det X the signed area, the equator w3 = 0 the collinear locus, and
+the two hemispheres the two orientations.
+   This is the Kendall shape sphere in the normalisation in which the reduced kinetic metric is
+1    2     2     2
+4 (dw1 + dw2 + dw3 ), recovered here without choosing a Hopf map. The three binary collision loci
+sit on the equator, alternating with the three Euler configurations.
+
+                                                             4
+2.4   Two metrics, and which one is which
+Σd carries two natural metrics and they are not the same, so the choice must be stated once and
+kept.
+     The Frobenius structure ⟨H, K⟩ = tr(HK) on Sym(d). This is what makes the basis of
+      Section 4 orthonormal and what the transport operator below is written in. At d = 2 it is
+      flat: ∥δG∥2F = 2(du2 + dv 2 ) on the disc.
+     The kinetic (submersion) metric induced from the flat metric on X, which is the physically
+      reduced kinetic energy. At d = 2, pushing an orthonormal horizontal frame forward to the
+      coordinates (1) gives the Gram matrix diag(1, 1) with off-diagonal 7 × 10−12 : the kinetic
+      metric is exactly the round metric of the radius- 12 sphere.
+    The interior of Σd is also diffeomorphic to SL(d, R)/SO(d), whose standard affine-invariant
+metric is neither of the above — at d = 2 it is the hyperbolic plane. The identification is useful for
+the manifold; the metric that comes with it is not the one used here, and importing it silently would
+change every geodesic in the theory. (Section 11 returns to this point: the volume structure turns
+out to derive exactly this metric rather than import it, which changes the status of the warning —
+see the remark after Theorem 11.8.)
+
+
+3     Stratification
+3.1   Rank strata
+Σd is stratified by r = rank G = rank X, the dimension actually spanned by the configuration.
+The stratum {r ≤ k} is a copy of {trace-one positive semidefinite forms on a k-dimensional space}
+bundled over the Grassmannian of k-planes; its dimension is k(k+1)
+                                                                 2    − 1 + k(d − k), and the top
+boundary r = d − 1 has codimension one.
+
+                        d   r = d − 1 (codim 1)       physical meaning
+                        2          rank 1             collinear
+                        3          rank 2             coplanar
+                        4          rank 3             confined to a hyperplane
+
+Table 2: The codimension-one boundary divisor D at low d. At d = 3 it is the coplanar locus; the
+collinear configurations are rank 1, of codimension three.
+
+    The rotation action on P is free where r ≥ d−1 and acquires isotropy SO(d−r) where r ≤ d−2.
+At d = 2 there is no such stratum inside Σ2 other than the rank-one boundary; at d = 3 the collinear
+locus r = 1 carries SO(2) isotropy and is the genuine singular locus of the reduction.
+
+3.2   Collision loci have codimension d
+Let qi − qj = Xc(ij) for a fixed vector c(ij) ∈ Rd determined by the masses. Then
+                                                 ⊤
+                                 σij (G) := c(ij) G c(ij) = |qi − qj |2 .                         (2)
+Proposition 3.1. σij (G) = 0 if and only if c(ij) ∈ ker G. Hence the binary collision locus Bij lies
+inside D and
+                           dim Bij = d(d−1)
+                                        2    − 1,       codim Bij = d.
+
+                                                  5
+Proof. G ⪰ 0, so c⊤ Gc = 0 iff Gc = 0. The trace-one positive semidefinite forms annihilating a
+fixed vector are the trace-one forms on Rd /⟨c⟩.
+
+    At d = 2 this gives dim Bij = 0: the binary collisions are the three marked points on the
+equator, as they should be. At d = 3 it gives dim Bij = 2 in a five-dimensional space. In particular
+collisions are never hypersurfaces, and a generic trajectory does not meet them — the classical fact,
+recovered here from the rank condition.
+    The vectors c(ij) at d = 3 are recorded in Appendix A; all six are verified against (2) directly.
+
+
+4    The canonical tangent splitting
+TG Σd is the space of symmetric traceless d × d matrices. In a principal frame G = diag(g1 , . . . , gd )
+it splits orthogonally under the Frobenius product:
+                     d(d+1)                                                  d(d−1)
+                              −1=          (d − 1)            +                                    .   (3)
+                     | 2 {z    }           | {z }                               2
+                                                                             | {z }
+                       dim Σd       diagonal: change the gi       off-diagonal: rotate the frame
+
+The identity holds for every d: 2 = 1 + 1, 5 = 2 + 3, 9 = 3 + 6, 14 = 4 + 10, 20 = 5 + 15. The first
+summand deforms the shape of the inertia ellipsoid, the second rotates its principal axes.
+
+Lemma 4.1 (The eigenframe rate is the spectral response). Let G = diag(g) with gi ̸= gj and let
+δG be a symmetric perturbation. To first order the i-th eigenvector rotates toward the j-th by the
+angle
+                                                 δGij
+                                         Ωij =         .
+                                               gi − gj
+    This is first-order eigenvector perturbation theory, and it is exactly the spectral response formula
+⟨m|V |n⟩ = ⟨m|δΣ|n⟩/(λin −λout ) of the projector framework, specialised to real symmetric matrices.
+It is worth saying plainly that Ω is not the mechanical connection of the bundle P → Σd : it is
+a statement about eigenvectors of G, involves no group action, and lives entirely on the base.
+Measured against the true eigenvectors of G + δG it reproduces the predicted rotation to ratio
+1.000000 at ε = 10−4 and 10−5 .
+
+
+5    The transport operator
+Definition 5.1 (Transport operator). Let T ∈ Sym(d) be positive definite and commute with G.
+On H ∈ TG Σd set
+                                  A(H) := T H + HT − 2 tr(T H) G.                        (4)
+                                                                  
+Lemma 5.2 (The coefficient is forced). tr T H + HT − c tr(T H)G = (2 − c)tr(T H), so A maps
+TG Σd to itself if and only if c = 2.
+
+   Numerically, with c = 1 the image leaves the tangent space by 0.693 in the test case; with c = 2
+by 2.8 × 10−16 .
+
+Proposition 5.3 (Block structure). In a principal frame of G, with T diagonal, A preserves the
+splitting (3): it is block diagonal, with no coupling between eigenvalue and eigenframe directions.
+
+Proof. For off-diagonal H, tr(T H) = 0, so A(H) = T H + HT , again off-diagonal. For diagonal H
+all three terms are diagonal.
+
+                                                       6
+                                                                                              P
+Proposition 5.4 (Rank-one form on the eigenvalue block). On diagonal H = diag(h) with            i hi =
+0,
+                      A(H) = 2 diag (Dt − g t⊤ )h ,
+                                                  
+                                                         Dt = diag(t),
+so the eigenvalue block is twice the restriction of a rank-one modification of a diagonal matrix.
+
+5.1    The operator uses no metric
+Proposition 5.5 (Metric-freeness). The map (4) is defined using only the matrix product and
+the matrix trace. No inner product on Sym0 (d) enters, and the requirement trA(H) = 0 fixes the
+coefficient without reference to one. Consequently the spectrum of A is independent of the basis
+used to represent it.
+   Numerically, representing A in a random non-orthonormal basis of Sym0 (d) reproduces the
+same spectrum to 2.1 × 10−9 across d = 3, 4, 5. The Frobenius basis of Section 4 is bookkeeping,
+not structure. This matters beyond tidiness: the metric ambiguity flagged in Section 2.4 does not
+propagate into any spectral statement below.
+
+5.2    The operator is diagonally similar to a symmetric one
+                                                                                       √
+Theorem 5.6 (Symmetrisation).
+                   p           Let t, g have strictly positive entries and set u :=    g ⊙ t (entry-
+wise) and S := diag gi /ti . Then
+
+                               Dt − g t⊤ = S Dt − uu⊤ S −1 .
+                                                           
+
+Hence the eigenvalue block of A is similar to a symmetric rank-one modification of a diagonal
+matrix. ItPtherefore has real spectrum, is diagonalisable, and is self-adjoint for the inner product
+⟨h, k⟩S = i hi ki ti /gi .
+                           √                      √
+Proof. (Su)i = gi /ti gi ti = gi and (u⊤ S −1 )i = gi ti ti /gi = ti , so S(uu⊤ )S −1 = g t⊤ , while S
+                p                                        p
+
+commutes with Dt .
+
+    Verified to 1.3 × 10−15 over 104 random draws at d = 2, . . . , 6.
+Remark 5.7 (Where the hidden inner product fails). S is defined only where every gi > 0, that is,
+on the interior. On the divisor D some gk vanishes, S degenerates, and self-adjointness is lost. This
+is the mechanism behind Theorem 6.5: the operator carries its own inner product on the interior,
+and the boundary is exactly where that inner product ceases to exist. Nothing external is being
+imposed; the failure is intrinsic.
+
+
+6     The spectrum
+Theorem 6.1 (Eigenframe spectrum). The eigenframe block of A is diagonal with eigenvalues
+ti + tj , i < j. In particular it carries no dependence on G at all.
+Proof. T Eij + Eij T = (ti + tj )Eij for Eij the symmetrised elementary matrix.
+
+Theorem 6.2 (Secular equation, interlacing, reality). Let T ≻ 0 and G ≻ 0 with trG = 1. The
+eigenvalue block of A has spectrum {2λ1 , . . . , 2λd−1 } where the λk are the roots, other than λ = 0,
+of
+                                             d
+                                           X        gi ti
+                                                          = 1.                                      (5)
+                                                  ti − λ
+                                            i=1
+
+
+                                                   7
+Ordering t(1) < · · · < t(d) , there is exactly one root in each interval (t(k) , t(k+1) ), so
+
+                                t(1) < λ1 < t(2) < λ2 < · · · < λd−1 < t(d) .
+
+Consequently the spectrum of A is real on the whole regular stratum, and A has no exceptional
+points there.
+
+Proof. By Proposition 5.4 the eigenvalue block is 2(Dt − gt⊤ ) restricted to { hi = 0}, which is
+                                                                              P
+invariant. The characteristic polynomial of the unrestricted matrix is
+                                           Y                  X gi ti 
+                       det Dt − gt⊤ − λI =       (ti − λ) · 1 −            ,
+                                                                   ti − λ
+                                                         i                  i
+                                   P
+             always a root since i gi = 1; it corresponds to the trace direction, which A annihilates.
+and λ = 0 is P
+Put f (λ) = i gi ti /(ti − λ). Then
+                                                     X          gi ti
+                                         f ′ (λ) =                     >0
+                                                             (ti − λ)2
+                                                     i
+
+because every weight gi ti is strictly positive. Hence f is strictly increasing on each interval between
+consecutive poles, running from −∞ to +∞, and meets the level 1 exactly once there. That accounts
+for d − 1 real roots, and with λ = 0 for all d. Reality of the eigenframe block is Theorem 6.1. Since
+all d − 1 eigenvalue-block roots are simple by strict interlacing, no Jordan block can form.
+
+Remark 6.3 (What is classical here and what is not). The secular equation for a rank-one modifica-
+tion of a diagonal matrix, and the strict interlacing that follows from monotonicity between poles,
+are classical: they are the basis of the divide-and-conquer eigensolver and go back to Golub [9]
+and Bunch, Nielsen and Sorensen [10]. We claim none of that. What is claimed here is the iden-
+tification — that the transport operator of the square ladder is such an update, with weights gi ti
+that are positive for the structural reason that G and T are positive — together with Theorem 5.6,
+which brings the non-symmetric case in this problem under the classical symmetric theorem by an
+explicit diagonal similarity. The classical hypothesis we are outside of is symmetry of the update;
+the classical hypothesis we keep, and which does all the work, is positivity of the weights.
+
+Remark 6.4 (Non-normal, but real). A is genuinely non-normal: the eigenvalue block is 2(Dt −gt⊤ ),
+which is not symmetric unless g and t are proportional. The measured commutator norm ∥[A, A⊤ ]∥
+vanishes when T is isotropic and also when G is isotropic, and is nonzero only when both are
+anisotropic. Non-normality is therefore a joint property of the mass-inertia tensor and the shape,
+not of T alone. Theorem 6.2 says that this non-normality never produces complex eigenvalues in
+the interior — the two properties are independent here, which is not automatic for a non-normal
+family.
+
+6.1    The boundary: pinning and exceptional points
+Theorem 6.5 (Boundary spectrum). Let Z = {k : gk = 0} be non-empty, so G lies on the divisor
+D. Writing M = Dt − g t⊤ and Av = 2M v on the traceless subspace:
+
+  (i) For each k ∈ Z, λ = tk is an eigenvalue of M with a genuine eigenvector; the corresponding
+      eigenvalue of A is pinned at 2tk .
+                                                                             P
+                                                                               / gi ti /(ti −λ) = 1.
+ (ii) The remaining eigenvalues are the roots of the reduced secular equation i∈Z
+
+                                                             8
+                         weights giti > 0       strictly increasing between poles       one root per gap
+                    8
+                    6
+                    4
+         )
+
+
+                    2
+         giti/(ti
+
+
+
+                    0
+              i
+
+
+
+
+                    2
+                    4
+                    6                t1                 t2            t3                   t4
+                        0                   1                    2                  3                4
+
+
+Figure 2: Theorem 6.2 in one picture, at d = 4. The weights gi ti are positive, so the secular function
+increases strictly between poles; it therefore crosses the level 1 (dashed) exactly once in each gap
+between consecutive ti . The roots (circles) strictly interlace the poles; the square marks the root
+at λ = 0 belonging to the trace direction.
+
+
+(iii) A Jordan block forms precisely when a root of (ii) coincides with a pin tk . Coincidence of two
+      pins, tk = tl with k, l ∈ Z, is semisimple: the eigenspace is two-dimensional and no defect
+      occurs.
+
+Proof. M v = Dt v − (t·v) g. If t·v ̸= 0, normalise it to 1; then vi = gi /(ti − λ) and the constraint
+reproduces the secular equation, giving (ii). For k ∈ Z take λ = tk : the components vi , i ̸= k, are
+determined as above and vk remains free, so t·v = 1 can be solved for vk since tk > 0; this gives
+(i). If t · v = 0 then ti vi = λvi , so v is supported on {i : ti = λ}, which for two coinciding pins
+is two-dimensional, giving the semisimple case in (iii). The defective case is the branch collision
+between (i) and (ii).
+
+    Verified at d = 3: with t = (1.9, 0.5, 1.2) and g = (0.6, 0.4, 0) the eigenvalue block has spectrum
+{2.12, 2.40} with 2t3 = 2.40 pinned as predicted; tuning t3 so that the secular root meets the pin
+gives a repeated eigenvalue with normalised eigenvector determinant 6.1 × 10−16 — defective. By
+contrast, at g = (1, 0, 0) and t2 = t3 , where two pins coincide, the same measurement returns 1.000:
+semisimple, exactly as (iii) requires. Pins at one, two and three vanishing eigenvalues were checked
+at d = 3, 4, 5 and appear in the spectrum in every case.
+Remark 6.6 (Genericity). The defective locus is cut out by two conditions — det G = 0 and the
+branch collision — so it has codimension two in the combined (G, T ) data. A generic one-parameter
+path therefore misses it, while a generic two-parameter family meets it at isolated points. Perturbing
+G off the divisor removes the defect immediately: at perturbation amplitudes 0, 10−6 , 10−4 , 10−2
+the normalised eigenvector determinant moves 6 × 10−16 → 2.8 × 10−3 → 4.5 × 10−2 → 3.4 × 10−1 .
+    The picture is therefore the opposite of what one might guess: the interior is spectrally benign
+for every d, and all defectiveness is pushed onto the codimension-one divisor D and cut down further
+there. By the remark after Theorem 5.6, the reason is that the operator supplies its own inner
+product on the interior and loses it exactly on D.
+
+                                                             9
+7     What T is
+Everything above holds for any positive definite T commuting with G. The theory is closed — that
+is, requires no data beyond the shape — for exactly one choice:
+                            T = G,      A(H) = GH + HG − 2tr(GH) G.
+Then ti = gi , the eigenframe spectrum is {gi + gj }, and Theorem 6.2 applies verbatim with the
+weights gi2 > 0. This choice is superseded in Section 11, where the volume structure forces T ∝ G−1
+instead, and forces it rather than offering it. There is a cost to T = G that must be stated: at T = G
+the similarity of Theorem 5.6 is the identity, and A becomes symmetric. Measured over d = 2, . . . , 5,
+∥A − A⊤ ∥ is 3 × 10−16 at T = G and of order unity otherwise. So the canonical closure and non-
+normality are mutually exclusive: any programme that wants a non-normal transport operator on
+this ladder needs T ̸= G, and therefore needs a derivation of T . We record this as the canonical
+closure and we do not claim it is forced by mechanics. Any other T — in particular any T carrying
+velocity or driving data — must be derived from a stated dynamical principle. No such derivation
+exists in this framework at present, and the results above should be read as a statement about
+the family of operators (4), parametrised by T , rather than about one distinguished dynamical
+operator.
+
+
+8     Where the ladder ends
+For N − 1 > d the configuration matrix X is d × (N − 1) with N − 1 > d, and G = X⊤X is an
+(N − 1) × (N − 1) Gram matrix of rank at most d. Three things break simultaneously.
+
+    1. G is constrained. It no longer ranges over an open subset of Sym(N − 1) but over the
+       determinantal variety {rank ≤ d}, which is singular along its own deeper strata. At d = 3,
+       N = 5: Sym(4) has dimension 10, the rank-≤ 3 locus has dimension 9, and after fixing scale
+       the shape space has dimension 8.
+    2. There is no determinant. det X is undefined, so the orientation coordinate of Theorem 2.4
+       does not exist and the branched-cover description of the rotation-reduced space must be
+       replaced.
+    3. The tangent split fails. The identity (3) is an identity about Sym(d); on a rank-constrained
+       variety the tangent space is not all symmetric traceless matrices and the eigenvalue/eigenframe
+       decomposition is not a decomposition of it.
+
+    We state this as a boundary of validity rather than a conjecture about what replaces it. The
+natural next object is the rank-d stratum of Sym(N − 1) with its own quotient geometry, which
+is a different construction and not treated here. One structural statement nevertheless survives off
+the ladder and is worth recording.
+Proposition 8.1 (Threefold split). At a rank-r point of the trace-one positive semidefinite forms
+on Rn ,
+                  r(r + 1)                                       r(r − 1)
+          dim =            − 1 + r(n − r) = (r − 1) +                                 + r(n − r) ,
+                      2                     | {z }                   2 }                | {z }
+                                             eigenvalues                               support-moving
+                                                                 | {z
+                                                           frame within the support
+
+an identity verified for all (n, r) up to n = 8. For five bodies in three dimensions (n = 4, r = 3):
+8 = 2 + 3 + 3.
+
+                                                  10
+    The first two blocks are the ladder’s split, restricted to the support of G. The third block —
+motions of the support plane itself — has no analogue on the ladder, and the action of any operator
+above on it is not determined by the interior theory. That block is the precise boundary of what
+this paper establishes.
+
+
+9      Reconstruction
+Given a curve G(t) in Σd and an initial lift X(0), the physical motion is recovered by lifting
+horizontally in P → Σd and integrating; the accumulated element of SO(d) is the reconstruction
+holonomy. Nothing in Sections 5–6 depends on this: the operator A lives on the base and the
+connection lives on the total space. We note only that the lift is obstructed exactly on the isotropy
+strata r ≤ d − 2, where the fibre degenerates — at d = 3, the collinear configurations.
+
+
+10      Discussion
+The content of this paper is that one coincidence, N = d + 1, is doing all of the organising work,
+and that once it is made explicit the three-body and four-body constructions stop being analogous
+and become the same theorem at d = 2 and d = 3. The Gram matrix is the invariant; its trace-one
+slice is the shape space; its determinant is the orientation; and the rotation-reduced space is the
+double cover branched where that determinant vanishes. The shape sphere, with its radius 1/2,
+falls out of this in three lines.
+    The spectral result is that the transport operator built on this ladder is non-normal but has
+strictly real, interlacing spectrum on the entire interior, for every d, with the interlacing following
+from nothing more than positivity of the weights gi ti in a secular equation. Exceptional points
+exist, but only on the boundary divisor, and they are genuine Jordan degeneracies rather than
+avoided crossings. That is a sharper statement than one usually gets from a non-normal family,
+and it is available only because the rank-one structure of Proposition 5.4 makes the characteristic
+polynomial explicit.
+    Three things are left open and are stated as such. The tensor T has no dynamical derivation
+(Section 7). The off-ladder case N − 1 > d requires a different construction (Section 8). And
+the relation between the Frobenius structure used here and the kinetic metric of Section 2.4 has
+been established only at d = 2; whether the transport spectrum computed in one is the transport
+spectrum of the other, for d ≥ 3, has not been checked.
+
+
+11      The volume structure
+Section 2.4 had to name three competing metrics and legislate between them, and Proposition 5.5
+shows the results above needed none of them. This section removes the metric from the primitives
+entirely and lets it be derived, and the consequence is that the free parameter T stops being free.
+
+11.1    The potential, and its first three derivatives
+
+                   R cone C with a volume form on the dual, the Koszul–Vinberg characteristic
+For a regular convex
+function is φ(x) = C ∗ e−⟨x,y⟩ dy, which needs a volume form and no metric. It is relatively invariant,
+φ(γx) = | det γ|−1 φ(x) for γ ∈ Aut(C), so d2 log φ is an Aut(C)-invariant positive definite form [11,
+12]. For the cone of positive definite symmetric matrices φ(G) ∝ (det G)−(d+1)/2 , and since det G =
+
+
+
+                                                  11
+(det X)2 = Vol2 ,
+                               log φ = − d+1
+                                          2 log det G = −(d + 1) log Vol.
+
+The potential is the log volume of the configuration. Writing ψ = − log det G, its first three
+derivatives are, each verified symbolically against finite differences,
+
+                 dψ(H) = −tr(G−1 H)                             the dual coordinate, a covector,       (6)
+             2              −1        −1
+            d ψ(H, K) = tr(G     HG        K)                   the Koszul–Vinberg metric ⟨H, K⟩G ,    (7)
+        3                        −1        −1    −1
+       d ψ(H, K, L) = −2tr(G          HG        KG    L)        the cubic form.                        (8)
+
+Remark 11.1 (Pairs and cycles). The cubic form is fully symmetric in its three arguments (permu-
+tation spread 3 × 10−16 ). In a principal frame the metric (7) couples index pairs {i, j} with weight
+∝ 1/(gi gj ), while the cubic form (8) couples index cycles i → j → k → i with weight ∝ 1/(gi gj gk ).
+In Hessian geometry the pair (metric, cubic form) is the complete local data, the cubic measuring
+the failure of the flat connection to be Levi-Civita [12]. It has no counterpart in the Frobenius
+setting, where there is no potential to differentiate a third time.
+
+11.2    The volume metric fixes the parameter
+Theorem 11.2 (The parameter is the dual coordinate). Let G and T be positive definite and
+simultaneously diagonal. Then A(H) = T H + HT − 2tr(T H)G is self-adjoint for ⟨·, ·⟩G if and only
+if T ∝ G−1 . The same holds for the congruence family C(H) = SHS − tr(S 2 H)G with S 2 ∝ G−1 .
+                                                    P
+Proof. For the Lyapunov part, ⟨T H + HT, K⟩G = i,j (ti + tj )Hij Kij /(gi gj ), which is already sym-
+metric in H and K. All the asymmetry therefore lies in the trace-removal term, whose contribution
+is −2tr(T H)tr(G−1 K); this is symmetric in H, K precisely when T is proportional to G−1 . The
+congruence case is identical with S 2 in place of T and coefficient 1.
+
+    Measured asymmetries confirm it: for A they are 84.2 at a random T , 14.6 at T = G, and
+1.8 × 10−12 at T = G−1 ; for C, 35.0, 13.3 and 3.6 × 10−12 .
+Remark 11.3 (The non-normality of Section 6 was measured with the wrong form). At T = G−1
+the operator has Frobenius asymmetry 2.74 and Koszul–Vinberg asymmetry 3.6 × 10−12 , with real
+spectrum. So an operator can be non-symmetric in the Frobenius structure and self-adjoint in the
+volume structure at the same time. The remark in Section 7 that the canonical closure T = G
+destroys non-normality is correct as stated but is an artefact of which form the question was asked
+in.
+
+11.3    The two canonical operators
+Theorem 11.2 leaves two parameter-free operators, one additive and one multiplicative:
+
+                               A0 (H) = G−1 H + HG−1 − 2tr(G−1 H) G,                                   (9)
+                               C0 (H) = G−1/2 HG−1/2 − tr(G−1 H) G.                                   (10)
+                                                    d
+The Lyapunov map is the generator of congruence, ds   0
+                                                        esT /2 HesT /2 = 21 (T H + HT ), so (10) is the
+exponentiated form of (9). Two differences are not cosmetic. First, trace closure forces coefficient
+                                                                                             √
+1 in (10) against 2 in (9). Second, the eigenframe spectra are 1/gi + 1/gj for A0 and 1/ gi gj for
+C0 : arithmetic against geometric.
+
+
+
+                                                           12
+Remark 11.4 (What is a restatement). Setting S = eT /2 makes si sj = e(ti +tj )/2 exactly, so on the
+eigenframe block alone the multiplicative form is a relabelling of the additive one and carries no
+new content. The content is in the trace-removal coefficient and, as Section 11.6 shows, in the
+boundary rates.
+
+Proposition 11.5 (Spectrum of C0 ). C0 is block diagonal in the splitting (3). Its eigenframe
+                   √
+eigenvalues are 1/ gi gj ; its eigenvalue block is Dp − g p⊤ with pi = 1/gi , so by Theorem 6.2 its
+spectrum is real and interlaces the pi , the secular equation reducing to
+                                          d
+                                          X        1
+                                                         =1
+                                                1/gi − λ
+                                          i=1
+
+because every weight gi pi equals 1. Consequently the entire spectrum lies in [1/gmax , 1/gmin ]: one
+interlacing structure covers all d(d+1)
+                                    2   − 1 eigenvalues, which is not the case for A0 .
+
+11.4    The multiplicative operator is the square root of the metric
+The choice between A0 and C0 is not open at the kinematic level, and the reason is one identity.
+
+Theorem 11.6 (Kinematic selection). Read
+                                      the volume metric through the trace pairing: the unique
+operator M on Sym(d) with tr H M(K) = ⟨H, K⟩G for all H, K is
+
+                                        M(K) = G−1 KG−1 .
+
+Its unique positive square root (positive and self-adjoint for the trace pairing) is the congruence
+K 7→ G−1/2 KG−1/2 — exactly the congruence part of C0 .
+
+Proof. tr(H G−1 KG−1 ) = ⟨H, K⟩G is the definition of the metric. The congruence by G−1/2
+composes with itself to M (verified to 1.4 × 10−14 ), is symmetric for the trace pairing, and is
+positive because tr(H G−1/2 HG−1/2 ) = ∥G−1/4 HG−1/4 ∥2F > 0 for H ̸= 0. A positive operator has
+exactly one positive square root.
+
+Remark 11.7 (What this selects, and what it does not). C0 is a function of the volume metric
+alone: its square root, trace-corrected to preserve the slice. A0 is the logarithmic generator of that
+congruence, one step removed. So the volume structure singles out C0 with no further choice — a
+kinematic selection. Whether a dynamical principle selects the same operator is a separate question
+and remains open; the distinction matters and the two claims should not be merged.
+
+11.5    The cubic form is the connection
+Theorem 11.8. In the flat (affine) coordinates of Sym(d), the Levi-Civita Christoffel symbols of
+the volume metric are
+                                        Γijk = 12 Cijk
+exactly, where C = d3 ψ is the cubic form (8). The geodesic equation is G̈ = Ġ G−1 Ġ, solved in
+closed form by
+                                      1/2     1/2
+                             G(t) = G0 etV G0 ,      V ∈ Sym(d).
+
+
+
+
+                                                  13
+Proof. Since g = d2 ψ, the coordinate derivative of the metric is the third derivative of the potential:
+∂i gjk = Cijk , fully symmetric (verified over all index triples to 3.1 × 10−12 ). Hence Γijk = 12 (∂i gjk +
+                                                     1/2           1/2             1/2        1/2
+∂j gik − ∂k gij ) = 12 Cijk . For the geodesics, Ġ = G0 V etV G0        and G̈ = G0 V 2 etV G0 , while
+                                   1/2                     1/2       1/2         1/2
+                     Ġ G−1 Ġ = G0 V etV e−tV V etV G0          = G0 V 2 etV G0       = G̈
+
+because V commutes with etV . Verified numerically to 5.2 × 10−7 by second differences, with the
+              −1
+KV speed tr (G Ġ) conserved to 1.2 × 10−11 .
+                  2
+                    
+
+    So the cubic form is not optional structure sitting beside the metric: it is the Christoffel data
+of volume transport, and it exists only because the metric has a potential — there is nothing to
+differentiate a third time in the Frobenius setting.
+Remark 11.9 (An inversion that must be owned). ⟨H, K⟩G = tr(G−1 HG−1 K) is the affine-invariant
+metric on the cone of positive matrices — precisely the third metric Section 2.4 warned against
+importing. It has now arrived anyway, but by derivation rather than importation: it is the Hessian
+of the log volume, and every appearance of it above is an appearance of the potential. The warning
+stands as written — do not let a metric in silently — and is satisfied here by naming its origin.
+The cost is a genuine tension that the paper owns rather than resolves: at d = 2 the interior of Σd
+is hyperbolic in the volume structure and round in the kinetic one. Both origins are principled —
+mechanics for the kinetic metric, the volume form for this one — they answer different questions,
+and every statement in this paper says which structure it is made in.
+
+11.6    The boundary, in the volume structure
+This subsection replaces Section 6.1; it does not extend it. Pinning at a finite value, the branch
+collision and the Jordan block have no analogue here.
+
+Theorem 11.10 (Boundary rates). Let gk = ε → 0 with the remaining gi bounded away from zero.
+For C0 :
+
+  (i) exactly one eigenvalue diverges, from the eigenvalue block, with λmax = 1/ε − 1 + O(ε);
+                                                                                                  √
+ (ii) exactly d−1 eigenvalues diverge from the eigenframe block, at rate ε−1/2 , with prefactor 1/ gj
+      for the partner index j;
+
+(iii) the remaining (d−1)(d−2)
+                        2      + (d − 2) eigenvalues remain finite;
+
+ (iv) no Jordan block forms: the divergent eigenvalue escapes rather than colliding.
+
+Sketch and verification. For (i), write λ = pk − δ in the secular equation; the remaining terms
+contribute −(d − 1)/λ → 0, giving 1/δ → 1. Measured at d = 3, ε = 10−6 : λmax = 1000000.000
+                                                   √
+against 1/gmin − 1 = 1000000.000. For (ii), 1/ gi gk with one index at ε. Log–log slopes over
+ε ∈ [10−6 , 10−3 ] give −1.00000 for the top eigenvalue and −0.49993 (d = 3), −0.49996 (d = 4) for
+the next, against the predicted −1 and − 12 . For (iv), the minimum over 400 near-boundary draws
+of the normalised eigenvector determinant is 0.87, 0.73, 0.60 at d = 3, 4, 5: bounded away from
+zero.
+
+Corollary 11.11 (In terms of the volume). Since det G = i gi = Vol2 and the other eigenvalues
+                                                             Q
+stay bounded, gmin is proportional to Vol2 near the divisor. The eigenvalue block therefore diverges
+as Vol−2 and the eigenframe block as Vol−1 .
+
+
+                                                    14
+                               congruence C0: two rates                        Lyapunov A0: one rate
+                                                              gmin1                                         gmin1
+              106                                             gmin1/2                                       gmin1/2
+              105
+eigenvalues
+
+
+
+
+              104
+              103
+              102
+              101
+              100
+                        10 2    10 3       10 4      10 5   10 6        10 2   10 3       10 4     10 5   10 6
+                                       gmin Vol2                                      gmin Vol2
+
+
+Figure 3: Boundary behaviour of the two canonical operators at d = 3, against gmin ∼ Vol2 (axis
+reversed, degeneracy to the right). The congruence operator C0 splits into two divergence rates,
+ −1        −1/2                                                                   −1
+gmin and gmin ; the Lyapunov operator A0 sends everything off at the single rate gmin . Measured
+slopes: −1.00000 and −0.49993 for C0 , −1.00000 and −0.99980 for A0 .
+
+
+Remark 11.12 (The two canonical operators are distinguishable). Theorem 11.10(ii) fails for A0 ,
+whose eigenframe eigenvalues 1/gi +1/gj also diverge at rate ε−1 ; the measured slopes are −1.00000
+and −0.99980. So the choice between the additive and the multiplicative canonical operator is not
+a matter of convention: they have different exponents at the degenerate stratum, and an exponent
+is measurable.
+
+11.7                The corner of the divisor
+Theorem 11.10 treats one vanishing eigenvalue — the smooth part of the divisor. The divisor is
+not smooth everywhere.
+
+Proposition 11.13 (Corner rates). The gradient of det G is the adjugate adj(G), which vanishes
+if and only if rank G ≤ d − 2. Hence D is smooth exactly on the rank-(d − 1) stratum and singular
+exactly on the isotropy stratum. Now let two eigenvalues vanish together, gk = gl = ε → 0. For C0 :
+
+   (i) the degenerate pair supplies an exact eigenvalue at 1/ε, carried by the direction ek −el (verified
+       to relative 1.2 × 10−16 );
+                                                   √
+  (ii) the eigenframe pair (k, l) has eigenvalue 1/ gk gl = 1/ε;
+
+(iii) the measured log–log slopes of the top three eigenvalues are −0.99973, −0.99973, −1.00000:
+      the two rates of Theorem 11.10 collide into one.
+
+Remark 11.14 (The third row). Rate splitting is therefore a property of the smooth part of the
+divisor: on the codimension-one wall the operator distinguishes Vol−2 from Vol−1 , and at the corner
+the distinction disappears. The taxonomy of degenerations running through this programme —
+the pole (kernel along the locus, no genuine stratum) and the fold (kernel across it, and here two
+rates) — acquires a third entry: the corner, where the divisor itself is singular and the rates merge.
+Which singularity class the corner belongs to in Arnold’s hierarchy is not attempted here.
+
+
+
+                                                                15
+11.8    What this settles and what it does not
+Settled: the parameter T , open since the definition of the operator, is forced to be the dual
+coordinate G−1 once volume is the primitive (Theorem 11.2); the apparent conflict between the
+canonical closure and non-normality was a wrong-form measurement; the boundary is a divergence
+in powers of the volume rather than a pinning, with rates that split on the smooth divisor and
+merge at its corner (Theorem 11.10, Proposition 11.13); the kinematic choice between the canonical
+operators — C0 is the square root of the metric and A0 its logarithmic generator (Theorem 11.6);
+and the role of the cubic form — it is the connection (Theorem 11.8).
+    Not settled, and stated as the open boundary of the paper: a dynamical derivation — the
+kinematic selection says which operator the volume structure builds, not which one a mechanical
+principle would; the support-moving block of Proposition 8.1, on which no operator here acts in a
+determined way; and the singularity class of the corner.
+
+
+A      Wall vectors at d = 3
+                         √                  √                     √
+With Jacobi vectors ρ1 = µ1 (q2 − q1 ), ρ2 = µ2 (q3 − c12 ), ρ3 = µ3 (q4 − c123 ) and reduced
+masses
+                    m1 m2          (m1 + m2 )m3             (m1 + m2 + m3 )m4
+             µ1 =          , µ2 =                , µ3 =                       ,
+                   m1 + m2         m1 + m2 + m3            m1 + m2 + m3 + m4
+the vectors c(ij) of (2) are
+          h            i                                        h                             i
+  c(12) = √1µ1 , 0, 0 ,                                  c(23) = − (m1 +m m1 √
+                                                                            2 ) µ1
+                                                                                    , √1 , 0 ,
+                                                                                        µ2
+          h                         i                           h                                i
+  c(13) = (m1 +m m2 √
+                   2 ) µ1
+                           , √1 , 0 ,
+                               µ2                        c(34) = 0, − (m1 +mm1 +m2 √
+                                                                               2 +m3 ) µ2
+                                                                                           , √1
+                                                                                               µ3 ,
+          h                                         i           h                                       i
+  c(24) = − (m1 +m   m1 √
+                       2 ) µ1
+                              ,       m3     √ , √1
+                                (m1 +m2 +m3 ) µ2  µ3 ,   c(14) = (m1 +m
+                                                                      m2 √
+                                                                        2 ) µ1
+                                                                                 ,         m3    √ , √1
+                                                                                   (m1 +m2 +m3 ) µ2   µ3 .
+
+                     ⊤
+All six satisfy c(ij) Gc(ij) = |qi − qj |2 identically; checked against a random configuration with
+unequal masses to 3.6 × 10−15 .
+
+
+B      Verification
+The script VERIFY-LADDER-1 accompanies this paper and reproduces every number quoted. All
+fourteen checks pass.
+
+Second pass
+The script VERIFY-LADDER-2 runs the additional checks of this version; 13 of 14 pass and the one
+failure is recorded here rather than removed, because it corrected a claim.
+    The failed check was a prediction made in drafting, not a result in the previous version: it
+was expected that two coinciding pins would also produce a Jordan block. They do not. The
+eigenvector equation t·v = 0 then admits a two-dimensional solution space, and Theorem 6.5(iii) is
+stated accordingly.
+
+Third pass
+The script VERIFY-LADDER-3 runs the checks of this version; all ten pass.
+
+
+                                                    16
+  Check                                             Result
+  dim Σd = (d − 1) + d(d−1)
+                        2   , d = 2..8              identity holds
+  Collision locus codimension = d                   identity holds
+  d = 2: (u, v, det X) on the sphere of radius 12   max deviation                        2.2 × 10−16
+  d = 2: kinetic metric is round                    pushforward Gram = diag(1, 1)        off-diag 6.7 × 10−12
+  Six wall vectors reproduce |qi − qj |2            max error                            3.6 × 10−15
+  Trace coefficient c = 2 forced                    c=1 leaves by 0.693; c=2 by          2.8 × 10−16
+  Block diagonality of A                            coupling norm                        < 10−13
+  Eigenframe eigenvalues = ti + tj                  max error                            8.9 × 10−16
+  Spectrum real, d = 2..6, 15000 draws              max |Im λ|                           0.0
+  One secular root per gap, every draw              holds
+  Spectrum = {ti + tj } ∪ {2λk }                    max error                            9.2 × 10−14
+  Boundary pinning at 2tk                           holds
+  Boundary exceptional point is defective           | det eigvecs|                       1.1 × 10−15
+  Off-ladder dimensions (d=3, N =5)                 Sym(4) dim 10, shape dim 8
+
+
+ Check                                              Result
+                            ⊤            ⊤
+ Diagonal similarity Dt − gt ∼ Dt − uu              max error                              1.3 × 10−15
+ T = G ⇒ A symmetric                                ∥A − A⊤ ∥                              3.3 × 10−16
+ T ̸= G ⇒ A non-symmetric                           ∥A − A⊤ ∥                              3.75
+ Spectrum in a random non-orthonormal basis         max error                              2.1 × 10−9
+ Pins at 2tk present, 1–3 zeros, d = 3, 4, 5        all present
+ Generic rank-one boundary not defective            | det eigvecs|                         0.866
+ Two coinciding pins                                | det eigvecs| = 1.000: semisimple     (prediction corrected)
+ EP removed by generic perturbation                 6 × 10−16 → 3.4 × 10−1
+
+
+References
+[1] D. G. Kendall, Shape manifolds, Procrustean metrics, and complex projective spaces, Bull.
+    London Math. Soc. 16, 81 (1984).
+
+[2] I. L. Dryden, A. Kume, H. Le, A. T. A. Wood, A multidimensional scaling approach to shape
+    analysis, Biometrika 95, 779 (2008). [Reflection shape space embedded in the cone of positive
+    semidefinite matrices.]
+
+[3] R. Montgomery, The three-body problem and the shape sphere, Amer. Math. Monthly 122,
+    299 (2015).
+
+[4] A. Chenciner and R. Montgomery, A remarkable periodic solution of the three-body problem
+    in the case of equal masses, Ann. of Math. 152, 881 (2000).
+
+[5] A. Albouy and A. Chenciner, Le problème des n corps et les distances mutuelles, Invent. Math.
+    131, 151 (1998).
+
+[6] R. Moeckel and R. Montgomery, Symmetric regularization, reduction and blow-up of the planar
+    three-body problem, Pacific J. Math. 262, 129 (2013).
+
+[7] T. Kato, Perturbation Theory for Linear Operators, Springer (1966).
+
+[8] G. H. Golub and C. F. Van Loan, Matrix Computations, Johns Hopkins (2013). [Secular equa-
+    tions and rank-one eigenvalue updates.]
+
+                                                      17
+   Check                                                 Result
+   CG−1/2 ◦ CG−1/2 = M (metric operator)                 max error                      1.4 × 10−14
+   Congruence trace-symmetric and positive               holds
+   ∂i gjk = Cijk , all index triples                     max error                      3.1 × 10−12
+   Geodesic closed form G̈ = ĠG−1 Ġ                    max error                      5.2 × 10−7
+   KV speed conserved along geodesics                    relative spread                1.2 × 10−11
+   adj(G) → 0 iff rank ≤ d − 2                           1.4 × 10−9 vs 0.25
+   Corner slopes (two vanishing eigenvalues)             −0.99973, −0.99973, −1.00000
+   Exact eigenvalue at 1/gmin from the degenerate pair   relative error                 1.2 × 10−16
+   Threefold dimension identity, all (n, r), n ≤ 8       holds
+   Rank-3 point of Sym(4): three blocks well-defined     holds
+
+
+[9] G. H. Golub, Some modified matrix eigenvalue problems, SIAM Review 15, 318 (1973).
+
+[10] J. R. Bunch, C. P. Nielsen and D. C. Sorensen, Rank-one modification of the symmetric
+    eigenproblem, Numer. Math. 31, 31 (1978).
+
+[11] E. B. Vinberg, The theory of convex homogeneous cones, Trans. Moscow Math. Soc. 12, 340
+    (1963).
+
+[12] H. Shima, The Geometry of Hessian Structures, World Scientific (2007).
+
+[13] J.-L. Koszul, Domaines bornés homogènes et orbites de groupes de transformations affines,
+    Bull. Soc. Math. France 89, 515 (1961).
+
+[14] R. Bhatia, Positive Definite Matrices, Princeton University Press (2007).
+
+
+
+
+                                                  18
+

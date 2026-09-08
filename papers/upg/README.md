@@ -14,6 +14,7 @@ Finite redistribution algebra, guarded commutator winding, projector geometry; p
 - [Projector susceptibility and the separating gap](../../atlas/UPG-GAP-RANK.md)
 - [Winding, signature and eta remain distinct](../../atlas/UPG-CURRENCY-GUARDS.md)
 - [Four records of a reduction](../../atlas/CASCADE-FOUR-RECORDS.md)
+- [Identical reduced observations can conceal opposite response slopes](../../atlas/predictive-boundary-record.md)
 
 ## Next step
 

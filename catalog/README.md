@@ -19,6 +19,7 @@ This is an initial source register, not a complete census of the 20+ paper corpu
 | [Sun, black-hole and boundary comparison](../papers/horizon-comparison/README.md) | Universal 3.1 source imported unchanged; eleven horizon eyes retained in Universal 3.2 | Use the required metric and observer in comparisons; resolve empirical calibration and the physical shape-to-spacetime map separately. |
 | [The hypersurface organizing principle](../papers/hypersurface/README.md) | Original dossier recovered; 328 mathematical checks freshly replayed | Fit the electronic-to-interface map to the same measured sample used for transport. |
 | [Elemental peel: spacing, channels, and the surface](../papers/elemental-peel/README.md) | Seven new eyes; 1,253 evaluations and four expected refusals; written derivations | Acquire a geometry-calibrated elemental trajectory with electrical and optical measurements. |
+| [Elemental Peeling and What the Boundary Retains](../papers/elemental-foundations/README.md) | Combined manuscript 1.0; new finite certificates and numerical evidence tracked separately | Fit a specified physical intervention with fixed contacts and probe references; predict a held-out response. |
 
 ## Intake queue
 

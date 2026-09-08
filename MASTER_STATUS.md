@@ -1,6 +1,19 @@
 # Current project master — 8 September 2026
 
-## Current elemental focus
+## Combined elemental and light manuscript
+
+The current branch adds **six immutable eyes**, for **204 versions / 32 sets**
+(185 implemented, 17 specified, two archived). The 198-version elemental
+release and all prior content-addressed implementations remain unchanged.
+`research/elemental_foundations/` contains the combined manuscript, original
+Matter/Light/Sofic/UPG and new FOFT/Gram/angle/ladder sources, exact proofs,
+source inventories and numerical evidence. The new work runs **890 eye
+evaluations and 2,445 assertions**, including five intended domain refusals.
+The exact pair has equal initial current and isolated optical data but opposite
+energy sensitivity. Physical elemental identification remains open. See the
+project's `PROOF_STATUS.md` for the exact Lean revision and checker outcomes.
+
+## Preceding elemental focus
 
 Universal 3.2 now has **seven additional immutable elemental eyes**, giving
 **198 versions / 30 sets** (179 implemented, 17 specified, two archived).

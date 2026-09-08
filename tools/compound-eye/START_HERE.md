@@ -1,3 +1,11 @@
+# Combined manuscript update — 8 September 2026
+
+Current inventory: 204 eyes, 32 sets. The repository project
+`research/elemental_foundations` combines the elemental and light manuscripts.
+Its portable supplement includes a top-level reproduction command, all six
+new methods, complete registry, source papers, elemental inputs and formal
+evidence. Prior entries below retain their historical scope and counts.
+
 # Compound Eye Universal 3.2 — synchronized master release
 
 Open `START_HERE.html` for the Eye Mixer, boundary lab, complete catalog and recorded arithmetic viewer. This combines Universal 2.2 and independently developed Universal 3.1. They share 167 byte-identical eye versions. The union has **191 eye versions in 29 sets**: **172 implemented**, **17 specified**, and **two archived results**.
