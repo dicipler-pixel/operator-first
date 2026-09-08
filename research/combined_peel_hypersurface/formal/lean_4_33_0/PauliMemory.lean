@@ -142,12 +142,12 @@ theorem exclusion_box_length_increases (lengthF lengthB : ℝ)
 
 /-- Synthetic four-bin linear observer; coefficients are not CIE calibrations. -/
 def colorObserver (s : Fin 4 → ℝ) : Fin 3 → ℝ :=
-  ![s 0 + s 3, s 1 + s 3, s 2 + s 3]
+  fun i => s (Fin.castSucc i) + s 3
 
-def spectrumA : Fin 4 → ℝ := ![1, 1, 1, 0]
-def spectrumB : Fin 4 → ℝ := ![0, 0, 0, 1]
+def spectrumA : Fin 4 → ℝ := fun i => if i = 3 then 0 else 1
+def spectrumB : Fin 4 → ℝ := fun i => if i = 3 then 1 else 0
 def passiveFilter (s : Fin 4 → ℝ) : Fin 4 → ℝ :=
-  ![s 0, s 1 / 2, s 2 / 4, 3 * s 3 / 4]
+  fun i => (if i = 0 then 1 else if i = 1 then 1/2 else if i = 2 then 1/4 else 3/4) * s i
 
 theorem equal_initial_color : colorObserver spectrumA = colorObserver spectrumB := by
   ext i

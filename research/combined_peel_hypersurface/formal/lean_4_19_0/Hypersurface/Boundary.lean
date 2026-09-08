@@ -17,7 +17,7 @@ variable {ι β ο : Type*}
 variable [Fintype ι] [Fintype β] [Fintype ο]
 variable [DecidableEq ι] [DecidableEq β] [DecidableEq ο]
 
-def boundaryKernel (D : Matrix β β ℂ) (C : Matrix β ι ℂ)
+noncomputable def boundaryKernel (D : Matrix β β ℂ) (C : Matrix β ι ℂ)
     (R : Matrix ι ι ℂ) (B : Matrix ι β ℂ)
     (G : Matrix β ο ℂ) (T : Matrix ο ο ℂ) (F : Matrix ο β ℂ) : Matrix β β ℂ :=
   D - C*R*B - G*T*F

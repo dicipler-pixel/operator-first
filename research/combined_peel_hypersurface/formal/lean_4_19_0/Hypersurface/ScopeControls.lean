@@ -35,7 +35,7 @@ theorem index_ratios_cannot_match_constant_rigidity
 theorem exterior_sensitivity_dictionary (β n k c κ T : ℝ)
     (hβ : β ≠ 0) (hκ : κ ≠ 0) (hT : T ≠ 0) (hc : c ≠ 0) :
     -(n*k^2/κ)/(-β*T/c^2) = n*k^2/β*(c^2/(κ*T)) := by
-  field_simp [hβ,hκ,hT,hc] <;> ring
+  field_simp [hβ,hκ,hT,hc] <;> ring <;> simp
 
 -- A nonzero gapped Dirac mass gives a positive metric coefficient at k=0.
 -- Neutrality and the microscopic Hamiltonian are not encoded by this scalar.

@@ -28,7 +28,7 @@ for project in (sys.argv[1:] or ['lean_4_19_0','lean_4_33_0']):
         report['negative_controls'].append(item)
         print(r.stdout, flush=True)
         if not r.returncode:raise SystemExit('False control unexpectedly accepted: '+str(f))
-        if 'unsolved goals' not in r.stdout and 'failed' not in r.stdout:
+        if 'unsolved goals' not in r.stdout:
             raise SystemExit('Negative control failed for an unexpected reason; inspect '+f.stem+'.log')
     report['sources']=[{'file':str(f.relative_to(p)),'sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'theorem_count':len(re.findall(r'^theorem\s+',f.read_text(),re.M))} for f in sorted(p.rglob('*.lean')) if '.lake' not in f.parts]
     report['accepted']=True;(logs/'report.json').write_text(json.dumps(report,indent=2)+'\n');reports.append(report)
