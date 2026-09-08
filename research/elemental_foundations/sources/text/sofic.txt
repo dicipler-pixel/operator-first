@@ -1,0 +1,1011 @@
+                                        The Soficity Trace
+                 What was tried, what failed, what survived, and what it cost
+
+                                             Jeromie Beasley
+
+                                             23 August 2026
+
+
+                                                  Abstract
+          A complete working record of one attempt to bring the operator-first winding currency to
+      bear on the existence of non-sofic groups. It contains the failed gate at full size, the theorem
+      hidden inside the failure, the repaired gate and its eight control blocks, the exact conversions
+      between the four metrics that the question lives on, the three results that went into the projector
+      geometry paper — integrality and invariance
+                                           √         of the winding, the admissible domain δ + g 2 ≤ 4,
+      and the amplitude floor |w| ≤ (d/4) δ — the standing verdict that the route does not reach
+      soficity and exactly why, and the routes killed and left open. Every claim carries a grade: [T]
+      derived, [V] gated numerically, [C] cited, [H] interpretation. Nothing that was killed has been
+      deleted.
+
+
+1    The situation
+On 1 August 2026 OpenAI announced ten machine-verified results from an unreleased model, Astra.
+The third is the construction of a non-sofic group, closing a question posed by Gromov in 1999 and
+named by Weiss in 2000 [C]. A group is sofic if it can be approximated by finite permutations: for any
+finite set of elements and any ε, there is a map into a symmetric group that is almost-multiplicative
+(composition agrees on at least 1 − ε of the points) and almost-free (any non-identity element moves
+at least 1 − ε of them). The metric is normalised Hamming — the fraction of points on which two
+permutations differ.
+     Audit of the released repository, run 20 August: all ten formalisation files carry zero sorry,
+zero axiom declarations, and zero native decide — the last matters, because it is the standard
+way a zero-sorry proof still escapes the kernel. The forty-two sorries in the repository are confined to
+a separate challenge-stub directory and are not part of the proofs. This is a claim about a repository
+at a date, not a mathematical theorem, and it is recorded as one [V for the mechanical audit]. What
+a certificate cannot settle is whether the formalised statement is the intended one; that surface is
+unaudited [H].
+     Follow-up, checked directly:
+
+    • Fournier-Facio, arXiv:2608.02025 (3 August). Takes the key technical criterion and produces
+      a finitely presented torsion-free non-sofic group, avoiding Leavitt algebras and Thompson’s V
+      entirely, by small cancellation over a relatively hyperbolic pair. The stated point of the note
+      is that the criterion, not the construction, is the novelty [C].
+
+    • Alekseev–Thom, arXiv:2608.05362. The centraliser of a sofic embedding of a Kazhdan group
+      is itself a metric ultraproduct of permutation groups; an ergodic centraliser forces LEF, and
+      finite presentation then forces residual finiteness [C].
+
+                                                      1
+    • Kun–Thom, arXiv:2608.06222. Generalises the mechanism: for Γ < G with the commensurator
+                                                                                     L
+      of Γ generating G, both Kazhdan, Γ not normal, the generalised wreath product ( G/Γ Z/2)⋊G
+      is non-sofic — on explicit pairs of residually finite Kazhdan elementary matrix groups over
+      polynomial rings. Also separates weakly sofic from sofic [C].
+
+   As of the date of this trace nothing further has appeared, and the two siblings, MF and
+hyperlinear, remain open [C]. Both halves of that sentence are dated on purpose.
+
+
+2     The map onto the framework, before any verdict
+Stated first because the comparison is worth making in earnest, and because several of the corre-
+spondences are exact rather than suggestive. Where a correspondence is exact it is derived; where
+it is a translation into this framework’s vocabulary it is labelled as one.
+
+2.1   The two clauses
+The two sofic clauses are the framework’s two. Almost-multiplicative is cocycle composition. For
+almost-free the sofic condition is a Hamming condition: a non-identity element’s approximating
+permutation must move almost every point. On the framework side the analogue is a uniform
+principal-angle separation, sin2 θ ≥ ε — distinct directions stay resolvable [H]. Compose correctly,
+and do not lose anybody. The translation is the right one, and it is a translation, not a definition of
+soficity.
+
+2.2   Four metrics, and the exact rates between them
+The question lives on a ladder of metrics that are routinely conflated, and the whole verdict of this
+trace turns on the difference between the rungs. Fix d × d matrices and write
+                                                  X                 1/2                 ∥T ∥F
+             ∥T ∥op = sup ∥T x∥,        ∥T ∥F =            |Tij |2          ,   ∥T ∥HS,n = √ ,
+                       ∥x∥=1                          ij
+                                                                                             d
+
+and for permutations σ, τ of d points the normalised Hamming distance dH (σ, τ ) = d1 #{i : σ(i) ̸=
+τ (i)}.
+     The two conversions that matter are exact. For permutation matrices P, Q the i-th row of P − Q
+is either zero or a difference of two distinct standard basis vectors, so
+
+          ∥P − Q∥2F = 2 #{i : P (i) ̸= Q(i)},      hence               dH (P, Q) = 12 ∥P − Q∥2HS,n
+
+[T]. Normalised Hamming is therefore not normalised Hilbert–Schmidt; it is half its square. Applied
+to the closure defect of this trace, δ = ∥R − I∥2F /d, that gives
+
+                          δ = 2 dH (R, I)       for R a permutation matrix,
+
+which is the bridge from the gate’s amplitude to the sofic metric, with the factor written down [T].
+Nothing measured in this trace is a permutation matrix — the shift is one, the clock is not — so
+the identity is never used to convert a reported number. It is here because the verdict of Section 5
+is a statement about what does and does not cross between these metrics, and that statement needs
+the rate between them stated exactly rather than gestured at.
+
+
+                                                  2
+   The projector side carries
+                            Pthe 2same warning about normalisation. For equal-rank orthogonal
+                      2
+projectors, ∥Π1 − Π2 ∥F = 2 i sin θi ; that is a sum, not a fraction. The fraction of the subspace
+on which they disagree is the normalised quantity
+                                        1                 1X 2
+                                           ∥Π1 − Π2 ∥2F =   sin θi ,
+                                        2r                r
+                                                                 i
+
+r the common rank [T]. The framework’s observables are means of sin2 of principal angles, and
+it is the mean, not the sum, that makes ambient size drop out — which is the content of the
+zero-and-span lemma.
+
+
+              operator norm                                      obstructions LIVE
+
+              ‖ ⋅ ‖op                                            MF: open
+
+                                        a different norm
+
+              Frobenius (unnormalised)                           obstructions LIVE
+
+              ‖ ⋅ ‖F = √ d ‖ ⋅ ‖HS, n                            DGLT 2020: counterexample
+
+                                        divide by √ d
+
+              normalised Hilbert–Schmidt                         winding obstruction provably absent
+
+              ‖ ⋅ ‖HS, n = ‖ ⋅ ‖F/√ d                            hyperlinear: open
+
+                                        square and halve
+                                        (permutation matrices)
+              normalised Hamming                                 no transfer theorem
+
+              dH = 12 ‖ ⋅ ‖2HS, n                                sofic: counterexample 2026
+
+
+
+
+Figure 1: The four metrics, the exact rates between them, and what survives each. Descending the
+ladder is not a change of units: the normalisation is the whole content, and obstructions that live
+on the upper two rungs are not available on the lower two.
+
+    These four are not interchangeable, and the ladder is the reason a group can fail approximation
+in one sense while nothing is known in another. Concretely: change a permutation on εd points.
+Normalised Hamming distance ε, vanishing. Operator norm distance 2, the maximum.
+
+2.3    The DGLT door, and which rung it is on
+De Chiffre–Glebsky–Lubotzky–Thom (2017; published 2020) built the first non-approximable groups
+from central extensions 1 → Z → G   e → G → 1 with the obstruction a class in H 2 (G; Z). Their norm
+                                                                                                   √
+is the Frobenius norm, ∥T ∥F = ( ij |Tij |2 )1/2 — the unnormalised Hilbert–Schmidt norm, d
+                                     P
+times the normalised one [C]. That is not this framework’s metric natively. Ambient size does not
+drop out of it, which is exactly the opposite of the zero-and-span normalisation, and it is the reason
+a counterexample exists on that rung while the hyperlinear question — the same norm, normalised
+— has been open since Connes.
+
+                                                           3
+    The structural rhyme survives the correction, and is worth keeping for what it is. A central
+extension is a phase; the obstruction class is a winding no approximation can unwind [H]. What the
+correction removes is the claim that the door was already open onto this framework’s own floor. It
+was one rung up.
+
+2.4    Property (T) is a spectral gap
+The trivial representation is isolated; there are no almost-invariant vectors. Its role in killing soficity
+is a rigidity argument: approximation is forced near something exact which cannot be there. That
+is a wall in the framework’s sense [H].
+
+2.5    The honest blocker, stated after the map
+The framework’s instruments live in finite dimensions with isolated spectrum: Gram determinants,
+                                  √
+principal angles, contours at η ≳ ε. Sofic approximations live in an ultraproduct of symmetric
+groups where the spectrum is a measure and there is nowhere to put a contour. Second, and
+structurally worse: the diagnostic is always given an operator family and asks whether it tracks.
+Soficity asks whether any approximating family exists. That is a quantifier flip, and persistence of a
+transport one has says nothing about non-existence of transports one does not.
+
+
+3     WIND-GATE-01 — built, run, failed
+3.1    The design
+One closure defect, two readings. Amplitude δ = ∥R−I∥2F /d. Phase w = (1/2π) times the unwrapped
+total change in (1/d) arg det Rm over m = 0, . . . , d. Testbed: clock and shift in dimension d, relator
+R = ABA−1 B −1 = ω −1 I, a genuine 2-cocycle, with δ = 4 sin2 (π/d) → 0.
+
+3.2    What passed, and it is the half worth keeping
+P1, exact control: PASS. δ = 1.9 × 10−32 , w = 0.
+    P2, noise control: PASS. δ from 2.4 × 10−1 down to 2.3 × 10−7 across η = 10−1 . . . 10−4 , with
+w = 0.000000 at every level. The null side is clean: the gate does not manufacture obstructions out
+of small amplitude defects.
+
+3.3    What failed
+P3: FAIL. δ reproduced exactly — 4 sin2 (π/d) to every digit, a 715× drop from d = 3 to d = 97 —
+but w = 0 at every d.
+    P4: FAIL. w(cR) ̸= w(R). Since det(cRm ) = cm det(Rm ), the phase shift is m-dependent and
+does not cancel. Fails zero-and-span outright.
+    P5: FAIL. A matched-δ pair returned w = 0.103322 — not an integer. A winding needs a
+closed path; Rm for m = 0, . . . , d closes only when Rd = I. The unperturbed clock–shift closes, the
+perturbed one does not, so arg det simply accumulates as mθ. An integer was asserted and closure
+was never gated.
+
+
+
+
+                                                    4
+3.4   The special-case manifestation
+det(ζId ) = ζ d , and by Schur an irreducible projective representation whose commutator has order p
+has dimension exactly p, so ζ d = 1 always. In the dimension where the projective representation
+lives, the determinant line is structurally blind to a scalar 2-cocycle [T]. No finite-dimensional
+projective representation has a cocycle that det can see. This is exactly why DGLT needed an
+approximation norm and a cohomological argument rather than a determinant: everyone who tries
+the obvious phase invariant hits this wall. The risk was flagged during design and then talked past;
+it should have been gate one, not gate three.
+
+3.5   The general diagnosis
+The blindness above is true and it is not the root cause. The root cause is the path. The determinant
+of a commutator is identically 1, so the endpoint of any commutator carries exactly zero information,
+and no adjustment of dimension repairs that. The correct loop is Kazhdan’s, rediscovered by Exel
+and Loring in 1991: the chord t 7→ det((1 − t)I + tR), t ∈ [0, 1], which closes precisely because
+det = 1 at both ends. Its winding number equals the summed principal arguments of the eigenvalues
+of R — the quantity physicists now call the Bott index [C].
+    The relation between the two readings is one line: det = exp Tr log, so the determinant collapses
+the summed principal logarithms modulo 2πi. It discards exactly one wrap, and the wrap is the
+entire invariant.
+
+
+4     WIND-GATE-02 — repaired, run, passed
+4.1   Why the check proves what it claims, stated before the result
+For clock and shift, R = ωI with ω = e2πi/d . Summing the principal logarithms of the d eigenvalues
+gives d · (2πi/d) = 2πi, so w = 1. Taking the determinant instead exponentiates that sum and
+collapses it to ω d = 1. The two differ by one wrap. The check therefore has a known exact answer at
+every d, which makes the run a calibration against a fixed point rather than a discovery: anything
+other than 1 on the first block means the instrument is broken, not the mathematics. What makes
+it worth running at all is that δ = 4 sin2 (π/d) → 0 while w stays pinned at 1 — an amplitude dying
+while an integer persists, with an answer known in advance to check against.
+
+4.2   The results
+Theorem 1 (Integrality and invariance; T+V).PLet g = minj |λj + 1| > 0, where λj are the
+eigenvalues of R = U V U † V † , and let w = (1/2π) j arg λj on the principal branch. Then w ∈ Z
+with |w| ≤ d/2; w is unchanged by simultaneous unitary conjugation; w is unchanged by U 7→ eiθ U
+and V 7→ eiφ V ; and w equals the winding number of t 7→ det((1 − t)I + tR).
+                                                              Q              P
+Proof. R is a commutator of unitaries, so det R = 1, hence j λj = 1 and j arg λj ∈ 2πZ. The
+bound follows from | arg λj | < π. Conjugation preserves the spectrum. The scalars cancel identically
+inside the commutator. The chord closes because det R = 1 at t = 1 and det I = 1 at t = 0; the
+identification of its winding with the summed principal arguments is Exel–Loring [C].
+
+   The determinant of the relator is identically one. That triviality is not an obstacle to reading
+the record; it is the reason the record is an integer.
+
+
+
+                                                 5
+Remark 2 (The sharp integer bound). When the guard is active the bound |w| ≤ d/2 is never
+attained. Every principal argument satisfies | arg λj | < π strictly, so |w| < d/2, and since w is an
+integer,                                         j      k
+                                          |w| ≤ d−1 2
+
+[T]. At d = 31 this reads |w| ≤ 15, and the ladder of Proposition 8 attains it.
+Theorem 3 (The admissible domain; T+V). For every U, V ∈ U (d), with δ = ∥R − I∥2F /d,
+                                               δ + g 2 ≤ 4,
+with equality if and only if Re λj is constant over the spectrum of R.
+                                                  2          2        2
+Proof. Each λPj is on the unit circle, so |λj − 1| + |λj + 1| = 2|λj | + 2 = 4. Averaging over j
+           −1             2                     2
+gives δ + d     j |λj + 1| = 4 exactly. Since g is the minimum of the quantities being averaged,
+g ≤ 4 − δ. Equality holds when every |λj + 1|2 = 2 + 2 Re λj takes the same value.
+ 2
+
+
+Corollary 4 (Forced refusal). The branch guard is capped by the defect. No anchor with δ > 4 − τ 2
+is admissible at tolerance τ , in any dimension, for any pair of generators. A large defect and a safe
+branch cannot coexist.
+    The half-angle form is what puts this in the corpus’s own currency. Write λj = eiϑj . Then
+|λj − 1|2 = 4 sin2 (ϑj /2) and |λj + 1|2 = 4 cos2 (ϑj /2), so the defect is four times the mean of sin2 of
+the half-angles and the guard squared is four times their minimum cos2 . The bound reads
+                              meanj sin2 (ϑj /2) + min cos2 (ϑj /2) ≤ 1 :
+                                                        j
+
+the Pythagorean identity with a minimum standing where a mean belongs [T]. The projector
+observables of the framework are natively sin2 -valued in principal angles; the defect is a squared
+sine, the guard is its cosine, and the wall is the right angle.
+Theorem 5 (Amplitude floor; T+V). For every U, V with g > 0,
+                                  d√                                    16
+                          |w| ≤      δ,     hence    w ̸= 0 =⇒ δ ≥ 2 .
+                                  4                                     d
+Proof. |λj − 1| = 2| sin(ϑj /2)|, and sin x ≥ 2x/π on [0, π/2], so |ϑj | ≤ π2 |λj − 1|. Summing and
+                                                                 q P                      √
+applying Cauchy–Schwarz, 2π|w| ≤ j |ϑj | ≤ π2 j |λj − 1| ≤ π2 d j |λj − 1|2 = π2 d δ.
+                                     P            P
+
+
+Corollary 6 (Higher winding). Squaring, for any nonzero integer w,
+                                                   16 w2
+                                              δ ≥         .
+                                                     d2
+The floor is quadratic in the winding, not merely positive: carrying a larger integer costs quadratically
+more amplitude at fixed dimension [T].
+   An integer record cannot ride on an arbitrarily small defect. The amplitude may collapse as
+dimension grows — and on clock and shift it does — but not faster than d−2 , and a record of size
+w not faster than w2 d−2 .
+   The ancestry of Theorem 5 should be stated plainly. Quantitative lower bounds on how far
+almost-commuting unitaries must move before a Bott-type index can change are Loring’s, in the
+operator norm and dimension-independently (arXiv:1302.0349) [C]. What is contributed here is the
+normalised-Frobenius form — necessarily dimension-dependent, since the normalisation is what
+makes it so — together with the clock–shift calibration below, which shows the constant cannot be
+improved.
+
+                                                    6
+Proposition 7 (Clock and shift). With U = diag(1, ω, . . . , ω d−1 ) and V the cyclic shift, U V = ωV U ,
+R = ωI, and δ = 4 sin2 (π/d), g = 2 cos(π/d), w = 1 for d ≥ 3. Every half-angle is π/d, so the
+family realises equality in the domain bound at every d and saturates the floor up to the constant
+π/2. At d = 2 the half-angle reaches π/2, R = −I, δ = 4, g = 0, and the anchor is inadmissible.
+
+Proposition 8 (The winding ladder; T+V). Fix d and replace U by U k . Then R = ω k I and, for
+1 ≤ k ≤ ⌊(d − 1)/2⌋,
+                                                                   kπ                                    kπ 
+                     w = k,                    δk = 4 sin2                        ,      gk = 2 cos                 ,     δk + gk2 = 4.
+                                                                             d                              d
+The whole ladder lies on the equality locus of the domain bound. Against Corollary 6 it gives
+                                                                    δk       d      kπ 2
+                                                                           =     sin       ,
+                                                                 16k 2 /d2    2k      d
+
+which decreases monotonically from π 2 /4 as k/d → 0 to 1 as k → d/2.
+
+Corollary 9 (The √ constant is optimal). The factor 1/4 in Theorem 5 cannot be improved. Along
+the ladder, (d/4) δk / |w| = (d/2k) sin(kπ/d) → 1 as k → d/2, so the inequality is asymptotically
+an equality on an explicit admissible family [T]. The loss factor π/2 visible on the w = 1 family is a
+small-angle artefact, not slack in the theorem.
+
+
+
+                                  4
+
+
+
+
+                                  3                 d                                       sc
+               branch guard g 2
+
+
+
+
+                                                        in                                    ala
+                                                           c   re                                rr
+                                                                 as                                 ela
+                                                                      in
+                                                                         g                             to
+                                                                                                           rs
+                                  2
+
+
+
+
+                                  1          δ + g2 ≤ 4
+
+                                          no admissible branch                                                      d=2
+                                  0
+                                      0                    1                            2                       3               4
+                                                                                 defect δ = ‖R − I‖2F/d
+
+
+
+Figure 2: The admissible domain. Every anchor lies in the shaded triangle; scalar relators lie on its
+hypotenuse, where clock and shift sit at every d. Decreasing d slides the family into the corner at
+which the guard closes.
+
+
+
+
+                                                                                        7
+                                                    clock and shift
+                             100
+
+
+
+                            10−1
+                 defect δ
+
+
+
+
+                            10−2
+
+                                        w ≠ 0 ⇒ δ ≥ 16/d 2
+                            10−3
+                                                                               no integer record
+
+                            10−4
+                                                    101                              102
+                                                                dimension d
+
+
+
+Figure 3: The amplitude floor at w = 1. Below the boundary no integer record is available at that
+dimension. Clock and shift ride a constant factor π 2 /4 above the floor while carrying w = 1.
+
+
+
+
+                                      δk = 4sin2 (kπ/d)                                            w = 15
+
+
+
+                            100
+             defect δ
+
+
+
+
+                        10−1
+
+                                                               δ ≥ 16w 2/d 2
+
+                                       w=1          no integer record
+
+                                  0     2       4          6          8   10         12      14     16
+                                                      winding w = k       (d = 31)
+
+
+
+Figure 4: The winding ladder at d = 31. The quadratic floor δ ≥ 16w2 /d2 and the realised family
+δk = 4 sin2 (kπ/d) converge as the winding approaches the branch edge: the gap closes from π 2 /4 to
+1, which is what makes the constant optimal.
+
+
+
+
+                                                                  8
+4.3     The run, verbatim
+====================================================================================================================
+G1 INTEGRALITY AND THE SCALAR EQUALITY CASE: clock and shift.
+    w = 1 at every d; delta + gˆ2 = 4 exactly; bound = (d/4)sqrt(delta) -> pi/2.
+====================================================================================================================
+  d=3    exact                   w=+1.000000000 w_chord=+1.000000000 delta=3.000000e+00 g=1.000000 delta+gˆ2=4.000000000 bound=1.2990 PASS
+  d=5    exact                   w=+1.000000000 w_chord=+1.000000000 delta=1.381966e+00 g=1.618034 delta+gˆ2=4.000000000 bound=1.4695 PASS
+  d=7    exact                   w=+1.000000000 w_chord=+1.000000000 delta=7.530204e-01 g=1.801938 delta+gˆ2=4.000000000 bound=1.5186 PASS
+  d=11   exact                   w=+1.000000000 w_chord=+1.000000000 delta=3.174929e-01 g=1.918986 delta+gˆ2=4.000000000 bound=1.5495 PASS
+  d=17   exact                   w=+1.000000000 w_chord=+1.000000000 delta=1.350555e-01 g=1.965946 delta+gˆ2=4.000000000 bound=1.5619 PASS
+  d=31   exact                   w=+1.000000000 w_chord=+1.000000000 delta=4.094012e-02 g=1.989739 delta+gˆ2=4.000000000 bound=1.5681 PASS
+  d=53   exact                   w=+1.000000000 w_chord=+1.000000000 delta=1.403781e-02 g=1.996487 delta+gˆ2=4.000000000 bound=1.5699 PASS
+  d=97   exact                   w=+1.000000000 w_chord=+1.000000000 delta=4.194348e-03 g=1.998951 delta+gˆ2=4.000000000 bound=1.5705 PASS
+
+====================================================================================================================
+G1b THE WINDING LADDER: U -> Uˆk on clock and shift, d = 31.
+    R = omegaˆk I so w = k and delta_k = 4 sinˆ2(k pi/d); the floor must clear k.
+====================================================================================================================
+  k=1   w=+1.000000000 w_chord=+1.000000000 delta=0.040940117 pred=0.040940117 g=1.989739 bound=1.5681 (>= k) delta/(16kˆ2/dˆ2)=2.458966 PASS
+  k=2   w=+2.000000000 w_chord=+2.000000000 delta=0.162084377 pred=0.162084377 g=1.959060 bound=3.1201 (>= k) delta/(16kˆ2/dˆ2)=2.433798 PASS
+  k=3   w=+3.000000000 w_chord=+3.000000000 delta=0.358473118 pred=0.358473118 g=1.908279 bound=4.6401 (>= k) delta/(16kˆ2/dˆ2)=2.392310 PASS
+  k=5   w=+5.000000000 w_chord=+5.000000000 delta=0.942071979 pred=0.942071979 g=1.748693 bound=7.5222 (>= k) delta/(16kˆ2/dˆ2)=2.263328 PASS
+  k=10 w=+10.000000000 w_chord=+10.000000000 delta=2.880788303 pred=2.880788303 g=1.057928 bound=13.1540 (>= k) delta/(16kˆ2/dˆ2)=1.730273 PASS
+  k=15 w=+15.000000000 w_chord=+15.000000000 delta=3.989738647 pred=3.989738647 g=0.101298 bound=15.4801 (>= k) delta/(16kˆ2/dˆ2)=1.065039 PASS
+  piˆ2/4 = 2.467401
+
+====================================================================================================================
+G2 NEGATIVE CONTROL: commuting pair. w = 0, delta = 0, g = 2.
+====================================================================================================================
+  d=7    commuting               w=-0.000000000 w_chord=-0.000000000 delta=1.873837e-32 g=2.000000 delta+gˆ2=4.000000000 bound=0.0000 PASS
+  d=31   commuting               w=-0.000000000 w_chord=-0.000000000 delta=9.453904e-33 g=2.000000 delta+gˆ2=4.000000000 bound=0.0000 PASS
+  d=97   commuting               w=-0.000000000 w_chord=-0.000000000 delta=2.033120e-32 g=2.000000 delta+gˆ2=4.000000000 bound=0.0000 PASS
+
+====================================================================================================================
+G3 STABILITY AND THE STRICT INEQUALITY: kicked clock-shift, d=31.
+    w stays 1; the relator leaves the scalar locus so delta + gˆ2 < 4.
+====================================================================================================================
+  eta=1e-01                      w=+1.000000000 w_chord=+1.000000000 delta=5.151479e-02 g=1.960698 delta+gˆ2=3.895850624 bound=1.7590 PASS
+  eta=1e-02                      w=+1.000000000 w_chord=+1.000000000 delta=4.106643e-02 g=1.987454 delta+gˆ2=3.991039211 bound=1.5705 PASS
+  eta=1e-03                      w=+1.000000000 w_chord=+1.000000000 delta=4.094131e-02 g=1.989513 delta+gˆ2=3.999103199 bound=1.5681 PASS
+  eta=1e-04                      w=+1.000000000 w_chord=+1.000000000 delta=4.094013e-02 g=1.989719 delta+gˆ2=3.999921719 bound=1.5681 PASS
+
+====================================================================================================================
+G4 INVARIANCE: unitary conjugation and generator rephasing leave w fixed.
+====================================================================================================================
+  baseline                       w=+1.000000000 w_chord=+1.000000000 delta=4.094012e-02 g=1.989739 delta+gˆ2=4.000000000 bound=1.5681 PASS
+  conjugated                     w=+1.000000000 w_chord=+1.000000000 delta=4.094012e-02 g=1.989739 delta+gˆ2=4.000000000 bound=1.5681 PASS
+  U -> eˆ{i th} U                w=+1.000000000 w_chord=+1.000000000 delta=4.094012e-02 g=1.989739 delta+gˆ2=4.000000000 bound=1.5681 PASS
+  both rephased                  w=+1.000000000 w_chord=+1.000000000 delta=4.094012e-02 g=1.989739 delta+gˆ2=4.000000000 bound=1.5681 PASS
+
+====================================================================================================================
+G5 THE DOMAIN BOUND OVER RANDOM RELATORS: delta + gˆ2 <= 4, strict off
+    the scalar locus. 1000 random unitary pairs, d = 12.
+====================================================================================================================
+  violations: 0/1000 max delta+gˆ2 = 2.310779189 (bound 4)
+
+====================================================================================================================
+G5b BOUNDARY STRESS: the bound is approached, not sampled at random.
+    Equality needs Re lambda_j constant, so drive the spectrum to a point.
+====================================================================================================================
+  (a) near-commuting family: V rotated off a common eigenbasis by eta.
+      eta=1e-01 max delta+gˆ2 = 3.993267996    gap to 4 = 6.732e-03
+      eta=3e-02 max delta+gˆ2 = 3.999493685    gap to 4 = 5.063e-04
+      eta=1e-02 max delta+gˆ2 = 3.999941210    gap to 4 = 5.879e-05
+      eta=3e-03 max delta+gˆ2 = 3.999994121    gap to 4 = 5.879e-06
+      eta=1e-03 max delta+gˆ2 = 3.999999310    gap to 4 = 6.896e-07
+  (b) generic search for the equality locus: hill climb on delta + gˆ2,
+      d = 12, 6 restarts x 400 steps. Expected to fail; the locus is thin.
+      restart 1: delta+gˆ2 = 2.920020709   gap to 4 = 1.080e+00
+      restart 2: delta+gˆ2 = 3.050671820   gap to 4 = 9.493e-01
+      restart 3: delta+gˆ2 = 2.814474731   gap to 4 = 1.186e+00
+      restart 4: delta+gˆ2 = 2.840469780   gap to 4 = 1.160e+00
+      restart 5: delta+gˆ2 = 2.895491078   gap to 4 = 1.105e+00
+      restart 6: delta+gˆ2 = 2.914849274   gap to 4 = 1.085e+00
+  (c) along the hypotenuse: kicked clock-shift at eta=1e-3, several d.
+      d=3   delta˜3.0000   max delta+gˆ2 = 3.998554432   gap to 4 = 1.446e-03
+      d=5   delta˜1.3820   max delta+gˆ2 = 3.997870228   gap to 4 = 2.130e-03
+      d=7   delta˜0.7530   max delta+gˆ2 = 3.997728220   gap to 4 = 2.272e-03
+      d=11 delta˜0.3175    max delta+gˆ2 = 3.998442306   gap to 4 = 1.558e-03
+      d=17 delta˜0.1351    max delta+gˆ2 = 3.998828265   gap to 4 = 1.172e-03
+      d=31 delta˜0.0409    max delta+gˆ2 = 3.999286894   gap to 4 = 7.131e-04
+  violations: 0/1306 max delta+gˆ2 = 3.999999310 (bound 4)
+
+====================================================================================================================
+G6 THE BOUNDARY: d=2 places an eigenvalue at -1. The gate refuses.
+====================================================================================================================
+  d=2 clock-shift                REFUSED g=1.22e-16 delta=4.000000 delta+gˆ2=4.000000000
+  d=4 clock-shift                w=+1.000000000 w_chord=+1.000000000 delta=2.000000e+00 g=1.414214 delta+gˆ2=4.000000000 bound=1.4142 PASS
+
+
+
+
+                                                                9
+4.4    Reading the blocks
+G1: the calibration returns w = 1 by both independent estimators at every d, with δ falling from
+3.000 to 4.194 × 10−3 and δ + g 2 = 4.000000000 on every row — the equality case, as the scalar
+relator requires.
+     G1b: the ladder returns w = k exactly at k = 1, 2, 3, 5, 10, 15 in d = 31, with δk matching
+4 sin2 (kπ/d) to twelve digits and the floor clearing k at every rung. The ratio δk /(16k 2 /d2 ) runs
+2.458966 → 1.065039 against the predicted endpoints π 2 /4 = 2.467401 and 1; the top rung k = 15
+is ⌊(d − 1)/2⌋, so the sharp integer bound permitted by the branch guard is attained on the same
+family that makes the floor’s constant optimal.
+     G2: commuting pairs give w = 0 and δ ∼ 10−32 .
+     G3: under kicks from η = 10−1 to 10−4 the integer holds at 1 while the relator leaves the scalar
+locus, and δ + g 2 drops strictly below 4 (3.895851 at the largest kick, rising to 3.999922 at the
+smallest) — the strict side of the equality clause, behaving as predicted.
+     G4: conjugation and either generator rephasing leave every digit unchanged.
+     G5: no violation of the domain bound in a thousand random unitary pairs at d = 12, largest
+observed 2.310779. This is a randomised sanity check over the interior, not a boundary test, and is
+recorded as one.
+     G5b: the boundary itself, approached deliberately rather than sampled. Driving the spectrum to
+a point through near-commuting pairs closes the gap to 4 as 6.7 × 10−3 , 5.1 × 10−4 , 5.9 × 10−5 , 5.9 ×
+10−6 , 6.9 × 10−7 ; walking the hypotenuse with kicked clock–shift at six dimensions holds the gap
+near 10−3 at defects from 3.0 down to 0.041, so the bound is approached from below all along the
+equality locus and not only in its corner. A generic search for the equality locus, hill-climbing δ + g 2
+from random starts, stalls at 3.05 — well short of what the constructed families reach. That failure
+is itself the finding: the equality locus is thin, and random optimisation does not locate an analytic
+manifold of measure zero. No violation in 1306 attempts.
+     G6: refusal at d = 2, with g = 1.22 × 10−16 and δ exactly 4 — the corner of the triangle.
+
+
+5     The standing verdict
+This route does not establish non-soficity, because the invariant it carries is stable in a stronger
+metric than the one soficity tests.
+    The Bott–Exel–Loring winding obstructs approximation in the operator norm. The testbed
+is the historical witness for exactly that: Voiculescu’s 1983 counterexample to the operator-norm
+question for almost-commuting unitaries is clock and shift [C]. Descend one rung and the obstruction
+is not merely weaker, it is provably absent: with respect to the normalised Hilbert–Schmidt norm,
+almost-commuting unitaries are near commuting ones, dimension-independently. Glebsky (2010)
+proves it for self-adjoint, unitary and normal matrices, and for several almost-commuting matrices
+at once; Filonov–Kachkovskiy (2010) give the self-adjoint case independently, Hadwin–Shulman
+(2018) place it inside the general tracial-stability framework, and Ioana (2024) supplies the negative
+counterpart for general matrices [C]. In the currency of this trace: on the normalised rung, Z2 is
+stable, so there is nothing there for a winding to obstruct.
+    That is the correction to the earlier phrasing that the reason was simply “the metric.” The
+reason is sharper. The winding currency is native to operator-norm and K-theoretic stability, where
+quantitative index separation is established; the transfer to normalised Hamming has no stability or
+separation theorem behind it, and one cannot be manufactured from the conversion dH = 12 ∥ · ∥2HS,n
+alone. Arzhantseva and Păunescu make the same point from the other side: although the Hamming
+distance is expressible through the Hilbert–Schmidt distance, the Hilbert–Schmidt techniques for
+
+                                                   10
+unitaries do not deliver commutator stability for permutations, which is why that result had to be
+proved separately [C]. An exact conversion between two metrics does not carry theorems across
+them.
+   Rigidity on the wrong axis is blindness, not an asset [T].
+What does the work over there, and it is not in this corpus. Kun’s theorem shows that the
+sofic approximation graphs of a group with property (T) are essentially vertex-disjoint unions of
+expanders. An expander has no sparse cut. Therefore the defect cannot be pushed into a thin seam
+and made to vanish by fraction. That anti-localisation step is the load-bearing piece of the whole
+construction [C]. Any programme aimed at “defect confinement” is re-deriving Kun 2016.
+
+
+6     Two outside readings, assessed
+Reading one restated the winding position correctly and raised two cautions, both of which were
+accepted. First, “same currency in two realisations” is the right conceptual compression, but the
+explicit normalisation identifying the smooth loop integral with w on a common family is not
+established, and was overstated; it is carried at [H] in the paper. Second, calling the boundary a
+rigidity wall is interpretation, not a consequence of the identity alone. Where the reading stopped
+short: it treated δ + g 2 = 4 as a fact about clock and shift. It is the equality case of a general bound,
+and the general bound is the theorem — which is what converts the wall from interpretation into a
+proved domain statement.
+    Reading two proposed that the Hamming metric lets a topological defect escape to a vanishing
+boundary — a seam of size L in an area L2 — and proposed an experiment to watch it happen.
+The instinct is right and the vintage is wrong. Its literature framing describes the state before 1
+August. More to the point, the anti-seam mechanism it says is missing was proved in 2016: property
+(T) is exactly the condition preventing defect localisation, by Kun’s expander theorem. Of its three
+proposed outcomes, the third is the true one and it is already a theorem. The proposed experiment
+also hides its whole difficulty in one step — “translate the defect into a permutation action” —
+when the shift is a permutation matrix and the clock is not, and the impossibility of carrying that
+phase by permutations is the entire problem. The cited research note, read directly, is more careful
+than the use made of it: it states outright that no non-sofic group has been constructed there and
+isolates the remaining global statement as an open conjecture.
+
+
+7     The chiral routes
+7.1    The lead
+If the medium tracing the currents is itself chiral — a Dirac operator, a chiral nematic, a non-Abelian
+vortex condensate — then the invariant it carries is not norm-valued and may survive the local
+surgery that Hamming forgives. The literature supports the class. Annala, Zamora-Zamora and
+Möttönen construct knots and links of non-Abelian vortices topologically protected against local
+reconnections and strand crossings, with the protection proved by an invariant of links coloured
+by the quaternion group Q8 , realisable in dilute Bose–Einstein condensates [C]. The December
+2025 chiral-nematic experiment tracks a conserved Hopf index through knot fusion and fission [C].
+Helicity, being abelian, leaks through reconnections and is the wrong member of the family.
+    This is the correct class of invariant for a metric that forgives local cut-and-paste, and it is
+genuinely different from anything the gate measures. The two branches of the lead fail differently,
+and only one of them fails.
+
+
+                                                   11
+7.2   The Q8 colouring branch: closed
+A Q8 colouring is a homomorphism from the complement’s fundamental group into Q8 up to
+conjugacy. Any invariant built by valuing or counting homomorphisms into a fixed finite group
+factors through the profinite completion, since a map to a finite group extends uniquely to it. That
+is why it survives surgery: it reads only the finite quotients, and local cut-and-paste does not change
+which finite quotients exist.
+    Now consider where soficity is in doubt. Residually finite implies sofic. LEF implies sofic. The
+load-bearing piece of the construction is a finitely presented infinite simple group — trivial profinite
+completion, no finite quotients at all — and the argument’s punchline is that if the container were
+sofic then that piece would be LEF, which is impossible because finitely presented LEF groups are
+residually finite.
+    So on the only groups in play, every finite-group colouring invariant is identically trivial.
+Robustness, profiniteness and blindness are one property under three names [T]. The colouring
+survives every local move for the same reason it cannot see anything.
+    Confirmation from the other side: the invariant that does work in the approximation story is
+second bounded cohomology, and it is provably not a profinite invariant — there exist pairs of
+residually finite groups with isomorphic profinite completions, one with vanishing and one with
+non-vanishing real second bounded cohomology [C]. Non-profiniteness is the price of separating
+power.
+
+7.3   The Hopf branch: open
+The Hopf index is not a finite-group colouring. It is integer-valued, defined from a map to a target
+whose homotopy carries Z, and it does not automatically factor through any profinite completion.
+The kill of the previous subsection has no purchase on it, and applying it there would be a category
+error.
+    What blocks this branch is different and weaker: no realisation of the index on the finite
+approximants has been constructed. Robustness under local surgery is free, but separation is not —
+the invariant must be computable on the approximating permutation systems and take a value the
+group cannot match, and nobody has built that map. The obstruction is
+
+                      no finite-approximant realisation has been constructed,
+
+not
+                                         profinite blindness.
+The first is an absence of construction and can be repaired by construction. The second is a theorem
+and cannot [H for the assessment, C for the ingredients].
+
+7.4   Why the two failures are different, and why it matters
+Distinguishing them is not bookkeeping. A programme that treats both branches as killed by
+profiniteness will stop looking, and the thing it stops looking for — an integer-valued, surgery-stable
+invariant with a finite-approximant realisation — is precisely the shape of what the sofic metric
+would need. The Q8 branch is closed by a theorem about what finite-group invariants can see. The
+Hopf branch is open and unattempted.
+
+
+
+
+                                                  12
+8     The two borrowed methods, taken seriously
+8.1   Piccirillo, and the figure-eight slice
+The trace move is not “swap in an equivalent object”. It is: determine what the invariant actually
+depends on, discover that the dependence is coarser than the object, then move to any representative
+where it is computable. Sliceness depends only on the 0-surgery trace, not the knot; find another
+knot with the same trace where the s-invariant is computable. All the leverage is in the coarseness
+of the dependence.
+    The figure-eight work in this corpus is the same move in a different category, and it is worth
+stating in those terms. The mixed Hessian at a singular point of the A-polynomial curve does not
+depend on the whole curve. Palindromicity in the longitude, L2 A(1/L, M ) = A(L, M ), means it
+depends only on behaviour along the fixed locus of the involution L 7→ 1/L. On that locus,
+                                    ALM (±1, M ) = ±AM (±1, M )
+exactly, so the mixed partial vanishes at every singular point lying there — all four nodes at once
+rather than the two the original argument reached [T].
+    What the slice revealed was two things. Negative: the apparent second-order degeneracy is not
+second order at all, because “M is a repeated root of A(1, M )” and “AM = 0” are the same equation,
+so the phenomenon is an artifact of the amphichiral symmetry. Positive: the involution is the
+amphichirality; the tangent cones are axis-aligned in the canonical meridian–longitude coordinates
+for that reason; and at (−1, ±1) the cones are definite, making those points acnodes.
+    Applied to the present problem, the same dependence analysis asks what soficity depends on.
+Not the presentation: soficity is closed in the space of marked groups, so non-soficity is open there
+(Ceccherini-Silberstein–Coornaert, Prop. 7.5.10) [C] — and openness is the trace-analogue, and it
+was cashed immediately — finite presentation came for free, while torsion-freeness required separate
+work precisely because torsion-freeness is not open. Any candidate invariant must be a function of
+the marked-group germ. That rules out a great deal before construction begins.
+
+8.2   Viazovska, and where the certificate already is
+The method has three parts, not one. Recognise the bound as linear programming over a positivity
+cone. Know the dual certificate’s exact sign conditions — the function and its Fourier transform each
+with prescribed signs beyond a radius. Construct it from a structure carrying the right symmetry,
+which is where modular forms enter in dimension eight.
+    The defect-floor statement one would want — nontrivial class implies defect fraction at least
+c > 0 — is a linear statement about the empirical distribution of disagreement, so a dual certificate
+exists in principle. But the sharper observation is that on one side the certificate already exists
+and it is the Kazhdan constant. For a group with property (T), every unitary representation
+without invariant vectors has some generator moving every unit vector by at least κ. That constant
+plays a role structurally analogous to the dual certificate’s: it forces a floor without inspecting
+any particular approximation, and it is why the expander theorem exists at all. Symmetry gives
+an explicit constant which forces the bound — the same architecture in both places [H for the
+identification, C for the ingredients]. It is an analogy between two mechanisms, not a claim that
+one is an instance of the other.
+    The frontier is therefore not “find a certificate”. It is: find one for groups without (T), where no
+symmetry hands you κ. That is well posed, and it is the one place the corpus has a native variable,
+since the sin2 θ ≥ ε threshold is a Kazhdan-constant-shaped object — a uniform angular separation
+floor.
+
+                                                  13
+9      Kills ledger
+    What was killed                  Why                                                       Cost
+ The determinant         winding     det of a commutator is identically 1, so the endpoint     One build, one
+ (WIND-GATE-01)                      carries nothing; and Rm never closes. Three of five       run
+                                     blocks failed, one returning a non-integer.
+ “det is blind because ζ d = 1” as   True but not the cause. The cause is the path. The        One turn
+  the root cause                     corrected statement is stronger.
+ Winding as a route to non-          Operator-norm obstruction. On the normalised rung         The session
+  soficity                           almost-commuting unitaries are near commuting ones
+                                     by theorem, so there is nothing there to obstruct.
+ “Normalised Hamming is nor-         Half its square, on permutation matrices. The factor      One turn
+  malised Hilbert–Schmidt”           was load-bearing for the metric argument.
+ “DGLT measures in the frame-        Their Frobenius is the unnormalised Hilbert–Schmidt       One turn
+ work’s metric natively”             norm. Ambient size does not drop out, which is the
+                                     opposite of zero-and-span — and is why that rung
+                                     has a counterexample and the one below it does not.
+    The defect-confinement experi-   The anti-localisation mechanism it proposed hunting       One reading
+    ment                             for is Kun’s 2016 expander theorem. Also, its key
+                                     step assumes phases can be carried by permutations,
+                                     which is the problem itself.
+    Q8 colouring invariants          They factor through the profinite completion. The         One turn
+                                     groups in play have no finite quotients worth reading,
+                                     so the invariants are identically trivial exactly where
+                                     they are needed.
+ “The chiral route is closed”        Overreach. Only the Q8 branch is closed. The Hopf         One turn
+                                     index does not factor through finite quotients and
+                                     stalls for a different and weaker reason.
+ “Piccirillo’s move is already       Dismissive and wrong. The dependence analysis is          Corrected     in
+ taken”                              the method, it is the same move as the figure-eight       place
+                                     slice, and it yields a real constraint here.
+ “Viazovska is only the shape of     Also wrong. The certificate is instantiated: it is the    Corrected     in
+  the problem”                       Kazhdan constant. The open part is groups without         place
+                                     (T).
+
+
+10       What is left open
+Non-MF, not non-sofic. The proposed winding route to non-soficity fell. Soficity itself fell
+independently and by other means; nothing in this trace contributed to that, and the gate established
+no non-soficity of its own. No priority is claimed here for the non-sofic existence result. MF and
+hyperlinear did not fall. Hyperlinear lives in normalised Hilbert–Schmidt and meets the same wall
+as this route. MF lives in the operator norm — the metric the winding currency actually reads.
+This is not a transfer: Z2 carries a nonzero Bott index and is MF regardless. But it is the first axis
+on which the metric agrees rather than disagrees [H].
+    A certificate without (T). A Kazhdan-constant analogue for a class of groups lacking property
+(T), expressed as a uniform floor in sin2 θ. Hard, well posed, and the only one of the routes where
+the corpus supplies the natural variable [H].
+    A finite-approximant realisation of an integer chiral index. Section 7.3’s open branch.
+Not attempted here [H].
+    What went into the paper. The theorems of Section 4 are now a subsection of Module I in
+the projector geometry paper, with the figures and the gate in the appendix. That is the actual
+
+                                                       14
+yield, and it came out of a failed gate aimed somewhere else.
+
+
+
+
+                                                15
+A    The gate, as run
+# SCRIPT: UPG-GATE-02b (Module I, noncommutative torus anchor: winding integrality
+# and invariance; the admissible domain delta + gˆ2 <= 4; the amplitude floor
+# |w| <= (d/4) sqrt(delta) and its higher-winding form delta >= 16 wˆ2 / dˆ2)
+#
+# R = U V Uˆdagger Vˆdagger, lambda_i = eig(R)
+# w = (1/2pi) sum_i arg(lambda_i)                [principal branch]
+# delta = ||R - I||_Fˆ2 / d
+# g = min_i |lambda_i + 1|                       [branch guard]
+# second estimator: winding of t -> det((1-t)I + tR) on [0,1]
+#
+# No spectral projection onto the unit circle is applied anywhere: the reported
+# eigenvalues are those returned directly by NumPy for the computed relator.
+
+import numpy as np
+
+TAU = 1e-3
+rng = np.random.default_rng(20260820)
+
+def clock_shift(d):
+    w = np.exp(2j*np.pi/d)
+    U = np.diag([w**k for k in range(d)])
+    V = np.roll(np.eye(d, dtype=complex), 1, axis=0)
+    return U, V
+
+def commuting_pair(d):
+    U = np.diag(np.exp(1j*rng.uniform(0, 2*np.pi, d)))
+    V = np.diag(np.exp(1j*rng.uniform(0, 2*np.pi, d)))
+    return U, V
+
+def relator(U, V):
+    return U @ V @ U.conj().T @ V.conj().T
+
+def unitary_kick(U, eta):
+    d = U.shape[0]
+    H = rng.normal(size=(d, d)) + 1j*rng.normal(size=(d, d))
+    H = (H + H.conj().T)/2
+    H /= np.linalg.norm(H, 2)
+    ev, W = np.linalg.eigh(H)
+    return U @ (W @ np.diag(np.exp(1j*eta*ev)) @ W.conj().T)
+
+def readout(R):
+    d = R.shape[0]
+    lam = np.linalg.eigvals(R)
+    g = np.min(np.abs(lam + 1.0))
+    delta = np.linalg.norm(R - np.eye(d), 'fro')**2 / d
+    w = np.sum(np.angle(lam)) / (2*np.pi)
+    return lam, g, delta, w
+
+def winding_chord(R, nt=20001):
+    lam = np.linalg.eigvals(R)
+    t = np.linspace(0.0, 1.0, nt)[:, None]
+    ang = np.unwrap(np.angle((1.0 - t) + t*lam[None, :]), axis=0)
+    return np.sum(ang[-1] - ang[0]) / (2*np.pi)
+
+def report(tag, R, expect=None):
+    d = R.shape[0]
+    lam, g, delta, w = readout(R)
+
+
+                                             16
+   if g < TAU:
+       print(f"{tag:<32s} REFUSED g={g:.2e} delta={delta:.6f}"
+             f" delta+gˆ2={delta+g*g:.9f}")
+       return
+   w2 = winding_chord(R)
+   floor = d*np.sqrt(delta)/4
+   ok = "" if expect is None else (
+       " PASS" if abs(w-expect) < 1e-9 and abs(w2-expect) < 1e-6 else " FAIL")
+   print(f"{tag:<32s} w={w:+.9f} w_chord={w2:+.9f} delta={delta:.6e}"
+         f" g={g:.6f} delta+gˆ2={delta+g*g:.9f} bound={floor:.4f}{ok}")
+
+print("="*116)
+print("G1 INTEGRALITY AND THE SCALAR EQUALITY CASE: clock and shift.")
+print("    w = 1 at every d; delta + gˆ2 = 4 exactly; bound = (d/4)sqrt(delta) -> pi/2.")
+print("="*116)
+for d in [3, 5, 7, 11, 17, 31, 53, 97]:
+    U, V = clock_shift(d)
+    report(f" d={d:<4d} exact", relator(U, V), expect=1.0)
+print()
+
+print("="*116)
+print("G1b THE WINDING LADDER: U -> Uˆk on clock and shift, d = 31.")
+print("    R = omegaˆk I so w = k and delta_k = 4 sinˆ2(k pi/d); the floor must clear k.")
+print("="*116)
+d = 31
+U0, V0 = clock_shift(d)
+for k in [1, 2, 3, 5, 10, 15]:
+    R = relator(np.linalg.matrix_power(U0, k), V0)
+    _, g, delta, w = readout(R)
+    w2 = winding_chord(R)
+    pred = 4*np.sin(k*np.pi/d)**2
+    floor = d*np.sqrt(delta)/4
+    ratio = delta / (16*k*k/(d*d))
+    ok = " PASS" if (abs(w-k) < 1e-9 and abs(w2-k) < 1e-6
+                     and abs(delta-pred) < 1e-12 and floor >= k - 1e-12) else " FAIL"
+    print(f" k={k:<3d} w={w:+.9f} w_chord={w2:+.9f} delta={delta:.9f}"
+          f" pred={pred:.9f} g={g:.6f} bound={floor:.4f} (>= k)"
+          f" delta/(16kˆ2/dˆ2)={ratio:.6f}{ok}")
+print(f" piˆ2/4 = {np.pi**2/4:.6f}")
+print()
+
+print("="*116)
+print("G2 NEGATIVE CONTROL: commuting pair. w = 0, delta = 0, g = 2.")
+print("="*116)
+for d in [7, 31, 97]:
+    U, V = commuting_pair(d)
+    report(f" d={d:<4d} commuting", relator(U, V), expect=0.0)
+print()
+
+print("="*116)
+print("G3 STABILITY AND THE STRICT INEQUALITY: kicked clock-shift, d=31.")
+print("    w stays 1; the relator leaves the scalar locus so delta + gˆ2 < 4.")
+print("="*116)
+for eta in [1e-1, 1e-2, 1e-3, 1e-4]:
+    U, V = clock_shift(31)
+    report(f" eta={eta:.0e}", relator(unitary_kick(U, eta),
+                                       unitary_kick(V, eta)), expect=1.0)
+print()
+
+
+
+                                          17
+print("="*116)
+print("G4 INVARIANCE: unitary conjugation and generator rephasing leave w fixed.")
+print("="*116)
+U, V = clock_shift(31)
+report(" baseline", relator(U, V), expect=1.0)
+X = rng.normal(size=(31, 31)) + 1j*rng.normal(size=(31, 31))
+Q, _ = np.linalg.qr(X)
+report(" conjugated", relator(Q @ U @ Q.conj().T, Q @ V @ Q.conj().T), expect=1.0)
+report(" U -> eˆ{i th} U", relator(np.exp(0.7371j)*U, V), expect=1.0)
+report(" both rephased", relator(np.exp(0.7371j)*U, np.exp(-2.11j)*V), expect=1.0)
+print()
+
+print("="*116)
+print("G5 THE DOMAIN BOUND OVER RANDOM RELATORS: delta + gˆ2 <= 4, strict off")
+print("     the scalar locus. 1000 random unitary pairs, d = 12.")
+print("="*116)
+worst = -1.0
+viol = 0
+for _ in range(1000):
+    A = rng.normal(size=(12, 12)) + 1j*rng.normal(size=(12, 12))
+    B = rng.normal(size=(12, 12)) + 1j*rng.normal(size=(12, 12))
+    QA, _ = np.linalg.qr(A)
+    QB, _ = np.linalg.qr(B)
+    _, g, delta, _ = readout(relator(QA, QB))
+    s = delta + g*g
+    worst = max(worst, s)
+    if s > 4 + 1e-9:
+         viol += 1
+print(f" violations: {viol}/1000 max delta+gˆ2 = {worst:.9f} (bound 4)")
+print()
+
+print("="*116)
+print("G5b BOUNDARY STRESS: the bound is approached, not sampled at random.")
+print("    Equality needs Re lambda_j constant, so drive the spectrum to a point.")
+print("="*116)
+
+def haar(d):
+    X = rng.normal(size=(d, d)) + 1j*rng.normal(size=(d, d))
+    Q, Rr = np.linalg.qr(X)
+    return Q @ np.diag(np.diag(Rr)/np.abs(np.diag(Rr)))
+
+d = 12
+print(" (a) near-commuting family: V rotated off a common eigenbasis by eta.")
+grand = -1.0
+grandviol = 0
+for eta in [1e-1, 3e-2, 1e-2, 3e-3, 1e-3]:
+    worst_e = -1.0
+    for _ in range(200):
+        W = haar(d)
+        U = W @ np.diag(np.exp(1j*rng.uniform(0, 2*np.pi, d))) @ W.conj().T
+        V = W @ np.diag(np.exp(1j*rng.uniform(0, 2*np.pi, d))) @ W.conj().T
+        _, g, delta, _ = readout(relator(U, unitary_kick(V, eta)))
+        s = delta + g*g
+        worst_e = max(worst_e, s)
+        if s > 4 + 1e-9:
+             grandviol += 1
+    grand = max(grand, worst_e)
+    print(f"       eta={eta:.0e} max delta+gˆ2 = {worst_e:.9f}   gap to 4 = {4-worst_e:.3e}")
+
+
+
+                                          18
+print(" (b) generic search for the equality locus: hill climb on delta + gˆ2,")
+print("       d = 12, 6 restarts x 400 steps. Expected to fail; the locus is thin.")
+def score(U, V):
+    _, g, delta, _ = readout(relator(U, V))
+    return delta + g*g
+best = -1.0
+for restart in range(6):
+    U, V = haar(d), haar(d)
+    s = score(U, V)
+    step = 0.3
+    for it in range(400):
+        Un, Vn = unitary_kick(U, step), unitary_kick(V, step)
+        sn = score(Un, Vn)
+        if sn > s:
+             U, V, s = Un, Vn, sn
+        else:
+             step *= 0.995
+    if s > 4 + 1e-9:
+        grandviol += 1
+    best = max(best, s)
+    print(f"       restart {restart+1}: delta+gˆ2 = {s:.9f}   gap to 4 = {4-s:.3e}")
+grand = max(grand, best)
+print(" (c) along the hypotenuse: kicked clock-shift at eta=1e-3, several d.")
+for dd in [3, 5, 7, 11, 17, 31]:
+    Uc, Vc = clock_shift(dd)
+    worst_d = -1.0
+    for _ in range(50):
+        _, g, delta, _ = readout(relator(unitary_kick(Uc, 1e-3),
+                                          unitary_kick(Vc, 1e-3)))
+        s = delta + g*g
+        worst_d = max(worst_d, s)
+        if s > 4 + 1e-9:
+             grandviol += 1
+    grand = max(grand, worst_d)
+    print(f"       d={dd:<3d} delta˜{4*np.sin(np.pi/dd)**2:.4f}"
+          f"    max delta+gˆ2 = {worst_d:.9f}   gap to 4 = {4-worst_d:.3e}")
+print(f" violations: {grandviol}/1306 max delta+gˆ2 = {grand:.9f} (bound 4)")
+print()
+
+print("="*116)
+print("G6 THE BOUNDARY: d=2 places an eigenvalue at -1. The gate refuses.")
+print("="*116)
+U, V = clock_shift(2)
+report(" d=2 clock-shift", relator(U, V))
+U, V = clock_shift(4)
+report(" d=4 clock-shift", relator(U, V), expect=1.0)
+
+
+
+
+                                          19
+

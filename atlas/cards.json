@@ -5,7 +5,7 @@
     "papers": [
       "light"
     ],
-    "statement": "ker(Jᵀ W J) = ker(J), hence ker(Jᵀ W J) = ker(Jᵀ J).",
+    "statement": "ker(J\u1d40 W J) = ker(J), hence ker(J\u1d40 W J) = ker(J\u1d40 J).",
     "assumptions": "Finite real matrices; W positive definite.",
     "failure_mode": "Signed or degenerate weights can enlarge the kernel; a scalar cancellation need not be zero coupling.",
     "evidence_status": "Lean source present; verification reported in PR #7",
@@ -321,12 +321,12 @@
       "compound-eye",
       "peeling-cascade"
     ],
-    "statement": "An explicit non-torsion section on the ±3/2 circle cover has exactly two integer triples in its image.",
+    "statement": "An explicit non-torsion section on the \u00b13/2 circle cover has exactly two integer triples in its image.",
     "assumptions": "Rational parameter; declared affine coordinates; nonsingular specialization for the non-torsion argument.",
     "failure_mode": "A positive-rank cover does not imply infinitely many integer solutions on the original surface.",
     "evidence_status": "Lean-checked cleared identity; written non-torsion/integrality proof with exact checks",
     "verification_scope": "Lean verifies the denominator-free identity and positive denominator, not the complete non-torsion or integrality classification.",
-    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk–Agbanwa. Audit and reconstruction do not assert novelty.",
+    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk\u2013Agbanwa. Audit and reconstruction do not assert novelty.",
     "sources": [
       {
         "label": "PR #13 audit and complete backup",
@@ -355,7 +355,7 @@
     "failure_mode": "Dropping the u=infinity term changes the trace ledger; singular characteristics need separate handling.",
     "evidence_status": "Written finite-count identity and exact computational controls",
     "verification_scope": "Pointwise multiplicities and weighted sums checked; not an APS or physical spectral-flow theorem.",
-    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk–Agbanwa. Audit and reconstruction do not assert novelty.",
+    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk\u2013Agbanwa. Audit and reconstruction do not assert novelty.",
     "sources": [
       {
         "label": "PR #13 audit and complete backup",
@@ -384,7 +384,7 @@
     "failure_mode": "Correlated search maxima and split-prime selection can create misleading rank claims.",
     "evidence_status": "Exact finite-field experiment; inferential limits explicit",
     "verification_scope": "668 odd primes; 430 held out; 44 frozen candidates; 12,750 independent direct-sum checks.",
-    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk–Agbanwa. Audit and reconstruction do not assert novelty.",
+    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk\u2013Agbanwa. Audit and reconstruction do not assert novelty.",
     "sources": [
       {
         "label": "PR #13 audit and complete backup",
@@ -408,7 +408,7 @@
       "compound-eye",
       "peeling-cascade"
     ],
-    "statement": "The supplied principal-frame shape block obeys gA=A^Tg in the positive interior. An explicit signed Jacobi lift has ds²=dq²/(1-q²), with finite length to q=0.",
+    "statement": "The supplied principal-frame shape block obeys gA=A^Tg in the positive interior. An explicit signed Jacobi lift has ds\u00b2=dq\u00b2/(1-q\u00b2), with finite length to q=0.",
     "assumptions": "The exact supplied finite block, real principal coefficients and positive interior metric; an explicitly specified signed path.",
     "failure_mode": "Coordinate projector growth does not establish intrinsic amplification; a coordinate singularity does not prove an infinite-distance barrier.",
     "evidence_status": "Preserved source analysis and executable controls; no new Lean theorem",
@@ -481,12 +481,12 @@
       "elemental-peel",
       "light"
     ],
-    "statement": "The fixed-gap electronic-sheet Hamiltonian has optical strength sin²θ and, for the declared leads at E=0, G/G₀=γ²a²sin²θ/(a²+γ²/4)². Atomic and optical elemental comparisons remain distinct observations.",
+    "statement": "The fixed-gap electronic-sheet Hamiltonian has optical strength sin\u00b2\u03b8 and, for the declared leads at E=0, G/G\u2080=\u03b3\u00b2a\u00b2sin\u00b2\u03b8/(a\u00b2+\u03b3\u00b2/4)\u00b2. Atomic and optical elemental comparisons remain distinct observations.",
     "assumptions": "Two-level model, fixed dipole and contact orientations, elastic wide-band leads; optical data and continuum film assumptions are separately stated.",
     "failure_mode": "Energy spacing alone does not identify transition strength; atomic ionization thresholds are not conducting-solid band gaps.",
     "evidence_status": "Written derivation and fresh numerical checks; no new Lean compilation",
     "verification_scope": "Seven new eyes, 1,253 evaluations, four expected refusals and 846 assertions; recorded NIST/optical data replay. No measured atom-by-atom cascade.",
-    "credit": "Recovered user hypersurface/color programme; standard Landauer, Maxwell and CIE methods; NIST, Johnson–Christy and Rakić sources attributed in the supplement.",
+    "credit": "Recovered user hypersurface/color programme; standard Landauer, Maxwell and CIE methods; NIST, Johnson\u2013Christy and Raki\u0107 sources attributed in the supplement.",
     "sources": [
       {
         "label": "Elemental findings and reproducible methods",
@@ -507,7 +507,7 @@
       "elemental-peel",
       "light"
     ],
-    "statement": "Exact interface reduction retains KΣ=D−CA⁻¹B−GE⁻¹F. Removing a coupled side orbital can raise conductance by releasing interference.",
+    "statement": "Exact interface reduction retains K\u03a3=D\u2212CA\u207b\u00b9B\u2212GE\u207b\u00b9F. Removing a coupled side orbital can raise conductance by releasing interference.",
     "assumptions": "Invertible eliminated blocks away from their poles; specified Hermitian model and contacts for the transport example.",
     "failure_mode": "Bare deletion drops self-energy; fixed-positive-channel monotonicity does not apply when amplitudes change.",
     "evidence_status": "Recovered source verifier: 328 checks passed; finite transport controls freshly reproduced",
@@ -524,5 +524,27 @@
       }
     ],
     "next_step": "Read out the retained feedback in a calibrated elemental contact or film experiment."
+  },
+  {
+    "id": "predictive-boundary-record",
+    "title": "Identical reduced observations can conceal opposite response slopes",
+    "papers": [
+      "elemental-foundations",
+      "light",
+      "upg"
+    ],
+    "statement": "A specified two-orbital pair has equal initial conductance, noise, isolated optical transition data and full squared-angle compression, but opposite transmission slopes and distinct graph projectors.",
+    "assumptions": "Fixed two-orbital Hamiltonian family, wide-band contacts, physical reference basis, noninteracting coherent scattering and the declared isolated optical probe.",
+    "failure_mode": "A single reduced snapshot cannot distinguish the pair. Arbitrary future response cannot be reconstructed from one full scattering snapshot without a model either.",
+    "evidence_status": "Written exact proof; 550 registered evaluations plus 340 source controls. Formal status is recorded by exact source revision in the project.",
+    "verification_scope": "Finite mathematics, domain controls and model computations; elemental sources are calibrations.",
+    "credit": "Classical Feshbach, Fano and graph-projector identities; Beasley source manuscripts supply the observation architecture. The combined benchmark makes its discrimination claim exact.",
+    "next_step": "Calibrated held-out physical prediction with recorded geometry, phase reference and intervention.",
+    "sources": [
+      {
+        "label": "Manuscript and reproducible evidence",
+        "url": "https://github.com/dicipler-pixel/operator-first/tree/research/elemental-foundations/research/elemental_foundations"
+      }
+    ]
   }
 ]

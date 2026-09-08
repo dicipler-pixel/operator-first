@@ -1,3 +1,11 @@
+# Combined manuscript update — 8 September 2026
+
+Current inventory: 204 eyes, 32 sets. The repository project
+`research/elemental_foundations` combines the elemental and light manuscripts.
+Its portable supplement includes a top-level reproduction command, all six
+new methods, complete registry, source papers, elemental inputs and formal
+evidence. Prior entries below retain their historical scope and counts.
+
 # Latest elemental extension — 8 September 2026
 
 Current registry: 198 versions / 30 sets; all 191 earlier definitions preserved.

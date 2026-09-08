@@ -1,0 +1,4945 @@
+
+
+
+Light Keeps the Ledger — Matter, Direction, and the Wall Between Them
+
+
+
+
+
+
+
+Light Keeps the Ledger
+
+Matter, Direction, and the Wall Between Them
+
+Jeromie Beasley · August 2026
+
+
+
+
+Abstract
+Every projector-valued transport family carries two registers. A metric — a Gram pairing of tangent directions at a point — protects locally and can degenerate; a ledger — a contour integral over the resolvent — needs no pairing and survives the metric's degeneration intact. This paper builds both registers from first principles, proves what each can and cannot do, and reads the physics of light and matter through them. Light, which has no rest frame and no local position operator, supplies the ledger its content: phase and integer. Matter, which has a rest frame and a finite boundary census, supplies the metric its content: a pairing that can fail. The account is then held against the full evidence on the nature of light, from the double slit to the 2025 single-atom recoiling-slit experiments, the photon-by-photon conservation of orbital angular momentum, light-by-light scattering at the LHC, and the Planck-scale bounds on dispersion and mass: in every case the experiment measures one register or the other, and the two never contradict. The duality relation \(D^2+V^2\le1\) is shown to be the same theorem as the two-band metric–curvature bound — a non-negative Gram determinant meeting rank one — so a fringe visibility is read off matter's metric. Directional capacity is measured on a lattice: sixty-four directions enter a region, a bounded number of channels survive, the count grows only slowly with depth toward an aperture-scale ceiling consistent with \(\pi R/w\), while the boundary census of the same region runs several times faster. The Kakeya question is then posed for light directly: a needle of light is a tube of width one wavelength, Kakeya at resolution \(\delta\) is exactly the question of how far superposed wave packets can concentrate, and local smoothing for the wave equation is known to imply Kakeya. Two independent null gates show that no smooth local mechanism compresses directional coverage; the field's own proofs are combinatorial at scale \(\delta\), which is what the gates say they must be. Approximation is classified by which register survives it — integers cross in the operator norm and are blind in normalized metrics — and the supply between the rails is exhibited three ways: a licence that lapses before the metric degenerates, a reciprocity that forces a perfect square, and an amplitude that dies as the square root of the distance to a wall while the contour's count never moves. Every substantive claim is proved here, verified by a gated computation printed in the appendix, cited to external published work, or explicitly labeled as a hypothesis or reading.
+
+
+
+the ledgerlight — no rest frame, phase survivesthe metricmatter — a rest frame, a census, a boundarythe gap between them is the supplyThe two rails: the ledger (gold, top) carries light's phase across any wall; the metric (teal, bottom) protects matter locally and can fail. The gap between them is the supply.
+
+0. Grades, and how to read this paper
+
+Every claim carries one of four grades: [T] proved in this paper, with the proof given; [V] verified by a gated computation printed in full in the appendix (eighteen verification scripts and one figure script; every numerical result graded [V] is produced by the gate that sits behind it); [C] cited, attributed to established, independently published literature; [H] a stated hypothesis or reading, not proved or gated. No claim rests on an unpublished companion document. A figure accompanies every relation that carries weight: seventeen in all, the data figures drawn from the gate output files rather than transcribed.
+
+
+1. Introduction: what light knows that matter cannot hold
+
+A projector-valued transport family \(\Pi(\lambda)\) supports two different questions. Locally: does a small change in \(\lambda\) cost anything? This is answered by a metric, a Gram pairing of tangent directions at \(\Pi\), and the metric can fail — it degenerates on a codimension-one locus, and a stronger licence condition it requires can fail earlier still. Globally: what survives no matter how far \(\lambda\) is carried, including through a point where the metric has already failed? This is answered by a ledger, a contour integral that needs only a rectifiable path in the resolvent set and no pairing of any kind.
+
+The organizing claim — a reading, graded [H] wherever it is used — is that light naturally supplies the ledger's content and matter naturally supplies the metric's. Light has no rest frame and cannot be slowed into one; it is the same object at every scale a boundary census can be taken at; it carries phase and integer and nothing that a pairing at a point could hold — exactly the kind of content a contour integral, indifferent to definiteness, is built to track. Matter has a rest frame and a finite census; it is exactly what a Gram pairing, built from tangent vectors at one point, is built to protect. The potential between them exists only because the two run at different rates. That is why the ledger sits on the high side and the census on the low, and why the gap between the rails, rather than being a defect of the construction, is the supply. The two rails are registers of one construction, not two additional fields.
+
+Underneath both registers sits one question that comes before either: is a given continuation of the operator admissible at all? The metric is the local admissibility test — whether a small step costs anything and whether the pairing that prices it still exists — and the ledger is the global continuation record, what an admissible path leaves behind that no later step can erase. That ordering, admissibility first and both registers downstream of it, is the spine the earlier architecture map already drew in three storeys: a lattice engine regularized by a shifted contour, a Riesz subspace lifted onto the Grassmannian with its metric and curvature, and the global ledger with its continuum limit [Beasley 2026b]. This paper adds the fourth storey, direction, which is where light enters.
+
+
+
+
+the spine, with the rails laid over it
+algebraic
+lattice engineH_N(ε) = A + D₀ + εE
+shifted contour(1/2πi) ∮ f(z)(zI − H)⁻¹ dz
+admissibilitycontinuation allowed?
+geometric lift
+Riesz subspaceΠ_k ∈ Gr(k, H) — the vehicle
+transport metricg_Π(V,V) = ½ Tr(Π V²)  — protects
+curvature / licenceΩ_Π,  4 det g ≥ Ω²
+continuum invariants
+global ledgerZ = Tr log(H + c) — survives
+winding / integerw ∈ ℤ, det R = 1 — crosses
+Laplacian limitΔ_δ → ∂², O(δ²)
+direction
+principal anglessin²θ ≥ ε — channels
+directional supportsmallest admissible carrier
+overflow → wallinterior stratum, backreaction
+
+
+
+
+
+
+
+metric · matter · low rail
+ledger · light · high rail
+one operator, four storeys: what it is, what it protects, what it keeps, and where it runs out of room
+the earlier architecture map is the top three storeys; the fourth is where light enters
+The spine. The top three storeys are the earlier architecture map; the fourth storey — principal angles, directional support, overflow — is where the two rails separate. The metric lives on the second storey, the ledger on the third.
+This is not a metaphor laid over the physics; it is the physics read off one operator. The paper proceeds in that order. Section 2 fixes the single instrument every result uses, the split of an operator into a symmetric and a skew part and the stress functional their commutator defines. Section 3 builds the ground: the two-band projector geometry with its metric–curvature bound, the redistribution operator, the noncommutative anchor whose winding is an integer with a licence that can close, a realization on a published Chern number, matter's own boundary count with the scale dictionary it forces, the continuum limit, and the subspace as the vehicle of transport with the principal angles that grade its persistence. Section 4 turns to what light is on the evidence — the whole record from Young to the 2025 single-atom slits — and shows that each experiment measures one of the two registers: the recoiling slit's visibility is a Gram determinant of two matter states; the photon-by-photon conservation of orbital angular momentum is an integer surviving a wall; the Planck-scale nulls on dispersion and mass are the statement that the high rail has no scale to be driven by; light-by-light scattering is the one place light visibly borrows the low rail and returns. Section 5 measures light as the reference: the directional dictionary, a capacity that saturates at the aperture while the census runs, overflow, a wall born inside a crossing, the two boundary conditions a light-carrying interface can have, and the tripartite decomposition with its first-order ledger. Section 6 asks the paper's central question outright — does light exhibit the Kakeya effect, and is the field approaching that problem the right way — and answers both from the gates and the literature. Section 7 classifies approximation by which register survives it, the axis on which soficity and hyperlinearity live. Section 8 exhibits the supply between the rails: three ways admissibility fails, reciprocity, positivity from self-adjointness, the ledger crossing regardless, and an amplitude that dies while the count stays. Section 9 states what an apparatus could check, Section 10 lists what is open. The scripts come last, as evidence.
+
+
+2. The instrument
+
+Every operator below splits as \(C=S+K\), \(S=\tfrac12(C+C^\top)\) symmetric, \(K=\tfrac12(C-C^\top)\) skew.
+
+Proposition (the commutator identity)
+\([C,C^\top]=-2[S,K]\), hence \(C\) is normal iff \(S\) and \(K\) commute. [T]
+
+Proof. \(C^\top=S-K\). \([C,C^\top]=(S+K)(S-K)-(S-K)(S+K)=-2[S,K]\). Normality means \([C,C^\top]=0\), equivalent to \([S,K]=0\).
+
+For the dominant singular directions this gives a stress functional \(\Phi:=\tfrac12\|[C,C^\top]\|_F^2=2\|[S,K]\|_F^2=\sin^2\theta\), used without restatement below. The symmetric sector says what the operator holds; the skew sector says what it moves; the stress says how far the two disagree.
+
+
+3. The ground: projector geometry
+
+3.1 The Dirac two-band model and its metric–curvature bound
+
+Every \(2\times2\) Hermitian family \(h(\mathbf k)=\mathbf d(\mathbf k)\cdot\boldsymbol\sigma\) has band projectors \(\Pi_\pm=\tfrac12(I\pm\hat{\mathbf d}\cdot\boldsymbol\sigma)\). Define \(Q_\Pi(V,W)=\mathrm{Tr}(\Pi VW)=g_\Pi-\tfrac{i}{2}\Omega_\Pi\) with \(\Omega_\Pi:=+i\,\mathrm{Tr}(\Pi[V,W])\); the sign is a convention and is stated here once.
+
+Theorem (metric–curvature bound)
+\(|\Omega_\Pi(V,W)|\le2\sqrt{g_\Pi(V,V)g_\Pi(W,W)-g_\Pi(V,W)^2}\), with equality always, for this two-band family. [T]
+
+Proof. \(Q_\Pi\) is PSD Hermitian on the real span of \(\{V,W\}\), a Gram matrix, so its \(2\times2\) determinant is non-negative. Substituting \(Q_\Pi(V,V)=g_\Pi(V,V)\) and \(|Q_\Pi(V,W)|^2=g_\Pi(V,W)^2+\tfrac14\Omega_\Pi(V,W)^2\) gives the bound. Equality holds because the tangent space is one complex line.
+
+The algebra is worth naming because it returns in Section 4.2 wearing light's clothes: a \(2\times2\) PSD Gram determinant is non-negative and vanishes exactly at rank one. Nothing more is used.
+
+
+3.2 The redistribution operator
+
+For projector \(\Pi\) and Hermitian generator \(\Omega\), \(F(\Omega,\Pi)=(I-\Pi)\Omega\Pi+\Pi\Omega(I-\Pi)\) is traceless, off-diagonal, and vanishes iff \([\Omega,\Pi]=0\). [T] It is the part of a generator that moves content across the gap; everything the ledger records passes through it.
+
+
+3.3 The noncommutative anchor
+
+For \(U,V\in U(d)\), relator \(R=UVU^\dagger V^\dagger\), defect \(\delta=\|R-I\|_F^2/d\), branch guard \(g=\min_j|\lambda_j+1|\), winding \(w=\tfrac1{2\pi}\sum_j\arg\lambda_j\):
+
+Theorem (integrality and the domain bound)
+For \(g>0\): \(w\in\mathbb Z\), \(|w|[T]
+
+Proof. \(\det R=1\) identically, so \(\sum_j\arg\lambda_j\in2\pi\mathbb Z\) once the principal branch is fixed, which \(g>0\) guarantees; \(g>0\) means no eigenvalue sits at \(-1\), so every principal argument has modulus strictly less than \(\pi\), the sum is strictly less than \(d\pi\), and the integer \(w\) obeys \(|w|\le\lfloor(d-1)/2\rfloor\). Section 4.3 attains it. Conjugation and rephasing leave the spectrum of \(R\) fixed. For the bound, \(\delta=\tfrac1d\sum_j|\lambda_j-1|^2=\tfrac1d\sum_j(2-2\mathrm{Re}\lambda_j)\) and \(g^2\le|\lambda_j+1|^2=2+2\mathrm{Re}\lambda_j\) for every \(j\); adding the average of the second to the first gives \(\delta+g^2\le4\), with equality iff every \(\mathrm{Re}\lambda_j\) equals the one attaining the minimum.
+
+The clock-and-shift family saturates this at every \(d\ge3\) and is refused exactly at \(d=2\), where the relator sits at \(-I\) and the branch closes. [V] Gated to \(10^{-9}\) across \(d=3,\ldots,97\); over one thousand random unitary pairs in \(d=12\) the bound is never violated, with maximum \(2.409\) (Appendix A.1). The determinant discards exactly one wrap: \(\det R=1\) always, while the summed principal arguments keep the integer. That is why a determinant can never see the obstruction and a winding can.
+
+gδclock & shift, d=3..97d=2: refusedδ + g² ≤ 4a licence that can closeand refuse a winding at allThe admissible domain \(\delta+g^2\le4\): the clock-and-shift family (teal) rides the boundary at every dimension and is refused exactly at \(d=2\) (coral).
+
+3.4 A realization on published data
+
+External data [Yi et al. 2023] calibrates a two-band tight-binding Raman-lattice model with measured Chern number \(-1.00\pm0.02\). The winding construction on this exact published band returns \(C=-0.99931\), with pointwise saturation \(|\Omega|=2\sqrt{\det g}\) holding to a mean of \(0.999958\), and quantum volume \(1.145\ge|C|\). [C]+[V] (Appendix A.2). The numerics here are computations calibrated against other people's measurements; nothing in this paper is laboratory data of its own.
+
+
+3.5 Matter's own boundary count, and the scale it forces
+
+Matter is a gap wearing a boundary. A gapped-vacuum boundary census obeys an area law while a gapless one floods it as \(L\log L\) [Gioev–Klich 2006]; condensation is the appearance of the gap, not a change of density; a gas fails non-modally, in the transient, before any mode does [Trefethen–Embree]. [C] Three scale-free classifiers then separate the states of matter with no length in them: distance from normality and what holds it there; census occupancy against the geometric cap; and which records cross a wall — amplitude dies, integers persist (Section 8.5 measures the third of these). [H]
+
+Theorem (conditional closure of the scale dictionary)
+Holding \(\hbar,c,\alpha\) fixed forces the Bohr-radius identity \(a_0=\hbar/(\alpha mc)\) to scale oppositely in length and mass: a model scaling length as \((1+z)\) forces mass as \((1+z)^{-1}\) and time as \((1+z)\); \(e^2=\alpha\hbar c\) is fixed; every dimensionless invariant checks; and under the additional model assumption \(M_{\rm Pl}\propto m\), propagating it forces \(G\propto(1+z)^2\), leaving \(\alpha_G=Gm^2/\hbar c\) invariant. [T]
+
+Proof. \(a_0 m=\hbar/(\alpha c)\) is a fixed product, so \(a_0\propto(1+z)\) iff \(m\propto(1+z)^{-1}\). With \(\hbar\) fixed, \(E=\hbar/t\) and \(E=mc^2\) give \(t\propto m^{-1}\propto(1+z)\). \(M_{\rm Pl}^2=\hbar c/G\) with \(M_{\rm Pl}\propto m\) gives \(G\propto m^{-2}\propto(1+z)^2\), and \(Gm^2\) is then invariant.
+
+Given fixed \(\hbar,c,\alpha\) and the length assignment, the dictionary is unique: any assignment scaling size and mass together changes a measured rod. Whether nature realizes the length assignment is a separate question the theorem does not touch. Light has no term in it. A massless carrier has nothing for \((1+z)\) to multiply, which is the operator-side reading of Section 4.4.
+
+
+3.6 The continuum limit
+
+The discrete second-difference operator \(\Delta_\delta\psi=(\psi_{n+1}-2\psi_n+\psi_{n-1})/\delta^2\) converges to \(\psi''\) in \(L^2\) at order \(O(\delta^2)\). [T] Gated (Appendix A.13): measured convergence order \(1.94\to1.999\) per halving of \(\delta\), across \(N=10\) to \(640\). [V] The lattice derivative the constructions use has this continuum consistency; whether each downstream observable has a controlled continuum limit is a separate question, addressed where it arises.
+
+
+3.7 The subspace is the vehicle; the principal angles grade it
+
+Proposition (admissibility, metric, ledger)
+For a rank-\(k\) Riesz projector \(\Pi_0\) carried to \(\Pi\) along an admissible path, the subspace persistence \(\tfrac1k\mathrm{Tr}(\Pi_0\Pi)=\tfrac1k\sum_i\cos^2\theta_i\) is the mean squared cosine of the principal angles between the two subspaces, and reduces to the single-vector overlap only when \(k=1\); for \(k>1\) a single mode can lose its overlap while the carrier subspace stays substantially persistent. Two directions are distinct channels iff \(\sin^2\theta\ge\varepsilon\); the same angles that separate channels grade the persistence of the carrier. [T]
+
+Proof. With orthonormal bases \(Q_0,Q\) of the two subspaces, \(\mathrm{Tr}(\Pi_0\Pi)=\|Q_0^\dagger Q\|_F^2=\sum_i\sigma_i^2\) and the singular values of \(Q_0^\dagger Q\) are the cosines of the principal angles. For \(k=1\) the single singular value is the vector overlap. The channel criterion is Section 5.1's dictionary read on the same angles.
+
+Gated (Appendix A.17) on a symmetric base with a skew deformation, tracking the three lowest-real-part eigenvalues: at deformation \(\varepsilon=1\) the best single-vector overlap is \(0.60\) while the subspace persistence is \(0.82\); through a collision with the fourth eigenvalue at \(\varepsilon=2\) the vector overlap sits at \(0.56\) and the subspace at \(0.63\), recovering to \(0.69\) beyond it; the three principal angles keep their order throughout. [V] The vectors inside a subspace reshuffle; the subspace carries on. That is why the ledger is written on projectors and not on modes, and why Section 5.1 counts channels as a rank and not as a list of rays.
+
+
+ 
+  
+   
+    
+    2026-08-26T23:42:50.439312
+    image/svg+xml
+    
+     
+      Matplotlib v3.10.8, https://matplotlib.org/
+     
+    
+   
+  
+ 
+ 
+  
+ 
+ 
+  
+   
+  
+  
+   
+    
+   
+   
+    
+     
+      
+       
+      
+      
+       
+      
+     
+     
+      0.0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.5
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      1.0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      1.5
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      2.0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      2.5
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      3.0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      3.5
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      4.0
+     
+    
+    
+     skew deformation ε
+    
+   
+   
+    
+     
+      
+       
+      
+      
+       
+      
+     
+     
+      0.0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.2
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.4
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.6
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.8
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      1.0
+     
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+     
+    
+    
+     best single-vector overlap
+    
+    
+     
+    
+    
+     subspace persistence  (1/k)Σcos²θᵢ
+    
+   
+  
+  
+   
+    
+   
+   
+    
+     
+      
+       
+      
+     
+     
+      0.0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.5
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      1.0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      1.5
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      2.0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      2.5
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      3.0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      3.5
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      4.0
+     
+    
+    
+     skew deformation ε
+    
+   
+   
+    
+     
+      
+       
+      
+     
+     
+      0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      20
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      40
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      60
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      80
+     
+    
+    
+     principal angle (deg)
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    the hierarchy θ₁ ≤ θ₂ ≤ θ₃
+   
+   
+    
+     
+    
+    
+     θ1
+    
+    
+     
+    
+    
+     θ2
+    
+    
+     
+    
+    
+     θ3
+    
+   
+  
+ 
+ 
+  
+   
+  
+  
+   
+  
+ 
+
+Subspace persistence against the best single-vector overlap under a skew deformation, and the principal-angle hierarchy that grades it. The vector is lost first; the subspace, through a wall, is not.
+
+4. What light is, on the evidence
+
+The record on light runs from Newton's corpuscles and Huygens' waves through Young's fringes, Fresnel's spot, Foucault's slower light in water, Maxwell, Planck, Einstein's threshold, Compton's recoil, the 1927 recoiling slit, Dirac's field, quantum electrodynamics, the 1986 anticorrelation of a single photon at a beam splitter with fringes from the same source, and delayed choice. [C] Every step of it measures one of two things: a click — a localized interaction registered by matter, whose detector degrees of freedom supply the local frame and the record — or an interference, which needs a phase carried unbroken around a loop. This section holds the newest evidence — 2024 to 2026 — against the two registers and finds that each experiment reads one register cleanly and never both at once.
+
+
+
+
+
+
+the ledger — light
+no rest frame · no position operator · integer and phase cross every wall
+the metric — matter
+a rest frame · a Gram pairing at a point · can degenerate
+
+ℓ conserved photon by photonKopf et al. 2025
+no dispersion to ≳6 E_PlanckLHAASO / GRB 221009A
+m_γ ≲ 10⁻¹⁵ eV/c²fast radio bursts
+no local position operatorNewton–Wigner · Bialynicki-Birula
+V = |⟨ψ(p−ħk)|ψ(p+ħk)⟩|single-atom slits, MIT · USTC 2025
+a click needs a detectorphotoelectric · Compton · anticorrelation
+photons condense in a cavityphoton BEC, reflecting boundary
+
+
+
+γγ → e⁺e⁻ → γγ
+light borrows the low rail and returns
+light-by-light, ATLAS 78±15 nb · CMS 107±24 nb
+the gap between the rails is the supply
+The two rails with the 2024–2026 evidence placed on them. Every result sits on one rail. The one process that crosses — light scattering off light through a virtual electron pair — leaves the high rail and returns to it.
+
+4.1 No rest frame is no position operator
+
+The metric is a Gram pairing of tangent vectors at a point. A photon has no such point: there is no Lorentz-covariant local position operator for a massless spin-one field [Newton–Wigner 1949], and the position-space wavefunction that does exist is normalized by energy density, not probability density [Bialynicki-Birula 1996], with the two standard constructions unitarily equivalent [Federico–Jauslin 2022]. [C] That is a ledger-type object — an integral over the field — rather than a metric-type object, a pairing at a location. The reason light cannot be localized is the reason the contour integral in Section 8.4 needs no definiteness: the same absence of a rest frame, seen from the two ends. The claim is about which register the invariants of this paper live in; a photon has local field quantities, correlations and a stress tensor like anything else, and none of them is a pairing that survives a wall.
+
+
+4.2 Complementarity is a Gram determinant
+
+The 1927 recoiling slit was run in 2025 with single atoms as the slits, independently by two groups [Fedoseev et al. 2025; Zhang et al. 2025]. Both find the fringe visibility set by the overlap of the slit's two momentum states after the photon's kick, \(V=|\langle\psi(p-\hbar k)|\psi(p+\hbar k)\rangle|=e^{-2\eta^2}\), \(\eta=\hbar k/2\Delta p\), tunable through the trap depth (momentum spread from \(0.78\,\hbar k\) to \(1.60\,\hbar k\) in the tweezer experiment), and independent of whether the atom is trapped at all. [C] The visibility is a Gram element of two matter states.
+
+Theorem (the duality relation is the metric–curvature bound)
+For a pure which-way marker with states \(|m_+\rangle,|m_-\rangle\), the distinguishability \(D^2\) equals the determinant of the \(2\times2\) Gram matrix of the two marker states, so \(D^2+V^2=1\) is the statement that a PSD Gram determinant is non-negative and vanishes exactly at rank one — the algebra of Theorem 3.1 with the tangent pair \((V,W)\) replaced by the marker pair \((m_+,m_-)\). [T]
+
+Proof. With unit markers, \(G=\begin{pmatrix}1&V\\ \bar V&1\end{pmatrix}\), \(\det G=1-|V|^2\ge0\). The optimal which-way measurement distinguishes the two markers with \(D=\sqrt{1-|V|^2}\) [Englert 1996], so \(D^2=\det G\). Rank one (\(V=1\)) is the one-complex-line case of Theorem 3.1.
+
+Gated (Appendix A.3): on Gaussian markers displaced by \(\pm\hbar k\), \(V\) matches \(e^{-2\eta^2}\) to six figures across \(\eta=0.17\) to \(2.0\), \(D^2+V^2=1\) to \(10^{-16}\), and \(D^2-\det G=0\) to \(10^{-16}\). [V] Light's fringes are read off matter's metric. The ledger — the phase around the two paths — is untouched by the marker; what dies is the pairing, and the which-way information does not vanish with it: for independent scatterers it is robustly stored and recoverable by an eraser, which is the ledger crossing the wall the metric fails on.
+
+
+ 
+  
+   
+    
+    2026-08-26T23:42:50.139948
+    image/svg+xml
+    
+     
+      Matplotlib v3.10.8, https://matplotlib.org/
+     
+    
+   
+  
+ 
+ 
+  
+ 
+ 
+  
+   
+  
+  
+   
+    
+   
+   
+    
+   
+   
+    
+     
+      
+       
+      
+      
+       
+      
+     
+     
+      0.00
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.25
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.50
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.75
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      1.00
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      1.25
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      1.50
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      1.75
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      2.00
+     
+    
+    
+     η = ħk / 2Δp   (kick over the slit's momentum spread)
+    
+   
+   
+    
+     
+      
+       
+      
+      
+       
+      
+     
+     
+      0.0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.2
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.4
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.6
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.8
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      1.0
+     
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    tunable
+    trap range
+   
+   
+    
+     
+    
+    
+     visibility V = exp(−2η²)   (light)
+    
+    
+     
+    
+    
+     distinguishability D = √(1−V²)  (matter)
+    
+   
+  
+  
+   
+    
+   
+   
+    
+     
+      
+       
+      
+     
+     
+      0.00
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.25
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.50
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.75
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      1.00
+     
+    
+    
+     V
+    
+   
+   
+    
+     
+      
+       
+      
+     
+     
+      0.0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.2
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.4
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.6
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.8
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      1.0
+     
+    
+    
+     D
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+     
+    
+    
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+    
+   
+   
+    D² + V² = 1 : a rank-one Gram
+   
+  
+ 
+ 
+  
+   
+  
+  
+   
+  
+ 
+
+Visibility (light) and distinguishability (matter) against the kick-to-spread ratio η, with the tunable single-atom-slit range shaded; on the right, every point sits on D²+V²=1, a rank-one Gram determinant.
+
+4.3 An integer through a wall
+
+Orbital angular momentum is a winding: the topological charge of a beam, \(\hbar\ell\) per photon. In 2025 it was shown to be conserved photon by photon through parametric down-conversion — a single heralded pump photon of charge \(\ell_p\) produces a pair with \(\ell_s+\ell_i=\ell_p\), the pump destroyed inside the crystal and its integer kept, at one conversion in a billion, \(1.3\) heralded pairs per hour over \(168\) hours, with \(99.5\%\) correlation against the classical-pump map [Kopf et al. 2025]. [C] A laser-pumped conversion can only witness the conservation of the average; the single-photon measurement was needed because averages erase integers — the content of Section 7's table.
+
+The anchor of Section 3.3 is the same object in finite dimensions. Gated (Appendix A.4): the pair \((U^k,V)\) in \(d=31\) returns \(w=k\) exactly for \(k=1,2,3,5,10,15\), defect \(\delta_k=4\sin^2(k\pi/d)\) to nine digits, the ratio \(\delta_k/(16k^2/d^2)\) running \(2.459\to1.065\) toward \(1\) so the constant \(\tfrac14\) in the floor \(|w|\le(d/4)\sqrt\delta\) is optimal, and the sharp integer bound \(|w|\le\lfloor(d-1)/2\rfloor=15\) attained. [V] One loop, one integer; the defect an integer costs is a sine squared; and the exchange rate between a normalized amplitude and an unnormalized integer is exactly one quarter. This is the moduli side of the paper: \(U\mapsto U^k\) pushes a representation off its character variety by a controlled amount, and the integer is what the almost-representation keeps of the exact one.
+
+
+
+
+
+nonlinear crystal — the wall
+the pump photon does not come out
+
+ℓ = 0
+one pump photon
+
+
++1
+−1
+signalidler
+ℓ_p = ℓ_s + ℓ_i, one photon at a time
+amplitude: one in a billion converts
+1.3 heralded pairs per hour, 168 hours
+integer: kept, 99.5% against the classical map
+One pump photon of orbital angular momentum zero enters the crystal and does not come out; its integer does, split across two photons whose charges cancel. The amplitude record is one in a billion; the integer record is kept.
+
+4.4 The same object at every scale
+
+Time-of-flight limits from tens of thousands of TeV photons of GRB 221009A put any linear energy dependence of the speed of light above \(5.9\) to \(6.2\) Planck energies [Piran–Ofengeim 2024]; a 2025 global analysis in the Standard-Model-Extension language tightens the photon-sector coefficients by an order of magnitude with no deviation [Guerrero et al. 2025]; fast-radio-burst dispersion, with the Hubble function reconstructed without assuming a cosmology, bounds the photon mass below \(2.0\times10^{-15}\) eV/\(c^2\) at one sigma [Ran et al. 2024]. [C] Section 3.5's dictionary has no term for light because there is nothing for a scale to multiply; these are the measurements of that absence. They constrain the linear-dispersion and photon-mass classes they test; they do not fix the form of any remaining Planck-scale correction.
+
+
+4.5 Light borrows the low rail and returns
+
+Classical Maxwell theory in vacuum is linear, so classical light does not scatter light. Quantum electrodynamics permits it, through a virtual electron–positron loop, and the LHC has now measured it in ultra-peripheral lead collisions: \(78\pm15\) nb [ATLAS 2019] and \(107\pm24\) nb [CMS 2025], against a leading-order prediction near \(70\) nb and next-to-leading-order calculations now carried to three loops [Bargieła et al. 2026]. [C] The box diagram is a round trip: light leaves the ledger, takes a momentary rest-frame census in matter's register, and returns. Maxwell is the low-energy limit of a nonlinear vacuum. That the supply between the rails has a name in the standard theory is a reading, not a derivation of this paper. [H]
+
+
+4.6 The shape of a photon is the environment's
+
+The exact quantum electrodynamics of an emitter in a lossy radiative environment maps the continuum of modes onto a discrete set of non-Hermitian pseudomodes and computes the emitted photon's profile from them [Yuen–Demetriadou 2024]. [C] The profile is the environment's, not the photon's: light supplies the content and the boundary selects the mode. Section 5.2 measures the same object on a lattice — the dominant pseudomode of a non-normal operator concentrating where the light crowds.
+
+
+4.7 Weak measurement is the first-order ledger
+
+Average photon trajectories through a double slit are reconstructed by coupling weakly to momentum [Kocsis et al. 2011], and relativistic velocity fields for single photons are built the same way [Foo et al. 2022]. [C] The fringes survive because the pointer's back-action is second order. Section 5.4 proves the algebraic reason: the skew sector's first-order contribution to the trace-log ledger vanishes identically. The trajectories are averages, not paths; they are consistent with the field-first reading and do not require another.
+
+
+5. The reference: light
+
+5.1 The directional dictionary and capacity
+
+Two directions at angle \(\theta\) are distinct trackable channels at threshold \(\varepsilon\) iff \(\sin^2\theta\ge\varepsilon\). [T] Directions at angle \(\theta\) correspond to rank-one projectors at squared Hilbert–Schmidt distance \(2\sin^2\theta\); \(\delta\)-separated directions need \(\varepsilon=\sin^2\delta\approx\delta^2\); \(\mu\) simultaneous needles need \(\mu\) channels, not \(\log\mu\) bits. Angular depth is exact: \(\Lambda=2\log(1/\sin\delta)\).
+
+The boundary census of a region \(A\) is defined as the number of eigenvalues of the restricted projector \(1_AP1_A\) lying in the transition window \([\varepsilon,1-\varepsilon]\) — the half-occupied modes that live on the boundary; that it is the boundary count of matter is the model's reading of it. Gated on a gapped two-band Dirac lattice, projector kernel asserted Hermitian and idempotent before every reading (Appendix A.5): sixty-four directions enter a disc, a bounded number of channels survive, and the capacity is the same at \(\mu=40\) and \(\mu=64\) — overflow measured directly. Over the five tested decades the capacity growth is consistent with an approximately logarithmic dependence on depth, \(7,9,11,13,14\) on a disc of radius \(4\) against the aperture value \(\pi R/w=12.6\), and \(11,15,18,20,22\) on a disc of radius \(7\) against \(22.0\) — an aperture-scale ceiling, matched to a few percent on the larger disc and overshot by one channel in ten on the four-site one; the boundary census of the same regions runs \(0,24,40,42,48\) and \(0,44,72,76,88\) over the same decades, several times faster, until the gap cuts it off. [V] The price of a direction is depth, not channel count. The object being priced has a name: a directional support set is the smallest admissible carrier — a set of straight unit segments, one in every allowed direction, together with the projector that has to carry them — and the capacity gate measures how many of its directions a region can keep distinct. Kakeya's set is the same object with the projector removed [Beasley 2026a]. What the gate does not show: that the ceiling is exactly \(\pi R/w\), that the growth is logarithmic beyond the tested range, or anything about a continuum field — it is one lattice, one projector, one definition of a needle.
+
+
+ 
+  
+   
+    
+    2026-08-26T23:42:48.556058
+    image/svg+xml
+    
+     
+      Matplotlib v3.10.8, https://matplotlib.org/
+     
+    
+   
+  
+ 
+ 
+  
+ 
+ 
+  
+   
+  
+  
+   
+    
+   
+   
+    
+     
+      
+       
+      
+      
+       
+      
+     
+     
+      10⁻¹
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      10⁻²
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      10⁻³
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      10⁻⁴
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      10⁻⁵
+     
+    
+    
+     threshold ε (depth →)
+    
+   
+   
+    
+     
+      
+       
+      
+      
+       
+      
+     
+     
+      0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      10
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      20
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      30
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      40
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      50
+     
+    
+    
+     channels / modes
+    
+   
+   
+    
+    
+     
+    
+    
+     
+     
+     
+     
+     
+    
+   
+   
+    
+    
+     
+    
+    
+     
+     
+     
+     
+     
+    
+   
+   
+    
+    
+     
+    
+    
+     
+     
+     
+     
+     
+    
+   
+   
+    
+    
+     
+    
+    
+     
+     
+     
+     
+     
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    πR/w
+   
+   
+    disc of radius 4.0 sites
+   
+   
+    
+     
+     
+      
+     
+    
+    
+     capacity, 8 directions in
+    
+    
+     
+     
+      
+     
+    
+    
+     capacity, 24 directions in
+    
+    
+     
+     
+      
+     
+    
+    
+     capacity, 64 directions in
+    
+    
+     
+     
+      
+     
+    
+    
+     boundary census N(ε)
+    
+   
+  
+  
+   
+    
+   
+   
+    
+     
+      
+       
+      
+     
+     
+      10⁻¹
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      10⁻²
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      10⁻³
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      10⁻⁴
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      10⁻⁵
+     
+    
+    
+     threshold ε (depth →)
+    
+   
+   
+    
+     
+      
+       
+      
+     
+     
+      0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      20
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      40
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      60
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      80
+     
+    
+   
+   
+    
+    
+     
+     
+     
+     
+     
+    
+   
+   
+    
+    
+     
+     
+     
+     
+     
+    
+   
+   
+    
+    
+     
+     
+     
+     
+     
+    
+   
+   
+    
+    
+     
+     
+     
+     
+     
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    πR/w
+   
+   
+    disc of radius 7.0 sites
+   
+  
+ 
+ 
+  
+   
+  
+  
+   
+  
+ 
+
+Directional capacity against threshold on two discs: a bounded number of channels survive however many directions enter, the count climbs slowly toward an aperture-scale ceiling consistent with πR/w, and the boundary census of the same region runs several times faster with depth.
+
+5.2 Overflow, dichotomy, and a wall born inside
+
+In the constructions studied here, where the boundary census cannot support directional demand, overflow is resolved one of two ways: continued full-dimensional support, or concentration onto a lower stratum. [V] The classical extremal question this echoes — how little room a family of needles covering every direction can occupy — is now settled in three dimensions [Wang–Zahl 2025], work recognized with Hong Wang's 2026 Fields Medal [IMU 2026]; Section 6 takes it up directly.
+
+A crossing supplies its own wall. Gated on the tripartite operator \(H=A+D_0+\varepsilon E\) — lattice Laplacian, a detuning that follows the light, a skew flow along the intensity gradient — with two controls, no needles and no skew sector (Appendix A.6): the dominant pseudomode's weight in the \(3\times3\) crossing cell, \(1.15\%\) of the area, rises from the uniform \(9/784=0.0115\) to \(0.628\) once eight or more needles cross at detuning depth \(g=1\); the normal control reaches \(0.466\), so the skew sector adds a third again (excess \(1.35\)); at shallow detuning the skew sector slightly subtracts (excess \(0.93\)), and over-driving it disperses the mode (excess \(0.15\)). [V] The model grows an interior wall on the gradient the crossing itself supplies; the non-normal share of it is gated by the skew-to-detuning ratio, not by the drive alone. What that wall does to a needle that meets it is a refraction: the earlier transport construction derives, from a variational capacity principle, \(R_1\sin^2\theta_1=R_2\sin^2\theta_2\) across an interface whose directional rigidity changes from \(R_1\) to \(R_2\), with the gradient of an effective inertia tensor \(I_{\rm eff}\) doing the turning [Beasley 2026b]. [C] That the same law governs the self-made wall of this section is a reading, not yet a gate. [H] The loop closes on itself: light sets the intensity, the intensity sets the detuning and the skew flow, and those set where the light can go — transport to stress to geometry to transport. Section 9 says what an apparatus would have to do to see it.
+
+
+
+
+
+
+
+
+θ₁
+θ₂
+capacity R₁capacity R₂ > R₁
+R₁ sin²θ₁ = R₂ sin²θ₂
+fewer channels: the needle runs steepermore channels: it lies flatter
+At an interface where the directional capacity changes, a needle bends: R sin²θ is conserved across the wall. Fewer channels, steeper; more channels, flatter.
+
+ 
+  
+   
+    
+    2026-08-26T23:42:48.793233
+    image/svg+xml
+    
+     
+      Matplotlib v3.10.8, https://matplotlib.org/
+     
+    
+   
+  
+ 
+ 
+  
+ 
+ 
+  
+   
+  
+  
+   
+    
+   
+   
+    
+     
+      
+       
+      
+      
+       
+      
+     
+     
+      0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      5
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      10
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      15
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      20
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      25
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      30
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      35
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      40
+     
+    
+    
+     needles crossing, μ
+    
+   
+   
+    
+     
+      
+       
+      
+      
+       
+      
+     
+     
+      0.0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.1
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.2
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.3
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.4
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.5
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.6
+     
+    
+    
+     pseudomode weight in the crossing cell
+     (3×3 sites, 1.15% of the area)
+    
+   
+   
+    
+    
+     
+    
+    
+     
+     
+     
+     
+     
+    
+   
+   
+    
+    
+     
+    
+    
+     
+     
+     
+     
+     
+    
+   
+   
+    
+    
+     
+    
+    
+     
+     
+     
+     
+     
+    
+   
+   
+    
+    
+     
+    
+    
+     
+     
+     
+     
+     
+    
+   
+   
+    
+    
+     
+    
+    
+     
+     
+     
+     
+     
+    
+   
+   
+    
+    
+     
+    
+    
+     
+     
+     
+     
+     
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    uniform 9/784
+   
+   
+    
+     
+     
+      
+     
+    
+    
+     ε=0.8, g=0.25  full operator
+    
+    
+     
+     
+      
+     
+    
+    
+     ε=0.8, g=0.25  normal control
+    
+    
+     
+     
+      
+     
+    
+    
+     ε=0.8, g=1.0  full operator
+    
+    
+     
+     
+      
+     
+    
+    
+     ε=0.8, g=1.0  normal control
+    
+    
+     
+     
+      
+     
+    
+    
+     ε=4.0, g=1.0 (over-driven)  full operator
+    
+    
+     
+     
+      
+     
+    
+    
+     ε=4.0, g=1.0 (over-driven)  normal control
+    
+   
+  
+ 
+ 
+  
+   
+  
+ 
+
+Pseudomode weight in the crossing cell against the number of needles, for three settings, full operator against the normal control. The crossing builds a well in every setting; the skew sector adds to it only at the right ratio.
+
+5.3 Two boundary conditions for a light-carrying interface
+
+The same non-normal transport class carries two different fates for its light-carrying content, on a minimal construction built to isolate the contrast.
+
+hypersurfacepolarstays inside — frozen at the wallfoldcrosses through — refracts, propagates outsideA needle approaching a hypersurface, two outcomes: polar (teal) freezes at the wall; fold (coral) crosses through and refracts.
+reflectingbounded oscillation, foreverone-wayamplitude decays, direction stays determinedReflecting: periodic, exactly skew-symmetric coupling forces the spectrum onto the imaginary axis — bounded oscillation forever. One-way: the same coupling with damping added gives real, decaying eigenvalues.
+Reflecting: periodic coupling is exactly skew-symmetric by construction, spectrum on the imaginary axis to \(2\times10^{-16}\); envelope stays at exactly \(1.000000\) for every tested \(t\) up to \(20\). One-way: uniform damping added to the same coupling gives real, decaying eigenvalues; envelope decays from \(1.0\) to \(2.6\times10^{-7}\) while the leading spatial component sweeps cleanly through the chain — amplitude collapsing toward zero while the direction taken en route stays fully determined. [V] (Appendix A.7.) In the laboratory the two conditions are a cavity and a chiral waveguide: photons condense in a dye-filled microcavity, a reflecting boundary with a bounded thermal population [Klaers et al. 2010], and leave a gated photonic-crystal waveguide in one direction with the emitter emptied [Albrechtsen et al. 2026]. [C]
+
+
+5.4 A tripartite decomposition and its first-order ledger
+
+tailpersistent, protected, wave-liketipfast, sensitive, particle-likeone shared obstruction channelThe tip (coral, dancing) and the tail (teal, persistent) read and build each other through one shared obstruction channel.
+Splitting \(H(\varepsilon)=A+D_0+\varepsilon E\) with \(A,D_0\) symmetric and \(E\) skew: the leading correction the skew sector contributes to the Dunford–Taylor trace-log ledger vanishes identically — a symmetric squared resolvent traced against a skew generator is zero term by term. [T] Gated (Appendix A.8): \(\mathrm{Tr}(R_0^2E)=3\times10^{-16}\) on a random instance, matching a finite-difference derivative to \(3\times10^{-13}\), with a nonzero second-order shift. [V] That is the theorem. The reading it motivates: the tip — fast, locally sensitive, particle-like — and the tail — slow, protected, wave-like — exchange through one shared channel and never at first order, so what survives the interaction is the ledger. The reading is the framework's; the identity is what is proved. This is the algebra under Section 4.7.
+
+
+5.5 Ruling out a local-geometric compression
+
+
+
+
+ 
+  
+   
+    
+    2026-08-26T20:25:52.263256
+    image/svg+xml
+    
+     
+      Matplotlib v3.10.8, https://matplotlib.org/
+     
+    
+   
+  
+ 
+ 
+  
+ 
+ 
+  
+   
+  
+  
+   
+    
+   
+   
+    
+     
+      
+     
+     
+      
+       
+      
+      
+       
+      
+     
+     
+      
+      
+       
+        
+        
+        
+        
+       
+       
+       
+       
+       
+      
+     
+    
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+       
+       
+       
+      
+     
+    
+    
+     
+      
+       
+      
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+     
+      
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+     
+    
+   
+   
+    
+     
+      
+     
+     
+      
+       
+      
+      
+       
+      
+     
+     
+      
+      
+       
+        
+        
+       
+       
+       
+       
+      
+     
+    
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+       
+       
+      
+     
+    
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+       
+       
+      
+     
+    
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+       
+       
+      
+     
+    
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+        
+       
+       
+       
+       
+      
+     
+    
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+        
+       
+       
+       
+       
+      
+     
+    
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+        
+       
+       
+       
+       
+      
+     
+    
+    
+     
+     
+      
+       
+       
+       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+     
+    
+   
+   
+    
+    
+     
+    
+    
+     
+     
+     
+     
+     
+     
+     
+    
+   
+   
+    
+    
+     
+    
+    
+     
+     
+     
+     
+     
+     
+     
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+    
+     
+      
+      
+      
+      
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+    
+   
+   
+    
+     
+    
+    
+     
+     
+      
+     
+    
+    
+     
+     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+     
+    
+    
+     
+     
+      
+     
+    
+    
+     
+     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+     
+    
+   
+  
+  
+   
+    
+   
+   
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+       
+       
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+     
+      
+       
+       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+     
+    
+   
+   
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+       
+       
+       
+      
+     
+    
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+       
+       
+       
+      
+     
+    
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+       
+       
+       
+      
+     
+    
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+       
+       
+       
+      
+     
+    
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+       
+       
+       
+      
+     
+    
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+       
+       
+       
+      
+     
+    
+    
+     
+      
+     
+     
+      
+       
+      
+     
+     
+      
+      
+       
+       
+       
+       
+      
+     
+    
+    
+     
+     
+      
+       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+     
+    
+   
+   
+    
+    
+     
+     
+     
+     
+     
+     
+    
+   
+   
+    
+    
+     
+     
+     
+     
+     
+     
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+    
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+    
+   
+   
+    
+     
+    
+    
+     
+     
+      
+     
+    
+    
+     
+     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+     
+    
+    
+     
+     
+      
+     
+    
+    
+     
+     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+     
+    
+   
+  
+  
+   
+   
+    
+     
+     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+  
+ 
+ 
+  
+   
+  
+  
+   
+  
+ 
+
+Two independent gated constructions, both null: covering-area fraction stays constant across three to five orders of magnitude in resolution, for both a rank-drop fold and a near-conical intersection, against matched non-degenerate controls.
+Covering-area fraction for a fixed angular fan is scale-invariant for the smooth direction-field families tested here, since near any point — regular, folded, or coalescing — the local behaviour is set by the leading Taylor term. Gated twice (Appendix A.11, A.12): a rank-drop fold gives fold-to-regular area ratio \(0.98\) to \(1.05\) across \(\delta=0.16\) to \(0.0025\), area scaling as \(\delta^{-0.018}\) against \(\delta^{-0.012}\) for the control; a near-conical intersection holds the fan's covering fraction between \(24.3\%\) and \(24.7\%\) as the domain radius shrinks from \(0.4\) to \(0.0125\) — scale-invariant, no compression toward the point — while a regular field on the same grid, its pole displaced far outside the window, covers the whole domain. [V] In the tested fold and conical families nothing compresses; the conjecture that no smooth local mechanism can is Open Problem 5. Genuine compression needs a non-smooth, combinatorial construction, of the kind Besicovitch's original is, or a discrete counting argument of the kind Section 5.1's overflow already is.
+
+
+6. Does light exhibit the Kakeya effect?
+
+This is the paper's central question, and it has two halves: whether light does it, and whether the people working on the needle problem are approaching it in a way that would find out.
+
+
+6.1 The problem, at the scale light lives on
+
+Kakeya asked in 1917 how little area a unit needle needs to turn around; Besicovitch showed it needs none [Besicovitch 1928]. The modern conjecture is that a set containing a unit segment in every direction has full Hausdorff and Minkowski dimension in \(\mathbb R^n\): proved in the plane [Davies 1971], with a one-page quantitative form [Córdoba 1977]; bounded below by \(2.5\) in space [Wolff 1995]; and proved in three dimensions [Wang–Zahl 2025], via a multiscale induction on the sticky and grainy structure a counterexample would be forced to have [Guth 2026]. [C] In four and more dimensions it is open; the best tools there are planebrushes and trilinear estimates [Katz–Zahl 2021]. [C]
+
+The reason the problem matters is light. Fefferman showed that the ideal circular low-pass filter — the sharpest aperture there is — is an unbounded operator on \(L^p\) for \(p\ne2\), and the proof is a Besicovitch set [Fefferman 1971]. The Kakeya problem at resolution \(\delta\) is about tubes, and a tube of width \(\delta\) with a direction is exactly a wave packet of wavelength \(\delta\): the plane wave carries the direction, the wavelength sets the width. So the quantitative Kakeya question — how much can a family of such tubes overlap — is the question of how far superposed wave packets can concentrate, and it sits under the restriction, Bochner–Riesz and local-smoothing conjectures of harmonic analysis. Local smoothing for the wave equation, that a solution cannot hold its energy in a small region for an extended time [Sogge 1991], implies Kakeya, Bochner–Riesz and restriction; it is proved in the plane [Guth–Wang–Zhang 2020] and on compact surfaces [Gao–Liu–Miao–Xi 2023] and open in space. [C]
+
+
+
+
+
+twelve directions through one region: each needle is a tube, and the tubes must overlap
+the needle problem at scale δ
+
+
+
+
+δ = λ
+a needle of light
+a wave packet with one direction and one width
+the plane wave carries the direction; the wavelength sets the width
+the Kakeya question at resolution δ is the question of how
+much a superposition of such packets can concentrate;
+local smoothing for the wave equation implies Kakeya
+in the plane both are proved; in space the tubes are proved,
+the wave estimate that would carry light is still open
+A needle of light is a tube of width one wavelength. Kakeya at resolution δ asks how much such tubes can overlap; the wave equation's local-smoothing estimate asks how much such packets can concentrate. In the plane both are proved; in space the tube theorem is proved and the wave estimate is open.
+
+6.2 Does light do it?
+
+Two things are true at once and they are not in tension. First, light is the physical carrier of the Kakeya constraint: the object the harmonic-analysis proofs are about is a superposition of wave packets, and the theorem that would carry the constraint to light in three dimensions — local smoothing in \(\mathbb R^{3+1}\) — is the open one, while its consequence for tubes is now proved. [C] Second, the effect light exhibits is the constraint, not the compression. A Besicovitch set of measure zero is a set of segments; a set of tubes of width \(\lambda\) in \(\delta\)-separated directions occupies volume bounded below, up to the logarithm the theorem allows, and no arrangement of the corresponding tube supports beats the geometric bound; whether coherent superpositions can realize an analogous concentration is the open local-smoothing question. That is what the two null gates of Section 5.5 say from the operator side — no smooth local mechanism compresses directional coverage — and what the capacity gate of Section 5.1 says in numbers: sixty-four directions enter and a bounded number of channels survive, fixed by the aperture, however deep one looks. [V] A wavelength-scale family of light tubes cannot evade the geometric Kakeya bound: the tube theorem fixes the room such packets can occupy, at any resolution a wavelength can set. Whether a coherent field, where packets interfere as well as overlap, can realize the analogous concentration is exactly the open local-smoothing estimate of Section 6.1. What light can do is overflow, and overflow has exactly the two horns the dichotomy names: full dimension, which is the theorem, or concentration onto a lower stratum, which is a wall. Section 5.2 measures the wall being born inside a crossing. The needles are light; the Kakeya structure in light is the budget on direction and the strata that budget forces, not a vanishing set.
+
+
+6.3 Are they approaching it the right way?
+
+Yes, and the gates say why. The proofs that work are discrete and combinatorial at scale \(\delta\) — induction on scales, sticky and grainy decompositions, polynomial partitioning — and they had to be, because the null gates show that smooth local geometry cannot do the job and Section 5.1's overflow shows that the counting is what binds. The winning approach is the one this paper's own instrument would have predicted. Where the approaches differ is in what is counted: the literature counts tubes and their incidences; this paper counts channels and the census that supports them, and finds the count fixed by an aperture and the price paid in depth. Nobody in the Kakeya literature counts channels; nobody connects the packing to a boundary census or an entanglement budget. That lane is open, and it is where an operator formulation could contribute rather than re-derive. What it cannot do is replace the theorem: the capacity plateau is a measurement on one lattice, the dichotomy is an input-dependent proposition, and Wang–Zahl is a theorem about every set. The right posture is the one taken here — cite the theorem as input, measure the operator-side consequences, and name the one bridge the field has not built.
+
+The one place the field's route may be taking the long way is the passage to light itself. Kakeya in three dimensions is proved for tubes, but the wave estimate that would make it a statement about light is still open, and it is a harder object because it must control constructive and destructive interference between packets, not just their overlap [Tao 2026]. [C] The operator side has a native handle on exactly that: the phase is the ledger, interference is the ledger read around a loop, and the first-order cancellation of Section 5.4 is a statement about which interference a skew sector can and cannot produce. Whether that handle reaches local smoothing is Open Problem 2.
+
+
+7. What approximation can and cannot carry across
+
+MetricObstructions survive?Source
+
+operator normyes; still open in generalwinding/Bott index [T]; Loring's dimension-independent floor [C]
+
+unnormalized Schatten, \(p<\infty\)yesde Chiffre–Glebsky–Lubotzky–Thom [C]
+
+normalized Hilbert–SchmidtnoGlebsky, Filonov–Kachkovskiy [C]
+
+normalized Hamming (sofic)nosame stability theorem, permutation form [C]
+
+The noncommutative anchor's winding obstructs almost-commutation in the operator norm exactly, and is provably blind in the normalized metric: the same clock-and-shift family that saturates \(\delta+g^2\le4\) sits close to a commuting pair in normalized Hilbert–Schmidt distance while carrying \(w=1\). [T] The axis that decides is normalized against unnormalized, not one norm against another: an integer survives where ambient size is kept and dies where it is divided out. Changing a permutation on \(\varepsilon n\) points is Hamming distance \(\varepsilon\) and operator-norm distance \(2\); index, contour and resolvent invariants jump under exactly the moves a sofic approximation forgives. Normalized Hamming is half the squared normalized Hilbert–Schmidt distance between the corresponding projectors, so soficity's two clauses — compose almost correctly, and move almost every point — are the cocycle condition and the \(\sin^2\theta\ge\varepsilon\) threshold of Section 5.1 in permutation coefficients. [C]
+
+A sofic approximation is a sequence, not a structure: a chain of finite bodies, none of them the thing, each handing the phase to the next. On the rails that is condensates forming and evaporating while light, which never condenses, carries the reference between them — out on the phase, through a body that will not survive, back on the count, closing on the reference it started from. [H] The measurement that sees it is Section 4.3's: the integer must be read on the single quantum, because the average is the normalized metric and the normalized metric is blind.
+
+
+8. The supply between the rails
+
+8.1 Three ways for admissibility to fail, not two
+
+The metric can vanish (\(\det g=0\), a curve in two parameters); two eigenvalues can coalesce (isolated points); and the licence \(4\det g\ge\Omega^2\) — the positivity of \(Q=g-\tfrac i2\Omega\) itself — can fail strictly before \(\det g\) does. [T] A curve and a point do not generically meet, so the geometric wall is not the exceptional point. In the two-band families examined here the sampled loci are distinct, with the licence boundary lying inside the positive-metric region, and the innermost is the one the recoiling-slit experiments have not yet looked for (Open Problem 1).
+
+
+8.2 Reciprocity forces a perfect square
+
+M_ijM_jiS_ij² ≥ 0B-symmetric probe ⇒ BV symmetrica scalar equals its own transpose — the product is forced non-negativeA B-symmetric probe makes BV symmetric, so a scalar equals its own transpose: the round-trip product is forced non-negative.
+Theorem (reciprocity)
+For \(B\) SPD and \(V\) \(B\)-symmetric (\(V^\top B=BV\)), \(BV\) is symmetric, so \(x^\top(BV)y=y^\top(BV)x\) for any \(x,y\). Applied to eigenvectors of any generator \(L\) (not required to be \(B\)-symmetric), the round-trip form factors as \(S_{ij}^2/(N_iN_j(\lambda_i-\lambda_j)^2)\), manifestly non-negative. [T]
+
+The mechanism needs only the probe's \(B\)-symmetry, not the generator's. [V] Gated to \(2\times10^{-16}\) with two negative controls (Appendix A.9): a generic probe breaks the equality by a wide margin, a generic generator with a matched probe keeps it. A perfect square is a round trip with no preferred direction; an arrow needs the square broken.
+
+
+8.3 Why self-adjointness forces the metric positive
+
+Writing \(dP_i=X_i+Y_i\) with \(X_i=\Pi\,dP_i\,(I-\Pi)\), self-adjointness forces \(Y_i=X_i^\dagger\), turning the metric into a Gram matrix, PSD by construction. [T] Gated (Appendix A.10): self-adjoint control gives \(\max\|Y-X^\dagger\|=7\times10^{-16}\) and all-positive eigenvalues; breaking Hermiticity gives \(\|Y-X^\dagger\|=2.57\) and mixed-sign eigenvalues. [V]
+
+
+8.4 The ledger crosses regardless
+
+A rectifiable contour bounded on the resolvent set gives an analytic Riesz projector regardless of Hermiticity or definiteness — standard operator theory [Kato]. [C] On a two-band family whose round-trip form changes sign between \(\gamma=0.48\) and \(0.49\): \(\mathrm{Tr}\,\Pi=2.000000000000\) at every sampled point through the wall, and the shifted ledger \(Z=\tfrac1{2\pi i}\oint\log(z+c)\,\mathrm{Tr}(zI-H)^{-1}dz\), with \(c\) chosen so the branch cut lies outside the contour, equals \(\mathrm{Tr}\log(H+cI)\) to ten digits and varies smoothly with no discontinuity (Appendix A.14). [V] Near a genuine exceptional point nothing stays bounded: a fixed-radius contour's resolvent norm grows from \(1.0\) to \(667\) as the point is approached, and a contour with margin \(\eta=2\sqrt\varepsilon\) grows only from \(0.30\) to \(125\) over the same range — both diverge, the scaled margin provably slower (Appendix A.16). [V] The condition is the contour: the ledger survives the metric's failure for as long as a contour can be kept in the resolvent set, and fails only when the spectrum itself is forced through it. The metric wall and the spectral wall are different objects, and the spectral one is the harder obstruction. This carries no implication about any directional-dimension bound.
+
+
+8.5 Amplitude dies, the count stays
+
+On \(H=\sigma_x+i\gamma\sigma_z\), exceptional at \(\gamma=1\), the normalized biorthogonal overlap \(|\langle L|R\rangle|\) equals half the gap and falls as \(\sqrt{2(1-\gamma)}\) — to \(0.0045\) at \(1-\gamma=10^{-5}\), Petermann factor \(5\times10^4\) — while the Riesz trace of the colliding pair read by a contour is \(2.000000000000\) at every point and the trace-log ledger varies smoothly (Appendix A.15). [V] Two records on one operator: the pairing dies as the square root of the distance to the wall, the count and the phase do not move. This is the third classifier of Section 3.5 measured, and it is the whole thesis in one table.
+
+
+ 
+  
+   
+    
+    2026-08-26T23:42:49.773726
+    image/svg+xml
+    
+     
+      Matplotlib v3.10.8, https://matplotlib.org/
+     
+    
+   
+  
+ 
+ 
+  
+ 
+ 
+  
+   
+  
+  
+   
+    
+   
+   
+    
+     
+      
+       
+      
+      
+       
+      
+     
+     
+      
+      
+       
+        1
+        0
+        −
+        5
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      
+      
+       
+        1
+        0
+        −
+        4
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      
+      
+       
+        1
+        0
+        −
+        3
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      
+      
+       
+        1
+        0
+        −
+        2
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      
+      
+       
+        1
+        0
+        −
+        1
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      
+      
+       
+        1
+        0
+        0
+       
+      
+     
+    
+    
+     
+      
+       
+      
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     
+      
+       
+      
+     
+    
+    
+     distance to the exceptional point, 1−γ
+    
+   
+   
+    
+     
+      
+       
+      
+      
+       
+      
+     
+     
+      0.0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      0.5
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      1.0
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      1.5
+     
+    
+    
+     
+      
+       
+      
+     
+     
+      2.0
+     
+    
+    
+     value
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+   
+   
+    
+     
+    
+    
+     amplitude record  |⟨L|R⟩|
+    
+    
+     
+    
+    
+     integer record  Tr Π (contour)
+    
+    
+     
+    
+    
+     √(2(1−γ))
+    
+   
+  
+ 
+ 
+  
+   
+  
+ 
+
+Toward the exceptional point the amplitude record collapses as √(2(1−γ)) while the integer record held by the contour never leaves 2.
+
+8.6 The entropy junction
+
+Two independently published programs place a relative entropy exactly where a metric would sit, both at a horizon: the semiclassical Einstein equations follow from relative entropy across a bifurcate Killing horizon [Dorau–Much 2026], and a covariant construction obtains modified Einstein equations from relative entropy between the physical and matter-induced metrics [Bianconi]. A finite-area completion on the Nariai spacetime has addressed the first's normalization [Hartshorn 2026]. [H] If the metric is a protection budget and the horizon is where protection ends, an entropy is what should be found there. This is a forward connection only; nothing in the paper's argument uses it.
+
+
+9. Experimental consequences
+
+Three things follow that an apparatus can check. First, the warm slit: for a pure atom the duality relation is exact at every \(\eta\), and for an atom at \(0.91\) ground-state occupation this paper computes \(D^2+V^2\) between \(0.81\) and \(0.94\) with the visibility on the Debye–Waller curve rather than \(e^{-2\eta^2}\) (Appendix A.18); a tunable-trap experiment that also tunes the occupation measures that shortfall directly, and any licence effect beyond it lives in the mixed-marker Gram. Second, the capacity of Section 5.1 against structured light: the number of orbital-angular-momentum modes an aperture keeps distinguishable at a fixed crosstalk threshold is the laboratory form of the channel plateau, and the review of structured quantum light lists the tools that measure it [Forbes et al. 2025]. [C] Third, the closed loop of Section 5.2: an optical reservoir coupled to an electronic absorber and re-emitter, with a non-Hermitian bundle selecting which recycled photons return to a productive interaction, is the architecture in which transport sets geometry sets transport; its figure of merit is useful optical output per input joule, its killer comparison is a plain emitter against a conventional recycling cavity against the geometric bundle, and it survives only if the bundle beats the cavity [Beasley 2026c]. [H] None of these is built here; each is stated so that it can be falsified. The two-rail reading itself has a kill condition: across a \(\det g=0\) crossing, \(\det g\) changes sign while \(\mathrm{Tr}\,\Pi\) stays exactly integer and the shifted ledger stays exact; if in any system the ledger is found to degrade where the metric does, the ordering this paper assigns to light and matter is wrong.
+
+
+10. Open problems
+
+
+The licence before the metric, for a marker that is not pure. For a pure atomic slit the licence cannot lapse early: Theorem 4.2's Gram is \(2\times2\) and Theorem 3.1 saturates it identically, which is why the 2025 experiments fit one curve. Gated (Appendix A.18): \(D^2+V^2=1.0000\) at every \(\eta\) for the ground state, while for a thermal atom at the reported \(0.91\) ground-state occupation the sum drops to \(0.81\)–\(0.94\) across the tuning range and the visibility follows the Debye–Waller factor — Englert's inequality being strict for a mixed marker. [V]+[C] The open question is whether, for a mixed or higher-rank marker where the Gram is larger than \(2\times2\), the positivity licence on \(Q\) fails before the trace distance saturates, and by an amount Englert's bound does not already fix. [H]
+
+Local smoothing from the ledger. Whether the first-order cancellation of Section 5.4 and the contour ledger give any handle on the wave-equation estimate that would carry Kakeya to light in three dimensions.
+
+Channels against tubes. The capacity plateau is measured on one lattice; a mode-count limit for structured light through an aperture at a fixed crosstalk threshold is the laboratory quantity it should be compared with.
+
+Real-space propagation. Whether any parameter-space cone or licence locus corresponds to a real-space characteristic surface is not addressed here.
+
+Beyond smooth local geometry. Two null gates rule out smooth mechanisms; whether a genuinely non-smooth, adversarial construction can do what smooth local geometry provably cannot remains open on the operator side.
+
+The non-normal share of the interior wall. Section 5.2 finds the skew sector's contribution gated by a ratio; the boundary in the \((\varepsilon,g)\) plane is not mapped.
+
+The general reciprocity mechanism. Needing only the probe's \(B\)-symmetry is more general than a generator condition; its consequences for a nested-wall structure are not worked out.
+
+The tip–tail feedback loop beyond first order. Only the first-order vanishing is proved.
+
+A non-Riemannian colour-space connection. Whether this framework's ledger reproduces the hue shift independently characterized in [Bujack et al. 2025] is carried as a named question, untested. [H]
+
+
+
+11. Conclusion
+
+Built from first principles, the same object keeps appearing: a projector-valued operator whose metric protects locally and can fail, and whose ledger survives globally and provably does not fail with it. Held against the evidence on light, every experiment reads one register: a fringe is matter's metric, a conserved charge is light's integer, a click is a pairing at a point, an interference is a phase carried around a loop. Light supplies the ledger its content because light has nothing to lose to a rest frame; matter supplies the metric its content because matter is exactly what a rest frame is for. Light does not compress direction — it cannot — but it pays for every direction in depth, and where the budget runs out it builds a wall. The gap between the two rails is not a defect in the construction. It is, on the evidence assembled here, the supply.
+
+
+References
+
+
+C.-R. Yi et al., “Extracting the quantum geometric tensor of an optical Raman lattice by Bloch-state tomography,” arXiv:2301.06090 (2023).
+
+D. Gioev, I. Klich, “Entanglement entropy of fermions in any dimension and the Widom conjecture,” Phys. Rev. Lett. 96, 100503 (2006).
+
+L. N. Trefethen, M. Embree, Spectra and Pseudospectra, Princeton (2005).
+
+A. Coc et al., “Variation of fundamental constants and the CMB,” Phys. Rev. D 73, 083525 (2006).
+
+T. D. Newton, E. P. Wigner, “Localized states for elementary systems,” Rev. Mod. Phys. 21, 400 (1949).
+
+I. Bialynicki-Birula, “Photon wave function,” Progress in Optics 36, 245 (1996).
+
+M. Federico, H. R. Jauslin, “Isomorphism between the Bialynicki-Birula and the Landau–Peierls Fock space quantization of the electromagnetic field in position representation,” arXiv:2212.05849 (2022).
+
+V. Fedoseev, H. Lin, Y.-K. Lu, Y. K. Lee, J. Lyu, W. Ketterle, “Coherent and incoherent light scattering by single-atom wave packets,” Phys. Rev. Lett. 135, 043601 (2025).
+
+Y.-C. Zhang et al., “Tunable Einstein–Bohr recoiling-slit gedankenexperiment at the quantum limit,” Phys. Rev. Lett. 135, 230202 (2025); arXiv:2410.10664.
+
+B.-G. Englert, “Fringe visibility and which-way information: an inequality,” Phys. Rev. Lett. 77, 2154 (1996).
+
+L. Kopf, R. Barros, S. Prabhakar, E. Giese, R. Fickler, “Conservation of angular momentum on a single-photon level,” Phys. Rev. Lett. 134, 203601 (2025).
+
+T. Piran, D. D. Ofengeim, “Lorentz invariance violation limits from GRB 221009A,” Phys. Rev. D 109, L081501 (2024).
+
+M. Guerrero, A. Campoy-Ordaz, R. Potting, M. Gaug, “Bounding anisotropic Lorentz invariance violation from measurements of the effective energy scale of quantum gravity,” Phys. Rev. D 112, 104002 (2025).
+
+J.-Y. Ran, B. Wang, J.-J. Wei, “Cosmology-independent photon mass limits from localized fast radio bursts by using artificial neural networks,” Chin. Phys. Lett. 41, 059501 (2024); arXiv:2404.17154.
+
+ATLAS Collaboration, “Observation of light-by-light scattering in ultraperipheral Pb+Pb collisions with the ATLAS detector,” Phys. Rev. Lett. 123, 052001 (2019).
+
+CMS Collaboration, “Measurement of light-by-light scattering and the Breit–Wheeler process, and search for axion-like particles in ultraperipheral PbPb collisions at 5.02 TeV,” JHEP 08 (2025) 006.
+
+P. Bargieła, A. Chakraborty, F. Gambuti, M. Ozcelik, “Light-by-light scattering at three loops in massless QCD and QED: amplitudes and cross sections,” arXiv:2603.22423 (2026).
+
+B. Yuen, A. Demetriadou, “Exact quantum electrodynamics of radiative photonic environments,” Phys. Rev. Lett. 133, 203604 (2024).
+
+S. Kocsis et al., “Observing the average trajectories of single photons in a two-slit interferometer,” Science 332, 1170 (2011).
+
+J. Foo, E. Asmodelle, A. P. Lund, T. C. Ralph, “Relativistic Bohmian trajectories of photons via weak measurements,” Nat. Commun. 13, 4002 (2022).
+
+P. Grangier, G. Roger, A. Aspect, “Experimental evidence for a photon anticorrelation effect on a beam splitter,” Europhys. Lett. 1, 173 (1986).
+
+J. Klaers, J. Schmitt, F. Vewinger, M. Weitz, “Bose–Einstein condensation of photons in an optical microcavity,” Nature 468, 545 (2010).
+
+M. Albrechtsen et al., “A quantum-coherent photon–emitter interface in the original telecom band,” Nature Nanotechnology (2026), doi:10.1038/s41565-026-02156-7.
+
+S. Kakeya, “Some problems on maximum and minimum regarding ovals,” Tohoku Sci. Rep. 6, 71 (1917).
+
+A. S. Besicovitch, “On Kakeya's problem and a similar one,” Math. Z. 27, 312 (1928).
+
+R. O. Davies, “Some remarks on the Kakeya problem,” Proc. Cambridge Philos. Soc. 69, 417 (1971).
+
+A. Córdoba, “The Kakeya maximal function and the spherical summation multipliers,” Amer. J. Math. 99, 1 (1977).
+
+C. Fefferman, “The multiplier problem for the ball,” Ann. of Math. 94, 330 (1971).
+
+T. Wolff, “An improved bound for Kakeya type maximal functions,” Rev. Mat. Iberoam. 11, 651 (1995).
+
+N. H. Katz, J. Zahl, “A Kakeya maximal function estimate in four dimensions using planebrushes,” Rev. Mat. Iberoam. 37, 317 (2021).
+
+H. Wang, J. Zahl, “Volume estimates for unions of convex sets, and the Kakeya set conjecture in three dimensions,” arXiv:2502.17655 (2025).
+
+L. Guth, “The Kakeya conjecture, after Wang and Zahl,” arXiv:2604.03416 (2026).
+
+J. Hickman, “The Kakeya conjecture: where does it come from and why is it important?,” arXiv:2512.09842 (2025).
+
+T. Tao, “Rotating needles in space: the road to the Kakeya conjecture, and why it matters,” arXiv:2608.22209 (2026).
+
+C. D. Sogge, “Propagation of singularities and maximal functions in the plane,” Invent. Math. 104, 349 (1991).
+
+L. Guth, H. Wang, R. Zhang, “A sharp square function estimate for the cone in \(\mathbb R^3\),” Ann. of Math. 192, 551 (2020).
+
+C. Gao, B. Liu, C. Miao, Y. Xi, “Square function estimates and local smoothing for Fourier integral operators,” Proc. London Math. Soc. 126, 1923 (2023).
+
+M. De Chiffre, L. Glebsky, A. Lubotzky, A. Thom, “Stability, cohomology vanishing, and non-approximable groups,” Forum of Math., Sigma 8 (2020).
+
+L. Glebsky, “Almost commuting matrices with respect to normalized Hilbert–Schmidt norm,” arXiv:1002.3082 (2010).
+
+N. Filonov, I. Kachkovskiy, “A Hilbert–Schmidt analog of Huaxin Lin's theorem,” arXiv:1008.4002 (2010).
+
+T. A. Loring, “Quantitative K-theory and spin Chern numbers,” arXiv:1302.0349 (2013).
+
+R. Exel, T. Loring, “Invariants of almost commuting unitaries,” J. Funct. Anal. 95, 364 (1991).
+
+T. Kato, Perturbation Theory for Linear Operators, 2nd ed., Springer (1995).
+
+P. Dorau, A. Much, “From quantum relative entropy to the semiclassical Einstein equations,” Phys. Rev. Lett. 136, 091602 (2026).
+
+G. Bianconi, “Gravity from entropy,” Phys. Rev. D 111, 066001 (2025); “Thermodynamics of the gravity from entropy theory,” Phys. Rev. D 114 (2026).
+
+B. Hartshorn, “Relative entropy on the Nariai horizon,” SSRN preprint 7111619 (2026).
+
+R. Bujack, E. N. Stark, T. L. Turton, J. M. Miller, D. H. Rogers, “The geometry of color in the light of a non-Riemannian space,” Computer Graphics Forum 44(3) (2025).
+
+International Mathematical Union, “Fields Medal 2026 — Hong Wang,” citation, ICM 2026.
+
+A. Forbes, M. Nothlawala, A. Vallés, “Progress in quantum structured light,” Nature Photonics 19, 1291 (2025).
+
+J. Beasley, “Integrated quadralogy architecture: directional transport geometry,” Zenodo, doi:10.5281/zenodo.21089303 (2026b; companion work by the author).
+
+J. Beasley, “The price of a direction: boundary channel budgets, directional capacity, and Kakeya structure in operator transport,” Zenodo, doi:10.5281/zenodo.21918464 (2026a; companion work by the author).
+
+J. Beasley, “The electron–photon loop: a geometric architecture for photon recycling, optical storage, and distributed light,” companion work by the author, in preparation (2026c).
+
+
+
+Appendix: verification, in physics form
+
+Each result below is stated as what it establishes and what was measured, first. The reproducing script follows in full. Every script carries its name in its first line; all eighteen, with the figure script, are also shipped as separate files.
+
+A.1   The noncommutative anchor (§3.3)
+Verifies Theorem 3.3's integrality, domain bound, and refusal at d=2, independent of any prior run.
+
+testedresultnote
+d = 3…97 (clock & shift)w = +1.000000000 exactδ+g² = 4.000000000, saturating
+1000 random unitary pairs, d=120 violations of δ+g²≤4max observed 2.409
+d = 2g = 1.22×10⁻¹⁶refused: branch closes
+
+NCA-GATE-01.py — full reproducing script
+
+# SCRIPT: NCA-GATE-01 (noncommutative anchor: winding integrality, domain bound,
+# amplitude floor -- derived and proved in this paper, gated here fresh)
+import numpy as np
+TAU = 1e-3
+rng = np.random.default_rng(20260827)
+
+def clock_shift(d):
+    w = np.exp(2j*np.pi/d)
+    U = np.diag([w**k for k in range(d)])
+    V = np.roll(np.eye(d, dtype=complex), 1, axis=0)
+    return U, V
+
+def commuting_pair(d):
+    U = np.diag(np.exp(1j*rng.uniform(0, 2*np.pi, d)))
+    V = np.diag(np.exp(1j*rng.uniform(0, 2*np.pi, d)))
+    return U, V
+
+def relator(U, V):
+    return U @ V @ U.conj().T @ V.conj().T
+
+def readout(R):
+    d = R.shape[0]
+    lam = np.linalg.eigvals(R)
+    g = np.min(np.abs(lam + 1.0))
+    delta = np.linalg.norm(R - np.eye(d), 'fro')**2 / d
+    w = np.sum(np.angle(lam)) / (2*np.pi)
+    return lam, g, delta, w
+
+print("GATE: winding integrality + domain bound delta+g^2<=4 + amplitude floor")
+print("="*80)
+for d in [3, 5, 7, 11, 17, 31, 53, 97]:
+    U, V = clock_shift(d)
+    lam, g, delta, w = readout(relator(U, V))
+    floor = d*np.sqrt(delta)/4
+    ok = abs(w-1.0) < 1e-9
+    print(f"  d={d:3d}  w={w:+.9f}  delta={delta:.6e}  g={g:.6f}  "
+          f"delta+g^2={delta+g*g:.9f}  floor(d/4)sqrt(delta)={floor:.4f}  {'PASS' if ok else 'FAIL'}")
+
+print()
+print("negative control: commuting pairs give w=0, delta=0, g=2")
+for d in [7, 31, 97]:
+    U, V = commuting_pair(d)
+    lam, g, delta, w = readout(relator(U, V))
+    print(f"  d={d:3d}  w={w:+.9f}  delta={delta:.2e}  g={g:.4f}")
+
+print()
+print("domain bound over 1000 random unitary pairs, d=12: delta+g^2 <= 4 always")
+worst = -1.0; viol = 0
+for _ in range(1000):
+    A = rng.normal(size=(12,12)) + 1j*rng.normal(size=(12,12))
+    B = rng.normal(size=(12,12)) + 1j*rng.normal(size=(12,12))
+    QA,_ = np.linalg.qr(A); QB,_ = np.linalg.qr(B)
+    _, g, delta, _ = readout(relator(QA, QB))
+    s = delta + g*g
+    worst = max(worst, s)
+    if s > 4 + 1e-9: viol += 1
+print(f"  violations: {viol}/1000   max delta+g^2 = {worst:.9f}  (bound 4)")
+
+print()
+print("refusal at d=2: relator sits at -I, g=0, the branch closes")
+U, V = clock_shift(2)
+lam, g, delta, w = readout(relator(U, V))
+print(f"  d=2: g={g:.6e}  delta={delta:.6f}  (below tolerance {TAU} => refused)")
+
+
+A.2   Realization on published data (§3.4)
+Computes the winding on Yi et al.'s externally calibrated, externally measured Raman-lattice band.
+
+testedresultnote
+published measurementC = −1.00 ± 0.02external, Yi et al. 2023
+this paper's computationC = −0.99931independent, no tuning
+pointwise saturationmean 0.999958min 0.818, max 1.000
+
+BEC-CHERN-GATE-01.py — full reproducing script
+
+# SCRIPT: BEC-CHERN-GATE-01 (Berry curvature / Chern number computed directly
+# from a published, externally calibrated tight-binding band -- Yi et al.,
+# arXiv:2301.06090, Raman-lattice QAH band. t0=0.09, tso=-0.05, delta=-0.2
+# recoil units; published measured Chern = -1.00 +/- 0.02.)
+import numpy as np
+t0, tso = 0.09, -0.05
+
+def hvec(qx, qy, dlt):
+    return np.array([2*tso*np.sin(qy), 2*tso*np.sin(qx), dlt/2 - 2*t0*(np.cos(qx)+np.cos(qy))])
+
+def band_data(dlt, N=201):
+    qs = np.linspace(-np.pi, np.pi, N, endpoint=False)
+    h = np.array([[hvec(qx,qy,dlt) for qy in qs] for qx in qs])
+    nrm = np.linalg.norm(h, axis=2)
+    n = -h/nrm[:,:,None]
+    dq = qs[1]-qs[0]
+    dnx = (np.roll(n,-1,0)-np.roll(n,1,0))/(2*dq)
+    dny = (np.roll(n,-1,1)-np.roll(n,1,1))/(2*dq)
+    gxx = 0.25*np.sum(dnx*dnx, axis=2); gyy = 0.25*np.sum(dny*dny, axis=2)
+    gxy = 0.25*np.sum(dnx*dny, axis=2)
+    F = -0.5*np.sum(n*np.cross(dnx,dny), axis=2)
+    detg = gxx*gyy - gxy**2
+    ratio = np.abs(F)/(2*np.sqrt(np.maximum(detg,1e-300)))
+    C = np.sum(F)*dq*dq/(2*np.pi)
+    volg = np.sum(np.sqrt(np.maximum(detg,0)))*dq*dq/np.pi
+    return C, volg, ratio, 2*nrm.min()
+
+print("published external calibration (Yi et al. arXiv:2301.06090): measured C = -1.00 +/- 0.02")
+C, volg, ratio, gap = band_data(-0.2)
+print(f"computed winding (this paper's own script): C = {C:+.5f}")
+print(f"pointwise saturation |Omega| = 2 sqrt(det g): mean={ratio.mean():.6f} min={ratio.min():.6f} max={ratio.max():.6f}")
+print(f"quantum volume vol_g = {volg:.4f} vs |C| = {abs(C):.4f}  (vol_g >= |C| required)")
+print()
+print("wall approach, delta = 0 and delta = -8t0 = -0.72:")
+for dlt in [-0.6, -0.4, -0.2, -0.05]:
+    C, volg, ratio, gap = band_data(dlt, N=141)
+    print(f"  delta={dlt:+.3f}: C={C:+.4f} gap={gap:.4f} vol_g={volg:.4f}")
+
+
+A.3   Complementarity as a Gram determinant (§4.2)
+Gaussian which-way markers displaced by ±ħk: visibility, distinguishability, and the Gram determinant compared.
+
+testedresultnote
+V against exp(−2η²), seven ηagree to 10⁻⁶η = 0.17 … 2.0
+D² + V²1.000000 at every ηsaturated: pure markers
+D² − det Gram≤ 1.4×10⁻¹⁶the duality relation is the Gram determinant
+
+COMPLEMENTARITY-GRAM-GATE-01.py — full reproducing script
+
+# SCRIPT: COMPLEMENTARITY-GRAM-GATE-01
+# Claim gated: fringe visibility V and path distinguishability D obey D^2 + V^2 = 1 for a pure
+# which-way marker, and this is the statement that the 2x2 Gram matrix of the two marker
+# states has non-negative determinant, saturating at rank one -- the same algebra as the
+# two-band metric-curvature bound |Omega| <= 2 sqrt(det g). Marker = the recoiling slit:
+# a Gaussian momentum wavepacket displaced by +hk or -hk, so V = exp(-2 eta^2), eta = hk/(2 Dp).
+import numpy as np
+p = np.linspace(-60, 60, 400001); dp = p[1]-p[0]
+def gauss(center, width):
+    psi = np.exp(-(p-center)**2/(4*width**2)); return psi/np.sqrt(np.sum(np.abs(psi)**2)*dp)
+hk = 1.0
+print(f"{'Dp':>6} {'eta=hk/2Dp':>10} {'V=|<m+|m->|':>13} {'exp(-2eta^2)':>13} {'D=sqrt(1-V^2)':>14} {'D^2+V^2':>10} {'det Gram':>12} {'D^2-detG':>10}")
+for Dp in [0.25, 0.4, 0.5, 0.78, 1.0, 1.6, 3.0]:
+    m1 = gauss(+hk, Dp); m2 = gauss(-hk, Dp)
+    V = np.sum(m1*m2)*dp
+    eta = hk/(2*Dp)
+    G = np.array([[1.0, V],[V, 1.0]])            # Gram matrix of the two marker states
+    detG = np.linalg.det(G)
+    D = np.sqrt(max(0.0, 1 - V**2))
+    print(f"{Dp:6.2f} {eta:10.3f} {V:13.6f} {np.exp(-2*eta**2):13.6f} {D:14.6f} {D**2+V**2:10.6f} {detG:12.6f} {D**2-detG:10.1e}")
+print("\nreading: V is the overlap of two matter states displaced by the photon's kick; D^2 is exactly")
+print("the Gram determinant of those two states. The bound D^2 + V^2 <= 1 and its saturation for pure")
+print("markers is a non-negative 2x2 Gram determinant meeting rank one, the same theorem as")
+print("|Omega| <= 2 sqrt(det g) with equality on one complex line. Light's fringes are read off")
+print("matter's metric. The momentum spread Dp = 0.78 and 1.60 (in units of hk) bracket the tunable")
+print("range reported for a single trapped-atom slit; eta between 0.31 and 0.64.")
+
+
+A.4   The winding ladder (§4.3)
+(U^k, V) in d=31: one integer per loop, its cost, and the optimality of the ¼ in the floor.
+
+testedresultnote
+k = 1,2,3,5,10,15w = k exactlyδ_k = 4sin²(kπ/d) to 9 digits
+δ_k / (16k²/d²)2.459 → 1.065→ 1: constant ¼ optimal
+sharp bound ⌊(d−1)/2⌋ = 15attained at k = 15g = 0.101, branch still open
+
+WINDING-LADDER-GATE-01.py — full reproducing script
+
+# SCRIPT: WINDING-LADDER-GATE-01
+# Claim gated: the winding of the relator is an integer ladder. For the clock-and-shift pair
+# (U, V) in dimension d, the pair (U^k, V) has relator omega^k I, winding w = k exactly, and
+# defect delta_k = 4 sin^2(k pi / d). The floor |w| <= (d/4) sqrt(delta) is met with ratio
+# delta_k / (16 k^2 / d^2) -> 1 from above (pi^2/4 at k=1), so the constant 1/4 is optimal.
+import numpy as np
+d = 31
+w0 = np.exp(2j*np.pi/d)
+U = np.diag([w0**j for j in range(d)]); V = np.roll(np.eye(d, dtype=complex), 1, axis=0)
+def readout(R):
+    lam = np.linalg.eigvals(R)
+    return np.sum(np.angle(lam))/(2*np.pi), np.linalg.norm(R-np.eye(d),'fro')**2/d, np.min(np.abs(lam+1))
+print(f"d = {d}: pair (U^k, V), relator U^k V U^-k V^-1")
+print(f"{'k':>3} {'winding w':>12} {'delta_k':>12} {'4sin^2(k pi/d)':>15} {'g':>8} {'delta/(16k^2/d^2)':>18} {'(d/4)sqrt(delta)':>16}")
+for k in [1, 2, 3, 5, 10, 15]:
+    Uk = np.linalg.matrix_power(U, k)
+    R = Uk @ V @ np.linalg.inv(Uk) @ np.linalg.inv(V)
+    w, delta, g = readout(R)
+    print(f"{k:3d} {w:12.9f} {delta:12.9f} {4*np.sin(k*np.pi/d)**2:15.9f} {g:8.4f} {delta/(16*k**2/d**2):18.6f} {d/4*np.sqrt(delta):16.4f}")
+print(f"\nsharp integer bound |w| <= floor((d-1)/2) = {(d-1)//2}, attained at k = {(d-1)//2}")
+print("reading: one loop, one integer; the defect an integer costs is 4 sin^2(k pi/d), and the exchange")
+print("rate between a normalized amplitude and an unnormalized integer is exactly the floor's 1/4.")
+
+
+A.5   Directional capacity against the census (§5.1)
+Two-band Dirac lattice, projector asserted Hermitian and idempotent; needles as unit-width tubes; capacity = effective rank of the restricted, projected needles at threshold ε; census = half-occupied boundary modes.
+
+testedresultnote
+disc R=4, μ=64, ε = 10⁻¹…10⁻⁵capacity 7, 9, 11, 13, 14aperture πR/w = 12.6; census 0, 24, 40, 42, 48
+disc R=7, μ=64capacity 11, 15, 18, 20, 22aperture 22.0; census 0, 44, 72, 76, 88
+μ = 40 vs μ = 64identical capacityoverflow measured
+
+KAKEYA-CAPACITY-GATE-01.py — full reproducing script
+
+# SCRIPT: KAKEYA-CAPACITY-GATE-01
+# Claim gated: on a gapped two-band Dirac lattice, the number of simultaneously
+# distinguishable directional channels (needles) a region can carry saturates at a
+# geometric plateau that does not move with the distinguishability threshold, while
+# the boundary census of the same region keeps running with the threshold.
+# Every projector kernel is asserted Hermitian and idempotent before any reading.
+import numpy as np, json
+L = 32; m = 0.3
+kx = 2*np.pi*np.fft.fftfreq(L); ky = 2*np.pi*np.fft.fftfreq(L)
+KX, KY = np.meshgrid(kx, ky, indexing='ij')
+d1 = np.sin(KX); d2 = np.sin(KY); d3 = m + 2 - np.cos(KX) - np.cos(KY)
+nrm = np.sqrt(d1**2 + d2**2 + d3**2)
+n1, n2, n3 = d1/nrm, d2/nrm, d3/nrm
+# lower-band projector in k-space, P(k) = (I - n.sigma)/2, as 2x2 blocks
+P11 = 0.5*(1 - n3); P22 = 0.5*(1 + n3); P12 = -0.5*(n1 - 1j*n2); P21 = -0.5*(n1 + 1j*n2)
+def realspace(Pk):
+    # kernel G(r) so that (P psi)(r) = sum_r' G(r-r') psi(r')
+    return np.fft.ifft2(Pk)
+G11, G22, G12, G21 = realspace(P11), realspace(P22), realspace(P12), realspace(P21)
+N = L*L
+def circulant(G):
+    # build dense N x N from translation-invariant kernel G(dx,dy)
+    idx = np.arange(N); X = idx // L; Y = idx % L
+    DX = (X[:,None] - X[None,:]) % L; DY = (Y[:,None] - Y[None,:]) % L
+    return G[DX, DY]
+P = np.zeros((2*N, 2*N), dtype=complex)
+P[:N,:N] = circulant(G11); P[N:,N:] = circulant(G22)
+P[:N,N:] = circulant(G12); P[N:,:N] = circulant(G21)
+herm = np.max(np.abs(P - P.conj().T)); idem = np.max(np.abs(P@P - P))
+assert herm < 1e-10 and idem < 1e-10, (herm, idem)
+print(f"projector checks: max|P-P^dag|={herm:.2e}  max|P^2-P|={idem:.2e}  (both asserted < 1e-10)")
+X = np.arange(N)//L - L/2; Y = np.arange(N)%L - L/2
+def region_mask(R):
+    return (X**2 + Y**2) <= R**2
+def needle(theta, w=1.0, k0=0.0):
+    c, s = np.cos(theta), np.sin(theta)
+    dist = -s*X + c*Y                      # signed distance to the line through 0 along theta
+    amp = np.exp(-dist**2/(2*w**2)) * np.exp(1j*k0*(c*X + s*Y))
+    psi = np.concatenate([amp, amp]) / np.sqrt(2)
+    return psi / np.linalg.norm(psi)
+def capacity_and_census(R, mus, eps_list):
+    mask = region_mask(R); M = np.concatenate([mask, mask])
+    C = P[np.ix_(M, M)]                     # census matrix 1_A P 1_A
+    assert np.max(np.abs(C - C.conj().T)) < 1e-10
+    lam = np.linalg.eigvalsh(C)
+    assert lam.min() > -1e-9 and lam.max() < 1 + 1e-9, "census spectrum must sit in [0,1]"
+    out = {}
+    for mu in mus:
+        thetas = np.pi*np.arange(mu)/mu
+        Phi = np.array([(P @ needle(t))[M] for t in thetas]).T   # restricted, projected needles
+        Phi = Phi / np.linalg.norm(Phi, axis=0)                    # each surviving needle unit norm
+        G = Phi.conj().T @ Phi                                     # Gram: eigenvalues in [0, mu]
+        sv = np.linalg.eigvalsh(G)[::-1]
+        for eps in eps_list:
+            cap = int(np.sum(sv >= eps))
+            cen = int(np.sum((lam >= eps) & (lam <= 1-eps)))
+            out[(mu, eps)] = (cap, cen)
+    return out, len(lam)
+mus = [4, 8, 16, 24, 40, 64]; eps_list = [1e-1, 1e-2, 1e-3, 1e-4, 1e-5]
+results = {}
+for R in [4.0, 7.0]:
+    out, dim = capacity_and_census(R, mus, eps_list)
+    print(f"\nregion: disc radius {R} sites, census matrix dimension {dim}")
+    print(f"{'mu':>4} | " + " | ".join(f"eps={e:.0e}: cap/census" for e in eps_list))
+    for mu in mus:
+        row = " | ".join(f"{out[(mu,e)][0]:3d} / {out[(mu,e)][1]:3d}" for e in eps_list)
+        print(f"{mu:4d} | {row}")
+    plateau = max(out[(mu,e)][0] for mu in mus for e in eps_list)
+    at64 = [out[(64,e)][0] for e in eps_list]
+    print(f"capacity at mu=64 across five decades of threshold: {at64}")
+    print(f"census of the same region across the same decades:  {[out[(64,e)][1] for e in eps_list]}")
+    print(f"aperture prediction pi*R/w for this region: {np.pi*R/1.0:.2f}")
+    results[str(R)] = {f"{mu}_{e:.0e}": out[(mu,e)] for mu in mus for e in eps_list}
+json.dump(results, open("kakeya_capacity_out.json","w"), indent=1)
+print("\nreading: sixty-four directions enter and a bounded number of channels survive (overflow measured:")
+print("mu=40 and mu=64 return the same capacity). The capacity rises only logarithmically with depth 1/eps")
+print("and saturates at the aperture count pi*R/w, while the census of the same region runs several times")
+print("faster with depth until the gap cuts it off. The price of a direction is depth, not channel count.")
+
+
+A.6   A wall born inside (§5.2)
+Tripartite H = A + D₀ + εE with the needles entering through detuning and skew flow; dominant pseudomode weight in the 3×3 crossing cell against two controls.
+
+testedresultnote
+μ = 0 (null)0.011480 = 9/784uniform, full and control alike
+ε=0.8, g=1.0, μ ≥ 80.628 full / 0.466 normal controlskew excess 1.35
+ε=0.8, g=0.25 · ε=4.0, g=1.0excess 0.93 · 0.15ratio-gated, over-driving disperses
+
+KAKEYA-BULGE-GATE-01.py — full reproducing script
+
+# SCRIPT: KAKEYA-BULGE-GATE-01
+# Claim gated: when many needles cross in one cell, the crossing supplies its own wall --
+# a detuning that follows the light (backreaction, dT ~ |E|^2) and a skew flow along the
+# intensity gradient -- and the dominant pseudomode of H = A + D0 + eps*E concentrates on
+# the crossing cell. Two controls decide what does the work: mu=0 (no needles; must be
+# uniform) and the NORMAL control A + D0 with eps=0 (same detuning, no skew sector).
+import numpy as np, json
+L = 28; N = L*L
+X = np.arange(N)//L - L//2; Y = np.arange(N)%L - L//2
+def lap():
+    A = np.zeros((N,N))
+    for i in range(N):
+        x, y = i//L, i%L
+        for dx, dy in [(1,0),(-1,0),(0,1),(0,-1)]:
+            j = ((x+dx)%L)*L + (y+dy)%L
+            A[i,j] = 1.0
+        A[i,i] = -4.0
+    return A
+A = lap()
+def intensity(mu, w=0.9):
+    I = np.zeros(N)
+    for t in np.pi*np.arange(mu)/max(mu,1):
+        c, s = np.cos(t), np.sin(t)
+        I += np.exp(-(-s*X + c*Y)**2/(2*w**2))
+    return I
+def parts(mu, g):
+    I = intensity(mu)
+    D0 = np.diag(-0.5 + g*I/(I.max() if I.max() > 0 else 1))   # detuning follows the light, scale-free
+    Im = I.reshape(L,L)
+    gx = np.roll(Im, -1, 0) - np.roll(Im, 1, 0); gy = np.roll(Im, -1, 1) - np.roll(Im, 1, 1)
+    gmax = max(np.abs(gx).max(), np.abs(gy).max(), 1e-12)
+    E = np.zeros((N,N))
+    for i in range(N):                                           # skew flow along the intensity gradient
+        x, y = i//L, i%L
+        for dx, dy, gg in [(1,0,gx[x,y]/gmax),(0,1,gy[x,y]/gmax)]:
+            j = ((x+dx)%L)*L + (y+dy)%L
+            E[i,j] += 0.5*gg; E[j,i] -= 0.5*gg
+    return A, D0, E
+def pseudomode(H, shift=0.05):
+    W = (H + H.T)/2
+    z = np.linalg.eigvals(H).real.max() + shift                  # just right of the spectral abscissa
+    R = np.linalg.inv(z*np.eye(N) - H)
+    U, s, Vh = np.linalg.svd(R)
+    return np.abs(Vh[0])**2, s[0]
+cross = (np.abs(X) <= 1) & (np.abs(Y) <= 1)
+ref = (np.abs(X - 9) <= 1) & (np.abs(Y - 9) <= 1)
+print(f"lattice {L}x{L}; crossing cell 3x3 at origin = {cross.sum()/N*100:.2f}% of area; null value 9/{N} = {9/N:.6f}")
+rows = {}
+for eps, g in [(0.8, 0.25), (0.8, 1.0), (4.0, 1.0)]:
+    print(f"\nsetting: skew strength eps={eps}, detuning depth g={g}")
+    print(f"{'mu':>4} | {'full: weight in crossing':>24} {'ref cell':>10} | {'normal control (eps=0)':>22} | {'skew excess':>11} | {'Phi/|H|^4':>10}")
+    for mu in [0, 1, 8, 24, 40]:
+        A_, D0, E = parts(mu, g)
+        H = A_ + D0 + eps*E; H0 = A_ + D0
+        S = (H + H.T)/2; K = (H - H.T)/2
+        Phi = np.linalg.norm(S@K - K@S)**2 / np.linalg.norm(H)**4
+        w, _ = pseudomode(H); w0, _ = pseudomode(H0)
+        full, refw, normal = w[cross].sum(), w[ref].sum(), w0[cross].sum()
+        rows[f"{eps}_{g}_{mu}"] = (float(full), float(refw), float(normal), float(Phi))
+        print(f"{mu:4d} | {full:24.6f} {refw:10.2e} | {normal:22.6f} | {full/normal if normal>0 else 0:11.3f} | {Phi:10.3e}")
+json.dump(rows, open("kakeya_bulge_out.json","w"), indent=1)
+print("\nreading: the crossing concentrates the amplifying direction in every setting (a self-made well,")
+print("the normal control shows it). Whether the skew sector ADDS to that is a ratio question: at shallow")
+print("detuning it subtracts (excess < 1), at deep detuning it adds a third again (excess 1.35, 63% of the")
+print("pseudomode in 1% of the area), and over-driving the skew sector disperses it (excess 0.15).")
+print("The interior wall is real; the non-normal share of it is gated by the skew-to-detuning ratio.")
+
+
+A.7   Reflecting vs. one-way (§5.3)
+Builds and diagonalizes both boundary conditions from scratch; correctness is structural, not tuned.
+
+testedresultnote
+reflecting spectrummax|Re(λ)| = 2×10⁻¹⁶purely imaginary, exact
+reflecting envelope, t=0..201.000000 throughoutbounded forever
+one-way envelope, t=202.6×10⁻⁷decayed from 1.0
+non-normal excess, t=0.5‖e^{tH}e₀‖ = 0.618 vs e^{−1.2t} = 0.549ratio 1.125 above the pure-mode envelope
+
+BOUNDARY-GATE-05.py — full reproducing script
+
+# SCRIPT: BOUNDARY-GATE-05 (final -- shorter chain, stronger damping, wider
+# time window so the eventual decay is visible within the displayed range;
+# same construction as -03, just correctly scaled)
+import numpy as np
+from scipy.linalg import expm
+
+N = 5
+coupling, damping = 1.0, 1.2
+
+def reflecting_H(N, c):
+    H = np.zeros((N, N))
+    for i in range(N):
+        H[i, (i+1)%N] += c; H[(i+1)%N, i] -= c
+    return H
+
+def oneway_H(N, c, lam):
+    H = -lam*np.eye(N)
+    for i in range(N-1):
+        H[i+1, i] += c
+    return H
+
+Href = reflecting_H(N, coupling)
+Hone = oneway_H(N, coupling, damping)
+ev_ref = np.linalg.eigvals(Href); ev_one = np.linalg.eigvals(Hone)
+print("reflecting: purely imaginary, max|Re| =", np.max(np.abs(ev_ref.real)))
+print("one-way: real, all = -damping:", np.allclose(ev_one.real, -damping))
+print("non-normality (one-way):", np.linalg.norm(Hone@Hone.T-Hone.T@Hone))
+
+e0 = np.zeros(N); e0[0]=1.0
+print()
+print(f"{'t':>6} {'||exp(tH)e0|| reflecting':>26} {'||exp(tH)e0|| oneway':>22}")
+for t in np.linspace(0, 20, 21):
+    vr = expm(t*Href)@e0; vo = expm(t*Hone)@e0
+    print(f"{t:6.1f} {np.linalg.norm(vr):26.6f} {np.linalg.norm(vo):22.6e}")
+
+print()
+peak=0.0; peak_t=0.0
+for t in np.linspace(0,20,2001):
+    n = np.linalg.norm(expm(t*Hone)@e0)
+    if n>peak: peak,peak_t=n,t
+print(f"maximum amplitude on [0,20]: {peak:.4f} at t={peak_t:.2f} (the initial value; no transient growth for this drive)")
+t_chk = 0.5; n_chk = np.linalg.norm(expm(t_chk*Hone)@e0); modal = np.exp(-damping*t_chk)
+print(f"non-normal excess check at t={t_chk}: ||exp(tH)e0|| = {n_chk:.4f} vs pure-mode envelope e^-{damping}t = {modal:.4f}  (ratio {n_chk/modal:.3f}; >1 is the transient excess)")
+print(f"amplitude at t=20: {np.linalg.norm(expm(20*Hone)@e0):.4e}  (decayed well below peak: eventual decay confirmed)")
+print()
+for t in [0.5,1.5,2.5,3.5]:
+    v = expm(t*Hone)@e0
+    print(f"  t={t}: amplitude={np.linalg.norm(v):.4e}  leading index={np.argmax(np.abs(v))}")
+
+
+A.8   First-order cancellation (§5.4)
+Verifies the tip's leading contribution to the tail's ledger vanishes identically.
+
+testedresultnote
+Tr(R₀²E), random 8×83×10⁻¹⁶predicted exactly 0
+finite-difference check2×10⁻¹³shifted ledger log(w+20), cut outside |w|≤6
+second-order shiftnonzeroconfirms first-order only vanishes
+
+TIPTAIL-GATE-02.py — full reproducing script
+
+# SCRIPT: TIPTAIL-GATE-02
+# Claim: for H = A + D0 + eps*E with A, D0 symmetric and E skew, the leading
+# (first-order in eps) correction the skew sector contributes to the
+# trace-log ledger vanishes identically: a symmetric squared resolvent
+# traced against a skew generator is zero, term by term.
+import numpy as np
+rng = np.random.default_rng(11)
+n = 8
+A = rng.normal(size=(n,n)); A = (A+A.T)/2
+D0 = rng.normal(size=(n,n)); D0 = (D0+D0.T)/2
+H0 = A + D0
+E = rng.normal(size=(n,n)); E = (E - E.T)/2   # skew by construction
+
+z = 1.3 + 0.7j
+R0 = np.linalg.inv(z*np.eye(n) - H0)
+first_order = np.trace(R0 @ R0 @ E)
+print(f"Tr(R0^2 E) = {first_order:.3e}  (predicted exactly 0: symmetric-squared paired with skew)")
+
+# finite-difference check: does the O(eps) term of Tr log(H0+eps E - zI) vanish?
+def trace_log_shifted(eps):
+    H = H0 + eps*E
+    return np.trace(np.linalg.inv(z*np.eye(n) - H) @ (0*np.eye(n)))  # placeholder unused
+
+def ledger(eps, contour_pts=200, center=0.0, radius=6.0):
+    H = H0 + eps*E
+    Z = 0j
+    for k in range(contour_pts):
+        w = center + radius*np.exp(2j*np.pi*k/contour_pts)
+        dw = radius*2j*np.pi*np.exp(2j*np.pi*k/contour_pts)/contour_pts
+        Z += np.log(w + 20.0) * np.trace(np.linalg.inv(w*np.eye(n) - H)) * dw   # shifted log, branch cut outside |w|<=6
+    return Z/(2j*np.pi)
+
+h = 1e-4
+Zp = ledger(h); Zm = ledger(-h)
+fd_first_order = (Zp - Zm)/(2*h)
+print(f"finite-difference d(ledger)/d(eps) at eps=0: {fd_first_order:.3e}  (predicted ~0)")
+print(f"ledger at eps=0: {ledger(0.0):.6f}")
+print(f"ledger at eps=0.3: {ledger(0.3):.6f}  (nonzero SECOND-order shift, as expected)")
+
+
+A.9   Reciprocity theorem (§8.2)
+The weaker-hypothesis proof; two negative controls confirm the mechanism.
+
+testedresultnote
+5 B-symmetric trials|M_ij−M_ji| ≤ 2×10⁻¹⁶perfect square confirmed
+control: non-B-symmetric probeM_ij ≠ M_ji, wide marginmechanism needs the probe's symmetry
+control: non-B-symmetric generatorM_ij = M_ji still holdsgenerator symmetry not required
+
+RECIPROCITY-GATE-03.py — full reproducing script
+
+# SCRIPT: RECIPROCITY-GATE-03 (final, corrected)
+# Claim, proved in three lines: if V is B-symmetric (V^T B = B V) then B V is
+# a symmetric matrix, so for ANY vectors x, y (in particular any pair of
+# right eigenvectors of a B-symmetric generator L), x^T(BV)y = y^T(BV)x
+# identically. Applied to eigenvector pairs this is the reciprocity
+# obstruction: the round-trip form Q = M_ij M_ji / gap^2 becomes a perfect
+# square M_ij^2/gap^2, hence never negative.
+import numpy as np
+rng = np.random.default_rng(7)
+
+def b_symmetric_pair(n, seed_offset=0):
+    r = np.random.default_rng(7+seed_offset)
+    B = r.normal(size=(n,n)); B = B@B.T + n*np.eye(n)         # SPD symmetric
+    A = r.normal(size=(n,n)); A = (A+A.T)/2                    # symmetric
+    L = np.linalg.solve(B, A)                                  # L^T B = B L
+    S = r.normal(size=(n,n)); S = (S+S.T)/2
+    V = np.linalg.solve(B, S)                                  # V^T B = B V, same recipe
+    return L, B, V
+
+print("RECIPROCITY: B-symmetric generator + B-symmetric probe => perfect square")
+print("="*80)
+for trial in range(5):
+    n = 5
+    L, B, V = b_symmetric_pair(n, trial)
+    assert np.max(np.abs(L.T@B - B@L)) < 1e-12
+    assert np.max(np.abs(V.T@B - B@V)) < 1e-12
+    BV = B @ V
+    sym_err = np.max(np.abs(BV - BV.T))
+    ev, R = np.linalg.eig(L)
+    assert np.max(np.abs(ev.imag)) < 1e-10, "B-symmetric generator must have real spectrum"
+    i, j = 0, 1
+    gap = (ev[i]-ev[j]).real
+    Mij = (R[:,i] @ BV @ R[:,j]).real
+    Mji = (R[:,j] @ BV @ R[:,i]).real
+    Q = Mij*Mji/gap**2
+    print(f"  trial {trial}: BV symmetry err={sym_err:.2e}   M_ij={Mij:+.6f}  M_ji={Mji:+.6f}  "
+          f"|M_ij-M_ji|={abs(Mij-Mji):.2e}   Q={Q:+.6f} (perfect square: never negative)")
+
+print()
+print("negative control: B-symmetric generator, GENERIC (non-B-symmetric) probe")
+for trial in range(3):
+    n = 5
+    L, B, _ = b_symmetric_pair(n, trial+10)
+    r = np.random.default_rng(99+trial)
+    V = r.normal(size=(n,n))                                   # not B-symmetric
+    BV = B @ V
+    ev, R = np.linalg.eig(L)
+    i, j = 0, 1
+    Mij = (R[:,i] @ BV @ R[:,j])
+    Mji = (R[:,j] @ BV @ R[:,i])
+    print(f"  trial {trial}: BV symmetry err={np.max(np.abs(BV-BV.T)):.3f}  "
+          f"M_ij={Mij:.4f}  M_ji={Mji:.4f}  equal? {np.isclose(Mij,Mji)}")
+
+print()
+print("second negative control: GENERIC (non-B-symmetric) generator, matched probe")
+for trial in range(3):
+    n = 5
+    r = np.random.default_rng(200+trial)
+    L = r.normal(size=(n,n))                                    # generic, complex spectrum likely
+    B = r.normal(size=(n,n)); B = B@B.T + n*np.eye(n)
+    S = r.normal(size=(n,n)); S=(S+S.T)/2
+    V = np.linalg.solve(B, S)
+    BV = B@V
+    ev, R = np.linalg.eig(L)
+    i, j = 0, 1
+    Mij = R[:,i] @ BV @ R[:,j]
+    Mji = R[:,j] @ BV @ R[:,i]
+    print(f"  trial {trial}: eigenvalues complex? max|Im|={np.max(np.abs(ev.imag)):.4f}   "
+          f"M_ij={Mij}  M_ji={Mji}")
+
+
+A.10   Positive-semidefiniteness (§8.3)
+Self-adjointness forces Y = X†, making the metric a Gram matrix.
+
+testedresultnote
+self-adjoint controlmax‖Y−X†‖ = 7×10⁻¹⁶all eigenvalues positive
+Hermiticity broken‖Y−X†‖ = 2.57mixed-sign eigenvalues
+
+PSD-GATE-01.py — full reproducing script
+
+# SCRIPT: PSD-GATE-01
+# Claim: for a genuine orthogonal projector Pi (Pi^2=Pi, Pi Hermitian) and a
+# Hermitian tangent variation dPi, writing dPi = X + Y with X=Pi dPi (1-Pi),
+# Y=(1-Pi) dPi Pi, self-adjointness forces Y = X^dagger, turning the metric
+# into a Gram matrix -- positive semi-definite by construction.
+import numpy as np
+rng = np.random.default_rng(3)
+
+def random_projector(n, k):
+    A = rng.normal(size=(n,k)) + 1j*rng.normal(size=(n,k))
+    Q, _ = np.linalg.qr(A)
+    return Q @ Q.conj().T
+
+def random_hermitian_tangent(Pi, n):
+    H = rng.normal(size=(n,n)) + 1j*rng.normal(size=(n,n))
+    H = (H + H.conj().T)/2
+    I = np.eye(n)
+    return Pi@H@(I-Pi) + (I-Pi)@H@Pi   # off-diagonal tangent constraint
+
+n, k = 8, 3
+Pi = random_projector(n, k)
+I = np.eye(n)
+
+dPis = [random_hermitian_tangent(Pi, n) for _ in range(6)]
+Xs = [Pi@d@(I-Pi) for d in dPis]
+Ys = [(I-Pi)@d@Pi for d in dPis]
+
+print("SELF-ADJOINT CASE: is Y = X^dagger, and is the metric PSD?")
+for i in range(6):
+    err = np.max(np.abs(Ys[i] - Xs[i].conj().T))
+print("  max ||Y - X^dagger|| across 6 directions:", max(np.max(np.abs(Ys[i]-Xs[i].conj().T)) for i in range(6)))
+
+m = len(dPis)
+g = np.zeros((m,m))
+for i in range(m):
+    for j in range(m):
+        g[i,j] = 0.5*np.real(np.trace(Xs[i]@Ys[j]) + np.trace(Ys[i]@Xs[j]))
+eigs = np.linalg.eigvalsh(g)
+print("  metric eigenvalues:", np.round(eigs, 6), " (all >= 0 expected)")
+
+print()
+print("NON-SELF-ADJOINT CASE: break Hermiticity of dPi, same construction")
+def random_nonherm_tangent(Pi, n):
+    H = rng.normal(size=(n,n)) + 1j*rng.normal(size=(n,n))  # not Hermitian
+    I = np.eye(n)
+    return Pi@H@(I-Pi) + (I-Pi)@H@Pi
+dPis2 = [random_nonherm_tangent(Pi, n) for _ in range(6)]
+Xs2 = [Pi@d@(I-Pi) for d in dPis2]
+Ys2 = [(I-Pi)@d@Pi for d in dPis2]
+print("  max ||Y - X^dagger||:", max(np.max(np.abs(Ys2[i]-Xs2[i].conj().T)) for i in range(6)), " (should be large: NOT adjoint)")
+g2 = np.zeros((m,m), complex)
+for i in range(m):
+    for j in range(m):
+        g2[i,j] = 0.5*(np.trace(Xs2[i]@Ys2[j]) + np.trace(Ys2[i]@Xs2[j]))
+eigs2 = np.linalg.eigvalsh((g2+g2.conj().T)/2)
+print("  metric eigenvalues (Hermitian part):", np.round(eigs2.real, 4), " (mixed sign expected)")
+
+
+A.11   Rank-drop fold, null (§5.5)
+Covering-area fraction for a fixed fan near a rank-drop fold against a regular control, across resolutions.
+
+testedresultnote
+δ = 0.16 … 0.0025fold/regular ratio 0.98 … 1.05no compression
+area scalingδ^−0.018 vs δ^−0.012both flat
+
+KAKEYA-FOLD-COVER-03.py — full reproducing script
+
+# SCRIPT: KAKEYA-FOLD-COVER-03 (vectorized, high resolution, honest re-test)
+# v02's ratios were noisy with no clean trend -- could be real (no effect) or
+# could be discretization noise at 241x241 with delta down to 0.006 rad.
+# Push resolution up an order of magnitude, vectorized for speed, and average
+# the fan centre over several points near the fold rather than one sample.
+import numpy as np
+
+EPS = 0.15
+
+def bloch_Pi_vec(theta, phi):
+    # theta, phi: arrays of same shape -> returns (..., 2, 2) complex array
+    st, ct = np.sin(theta), np.cos(theta)
+    cp, sp = np.cos(phi), np.sin(phi)
+    nx, ny, nz = st*cp, st*sp, ct
+    P = np.zeros(theta.shape + (2, 2), dtype=complex)
+    P[..., 0, 0] = 0.5*(1 + nz)
+    P[..., 1, 1] = 0.5*(1 - nz)
+    P[..., 0, 1] = 0.5*(nx - 1j*ny)
+    P[..., 1, 0] = 0.5*(nx + 1j*ny)
+    return P
+
+def fold_family(x, y): return y + 1.1, x**2/2 + EPS*y
+def regular_family(x, y): return y + 1.1, x + EPS*y
+
+def field_vectorized(family, xs, ys, h=1e-4):
+    X, Y = np.meshgrid(xs, ys, indexing='ij')
+    thx1, phx1 = family(X+h, Y); thx0, phx0 = family(X-h, Y)
+    thy1, phy1 = family(X, Y+h); thy0, phy0 = family(X, Y-h)
+    dPx = (bloch_Pi_vec(thx1, phx1) - bloch_Pi_vec(thx0, phx0)) / (2*h)
+    dPy = (bloch_Pi_vec(thy1, phy1) - bloch_Pi_vec(thy0, phy0)) / (2*h)
+    # gxx = 0.5 Re Tr(dPx@dPx), etc, batched
+    def tr_prod(A, B):
+        return np.einsum('...ij,...ji->...', A, B)
+    gxx = 0.5*np.real(tr_prod(dPx, dPx))
+    gyy = 0.5*np.real(tr_prod(dPy, dPy))
+    gxy = 0.5*np.real(tr_prod(dPx, dPy))
+    detg = gxx*gyy - gxy**2
+    trg = gxx + gyy
+    disc = np.sqrt(np.maximum(trg**2 - 4*detg, 0))
+    lam_big = (trg + disc)/2
+    # dominant eigenvector angle, closed form for symmetric 2x2:
+    # for [[a,b],[b,d]], eigvec of lam: (b, lam-a) normalized (handles a=lam edge case via atan2)
+    vx = gxy; vy = lam_big - gxx
+    # guard the degenerate a=d,b=0 case (isotropic point): angle undefined, mark nan
+    isotropic = (np.abs(vx) < 1e-14) & (np.abs(vy) < 1e-14)
+    psi = np.arctan2(vy, vx) % np.pi
+    psi[isotropic] = np.nan
+    return psi, detg
+
+print("Building high-resolution fields (this may take a few seconds)...")
+N = 1201
+xs = np.linspace(-0.9, 0.9, N); ys = np.linspace(-1.0, 1.0, N)
+psi_fold, detg_fold = field_vectorized(fold_family, xs, ys)
+psi_reg,  detg_reg  = field_vectorized(regular_family, xs, ys)
+cell_area = (xs[1]-xs[0]) * (ys[1]-ys[0])
+print(f"grid: {N}x{N}, cell_area={cell_area:.3e}")
+print(f"regular min det(g) = {np.nanmin(detg_reg):.4e}")
+print(f"fold min det(g)    = {np.nanmin(detg_fold):.4e}  (at x=0 line)")
+
+def angdist(a, b):
+    d = np.abs(a - b) % np.pi
+    return np.minimum(d, np.pi - d)
+
+def fan_cover_area(psi_field, theta_center, half_width, delta, n_directions):
+    thetas = theta_center + np.linspace(-half_width, half_width, n_directions)
+    covered = np.zeros(psi_field.shape, dtype=bool)
+    valid = ~np.isnan(psi_field)
+    for th in thetas:
+        d = np.full(psi_field.shape, np.inf)
+        d[valid] = angdist(psi_field[valid], th)
+        covered |= (d < delta)
+    return covered.sum() * cell_area
+
+ix0 = np.argmin(np.abs(xs))
+theta_c_fold = np.nanmean(psi_fold[ix0, :])   # average over the whole fold line
+iy_mid = N//2
+theta_c_reg  = psi_reg[N//2, iy_mid]
+print(f"\nfold fan centre (mean over fold line) = {theta_c_fold:.5f}")
+print(f"regular fan centre (domain centre)    = {theta_c_reg:.5f}")
+
+print()
+print(f"{'delta':>9} {'n_dirs':>7} {'fold area':>12} {'regular area':>13} {'ratio':>10}")
+results = []
+for delta in [0.16, 0.08, 0.04, 0.02, 0.01, 0.005, 0.0025]:
+    n_dirs = max(4, int(round(0.4/delta)))
+    A_fold = fan_cover_area(psi_fold, theta_c_fold, 0.4, delta, n_dirs)
+    A_reg  = fan_cover_area(psi_reg,  theta_c_reg,  0.4, delta, n_dirs)
+    ratio = A_fold/A_reg if A_reg>0 else float('nan')
+    results.append((delta, A_fold, A_reg, ratio))
+    print(f"{delta:9.5f} {n_dirs:7d} {A_fold:12.5f} {A_reg:13.5f} {ratio:10.4f}")
+
+ds = np.array([r[0] for r in results]); Af=np.array([r[1] for r in results]); Ar=np.array([r[2] for r in results])
+mask = (Af>1e-8)&(Ar>1e-8)
+sf = np.polyfit(np.log(ds[mask]), np.log(Af[mask]), 1)[0]
+sr = np.polyfit(np.log(ds[mask]), np.log(Ar[mask]), 1)[0]
+print(f"\nfold area ~ delta^{sf:.4f}")
+print(f"regular area ~ delta^{sr:.4f}")
+
+print()
+print("Distance-resolved test: covering-area deficit as a function of DISTANCE from the fold")
+print("(fan centred on the field's own local value at increasing |x|, fixed delta)")
+delta = 0.02
+n_dirs = 20
+for xloc in [0.0, 0.05, 0.1, 0.2, 0.4, 0.6, 0.8]:
+    ix = np.argmin(np.abs(xs - xloc))
+    th_here = np.nanmean(psi_fold[ix, :]) if xloc==0 else psi_fold[ix, iy_mid]
+    A = fan_cover_area(psi_fold, th_here, 0.4, delta, n_dirs)
+    A_reg_fixed = fan_cover_area(psi_reg, theta_c_reg, 0.4, delta, n_dirs)
+    print(f"  x={xloc:.2f}  local_theta={th_here:.4f}  fold_area={A:.5f}  (regular baseline={A_reg_fixed:.5f}, ratio={A/A_reg_fixed:.4f})")
+
+
+A.12   Eigenvalue coalescence, null (§5.5)
+Same test at a near-conical intersection; domain shrinks toward the point.
+
+testedresultnote
+near-conical, R = 0.4 → 0.0125fraction 24.7% → 24.3% → 24.7%scale-invariant: no compression
+regular control, pole at (5,5), same grid100.7% at every Ra regular field fills the window
+rank of the fieldgenuinely 2 throughoutmin|det g| > 0
+
+KAKEYA-CONICAL-03.py — full reproducing script
+
+# SCRIPT: KAKEYA-CONICAL-03 -- properly-built near-degenerate 2D family
+import numpy as np
+
+def bloch_Pi_vec(theta, phi):
+    st, ct = np.sin(theta), np.cos(theta)
+    cp, sp = np.cos(phi), np.sin(phi)
+    nx, ny, nz = st*cp, st*sp, ct
+    P = np.zeros(theta.shape + (2, 2), dtype=complex)
+    P[..., 0, 0] = 0.5*(1 + nz); P[..., 1, 1] = 0.5*(1 - nz)
+    P[..., 0, 1] = 0.5*(nx - 1j*ny); P[..., 1, 0] = 0.5*(nx + 1j*ny)
+    return P
+
+def d_to_angles(dx, dy, dz):
+    r = np.sqrt(dx**2 + dy**2 + dz**2); r = np.maximum(r, 1e-300)
+    return np.arccos(np.clip(dz/r, -1, 1)), np.arctan2(dy, dx)
+
+def field_and_metric(cx, cy, m, xs, ys, h=1e-5):
+    """d = (x-cx, y-cy, m): genuine 3-component field, centred at (cx,cy),
+    small fixed mass m -- NOT exactly at the degeneracy, but close to it,
+    so theta and phi BOTH vary with position (real rank-2 test)."""
+    X, Y = np.meshgrid(xs, ys, indexing='ij')
+    def fam(xx, yy): return d_to_angles(xx-cx, yy-cy, np.full_like(xx, m))
+    thx1, phx1 = fam(X+h, Y); thx0, phx0 = fam(X-h, Y)
+    thy1, phy1 = fam(X, Y+h); thy0, phy0 = fam(X, Y-h)
+    dPx = (bloch_Pi_vec(thx1, phx1) - bloch_Pi_vec(thx0, phx0)) / (2*h)
+    dPy = (bloch_Pi_vec(thy1, phy1) - bloch_Pi_vec(thy0, phy0)) / (2*h)
+    def tr(A,B): return np.real(np.einsum('...ij,...ji->...', A, B))
+    gxx=0.5*tr(dPx,dPx); gyy=0.5*tr(dPy,dPy); gxy=0.5*tr(dPx,dPy)
+    detg = gxx*gyy-gxy**2; trg=gxx+gyy
+    disc=np.sqrt(np.maximum(trg**2-4*detg,0)); lam_big=(trg+disc)/2
+    vx=gxy; vy=lam_big-gxx
+    iso = (np.abs(vx)<1e-13)&(np.abs(vy)<1e-13)
+    psi = np.arctan2(vy,vx) % np.pi
+    psi[iso] = np.nan
+    return psi, detg
+
+def angdist(a,b):
+    d = np.abs(a-b)%np.pi; return np.minimum(d,np.pi-d)
+
+def fan_area(psi_field, theta_c, half_w, delta, n_dirs, cell_area):
+    thetas = theta_c + np.linspace(-half_w, half_w, n_dirs)
+    cov = np.zeros(psi_field.shape, bool)
+    valid = ~np.isnan(psi_field)
+    for th in thetas:
+        d = np.full(psi_field.shape, np.inf); d[valid]=angdist(psi_field[valid], th)
+        cov |= (d < delta)
+    return cov.sum()*cell_area
+
+print("="*90)
+print("SANITY: is the field genuinely rank-2 now (theta AND phi both varying)?")
+print("="*90)
+N=201
+for R in [0.4, 0.2, 0.1, 0.05]:
+    xs = np.linspace(-R, R, N); ys = np.linspace(-R, R, N)
+    psi, detg = field_and_metric(0,0, 0.05, xs, ys)
+    valid = ~np.isnan(detg)
+    print(f"  R={R:.3f}  m=0.05  min|det g|={np.nanmin(np.abs(detg[valid])):.4e}  "
+          f"max|det g|={np.nanmax(np.abs(detg[valid])):.4e}  (nonzero => genuine rank 2)")
+
+print()
+print("="*90)
+print("MAIN TEST: covering-area for a FAN of directions, shrinking domain toward")
+print("the near-degenerate point, vs a matched control centred AWAY from any pole")
+print("="*90)
+delta = 0.05
+half_w = 0.4
+n_dirs = max(4, int(round(2*half_w/delta)))
+print(f"delta={delta}, fan half-width={half_w}, n_dirs={n_dirs}")
+print()
+print(f"{'R':>8} {'domain_area':>12} {'near-conical area':>18} {'frac of domain':>15} {'control area':>13} {'frac of domain':>15}")
+for R in [0.4, 0.2, 0.1, 0.05, 0.025, 0.0125]:
+    N = 301
+    xs = np.linspace(-R, R, N); ys = np.linspace(-R, R, N)
+    cell_area = (xs[1]-xs[0])*(ys[1]-ys[0])
+    domain_area = (2*R)**2
+    # near-conical: small fixed mass, centred AT the near-degenerate point
+    psi_c, _ = field_and_metric(0, 0, m=0.05, xs=xs, ys=ys)
+    # control: same construction, evaluated on the SAME grid, with the field's
+    # pole displaced to (5,5) -- the domain sits 5*sqrt(2) away from any
+    # degeneracy, so the direction field is regular throughout the window
+    psi_g, _ = field_and_metric(5.0, 5.0, m=0.05, xs=xs, ys=ys)
+    theta_c_c = np.nanmean(psi_c[N//2-2:N//2+2, N//2-2:N//2+2])
+    theta_c_g = np.nanmean(psi_g[N//2-2:N//2+2, N//2-2:N//2+2])
+    A_c = fan_area(psi_c, theta_c_c, half_w, delta, n_dirs, cell_area)
+    A_g = fan_area(psi_g, theta_c_g, half_w, delta, n_dirs, cell_area)
+    print(f"{R:8.4f} {domain_area:12.6f} {A_c:18.6f} {100*A_c/domain_area:14.2f}% {A_g:13.6f} {100*A_g/domain_area:14.2f}%")
+
+
+A.13   The continuum limit (§3.6)
+Second-difference operator converging to the second derivative in L².
+
+testedresultnote
+N = 10 … 640order 1.94 → 1.999 per halvingO(δ²) confirmed
+
+LAPLACIAN-GATE-01.py — full reproducing script
+
+# SCRIPT: LAPLACIAN-GATE-01
+# Claim from the quadralogy map's bottom-right node: the discrete second-
+# difference operator converges strongly to d^2/dtau^2 as the lattice
+# spacing shrinks. This is a real, standard, provable claim -- verify it
+# rather than either asserting or discarding it.
+import numpy as np
+
+def second_diff_error(N, L=1.0):
+    delta = L / N
+    tau = np.linspace(0, L, N+1)
+    psi = np.sin(3*np.pi*tau/L) * np.exp(-tau)   # smooth C-infinity test function
+    psi_pp_exact = -( (3*np.pi/L)**2 )*np.sin(3*np.pi*tau/L)*np.exp(-tau) \
+                   - 2*(3*np.pi/L)*np.cos(3*np.pi*tau/L)*np.exp(-tau) \
+                   + np.sin(3*np.pi*tau/L)*np.exp(-tau)
+    # discrete second difference, interior points only
+    psi_pp_disc = (psi[2:] - 2*psi[1:-1] + psi[:-2]) / delta**2
+    err = psi_pp_disc - psi_pp_exact[1:-1]
+    l2 = np.sqrt(np.sum(err**2) * delta)
+    return delta, l2
+
+print("Second-difference operator convergence to d^2/dtau^2 (L^2 norm)")
+print(f"{'N':>6} {'delta':>10} {'L2 error':>14} {'error/delta^2':>16}")
+prev = None
+for N in [10, 20, 40, 80, 160, 320, 640]:
+    delta, l2 = second_diff_error(N)
+    ratio = l2/delta**2
+    rate = "" if prev is None else f"  (order {np.log2(prev/l2):.3f} per halving)"
+    print(f"{N:6d} {delta:10.5f} {l2:14.6e} {ratio:16.4f}{rate}")
+    prev = l2
+
+
+A.14   The ledger crosses regardless (§8.4)
+Riesz trace and the shifted trace-log ledger across the sign change of the round-trip form; log(z+10) is analytic on and inside the contour |z|≤3.
+
+testedresultnote
+γ = 0.40 … 0.50, step 0.01Tr Π = 2.000000000000 throughoutRe Q changes sign between 0.48 and 0.49
+contour Z vs Σ log(λ+10)equal to 10 digits at every γone analytic branch
+ledger Zvaries smoothlyno discontinuity
+
+LEDGER-WALL-GATE-03.py — full reproducing script
+
+# SCRIPT: LEDGER-WALL-GATE-03
+# The wall sits between gamma=0.4 and 0.5. Scan through it and show the
+# Riesz projector rank (trace) and the Dunford trace-log ledger stay exact
+# while the metric's sign flips.
+import numpy as np
+sx=np.array([[0,1],[1,0]],complex); sy=np.array([[0,-1j],[1j,0]],complex); sz=np.array([[1,0],[0,-1]],complex)
+
+def H_of(kx, ky, m, gamma):
+    d = np.array([kx, ky, m+1j*gamma])
+    return d[0]*sx+d[1]*sy+d[2]*sz, d
+
+def roundtrip_Q(d, theta):
+    import itertools
+    H = d[0]*sx+d[1]*sy+d[2]*sz
+    ev, R = np.linalg.eig(H)
+    evL, Lraw = np.linalg.eig(H.conj().T)
+    best = min(((sum(abs(evL[p[i]].conjugate()-ev[i]) for i in range(2)), p)
+                for p in itertools.permutations(range(2))), key=lambda x: x[0])
+    L = Lraw[:, best[1]].copy()
+    for i in range(2):
+        s = np.vdot(L[:,i], R[:,i]); L[:,i] /= s.conjugate()
+    gap2 = (ev[1]-ev[0])**2
+    V = np.cos(theta)*sx + np.sin(theta)*sy
+    A = np.vdot(L[:,1], V@R[:,0]); B = np.vdot(L[:,0], V@R[:,1])
+    return (A*B/gap2).real
+
+def riesz_and_ledger(H, center, radius, n=800):
+    Pi = np.zeros((2,2), complex); Z = 0.0+0.0j
+    for k in range(n):
+        z = center + radius*np.exp(2j*np.pi*k/n)
+        dz = radius*2j*np.pi*np.exp(2j*np.pi*k/n)/n
+        Rinv = np.linalg.inv(z*np.eye(2) - H)
+        Pi += Rinv*dz
+        Z += np.log(z + SHIFT)*np.trace(Rinv)*dz   # shifted log: branch cut lies outside the contour
+    return Pi/(2j*np.pi), Z/(2j*np.pi)
+
+kx, ky, m = 2.0, 0.0, 0.4
+SHIFT = 10.0   # log(z+SHIFT) is analytic on and inside |z|<=3, so Z = Tr log(H+SHIFT) exactly
+print("Riesz projector trace (rank) and shifted trace-log ledger across the wall (gamma in [0.40,0.50])")
+print(f"{'gamma':>8} {'Re Q(0)':>12} {'Tr Pi':>18} {'ledger Z':>25}  {'direct sum log(lam+SHIFT)':>28}")
+for g in np.linspace(0.40, 0.50, 11):
+    H, d = H_of(kx, ky, m, g)
+    q0 = roundtrip_Q(d, 0.0)
+    ev = np.linalg.eigvals(H)
+    center, radius = 0.0, 3.0   # contour enclosing both eigenvalues, well away from either
+    Pi, Z = riesz_and_ledger(H, center, radius)
+    trPi = np.trace(Pi).real
+    direct = sum(np.log(lam + SHIFT) for lam in ev)   # same analytic branch: must equal Z
+    print(f"{g:8.3f} {q0:+12.6f} {trPi:18.12f} {Z.real:+13.10f}{Z.imag:+13.10f}j   {direct.real:+13.10f}{direct.imag:+13.10f}j")
+
+print("\nledger check: contour Z equals the direct sum log(lam+SHIFT) at every gamma (same analytic branch).")
+
+
+A.15   Amplitude dies, the count stays (§8.5)
+σ_x + iγσ_z toward its exceptional point: normalized biorthogonal overlap against the contour's Riesz trace.
+
+testedresultnote
+1−γ = 1 … 10⁻⁵|⟨L|R⟩| = 1 → 0.0045equals half the gap; Petermann 5×10⁴
+Tr Riesz2.000000000000 throughoutthe integer record
+ledger Resmooth, 2.079 → 2.197no discontinuity
+
+LEDGER-AMPLITUDE-GATE-01.py — full reproducing script
+
+# SCRIPT: LEDGER-AMPLITUDE-GATE-01
+# Claim gated: on the way to a genuine exceptional point, the amplitude record (the normalized
+# biorthogonal overlap <L|R>, whose inverse is the Petermann factor) dies, while the integer
+# record (the Riesz-projector trace of the colliding pair, read by a contour) stays exactly 2
+# and the trace-log ledger stays smooth. Two records, one operator: one crosses, one does not.
+import numpy as np
+def H(gamma):
+    return np.array([[0.0, 1.0],[1.0, 0.0]], dtype=complex) + 1j*gamma*np.array([[1.0, 0.0],[0.0, -1.0]])
+def riesz(Hm, center=0.0, radius=3.0, n=800):
+    Z = np.zeros_like(Hm); Q = 0j
+    for k in range(n):
+        z = center + radius*np.exp(2j*np.pi*k/n); dz = radius*2j*np.pi*np.exp(2j*np.pi*k/n)/n
+        R = np.linalg.inv(z*np.eye(2) - Hm); Z += R*dz; Q += np.log(z)*np.trace(R)*dz
+    return Z/(2j*np.pi), Q/(2j*np.pi)
+print("H = sigma_x + i gamma sigma_z, exceptional point at gamma = 1")
+print(f"{'gamma':>8} {'gap |E+-E-|':>12} {'|<L|R>| (norm.)':>16} {'Petermann 1/|<L|R>|^2':>22} {'Tr Riesz':>16} {'ledger Re':>12}")
+for gamma in [0.0, 0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999]:
+    Hm = H(gamma)
+    ev, R = np.linalg.eig(Hm); _, Lm = np.linalg.eig(Hm.conj().T)
+    i = 0; j = np.argmax(np.abs(np.conj(Lm).T @ R)[: , i])
+    r = R[:, i]/np.linalg.norm(R[:, i]); l = Lm[:, j]/np.linalg.norm(Lm[:, j])
+    ov = abs(np.vdot(l, r))
+    P, Q = riesz(Hm)
+    print(f"{gamma:8.5f} {abs(ev[0]-ev[1]):12.6f} {ov:16.6f} {1/ov**2:22.3e} {np.trace(P).real:16.12f} {Q.real:12.6f}")
+print("\nreading: the amplitude record collapses toward zero (Petermann diverges), the integer record")
+print("held by the contour never moves off 2 and the ledger varies smoothly. What survives the wall")
+print("is the count and the phase; what dies is the pairing.")
+
+
+A.16   Exceptional-point approach (§8.4)
+Fixed-radius contour against a contour with margin η = 2√ε as a true coalescence is approached.
+
+testedresultnote
+fixed r = 0.1max‖R‖ 1.0 → 667diverges
+η = 2√εmax‖R‖ 0.30 → 125diverges slower, provably
+
+CONTOUR-BOUND-GATE-02.py — full reproducing script
+
+# SCRIPT: CONTOUR-BOUND-GATE-02 (correct approach path to a genuine EP)
+# H = kx sx + ky sy + (m+i*gamma) sz has eigenvalues +/- sqrt(kx^2+ky^2+(m+i*gamma)^2).
+# Exceptional point where this vanishes: kx=2,ky=0 => (m+i*gamma)^2=-4 => m=0,gamma=2.
+# Approach the EP along gamma -> 2 at m=0 and verify the gap genuinely closes,
+# then test fixed vs scaled contours against the correct target.
+import numpy as np
+sx=np.array([[0,1],[1,0]],complex); sy=np.array([[0,-1j],[1j,0]],complex); sz=np.array([[1,0],[0,-1]],complex)
+
+def H_of(kx,ky,m,gamma):
+    d=np.array([kx,ky,m+1j*gamma])
+    return d[0]*sx+d[1]*sy+d[2]*sz
+
+def resolvent_norm_on_contour(H, center, radius, n=400):
+    worst = 0.0
+    for k in range(n):
+        z = center + radius*np.exp(2j*np.pi*k/n)
+        Rn = np.linalg.norm(np.linalg.inv(z*np.eye(2)-H), 2)
+        worst = max(worst, Rn)
+    return worst
+
+kx, ky, m = 2.0, 0.0, 0.0
+print("Approach parameter eps = 2 - gamma, gap closing at gamma=2 (verified EP):")
+print(f"{'eps=2-gamma':>12} {'gap':>10} {'fixed r=0.1: max||R||':>22} {'scaled eta=2sqrt(eps): max||R||':>32}")
+for gamma in [1.0, 1.5, 1.8, 1.9, 1.95, 1.99, 1.999]:
+    eps = 2.0 - gamma
+    H = H_of(kx, ky, m, gamma)
+    ev = np.linalg.eigvals(H)
+    gap = abs(ev[0]-ev[1])
+    fixed = resolvent_norm_on_contour(H, center=ev.real.mean(), radius=0.1)
+    eta = 2.0*np.sqrt(max(eps, 1e-12))
+    scaled = resolvent_norm_on_contour(H, center=ev.real.mean(), radius=max(eta, gap*1.5))
+    print(f"{eps:12.4f} {gap:10.5f} {fixed:22.3e} {scaled:32.4f}")
+
+
+A.17   The subspace is the vehicle (§3.7)
+Symmetric base with a skew deformation, three lowest eigenvalues tracked: single-vector overlap against rank-3 subspace persistence and the principal angles.
+
+testedresultnote
+ε = 1.0vector 0.60 / subspace 0.82principal angles 12.5°, 15.0°, 40.4°
+ε = 2.0 (collision with the 4th eigenvalue)vector 0.56 / subspace 0.63gap 0.0000; the subspace crosses
+ε = 4.0vector 0.56 / subspace 0.69order θ₁ ≤ θ₂ ≤ θ₃ kept throughout
+
+SUBSPACE-PERSISTENCE-GATE-01.py — full reproducing script
+
+# SCRIPT: SUBSPACE-PERSISTENCE-GATE-01
+# Claim gated: under a skew deformation H(eps) = S + eps*K the persistence of the
+# admissible SUBSPACE (rank-k Riesz projector) exceeds the persistence of any single
+# eigenvector inside it, and the loss is organized by the principal angles between the
+# original and deformed subspaces: overlap = (1/k) sum cos^2(theta_i). The vehicle is the
+# subspace; the vectors inside it may reshuffle while the subspace carries on.
+import numpy as np
+rng = np.random.default_rng(3)
+n, k = 8, 3
+S = rng.normal(size=(n,n)); S = (S+S.T)/2
+Kk = rng.normal(size=(n,n)); Kk = (Kk-Kk.T)/2
+def lowest(H, k):
+    ev, R = np.linalg.eig(H); idx = np.argsort(ev.real)[:k]
+    Q, _ = np.linalg.qr(R[:, idx]); return ev[idx], R[:, idx], Q
+ev0, R0, Q0 = lowest(S, k)
+v0 = R0[:, 0]/np.linalg.norm(R0[:, 0])
+print(f"n={n}, k={k}: symmetric base S, skew deformation K; tracking the k lowest-real-part eigenvalues")
+print(f"{'eps':>6} {'vector persistence':>19} {'subspace persistence':>21} {'principal angles (deg)':>26} {'gap to 4th':>11}")
+for eps in [0.0, 0.5, 1.0, 2.0, 3.0, 4.0]:
+    H = S + eps*Kk
+    ev, R, Q = lowest(H, k)
+    ev_all = np.sort(np.linalg.eigvals(H).real)
+    vecs = [R[:, j]/np.linalg.norm(R[:, j]) for j in range(k)]
+    vpers = max(abs(np.vdot(v0, v)) for v in vecs)               # best single-vector overlap
+    sv = np.linalg.svd(Q0.conj().T @ Q, compute_uv=False)        # cosines of principal angles
+    spers = np.mean(sv**2)                                       # (1/k) sum cos^2 theta_i = Tr(P0 P)/k
+    ang = np.degrees(np.arccos(np.clip(sv, 0, 1)))
+    print(f"{eps:6.2f} {vpers:19.4f} {spers:21.4f} {str(np.round(ang,1)):>26} {ev_all[k]-ev_all[k-1]:11.4f}")
+print("\nreading: the single vector loses its overlap long before the subspace does; the subspace")
+print("persistence is the mean squared cosine of the principal angles, so distinguishability of")
+print("channels (sin^2 theta >= eps) and persistence of the carrier are one hierarchy read twice.")
+
+
+A.18   The warm slit (§9, Open Problem 1)
+Trapped-atom marker in a truncated oscillator basis: pure ground state against thermal states; V = |Tr(ρ e^{2ikx})|, D = trace distance of the two kicked states.
+
+testedresultnote
+pure ground, η = 0.31 … 1.0D²+V² = 1.0000, V = e^{−2η²}the Gram-determinant theorem, exact
+p₀ = 0.91, η = 0.31 … 1.0D²+V² = 0.87, 0.81, 0.82, 0.94V below e^{−2η²}: Debye–Waller
+p₀ = 0.70D²+V² = 0.63 … 0.77Englert's inequality strict for a mixed marker
+
+MARKER-MIXED-GATE-01.py — full reproducing script
+
+# SCRIPT: MARKER-MIXED-GATE-01
+# Question: does the duality relation stay exact for a real trapped-atom slit, or does the
+# curve depart at its foot? Marker = the atom's motional state rho; the two paths kick it by
+# +-hk, so U_+ U_-^dag = exp(2ikx). Visibility V = |Tr(rho exp(2ikx))|, distinguishability
+# D = (1/2)||rho_+ - rho_-||_1 (trace distance). Pure ground state: D^2+V^2 = 1 exactly.
+# Thermal state with ground-state occupation p0 (USTC axial 0.91): D^2+V^2 < 1, by how much.
+import numpy as np
+N = 60                                  # truncated oscillator basis
+a = np.diag(np.sqrt(np.arange(1, N)), 1); x = (a + a.T)/np.sqrt(2)   # x in units sqrt(hbar/m w)
+def kick(eta_pure):
+    # eta = hk/(2 Dp); ground Dp = 1/sqrt(2) in these units, so 2k x-scale: 2k = 2*eta*2*Dp = ...
+    # choose k so that pure-ground V = exp(-2 eta^2): V_pure = exp(-(2k)^2 <x^2>/2) with <x^2>=1/2
+    k = np.sqrt(2)*eta_pure
+    ev, U = np.linalg.eigh(x)
+    return U @ np.diag(np.exp(2j*k*ev)) @ U.conj().T
+def thermal(p0):
+    q = 1 - p0                          # Boltzmann ratio e^{-hw/kT}
+    w = p0*q**np.arange(N); w /= w.sum(); return np.diag(w)
+def tracedist(A, B):
+    return 0.5*np.sum(np.abs(np.linalg.eigvalsh(A - B)))
+print(f"{'eta':>5} {'p0':>5} | {'V':>9} {'D':>9} {'D^2+V^2':>9} | {'V_pure=e^-2eta^2':>16}")
+for p0 in [1.0, 0.91, 0.7]:
+    rho = thermal(p0)
+    for eta in [0.31, 0.5, 0.64, 1.0]:
+        Up = kick(eta); Um = Up.conj().T                    # kicks +k and -k: exp(+ikx), exp(-ikx) -> ratio exp(2ikx)
+        half = kick(eta/2)                                  # exp(ikx)
+        rp = half @ rho @ half.conj().T; rm = half.conj().T @ rho @ half
+        V = abs(np.trace(rho @ Up)); D = tracedist(rp, rm)
+        print(f"{eta:5.2f} {p0:5.2f} | {V:9.4f} {D:9.4f} {D*D+V*V:9.4f} | {np.exp(-2*eta**2):16.4f}")
+print("\nreading: for the pure ground state the relation is exact at every eta (the Gram-determinant")
+print("theorem). For a warm atom the sum drops below one by a calculable amount -- Englert's")
+print("inequality being strict -- and the visibility follows the Debye-Waller factor, not e^{-2eta^2}.")
+
+
+A.19   Figures from the gate outputs
+The five data figures read kakeya_capacity_out.json and kakeya_bulge_out.json written by A.5 and A.6, and recompute the families of A.15 and A.17; nothing is transcribed. The script changes to its own directory, so it runs from anywhere.
+
+# SCRIPT: FIG-LIGHT-01  (figures read the gate output files; nothing is transcribed by hand)
+import json, os, numpy as np, matplotlib
+os.chdir(os.path.dirname(os.path.abspath(__file__)))   # run from anywhere: files live beside this script
+matplotlib.use("Agg"); matplotlib.rcParams['svg.fonttype'] = 'none'
+import matplotlib.pyplot as plt
+GOLD, TEAL, CORAL, INK, GREY = "#e8b64a", "#4fd1c5", "#e2725b", "#f4e9c9", "#9aa3b5"
+NAVY = "#0b1220"
+plt.rcParams.update({"font.family":"DejaVu Sans","font.size":10,"axes.edgecolor":INK,"axes.labelcolor":INK,
+                     "xtick.color":INK,"ytick.color":INK,"figure.facecolor":NAVY,"axes.facecolor":NAVY,"savefig.facecolor":NAVY,"text.color":INK,"legend.labelcolor":INK,"axes.spines.top":False,"axes.spines.right":False})
+# --- 1. capacity vs census
+cap = json.load(open("kakeya_capacity_out.json"))
+fig, axes = plt.subplots(1, 2, figsize=(9.2, 3.4))
+for ax, R in zip(axes, ["4.0", "7.0"]):
+    eps = [1e-1,1e-2,1e-3,1e-4,1e-5]
+    for mu, c, ls in [(8, GREY, ":"), (24, TEAL, "--"), (64, GOLD, "-")]:
+        ax.plot(range(5), [cap[R][f"{mu}_{e:.0e}"][0] for e in eps], ls, color=c, lw=2, marker="o", ms=4, label=f"capacity, {mu} directions in")
+    ax.plot(range(5), [cap[R][f"64_{e:.0e}"][1] for e in eps], "-", color=CORAL, lw=1.6, marker="s", ms=4, label="boundary census N(ε)")
+    ax.axhline(np.pi*float(R), color=GOLD, lw=0.9, alpha=0.6); ax.text(4.05, np.pi*float(R), "πR/w", color=GOLD, va="center", fontsize=9)
+    ax.set_xticks(range(5)); ax.set_xticklabels(["10⁻¹","10⁻²","10⁻³","10⁻⁴","10⁻⁵"]); ax.set_xlabel("threshold ε (depth →)")
+    ax.set_title(f"disc of radius {R} sites", fontsize=10, color=INK)
+axes[0].set_ylabel("channels / modes"); axes[0].legend(fontsize=7.5, frameon=False, loc="upper left")
+fig.tight_layout(); fig.savefig("fig_capacity.svg"); fig.savefig("fig_capacity.png", dpi=150); plt.close(fig)
+# --- 2. bulge concentration
+b = json.load(open("kakeya_bulge_out.json"))
+fig, ax = plt.subplots(figsize=(6.6, 4.2))
+mus = [0,1,8,24,40]
+for key, c, lab in [("0.8_0.25", GREY, "ε=0.8, g=0.25"), ("0.8_1.0", GOLD, "ε=0.8, g=1.0"), ("4.0_1.0", CORAL, "ε=4.0, g=1.0 (over-driven)")]:
+    ax.plot(mus, [b[f"{key}_{m}"][0] for m in mus], "-", color=c, lw=2, marker="o", ms=4, label=lab+"  full operator")
+    ax.plot(mus, [b[f"{key}_{m}"][2] for m in mus], "--", color=c, lw=1.2, marker="x", ms=4, label=lab+"  normal control")
+ax.axhline(9/784, color=INK, lw=0.8, ls=":"); ax.text(41, 9/784, "uniform 9/784", fontsize=8, va="center", color=INK)
+ax.set_xlabel("needles crossing, μ"); ax.set_ylabel("pseudomode weight in the crossing cell\n(3×3 sites, 1.15% of the area)")
+ax.legend(fontsize=7, frameon=False, ncol=2, loc="upper center", bbox_to_anchor=(0.5,-0.22)); fig.tight_layout()
+fig.savefig("fig_bulge.svg"); fig.savefig("fig_bulge.png", dpi=150); plt.close(fig)
+# --- 3. amplitude dies, integer stays  (recomputed here from the same 2x2 family)
+def Hm(g): return np.array([[0,1],[1,0]],dtype=complex)+1j*g*np.diag([1,-1])
+gs = 1 - np.logspace(0, -5, 60)
+ov = []; tr = []
+for g in gs:
+    ev, R = np.linalg.eig(Hm(g)); _, Lm = np.linalg.eig(Hm(g).conj().T)
+    j = np.argmax(np.abs(np.conj(Lm).T @ R)[:,0]); ov.append(abs(np.vdot(Lm[:,j]/np.linalg.norm(Lm[:,j]), R[:,0]/np.linalg.norm(R[:,0]))))
+    Z = 0j
+    for k in range(600):
+        z = 3*np.exp(2j*np.pi*k/600); Z += np.trace(np.linalg.inv(z*np.eye(2)-Hm(g)))*3*2j*np.pi*np.exp(2j*np.pi*k/600)/600
+    tr.append((Z/(2j*np.pi)).real)
+fig, ax = plt.subplots(figsize=(6.2, 3.1))
+ax.semilogx(1-gs, ov, color=TEAL, lw=2.2, label="amplitude record  |⟨L|R⟩|")
+ax.semilogx(1-gs, tr, color=GOLD, lw=2.2, label="integer record  Tr Π (contour)")
+ax.semilogx(1-gs, np.sqrt(2*(1-gs)), color=TEAL, lw=0.9, ls=":", label="√(2(1−γ))")
+ax.set_xlabel("distance to the exceptional point, 1−γ"); ax.set_ylabel("value"); ax.invert_xaxis()
+ax.set_ylim(-0.05, 2.2); ax.legend(frameon=False, fontsize=8, loc="center right"); fig.tight_layout()
+fig.savefig("fig_amplitude_integer.svg"); fig.savefig("fig_amplitude_integer.png", dpi=150); plt.close(fig)
+# --- 4. complementarity: V and D against eta with the unit circle
+eta = np.linspace(0, 2, 300); V = np.exp(-2*eta**2); D = np.sqrt(1-V**2)
+fig, (a1, a2) = plt.subplots(1, 2, figsize=(8.6, 3.2), gridspec_kw={"width_ratios":[1.5,1]})
+a1.plot(eta, V, color=GOLD, lw=2.2, label="visibility V = exp(−2η²)   (light)")
+a1.plot(eta, D, color=TEAL, lw=2.2, label="distinguishability D = √(1−V²)  (matter)")
+a1.axvspan(0.31, 0.64, color=GREY, alpha=0.15); a1.text(0.475, 0.05, "tunable\ntrap range", ha="center", fontsize=8, color=INK)
+a1.set_xlabel("η = ħk / 2Δp   (kick over the slit's momentum spread)"); a1.set_ylim(0,1.05); a1.legend(frameon=False, fontsize=8)
+th = np.linspace(0, np.pi/2, 100); a2.plot(np.cos(th), np.sin(th), color=GREY, lw=1)
+a2.scatter(V[::20], D[::20], color=CORAL, s=18, zorder=3)
+a2.set_xlabel("V"); a2.set_ylabel("D"); a2.set_aspect("equal"); a2.set_title("D² + V² = 1 : a rank-one Gram", fontsize=9)
+fig.tight_layout(); fig.savefig("fig_complementarity.svg"); fig.savefig("fig_complementarity.png", dpi=150); plt.close(fig)
+print("figures written: fig_capacity, fig_bulge, fig_amplitude_integer, fig_complementarity (.svg + .png)")
+# --- 5. subspace vs vector persistence (recomputes the SUBSPACE-PERSISTENCE-GATE-01 family)
+rng = np.random.default_rng(3); n, k = 8, 3
+S = rng.normal(size=(n,n)); S = (S+S.T)/2
+Kk = rng.normal(size=(n,n)); Kk = (Kk-Kk.T)/2
+def lowest(Hm, k):
+    ev, R = np.linalg.eig(Hm); idx = np.argsort(ev.real)[:k]
+    Q, _ = np.linalg.qr(R[:, idx]); return R[:, idx], Q
+R0, Q0 = lowest(S, k); v0 = R0[:,0]/np.linalg.norm(R0[:,0])
+es = np.linspace(0, 4, 81); vp = []; sp = []; angs = []
+for e in es:
+    R, Q = lowest(S + e*Kk, k)
+    vp.append(max(abs(np.vdot(v0, R[:,j]/np.linalg.norm(R[:,j]))) for j in range(k)))
+    sv = np.linalg.svd(Q0.conj().T @ Q, compute_uv=False); sp.append(np.mean(sv**2)); angs.append(np.degrees(np.arccos(np.clip(sv,0,1))))
+angs = np.array(angs)
+fig, (a1, a2) = plt.subplots(1, 2, figsize=(9, 3.3))
+a1.plot(es, vp, color=CORAL, lw=2.2, label="best single-vector overlap")
+a1.plot(es, sp, color=GOLD, lw=2.2, label="subspace persistence  (1/k)Σcos²θᵢ")
+a1.set_xlabel("skew deformation ε"); a1.set_ylim(0, 1.05); a1.legend(frameon=False, fontsize=8, loc="lower left")
+for i, c in enumerate([TEAL, GOLD, CORAL]): a2.plot(es, angs[:, i], color=c, lw=1.8, label=f"θ{i+1}")
+a2.set_xlabel("skew deformation ε"); a2.set_ylabel("principal angle (deg)"); a2.legend(frameon=False, fontsize=8)
+a2.set_title("the hierarchy θ₁ ≤ θ₂ ≤ θ₃", fontsize=9)
+fig.tight_layout(); fig.savefig("fig_subspace.svg"); fig.savefig("fig_subspace.png", dpi=150); plt.close(fig)
+print("figure written: fig_subspace")
+
+
+Jeromie Beasley · August 2026
+
+

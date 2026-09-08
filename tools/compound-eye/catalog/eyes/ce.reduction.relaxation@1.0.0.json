@@ -1,0 +1,22 @@
+{
+  "id": "ce.reduction.relaxation",
+  "version": "1.0.0",
+  "title": "Isospectral non-normality and dissipation",
+  "family": "Reduction and reconstruction",
+  "status": "implemented",
+  "inputs": {
+    "case": "finite matrix data"
+  },
+  "depends_on": [],
+  "assumptions": [
+    "Use the explicit finite domain and retained reference in each result."
+  ],
+  "output_meaning": "Separate reduced shape, singular-line angle, non-normality, and weighted self-adjointness.",
+  "evidence_class": "exact_finite_model",
+  "limits": "No atomic-number, heat or cosmological identification. Boundary failure of a chart does not prove defectiveness.",
+  "implementation": {
+    "path": "plugins/installed/20b677526a3d7ecade37bf50bb5e24fdb1d00fec1894fdfe87948a3e5a57cf6d.py",
+    "sha256": "20b677526a3d7ecade37bf50bb5e24fdb1d00fec1894fdfe87948a3e5a57cf6d",
+    "function": "relaxation"
+  }
+}

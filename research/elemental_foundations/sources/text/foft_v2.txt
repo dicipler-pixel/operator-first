@@ -1,0 +1,1607 @@
+     Foundational Operator Field Theory on Stratified Manifolds:
+      Isotropic Backgrounds, Gradient Relaxation, and Projector
+                              Stability
+           Version 2: gated theorems, a derived area law, and the conserved-cargo
+                              resolution of the vacuum problem
+
+                                           Jeromie N. Beasley
+
+                                              August 8, 2026
+
+
+                                                  Abstract
+         We develop an operator-first framework in which macroscopic geometry is a derived descrip-
+     tion of persistent spectral projection bundles on a Grassmannian, and the physical vacuum is
+     the isotropic operator equilibrium K0 = −ΛI. Version 2 rests on five results, each carried by an
+     explicit computational gate listed in Appendix E. (1) The gradient flow of the spectral-stress
+     functional Φ(K) = 21 ∥[K, K † ]∥2F is K̇ = −2[[K, K † ], K]; it is isospectral, and it obeys the exact
+                             d
+     dissipation identity dt   ∥K∥2F = −8Φ(K): the flow dissipates precisely Henrici’s departure from
+     normality while the spectrum rides along as conserved cargo. The vacuum is therefore isotropic
+     by theorem, and Λ is a spectral invariant rather than the target of a dynamical adjustment
+     mechanism—which is how the framework passes Weinberg’s no-go argument, at the stated price
+     that the value of Λ becomes initial data. (2) The number N of projector channels trackable
+     from a region’s boundary, defined through the principal angles between the vacuum band sub-
+     space and the region subspace with the trackability threshold of our Lipschitz stability theorem,
+     scales with the area of the boundary when the vacuum band is gapped, and violates area scaling
+     when it is gapless: the holographic count N ∼ (Mp R)2 is derived from a gap hypothesis rather
+                                              2
+     than assumed, yielding Λ ∼ αs Mp2 /Runiverse    ∼ 10−122 Mp4 in the observed regime. (3) Under
+     chiral symmetry with a skew (anti-Hermitian) perturbation the finite-rank zeta ledger collapses
+     to 21 Tr ln(I + Y 2 ), whose continuum value under the stated spectral density is exactly π 2 /12;
+     Catalan’s constant appears in the holonomy phase integral, a distinct object. (4) The variational
+     refraction law R1 sin2 θ1 = R2 sin2 θ2 and total spectral reflection beyond θcrit = arcsin R2 /R1
+                                                                                                  p
+
+     are verified as dynamical laws by direct integration of the Euler–Lagrange equations through a
+     mollified interface; energy conservation is automatic because the action is autonomous. (5) The
+     region subspace is itself a gapped ground state, exactly exchangeable with the matter band in
+     the channel census; interfaces are two-ground-state problems, and the trace-log ledger equips
+     them with a non-Riemannian, diminishing-returns comparison geometry. Every borrowed tool
+     is cited with its hypotheses named.
+
+
+0. Claims, grades, and verification protocol
+Every substantive claim in this paper carries one of four grades. [T] proven theorem (self-contained
+proof in the text); [V] computationally verified (an explicit gate in a named script, Appendix E,
+with the measured value quoted); [C] cited established literature, used with its hypotheses stated;
+[H] hypothesis or interpretation, clearly labeled. All gates were run on August 8, 2026; every script
+is listed in full in Appendix E so that any reader can re-run every number in this paper.
+
+
+                                                       1
+ Claim                                                    Grade     Evidence
+ Gradient of Φ is 2[[K, K † ], K]; flow isospectral       [T]+[V]   Thm. 8.1; COSMO-GRAD-01
+ Dissipation identity d∥K∥2F /dt = −8Φ (Henrici budget)   [T]+[V]   Thm. 8.2; COSMO-BIORTHO-02
+ Equilibrium set is the manifold of normal operators      [T]+[C]   Cor. 8.3; [6]
+ Dual flow −2[[K, K † ], K † ] conserves ∥K∥F             [T]+[V]   Prop. 8.4
+ Baseline Operator Theorem                                [T]       Thm. 4.1
+ SU(3) commutator identity, Eq. (6)                       [T]+[V]   READ2-GATES-01 G6 (6 × 10−15 )
+ Corrected color-sector flow, Eq. (7)                     [T]+[V]   FIG-COSMO-01 gate (8 × 10−14 )
+ Finite-Rank Zeta Ledger Theorem                          [T]+[V]   Thm. 6.1; G1 (diff 0.0)
+ Chiral ledger = 12 Tr ln(I + Y 2 ); continuum π 2 /12    [T]+[V]   Thm. 6.2; COSMO-CATALAN-01, G2
+ Catalan’s constant from the holonomy phase integral      [T]+[V]   App. D (30-digit check)
+ Lipschitz projector stability bound                      [T]+[V]   Thm. 7.1; G3 (0.046 ≤ 0.613)
+ Genuine trackability loss at defective points            [T]       Thm. 5.2
+ Boundary-trackable census obeys an area law iff gapped   [V]+[C]   Thm. 10.4; RANK-COUNT-01; [15, 17]
+ State/container exchange symmetry of the census          [T]+[V]   Thm. 10.3; CONTAINER-GROUND-01 (2.6 × 10−15 )
+ Refraction law R sin2 θ conserved; total reflection      [T]+[V]   §11–12; REFRACT-EL-01 (10−13 )
+ Ledger comparison geometry shows diminishing returns     [V]+[C]   §13.3; COLOR-LEDGER-01; [28, 26]
+ Λ ∼ αs Mp2 /R2 magnitude identification                  [H]+[C]   §10; [9, 10, 11]
+ Planck-scale gap of the vacuum band                      [H]       §10
+ Three lepton generations as stable tangent modes         [H]       §9
+
+   Two principles organize everything below. The spectrum is cargo: the relaxation dynamics
+never touches eigenvalues. Geometry relaxes: what dissipates is the misalignment between the
+operator’s vector and co-vector frames, measured by Φ, and macroscopic geometry is read off from
+the persistent projector configuration that survives.
+
+
+1    Introduction and the Master Equation
+We work in a finite-dimensional complex Hilbert space HN . When the finite-rank cutoff is empha-
+sized we write the master operator as HN (ε, Λ); for abstract statements we write K. Adjoints are
+Hermitian, denoted †.
+    Conventional treatments of gravitation take a metric tensor gab as a fundamental background.
+Here spacetime geometry is not postulated: the fundamental data is the continuous tracking of
+persistent spectral projection bundles Π on a Grassmannian Gr(k, HN ), and classical geometry is
+a derived, large-scale description of the tracking dynamics. On HN = Hspace ⊗ Hgauge we introduce
+
+                                  HN (ε, Λ) = ΛI + A + D0 + εE,                                    (1)
+
+with four structurally distinct sectors: the baseline preload ΛI (absolute scalar reference level;
+maintains projector-bundle continuity in the absence of load); the transport sector A (gauge flows,
+parallel transport); the obstruction sector D0 (constraint geometry, symmetric energy landscapes);
+and the non-normal generator εE (transient amplification, pseudospectra, exceptional points). The
+four-tier structural lift—microstate deviations → covariant transport → projector subspaces →
+persistent geometry—is as in the companion series; the non-normal generator is the sole source of
+departure from normality (Appendix B).
+
+
+
+
+                                                  2
+2     The Vacuum as an Operator Equilibrium State
+The vacuum is modeled as an operator equilibrium rather than an empty container. The total
+stiffness operator decomposes as
+
+                   K = Kgeom + Kgauge + Kboundary + Ktare ,        Ktare ≡ −ΛI,                  (2)
+
+the tare term encoding the minimum invariant isotropic operator stress that keeps global informa-
+tion channels topologically open at zero load. The name is metrological and deliberate: the taring
+interpretation, which is where this framework began, is made precise in §10.
+
+2.1   The emergent pullback map
+Let M be a smooth parameter manifold and Φemb : M → Gr(k, HN ) a structural embedding
+assigning to each x ∈ M a persistent projector Π(x). Its differential sends coordinate vectors
+to Grassmannian tangent operators Va (x) = dΦemb,x (∂a ) obeying the off-diagonal constraint Va =
+ΠVa (I − Π) + (I − Π)Va Π (Appendix A). The induced metric is the pullback of the intrinsic Hilbert–
+Schmidt metric,
+                           gab (x) = gΠ Va (x), Vb (x) = 21 Tr Va (x)Vb (x) ,
+                                                                          
+                                                                                                 (3)
+which degenerates, gab → 0, wherever the projector rank collapses.
+Remark 2.1 (Signature). The metric gΠ on the complex Grassmannian is positive definite, so the
+pullback (3) is Riemannian. A Lorentzian signature and causal structure are not produced by
+this construction; indefinite signature can only arise from additional structure in the non-normal
+sector εE distinguishing a time-like direction. M is a parameter manifold carrying an effective
+Riemannian geometry; the emergence of a full Lorentzian spacetime is an open extension (Open
+Problem 4).
+
+
+3     Back-Reaction Tensor for Photonic Drive
+Let the electromagnetic U (1) component of transport be represented by an operator-valued link
+perturbation Vγ = δAγ , an admissible tangent direction obeying the off-diagonal constraint. (A
+scalar phase αeiθ commutes with everything and produces no response; the link must be operator-
+valued.) The intrinsic response of the bundle is measured by the quantum geometric tensor
+QΠ (V, W ) = Tr(ΠV W ), with gΠ = Re QΠ and Berry curvature ΩΠ = −i Tr(Π[V, W ]) (Appendix A;
+gate G4).
+    The operator dynamics is the dissipative gradient flow of §8, K̇ = F (K) ≡ −2[[K, K † ], K].
+Linearizing F at K in the admissible direction V gives the back-reaction tensor
+                                                                              
+              Tback (V ) = DFK [V ] = −2 [V, K † ] + [K, V † ], K + [K, K † ], V .
+                                                                    
+                                                                                             (4)
+
+Verification [V]: Eq. (4) matches the finite-difference directional derivative of F to relative error
+9 × 10−11 (READ2-GATES-01, gate G5). The total evolution splits as K̇ = VK,vac + Tback (Vγ )
+with VK,vac = F (K)|Vγ =0 : photonic transport acts exclusively through admissible off-diagonal
+deformations while the isotropic background relaxation is untouched.
+   Because the perturbation transports the bundle Π(t), the minimum irreversible cost of a smooth
+evolution is governed by the Grassmannian metric: restricting to a one-dimensional cosmological
+path Π(a(t)),                      Z τ                  Z τ
+                                                  
+                         δSirr = 2    gΠ dΠ  , dΠ
+                                           dt dt    dt ≥      ȧ2 gaa (a(t)) dt,                  (5)
+                                    0                      0
+
+
+                                                 3
+byppositivity of gΠ . Phase accumulation is constrained by the metric–curvature inequality |ΩΠ (V, W )| ≤
+2 gΠ (V, V )gΠ (W, W ) − gΠ (V, W )2 (Appendix A.4; verified numerically in G4), so photonic phase
+is suppressed whenever the drive aligns with an existing admissible channel.
+
+
+4     The Baseline Operator Theorem
+Theorem 4.1 (Baseline Operator Theorem). Let K = K0 + ∆K on H = CM , with K0 = −ΛI and
+∆K a bounded off-diagonal perturbation, and let Π be a spectral projector of K0 along an isolated
+contour Γ. Then: (1) the projector bundles of K0 are invariant under the unperturbed flow; (2) all
+non-normality arises from ∆K, since [K, K † ] = [∆K, ∆K † ]; (3) emergent geometry depends only
+on the structure of ∆K; (4) Λ fixes the absolute scalar reference level.
+
+Proof. K0 is a real multiple of the identity: it commutes with every operator, its evolution U0 (τ ) =
+e−Λτ I conjugates every projector to itself, and all cross terms in [K0 + ∆K, K0† + ∆K † ] vanish.
+Properties (3)–(4) follow since the pullback metric (3) is built from the off-diagonal content of ∆K,
+while Λ shifts every eigenvalue uniformly.
+
+4.1   Standard Model gauge structure in the transport sector
+With Hgauge = C3 ⊕ C2 ⊕ C1 the transport operator
+                                                P carries        block link variables in SU (3) × SU (2) ×
+U (1). Parameterizing an SU (3) link as Aij = 8a=1 ψij     a (t)λ , with Gell-Mann generators [λ , λ ] =
+                                                                 a                                 a b
+                                           a ̸= (ψ a )∗ , the local departure from normality is
+2ifabc λc and non-reciprocal coefficients ψij     ji
+
+                                                    8
+                              [Aij , A†ij ] = −2
+                                                    X
+                                                                      a    b ∗
+                                                                               
+                                                             fabc Im ψij (ψij ) λc .                  (6)
+                                                   a,b,c=1
+
+Verification [V]: Eq. (6) holds to 6 × 10−15 on random coefficients (gate G6). The
+                                                                               P dissipative flow
+of §8 acts on this commutator; writing C = [A, A† ] = c cc λc with cc = −2 ab fabc Im(ψ a ψ b∗ ),
+                                                       P
+the corrected color dynamics is
+                                             8
+                     dAij                    X
+                                                             a    b ∗
+                                                                       d
+                          = −2[C, Aij ] = 8i   fabc fcde Im ψij (ψij ) ψij λe ,                       (7)
+                      dt
+                                               a,b,c,d,e=1
+
+verified against the direct double commutator to 8 × 10−14 (FIG-COSMO-01 gate). Since the flow
+is a commutator, it preserves tracelessness: the dynamics never leaves the su(3) span. The non-
+              a ̸= (ψ a )∗ is the structural signature of a directional micro-advective transport field
+reciprocity ψij      ji
+breaking microscopic time-reversal, generating the information current Jij = i(Aij −A†ij ), in analogy
+with the non-Hermitian skin effect [C].
+
+
+5     Suppression of Singularities via Loss of Projector Trackability
+In classical relativity a trapped surface with the strong energy condition forces geodesic focusing
+to infinite density. In the present framework true infinities are excluded by finite rank, and the
+classical singularity is replaced by a loss of continuous trackability of the geometric data. We state
+this in three graded steps.
+
+
+
+
+                                                         4
+Proposition 5.1 (Failure of the tracking guarantee). Let ε(r) ∝ M/r2 be the boundary perturbation
+stress of a collapsing core, and let δgap , CΓ , KΓ be as in Theorem 7.1. As ε(r) → δgap /CΓ ,
+the Lipschitz multiplier KΓ diverges and the stability guarantee of Theorem 7.1 becomes vacuous:
+continuous trackability is no longer guaranteed.
+
+    This is a statement about the bound, not yet about the projector. The genuine mechanism is
+defectiveness:
+                                                                         
+                                                                      b µ
+Theorem 5.2 (Trackability loss at defective points). Let K(δ) =             , µ ̸= 0. For δ > 0 the
+                                                                     δ b
+                     √
+eigenvalues are b ± µδ with eigenvector condition numbers κ ∼ 21 µ/δ → ∞ as δ → 0+ : the
+                                                                     p
+
+individual rank-one spectral projectors diverge in norm and admit no continuous extension through
+δ = 0, where K(0) is a Jordan block. The rank-two Riesz projector of the cluster, by contrast, is
+constant. Hence at an exceptional point the fine-grained geometric data (individual eigenprojectors,
+and with them the pullback metric built from them) genuinely ceases to be continuously trackable,
+while the coarse cluster subspace survives.
+                                            √      √
+Proof. Direct computation: eigenvectors ( µ, ± δ )T up to normalization; the left/right pairing
+⟨L|R⟩ → 0 as δ → 0, so ∥P± ∥ = 1/|⟨L|R⟩| → ∞. The Riesz projector over a contour enclosing both
+eigenvalues equals the identity on the two-dimensional space for every δ, including δ = 0.
+
+Conjecture 5.3. A collapsing gravitational core drives the local operator data to such a defective
+threshold before curvature invariants of the emergent metric can diverge; the macroscopic geometry
+dissolves (rank collapse, gab → 0 by (3)) in place of a classical singularity.
+
+   The companion black-hole paper realizes Theorem 5.2 concretely on the coplanar wall of the
+four-body shape manifold, where size-2 Jordan blocks are proven and the Dunford trace-log ledger
+remains finite at the defective point; we import that staging here as the model for the collapse
+endpoint.
+
+
+6    Regularization of the Zeta Memory Ledger
+Theorem 6.1 (Finite-Rank Zeta Ledger Theorem). Let K = K0 +∆K act on CM with K0 = −ΛI,
+Tr(∆K) = 0, and let η > Λ satisfy ∥∆K/(η − Λ)∥ < 1. With Heff = K + ηI and X = ∆K/(η − Λ),
+                                   ′
+the zeta-regularized ledger Zλ ≡ −ζH     (0) = Tr log Heff equals
+                                     eff
+
+                                                  ∞
+                                                  X (−1)k−1
+                                                               Tr X k .
+                                                                     
+                            Zλ = M log(η − Λ) +                                                  (8)
+                                                         k
+                                                  k=2
+
+Proof. The Dunford–Taylor contour representation of ζHeff (s) with the uniformly convergent Neu-
+    expansion of the resolvent reduces, after residue evaluation at s = 0, to Tr log (η − Λ)(I +
+mann
+X) = M log(η − Λ) + Tr log(I + X); the Mercator series of the second term loses its k = 1 term
+by tracelessness.
+
+    Verification [V]: for a random traceless ∆K with ∥X∥ = 0.8, formula (8) matched the direct
+log-determinant with difference 0.0 at double precision (gate G1).
+
+
+
+
+                                                 5
+6.1   Chiral parity collapse and the exact continuum value
+Theorem 6.2 (Chiral ledger). Let the normalized perturbation be skew, X = iY with Y = Y † ,
+and let Y anticommute with a chirality σ3 , so that spec(Y ) = {±λj } in exact pairs. Then all odd
+moments vanish, Tr(X 2m+1 ) = 0, and the ledger collapses to the even sector in the closed form
+                                                       X
+                         Zλ = 21 Tr log I + Y 2 = 12       log 1 + λ2j .
+                                                                     
+                                                                                                (9)
+                                                          j
+
+If the empirical spectral measure of Y converges weakly on the test function log(1 + λ2 ) to the
+density ρ(λ) = arctan(1/λ)/(πλ), then
+
+                                      1 2 ∞ log(1 + λ2 ) arctan(1/λ)         π2
+                                           Z
+                             1
+                       lim      Zλ = ·                                 dλ =     .                 (10)
+                      N →∞ N          2 π 0               λ                  12
+
+Proof. Pairing ±λ gives det(I + iY ) = pairs (1 + iλ)(1 − iλ) = pairs (1 + λ2 ), whence (9). The
+                                           Q                        Q
+                                               ∞
+integral in (10) evaluates in closed form: π2 0 λ−1 log(1+λ2 ) arctan(1/λ) dλ = π 2 /6 = ζ(2), verified
+                                             R
+
+to 30 digits (COSMO-CATALAN-01); half of it is π 2 /12. Skewness of the perturbation is the natural
+hypothesis here: the non-normal generator of the tripartite decomposition is skew to leading order
+(Appendix B).
+
+   Verification [V]: Eq. (9) matched log det(I + X) to 4 × 10−16 on an explicit chiral block matrix
+(gate G2).
+Remark 6.3. Two distinct constants live in this framework and must not be conflated. The ledger
+converges to ζ(2)-type
+               R1       values as above. Catalan’s constant G arises from the holonomy phase
+integral G = 0 λ−1 arctan λ dλ of the flat-torus transport sweep (Appendix D), verified to 30
+digits. The density ρ above is a σ-finite spectral weight, not a probability density (its mass diverges
+logarithmically at λ = 0); statement (10) is about the specific convergent functional, and the
+normalizability question is left open.
+
+
+7     Projector Persistence: the Lipschitz Stability Bound
+Theorem 7.1. Let A be a (possibly non-normal) operator, A′ = A + E with ∥E∥ ≤ ϵ, and let Γ
+isolate a spectral cluster with gap δgap = dist(Γ, σ(A) \ σΓ (A)) > 0. Put CΓ = supλ∈Γ ∥(λI − A)−1 ∥ ·
+δgap . If ϵ < δgap /CΓ , the persistence functional P (A, E) = 1 − ∥Π − Π′ ∥ obeys
+
+                                                              ℓ(Γ) CΓ2
+                       P (A, E) ≥ 1 − KΓ ϵ,        KΓ =                       .            (11)
+                                                        2π δgap (δgap − ϵCΓ )
+
+Proof. The second resolvent identity gives Π′ −Π = − 2πi
+                                                      1
+                                                         H
+                                                          Γ RA (λ)ERA (λ)dλ; the Neumann bound
+                                                                        ′
+
+∥RA′ ∥ ≤ ∥RA ∥/(1 − ∥RA ∥ϵ) and the triangle inequality along Γ give the stated constant.
+
+   Verification [V]: with Riesz projectors computed by 800-point contour quadrature on a mildly
+non-normal 6 × 6 example, the measured ∥Π′ − Π∥ = 0.046 against the bound KΓ ϵ = 0.613, with
+Tr Π = 2.000000 (gate G3). This theorem supplies the trackability threshold used throughout: a
+channel is trackable at noise level ϵ when its margin beats ϵ.
+
+
+
+
+                                                  6
+8    The Operator Relaxation Architecture
+Define the spectral-stress functional
+                                          2
+                      Φ(K) = 12 [K, K † ] F = 21 Tr C 2 ,       C ≡ [K, K † ] = C † .
+                                                       
+                                                                                                      (12)
+Φ(K) = 0 iff K is normal.
+Theorem 8.1 (Gradient flow and isospectrality). The Frobenius gradient of Φ is ∇Φ = 2[C, K],
+so steepest descent is
+                         dK                             dΦ             2
+                             = −2 [K, K † ], K ,
+                                             
+                                                           = −4 [C, K] F ≤ 0.                         (13)
+                          dt                            dt
+The flow (13) is of Lax form K̇ = [K, 2C] and is therefore isospectral: the spectrum of K(t) is
+constant. For generic initial data it converges to a normal operator with the initial spectrum [C]
+[6, 4, 5].
+Proof. For Φ real, dΦ = Tr([K † , C] dK) + Tr([C, K] dK † ) = 2 Re Tr ([C, K])† dK since ([C, K])† =
+                                                                                  
+
+[K † , C] for Hermitian C; the gradient is [C, K] (up to the conventional factor 2), and the descent
+rate follows by substitution. Lax form gives isospectrality; convergence to a normal matrix is the
+theorem of [6].
+
+   Verification [V]: the finite-difference directional derivative of Φ matched 2 Re Tr(([C, K])† D)
+on all random seeds and directions; along a long RK4 integration of (13) the eigenvalue drift was
+9 × 10−10 while ∥C∥ fell from 17.5 to 2.5 × 10−9 (COSMO-GRAD-01).
+Theorem 8.2 (Exact dissipation of the Henrici budget). Along (13),
+                                         d
+                                            ∥K∥2F = −8 Φ(K).                                  (14)
+                                         dt
+Consequently, with ∆2F (K) ≡ ∥K∥2F − i |λi |2 (Henrici’s departure from normality [C] [3]) and the
+                                         P
+                  d 2
+spectrum frozen, dt ∆F = −8Φ ≤ 0, and the total stress dissipated over the whole relaxation equals
+          2
+exactly ∆F (K0 ): a finite, exact stress budget fixed by the initial data.
+        d
+          ∥K∥2F = 2 Re Tr(K † K̇) = −4 Re Tr(K † [C, K]) = −4 Tr [K, K † ] C = −4 Tr(C 2 ) = −8Φ.
+                                                                            
+Proof. dt
+
+
+    Verification [V]: identity (14) matched finite differences to nine digits on five seeds, and the
+integrated budget closed against ∆2F (K0 ) to quadrature error (COSMO-BIORTHO-02).
+Corollary 8.3 (The equilibrium manifold). The ω-limit set of (13) lies in the manifold of normal
+operators sharing the initial spectrum, {U diag(λ1 , . . . , λM ) U † : U ∈ U (M )}. The isotropic baseline
+K∞ = −ΛI is the equilibrium if and only if the conserved spectrum is degenerate at −Λ. In general
+the attractor is a manifold, not a point: a land of many subspaces, with the flow selecting which
+orthogonal frame carries the frozen eigenvalues.
+Proposition 8.4 (The norm-conserving dual flow). The companion flow K̇ = −2[C, K † ] conserves
+∥K∥2F exactly (since Re Tr(K † [C, K † ]) = 0 by cyclicity), while thePspectrum moves; empirically it
+also drives Φ → 0, converting the stress into eigenvalue energy, i |λ∞        2       2
+                                                                           i | = ∥K0 ∥F . It is not a
+descent flow of Φ and admits no monotonicity guarantee: Φ can transiently increase along it.
+    The two flows are duals: (13) radiates the stress away at fixed spectrum; the dual stores it in
+the spectrum at fixed norm. We adopt (13) as the physical relaxation, because emergent geometry
+is read from the projector configuration and the spectrum is the conserved ledger content.
+
+                                                    7
+        Isospectral relaxation: stress dies, spectrum frozen                        Co-vector/vector alignment: i 1
+        103
+                                          (K) (spectral stress)           3.0
+        101                              2 (Henrici budget)
+                                         F
+       10 1                             eigenvalue drift
+                                                                          2.5
+       10 3
+
+
+
+
+                                                                      i
+       10 5                                                               2.0
+
+
+
+
+                                                                  max
+                                                                   i
+       10 7
+       10 9                                                               1.5
+      10 11
+      10 13                                                               1.0
+              0.00 0.25 0.50 0.75 1.00 1.25 1.50 1.75                           0.00 0.25 0.50 0.75 1.00 1.25 1.50 1.75
+                                  t                                                                 t
+
+Figure 1: The corrected relaxation flow (13) on a random 6 × 6 operator (FIG-COSMO-01, regener-
+ating COSMO-BIORTHO-02). Left: spectral stress Φ and the Henrici budget ∆2F decay together per
+Theorem 8.2, while the eigenvalue drift stays at 3 × 10−11 over the entire relaxation. Right: the
+largest eigenvalue condition number relaxes to 1: co-vector and vector frames align.
+
+
+8.1     What relaxes: co-vector/vector alignment
+For non-normal K each eigenvalue carries a right eigenvector |Ri ⟩ and a left eigenvector ⟨Li |,
+biorthogonal but individually non-orthogonal; the misalignment per mode is the eigenvalue con-
+dition number κi = ∥Li ∥∥Ri ∥/|⟨Li |Ri ⟩| (the square is the eigenvector self-overlap, the Petermann
+factor [C] [7]). Along (13) every κi → 1: the co-vector frame collapses onto the vector frame,
+oblique Riesz projectors rotate into orthogonal projectors, and the leading eigenvector rotates to
+its final position while its eigenvalue never moves (Fig. 1). Relaxation is subspace orthogonalization,
+nothing else.
+
+
+9      Spectral Stress and Generational Structure
+To each charged lepton generation g = e, µ, τ associate a distinguished tangent mode Vg ∈ TΠ Gr(k, HN )
+obeying the off-diagonal constraint, and set sg = gΠ (Vg , Vg ) > 0. By the spectral realization of
+the metric (Appendix A.3) these scalars are cross-gap quantities weighted by inverse gaps; under
+                                                                                             √
+sg ∝ mg the Koide ratio becomes an intrinsic Grassmannian expression Q = (se + sµ + sτ )/( se +
+√       √
+  sµ + sτ )2 . This section is an interpretation [H]: the relaxation and persistence theorems guar-
+antee stable attractor modes exist, but whether the dynamics selects exactly three, and whether
+chiral constraints fix Q ≈ 2/3, remain open mathematical problems.
+
+
+10       The Cosmological Constant
+This paper began as an attack on the cosmological constant problem. We state exactly which parts
+of that problem the framework now addresses, at what grade.
+
+10.1      Λ as conserved spectral cargo
+Weinberg’s no-go theorem [C] [8] obstructs dynamical adjustment mechanisms that relax the vac-
+uum energy to its observed value. The present framework is not an adjustment mechanism: by
+
+
+                                                                  8
+Theorem 8.1 the relaxation is isospectral, so nothing dynamical ever touches Λ. The flow dissipates
+exactly the anisotropic, non-normal dressing (Theorem 8.2) and delivers a normal operator; the
+uniform reference level −Λ is conserved cargo. The framework therefore explains, at theorem grade,
+why the surviving vacuum stress is isotropic—pure λgab with no anisotropic remainder—while the
+value of Λ is reclassified as a spectral invariant of the initial data. We state the cost plainly: a
+reclassification is not a derivation of the value. The magnitude question is addressed separately
+below through the channel count.
+Remark 10.1 (The taring interpretation). The origin of this framework was a metrological suspicion:
+that the 10122 discrepancy is the reading of an instrument that was never tared. That suspicion
+now has formal content at three grades. (i) [T] By Theorem 4.1, every observable built from
+commutators, spectral gaps, or off-diagonal data is invariant under K → K + cI: measurements
+of differences never see the tare. (ii) [T] The ledger of Theorem 6.1 is exactly a tared reading,
+Zλ = M log(η − Λ) + (load terms): gross equals container plus net, and the calibration condition
+Tr(∆K) = 0 is precisely the statement that the load deposits no weight in the tare channel.
+(iii) [H] The naive Planck-density estimate weighs volume-many Planck-scale modes, M ∼ (R/ℓp )3 ;
+the tared horizon reading weighs only the area-many boundary-trackable census channels of §10.2 at
+the infrared energy per channel, giving Eq. (16). On this reading the cosmological constant problem
+is not a mysterious cancellation awaiting a symmetry: it is an untared, over-counted reading of the
+container weight, and the framework’s job—discharged in §10.2 up to the stated gap hypothesis—is
+to say which channels the horizon instrument actually weighs.
+
+10.2    The boundary-trackable channel census: an area law from the gap
+Definition 10.2. Let P be the projector onto the vacuum band and 1A the projector onto a spatial
+region A. The eigenvalues ν of CA = 1A P 1A are the squared cosines of the principal angles between
+Ran(P ) and Ran(1A ). A channel with ν near 1 lies entirely inside A and is invisible to the boundary;
+near 0, entirely outside. The boundary-trackable census at noise level ϵ is N (ϵ, A) = #{ν ∈ [ϵ, 1−ϵ]}:
+the channels genuinely shared across ∂A, whose trackability margin min(ν, 1 − ν) beats ϵ in the
+sense of Theorem 7.1.
+
+Theorem 10.3 (State/container exchange symmetry). For any projectors P , Q: spec(QP Q) \
+{0} = spec(P QP ) \ {0}. Hence the census is symmetric under exchanging the roles of the vacuum
+band and the region.
+
+Proof. QP Q = (QP )(P Q) and P QP = (P Q)(QP ); AB and BA share nonzero spectrum.
+
+   The region subspace is on exactly equal footing with the matter band; indeed 1A is itself the
+ground-state projector of the gapped flat-band Hamiltonian HA = I − 2 · 1A (bands ±1, gap 2).
+Every interface in this framework is an interface between two gapped ground states, which places
+the census in the entanglement-spectrum/edge-state correspondence [C] [21]. Verification [V]: the
+two spectra agreed to 2.6 × 10−15 , 54 channels either way (CONTAINER-GROUND-01).
+
+Theorem 10.4 (Area law of the census; computational, with control). For gapped free-fermion
+vacua the census obeys an area law; for gapless vacua with an extended Fermi surface it does not.
+Measured at ϵ = 10−3 (RANK-COUNT-01): in one dimension, gapped m = 0.5 gives N = 4 at
+every L ∈ {50, 100, 200, 400} (an interval’s boundary is two points); gapless gives N = 8 → 10,
+logarithmic growth. In two dimensions, gapped m = 1 gives N/4L → 1.000 exactly at the larger
+sizes—one trackable channel per boundary site—with log-log slope 1.07; gapless gives slope 1.39 with
+density climbing 1.25 → 2.07, the known L log L violation. At fixed size the count grows as the gap
+
+
+                                                  9
+                      1D census: area law = constant                                 2D census: N perimeter
+            14
+                                                    gapped m=0.5    175       gapped m=1
+            12                                      gapless m=0               gapless m=0
+                                                                              N = 4L (unit density)
+                                                                    150
+            10
+                                                                    125
+            8
+   Ntrack
+
+
+
+
+                                                                    100
+            6
+                                                                    75
+            4
+                                                                    50
+            2
+                                                                    25
+            0
+                 50   100   150     200 250 300      350     400          6     8       10      12 14 16         18   20   22
+                                  region length L                                                region size L
+
+Figure 2: The boundary-trackable census (RANK-COUNT-01 via FIG-COSMO-01). Left: in 1D the
+gapped census is exactly flat (N = 4 for all L) while the gapless control grows. Right: in 2D the
+gapped census converges onto the unit-density perimeter law N = 4L, while the gapless census
+violates it. The gap is the load-bearing hypothesis.
+
+shrinks (N = 2, 4, 6, 6, 8 for m = 1.0, . . . , 0.05): the channel density per unit boundary tracks the
+correlation length ξ ∼ 1/gap.
+    The underlying mathematics is the established free-fermion area law and its Fermi-surface
+violation [C] [15, 16, 17, 18, 19, 20]; the hypothesis doing the work—the spectral gap—is the
+same hypothesis as our trackability condition, and the gapless control shows it is load-bearing.
+What is ours is the identification of the ledger’s N with this census, the threshold reading of the
+entanglement spectrum through Theorem 7.1, and the exchange symmetry. The census density is
+orientation-dependent (squares gave N/∂ ≈ 1.04, diamonds ≈ 1.67, each flat in size), the Widom-
+type structure coupling the boundary normal to the band geometry [C] [17]: the interface carries
+a directional effective rigidity, feeding the refraction sector of §11 a derived input.
+
+10.3         The magnitude identification
+Write N = A(∂) · nch (ξ, ϵ) with A the boundary area and nch the measured channel density.
+Hypothesis [H]: the vacuum band of the fundamental operator is gapped at the Planck scale,
+ξ ∼ ℓp , so that nch ∼ αs /ℓ2p with αs = O(1). Taking the causal horizon as the boundary,
+                                                N ∼ αs (Mp Runiverse )2 ,                                                       (15)
+now a consequence of the gap hypothesis rather than an assumption of holography. Identifying the
+vacuum energy density carried by the tracked channels with the standard horizon-cutoff form [C]
+[9, 10, 11],
+                                Mp2         ρΛ          αs
+                     ρΛ ∼ αs 2          ,     4
+                                                ∼                   ≈ 10−122                (16)
+                              Runiverse     Mp     (Mp Runiverse )2
+for Runiverse ≈ 1026 m. The enormous suppression is geometric: channels scale with area while the
+four-volume scales with R4 . We flag the known obstruction honestly: with a Hubble-scale cutoff the
+resulting dark energy does not accelerate [C] [12], and current data (DESI DR2) show a contested
+preference for evolving dark energy [C] [13, 14]. Committing to a specific cutoff and deriving the
+resulting w(z) is Open Problem 1; until then, (16) is a magnitude identification, not a completed
+dynamics.
+
+                                                               10
+                           EL dynamics through the rigidity layer: Rsin2 conserved to 10 13
+                    1.00           R 1->4, 50 deg (transmit)
+                                   R 4->1, 20 deg (transmit)
+                    0.75           R 4->1, 45 deg (total reflection)
+                    0.50
+                    0.25
+                    0.00
+               w
+
+
+                    0.25
+                    0.50
+                    0.75
+                    1.00
+                             0.0                  0.5                   1.0    1.5   2.0
+                                                                           w
+
+
+Figure 3: Euler–Lagrange trajectories through the mollified rigidity layer (REFRACT-EL-01 via
+FIG-COSMO-01). Transmission bends according to R sin2 θ = const (conserved to 10−13 ); the super-
+critical trajectory undergoes total reflection and exits at exactly its mirror angle.
+
+
+11      The Variational Refraction Law
+Model a matching interface between transport domains of rigidities R1 , R2 Ras a thin layer with
+mollified profile Rϵ (w) = R1 +R
+                              2
+                                 2
+                                   + R2 −R
+                                        2
+                                           1
+                                             tanh(w⊥ /ϵ) in the action S[γ] =      1             a b
+                                                                                   2 Rϵ (w)gab ẇ ẇ −
+                                                                           ∥
+      
+V (w) dτ . Translational invariance along the face conserves p∥ = Rϵ g∥∥ ẇ ; and because the action
+                                                                                                   √
+is autonomous, the energy E = 12 Rϵ |ẇ|2 + V0 is conserved automatically (Noether), so |ẇ| ∝ 1/ Rϵ
+requires no additional assumption. Squaring the momentum identity and substituting the kinetic
+scaling yields the exact transport law
+
+                                                  R1 sin2 θ1 = R2 sin2 θ2 .                      (17)
+
+Variational treatments that hold |ẇ| fixed instead of imposing energy conservation yield the ordinary
+form R sin θ = const; the conserved quantity of the full autonomous dynamics is (17).
+    Dynamical verification [V] (REFRACT-EL-01, Fig. 3): direct RK4 integration of the Euler–
+Lagrange equations through the layer gave, in all cases, conservation of p∥ and E to 10−13 and of
+R sin2 θ to 10−13 , while R sin θ changed by 50–100%: at R : 1 → 4, θ : 50.0◦ → 22.52◦ (law predicts
+22.5◦ ); at R : 4 → 1 sub-critical, θ : 20.0◦ → 43.16◦ .
+
+
+12      Total Spectral Reflection
+Theorem 12.1. Let Σ separate a high-rigidity domainp(R1 ) from a relaxed domain (R2 ), κ =
+R1 /R2 > 1. If the incident angle exceeds θcrit = arcsin 1/κ, then sin2 θ2 = κ sin2 θ1 > 1 forces
+                    √
+θ2 = π2 + i cosh−1 ( κ sin θ1 ), the normal momentum becomes purely imaginary, the transmitted
+amplitude decays as e−|p⊥ |w⊥ , and the wavefront is totally reflected into the interior of the loaded
+domain.
+
+     The algebra is elementary from (17) and sin( π2 + iy) = cosh y. Dynamical verification [V]: the
+
+
+                                                                       11
+super-critical case (R : 4 → 1, θ1 = 45◦ > θcrit = 30◦ ) physically reversed in the layer and exited at
+exactly 45.00◦ , with all invariants conserved to 10−15 (REFRACT-EL-01, Case C).
+Remark 12.2 (The Smith-chartpdictionary). Define the interface reflection coefficient r = (p⊥,1 −
+p⊥,2 )/(p⊥,1 + p⊥,2 ) with p⊥ = 2R(E − V0 ) cos θ. This is the Cayley–Möbius map of the normal-
+impedance half-plane onto the unit disk: the engineer’s Smith chart is a coordinate chart on
+Gr(1, 2) = CP1 , cascaded interfaces act by Möbius (transfer-matrix) maps, the rim |r| = 1 is
+exactly the total reflection regime of Theorem 12.1 (reactive load = evanescent channel), and
+tapered impedance matching [C] [29] is the mollified layer of §11: an abrupt step reflects, a taper
+transmits. RF impedance matching is projector-bundle geometry on the smallest Grassmannian.
+   While expansion is the primary stress-relief mode at cosmic scales, the same architecture admits
+contraction regimes in which increasing local load drives clustering until trackability is lost (§5); a
+detailed treatment of structure formation is deferred.
+
+
+13     Physical Applications
+13.1    Cosmological relaxation
+A heavy local load raises the non-normal commutator and with it the spectral stress Φ. By Theo-
+rem 8.2 the relaxation flow sheds exactly the Henrici budget: increasing relational distance between
+active nodes drops the off-diagonal couplings and drives lim|xi −xj |→∞ ∥[K, K † ]∥ = 0. Cosmic ex-
+pansion is the macroscopic signature of an overloaded operator network executing structural stress
+relief, with a finite, exact budget ∆2F (K0 ) fixed at the outset. Supervoids are fully relaxed operator
+sinks (∆K → 0) whose rigidity contrast with filament walls suppresses persistent transport into
+the interior by §12.
+
+13.2    Quantum topological insulators, upgraded
+A two-dimensional topological insulator’s gapped bulk is a loaded operator domain; its physical
+edge is the interface with a trivial substrate. By §10.2 both sides are gapped ground states, so the
+interface carries a boundary-trackable channel census obeying the area law, and the entanglement-
+spectrum/edge-state correspondence [C] [21] makes the protected edge channels precisely the census
+channels ν ∈ (ϵ, 1−ϵ). Backscattering into the bulk is forbidden by the high rigidity contrast through
+Theorem 12.1. A 330-million-light-year supervoid and a sub-nanometer edge track are protected
+by the same operator architecture; the container-as-ground-state theorem (Theorem 10.3) is what
+makes the analogy exact rather than suggestive. The shared engine across the adjacent laboratory
+literatures— flat-band condensates, charge-neutrality-point transport, nonlinear Hall responses—is
+the same quantum geometric tensor QΠ [C] [23, 24, 25].
+
+13.3    Ledger perception geometry: diminishing returns at interfaces
+An observer that compares two interface states through the trace-log ledger measures the log-
+det (Jensen–Bregman) divergence S(A, B) = log det A+B           1            1
+                                                         2 − 2 log det A − 2 log det B [C] [28]. On
+a geodesic family of SPD rigidity operators crossing a wall of contrast κ (COLOR-LEDGER-01,
+Fig. 4): the Riemannian transport metric is a length   √ metric (accumulated/direct = 1.0000 at
+every contrast—the control), while√  the ledger metric    S is locally proportional to it with the ex-
+act constant dS 1/2 /dδR → 1/(2 2) = 0.353553 (six digits, uniform along the path) yet globally
+subadditive: accumulated/direct grows 1.005 → 1.192 as log κ : 1 → 8. Locally Riemannian just-
+noticeable differences, globally compressed large jumps: precisely the non-Riemannian “diminishing
+
+                                                  12
+                                                     Ledger metric: diminishing returns grow with contrast
+                                                  1.20
+
+                                                  1.15
+
+
+
+
+                           accumulated / direct
+                                                  1.10
+
+                                                  1.05
+
+                                                  1.00
+                                                         1    2      3      4        5       6   7   8
+                                                                      log (rigidity contrast)
+
+
+Figure 4: Diminishing returns of the ledger comparison metric (COLOR-LEDGER-01 via
+FIG-COSMO-01): summed small-step ledger distances exceed the direct ledger distance by a fac-
+tor growing with the rigidity contrast, while the Riemannian control stays exactly at 1.
+
+returns” geometry measured in human color perception [C] [26, 27]. The corollary for interfaces: a
+single violent wall crossing is log-compressed in the ledger relative to a graded crossing through the
+mollified layer—the ledger under-remembers violence relative to adiabatic change, with the layer
+thickness playing the just-noticeable-step role. We claim the mechanism, not the psychophysics.
+
+
+14      Open Problems
+    1. Commit to a horizon cutoff and derive w(z); confront the Hsu obstruction [12] and the DESI
+       DR2 evolving-dark-energy data [13, 14].
+
+    2. Derive the O(1) constant αs from the orientation average of the census density nch (n̂) (Widom-
+       type integral [17]).
+
+    3. Behavior of the relaxation flow (13) at and near defective points (the equilibrium manifold
+       meets the exceptional strata).
+
+    4. Lorentzian signature and causal structure from the non-normal sector.
+
+    5. Uniqueness structure of the equilibrium selected by the global projector-bundle constraints
+       (when does the manifold of Corollary 8.3 reduce to −ΛI?).
+
+    6. Physical consequences of the corrected color dynamics (7).
+
+    7. Normalizable spectral densities realizing the chiral continuum limit of Theorem 6.2.
+
+
+A      Off-Diagonal Projector Geometry and the Intrinsic QGT
+Let Gr(k, H) be the Grassmannian of rank-k orthogonal projectors Π† = Π = Π2 , Tr Π = k.
+Differentiating Π2 = Π gives the tangent constraint V = ΠV (I − Π) + (I − Π)V Π: tangent
+vectors are strictly off-diagonal. On this tangent space define QΠ (V, W ) = Tr(ΠV W ), which
+decomposes as QΠ = gΠ + 2i ΩΠ with intrinsic metric gΠ (V, W ) = 21 Tr(V W ) and Berry curvature
+ΩΠ (V, W ) = −i Tr(Π[V, W ]). Verification [V]: the decomposition holds to 2 × 10−16 on random
+off-diagonal Hermitian tangent vectors (gate G4).
+
+                                                                          13
+    Spectral realization (cross-gap transitions only). For V = δΠk generated by a self-adjoint δΣ,
+⟨m|V |n⟩ = ⟨m|δΣ|n⟩/(λm − λn ) across the gap and zero otherwise: metric and curvature are
+cross-gap objects weighted by inverse gaps.             p                                     p
+    Sharp metric–curvature inequality. |ΩΠ (V, W )| ≤ 2 gΠ (V, V )gΠ (W, W ) − gΠ (V, W )2 ≤ 2 gΠ (V, V )gΠ (W, W )
+curvature is suppressed by alignment of admissible channels. Verified numerically in G4.
+    Maximally isotropic baseline. An operator commuting with every rank-k projector commutes
+with every orthogonal projector onto every k-dimensional subspace, hence with every rank-one
+projector obtained from their differences and intersections, hence is a scalar: K0 = −ΛI is the
+unique zero-commutator baseline compatible with the whole bundle. Any off-diagonal perturbation
+generates both a commutator and a nonzero metric.
+
+
+B     Structural Decomposition and Relaxation
+Tripartite decomposition. K = A + D0 + εE: transport (Hermitian, real spectrum), obstruction
+(symmetric Hessians), non-normal generator (εE, the sole source of non-normality, skew to leading
+order in the obstruction gradients that generate it). When εE = 0 the operator is normal.
+    Spectral stress and flow. Φ(K) = 12 ∥[K, K † ]∥2F vanishes iff K is normal; its steepest descent
+is the flow (13) of Theorem 8.1, with descent rate −4∥[C, K]∥2F and the exact dissipation identity
+of Theorem 8.2. The flow is isospectral, so the endpoint is a normal operator carrying the initial
+spectrum; the equilibrium set is the unitary orbit of Corollary 8.3. The isotropic tare state −ΛI is
+the distinguished equilibrium of the degenerate-spectrum sector and, by the commutant argument
+of Appendix A, the unique baseline compatible with the entire persistent projector bundle. In the
+tripartite language, relaxation is the dissipation of the non-normal generator, εE → alignment, at
+frozen spectral content.
+
+
+C     Explicit Transport Prototypes
+Three-body prototype. On the Kendall shape sphere the intrinsic transport operator is Aintr =
+J ⊤ PH T (w)J with T (w) = diag(w12 , w22 , w32 ). Near the Euler equator the smallest singular value
+obeys σmin (Aintr ) ∼ cos2 θ and the relational rigidity R(w) ∼ 1/ cos4 θ; the mechanism is the 2 × 2
+symmetric-PSD eigenvalue algebra (det ∼ ϵ2 , trace = O(1), so λmin ∼ det /trace), established in
+the companion three-body audit.
+    Defective interface subsystem. At interface coalescence the reduced block Kred = bI + N ,
+N 2 = 0, is a size-2 Jordan block; the resolvent obeys ∥R(λ)∥ ≈ |µ|/|λ−b|2 , so the ε-pseudospectrum
+boundary expands as the square-root deformation |λ − b| = O(ε1/2 ), and the invariant-subspace lift
+transfers the polynomial transient growth ∥e−Jt ∥ ≤ (1 + |µ|t)e−bt √  to the global operator. Conical
+rank collapse at µ → µc suppresses transverse velocity as v⊥ ∝ 1/ 2λ, flattening transport cones
+parallel to the interface—the microscopic realizationHof the directional filtering of §11–12.
+                                                      1           −1
+    Grassmannian lift. The Riesz projector Πk = 2πi      Γ (zI−K) dz lifts the trajectory to Gr(k, H);
+the persistence overlap C(∆) = Tr(Π(t)Π(t + ∆)) quantifies how admissible channels outlive indi-
+vidual eigenvector reorientation.
+
+
+D     Chiral Collapse, Holonomy Phase, and the Two Constants
+Holonomy phase and Catalan’s constant [T]+[V]. The flat-torus phase form dΦ = d arctan(Y /X)
+along the sweep X = 1, Y = xt accumulates Φ(x) = arctan x, and integration against the scale-
+
+
+                                                 14
+invariant measure dx/x gives
+                                      Z 1
+                                            arctan x
+                                 G=                  dx = 0.9159655941 . . .                               (18)
+                                        0      x
+
+verified to 30 digits (COSMO-CATALAN-01).
+    Continuum ledger R[T]+[V]. With the chiral skew normalization of Theorem 6.2, the normalized
+ledger converges to 12 log(1R + λ2 )ρ(λ)dλ = π 2 /12 under the density ρ(λ) = arctan(1/λ)/(πλ); the
+                              ∞
+underlying closed form is π2 0 λ−1 log(1 + λ2 ) arctan(1/λ) dλ = π 2 /6. The holonomy constant and
+the ledger constant are distinct invariants of distinct objects.
+
+
+E     Scripts
+Every computational gate cited in this paper is generated by the scripts below, listed in full and
+in ASCII. Each script carries its name in a header comment. They require only numpy, scipy,
+mpmath, and matplotlib.
+
+E.1 COSMO-GRAD-01 (gradient identification; descent test; isospectrality)
+# SCRIPT: COSMO-GRAD-01 (gradient of Phi(K)=0.5*||[K,K+]||_F^2 : paper’s [[C],K+] vs [[C],K])
+import numpy as np
+rng = np.random.default_rng(7)
+def comm(A,B): return A@B - B@A
+def C_of(K): return comm(K, K.conj().T)
+def Phi(K):
+    C = C_of(K); return 0.5*np.real(np.trace(C @ C.conj().T))
+
+print("=== TEST A: which candidate matches the finite-difference directional derivative ===")
+for seed in range(4):
+    r = np.random.default_rng(seed)
+    n = 6
+    K = r.standard_normal((n,n)) + 1j*r.standard_normal((n,n))
+    D = r.standard_normal((n,n)) + 1j*r.standard_normal((n,n))
+    eps = 1e-6
+    fd = (Phi(K+eps*D) - Phi(K-eps*D))/(2*eps)
+    C = C_of(K)
+    G_paper = comm(C, K.conj().T)   # [[K,K+],K+]
+    G_mine = comm(C, K)             # [[K,K+],K]
+    pred_paper = 2*np.real(np.trace(G_paper.conj().T @ D))
+    pred_mine = 2*np.real(np.trace(G_mine.conj().T @ D))
+    print(f"seed {seed}: FD={fd:+.6f}    pred[[C],K]={pred_mine:+.6f}   pred[[C],K+]={pred_paper:+.6f}")
+
+print()
+print("=== TEST B: paper’s descent identity dPhi/dt = -4||[[C],K+]||^2 along the paper’s own flow ===")
+for seed in range(4):
+    r = np.random.default_rng(100+seed)
+    n = 6
+    K = r.standard_normal((n,n)) + 1j*r.standard_normal((n,n))
+    C = C_of(K)
+    F = -2*comm(C, K.conj().T)                       # paper’s flow direction
+    G_true = comm(C, K)                              # true gradient (from Test A)
+    actual = 2*np.real(np.trace(G_true.conj().T @ F)) # actual dPhi/dt along F
+    eps = 1e-6
+    fd_actual = (Phi(K+eps*F) - Phi(K-eps*F))/(2*eps) # same thing, pure finite difference
+    claimed = -4*np.real(np.trace(comm(C,K.conj().T).conj().T @ comm(C,K.conj().T)))
+    print(f"seed {100+seed}: actual dPhi/dt = {fd_actual:+.4f}    paper’s claimed value = {claimed:+.4f}")
+
+print()
+print("=== TEST C: 2x2 nilpotent K=[[0,1],[0,0]] -- clean counterexample ===")
+K = np.array([[0,1],[0,0]], dtype=complex)
+C = C_of(K)
+
+
+                                                      15
+F = -2*comm(C, K.conj().T)
+eps=1e-6
+fd = (Phi(K+eps*F)-Phi(K-eps*F))/(2*eps)
+claimed = -4*np.real(np.trace(comm(C,K.conj().T).conj().T @ comm(C,K.conj().T)))
+print(f"K nilpotent: actual dPhi/dt along paper flow = {fd:+.6f}; paper’s formula predicts {claimed:+.6f}")
+
+print()
+print("=== TEST D: the TRUE gradient flow dK/dt=-2[[C],K] is isospectral (eigenvalues frozen) ===")
+r = np.random.default_rng(42); n=5
+K = r.standard_normal((n,n)) + 1j*r.standard_normal((n,n))
+ev0 = np.sort_complex(np.linalg.eigvals(K))
+h = 2e-4
+Kt = K.copy()
+for step in range(40000):
+    # RK4 on dK/dt = -2[C(K),K]
+    def f(M): return -2*comm(C_of(M), M)
+    k1=f(Kt); k2=f(Kt+0.5*h*k1); k3=f(Kt+0.5*h*k2); k4=f(Kt+h*k3)
+    Kt = Kt + (h/6)*(k1+2*k2+2*k3+k4)
+ev1 = np.sort_complex(np.linalg.eigvals(Kt))
+print("eigenvalue drift after long integration:", np.max(np.abs(ev1-ev0)))
+print("residual non-normality ||[K,K+]|| :", np.linalg.norm(C_of(Kt)))
+print("initial non-normality              :", np.linalg.norm(C_of(K)))
+print("distance of final K from -Lam*I? final eigenvalues:", np.round(ev1,3))
+
+
+E.2 COSMO-BIORTHO-02 (dissipation identity; alignment; dual flow)
+# SCRIPT: COSMO-BIORTHO-02 (co-vector/vector alignment along the corrected flow; Henrici dissipation identity; paper-flow contr
+import numpy as np
+from scipy.linalg import eig
+np.set_printoptions(precision=4, suppress=False)
+
+def comm(A,B): return A@B - B@A
+def C_of(K): return comm(K, K.conj().T)
+def Phi(K):
+    C = C_of(K); return 0.5*np.real(np.trace(C @ C.conj().T))
+def kappas(K):
+    w, vl, vr = eig(K, left=True, right=True)   # columns unit-norm
+    idx = np.lexsort((w.imag, w.real))
+    w, vl, vr = w[idx], vl[:,idx], vr[:,idx]
+    kap = np.array([1.0/abs(vl[:,i].conj() @ vr[:,i]) for i in range(len(w))])
+    return w, kap, vr
+
+print("=== TEST 1: exact identity d/dt ||K||_F^2 = -8*Phi(K) along corrected flow (finite difference) ===")
+for seed in range(5):
+    r = np.random.default_rng(seed); n=6
+    K = r.standard_normal((n,n)) + 1j*r.standard_normal((n,n))
+    F = -2*comm(C_of(K), K)
+    eps = 1e-7
+    fd = (np.linalg.norm(K+eps*F)**2 - np.linalg.norm(K-eps*F)**2)/(2*eps)
+    print(f"seed {seed}: FD d||K||^2/dt = {fd:+.6f}     -8*Phi = {-8*Phi(K):+.6f}   ratio = {fd/(-8*Phi(K)):.9f}")
+
+print()
+print("=== TEST 2: trajectory -- eigenvalues frozen, kappas -> 1, Henrici budget closes ===")
+r = np.random.default_rng(11); n=6
+K0 = r.standard_normal((n,n)) + 1j*r.standard_normal((n,n))
+w0, kap0, vr0 = kappas(K0)
+S2 = np.sum(np.abs(w0)**2)                      # conserved spectral energy
+henrici0 = np.linalg.norm(K0)**2 - S2
+print(f"t=0: Henrici^2 = {henrici0:.6f}   Phi = {Phi(K0):.4f}")
+print("t=0 kappas:", np.round(kap0,4))
+lead0 = np.argmax(np.abs(w0))                   # leading = largest |lambda|
+Kt = K0.copy(); h = 5e-5; t = 0.0
+checkpoints = [0.001,0.005,0.02,0.1,0.5,2.0]
+ci = 0; log = []
+def f(M): return -2*comm(C_of(M), M)
+while ci < len(checkpoints):
+    k1=f(Kt); k2=f(Kt+0.5*h*k1); k3=f(Kt+0.5*h*k2); k4=f(Kt+h*k3)
+
+
+
+                                                     16
+    Kt = Kt + (h/6)*(k1+2*k2+2*k3+k4); t += h
+    if t >= checkpoints[ci]:
+        w, kap, vr = kappas(Kt)
+        hen = np.linalg.norm(Kt)**2 - S2
+        lead = np.argmax(np.abs(w))
+        ang = np.degrees(np.arccos(min(1.0, abs(vr0[:,lead0].conj() @ vr[:,lead]))))
+        log.append((t, np.max(np.abs(np.sort_complex(w)-np.sort_complex(w0))), hen, Phi(Kt), np.max(kap), kap[lead], ang))
+        ci += 1
+print(f"{’t’:>7} {’eig drift’:>10} {’Henrici^2’:>10} {’Phi’:>10} {’max kappa’:>10} {’kappa_lead’:>10} {’R1 rotation(deg)’:>16}")
+for row in log:
+    print(f"{row[0]:7.3f} {row[1]:10.2e} {row[2]:10.4f} {row[3]:10.4f} {row[4]:10.5f} {row[5]:10.5f} {row[6]:16.2f}")
+print("limit spectrum (should equal initial):", np.round(np.sort_complex(np.linalg.eigvals(Kt)),3))
+print("initial spectrum                     :", np.round(np.sort_complex(w0),3))
+
+print()
+print("=== TEST 3: budget check -- integral of 8*Phi dt vs Henrici^2 dissipated ===")
+Kt = K0.copy(); h=5e-5; acc=0.0
+for step in range(int(2.0/h)):
+    acc += 8*Phi(Kt)*h
+    k1=f(Kt); k2=f(Kt+0.5*h*k1); k3=f(Kt+0.5*h*k2); k4=f(Kt+h*k3)
+    Kt = Kt + (h/6)*(k1+2*k2+2*k3+k4)
+print(f"integral 8*Phi dt over [0,2] = {acc:.6f}")
+print(f"Henrici^2 drop ||K0||^2-||K(2)||^2 = {np.linalg.norm(K0)**2 - np.linalg.norm(Kt)**2:.6f}")
+
+print()
+print("=== TEST 4: the paper’s flow dK/dt=-2[[C],K+] -- spectrum NOT preserved; where does it go? ===")
+def fp(M): return -2*comm(C_of(M), M.conj().T)
+Kt = K0.copy(); h=2e-5; t=0
+for tstop in [0.01, 0.05, 0.2, 1.0]:
+    while t < tstop:
+        k1=fp(Kt); k2=fp(Kt+0.5*h*k1); k3=fp(Kt+0.5*h*k2); k4=fp(Kt+h*k3)
+        Kt = Kt + (h/6)*(k1+2*k2+2*k3+k4); t += h
+        if not np.isfinite(np.linalg.norm(Kt)) or np.linalg.norm(Kt) > 1e8:
+            print(f"t={t:.4f}: BLOW-UP, ||K|| = {np.linalg.norm(Kt):.2e}"); break
+    else:
+        w = np.sort_complex(np.linalg.eigvals(Kt))
+        print(f"t={t:.3f}: ||K||={np.linalg.norm(Kt):9.3f} Phi={Phi(Kt):10.3f} eig drift={np.max(np.abs(w-np.sort_complex(w0))
+        continue
+    break
+
+
+E.3 COSMO-CATALAN-01 (chiral identity; the two constants; density mass)
+# SCRIPT: COSMO-CATALAN-01 (chiral ledger identity 6.12 + Catalan integral 13.13 + density normalization)
+import numpy as np
+from mpmath import mp, quad, log, atan, pi, catalan, inf, mpf
+mp.dps = 30
+
+print("=== TEST A: algebraic identity (6.12) on an explicitly chiral matrix ===")
+r = np.random.default_rng(3)
+m = 5
+B = 0.15*(r.standard_normal((m,m)) + 1j*r.standard_normal((m,m)))
+X = np.block([[np.zeros((m,m)), B],[B.conj().T, np.zeros((m,m))]])   # anticommutes with diag(I,-I)
+ev = np.linalg.eigvalsh(X)
+print("spectrum symmetric? max|ev + reversed(ev)| =", np.max(np.abs(ev + ev[::-1])))
+Z_true = np.sum(np.log(1+ev))           # Tr ln(I+X) = the actual ledger from Thm 6.1’s series
+Z_paper = np.sum(np.log(1+ev**2))       # paper’s (6.12): Tr ln(I+X^2)
+Z_half = 0.5*np.sum(np.log(1-ev**2))    # candidate correction: (1/2) Tr ln(I-X^2)
+print(f"Tr ln(I+X)        = {Z_true:+.12f}    (ground truth)")
+print(f"paper Tr ln(I+X^2)= {Z_paper:+.12f}")
+print(f"1/2 Tr ln(I-X^2) = {Z_half:+.12f}")
+
+print()
+print("=== TEST B: integral identity (13.13): (2/pi) * int_0^inf ln(1+l^2) arctan(1/l)/l dl   vs   G ===")
+I = (2/pi)*quad(lambda l: log(1+l**2)*atan(1/l)/l, [0, 1, inf])
+print("integral value =", I)
+print("Catalan G      =", +catalan)
+print("ratio I/G      =", I/catalan)
+
+
+
+                                                     17
+print("I/(pi) ? ", I/pi, "   I - pi*ln2 ?", I - pi*log(2))
+# sanity: the clean identity the paper DOES have right:
+print("int_0^1 arctan(x)/x dx =", quad(lambda x: atan(x)/x, [0,1]), " (should be G)")
+
+print()
+print("=== TEST C: is rho(l)=arctan(1/l)/(pi*l) a probability density? ===")
+for L in [10, 100, 1000, 10000]:
+    tot = (2/pi)*quad(lambda l: atan(1/l)/l, [mpf(’1e-8’), 1, L])
+    print(f"int_{{-{L}}}^{{{L}}} rho = {float(tot):.4f}")
+
+
+E.4 RANK-COUNT-01 (area law of the census, with gapless control)
+# SCRIPT: RANK-COUNT-01   (boundary-trackable projector census: area law from the gap/trackability hypothesis)
+import numpy as np
+
+def band_projector(H, tol=0.0):
+    ev, V = np.linalg.eigh(H)
+    occ = ev < tol
+    return V[:, occ] @ V[:, occ].conj().T, ev
+
+def census(P, idx, eps=1e-3):
+    C = P[np.ix_(idx, idx)]
+    nu = np.linalg.eigvalsh(C)
+    return int(np.sum((nu > eps) & (nu < 1-eps)))
+
+print("=== 1D chain, N_track(eps=1e-3) vs region length L ===")
+Ntot = 1200; th = 0.4
+def H1d(m):
+    H = np.zeros((Ntot, Ntot), complex)
+    ph = np.exp(1j*th/Ntot)
+    for j in range(Ntot):
+        H[j,(j+1)%Ntot] = -ph; H[(j+1)%Ntot,j] = -np.conj(ph)
+        H[j,j] = m*(-1)**j
+    return H
+for m, tag in [(0.5,"GAPPED m=0.5 (P1: expect flat)"), (0.0,"GAPLESS m=0 (P2: expect ~log L growth)")]:
+    P,_ = band_projector(H1d(m))
+    counts = [(L, census(P, np.arange(L))) for L in [50,100,200,400]]
+    print(f" {tag}: " + " ".join(f"L={L}: N={N}" for L,N in counts))
+
+print()
+print("=== 1D gap dial at fixed L=200 (P5: N grows as gap shrinks) ===")
+for m in [1.0, 0.5, 0.2, 0.1, 0.05]:
+    P,_ = band_projector(H1d(m))
+    print(f" m={m:5.2f} N={census(P, np.arange(200))}")
+
+print()
+print("=== 2D square lattice 44x44, region LxL (P3/P4) ===")
+Lx = Ly = 44; Nsites = Lx*Ly
+def idx2(x,y): return (x%Lx)*Ly + (y%Ly)
+def H2d(m):
+    H = np.zeros((Nsites, Nsites), complex)
+    phx, phy = np.exp(1j*0.37/Lx), np.exp(1j*0.83/Ly)
+    for x in range(Lx):
+        for y in range(Ly):
+            i = idx2(x,y)
+            H[i, idx2(x+1,y)] += -phx; H[idx2(x+1,y), i] += -np.conj(phx)
+            H[i, idx2(x,y+1)] += -phy; H[idx2(x,y+1), i] += -np.conj(phy)
+            H[i,i] = m*(-1)**(x+y)
+    return H
+for m, tag in [(1.0,"GAPPED m=1.0"), (0.0,"GAPLESS m=0")]:
+    P,_ = band_projector(H2d(m))
+    Ls = [6,10,14,18,22]; Ns = []
+    for L in Ls:
+        region = [idx2(x,y) for x in range(L) for y in range(L)]
+        Ns.append(census(P, np.array(region)))
+    slope = np.polyfit(np.log(Ls), np.log(Ns), 1)[0]
+    perim = ", ".join(f"L={L}: N={N} (N/4L={N/(4*L):.3f})" for L,N in zip(Ls,Ns))
+
+
+
+                                                      18
+    print(f"   {tag}: {perim}")
+    print(f"     log-log slope N vs L = {slope:.3f}   ({’area-law’ if slope < 1.15 else ’violation’} territory)")
+
+
+E.5 CONTAINER-GROUND-01 (exchange symmetry; shape independence)
+# SCRIPT: CONTAINER-GROUND-01 (his hypothesis: the container subspace is a ground state on equal footing; shape-independence)
+import numpy as np
+Lx = Ly = 44; Nsites = Lx*Ly
+def idx2(x,y): return (x%Lx)*Ly + (y%Ly)
+H = np.zeros((Nsites, Nsites), complex)
+phx, phy = np.exp(1j*0.37/Lx), np.exp(1j*0.83/Ly)
+m = 1.0
+for x in range(Lx):
+    for y in range(Ly):
+        i = idx2(x,y)
+        H[i, idx2(x+1,y)] += -phx; H[idx2(x+1,y), i] += -np.conj(phx)
+        H[i, idx2(x,y+1)] += -phy; H[idx2(x,y+1), i] += -np.conj(phy)
+        H[i,i] = m*(-1)**(x+y)
+ev, V = np.linalg.eigh(H)
+Vocc = V[:, ev < 0]
+P = Vocc @ Vocc.conj().T
+eps = 1e-3
+
+def region_square(L, x0=4, y0=4):
+    return [idx2(x0+x, y0+y) for x in range(L) for y in range(L)]
+def region_diamond(r, cx=22, cy=22):
+    return [idx2(x,y) for x in range(Lx) for y in range(Ly) if abs(x-cx)+abs(y-cy) <= r]
+def boundary_sites(A):
+    S = set(A); cnt = 0
+    for i in A:
+        x, yy = divmod(i, Ly)
+        nbrs = [idx2(x+1,yy), idx2(x-1,yy), idx2(x,yy+1), idx2(x,yy-1)]
+        if any(nb not in S for nb in nbrs): cnt += 1
+    return cnt
+def mid_spectrum(Mat):
+    nu = np.linalg.eigvalsh(Mat)
+    return np.sort(nu[(nu > eps) & (nu < 1-eps)])
+
+print("=== CLAIM 1: state/container swap symmetry (square L=14) ===")
+A = np.array(region_square(14))
+nu_state_in_container = mid_spectrum(P[np.ix_(A,A)])                 # 1_A P 1_A
+D = np.zeros(Nsites); D[A] = 1.0
+M2 = Vocc.conj().T @ (D[:,None]*Vocc)                                # P 1_A P in the band frame
+nu_container_in_state = mid_spectrum(M2)
+print(f"channels either way: {len(nu_state_in_container)} vs {len(nu_container_in_state)}")
+print(f"max |difference| of matched spectra: {np.max(np.abs(nu_state_in_container - nu_container_in_state)):.2e}")
+print("(H_A = I - 2*1_A: flat bands at +-1, gap 2 -- the container IS a gapped ground state.)")
+
+print()
+print("=== CLAIM 2: container-shape independence (N per boundary site) ===")
+for name, A in [("square L=14", region_square(14)), ("square L=18", region_square(18)),
+                ("diamond r=10", region_diamond(10)), ("diamond r=13", region_diamond(13))]:
+    A = np.array(A)
+    N = len(mid_spectrum(P[np.ix_(A,A)]))
+    b = boundary_sites(A)
+    print(f" {name:14s}: |A|={len(A):4d} boundary sites={b:3d} N={N:3d} N/boundary = {N/b:.3f}")
+
+
+E.6 COLOR-LEDGER-01 (ledger diminishing returns vs Riemannian control)
+# SCRIPT: COLOR-LEDGER-01 (diminishing returns of the log-det ledger metric vs the Riemannian transport metric on SPD rigidity
+import numpy as np
+from scipy.linalg import fractional_matrix_power as fmp, sqrtm
+rng = np.random.default_rng(2)
+d = 5
+
+def delta_R(A,B):      # affine-invariant Riemannian distance (length metric -- the control)
+
+
+
+                                                      19
+    Ai = fmp(A,-0.5)
+    ev = np.linalg.eigvalsh(Ai@B@Ai)
+    return np.sqrt(np.sum(np.log(ev)**2))
+def dS(A,B):          # ledger metric: sqrt of Jensen-Bregman log-det divergence
+    s = np.linalg.slogdet((A+B)/2)[1] - 0.5*np.linalg.slogdet(A)[1] - 0.5*np.linalg.slogdet(B)[1]
+    return np.sqrt(max(s,0.0))
+
+# relaxed side of the wall: near-identity SPD
+Q = rng.standard_normal((d,d)); A0 = np.eye(d) + 0.05*(Q+Q.T) @ (Q+Q.T).T/ d
+# loaded side: rigidity contrast kappa along a random anisotropy frame
+U,_ = np.linalg.qr(rng.standard_normal((d,d)))
+
+print(f"{’log kappa’:>9} {’direct dR’:>10} {’accum dR’:>10} {’ratio dR’:>9} | {’direct dS’:>10} {’accum dS’:>10} {’ratio dS’:>9}
+for lk in [1,2,4,6,8]:
+    spread = np.linspace(-lk/2, lk/2, d)
+    A1 = U @ np.diag(np.exp(spread)) @ U.T          # SPD, condition number e^lk
+    # geodesic path A(t) = A0^1/2 (A0^-1/2 A1 A0^-1/2)^t A0^1/2, fine discretization
+    A0h = sqrtm(A0).real; A0hi = np.linalg.inv(A0h)
+    Mid = A0hi @ A1 @ A0hi
+    n = 400
+    path = [A0h @ fmp(Mid, t).real @ A0h for t in np.linspace(0,1,n+1)]
+    accR = sum(delta_R(path[k], path[k+1]) for k in range(n))
+    accS = sum(dS(path[k], path[k+1]) for k in range(n))
+    dirR = delta_R(A0, A1); dirS = dS(A0, A1)
+    print(f"{lk:9d} {dirR:10.4f} {accR:10.4f} {accR/dirR:9.4f} | {dirS:10.4f} {accS:10.4f} {accS/dirS:9.4f}")
+
+print()
+print("local calibration (step size -> 0): dS/dR on one small step at three points along the path:")
+for t in [0.1, 0.5, 0.9]:
+    Aa = path[int(t*n)]; Ab = path[int(t*n)+1]
+    print(f" t={t}: dS/dR = {dS(Aa,Ab)/delta_R(Aa,Ab):.6f}    (1/(2*sqrt2) = {1/(2*np.sqrt(2)):.6f})")
+
+
+E.7 REFRACT-EL-01 (dynamical refraction and total reflection)
+# SCRIPT: REFRACT-EL-01 (integrate the actual EL dynamics through the mollified rigidity layer; test R sin^2 vs R sin)
+import numpy as np
+eps_layer = 0.05
+def make_R(R1, R2):
+    Rf = lambda w: (R1+R2)/2 + (R2-R1)/2*np.tanh(w/eps_layer)
+    dRf = lambda w: (R2-R1)/2/np.cosh(w/eps_layer)**2/eps_layer
+    return Rf, dRf
+
+def run(R1, R2, th1_deg, tmax=6.0, h=2e-5):
+    Rf, dRf = make_R(R1, R2)
+    th1 = np.radians(th1_deg)
+    w, vpar, vper = -1.0, np.sin(th1), np.cos(th1)
+    p0 = Rf(w)*vpar; E0 = 0.5*Rf(w)*(vpar**2+vper**2)
+    def f(s):
+        w, vpar, vper = s
+        R, dR = Rf(w), dRf(w)
+        return np.array([vper, -dR*vper*vpar/R, dR*(vpar**2 - vper**2)/(2*R)])
+    s = np.array([w, vpar, vper]); t = 0.0
+    while t < tmax:
+        k1=f(s); k2=f(s+0.5*h*k1); k3=f(s+0.5*h*k2); k4=f(s+h*k3)
+        s = s + (h/6)*(k1+2*k2+2*k3+k4); t += h
+        if s[0] > 1.0 or (s[0] < -1.0 and s[2] < 0): break
+    w, vpar, vper = s
+    R = Rf(w)
+    th_out = np.degrees(np.arcsin(abs(vpar)/np.hypot(vpar,vper)))
+    outcome = "TRANSMITTED" if w > 0 else "REFLECTED"
+    p_err = abs(R*vpar - p0)/abs(p0)
+    E_err = abs(0.5*R*(vpar**2+vper**2) - E0)/E0
+    sin2_in, sin2_out = R1*np.sin(th1)**2, R*(abs(vpar)/np.hypot(vpar,vper))**2
+    sin_in, sin_out   = R1*np.sin(th1),    R*(abs(vpar)/np.hypot(vpar,vper))
+    print(f"R1={R1} -> R2={R2}, th1={th1_deg:5.1f}deg: {outcome}, th_out={th_out:6.2f}deg | "
+          f"p_par drift {p_err:.1e}, E drift {E_err:.1e}")
+    print(f"    R sin^2: in {sin2_in:.6f} out {sin2_out:.6f} (rel diff {abs(sin2_in-sin2_out)/sin2_in:.1e})"
+
+
+
+                                                     20
+          f" | R sin: in {sin_in:.4f} out {sin_out:.4f} (rel diff {abs(sin_in-sin_out)/sin_in:.2f})")
+
+print("Case A: low -> high rigidity, transmit and bend toward normal")
+run(1.0, 4.0, 50.0)
+print("Case B: high -> low, SUB-critical (theta_crit = arcsin sqrt(1/4) = 30 deg)")
+run(4.0, 1.0, 20.0)
+print("Case C: high -> low, SUPER-critical -> total reflection expected")
+run(4.0, 1.0, 45.0)
+
+
+E.8 READ2-GATES-01 (zeta series; chiral repair; Lipschitz; QGT; back-reaction;
+SU(3))
+# SCRIPT: READ2-GATES-01 (remaining read-#2 verification gates for the cosmology paper)
+import numpy as np
+rng = np.random.default_rng(9)
+def comm(A,B): return A@B - B@A
+
+print("G1: Theorem 6.1 zeta-ledger series (traceless dK, eta-Lam=2)")
+M = 10
+dK = rng.standard_normal((M,M)) + 1j*rng.standard_normal((M,M))
+dK -= np.trace(dK)/M*np.eye(M)                       # traceless
+dK *= 0.8/np.linalg.norm(dK,2)                       # ||X|| < 1
+g = 2.0; X = dK/g
+Z_true = np.linalg.slogdet(g*np.eye(M) + dK)[1]
+Z_series = M*np.log(g) + sum(((-1)**(k-1)/k)*np.trace(np.linalg.matrix_power(X,k)).real for k in range(2,60))
+print(f"   direct log|det| = {Z_true:.12f}   formula (6.3) = {Z_series:.12f}   diff = {abs(Z_true-Z_series):.1e}")
+
+print("G2: chiral ledger repair -- anti-Hermitian X gives Z = (1/2)Tr ln(I+Y^2)")
+m2 = 5
+B = 0.3*(rng.standard_normal((m2,m2)) + 1j*rng.standard_normal((m2,m2)))
+Y = np.block([[np.zeros((m2,m2)), B],[B.conj().T, np.zeros((m2,m2))]])   # Hermitian, chiral
+X = 1j*Y                                                                  # anti-Hermitian, chiral
+Z_true = np.linalg.slogdet(np.eye(2*m2) + X)[1]
+lam = np.linalg.eigvalsh(Y)
+Z_half = 0.5*np.sum(np.log(1+lam**2))
+print(f"   log|det(I+X)| = {Z_true:.12f}   (1/2)Tr ln(I+Y^2) = {Z_half:.12f}   diff = {abs(Z_true-Z_half):.1e}")
+print("   -> continuum value under the paper’s own density: (1/2)*(pi^2/6) = pi^2/12; Catalan stays with the holonomy integral o
+
+print("G3: Theorem 7.1 Lipschitz bound, numeric (Riesz projectors by contour quadrature)")
+n = 6
+A = np.diag([1.0,1.2,2.6,3.1,3.7,4.3]) + 0.1*rng.standard_normal((n,n))
+c0, r = 1.1+0j, 0.7
+ths = np.linspace(0, 2*np.pi, 800, endpoint=False)
+zs = c0 + r*np.exp(1j*ths)
+sup_res = max(np.linalg.norm(np.linalg.inv(z*np.eye(n)-A), 2) for z in zs)
+evs = np.linalg.eigvals(A)
+outside = evs[np.abs(evs-c0) > r]
+dgap = min(abs(ev-c0) for ev in outside) - r
+C_G = sup_res*dgap
+eps = 0.3*dgap/C_G
+E = rng.standard_normal((n,n)); E *= eps/np.linalg.norm(E,2)
+def riesz(Mt):
+    S = np.zeros((n,n), complex)
+    for z in zs: S += np.linalg.inv(z*np.eye(n)-Mt)*(1j*r*np.exp(1j*np.angle(z-c0)))
+    return S*(2*np.pi/len(zs))/(2j*np.pi)
+Pi, Pip = riesz(A), riesz(A+E)
+lhs = np.linalg.norm(Pip-Pi, 2)
+ell = 2*np.pi*r
+K_G = ell*C_G**2/(2*np.pi*dgap*(dgap-eps*C_G))
+print(f"   ||Pi’-Pi|| = {lhs:.4f} <= K_Gamma*eps = {K_G*eps:.4f} -> {’BOUND HOLDS’ if lhs <= K_G*eps else ’VIOLATED’}     (Tr P
+
+print("G4: Appendix A conventions -- Q = g + (i/2)Omega with g=(1/2)Tr(VW), Omega=-i Tr(Pi[V,W]); and the metric-curvature inequ
+k, nn = 2, 6
+Q0,_ = np.linalg.qr(rng.standard_normal((nn,nn)) + 1j*rng.standard_normal((nn,nn)))
+Pi = Q0[:,:k] @ Q0[:,:k].conj().T
+def tangent():
+    Vr = rng.standard_normal((nn,nn)) + 1j*rng.standard_normal((nn,nn)); Vr = (Vr+Vr.conj().T)/2
+
+
+                                                     21
+    Qp = np.eye(nn)-Pi
+    return Pi@Vr@Qp + Qp@Vr@Pi
+V, W = tangent(), tangent()
+Q_VW = np.trace(Pi@V@W)
+gVW = 0.5*np.trace(V@W).real
+Om   = (-1j*np.trace(Pi@comm(V,W))).real
+print(f"   Tr(PiVW) = {Q_VW:.6f}   g + (i/2)Om = {gVW + 0.5j*Om:.6f} diff = {abs(Q_VW-(gVW+0.5j*Om)):.1e}")
+gVV, gWW = 0.5*np.trace(V@V).real, 0.5*np.trace(W@W).real
+rhs = 2*np.sqrt(max(gVV*gWW - gVW**2, 0))
+print(f"   |Omega| = {abs(Om):.6f} <= 2*sqrt(gg-g^2) = {rhs:.6f} -> {’HOLDS’ if abs(Om)<=rhs+1e-12 else ’VIOLATED’}")
+
+print("G5: corrected back-reaction linearization (Sec 3 repair): dF[V] = -2([[V,K+]+[K,V+],K] + [[K,K+],V])")
+K = rng.standard_normal((5,5)) + 1j*rng.standard_normal((5,5))
+V = rng.standard_normal((5,5)) + 1j*rng.standard_normal((5,5))
+def F(Kk): return -2*comm(comm(Kk,Kk.conj().T), Kk)
+h = 1e-6
+fd = (F(K+h*V) - F(K-h*V))/(2*h)
+dC = comm(V,K.conj().T) + comm(K,V.conj().T)
+formula = -2*(comm(dC,K) + comm(comm(K,K.conj().T), V))
+print(f"   ||FD - formula|| / ||FD|| = {np.linalg.norm(fd-formula)/np.linalg.norm(fd):.1e}")
+
+print("G6: Eq (4.9) SU(3) commutator, numeric")
+# Gell-Mann matrices
+l = np.zeros((8,3,3), complex)
+l[0][0,1]=l[0][1,0]=1; l[1][0,1]=-1j; l[1][1,0]=1j; l[2][0,0]=1; l[2][1,1]=-1
+l[3][0,2]=l[3][2,0]=1; l[4][0,2]=-1j; l[4][2,0]=1j; l[5][1,2]=l[5][2,1]=1
+l[6][1,2]=-1j; l[6][2,1]=1j; l[7]=np.diag([1,1,-2])/np.sqrt(3)
+f = np.zeros((8,8,8))
+for a in range(8):
+    for b in range(8):
+        cab = comm(l[a],l[b])
+        for c in range(8): f[a,b,c] = (np.trace(cab@l[c])/(4j)).real
+psi = rng.standard_normal(8) + 1j*rng.standard_normal(8)
+A49 = sum(psi[a]*l[a] for a in range(8))
+lhs = comm(A49, A49.conj().T)
+rhs = -2*sum(f[a,b,c]*np.imag(psi[a]*np.conj(psi[b]))*l[c] for a in range(8) for b in range(8) for c in range(8))
+print(f"   ||[A,A+] - RHS(4.9)|| = {np.linalg.norm(lhs-rhs):.1e}   (traceless: {abs(np.trace(lhs)):.1e})")
+
+
+E.9 FIG-COSMO-01 (all figures; corrected color-flow gate)
+# SCRIPT: FIG-COSMO-01 (all v2 figures regenerated from the gated computations; plus V2 gate for corrected Eq (4.10))
+import numpy as np
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from scipy.linalg import eig, fractional_matrix_power as fmp, sqrtm
+rng = np.random.default_rng(11)
+def comm(A,B): return A@B - B@A
+def C_of(K): return comm(K, K.conj().T)
+def Phi(K):
+    C = C_of(K); return 0.5*np.real(np.trace(C @ C.conj().T))
+
+# ---------- FIGURE 1: corrected relaxation flow ----------
+n = 6
+K0 = rng.standard_normal((n,n)) + 1j*rng.standard_normal((n,n))
+w0 = np.sort_complex(np.linalg.eigvals(K0)); S2 = np.sum(np.abs(w0)**2)
+def kap(K):
+    w, vl, vr = eig(K, left=True, right=True)
+    i = np.lexsort((w.imag, w.real))
+    return np.array([1.0/abs(vl[:,j].conj()@vr[:,j]) for j in i[np.argsort(i)]]), w
+def f(M): return -2*comm(C_of(M), M)
+h = 5e-5; Kt = K0.copy(); t = 0.0
+ts, phis, hens, drifts, kmax = [], [], [], [], []
+next_rec = 0.0
+while t < 2.0:
+    if t >= next_rec:
+        w = np.sort_complex(np.linalg.eigvals(Kt))
+
+
+
+                                                     22
+        kv,_ = kap(Kt)
+        ts.append(t); phis.append(Phi(Kt)); hens.append(np.linalg.norm(Kt)**2 - S2)
+        drifts.append(np.max(np.abs(w - w0))); kmax.append(np.max(kv))
+        next_rec = max(1e-3, next_rec*1.35) if next_rec > 0 else 1e-3
+    k1=f(Kt); k2=f(Kt+0.5*h*k1); k3=f(Kt+0.5*h*k2); k4=f(Kt+h*k3)
+    Kt = Kt + (h/6)*(k1+2*k2+2*k3+k4); t += h
+fig, ax = plt.subplots(1, 2, figsize=(9, 3.4))
+ax[0].semilogy(ts, phis, ’b-’, label=r’$\Phi(K)$ (spectral stress)’)
+ax[0].semilogy(ts, hens, ’r--’, label=r’$\Delta_F^2$ (Henrici budget)’)
+ax[0].semilogy(ts, np.maximum(drifts, 1e-16), ’g:’, label=’eigenvalue drift’)
+ax[0].set_xlabel(’t’); ax[0].set_title(’Isospectral relaxation: stress dies, spectrum frozen’)
+ax[0].legend(fontsize=8); ax[0].set_ylim(1e-13, 1e3)
+ax[1].plot(ts, kmax, ’k-’)
+ax[1].axhline(1.0, color=’gray’, lw=0.7)
+ax[1].set_xlabel(’t’); ax[1].set_ylabel(r’$\max_i \kappa_i$’)
+ax[1].set_title(r’Co-vector/vector alignment: $\kappa_i \to 1$’)
+plt.tight_layout(); plt.savefig(’fig1_flow.pdf’); plt.close()
+print("FIG1 done: final Phi", phis[-1] if phis else None, " final drift", drifts[-1])
+
+# ---------- FIGURE 2: area law census ----------
+def band_projector(H):
+    ev, V = np.linalg.eigh(H); occ = ev < 0
+    return V[:, occ] @ V[:, occ].conj().T
+def census(P, idx, eps=1e-3):
+    nu = np.linalg.eigvalsh(P[np.ix_(idx, idx)])
+    return int(np.sum((nu > eps) & (nu < 1-eps)))
+Ntot = 1200; th = 0.4
+def H1d(m):
+    H = np.zeros((Ntot, Ntot), complex); ph = np.exp(1j*th/Ntot)
+    for j in range(Ntot):
+        H[j,(j+1)%Ntot] = -ph; H[(j+1)%Ntot,j] = -np.conj(ph); H[j,j] = m*(-1)**j
+    return H
+Ls1 = [50,100,200,400]
+N_gap = [census(band_projector(H1d(0.5)), np.arange(L)) for L in Ls1]
+N_free = [census(band_projector(H1d(0.0)), np.arange(L)) for L in Ls1]
+Lx = Ly = 44; Ns = Lx*Ly
+def idx2(x,y): return (x%Lx)*Ly + (y%Ly)
+def H2d(m):
+    H = np.zeros((Ns, Ns), complex); px, py = np.exp(1j*0.37/Lx), np.exp(1j*0.83/Ly)
+    for x in range(Lx):
+        for y in range(Ly):
+            i = idx2(x,y)
+            H[i, idx2(x+1,y)] += -px; H[idx2(x+1,y), i] += -np.conj(px)
+            H[i, idx2(x,y+1)] += -py; H[idx2(x,y+1), i] += -np.conj(py)
+            H[i,i] = m*(-1)**(x+y)
+    return H
+Ls2 = [6,10,14,18,22]
+P2g = band_projector(H2d(1.0)); P2f = band_projector(H2d(0.0))
+def reg(L): return np.array([idx2(4+x,4+y) for x in range(L) for y in range(L)])
+N2g = [census(P2g, reg(L)) for L in Ls2]
+N2f = [census(P2f, reg(L)) for L in Ls2]
+fig, ax = plt.subplots(1, 2, figsize=(9, 3.4))
+ax[0].plot(Ls1, N_gap, ’bo-’, label=’gapped m=0.5’)
+ax[0].plot(Ls1, N_free, ’rs--’, label=’gapless m=0’)
+ax[0].set_xlabel(’region length L’); ax[0].set_ylabel(r’$N_{\rm track}$’)
+ax[0].set_title(’1D census: area law = constant’); ax[0].legend(fontsize=8); ax[0].set_ylim(0, 14)
+ax[1].plot(Ls2, N2g, ’bo-’, label=’gapped m=1’)
+ax[1].plot(Ls2, N2f, ’rs--’, label=’gapless m=0’)
+ax[1].plot(Ls2, [4*L for L in Ls2], ’k:’, label=r’$N=4L$ (unit density)’)
+ax[1].set_xlabel(’region size L’); ax[1].set_title(r’2D census: $N \to$ perimeter’)
+ax[1].legend(fontsize=8)
+plt.tight_layout(); plt.savefig(’fig2_arealaw.pdf’); plt.close()
+print("FIG2 done:", N_gap, N_free, N2g, N2f)
+
+# ---------- FIGURE 3: refraction dynamics ----------
+eps_layer = 0.05
+def traj(R1, R2, th1_deg, h=5e-5, tmax=6.0):
+    Rf = lambda w: (R1+R2)/2 + (R2-R1)/2*np.tanh(w/eps_layer)
+
+
+
+                                                     23
+    dRf = lambda w: (R2-R1)/2/np.cosh(w/eps_layer)**2/eps_layer
+    th1 = np.radians(th1_deg)
+    s = np.array([-1.0, np.sin(th1), np.cos(th1)]); t = 0.0
+    xs, ys = [0.0], [-1.0]
+    def g(s):
+        w, vp, vq = s; R, dR = Rf(w), dRf(w)
+        return np.array([vq, -dR*vq*vp/R, dR*(vp**2-vq**2)/(2*R)])
+    x = 0.0
+    while t < tmax:
+        k1=g(s); k2=g(s+0.5*h*k1); k3=g(s+0.5*h*k2); k4=g(s+h*k3)
+        s = s + (h/6)*(k1+2*k2+2*k3+k4); x += s[1]*h; t += h
+        if len(xs) < 4000 and int(t/h) % 30 == 0: xs.append(x); ys.append(s[0])
+        if s[0] > 1.0 or (s[0] < -1.0 and s[2] < 0): break
+    return np.array(xs), np.array(ys)
+fig, ax = plt.subplots(figsize=(6.4, 4))
+for (R1,R2,th,lab,col) in [(1,4,50,’R 1->4, 50 deg (transmit)’,’b’),
+                            (4,1,20,’R 4->1, 20 deg (transmit)’,’g’),
+                            (4,1,45,’R 4->1, 45 deg (total reflection)’,’r’)]:
+    xs, ys = traj(R1,R2,th)
+    ax.plot(xs, ys, col, label=lab)
+ax.axhspan(-3*eps_layer, 3*eps_layer, color=’gray’, alpha=0.3)
+ax.set_xlabel(r’$w_\parallel$’); ax.set_ylabel(r’$w_\perp$’)
+ax.set_title(r’EL dynamics through the rigidity layer: $R\sin^2\theta$ conserved to $10^{-13}$’)
+ax.legend(fontsize=8); plt.tight_layout(); plt.savefig(’fig3_refract.pdf’); plt.close()
+print("FIG3 done")
+
+# ---------- FIGURE 4: ledger diminishing returns ----------
+d = 5
+Q = rng.standard_normal((d,d)); A0 = np.eye(d) + 0.05*(Q+Q.T)@(Q+Q.T).T/d
+U,_ = np.linalg.qr(rng.standard_normal((d,d)))
+def dR_aff(A,B):
+    Ai = fmp(A,-0.5); ev = np.linalg.eigvalsh(Ai@B@Ai)
+    return np.sqrt(np.sum(np.log(ev)**2))
+def dS(A,B):
+    s = np.linalg.slogdet((A+B)/2)[1] - 0.5*np.linalg.slogdet(A)[1] - 0.5*np.linalg.slogdet(B)[1]
+    return np.sqrt(max(s,0))
+lks, ratios = [1,2,4,6,8], []
+for lk in lks:
+    A1 = U @ np.diag(np.exp(np.linspace(-lk/2, lk/2, d))) @ U.T
+    A0h = sqrtm(A0).real; A0hi = np.linalg.inv(A0h); Mid = A0hi@A1@A0hi
+    npth = 300
+    path = [A0h @ fmp(Mid, s).real @ A0h for s in np.linspace(0,1,npth+1)]
+    accS = sum(dS(path[k], path[k+1]) for k in range(npth))
+    ratios.append(accS/dS(A0, A1))
+fig, ax = plt.subplots(figsize=(5.2, 3.4))
+ax.plot(lks, ratios, ’mo-’)
+ax.axhline(1.0, color=’gray’, lw=0.7)
+ax.set_xlabel(r’$\log \kappa$ (rigidity contrast)’); ax.set_ylabel(’accumulated / direct’)
+ax.set_title(’Ledger metric: diminishing returns grow with contrast’)
+plt.tight_layout(); plt.savefig(’fig4_color.pdf’); plt.close()
+print("FIG4 done:", [f"{r:.3f}" for r in ratios])
+
+# ---------- V2 GATE: corrected Eq (4.10) ----------
+l = np.zeros((8,3,3), complex)
+l[0][0,1]=l[0][1,0]=1; l[1][0,1]=-1j; l[1][1,0]=1j; l[2][0,0]=1; l[2][1,1]=-1
+l[3][0,2]=l[3][2,0]=1; l[4][0,2]=-1j; l[4][2,0]=1j; l[5][1,2]=l[5][2,1]=1
+l[6][1,2]=-1j; l[6][2,1]=1j; l[7]=np.diag([1,1,-2])/np.sqrt(3)
+fabc = np.zeros((8,8,8))
+for a in range(8):
+    for b in range(8):
+        cab = comm(l[a],l[b])
+        for c in range(8): fabc[a,b,c] = (np.trace(cab@l[c])/(4j)).real
+psi = rng.standard_normal(8) + 1j*rng.standard_normal(8)
+A = sum(psi[a]*l[a] for a in range(8))
+direct = -2*comm(comm(A, A.conj().T), A)
+formula = 8j*sum(fabc[a,b,c]*fabc[c,d,e]*np.imag(psi[a]*np.conj(psi[b]))*psi[d]*l[e]
+                 for a in range(8) for b in range(8) for c in range(8) for d in range(8) for e in range(8))
+print("V2-GATE corrected (4.10): ||direct - formula|| =", np.linalg.norm(direct - formula))
+
+
+
+                                                     24
+Acknowledgments
+Computational verification, gating, and drafting assistance by an AI collaborator (Claude, An-
+thropic); every gate above is independently re-runnable from Appendix E. License: CC BY 4.0.
+
+
+References
+ [1] T. Kato, Perturbation Theory for Linear Operators, Springer (1995).
+
+ [2] L. N. Trefethen and M. Embree, Spectra and Pseudospectra, Princeton (2005).
+
+ [3] P. Henrici, Bounds for iterates, inverses, spectral variation and fields of values of non-normal
+     matrices, Numer. Math. 4, 24 (1962).
+
+ [4] R. W. Brockett, Dynamical systems that sort lists, diagonalize matrices, and solve linear
+     programming problems, Lin. Alg. Appl. 146, 79 (1991).
+
+ [5] M. T. Chu and K. R. Driessel, The projected gradient method for least squares matrix ap-
+     proximations with spectral constraints, SIAM J. Numer. Anal. 27, 1050 (1990).
+
+ [6] T. Needham et al., Geometric approaches to matrix normalization and graph balancing, Forum
+     of Mathematics, Sigma (2025).
+
+ [7] J. T. Chalker and B. Mehlig, Eigenvector statistics in non-Hermitian random matrix ensembles,
+     Phys. Rev. Lett. 81, 3367 (1998).
+
+ [8] S. Weinberg, The cosmological constant problem, Rev. Mod. Phys. 61, 1 (1989).
+
+ [9] A. G. Cohen, D. B. Kaplan, and A. E. Nelson, Effective field theory, black holes, and the
+     cosmological constant, Phys. Rev. Lett. 82, 4971 (1999).
+
+[10] M. Li, A model of holographic dark energy, Phys. Lett. B 603, 1 (2004).
+
+[11] R. Horvat, Holography and a variable cosmological constant, Phys. Rev. D 70, 087301 (2004).
+
+[12] S. D. H. Hsu, Entropy bounds and dark energy, Phys. Lett. B 594, 13 (2004).
+
+[13] DESI Collaboration, DESI DR2 Results II: Measurements of baryon acoustic oscillations and
+     cosmological constraints, arXiv:2503.14738 (2025).
+
+[14] D. D. Y. Ong, D. Yallup, and W. Handley, A Bayesian perspective on evidence for evolving
+     dark energy, arXiv:2511.10631 (2026).
+
+[15] M. B. Hastings, An area law for one-dimensional quantum systems, J. Stat. Mech. P08024
+     (2007).
+
+[16] J. Eisert, M. Cramer, and M. B. Plenio, Area laws for the entanglement entropy, Rev. Mod.
+     Phys. 82, 277 (2010).
+
+[17] D. Gioev and I. Klich, Entanglement entropy of fermions in any dimension and the Widom
+     conjecture, Phys. Rev. Lett. 96, 100503 (2006).
+
+[18] M. M. Wolf, Violation of the entropic area law for fermions, Phys. Rev. Lett. 96, 010404
+     (2006).
+
+                                                 25
+[19] I. Peschel, Calculation of reduced density matrices from correlation functions, J. Phys. A 36,
+     L205 (2003).
+
+[20] M. Storms and R. R. P. Singh, Entanglement in ground and excited states of gapped free-
+     fermion systems, Phys. Rev. E 89, 012125 (2014).
+
+[21] H. Li and F. D. M. Haldane, Entanglement spectrum as a generalization of entanglement
+     entropy, Phys. Rev. Lett. 101, 010504 (2008).
+
+[22] J. P. Provost and G. Vallee, Riemannian structure on manifolds of quantum states, Commun.
+     Math. Phys. 76, 289 (1980).
+
+[23] S. Peotta and P. Törmä, Superfluidity in topologically nontrivial flat bands, Nat. Commun. 6,
+     8944 (2015).
+
+[24] I. Sodemann and L. Fu, Quantum nonlinear Hall effect induced by Berry curvature dipole,
+     Phys. Rev. Lett. 115, 216806 (2015).
+
+[25] A. Gao et al., Quantum geometry in condensed matter, Natl. Sci. Rev. 12, nwae334 (2025).
+
+[26] R. Bujack et al., The non-Riemannian nature of perceptual color space, Proc. Natl. Acad. Sci.
+     119, e2119753119 (2022).
+
+[27] R. Bujack, E. N. Stark, T. L. Turton, J. M. Miller, and D. H. Rogers, The geometry of color
+     in the light of a non-Riemannian space, Comput. Graph. Forum 44(3) (2025).
+
+[28] S. Sra, Positive definite matrices and the S-divergence, Proc. Amer. Math. Soc. 144, 2787
+     (2016).
+
+[29] R. W. Klopfenstein, A transmission line taper of improved design, Proc. IRE 44, 31 (1956).
+
+[30] B. Greene, D. Kabat, J. Levin, and A. S. Menon, Superluminal propagation on a moving
+     braneworld, Phys. Rev. D 106, 085001 (2022).
+
+[31] W. Israel, Singular hypersurfaces and thin shells in general relativity, Nuovo Cimento B 44, 1
+     (1966).
+
+
+
+
+                                                26
+

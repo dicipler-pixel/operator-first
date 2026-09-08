@@ -1,0 +1,78 @@
+==============================================================================
+A. COMPLETE 2-COMPLEX ROOTED-GAUGE IDENTITY
+==============================================================================
+For K_{d+1}^{(2)}, the paper's identity predicts
+    rooted_energy / curvature = (d-1)/(d+1).
+
+K_4: observed=0.500000000000  predicted=0.500000000000  error=1.110e-16
+K_5: observed=0.600000000000  predicted=0.600000000000  error=1.110e-16
+K_6: observed=0.666666666667  predicted=0.666666666667  error=2.220e-16
+K_8: observed=0.750000000000  predicted=0.750000000000  error=2.220e-16
+K_10: observed=0.800000000000  predicted=0.800000000000  error=2.220e-16
+
+==============================================================================
+B. RANDOM TRIANGLE-COMPLEX STRESS TEST
+==============================================================================
+The random complexes keep the complete 1-skeleton but sample triangles.
+This is NOT a proof of a Cheeger bound; it tests whether rooted gauges
+remain quantitatively tied to curvature when triangles become sparse.
+
+p=0.05  triangles~  10.8  max observed ratio: 1.2315  median max-ratio: 1.0037
+p=0.10  triangles~  20.7  max observed ratio: 1.0464  median max-ratio: 0.9537
+p=0.20  triangles~  45.2  max observed ratio: 0.9192  median max-ratio: 0.8921
+p=0.30  triangles~  64.3  max observed ratio: 0.9067  median max-ratio: 0.8797
+p=0.50  triangles~ 107.2  max observed ratio: 0.8923  median max-ratio: 0.8657
+p=1.00  triangles~ 220.0  max observed ratio: 0.8333  median max-ratio: 0.8333
+
+==============================================================================
+C. NAIVE INTEGER/PHASE INVARIANTS: HAMMING KILL
+==============================================================================
+Take the identity permutation I and a single transposition τ.
+Then d_H(I,τ)=2/n, but sign(I)=+1 and sign(τ)=-1.
+Thus parity/sign can flip at vanishing normalized Hamming cost.
+
+n=   10  Hamming=0.20000000  sign(I)=+1  sign(tau)=-1
+n=  100  Hamming=0.02000000  sign(I)=+1  sign(tau)=-1
+n= 1000  Hamming=0.00200000  sign(I)=+1  sign(tau)=-1
+n=10000  Hamming=0.00020000  sign(I)=+1  sign(tau)=-1
+
+Conclusion: a useful 'phase' cannot be a pointwise finite-group
+invariant. It must be a genuinely global quantity whose change
+requires a macroscopic Hamming cost, or an expansion inequality.
+
+==============================================================================
+D. PROPOSED ROOTED-GAUGE / FILLING LEMMA
+==============================================================================
+
+Let X be a connected finite 2-complex and alpha a Sym(n)-valued 1-cochain.
+For every root x choose a spanning tree T_x and gauge beta_x that trivializes
+alpha on T_x.
+
+For an edge e not in T_x, its transformed value is the holonomy of the
+fundamental cycle C(x,e). If C(x,e) admits a triangular filling F(x,e),
+bi-invariance plus the triangle inequality gives
+
+    d_H(hol(C(x,e)), I)
+       <= sum_{Delta in F(x,e)} d_H(delta alpha(Delta), I).
+
+Average this over (x,e). If there is a uniform overlap bound
+
+    every triangle belongs to at most M_x,e-weighted fillings,
+
+then
+
+    average_root || beta_x . alpha ||
+       <= C_fill || delta alpha ||.
+
+Since distance to cocycles is at most the average rooted gauge energy,
+a positive uniform C_fill^{-1} would imply a positive h_1 bound.
+
+This is deliberately stated as a proposed synthesis. The missing work is
+to choose the gauges/fillings so that C_fill is uniform in the family and
+to handle nontrivial first cohomology correctly (where the target is Z^1,
+not merely B^1).
+
+
+==============================================================================
+END: SOFIC-NEW-ROUTES-01
+==============================================================================

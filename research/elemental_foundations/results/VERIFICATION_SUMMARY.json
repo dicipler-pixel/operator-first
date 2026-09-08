@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-08",
+  "foundation_evaluations": 550,
+  "source_evaluations": 340,
+  "new_evaluations_total": 890,
+  "assertions": 2445,
+  "expected_domain_refusals": 5,
+  "all_assertions_pass": true,
+  "registry_versions": 204,
+  "sets": 32,
+  "original_gradient_audit": "Completes; refutes earlier incorrect flow, supports corrected isospectral flow.",
+  "original_sofic_routes": "Completes; final bounded-overlap synthesis remains a proposal.",
+  "inherited_elemental_scope": "1253 evaluations / 846 assertions retained at PR16 source, not counted as new combined-paper runs.",
+  "scope": "Mathematical and model verification, not physical cascade data.",
+  "formal": {
+    "theorems": 16,
+    "compile": "PASS",
+    "axiom_audit": "PASS",
+    "independent_leanchecker": "PASS",
+    "negative_control": "EXPECTED_REJECTION",
+    "source_commit": "3eb373797a26f67eccb0ac0b95358d6cac2f39a7",
+    "workflow_run": 34191153154,
+    "job": 101949316110
+  }
+}

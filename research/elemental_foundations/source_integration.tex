@@ -1,0 +1,54 @@
+\section{Reduction geometry: what the additional sources establish}
+The newly supplied square-case, FOFT and singular-angle papers provide complementary controls \cite{ladder,foft,angle}. They concern different objects, but each specifies information that survives a reduction and information that must be supplied for reconstruction. This is the useful common structure; an angle in one construction is not automatically the same physical observable as an angle in another.
+
+\subsection{Gram shape, orientation and reconstruction}
+For a real square Jacobi matrix $X\ne0$ define its size $r=\|X\|_F$, normalized configuration $Y=X/r$, and Gram matrix $G=Y^\top Y$. Then $G\succeq0$, $\tr G=1$, and the generic shape dimension is $d(d+1)/2-1$. Reflection $Y\mapsto RY$, $R\in O(d)$ with $\det R=-1$, leaves $G$ fixed and reverses the signed volume. The identity
+\begin{equation}
+\det G=(\det Y)^2
+\end{equation}
+makes the lost orientation explicit. In two dimensions the rotation quotient is the familiar double of the Gram disc, giving the shape sphere. The two orientations meet on the zero-determinant locus.
+
+The bundle statement requires two refinements to the supplied diagram. On full-rank configurations with \emph{fixed size}, the Gram map is a principal $O(d)$ bundle over the positive-definite trace-one interior. If size has not been fixed, each normalized-Gram fiber also contains positive dilations. An $SO(d)$ bundle instead uses the oriented cover as base, or one fixed orientation component. The closed positive-semidefinite base has rank strata and is not a single principal-bundle chart. For the $SO(d)$ action, a rank-$r$ configuration has stabilizer $SO(d-r)$; the orientation cover branches already at rank $d-1$, where that stabilizer is still trivial. Branching and continuous rotational isotropy are therefore distinct events.
+
+A Gram trajectory and an initial frame determine a horizontal lift only after a connection has been specified. For arbitrary physical motion, angular momentum or vertical rotation is additional information; a mechanical horizontal lift corresponds to its stated constraint. Thus a closed shape path can carry reconstruction holonomy, but shape alone does not determine every possible physical rotation. The electronic counterpart is similarly conditional: fixed reference channels are needed before boundary phase records can be compared. This is a structural analogy, not an identification of mechanical and electronic connections.
+
+\subsection{A singular angle is an exact restricted diagnostic}
+Let $M=uv^\top$ with unit real $u,v$, so that $\|M\|_F=1$. Direct multiplication gives
+\begin{equation}
+MM^\top=uu^\top,\qquad M^\top M=vv^\top,\qquad
+\tfrac12\|[M,M^\top]\|_F^2=1-|u^\top v|^2=\sin^2\theta.
+\label{eq:singular}
+\end{equation}
+Here $\theta$ is the principal angle between the left and right singular lines. This is the angle insert's precise identity. Positive rescaling is invisible only after normalization; for an unnormalized rank-one matrix the stress acquires a factor $\|M\|_F^4$. Tensor products multiply direction cosines, hence $1-\Phi_{A\otimes B}=(1-\Phi_A)(1-\Phi_B)$ for normalized rank-one factors. Our controls verify both identities and reject higher-rank input to this one-angle diagnostic.
+
+The continued-fraction interpretation $\tan\theta=|K|$ additionally requires the left singular line to approach the coordinate axis used to define $K$. The insert explicitly excludes its Ap\'ery calibration from that stronger interpretation. Likewise, a normalized transport product $M$ is not an orthogonal occupied-state projector: the latter has zero self-commutator identically. Equation~\eqref{eq:singular} shares principal-angle algebra with the graph compression while preserving its own domain.
+
+\subsection{FOFT relaxation preserves a spectrum, not generic isotropy}
+For a finite matrix $K$ set $C=[K,K^\dagger]$ and $\Phi=\|C\|_F^2/2$. FOFT's stated flow is
+\begin{equation}
+\dot K=-2[C,K],\qquad
+\frac{d\Phi}{dt}=-4\|[C,K]\|_F^2,\qquad
+\frac{d}{dt}\|K\|_F^2=-8\Phi.
+\label{eq:foft}
+\end{equation}
+The first equation is a Lax flow, so eigenvalues remain constant. The last identity follows from cyclicity of trace: $2\operatorname{Re}\tr(K^\dagger\dot K)=-4\tr(C^2)$. Thus the Henrici budget $\|K\|_F^2-\sum_j|\lambda_j|^2$ decreases even when the spectrum is fixed. Our independent integration preserves the eigenvalues to $2.7\times10^{-12}$ while reducing the stress.
+
+The diagonal matrix $\operatorname{diag}(1,2)$ is already a nonscalar fixed point. Normality therefore does not establish an isotropic vacuum or a common eigenvalue. The v2.2 equilibrium corollary correctly requires a fully degenerate conserved spectrum for a scalar endpoint; its abstract's unconditional isotropy statement is not used. The Frobenius dissipation in Eq.~\eqref{eq:foft} also becomes physical heat only after an energy model is supplied.
+
+The v2.2 zero/span script uses $R R^+$ for a selected eigenvector frame $R$. This is its orthogonal range projector, not generally the oblique Riesz projector named in the comment. For example,
+\begin{equation}
+K=\begin{pmatrix}1&2\\0&3\end{pmatrix},\quad
+P_{\rm range}=\begin{pmatrix}1&0\\0&0\end{pmatrix},\quad
+P_{\rm Riesz}=\frac{3I-K}{2}=\begin{pmatrix}1&-1\\0&0\end{pmatrix}.
+\end{equation}
+Both select the same one-dimensional range, but only the Riesz projector commutes with $K$. Scale invariance of the selected range survives this correction. Arguments about commuting spectral projectors must use the correct object.
+
+\subsection{The ladder carries a positive inner product}
+For positive vectors $g,t$, with $\sum_i g_i=1$, put
+\begin{equation}
+M=\operatorname{diag}(t)-gt^\top,\quad
+S=\operatorname{diag}\sqrt{g_i/t_i},\quad u_i=\sqrt{g_it_i}.
+\end{equation}
+Then $M=S[\operatorname{diag}(t)-uu^\top]S^{-1}$, since $Su=g$ and $u^\top S^{-1}=t^\top$. Consequently $M$ is self-adjoint for the positive weight $S^{-2}$ and has real, diagonalizable spectrum. Restriction to the invariant trace-zero tangent gives the square-case paper's eigenvalue block, with its stated factor of two. For distinct $t_i$, the positive secular weights give strict interlacing; coincident poles require the corresponding multiplicity statement.
+
+This connects directly to the earlier skew controls: Euclidean non-normality can coexist with self-adjointness in a specified positive inner product. If a $g_i$ vanishes, this symmetrizer degenerates. That failure allows a different boundary analysis; it does not prove that every boundary point is defective. In the combined paper, singularity of a Gram chart, failure of an elimination pivot, loss of a spectral gap, and physical channel removal remain separately recorded events.
