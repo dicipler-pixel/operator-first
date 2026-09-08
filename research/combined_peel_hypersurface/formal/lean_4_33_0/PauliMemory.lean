@@ -144,20 +144,20 @@ theorem exclusion_box_length_increases (lengthF lengthB : ℝ)
 def colorObserver (s : Fin 4 → ℝ) : Fin 3 → ℝ :=
   fun i => s (Fin.castSucc i) + s 3
 
-def spectrumA : Fin 4 → ℝ := fun i => if i = 3 then 0 else 1
-def spectrumB : Fin 4 → ℝ := fun i => if i = 3 then 1 else 0
+def spectrumA : Fin 4 → ℝ := fun i => if i.val = 3 then 0 else 1
+def spectrumB : Fin 4 → ℝ := fun i => if i.val = 3 then 1 else 0
 def passiveFilter (s : Fin 4 → ℝ) : Fin 4 → ℝ :=
-  fun i => (if i = 0 then 1 else if i = 1 then 1/2 else if i = 2 then 1/4 else 3/4) * s i
+  fun i => (if i.val = 0 then 1 else if i.val = 1 then 1/2 else if i.val = 2 then 1/4 else 3/4) * s i
 
 theorem equal_initial_color : colorObserver spectrumA = colorObserver spectrumB := by
   ext i
-  fin_cases i <;> norm_num [colorObserver, spectrumA, spectrumB]
+  fin_cases i <;> norm_num [colorObserver, spectrumA, spectrumB, Fin.castSucc]
 
 theorem next_surface_color_differs :
     colorObserver (passiveFilter spectrumA) ≠ colorObserver (passiveFilter spectrumB) := by
   intro h
   have h0 := congrFun h 0
-  norm_num [colorObserver, passiveFilter, spectrumA, spectrumB] at h0
+  norm_num [colorObserver, passiveFilter, spectrumA, spectrumB, Fin.castSucc] at h0
 
 /-- Equal first-observer records do not universally determine the next-filter record. -/
 theorem no_color_only_next_filter_predictor :
