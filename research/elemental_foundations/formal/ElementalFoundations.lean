@@ -121,6 +121,7 @@ theorem no_conductance_only_predictor :
   rw [initial_minus] at hm
   exact later_distinct (hp.symm.trans hm)
 
+end
 end ElementalFoundations
 
 #print axioms ElementalFoundations.cross_expansion
