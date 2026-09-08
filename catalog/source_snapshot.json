@@ -582,6 +582,14 @@
         }
       ],
       "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+    },
+    {
+      "number": 13,
+      "head_sha": "e5d870b421a394cf49858f59b9bd5ec5b0ef2956",
+      "state": "open",
+      "draft": true,
+      "title": "Complete Compound Eye backup and Diophantine evolution audit",
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/13"
     }
   ],
   "trees": {
@@ -1404,6 +1412,305 @@
       },
       {
         "path": "proofs/peel_constitutive/verify.py"
+      }
+    ],
+    "13": [
+      {
+        "path": ".github/workflows/ci.yml"
+      },
+      {
+        "path": ".github/workflows/diophantine.yml"
+      },
+      {
+        "path": ".github/workflows/upg-catalog.yml"
+      },
+      {
+        "path": "LICENSE"
+      },
+      {
+        "path": "OperatorFirst.lean"
+      },
+      {
+        "path": "README.md"
+      },
+      {
+        "path": "Warmup (1).lean"
+      },
+      {
+        "path": "Warmup.lean"
+      },
+      {
+        "path": "atlas/ALG-BOUNDARY-DEGREE.md"
+      },
+      {
+        "path": "atlas/ALG-FORCING-DUAL.md"
+      },
+      {
+        "path": "atlas/ALG-WEIGHTED-KERNEL.md"
+      },
+      {
+        "path": "atlas/CASCADE-FOUR-RECORDS.md"
+      },
+      {
+        "path": "atlas/GEO-OVERLAP.md"
+      },
+      {
+        "path": "atlas/GRAPH-SUBGRAPH-CAPACITY.md"
+      },
+      {
+        "path": "atlas/OBS-PROBE-SPAN.md"
+      },
+      {
+        "path": "atlas/OPT-TWO-FREQUENCY.md"
+      },
+      {
+        "path": "atlas/README.md"
+      },
+      {
+        "path": "atlas/UPG-CURRENCY-GUARDS.md"
+      },
+      {
+        "path": "atlas/UPG-FEEDBACK.md"
+      },
+      {
+        "path": "atlas/UPG-GAP-RANK.md"
+      },
+      {
+        "path": "atlas/UPG-GLUING-SIGN.md"
+      },
+      {
+        "path": "atlas/cards.json"
+      },
+      {
+        "path": "catalog/POLICY.md"
+      },
+      {
+        "path": "catalog/README.md"
+      },
+      {
+        "path": "catalog/ROADMAP.md"
+      },
+      {
+        "path": "catalog/papers.json"
+      },
+      {
+        "path": "catalog/source_snapshot.json"
+      },
+      {
+        "path": "lakefile.toml"
+      },
+      {
+        "path": "lean-toolchain"
+      },
+      {
+        "path": "papers/arithmetic-kakeya/README.md"
+      },
+      {
+        "path": "papers/cmf-transport/README.md"
+      },
+      {
+        "path": "papers/compound-eye/README.md"
+      },
+      {
+        "path": "papers/earth-moon/README.md"
+      },
+      {
+        "path": "papers/gravity/README.md"
+      },
+      {
+        "path": "papers/light/README.md"
+      },
+      {
+        "path": "papers/matter/README.md"
+      },
+      {
+        "path": "papers/offset/README.md"
+      },
+      {
+        "path": "papers/peeling-cascade/README.md"
+      },
+      {
+        "path": "papers/three-body/README.md"
+      },
+      {
+        "path": "papers/upg/README.md"
+      },
+      {
+        "path": "research/diophantine/diophantine_eyes.py"
+      },
+      {
+        "path": "research/diophantine/evolution.json"
+      },
+      {
+        "path": "research/diophantine/exact_counts.py"
+      },
+      {
+        "path": "research/diophantine/formal/Certificates.lean"
+      },
+      {
+        "path": "research/diophantine/formal/lakefile.toml"
+      },
+      {
+        "path": "research/diophantine/formal/lean-toolchain"
+      },
+      {
+        "path": "research/diophantine/large_integer_witnesses.json"
+      },
+      {
+        "path": "research/diophantine/original/DIO-NAGAO-01.out"
+      },
+      {
+        "path": "research/diophantine/original/DIO-NAGAO-01.py"
+      },
+      {
+        "path": "research/diophantine/original/DIO-SECTION-01.out"
+      },
+      {
+        "path": "research/diophantine/original/DIO-SECTION-01.py"
+      },
+      {
+        "path": "research/diophantine/original/DIO-TWIST-01.out"
+      },
+      {
+        "path": "research/diophantine/original/DIO-TWIST-01.py"
+      },
+      {
+        "path": "research/diophantine/original/DIO-VERIFY-01.out"
+      },
+      {
+        "path": "research/diophantine/original/DIO-VERIFY-01.py"
+      },
+      {
+        "path": "research/diophantine/original/Pasted_markdown.md"
+      },
+      {
+        "path": "research/diophantine/original/small_diophantine_sweep_note_v1.md"
+      },
+      {
+        "path": "research/diophantine/pell_orbit.json"
+      },
+      {
+        "path": "research/diophantine/replay/DIO-NAGAO-01.err"
+      },
+      {
+        "path": "research/diophantine/replay/DIO-NAGAO-01.out"
+      },
+      {
+        "path": "research/diophantine/replay/DIO-SECTION-01.err"
+      },
+      {
+        "path": "research/diophantine/replay/DIO-SECTION-01.out"
+      },
+      {
+        "path": "research/diophantine/replay/DIO-TWIST-01.err"
+      },
+      {
+        "path": "research/diophantine/replay/DIO-TWIST-01.out"
+      },
+      {
+        "path": "research/diophantine/replay/DIO-VERIFY-01.err"
+      },
+      {
+        "path": "research/diophantine/replay/DIO-VERIFY-01.out"
+      },
+      {
+        "path": "research/diophantine/requirements.txt"
+      },
+      {
+        "path": "research/diophantine/run_experiment.py"
+      },
+      {
+        "path": "research/diophantine/section_certificate.json"
+      },
+      {
+        "path": "research/diophantine/verify_diophantine.py"
+      },
+      {
+        "path": "research/upg/.gitignore"
+      },
+      {
+        "path": "research/upg/README.md"
+      },
+      {
+        "path": "research/upg/UPG_Cascade_Integration.md"
+      },
+      {
+        "path": "research/upg/github_snapshot.json"
+      },
+      {
+        "path": "research/upg/input_manifest.json"
+      },
+      {
+        "path": "research/upg/integration_controls.png"
+      },
+      {
+        "path": "research/upg/logs/biaxial.txt"
+      },
+      {
+        "path": "research/upg/logs/conical_ray.txt"
+      },
+      {
+        "path": "research/upg/logs/dirac_spine_01.txt"
+      },
+      {
+        "path": "research/upg/logs/upg_gate_01.txt"
+      },
+      {
+        "path": "research/upg/logs/upg_gate_02.txt"
+      },
+      {
+        "path": "research/upg/logs/upg_nct_figs.txt"
+      },
+      {
+        "path": "research/upg/logs/upg_prove_01a.txt"
+      },
+      {
+        "path": "research/upg/logs/upg_prove_02.txt"
+      },
+      {
+        "path": "research/upg/make_figure.py"
+      },
+      {
+        "path": "research/upg/refresh_github.py"
+      },
+      {
+        "path": "research/upg/requirements.txt"
+      },
+      {
+        "path": "research/upg/source/dirac_spine_01.py"
+      },
+      {
+        "path": "research/upg/source/upg_gate_01.py"
+      },
+      {
+        "path": "research/upg/source/upg_gate_02.py"
+      },
+      {
+        "path": "research/upg/source/upg_nct_figs.py"
+      },
+      {
+        "path": "research/upg/source/upg_prove_01a.py"
+      },
+      {
+        "path": "research/upg/source/upg_prove_02.py"
+      },
+      {
+        "path": "research/upg/source_runs.json"
+      },
+      {
+        "path": "research/upg/upg_eyes.py"
+      },
+      {
+        "path": "research/upg/verification.json"
+      },
+      {
+        "path": "research/upg/verify_upg.py"
+      },
+      {
+        "path": "scripts/build_catalog.py"
+      },
+      {
+        "path": "scripts/validate_catalog.py"
       }
     ]
   },

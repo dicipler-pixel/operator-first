@@ -1,0 +1,23 @@
+DIO-VERIFY-01   direct measurement of the cover, no twist identity
+primes 401 .. 1499 ( 161 )
+
+  control (c): base y=u, x3+x+1                 -0.056 +- 0.103   (must be ~0)
+  THE SPIKE  : cover branch +-3/2, c=-1        +0.974 +- 0.152
+
+  control (b): other rational covers of the same surface
+      branch +-1/2  c=-1                     -0.091 +- 0.172
+      branch +-1/1  c=-1                     -0.060 +- 0.154
+      branch +-2/1  c=-1                     -0.125 +- 0.145
+      branch +-5/2  c=-1                     -0.055 +- 0.149
+      branch +-3/1  c=-1                     -0.350 +- 0.147
+      branch +-7/2  c=-1                     -0.076 +- 0.146
+
+  control (a): the same cover (+-3/2, c=-1) on the other eight surfaces
+      H22 x3-2                             +0.228 +- 0.152
+      H23 x3-x-1                           -0.068 +- 0.146
+      H23 x3+x-1                           -0.309 +- 0.146
+      H23 x3-3                             -0.029 +- 0.150
+      H23 x3+3                             +0.023 +- 0.144
+      H24 x3-x-2                           +0.104 +- 0.146
+      H24 x3-x+2                           -0.107 +- 0.162
+      H24 -z x3+2                          -0.223 +- 0.153

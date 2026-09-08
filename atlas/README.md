@@ -16,3 +16,6 @@ Cards describe exact scope. Their presence here does not upgrade a written proof
 | [Projector susceptibility and the separating gap](UPG-GAP-RANK.md) | Written spectral derivative plus independent finite-difference and refusal controls | upg, three-body, peeling-cascade |
 | [Winding, signature and eta remain distinct](UPG-CURRENCY-GUARDS.md) | Source winding replay and independent signature cancellation control | upg, compound-eye |
 | [Four records of a reduction](CASCADE-FOUR-RECORDS.md) | Instrument architecture plus preserved QHE and cascade controls | peeling-cascade, matter, compound-eye, upg |
+| [Persistent rational section with finite integer image](DIO-SECTION-INTEGRAL.md) | Lean-checked cleared identity; written non-torsion/integrality proof with exact checks | diophantine-eye, compound-eye, peeling-cascade |
+| [Finite-field transfer with the omitted domain point](DIO-TRACE-BOUNDARY.md) | Written finite-count identity and exact computational controls | diophantine-eye, compound-eye, peeling-cascade |
+| [Candidate evolution without false rank certificates](DIO-SEARCH-LIMITS.md) | Exact finite-field experiment; inferential limits explicit | diophantine-eye, compound-eye, peeling-cascade |
