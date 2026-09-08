@@ -1,6 +1,21 @@
 # Current project master — 8 September 2026
 
-## Current observation session
+## Current elemental focus
+
+Universal 3.2 now has **seven additional immutable elemental eyes**, giving
+**198 versions / 30 sets** (179 implemented, 17 specified, two archived).
+The preceding all-eyes observation session remains a historical 191-version run.
+The new Au/Ag/Cu/Pt supplement freshly ran 1,253 eye evaluations, including four
+intended refusals, and 846 assertions. It recovered the hypersurface dossier
+(328 checks passed) and original color model. The electronic-sheet Hamiltonian
+now connects a fixed-gap optical dipole to explicitly contacted transport;
+measured/evaluated elemental inputs remain separated from that synthetic model.
+See `tools/compound-eye/projects/elemental_peel/FINDINGS.md` and its live HTML.
+New results have written derivations and computational checks, not fresh Lean
+certification or calibrated atom-by-atom removal data. The new branch builds on
+the all-eyes work without merging either review branch into main.
+
+## Previous complete observation session
 
 `tools/compound-eye/projects/all_eyes/` contains the completed All Eyes Observatory.
 The whole-registry pass accounted for all 191 versions: 171 fresh successful

@@ -473,5 +473,56 @@
       }
     ],
     "next_step": "Establish the application-specific model and observation map before a physical claim."
+  },
+  {
+    "id": "ELEMENTAL-SPACING-COUPLING",
+    "title": "Elemental spacing and probe-dependent channels",
+    "papers": [
+      "elemental-peel",
+      "light"
+    ],
+    "statement": "The fixed-gap electronic-sheet Hamiltonian has optical strength sin²θ and, for the declared leads at E=0, G/G₀=γ²a²sin²θ/(a²+γ²/4)². Atomic and optical elemental comparisons remain distinct observations.",
+    "assumptions": "Two-level model, fixed dipole and contact orientations, elastic wide-band leads; optical data and continuum film assumptions are separately stated.",
+    "failure_mode": "Energy spacing alone does not identify transition strength; atomic ionization thresholds are not conducting-solid band gaps.",
+    "evidence_status": "Written derivation and fresh numerical checks; no new Lean compilation",
+    "verification_scope": "Seven new eyes, 1,253 evaluations, four expected refusals and 846 assertions; recorded NIST/optical data replay. No measured atom-by-atom cascade.",
+    "credit": "Recovered user hypersurface/color programme; standard Landauer, Maxwell and CIE methods; NIST, Johnson–Christy and Rakić sources attributed in the supplement.",
+    "sources": [
+      {
+        "label": "Elemental findings and reproducible methods",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/research/elemental-peel/tools/compound-eye/projects/elemental_peel/FINDINGS.md"
+      },
+      {
+        "label": "Recovered hypersurface proof note",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/research/elemental-peel/tools/compound-eye/projects/elemental_peel/sources/hypersurface/proof_note.md"
+      }
+    ],
+    "next_step": "Calibrate orbital and boundary evolution against a shared physical dataset."
+  },
+  {
+    "id": "HYPERSURFACE-RETAINED-FEEDBACK",
+    "title": "Boundary reduction retains eliminated-sector feedback",
+    "papers": [
+      "hypersurface",
+      "elemental-peel",
+      "light"
+    ],
+    "statement": "Exact interface reduction retains KΣ=D−CA⁻¹B−GE⁻¹F. Removing a coupled side orbital can raise conductance by releasing interference.",
+    "assumptions": "Invertible eliminated blocks away from their poles; specified Hermitian model and contacts for the transport example.",
+    "failure_mode": "Bare deletion drops self-energy; fixed-positive-channel monotonicity does not apply when amplitudes change.",
+    "evidence_status": "Recovered source verifier: 328 checks passed; finite transport controls freshly reproduced",
+    "verification_scope": "Exact Schur identities and finite-model observation checks, with original source archives preserved. No continuum existence proof or new Lean certification.",
+    "credit": "Standard Schur complement and Fano transport identities; application follows the recovered hypersurface and peeling programmes.",
+    "sources": [
+      {
+        "label": "Elemental findings and reproducible methods",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/research/elemental-peel/tools/compound-eye/projects/elemental_peel/FINDINGS.md"
+      },
+      {
+        "label": "Recovered hypersurface proof note",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/research/elemental-peel/tools/compound-eye/projects/elemental_peel/sources/hypersurface/proof_note.md"
+      }
+    ],
+    "next_step": "Read out the retained feedback in a calibrated elemental contact or film experiment."
   }
 ]

@@ -1,0 +1,19 @@
+{
+  "time_utc": "2026-09-05T14:42:58.814311+00:00",
+  "executables": {
+    "lean": null,
+    "lake": null,
+    "elan": null
+  },
+  "network_attempts": [
+    {
+      "url": "https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh",
+      "error": "URLError(gaierror(-3, 'Temporary failure in name resolution'))"
+    },
+    {
+      "url": "https://github.com/leanprover/lean4/releases/download/v4.19.0/lean-4.19.0-linux.tar.zst",
+      "error": "URLError(gaierror(-3, 'Temporary failure in name resolution'))"
+    }
+  ],
+  "directory_search": "No connected Lean-verification plugin found. Content-signing results are not theorem provers."
+}

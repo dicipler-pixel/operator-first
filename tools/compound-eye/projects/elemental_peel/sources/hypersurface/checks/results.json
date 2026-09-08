@@ -1,0 +1,2299 @@
+{
+  "seed": 20260905,
+  "models_are_not_experiments": true,
+  "lean_certification": false,
+  "python": "3.12.13",
+  "numpy": "2.3.5",
+  "scipy": "1.18.1",
+  "sympy": "1.14.0",
+  "checks": [
+    {
+      "name": "photon_metric_helicity_-1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "photon_curvature_helicity_-1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "photon_metric_curvature_saturation_-1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "photon_metric_helicity_1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "photon_curvature_helicity_1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "photon_metric_curvature_saturation_1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "photon_loop_gauge_32",
+      "passed": true,
+      "value": 4.049675450630659e-15
+    },
+    {
+      "name": "photon_loop_gauge_64",
+      "passed": true,
+      "value": 8.344244240342069e-15
+    },
+    {
+      "name": "photon_loop_gauge_128",
+      "passed": true,
+      "value": 2.2370804546305957e-15
+    },
+    {
+      "name": "photon_loop_gauge_256",
+      "passed": true,
+      "value": 2.0139534410903145e-14
+    },
+    {
+      "name": "photon_loop_gauge_512",
+      "passed": true,
+      "value": 7.140315897725611e-14
+    },
+    {
+      "name": "photon_loop_converges_order_two",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_match_1.0_0.0",
+      "passed": true,
+      "value": -1.2212453270876722e-15
+    },
+    {
+      "name": "slab_order_1.0_0.0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_external_sensitivity_1.0_0.0",
+      "passed": true,
+      "value": 7.618106145912407e-11
+    },
+    {
+      "name": "slab_implicit_vs_HF_1.0_0.0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_match_1.0_0.7853981633974483",
+      "passed": true,
+      "value": 0.0
+    },
+    {
+      "name": "slab_order_1.0_0.7853981633974483",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_external_sensitivity_1.0_0.7853981633974483",
+      "passed": true,
+      "value": 6.099332150455439e-11
+    },
+    {
+      "name": "slab_implicit_vs_HF_1.0_0.7853981633974483",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_match_1.0_1.5707963267948966",
+      "passed": true,
+      "value": 1.1102230246251565e-15
+    },
+    {
+      "name": "slab_order_1.0_1.5707963267948966",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_external_sensitivity_1.0_1.5707963267948966",
+      "passed": true,
+      "value": 4.4266090792888235e-11
+    },
+    {
+      "name": "slab_implicit_vs_HF_1.0_1.5707963267948966",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_match_1.2_0.0",
+      "passed": true,
+      "value": 1.1102230246251565e-16
+    },
+    {
+      "name": "slab_order_1.2_0.0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_external_sensitivity_1.2_0.0",
+      "passed": true,
+      "value": 1.898961543567168e-10
+    },
+    {
+      "name": "slab_implicit_vs_HF_1.2_0.0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_match_1.2_0.7853981633974483",
+      "passed": true,
+      "value": 0.0
+    },
+    {
+      "name": "slab_order_1.2_0.7853981633974483",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_external_sensitivity_1.2_0.7853981633974483",
+      "passed": true,
+      "value": 1.241753366798548e-10
+    },
+    {
+      "name": "slab_implicit_vs_HF_1.2_0.7853981633974483",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_match_1.2_1.5707963267948966",
+      "passed": true,
+      "value": -1.1102230246251565e-16
+    },
+    {
+      "name": "slab_order_1.2_1.5707963267948966",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_external_sensitivity_1.2_1.5707963267948966",
+      "passed": true,
+      "value": 8.669526208038292e-11
+    },
+    {
+      "name": "slab_implicit_vs_HF_1.2_1.5707963267948966",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_match_1.4_0.0",
+      "passed": true,
+      "value": -2.220446049250313e-16
+    },
+    {
+      "name": "slab_order_1.4_0.0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_external_sensitivity_1.4_0.0",
+      "passed": true,
+      "value": 7.104580257433213e-10
+    },
+    {
+      "name": "slab_implicit_vs_HF_1.4_0.0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_match_1.4_0.7853981633974483",
+      "passed": true,
+      "value": -1.6653345369377348e-16
+    },
+    {
+      "name": "slab_order_1.4_0.7853981633974483",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_external_sensitivity_1.4_0.7853981633974483",
+      "passed": true,
+      "value": 3.3008740185636043e-10
+    },
+    {
+      "name": "slab_implicit_vs_HF_1.4_0.7853981633974483",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_match_1.4_1.5707963267948966",
+      "passed": true,
+      "value": 5.551115123125783e-17
+    },
+    {
+      "name": "slab_order_1.4_1.5707963267948966",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "slab_external_sensitivity_1.4_1.5707963267948966",
+      "passed": true,
+      "value": 1.8601231666082185e-10
+    },
+    {
+      "name": "slab_implicit_vs_HF_1.4_1.5707963267948966",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "FD_second_order_1.0_0.0",
+      "passed": true,
+      "value": 4.0000021056342145
+    },
+    {
+      "name": "FD_beta_accuracy_1.0_0.0",
+      "passed": true,
+      "value": 4.406864200223737e-07
+    },
+    {
+      "name": "FD_second_order_1.2_0.2",
+      "passed": true,
+      "value": 4.0000308816210355
+    },
+    {
+      "name": "FD_beta_accuracy_1.2_0.2",
+      "passed": true,
+      "value": 2.0632958275257351e-07
+    },
+    {
+      "name": "FD_second_order_1.4_0.4",
+      "passed": true,
+      "value": 4.000109555511182
+    },
+    {
+      "name": "FD_beta_accuracy_1.4_0.4",
+      "passed": true,
+      "value": 5.653289458784627e-08
+    },
+    {
+      "name": "FD_exterior_truncation_control",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_quadrature_0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_cap_0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_quadrature_1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_cap_1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_quadrature_2",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_cap_2",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_quadrature_3",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_cap_3",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_quadrature_4",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_cap_4",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_quadrature_5",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_cap_5",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_quadrature_6",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_cap_6",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_quadrature_7",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_cap_7",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_quadrature_8",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_cap_8",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_quadrature_9",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_cap_9",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_quadrature_10",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_cap_10",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_quadrature_11",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_overlap_cap_11",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_metric_positive_0.002",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_metric_positive_0.001",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_metric_positive_0.0005",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_metric_positive_0.00025",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "full_mode_metric_convergence",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "BCD_area_vs_FS_0.0_0.3",
+      "passed": true,
+      "value": 0.0
+    },
+    {
+      "name": "BCD_resolution_0.0_0.3",
+      "passed": true,
+      "value": 0.0
+    },
+    {
+      "name": "BCD_area_vs_FS_0.8_0.0",
+      "passed": true,
+      "value": 0.0
+    },
+    {
+      "name": "BCD_resolution_0.8_0.0",
+      "passed": true,
+      "value": 0.0
+    },
+    {
+      "name": "BCD_area_vs_FS_0.8_0.15",
+      "passed": true,
+      "value": 1.0408340855860843e-17
+    },
+    {
+      "name": "BCD_resolution_0.8_0.15",
+      "passed": true,
+      "value": 6.938893903907228e-17
+    },
+    {
+      "name": "BCD_area_vs_FS_0.8_0.3",
+      "passed": true,
+      "value": 2.7755575615628914e-17
+    },
+    {
+      "name": "BCD_resolution_0.8_0.3",
+      "passed": true,
+      "value": 1.5612511283791264e-16
+    },
+    {
+      "name": "BCD_area_vs_FS_0.8_-0.3",
+      "passed": true,
+      "value": 2.7755575615628914e-17
+    },
+    {
+      "name": "BCD_resolution_0.8_-0.3",
+      "passed": true,
+      "value": 1.5612511283791264e-16
+    },
+    {
+      "name": "BCD_area_vs_FS_1.2_0.3",
+      "passed": true,
+      "value": 4.163336342344337e-17
+    },
+    {
+      "name": "BCD_resolution_1.2_0.3",
+      "passed": true,
+      "value": 2.3592239273284576e-16
+    },
+    {
+      "name": "BCD_tilt_reversal",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "BCD_no_tilt_zero",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "BCD_doped_nonzero",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_projector_regular_-0.3_0.001",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_projector_regular_-0.3_0.0005",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_projector_regular_-0.3_0.00025",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_projector_regular_-0.3_0.000125",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_metric_derivative_convergence_-0.3",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_metric_final_error_-0.3",
+      "passed": true,
+      "value": 3.014081650931644e-08
+    },
+    {
+      "name": "neutral_projector_regular_0.0_0.001",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_projector_regular_0.0_0.0005",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_projector_regular_0.0_0.00025",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_projector_regular_0.0_0.000125",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_metric_derivative_convergence_0.0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_metric_final_error_0.0",
+      "passed": true,
+      "value": 3.014081650931644e-08
+    },
+    {
+      "name": "neutral_projector_regular_0.3_0.001",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_projector_regular_0.3_0.0005",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_projector_regular_0.3_0.00025",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_projector_regular_0.3_0.000125",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_metric_derivative_convergence_0.3",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "neutral_metric_final_error_0.3",
+      "passed": true,
+      "value": 3.014081650931644e-08
+    },
+    {
+      "name": "tilt_changes_occupation_not_projector",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_2",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_2",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_2",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_3",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_3",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_3",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_4",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_4",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_4",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_5",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_5",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_5",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_6",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_6",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_6",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_7",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_7",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_7",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_8",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_8",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_8",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_9",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_9",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_9",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_10",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_10",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_10",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_11",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_11",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_11",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_12",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_12",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_12",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_13",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_13",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_13",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_14",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_14",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_14",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_15",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_15",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_15",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_16",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_16",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_16",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_17",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_17",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_17",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_18",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_18",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_18",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_19",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_19",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_19",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_20",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_20",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_20",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_21",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_21",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_21",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_22",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_22",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_22",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_23",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_23",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_23",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_24",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_24",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_24",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_25",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_25",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_25",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_26",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_26",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_26",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_27",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_27",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_27",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_28",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_28",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_28",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_29",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_29",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_29",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_30",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_30",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_30",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_31",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_31",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_31",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_32",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_32",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_32",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_33",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_33",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_33",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_34",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_34",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_34",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_passivity_35",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_linear_35",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_second_harmonic_35",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "boundary_max_linear",
+      "passed": true,
+      "value": 1.4372055751893362e-16
+    },
+    {
+      "name": "boundary_max_second_harmonic",
+      "passed": true,
+      "value": 5.769748696025433e-18
+    },
+    {
+      "name": "boundary_max_unitary_covariance",
+      "passed": true,
+      "value": 2.261536581301163e-16
+    },
+    {
+      "name": "boundary_max_cayley",
+      "passed": true,
+      "value": 7.554336070281921e-16
+    },
+    {
+      "name": "boundary_max_external_derivative",
+      "passed": true,
+      "value": 6.944178732886043e-12
+    },
+    {
+      "name": "deleting_exterior_changes_response",
+      "passed": true,
+      "value": 0.0007376414369518544
+    },
+    {
+      "name": "dark_mode_boundary_independence",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "hall_total_work",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "hall_differential_form",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "hall_differential_determinant",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "hall_bias_energy_cancellation",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_2",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_3",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_4",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_5",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_6",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_7",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_8",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_9",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_10",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_11",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_12",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_13",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_14",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_15",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_16",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_17",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_18",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_0.0_19",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_2",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_3",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_4",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_5",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_6",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_7",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_8",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_9",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_10",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_11",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_12",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_13",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_14",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_15",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_16",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_17",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_18",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_1.0_19",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_2",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_3",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_4",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_5",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_6",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_7",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_8",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_9",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_10",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_11",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_12",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_13",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_14",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_15",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_16",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_17",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_18",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_2.0_19",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_1",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_2",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_3",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_4",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_5",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_6",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_7",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_8",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_9",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_10",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_11",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_12",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_13",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_14",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_15",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_16",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_17",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_18",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_total_passivity_3.0_19",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "nonlinear_Hall_incremental_indefinite",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "on_shell_rigidity_1.0_0.0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "on_shell_rigidity_1.0_0.19999999999999996",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "on_shell_rigidity_1.0_0.4",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "on_shell_rigidity_1.2_0.0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "on_shell_rigidity_1.2_0.19999999999999996",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "on_shell_rigidity_1.2_0.4",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "on_shell_rigidity_1.4_0.0",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "on_shell_rigidity_1.4_0.19999999999999996",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "on_shell_rigidity_1.4_0.4",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "optical_index_changes_while_residual_rigidity_fixed",
+      "passed": true,
+      "value": null
+    }
+  ],
+  "sections": {
+    "photon_geometry": {
+      "symbolic": [
+        {
+          "helicity": -1,
+          "metric": "Matrix([[1/2, 0], [0, sin(theta)**2/2]])",
+          "omega": "sin(theta)"
+        },
+        {
+          "helicity": 1,
+          "metric": "Matrix([[1/2, 0], [0, sin(theta)**2/2]])",
+          "omega": "-sin(theta)"
+        }
+      ],
+      "holonomy": [
+        {
+          "nodes": 32,
+          "phase_product_error": 0.00641060240881291
+        },
+        {
+          "nodes": 64,
+          "phase_product_error": 0.001602089253571397
+        },
+        {
+          "nodes": 128,
+          "phase_product_error": 0.0004004869397299885
+        },
+        {
+          "nodes": 256,
+          "phase_product_error": 0.00010011951956624797
+        },
+        {
+          "nodes": 512,
+          "phase_product_error": 2.5029741360572955e-05
+        }
+      ]
+    },
+    "slab": {
+      "parameters": "dimensionless toy; two symmetric local sheets; no fitted material data",
+      "rows": [
+        {
+          "nout": 1.0,
+          "gsheet": 0.0,
+          "beta": 1.2273289588813887,
+          "q": 0.8623593373363141,
+          "kappa": 0.7115731679236321,
+          "outside_fraction": 0.37911592534593613,
+          "norm": 2.2053368579340855,
+          "residual": -1.2212453270876722e-15,
+          "db_dn": 0.30889511944008047,
+          "db_dgs": 0.2198014786961268,
+          "a": 0.8,
+          "ncore": 1.5,
+          "k0": 1.0,
+          "electronic_rotation": 0.0,
+          "db_dn_finite_difference": 0.3088951195162615,
+          "db_dn_HF": 0.3088951194400804
+        },
+        {
+          "nout": 1.0,
+          "gsheet": 0.19999999999999996,
+          "beta": 1.272195553892472,
+          "q": 0.794681365489481,
+          "kappa": 0.7864359651896483,
+          "outside_fraction": 0.3700880437845186,
+          "norm": 2.2244542691665576,
+          "residual": 0.0,
+          "db_dn": 0.2909049969968681,
+          "db_dgs": 0.2287781520917237,
+          "a": 0.8,
+          "ncore": 1.5,
+          "k0": 1.0,
+          "electronic_rotation": 0.7853981633974483,
+          "db_dn_finite_difference": 0.29090499705786144,
+          "db_dn_HF": 0.2909049969968681
+        },
+        {
+          "nout": 1.0,
+          "gsheet": 0.4,
+          "beta": 1.3188142497486806,
+          "q": 0.7146530449524614,
+          "kappa": 0.8598087143895292,
+          "outside_fraction": 0.364076362505733,
+          "norm": 2.259263749902271,
+          "residual": 1.1102230246251565e-15,
+          "db_dn": 0.276063412702064,
+          "db_dgs": 0.2373617279653477,
+          "a": 0.8,
+          "ncore": 1.5,
+          "k0": 1.0,
+          "electronic_rotation": 1.5707963267948966,
+          "db_dn_finite_difference": 0.2760634127463302,
+          "db_dn_HF": 0.2760634127020641
+        },
+        {
+          "nout": 1.2,
+          "gsheet": 0.0,
+          "beta": 1.3019818104999072,
+          "q": 0.7448780874259784,
+          "kappa": 0.5051303147432515,
+          "outside_fraction": 0.48784967919849487,
+          "norm": 2.779687163515976,
+          "residual": 1.1102230246251565e-16,
+          "db_dn": 0.4496373223627577,
+          "db_dgs": 0.18927120180451057,
+          "a": 0.8,
+          "ncore": 1.5,
+          "k0": 1.0,
+          "electronic_rotation": 0.0,
+          "db_dn_finite_difference": 0.44963732255265393,
+          "db_dn_HF": 0.4496373223627578
+        },
+        {
+          "nout": 1.2,
+          "gsheet": 0.19999999999999996,
+          "beta": 1.3414495370318034,
+          "q": 0.6712027559517022,
+          "kappa": 0.5995722311805639,
+          "outside_fraction": 0.458416759965459,
+          "norm": 2.686295749391942,
+          "residual": 0.0,
+          "db_dn": 0.4100788712304046,
+          "db_dgs": 0.20489325315301737,
+          "a": 0.8,
+          "ncore": 1.5,
+          "k0": 1.0,
+          "electronic_rotation": 0.7853981633974483,
+          "db_dn_finite_difference": 0.41007887135457993,
+          "db_dn_HF": 0.4100788712304046
+        },
+        {
+          "nout": 1.2,
+          "gsheet": 0.4,
+          "beta": 1.3837805683071953,
+          "q": 0.5789225671671606,
+          "kappa": 0.6890926361706273,
+          "outside_fraction": 0.437994285676402,
+          "norm": 2.651948522657199,
+          "residual": -1.1102230246251565e-16,
+          "db_dn": 0.37982405220117393,
+          "db_dgs": 0.21811163117693075,
+          "a": 0.8,
+          "ncore": 1.5,
+          "k0": 1.0,
+          "electronic_rotation": 1.5707963267948966,
+          "db_dn_finite_difference": 0.37982405228786925,
+          "db_dn_HF": 0.379824052201174
+        },
+        {
+          "nout": 1.4,
+          "gsheet": 0.0,
+          "beta": 1.4154185390075804,
+          "q": 0.49657865382399025,
+          "kappa": 0.20834980337488573,
+          "outside_fraction": 0.7288302695675085,
+          "norm": 5.599620560239696,
+          "residual": -2.220446049250313e-16,
+          "db_dn": 0.720890923267077,
+          "db_dgs": 0.10728391579816811,
+          "a": 0.8,
+          "ncore": 1.5,
+          "k0": 1.0,
+          "electronic_rotation": 0.0,
+          "db_dn_finite_difference": 0.7208909239775351,
+          "db_dn_HF": 0.720890923267077
+        },
+        {
+          "nout": 1.4,
+          "gsheet": 0.19999999999999996,
+          "beta": 1.441432807861598,
+          "q": 0.4150559726352929,
+          "kappa": 0.3431159273186993,
+          "outside_fraction": 0.6280717220814228,
+          "norm": 4.147254176686312,
+          "residual": -1.6653345369377348e-16,
+          "db_dn": 0.6100183138043432,
+          "db_dgs": 0.14950499958740465,
+          "a": 0.8,
+          "ncore": 1.5,
+          "k0": 1.0,
+          "electronic_rotation": 0.7853981633974483,
+          "db_dn_finite_difference": 0.6100183141344306,
+          "db_dn_HF": 0.6100183138043432
+        },
+        {
+          "nout": 1.4,
+          "gsheet": 0.4,
+          "beta": 1.4743075807737671,
+          "q": 0.2764365338970268,
+          "kappa": 0.4621502382634871,
+          "outside_fraction": 0.5668046790926551,
+          "norm": 3.6338578721641897,
+          "residual": 5.551115123125783e-17,
+          "db_dn": 0.5382367703171187,
+          "db_dgs": 0.17767589403159015,
+          "a": 0.8,
+          "ncore": 1.5,
+          "k0": 1.0,
+          "electronic_rotation": 1.5707963267948966,
+          "db_dn_finite_difference": 0.538236770503131,
+          "db_dn_HF": 0.5382367703171187
+        }
+      ],
+      "finite_difference": [
+        {
+          "nout": 1.0,
+          "gsheet": 0.0,
+          "dx": 0.04,
+          "beta_fd": 1.2273007555791857,
+          "beta_error": 2.8203302202989278e-05,
+          "profile_L2_error": 3.399924872854856e-05,
+          "outside_fraction_fd": 0.379223466503313,
+          "outside_fraction_error": 0.00010754115737687808
+        },
+        {
+          "nout": 1.0,
+          "gsheet": 0.0,
+          "dx": 0.02,
+          "beta_fd": 1.2273219079279198,
+          "beta_error": 7.05095346886786e-06,
+          "profile_L2_error": 8.495907903030065e-06,
+          "outside_fraction_fd": 0.3791428128135612,
+          "outside_fraction_error": 2.6887467625080763e-05
+        },
+        {
+          "nout": 1.0,
+          "gsheet": 0.0,
+          "dx": 0.01,
+          "beta_fd": 1.2273271961347807,
+          "beta_error": 1.7627466080138987e-06,
+          "profile_L2_error": 2.1237326247140563e-06,
+          "outside_fraction_fd": 0.37912264734880186,
+          "outside_fraction_error": 6.722002865722221e-06
+        },
+        {
+          "nout": 1.0,
+          "gsheet": 0.0,
+          "dx": 0.005,
+          "beta_fd": 1.2273285181949687,
+          "beta_error": 4.406864200223737e-07,
+          "profile_L2_error": 5.309169394408079e-07,
+          "outside_fraction_fd": 0.37911760585407683,
+          "outside_fraction_error": 1.6805081407000877e-06
+        },
+        {
+          "nout": 1.2,
+          "gsheet": 0.2,
+          "dx": 0.04,
+          "beta_fd": 1.3414363325539889,
+          "beta_error": 1.3204477814499072e-05,
+          "profile_L2_error": 3.0991864400830016e-05,
+          "outside_fraction_fd": 0.45850161574008086,
+          "outside_fraction_error": 8.485577462186145e-05
+        },
+        {
+          "nout": 1.2,
+          "gsheet": 0.2,
+          "dx": 0.02,
+          "beta_fd": 1.341446235768879,
+          "beta_error": 3.30126292436006e-06,
+          "profile_L2_error": 7.747341367934519e-06,
+          "outside_fraction_fd": 0.4584379753793201,
+          "outside_fraction_error": 2.1215413861075394e-05
+        },
+        {
+          "nout": 1.2,
+          "gsheet": 0.2,
+          "dx": 0.01,
+          "beta_fd": 1.3414487117071006,
+          "beta_error": 8.25324702802277e-07,
+          "profile_L2_error": 1.936795644682213e-06,
+          "outside_fraction_fd": 0.45842206391029083,
+          "outside_fraction_error": 5.303944831835938e-06
+        },
+        {
+          "nout": 1.2,
+          "gsheet": 0.2,
+          "dx": 0.005,
+          "beta_fd": 1.3414493307022206,
+          "beta_error": 2.0632958275257351e-07,
+          "profile_L2_error": 4.841973085412751e-07,
+          "outside_fraction_fd": 0.45841808595822536,
+          "outside_fraction_error": 1.3259927663655802e-06
+        },
+        {
+          "nout": 1.4,
+          "gsheet": 0.4,
+          "dx": 0.04,
+          "beta_fd": 1.4743039628847092,
+          "beta_error": 3.6178890578941747e-06,
+          "profile_L2_error": 3.272435314722025e-05,
+          "outside_fraction_fd": 0.5668459626272886,
+          "outside_fraction_error": 4.12835346335072e-05
+        },
+        {
+          "nout": 1.4,
+          "gsheet": 0.4,
+          "dx": 0.02,
+          "beta_fd": 1.4743066762396457,
+          "beta_error": 9.045341213820279e-07,
+          "profile_L2_error": 8.181261737159087e-06,
+          "outside_fraction_fd": 0.5668150008559555,
+          "outside_fraction_error": 1.0321763300402687e-05
+        },
+        {
+          "nout": 1.4,
+          "gsheet": 0.4,
+          "dx": 0.01,
+          "beta_fd": 1.4743073546359953,
+          "beta_error": 2.2613777184155026e-07,
+          "profile_L2_error": 2.0453491302253686e-06,
+          "outside_fraction_fd": 0.5668072595877827,
+          "outside_fraction_error": 2.5804951275798516e-06
+        },
+        {
+          "nout": 1.4,
+          "gsheet": 0.4,
+          "dx": 0.005,
+          "beta_fd": 1.4743075242408725,
+          "beta_error": 5.653289458784627e-08,
+          "profile_L2_error": 5.114354078081762e-07,
+          "outside_fraction_fd": 0.5668053242227621,
+          "outside_fraction_error": 6.451301070020676e-07
+        }
+      ],
+      "domain_control": [
+        {
+          "L": 20.0,
+          "beta": 1.4154034419537043,
+          "error": 1.5097053876145239e-05
+        },
+        {
+          "L": 40.0,
+          "beta": 1.415418479952398,
+          "error": 5.905518252191655e-08
+        },
+        {
+          "L": 60.0,
+          "beta": 1.4154184835524801,
+          "error": 5.5455100289591996e-08
+        }
+      ],
+      "full_mode_metric": [
+        {
+          "h": 0.002,
+          "metric": [
+            [
+              0.72660770114713,
+              -0.2267223365426835
+            ],
+            [
+              -0.2267223365426835,
+              0.08350950560227646
+            ]
+          ],
+          "eigenvalues": [
+            0.011616307522267569,
+            0.798500899227139
+          ]
+        },
+        {
+          "h": 0.001,
+          "metric": [
+            [
+              0.7265962113628504,
+              -0.22671984142845766
+            ],
+            [
+              -0.22671984142845766,
+              0.08350930738587346
+            ]
+          ],
+          "eigenvalues": [
+            0.011616515474516864,
+            0.7984890032742069
+          ]
+        },
+        {
+          "h": 0.0005,
+          "metric": [
+            [
+              0.7265933392729482,
+              -0.22671921751093588
+            ],
+            [
+              -0.22671921751093588,
+              0.0835092578421735
+            ]
+          ],
+          "eigenvalues": [
+            0.011616567584065235,
+            0.7984860295310565
+          ]
+        },
+        {
+          "h": 0.00025,
+          "metric": [
+            [
+              0.7265926198485253,
+              -0.22671906352300628
+            ],
+            [
+              -0.22671906352300628,
+              0.08350924574074269
+            ]
+          ],
+          "eigenvalues": [
+            0.011616579594241075,
+            0.7984852859950269
+          ]
+        }
+      ]
+    },
+    "charge_neutrality": {
+      "model": "two TR-related type-I massive cones; BCD channel only",
+      "m": 0.6,
+      "metric_at_k0": [
+        [
+          0.6944444444444444,
+          0
+        ],
+        [
+          0,
+          0.6944444444444444
+        ]
+      ],
+      "metric_checks": [
+        {
+          "tilt": -0.3,
+          "errors": [
+            1.92900698714471e-06,
+            4.822527512882147e-07,
+            1.205632504941434e-07,
+            3.014081650931644e-08
+          ],
+          "metric_fd": [
+            [
+              0.6944444143036279,
+              0.0
+            ],
+            [
+              0.0,
+              0.6944444143036279
+            ]
+          ]
+        },
+        {
+          "tilt": 0.0,
+          "errors": [
+            1.92900698714471e-06,
+            4.822527512882147e-07,
+            1.205632504941434e-07,
+            3.014081650931644e-08
+          ],
+          "metric_fd": [
+            [
+              0.6944444143036279,
+              0.0
+            ],
+            [
+              0.0,
+              0.6944444143036279
+            ]
+          ]
+        },
+        {
+          "tilt": 0.3,
+          "errors": [
+            1.92900698714471e-06,
+            4.822527512882147e-07,
+            1.205632504941434e-07,
+            3.014081650931644e-08
+          ],
+          "metric_fd": [
+            [
+              0.6944444143036279,
+              0.0
+            ],
+            [
+              0.0,
+              0.6944444143036279
+            ]
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "mu": 0.0,
+          "tilt": 0.3,
+          "D_x": 0.0,
+          "FS_D_x": 0.0,
+          "fine_D_x": 0.0
+        },
+        {
+          "mu": 0.8,
+          "tilt": 0.0,
+          "D_x": 0.0,
+          "FS_D_x": 0.0,
+          "fine_D_x": 0.0
+        },
+        {
+          "mu": 0.8,
+          "tilt": 0.15,
+          "D_x": -0.014644754367548099,
+          "FS_D_x": -0.014644754367548089,
+          "fine_D_x": -0.01464475436754803
+        },
+        {
+          "mu": 0.8,
+          "tilt": 0.3,
+          "D_x": -0.028967808852793302,
+          "FS_D_x": -0.028967808852793275,
+          "fine_D_x": -0.028967808852793146
+        },
+        {
+          "mu": 0.8,
+          "tilt": -0.3,
+          "D_x": 0.028967808852793302,
+          "FS_D_x": 0.028967808852793275,
+          "fine_D_x": 0.028967808852793146
+        },
+        {
+          "mu": 1.2,
+          "tilt": 0.3,
+          "D_x": -0.021805276601648674,
+          "FS_D_x": -0.021805276601648632,
+          "fine_D_x": -0.021805276601648438
+        }
+      ]
+    },
+    "two_sided_reduction": {
+      "cases": 36,
+      "max_errors": {
+        "linear": 1.4372055751893362e-16,
+        "second_harmonic": 5.769748696025433e-18,
+        "unitary_covariance": 2.261536581301163e-16,
+        "cayley": 7.554336070281921e-16,
+        "external_derivative": 6.944178732886043e-12
+      },
+      "wrong_exterior_relative_error_range": [
+        0.0007376414369518544,
+        0.008984775098855279
+      ],
+      "dark_mode_boundary_formula": "d + g**2/(-e1 + z)",
+      "second_harmonic_scope": "arbitrary declared symmetric bilinear surface source; not microscopic NLHE fit"
+    },
+    "nonlinear_Hall_bias": {
+      "law": "Matrix([[-chi*ex*ey + ex*sigma], [chi*ex**2 + ey*sigma]])",
+      "differential": "Matrix([[sigma, -bias*chi], [2*bias*chi, sigma]])",
+      "rows": [
+        {
+          "bias": 0.0,
+          "symmetric_eigenvalues": [
+            1.0,
+            1.0
+          ],
+          "smith_largest_singular_value": 0.0
+        },
+        {
+          "bias": 1.0,
+          "symmetric_eigenvalues": [
+            0.5,
+            1.5
+          ],
+          "smith_largest_singular_value": 0.7675918792439984
+        },
+        {
+          "bias": 2.0,
+          "symmetric_eigenvalues": [
+            0.0,
+            2.0
+          ],
+          "smith_largest_singular_value": 0.9999999999999999
+        },
+        {
+          "bias": 3.0,
+          "symmetric_eigenvalues": [
+            -0.4999999999999999,
+            2.5
+          ],
+          "smith_largest_singular_value": 1.0511187180680956
+        }
+      ],
+      "scope": "quasistatic constitutive toy; not the intrinsic projector metric; bias supplies incremental energy"
+    },
+    "rigidity_candidate": {
+      "eta": 0.001,
+      "candidate_rejected": "A_intr=on-shell wave-matching residual, not the user general definition",
+      "rows": [
+        {
+          "nout": 1.0,
+          "sheet": 0.0,
+          "R_residual": 1000.0,
+          "n_eff_squared": 1.5063363733088735
+        },
+        {
+          "nout": 1.0,
+          "sheet": 0.19999999999999996,
+          "R_residual": 1000.0,
+          "n_eff_squared": 1.6184815273437738
+        },
+        {
+          "nout": 1.0,
+          "sheet": 0.4,
+          "R_residual": 1000.0,
+          "n_eff_squared": 1.739271025340175
+        },
+        {
+          "nout": 1.2,
+          "sheet": 0.0,
+          "R_residual": 1000.0,
+          "n_eff_squared": 1.6951566348726164
+        },
+        {
+          "nout": 1.2,
+          "sheet": 0.19999999999999996,
+          "R_residual": 1000.0,
+          "n_eff_squared": 1.7994868604028396
+        },
+        {
+          "nout": 1.2,
+          "sheet": 0.4,
+          "R_residual": 1000.0,
+          "n_eff_squared": 1.9148486612245845
+        },
+        {
+          "nout": 1.4,
+          "sheet": 0.0,
+          "R_residual": 1000.0,
+          "n_eff_squared": 2.0034096405663533
+        },
+        {
+          "nout": 1.4,
+          "sheet": 0.19999999999999996,
+          "R_residual": 1000.0,
+          "n_eff_squared": 2.0777285395797707
+        },
+        {
+          "nout": 1.4,
+          "sheet": 0.4,
+          "R_residual": 1000.0,
+          "n_eff_squared": 2.1735828427269976
+        }
+      ]
+    }
+  },
+  "assertions": 328,
+  "passed": 328
+}

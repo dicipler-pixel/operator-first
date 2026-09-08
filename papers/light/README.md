@@ -13,6 +13,8 @@ Finite projector, boundary, optical weighting, rigidity and nullspace results. K
 - [Positive weighted-Gram kernel](../../atlas/ALG-WEIGHTED-KERNEL.md)
 - [Two-frequency silent-subspace test](../../atlas/OPT-TWO-FREQUENCY.md)
 - [Probe reconstruction or an invisible perturbation](../../atlas/OBS-PROBE-SPAN.md)
+- [Elemental spacing and probe-dependent channels](../../atlas/ELEMENTAL-SPACING-COUPLING.md)
+- [Boundary reduction retains eliminated-sector feedback](../../atlas/HYPERSURFACE-RETAINED-FEEDBACK.md)
 
 ## Next step
 

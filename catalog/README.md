@@ -17,6 +17,8 @@ This is an initial source register, not a complete census of the 20+ paper corpu
 | [Compound Eye Universal](../papers/compound-eye/README.md) | Universal 3.2: 191 eye versions, 172 implemented, 29 sets; combines independent 2.2 and 3.1 lines | Use the synchronized mixer and domain-specific runners; compare immutable manifests before importing another chat’s release. |
 | [Diophantine evolution: persistent sections and integer gates](../papers/diophantine-eye/README.md) | PR #13 draft; exact controls and isolated Lean CI passed | Seek three exact triples with distinct x and |x|>10^50 for an unresolved equation; a proof of infinitely many is a stronger separate target. |
 | [Sun, black-hole and boundary comparison](../papers/horizon-comparison/README.md) | Universal 3.1 source imported unchanged; eleven horizon eyes retained in Universal 3.2 | Use the required metric and observer in comparisons; resolve empirical calibration and the physical shape-to-spacetime map separately. |
+| [The hypersurface organizing principle](../papers/hypersurface/README.md) | Original dossier recovered; 328 mathematical checks freshly replayed | Fit the electronic-to-interface map to the same measured sample used for transport. |
+| [Elemental peel: spacing, channels, and the surface](../papers/elemental-peel/README.md) | Seven new eyes; 1,253 evaluations and four expected refusals; written derivations | Acquire a geometry-calibrated elemental trajectory with electrical and optical measurements. |
 
 ## Intake queue
 

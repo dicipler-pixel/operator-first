@@ -1,0 +1,24 @@
+import Hypersurface
+
+#print axioms Hypersurface.inside_lift_equation
+#print axioms Hypersurface.outside_lift_equation
+#print axioms Hypersurface.boundary_lift_equation
+#print axioms Hypersurface.boundary_frame_covariance
+#print axioms Hypersurface.second_harmonic_equation
+#print axioms Hypersurface.hall_power
+#print axioms Hypersurface.hall_power_nonnegative
+#print axioms Hypersurface.hall_expand_x
+#print axioms Hypersurface.hall_expand_y
+#print axioms Hypersurface.differential_pairing
+#print axioms Hypersurface.incremental_diagonalization
+#print axioms Hypersurface.incremental_nonnegative
+#print axioms Hypersurface.incremental_negative_witness
+#print axioms Hypersurface.explicit_negative_control
+#print axioms Hypersurface.bias_power_cancellation
+#print axioms Hypersurface.scalar_boundary_numerator
+#print axioms Hypersurface.dark_coordinate_invisible
+#print axioms Hypersurface.omit_exterior_is_wrong
+#print axioms Hypersurface.residual_rigidity_on_shell
+#print axioms Hypersurface.index_ratios_cannot_match_constant_rigidity
+#print axioms Hypersurface.exterior_sensitivity_dictionary
+#print axioms Hypersurface.neutral_dirac_metric_coefficient

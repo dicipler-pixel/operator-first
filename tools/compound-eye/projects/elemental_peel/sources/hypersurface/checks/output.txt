@@ -1,0 +1,42 @@
+PHOTON: metric diag(1/2,sin(theta)^2/2), helicity curvature sign, gauge-invariant holonomy PASS
+
+SLAB: n_core=1.5, halfwidth=.8, k0=1, sheet=.4 sin(theta)^2
+ n_out=1.0 sheet=0.000 beta/k0=1.227328958881 F_out=0.379115925346
+ n_out=1.0 sheet=0.200 beta/k0=1.272195553892 F_out=0.370088043785
+ n_out=1.0 sheet=0.400 beta/k0=1.318814249749 F_out=0.364076362506
+ n_out=1.2 sheet=0.000 beta/k0=1.301981810500 F_out=0.487849679198
+ n_out=1.2 sheet=0.200 beta/k0=1.341449537032 F_out=0.458416759965
+ n_out=1.2 sheet=0.400 beta/k0=1.383780568307 F_out=0.437994285676
+ n_out=1.4 sheet=0.000 beta/k0=1.415418539008 F_out=0.728830269568
+ n_out=1.4 sheet=0.200 beta/k0=1.441432807862 F_out=0.628071722081
+ n_out=1.4 sheet=0.400 beta/k0=1.474307580774 F_out=0.566804679093
+ SLAB FD: independent differential eigensolve, second-order refinement and exterior-box controls PASS
+
+BERRY CURVATURE DIPOLE: dimensionless momenta, m=.6, two valleys
+ mu=0.00 tilt=+0.30 D_x=+0.000000000000
+ mu=0.80 tilt=+0.00 D_x=+0.000000000000
+ mu=0.80 tilt=+0.15 D_x=-0.014644754368
+ mu=0.80 tilt=+0.30 D_x=-0.028967808853
+ mu=0.80 tilt=-0.30 D_x=+0.028967808853
+ mu=1.20 tilt=+0.30 D_x=-0.021805276602
+ Occupied-region integral versus independent Fermi-contour integral PASS
+
+TWO-SIDED REDUCTION: full vs boundary linear and second-harmonic solves PASS
+{
+  "linear": 1.4372055751893362e-16,
+  "second_harmonic": 5.769748696025433e-18,
+  "unitary_covariance": 2.261536581301163e-16,
+  "cayley": 7.554336070281921e-16,
+  "external_derivative": 6.944178732886043e-12
+}
+ Omit exterior relative error range 0.0007376414369518544 0.008984775098855279
+
+NONLINEAR HALL: E dot J=sigma |E|^2, but biased differential form crosses zero
+{'bias': 0.0, 'symmetric_eigenvalues': [1.0, 1.0], 'smith_largest_singular_value': 0.0}
+{'bias': 1.0, 'symmetric_eigenvalues': [0.5, 1.5], 'smith_largest_singular_value': 0.7675918792439984}
+{'bias': 2.0, 'symmetric_eigenvalues': [0.0, 2.0], 'smith_largest_singular_value': 0.9999999999999999}
+{'bias': 3.0, 'symmetric_eigenvalues': [-0.4999999999999999, 2.5], 'smith_largest_singular_value': 1.0511187180680956}
+
+RIGIDITY: on-shell-residual candidate saturates at 1/eta for EVERY guided mode; cannot equal varying n_eff^2
+
+328/328 exact/model assertions passed. No Lean certification claimed.
