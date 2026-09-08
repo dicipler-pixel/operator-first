@@ -1,0 +1,79 @@
+{
+  "python": "3.12.13",
+  "sympy": "1.14.0",
+  "numpy": "2.3.5",
+  "checks": [
+    {
+      "name": "chain_exact_reduction",
+      "passed": true,
+      "detail": "S=[[19/5,-2/5],[-2/5,11/5]], weight=5, determinant=41."
+    },
+    {
+      "name": "arbitrary_boundary_load",
+      "passed": true,
+      "detail": "Symbolic identity for every symmetric two-port load; physical domain restricted to admissible nonsingular/positive matrices."
+    },
+    {
+      "name": "demonstrator_load_formula",
+      "passed": true,
+      "detail": "Both calculations give 41+19*lambda for every lambda>=0."
+    },
+    {
+      "name": "elimination_order",
+      "passed": true,
+      "detail": "Two single-port orders and one block elimination agree, including the retained scalar."
+    },
+    {
+      "name": "continuation_with_new_internal_port",
+      "passed": true,
+      "detail": "An attached two-port system gives the same final response and scalar before or after replacement."
+    },
+    {
+      "name": "hidden_port_attachment_rejected",
+      "passed": true,
+      "detail": "A continuation cannot secretly reconnect to a coordinate removed by the rewrite."
+    },
+    {
+      "name": "false_control_response_only",
+      "passed": true,
+      "detail": "Rejected: equal Schur responses imply equal determinant readouts. Explicit readouts are 3 and 12."
+    },
+    {
+      "name": "singular_pivot_rejected",
+      "passed": true,
+      "detail": "A zero pivot is not silently simplified."
+    },
+    {
+      "name": "B94_fixed_block_padding",
+      "passed": true,
+      "detail": "Exact cancellation gives response/Hamming = delta/h, with fixed h and delta. No knot experiments are claimed."
+    },
+    {
+      "name": "B95_cycle_spectrum",
+      "passed": true,
+      "detail": "Independent numerical matrix spectra checked for each cycle length 2 through 24; general Fourier proof is in the note."
+    },
+    {
+      "name": "false_control_spectral_equals_packing",
+      "passed": true,
+      "detail": "Rejected at epsilon=7/10: a three-cycle has spectral count 2 but three pairwise separated displacement rays."
+    },
+    {
+      "name": "sofic_complete_complex_identity",
+      "passed": true,
+      "detail": "40 deterministic cochains, nv=4,5,6,8,10; exact rational equality E=((nv-2)/nv)*curvature using the submitted gauge implementation."
+    }
+  ],
+  "all_passed": true,
+  "new_lean_formalization": false,
+  "not_run": [
+    "Original B94 knot experiments",
+    "Full original sofic random-complex stress suite",
+    "Original script quadratic-time large-n permutation-sign sweep"
+  ],
+  "open": [
+    "Uniform bounded-overlap fillings for a specified family",
+    "Physical phase/count return maps and units",
+    "Extension from this finite determinant calculus to physical Fourier/Hankel limits"
+  ]
+}

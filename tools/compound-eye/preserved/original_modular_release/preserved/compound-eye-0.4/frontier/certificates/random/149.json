@@ -1,0 +1,214 @@
+{
+  "schema": "compound-eye-ak-certificate-v1",
+  "problem": {
+    "schema": "arithmetic-kakeya-tower-v1",
+    "name": "deterministic random control 149",
+    "X": [
+      [
+        0,
+        0
+      ],
+      [
+        -1,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        -1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "dims": [
+      3
+    ],
+    "levels": [
+      [
+        {
+          "prefix": [
+            1
+          ],
+          "label": [
+            -1,
+            2
+          ]
+        },
+        {
+          "prefix": [
+            2
+          ],
+          "label": [
+            0,
+            0
+          ]
+        }
+      ]
+    ],
+    "initial_known": [],
+    "generators": [
+      {
+        "vertex": [
+          1
+        ],
+        "label": [
+          2,
+          -1
+        ]
+      },
+      {
+        "vertex": [
+          3
+        ],
+        "label": [
+          2,
+          1
+        ]
+      },
+      {
+        "vertex": [
+          3
+        ],
+        "label": [
+          2,
+          -1
+        ]
+      },
+      {
+        "vertex": [
+          1
+        ],
+        "label": [
+          -1,
+          2
+        ]
+      },
+      {
+        "vertex": [
+          2
+        ],
+        "label": [
+          2,
+          -1
+        ]
+      }
+    ]
+  },
+  "input_sha256": "e34c9f44e24706435a52295b57669977f1a855295738b2ebb3aae0ad345dba00",
+  "arithmetic": "exact integer input and integer certificates; rational elimination only inside producer",
+  "source_rules": "https://epoch.ai/frontiermath/open-problems/arithmetic-kakeya",
+  "n": 3,
+  "m": 1,
+  "r": 5,
+  "t": 0,
+  "score": "2",
+  "forcing_complete": true,
+  "forced_vertices": [
+    [
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3
+    ]
+  ],
+  "steps": [
+    {
+      "vertex": [
+        1
+      ],
+      "coefficients": [
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "witness": [
+        3,
+        -3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonzero_a": 3
+    },
+    {
+      "vertex": [
+        2
+      ],
+      "coefficients": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "witness": [
+        -1,
+        2,
+        3,
+        -3,
+        0,
+        0
+      ],
+      "nonzero_a": 3
+    },
+    {
+      "vertex": [
+        3
+      ],
+      "coefficients": [
+        0,
+        -1,
+        3,
+        0,
+        0,
+        0
+      ],
+      "witness": [
+        0,
+        0,
+        0,
+        0,
+        4,
+        -4
+      ],
+      "nonzero_a": 4
+    }
+  ],
+  "stalled_dual_certificates": [],
+  "goal1_score_passes": false,
+  "goal1_candidate_passes_public_conditions": false,
+  "official_epoch_verifier_run": false,
+  "status": "complete_forcing_above_target",
+  "scope": "The private Epoch verifier has not been run. No search-space exhaustion follows from this one certificate.",
+  "cut_eye": {
+    "status": "exhausted",
+    "subsets_checked": 7,
+    "obstructions": [],
+    "logical_role": "necessary for completion, not sufficient"
+  }
+}

@@ -18,7 +18,7 @@ A green unrelated workflow cannot certify a theorem. A green test of a PR merge 
 
 Record PR base relationships as workflow ancestry. Record Lean imports and mathematical hypotheses as separate dependencies. Gravity's ancestry through Light does not make every Light theorem a Gravity prerequisite. Shared modules should be extracted only after checking actual imports and applications.
 
-All existing research merges remain held. No source moves, branch deletion, mass renaming, or research merges are included in this directory change.
+The user authorized bringing the master repository up to date on 8 September 2026. This integration publishes the combined instrument and current register, incorporates the existing core build repair, and retains the other scientific proof branches at their verified source commits. A master update does not certify every manuscript or extend any theorem’s hypotheses.
 
 ## Tools, searches and obstructions
 

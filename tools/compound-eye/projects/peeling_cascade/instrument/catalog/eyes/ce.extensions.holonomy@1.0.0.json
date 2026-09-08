@@ -1,0 +1,20 @@
+{
+  "id": "ce.extensions.holonomy",
+  "version": "1.0.0",
+  "title": "Loop return",
+  "family": "extensions",
+  "status": "specified",
+  "inputs": {},
+  "unit_system": "model",
+  "depends_on": [],
+  "assumptions": [
+    "Use only the stated model, input contract, and coordinate convention."
+  ],
+  "output_meaning": "Requires a parameter loop and a justified transport rule; gaps or singularities affect tracking.",
+  "evidence_class": "model_calculation",
+  "limits": "A scoped calculation; no universal physical interpretation or new Lean certificate is implied.",
+  "implementation": null,
+  "origin": {
+    "legacy_id": "holonomy"
+  }
+}

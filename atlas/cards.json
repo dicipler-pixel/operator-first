@@ -5,7 +5,7 @@
     "papers": [
       "light"
     ],
-    "statement": "ker(J\u1d40 W J) = ker(J), hence ker(J\u1d40 W J) = ker(J\u1d40 J).",
+    "statement": "ker(Jᵀ W J) = ker(J), hence ker(Jᵀ W J) = ker(Jᵀ J).",
     "assumptions": "Finite real matrices; W positive definite.",
     "failure_mode": "Signed or degenerate weights can enlarge the kernel; a scalar cancellation need not be zero coupling.",
     "evidence_status": "Lean source present; verification reported in PR #7",
@@ -321,12 +321,12 @@
       "compound-eye",
       "peeling-cascade"
     ],
-    "statement": "An explicit non-torsion section on the \u00b13/2 circle cover has exactly two integer triples in its image.",
+    "statement": "An explicit non-torsion section on the ±3/2 circle cover has exactly two integer triples in its image.",
     "assumptions": "Rational parameter; declared affine coordinates; nonsingular specialization for the non-torsion argument.",
     "failure_mode": "A positive-rank cover does not imply infinitely many integer solutions on the original surface.",
     "evidence_status": "Lean-checked cleared identity; written non-torsion/integrality proof with exact checks",
     "verification_scope": "Lean verifies the denominator-free identity and positive denominator, not the complete non-torsion or integrality classification.",
-    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk\u2013Agbanwa. Audit and reconstruction do not assert novelty.",
+    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk–Agbanwa. Audit and reconstruction do not assert novelty.",
     "sources": [
       {
         "label": "PR #13 audit and complete backup",
@@ -334,10 +334,10 @@
       },
       {
         "label": "Seven algebraic certificates (verified source)",
-        "url": "https://github.com/dicipler-pixel/operator-first/blob/e5d870b421a394cf49858f59b9bd5ec5b0ef2956/research/diophantine/formal/Certificates.lean",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/e055123f8e4b9fa23452197a32634b25a7e8a455/research/diophantine/formal/Certificates.lean",
         "pr": 13,
         "path": "research/diophantine/formal/Certificates.lean",
-        "sha": "e5d870b421a394cf49858f59b9bd5ec5b0ef2956"
+        "sha": "e055123f8e4b9fa23452197a32634b25a7e8a455"
       }
     ],
     "next_step": "Seek unbounded integral parameter orbits, with denominators retained."
@@ -355,7 +355,7 @@
     "failure_mode": "Dropping the u=infinity term changes the trace ledger; singular characteristics need separate handling.",
     "evidence_status": "Written finite-count identity and exact computational controls",
     "verification_scope": "Pointwise multiplicities and weighted sums checked; not an APS or physical spectral-flow theorem.",
-    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk\u2013Agbanwa. Audit and reconstruction do not assert novelty.",
+    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk–Agbanwa. Audit and reconstruction do not assert novelty.",
     "sources": [
       {
         "label": "PR #13 audit and complete backup",
@@ -363,10 +363,10 @@
       },
       {
         "label": "Seven algebraic certificates (verified source)",
-        "url": "https://github.com/dicipler-pixel/operator-first/blob/e5d870b421a394cf49858f59b9bd5ec5b0ef2956/research/diophantine/formal/Certificates.lean",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/e055123f8e4b9fa23452197a32634b25a7e8a455/research/diophantine/formal/Certificates.lean",
         "pr": 13,
         "path": "research/diophantine/formal/Certificates.lean",
-        "sha": "e5d870b421a394cf49858f59b9bd5ec5b0ef2956"
+        "sha": "e055123f8e4b9fa23452197a32634b25a7e8a455"
       }
     ],
     "next_step": "Use explicit pushforward maps before transferring an observer or peeling analogy."
@@ -384,7 +384,7 @@
     "failure_mode": "Correlated search maxima and split-prime selection can create misleading rank claims.",
     "evidence_status": "Exact finite-field experiment; inferential limits explicit",
     "verification_scope": "668 odd primes; 430 held out; 44 frozen candidates; 12,750 independent direct-sum checks.",
-    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk\u2013Agbanwa. Audit and reconstruction do not assert novelty.",
+    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk–Agbanwa. Audit and reconstruction do not assert novelty.",
     "sources": [
       {
         "label": "PR #13 audit and complete backup",
@@ -392,12 +392,86 @@
       },
       {
         "label": "Seven algebraic certificates (verified source)",
-        "url": "https://github.com/dicipler-pixel/operator-first/blob/e5d870b421a394cf49858f59b9bd5ec5b0ef2956/research/diophantine/formal/Certificates.lean",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/e055123f8e4b9fa23452197a32634b25a7e8a455/research/diophantine/formal/Certificates.lean",
         "pr": 13,
         "path": "research/diophantine/formal/Certificates.lean",
-        "sha": "e5d870b421a394cf49858f59b9bd5ec5b0ef2956"
+        "sha": "e055123f8e4b9fa23452197a32634b25a7e8a455"
       }
     ],
     "next_step": "Use the exact section and published polynomial families as calibration controls."
+  },
+  {
+    "id": "HORIZON-METRIC-WALL",
+    "title": "Declared metric and finite wall path",
+    "papers": [
+      "horizon-comparison",
+      "compound-eye",
+      "peeling-cascade"
+    ],
+    "statement": "The supplied principal-frame shape block obeys gA=A^Tg in the positive interior. An explicit signed Jacobi lift has ds²=dq²/(1-q²), with finite length to q=0.",
+    "assumptions": "The exact supplied finite block, real principal coefficients and positive interior metric; an explicitly specified signed path.",
+    "failure_mode": "Coordinate projector growth does not establish intrinsic amplification; a coordinate singularity does not prove an infinite-distance barrier.",
+    "evidence_status": "Preserved source analysis and executable controls; no new Lean theorem",
+    "verification_scope": "Integrated suite evidence in tools/compound-eye/runs/universal_verification.json; original source scope retained.",
+    "credit": "Jeromie N. Beasley project materials and cited sources; integration preserves original attribution.",
+    "sources": [
+      {
+        "label": "Source findings and qualification",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/main/tools/compound-eye/projects/horizon_compare/FINDINGS.md"
+      },
+      {
+        "label": "Source replay audit",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/main/tools/compound-eye/projects/horizon_compare/SOURCE_AUDIT.md"
+      }
+    ],
+    "next_step": "Establish the application-specific model and observation map before a physical claim."
+  },
+  {
+    "id": "OBS-INTERIOR-AMBIGUITY",
+    "title": "Different interiors with identical exterior response",
+    "papers": [
+      "horizon-comparison",
+      "compound-eye",
+      "peeling-cascade"
+    ],
+    "statement": "The tested one-way two-state family has identical full exterior evolution and different hidden dynamics; observability and feedback distinguish what can be inferred.",
+    "assumptions": "Specified finite generator, observation map and source/initial-state conventions.",
+    "failure_mode": "Adding an unavailable interior signal to a display does not make it an exterior measurement.",
+    "evidence_status": "Preserved source analysis and executable controls; no new Lean theorem",
+    "verification_scope": "Integrated suite evidence in tools/compound-eye/runs/universal_verification.json; original source scope retained.",
+    "credit": "Jeromie N. Beasley project materials and cited sources; integration preserves original attribution.",
+    "sources": [
+      {
+        "label": "Source findings and qualification",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/main/tools/compound-eye/projects/horizon_compare/FINDINGS.md"
+      },
+      {
+        "label": "Source replay audit",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/main/tools/compound-eye/projects/horizon_compare/SOURCE_AUDIT.md"
+      }
+    ],
+    "next_step": "Establish the application-specific model and observation map before a physical claim."
+  },
+  {
+    "id": "DISPLAY-EYE-MIXER",
+    "title": "Reproducible composition of chosen eye traces",
+    "papers": [
+      "horizon-comparison",
+      "compound-eye",
+      "peeling-cascade"
+    ],
+    "statement": "The mixer combines selected traces with explicit signed weights, routing, normalization and smoothing, and exports complete replayable recipes.",
+    "assumptions": "One shared coordinate and explicit context; source-unit addition requires compatible units.",
+    "failure_mode": "Display composition is not a derived physical fusion law; smoothing residuals are not automatically measurement noise.",
+    "evidence_status": "Preserved source analysis and executable controls; no new Lean theorem",
+    "verification_scope": "Integrated suite evidence in tools/compound-eye/runs/universal_verification.json; original source scope retained.",
+    "credit": "Jeromie N. Beasley project materials and cited sources; integration preserves original attribution.",
+    "sources": [
+      {
+        "label": "Mixer guide",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/main/tools/compound-eye/projects/eye_mixer/GUIDE.md"
+      }
+    ],
+    "next_step": "Establish the application-specific model and observation map before a physical claim."
   }
 ]

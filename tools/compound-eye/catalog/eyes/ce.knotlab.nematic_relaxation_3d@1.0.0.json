@@ -1,0 +1,18 @@
+{
+  "id": "ce.knotlab.nematic_relaxation_3d",
+  "version": "1.0.0",
+  "title": "Nematic Relaxation 3D",
+  "family": "open construction",
+  "status": "specified",
+  "inputs": {
+    "required_construction": "declared model data"
+  },
+  "depends_on": [],
+  "assumptions": [
+    "A 3D material model, elastic and dielectric parameters, boundary anchoring, initial fields and convergence tests."
+  ],
+  "output_meaning": "Reserved method contract; no calculation implemented.",
+  "evidence_class": "unimplemented",
+  "limits": "A 3D material model, elastic and dielectric parameters, boundary anchoring, initial fields and convergence tests.",
+  "implementation": null
+}

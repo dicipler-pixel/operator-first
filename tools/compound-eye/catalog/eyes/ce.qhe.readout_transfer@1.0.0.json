@@ -1,0 +1,22 @@
+{
+  "id": "ce.qhe.readout_transfer",
+  "version": "1.0.0",
+  "title": "Readout Transfer",
+  "family": "Quantum heat engine",
+  "status": "implemented",
+  "inputs": {
+    "case": "Declared thermodynamic model or acquisition audit"
+  },
+  "depends_on": [],
+  "assumptions": [
+    "Explicit system boundary, units, preparation and source stage."
+  ],
+  "output_meaning": "Scoped test with energy, population, coherence or memory bookkeeping.",
+  "evidence_class": "source_stage_declared_per_request",
+  "limits": "Does not establish an elemental removal law or universal quantum advantage.",
+  "implementation": {
+    "path": "plugins/installed/880f1f8427389a7b71780ee13a2d1e862a44403975b460c3bef34cf720ad639d.py",
+    "sha256": "880f1f8427389a7b71780ee13a2d1e862a44403975b460c3bef34cf720ad639d",
+    "function": "readout_transfer"
+  }
+}

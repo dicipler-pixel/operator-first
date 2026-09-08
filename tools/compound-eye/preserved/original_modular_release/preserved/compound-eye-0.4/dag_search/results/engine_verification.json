@@ -1,0 +1,28 @@
+{
+  "all_passed": true,
+  "checks": [
+    "120 independent rational-space checks, including row permutation and nonzero rescaling",
+    "300 indexed-family queries agree with direct membership checks",
+    "kt_11_6 complete calibration survives the quotient-space engine",
+    "kt_7_4 complete calibration survives the quotient-space engine",
+    "240 prior arbitrary-initial-T certificates agree with new exact closures",
+    "complete DAG terminal has an independently checked integer forcing certificate",
+    "one-generator negative control is excluded with full coverage"
+  ],
+  "rejected_false_controls": [
+    "changed initial-T scope",
+    "missing feasible branch",
+    "cyclic proof edge",
+    "incorrect generator cost",
+    "inflated coverage",
+    "wrong coordinate basis",
+    "equal-rank but unequal-row-space merge",
+    "zero separator with recomputed hash",
+    "false family membership with recomputed hash",
+    "forbidden target direction admitted as a generator",
+    "stale obstruction reused after changing edge labels"
+  ],
+  "random_existing_certificates_checked": 240,
+  "seconds": 3.5378209949994925,
+  "lean_formalized": false
+}

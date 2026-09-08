@@ -19,3 +19,6 @@ Cards describe exact scope. Their presence here does not upgrade a written proof
 | [Persistent rational section with finite integer image](DIO-SECTION-INTEGRAL.md) | Lean-checked cleared identity; written non-torsion/integrality proof with exact checks | diophantine-eye, compound-eye, peeling-cascade |
 | [Finite-field transfer with the omitted domain point](DIO-TRACE-BOUNDARY.md) | Written finite-count identity and exact computational controls | diophantine-eye, compound-eye, peeling-cascade |
 | [Candidate evolution without false rank certificates](DIO-SEARCH-LIMITS.md) | Exact finite-field experiment; inferential limits explicit | diophantine-eye, compound-eye, peeling-cascade |
+| [Declared metric and finite wall path](HORIZON-METRIC-WALL.md) | Preserved source analysis and executable controls; no new Lean theorem | horizon-comparison, compound-eye, peeling-cascade |
+| [Different interiors with identical exterior response](OBS-INTERIOR-AMBIGUITY.md) | Preserved source analysis and executable controls; no new Lean theorem | horizon-comparison, compound-eye, peeling-cascade |
+| [Reproducible composition of chosen eye traces](DISPLAY-EYE-MIXER.md) | Preserved source analysis and executable controls; no new Lean theorem | horizon-comparison, compound-eye, peeling-cascade |

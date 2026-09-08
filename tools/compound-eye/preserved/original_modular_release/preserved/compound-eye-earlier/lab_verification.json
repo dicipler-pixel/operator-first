@@ -1,0 +1,39 @@
+{
+  "all_passed": true,
+  "named_checks": [
+    "quantum decisive eye and follow-up",
+    "rc decisive eye and follow-up",
+    "geometry decisive eye and follow-up",
+    "duplicated observation does not add confidence or shrink twice",
+    "unknown prediction retains possibility and prevents guarantee",
+    "inconsistent value exposes a minimal conflict core",
+    "joint contradiction retains both necessary observations",
+    "stale coordinate, basis, boundary, identity and unit mismatches rejected",
+    "insufficient resolution produces no decisive recommendation",
+    "bounded-error ranking uses interval overlap, not transitive clustering",
+    "touching uncertainty intervals remain ambiguous",
+    "deterministic tracking preserves branches until later data separates them",
+    "non-increasing tracking coordinate rejected",
+    "silent trajectory-parameter change rejected",
+    "CLI stdin, invalid request and refusal exit codes",
+    "circuit and projector flow derivatives independently finite-difference checked",
+    "three sparse laws survive reserved times and declared parameter interventions",
+    "fitted rational coefficients checked against three exact symbolic identities",
+    "reference CMF square checked exactly; perturbed route and blind probe false control",
+    "fixed decay-coefficient promotion rejected after capacitance intervention",
+    "closure eye exposes equal present readings with incompatible future predictions"
+  ],
+  "check_count": 21,
+  "numerical_derivative_errors": {
+    "rc_energy_rate": 6.093991977706992e-11,
+    "geometry_probe_rate": 8.137712725897472e-11
+  },
+  "runtime": {
+    "python": "3.12.13",
+    "numpy": "2.3.5",
+    "sympy": "1.14.0"
+  },
+  "new_lean_formalization": false,
+  "new_experimental_data": false,
+  "scope": "Finite software checks and exact elementary symbolic identities; not completeness beyond the supplied models."
+}

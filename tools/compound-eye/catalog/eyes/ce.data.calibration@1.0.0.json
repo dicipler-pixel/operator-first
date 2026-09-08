@@ -1,0 +1,25 @@
+{
+  "id": "ce.data.calibration",
+  "version": "1.0.0",
+  "title": "ADC calibration with shared uncertainty",
+  "family": "measurement",
+  "status": "implemented",
+  "inputs": {
+    "adc_events": "ADC counts",
+    "calibration": "ADC-to-MeV calibration"
+  },
+  "unit_system": "detector",
+  "depends_on": [],
+  "assumptions": [
+    "Affine calibration E=a x+b with stated parameter covariance.",
+    "Calibration uncertainty is shared across events; ADC noise here is independent."
+  ],
+  "output_meaning": "ADC calibration with shared uncertainty",
+  "evidence_class": "model_calculation",
+  "limits": "A scoped calculation; no universal physical interpretation or new Lean certificate is implied.",
+  "implementation": {
+    "path": "plugins/eyes.py",
+    "sha256": "95b8c1300c95260277ed2b22f6af939267b2b72ae093bdc2bc7d86edf8bbd79c",
+    "function": "calibrate"
+  }
+}

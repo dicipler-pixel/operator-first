@@ -23,10 +23,11 @@ def main():
   assert c['sources'] or 'intake pending' in c['evidence_status']
  links=0
  for p in ROOT.rglob('*.md'):
+  if 'tools' in p.relative_to(ROOT).parts or '.git' in p.relative_to(ROOT).parts:continue
   for target in re.findall(r'\]\(([^)]+)\)',p.read_text()):
    if target.startswith(('https://','http://','#')):continue
    assert (p.parent/target.split('#')[0]).exists(),(p,target);links+=1
- generated=[ROOT/'catalog/README.md',ROOT/'atlas/README.md']+list((ROOT/'papers').glob('*/README.md'))+[ROOT/'atlas'/f'{c}.md' for c in cids]
+ generated=[ROOT/'README.md',ROOT/'catalog/README.md',ROOT/'atlas/README.md']+list((ROOT/'papers').glob('*/README.md'))+[ROOT/'atlas'/f'{c}.md' for c in cids]
  before={str(p):p.read_bytes() for p in generated}
  subprocess.run([sys.executable,str(ROOT/'scripts/build_catalog.py')],check=True)
  assert all(Path(p).read_bytes()==b for p,b in before.items()),'Generated pages were stale'

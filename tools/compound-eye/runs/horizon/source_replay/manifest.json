@@ -1,0 +1,122 @@
+{
+  "python": "3.12.13",
+  "packages": {
+    "numpy": "2.3.5",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0",
+    "networkx": "3.5",
+    "matplotlib": "3.10.8"
+  },
+  "jobs": [
+    {
+      "source": "bh/bh_curv_01.py",
+      "sha256": "c97106417548d45438fabd9410263541f35157d87478c8547815d215944769fb",
+      "status": "executed",
+      "exit_code": 0,
+      "seconds": 0.215,
+      "log": "runs/horizon/source_replay/bh__bh_curv_01.py.txt",
+      "evidence_stage": "theoretical_or_synthetic_source_replay"
+    },
+    {
+      "source": "bh/bh_ledger_01.py",
+      "sha256": "48d947ad65e5e023445c24c4ec090fa2dedf268113a4f9df53a280a78c7660b2",
+      "status": "executed",
+      "exit_code": 0,
+      "seconds": 0.917,
+      "log": "runs/horizon/source_replay/bh__bh_ledger_01.py.txt",
+      "evidence_stage": "theoretical_or_synthetic_source_replay"
+    },
+    {
+      "source": "upg/upg_gate_01.py",
+      "sha256": "324c8465c17f9ce93f8c1600dc7aa4a502b8158dd6d3c1431573d1c2060900ee",
+      "status": "executed",
+      "exit_code": 0,
+      "seconds": 0.115,
+      "log": "runs/horizon/source_replay/upg__upg_gate_01.py.txt",
+      "evidence_stage": "theoretical_or_synthetic_source_replay"
+    },
+    {
+      "source": "upg/upg_gate_02.py",
+      "sha256": "140778de683a3455e82dfb2c58564367ea98c2d82131e274b9b86aad6eb730c2",
+      "status": "executed",
+      "exit_code": 0,
+      "seconds": 0.87,
+      "log": "runs/horizon/source_replay/upg__upg_gate_02.py.txt",
+      "evidence_stage": "theoretical_or_synthetic_source_replay"
+    },
+    {
+      "source": "upg/upg_prove_01a.py",
+      "sha256": "0c16531ce027fdd6bd9d2cb6d5537f41a5460bbc8dbd14b6a437f712e1f35898",
+      "status": "executed",
+      "exit_code": 0,
+      "seconds": 0.164,
+      "log": "runs/horizon/source_replay/upg__upg_prove_01a.py.txt",
+      "evidence_stage": "theoretical_or_synthetic_source_replay"
+    },
+    {
+      "source": "upg/upg_prove_02.py",
+      "sha256": "2ef8882412e24822377dc75861496f8d9f2cd60bf0a57edd472094000933ef52",
+      "status": "executed",
+      "exit_code": 0,
+      "seconds": 0.917,
+      "log": "runs/horizon/source_replay/upg__upg_prove_02.py.txt",
+      "evidence_stage": "theoretical_or_synthetic_source_replay"
+    },
+    {
+      "source": "upg/dirac_spine_01.py",
+      "sha256": "f157505c10988c24e2a0c0e3664bc13a1e0cd916211b53ce58865795ac2bd752",
+      "status": "executed",
+      "exit_code": 0,
+      "seconds": 1.437,
+      "log": "runs/horizon/source_replay/upg__dirac_spine_01.py.txt",
+      "evidence_stage": "theoretical_or_synthetic_source_replay"
+    },
+    {
+      "source": "sun/bh_dynamo_01b.py",
+      "sha256": "0fba7e726a0a46876f1b3a73fbe389ba3bacaf93e8479ebec2d305b959f3e856",
+      "status": "executed",
+      "exit_code": 0,
+      "seconds": 9.245,
+      "log": "runs/horizon/source_replay/sun__bh_dynamo_01b.py.txt",
+      "evidence_stage": "theoretical_or_synthetic_source_replay"
+    },
+    {
+      "source": "sun/shear_lane_01.py",
+      "sha256": "5a2bdb319a9d86209ffcaec6f69d097110625af5f0bd4e421c0e3cddbd0dafa8",
+      "status": "executed",
+      "exit_code": 0,
+      "seconds": 21.337,
+      "log": "runs/horizon/source_replay/sun__shear_lane_01.py.txt",
+      "evidence_stage": "theoretical_or_synthetic_source_replay"
+    },
+    {
+      "source": "sun/n_recovery_01b.py",
+      "sha256": "26bdae006e13c1b85e4d136a0dbb67cd770b186504be806c44beb8193a2a373e",
+      "status": "executed",
+      "exit_code": 0,
+      "seconds": 31.769,
+      "log": "runs/horizon/source_replay/sun__n_recovery_01b.py.txt",
+      "evidence_stage": "theoretical_or_synthetic_source_replay"
+    },
+    {
+      "source": "sun/n_recovery_02_final.py",
+      "sha256": "ed7ba921812e069404d3cc480549d649d07a233913370690ff361289ded8d6af",
+      "status": "executed",
+      "exit_code": 0,
+      "seconds": 0.114,
+      "log": "runs/horizon/source_replay/sun__n_recovery_02_final.py.txt",
+      "evidence_stage": "theoretical_or_synthetic_source_replay"
+    },
+    {
+      "source": "sun/dkist_compare_02.py",
+      "sha256": "219a37d115b2a29e60a9982c0ab881542808e29a6d5791e72f80e0ef7637e907",
+      "status": "executed",
+      "exit_code": 0,
+      "seconds": 0.114,
+      "log": "runs/horizon/source_replay/sun__dkist_compare_02.py.txt",
+      "evidence_stage": "theoretical_or_synthetic_source_replay"
+    }
+  ],
+  "scope": "Selected scripts only. Not a replay of every historical script or experimental analysis."
+}

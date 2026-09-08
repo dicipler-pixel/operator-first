@@ -1,0 +1,24 @@
+{
+  "id": "ce.optical.constitutive",
+  "version": "1.0.0",
+  "title": "Optical metric and cancellation",
+  "family": "optical response",
+  "status": "implemented",
+  "inputs": {
+    "constitutive": "model_energy dipole amplitudes"
+  },
+  "unit_system": "model",
+  "depends_on": [],
+  "assumptions": [
+    "Finite nondegenerate ground-state lossless real-dipole model.",
+    "Positive gaps and declared physical field/probe; no poles."
+  ],
+  "output_meaning": "Metric, weighted response, positivity gate and relative cancellation diagnostic.",
+  "evidence_class": "model_calculation",
+  "limits": "No atomic identification, linewidth model, spacetime metric or full complex gyrotropic tensor.",
+  "implementation": {
+    "path": "plugins/installed/c065d16e6062429cdf5db6c4ddbf42e0ff8d50562805ab61e7a349908c5a066d.py",
+    "sha256": "c065d16e6062429cdf5db6c4ddbf42e0ff8d50562805ab61e7a349908c5a066d",
+    "function": "run"
+  }
+}

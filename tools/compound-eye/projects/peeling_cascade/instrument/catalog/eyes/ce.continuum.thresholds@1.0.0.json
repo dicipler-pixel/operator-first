@@ -1,0 +1,25 @@
+{
+  "id": "ce.continuum.thresholds",
+  "version": "1.0.0",
+  "title": "Channel thresholds",
+  "family": "continuum",
+  "status": "implemented",
+  "inputs": {
+    "continuum": "model_energy channel parameters"
+  },
+  "unit_system": "model",
+  "depends_on": [],
+  "assumptions": [
+    "One retained level coupled to declared independent semi-infinite tight-binding leads.",
+    "Retarded surface Green function; hopping positive; eta nonnegative."
+  ],
+  "output_meaning": "Channel thresholds",
+  "evidence_class": "model_calculation",
+  "limits": "A solvable channel model. No fitted He-5/Be-8 threshold or decay width is claimed. Gamma(E) is not automatically a pole width.",
+  "implementation": {
+    "path": "plugins/eyes.py",
+    "sha256": "95b8c1300c95260277ed2b22f6af939267b2b72ae093bdc2bc7d86edf8bbd79c",
+    "function": "continuum"
+  },
+  "selector": "thresholds"
+}

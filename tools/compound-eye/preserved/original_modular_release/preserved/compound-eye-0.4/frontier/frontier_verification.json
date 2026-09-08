@@ -1,0 +1,273 @@
+{
+  "edition": "0.3",
+  "all_passed": true,
+  "check_count": 21,
+  "named_checks": [
+    "kt_11_6 exact forcing, independent integer certificate and score gate",
+    "kt_7_4 exact forcing, independent integer certificate and score gate",
+    "all 63 subset cuts can pass while the 5/3 candidate forces nothing",
+    "published calibration controls refute local seeding: first vertices have no generators",
+    "two-vertex seeding counterexample checked by direct integer arithmetic",
+    "12 malformed or inadmissible inputs rejected before scoring",
+    "10^30-scale unimodular labels retain exact rank despite floating-point collapse",
+    "tampered forcing, impossibility and score certificates rejected",
+    "240 arbitrary-T and distributed-generator cases agree with independent integer-checked certificates",
+    "20 unimodular transport maps including the omitted negative branch preserve calibration",
+    "transporting a matching generator across its labelled edge preserves the forcing module and score",
+    "integer-kernel basis overclaim isolated without conflating it with rational forcing existence",
+    "C7[K4]: correct 10-color certificate and independence bound 3",
+    "C7[K4]: 112 triangle-free join edges violate capacity 104",
+    "C7[K4]: three disjoint planar layers independently checked through rotation systems",
+    "all 112 join-edge deletions have proper 9-color certificates, closing the biplanar-subgraph route",
+    "nine inflated-cycle instances n=4..12 have exact thickness-three certificates",
+    "closing-edge trace identifies exact global-density rejection threshold at nine restored joins",
+    "biplanarity of K5 and density feasibility of K10 are not promoted to Epoch success",
+    "tampered positive-genus rotation rejected",
+    "integer granularity boundary checked; Lean semantic scope kept distinct from compilation"
+  ],
+  "cases": {
+    "kt_11_6": {
+      "score": "11/6",
+      "complete": true,
+      "first_forced_vertex": [
+        2,
+        3
+      ],
+      "generators_at_first_vertex": 0,
+      "certificate": "certificates/kt_11_6.json"
+    },
+    "kt_11_6_minus_generator": {
+      "score": "5/3",
+      "complete": false,
+      "forced_count": 0,
+      "cut_obstructions": 0,
+      "subsets_checked": 63
+    },
+    "kt_7_4": {
+      "score": "7/4",
+      "complete": true,
+      "first_forced_vertex": [
+        2,
+        1
+      ],
+      "generators_at_first_vertex": 0,
+      "certificate": "certificates/kt_7_4.json"
+    },
+    "kt_7_4_minus_generator": {
+      "score": "3/2",
+      "complete": false,
+      "forced_count": 0,
+      "cut_obstructions": 1,
+      "subsets_checked": 15
+    },
+    "input_admission": {
+      "invalid_cases_rejected": [
+        "forbidden generator outside X",
+        "admissible generator outside X",
+        "edge outside X",
+        "zero dimension",
+        "float dimension",
+        "boolean dimension",
+        "duplicate known vertex",
+        "zero denominator",
+        "generator vertex outside tower",
+        "prefix out of range",
+        "duplicate prefix",
+        "float label"
+      ],
+      "supplied_verifier_false_admission": "accepts undeclared forbidden generator (1,-1) at one vertex, apparent score 1"
+    },
+    "independent_random_comparison": {
+      "cases": 240,
+      "complete": 98,
+      "disagreements": 0,
+      "seed": 20260907,
+      "shapes": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "all_certificates_saved": true
+    },
+    "symmetry": {
+      "correct_formula": "M=[[a,lambda-a],[a-sigma,lambda-a+sigma]], sigma,lambda in {-1,1}",
+      "maps_checked": 20,
+      "missing_source_example": [
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ],
+      "height_cutoff_warning": "Normalization need not preserve a finite coordinate-height pool."
+    },
+    "integer_kernel_scope": {
+      "counterexample_functional": [
+        2,
+        3,
+        5
+      ],
+      "omitted_integer_vector": [
+        -4,
+        1,
+        1
+      ],
+      "returned_rows": [
+        [
+          -1,
+          4,
+          -2
+        ],
+        [
+          0,
+          -10,
+          6
+        ]
+      ],
+      "effect": "Full integer-kernel basis claim is false; rational-span existence testing can remain correct."
+    },
+    "earth_moon_closure_trace": [
+      {
+        "closing_edges_restored": 0,
+        "join_edges": 96,
+        "density_rejects": false
+      },
+      {
+        "closing_edges_restored": 1,
+        "join_edges": 97,
+        "density_rejects": false
+      },
+      {
+        "closing_edges_restored": 2,
+        "join_edges": 98,
+        "density_rejects": false
+      },
+      {
+        "closing_edges_restored": 3,
+        "join_edges": 99,
+        "density_rejects": false
+      },
+      {
+        "closing_edges_restored": 4,
+        "join_edges": 100,
+        "density_rejects": false
+      },
+      {
+        "closing_edges_restored": 5,
+        "join_edges": 101,
+        "density_rejects": false
+      },
+      {
+        "closing_edges_restored": 6,
+        "join_edges": 102,
+        "density_rejects": false
+      },
+      {
+        "closing_edges_restored": 7,
+        "join_edges": 103,
+        "density_rejects": false
+      },
+      {
+        "closing_edges_restored": 8,
+        "join_edges": 104,
+        "density_rejects": false
+      },
+      {
+        "closing_edges_restored": 9,
+        "join_edges": 105,
+        "density_rejects": true
+      },
+      {
+        "closing_edges_restored": 10,
+        "join_edges": 106,
+        "density_rejects": true
+      },
+      {
+        "closing_edges_restored": 11,
+        "join_edges": 107,
+        "density_rejects": true
+      },
+      {
+        "closing_edges_restored": 12,
+        "join_edges": 108,
+        "density_rejects": true
+      },
+      {
+        "closing_edges_restored": 13,
+        "join_edges": 109,
+        "density_rejects": true
+      },
+      {
+        "closing_edges_restored": 14,
+        "join_edges": 110,
+        "density_rejects": true
+      },
+      {
+        "closing_edges_restored": 15,
+        "join_edges": 111,
+        "density_rejects": true
+      },
+      {
+        "closing_edges_restored": 16,
+        "join_edges": 112,
+        "density_rejects": true
+      }
+    ],
+    "lean_status": {
+      "compiler_available": false,
+      "compiled_in_this_run": false,
+      "arithmetic_granularity_instances_checked": 39,
+      "semantic_audit": "below_floor_excluded is h -> h; it does not formalize a sums-differences impossibility theorem. Product lemmas concern defined edge counts/densities, not all possible forcing-score optimizations."
+    }
+  },
+  "earth_moon": {
+    "vertices": 28,
+    "edges": 154,
+    "join_edges": 112,
+    "join_capacity": 104,
+    "independence_number": 3,
+    "chromatic_number": 10,
+    "thickness": 3,
+    "single_join_deletion_colorings": 112,
+    "biplanar_subgraph_chromatic_upper_bound": 9,
+    "epoch_target_solved": false
+  },
+  "epoch_targets": {
+    "earth_moon": "two planar parts and exact chromatic number k in 10..12",
+    "arithmetic_kakeya": "valid tower, complete forcing, exact score <=67/40",
+    "official_verifiers_run": false,
+    "new_solution_found": false
+  },
+  "limitations": [
+    "No Lean executable: supplied Lean file not recompiled.",
+    "No official Epoch verifier access used.",
+    "Earlier millions-of-cases seeded search is not recertified as full coverage.",
+    "Missing historical SAT layer witnesses were not supplied and cannot be rechecked."
+  ]
+}

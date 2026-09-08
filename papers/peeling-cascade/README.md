@@ -17,6 +17,9 @@ Positive support peeling, Schur reduction and hidden-sector memory are distinct 
 - [Persistent rational section with finite integer image](../../atlas/DIO-SECTION-INTEGRAL.md)
 - [Finite-field transfer with the omitted domain point](../../atlas/DIO-TRACE-BOUNDARY.md)
 - [Candidate evolution without false rank certificates](../../atlas/DIO-SEARCH-LIMITS.md)
+- [Declared metric and finite wall path](../../atlas/HORIZON-METRIC-WALL.md)
+- [Different interiors with identical exterior response](../../atlas/OBS-INTERIOR-AMBIGUITY.md)
+- [Reproducible composition of chosen eye traces](../../atlas/DISPLAY-EYE-MIXER.md)
 
 ## Next step
 

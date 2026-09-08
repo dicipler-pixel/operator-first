@@ -1,0 +1,25 @@
+{
+  "id": "ce.search.proof_cost",
+  "version": "1.0.0",
+  "title": "Search and proof cost",
+  "family": "decision DAG",
+  "status": "archived_result",
+  "inputs": {},
+  "unit_system": "exact",
+  "depends_on": [],
+  "assumptions": [
+    "Use only the stated model, input contract, and coordinate convention."
+  ],
+  "output_meaning": "Separate measured enumeration, certificate production, and independent checking costs.",
+  "evidence_class": "archived_computational_evidence",
+  "limits": "A scoped calculation; no universal physical interpretation or new Lean certificate is implied.",
+  "implementation": {
+    "path": "plugins/eyes.py",
+    "sha256": "95b8c1300c95260277ed2b22f6af939267b2b72ae093bdc2bc7d86edf8bbd79c",
+    "function": "search"
+  },
+  "adapter": "cost",
+  "origin": {
+    "legacy_id": "proof_cost"
+  }
+}

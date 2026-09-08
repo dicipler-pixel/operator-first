@@ -1,0 +1,20 @@
+{
+  "id": "ce.extensions.thermodynamics",
+  "version": "1.0.0",
+  "title": "Dissipation and work",
+  "family": "extensions",
+  "status": "specified",
+  "inputs": {},
+  "unit_system": "model",
+  "depends_on": [],
+  "assumptions": [
+    "Use only the stated model, input contract, and coordinate convention."
+  ],
+  "output_meaning": "Requires reservoirs, physical units and an energy balance.",
+  "evidence_class": "model_calculation",
+  "limits": "A scoped calculation; no universal physical interpretation or new Lean certificate is implied.",
+  "implementation": null,
+  "origin": {
+    "legacy_id": "thermodynamics"
+  }
+}

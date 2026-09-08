@@ -1,42 +1,23 @@
-# Operator-first research directory
+# Operator-first research master
 
-Jeromie N. Beasley research corpus: paper projects, reusable mathematics, code and verification evidence.
+Jeromie N. Beasley’s current research directory: **13 projects**, **18 Atlas cards**, and **Compound Eye Universal 3.2**.
 
-Start with the [master paper register](catalog/README.md) or the [reusable-results Atlas](atlas/README.md). The current index covers eleven research/tool projects and twelve reusable-result cards. It remains a partial inventory of the 20+ paper corpus.
+Start with [current project status](MASTER_STATUS.md), the [paper register](catalog/README.md), or the [reusable-results Atlas](atlas/README.md).
 
-## Where the work currently lives
+The [complete instrument](tools/compound-eye/START_HERE.md) contains **191 eye versions in 29 sets**: 172 implemented, 17 specified, and 2 archived results. It combines the independent Universal 2.2 and 3.1 lines with Eye Mixer 1.0.0.
 
-The research sources remain in the existing draft PR branches. Existing formal sources retain pinned commits. [The branch snapshot](catalog/source_snapshot.json) records eleven research PRs inspected before this integration update. The new UPG intake has an explicit file-hash manifest and branch links. Use the [read-only refresh command](research/upg/README.md) to compare later source heads; changed metadata does not recertify a proof.
+## Use or share the tool
 
-- [Light](papers/light/README.md)
-- [Offset](papers/offset/README.md)
-- [Gravity](papers/gravity/README.md)
-- [Arithmetic Kakeya](papers/arithmetic-kakeya/README.md)
-- [Earth–Moon](papers/earth-moon/README.md)
-- [CMF calibration and transport](papers/cmf-transport/README.md)
-- [UPG](papers/upg/README.md)
-- [Three-body operator-first](papers/three-body/README.md)
-- [Matter at a Scale](papers/matter/README.md)
-- [Peeling cascade](papers/peeling-cascade/README.md)
-- [Compound Eye Universal](papers/compound-eye/README.md)
+Download this repository and open `tools/compound-eye/START_HERE.html`, or build the standalone package with `python scripts/package_compound_eye.py --output release-output`. The full scientific replay command is `python tools/compound-eye/run_all.py` after installing its requirements; Node.js is needed for the mixer checks. The HTML works offline. The package builder restores the large raw dataset automatically from checked repository pieces. For a raw-source audit directly in a clone, first run `python scripts/restore_large_files.py`.
 
-The [UPG/cascade integration](research/upg/UPG_Cascade_Integration.md) gives the Hermitian feedback criterion, a sign-correct gluing identity, gap/rank controls, and the limits of the knot and data bridges. Its standalone 213-case suite contains seven expected refusals; it is not a new Lean build. Original UPG script logs and incomplete three-body reproduction errors are recorded explicitly.
+The [original 3.1 upload backup](backups/2026-09-08-universal-3-1/README.md) and [earlier complete backup](backups/2026-09-08/README.md) preserve both release lines. Every registered source definition and installed implementation is retained.
 
-The default branch's original Lean sources are retained. This catalog does not merge or recertify any research branch. Its arrival on a branch must not be read as a new proof build.
+## Research and proof scope
 
-## Reuse and verification
+The root build incorporates the repair from PR #1 and checks its finite core. The [source snapshot](catalog/source_snapshot.json) records exact heads and available workflow evidence for the other proof branches. Their independent status and mathematical limits remain explicit in the register. A successful instrument integration does not establish new physical calibration or solve the six Diophantine equations.
 
-Read [the catalog policy](catalog/POLICY.md) before adding a card or applying one in another paper. Written proof, Lean compilation, per-theorem axiom audit, independent kernel recheck, exact certificates and numerical experiments are different evidence fields. An application still has to establish the source theorem's hypotheses.
+## Keep the master current
 
-Generate and check the directory with Python's standard library:
+Read [AGENTS.md](AGENTS.md) and [catalog policy](catalog/POLICY.md). Fetch branches before importing another chat’s work; compare source inventories, then add missing versions without rewriting existing ones. Run `python scripts/build_catalog.py`, `python scripts/validate_catalog.py` and `python scripts/verify_compound_eye_release.py` after relevant changes.
 
-```
-python3 scripts/build_catalog.py
-python3 scripts/validate_catalog.py
-```
-
-These commands validate the directory only. Paper-specific proof reproduction commands live at the pinned source links.
-
-## Next work
-
-Follow [the implementation queue](catalog/ROADMAP.md). The current paper target is the peeling cascade, with Light continuing as the release-reconciliation pilot. The next empirical obligation is the UPG eight-feature covariance map and its independent calibration. Each release should bundle the precise proof/code dependencies it uses, while keeping earlier published manuscripts out of the supplement.
+The register remains a partial inventory of the wider 20+ paper corpus. Unresolved publication identities and missing source material remain in the intake queue.

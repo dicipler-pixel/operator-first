@@ -33,7 +33,7 @@
     {
       "id": "offset",
       "title": "The Offset Belongs to the Boundary",
-      "state": "PRs #2, #5 and #6 draft",
+      "state": "Written all-size transfer/endpoint complete; 139 Offset/boundary-support declarations in PR #6, with incomplete model-specific formalization",
       "scope": "Finite covariance and endpoint algebra; written transfer/Hankel argument and partial formalization have distinct scope.",
       "next_step": "Map the written endpoint proof to exact model-specific Lean obligations and the pinned standalone supplement.",
       "sources": [
@@ -62,9 +62,9 @@
     {
       "id": "gravity",
       "title": "Gravity / finite projector overlap",
-      "state": "PRs #8 and #9 draft",
+      "state": "PR #8 finite algebra and PR #9 differentiability overlap bridge verified at pinned heads",
       "scope": "Projector algebra and overlap remainder; no gravitational field equation follows merely from the finite trace form.",
-      "next_step": "Reconcile the seven-theorem overlap follow-up with the preceding 23-theorem module and its paper version.",
+      "next_step": "Retain the proved small-o bridge; local trace constancy is explicit in Lean, with rank constancy and integral-Taylor representation supplied as written proofs.",
       "sources": [
         {
           "label": "PR #8",
@@ -121,7 +121,7 @@
     },
     {
       "id": "earth-moon",
-      "title": "Earth\u2013Moon / biplanarity obstructions",
+      "title": "Earth–Moon / biplanarity obstructions",
       "state": "PR #4 draft",
       "scope": "Finite subgraph capacity and explicit graph algebra. Planarity inputs and exhaustive enumerations need their own evidence.",
       "next_step": "Attach the graph-generation and planarity certificates to the precise formal capacity statements.",
@@ -218,7 +218,7 @@
     {
       "id": "peeling-cascade",
       "title": "Peeling Cascades and What They Leave Behind",
-      "state": "Research draft plus positive-peel Lean PR 11; UPG integration added",
+      "state": "Research draft, verified positive-peel module, UPG feedback and horizon comparison integrated in Universal 3.2",
       "scope": "Positive support peeling, Schur reduction and hidden-sector memory are distinct operations; no atomic removal law has been established.",
       "next_step": "Add the Hermitian feedback criterion with the gap-controlled projector derivative; formalize the finite block bridge before the analytic time-domain bridge.",
       "sources": [
@@ -243,17 +243,17 @@
     {
       "id": "compound-eye",
       "title": "Compound Eye Universal",
-      "state": "Portable release 2.1: 172 eye versions, 153 implemented",
+      "state": "Universal 3.2: 191 eye versions, 172 implemented, 29 sets; combines independent 2.2 and 3.1 lines",
       "scope": "Versioned research instrument with explicit source stages, scoped diagnostics and expected refusal cases; the catalog is not an independent scientific vote.",
-      "next_step": "Recover the eight-feature UPG covariance map and use independent acquisition/calibration partitions for the next physical test.",
+      "next_step": "Use the synchronized mixer and domain-specific runners; compare immutable manifests before importing another chat’s release.",
       "sources": [
         {
-          "label": "UPG integration report",
-          "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/UPG_Cascade_Integration.md"
+          "label": "Current complete source and handoff",
+          "url": "https://github.com/dicipler-pixel/operator-first/tree/main/tools/compound-eye"
         },
         {
-          "label": "Input identities and hashes",
-          "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/input_manifest.json"
+          "label": "Release reconciliation",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/main/tools/compound-eye/projects/master_sync/reconciliation.json"
         }
       ],
       "publication_identity": "source identity recorded; publication DOI not established in this intake"
@@ -263,7 +263,7 @@
       "title": "Diophantine evolution: persistent sections and integer gates",
       "state": "PR #13 draft; exact controls and isolated Lean CI passed",
       "scope": "Audit of the supplied nine-equation sweep; reconstructed rational section, integrality obstruction, exact boundary transfer and validated prime evolution. Six original equations remain open.",
-      "next_step": "Search explicit integral escape routes on the six unresolved surfaces; retain solved equations as positive controls.",
+      "next_step": "Seek three exact triples with distinct x and |x|>10^50 for an unresolved equation; a proof of infinitely many is a stronger separate target.",
       "sources": [
         {
           "label": "PR #13 audit and complete backup",
@@ -271,20 +271,38 @@
         },
         {
           "label": "Seven algebraic certificates (verified source)",
-          "url": "https://github.com/dicipler-pixel/operator-first/blob/e5d870b421a394cf49858f59b9bd5ec5b0ef2956/research/diophantine/formal/Certificates.lean",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/e055123f8e4b9fa23452197a32634b25a7e8a455/research/diophantine/formal/Certificates.lean",
           "pr": 13,
           "path": "research/diophantine/formal/Certificates.lean",
-          "sha": "e5d870b421a394cf49858f59b9bd5ec5b0ef2956"
+          "sha": "e055123f8e4b9fa23452197a32634b25a7e8a455"
         }
       ],
       "publication_identity": "working research audit; not a claim of a new solution to an open equation"
+    },
+    {
+      "id": "horizon-comparison",
+      "title": "Sun, black-hole and boundary comparison",
+      "state": "Universal 3.1 source imported unchanged; eleven horizon eyes retained in Universal 3.2",
+      "scope": "Metric-dependent projector norms, finite signed wall paths, declared Schwarzschild model and exterior-observation ambiguity; no calibrated interior inference.",
+      "next_step": "Use the required metric and observer in comparisons; resolve empirical calibration and the physical shape-to-spacetime map separately.",
+      "sources": [
+        {
+          "label": "Source findings and qualification",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/main/tools/compound-eye/projects/horizon_compare/FINDINGS.md"
+        },
+        {
+          "label": "Source replay audit",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/main/tools/compound-eye/projects/horizon_compare/SOURCE_AUDIT.md"
+        }
+      ],
+      "publication_identity": "Supplied Sun v1.5, black-hole v2 and UPG v2 retained; no new publication identity inferred"
     }
   ],
   "intake_queue": [
-    "Four-body / shape-space work \u2014 locate current manuscript and code.",
-    "Directional capacity / Price of a Direction \u2014 keep separate from arithmetic Kakeya exponent claims.",
-    "Non-Hermitian defectiveness and clock-exponent work \u2014 reconcile overlap with Gravity without merging paper identities.",
-    "Topology, knots, ordered spectral flow, and confinement series \u2014 establish individual paper identities before creating numbered records.",
-    "Remaining corpus \u2014 reconcile the user\u2019s complete publication list; do not manufacture entries to reach a target count."
+    "Four-body / shape-space work — locate current manuscript and code.",
+    "Directional capacity / Price of a Direction — keep separate from arithmetic Kakeya exponent claims.",
+    "Non-Hermitian defectiveness and clock-exponent work — reconcile overlap with Gravity without merging paper identities.",
+    "Topology, knots, ordered spectral flow, and confinement series — establish individual paper identities before creating numbered records.",
+    "Remaining corpus — reconcile the user’s complete publication list; do not manufacture entries to reach a target count."
   ]
 }

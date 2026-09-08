@@ -1,0 +1,20 @@
+{
+  "id": "ce.extensions.topology",
+  "version": "1.0.0",
+  "title": "Topological sector",
+  "family": "extensions",
+  "status": "specified",
+  "inputs": {},
+  "unit_system": "model",
+  "depends_on": [],
+  "assumptions": [
+    "Use only the stated model, input contract, and coordinate convention."
+  ],
+  "output_meaning": "Requires a base space, symmetry class and invariant with stated hypotheses.",
+  "evidence_class": "model_calculation",
+  "limits": "A scoped calculation; no universal physical interpretation or new Lean certificate is implied.",
+  "implementation": null,
+  "origin": {
+    "legacy_id": "topology"
+  }
+}

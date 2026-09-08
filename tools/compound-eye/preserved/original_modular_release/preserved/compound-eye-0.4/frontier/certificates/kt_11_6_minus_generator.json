@@ -1,0 +1,261 @@
+{
+  "schema": "compound-eye-ak-certificate-v1",
+  "problem": {
+    "schema": "arithmetic-kakeya-tower-v1",
+    "name": "Katz-Tao figure 2 as encoded in supplied appendix A.1",
+    "X": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "dims": [
+      2,
+      3
+    ],
+    "levels": [
+      [
+        {
+          "prefix": [
+            1
+          ],
+          "label": [
+            1,
+            0
+          ]
+        }
+      ],
+      [
+        {
+          "prefix": [
+            1,
+            1
+          ],
+          "label": [
+            0,
+            1
+          ]
+        },
+        {
+          "prefix": [
+            1,
+            2
+          ],
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "prefix": [
+            2,
+            1
+          ],
+          "label": [
+            0,
+            1
+          ]
+        },
+        {
+          "prefix": [
+            2,
+            2
+          ],
+          "label": [
+            0,
+            1
+          ]
+        }
+      ]
+    ],
+    "initial_known": [],
+    "generators": [
+      {
+        "vertex": [
+          1,
+          2
+        ],
+        "label": [
+          1,
+          0
+        ]
+      },
+      {
+        "vertex": [
+          2,
+          1
+        ],
+        "label": [
+          1,
+          1
+        ]
+      },
+      {
+        "vertex": [
+          1,
+          1
+        ],
+        "label": [
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "input_sha256": "9d474bcd5e88d6891f48e35e7b7d533509cac2340e78362e847ef73e4a433494",
+  "arithmetic": "exact integer input and integer certificates; rational elimination only inside producer",
+  "source_rules": "https://epoch.ai/frontiermath/open-problems/arithmetic-kakeya",
+  "n": 6,
+  "m": 7,
+  "r": 3,
+  "t": 0,
+  "score": "5/3",
+  "forcing_complete": false,
+  "forced_vertices": [],
+  "steps": [],
+  "stalled_dual_certificates": [
+    {
+      "vertex": [
+        1,
+        1
+      ],
+      "constraint_weights": [
+        0,
+        1,
+        0,
+        1,
+        -1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "target_multiplier": 2
+    },
+    {
+      "vertex": [
+        1,
+        2
+      ],
+      "constraint_weights": [
+        -1,
+        1,
+        0,
+        1,
+        -1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "target_multiplier": 1
+    },
+    {
+      "vertex": [
+        1,
+        3
+      ],
+      "constraint_weights": [
+        1,
+        -1,
+        0,
+        -1,
+        1,
+        -1,
+        0,
+        -1,
+        -1,
+        -1,
+        0
+      ],
+      "target_multiplier": 1
+    },
+    {
+      "vertex": [
+        2,
+        1
+      ],
+      "constraint_weights": [
+        -1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "target_multiplier": 2
+    },
+    {
+      "vertex": [
+        2,
+        2
+      ],
+      "constraint_weights": [
+        -1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        -1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "target_multiplier": 1
+    },
+    {
+      "vertex": [
+        2,
+        3
+      ],
+      "constraint_weights": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "target_multiplier": 1
+    }
+  ],
+  "goal1_score_passes": true,
+  "goal1_candidate_passes_public_conditions": false,
+  "official_epoch_verifier_run": false,
+  "status": "incomplete_forcing",
+  "scope": "The private Epoch verifier has not been run. No search-space exhaustion follows from this one certificate.",
+  "cut_eye": {
+    "status": "exhausted",
+    "subsets_checked": 63,
+    "obstructions": [],
+    "logical_role": "necessary for completion, not sufficient"
+  }
+}

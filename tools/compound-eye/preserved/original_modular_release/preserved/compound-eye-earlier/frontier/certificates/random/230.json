@@ -1,0 +1,548 @@
+{
+  "schema": "compound-eye-ak-certificate-v1",
+  "problem": {
+    "schema": "arithmetic-kakeya-tower-v1",
+    "name": "deterministic random control 230",
+    "X": [
+      [
+        0,
+        0
+      ],
+      [
+        -1,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        -1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "dims": [
+      2,
+      2,
+      2
+    ],
+    "levels": [
+      [
+        {
+          "prefix": [
+            1
+          ],
+          "label": [
+            1,
+            1
+          ]
+        }
+      ],
+      [
+        {
+          "prefix": [
+            1,
+            1
+          ],
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "prefix": [
+            2,
+            1
+          ],
+          "label": [
+            1,
+            2
+          ]
+        }
+      ],
+      [
+        {
+          "prefix": [
+            1,
+            1,
+            1
+          ],
+          "label": [
+            1,
+            0
+          ]
+        },
+        {
+          "prefix": [
+            1,
+            2,
+            1
+          ],
+          "label": [
+            1,
+            2
+          ]
+        },
+        {
+          "prefix": [
+            2,
+            1,
+            1
+          ],
+          "label": [
+            2,
+            1
+          ]
+        },
+        {
+          "prefix": [
+            2,
+            2,
+            1
+          ],
+          "label": [
+            1,
+            1
+          ]
+        }
+      ]
+    ],
+    "initial_known": [
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        2,
+        1,
+        1
+      ]
+    ],
+    "generators": [
+      {
+        "vertex": [
+          1,
+          1,
+          1
+        ],
+        "label": [
+          1,
+          1
+        ]
+      },
+      {
+        "vertex": [
+          2,
+          1,
+          1
+        ],
+        "label": [
+          1,
+          2
+        ]
+      },
+      {
+        "vertex": [
+          2,
+          1,
+          1
+        ],
+        "label": [
+          0,
+          1
+        ]
+      },
+      {
+        "vertex": [
+          1,
+          2,
+          2
+        ],
+        "label": [
+          -1,
+          2
+        ]
+      },
+      {
+        "vertex": [
+          1,
+          1,
+          1
+        ],
+        "label": [
+          0,
+          1
+        ]
+      },
+      {
+        "vertex": [
+          2,
+          1,
+          1
+        ],
+        "label": [
+          2,
+          1
+        ]
+      }
+    ]
+  },
+  "input_sha256": "fc33cdc596dca573ccec1e4e25194a7d0e428e7af06001e4d0c6ef783ecef974",
+  "arithmetic": "exact integer input and integer certificates; rational elimination only inside producer",
+  "source_rules": "https://epoch.ai/frontiermath/open-problems/arithmetic-kakeya",
+  "n": 8,
+  "m": 12,
+  "r": 6,
+  "t": 2,
+  "score": "3",
+  "forcing_complete": true,
+  "forced_vertices": [
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      2
+    ],
+    [
+      2,
+      1,
+      1
+    ],
+    [
+      2,
+      1,
+      2
+    ],
+    [
+      2,
+      2,
+      1
+    ],
+    [
+      2,
+      2,
+      2
+    ]
+  ],
+  "steps": [
+    {
+      "vertex": [
+        1,
+        1,
+        1
+      ],
+      "coefficients": [
+        1,
+        0,
+        0,
+        0,
+        -2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "witness": [
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonzero_a": 1
+    },
+    {
+      "vertex": [
+        1,
+        1,
+        2
+      ],
+      "coefficients": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -2,
+        0,
+        0,
+        0
+      ],
+      "witness": [
+        -2,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonzero_a": 1
+    },
+    {
+      "vertex": [
+        1,
+        2,
+        1
+      ],
+      "coefficients": [
+        0,
+        0,
+        0,
+        -2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -9,
+        8,
+        0,
+        0,
+        0,
+        -6,
+        0,
+        0
+      ],
+      "witness": [
+        -9,
+        -9,
+        8,
+        8,
+        3,
+        -3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonzero_a": 3
+    },
+    {
+      "vertex": [
+        1,
+        2,
+        2
+      ],
+      "coefficients": [
+        0,
+        0,
+        0,
+        -2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "witness": [
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        0,
+        3,
+        -3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonzero_a": 3
+    },
+    {
+      "vertex": [
+        2,
+        2,
+        1
+      ],
+      "coefficients": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "witness": [
+        0,
+        0,
+        0,
+        0,
+        -3,
+        -3,
+        0,
+        0,
+        2,
+        4,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        0
+      ],
+      "nonzero_a": 1
+    },
+    {
+      "vertex": [
+        2,
+        2,
+        2
+      ],
+      "coefficients": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -3,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "witness": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -3,
+        -3,
+        0,
+        0,
+        2,
+        4,
+        0,
+        0,
+        1,
+        -1
+      ],
+      "nonzero_a": 1
+    }
+  ],
+  "stalled_dual_certificates": [],
+  "goal1_score_passes": false,
+  "goal1_candidate_passes_public_conditions": false,
+  "official_epoch_verifier_run": false,
+  "status": "complete_forcing_above_target",
+  "scope": "The private Epoch verifier has not been run. No search-space exhaustion follows from this one certificate.",
+  "cut_eye": {
+    "status": "exhausted",
+    "subsets_checked": 63,
+    "obstructions": [],
+    "logical_role": "necessary for completion, not sufficient"
+  }
+}

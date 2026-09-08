@@ -1,0 +1,22 @@
+{
+  "id": "ce.skew.gram",
+  "version": "1.0.0",
+  "title": "Gram",
+  "family": "Transport selection pairing and skew response",
+  "status": "implemented",
+  "inputs": {
+    "case": "declared model data"
+  },
+  "depends_on": [],
+  "assumptions": [
+    "Finite declared model; per-eye scope fixes pairing and norm."
+  ],
+  "output_meaning": "Diagnostic, not automatic physical identification.",
+  "evidence_class": "model_calculation",
+  "limits": "No universal spectrum-to-observable map.",
+  "implementation": {
+    "path": "plugins/installed/d052dca520a33ee77d9c024471931e5b1513dba41c16c1d8331722d56ffe56e9.py",
+    "sha256": "d052dca520a33ee77d9c024471931e5b1513dba41c16c1d8331722d56ffe56e9",
+    "function": "gram"
+  }
+}

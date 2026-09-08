@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A working first fragment of the proposed Atlas calculus: simplify a diagram while retaining its boundary response and determinant weight.">
+<title>Atlas calculus — keep what the next step can see</title>
+<style>
+:root{color-scheme:dark;--bg:#0C161C;--panel:#101F27;--ink:#DCE6E8;--muted:#A5B8C1;--line:#314650;--gold:#E0C16C;--blue:#7BC9E5;--green:#99D5AD;--red:#F29C97}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.65 Georgia,'Times New Roman',serif}main{max-width:1020px;margin:auto;padding:52px 44px 48px}a{color:var(--blue)}.eyebrow,.label,button,label,output,footer,.fine{font-family:Helvetica,Arial,sans-serif}.eyebrow{color:var(--gold);font-size:12px;letter-spacing:.18em;text-transform:uppercase}h1{font-weight:400;line-height:1.08;font-size:clamp(40px,6.5vw,68px);letter-spacing:-.03em;max-width:780px;margin:22px 0}h2{font-size:29px;line-height:1.25;font-weight:400;margin:0 0 12px}h3{font-size:21px;font-weight:400;margin:0 0 12px}p{max-width:800px;margin:0 0 18px}.lead{font-size:22px;color:#BDCDD4;max-width:740px}.principle{border-left:2px solid var(--gold);padding:10px 0 10px 23px;margin:32px 0 46px;font-size:24px;line-height:1.45;max-width:820px}.principle span{color:var(--gold)}section{border-top:1px solid var(--line);padding:32px 0}.controls{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:24px 0 4px}button{min-height:44px;border:1px solid #71846D;border-radius:5px;background:#1F342D;color:#DFF1DC;font-size:15px;padding:10px 17px;cursor:pointer}button:hover{background:#294338}button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:4px}.load{display:grid;grid-template-columns:1fr auto;gap:6px 12px;min-width:220px;flex:1;max-width:350px}.load label{font-size:14px;color:var(--muted)}.load output{font-size:16px;color:var(--gold)}input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--gold);min-height:28px;margin:0}.network{width:100%;display:block;min-height:190px;overflow:visible}#network text{font-family:Helvetica,Arial,sans-serif}.caption{font-size:15px;color:var(--muted);min-height:48px;margin:0 0 24px}.readings{display:grid;grid-template-columns:1fr 1fr;gap:25px;padding:24px 0;border-top:1px solid var(--line)}.label{color:var(--muted);font-size:13px}.value{font-size:35px;color:var(--gold);font-variant-numeric:tabular-nums}.smallresult{font:14px/1.5 Helvetica,Arial,sans-serif;color:var(--green);margin-top:14px}.registers{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:22px}.register{background:var(--panel);padding:22px}.matrix{font:20px/1.7 'Courier New',monospace;letter-spacing:.02em;margin:12px 0;white-space:pre}.weight{font-size:38px;color:var(--gold);margin:10px 0}.fine{font-size:13px;line-height:1.65;color:var(--muted)}details{margin-top:24px}summary{cursor:pointer;color:var(--blue);font:15px/1.6 Helvetica,Arial,sans-serif;min-height:40px;padding:8px 0}.formula{font-size:22px;color:var(--gold);overflow-wrap:anywhere}.comparison{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:22px 0}.pair{border-left:1px solid var(--line);padding-left:20px}.pair .matrix{font-size:19px}.comparison-results{font-size:19px}.pill{display:inline-block;font:12px Helvetica,Arial,sans-serif;color:var(--muted);border:1px solid var(--line);padding:5px 8px;margin-bottom:15px}.scope{max-width:780px;font-size:16px;color:#BFCFD5}footer{border-top:1px solid var(--line);padding-top:22px;font-size:12px;color:var(--muted)}.citation{font-size:14px;line-height:1.6}.citation a{overflow-wrap:anywhere}noscript{display:block;padding:18px;border:1px solid var(--gold)}[hidden]{display:none!important}
+@media(max-width:600px){main{padding:32px 20px}body{font-size:17px}.lead{font-size:20px}.principle{font-size:21px;margin-bottom:32px}h2{font-size:25px}.controls{align-items:stretch;gap:18px}.load{max-width:none;min-width:100%}.controls button{width:100%}.registers{grid-template-columns:1fr;gap:14px}.comparison{gap:12px}.pair{padding-left:10px}.pair .matrix{font-size:16px}.caption{min-height:65px}.readings{gap:15px}.value{font-size:31px}.comparison-results{font-size:17px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+@media print{button,input{display:none}main{padding:20px}section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main id="atlas-demo">
+<div class="eyebrow">The Operator-First Atlas · a working proposal</div>
+<h1>Keep what the<br>next step can see.</h1>
+<p class="lead">A complicated piece becomes a simpler piece. The next calculation should still recognize it.</p>
+<div class="principle">Two pieces are interchangeable when <span>every allowed continuation gives the same answer.</span></div>
+
+<section aria-labelledby="demo-title">
+<span class="pill">First exact rule · finite determinant diagrams</span>
+<h2 id="demo-title">Remove the interior. Keep its contribution.</h2>
+<p>This chain has two exposed ends and one internal coordinate. Attach a load to the right end, then simplify the chain. Its smaller replacement carries two things: the remaining response and a scalar weight.</p>
+<div class="controls">
+<button type="button" id="simplify" aria-pressed="false">Eliminate the interior</button>
+<div class="load"><label for="load">Attached load λ</label><output id="load-value" for="load">0.00</output><input type="range" id="load" min="0" max="8" step="0.25" value="0" aria-label="Nonnegative load attached to the right boundary"></div>
+</div>
+<svg id="network" class="network" viewBox="0 0 850 225" role="img" aria-labelledby="network-title network-desc"><title id="network-title">A chain with exposed boundary ends</title><desc id="network-desc">The left and right ports connect through an internal coordinate. Elimination replaces the interior by a direct boundary coupling and a retained weight of five.</desc></svg>
+<p class="caption" id="diagram-caption">The load touches an exposed end. It has no access to the internal coordinate.</p>
+<div class="readings" aria-live="polite" aria-atomic="true">
+<div><div class="label">Full chain determinant</div><output class="value" id="full-result">41</output></div>
+<div><div class="label">Diagram readout</div><output class="value" id="diagram-result">41</output></div>
+</div>
+<p class="smallresult" id="agreement">Agreement holds for every nonnegative load: 41 + 19λ.</p>
+<div class="registers" id="registers" hidden>
+<div class="register"><div class="label">1 · Boundary response, before the load</div><div class="matrix">⎡ 19/5  −2/5 ⎤<br>⎣ −2/5  11/5 ⎦</div><div class="fine">The new coupling and both endpoint terms remain visible.</div></div>
+<div class="register"><div class="label">2 · Retained determinant weight</div><div class="weight">× 5</div><div class="fine">The eliminated coordinate contributes this factor to every later determinant readout.</div></div>
+</div>
+<details><summary>See the exact replacement rule</summary><p class="formula">S = A − BᵀD⁻¹B<br>(M, w) → (S, w det D)</p><p class="fine">M has internal block D, boundary block A and coupling B. For any admissible boundary load K, det M(K) = det D · det(S + K). The displayed numbers are dimensionless demonstration values. The symbolic verification checks arbitrary two-port loads, two elimination orders and an attachment with another internal coordinate.</p></details>
+<noscript>The static result is still available: the full chain matrix is [[4,−1,0],[−1,5,−2],[0,−2,3]]. Eliminate its middle coordinate to obtain [[19/5,−2/5],[−2/5,11/5]], with retained determinant weight 5. Attaching λ to the right endpoint gives 41+19λ in either calculation. Enable JavaScript to use the controls.</noscript>
+</section>
+
+<section aria-labelledby="counter-title">
+<h2 id="counter-title">The same response can hide different answers.</h2>
+<p>These two pieces both reduce to the boundary response 3/2. Their hidden scalar contributions are different. If the question involves determinants, that distinction matters.</p>
+<div class="comparison">
+<div class="pair"><h3>Piece X</h3><div class="matrix">⎡ 2  1 ⎤<br>⎣ 1  2 ⎦</div><div class="fine">Retained weight: 2</div><div class="comparison-results" id="x-result">Determinant: 3</div></div>
+<div class="pair"><h3>Piece Y</h3><div class="matrix">⎡ 8  2 ⎤<br>⎣ 2  2 ⎦</div><div class="fine">Retained weight: 8</div><div class="comparison-results" id="y-result">Determinant: 12</div></div>
+</div>
+<button type="button" id="forget" aria-pressed="false">Try discarding the weights</button>
+<p class="smallresult" id="counter-message" aria-live="polite">The response agrees; the determinant distinguishes the pieces.</p>
+</section>
+
+<section aria-labelledby="meaning-title">
+<h2 id="meaning-title">A picture should carry the conditions of its own use.</h2>
+<p class="scope">That is the next role for the Atlas: each rule names its interface, allowed move, retained information, readout and proof. B94 specifies how an error is measured. B95 distinguishes a spectral count from geometric packing. B96 asks for actual outward and return maps before a loop can be evaluated.</p>
+<p class="scope">The finite replacement shown here is exact. Extending it to the physical Offset operators, uniform sofic filling bounds or a phase–count energy balance remains mathematical work to do. This demonstration adds no new Lean theorem.</p>
+<p class="citation">Built on established Schur-complement identities and the principles of <a href="https://arxiv.org/abs/1504.05625">compositional linear networks</a> and <a href="https://arxiv.org/abs/2002.08874">contextual equivalence</a>. The proposed contribution is an Atlas language whose diagrams retain the information its actual questions require.</p>
+</section>
+<footer>Operator-First Atlas · Jeromie Beasley · Development edition, 7 September 2026<br>Self-contained demonstration. The Atlas archive includes the definitions, exact Python implementation, proofs, evidence and original card submissions.</footer>
+</main>
+<script>
+(function(){
+'use strict';
+const root=document.getElementById('atlas-demo');
+const get=id=>root.querySelector('#'+id);
+let reduced=false, forgotten=false;
+const matrix=[[4,-1,0],[-1,5,-2],[0,-2,3]];
+function det(M){
+ if(M.length===0)return 1;
+ if(M.length===1)return M[0][0];
+ if(M.length===2)return M[0][0]*M[1][1]-M[0][1]*M[1][0];
+ return M[0].reduce((sum,x,j)=>sum+(j%2?-1:1)*x*det(M.slice(1).map(row=>row.filter((_,k)=>k!==j))),0);
+}
+function eliminate(M,i){
+ const keep=M.map((_,j)=>j).filter(j=>j!==i),pivot=M[i][i];
+ if(pivot===0)throw new Error('A singular pivot cannot be eliminated.');
+ return {response:keep.map(a=>keep.map(b=>M[a][b]-M[a][i]*M[i][b]/pivot)),weight:pivot};
+}
+const smaller=eliminate(matrix,1);
+const fmt=x=>Number(x.toFixed(8)).toLocaleString('en-US',{maximumFractionDigits:8});
+function draw(){
+ const svg=get('network'),w=Math.max(280,Math.round(svg.getBoundingClientRect().width||850));
+ const compact=w<500,h=compact?230:225;
+ svg.setAttribute('viewBox','0 0 '+w+' '+h);
+ const left=42,right=w-72,mid=(left+right)/2,y=105,lam=Number(get('load').value);
+ const line=(a,b,c,d,color,width=2)=>`<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" stroke="${color}" stroke-width="${width}"/>`;
+ const text=(x,y,s,color='#DCE6E8',size=14)=>`<text x="${x}" y="${y}" text-anchor="middle" fill="${color}" font-size="${size}">${s}</text>`;
+ const node=(x,y,r,c,fill='#0C161C')=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" stroke="${c}" stroke-width="2"/>`;
+ let body=`<title id="network-title">${reduced?'Reduced chain with retained scalar weight':'Full three-coordinate chain'}</title><desc id="network-desc">${reduced?'Two exposed ends, effective coupling minus two fifths, and retained determinant factor five.':'Two exposed ends and one internal coordinate, with couplings minus one and minus two.'} Attached right load ${lam}.</desc>`;
+ body+=line(right,y,w-24,y,'#E0C16C')+line(w-24,y,w-24,y+35,'#E0C16C')+line(w-34,y+35,w-14,y+35,'#E0C16C');
+ body+=text(right,y+72,'load '+fmt(lam),'#E0C16C',14);
+ if(reduced){
+  body+=line(left,y,right,y,'#7BC9E5',2.5)+text(mid,y-13,'−2/5','#7BC9E5',16);
+  body+=node(mid,y+86,23,'#E0C16C','#18252A')+text(mid,y+91,'× 5','#E0C16C',17);
+  body+=text(left,y-42,'19/5','#DCE6E8',16)+text(right,y-42,'11/5','#DCE6E8',16);
+ }else{
+  body+=line(left,y,mid,y,'#7BC9E5')+line(mid,y,right,y,'#7BC9E5');
+  body+=text((left+mid)/2,y-13,'−1','#7BC9E5',16)+text((mid+right)/2,y-13,'−2','#7BC9E5',16);
+  body+=node(mid,y,12,'#99D5AD','#1E332B')+text(mid,y-42,'5','#99D5AD',16)+text(mid,y+40,'inside','#99D5AD',14);
+  body+=text(left,y-42,'4','#DCE6E8',16)+text(right,y-42,'3','#DCE6E8',16);
+ }
+ body+=node(left,y,9,'#DCE6E8')+node(right,y,9,'#DCE6E8')+text(left,y+40,'left')+text(right,y+40,'right');
+ svg.innerHTML=body;
+}
+function update(){
+ const lam=Number(get('load').value),full=matrix.map(row=>row.slice());full[2][2]+=lam;
+ const current=(reduced?smaller.response:matrix).map(row=>row.slice());current[current.length-1][current.length-1]+=lam;
+ const direct=det(full),reading=det(current)*(reduced?smaller.weight:1);
+ get('load-value').textContent=lam.toFixed(2);
+ get('full-result').textContent=fmt(direct);get('diagram-result').textContent=fmt(reading);
+ get('registers').hidden=!reduced;
+ get('simplify').textContent=reduced?'Restore the full chain':'Eliminate the interior';
+ get('simplify').setAttribute('aria-pressed',String(reduced));
+ get('diagram-caption').textContent=reduced?'The interior is gone. Its response is in the new connection; its determinant contribution survives as × 5.':'The load touches an exposed end. It has no access to the internal coordinate.';
+ get('agreement').textContent=Math.abs(direct-reading)<1e-9?'Agreement holds for every nonnegative load: 41 + 19λ.':'The two readouts differ.';
+ draw();
+}
+function updateCounter(){
+ get('forget').setAttribute('aria-pressed',String(forgotten));get('forget').textContent=forgotten?'Restore the retained weights':'Try discarding the weights';
+ get('x-result').textContent=forgotten?'Incomplete reading: 1.5':'Determinant: 3';
+ get('y-result').textContent=forgotten?'Incomplete reading: 1.5':'Determinant: 12';
+ get('counter-message').textContent=forgotten?'False agreement: discarding the weights erases the determinant distinction.':'The response agrees; the determinant distinguishes the pieces.';
+ get('counter-message').style.color=forgotten?'#F29C97':'#99D5AD';
+}
+get('simplify').addEventListener('click',()=>{reduced=!reduced;update();});
+get('load').addEventListener('input',update);
+get('forget').addEventListener('click',()=>{forgotten=!forgotten;updateCounter();});
+if(typeof ResizeObserver!=='undefined')new ResizeObserver(draw).observe(get('network'));
+else window.addEventListener('resize',draw);
+update();
+})();
+</script>
+</body>
+</html>

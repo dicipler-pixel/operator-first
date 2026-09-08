@@ -1,0 +1,1304 @@
+{
+  "engine": "compound-eye-lab-0.2",
+  "cases": {
+    "quantum": {
+      "before": {
+        "engine": "compound-eye-lab-0.2",
+        "input_sha256": "9111d548459677611b3b83ef4f5873e62643f7f283ce4e0d054d7ecc8a89df98",
+        "context": {
+          "object_id": "quantum-experiment-001",
+          "model_family": "quantum-v1",
+          "coordinate": 0.0,
+          "coordinate_kind": "time",
+          "basis": "left,middle,right",
+          "boundary": "open three-site chain",
+          "units_convention": "declared model units"
+        },
+        "absolute_numerical_allowance": 1e-12,
+        "evidence_kind": "finite supplied model predictions",
+        "scope": "Identification is only within the supplied candidate list. No probability of truth is assigned.",
+        "status": "ambiguous",
+        "initial_count": 4,
+        "remaining": [
+          "phase-0",
+          "phase-180"
+        ],
+        "history": [
+          {
+            "observation": "obs-1",
+            "eye": "left_weight",
+            "remaining": [
+              "phase-0",
+              "phase-90",
+              "phase-180",
+              "phase-270"
+            ],
+            "excluded_now": []
+          },
+          {
+            "observation": "obs-2",
+            "eye": "middle_weight",
+            "remaining": [
+              "phase-0",
+              "phase-90",
+              "phase-180",
+              "phase-270"
+            ],
+            "excluded_now": []
+          },
+          {
+            "observation": "obs-3",
+            "eye": "energy_gap",
+            "remaining": [
+              "phase-0",
+              "phase-90",
+              "phase-180",
+              "phase-270"
+            ],
+            "excluded_now": []
+          },
+          {
+            "observation": "obs-4",
+            "eye": "bond_current",
+            "remaining": [
+              "phase-0",
+              "phase-180"
+            ],
+            "excluded_now": [
+              "phase-90",
+              "phase-270"
+            ]
+          }
+        ],
+        "ranked_eyes": [
+          {
+            "eye": "real_coherence",
+            "worst_case_remaining": 1,
+            "guaranteed_eliminations": 1,
+            "cost": 1.2,
+            "score": 0.8333333333333334,
+            "measurement_radius": 0.01,
+            "prediction_radius": 0.0,
+            "units": "1",
+            "status": "assessed within supplied finite candidates",
+            "predictions": {
+              "phase-0": 0.4999999999999999,
+              "phase-180": -0.4999999999999999
+            }
+          },
+          {
+            "eye": "bond_current",
+            "worst_case_remaining": 2,
+            "guaranteed_eliminations": 0,
+            "cost": 1.0,
+            "score": 0.0,
+            "measurement_radius": 0.01,
+            "prediction_radius": 0.0,
+            "units": "1/model time",
+            "status": "assessed within supplied finite candidates",
+            "predictions": {
+              "phase-0": -0.0,
+              "phase-180": -1.224646799147353e-16
+            }
+          },
+          {
+            "eye": "energy_gap",
+            "worst_case_remaining": 2,
+            "guaranteed_eliminations": 0,
+            "cost": 1.0,
+            "score": 0.0,
+            "measurement_radius": 0.01,
+            "prediction_radius": 0.0,
+            "units": "model energy",
+            "status": "assessed within supplied finite candidates",
+            "predictions": {
+              "phase-0": 1.5,
+              "phase-180": 1.5
+            }
+          },
+          {
+            "eye": "left_weight",
+            "worst_case_remaining": 2,
+            "guaranteed_eliminations": 0,
+            "cost": 1.0,
+            "score": 0.0,
+            "measurement_radius": 0.01,
+            "prediction_radius": 0.0,
+            "units": "1",
+            "status": "assessed within supplied finite candidates",
+            "predictions": {
+              "phase-0": 0.5,
+              "phase-180": 0.5
+            }
+          },
+          {
+            "eye": "middle_weight",
+            "worst_case_remaining": 2,
+            "guaranteed_eliminations": 0,
+            "cost": 1.0,
+            "score": 0.0,
+            "measurement_radius": 0.01,
+            "prediction_radius": 0.0,
+            "units": "1",
+            "status": "assessed within supplied finite candidates",
+            "predictions": {
+              "phase-0": 0.5,
+              "phase-180": 0.5
+            }
+          }
+        ],
+        "recommended_eye": "real_coherence",
+        "recommendation_rule": "maximize guaranteed candidate eliminations per declared cost under bounded scalar error",
+        "contradiction_core": [],
+        "repeated_evidence_groups": {
+          "synthetic-demonstration": 4
+        },
+        "missing_predictions_retained": [],
+        "uncertainty_note": "Constraint intersections, not votes. Shared evidence groups do not add statistical confidence; missing predictions do not exclude candidates."
+      },
+      "synthetic_followup": {
+        "observation": {
+          "id": "obs-5",
+          "eye": "real_coherence",
+          "value": 0.4999999999999999,
+          "radius": 0.01,
+          "units": "1",
+          "context": {
+            "object_id": "quantum-experiment-001",
+            "model_family": "quantum-v1",
+            "coordinate": 0.0,
+            "coordinate_kind": "time",
+            "basis": "left,middle,right",
+            "boundary": "open three-site chain",
+            "units_convention": "declared model units"
+          },
+          "evidence_group": "synthetic-demonstration",
+          "source": "declared synthetic observation"
+        },
+        "report": {
+          "engine": "compound-eye-lab-0.2",
+          "input_sha256": "3b3e260c8a1c9f92e0b0f5f4a3c6cacd5370ecc2f67febe34ab4eea212a78130",
+          "context": {
+            "object_id": "quantum-experiment-001",
+            "model_family": "quantum-v1",
+            "coordinate": 0.0,
+            "coordinate_kind": "time",
+            "basis": "left,middle,right",
+            "boundary": "open three-site chain",
+            "units_convention": "declared model units"
+          },
+          "absolute_numerical_allowance": 1e-12,
+          "evidence_kind": "finite supplied model predictions",
+          "scope": "Identification is only within the supplied candidate list. No probability of truth is assigned.",
+          "status": "identified_within_candidate_set",
+          "initial_count": 4,
+          "remaining": [
+            "phase-0"
+          ],
+          "history": [
+            {
+              "observation": "obs-1",
+              "eye": "left_weight",
+              "remaining": [
+                "phase-0",
+                "phase-90",
+                "phase-180",
+                "phase-270"
+              ],
+              "excluded_now": []
+            },
+            {
+              "observation": "obs-2",
+              "eye": "middle_weight",
+              "remaining": [
+                "phase-0",
+                "phase-90",
+                "phase-180",
+                "phase-270"
+              ],
+              "excluded_now": []
+            },
+            {
+              "observation": "obs-3",
+              "eye": "energy_gap",
+              "remaining": [
+                "phase-0",
+                "phase-90",
+                "phase-180",
+                "phase-270"
+              ],
+              "excluded_now": []
+            },
+            {
+              "observation": "obs-4",
+              "eye": "bond_current",
+              "remaining": [
+                "phase-0",
+                "phase-180"
+              ],
+              "excluded_now": [
+                "phase-90",
+                "phase-270"
+              ]
+            },
+            {
+              "observation": "obs-5",
+              "eye": "real_coherence",
+              "remaining": [
+                "phase-0"
+              ],
+              "excluded_now": [
+                "phase-180"
+              ]
+            }
+          ],
+          "ranked_eyes": [
+            {
+              "eye": "bond_current",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 1.0,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "1/model time",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "phase-0": -0.0
+              }
+            },
+            {
+              "eye": "energy_gap",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 1.0,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "model energy",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "phase-0": 1.5
+              }
+            },
+            {
+              "eye": "left_weight",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 1.0,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "1",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "phase-0": 0.5
+              }
+            },
+            {
+              "eye": "middle_weight",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 1.0,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "1",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "phase-0": 0.5
+              }
+            },
+            {
+              "eye": "real_coherence",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 1.2,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "1",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "phase-0": 0.4999999999999999
+              }
+            }
+          ],
+          "recommended_eye": null,
+          "recommendation_rule": "maximize guaranteed candidate eliminations per declared cost under bounded scalar error",
+          "contradiction_core": [],
+          "repeated_evidence_groups": {
+            "synthetic-demonstration": 5
+          },
+          "missing_predictions_retained": [],
+          "uncertainty_note": "Constraint intersections, not votes. Shared evidence groups do not add statistical confidence; missing predictions do not exclude candidates."
+        }
+      }
+    },
+    "rc": {
+      "before": {
+        "engine": "compound-eye-lab-0.2",
+        "input_sha256": "0ab0cbf4c9831a3b3d0feb7b3f357c2e3da3f73b582501b2d40448bdc60b1d62",
+        "context": {
+          "object_id": "rc-experiment-001",
+          "model_family": "rc-v1",
+          "coordinate": 0.0,
+          "coordinate_kind": "time",
+          "basis": "capacitor voltage to ground",
+          "boundary": "isolated parallel R-C; no drive",
+          "units_convention": "SI"
+        },
+        "absolute_numerical_allowance": 1e-12,
+        "evidence_kind": "finite supplied model predictions",
+        "scope": "Identification is only within the supplied candidate list. No probability of truth is assigned.",
+        "status": "ambiguous",
+        "initial_count": 2,
+        "remaining": [
+          "C-1-F",
+          "C-2-F"
+        ],
+        "history": [
+          {
+            "observation": "obs-1",
+            "eye": "initial_voltage",
+            "remaining": [
+              "C-1-F",
+              "C-2-F"
+            ],
+            "excluded_now": []
+          },
+          {
+            "observation": "obs-2",
+            "eye": "initial_resistor_current",
+            "remaining": [
+              "C-1-F",
+              "C-2-F"
+            ],
+            "excluded_now": []
+          }
+        ],
+        "ranked_eyes": [
+          {
+            "eye": "voltage_after_half_second",
+            "worst_case_remaining": 1,
+            "guaranteed_eliminations": 1,
+            "cost": 1.0,
+            "score": 1.0,
+            "measurement_radius": 0.01,
+            "prediction_radius": 0.0,
+            "units": "V",
+            "status": "assessed within supplied finite candidates",
+            "predictions": {
+              "C-1-F": 0.6065306597126334,
+              "C-2-F": 0.7788007830714049
+            }
+          },
+          {
+            "eye": "initial_voltage_slope",
+            "worst_case_remaining": 1,
+            "guaranteed_eliminations": 1,
+            "cost": 2,
+            "score": 0.5,
+            "measurement_radius": 0.01,
+            "prediction_radius": 0.0,
+            "units": "V/s",
+            "status": "assessed within supplied finite candidates",
+            "predictions": {
+              "C-1-F": -1.0,
+              "C-2-F": -0.5
+            }
+          },
+          {
+            "eye": "initial_energy",
+            "worst_case_remaining": 1,
+            "guaranteed_eliminations": 1,
+            "cost": 4,
+            "score": 0.25,
+            "measurement_radius": 0.01,
+            "prediction_radius": 0.0,
+            "units": "J",
+            "status": "assessed within supplied finite candidates",
+            "predictions": {
+              "C-1-F": 0.5,
+              "C-2-F": 1.0
+            }
+          },
+          {
+            "eye": "initial_resistor_current",
+            "worst_case_remaining": 2,
+            "guaranteed_eliminations": 0,
+            "cost": 1.0,
+            "score": 0.0,
+            "measurement_radius": 0.01,
+            "prediction_radius": 0.0,
+            "units": "A",
+            "status": "assessed within supplied finite candidates",
+            "predictions": {
+              "C-1-F": 1.0,
+              "C-2-F": 1.0
+            }
+          },
+          {
+            "eye": "initial_voltage",
+            "worst_case_remaining": 2,
+            "guaranteed_eliminations": 0,
+            "cost": 1.0,
+            "score": 0.0,
+            "measurement_radius": 0.01,
+            "prediction_radius": 0.0,
+            "units": "V",
+            "status": "assessed within supplied finite candidates",
+            "predictions": {
+              "C-1-F": 1.0,
+              "C-2-F": 1.0
+            }
+          }
+        ],
+        "recommended_eye": "voltage_after_half_second",
+        "recommendation_rule": "maximize guaranteed candidate eliminations per declared cost under bounded scalar error",
+        "contradiction_core": [],
+        "repeated_evidence_groups": {
+          "synthetic-demonstration": 2
+        },
+        "missing_predictions_retained": [],
+        "uncertainty_note": "Constraint intersections, not votes. Shared evidence groups do not add statistical confidence; missing predictions do not exclude candidates."
+      },
+      "synthetic_followup": {
+        "observation": {
+          "id": "obs-3",
+          "eye": "voltage_after_half_second",
+          "value": 0.6065306597126334,
+          "radius": 0.01,
+          "units": "V",
+          "context": {
+            "object_id": "rc-experiment-001",
+            "model_family": "rc-v1",
+            "coordinate": 0.0,
+            "coordinate_kind": "time",
+            "basis": "capacitor voltage to ground",
+            "boundary": "isolated parallel R-C; no drive",
+            "units_convention": "SI"
+          },
+          "evidence_group": "synthetic-demonstration",
+          "source": "declared synthetic observation"
+        },
+        "report": {
+          "engine": "compound-eye-lab-0.2",
+          "input_sha256": "eff9c5a73181b6607b54c6fab1ebae1ec381a0fba8da184c8caff415fadad496",
+          "context": {
+            "object_id": "rc-experiment-001",
+            "model_family": "rc-v1",
+            "coordinate": 0.0,
+            "coordinate_kind": "time",
+            "basis": "capacitor voltage to ground",
+            "boundary": "isolated parallel R-C; no drive",
+            "units_convention": "SI"
+          },
+          "absolute_numerical_allowance": 1e-12,
+          "evidence_kind": "finite supplied model predictions",
+          "scope": "Identification is only within the supplied candidate list. No probability of truth is assigned.",
+          "status": "identified_within_candidate_set",
+          "initial_count": 2,
+          "remaining": [
+            "C-1-F"
+          ],
+          "history": [
+            {
+              "observation": "obs-1",
+              "eye": "initial_voltage",
+              "remaining": [
+                "C-1-F",
+                "C-2-F"
+              ],
+              "excluded_now": []
+            },
+            {
+              "observation": "obs-2",
+              "eye": "initial_resistor_current",
+              "remaining": [
+                "C-1-F",
+                "C-2-F"
+              ],
+              "excluded_now": []
+            },
+            {
+              "observation": "obs-3",
+              "eye": "voltage_after_half_second",
+              "remaining": [
+                "C-1-F"
+              ],
+              "excluded_now": [
+                "C-2-F"
+              ]
+            }
+          ],
+          "ranked_eyes": [
+            {
+              "eye": "initial_resistor_current",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 1.0,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "A",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "C-1-F": 1.0
+              }
+            },
+            {
+              "eye": "initial_voltage",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 1.0,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "V",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "C-1-F": 1.0
+              }
+            },
+            {
+              "eye": "voltage_after_half_second",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 1.0,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "V",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "C-1-F": 0.6065306597126334
+              }
+            },
+            {
+              "eye": "initial_voltage_slope",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 2,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "V/s",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "C-1-F": -1.0
+              }
+            },
+            {
+              "eye": "initial_energy",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 4,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "J",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "C-1-F": 0.5
+              }
+            }
+          ],
+          "recommended_eye": null,
+          "recommendation_rule": "maximize guaranteed candidate eliminations per declared cost under bounded scalar error",
+          "contradiction_core": [],
+          "repeated_evidence_groups": {
+            "synthetic-demonstration": 3
+          },
+          "missing_predictions_retained": [],
+          "uncertainty_note": "Constraint intersections, not votes. Shared evidence groups do not add statistical confidence; missing predictions do not exclude candidates."
+        }
+      }
+    },
+    "geometry": {
+      "before": {
+        "engine": "compound-eye-lab-0.2",
+        "input_sha256": "c60591204109ce237e9a988cbc932a171fe484b4bb08798bf24199cb7d239457",
+        "context": {
+          "object_id": "geometry-experiment-001",
+          "model_family": "geometry-v1",
+          "coordinate": 0.0,
+          "coordinate_kind": "angle increment from candidate preparation",
+          "basis": "fixed probe axes e0,e1",
+          "boundary": "fixed rank-one probe e0",
+          "units_convention": "declared model units"
+        },
+        "absolute_numerical_allowance": 1e-12,
+        "evidence_kind": "finite supplied model predictions",
+        "scope": "Identification is only within the supplied candidate list. No probability of truth is assigned.",
+        "status": "ambiguous",
+        "initial_count": 2,
+        "remaining": [
+          "angle-30",
+          "angle-150"
+        ],
+        "history": [
+          {
+            "observation": "obs-1",
+            "eye": "lower_energy",
+            "remaining": [
+              "angle-30",
+              "angle-150"
+            ],
+            "excluded_now": []
+          },
+          {
+            "observation": "obs-2",
+            "eye": "probe_weight",
+            "remaining": [
+              "angle-30",
+              "angle-150"
+            ],
+            "excluded_now": []
+          }
+        ],
+        "ranked_eyes": [
+          {
+            "eye": "signed_pair_overlap",
+            "worst_case_remaining": 1,
+            "guaranteed_eliminations": 1,
+            "cost": 1.0,
+            "score": 1.0,
+            "measurement_radius": 0.01,
+            "prediction_radius": 0.0,
+            "units": "1",
+            "status": "assessed within supplied finite candidates",
+            "predictions": {
+              "angle-30": 0.4330127018922193,
+              "angle-150": -0.4330127018922193
+            }
+          },
+          {
+            "eye": "weight_derivative",
+            "worst_case_remaining": 1,
+            "guaranteed_eliminations": 1,
+            "cost": 2,
+            "score": 0.5,
+            "measurement_radius": 0.01,
+            "prediction_radius": 0.0,
+            "units": "1/radian",
+            "status": "assessed within supplied finite candidates",
+            "predictions": {
+              "angle-30": -0.8660254037844386,
+              "angle-150": 0.8660254037844386
+            }
+          },
+          {
+            "eye": "lower_energy",
+            "worst_case_remaining": 2,
+            "guaranteed_eliminations": 0,
+            "cost": 1.0,
+            "score": 0.0,
+            "measurement_radius": 0.01,
+            "prediction_radius": 0.0,
+            "units": "model energy",
+            "status": "assessed within supplied finite candidates",
+            "predictions": {
+              "angle-30": -1.0,
+              "angle-150": -1.0
+            }
+          },
+          {
+            "eye": "probe_weight",
+            "worst_case_remaining": 2,
+            "guaranteed_eliminations": 0,
+            "cost": 1.0,
+            "score": 0.0,
+            "measurement_radius": 0.01,
+            "prediction_radius": 0.0,
+            "units": "1",
+            "status": "assessed within supplied finite candidates",
+            "predictions": {
+              "angle-30": 0.7500000000000001,
+              "angle-150": 0.7500000000000001
+            }
+          }
+        ],
+        "recommended_eye": "signed_pair_overlap",
+        "recommendation_rule": "maximize guaranteed candidate eliminations per declared cost under bounded scalar error",
+        "contradiction_core": [],
+        "repeated_evidence_groups": {
+          "synthetic-demonstration": 2
+        },
+        "missing_predictions_retained": [],
+        "uncertainty_note": "Constraint intersections, not votes. Shared evidence groups do not add statistical confidence; missing predictions do not exclude candidates."
+      },
+      "synthetic_followup": {
+        "observation": {
+          "id": "obs-3",
+          "eye": "signed_pair_overlap",
+          "value": 0.4330127018922193,
+          "radius": 0.01,
+          "units": "1",
+          "context": {
+            "object_id": "geometry-experiment-001",
+            "model_family": "geometry-v1",
+            "coordinate": 0.0,
+            "coordinate_kind": "angle increment from candidate preparation",
+            "basis": "fixed probe axes e0,e1",
+            "boundary": "fixed rank-one probe e0",
+            "units_convention": "declared model units"
+          },
+          "evidence_group": "synthetic-demonstration",
+          "source": "declared synthetic observation"
+        },
+        "report": {
+          "engine": "compound-eye-lab-0.2",
+          "input_sha256": "6fcceddda49896a67b44101b293edfdde3e9e59c2bc0047a0e2c6e5498ae9fd8",
+          "context": {
+            "object_id": "geometry-experiment-001",
+            "model_family": "geometry-v1",
+            "coordinate": 0.0,
+            "coordinate_kind": "angle increment from candidate preparation",
+            "basis": "fixed probe axes e0,e1",
+            "boundary": "fixed rank-one probe e0",
+            "units_convention": "declared model units"
+          },
+          "absolute_numerical_allowance": 1e-12,
+          "evidence_kind": "finite supplied model predictions",
+          "scope": "Identification is only within the supplied candidate list. No probability of truth is assigned.",
+          "status": "identified_within_candidate_set",
+          "initial_count": 2,
+          "remaining": [
+            "angle-30"
+          ],
+          "history": [
+            {
+              "observation": "obs-1",
+              "eye": "lower_energy",
+              "remaining": [
+                "angle-30",
+                "angle-150"
+              ],
+              "excluded_now": []
+            },
+            {
+              "observation": "obs-2",
+              "eye": "probe_weight",
+              "remaining": [
+                "angle-30",
+                "angle-150"
+              ],
+              "excluded_now": []
+            },
+            {
+              "observation": "obs-3",
+              "eye": "signed_pair_overlap",
+              "remaining": [
+                "angle-30"
+              ],
+              "excluded_now": [
+                "angle-150"
+              ]
+            }
+          ],
+          "ranked_eyes": [
+            {
+              "eye": "lower_energy",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 1.0,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "model energy",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "angle-30": -1.0
+              }
+            },
+            {
+              "eye": "probe_weight",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 1.0,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "1",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "angle-30": 0.7500000000000001
+              }
+            },
+            {
+              "eye": "signed_pair_overlap",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 1.0,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "1",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "angle-30": 0.4330127018922193
+              }
+            },
+            {
+              "eye": "weight_derivative",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 2,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "1/radian",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "angle-30": -0.8660254037844386
+              }
+            }
+          ],
+          "recommended_eye": null,
+          "recommendation_rule": "maximize guaranteed candidate eliminations per declared cost under bounded scalar error",
+          "contradiction_core": [],
+          "repeated_evidence_groups": {
+            "synthetic-demonstration": 3
+          },
+          "missing_predictions_retained": [],
+          "uncertainty_note": "Constraint intersections, not votes. Shared evidence groups do not add statistical confidence; missing predictions do not exclude candidates."
+        }
+      }
+    }
+  },
+  "tracking": {
+    "status": "completed",
+    "remaining": [
+      "C-1-F"
+    ],
+    "history": [
+      {
+        "coordinate": 0.0,
+        "report": {
+          "engine": "compound-eye-lab-0.2",
+          "input_sha256": "f6a7e5bea6076ce04ae695403dd4ff02e712cb5464ebb4aad275c3ba1dea95ac",
+          "context": {
+            "object_id": "rc-experiment-001",
+            "model_family": "rc-v1",
+            "coordinate": 0.0,
+            "coordinate_kind": "time",
+            "basis": "capacitor voltage to ground",
+            "boundary": "isolated parallel R-C; no drive",
+            "units_convention": "SI"
+          },
+          "absolute_numerical_allowance": 1e-12,
+          "evidence_kind": "finite supplied model predictions",
+          "scope": "Identification is only within the supplied candidate list. No probability of truth is assigned.",
+          "status": "ambiguous",
+          "initial_count": 2,
+          "remaining": [
+            "C-1-F",
+            "C-2-F"
+          ],
+          "history": [
+            {
+              "observation": "obs-1",
+              "eye": "voltage",
+              "remaining": [
+                "C-1-F",
+                "C-2-F"
+              ],
+              "excluded_now": []
+            }
+          ],
+          "ranked_eyes": [
+            {
+              "eye": "voltage",
+              "worst_case_remaining": 2,
+              "guaranteed_eliminations": 0,
+              "cost": 1.0,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "V",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "C-1-F": 1.0,
+                "C-2-F": 1.0
+              }
+            }
+          ],
+          "recommended_eye": null,
+          "recommendation_rule": "maximize guaranteed candidate eliminations per declared cost under bounded scalar error",
+          "contradiction_core": [],
+          "repeated_evidence_groups": {},
+          "missing_predictions_retained": [],
+          "uncertainty_note": "Constraint intersections, not votes. Shared evidence groups do not add statistical confidence; missing predictions do not exclude candidates."
+        }
+      },
+      {
+        "coordinate": 0.005,
+        "report": {
+          "engine": "compound-eye-lab-0.2",
+          "input_sha256": "b378f8b388704ad2875dfd6ac1aa2f429fcf8153426d67f54e73acfb8678497f",
+          "context": {
+            "object_id": "rc-experiment-001",
+            "model_family": "rc-v1",
+            "coordinate": 0.005,
+            "coordinate_kind": "time",
+            "basis": "capacitor voltage to ground",
+            "boundary": "isolated parallel R-C; no drive",
+            "units_convention": "SI"
+          },
+          "absolute_numerical_allowance": 1e-12,
+          "evidence_kind": "finite supplied model predictions",
+          "scope": "Identification is only within the supplied candidate list. No probability of truth is assigned.",
+          "status": "ambiguous",
+          "initial_count": 2,
+          "remaining": [
+            "C-1-F",
+            "C-2-F"
+          ],
+          "history": [
+            {
+              "observation": "obs-1",
+              "eye": "voltage",
+              "remaining": [
+                "C-1-F",
+                "C-2-F"
+              ],
+              "excluded_now": []
+            }
+          ],
+          "ranked_eyes": [
+            {
+              "eye": "voltage",
+              "worst_case_remaining": 2,
+              "guaranteed_eliminations": 0,
+              "cost": 1.0,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "V",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "C-1-F": 0.9950124791926823,
+                "C-2-F": 0.9975031223974601
+              }
+            }
+          ],
+          "recommended_eye": null,
+          "recommendation_rule": "maximize guaranteed candidate eliminations per declared cost under bounded scalar error",
+          "contradiction_core": [],
+          "repeated_evidence_groups": {},
+          "missing_predictions_retained": [],
+          "uncertainty_note": "Constraint intersections, not votes. Shared evidence groups do not add statistical confidence; missing predictions do not exclude candidates."
+        }
+      },
+      {
+        "coordinate": 0.5,
+        "report": {
+          "engine": "compound-eye-lab-0.2",
+          "input_sha256": "335a9fdb2e9f437eb7edaa2cc9f59edac133521ad330d6a7d33f88a0e56f8139",
+          "context": {
+            "object_id": "rc-experiment-001",
+            "model_family": "rc-v1",
+            "coordinate": 0.5,
+            "coordinate_kind": "time",
+            "basis": "capacitor voltage to ground",
+            "boundary": "isolated parallel R-C; no drive",
+            "units_convention": "SI"
+          },
+          "absolute_numerical_allowance": 1e-12,
+          "evidence_kind": "finite supplied model predictions",
+          "scope": "Identification is only within the supplied candidate list. No probability of truth is assigned.",
+          "status": "identified_within_candidate_set",
+          "initial_count": 2,
+          "remaining": [
+            "C-1-F"
+          ],
+          "history": [
+            {
+              "observation": "obs-1",
+              "eye": "voltage",
+              "remaining": [
+                "C-1-F"
+              ],
+              "excluded_now": [
+                "C-2-F"
+              ]
+            }
+          ],
+          "ranked_eyes": [
+            {
+              "eye": "voltage",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 1.0,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "V",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "C-1-F": 0.6065306597126334
+              }
+            }
+          ],
+          "recommended_eye": null,
+          "recommendation_rule": "maximize guaranteed candidate eliminations per declared cost under bounded scalar error",
+          "contradiction_core": [],
+          "repeated_evidence_groups": {},
+          "missing_predictions_retained": [],
+          "uncertainty_note": "Constraint intersections, not votes. Shared evidence groups do not add statistical confidence; missing predictions do not exclude candidates."
+        }
+      },
+      {
+        "coordinate": 1.0,
+        "report": {
+          "engine": "compound-eye-lab-0.2",
+          "input_sha256": "7e8718a8061af6c8034c3b78e942296929ceeb4d6cceeabb5d7c5dba1e625088",
+          "context": {
+            "object_id": "rc-experiment-001",
+            "model_family": "rc-v1",
+            "coordinate": 1.0,
+            "coordinate_kind": "time",
+            "basis": "capacitor voltage to ground",
+            "boundary": "isolated parallel R-C; no drive",
+            "units_convention": "SI"
+          },
+          "absolute_numerical_allowance": 1e-12,
+          "evidence_kind": "finite supplied model predictions",
+          "scope": "Identification is only within the supplied candidate list. No probability of truth is assigned.",
+          "status": "identified_within_candidate_set",
+          "initial_count": 1,
+          "remaining": [
+            "C-1-F"
+          ],
+          "history": [
+            {
+              "observation": "obs-1",
+              "eye": "voltage",
+              "remaining": [
+                "C-1-F"
+              ],
+              "excluded_now": []
+            }
+          ],
+          "ranked_eyes": [
+            {
+              "eye": "voltage",
+              "worst_case_remaining": 1,
+              "guaranteed_eliminations": 0,
+              "cost": 1.0,
+              "score": 0.0,
+              "measurement_radius": 0.01,
+              "prediction_radius": 0.0,
+              "units": "V",
+              "status": "assessed within supplied finite candidates",
+              "predictions": {
+                "C-1-F": 0.36787944117144233
+              }
+            }
+          ],
+          "recommended_eye": null,
+          "recommendation_rule": "maximize guaranteed candidate eliminations per declared cost under bounded scalar error",
+          "contradiction_core": [],
+          "repeated_evidence_groups": {},
+          "missing_predictions_retained": [],
+          "uncertainty_note": "Constraint intersections, not votes. Shared evidence groups do not add statistical confidence; missing predictions do not exclude candidates."
+        }
+      }
+    ],
+    "scope": "finite deterministic trajectory hypotheses, only at supplied observation coordinates"
+  },
+  "discovery": {
+    "quantum_continuity": {
+      "status": "numerical_candidate",
+      "target": "dp_middle",
+      "target_units": "rate",
+      "coefficients": {
+        "J_left": 0.9999999999999999,
+        "J_right": -1.0000000000000002
+      },
+      "train_max_error": 2.7755575615628914e-16,
+      "holdout_max_error": 4.718447854656915e-16,
+      "train_samples": 19,
+      "holdout_samples": 102,
+      "searched": 10,
+      "unit_rejections": [
+        "p_left"
+      ],
+      "same_size_training_fits": 1,
+      "source": "analytic synthetic model derivatives",
+      "scope": "known-law rediscovery within a small supplied feature family; a fit is not a proof"
+    },
+    "geometric_transport": {
+      "status": "numerical_candidate",
+      "target": "dq",
+      "target_units": "1",
+      "coefficients": {
+        "overlap": -2.0
+      },
+      "train_max_error": 1.1102230246251565e-16,
+      "holdout_max_error": 2.220446049250313e-16,
+      "train_samples": 19,
+      "holdout_samples": 79,
+      "searched": 4,
+      "unit_rejections": [],
+      "same_size_training_fits": 1,
+      "source": "analytic synthetic model derivatives",
+      "scope": "known-law rediscovery within a small supplied feature family; a fit is not a proof"
+    },
+    "circuit_energy_balance": {
+      "status": "numerical_candidate",
+      "target": "energy_rate",
+      "target_units": "W",
+      "coefficients": {
+        "power": -0.9999999999999999
+      },
+      "train_max_error": 1.1102230246251565e-16,
+      "holdout_max_error": 5.551115123125783e-17,
+      "train_samples": 19,
+      "holdout_samples": 60,
+      "searched": 2,
+      "unit_rejections": [
+        "energy"
+      ],
+      "same_size_training_fits": 1,
+      "source": "analytic synthetic model derivatives",
+      "scope": "known-law rediscovery within a small supplied feature family; a fit is not a proof"
+    }
+  },
+  "exact_identities": {
+    "coefficient_proposal": "rationals with denominator at most 16 and float discrepancy below 1e-10",
+    "rational_coefficients": {
+      "quantum_continuity": {
+        "J_left": "1",
+        "J_right": "-1"
+      },
+      "geometric_transport": {
+        "overlap": "-2"
+      },
+      "circuit_energy_balance": {
+        "power": "-1"
+      }
+    },
+    "symbolic_residuals": {
+      "quantum": "0",
+      "geometry": "0",
+      "rc": "0"
+    },
+    "status": "exact SymPy identities under stated model assumptions; no Lean kernel check",
+    "qualification": "These are established laws, rediscovered from synthetic model data and separately verified symbolically."
+  },
+  "route_comparison": {
+    "source": "https://arxiv.org/html/2507.08138v2",
+    "source_status": "reference example reproduced with attribution, not a new CMF discovery",
+    "convention": "row-vector path products; route XY = M1(x,y) M2(x+1,y)",
+    "symbolic_route_residual": "Matrix([[0, 0], [0, 0]])",
+    "edge_determinants": [
+      "x*(2*x + 1)",
+      "y*(2*y + 1)"
+    ],
+    "invertibility_domain": "x,y not in {0,-1/2}; both routes have invertible edges at x=y=1",
+    "evaluation": {
+      "x": 1,
+      "y": 1
+    },
+    "route_xy": [
+      [
+        "-3",
+        "-21"
+      ],
+      [
+        "5",
+        "32"
+      ]
+    ],
+    "route_yx": [
+      [
+        "-3",
+        "-21"
+      ],
+      [
+        "5",
+        "32"
+      ]
+    ],
+    "perturbed_route": [
+      [
+        "-3",
+        "-108/5"
+      ],
+      [
+        "5",
+        "33"
+      ]
+    ],
+    "false_control": {
+      "claim": "Agreement on one probe implies equal transport matrices.",
+      "rejected": true,
+      "probe": [
+        1,
+        0
+      ],
+      "same_probe_output": [
+        "-3",
+        "5"
+      ],
+      "full_matrix_difference": [
+        [
+          "0",
+          "3/5"
+        ],
+        [
+          "0",
+          "-1"
+        ]
+      ]
+    },
+    "scope": "A local symbolic square identity. No arithmetic convergence result is established by this check; general physical transport may be path dependent."
+  },
+  "predictive_closure": {
+    "engine": "compound-eye-lab-0.2",
+    "input_sha256": "0ab0cbf4c9831a3b3d0feb7b3f357c2e3da3f73b582501b2d40448bdc60b1d62",
+    "context": {
+      "object_id": "rc-experiment-001",
+      "model_family": "rc-v1",
+      "coordinate": 0.0,
+      "coordinate_kind": "time",
+      "basis": "capacitor voltage to ground",
+      "boundary": "isolated parallel R-C; no drive",
+      "units_convention": "SI"
+    },
+    "status": "insufficient_readouts_at_declared_resolution",
+    "input_readouts": [
+      "initial_voltage",
+      "initial_resistor_current"
+    ],
+    "target": "voltage_after_half_second",
+    "counterexamples": [
+      {
+        "candidates": [
+          "C-1-F",
+          "C-2-F"
+        ],
+        "input_differences": {
+          "initial_voltage": 0.0,
+          "initial_resistor_current": 0.0
+        },
+        "target_predictions": [
+          0.6065306597126334,
+          0.7788007830714049
+        ],
+        "target_separation": 0.17227012335877145,
+        "target_combined_radius": 0.020000000002
+      }
+    ],
+    "unassessed_pairs_missing_predictions": 0,
+    "scope": "A missing counterexample does not prove closure outside the supplied finite candidate set. No simultaneous quantum measurement protocol is assumed."
+  },
+  "rejected_promotion": {
+    "claim": "The fitted rate -1 remains valid after changing C from 1 F to 2 F at G=1 S.",
+    "predicted_voltage_rate": -0.6065306597126334,
+    "actual_voltage_rate": -0.3032653298563167,
+    "absolute_error_V_per_s": 0.3032653298563167
+  }
+}

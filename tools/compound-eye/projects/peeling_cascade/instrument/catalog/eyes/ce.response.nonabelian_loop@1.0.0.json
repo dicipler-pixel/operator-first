@@ -1,0 +1,22 @@
+{
+  "id": "ce.response.nonabelian_loop",
+  "version": "1.0.0",
+  "title": "Nonabelian Loop",
+  "family": "Aharonov photonic and electronic response",
+  "status": "implemented",
+  "inputs": {
+    "case": "declared model data"
+  },
+  "depends_on": [],
+  "assumptions": [
+    "Declared finite model and units; see per-eye scope."
+  ],
+  "output_meaning": "Computed diagnostic with explicit operational interpretation.",
+  "evidence_class": "calculation_on_declared_inputs",
+  "limits": "No automatic inference of microscopic mechanism or universal geometry.",
+  "implementation": {
+    "path": "plugins/installed/195c54b89e539dbcf7664ab2cc86c321020964e2f3b470e527febaa2ea91a339.py",
+    "sha256": "195c54b89e539dbcf7664ab2cc86c321020964e2f3b470e527febaa2ea91a339",
+    "function": "nonabelian_loop"
+  }
+}

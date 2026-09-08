@@ -1,0 +1,29 @@
+{
+  "id": "ce.operator.partition",
+  "version": "1.0.0",
+  "title": "Retained and excluded sectors",
+  "family": "operator boundary",
+  "status": "implemented",
+  "inputs": {
+    "hamiltonian": "model_energy",
+    "retained_indices": "indices",
+    "energy": "model_energy",
+    "eta": "model_energy"
+  },
+  "unit_system": "model",
+  "depends_on": [],
+  "assumptions": [
+    "Finite Hermitian matrix with the standard complex inner product.",
+    "P is an explicit coordinate subspace, Q its orthogonal complement.",
+    "z=E+i eta with eta>0."
+  ],
+  "output_meaning": "Retained and excluded sectors",
+  "evidence_class": "model_calculation",
+  "limits": "Finite eta broadening is a regulator, not an intrinsic decay width. This identity does not establish a cosmological or nuclear interpretation.",
+  "implementation": {
+    "path": "plugins/eyes.py",
+    "sha256": "95b8c1300c95260277ed2b22f6af939267b2b72ae093bdc2bc7d86edf8bbd79c",
+    "function": "finite_operator"
+  },
+  "selector": "partition"
+}

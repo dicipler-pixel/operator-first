@@ -1,0 +1,58 @@
+[
+  {
+    "w3": 0.01,
+    "coordinate_form_max_abs": 68.81153553728687,
+    "metric_speed_squared": 1.9766649753202974,
+    "unit_speed_metric_curvature_eigenvalues": [
+      -1.401410049672894e-16,
+      1.0,
+      1.3453503841410932,
+      4.906234659482724,
+      7.042027530159837
+    ],
+    "metric_condition": 33.33680554425401,
+    "scope": "Input K must represent R(.,V)V in the supplied basis. Metric whitening and speed normalization do not independently validate the curvature solver or imply a bound in every direction."
+  },
+  {
+    "w3": 0.001,
+    "coordinate_form_max_abs": 699.806797373555,
+    "metric_speed_squared": 12.889113269217093,
+    "unit_speed_metric_curvature_eigenvalues": [
+      3.822362716176833e-16,
+      1.0000000000000004,
+      1.054410342834334,
+      6.223188987184132,
+      7.565216120578658
+    ],
+    "metric_condition": 333.3367105706493,
+    "scope": "Input K must represent R(.,V)V in the supplied basis. Metric whitening and speed normalization do not independently validate the curvature solver or imply a bound in every direction."
+  },
+  {
+    "w3": 0.0001,
+    "coordinate_form_max_abs": 7010.077235894267,
+    "metric_speed_squared": 121.98036705123069,
+    "unit_speed_metric_curvature_eigenvalues": [
+      6.106569789645528e-15,
+      1.0,
+      1.005767336916352,
+      6.43031785022945,
+      7.655730446294295
+    ],
+    "metric_condition": 3333.336701357314,
+    "scope": "Input K must represent R(.,V)V in the supplied basis. Metric whitening and speed normalization do not independently validate the curvature solver or imply a bound in every direction."
+  },
+  {
+    "w3": 1e-05,
+    "coordinate_form_max_abs": 70112.79884829975,
+    "metric_speed_squared": 1212.8894925195546,
+    "unit_speed_metric_curvature_eigenvalues": [
+      3.1251068156050053e-17,
+      1.0,
+      1.0005802060800657,
+      6.452111511741045,
+      7.66556420294406
+    ],
+    "metric_condition": 33333.33670043876,
+    "scope": "Input K must represent R(.,V)V in the supplied basis. Metric whitening and speed normalization do not independently validate the curvature solver or imply a bound in every direction."
+  }
+]

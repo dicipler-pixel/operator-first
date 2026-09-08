@@ -4,8 +4,8 @@ Versioned research instrument with explicit source stages, scoped diagnostics an
 
 ## Source locations
 
-- [UPG integration report](https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/UPG_Cascade_Integration.md)
-- [Input identities and hashes](https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/input_manifest.json)
+- [Current complete source and handoff](https://github.com/dicipler-pixel/operator-first/tree/main/tools/compound-eye)
+- [Release reconciliation](https://github.com/dicipler-pixel/operator-first/blob/main/tools/compound-eye/projects/master_sync/reconciliation.json)
 
 ## Reusable results
 
@@ -15,10 +15,13 @@ Versioned research instrument with explicit source stages, scoped diagnostics an
 - [Persistent rational section with finite integer image](../../atlas/DIO-SECTION-INTEGRAL.md)
 - [Finite-field transfer with the omitted domain point](../../atlas/DIO-TRACE-BOUNDARY.md)
 - [Candidate evolution without false rank certificates](../../atlas/DIO-SEARCH-LIMITS.md)
+- [Declared metric and finite wall path](../../atlas/HORIZON-METRIC-WALL.md)
+- [Different interiors with identical exterior response](../../atlas/OBS-INTERIOR-AMBIGUITY.md)
+- [Reproducible composition of chosen eye traces](../../atlas/DISPLAY-EYE-MIXER.md)
 
 ## Next step
 
-Recover the eight-feature UPG covariance map and use independent acquisition/calibration partitions for the next physical test.
+Use the synchronized mixer and domain-specific runners; compare immutable manifests before importing another chat’s release.
 
 ## Release policy
 

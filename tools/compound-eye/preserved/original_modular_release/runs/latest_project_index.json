@@ -1,0 +1,350 @@
+{
+  "quantum": {
+    "run_file": "runs/1788804551285222880_b690238216f0.json",
+    "request": "requests/quantum.json",
+    "sets": [
+      "ce.set.quantum@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 16,
+      "eyes_executed": 16,
+      "status_counts": {
+        "ok": 16,
+        "blocked": 0,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {
+        "quantum": 1
+      },
+      "shared_cache_hits": 15,
+      "workers": 4,
+      "seconds": 0.1667728350003017
+    }
+  },
+  "electrical": {
+    "run_file": "runs/1788804551323644576_bafb84e2866d.json",
+    "request": "requests/electrical.json",
+    "sets": [
+      "ce.set.electrical@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 9,
+      "eyes_executed": 9,
+      "status_counts": {
+        "ok": 9,
+        "blocked": 0,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {
+        "rc": 1
+      },
+      "shared_cache_hits": 8,
+      "workers": 4,
+      "seconds": 0.019773334002820775
+    }
+  },
+  "geometry": {
+    "run_file": "runs/1788804551345557967_5529e5c0b319.json",
+    "request": "requests/geometry.json",
+    "sets": [
+      "ce.set.geometry@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 8,
+      "eyes_executed": 8,
+      "status_counts": {
+        "ok": 8,
+        "blocked": 0,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {
+        "geometry": 1
+      },
+      "shared_cache_hits": 7,
+      "workers": 4,
+      "seconds": 0.006343383000057656
+    }
+  },
+  "infer_quantum": {
+    "run_file": "runs/1788804551366420646_0e0137608b80.json",
+    "request": "requests/infer_quantum.json",
+    "sets": [
+      "ce.inference.analyze@1.0.0",
+      "ce.inference.next@1.0.0",
+      "ce.set.prediction_quantum@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 7,
+      "eyes_executed": 7,
+      "status_counts": {
+        "ok": 7,
+        "blocked": 0,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {
+        "inference": 1
+      },
+      "shared_cache_hits": 1,
+      "workers": 4,
+      "seconds": 0.005499266000697389
+    }
+  },
+  "infer_rc": {
+    "run_file": "runs/1788804551388041065_de464c1b98e6.json",
+    "request": "requests/infer_rc.json",
+    "sets": [
+      "ce.inference.analyze@1.0.0",
+      "ce.inference.next@1.0.0",
+      "ce.set.prediction_rc@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 7,
+      "eyes_executed": 7,
+      "status_counts": {
+        "ok": 7,
+        "blocked": 0,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {
+        "inference": 1
+      },
+      "shared_cache_hits": 1,
+      "workers": 4,
+      "seconds": 0.005692282000381965
+    }
+  },
+  "infer_geometry": {
+    "run_file": "runs/1788804551408885717_7fdbfd4472fb.json",
+    "request": "requests/infer_geometry.json",
+    "sets": [
+      "ce.inference.analyze@1.0.0",
+      "ce.inference.next@1.0.0",
+      "ce.set.prediction_geometry@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 6,
+      "eyes_executed": 6,
+      "status_counts": {
+        "ok": 6,
+        "blocked": 0,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {
+        "inference": 1
+      },
+      "shared_cache_hits": 1,
+      "workers": 4,
+      "seconds": 0.00465412700214074
+    }
+  },
+  "operator_boundary": {
+    "run_file": "runs/1788804551429960279_bbcc196301ce.json",
+    "request": "requests/operator_boundary.json",
+    "sets": [
+      "ce.set.operator_boundary@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 5,
+      "eyes_executed": 5,
+      "status_counts": {
+        "ok": 5,
+        "blocked": 0,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {
+        "feshbach": 1
+      },
+      "shared_cache_hits": 4,
+      "workers": 4,
+      "seconds": 0.004489724997256417
+    }
+  },
+  "nuclear_boundary": {
+    "run_file": "runs/1788804551466388149_c008efb3597a.json",
+    "request": "requests/nuclear_boundary.json",
+    "sets": [
+      "ce.set.nuclear_boundary@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 7,
+      "eyes_executed": 7,
+      "status_counts": {
+        "ok": 6,
+        "blocked": 1,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {
+        "continuum": 1
+      },
+      "shared_cache_hits": 3,
+      "workers": 4,
+      "seconds": 0.017306182999163866
+    }
+  },
+  "deformation": {
+    "run_file": "runs/1788804551492976394_93219487eb4a.json",
+    "request": "requests/deformation.json",
+    "sets": [
+      "ce.set.deformation@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 3,
+      "eyes_executed": 3,
+      "status_counts": {
+        "ok": 3,
+        "blocked": 0,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {
+        "deformation": 1
+      },
+      "shared_cache_hits": 2,
+      "workers": 4,
+      "seconds": 0.0036382570033310913
+    }
+  },
+  "topology": {
+    "run_file": "runs/1788804551511502941_f9c209bd5b52.json",
+    "request": "requests/topology.json",
+    "sets": [
+      "ce.set.topology@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 2,
+      "eyes_executed": 2,
+      "status_counts": {
+        "ok": 2,
+        "blocked": 0,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {},
+      "shared_cache_hits": 0,
+      "workers": 4,
+      "seconds": 0.0021527619974222034
+    }
+  },
+  "calibration": {
+    "run_file": "runs/1788804551529108236_7391457f0976.json",
+    "request": "requests/calibration.json",
+    "sets": [
+      "ce.set.measurement@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 2,
+      "eyes_executed": 2,
+      "status_counts": {
+        "ok": 2,
+        "blocked": 0,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {},
+      "shared_cache_hits": 0,
+      "workers": 4,
+      "seconds": 0.002143507001164835
+    }
+  },
+  "earth": {
+    "run_file": "runs/1788804551633738559_df078e053c73.json",
+    "request": "requests/earth.json",
+    "sets": [
+      "ce.frontier.graph@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 1,
+      "eyes_executed": 1,
+      "status_counts": {
+        "ok": 1,
+        "blocked": 0,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {
+        "graph": 1
+      },
+      "shared_cache_hits": 0,
+      "workers": 4,
+      "seconds": 0.0885525650010095
+    }
+  },
+  "arithmetic": {
+    "run_file": "runs/1788804551956907136_15655689acde.json",
+    "request": "requests/arithmetic.json",
+    "sets": [
+      "ce.frontier.admission@1.0.0",
+      "ce.frontier.cost@1.0.0",
+      "ce.frontier.transport@1.0.0",
+      "ce.frontier.forcing@1.0.0",
+      "ce.frontier.obstruction@1.0.0",
+      "ce.frontier.cut@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 6,
+      "eyes_executed": 6,
+      "status_counts": {
+        "ok": 6,
+        "blocked": 0,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {
+        "forcing": 1
+      },
+      "shared_cache_hits": 2,
+      "workers": 4,
+      "seconds": 0.3075662219998776
+    }
+  },
+  "dag": {
+    "run_file": "runs/1788804553388796582_70e368a58839.json",
+    "request": "requests/dag.json",
+    "sets": [
+      "ce.search.decision_dag@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 1,
+      "eyes_executed": 1,
+      "status_counts": {
+        "ok": 1,
+        "blocked": 0,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {},
+      "shared_cache_hits": 0,
+      "workers": 4,
+      "seconds": 1.3624361190013587
+    }
+  },
+  "phase_hypothesis": {
+    "run_file": "runs/1788804553697040476_a6ff7dc30528.json",
+    "request": "requests/phase_hypothesis.json",
+    "sets": [
+      "ce.set.phase_hypothesis@1.0.0"
+    ],
+    "statistics": {
+      "eyes_requested": 1,
+      "eyes_executed": 1,
+      "status_counts": {
+        "ok": 1,
+        "blocked": 0,
+        "inapplicable": 0,
+        "error": 0
+      },
+      "shared_kernel_calls": {},
+      "shared_cache_hits": 0,
+      "workers": 4,
+      "seconds": 0.0007862419988668989
+    }
+  }
+}

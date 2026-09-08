@@ -15,7 +15,7 @@ Projector algebra and overlap remainder; no gravitational field equation follows
 
 ## Next step
 
-Reconcile the seven-theorem overlap follow-up with the preceding 23-theorem module and its paper version.
+Retain the proved small-o bridge; local trace constancy is explicit in Lean, with rank constancy and integral-Taylor representation supplied as written proofs.
 
 ## Release policy
 

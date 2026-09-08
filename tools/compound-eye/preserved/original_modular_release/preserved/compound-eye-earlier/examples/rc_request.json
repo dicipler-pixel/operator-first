@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "context": {
+    "object_id": "rc-experiment-001",
+    "model_family": "rc-v1",
+    "coordinate": 0.0,
+    "coordinate_kind": "time",
+    "basis": "capacitor voltage to ground",
+    "boundary": "isolated parallel R-C; no drive",
+    "units_convention": "SI"
+  },
+  "eyes": {
+    "initial_voltage": {
+      "units": "V",
+      "measurement_radius": 0.01,
+      "prediction_radius": 0.0,
+      "cost": 1.0,
+      "meaning": "",
+      "dependency_group": "model-state"
+    },
+    "initial_resistor_current": {
+      "units": "A",
+      "measurement_radius": 0.01,
+      "prediction_radius": 0.0,
+      "cost": 1.0,
+      "meaning": "",
+      "dependency_group": "model-state"
+    },
+    "voltage_after_half_second": {
+      "units": "V",
+      "measurement_radius": 0.01,
+      "prediction_radius": 0.0,
+      "cost": 1.0,
+      "meaning": "voltage at time 0.5 s after the declared preparation",
+      "dependency_group": "model-state"
+    },
+    "initial_voltage_slope": {
+      "units": "V/s",
+      "measurement_radius": 0.01,
+      "prediction_radius": 0.0,
+      "cost": 2,
+      "meaning": "",
+      "dependency_group": "model-state"
+    },
+    "initial_energy": {
+      "units": "J",
+      "measurement_radius": 0.01,
+      "prediction_radius": 0.0,
+      "cost": 4,
+      "meaning": "",
+      "dependency_group": "model-state"
+    }
+  },
+  "candidates": [
+    {
+      "id": "C-1-F",
+      "parameters": {
+        "G_S": 1.0,
+        "C_F": 1.0,
+        "V0_V": 1.0
+      },
+      "predictions": {
+        "initial_voltage": 1.0,
+        "initial_resistor_current": 1.0,
+        "voltage_after_half_second": 0.6065306597126334,
+        "initial_voltage_slope": -1.0,
+        "initial_energy": 0.5
+      }
+    },
+    {
+      "id": "C-2-F",
+      "parameters": {
+        "G_S": 1.0,
+        "C_F": 2.0,
+        "V0_V": 1.0
+      },
+      "predictions": {
+        "initial_voltage": 1.0,
+        "initial_resistor_current": 1.0,
+        "voltage_after_half_second": 0.7788007830714049,
+        "initial_voltage_slope": -0.5,
+        "initial_energy": 1.0
+      }
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-1",
+      "eye": "initial_voltage",
+      "value": 1.0,
+      "radius": 0.01,
+      "units": "V",
+      "context": {
+        "object_id": "rc-experiment-001",
+        "model_family": "rc-v1",
+        "coordinate": 0.0,
+        "coordinate_kind": "time",
+        "basis": "capacitor voltage to ground",
+        "boundary": "isolated parallel R-C; no drive",
+        "units_convention": "SI"
+      },
+      "evidence_group": "synthetic-demonstration",
+      "source": "declared synthetic observation"
+    },
+    {
+      "id": "obs-2",
+      "eye": "initial_resistor_current",
+      "value": 1.0,
+      "radius": 0.01,
+      "units": "A",
+      "context": {
+        "object_id": "rc-experiment-001",
+        "model_family": "rc-v1",
+        "coordinate": 0.0,
+        "coordinate_kind": "time",
+        "basis": "capacitor voltage to ground",
+        "boundary": "isolated parallel R-C; no drive",
+        "units_convention": "SI"
+      },
+      "evidence_group": "synthetic-demonstration",
+      "source": "declared synthetic observation"
+    }
+  ]
+}

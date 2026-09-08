@@ -3,6 +3,70 @@
   "main": "032ec75a360fa55caa83c687d2038558103a36fb",
   "pull_requests": [
     {
+      "number": 13,
+      "title": "Complete Compound Eye backup and Diophantine evolution audit",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/13",
+      "head_ref": "backup/compound-eye-diophantine-20260907",
+      "head_sha": "e055123f8e4b9fa23452197a32634b25a7e8a455",
+      "base_ref": "catalog/upg-cascade-sync-20260907",
+      "workflows": [
+        {
+          "conclusion": "failure",
+          "created": "2026-09-08T00:18:39Z",
+          "id": 34172899574,
+          "name": "CI",
+          "sha": "e055123f8e4b9fa23452197a32634b25a7e8a455",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34172899574"
+        },
+        {
+          "conclusion": "success",
+          "created": "2026-09-08T00:18:39Z",
+          "id": 34172899567,
+          "name": "UPG catalog and independent controls",
+          "sha": "e055123f8e4b9fa23452197a32634b25a7e8a455",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34172899567"
+        },
+        {
+          "conclusion": "success",
+          "created": "2026-09-08T00:18:39Z",
+          "id": 34172899613,
+          "name": "Diophantine certificates and controls",
+          "sha": "e055123f8e4b9fa23452197a32634b25a7e8a455",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34172899613"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "UPG and cascade: tested bridges, five new eyes, and source reconciliation",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/12",
+      "head_ref": "catalog/upg-cascade-sync-20260907",
+      "head_sha": "b99a58256f2ecaa7d3523080d310cc04cf24aa28",
+      "base_ref": "catalog/paper-atlas-register",
+      "workflows": [
+        {
+          "conclusion": "failure",
+          "created": "2026-09-07T23:07:57Z",
+          "id": 34168992474,
+          "name": "CI",
+          "sha": "b99a58256f2ecaa7d3523080d310cc04cf24aa28",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34168992474"
+        },
+        {
+          "conclusion": "success",
+          "created": "2026-09-07T23:07:57Z",
+          "id": 34168992526,
+          "name": "UPG catalog and independent controls",
+          "sha": "b99a58256f2ecaa7d3523080d310cc04cf24aa28",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34168992526"
+        }
+      ]
+    },
+    {
       "number": 11,
       "title": "Formalize positive-channel peel and optical metric response",
       "state": "open",
@@ -11,31 +75,24 @@
       "head_ref": "formal/peel-constitutive-20260907",
       "head_sha": "4675da5baf7ca4d35d57fae1004fe63466a31b5b",
       "base_ref": "main",
-      "base_sha": "032ec75a360fa55caa83c687d2038558103a36fb",
       "workflows": [
         {
+          "conclusion": "success",
+          "created": "2026-09-07T20:04:18Z",
           "id": 34157983201,
           "name": "Peel constitutive formal verification",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "4675da5baf7ca4d35d57fae1004fe63466a31b5b",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34157983201"
         },
         {
+          "conclusion": "failure",
+          "created": "2026-09-07T20:04:18Z",
           "id": 34157983166,
           "name": "CI",
-          "status": "completed",
-          "conclusion": "failure",
+          "sha": "4675da5baf7ca4d35d57fae1004fe63466a31b5b",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34157983166"
-        },
-        {
-          "id": 34157980773,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "failure",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34157980773"
         }
-      ],
-      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+      ]
     },
     {
       "number": 10,
@@ -46,24 +103,16 @@
       "head_ref": "catalog/paper-atlas-register",
       "head_sha": "3fd7d5efb7a4e20c790d905c2a3e5a21bfb290ec",
       "base_ref": "main",
-      "base_sha": "032ec75a360fa55caa83c687d2038558103a36fb",
       "workflows": [
         {
+          "conclusion": "failure",
+          "created": "2026-09-07T15:14:41Z",
           "id": 34137290148,
           "name": "CI",
-          "status": "completed",
-          "conclusion": "failure",
+          "sha": "3fd7d5efb7a4e20c790d905c2a3e5a21bfb290ec",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34137290148"
-        },
-        {
-          "id": 34137287997,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "failure",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34137287997"
         }
-      ],
-      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+      ]
     },
     {
       "number": 9,
@@ -74,59 +123,40 @@
       "head_ref": "gravity/c1-overlap-bridge",
       "head_sha": "63c11a656ea78097d1cd61a0994cb9baa0e3bc8e",
       "base_ref": "gravity/finite-projector-proof-audit",
-      "base_sha": "2ded71b0e7a73e4df994faff2694beacbf8ffff4",
       "workflows": [
         {
+          "conclusion": "success",
+          "created": "2026-09-07T13:54:39Z",
           "id": 34130027515,
           "name": "Light ledger verification",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "63c11a656ea78097d1cd61a0994cb9baa0e3bc8e",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34130027515"
         },
         {
+          "conclusion": "success",
+          "created": "2026-09-07T13:54:38Z",
           "id": 34130027417,
           "name": "C1 projector overlap bridge",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "63c11a656ea78097d1cd61a0994cb9baa0e3bc8e",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34130027417"
         },
         {
+          "conclusion": "success",
+          "created": "2026-09-07T13:54:38Z",
           "id": 34130027413,
           "name": "Gravity finite-projector verification",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "63c11a656ea78097d1cd61a0994cb9baa0e3bc8e",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34130027413"
         },
         {
+          "conclusion": "success",
+          "created": "2026-09-07T13:54:38Z",
           "id": 34130027400,
           "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "63c11a656ea78097d1cd61a0994cb9baa0e3bc8e",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34130027400"
-        },
-        {
-          "id": 34130023570,
-          "name": "Light ledger verification",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34130023570"
-        },
-        {
-          "id": 34130023555,
-          "name": "Gravity finite-projector verification",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34130023555"
-        },
-        {
-          "id": 34130023552,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "failure",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34130023552"
         }
-      ],
-      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+      ]
     },
     {
       "number": 6,
@@ -137,52 +167,32 @@
       "head_ref": "proof-check/endpoint-scalar-progress-2026-09-06",
       "head_sha": "10efd332626e1f861fc74082b7f67dd135712e5e",
       "base_ref": "proof-check/offset-endpoint-2026-09-05",
-      "base_sha": "7818a3c4ac8750a2ce676cfc5534fddd87c94854",
       "workflows": [
         {
+          "conclusion": "success",
+          "created": "2026-09-06T15:13:39Z",
           "id": 34041636884,
           "name": "Offset moduli transfer checks",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "10efd332626e1f861fc74082b7f67dd135712e5e",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34041636884"
         },
         {
+          "conclusion": "success",
+          "created": "2026-09-06T15:13:39Z",
           "id": 34041636876,
           "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "10efd332626e1f861fc74082b7f67dd135712e5e",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34041636876"
         },
         {
+          "conclusion": "success",
+          "created": "2026-09-06T15:13:39Z",
           "id": 34041636870,
           "name": "Offset endpoint reformulation",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "10efd332626e1f861fc74082b7f67dd135712e5e",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34041636870"
-        },
-        {
-          "id": 34041634324,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34041634324"
-        },
-        {
-          "id": 34041634322,
-          "name": "Offset endpoint reformulation",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34041634322"
-        },
-        {
-          "id": 34041634339,
-          "name": "Offset moduli transfer checks",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34041634339"
         }
-      ],
-      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+      ]
     },
     {
       "number": 8,
@@ -193,73 +203,32 @@
       "head_ref": "gravity/finite-projector-proof-audit",
       "head_sha": "2ded71b0e7a73e4df994faff2694beacbf8ffff4",
       "base_ref": "proof-check/light-ledger-2026-09-06",
-      "base_sha": "41d9523a53ad679d2240e5e40ed07a7ea0cc2bac",
       "workflows": [
         {
+          "conclusion": "success",
+          "created": "2026-09-07T13:47:09Z",
           "id": 34129337143,
           "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "2ded71b0e7a73e4df994faff2694beacbf8ffff4",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34129337143"
         },
         {
+          "conclusion": "cancelled",
+          "created": "2026-09-07T13:47:09Z",
           "id": 34129337177,
           "name": "Gravity finite-projector verification",
-          "status": "completed",
-          "conclusion": "cancelled",
+          "sha": "2ded71b0e7a73e4df994faff2694beacbf8ffff4",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34129337177"
         },
         {
+          "conclusion": "cancelled",
+          "created": "2026-09-07T13:47:09Z",
           "id": 34129337167,
           "name": "Light ledger verification",
-          "status": "completed",
-          "conclusion": "cancelled",
+          "sha": "2ded71b0e7a73e4df994faff2694beacbf8ffff4",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34129337167"
-        },
-        {
-          "id": 34035655097,
-          "name": "Gravity finite-projector verification",
-          "status": "completed",
-          "conclusion": "success",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34035655097"
-        },
-        {
-          "id": 34035655125,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34035655125"
-        },
-        {
-          "id": 34035655112,
-          "name": "Light ledger verification",
-          "status": "completed",
-          "conclusion": "success",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34035655112"
-        },
-        {
-          "id": 34035653128,
-          "name": "Gravity finite-projector verification",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34035653128"
-        },
-        {
-          "id": 34035653120,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34035653120"
-        },
-        {
-          "id": 34035653140,
-          "name": "Light ledger verification",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34035653140"
         }
-      ],
-      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+      ]
     },
     {
       "number": 7,
@@ -270,52 +239,24 @@
       "head_ref": "proof-check/light-ledger-2026-09-06",
       "head_sha": "41d9523a53ad679d2240e5e40ed07a7ea0cc2bac",
       "base_ref": "proof-check/ci-repair-2026-09-05",
-      "base_sha": "9bbc220aabf9d0b2afbfd2630a84cb971b7b7390",
       "workflows": [
         {
+          "conclusion": "cancelled",
+          "created": "2026-09-06T12:59:39Z",
           "id": 34034732711,
           "name": "Light ledger verification",
-          "status": "completed",
-          "conclusion": "cancelled",
+          "sha": "41d9523a53ad679d2240e5e40ed07a7ea0cc2bac",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34034732711"
         },
         {
+          "conclusion": "success",
+          "created": "2026-09-06T12:59:39Z",
           "id": 34034732700,
           "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "41d9523a53ad679d2240e5e40ed07a7ea0cc2bac",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34034732700"
-        },
-        {
-          "id": 34015381100,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34015381100"
-        },
-        {
-          "id": 34015381110,
-          "name": "Light ledger verification",
-          "status": "completed",
-          "conclusion": "success",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34015381110"
-        },
-        {
-          "id": 34015379241,
-          "name": "Light ledger verification",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34015379241"
-        },
-        {
-          "id": 34015379246,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34015379246"
         }
-      ],
-      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+      ]
     },
     {
       "number": 5,
@@ -326,38 +267,24 @@
       "head_ref": "proof-check/offset-endpoint-2026-09-05",
       "head_sha": "7818a3c4ac8750a2ce676cfc5534fddd87c94854",
       "base_ref": "proof-check/offset-core-2026-09-05",
-      "base_sha": "92a95a427ddf4e9a8c3216aab4af2a65730a050f",
       "workflows": [
         {
+          "conclusion": "success",
+          "created": "2026-09-05T20:58:29Z",
           "id": 33991660104,
           "name": "Offset endpoint reformulation",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "7818a3c4ac8750a2ce676cfc5534fddd87c94854",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33991660104"
         },
         {
+          "conclusion": "success",
+          "created": "2026-09-05T20:58:29Z",
           "id": 33991660136,
           "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "7818a3c4ac8750a2ce676cfc5534fddd87c94854",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33991660136"
-        },
-        {
-          "id": 33991658318,
-          "name": "Offset endpoint reformulation",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33991658318"
-        },
-        {
-          "id": 33991658316,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33991658316"
         }
-      ],
-      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+      ]
     },
     {
       "number": 4,
@@ -368,80 +295,48 @@
       "head_ref": "proof-check/earth-moon-kakeya-extension-2026-09-05",
       "head_sha": "41fbf3b9e6ad8143d597928e477a9d94adb6d6d6",
       "base_ref": "proof-check/mixed-intake-2026-09-05",
-      "base_sha": "1619b042f2e39434d9b8d64949bd080d2090867b",
       "workflows": [
         {
+          "conclusion": "success",
+          "created": "2026-09-05T20:09:15Z",
           "id": 33989244187,
           "name": "Mixed-file intake",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "41fbf3b9e6ad8143d597928e477a9d94adb6d6d6",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989244187"
         },
         {
+          "conclusion": "success",
+          "created": "2026-09-05T20:09:15Z",
           "id": 33989244152,
           "name": "Mixed review proofs",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "41fbf3b9e6ad8143d597928e477a9d94adb6d6d6",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989244152"
         },
         {
+          "conclusion": "success",
+          "created": "2026-09-05T20:09:15Z",
           "id": 33989244284,
           "name": "Mixed scoped proofs",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "41fbf3b9e6ad8143d597928e477a9d94adb6d6d6",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989244284"
         },
         {
+          "conclusion": "success",
+          "created": "2026-09-05T20:09:15Z",
           "id": 33989244155,
           "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "41fbf3b9e6ad8143d597928e477a9d94adb6d6d6",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989244155"
         },
         {
+          "conclusion": "success",
+          "created": "2026-09-05T20:09:15Z",
           "id": 33989244224,
           "name": "Earth-Moon and restriction extension",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "41fbf3b9e6ad8143d597928e477a9d94adb6d6d6",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989244224"
-        },
-        {
-          "id": 33989241486,
-          "name": "Mixed review proofs",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989241486"
-        },
-        {
-          "id": 33989241489,
-          "name": "Mixed-file intake",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989241489"
-        },
-        {
-          "id": 33989241537,
-          "name": "Earth-Moon and restriction extension",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989241537"
-        },
-        {
-          "id": 33989241483,
-          "name": "Mixed scoped proofs",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989241483"
-        },
-        {
-          "id": 33989241587,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33989241587"
         }
-      ],
-      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+      ]
     },
     {
       "number": 3,
@@ -452,66 +347,40 @@
       "head_ref": "proof-check/mixed-intake-2026-09-05",
       "head_sha": "1619b042f2e39434d9b8d64949bd080d2090867b",
       "base_ref": "proof-check/offset-core-2026-09-05",
-      "base_sha": "92a95a427ddf4e9a8c3216aab4af2a65730a050f",
       "workflows": [
         {
-          "id": 33981714108,
-          "name": "Mixed scoped proofs",
-          "status": "completed",
           "conclusion": "success",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981714108"
-        },
-        {
-          "id": 33981714121,
-          "name": "Mixed review proofs",
-          "status": "completed",
-          "conclusion": "success",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981714121"
-        },
-        {
-          "id": 33981714133,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981714133"
-        },
-        {
+          "created": "2026-09-05T17:40:51Z",
           "id": 33981714115,
           "name": "Mixed-file intake",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "1619b042f2e39434d9b8d64949bd080d2090867b",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981714115"
         },
         {
-          "id": 33981712500,
+          "conclusion": "success",
+          "created": "2026-09-05T17:40:51Z",
+          "id": 33981714121,
           "name": "Mixed review proofs",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981712500"
+          "sha": "1619b042f2e39434d9b8d64949bd080d2090867b",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981714121"
         },
         {
-          "id": 33981712583,
+          "conclusion": "success",
+          "created": "2026-09-05T17:40:51Z",
+          "id": 33981714108,
           "name": "Mixed scoped proofs",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981712583"
+          "sha": "1619b042f2e39434d9b8d64949bd080d2090867b",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981714108"
         },
         {
-          "id": 33981712491,
+          "conclusion": "success",
+          "created": "2026-09-05T17:40:51Z",
+          "id": 33981714133,
           "name": "CI",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981712491"
-        },
-        {
-          "id": 33981712494,
-          "name": "Mixed-file intake",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981712494"
+          "sha": "1619b042f2e39434d9b8d64949bd080d2090867b",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33981714133"
         }
-      ],
-      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+      ]
     },
     {
       "number": 2,
@@ -522,31 +391,16 @@
       "head_ref": "proof-check/offset-core-2026-09-05",
       "head_sha": "92a95a427ddf4e9a8c3216aab4af2a65730a050f",
       "base_ref": "proof-check/ci-repair-2026-09-05",
-      "base_sha": "9bbc220aabf9d0b2afbfd2630a84cb971b7b7390",
       "workflows": [
         {
+          "conclusion": "cancelled",
+          "created": "2026-09-05T16:59:46Z",
           "id": 33979557482,
           "name": "CI",
-          "status": "completed",
-          "conclusion": "cancelled",
+          "sha": "92a95a427ddf4e9a8c3216aab4af2a65730a050f",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33979557482"
-        },
-        {
-          "id": 33976842609,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33976842609"
-        },
-        {
-          "id": 33976826381,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "cancelled",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33976826381"
         }
-      ],
-      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
+      ]
     },
     {
       "number": 1,
@@ -557,728 +411,535 @@
       "head_ref": "proof-check/ci-repair-2026-09-05",
       "head_sha": "9bbc220aabf9d0b2afbfd2630a84cb971b7b7390",
       "base_ref": "main",
-      "base_sha": "032ec75a360fa55caa83c687d2038558103a36fb",
       "workflows": [
         {
+          "conclusion": "success",
+          "created": "2026-09-05T16:00:42Z",
           "id": 33976523757,
           "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
+          "sha": "9bbc220aabf9d0b2afbfd2630a84cb971b7b7390",
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33976523757"
-        },
-        {
-          "id": 33974837543,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33974837543"
-        },
-        {
-          "id": 33974835707,
-          "name": "CI",
-          "status": "completed",
-          "conclusion": "success",
-          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33974835707"
         }
-      ],
-      "workflow_scope": "Up to 100 runs matching source head; inspect tested merge revision and job logs before certifying a theorem."
-    },
-    {
-      "number": 13,
-      "head_sha": "e5d870b421a394cf49858f59b9bd5ec5b0ef2956",
-      "state": "open",
-      "draft": true,
-      "title": "Complete Compound Eye backup and Diophantine evolution audit",
-      "url": "https://github.com/dicipler-pixel/operator-first/pull/13"
+      ]
     }
   ],
   "trees": {
     "4": [
       {
-        "path": ".github/workflows/ci.yml",
-        "blob_sha": "09fd7a9590d30336d0a72b067107e10e2643a633"
+        "path": ".github/workflows/ci.yml"
       },
       {
-        "path": ".github/workflows/extension.yml",
-        "blob_sha": "75bc113156598871f6079482d123d5e6bc5d6b27"
+        "path": ".github/workflows/extension.yml"
       },
       {
-        "path": ".github/workflows/mixed-core.yml",
-        "blob_sha": "288463a8ea268a730e23a48baa709d2565201b3d"
+        "path": ".github/workflows/mixed-core.yml"
       },
       {
-        "path": ".github/workflows/mixed-intake.yml",
-        "blob_sha": "c807c06728d05f2ac9bd26125872bdb42a32e8c6"
+        "path": ".github/workflows/mixed-intake.yml"
       },
       {
-        "path": ".github/workflows/mixed-review.yml",
-        "blob_sha": "427e362fd6241d5c973c226cf95043d814d41757"
+        "path": ".github/workflows/mixed-review.yml"
       },
       {
-        "path": "ATLAS_LEAN_SCOPE.md",
-        "blob_sha": "ae1358aeda21ff1a0cdaae8ef11de354612b5523"
+        "path": "ATLAS_LEAN_SCOPE.md"
       },
       {
-        "path": "EXTENSION_SCOPE.md",
-        "blob_sha": "2aa68e60b57859089d15771aaa293ddb15c73eda"
+        "path": "EXTENSION_SCOPE.md"
       },
       {
-        "path": "KAKEYA_SEEDING_CORRECTION.md",
-        "blob_sha": "968c8c950969258b9f2b769046a036a9d5f18d8d"
+        "path": "KAKEYA_SEEDING_CORRECTION.md"
       },
       {
-        "path": "LICENSE",
-        "blob_sha": "0e259d42c996742e9e3cba14c677129b2c1b6311"
+        "path": "LICENSE"
       },
       {
-        "path": "MixedIntake/AK_original.lean",
-        "blob_sha": "ed190ae7a9dc05db02a00d48c696756a7680369e"
+        "path": "MixedIntake/AK_original.lean"
       },
       {
-        "path": "MixedIntake/FCS_original.lean",
-        "blob_sha": "231e42b782607c6abd07d8066f0833fab061abf3"
+        "path": "MixedIntake/FCS_original.lean"
       },
       {
-        "path": "MixedIntake/Review.lean",
-        "blob_sha": "187b522844f1c01725c8ceec75a1a5132a6f185d"
+        "path": "MixedIntake/Review.lean"
       },
       {
-        "path": "OperatorFirst.lean",
-        "blob_sha": "6ef72c6dad1ba936c51823684da0879bc0d77994"
+        "path": "OperatorFirst.lean"
       },
       {
-        "path": "OperatorFirst/EarthMoon.lean",
-        "blob_sha": "e0faee2866f069ed1ef4d26db8e907236a30e61e"
+        "path": "OperatorFirst/EarthMoon.lean"
       },
       {
-        "path": "OperatorFirst/FCSMoments.lean",
-        "blob_sha": "a6fd20ceb8e7a32afdf633f7ec8edb6f433fa3c9"
+        "path": "OperatorFirst/FCSMoments.lean"
       },
       {
-        "path": "OperatorFirst/KakeyaAtlasFamily.lean",
-        "blob_sha": "3ea69845fffc2737d4406b1471a4004b929d4801"
+        "path": "OperatorFirst/KakeyaAtlasFamily.lean"
       },
       {
-        "path": "OperatorFirst/KakeyaAtlasProjector.lean",
-        "blob_sha": "e185a040720c1c667d6a8b90f1a18a04c942ed5d"
+        "path": "OperatorFirst/KakeyaAtlasProjector.lean"
       },
       {
-        "path": "OperatorFirst/KakeyaCut.lean",
-        "blob_sha": "d5b265a2b93baeb4c661fc87f0821898bccbab7a"
+        "path": "OperatorFirst/KakeyaCut.lean"
       },
       {
-        "path": "OperatorFirst/KakeyaExtension.lean",
-        "blob_sha": "b5abe7ae9a5e5cce42a28c44e5900f08b0e47507"
+        "path": "OperatorFirst/KakeyaExtension.lean"
       },
       {
-        "path": "OperatorFirst/KakeyaForcingLinear.lean",
-        "blob_sha": "e98d818c6506e2b558d7696d1a1372f146e1ac73"
+        "path": "OperatorFirst/KakeyaForcingLinear.lean"
       },
       {
-        "path": "OperatorFirst/KakeyaSeedingControl.lean",
-        "blob_sha": "620131376e04a061f9623e608c0e673d05d91f07"
+        "path": "OperatorFirst/KakeyaSeedingControl.lean"
       },
       {
-        "path": "OperatorFirst/MixedAudit.lean",
-        "blob_sha": "5460619be496545869ec1626eb3938a623989634"
+        "path": "OperatorFirst/MixedAudit.lean"
       },
       {
-        "path": "OperatorFirst/Offset.lean",
-        "blob_sha": "844c8c83e1af2a361ebc6441a3fce9e23865bfeb"
+        "path": "OperatorFirst/Offset.lean"
       },
       {
-        "path": "OperatorFirst/OffsetFock.lean",
-        "blob_sha": "05549097a559bea42fa10d729d0430f3483960b8"
+        "path": "OperatorFirst/OffsetFock.lean"
       },
       {
-        "path": "OperatorFirst/RestrictionBridge.lean",
-        "blob_sha": "8ee1bf203fe695bc01675b55c99942942debccf8"
+        "path": "OperatorFirst/RestrictionBridge.lean"
       },
       {
-        "path": "README.md",
-        "blob_sha": "aac5f517c145a14f51c2cf56ba6e922be47112f4"
+        "path": "README.md"
       },
       {
-        "path": "Warmup (1).lean",
-        "blob_sha": "a3d53de7bc52200023719a4323fb2e69ab9bb3a8"
+        "path": "Warmup (1).lean"
       },
       {
-        "path": "Warmup.lean",
-        "blob_sha": "a999debd50aa2a346457633c98873f7695ed7fd0"
+        "path": "Warmup.lean"
       },
       {
-        "path": "lakefile.toml",
-        "blob_sha": "6d52c6262aab84d2b461151b507bb48dee601e58"
+        "path": "lakefile.toml"
       },
       {
-        "path": "lean-toolchain",
-        "blob_sha": "025e59548e48cf71f2744154e2890beefe30a258"
+        "path": "lean-toolchain"
       },
       {
-        "path": "scripts/verify_extension.py",
-        "blob_sha": "cec90f9e3681fa48e8e2fcb50486dc74d2b2bc0a"
+        "path": "scripts/verify_extension.py"
       },
       {
-        "path": "scripts/verify_mixed.py",
-        "blob_sha": "35c17b21750a705f433be2746031699a98f7daba"
+        "path": "scripts/verify_mixed.py"
       },
       {
-        "path": "scripts/verify_offset.py",
-        "blob_sha": "e4f753882d8dd317f04374eb4e21765ed48b94e0"
+        "path": "scripts/verify_offset.py"
       }
     ],
     "6": [
       {
-        "path": ".github/workflows/ci.yml",
-        "blob_sha": "09fd7a9590d30336d0a72b067107e10e2643a633"
+        "path": ".github/workflows/ci.yml"
       },
       {
-        "path": ".github/workflows/endpoint.yml",
-        "blob_sha": "80d26e7328b6670be7ddc72e26eac3e6f04d0fc1"
+        "path": ".github/workflows/endpoint.yml"
       },
       {
-        "path": ".github/workflows/moduli-transfer.yml",
-        "blob_sha": "49611b962676f33e17652a8868c5fb411aadffec"
+        "path": ".github/workflows/moduli-transfer.yml"
       },
       {
-        "path": "ENDPOINT_PROGRESS.md",
-        "blob_sha": "937941759200d113ad40ca24061064fb6090c03b"
+        "path": "ENDPOINT_PROGRESS.md"
       },
       {
-        "path": "ENDPOINT_SCOPE.md",
-        "blob_sha": "198b3b8a89b8435aecacc09458cad8a8bb7d65a0"
+        "path": "ENDPOINT_SCOPE.md"
       },
       {
-        "path": "LEAN_WORK_STATUS.md",
-        "blob_sha": "48140a752c81612b34d4dff4ea87a1d910e56af6"
+        "path": "LEAN_WORK_STATUS.md"
       },
       {
-        "path": "LICENSE",
-        "blob_sha": "0e259d42c996742e9e3cba14c677129b2c1b6311"
+        "path": "LICENSE"
       },
       {
-        "path": "OFFSET_COMPLETION_SCOPE.md",
-        "blob_sha": "2cbb818f7b66ba266ff7ad57a5c71dbcda218959"
+        "path": "OFFSET_COMPLETION_SCOPE.md"
       },
       {
-        "path": "OperatorFirst.lean",
-        "blob_sha": "6ef72c6dad1ba936c51823684da0879bc0d77994"
+        "path": "OperatorFirst.lean"
       },
       {
-        "path": "OperatorFirst/BandObstruction.lean",
-        "blob_sha": "6e053899fbe96216dd96c45377593b5b367508af"
+        "path": "OperatorFirst/BandObstruction.lean"
       },
       {
-        "path": "OperatorFirst/EndpointProgress.lean",
-        "blob_sha": "6f2c69334819ec38465a4f94567d6cd641e51d05"
+        "path": "OperatorFirst/EndpointProgress.lean"
       },
       {
-        "path": "OperatorFirst/EndpointTransfer.lean",
-        "blob_sha": "6c21806ab69a74de3253760871a8b1f8ea204b07"
+        "path": "OperatorFirst/EndpointTransfer.lean"
       },
       {
-        "path": "OperatorFirst/FiniteCovariance.lean",
-        "blob_sha": "da7bc3fe75ee9d23342f56314c27a8df611ea494"
+        "path": "OperatorFirst/FiniteCovariance.lean"
       },
       {
-        "path": "OperatorFirst/LaurentBoundary.lean",
-        "blob_sha": "a0fe5af437c20a649fc9ec9410e67d032e4b23bb"
+        "path": "OperatorFirst/LaurentBoundary.lean"
       },
       {
-        "path": "OperatorFirst/Offset.lean",
-        "blob_sha": "844c8c83e1af2a361ebc6441a3fce9e23865bfeb"
+        "path": "OperatorFirst/Offset.lean"
       },
       {
-        "path": "OperatorFirst/OffsetEndpoint.lean",
-        "blob_sha": "73299cdbfb52483ad992ca417a76e700c77b6c4e"
+        "path": "OperatorFirst/OffsetEndpoint.lean"
       },
       {
-        "path": "OperatorFirst/OffsetFock.lean",
-        "blob_sha": "05549097a559bea42fa10d729d0430f3483960b8"
+        "path": "OperatorFirst/OffsetFock.lean"
       },
       {
-        "path": "README.md",
-        "blob_sha": "aac5f517c145a14f51c2cf56ba6e922be47112f4"
+        "path": "README.md"
       },
       {
-        "path": "Warmup (1).lean",
-        "blob_sha": "a3d53de7bc52200023719a4323fb2e69ab9bb3a8"
+        "path": "Warmup (1).lean"
       },
       {
-        "path": "Warmup.lean",
-        "blob_sha": "a999debd50aa2a346457633c98873f7695ed7fd0"
+        "path": "Warmup.lean"
       },
       {
-        "path": "endpoint_progress/endpoint_probe.py",
-        "blob_sha": "a811f759d7900add1a3049e95e1f3c5363e5ba6e"
+        "path": "endpoint_progress/endpoint_probe.py"
       },
       {
-        "path": "endpoint_progress/extended.json",
-        "blob_sha": "b2b9ce3fb68a1744aad3021f0e9dd255b77898ae"
+        "path": "endpoint_progress/extended.json"
       },
       {
-        "path": "endpoint_progress/hankel.json",
-        "blob_sha": "6a5de0343593d57e91184b3f7b8dcfd208752160"
+        "path": "endpoint_progress/hankel.json"
       },
       {
-        "path": "endpoint_progress/hankel_endpoint.py",
-        "blob_sha": "f0e78f24ddad907b33075afc3162fca28e32129d"
+        "path": "endpoint_progress/hankel_endpoint.py"
       },
       {
-        "path": "endpoint_progress/lean_report.json",
-        "blob_sha": "3dfba2f282395778954d86d02f5d5babbec99a5e"
+        "path": "endpoint_progress/lean_report.json"
       },
       {
-        "path": "endpoint_progress/lean_verification.log",
-        "blob_sha": "6010f435d48f1b84f6b9f919853c245688528935"
+        "path": "endpoint_progress/lean_verification.log"
       },
       {
-        "path": "endpoint_progress/probe.json",
-        "blob_sha": "c236a70e607e0a3e6a9b6ce43d8fbefd564fe9e7"
+        "path": "endpoint_progress/probe.json"
       },
       {
-        "path": "endpoint_progress/requirements.txt",
-        "blob_sha": "c15b476b5e528d9af6c17f6959bff7dee97ca39a"
+        "path": "endpoint_progress/requirements.txt"
       },
       {
-        "path": "endpoint_progress/transfer.json",
-        "blob_sha": "db94ce6508e92995cd264a4497847be98b3992ca"
+        "path": "endpoint_progress/transfer.json"
       },
       {
-        "path": "endpoint_progress/transfer_check.py",
-        "blob_sha": "a8aea7b2478bc7c337073a6622bdf0468cc57865"
+        "path": "endpoint_progress/transfer_check.py"
       },
       {
-        "path": "endpoint_progress/validation.json",
-        "blob_sha": "26dad076883513e66b6ca39593f85bec1f309b9f"
+        "path": "endpoint_progress/validation.json"
       },
       {
-        "path": "endpoint_progress/validation.py",
-        "blob_sha": "1c2462e2245e70fe237e58d754ace6430530ee27"
+        "path": "endpoint_progress/validation.py"
       },
       {
-        "path": "lakefile.toml",
-        "blob_sha": "80cb5fee2c2a923f9685c19a041d0e03e6b03620"
+        "path": "lakefile.toml"
       },
       {
-        "path": "laurent_boundary/ENDPOINT_ANALYSIS.md",
-        "blob_sha": "9d0590b0b05fc10845e64c66478cc7dd099667a4"
+        "path": "laurent_boundary/ENDPOINT_ANALYSIS.md"
       },
       {
-        "path": "laurent_boundary/FORMAL_BOUNDARY_SCOPE.md",
-        "blob_sha": "1bcf563196d1cbb0623c12dbeb10e731e2d4bb2f"
+        "path": "laurent_boundary/FORMAL_BOUNDARY_SCOPE.md"
       },
       {
-        "path": "laurent_boundary/evidence/LaurentBoundary_axioms.log",
-        "blob_sha": "6f46b3031b592ec5f060c8d4942c6b6baf82f33f"
+        "path": "laurent_boundary/evidence/LaurentBoundary_axioms.log"
       },
       {
-        "path": "laurent_boundary/evidence/LaurentBoundary_build.log",
-        "blob_sha": "c848c9874d8278901614193d8a3cc9eba0824224"
+        "path": "laurent_boundary/evidence/LaurentBoundary_build.log"
       },
       {
-        "path": "laurent_boundary/evidence/LaurentBoundary_kernel.log",
-        "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        "path": "laurent_boundary/evidence/LaurentBoundary_kernel.log"
       },
       {
-        "path": "laurent_boundary/evidence/build_all.log",
-        "blob_sha": "9de61ab83b51e70a2ffb10b29203bb031f615155"
+        "path": "laurent_boundary/evidence/build_all.log"
       },
       {
-        "path": "laurent_boundary/evidence/false_top_coefficient_sign.lean",
-        "blob_sha": "520705cbc373ddb1fad9bd51f504ef3e033bf3fc"
+        "path": "laurent_boundary/evidence/false_top_coefficient_sign.lean"
       },
       {
-        "path": "laurent_boundary/evidence/false_top_coefficient_sign.log",
-        "blob_sha": "88096922ed1b759636f6595f9994fe18d3020454"
+        "path": "laurent_boundary/evidence/false_top_coefficient_sign.log"
       },
       {
-        "path": "laurent_boundary/evidence/false_two_columns_affine.lean",
-        "blob_sha": "0d18382a321b9e23980867fcde632bed61dbf155"
+        "path": "laurent_boundary/evidence/false_two_columns_affine.lean"
       },
       {
-        "path": "laurent_boundary/evidence/false_two_columns_affine.log",
-        "blob_sha": "5acb23e445324696152ed6efce04b5e9aa5e5260"
+        "path": "laurent_boundary/evidence/false_two_columns_affine.log"
       },
       {
-        "path": "laurent_boundary/evidence/provenance.json",
-        "blob_sha": "f6fa2122be02a2ceb252189690802cfe91243a8a"
+        "path": "laurent_boundary/evidence/provenance.json"
       },
       {
-        "path": "laurent_boundary/evidence/report.json",
-        "blob_sha": "c96e6bb4e0ff16bc0ccd8d0796c02e84a9f79b5d"
+        "path": "laurent_boundary/evidence/report.json"
       },
       {
-        "path": "laurent_boundary/reproduce.py",
-        "blob_sha": "46d4aa1bd631eeedc8951e568f55946bdc5be18c"
+        "path": "laurent_boundary/reproduce.py"
       },
       {
-        "path": "laurent_boundary/standalone_README.md",
-        "blob_sha": "95b2441866ba9c77781d60aa13a76e059270f536"
+        "path": "laurent_boundary/standalone_README.md"
       },
       {
-        "path": "lean-toolchain",
-        "blob_sha": "025e59548e48cf71f2744154e2890beefe30a258"
+        "path": "lean-toolchain"
       },
       {
-        "path": "moduli_transfer/ALL_SIZE_TRANSFER.md",
-        "blob_sha": "4bffd7d4fc310384b02e26783bdce79782fec457"
+        "path": "moduli_transfer/ALL_SIZE_TRANSFER.md"
       },
       {
-        "path": "moduli_transfer/README.md",
-        "blob_sha": "6cc5812abd2315bea143a3e6765fc5c66419bd78"
+        "path": "moduli_transfer/README.md"
       },
       {
-        "path": "moduli_transfer/report.json",
-        "blob_sha": "e7c9d06d310b59e04b0eef09178456a2b9963c2c"
+        "path": "moduli_transfer/report.json"
       },
       {
-        "path": "moduli_transfer/verify_moduli_transfer.py",
-        "blob_sha": "1435f179fac48bec06d0978d8ed1c284d66a767b"
+        "path": "moduli_transfer/verify_moduli_transfer.py"
       },
       {
-        "path": "offset_completion/README.md",
-        "blob_sha": "350e9810665c2d4d95a69b54f14e69d290ff96da"
+        "path": "offset_completion/README.md"
       },
       {
-        "path": "offset_completion/lean_verification.log",
-        "blob_sha": "bd0193fdbfd244faf081297f5e95ed2eeef78019"
+        "path": "offset_completion/lean_verification.log"
       },
       {
-        "path": "offset_completion/provenance.json",
-        "blob_sha": "1d0d08a2d871ccc6905b87b064b3466112ee86c0"
+        "path": "offset_completion/provenance.json"
       },
       {
-        "path": "offset_completion/report.json",
-        "blob_sha": "72f08587015ca20f9ad19c13368da4240ff8083f"
+        "path": "offset_completion/report.json"
       },
       {
-        "path": "scripts/build_offset_endpoint_supplement.py",
-        "blob_sha": "8f8fa0641202f4bae67ba680d0f574dd1d9bfdcd"
+        "path": "scripts/build_offset_endpoint_supplement.py"
       },
       {
-        "path": "scripts/source_revision.py",
-        "blob_sha": "da4da2541625f5d543f754f931685f89f120b859"
+        "path": "scripts/source_revision.py"
       },
       {
-        "path": "scripts/verify_endpoint.py",
-        "blob_sha": "f7dee5200bb13f6bb06c5f7d313cc820e505e579"
+        "path": "scripts/verify_endpoint.py"
       },
       {
-        "path": "scripts/verify_endpoint_progress.py",
-        "blob_sha": "d7df657d62f8953c0cbee360ebee49e4d8c5dd25"
+        "path": "scripts/verify_endpoint_progress.py"
       },
       {
-        "path": "scripts/verify_laurent_boundary.py",
-        "blob_sha": "353457b02aa329e13589a7b3d98c4e8fd91fe417"
+        "path": "scripts/verify_laurent_boundary.py"
       },
       {
-        "path": "scripts/verify_offset.py",
-        "blob_sha": "4d20e252e5559cc6cc1e1e6fe3d26c40e5eaa0dd"
+        "path": "scripts/verify_offset.py"
       },
       {
-        "path": "scripts/verify_offset_completion.py",
-        "blob_sha": "ce2ce710ef349a71bb54322e7dc59381a721f882"
+        "path": "scripts/verify_offset_completion.py"
       }
     ],
     "7": [
       {
-        "path": ".github/workflows/ci.yml",
-        "blob_sha": "9e77913a000ab0ecab8b1e1dce91ffadb51ea294"
+        "path": ".github/workflows/ci.yml"
       },
       {
-        "path": ".github/workflows/light.yml",
-        "blob_sha": "db7726054ca03c7fbcf96134495a871709e96122"
+        "path": ".github/workflows/light.yml"
       },
       {
-        "path": "LICENSE",
-        "blob_sha": "0e259d42c996742e9e3cba14c677129b2c1b6311"
+        "path": "LICENSE"
       },
       {
-        "path": "LIGHT_README.md",
-        "blob_sha": "a7ce4bd464d6a8c66662a63d5bd60abadf3f87e7"
+        "path": "LIGHT_README.md"
       },
       {
-        "path": "LightBridges.lean",
-        "blob_sha": "54e245553a3c9be88195c21abb7b188cc0c58ebf"
+        "path": "LightBridges.lean"
       },
       {
-        "path": "LightBridges/Algebra.lean",
-        "blob_sha": "1d60e22148b09a2dda8eb9833b5557041627274e"
+        "path": "LightBridges/Algebra.lean"
       },
       {
-        "path": "LightBridges/Boundary.lean",
-        "blob_sha": "d40734244cb0ef71f105d6eb49e9ae970e509754"
+        "path": "LightBridges/Boundary.lean"
       },
       {
-        "path": "LightBridges/Census.lean",
-        "blob_sha": "79b71913da83da787aeb249287473dd9f46103a1"
+        "path": "LightBridges/Census.lean"
       },
       {
-        "path": "LightBridges/Coherence.lean",
-        "blob_sha": "bd68578c1629bec35e9ff65eef64aeeae988d217"
+        "path": "LightBridges/Coherence.lean"
       },
       {
-        "path": "LightBridges/Examples.lean",
-        "blob_sha": "43d72fd46a7f037d2f45c2dd2ca0a5966093a2a9"
+        "path": "LightBridges/Examples.lean"
       },
       {
-        "path": "LightBridges/Gram.lean",
-        "blob_sha": "e78c10ea6fb539923e3d7df150dcba27bb737003"
+        "path": "LightBridges/Gram.lean"
       },
       {
-        "path": "LightBridges/Ledger.lean",
-        "blob_sha": "cef22b9159b72d9addd258828210b75432042369"
+        "path": "LightBridges/Ledger.lean"
       },
       {
-        "path": "LightBridges/ScalarOptics.lean",
-        "blob_sha": "b66756b3e8a075e19b7eab6cb61e1d91c8e35572"
+        "path": "LightBridges/ScalarOptics.lean"
       },
       {
-        "path": "LightCompletion.lean",
-        "blob_sha": "65a207492a95d0608828ec56b4e22250e3625e00"
+        "path": "LightCompletion.lean"
       },
       {
-        "path": "OperatorFirst.lean",
-        "blob_sha": "a623517c573c929033acadb3e6bd2f16751cd0aa"
+        "path": "OperatorFirst.lean"
       },
       {
-        "path": "OpticalMetric.lean",
-        "blob_sha": "7d44f8acb180a166e7054f537863578c73595e60"
+        "path": "OpticalMetric.lean"
       },
       {
-        "path": "README.md",
-        "blob_sha": "aac5f517c145a14f51c2cf56ba6e922be47112f4"
+        "path": "README.md"
       },
       {
-        "path": "Rigidity.lean",
-        "blob_sha": "bd7bffaf1864c1a1d2f6c4182c1cf413e54c6d08"
+        "path": "Rigidity.lean"
       },
       {
-        "path": "Warmup (1).lean",
-        "blob_sha": "a3d53de7bc52200023719a4323fb2e69ab9bb3a8"
+        "path": "Warmup (1).lean"
       },
       {
-        "path": "Warmup.lean",
-        "blob_sha": "a999debd50aa2a346457633c98873f7695ed7fd0"
+        "path": "Warmup.lean"
       },
       {
-        "path": "lakefile.toml",
-        "blob_sha": "0e365d2a72efea60c3f102f319a22feded2dbf4c"
+        "path": "lakefile.toml"
       },
       {
-        "path": "lean-toolchain",
-        "blob_sha": "025e59548e48cf71f2744154e2890beefe30a258"
+        "path": "lean-toolchain"
       },
       {
-        "path": "scripts/check_light_completion.py",
-        "blob_sha": "90a4052c5d15b2fb548515a7b26d94bb062f306a"
+        "path": "scripts/check_light_completion.py"
       },
       {
-        "path": "scripts/verify_light.py",
-        "blob_sha": "d8562f7e006d8964f6c761d25891b00d079aae9c"
+        "path": "scripts/verify_light.py"
       }
     ],
     "9": [
       {
-        "path": ".github/workflows/ci.yml",
-        "blob_sha": "9e77913a000ab0ecab8b1e1dce91ffadb51ea294"
+        "path": ".github/workflows/ci.yml"
       },
       {
-        "path": ".github/workflows/gravity.yml",
-        "blob_sha": "e4f47309a42dc8e5c5190099072e70cb6981f21a"
+        "path": ".github/workflows/gravity.yml"
       },
       {
-        "path": ".github/workflows/light.yml",
-        "blob_sha": "db7726054ca03c7fbcf96134495a871709e96122"
+        "path": ".github/workflows/light.yml"
       },
       {
-        "path": ".github/workflows/overlap.yml",
-        "blob_sha": "37986a994cc4733b9d14be5bea2e0aaba45a628a"
+        "path": ".github/workflows/overlap.yml"
       },
       {
-        "path": "GRAVITY_README.md",
-        "blob_sha": "17a028c1f2ba49a86d620924ace78dd8b228e42a"
+        "path": "GRAVITY_README.md"
       },
       {
-        "path": "Gravity.lean",
-        "blob_sha": "4736177f957b7d9249805bdbcd3fe605a4133928"
+        "path": "Gravity.lean"
       },
       {
-        "path": "GravityOverlap.lean",
-        "blob_sha": "4d1b098fc943b2882c95e20a84aef196476d1d96"
+        "path": "GravityOverlap.lean"
       },
       {
-        "path": "LICENSE",
-        "blob_sha": "0e259d42c996742e9e3cba14c677129b2c1b6311"
+        "path": "LICENSE"
       },
       {
-        "path": "LIGHT_README.md",
-        "blob_sha": "a7ce4bd464d6a8c66662a63d5bd60abadf3f87e7"
+        "path": "LIGHT_README.md"
       },
       {
-        "path": "LightBridges.lean",
-        "blob_sha": "54e245553a3c9be88195c21abb7b188cc0c58ebf"
+        "path": "LightBridges.lean"
       },
       {
-        "path": "LightBridges/Algebra.lean",
-        "blob_sha": "1d60e22148b09a2dda8eb9833b5557041627274e"
+        "path": "LightBridges/Algebra.lean"
       },
       {
-        "path": "LightBridges/Boundary.lean",
-        "blob_sha": "d40734244cb0ef71f105d6eb49e9ae970e509754"
+        "path": "LightBridges/Boundary.lean"
       },
       {
-        "path": "LightBridges/Census.lean",
-        "blob_sha": "79b71913da83da787aeb249287473dd9f46103a1"
+        "path": "LightBridges/Census.lean"
       },
       {
-        "path": "LightBridges/Coherence.lean",
-        "blob_sha": "bd68578c1629bec35e9ff65eef64aeeae988d217"
+        "path": "LightBridges/Coherence.lean"
       },
       {
-        "path": "LightBridges/Examples.lean",
-        "blob_sha": "43d72fd46a7f037d2f45c2dd2ca0a5966093a2a9"
+        "path": "LightBridges/Examples.lean"
       },
       {
-        "path": "LightBridges/Gram.lean",
-        "blob_sha": "e78c10ea6fb539923e3d7df150dcba27bb737003"
+        "path": "LightBridges/Gram.lean"
       },
       {
-        "path": "LightBridges/Ledger.lean",
-        "blob_sha": "cef22b9159b72d9addd258828210b75432042369"
+        "path": "LightBridges/Ledger.lean"
       },
       {
-        "path": "LightBridges/ScalarOptics.lean",
-        "blob_sha": "b66756b3e8a075e19b7eab6cb61e1d91c8e35572"
+        "path": "LightBridges/ScalarOptics.lean"
       },
       {
-        "path": "LightCompletion.lean",
-        "blob_sha": "65a207492a95d0608828ec56b4e22250e3625e00"
+        "path": "LightCompletion.lean"
       },
       {
-        "path": "OperatorFirst.lean",
-        "blob_sha": "a623517c573c929033acadb3e6bd2f16751cd0aa"
+        "path": "OperatorFirst.lean"
       },
       {
-        "path": "OpticalMetric.lean",
-        "blob_sha": "7d44f8acb180a166e7054f537863578c73595e60"
+        "path": "OpticalMetric.lean"
       },
       {
-        "path": "README.md",
-        "blob_sha": "aac5f517c145a14f51c2cf56ba6e922be47112f4"
+        "path": "README.md"
       },
       {
-        "path": "Rigidity.lean",
-        "blob_sha": "bd7bffaf1864c1a1d2f6c4182c1cf413e54c6d08"
+        "path": "Rigidity.lean"
       },
       {
-        "path": "Warmup (1).lean",
-        "blob_sha": "a3d53de7bc52200023719a4323fb2e69ab9bb3a8"
+        "path": "Warmup (1).lean"
       },
       {
-        "path": "Warmup.lean",
-        "blob_sha": "a999debd50aa2a346457633c98873f7695ed7fd0"
+        "path": "Warmup.lean"
       },
       {
-        "path": "check_examples.py",
-        "blob_sha": "e7b21021019f617cb66909f41c272c0e6e7becc5"
+        "path": "check_examples.py"
       },
       {
-        "path": "gravity/OVERLAP_BRIDGE.md",
-        "blob_sha": "cc992c8dd4f1becfb0fd30ae1b592c513dfbb3e6"
+        "path": "gravity/OVERLAP_BRIDGE.md"
       },
       {
-        "path": "gravity/gates/CLOCK-EXPONENT-01.py",
-        "blob_sha": "d77cc9ce50b0aa00340b11a9ec9d5942c2558be9"
+        "path": "gravity/gates/CLOCK-EXPONENT-01.py"
       },
       {
-        "path": "gravity/gates/CLOCK-WALL-01.py",
-        "blob_sha": "3d2f65ec5b1d948705743964b88607f57b293e94"
+        "path": "gravity/gates/CLOCK-WALL-01.py"
       },
       {
-        "path": "gravity/gates/FD-CONVERGE-01.py",
-        "blob_sha": "940436d2c9ca7ba85b9da24dd7acd4306fee4a56"
+        "path": "gravity/gates/FD-CONVERGE-01.py"
       },
       {
-        "path": "gravity/gates/GEOWALL-CONE-02.py",
-        "blob_sha": "9db1a4447430a9643d86d41702876f8f41b44d71"
+        "path": "gravity/gates/GEOWALL-CONE-02.py"
       },
       {
-        "path": "gravity/gates/GEOWALL-IMPORT-03.py",
-        "blob_sha": "e93643b0bcd6df9401f385eece833b72c4d7719c"
+        "path": "gravity/gates/GEOWALL-IMPORT-03.py"
       },
       {
-        "path": "gravity/gates/GEOWALL-LEDGER-02.py",
-        "blob_sha": "c84f72606bd7e4f55c4caa3788f0d26bd141d067"
+        "path": "gravity/gates/GEOWALL-LEDGER-02.py"
       },
       {
-        "path": "gravity/gates/GEOWALL-RECIP-01.py",
-        "blob_sha": "cd39b0ebc33c74caae99a1475f83e7a64874df9e"
+        "path": "gravity/gates/GEOWALL-RECIP-01.py"
       },
       {
-        "path": "gravity/gates/GEOWALL-ROT-01.py",
-        "blob_sha": "0fdfa428af95fc31b7c20c4f770bbc0e472c1459"
+        "path": "gravity/gates/GEOWALL-ROT-01.py"
       },
       {
-        "path": "gravity/gates/INERTIA-05.py",
-        "blob_sha": "61b2f7d4b6e1a29d7de2c8122c86c90cd293ea73"
+        "path": "gravity/gates/INERTIA-05.py"
       },
       {
-        "path": "gravity/gates/ISOSPEC-CHECK-01.py",
-        "blob_sha": "5b9394a7b54603735d8b5cad91e1c05e5ae6a363"
+        "path": "gravity/gates/ISOSPEC-CHECK-01.py"
       },
       {
-        "path": "gravity/gates/NULLITY-CHECK-01.py",
-        "blob_sha": "5db4399850b8090dde6c72b654fba56e2d2635f8"
+        "path": "gravity/gates/NULLITY-CHECK-01.py"
       },
       {
-        "path": "gravity/gates/PAIRING-SPLIT-01.py",
-        "blob_sha": "3c3242f51381173367b648cf4ba835883a281004"
+        "path": "gravity/gates/PAIRING-SPLIT-01.py"
       },
       {
-        "path": "gravity/gates/PAIRING-SPLIT-02.py",
-        "blob_sha": "d1aa40c679a5bb90c8abe338c17afcc568d6ea81"
+        "path": "gravity/gates/PAIRING-SPLIT-02.py"
       },
       {
-        "path": "gravity/gates/STRESS-CLASS-01.py",
-        "blob_sha": "8a447dee33dcd2a0520eb01ba1a340ebeb59dfc7"
+        "path": "gravity/gates/STRESS-CLASS-01.py"
       },
       {
-        "path": "gravity/gates/SUBGRAV-04.py",
-        "blob_sha": "7c282211f17a25014a948928b1c10b866d71d1db"
+        "path": "gravity/gates/SUBGRAV-04.py"
       },
       {
-        "path": "lakefile.toml",
-        "blob_sha": "65abca3e45e6ee384ee0f1638e72d5f6f6668b80"
+        "path": "lakefile.toml"
       },
       {
-        "path": "lean-toolchain",
-        "blob_sha": "025e59548e48cf71f2744154e2890beefe30a258"
+        "path": "lean-toolchain"
       },
       {
-        "path": "scripts/check_gravity.py",
-        "blob_sha": "1eae0db1beb515b5c548567e5d9bb5665411e750"
+        "path": "scripts/check_gravity.py"
       },
       {
-        "path": "scripts/check_light_completion.py",
-        "blob_sha": "90a4052c5d15b2fb548515a7b26d94bb062f306a"
+        "path": "scripts/check_light_completion.py"
       },
       {
-        "path": "scripts/gravity_requirements.txt",
-        "blob_sha": "78c2682d1fdc56a8767108e152b95ce1af0e464e"
+        "path": "scripts/gravity_requirements.txt"
       },
       {
-        "path": "scripts/verify_gravity.py",
-        "blob_sha": "9d8a324d1e3ea9a9ee8f3f1bff0b226db8fe0693"
+        "path": "scripts/verify_gravity.py"
       },
       {
-        "path": "scripts/verify_light.py",
-        "blob_sha": "d8562f7e006d8964f6c761d25891b00d079aae9c"
+        "path": "scripts/verify_light.py"
       },
       {
-        "path": "verify_overlap.py",
-        "blob_sha": "12fbbb3a7ea4935272835b30d2682cb087419d29"
+        "path": "verify_overlap.py"
       }
     ],
     "10": [
@@ -1452,6 +1113,15 @@
         "path": "atlas/CASCADE-FOUR-RECORDS.md"
       },
       {
+        "path": "atlas/DIO-SEARCH-LIMITS.md"
+      },
+      {
+        "path": "atlas/DIO-SECTION-INTEGRAL.md"
+      },
+      {
+        "path": "atlas/DIO-TRACE-BOUNDARY.md"
+      },
+      {
         "path": "atlas/GEO-OVERLAP.md"
       },
       {
@@ -1480,6 +1150,795 @@
       },
       {
         "path": "atlas/cards.json"
+      },
+      {
+        "path": "backups/2026-09-08/FILES.json"
+      },
+      {
+        "path": "backups/2026-09-08/PARTS.json"
+      },
+      {
+        "path": "backups/2026-09-08/README.md"
+      },
+      {
+        "path": "backups/2026-09-08/RESTORE_RESULT.json"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0000.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0001.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0002.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0003.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0004.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0005.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0006.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0007.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0008.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0009.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0010.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0011.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0012.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0013.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0014.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0015.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0016.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0017.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0018.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0019.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0020.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0021.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0022.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0023.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0024.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0025.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0026.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0027.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0028.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0029.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0030.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0031.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0032.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0033.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0034.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0035.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0036.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0037.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0038.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0039.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0040.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0041.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0042.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0043.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0044.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0045.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0046.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0047.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0048.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0049.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0050.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0051.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0052.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0053.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0054.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0055.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0056.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0057.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0058.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0059.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0060.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0061.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0062.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0063.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0064.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0065.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0066.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0067.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0068.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0069.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0070.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0071.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0072.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0073.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0074.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0075.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0076.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0077.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0078.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0079.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0080.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0081.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0082.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0083.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0084.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0085.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0086.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0087.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0088.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0089.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0090.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0091.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0092.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0093.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0094.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0095.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0096.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0097.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0098.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0099.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0100.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0101.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0102.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0103.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0104.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0105.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0106.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0107.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0108.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0109.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0110.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0111.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0112.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0113.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0114.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0115.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0116.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0117.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0118.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0119.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0120.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0121.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0122.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0123.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0124.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0125.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0126.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0127.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0128.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0129.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0130.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0131.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0132.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0133.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0134.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0135.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0136.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0137.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0138.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0139.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0140.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0141.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0142.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0143.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0144.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0145.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0146.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0147.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0148.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0149.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0150.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0151.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0152.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0153.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0154.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0155.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0156.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0157.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0158.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0159.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0160.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0161.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0162.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0163.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0164.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0165.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0166.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0167.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0168.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0169.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0170.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0171.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0172.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0173.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0174.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0175.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0176.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0177.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0178.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0179.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0180.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0181.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0182.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0183.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0184.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0185.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0186.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0187.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0188.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0189.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0190.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0191.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0192.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0193.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0194.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0195.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0196.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0197.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0198.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0199.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0200.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0201.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0202.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0203.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0204.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0205.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0206.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0207.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0208.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0209.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0210.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0211.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0212.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0213.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0214.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0215.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0216.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0217.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0218.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0219.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0220.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0221.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0222.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0223.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0224.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0225.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0226.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0227.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0228.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0229.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0230.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0231.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0232.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0233.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0234.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0235.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0236.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0237.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0238.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0239.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0240.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0241.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0242.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0243.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0244.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0245.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0246.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0247.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0248.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0249.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0250.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0251.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0252.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0253.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0254.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0255.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0256.bin"
+      },
+      {
+        "path": "backups/2026-09-08/parts/part-0257.bin"
+      },
+      {
+        "path": "backups/2026-09-08/restore_work.py"
       },
       {
         "path": "catalog/POLICY.md"
@@ -1512,6 +1971,9 @@
         "path": "papers/compound-eye/README.md"
       },
       {
+        "path": "papers/diophantine-eye/README.md"
+      },
+      {
         "path": "papers/earth-moon/README.md"
       },
       {
@@ -1536,10 +1998,22 @@
         "path": "papers/upg/README.md"
       },
       {
+        "path": "research/diophantine/Diophantine_Evolution.html"
+      },
+      {
+        "path": "research/diophantine/Findings.md"
+      },
+      {
+        "path": "research/diophantine/build_viewer.py"
+      },
+      {
         "path": "research/diophantine/diophantine_eyes.py"
       },
       {
         "path": "research/diophantine/evolution.json"
+      },
+      {
+        "path": "research/diophantine/evolution_figure.png"
       },
       {
         "path": "research/diophantine/exact_counts.py"
@@ -1554,7 +2028,13 @@
         "path": "research/diophantine/formal/lean-toolchain"
       },
       {
+        "path": "research/diophantine/formal_status.json"
+      },
+      {
         "path": "research/diophantine/large_integer_witnesses.json"
+      },
+      {
+        "path": "research/diophantine/lean_ci.log"
       },
       {
         "path": "research/diophantine/original/DIO-NAGAO-01.out"
@@ -1590,6 +2070,12 @@
         "path": "research/diophantine/pell_orbit.json"
       },
       {
+        "path": "research/diophantine/python_ci.log"
+      },
+      {
+        "path": "research/diophantine/release_counts.json"
+      },
+      {
         "path": "research/diophantine/replay/DIO-NAGAO-01.err"
       },
       {
@@ -1623,7 +2109,19 @@
         "path": "research/diophantine/section_certificate.json"
       },
       {
+        "path": "research/diophantine/sources.json"
+      },
+      {
+        "path": "research/diophantine/test_viewer.cjs"
+      },
+      {
+        "path": "research/diophantine/verification_summary.json"
+      },
+      {
         "path": "research/diophantine/verify_diophantine.py"
+      },
+      {
+        "path": "research/diophantine/viewer_template.html"
       },
       {
         "path": "research/upg/.gitignore"
@@ -1712,11 +2210,636 @@
       {
         "path": "scripts/validate_catalog.py"
       }
+    ],
+    "12": [
+      {
+        "path": ".github/workflows/ci.yml"
+      },
+      {
+        "path": ".github/workflows/upg-catalog.yml"
+      },
+      {
+        "path": "LICENSE"
+      },
+      {
+        "path": "OperatorFirst.lean"
+      },
+      {
+        "path": "README.md"
+      },
+      {
+        "path": "Warmup (1).lean"
+      },
+      {
+        "path": "Warmup.lean"
+      },
+      {
+        "path": "atlas/ALG-BOUNDARY-DEGREE.md"
+      },
+      {
+        "path": "atlas/ALG-FORCING-DUAL.md"
+      },
+      {
+        "path": "atlas/ALG-WEIGHTED-KERNEL.md"
+      },
+      {
+        "path": "atlas/CASCADE-FOUR-RECORDS.md"
+      },
+      {
+        "path": "atlas/GEO-OVERLAP.md"
+      },
+      {
+        "path": "atlas/GRAPH-SUBGRAPH-CAPACITY.md"
+      },
+      {
+        "path": "atlas/OBS-PROBE-SPAN.md"
+      },
+      {
+        "path": "atlas/OPT-TWO-FREQUENCY.md"
+      },
+      {
+        "path": "atlas/README.md"
+      },
+      {
+        "path": "atlas/UPG-CURRENCY-GUARDS.md"
+      },
+      {
+        "path": "atlas/UPG-FEEDBACK.md"
+      },
+      {
+        "path": "atlas/UPG-GAP-RANK.md"
+      },
+      {
+        "path": "atlas/UPG-GLUING-SIGN.md"
+      },
+      {
+        "path": "atlas/cards.json"
+      },
+      {
+        "path": "catalog/POLICY.md"
+      },
+      {
+        "path": "catalog/README.md"
+      },
+      {
+        "path": "catalog/ROADMAP.md"
+      },
+      {
+        "path": "catalog/papers.json"
+      },
+      {
+        "path": "catalog/source_snapshot.json"
+      },
+      {
+        "path": "lakefile.toml"
+      },
+      {
+        "path": "lean-toolchain"
+      },
+      {
+        "path": "papers/arithmetic-kakeya/README.md"
+      },
+      {
+        "path": "papers/cmf-transport/README.md"
+      },
+      {
+        "path": "papers/compound-eye/README.md"
+      },
+      {
+        "path": "papers/earth-moon/README.md"
+      },
+      {
+        "path": "papers/gravity/README.md"
+      },
+      {
+        "path": "papers/light/README.md"
+      },
+      {
+        "path": "papers/matter/README.md"
+      },
+      {
+        "path": "papers/offset/README.md"
+      },
+      {
+        "path": "papers/peeling-cascade/README.md"
+      },
+      {
+        "path": "papers/three-body/README.md"
+      },
+      {
+        "path": "papers/upg/README.md"
+      },
+      {
+        "path": "research/upg/.gitignore"
+      },
+      {
+        "path": "research/upg/README.md"
+      },
+      {
+        "path": "research/upg/UPG_Cascade_Integration.md"
+      },
+      {
+        "path": "research/upg/github_snapshot.json"
+      },
+      {
+        "path": "research/upg/input_manifest.json"
+      },
+      {
+        "path": "research/upg/integration_controls.png"
+      },
+      {
+        "path": "research/upg/logs/biaxial.txt"
+      },
+      {
+        "path": "research/upg/logs/conical_ray.txt"
+      },
+      {
+        "path": "research/upg/logs/dirac_spine_01.txt"
+      },
+      {
+        "path": "research/upg/logs/upg_gate_01.txt"
+      },
+      {
+        "path": "research/upg/logs/upg_gate_02.txt"
+      },
+      {
+        "path": "research/upg/logs/upg_nct_figs.txt"
+      },
+      {
+        "path": "research/upg/logs/upg_prove_01a.txt"
+      },
+      {
+        "path": "research/upg/logs/upg_prove_02.txt"
+      },
+      {
+        "path": "research/upg/make_figure.py"
+      },
+      {
+        "path": "research/upg/refresh_github.py"
+      },
+      {
+        "path": "research/upg/requirements.txt"
+      },
+      {
+        "path": "research/upg/source/dirac_spine_01.py"
+      },
+      {
+        "path": "research/upg/source/upg_gate_01.py"
+      },
+      {
+        "path": "research/upg/source/upg_gate_02.py"
+      },
+      {
+        "path": "research/upg/source/upg_nct_figs.py"
+      },
+      {
+        "path": "research/upg/source/upg_prove_01a.py"
+      },
+      {
+        "path": "research/upg/source/upg_prove_02.py"
+      },
+      {
+        "path": "research/upg/source_runs.json"
+      },
+      {
+        "path": "research/upg/upg_eyes.py"
+      },
+      {
+        "path": "research/upg/verification.json"
+      },
+      {
+        "path": "research/upg/verify_upg.py"
+      },
+      {
+        "path": "scripts/build_catalog.py"
+      },
+      {
+        "path": "scripts/validate_catalog.py"
+      }
+    ],
+    "8": [
+      {
+        "path": ".github/workflows/ci.yml"
+      },
+      {
+        "path": ".github/workflows/gravity.yml"
+      },
+      {
+        "path": ".github/workflows/light.yml"
+      },
+      {
+        "path": "GRAVITY_README.md"
+      },
+      {
+        "path": "Gravity.lean"
+      },
+      {
+        "path": "LICENSE"
+      },
+      {
+        "path": "LIGHT_README.md"
+      },
+      {
+        "path": "LightBridges.lean"
+      },
+      {
+        "path": "LightBridges/Algebra.lean"
+      },
+      {
+        "path": "LightBridges/Boundary.lean"
+      },
+      {
+        "path": "LightBridges/Census.lean"
+      },
+      {
+        "path": "LightBridges/Coherence.lean"
+      },
+      {
+        "path": "LightBridges/Examples.lean"
+      },
+      {
+        "path": "LightBridges/Gram.lean"
+      },
+      {
+        "path": "LightBridges/Ledger.lean"
+      },
+      {
+        "path": "LightBridges/ScalarOptics.lean"
+      },
+      {
+        "path": "LightCompletion.lean"
+      },
+      {
+        "path": "OperatorFirst.lean"
+      },
+      {
+        "path": "OpticalMetric.lean"
+      },
+      {
+        "path": "README.md"
+      },
+      {
+        "path": "Rigidity.lean"
+      },
+      {
+        "path": "Warmup (1).lean"
+      },
+      {
+        "path": "Warmup.lean"
+      },
+      {
+        "path": "gravity/gates/CLOCK-EXPONENT-01.py"
+      },
+      {
+        "path": "gravity/gates/CLOCK-WALL-01.py"
+      },
+      {
+        "path": "gravity/gates/FD-CONVERGE-01.py"
+      },
+      {
+        "path": "gravity/gates/GEOWALL-CONE-02.py"
+      },
+      {
+        "path": "gravity/gates/GEOWALL-IMPORT-03.py"
+      },
+      {
+        "path": "gravity/gates/GEOWALL-LEDGER-02.py"
+      },
+      {
+        "path": "gravity/gates/GEOWALL-RECIP-01.py"
+      },
+      {
+        "path": "gravity/gates/GEOWALL-ROT-01.py"
+      },
+      {
+        "path": "gravity/gates/INERTIA-05.py"
+      },
+      {
+        "path": "gravity/gates/ISOSPEC-CHECK-01.py"
+      },
+      {
+        "path": "gravity/gates/NULLITY-CHECK-01.py"
+      },
+      {
+        "path": "gravity/gates/PAIRING-SPLIT-01.py"
+      },
+      {
+        "path": "gravity/gates/PAIRING-SPLIT-02.py"
+      },
+      {
+        "path": "gravity/gates/STRESS-CLASS-01.py"
+      },
+      {
+        "path": "gravity/gates/SUBGRAV-04.py"
+      },
+      {
+        "path": "lakefile.toml"
+      },
+      {
+        "path": "lean-toolchain"
+      },
+      {
+        "path": "scripts/check_gravity.py"
+      },
+      {
+        "path": "scripts/check_light_completion.py"
+      },
+      {
+        "path": "scripts/gravity_requirements.txt"
+      },
+      {
+        "path": "scripts/verify_gravity.py"
+      },
+      {
+        "path": "scripts/verify_light.py"
+      }
+    ],
+    "5": [
+      {
+        "path": ".github/workflows/ci.yml"
+      },
+      {
+        "path": ".github/workflows/endpoint.yml"
+      },
+      {
+        "path": "ENDPOINT_SCOPE.md"
+      },
+      {
+        "path": "LICENSE"
+      },
+      {
+        "path": "OperatorFirst.lean"
+      },
+      {
+        "path": "OperatorFirst/Offset.lean"
+      },
+      {
+        "path": "OperatorFirst/OffsetEndpoint.lean"
+      },
+      {
+        "path": "OperatorFirst/OffsetFock.lean"
+      },
+      {
+        "path": "README.md"
+      },
+      {
+        "path": "Warmup (1).lean"
+      },
+      {
+        "path": "Warmup.lean"
+      },
+      {
+        "path": "lakefile.toml"
+      },
+      {
+        "path": "lean-toolchain"
+      },
+      {
+        "path": "scripts/verify_endpoint.py"
+      },
+      {
+        "path": "scripts/verify_offset.py"
+      }
+    ],
+    "3": [
+      {
+        "path": ".github/workflows/ci.yml"
+      },
+      {
+        "path": ".github/workflows/mixed-core.yml"
+      },
+      {
+        "path": ".github/workflows/mixed-intake.yml"
+      },
+      {
+        "path": ".github/workflows/mixed-review.yml"
+      },
+      {
+        "path": "LICENSE"
+      },
+      {
+        "path": "MixedIntake/AK_original.lean"
+      },
+      {
+        "path": "MixedIntake/FCS_original.lean"
+      },
+      {
+        "path": "MixedIntake/Review.lean"
+      },
+      {
+        "path": "OperatorFirst.lean"
+      },
+      {
+        "path": "OperatorFirst/MixedAudit.lean"
+      },
+      {
+        "path": "OperatorFirst/Offset.lean"
+      },
+      {
+        "path": "OperatorFirst/OffsetFock.lean"
+      },
+      {
+        "path": "README.md"
+      },
+      {
+        "path": "Warmup (1).lean"
+      },
+      {
+        "path": "Warmup.lean"
+      },
+      {
+        "path": "lakefile.toml"
+      },
+      {
+        "path": "lean-toolchain"
+      },
+      {
+        "path": "scripts/verify_mixed.py"
+      },
+      {
+        "path": "scripts/verify_offset.py"
+      }
+    ],
+    "2": [
+      {
+        "path": ".github/workflows/ci.yml"
+      },
+      {
+        "path": "LICENSE"
+      },
+      {
+        "path": "OperatorFirst.lean"
+      },
+      {
+        "path": "OperatorFirst/Offset.lean"
+      },
+      {
+        "path": "OperatorFirst/OffsetFock.lean"
+      },
+      {
+        "path": "README.md"
+      },
+      {
+        "path": "Warmup (1).lean"
+      },
+      {
+        "path": "Warmup.lean"
+      },
+      {
+        "path": "lakefile.toml"
+      },
+      {
+        "path": "lean-toolchain"
+      },
+      {
+        "path": "scripts/verify_offset.py"
+      }
+    ],
+    "1": [
+      {
+        "path": ".github/workflows/ci.yml"
+      },
+      {
+        "path": "LICENSE"
+      },
+      {
+        "path": "OperatorFirst.lean"
+      },
+      {
+        "path": "README.md"
+      },
+      {
+        "path": "Warmup (1).lean"
+      },
+      {
+        "path": "Warmup.lean"
+      },
+      {
+        "path": "lakefile.toml"
+      },
+      {
+        "path": "lean-toolchain"
+      }
     ]
   },
   "cmf": {
     "repository": "dicipler-pixel/ramanujan-normality-diagnostic",
     "sha": "ffdf81020df43081f12a8ef0038b2c83203dffbf"
   },
-  "retrieved_at_utc": "2026-09-07T23:01:58.297094+00:00"
+  "retrieved_at_utc": "2026-09-08T02:18:52.331Z",
+  "scope": "Pre-integration GitHub source snapshot. Historical successful runs remain pinned; integration verification is recorded separately.",
+  "branches": [
+    {
+      "commit": {
+        "sha": "e055123f8e4b9fa23452197a32634b25a7e8a455",
+        "url": "https://api.github.com/repos/dicipler-pixel/operator-first/commits/e055123f8e4b9fa23452197a32634b25a7e8a455"
+      },
+      "name": "backup/compound-eye-diophantine-20260907",
+      "protected": false
+    },
+    {
+      "commit": {
+        "sha": "3fd7d5efb7a4e20c790d905c2a3e5a21bfb290ec",
+        "url": "https://api.github.com/repos/dicipler-pixel/operator-first/commits/3fd7d5efb7a4e20c790d905c2a3e5a21bfb290ec"
+      },
+      "name": "catalog/paper-atlas-register",
+      "protected": false
+    },
+    {
+      "commit": {
+        "sha": "b99a58256f2ecaa7d3523080d310cc04cf24aa28",
+        "url": "https://api.github.com/repos/dicipler-pixel/operator-first/commits/b99a58256f2ecaa7d3523080d310cc04cf24aa28"
+      },
+      "name": "catalog/upg-cascade-sync-20260907",
+      "protected": false
+    },
+    {
+      "commit": {
+        "sha": "4675da5baf7ca4d35d57fae1004fe63466a31b5b",
+        "url": "https://api.github.com/repos/dicipler-pixel/operator-first/commits/4675da5baf7ca4d35d57fae1004fe63466a31b5b"
+      },
+      "name": "formal/peel-constitutive-20260907",
+      "protected": false
+    },
+    {
+      "commit": {
+        "sha": "63c11a656ea78097d1cd61a0994cb9baa0e3bc8e",
+        "url": "https://api.github.com/repos/dicipler-pixel/operator-first/commits/63c11a656ea78097d1cd61a0994cb9baa0e3bc8e"
+      },
+      "name": "gravity/c1-overlap-bridge",
+      "protected": false
+    },
+    {
+      "commit": {
+        "sha": "2ded71b0e7a73e4df994faff2694beacbf8ffff4",
+        "url": "https://api.github.com/repos/dicipler-pixel/operator-first/commits/2ded71b0e7a73e4df994faff2694beacbf8ffff4"
+      },
+      "name": "gravity/finite-projector-proof-audit",
+      "protected": false
+    },
+    {
+      "commit": {
+        "sha": "032ec75a360fa55caa83c687d2038558103a36fb",
+        "url": "https://api.github.com/repos/dicipler-pixel/operator-first/commits/032ec75a360fa55caa83c687d2038558103a36fb"
+      },
+      "name": "main",
+      "protected": false
+    },
+    {
+      "commit": {
+        "sha": "9bbc220aabf9d0b2afbfd2630a84cb971b7b7390",
+        "url": "https://api.github.com/repos/dicipler-pixel/operator-first/commits/9bbc220aabf9d0b2afbfd2630a84cb971b7b7390"
+      },
+      "name": "proof-check/ci-repair-2026-09-05",
+      "protected": false
+    },
+    {
+      "commit": {
+        "sha": "41fbf3b9e6ad8143d597928e477a9d94adb6d6d6",
+        "url": "https://api.github.com/repos/dicipler-pixel/operator-first/commits/41fbf3b9e6ad8143d597928e477a9d94adb6d6d6"
+      },
+      "name": "proof-check/earth-moon-kakeya-extension-2026-09-05",
+      "protected": false
+    },
+    {
+      "commit": {
+        "sha": "10efd332626e1f861fc74082b7f67dd135712e5e",
+        "url": "https://api.github.com/repos/dicipler-pixel/operator-first/commits/10efd332626e1f861fc74082b7f67dd135712e5e"
+      },
+      "name": "proof-check/endpoint-scalar-progress-2026-09-06",
+      "protected": false
+    },
+    {
+      "commit": {
+        "sha": "41d9523a53ad679d2240e5e40ed07a7ea0cc2bac",
+        "url": "https://api.github.com/repos/dicipler-pixel/operator-first/commits/41d9523a53ad679d2240e5e40ed07a7ea0cc2bac"
+      },
+      "name": "proof-check/light-ledger-2026-09-06",
+      "protected": false
+    },
+    {
+      "commit": {
+        "sha": "1619b042f2e39434d9b8d64949bd080d2090867b",
+        "url": "https://api.github.com/repos/dicipler-pixel/operator-first/commits/1619b042f2e39434d9b8d64949bd080d2090867b"
+      },
+      "name": "proof-check/mixed-intake-2026-09-05",
+      "protected": false
+    },
+    {
+      "commit": {
+        "sha": "92a95a427ddf4e9a8c3216aab4af2a65730a050f",
+        "url": "https://api.github.com/repos/dicipler-pixel/operator-first/commits/92a95a427ddf4e9a8c3216aab4af2a65730a050f"
+      },
+      "name": "proof-check/offset-core-2026-09-05",
+      "protected": false
+    },
+    {
+      "commit": {
+        "sha": "7818a3c4ac8750a2ce676cfc5534fddd87c94854",
+        "url": "https://api.github.com/repos/dicipler-pixel/operator-first/commits/7818a3c4ac8750a2ce676cfc5534fddd87c94854"
+      },
+      "name": "proof-check/offset-endpoint-2026-09-05",
+      "protected": false
+    }
+  ]
 }

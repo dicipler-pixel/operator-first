@@ -1,0 +1,50 @@
+COMPLETE-COMPLEX-BRIDGE-01
+Exact integers for all gauge costs. Float residuals only for spectral checks.
+
+1. ORIGINAL APPENDIX A WITNESSES, ALL ROOT-FIXED S3 GAUGES
+k=4: N=8, D=6, ratio=4/3, gauges=216
+k=5: N=10, D=6, ratio=5/3, gauges=1296
+k=6: N=36, D=18, ratio=2, gauges=7776
+k=7: N=28, D=12, ratio=7/3, gauges=46656
+k=8: N=72, D=27, ratio=8/3, gauges=279936
+K4 complete cost histogram: {6: 4, 7: 12, 9: 24, 10: 18, 12: 75, 13: 36, 15: 32, 16: 15}
+
+2. BALANCED LIFT: ALL POWERS OF TWO AND EVERY MULTIPLE OF FOUR
+k=4: support=3, N=8, D(theorem)=6, D(exhaustive)=6, ratio=4/3
+k=8: support=12, N=64, D(theorem)=24, D(exhaustive)=24, ratio=8/3
+k=12: support=27, N=216, D(theorem)=54, D(exhaustive)=None, ratio=4
+k=16: support=48, N=512, D(theorem)=96, D(exhaustive)=None, ratio=16/3
+k=32: support=192, N=4096, D(theorem)=384, D(exhaustive)=None, ratio=32/3
+k=64: support=768, N=32768, D(theorem)=1536, D(exhaustive)=None, ratio=64/3
+
+3. OPTIONAL DIFFERENT-DEGREE BASE AUDIT: HAMMING WITH ERRORS
+comparison degree=2, minimum edge-distance sum=10/3, root-fixed gauges=8
+comparison degree=3, minimum edge-distance sum=2, root-fixed gauges=216
+comparison degree=4, minimum edge-distance sum=3, root-fixed gauges=13824
+Degrees n>=5: elementary baseline is 6*(1-3/n)>=12/5>2.
+
+4. SIGN RETRACTION S3 -> {ID, FIXED TRANSPOSITION}
+All 36 group-pair checks: homomorphism and nonexpansion pass.
+
+5. GRAM / GRAPH-PROJECTOR / HAMMING / CAYLEY IDENTITIES
+57 permutations, n=2..20, three per size.
+max Gram=0.000e+00; graph=6.316e-16; Hamming=5.551e-16; Cayley=5.044e-14
+
+6. ENTROPY NEGATIVE CONTROL AND FIXED-SCALE REPAIR
+cycle=2: S(max-normalized)=0.000000000000, S(G/2)=0.000000000000, S(G/2)/ell=0.000000000000
+cycle=3: S(max-normalized)=0.000000000000, S(G/2)=1.124670289238, S(G/2)/ell=0.374890096413
+cycle=4: S(max-normalized)=1.386294361120, S(G/2)=1.386294361120, S(G/2)/ell=0.346573590280
+cycle=5: S(max-normalized)=1.330036772888, S(G/2)=1.919346525322, S(G/2)/ell=0.383869305064
+cycle=6: S(max-normalized)=2.249340578475, S(G/2)=2.249340578475, S(G/2)/ell=0.374890096413
+cycle=8: S(max-normalized)=3.052276483919, S(G/2)=3.052276483919, S(G/2)/ell=0.381534560490
+cycle=16: S(max-normalized)=6.171286943166, S(G/2)=6.171286943166, S(G/2)/ell=0.385705433948
+cycle=64: S(max-normalized)=24.722252046185, S(G/2)=24.722252046185, S(G/2)/ell=0.386285188222
+Long-cycle limit: 0.3862943611198906
+
+7. ISOSPECTRAL PERMUTATION DEFECTS, DIFFERENT FIXED-PROBE RESPONSE
+Both Gram characteristic polynomials: lambda**4 - 4*lambda**3 + 4*lambda**2
+det(I+Ga)=9, det(I+Gb)=9, identical scalar logdet
+probe responses Ma=1, Mb=2/3; dimensionless Smith values=0, 1/5
+Rank-one determinant perturbation identity checked exactly for both probes.
+
+PASS: all specified checks. No large-k gauge enumeration or Lean certification claimed.

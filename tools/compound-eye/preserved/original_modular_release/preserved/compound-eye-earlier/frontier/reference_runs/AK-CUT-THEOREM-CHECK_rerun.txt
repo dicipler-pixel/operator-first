@@ -1,0 +1,11 @@
+Checking the cut-rank theorem on every object we have that forces completely.
+
+  AK(2) single vertex    forced 1/1   cut ranks along the cascade: [2]   violations: 0
+  path-2                 forced 2/2   cut ranks along the cascade: [2, 2]   violations: 0
+
+NEGATIVE CONTROL -- a rank-1 cut must never force.
+  all labels (1,0): forced 0/2  (theorem predicts 0)  PASS
+
+LAST-VERTEX COROLLARY: when U={e}, the cut is exactly e's incident edges.
+  => the final vertex needs two independent directions on its OWN edges/generators.
+  total violations across all runs: 0

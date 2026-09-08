@@ -5,7 +5,7 @@ Audit of the supplied nine-equation sweep; reconstructed rational section, integ
 ## Source locations
 
 - [PR #13 audit and complete backup](https://github.com/dicipler-pixel/operator-first/pull/13)
-- [Seven algebraic certificates (verified source)](https://github.com/dicipler-pixel/operator-first/blob/e5d870b421a394cf49858f59b9bd5ec5b0ef2956/research/diophantine/formal/Certificates.lean)
+- [Seven algebraic certificates (verified source)](https://github.com/dicipler-pixel/operator-first/blob/e055123f8e4b9fa23452197a32634b25a7e8a455/research/diophantine/formal/Certificates.lean)
 
 ## Reusable results
 
@@ -15,7 +15,7 @@ Audit of the supplied nine-equation sweep; reconstructed rational section, integ
 
 ## Next step
 
-Search explicit integral escape routes on the six unresolved surfaces; retain solved equations as positive controls.
+Seek three exact triples with distinct x and |x|>10^50 for an unresolved equation; a proof of infinitely many is a stronger separate target.
 
 ## Release policy
 
