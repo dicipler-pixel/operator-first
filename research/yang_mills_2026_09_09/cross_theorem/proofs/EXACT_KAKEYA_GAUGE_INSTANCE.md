@@ -42,7 +42,7 @@ Then b-y1 M A vanishes in coordinate0. Since the non-vacuum block of M is
 positive definite, exact rational elimination solves y0 M=b-y1 M A with
 (y0)_0=0. The independent code checks the final row identity from scratch and
 rejects a deliberately corrupted entry. Across dimensions7,11,15,45,95 this
-checks171 scalar equalities and five corrupted-certificate controls.
+checks173 scalar equalities and five corrupted-certificate controls.
 
 ## Relation to the observability eye
 
@@ -65,6 +65,8 @@ eigenvalue control still applies.
 
 The general dual theorem has its earlier pinned Lean source. Its five new gauge
 instances are exact Python rational calculations and a new native observer;
-there is no new Lean compilation of the171 numerical identities. The separate
+there is no new Lean compilation of the173 numerical identities. The separate
 12-declaration closing-step Lean module has its own, narrower verification
 record. Neither gives a continuum gap by itself.
+
+Correction record: an earlier prose count said171; the actual dimensions sum to173. The executable matrices, row identities, and stored results have not changed.
