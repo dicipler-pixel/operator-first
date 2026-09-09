@@ -56,27 +56,41 @@ def outerL : Matrix (Fin 7) (Fin 7) ℚ :=
 def outerD : Fin 7 → ℚ := ![-4, (361/384), (10619/17328), (272729/293888), (20316145/34909312), (13703459/4113216), (408246943/123331131)]
 
 theorem inner_factorization :
-    innerK = (innerL * Matrix.diagonal innerD) * innerL.transpose := by decide
+    innerK = (innerL * Matrix.diagonal innerD) * innerL.transpose := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    norm_num [innerK, innerL, innerD, Matrix.mul_apply, Matrix.diagonal_apply,
+      Matrix.transpose_apply, Fin.sum_univ_succ]
 
-theorem inner_unit_diagonal : ∀ i : Fin 10, innerL i i = 1 := by decide
+theorem inner_unit_diagonal : ∀ i : Fin 10, innerL i i = 1 := by
+  intro i; fin_cases i <;> norm_num [innerL]
 
 theorem inner_lower_triangular :
-    ∀ i j : Fin 10, i < j → innerL i j = 0 := by decide
+    ∀ i j : Fin 10, i < j → innerL i j = 0 := by
+  intro i j; fin_cases i <;> fin_cases j <;> norm_num [innerL]
 
-theorem inner_pivots_positive : ∀ i : Fin 10, 0 < innerD i := by decide
+theorem inner_pivots_positive : ∀ i : Fin 10, 0 < innerD i := by
+  intro i; fin_cases i <;> norm_num [innerD]
 
 theorem outer_factorization :
-    outerK = (outerL * Matrix.diagonal outerD) * outerL.transpose := by decide
+    outerK = (outerL * Matrix.diagonal outerD) * outerL.transpose := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    norm_num [outerK, outerL, outerD, Matrix.mul_apply, Matrix.diagonal_apply,
+      Matrix.transpose_apply, Fin.sum_univ_succ]
 
-theorem outer_unit_diagonal : ∀ i : Fin 7, outerL i i = 1 := by decide
+theorem outer_unit_diagonal : ∀ i : Fin 7, outerL i i = 1 := by
+  intro i; fin_cases i <;> norm_num [outerL]
 
 theorem outer_lower_triangular :
-    ∀ i j : Fin 7, i < j → outerL i j = 0 := by decide
+    ∀ i j : Fin 7, i < j → outerL i j = 0 := by
+  intro i j; fin_cases i <;> fin_cases j <;> norm_num [outerL]
 
-theorem outer_first_negative : outerD 0 < 0 := by decide
+theorem outer_first_negative : outerD 0 < 0 := by norm_num [outerD]
 
 theorem outer_other_pivots_positive :
-    ∀ i : Fin 6, 0 < outerD i.succ := by decide
+    ∀ i : Fin 6, 0 < outerD i.succ := by
+  intro i; fin_cases i <;> norm_num [outerD]
 
 theorem allocated_local_casimir :
     (7/2 : ℚ) * (1 - 17/20) = 21/40 := by norm_num
