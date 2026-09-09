@@ -1,0 +1,38 @@
+name: Yang Mills native whole eye reproduction
+on:
+  push:
+    branches: [research/yang-mills-2026-09-09]
+    paths: ['.github/workflows/yang-mills-native-whole-eye.yml', 'research/yang_mills_2026_09_09/cross_theorem/native/recheck.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          sparse-checkout: research/yang_mills_2026_09_09
+          filter: blob:none
+      - name: Rebuild original-link matrices and run all 18 applicable outputs
+        working-directory: research/yang_mills_2026_09_09
+        run: python3 -S cross_theorem/native/recheck.py --out whole_eye_evidence
+      - name: Preserve the exact tested sources, proofs, and results
+        if: always()
+        working-directory: research/yang_mills_2026_09_09
+        run: |
+          mkdir -p whole_eye_evidence/tested_source
+          cp -r cross_theorem scripts proofs whole_eye_evidence/tested_source/
+          git rev-parse HEAD > whole_eye_evidence/COMMIT.txt
+          python3 - <<'PY'
+          import pathlib,hashlib,json
+          r=pathlib.Path('whole_eye_evidence')
+          (r/'SHA256.json').write_text(json.dumps({str(p.relative_to(r)):hashlib.sha256(p.read_bytes()).hexdigest() for p in r.rglob('*') if p.is_file()},indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: yang-mills-native-whole-eye
+          path: research/yang_mills_2026_09_09/whole_eye_evidence/
