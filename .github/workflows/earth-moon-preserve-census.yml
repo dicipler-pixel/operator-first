@@ -1,0 +1,118 @@
+name: Earth Moon preserved census and continuation
+on:
+  push:
+    branches: [research/earth-moon-2026-09-09]
+    paths: ['.github/workflows/earth-moon-preserve-census.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-and-prior-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: 6e84239b8093c76c7d122ec72ede473d46162260
+          persist-credentials: false
+          sparse-checkout: research/earth_moon_2026_09_09
+          filter: blob:none
+      - name: Preserve exact source, available earlier artifacts and offline solver wheel
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p preserved/wheels preserved/prior_artifacts
+          cp -r research/earth_moon_2026_09_09 preserved/source
+          python3 -m pip download --dest preserved/wheels --only-binary=:all: --no-deps --python-version 313 --abi cp313 --platform manylinux_2_28_x86_64 'python-sat==1.9.dev15'
+          python3 - <<'PY'
+          import urllib.request,urllib.parse,os,pathlib,json,hashlib
+          root=pathlib.Path('preserved');api='https://api.github.com/repos/dicipler-pixel/operator-first/'
+          headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'}
+          def request(path):return urllib.request.urlopen(urllib.request.Request(api+path,headers=headers),timeout=90)
+          def get(path):
+              with request(path) as r:return json.load(r)
+          query=urllib.parse.urlencode({'branch':'research/earth-moon-2026-09-09','per_page':60})
+          runs=get('actions/runs?'+query)
+          (root/'previous_runs.json').write_text(json.dumps(runs,indent=2)+'\n')
+          records=[]
+          for run in runs['workflow_runs']:
+              if run['name']!='Earth Moon September 9 fixed-layer certificates':continue
+              artifacts=get('actions/runs/'+str(run['id'])+'/artifacts')['artifacts']
+              for a in artifacts:
+                  rec={'run_id':run['id'],'run_status':run['status'],'run_conclusion':run['conclusion'],**a}
+                  if a['expired'] or a['size_in_bytes']>100000000:
+                      rec['download_status']='SKIPPED_EXPIRED_OR_SIZE'
+                  else:
+                      with request('actions/artifacts/'+str(a['id'])+'/zip') as r:body=r.read()
+                      p=root/'prior_artifacts'/(str(a['id'])+'_'+a['name']+'.zip');p.write_bytes(body)
+                      rec['download_status']='DOWNLOADED';rec['sha256']=hashlib.sha256(body).hexdigest()
+                  records.append(rec)
+          (root/'PRIOR_ARTIFACTS.json').write_text(json.dumps(records,indent=2)+'\n')
+          (root/'SHA256.json').write_text(json.dumps({str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in root.rglob('*') if p.is_file()},indent=2)+'\n')
+          print('Preserved',len(records),'prior artifact records')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: earth-moon-source-and-prior-evidence
+          path: preserved/
+          compression-level: 9
+  census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        threshold: [72, 71]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: 6e84239b8093c76c7d122ec72ede473d46162260
+          persist-credentials: false
+          sparse-checkout: research/earth_moon_2026_09_09
+          filter: blob:none
+      - name: Install pinned packages
+        run: python3 -m pip install 'python-sat==1.9.dev15' 'networkx==3.5'
+      - name: Reproduce complete threshold census or explicitly preserve a survivor
+        working-directory: research/earth_moon_2026_09_09
+        env:
+          THRESHOLD: ${{ matrix.threshold }}
+        run: |
+          mkdir -p evidence
+          g++ -O3 -std=c++17 scripts/rup_check.cpp -o scripts/rup_check
+          python3 scripts/c5_biplanar_certificate.py --edges "$THRESHOLD" --seconds 900 --out evidence/census > evidence/census.log 2>&1
+          python3 - <<'PY'
+          import pathlib,json,subprocess,sys,hashlib,platform,os
+          import pysat,networkx
+          root=pathlib.Path('.').resolve();ev=root/'evidence';r=json.loads((ev/'census/report.json').read_text())
+          print('CENSUS:',r['status'],r['cases_processed'],'/',r['cases_total'])
+          if r['status']=='UNSAT_ALL_CASES':
+              with (ev/'audit.log').open('w') as f:p=subprocess.run([sys.executable,'scripts/audit_c5_certificate.py',str(ev/'census'),'--out',str(ev/'semantic_audit'),'--rup',str(root/'scripts/rup_check')],stdout=f,stderr=subprocess.STDOUT,timeout=720)
+              assert p.returncode==0,'Independent semantic audit failed'
+          elif r['status']=='SURVIVING_NECESSARY_GRAPH':
+              print('Necessary-condition survivor only; planarity partition not yet established')
+          else:
+              print('The finite time budget did not close this domain; status remains UNKNOWN')
+          (ev/'versions.json').write_text(json.dumps({'python':platform.python_version(),'pysat':pysat.__version__,'networkx':networkx.__version__,'source_commit':'6e84239b8093c76c7d122ec72ede473d46162260','threshold':int(os.environ['THRESHOLD'])},indent=2)+'\n')
+          (ev/'SHA256.json').write_text(json.dumps({str(p.relative_to(ev)):hashlib.sha256(p.read_bytes()).hexdigest() for p in ev.rglob('*') if p.is_file()},indent=2)+'\n')
+          PY
+      - name: Archive all formulas and Boolean proof logs
+        if: always()
+        working-directory: research/earth_moon_2026_09_09
+        env:
+          THRESHOLD: ${{ matrix.threshold }}
+        run: |
+          mkdir -p packed
+          tar -czf "packed/c5_threshold_${THRESHOLD}_full_evidence.tar.gz" evidence
+          sha256sum packed/* > packed/SHA256SUMS.txt
+          cp evidence/census/report.json packed/CENSUS_REPORT.json || true
+          cp evidence/semantic_audit/AUDIT.json packed/SEMANTIC_AUDIT.json || true
+          cp evidence/census.log packed/CENSUS.log || true
+          cp evidence/audit.log packed/AUDIT.log || true
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: earth-moon-c5-threshold-${{ matrix.threshold }}
+          path: research/earth_moon_2026_09_09/packed/
+          compression-level: 0
