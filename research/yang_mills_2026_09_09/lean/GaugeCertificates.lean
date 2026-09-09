@@ -60,7 +60,7 @@ theorem inner_factorization :
   ext i j
   fin_cases i <;> fin_cases j <;>
     norm_num [innerK, innerL, innerD, Matrix.mul_apply, Matrix.diagonal_apply,
-      Matrix.transpose_apply, Fin.sum_univ_succ]
+      Matrix.transpose_apply, Matrix.vecMul_diagonal, Matrix.cons_val_two, Fin.sum_univ_succ]
 
 theorem inner_unit_diagonal : ∀ i : Fin 10, innerL i i = 1 := by
   intro i; fin_cases i <;> norm_num [innerL]
@@ -77,7 +77,7 @@ theorem outer_factorization :
   ext i j
   fin_cases i <;> fin_cases j <;>
     norm_num [outerK, outerL, outerD, Matrix.mul_apply, Matrix.diagonal_apply,
-      Matrix.transpose_apply, Fin.sum_univ_succ]
+      Matrix.transpose_apply, Matrix.vecMul_diagonal, Matrix.cons_val_two, Fin.sum_univ_succ]
 
 theorem outer_unit_diagonal : ∀ i : Fin 7, outerL i i = 1 := by
   intro i; fin_cases i <;> norm_num [outerL]
@@ -90,7 +90,7 @@ theorem outer_first_negative : outerD 0 < 0 := by norm_num [outerD]
 
 theorem outer_other_pivots_positive :
     ∀ i : Fin 6, 0 < outerD i.succ := by
-  intro i; fin_cases i <;> norm_num [outerD]
+  intro i; fin_cases i <;> norm_num [outerD, Matrix.cons_val_two]
 
 theorem allocated_local_casimir :
     (7/2 : ℚ) * (1 - 17/20) = 21/40 := by norm_num
