@@ -35,6 +35,10 @@ def model(name):
     if name in ('corner','cube'):
         vs=list(range(7 if name=='corner' else 8));es=[(u,v)for u in vs for v in vs if u<v and(u^v).bit_count()==1]
         label=('Three mutually adjacent faces at an open cubic corner; cube graph minus vertex111' if name=='corner' else 'One full open-boundary elementary cube:12 links,8 vertices,6 plaquettes,5 independent graph cycles')
+    elif name=='double_cube':
+        coords=list(product(range(3),range(2),range(2)));vs=list(range(len(coords)))
+        es=[(u,v)for u in vs for v in vs if u<v and sum(abs(a-b)for a,b in zip(coords[u],coords[v]))==1]
+        label='Two adjacent open elementary cubes:12 vertices,20 links,11 distinct plaquettes,9 independent graph cycles'
     elif name in('two','strip'):
         cells=2 if name=='two' else 3;w=cells+1;vs=list(range(2*w));es=[]
         for i in range(cells):es.extend([(i,i+1),(w+i,w+i+1)])
@@ -135,5 +139,5 @@ def export(name):
                 scope='Exact finite Haar integrals and electric boundary resolution; full physical cutoff and all-tail interpretation use the written proof.')
 
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--model',choices=['two','strip','corner','cube','vertex_wedge'],default='corner');ap.add_argument('--out',type=Path,default=Path('spatial_matrices.json'));a=ap.parse_args();start=time.monotonic();out=export(a.model);out['seconds']=time.monotonic()-start;a.out.parent.mkdir(parents=True,exist_ok=True);a.out.write_text(json.dumps(out,indent=2)+'\n');print(a.model,'dim',len(out['model']['energies']),'shells',list(out['energy_resolved_masses']),'seconds',out['seconds'],flush=True)
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--model',choices=['two','strip','corner','cube','vertex_wedge','double_cube'],default='corner');ap.add_argument('--out',type=Path,default=Path('spatial_matrices.json'));a=ap.parse_args();start=time.monotonic();out=export(a.model);out['seconds']=time.monotonic()-start;a.out.parent.mkdir(parents=True,exist_ok=True);a.out.write_text(json.dumps(out,indent=2)+'\n');print(a.model,'dim',len(out['model']['energies']),'shells',list(out['energy_resolved_masses']),'seconds',out['seconds'],flush=True)
 if __name__=='__main__':main()
