@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "edge_threshold": 72,
+  "profile_orbits_independently_covered": 8044,
+  "all_final_CNF_reconstructions_matched": true,
+  "independent_RUP_checks": 8044,
+  "verified_RUP_additions": 4799908,
+  "ignored_deletions": 5202127,
+  "root_UP_cases": 4,
+  "independently_checked_theory_cuts": {
+    "trianglefree_density": 13,
+    "independent9": 327
+  },
+  "SAT_assignments_rejected": 337,
+  "negative_controls_rejected": 4,
+  "seconds": 103.35034213800003,
+  "new_Lean_compilation": false,
+  "shared_cardinality_compiler": "PySAT seqcounter; separate exhaustive small-instance controls",
+  "claim": "No graph satisfying the stated necessary conditions and e(H)>=threshold, subject to the written C5 reduction and standard biplanar/K9 inputs."
+}
