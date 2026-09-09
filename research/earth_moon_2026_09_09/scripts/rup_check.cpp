@@ -1,6 +1,7 @@
 // Independent DRUP/RUP checker, standard C++17. Deletions are ignored soundly:
 // previously proved clauses remain logically available. No RAT extensions.
-// Usage: rup_check formula.cnf proof.drup. Accepts only after checked empty clause.
+// Accept only a unit-propagation contradiction of the original formula or a
+// checked derived empty clause. Some solvers emit no steps for a root conflict.
 #include <algorithm>
 #include <fstream>
 #include <iostream>
@@ -35,7 +36,7 @@ struct Check{
 vector<int> parse(const string&line,int n){stringstream s(line);vector<int>v;int l;bool zero=false;while(s>>l){if(l==0){zero=true;break;}if(abs(l)>n)throw runtime_error("proof variable outside formula");v.push_back(l);}if(!zero)throw runtime_error("missing zero");return v;}
 int main(int argc,char**argv){try{if(argc!=3)throw runtime_error("usage: rup_check formula.cnf proof.drup");ifstream f(argv[1]);if(!f)throw runtime_error("input missing");string line;int n=0,m=0;vector<string>raw;
  while(getline(f,line)){if(line.empty()||line[0]=='c')continue;if(line[0]=='p'){string p,cnf;stringstream ss(line);ss>>p>>cnf>>n>>m;if(cnf!="cnf")throw runtime_error("format");}else raw.push_back(line);}
- if(n<1||int(raw.size())!=m)throw runtime_error("header mismatch");Check ch(n);for(auto&s:raw)ch.add(parse(s,n));ifstream pf(argv[2]);if(!pf)throw runtime_error("proof missing");long long checked=0,del=0;bool done=false;
+ if(n<1||int(raw.size())!=m)throw runtime_error("header mismatch");Check ch(n);for(auto&s:raw)ch.add(parse(s,n));ifstream pf(argv[2]);if(!pf)throw runtime_error("proof missing");long long checked=0,del=0;bool done=ch.contradiction({});
  while(getline(pf,line)){if(line.empty()||line[0]=='c')continue;if(line[0]=='d'){del++;continue;}auto c=parse(line,n);if(!ch.contradiction(c))throw runtime_error("non-RUP step "+to_string(checked+1));checked++;ch.add(c);if(c.empty()){done=true;break;}}
  if(!done)throw runtime_error("no checked empty clause");cout<<"VERIFIED RUP steps "<<checked<<" ignored_deletions "<<del<<" initial_clauses "<<m<<" variables "<<n<<"\n";return 0;
  }catch(exception&e){cerr<<"REJECTED "<<e.what()<<endl;return 1;}}
