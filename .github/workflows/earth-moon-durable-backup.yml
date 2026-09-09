@@ -1,0 +1,80 @@
+name: Earth Moon durable evidence backup
+on:
+  push:
+    branches: [research/earth-moon-2026-09-09]
+    paths: ['.github/workflows/earth-moon-durable-backup.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: earth-moon-durable-backup
+  cancel-in-progress: false
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: research/earth-moon-2026-09-09
+          fetch-depth: 1
+          sparse-checkout: research/earth_moon_2026_09_09
+          filter: blob:none
+      - name: Download exact artifacts without forwarding GitHub credentials to storage
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import urllib.request,urllib.error,pathlib,hashlib,json,zipfile,io
+          import os
+          api='https://api.github.com/repos/dicipler-pixel/operator-first/'
+          root=pathlib.Path('research/earth_moon_2026_09_09/evidence/verified_c5_20260909')
+          root.mkdir(parents=True,exist_ok=True)
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self,*args,**kwargs): return None
+          opener=urllib.request.build_opener(NoRedirect)
+          def download(artifact):
+              req=urllib.request.Request(api+'actions/artifacts/'+str(artifact)+'/zip',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+              try:
+                  with opener.open(req,timeout=90) as r:return r.read()
+              except urllib.error.HTTPError as e:
+                  if e.code not in (301,302,303,307,308):raise
+                  location=e.headers['Location']
+                  assert location.startswith('https://')
+                  # The storage URL carries its own signature; NEVER send GH_TOKEN here.
+                  with urllib.request.urlopen(location,timeout=180) as r:return r.read()
+          jobs=[(10119842564,'c5_threshold72.zip','b6d7b1c489d76e1e9429f38fcb8132773c62d2ff2abcf53237d2014023cbf4db'),(10119589730,'c5_threshold71.zip','2c667130edfaf0b7f97432bb9a2ce9323c58316c9025b2c795f8f6ad579b06c1'),(10117678458,'earlier_fixed_layer0.zip','d118ec88585bed56ea30197e16d6eb702473b52e261400e0427c72647dd380ff'),(10117678052,'earlier_fixed_layer1.zip','d15f5d7db9b537baba21a6f8b4eb60ba06fdfcf71673d502dac68c4f5590facd')]
+          records=[]
+          for ident,name,expected in jobs:
+              body=download(ident);actual=hashlib.sha256(body).hexdigest();assert actual==expected,(name,actual)
+              parts=[]
+              for i,start in enumerate(range(0,len(body),45000000)):
+                  part=body[start:start+45000000];pn=name+'.part'+str(i).zfill(3);dest=root/pn
+                  if dest.exists():assert dest.read_bytes()==part,'Existing backup differs'
+                  else:dest.write_bytes(part)
+                  parts.append({'name':pn,'bytes':len(part),'sha256':hashlib.sha256(part).hexdigest()})
+              records.append({'artifact_id':ident,'name':name,'bytes':len(body),'sha256':actual,'parts':parts})
+              if ident==10119842564:
+                  with zipfile.ZipFile(io.BytesIO(body)) as z:
+                      audit=json.loads(z.read('SEMANTIC_AUDIT.json'));assert audit['status']=='PASS' and audit['profile_orbits_independently_covered']==8044
+                      (root/'SEMANTIC_AUDIT.json').write_text(json.dumps(audit,indent=2)+'\n')
+                      (root/'CENSUS_REPORT.json').write_bytes(z.read('CENSUS_REPORT.json'))
+              print(name,len(body),actual,flush=True)
+          (root/'MANIFEST.json').write_text(json.dumps({'research_source_commit':'6e84239b8093c76c7d122ec72ede473d46162260','artifacts':records,'note':'Archive preservation, not a new theorem or search. Earlier failed fixed-layer controls are preserved as failures. Each part is below GitHub binary size limits.'},indent=2)+'\n')
+          (root/'README.md').write_text('# Verified Earth–Moon C5 evidence\n\nThe complete threshold72 exclusion and semantic audit are preserved in the numbered ZIP parts. Join each artifact\'s parts in the exact order in MANIFEST.json and verify the combined SHA256 before extracting. The complete set of 8,044 profiles, formulas, Boolean proof logs and semantic audit is retained. Threshold71 preserves a necessary-condition survivor, not a biplanarity certificate. The two earlier fixed-layer archives preserve the initial failed proof-checker control run. Nothing here establishes a global Earth–Moon solution.\n')
+          PY
+      - name: Commit only the dedicated evidence path; never merge or force-push
+        run: |
+          test "${GITHUB_REF_NAME}" = 'research/earth-moon-2026-09-09'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/earth_moon_2026_09_09/evidence/verified_c5_20260909/
+          if git diff --cached --quiet; then echo 'Exact backup already present'; exit 0; fi
+          git commit -m 'Preserve complete checked C5 exclusion and original solver evidence [skip ci]'
+          for attempt in 1 2 3; do
+            if git push origin HEAD:research/earth-moon-2026-09-09; then exit 0; fi
+            git pull --rebase origin research/earth-moon-2026-09-09
+          done
+          echo 'Non-force backup push failed after three attempts'
+          exit 1
