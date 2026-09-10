@@ -50,20 +50,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          python3 - <<'PY'
-          import hashlib, os, pathlib, urllib.request, zipfile
-          expected='d0b24a79e38cc564f31c1d3f205bb5fc3a484ccdff3bc8d5c35bd1cb9a6b73d4'
-          url='https://api.github.com/repos/dicipler-pixel/operator-first/actions/artifacts/10127732975/zip'
-          req=urllib.request.Request(url,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'})
-          data=urllib.request.urlopen(req,timeout=90).read()
-          if hashlib.sha256(data).hexdigest()!=expected: raise SystemExit('Pinned Yang-Mills artifact digest changed')
-          p=pathlib.Path('/tmp/ym_native.zip');p.write_bytes(data)
-          with zipfile.ZipFile(p) as z:
-              matrix=z.read('double_cube/matrices.json')
-          pathlib.Path('/tmp/double_cube_matrices.json').write_bytes(matrix)
-          print('pinned artifact and matrix extracted',len(matrix))
-          PY
-          python3 -S research/compound_eye_cortex_2026_09_10/real_ym_allocation_ceiling.py --matrix-json /tmp/double_cube_matrices.json --out real_ym_allocation_ceiling.json
+          rm -rf /tmp/ym_native
+          gh run download 34412059750 --repo dicipler-pixel/operator-first --name yang-mills-native-whole-eye --dir /tmp/ym_native
+          test -f /tmp/ym_native/double_cube/matrices.json
+          python3 -S research/compound_eye_cortex_2026_09_10/real_ym_allocation_ceiling.py --matrix-json /tmp/ym_native/double_cube/matrices.json --out real_ym_allocation_ceiling.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
