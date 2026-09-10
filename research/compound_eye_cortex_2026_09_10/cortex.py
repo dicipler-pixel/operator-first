@@ -10,7 +10,8 @@ It provides:
   * exact rational blind-spot / forcing certificates for linear observations;
   * exact finite projector-overlap diagnostics;
   * energy-labelled scalar Schur-penalty comparisons;
-  * alternate-representation opportunity checks.
+  * alternate-representation opportunity checks;
+  * a live catalog implementation/gap audit.
 
 Standard-library only. Domain-specific claims remain the responsibility of
 registered eyes and their assumptions.
@@ -395,6 +396,53 @@ def representation_opportunities(records):
             })
     return {"findings": findings, "groups_checked": len(groups)}
 
+def catalog_gaps(root=INSTRUMENT):
+    """Summarize implementation status and transparent meta-capability token probes."""
+    reg = machine.Registry(root)
+    status = defaultdict(list)
+    families = defaultdict(lambda: {"total": 0, "implemented": 0, "specified": 0, "archived_result": 0})
+    impl_groups = defaultdict(list)
+    for ref, spec in reg.eyes.items():
+        status[spec["status"]].append(ref)
+        f = spec.get("family", "")
+        families[f]["total"] += 1
+        families[f][spec["status"]] += 1
+        impl = spec.get("implementation") or {}
+        if impl.get("sha256"):
+            impl_groups[impl["sha256"]].append(ref)
+    probes = {}
+    for label, terms in {
+        "contradiction_resolution": ["contradiction"],
+        "counterfactual_planning": ["counterfactual"],
+        "evidence_lineage": ["lineage"],
+        "information_gain_planning": ["information", "gain"],
+        "representation_opportunity": ["opportunity"],
+    }.items():
+        matches = []
+        for ref, spec in reg.eyes.items():
+            toks = _tokens(_spec_text(ref, spec))
+            if set(terms) <= toks:
+                matches.append(ref)
+        probes[label] = {
+            "token_terms": terms,
+            "matching_refs": matches,
+            "warning": "A zero token match is a catalog-language probe, not proof that equivalent functionality is absent.",
+        }
+    return {
+        "eyes_total": len(reg.eyes),
+        "sets_total": len(reg.sets),
+        "status_counts": {k: len(v) for k, v in sorted(status.items())},
+        "specified_unimplemented": sorted(status.get("specified", [])),
+        "family_counts": dict(sorted(families.items())),
+        "shared_implementation_groups": sorted(
+            ({"implementation_sha256": h, "eye_count": len(refs), "refs": sorted(refs)}
+             for h, refs in impl_groups.items() if len(refs) > 1),
+            key=lambda x: (-x["eye_count"], x["implementation_sha256"])
+        ),
+        "meta_capability_token_probes": probes,
+        "scope": "Catalog status and naming audit. Shared implementation is not an error; it is evidence lineage that the cortex should retain.",
+    }
+
 def full_report(question, runs=(), root=INSTRUMENT):
     return {
         "schema": "compound-eye-cortex-report-v1",
@@ -410,9 +458,12 @@ def main():
     sub = p.add_subparsers(dest="command", required=True)
     a = sub.add_parser("attention"); a.add_argument("query"); a.add_argument("--top", type=int, default=20)
     a = sub.add_parser("question"); a.add_argument("question"); a.add_argument("runs", nargs="*")
+    sub.add_parser("gaps")
     args = p.parse_args()
     if args.command == "attention":
         out = attention(args.query, top=args.top)
+    elif args.command == "gaps":
+        out = catalog_gaps()
     else:
         q = json.loads(Path(args.question).read_text())
         runs = [json.loads(Path(x).read_text()) for x in args.runs]
