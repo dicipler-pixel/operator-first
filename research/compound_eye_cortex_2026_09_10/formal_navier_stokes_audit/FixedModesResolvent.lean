@@ -21,6 +21,7 @@ family.
 -/
 
 set_option autoImplicit false
+noncomputable section
 
 namespace SabineNSAudit
 
