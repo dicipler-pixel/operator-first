@@ -22,13 +22,25 @@ jobs:
           persist-credentials: false
       - name: Syntax and finite controls
         run: |
-          python3 -m py_compile research/compound_eye_cortex_2026_09_10/cortex.py research/compound_eye_cortex_2026_09_10/lineage.py research/compound_eye_cortex_2026_09_10/theorem_genome.py research/compound_eye_cortex_2026_09_10/planner.py research/compound_eye_cortex_2026_09_10/memory.py research/compound_eye_cortex_2026_09_10/retina_ledger.py research/compound_eye_cortex_2026_09_10/mixer_memory.py research/compound_eye_cortex_2026_09_10/real_ym_allocation_ceiling.py
+          python3 -m py_compile research/compound_eye_cortex_2026_09_10/cortex.py research/compound_eye_cortex_2026_09_10/lineage.py research/compound_eye_cortex_2026_09_10/theorem_genome.py research/compound_eye_cortex_2026_09_10/planner.py research/compound_eye_cortex_2026_09_10/memory.py research/compound_eye_cortex_2026_09_10/retina_ledger.py research/compound_eye_cortex_2026_09_10/mixer_memory.py research/compound_eye_cortex_2026_09_10/qg_archive_ten_check.py research/compound_eye_cortex_2026_09_10/real_ym_allocation_ceiling.py
           cd research/compound_eye_cortex_2026_09_10
           python3 -S test_cortex.py
           python3 -S test_cortex_02.py
           python3 -S test_memory.py
           python3 -S test_retina_ledger.py
           python3 -S test_mixer_memory.py
+          python3 -S qg_archive_ten_check.py
+          python3 - <<'PY'
+          import json
+          q=json.load(open('qg_archive_ten_results.json'))
+          assert q['status']=='PASS' and q['checks']==22
+          assert q['mixer_distortion_flags']==['MIXED_SCALE','SHARED_LINEAGE','SIGN_CANCELLATION']
+          assert q['retention_cross_cut']['isospectral']['spectrum_difference'] < 1e-12
+          assert abs(q['retention_cross_cut']['isospectral']['projector_distance_squared']-1) < 1e-12
+          assert q['retention_cross_cut']['signed_flow']['net']==0
+          assert q['retention_cross_cut']['signed_flow']['event_count']==2
+          print('qg-archive',q['status'],'checks',q['checks'],'flags',q['mixer_distortion_flags'])
+          PY
       - name: Exercise live-catalog attention, lineage, gap audit and planner
         run: |
           python3 -S research/compound_eye_cortex_2026_09_10/cortex.py attention "projector forcing boundary hidden sector" --top 12 > cortex_attention.json
@@ -66,6 +78,8 @@ jobs:
             research/compound_eye_cortex_2026_09_10/memory_test_results.json
             research/compound_eye_cortex_2026_09_10/retina_ledger_test_results.json
             research/compound_eye_cortex_2026_09_10/mixer_memory_test_results.json
+            research/compound_eye_cortex_2026_09_10/qg_archive_ten_results.json
+            research/compound_eye_cortex_2026_09_10/qg_archive_mix_trial.json
             cortex_attention.json
             cortex_catalog_gaps.json
             cortex_lineage_catalog.json
