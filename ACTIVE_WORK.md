@@ -12,7 +12,17 @@ This is the short operational map. Read `MASTER_STATUS.md` for the broader proje
 - Current mathematical boundary: no quantitative moderate-coupling volume-uniform gap and no nontrivial four-dimensional continuum construction. The next useful work is spatial scaling / failure diagnosis, not relabelling finite-cell certificates as Clay Yang–Mills.
 - Keep Earth–Moon statistics, Elemental declaration counts, and finite Compound Eye observations separate from gauge-theory theorem counts.
 
-## 2. Earth–Moon — PAUSED, FULLY CHECKPOINTED
+## 2. Compound Eye Cortex — ACTIVE TOOL DEVELOPMENT
+
+- Draft PR: [#20](https://github.com/dicipler-pixel/operator-first/pull/20)
+- Branch: `research/compound-eye-cortex-2026-09-10`
+- Purpose: add attention, theorem/claim memory, evidence-lineage checks, blind-spot certificates, assumption/label transfer audits and discriminator planning **above** the existing scientific eye engine.
+- Universal 3.2 on `main` remains the synchronized public research baseline: 191 eye versions / 29 sets.
+- The separately preserved private Owner retina has been audited at 241 eye versions / 48 sets with zero broken eye dependencies or set references. It is a richer private testbed, not the clean friend/share edition and not yet merged into main.
+- Cortex CI tests meta-layer behavior against the real Universal 3.2 catalog; passing these tests does not certify scientific claims analyzed by an eye.
+- Architecture rule: add a scientific eye only for a genuinely missing observable, incompatible assumptions/model, independent implementation, relevant blind direction, stronger theorem, representation-dependent opportunity or failed negative-control distinction. Otherwise improve routing, memory, lineage, falsification or planning.
+
+## 3. Earth–Moon — PAUSED, FULLY CHECKPOINTED
 
 - Draft PR: [#19](https://github.com/dicipler-pixel/operator-first/pull/19)
 - Branch: `research/earth-moon-2026-09-09`
@@ -22,7 +32,7 @@ This is the short operational map. Read `MASTER_STATUS.md` for the broader proje
 - Resume from the hard-backup checkpoint and side-scanner reports, not stale PID/RUNNING files.
 - Current status remains no winning Earth–Moon graph; the 100-edge ten-chromatic survivor still has planar thickness UNKNOWN.
 
-## 3. Compound Eye clean public share — READY
+## 4. Compound Eye clean public share — READY
 
 - Share branch: `share/compound-eye-companion-1.1`
 - Current share head at this audit: `12a6eef9f3380e8b8821e6ec375f3fcb2171a704`.
@@ -31,13 +41,13 @@ This is the short operational map. Read `MASTER_STATUS.md` for the broader proje
 - This is the clean friend/share edition. It is deliberately separate from private owner research catalogs, datasets, results, account connections, and API keys.
 - `release/compound-eye-companion-1.1` and `downloads/compound-eye-companion-1.1` are superseded transport experiments; do not give them out as the current share build.
 
-## 4. Main — STABLE INTEGRATED BASELINE
+## 5. Main — STABLE INTEGRATED BASELINE
 
-Before this bookkeeping update, `main` was `401f6b4b255504ef4465140a15b6cfd6daa9c887`, the verified Universal 3.2 synchronization merge. Its CI passed. This September 10 update changes project-navigation documents only; it does not merge PR #18 or #19 or broaden any scientific claim.
+The September 10 bookkeeping updates change project-navigation documents only; they do not merge PR #18, #19 or #20 or broaden any scientific claim.
 
 The unified instrument on main remains `tools/compound-eye/` Universal 3.2. New research-specific Compound Eye developments live on their dated research branches until deliberately reconciled.
 
-## 5. Other proof/research branches — PINNED HISTORY OR SEPARATE WORK
+## 6. Other proof/research branches — PINNED HISTORY OR SEPARATE WORK
 
 Light, Offset, peeling, projector/gravity, Kakeya, Diophantine, catalog and older Compound Eye branches remain useful pinned evidence. They are not automatically superseded mathematically merely because they are older, and they are not to be bulk-merged. Use the exact verified branch/commit named by the relevant paper or report.
 
