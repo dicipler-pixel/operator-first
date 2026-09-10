@@ -17,7 +17,7 @@ The arithmetic work then moved to the public Katz–Tao / FrontierMath construct
 
 ## 2. Exact target
 
-Let `X ⊂ Z² \ {(1,-1)}` be a finite dilate set. For an `X`-constructible graph/tower with `n` vertices and `m` edges and a forcing pair `(R,T)`, put
+Use Epoch's current **verifiable formulation**: `X ⊂ Z²` is finite, `(0,0) ∈ X`, and every nonzero `(a,b) ∈ X` satisfies `a+b ≠ 0`. For an admissible `X`-constructible graph/tower with `n` vertices and `m` edges and a forcing pair `(R,T)`, put
 
 `q = n - |T|`
 
@@ -119,7 +119,7 @@ The known six-vertex Katz–Tao construction has score `11/6`; simply removing o
 
 > **Small-constructible Arithmetic Kakeya Conjecture (six-free-vertex barrier).**
 >
-> Let `X ⊂ Z² \ {(1,-1)}` be finite, let `G` be any `X`-constructible object under the public arithmetic-Kakeya forcing grammar, and let `(R,T)` completely force `G`. If
+> Let `X` be any admissible finite dilate set in Epoch's current verifiable formulation: `(0,0) ∈ X` and every nonzero `(a,b) ∈ X` obeys `a+b ≠ 0`. Let `G` be any `X`-constructible object under that verifiable arithmetic-Kakeya grammar, and let `(R,T)` completely force `G`. If
 >
 > `1 ≤ q = n - |T| ≤ 6`,
 >
