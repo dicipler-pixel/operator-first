@@ -21,11 +21,12 @@ jobs:
           persist-credentials: false
       - name: Syntax and finite controls
         run: |
-          python3 -m py_compile research/compound_eye_cortex_2026_09_10/cortex.py research/compound_eye_cortex_2026_09_10/lineage.py research/compound_eye_cortex_2026_09_10/theorem_genome.py research/compound_eye_cortex_2026_09_10/planner.py research/compound_eye_cortex_2026_09_10/memory.py
+          python3 -m py_compile research/compound_eye_cortex_2026_09_10/cortex.py research/compound_eye_cortex_2026_09_10/lineage.py research/compound_eye_cortex_2026_09_10/theorem_genome.py research/compound_eye_cortex_2026_09_10/planner.py research/compound_eye_cortex_2026_09_10/memory.py research/compound_eye_cortex_2026_09_10/retina_ledger.py
           cd research/compound_eye_cortex_2026_09_10
           python3 -S test_cortex.py
           python3 -S test_cortex_02.py
           python3 -S test_memory.py
+          python3 -S test_retina_ledger.py
       - name: Exercise live-catalog attention, lineage, gap audit and planner
         run: |
           python3 -S research/compound_eye_cortex_2026_09_10/cortex.py attention "projector forcing boundary hidden sector" --top 12 > cortex_attention.json
@@ -35,13 +36,14 @@ jobs:
           python3 -S research/compound_eye_cortex_2026_09_10/memory.py research/compound_eye_cortex_2026_09_10/examples/obstruction_memory.json > cortex_obstruction_example.json
           python3 - <<'PY'
           import json
-          x=json.load(open('cortex_attention.json'));g=json.load(open('cortex_catalog_gaps.json'));l=json.load(open('cortex_lineage_catalog.json'));p=json.load(open('cortex_planner_example.json'));m=json.load(open('cortex_obstruction_example.json'))
+          x=json.load(open('cortex_attention.json'));g=json.load(open('cortex_catalog_gaps.json'));l=json.load(open('cortex_lineage_catalog.json'));p=json.load(open('cortex_planner_example.json'));m=json.load(open('cortex_obstruction_example.json'));r=json.load(open('research/compound_eye_cortex_2026_09_10/retina_ledger_test_results.json'))
           assert x['catalog_eyes'] >= 191 and x['ranked']
-          assert g['eyes_total']==x['catalog_eyes']==l['eyes']
+          assert g['eyes_total']==x['catalog_eyes']==l['eyes']==r['registry_eye_versions']
           assert len(g['specified_unimplemented'])==g['status_counts'].get('specified',0)
           assert p['recommended']=='diagnostic_factorial_split'
           assert len(m['applies'])==1 and len(m['does_not_apply'])==1
-          print('catalog',x['catalog_eyes'],'specified',len(g['specified_unimplemented']),'planner',p['recommended'],'obstruction applies',len(m['applies']))
+          assert r['seen_not_surfaced_demo']=='SEEN_BUT_NOT_SURFACED'
+          print('catalog',x['catalog_eyes'],'specified',len(g['specified_unimplemented']),'planner',p['recommended'],'miss-demo',r['seen_not_surfaced_demo'])
           PY
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
@@ -51,6 +53,7 @@ jobs:
             research/compound_eye_cortex_2026_09_10/cortex_test_results.json
             research/compound_eye_cortex_2026_09_10/cortex_02_test_results.json
             research/compound_eye_cortex_2026_09_10/memory_test_results.json
+            research/compound_eye_cortex_2026_09_10/retina_ledger_test_results.json
             cortex_attention.json
             cortex_catalog_gaps.json
             cortex_lineage_catalog.json
