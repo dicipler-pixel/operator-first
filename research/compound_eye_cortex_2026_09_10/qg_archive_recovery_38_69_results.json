@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "campaign": "QG-ARCHIVE-RECOVERY-38-69-01",
+  "checks": 19,
+  "key_results": {
+    "distinct_Z_character_witnesses": ["1", "2", "-1", "1j", "(2+1j)"],
+    "frobenius_distance": {
+      "canonical": 1.4142135623730951,
+      "orthogonal_common_frame": 1.4142135623730951,
+      "arbitrary_similarity": 2.449489742783178
+    },
+    "pair_counts": {"5": 10, "10": 45, "20": 190},
+    "eta_exp_under_relabeling": {
+      "(0, 1, 2)": 4,
+      "(0, 2, 1)": -4,
+      "(1, 0, 2)": 0,
+      "(1, 2, 0)": 4,
+      "(2, 0, 1)": 0,
+      "(2, 1, 0)": -4
+    },
+    "quantum_metric_exponents": [
+      {"n": 1, "local": 0.5, "integrated": 1.5},
+      {"n": 2, "local": 1.0, "integrated": 2.0},
+      {"n": 3, "local": 1.5, "integrated": 2.5},
+      {"n": 4, "local": 2.0, "integrated": 3.0}
+    ],
+    "reported_exponent_absolute_errors": [0.0132000000000001, 0.00660000000000005, 0.03079999999999994, 0.01539999999999997]
+  },
+  "scope": "Finite algebraic/retention controls only. External experimental/literature statements and physical interpretations are not certified by this script."
+}
