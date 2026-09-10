@@ -1,0 +1,43 @@
+name: Compound Eye Cortex 0.1
+
+on:
+  push:
+    branches: [research/compound-eye-cortex-2026-09-10]
+    paths:
+      - 'research/compound_eye_cortex_2026_09_10/**'
+      - '.github/workflows/compound-eye-cortex.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  meta-layer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Syntax and finite controls
+        run: |
+          python3 -m py_compile research/compound_eye_cortex_2026_09_10/cortex.py
+          cd research/compound_eye_cortex_2026_09_10
+          python3 -S test_cortex.py
+      - name: Exercise live-catalog attention
+        run: |
+          python3 -S research/compound_eye_cortex_2026_09_10/cortex.py attention "projector forcing boundary hidden sector" --top 12 > cortex_attention.json
+          python3 - <<'PY'
+          import json
+          x=json.load(open('cortex_attention.json'))
+          assert x['catalog_eyes'] >= 191
+          assert x['ranked']
+          print('catalog eyes',x['catalog_eyes'],'ranked',len(x['ranked']))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: compound-eye-cortex-0.1-evidence
+          path: |
+            research/compound_eye_cortex_2026_09_10/cortex_test_results.json
+            cortex_attention.json
