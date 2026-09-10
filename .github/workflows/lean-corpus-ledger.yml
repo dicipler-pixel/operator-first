@@ -4,6 +4,7 @@ on:
     branches: [research/compound-eye-cortex-2026-09-10]
     paths:
       - 'research/compound_eye_cortex_2026_09_10/lean_corpus_audit.py'
+      - 'research/compound_eye_cortex_2026_09_10/lean_proof_atlas.py'
       - '.github/workflows/lean-corpus-ledger.yml'
   workflow_dispatch:
 permissions:
@@ -35,8 +36,15 @@ jobs:
       - name: Count actual named declarations
         run: |
           python3 research/compound_eye_cortex_2026_09_10/lean_corpus_audit.py /tmp/lean_verified_pr_refs.tsv
+      - name: Build self-contained proof atlas and exact source snapshots
+        run: |
+          python3 research/compound_eye_cortex_2026_09_10/lean_proof_atlas.py /tmp/lean_verified_pr_refs.tsv
+          test -s research/compound_eye_cortex_2026_09_10/lean_proof_atlas/lean_proof_atlas.html
+          test -s research/compound_eye_cortex_2026_09_10/lean_proof_atlas/SOURCE_MANIFEST.json
       - uses: actions/upload-artifact@v4
         with:
-          name: verified-lean-corpus-ledger
-          path: research/compound_eye_cortex_2026_09_10/lean_corpus_ledger.json
+          name: verified-lean-proof-atlas
+          path: |
+            research/compound_eye_cortex_2026_09_10/lean_corpus_ledger.json
+            research/compound_eye_cortex_2026_09_10/lean_proof_atlas/
           retention-days: 30
