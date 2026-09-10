@@ -102,7 +102,6 @@ theorem current_skew (T : Matrix n n ℝ) :
     (current T).transpose = - current T := by
   ext i j
   simp [current]
-  ring
 
 /-- Relabel both indices by the same equivalence. -/
 def relabel (e : n ≃ n) (T : Matrix n n ℝ) : Matrix n n ℝ :=
