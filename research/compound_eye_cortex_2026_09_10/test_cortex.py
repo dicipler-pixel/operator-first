@@ -11,6 +11,12 @@ def ok(condition, message):
         raise AssertionError(message)
     checks += 1
 
+# Live catalog status and routing.
+g = cortex.catalog_gaps()
+ok(g["eyes_total"] >= 191, "Expected synchronized Universal 3.2 or later catalog")
+ok(g["status_counts"].get("specified", 0) >= 1, "Expected declared specified eyes")
+ok(len(g["specified_unimplemented"]) == g["status_counts"].get("specified", 0), "Specified inventory mismatch")
+
 a = cortex.attention("projector geometry forcing boundary", top=25)
 ok(a["catalog_eyes"] >= 191, "Expected synchronized Universal 3.2 or later catalog")
 ok(bool(a["ranked"]), "Attention router returned no candidates")
@@ -97,6 +103,7 @@ out = {
     "checks":checks,
     "refused_controls":refused,
     "catalog_eyes_seen":a["catalog_eyes"],
+    "specified_unimplemented":g["status_counts"].get("specified",0),
     "scope":"Meta-layer finite controls. No scientific theorem is certified merely by these tests."
 }
 Path("cortex_test_results.json").write_text(json.dumps(out,indent=2)+"\n")
