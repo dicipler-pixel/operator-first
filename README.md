@@ -16,6 +16,14 @@ The [original 3.1 upload backup](backups/2026-09-08-universal-3-1/README.md) and
 
 The root build incorporates the repair from PR #1 and checks its finite core. The [source snapshot](catalog/source_snapshot.json) records exact heads and available workflow evidence for the other proof branches. Their independent status and mathematical limits remain explicit in the register. A successful instrument integration does not establish new physical calibration or solve the six Diophantine equations.
 
+## Licensing and citation
+
+This repository uses a mixed-license policy. Original **code, Lean formalizations, scripts, CI and reusable software** are licensed under the [MIT License](LICENSES/MIT.txt). Original **scholarly prose, research notes, figures, diagrams and author-owned research data** are licensed under [CC BY 4.0](LICENSES/CC-BY-4.0.md), unless a file states otherwise. Third-party material remains under its original terms.
+
+The repository previously exposed a CC0 root notice. Because CC0 is intended to be irrevocable, this change does not withdraw rights already granted for versions or material released under CC0. See the full [licensing notice](LICENSE).
+
+GitHub citation metadata is provided in [`CITATION.cff`](CITATION.cff). When a paper or archived release has its own DOI, cite that DOI in preference to the repository-level record.
+
 ## Keep the master current
 
 Read [AGENTS.md](AGENTS.md) and [catalog policy](catalog/POLICY.md). Fetch branches before importing another chat’s work; compare source inventories, then add missing versions without rewriting existing ones. Run `python scripts/build_catalog.py`, `python scripts/validate_catalog.py` and `python scripts/verify_compound_eye_release.py` after relevant changes.
