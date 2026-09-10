@@ -1,8 +1,24 @@
-# Current project master — 8 September 2026
+# Current project master — 10 September 2026
 
-## Current instrument
+This file is the durable high-level status. For immediate navigation use `ACTIVE_WORK.md`; for branch roles and supersession use `BRANCH_STATUS.md`. Fetch GitHub before treating any count below as permanently current.
 
-**Compound Eye Universal 3.2** is the synchronized release in `tools/compound-eye/`.
+## Repository snapshot
+
+At this September 10 audit the repository has **25 branches and 17 open pull requests**. The integrated scientific/tool baseline before this documentation refresh was main commit `401f6b4b255504ef4465140a15b6cfd6daa9c887`, the verified Universal 3.2 synchronization merge. Its root CI completed successfully. The September 10 documentation commits update navigation/status only; they do not merge research PRs or broaden scientific claims.
+
+Two dated research workstreams are newer than the integrated baseline and intentionally remain isolated:
+
+| Workstream | Branch / PR | Audit head | State |
+|---|---|---|---|
+| Yang–Mills | `research/yang-mills-2026-09-09`, PR #18 | `4c90eaa499cde0c178ac3378a2138aa8aa9c5c34` | Open draft, mergeable, latest root CI green |
+| Earth–Moon | `research/earth-moon-2026-09-09`, PR #19 | `3c3a8b2845ef0d57c5d406739ca485397381192e` | Open draft, mergeable, research paused, latest root CI green |
+| Public Companion share | `share/compound-eye-companion-1.1` | `12a6eef9f3380e8b8821e6ec375f3fcb2171a704` | Clean distribution branch; GitHub smoke test green |
+
+No PR #18 or #19 content is merged into main by this status update.
+
+## Current integrated instrument on main
+
+**Compound Eye Universal 3.2** remains the synchronized release in `tools/compound-eye/`.
 It combines Universal 2.2 and the independently developed Universal 3.1:
 
 | Source | Eye versions | Contribution to the union |
@@ -12,64 +28,88 @@ It combines Universal 2.2 and the independently developed Universal 3.1:
 | Universal 3.1 | 178 | Eleven horizon additions and Eye Mixer 1.0.0 |
 | Universal 3.2 | **191** | **172 implemented, 17 specified, two archived results; 29 sets** |
 
-There were no conflicting eye, set or content-addressed implementation files.
-The 3.1 registration history is retained and the 13 missing 2.2 eyes are appended
-through the registry API. Both input inventories and conflicting historical
-top-level files remain preserved. The mixer implementation is unchanged.
+There were no conflicting eye, set or content-addressed implementation files at the Universal 3.2 merge. The 3.1 registration history is retained and the 13 missing 2.2 eyes were appended through the registry API. Both input inventories and conflicting historical top-level files remain preserved. The mixer implementation is unchanged.
 
-The fresh local integration run passed **809 scientific eye evaluations**,
-including **34 expected refusals**, across QHE, peeling, UPG, arithmetic and
-horizon suites. Mixer algebra and the 12-case UI handler harness also passed.
-The run does not replay every historical computation or refit raw observations.
-Exact results are in `tools/compound-eye/runs/universal_verification.json`.
-Current GitHub runs are attached to the integration PR and subsequent main commit.
+The fresh integration run associated with that baseline passed **809 scientific eye evaluations**, including **34 expected refusals**, across QHE, peeling, UPG, arithmetic and horizon suites. Mixer algebra and the 12-case UI handler harness also passed. This does not replay every historical computation or refit raw observations.
 
-## Research and proof map
+Research branches may contain later, problem-specific Compound Eye versions. Do not overwrite the integrated main catalog with a branch-local count. Reconcile immutable definitions and implementations explicitly before a future instrument merge.
 
-| Project | Current established scope | Remaining boundary | Source |
-|---|---|---|---|
-| Core | Existing verified 14-theorem core repair copied byte for byte | Core verification is not a whole-corpus proof | [PR 1](https://github.com/dicipler-pixel/operator-first/pull/1) |
-| Light | 91 light-specific finite theorem declarations verified | Spectral differentiation, continuum and physical calibration | [PR 7](https://github.com/dicipler-pixel/operator-first/pull/7) |
-| Offset | Complete written all-size transfer and fixed-parameter endpoint; 139 Offset/boundary-support declarations | Model-specific formalization, Fourier/Hankel formalization and sharp remainder rate | [PR 6](https://github.com/dicipler-pixel/operator-first/pull/6) |
-| Projector overlap | 23 finite-projector plus seven overlap declarations verified; differentiability suffices | Lean assumes local trace constancy; rank constancy and integral Taylor representation remain written proofs; no gravity field equation | [PR 9](https://github.com/dicipler-pixel/operator-first/pull/9) |
-| Peeling | Positive-channel/nullspace constitutive module verified; UPG feedback bridge has written proof and controls | Raw physical cascade, eight-feature I/Q map and full analytic bridge | [PR 11](https://github.com/dicipler-pixel/operator-first/pull/11), [PR 12](https://github.com/dicipler-pixel/operator-first/pull/12) |
-| Arithmetic Kakeya / Earth–Moon | Fixed-family forcing classification, exact projector and scoped graph algebra | No improved Kakeya exponent or Earth–Moon solution; omitted search families remain | [PR 4](https://github.com/dicipler-pixel/operator-first/pull/4) |
-| Diophantine | Exact rational section and integer obstruction; seven supporting algebraic certificates verified | Six unresolved equations; benchmark is three triples with distinct x and abs(x)>10^50; infinitude is a separate stronger target | [PR 13](https://github.com/dicipler-pixel/operator-first/pull/13) |
-| Sun / black-hole comparison | Declared-metric controls, finite signed wall path and exterior-observation ambiguity | No observed interior, calibrated solar inversion or proven shape-to-spacetime dictionary | tools/compound-eye/projects/horizon_compare/FINDINGS.md |
+## Active research since the Universal 3.2 merge
 
-Declaration inventories include supporting lemmas and must not be summed as a
-count of novel discoveries. A later cancelled run does not erase an earlier
-successful run at the same source; inspect the exact revision and named workflow.
+### Yang–Mills — PR #18
+
+The September 9 workstream moved beyond an isolated one-plaquette certificate to original-link multi-plaquette SU(3) models. Its current PR description records five spatial gauge models, **58 primary exact lower-gap targets**, energy-labelled hidden-channel comparison, safe energy-moment reductions, explicit Kakeya-dual applications, reconstructed analytic notes, independent numerical controls and separately scoped Lean runs.
+
+Representative branch-local results include a cube lower comparison improving from about `1.649349` to `2.109917` at `alpha=lambda=1`, and a two-adjacent-cube comparison improving from about `3.295750` to `3.817691` at `alpha=1, lambda=1/2`. Those are finite-model lower certificates under the branch's stated assumptions, not a volume-uniform continuum mass-gap theorem.
+
+Focused native reproduction run `34412059750` and closing-step Lean run `34407919722` are recorded in PR #18. Earlier 21 finite Lean declarations remain separately scoped at run `34373066035`; the later run has 12 declarations. Do not sum declaration inventories as counts of discoveries.
+
+**Remaining boundary:** no quantitative moderate-coupling volume-uniform gap, no nontrivial four-dimensional continuum quantum construction, and no Clay Yang–Mills solution. The next useful work is failure diagnosis and spatial scaling using the same-operator comparison, not a larger finite table for its own sake.
+
+### Earth–Moon — PR #19
+
+The September 9 workstream preserves the true-flip search, exact local exclusions, hard backup and native Compound Eye side scanner. The frozen backup branch is `backup/earth-moon-2026-09-09-1918utc` at `582a70c3069b606b042d26303f1e27ff7f599f95`.
+
+The branch records a computationally certified **100–102 edge necessary endpoint window** for the specific 19-vertex no-independent-triple route, a complete 40-state five-triple plateau, exact side-scanner editing bounds, and a 100-edge ten-chromatic necessary-condition survivor whose thickness remains **UNKNOWN**. No winning graph or global nonexistence theorem is claimed.
+
+Root CI at PR head `3c3a8b2845ef0d57c5d406739ca485397381192e` succeeded in run `34398791804`. Research was explicitly paused after the hard backup. Resume from the checkpoint/status files, not stale process markers.
+
+### Clean Companion 1.1 distribution
+
+The friend/share edition now lives on `share/compound-eye-companion-1.1`. Its GitHub-native source distribution intentionally excludes the private owner research catalog, datasets, saved results, account connections and API keys. GitHub smoke-test run `34461867296` completed successfully.
+
+Direct generated ZIP:
+
+`https://github.com/dicipler-pixel/operator-first/archive/refs/heads/share/compound-eye-companion-1.1.zip`
+
+The older branches `release/compound-eye-companion-1.1` and `downloads/compound-eye-companion-1.1` are transport experiments and are superseded for sharing by the `share/` branch.
+
+## Established proof/research map from the integrated baseline
+
+The following older branches remain pinned evidence and should be read at their exact revisions. Their mathematical scope is not erased by newer workstreams.
+
+| Project | Established scope at the prior master snapshot | Remaining boundary / current handling |
+|---|---|---|
+| Core | Existing verified 14-theorem core repair copied byte for byte | Core verification is not a whole-corpus proof |
+| Light | 91 light-specific finite theorem declarations verified | Spectral differentiation, continuum and physical calibration; later light connections appear in PR #18 without replacing the light branch |
+| Offset | Complete written all-size transfer and fixed-parameter endpoint; 139 Offset/boundary-support declarations | Model-specific formalization, Fourier/Hankel formalization and sharp remainder rate |
+| Projector overlap | 23 finite-projector plus seven overlap declarations verified; differentiability suffices | Lean assumes local trace constancy; rank constancy and integral Taylor representation remain written proofs; no gravity field equation |
+| Peeling | Positive-channel/nullspace constitutive module verified; UPG feedback bridge has written proof and controls | Raw physical cascade, eight-feature I/Q map and full analytic bridge |
+| Arithmetic Kakeya / older Earth–Moon | Fixed-family forcing classification, exact projector and scoped graph algebra | No improved Kakeya exponent or Earth–Moon solution; September 9 Earth–Moon continuation is PR #19 |
+| Diophantine | Exact rational section and integer obstruction; seven supporting algebraic certificates verified | Six unresolved equations; benchmark and infinitude targets remain separate |
+| Sun / black-hole comparison | Declared-metric controls, finite signed wall path and exterior-observation ambiguity | No observed interior, calibrated solar inversion or proven shape-to-spacetime dictionary |
+
+Use the relevant PR/branch report rather than this table for theorem-level statements. Declaration inventories include supporting lemmas and must not be summed into a corpus-wide novelty count.
+
+## Branch policy after the September 10 cleanup
+
+`BRANCH_STATUS.md` classifies branch roles without deleting history. The intended rules are:
+
+- `main`: integrated baseline and durable navigation/status.
+- `research/*`: active or paused problem-specific work; do not bulk merge.
+- `share/*`: intentionally shareable distribution surfaces.
+- `backup/*`: frozen recovery points; never repurpose as active development.
+- `proof-check/*`, `formal/*`, `gravity/*`, older `research/*`, and catalog branches: pinned scientific/formal history or separate workstreams. Use exact commits.
+- `release/compound-eye-companion-1.1` and `downloads/compound-eye-companion-1.1`: superseded transport experiments; preserve until deliberate cleanup, but do not share them as current Companion releases.
+
+No scientific branch is deleted merely to reduce the branch count.
 
 ## Source synchronization
 
-The pre-integration snapshot contains 14 branches and 13 open draft PRs. It is
-an explicitly dated snapshot, not a permanently current branch count. The prior
-catalog's 2.1/172 release label and 11-project/12-card overview were stale. The
-current generated catalog has **13 projects and 18 Atlas cards**.
+The previous master file said the pre-integration snapshot contained 14 branches and 13 open draft PRs. That sentence is now historical. At the September 10 audit the live repository instead had 25 branches and 17 open PRs. These counts will change and are not proof metadata.
 
-The user authorized this master update. The current source combines the catalog,
-backup, full instrument and existing core repair. Other research proof sources
-remain accessible at their exact pinned branch commits; their mathematical
-claims were not broadened by integration. The previous malformed root
-lakefile.toml is replaced by the byte-identical repair from PR 1. Current CI must
-pass independently; old success badges are not transferred to edited sources.
+The current generated catalog on the integrated baseline has **13 projects and 18 Atlas cards**. Research added after the main merge is not automatically part of those generated indexes until a deliberate catalog reconciliation occurs.
 
-Original 3.1 uploads are backed up in `backups/2026-09-08-universal-3-1/`.
-The earlier 2,009-file backup remains in `backups/2026-09-08/`. Its restoration
-was checked immediately before this integration and all file hashes matched.
+Original 3.1 uploads remain backed up in `backups/2026-09-08-universal-3-1/`. The earlier 2,009-file backup remains in `backups/2026-09-08/`; its restoration was checked at the Universal 3.2 integration. The large original QHE dataset remains stored in verified repository pieces with `scripts/restore_large_files.py` as the offline reconstruction path.
 
-## Next-chat protocol
+## Next-session protocol
 
-Fetch branches, inspect new PRs, and read the current release manifest before
-making a version claim. Compare incoming eye inventories, not just version
-numbers. Preserve source histories, implementation hashes, scientific assumptions
-and failed controls. Register missing methods instead of replacing a parallel
-development line. The active problem comes from the user; old release handoffs
-do not override it. Report a concrete mathematical blocker promptly.
+1. Read `ACTIVE_WORK.md`, this file, `BRANCH_STATUS.md`, `catalog/POLICY.md`, and the active workstream report.
+2. Fetch branches and open PRs before trusting a remembered release number or count.
+3. Work on the branch belonging to the requested problem; preserve source histories and failed controls.
+4. Keep finite numerical diagnostics, written proofs, exact certificates and Lean compilation as separate evidence classes.
+5. Never broaden a theorem because another branch has a similar concept or because a root CI job is green.
+6. Register new Compound Eye methods by version rather than replacing parallel implementations.
+7. Merge research into main only after an explicit reconciliation decision, not as housekeeping.
 
-Build the indexes with `python scripts/build_catalog.py`; validate with
-`python scripts/validate_catalog.py` and `python scripts/verify_compound_eye_release.py`.
-Rebuild the standalone ZIP with `python scripts/package_compound_eye.py --output release-output`.
-
-The large original QHE dataset is stored in verified repository pieces because the connected upload endpoint cannot accept that file in one request. `python scripts/restore_large_files.py` reconstructs it without network access. The complete portable ZIP already contains the original complete dataset.
+For the integrated Compound Eye baseline, build indexes with `python scripts/build_catalog.py`; validate with `python scripts/validate_catalog.py` and `python scripts/verify_compound_eye_release.py`; rebuild the standalone ZIP with `python scripts/package_compound_eye.py --output release-output`.
