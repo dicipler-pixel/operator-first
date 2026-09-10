@@ -4,17 +4,18 @@ This file is the durable high-level status. For immediate navigation use `ACTIVE
 
 ## Repository snapshot
 
-At this September 10 audit the repository has **25 branches and 17 open pull requests**. The integrated scientific/tool baseline before this documentation refresh was main commit `401f6b4b255504ef4465140a15b6cfd6daa9c887`, the verified Universal 3.2 synchronization merge. Its root CI completed successfully. The September 10 documentation commits update navigation/status only; they do not merge research PRs or broaden scientific claims.
+The integrated scientific/tool baseline before the September 10 status refresh was main commit `401f6b4b255504ef4465140a15b6cfd6daa9c887`, the verified Universal 3.2 synchronization merge. Its root CI completed successfully. September 10 main commits update navigation/status only; they do not merge research PRs or broaden scientific claims.
 
-Two dated research workstreams are newer than the integrated baseline and intentionally remain isolated:
+Current newer dated workstreams intentionally remain isolated:
 
-| Workstream | Branch / PR | Audit head | State |
-|---|---|---|---|
-| Yang–Mills | `research/yang-mills-2026-09-09`, PR #18 | `4c90eaa499cde0c178ac3378a2138aa8aa9c5c34` | Open draft, mergeable, latest root CI green |
-| Earth–Moon | `research/earth-moon-2026-09-09`, PR #19 | `3c3a8b2845ef0d57c5d406739ca485397381192e` | Open draft, mergeable, research paused, latest root CI green |
-| Public Companion share | `share/compound-eye-companion-1.1` | `12a6eef9f3380e8b8821e6ec375f3fcb2171a704` | Clean distribution branch; GitHub smoke test green |
+| Workstream | Branch / PR | State |
+|---|---|---|
+| Yang–Mills | `research/yang-mills-2026-09-09`, PR #18 | Open draft; latest recorded research/root checks green |
+| Compound Eye Cortex | `research/compound-eye-cortex-2026-09-10`, PR #20 | Open draft tool-development branch; meta-layer checks green |
+| Earth–Moon | `research/earth-moon-2026-09-09`, PR #19 | Open draft; research paused/checkpointed; latest recorded root checks green |
+| Public Companion share | `share/compound-eye-companion-1.1` | Clean distribution branch; GitHub smoke test green |
 
-No PR #18 or #19 content is merged into main by this status update.
+No PR #18, #19 or #20 scientific/tool content is merged into main by this status update.
 
 ## Current integrated instrument on main
 
@@ -30,11 +31,49 @@ It combines Universal 2.2 and the independently developed Universal 3.1:
 
 There were no conflicting eye, set or content-addressed implementation files at the Universal 3.2 merge. The 3.1 registration history is retained and the 13 missing 2.2 eyes were appended through the registry API. Both input inventories and conflicting historical top-level files remain preserved. The mixer implementation is unchanged.
 
-The fresh integration run associated with that baseline passed **809 scientific eye evaluations**, including **34 expected refusals**, across QHE, peeling, UPG, arithmetic and horizon suites. Mixer algebra and the 12-case UI handler harness also passed. This does not replay every historical computation or refit raw observations.
+The integration run associated with that baseline passed **809 scientific eye evaluations**, including **34 expected refusals**, across QHE, peeling, UPG, arithmetic and horizon suites. Mixer algebra and the 12-case UI handler harness also passed. This does not replay every historical computation or refit raw observations.
 
-Research branches may contain later, problem-specific Compound Eye versions. Do not overwrite the integrated main catalog with a branch-local count. Reconcile immutable definitions and implementations explicitly before a future instrument merge.
+### Larger private research retina
+
+The separate private Owner Companion instrument has now been freshly audited as a second reference retina: **241 eye versions / 48 set versions**, with exactly 241 eye-history entries and 48 set-history entries and **zero broken eye dependencies or set references**. It is not the clean friend/share edition and is not silently merged into main.
+
+Its append-only growth is traceable:
+
+- 191 synchronized Universal 3.2 baseline;
+- +13 Whole View additions: seven elemental eyes, four hypersurface eyes and two hierarchy eyes;
+- +15 Earth–Moon side-scanner versions;
+- +22 Yang–Mills cross-theorem versions;
+- total **241**.
+
+These totals include combined outputs and revised versions; they are not counts of independent measurements or discoveries. The full inventory/hashes are recorded on PR #20 in `PRIVATE_RETINA_AUDIT.md`.
+
+Research branches may contain later, problem-specific Compound Eye versions. Reconcile immutable definitions and implementations explicitly before a future instrument merge.
 
 ## Active research since the Universal 3.2 merge
+
+### Compound Eye Cortex — PR #20
+
+The September 10 tool-development branch addresses the point where adding more eyes becomes less useful than improving how they are selected and combined. It keeps Universal 3.2 unchanged and adds a meta-layer above the native Registry/DAG.
+
+Implemented and tested prototypes include:
+
+- transparent attention routing over the real 191-eye baseline catalog;
+- explicit research-question evidence coverage;
+- exact rational blind-spot/dual-forcing certificates;
+- exact finite projector-overlap/distance checks;
+- scalar energy-label versus single-floor comparison;
+- represented-state opportunity preservation;
+- catalog implementation/gap audit;
+- adapter-aware evidence lineage, distinguishing shared source modules from shared executable entry points;
+- theorem/claim genome schema with assumptions, dependencies, evidence class, formal status, counterexamples and negative controls;
+- explicit source-to-target assumption mapping and downstream label-loss audit;
+- discriminator planner that ranks declared experiments by worst-case surviving hypotheses and pair separation per declared cost.
+
+Cortex checks are **meta-layer tests**, not scientific theorem verification. It does not infer truth by majority vote and does not transfer a theorem across domains without an explicit dictionary and assumption audit.
+
+The branch's eye-gap audit records the baseline's 17 specified/unimplemented definitions: nine generic extension placeholders and eight open knot/construction eyes. These should not be implemented merely to make the status count green. Highest-value genuine future senses include independent verification, cross-resolution commutation, generic observability/forcing, uncertainty propagation, independent pseudospectral validation, formal dependency inspection and label-loss checking.
+
+**Design rule:** add a new scientific eye when the target quantity is genuinely unobserved, the available eye has incompatible assumptions/model, an independent implementation is needed, a relevant blind direction has been certified, a stronger theorem creates a new test, representation changes future opportunities, or a negative control shows the present sensor cannot distinguish required cases. Otherwise improve attention, theorem memory, lineage, falsification and experiment planning instead of increasing eye count.
 
 ### Yang–Mills — PR #18
 
@@ -56,7 +95,7 @@ Root CI at PR head `3c3a8b2845ef0d57c5d406739ca485397381192e` succeeded in run `
 
 ### Clean Companion 1.1 distribution
 
-The friend/share edition now lives on `share/compound-eye-companion-1.1`. Its GitHub-native source distribution intentionally excludes the private owner research catalog, datasets, saved results, account connections and API keys. GitHub smoke-test run `34461867296` completed successfully.
+The friend/share edition lives on `share/compound-eye-companion-1.1`. Its GitHub-native source distribution intentionally excludes the private owner research catalog, datasets, saved results, account connections and API keys. GitHub smoke-test run `34461867296` completed successfully.
 
 Direct generated ZIP:
 
@@ -90,15 +129,13 @@ Use the relevant PR/branch report rather than this table for theorem-level state
 - `share/*`: intentionally shareable distribution surfaces.
 - `backup/*`: frozen recovery points; never repurpose as active development.
 - `proof-check/*`, `formal/*`, `gravity/*`, older `research/*`, and catalog branches: pinned scientific/formal history or separate workstreams. Use exact commits.
-- `release/compound-eye-companion-1.1` and `downloads/compound-eye-companion-1.1`: superseded transport experiments; preserve until deliberate cleanup, but do not share them as current Companion releases.
+- superseded Companion transport branches remain historical until deliberate cleanup but are not current share surfaces.
 
 No scientific branch is deleted merely to reduce the branch count.
 
 ## Source synchronization
 
-The previous master file said the pre-integration snapshot contained 14 branches and 13 open draft PRs. That sentence is now historical. At the September 10 audit the live repository instead had 25 branches and 17 open PRs. These counts will change and are not proof metadata.
-
-The current generated catalog on the integrated baseline has **13 projects and 18 Atlas cards**. Research added after the main merge is not automatically part of those generated indexes until a deliberate catalog reconciliation occurs.
+Earlier branch/PR counts in older master files are historical. Live counts change and are not proof metadata. The current generated catalog on the integrated baseline has **13 projects and 18 Atlas cards**. Research added after the main merge is not automatically part of those generated indexes until a deliberate catalog reconciliation occurs.
 
 Original 3.1 uploads remain backed up in `backups/2026-09-08-universal-3-1/`. The earlier 2,009-file backup remains in `backups/2026-09-08/`; its restoration was checked at the Universal 3.2 integration. The large original QHE dataset remains stored in verified repository pieces with `scripts/restore_large_files.py` as the offline reconstruction path.
 
