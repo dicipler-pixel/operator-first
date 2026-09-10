@@ -1,0 +1,32 @@
+name: Compound Eye Companion clean share
+on:
+  push:
+    branches: [share/compound-eye-companion-1.1]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Compile and run bounded core checks
+        run: |
+          python3 -m py_compile START.py
+          python3 - <<'PY'
+          import START
+          from fractions import Fraction
+          assert START.VERSION == '1.1-share'
+          A=[[Fraction(1),Fraction(0)],[Fraction(0),Fraction(2)]]
+          assert START.rank(A)==2
+          assert START.symmetric(A)
+          assert START.psd_ldl(A)
+          p=START.offline_plan('run all eyes and then run the phase bundle')
+          assert [x['action'] for x in p['actions']] == ['run_scan','run_phase']
+          q=START.phase_run({'sites':6,'steps':30,'dt':0.02,'inter':0.1,'loss':0.01})
+          assert q['frames'] and q['final']['norm'] > 0
+          print('COMPANION_SHARE_SMOKE_PASS')
+          PY
