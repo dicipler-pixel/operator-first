@@ -22,13 +22,15 @@ jobs:
           persist-credentials: false
       - name: Syntax and finite controls
         run: |
-          python3 -m py_compile research/compound_eye_cortex_2026_09_10/cortex.py research/compound_eye_cortex_2026_09_10/lineage.py research/compound_eye_cortex_2026_09_10/theorem_genome.py research/compound_eye_cortex_2026_09_10/planner.py research/compound_eye_cortex_2026_09_10/memory.py research/compound_eye_cortex_2026_09_10/retina_ledger.py research/compound_eye_cortex_2026_09_10/mixer_memory.py research/compound_eye_cortex_2026_09_10/qg_archive_ten_check.py research/compound_eye_cortex_2026_09_10/qg_archive_recovery_11_37_check.py research/compound_eye_cortex_2026_09_10/real_ym_allocation_ceiling.py
+          python3 -m py_compile research/compound_eye_cortex_2026_09_10/cortex.py research/compound_eye_cortex_2026_09_10/lineage.py research/compound_eye_cortex_2026_09_10/theorem_genome.py research/compound_eye_cortex_2026_09_10/planner.py research/compound_eye_cortex_2026_09_10/memory.py research/compound_eye_cortex_2026_09_10/retina_ledger.py research/compound_eye_cortex_2026_09_10/mixer_memory.py research/compound_eye_cortex_2026_09_10/earth_moon_defect_operator_eye.py research/compound_eye_cortex_2026_09_10/run_kakeya_earth_moon_mixer.py research/compound_eye_cortex_2026_09_10/qg_archive_ten_check.py research/compound_eye_cortex_2026_09_10/qg_archive_recovery_11_37_check.py research/compound_eye_cortex_2026_09_10/real_ym_allocation_ceiling.py
           cd research/compound_eye_cortex_2026_09_10
           python3 -S test_cortex.py
           python3 -S test_cortex_02.py
           python3 -S test_memory.py
           python3 -S test_retina_ledger.py
           python3 -S test_mixer_memory.py
+          python3 -S test_earth_moon_defect_operator_eye.py
+          python3 -S run_kakeya_earth_moon_mixer.py
           python3 -S qg_archive_ten_check.py
           python3 -S qg_archive_recovery_11_37_check.py
           python3 - <<'PY'
@@ -49,8 +51,18 @@ jobs:
           assert q2['key_results']['boundary_components_after_full_glue_toy']==0
           assert q2['key_results']['paired_zero_total_flow']['net']==0
           assert len(q2['key_results']['paired_zero_total_flow']['events'])==2
+          em=json.load(open('earth_moon_defect_operator_eye_results.json'))
+          assert em['status']=='PASS'
+          assert em['one_step']['linearized_move_defect_operator']['exact_rank']==84
+          assert em['one_step']['linearized_move_defect_operator']['augmented_rank_with_desired_minus_defect']==85
+          assert em['two_step']['two_step_min_defect_count_nonreverse']==5
+          camp=json.load(open('kakeya_earth_moon_campaign.json'))
+          assert camp['status']=='PASS'
+          assert camp['mixer_controls']['no_cross_project_scalar_fusion'] is True
           print('qg-archive-ten',q['status'],'checks',q['checks'],'flags',q['mixer_distortion_flags'])
           print('qg-archive-11-37',q2['status'],'checks',q2['checks'],'dp2',q2['key_results']['isospectral_projector_tangent_norm2'])
+          print('earth-moon-defect-eye',em['status'],'rank',em['one_step']['linearized_move_defect_operator']['exact_rank'],'aug',em['one_step']['linearized_move_defect_operator']['augmented_rank_with_desired_minus_defect'])
+          print('kakeya-earth-moon-campaign',camp['status'],camp['cross_project']['common_pattern'])
           PY
       - name: Exercise live-catalog attention, lineage, gap audit and planner
         run: |
@@ -89,6 +101,9 @@ jobs:
             research/compound_eye_cortex_2026_09_10/memory_test_results.json
             research/compound_eye_cortex_2026_09_10/retina_ledger_test_results.json
             research/compound_eye_cortex_2026_09_10/mixer_memory_test_results.json
+            research/compound_eye_cortex_2026_09_10/earth_moon_defect_operator_eye_results.json
+            research/compound_eye_cortex_2026_09_10/kakeya_earth_moon_mix_trial.json
+            research/compound_eye_cortex_2026_09_10/kakeya_earth_moon_campaign.json
             research/compound_eye_cortex_2026_09_10/qg_archive_ten_results.json
             research/compound_eye_cortex_2026_09_10/qg_archive_mix_trial.json
             research/compound_eye_cortex_2026_09_10/qg_archive_recovery_11_37_results.json
