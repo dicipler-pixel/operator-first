@@ -21,24 +21,27 @@ jobs:
           persist-credentials: false
       - name: Syntax and finite controls
         run: |
-          python3 -m py_compile research/compound_eye_cortex_2026_09_10/cortex.py research/compound_eye_cortex_2026_09_10/lineage.py research/compound_eye_cortex_2026_09_10/theorem_genome.py research/compound_eye_cortex_2026_09_10/planner.py
+          python3 -m py_compile research/compound_eye_cortex_2026_09_10/cortex.py research/compound_eye_cortex_2026_09_10/lineage.py research/compound_eye_cortex_2026_09_10/theorem_genome.py research/compound_eye_cortex_2026_09_10/planner.py research/compound_eye_cortex_2026_09_10/memory.py
           cd research/compound_eye_cortex_2026_09_10
           python3 -S test_cortex.py
           python3 -S test_cortex_02.py
-      - name: Exercise live-catalog attention, lineage and gap audit
+          python3 -S test_memory.py
+      - name: Exercise live-catalog attention, lineage, gap audit and planner
         run: |
           python3 -S research/compound_eye_cortex_2026_09_10/cortex.py attention "projector forcing boundary hidden sector" --top 12 > cortex_attention.json
           python3 -S research/compound_eye_cortex_2026_09_10/cortex.py gaps > cortex_catalog_gaps.json
           python3 -S research/compound_eye_cortex_2026_09_10/lineage.py > cortex_lineage_catalog.json
           python3 -S research/compound_eye_cortex_2026_09_10/planner.py research/compound_eye_cortex_2026_09_10/examples/discriminator_plan.json > cortex_planner_example.json
+          python3 -S research/compound_eye_cortex_2026_09_10/memory.py research/compound_eye_cortex_2026_09_10/examples/obstruction_memory.json > cortex_obstruction_example.json
           python3 - <<'PY'
           import json
-          x=json.load(open('cortex_attention.json'));g=json.load(open('cortex_catalog_gaps.json'));l=json.load(open('cortex_lineage_catalog.json'));p=json.load(open('cortex_planner_example.json'))
+          x=json.load(open('cortex_attention.json'));g=json.load(open('cortex_catalog_gaps.json'));l=json.load(open('cortex_lineage_catalog.json'));p=json.load(open('cortex_planner_example.json'));m=json.load(open('cortex_obstruction_example.json'))
           assert x['catalog_eyes'] >= 191 and x['ranked']
           assert g['eyes_total']==x['catalog_eyes']==l['eyes']
           assert len(g['specified_unimplemented'])==g['status_counts'].get('specified',0)
           assert p['recommended']=='diagnostic_factorial_split'
-          print('catalog',x['catalog_eyes'],'specified',len(g['specified_unimplemented']),'planner',p['recommended'])
+          assert len(m['applies'])==1 and len(m['does_not_apply'])==1
+          print('catalog',x['catalog_eyes'],'specified',len(g['specified_unimplemented']),'planner',p['recommended'],'obstruction applies',len(m['applies']))
           PY
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
@@ -47,7 +50,9 @@ jobs:
           path: |
             research/compound_eye_cortex_2026_09_10/cortex_test_results.json
             research/compound_eye_cortex_2026_09_10/cortex_02_test_results.json
+            research/compound_eye_cortex_2026_09_10/memory_test_results.json
             cortex_attention.json
             cortex_catalog_gaps.json
             cortex_lineage_catalog.json
             cortex_planner_example.json
+            cortex_obstruction_example.json
