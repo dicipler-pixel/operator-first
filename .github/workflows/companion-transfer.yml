@@ -1,0 +1,25 @@
+name: Companion clean distribution transfer check
+on:
+  push:
+    branches: [release/compound-eye-companion-1.1]
+    paths: ['.distribution_parts/**', '.github/workflows/companion-transfer.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  transport:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Preserve uploaded transport bytes for exact comparison
+        run: |
+          mkdir -p transport_evidence
+          cp .distribution_parts/part*.bin transport_evidence/
+          sha256sum transport_evidence/*.bin > transport_evidence/SHA256SUMS.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: companion-transfer-bytes
+          path: transport_evidence/
