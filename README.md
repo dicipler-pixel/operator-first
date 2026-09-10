@@ -1,23 +1,28 @@
-# Operator-first research master
+# Compound Eye Companion 1.1 — Clean Share Build
 
-Jeromie N. Beasley’s current research directory: **13 projects**, **18 Atlas cards**, and **Compound Eye Universal 3.2**.
+This branch is the **shareable clean edition** of Compound Eye Companion. It contains no Jeromie Beasley research datasets, private theorem corpus, saved runs, API keys, account connections, or owner-method pack.
 
-Start with [current project status](MASTER_STATUS.md), the [paper register](catalog/README.md), or the [reusable-results Atlas](atlas/README.md).
+## Download
 
-The [complete instrument](tools/compound-eye/START_HERE.md) contains **191 eye versions in 29 sets**: 172 implemented, 17 specified, and 2 archived results. It combines the independent Universal 2.2 and 3.1 lines with Eye Mixer 1.0.0.
+Use GitHub's branch download, extract it, then run `START_WINDOWS.bat` on Windows or `python3 START.py` on macOS/Linux.
 
-## Use or share the tool
+Python 3.10+ is required. The base workbench uses only the Python standard library.
 
-Download this repository and open `tools/compound-eye/START_HERE.html`, or build the standalone package with `python scripts/package_compound_eye.py --output release-output`. The full scientific replay command is `python tools/compound-eye/run_all.py` after installing its requirements; Node.js is needed for the mixer checks. The HTML works offline. The package builder restores the large raw dataset automatically from checked repository pieces. For a raw-source audit directly in a clone, first run `python scripts/restore_large_files.py`.
+## What it does
 
-The [original 3.1 upload backup](backups/2026-09-08-universal-3-1/README.md) and [earlier complete backup](backups/2026-09-08/README.md) preserve both release lines. Every registered source definition and installed implementation is retained.
+- keeps theorem, note, matrix, sample, and custom-eye records in a local workspace;
+- runs several eyes on the same identified object and returns a combined whole-view report;
+- offers a chat-style request box that produces **proposed actions** for review before execution;
+- has an optional OpenAI Responses API connector using the recipient's own `OPENAI_API_KEY` environment variable and chosen model;
+- contains a bounded three-bundle phase/coupling laboratory for exploring exchange, directional bias, loss, and phase winding;
+- exports the user's own workspace as JSON.
 
-## Research and proof scope
+The assistant does not execute arbitrary Python, shell commands, or downloaded plugins. Uploaded theorem prose is `user_supplied_unverified`; a numerical pass is not a proof.
 
-The root build incorporates the repair from PR #1 and checks its finite core. The [source snapshot](catalog/source_snapshot.json) records exact heads and available workflow evidence for the other proof branches. Their independent status and mathematical limits remain explicit in the register. A successful instrument integration does not establish new physical calibration or solve the six Diophantine equations.
+## Privacy
 
-## Keep the master current
+The default workspace is stored on the recipient's own computer. The OpenAI connector sends only the current chat request plus the compact workspace summary shown by the app. No API key is stored in the project file. Leave provider set to `offline` for no model-network calls.
 
-Read [AGENTS.md](AGENTS.md) and [catalog policy](catalog/POLICY.md). Fetch branches before importing another chat’s work; compare source inventories, then add missing versions without rewriting existing ones. Run `python scripts/build_catalog.py`, `python scripts/validate_catalog.py` and `python scripts/verify_compound_eye_release.py` after relevant changes.
+## Creator
 
-The register remains a partial inventory of the wider 20+ paper corpus. Unresolved publication identities and missing source material remain in the intake queue.
+Compound Eye / Operator-First research programme — Jeromie N. Beasley. This clean distribution is intended as a reusable research instrument for other users with their own theorems and data.
