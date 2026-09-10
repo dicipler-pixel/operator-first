@@ -1,0 +1,42 @@
+name: Verified Lean corpus ledger
+on:
+  push:
+    branches: [research/compound-eye-cortex-2026-09-10]
+    paths:
+      - 'research/compound_eye_cortex_2026_09_10/lean_corpus_audit.py'
+      - '.github/workflows/lean-corpus-ledger.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pull-requests: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Fetch Lean-verified proof PR heads and bases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          : > /tmp/lean_verified_pr_refs.tsv
+          for n in 1 2 3 4 5 6 7 8 9 11 13 17 18 20; do
+            git fetch --no-tags origin "+refs/pull/$n/head:refs/audit/pr$n"
+            base=$(gh pr view "$n" --repo dicipler-pixel/operator-first --json baseRefOid --jq .baseRefOid)
+            title=$(gh pr view "$n" --repo dicipler-pixel/operator-first --json title --jq .title | tr '\t\n' '  ')
+            git fetch --no-tags origin "$base"
+            head=$(git rev-parse "refs/audit/pr$n")
+            printf '%s\t%s\t%s\t%s\n' "$n" "$base" "$head" "$title" >> /tmp/lean_verified_pr_refs.tsv
+          done
+          cat /tmp/lean_verified_pr_refs.tsv
+      - name: Count actual named declarations
+        run: |
+          python3 research/compound_eye_cortex_2026_09_10/lean_corpus_audit.py /tmp/lean_verified_pr_refs.tsv
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-lean-corpus-ledger
+          path: research/compound_eye_cortex_2026_09_10/lean_corpus_ledger.json
+          retention-days: 30
