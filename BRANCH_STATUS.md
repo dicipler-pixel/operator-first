@@ -13,11 +13,14 @@ This file classifies the live branches seen in the September 10 repository audit
 | Branch | Role | Action |
 |---|---|---|
 | `research/yang-mills-2026-09-09` | **ACTIVE** Yang–Mills workstream, draft PR #18 | Continue Yang–Mills here; do not bulk-merge into main |
+| `research/compound-eye-cortex-2026-09-10` | **ACTIVE TOOL DEVELOPMENT**, draft PR #20 | Develop meta-layer above Universal 3.2; do not overwrite or renumber existing eyes |
 | `research/earth-moon-2026-09-09` | **PAUSED/CHECKPOINTED** Earth–Moon workstream, draft PR #19 | Resume only from saved checkpoint; preserve current head |
 | `research/combined-peel-hypersurface-20260908` | Separate combined peeling/hypersurface research line | Preserve; reconcile only when that paper is active |
 | `research/elemental-foundations` | Separate elemental foundations line | Preserve exact source history |
 | `research/elemental-peel` | Separate elemental peeling line | Preserve exact source history |
 | `research/all-eyes-live-sweeps` | Compound Eye execution/research branch | Preserve; do not treat it as the current public share release |
+
+The Cortex branch has a validated inventory of the separate private Owner retina (241 eye versions / 48 sets), but that private package is not silently merged into `main` or the public share branch. Cortex should use it as a richer testbed while keeping version histories and privacy boundaries explicit.
 
 ## Public distribution
 
@@ -76,7 +79,7 @@ These are **not active by default**, but their exact commits remain important ev
 1. **No branch deletion as ordinary housekeeping.** Delete only after an explicit decision and after identifying its durable successor or backup.
 2. **Never overwrite a versioned Compound Eye implementation to make histories agree.** Append/reconcile versions.
 3. **A backup branch is immutable by purpose.** Fork/branch from it to resume work rather than moving it.
-4. **A research branch may be scientifically newer than main without being ready to merge.** That is the current Yang–Mills and Earth–Moon situation.
+4. **A research branch may be scientifically newer than main without being ready to merge.** That is the current Yang–Mills, Cortex and Earth–Moon situation.
 5. **A distribution branch is judged by what a user can safely receive.** The current clean Companion share is `share/compound-eye-companion-1.1`.
 6. **Old formal branches remain citable evidence.** “Historical” means not the current development head, not mathematically discarded.
 7. Before any merge, compare the active branch against main, run the branch-specific verification, and update `ACTIVE_WORK.md` / `MASTER_STATUS.md` in the same reconciliation pass.
