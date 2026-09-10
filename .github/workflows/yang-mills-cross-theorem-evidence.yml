@@ -1,0 +1,75 @@
+name: Yang Mills cross theorem evidence
+on:
+  push:
+    branches: [research/yang-mills-2026-09-09]
+    paths: ['.github/workflows/yang-mills-cross-theorem-evidence.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: 75be19959e872a8a786fa82d5ac9f2bf12ffd08b
+          persist-credentials: false
+          sparse-checkout: research/yang_mills_2026_09_09
+          filter: blob:none
+      - name: Preserve the complete pinned research source
+        run: |
+          mkdir source_evidence
+          cp -r research/yang_mills_2026_09_09 source_evidence/source
+          python3 - <<'PY'
+          import pathlib,hashlib,json,subprocess
+          r=pathlib.Path('source_evidence')
+          (r/'SHA256.json').write_text(json.dumps({str(p.relative_to(r)):hashlib.sha256(p.read_bytes()).hexdigest() for p in r.rglob('*') if p.is_file()},indent=2)+'\n')
+          (r/'COMMIT.txt').write_text(subprocess.check_output(['git','rev-parse','HEAD'],text=True))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ym-cross-theorem-pinned-source
+          path: source_evidence/
+  spatial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        graph: [two, strip, corner, cube]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: 75be19959e872a8a786fa82d5ac9f2bf12ffd08b
+          persist-credentials: false
+          sparse-checkout: research/yang_mills_2026_09_09
+          filter: blob:none
+      - name: Install numerical proposer only
+        run: python3 -m pip install 'numpy==2.2.6' 'scipy==1.15.3'
+      - name: Run explicit paired certificate grid and independent standard-library acceptance
+        working-directory: research/yang_mills_2026_09_09
+        env:
+          GRAPH: ${{ matrix.graph }}
+          OPENBLAS_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '1'
+        run: |
+          mkdir -p evidence
+          export PYTHONPATH="$PWD/scripts:$PWD/cross_theorem/scripts"
+          python3 cross_theorem/scripts/spatial_gauge.py --model "$GRAPH" --out evidence/matrices.json > evidence/matrix.log 2>&1
+          python3 cross_theorem/scripts/spatial_certificates.py --propose --models "$GRAPH" --couplings 1/10 1/2 1 2 --targets evidence/targets.json --out evidence/proposal_results.json > evidence/proposal.log 2>&1
+          python3 -S cross_theorem/scripts/spatial_certificates.py --targets evidence/targets.json --out evidence/accepted.json > evidence/acceptance.log 2>&1
+          python3 - <<'PY'
+          import pathlib,json,hashlib,sys,platform
+          r=pathlib.Path('evidence')
+          a=json.loads((r/'accepted.json').read_text());p=json.loads((r/'proposal_results.json').read_text())
+          assert a['certificates']==p['certificates']
+          (r/'VERSIONS.json').write_text(json.dumps({'python':platform.python_version(),'fresh_grid_couplings':['1/10','1/2','1','2'],'source_commit':'75be19959e872a8a786fa82d5ac9f2bf12ffd08b','original_54_target_file_recovered':False,'matrices_and_complete_tail_proofs_in_source':True},indent=2)+'\n')
+          (r/'SHA256.json').write_text(json.dumps({str(q.relative_to(r)):hashlib.sha256(q.read_bytes()).hexdigest() for q in r.rglob('*') if q.is_file()},indent=2)+'\n')
+          print('Fresh accepted targets:',a['accepted_targets'])
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: ym-cross-spatial-${{ matrix.graph }}
+          path: research/yang_mills_2026_09_09/evidence/
