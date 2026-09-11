@@ -200,9 +200,9 @@ theorem hasDihedralNormalForm (m : ℕ) (w : IGroup m) :
 @[simp] theorem toDihedral_coxRot (m : ℕ) : toDihedral m (coxRot m) = r 1 := by
   simpa [coxRot, c0, c1] using toDihedral_rotation m
 
-/-- The canonical map has trivial kernel.  In the rotation normal form, the
+/-- The canonical map has trivial kernel. In the rotation normal form, the
 concrete target detects divisibility of the exponent by `m+2`; the Coxeter
-period relation then kills the source rotation.  The reflected normal form
+period relation then kills the source rotation. The reflected normal form
 cannot map to the identity because `r` and `sr` are distinct constructors. -/
 theorem toDihedral_eq_one_imp (m : ℕ) {w : IGroup m}
     (hw : toDihedral m w = 1) : w = 1 := by
@@ -220,7 +220,7 @@ theorem toDihedral_eq_one_imp (m : ℕ) {w : IGroup m}
   · subst w
     exfalso
     have hbad :
-        (sr (-(k : ZMod (m + 2))) : DihedralGroup (m + 2)) = r 0 := by
+        (sr (k : ZMod (m + 2)) : DihedralGroup (m + 2)) = r 0 := by
       simpa [DihedralGroup.r_one_zpow] using hw
     cases hbad
 
