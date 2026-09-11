@@ -100,10 +100,11 @@ theorem rawIntrinsic_preserves_wall_tangent
   have hleft : L ⬝ᵥ ((T * H) *ᵥ L) = lambda * (L ⬝ᵥ (H *ᵥ L)) := by
     rw [← Matrix.mulVec_mulVec, Matrix.dotProduct_mulVec]
     rw [← Matrix.mulVec_transpose, hTsymm, hEig]
-    simp
+    rw [smul_dotProduct]
+    rfl
   have hright : L ⬝ᵥ ((H * T) *ᵥ L) = lambda * (L ⬝ᵥ (H *ᵥ L)) := by
-    rw [← Matrix.mulVec_mulVec, hEig]
-    simp
+    rw [← Matrix.mulVec_mulVec, hEig, Matrix.mulVec_smul, dotProduct_smul]
+    rfl
   rw [Matrix.sub_mulVec, Matrix.add_mulVec]
   simp only [dotProduct_sub, dotProduct_add]
   rw [hleft, hright]
