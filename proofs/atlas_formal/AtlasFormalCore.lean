@@ -39,85 +39,35 @@ theorem symmetric_skew_commute_gives_zero (S K : R) (hSK : S * K = K * S) :
   rw [symmetric_skew_commutator_identity, hSK]
   simp
 
-/-! ## B31 — redistribution lives only across the projector boundary -/
+/-! ## B31 — projector tangents are purely cross-subspace -/
 
-/-- Algebraic redistribution operator behind B31. -/
-def redistribution (P Ω : R) : R :=
-  P * Ω * (1 - P) + (1 - P) * Ω * P
-
-/-- Complementary idempotent block identities used throughout B31. -/
-theorem projector_complement_left (P : R) (hP : P * P = P) :
-    P * (1 - P) = 0 := by
-  rw [mul_sub, mul_one, hP, sub_self]
-
-theorem projector_complement_right (P : R) (hP : P * P = P) :
-    (1 - P) * P = 0 := by
-  rw [sub_mul, one_mul, hP, sub_self]
-
-theorem projector_complement_idempotent (P : R) (hP : P * P = P) :
-    (1 - P) * (1 - P) = 1 - P := by
-  rw [mul_sub, mul_one, projector_complement_right P hP, sub_zero]
-
-/-- The occupied-to-occupied block of redistribution vanishes for an idempotent. -/
-theorem redistribution_occupied_block (P Ω : R) (hP : P * P = P) :
-    P * redistribution P Ω * P = 0 := by
-  have hPQ := projector_complement_left P hP
-  have hQP := projector_complement_right P hP
-  unfold redistribution
-  rw [mul_add, add_mul]
-  simp [← mul_assoc, hP, hPQ, hQP]
+/-- Tangency to `P²=P` implies the occupied diagonal block vanishes. -/
+theorem tangent_occupied_block (P D : R) (hP : P * P = P)
+    (hD : P * D + D * P = D) : P * D * P = 0 := by
+  have h := congrArg (fun X : R => P * X) hD
+  have he : P * (P * D + D * P) = P * D + P * D * P := by
+    rw [mul_add, ← mul_assoc P P D, hP, ← mul_assoc]
+  rw [he] at h
+  exact add_left_cancel (show P * D + P * D * P = P * D + 0 by simpa using h)
 
 /-- The complementary diagonal block also vanishes. -/
-theorem redistribution_empty_block (P Ω : R) (hP : P * P = P) :
-    (1 - P) * redistribution P Ω * (1 - P) = 0 := by
-  have hPQ := projector_complement_left P hP
-  have hQP := projector_complement_right P hP
-  have hQQ := projector_complement_idempotent P hP
-  unfold redistribution
-  rw [mul_add, add_mul]
-  simp [← mul_assoc, hP, hPQ, hQP, hQQ]
+theorem tangent_empty_block (P D : R) (hP : P * P = P)
+    (hD : P * D + D * P = D) : (1 - P) * D * (1 - P) = 0 := by
+  have hz := tangent_occupied_block P D hP hD
+  calc
+    (1 - P) * D * (1 - P) = D - (P * D + D * P) + P * D * P := by noncomm_ring
+    _ = 0 := by rw [hD, hz]; simp
 
-/-- Left-to-right cross block extraction. -/
-theorem redistribution_cross_left (P Ω : R) (hP : P * P = P) :
-    P * redistribution P Ω * (1 - P) = P * Ω * (1 - P) := by
-  have hPQ := projector_complement_left P hP
-  have hQP := projector_complement_right P hP
-  have hQQ := projector_complement_idempotent P hP
-  unfold redistribution
-  rw [mul_add, add_mul]
-  simp [← mul_assoc, hP, hPQ, hQP, hQQ]
-
-/-- Right-to-left cross block extraction. -/
-theorem redistribution_cross_right (P Ω : R) (hP : P * P = P) :
-    (1 - P) * redistribution P Ω * P = (1 - P) * Ω * P := by
-  have hPQ := projector_complement_left P hP
-  have hQP := projector_complement_right P hP
-  have hQQ := projector_complement_idempotent P hP
-  unfold redistribution
-  rw [mul_add, add_mul]
-  simp [← mul_assoc, hP, hPQ, hQP, hQQ]
-
-/-- Exact B31 compatibility kernel: redistribution vanishes exactly when the
-generator commutes with the idempotent decomposition. -/
-theorem redistribution_eq_zero_iff_commute (P Ω : R) (hP : P * P = P) :
-    redistribution P Ω = 0 ↔ P * Ω = Ω * P := by
-  constructor
-  · intro hF
-    have hL : P * Ω * (1 - P) = 0 := by
-      rw [← redistribution_cross_left P Ω hP, hF]
-      simp
-    have hR : (1 - P) * Ω * P = 0 := by
-      rw [← redistribution_cross_right P Ω hP, hF]
-      simp
-    have hc : P * Ω - Ω * P = 0 := by
-      calc
-        P * Ω - Ω * P = P * Ω * (1 - P) - (1 - P) * Ω * P := by
-          noncomm_ring [hP]
-        _ = 0 := by rw [hL, hR]; simp
-    exact sub_eq_zero.mp hc
-  · intro hcomm
-    unfold redistribution
-    noncomm_ring [hP, hcomm]
+/-- B31 invariant kernel: every tangent to the idempotent manifold consists
+exactly of its two cross-subspace blocks. -/
+theorem tangent_split (P D : R) (hP : P * P = P)
+    (hD : P * D + D * P = D) :
+    D = P * D * (1 - P) + (1 - P) * D * P := by
+  have hz := tangent_occupied_block P D hP hD
+  calc
+    D = P * D + D * P := hD.symm
+    _ = P * D + D * P - (P * D * P + P * D * P) := by rw [hz]; simp
+    _ = P * D * (1 - P) + (1 - P) * D * P := by noncomm_ring
 
 end Noncommutative
 
@@ -281,7 +231,7 @@ theorem open_lapse_square (t : ℝ) : (openLapse t)^2 = |t| := by
 end AtlasFormal
 
 #print axioms AtlasFormal.symmetric_skew_commutator_identity
-#print axioms AtlasFormal.redistribution_eq_zero_iff_commute
+#print axioms AtlasFormal.tangent_split
 #print axioms AtlasFormal.rankOne_projector_distance
 #print axioms AtlasFormal.gram2_saturation
 #print axioms AtlasFormal.scalar_schur_complement
