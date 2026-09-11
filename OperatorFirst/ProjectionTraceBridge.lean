@@ -21,7 +21,7 @@ open Matrix
 
 namespace OperatorFirst.ProjectionTraceBridge
 
-variable {n : Type*} [Fintype n] [DecidableEq n]
+variable {n : Type*} [Fintype n]
 
 /-- Algebraic Hilbert--Schmidt/Frobenius square over real matrices. -/
 def frobeniusSq (A : Matrix n n ℝ) : ℝ :=
