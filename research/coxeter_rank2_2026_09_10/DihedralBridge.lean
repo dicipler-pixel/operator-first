@@ -15,7 +15,7 @@ that it is surjective.
 
 Stage 2 proves an internal dihedral normal form in the presented Coxeter group:
 every element is either a rotation power or the first reflection times a
-rotation power.  This is the load-bearing input for injectivity; we keep the
+rotation power. This is the load-bearing input for injectivity; we keep the
 stages explicit so a surjection is never silently promoted to an isomorphism.
 -/
 
@@ -106,18 +106,29 @@ def coxRot (m : ℕ) : IGroup m := c0 m * c1 m
 
 /-- The canonical rotation has the Coxeter period relation. -/
 theorem coxRot_pow_order (m : ℕ) : (coxRot m) ^ (m + 2) = 1 := by
-  simpa [coxRot, c0, c1, CoxeterMatrix.I] using
+  change (((CoxeterMatrix.I m).toCoxeterSystem.simple (0 : Fin 2) *
+    (CoxeterMatrix.I m).toCoxeterSystem.simple (1 : Fin 2)) ^ (m + 2) = 1)
+  simpa [CoxeterMatrix.I] using
     (CoxeterMatrix.I m).toCoxeterSystem.simple_mul_simple_pow
       (0 : Fin 2) (1 : Fin 2)
 
 /-- The second reflection is the first reflection followed by the rotation. -/
 theorem c1_eq_c0_mul_coxRot (m : ℕ) : c1 m = c0 m * coxRot m := by
-  simp [coxRot, mul_assoc]
+  calc
+    c1 m = 1 * c1 m := by simp
+    _ = (c0 m * c0 m) * c1 m := by rw [c0_sq]
+    _ = c0 m * (c0 m * c1 m) := by simp only [mul_assoc]
+    _ = c0 m * coxRot m := by rfl
 
 /-- Conjugation by the first reflection reverses the rotation. -/
 @[simp] theorem c0_mul_coxRot_mul_c0 (m : ℕ) :
     c0 m * coxRot m * c0 m = (coxRot m)⁻¹ := by
-  simp [coxRot, mul_assoc, mul_inv_rev]
+  rw [coxRot]
+  calc
+    c0 m * (c0 m * c1 m) * c0 m
+        = (c0 m * c0 m) * c1 m * c0 m := by simp only [mul_assoc]
+    _ = c1 m * c0 m := by simp
+    _ = (c0 m * c1 m)⁻¹ := by simp [mul_inv_rev]
 
 /-- The conjugation identity at every integer power. -/
 theorem c0_mul_coxRot_zpow_mul_c0 (m : ℕ) (k : ℤ) :
@@ -135,16 +146,16 @@ theorem coxRot_zpow_mul_c0 (m : ℕ) (k : ℤ) :
     (coxRot m) ^ k * c0 m = c0 m * (coxRot m) ^ (-k) := by
   calc
     (coxRot m) ^ k * c0 m
-        = c0 m * (c0 m * (coxRot m) ^ k * c0 m) := by simp [mul_assoc]
+        = 1 * ((coxRot m) ^ k * c0 m) := by simp
+    _ = (c0 m * c0 m) * ((coxRot m) ^ k * c0 m) := by rw [c0_sq]
+    _ = c0 m * (c0 m * (coxRot m) ^ k * c0 m) := by simp only [mul_assoc]
     _ = c0 m * (coxRot m) ^ (-k) := by rw [c0_mul_coxRot_zpow_mul_c0]
 
 /-- Rotate then multiply by the second reflection. -/
 theorem coxRot_zpow_mul_c1 (m : ℕ) (k : ℤ) :
     (coxRot m) ^ k * c1 m = c0 m * (coxRot m) ^ (-k + 1) := by
-  rw [c1_eq_c0_mul_coxRot]
-  rw [← mul_assoc, coxRot_zpow_mul_c0]
-  rw [mul_assoc, ← zpow_add]
-  simp
+  rw [c1_eq_c0_mul_coxRot, ← mul_assoc, coxRot_zpow_mul_c0]
+  group
 
 /-- A reflected normal form times the first reflection becomes a rotation. -/
 theorem c0_mul_coxRot_zpow_mul_c0_nf (m : ℕ) (k : ℤ) :
@@ -154,10 +165,8 @@ theorem c0_mul_coxRot_zpow_mul_c0_nf (m : ℕ) (k : ℤ) :
 /-- A reflected normal form times the second reflection becomes a rotation. -/
 theorem c0_mul_coxRot_zpow_mul_c1 (m : ℕ) (k : ℤ) :
     c0 m * (coxRot m) ^ k * c1 m = (coxRot m) ^ (-k + 1) := by
-  rw [c1_eq_c0_mul_coxRot]
-  rw [← mul_assoc, c0_mul_coxRot_zpow_mul_c0]
-  rw [← zpow_add]
-  simp
+  rw [c1_eq_c0_mul_coxRot, ← mul_assoc, c0_mul_coxRot_zpow_mul_c0]
+  group
 
 /-- Dihedral two-coset normal-form predicate. -/
 def HasDihedralNormalForm (m : ℕ) (w : IGroup m) : Prop :=
@@ -170,7 +179,7 @@ theorem hasDihedralNormalForm (m : ℕ) (w : IGroup m) :
   let cs := (CoxeterMatrix.I m).toCoxeterSystem
   apply cs.simple_induction_right w
   · refine ⟨0, Or.inl ?_⟩
-    simp [HasDihedralNormalForm]
+    simp
   · intro w i hw
     rcases hw with ⟨k, hk | hk⟩
     · subst w
