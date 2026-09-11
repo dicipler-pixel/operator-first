@@ -14,18 +14,28 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Checkout staging source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
+          path: staging
+      - name: Checkout current mathlib master
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: leanprover-community/mathlib4
+          ref: master
+          persist-credentials: false
+          path: mathlib4
       - uses: actions/cache@v4
         with:
           path: |
             ~/.elan
-            .lake
-          key: mathlib-i2-upstream-lean433-v1
-      - name: Install pinned Lean and current Mathlib cache
+            mathlib4/.lake
+          key: mathlib-master-i2-dihedral-v1
+      - name: Install mathlib toolchain and cache
+        working-directory: mathlib4
         run: |
           set -euo pipefail
           if [ ! -x "$HOME/.elan/bin/lake" ]; then
@@ -34,15 +44,16 @@ jobs:
           fi
           export PATH="$HOME/.elan/bin:$PATH"
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-          lake update
           lake exe cache get
-      - name: Compile upstream file and reject placeholders
+      - name: Compile proposed file on mathlib master and reject placeholders
         shell: bash
         run: |
           set -euo pipefail
-          SRC=Mathlib/GroupTheory/Coxeter/Dihedral.lean
+          SRC=staging/Mathlib/GroupTheory/Coxeter/Dihedral.lean
           test -z "$(grep -nE '\bsorry\b|\badmit\b' "$SRC" || true)"
-          lake env lean "$SRC" 2>&1 | tee mathlib-i2-upstream.log
+          cp "$SRC" mathlib4/Mathlib/GroupTheory/Coxeter/Dihedral.lean
+          cd mathlib4
+          lake env lean Mathlib/GroupTheory/Coxeter/Dihedral.lean 2>&1 | tee ../mathlib-i2-upstream.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
