@@ -24,7 +24,7 @@ if the collision row is an eigenrow of the local inertia tensor,
 then the raw term preserves the wall tangent condition.
 
 For the mechanical-connection correction `[Omega,W]`, if the wall direction is a
-null direction of `W`, then the correction also has zero wall functional.  The
+null direction of `W`, then the correction also has zero wall functional. The
 full projected intrinsic term therefore preserves the wall tangent space under
 these explicit hypotheses.
 
@@ -37,7 +37,7 @@ open Matrix
 
 namespace OperatorFirst.FourBodyWallInvariant
 
-variable {n : Type*} [Fintype n] [DecidableEq n]
+variable {n : Type*} [Fintype n]
 
 /-- Row-vector form of the binary-wall scalar `L W L^T`. -/
 def wallScalar (L : n → ℝ) (W : Matrix n n ℝ) : ℝ :=
@@ -58,8 +58,8 @@ theorem wallScalar_smul (L : n → ℝ) (c : ℝ) (A : Matrix n n ℝ) :
     wallScalar L (c • A) = c * wallScalar L A := by
   simp [wallScalar, Matrix.smul_mulVec, dotProduct_smul]
 
-/-- Exact first-order wall criterion: a line `W + t H` stays on the linear wall
-for every `t` iff the base point is on the wall and `H` is tangent. -/
+/-- A line `W + t H` stays on this linear wall whenever the base point lies on
+the wall and `H` satisfies the wall tangent condition. -/
 theorem wall_line_stays_zero
     (L : n → ℝ) (W H : Matrix n n ℝ)
     (hW : wallScalar L W = 0) (hH : wallTangent L H) (t : ℝ) :
@@ -98,12 +98,12 @@ theorem rawIntrinsic_preserves_wall_tangent
     wallTangent L (rawIntrinsic T W H) := by
   unfold wallTangent rawIntrinsic wallScalar at *
   have hleft : L ⬝ᵥ ((T * H) *ᵥ L) = lambda * (L ⬝ᵥ (H *ᵥ L)) := by
-    rw [Matrix.mulVec_mulVec]
-    rw [hEig]
-    simp [dotProduct_smul]
+    rw [← Matrix.mulVec_mulVec, Matrix.dotProduct_mulVec]
+    rw [← Matrix.mulVec_transpose, hTsymm, hEig]
+    simp
   have hright : L ⬝ᵥ ((H * T) *ᵥ L) = lambda * (L ⬝ᵥ (H *ᵥ L)) := by
-    rw [Matrix.mulVec_mulVec, hEig]
-    simp [dotProduct_smul]
+    rw [← Matrix.mulVec_mulVec, hEig]
+    simp
   rw [Matrix.sub_mulVec, Matrix.add_mulVec]
   simp only [dotProduct_sub, dotProduct_add]
   rw [hleft, hright]
@@ -116,7 +116,7 @@ theorem wallScalar_left_commutator_term_zero
     (L : n → ℝ) (Omega W : Matrix n n ℝ)
     (hNull : W *ᵥ L = 0) :
     L ⬝ᵥ ((Omega * W) *ᵥ L) = 0 := by
-  rw [Matrix.mulVec_mulVec, hNull]
+  rw [← Matrix.mulVec_mulVec, hNull]
   simp
 
 /-- For symmetric `W`, a null right direction also kills the second half of the
@@ -126,8 +126,8 @@ theorem wallScalar_right_commutator_term_zero
     (hWsymm : W.transpose = W)
     (hNull : W *ᵥ L = 0) :
     L ⬝ᵥ ((W * Omega) *ᵥ L) = 0 := by
-  rw [Matrix.dotProduct_mulVec, ← Matrix.mulVec_transpose]
-  rw [hWsymm, hNull]
+  rw [← Matrix.mulVec_mulVec, Matrix.dotProduct_mulVec]
+  rw [← Matrix.mulVec_transpose, hWsymm, hNull]
   simp
 
 /-- The horizontal connection correction `[Omega,W]` is tangent to the binary
