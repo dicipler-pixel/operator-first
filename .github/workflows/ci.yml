@@ -25,6 +25,12 @@ jobs:
       - name: resolve pinned dependencies
         run: lake update
 
+      - name: compile hypersurface square lineage explicitly
+        run: lake env lean OperatorFirst/HypersurfaceSquareLineage.lean
+
+      - name: compile four-body wall invariance explicitly
+        run: lake env lean OperatorFirst/FourBodyWallInvariant.lean
+
       - name: build, recheck, and audit proofs
         uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
         with:
