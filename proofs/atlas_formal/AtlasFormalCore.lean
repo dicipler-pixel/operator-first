@@ -65,7 +65,7 @@ theorem redistribution_occupied_block (P Ω : R) (hP : P * P = P) :
   have hQP := projector_complement_right P hP
   unfold redistribution
   rw [mul_add, add_mul]
-  simp [mul_assoc, hP, hPQ, hQP]
+  simp [← mul_assoc, hP, hPQ, hQP]
 
 /-- The complementary diagonal block also vanishes. -/
 theorem redistribution_empty_block (P Ω : R) (hP : P * P = P) :
@@ -75,7 +75,7 @@ theorem redistribution_empty_block (P Ω : R) (hP : P * P = P) :
   have hQQ := projector_complement_idempotent P hP
   unfold redistribution
   rw [mul_add, add_mul]
-  simp [mul_assoc, hP, hPQ, hQP, hQQ]
+  simp [← mul_assoc, hP, hPQ, hQP, hQQ]
 
 /-- Left-to-right cross block extraction. -/
 theorem redistribution_cross_left (P Ω : R) (hP : P * P = P) :
@@ -85,7 +85,7 @@ theorem redistribution_cross_left (P Ω : R) (hP : P * P = P) :
   have hQQ := projector_complement_idempotent P hP
   unfold redistribution
   rw [mul_add, add_mul]
-  simp [mul_assoc, hP, hPQ, hQP, hQQ]
+  simp [← mul_assoc, hP, hPQ, hQP, hQQ]
 
 /-- Right-to-left cross block extraction. -/
 theorem redistribution_cross_right (P Ω : R) (hP : P * P = P) :
@@ -95,7 +95,7 @@ theorem redistribution_cross_right (P Ω : R) (hP : P * P = P) :
   have hQQ := projector_complement_idempotent P hP
   unfold redistribution
   rw [mul_add, add_mul]
-  simp [mul_assoc, hP, hPQ, hQP, hQQ]
+  simp [← mul_assoc, hP, hPQ, hQP, hQQ]
 
 /-- Exact B31 compatibility kernel: redistribution vanishes exactly when the
 generator commutes with the idempotent decomposition. -/
