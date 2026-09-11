@@ -41,13 +41,17 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
           lake update
           lake exe cache get
-      - name: Compile certificate and reject placeholders
+      - name: Compile certificate and canonical bridge; reject placeholders
         shell: bash
         run: |
           set -euo pipefail
-          SRC=research/coxeter_rank2_2026_09_10/RankTwoCertificate.lean
-          test -z "$(grep -nE '\bsorry\b|\badmit\b' "$SRC" || true)"
-          lake env lean "$SRC" 2>&1 | tee coxeter-rank2.log
+          DIR=research/coxeter_rank2_2026_09_10
+          test -z "$(grep -R -nE '\bsorry\b|\badmit\b' "$DIR" --include='*.lean' || true)"
+          : > coxeter-rank2.log
+          for SRC in "$DIR/RankTwoCertificate.lean" "$DIR/DihedralBridge.lean"; do
+            echo "===== $SRC =====" | tee -a coxeter-rank2.log
+            lake env lean "$SRC" 2>&1 | tee -a coxeter-rank2.log
+          done
       - uses: actions/upload-artifact@v4
         if: always()
         with:
