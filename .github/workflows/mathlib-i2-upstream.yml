@@ -1,0 +1,51 @@
+name: Upstream mathlib I2-dihedral bridge
+
+on:
+  push:
+    branches: [upstream/mathlib-i2-dihedral-2026-09-11]
+    paths:
+      - 'Mathlib/GroupTheory/Coxeter/Dihedral.lean'
+      - '.github/workflows/mathlib-i2-upstream.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.elan
+            .lake
+          key: mathlib-i2-upstream-lean433-v1
+      - name: Install pinned Lean and current Mathlib cache
+        run: |
+          set -euo pipefail
+          if [ ! -x "$HOME/.elan/bin/lake" ]; then
+            curl --retry 3 -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan.sh"
+            bash "$RUNNER_TEMP/elan.sh" -y --default-toolchain "$(cat lean-toolchain)"
+          fi
+          export PATH="$HOME/.elan/bin:$PATH"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          lake update
+          lake exe cache get
+      - name: Compile upstream file and reject placeholders
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC=Mathlib/GroupTheory/Coxeter/Dihedral.lean
+          test -z "$(grep -nE '\bsorry\b|\badmit\b' "$SRC" || true)"
+          lake env lean "$SRC" 2>&1 | tee mathlib-i2-upstream.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mathlib-i2-upstream-evidence
+          path: mathlib-i2-upstream.log
+          retention-days: 30
