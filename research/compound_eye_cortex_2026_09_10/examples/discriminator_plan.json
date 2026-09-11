@@ -1,0 +1,46 @@
+{
+  "schema": "compound-eye-discriminator-v1",
+  "hypotheses": [
+    {"id": "hidden_floor_bottleneck"},
+    {"id": "vacuum_upper_bound_bottleneck"},
+    {"id": "boundary_direction_bottleneck"},
+    {"id": "representation_choice_bottleneck"}
+  ],
+  "actions": [
+    {
+      "id": "resolve_boundary_energy_labels",
+      "cost": "2",
+      "outcomes": {
+        "margin_recovers": ["boundary_direction_bottleneck"],
+        "margin_still_fails": ["hidden_floor_bottleneck", "vacuum_upper_bound_bottleneck", "representation_choice_bottleneck"]
+      },
+      "inputs": ["positive residues", "energy labels", "test energy"],
+      "acceptance": ["exact or interval matrix comparison"],
+      "changes_object": false
+    },
+    {
+      "id": "diagnostic_factorial_split",
+      "cost": "3",
+      "outcomes": {
+        "hidden": ["hidden_floor_bottleneck"],
+        "vacuum": ["vacuum_upper_bound_bottleneck"],
+        "boundary": ["boundary_direction_bottleneck"],
+        "representation": ["representation_choice_bottleneck"]
+      },
+      "inputs": ["same operator", "four controlled bound substitutions"],
+      "acceptance": ["same-parameter comparison with exact acceptance"],
+      "changes_object": false
+    },
+    {
+      "id": "grow_basis_blindly",
+      "cost": "10",
+      "outcomes": {
+        "better": ["representation_choice_bottleneck", "boundary_direction_bottleneck"],
+        "not_better": ["hidden_floor_bottleneck", "vacuum_upper_bound_bottleneck"]
+      },
+      "inputs": ["larger basis"],
+      "acceptance": ["certificate rerun"],
+      "changes_object": true
+    }
+  ]
+}
