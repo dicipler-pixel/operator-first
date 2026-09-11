@@ -6,7 +6,7 @@ import Mathlib
 A small, exact formal slice motivated by the open problem of making Coxeter's
 finite/affine classification computer-verifiable.
 
-This file does NOT claim the full classification.  It isolates the rank-two
+This file does NOT claim the full classification. It isolates the rank-two
 crystallographic boundary in a concrete integral reflection model.
 
 For nonnegative Cartan off-diagonal magnitudes `a,b`, use the two involutions
@@ -20,7 +20,7 @@ The canonical crystallographic finite products `0,1,2,3` give periods
 period and instead has linear unipotent drift.
 
 We also record the golden product `(3+√5)/2` between `2` and `3`, hence it is
-not an integer.  This is the arithmetic obstruction seen at the 36-degree
+not an integer. This is the arithmetic obstruction seen at the 36-degree
 `I₂(5)=H₂` case.
 -/
 
@@ -54,11 +54,11 @@ def HasExactPeriod {α : Type*} (f : α → α) (n : ℕ) : Prop :=
 
 @[simp] theorem s1_involution (a : ℤ) (v : V) : s1 a (s1 a v) = v := by
   rcases v with ⟨x, y⟩
-  ext <;> simp [s1] <;> ring
+  ext <;> simp [s1]
 
 @[simp] theorem s2_involution (b : ℤ) (v : V) : s2 b (s2 b v) = v := by
   rcases v with ⟨x, y⟩
-  ext <;> simp [s2] <;> ring
+  ext <;> simp [s2]
 
 /-- Product `0`: type `A₁ × A₁`. -/
 def U2 : V → V := step 0 0
@@ -79,52 +79,52 @@ def Uaff : V → V := step 2 2
   ext <;> simp [U2, step, s1, s2]
 
 @[simp] theorem U3_formula (x y : ℤ) : U3 (x, y) = (-y, x - y) := by
-  ext <;> simp [U3, step, s1, s2]
+  ext <;> simp [U3, step, s1, s2] <;> ring_nf
 
 @[simp] theorem U4_formula (x y : ℤ) : U4 (x, y) = (x - y, 2 * x - y) := by
-  ext <;> simp [U4, step, s1, s2] <;> ring
+  ext <;> simp [U4, step, s1, s2] <;> ring_nf
 
 @[simp] theorem U6_formula (x y : ℤ) : U6 (x, y) = (2 * x - y, 3 * x - y) := by
-  ext <;> simp [U6, step, s1, s2] <;> ring
+  ext <;> simp [U6, step, s1, s2] <;> ring_nf
 
 @[simp] theorem Uaff_formula (x y : ℤ) : Uaff (x, y) = (3 * x - 2 * y, 2 * x - y) := by
-  ext <;> simp [Uaff, step, s1, s2] <;> ring
+  ext <;> simp [Uaff, step, s1, s2] <;> ring_nf
 
- theorem U2_period : ∀ v : V, iter U2 2 v = v := by
+theorem U2_period : ∀ v : V, iter U2 2 v = v := by
   rintro ⟨x, y⟩
   ext <;> simp [iter, U2, step, s1, s2]
 
- theorem U3_period : ∀ v : V, iter U3 3 v = v := by
+theorem U3_period : ∀ v : V, iter U3 3 v = v := by
   rintro ⟨x, y⟩
-  ext <;> simp [iter, U3, step, s1, s2] <;> ring
+  ext <;> simp [iter, U3, step, s1, s2] <;> ring_nf
 
- theorem U4_period : ∀ v : V, iter U4 4 v = v := by
+theorem U4_period : ∀ v : V, iter U4 4 v = v := by
   rintro ⟨x, y⟩
-  ext <;> simp [iter, U4, step, s1, s2] <;> ring
+  ext <;> simp [iter, U4, step, s1, s2] <;> ring_nf
 
- theorem U6_period : ∀ v : V, iter U6 6 v = v := by
+theorem U6_period : ∀ v : V, iter U6 6 v = v := by
   rintro ⟨x, y⟩
-  ext <;> simp [iter, U6, step, s1, s2] <;> ring
+  ext <;> simp [iter, U6, step, s1, s2] <;> ring_nf
 
- theorem U2_exact : HasExactPeriod U2 2 := by
+theorem U2_exact : HasExactPeriod U2 2 := by
   refine ⟨U2_period, ?_⟩
   intro m hm hlt
   refine ⟨(1, 0), ?_⟩
   interval_cases m <;> norm_num [iter, U2, step, s1, s2] at *
 
- theorem U3_exact : HasExactPeriod U3 3 := by
+theorem U3_exact : HasExactPeriod U3 3 := by
   refine ⟨U3_period, ?_⟩
   intro m hm hlt
   refine ⟨(1, 0), ?_⟩
   interval_cases m <;> norm_num [iter, U3, step, s1, s2] at *
 
- theorem U4_exact : HasExactPeriod U4 4 := by
+theorem U4_exact : HasExactPeriod U4 4 := by
   refine ⟨U4_period, ?_⟩
   intro m hm hlt
   refine ⟨(1, 0), ?_⟩
   interval_cases m <;> norm_num [iter, U4, step, s1, s2] at *
 
- theorem U6_exact : HasExactPeriod U6 6 := by
+theorem U6_exact : HasExactPeriod U6 6 := by
   refine ⟨U6_period, ?_⟩
   intro m hm hlt
   refine ⟨(1, 0), ?_⟩
@@ -138,8 +138,9 @@ theorem Uaff_iterate (n : ℕ) (x y : ℤ) :
   induction n with
   | zero => simp [iter]
   | succ n ih =>
-      simp [iter, ih, Uaff, step, s1, s2, Nat.cast_succ]
-      ring
+      rw [iter, ih, Uaff_formula]
+      simp only [Nat.cast_succ]
+      ext <;> ring
 
 /-- No positive iterate of the affine representative is the identity. -/
 theorem Uaff_no_positive_period (n : ℕ) (hn : 0 < n) :
