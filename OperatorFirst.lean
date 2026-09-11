@@ -1,4 +1,4 @@
-/-
+/*
 SCRIPT: OPERATORFIRST-01
 
 Statements from the operator-first corpus; verification status is tied to CI.
@@ -10,10 +10,11 @@ Jeromie Beasley -- https://doi.org/10.5281/zenodo.22124938
 Single module on purpose: everything lives in this one file so the library has
 no subdirectory to go missing. The definitions of D and V are mathematical;
 an operational state-discrimination interpretation is a separate obligation.
--/
+*/
 
 import Mathlib
 import OperatorFirst.HypersurfaceSquareLineage
+import OperatorFirst.ProjectionTraceBridge
 
 open Matrix
 
