@@ -138,7 +138,8 @@ theorem Uaff_iterate (n : ℕ) (x y : ℤ) :
   induction n with
   | zero => simp [iter]
   | succ n ih =>
-      rw [iter, ih, Uaff_formula]
+      change Uaff (iter Uaff n (x, y)) = _
+      rw [ih, Uaff_formula]
       simp only [Nat.cast_succ]
       ext <;> ring
 
