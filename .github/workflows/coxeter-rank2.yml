@@ -1,0 +1,56 @@
+name: Rank-two Coxeter finite-to-affine certificate
+
+on:
+  push:
+    branches: [research/coxeter-rank2-2026-09-10]
+    paths:
+      - 'research/coxeter_rank2_2026_09_10/**'
+      - '.github/workflows/coxeter-rank2.yml'
+  pull_request:
+    paths:
+      - 'research/coxeter_rank2_2026_09_10/**'
+      - '.github/workflows/coxeter-rank2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.elan
+            .lake
+          key: coxeter-rank2-lean433-v1
+      - name: Install pinned Lean and Mathlib cache
+        run: |
+          set -euo pipefail
+          if [ ! -x "$HOME/.elan/bin/lake" ]; then
+            curl --retry 3 -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan.sh"
+            bash "$RUNNER_TEMP/elan.sh" -y --default-toolchain "$(cat lean-toolchain)"
+          fi
+          export PATH="$HOME/.elan/bin:$PATH"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          lake update
+          lake exe cache get
+      - name: Compile certificate and reject placeholders
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC=research/coxeter_rank2_2026_09_10/RankTwoCertificate.lean
+          test -z "$(grep -nE '\bsorry\b|\badmit\b' "$SRC" || true)"
+          lake env lean "$SRC" 2>&1 | tee coxeter-rank2.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coxeter-rank2-lean-evidence
+          path: coxeter-rank2.log
+          retention-days: 30
