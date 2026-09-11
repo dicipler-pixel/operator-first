@@ -6,17 +6,14 @@ import Mathlib
 This file works with mathlib's actual `CoxeterMatrix.I` presentation and
 concrete `DihedralGroup`.
 
-Stage 1 constructs the canonical homomorphism
+We construct the canonical homomorphism
 
   (CoxeterMatrix.I m).Group →* DihedralGroup (m + 2)
 
-sending the two simple Coxeter generators to adjacent reflections and proves
-that it is surjective.
-
-Stage 2 proves an internal dihedral normal form in the presented Coxeter group:
-every element is either a rotation power or the first reflection times a
-rotation power. This is the load-bearing input for injectivity; we keep the
-stages explicit so a surjection is never silently promoted to an isomorphism.
+sending the two simple Coxeter generators to adjacent reflections.  We then
+prove a two-coset normal form inside the presented Coxeter group, use it to
+show that the canonical map has trivial kernel, and obtain the multiplicative
+group equivalence.
 -/
 
 set_option autoImplicit false
@@ -195,8 +192,55 @@ theorem hasDihedralNormalForm (m : ℕ) (w : IGroup m) :
       · refine ⟨-k + 1, Or.inl ?_⟩
         exact c0_mul_coxRot_zpow_mul_c1 m k
 
+/-! ## Kernel closure and the actual equivalence -/
+
+@[simp] theorem toDihedral_c0 (m : ℕ) : toDihedral m (c0 m) = sr 0 := by
+  simpa [c0] using toDihedral_simple_zero m
+
+@[simp] theorem toDihedral_coxRot (m : ℕ) : toDihedral m (coxRot m) = r 1 := by
+  simpa [coxRot, c0, c1] using toDihedral_rotation m
+
+/-- The canonical map has trivial kernel.  In the rotation normal form, the
+concrete target detects divisibility of the exponent by `m+2`; the Coxeter
+period relation then kills the source rotation.  The reflected normal form
+cannot map to the identity because `r` and `sr` are distinct constructors. -/
+theorem toDihedral_eq_one_imp (m : ℕ) {w : IGroup m}
+    (hw : toDihedral m w = 1) : w = 1 := by
+  obtain ⟨k, hk | hk⟩ := hasDihedralNormalForm m w
+  · subst w
+    have hr : (r 1 : DihedralGroup (m + 2)) ^ k = 1 := by
+      simpa using hw
+    have hkdiv : ((m + 2 : ℕ) : ℤ) ∣ k := by
+      simpa using (orderOf_dvd_iff_zpow_eq_one.mpr hr)
+    have horderNat : orderOf (coxRot m) ∣ m + 2 :=
+      orderOf_dvd_of_pow_eq_one (coxRot_pow_order m)
+    have horderInt : (orderOf (coxRot m) : ℤ) ∣ ((m + 2 : ℕ) : ℤ) := by
+      exact Int.natCast_dvd_natCast.mpr horderNat
+    exact orderOf_dvd_iff_zpow_eq_one.mp (horderInt.trans hkdiv)
+  · subst w
+    exfalso
+    have hbad :
+        (sr (-(k : ZMod (m + 2))) : DihedralGroup (m + 2)) = r 0 := by
+      simpa [DihedralGroup.r_one_zpow] using hw
+    cases hbad
+
+/-- The canonical map is injective. -/
+theorem toDihedral_injective (m : ℕ) : Function.Injective (toDihedral m) := by
+  rw [injective_iff_map_eq_one]
+  intro w hw
+  exact toDihedral_eq_one_imp m hw
+
+/-- Mathlib's presented rank-two Coxeter group is canonically equivalent to
+the concrete dihedral group. -/
+noncomputable def IGroupEquivDihedral (m : ℕ) :
+    IGroup m ≃* DihedralGroup (m + 2) :=
+  MulEquiv.ofBijective (toDihedral m)
+    ⟨toDihedral_injective m, toDihedral_surjective m⟩
+
 #print axioms OperatorFirst.CoxeterRankTwo.dihedralSimple_isLiftable
 #print axioms OperatorFirst.CoxeterRankTwo.toDihedral_surjective
 #print axioms OperatorFirst.CoxeterRankTwo.hasDihedralNormalForm
+#print axioms OperatorFirst.CoxeterRankTwo.toDihedral_injective
+#print axioms OperatorFirst.CoxeterRankTwo.IGroupEquivDihedral
 
 end OperatorFirst.CoxeterRankTwo
