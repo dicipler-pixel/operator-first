@@ -6,15 +6,15 @@ import Mathlib
 Formal reconstruction of the recovered chain:
 spacing -> inverse-gap-square response -> metric coefficient -> Snell/Clairaut
 -> squared refraction -> fold/Gram squaring -> three-body fourth-power rigidity
--> four-body normal suppression -> fixed-spacing angle-dependent response.
+-> reduced four-body wall model -> fixed-spacing angle-dependent response.
 
 The physical identifications are not axioms here; model-specific inputs appear
-only as explicit hypotheses.
+only as explicit hypotheses. In particular, `g = n^2` below is a declared
+model identification inside this projector/hypersurface construction. It is not
+an identification of the intrinsic projector metric with a spacetime metric.
 -/
 
 namespace OperatorFirst.HypersurfaceSquareLineage
-
-/-! ## I. Spacing and inverse-gap-square response -/
 
 theorem response_square_is_gap_square (a Δ : ℝ) (hΔ : Δ ≠ 0) :
     (a / Δ) ^ 2 = a ^ 2 / Δ ^ 2 := by
@@ -35,7 +35,7 @@ theorem inverse_gap_square_scaling
     1 / (c * Δ) ^ 2 = (1 / c ^ 2) * (1 / Δ ^ 2) := by
   field_simp [hΔ, hc]
 
-/-! ## II. Snell / Clairaut -/
+/-! ## Main equivalence: Snell / Clairaut -/
 
 theorem snell_implies_squared_snell
     (n₁ n₂ θ₁ θ₂ : ℝ)
@@ -53,6 +53,7 @@ theorem metric_snell_squared
   subst g₂
   exact snell_implies_squared_snell n₁ n₂ θ₁ θ₂ hSnell
 
+/-- Converse to the squared law. The sign hypotheses are essential. -/
 theorem squared_snell_from_metric_index
     (n₁ n₂ g₁ g₂ s₁ s₂ : ℝ)
     (hn1 : 0 ≤ n₁) (hn2 : 0 ≤ n₂)
@@ -68,20 +69,60 @@ theorem squared_snell_from_metric_index
   have hright : 0 ≤ n₂ * s₂ := mul_nonneg hn2 hs2
   nlinarith
 
-/-! ## III. Principal-angle reading -/
+/-- Under the positive-branch hypotheses, ordinary Snell and the squared
+metric form are equivalent. -/
+theorem snell_iff_squared_metric_snell
+    (n₁ n₂ g₁ g₂ s₁ s₂ : ℝ)
+    (hn1 : 0 ≤ n₁) (hn2 : 0 ≤ n₂)
+    (hg1 : g₁ = n₁ ^ 2) (hg2 : g₂ = n₂ ^ 2)
+    (hs1 : 0 ≤ s₁) (hs2 : 0 ≤ s₂) :
+    n₁ * s₁ = n₂ * s₂ ↔ g₁ * s₁ ^ 2 = g₂ * s₂ ^ 2 := by
+  constructor
+  · intro h
+    subst g₁
+    subst g₂
+    have hs := congrArg (fun x : ℝ => x ^ 2) h
+    simpa [mul_pow] using hs
+  · intro h
+    exact squared_snell_from_metric_index n₁ n₂ g₁ g₂ s₁ s₂ hn1 hn2 hg1 hg2 hs1 hs2 h
+
+/-! ## Rank-one projector / principal-angle dictionary -/
+
+/-- Entrywise Hilbert--Schmidt distance squared between the rank-one
+projectors onto `(1,0)` and `(cos θ, sin θ)`. -/
+noncomputable def rankOneProjectorHSDistanceSq (θ : ℝ) : ℝ :=
+  (Real.cos θ ^ 2 - 1) ^ 2 +
+    2 * (Real.sin θ ^ 2 * Real.cos θ ^ 2) +
+    Real.sin θ ^ 4
+
+/-- Exact projector dictionary: `||P_θ-P_0||_HS^2 = 2 sin^2 θ`. -/
+theorem rank_one_projector_hs_distance_sq (θ : ℝ) :
+    rankOneProjectorHSDistanceSq θ = 2 * Real.sin θ ^ 2 := by
+  have hcos : Real.cos θ ^ 2 = 1 - Real.sin θ ^ 2 := by
+    nlinarith [Real.sin_sq_add_cos_sq θ]
+  rw [rankOneProjectorHSDistanceSq, hcos]
+  ring
 
 noncomputable def rankOneChordalSq (θ : ℝ) : ℝ := 2 * Real.sin θ ^ 2
+
+theorem rankOneChordalSq_eq_projector_distance (θ : ℝ) :
+    rankOneChordalSq θ = rankOneProjectorHSDistanceSq θ := by
+  rw [rankOneChordalSq, rank_one_projector_hs_distance_sq]
 
 theorem rankOneChordalSq_nonneg (θ : ℝ) :
     0 ≤ rankOneChordalSq θ := by
   unfold rankOneChordalSq
   positivity
 
+theorem rank_one_channel_threshold_iff (ε θ : ℝ) :
+    ε ≤ rankOneChordalSq θ / 2 ↔ ε ≤ Real.sin θ ^ 2 := by
+  simp [rankOneChordalSq]
+
 theorem sqrt_sin_sq (θ : ℝ) :
     Real.sqrt (Real.sin θ ^ 2) = |Real.sin θ| := by
   simpa using Real.sqrt_sq_eq_abs (Real.sin θ)
 
-/-! ## IV. Fold -> Gram square -> fourth-power rigidity -/
+/-! ## Fold -> Gram square -> fourth-power rigidity -/
 
 def gramSoft (s : ℝ) : ℝ := s ^ 2
 
@@ -103,7 +144,13 @@ theorem simple_zero_gives_inverse_fourth
   unfold rigidityFromGram
   field_simp [hc, hε]
 
-/-! ## V. Three-body refraction -/
+/-! ## Three-body refraction
+
+Provenance: the `R₁ sin² θ₁ = R₂ sin² θ₂` form belongs to the earlier
+directional-transport/refraction line. This module proves its exact algebraic
+relation to positive-index Snell once the model coefficient is supplied; it
+does not re-derive the physical variational principle.
+-/
 
 theorem three_body_refraction_is_squared_snell
     (R₁ R₂ θ₁ θ₂ : ℝ)
@@ -114,7 +161,12 @@ theorem three_body_refraction_is_squared_snell
   rw [mul_pow, mul_pow, Real.sq_sqrt hR1, Real.sq_sqrt hR2] at hs
   exact hs
 
-/-! ## VI. Four-body hypersurface block -/
+/-! ## Reduced four-body wall model: definition-level checks
+
+The four-body source motivates the block form with lower-left zero and normal
+factor `2*lam`; that derivation is not formalized here. The next declarations
+are unit tests of the chosen reduced model, not theorems about full dynamics.
+-/
 
 def fourBodyWallMap (A shear lam parallel normal : ℝ) : ℝ × ℝ :=
   (A * parallel + shear * normal, (2 * lam) * normal)
@@ -131,7 +183,7 @@ theorem four_body_zero_squeeze_kills_normal (A shear parallel normal : ℝ) :
     (fourBodyWallMap A shear 0 parallel normal).2 = 0 := by
   simp [fourBodyWallMap]
 
-/-! ## VII. Fixed spacing, changing orientation -/
+/-! ## Fixed spacing, changing orientation -/
 
 def twoLevelGapSq (Δ : ℝ) : ℝ := Δ ^ 2
 
@@ -159,7 +211,7 @@ theorem conductance_numerator_factor (Δ γ θ : ℝ) :
       (γ ^ 2 * (Δ / 2) ^ 2) * orientationWeight θ := by
   simp [orientationWeight]
 
-/-! ## VIII. Keep spacing notions distinct -/
+/-! ## Keep spacing notions distinct -/
 
 inductive SpacingKind
   | ionization | bandGap | principalAngle | spatial | channel
@@ -176,7 +228,11 @@ theorem different_kind_measurements_ne (x : ℝ) :
   have hk := congrArg SpacingMeasurement.kind h
   cases hk
 
-/-! ## IX. Master conditional lineage -/
+/-! ## Master conditional lineage
+
+The hypotheses `g₁=n₁²` and `g₂=n₂²` are explicit model identifications.
+They are not universal and do not identify projector geometry with spacetime.
+-/
 
 theorem spacing_to_hypersurface_refraction
     (a₁ a₂ Δ₁ Δ₂ q₁ q₂ g₁ g₂ n₁ n₂ θ₁ θ₂ : ℝ)
@@ -209,7 +265,11 @@ end OperatorFirst.HypersurfaceSquareLineage
 #print axioms OperatorFirst.HypersurfaceSquareLineage.snell_implies_squared_snell
 #print axioms OperatorFirst.HypersurfaceSquareLineage.metric_snell_squared
 #print axioms OperatorFirst.HypersurfaceSquareLineage.squared_snell_from_metric_index
+#print axioms OperatorFirst.HypersurfaceSquareLineage.snell_iff_squared_metric_snell
+#print axioms OperatorFirst.HypersurfaceSquareLineage.rank_one_projector_hs_distance_sq
+#print axioms OperatorFirst.HypersurfaceSquareLineage.rankOneChordalSq_eq_projector_distance
 #print axioms OperatorFirst.HypersurfaceSquareLineage.rankOneChordalSq_nonneg
+#print axioms OperatorFirst.HypersurfaceSquareLineage.rank_one_channel_threshold_iff
 #print axioms OperatorFirst.HypersurfaceSquareLineage.sqrt_sin_sq
 #print axioms OperatorFirst.HypersurfaceSquareLineage.fold_gram_rigidity_fourth_power
 #print axioms OperatorFirst.HypersurfaceSquareLineage.three_body_sec_four
