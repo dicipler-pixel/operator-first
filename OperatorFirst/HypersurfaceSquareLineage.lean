@@ -85,26 +85,23 @@ theorem sqrt_sin_sq (θ : ℝ) :
 
 def gramSoft (s : ℝ) : ℝ := s ^ 2
 
-def rigidityFromGram (lam : ℝ) : ℝ := 1 / lam ^ 2
+noncomputable def rigidityFromGram (lam : ℝ) : ℝ := 1 / lam ^ 2
 
 theorem fold_gram_rigidity_fourth_power (s : ℝ) (hs : s ≠ 0) :
     rigidityFromGram (gramSoft s) = 1 / s ^ 4 := by
   unfold rigidityFromGram gramSoft
   field_simp [hs]
-  ring
 
 theorem three_body_sec_four (θ : ℝ) (hc : Real.cos θ ≠ 0) :
     rigidityFromGram (Real.cos θ ^ 2) = 1 / Real.cos θ ^ 4 := by
   unfold rigidityFromGram
   field_simp [hc]
-  ring
 
 theorem simple_zero_gives_inverse_fourth
     (c ε : ℝ) (hc : c ≠ 0) (hε : ε ≠ 0) :
     rigidityFromGram ((c * ε) ^ 2) = (1 / c ^ 4) * (1 / ε ^ 4) := by
   unfold rigidityFromGram
   field_simp [hc, hε]
-  ring
 
 /-! ## V. Three-body refraction -/
 
