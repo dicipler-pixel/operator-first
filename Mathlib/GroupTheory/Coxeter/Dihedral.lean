@@ -91,6 +91,9 @@ private def rot (m : ℕ) : IGroup m := c0 m * c1 m
 @[simp] private theorem c0_inv (m : ℕ) : (c0 m)⁻¹ = c0 m := by
   exact (eq_inv_of_mul_eq_one_right (c0_sq m)).symm
 
+@[simp] private theorem c1_inv (m : ℕ) : (c1 m)⁻¹ = c1 m := by
+  exact (eq_inv_of_mul_eq_one_right (c1_sq m)).symm
+
 private theorem rot_pow_order (m : ℕ) : (rot m) ^ (m + 2) = 1 := by
   change (((CoxeterMatrix.I m).toCoxeterSystem.simple (0 : Fin 2) *
     (CoxeterMatrix.I m).toCoxeterSystem.simple (1 : Fin 2)) ^ (m + 2) = 1)
