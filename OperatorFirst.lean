@@ -13,6 +13,7 @@ an operational state-discrimination interpretation is a separate obligation.
 -/
 
 import Mathlib
+import CollatzBarrier
 
 open Matrix
 
