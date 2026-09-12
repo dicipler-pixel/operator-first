@@ -40,6 +40,11 @@ def trace (step : State → Move → State) : State → List Move → List State
     (ms : List Move) :
     trace step s (m :: ms) = s :: trace step (step s m) ms := rfl
 
+/-- The initial state belongs to every visited trace. -/
+theorem start_mem_trace (step : State → Move → State) (s : State) (ms : List Move) :
+    s ∈ trace step s ms := by
+  cases ms <;> simp [trace]
+
 /-- The final state belongs to the visited trace. -/
 theorem run_mem_trace (step : State → Move → State) (s : State) (ms : List Move) :
     run step s ms ∈ trace step s ms := by
@@ -65,14 +70,18 @@ theorem run_mem_of_bounded_trace
   induction ms generalizing start with
   | nil => simpa using hstart
   | cons m ms ih =>
+      have hnextInner : step start m ∈ trace step (step start m) ms :=
+        start_mem_trace step (step start m) ms
       have hnextTrace : step start m ∈ trace step start (m :: ms) := by
-        simp [trace]
+        simp only [trace_cons, List.mem_cons]
+        exact Or.inr hnextInner
       have hnext : step start m ∈ C :=
         hclosed start hstart m (hcap _ hnextTrace)
-      apply ih (start := step start m) hnext hclosed
+      apply ih (start := step start m) hnext
       intro s hs
       apply hcap s
-      simp [trace, hs]
+      simp only [trace_cons, List.mem_cons]
+      exact Or.inr hs
 
 /-- Closed-well bottleneck theorem.
 
@@ -92,16 +101,14 @@ theorem descent_forces_cap_exit
     (hdesc : height (run step start ms) < height start) :
     ∃ s ∈ trace step start ms, B < height s := by
   by_contra hno
-  push_neg at hno
-  have hcap : ∀ s ∈ trace step start ms, height s ≤ B := by
-    intro s hs
-    exact Nat.le_of_not_lt (hno s hs)
+  push Not at hno
   have hfinal : run step start ms ∈ C :=
-    run_mem_of_bounded_trace step height C B ms hstart hclosed hcap
+    run_mem_of_bounded_trace step height C B ms hstart hclosed hno
   exact (Nat.not_lt_of_ge (hlower _ hfinal)) hdesc
 
 end ACCWell
 
+#print axioms ACCWell.start_mem_trace
 #print axioms ACCWell.run_mem_trace
 #print axioms ACCWell.run_mem_of_bounded_trace
 #print axioms ACCWell.descent_forces_cap_exit
