@@ -3,10 +3,12 @@ name: ACC length-well eye
 on:
   push:
     paths:
+      - 'ACCWell.lean'
       - 'research/acc/**'
       - '.github/workflows/acc-length-well.yml'
   pull_request:
     paths:
+      - 'ACCWell.lean'
       - 'research/acc/**'
       - '.github/workflows/acc-length-well.yml'
 
@@ -23,3 +25,17 @@ jobs:
           python-version: '3.12'
       - name: Verify ac-00015 exact well and accepted controls
         run: python research/acc/length_well_eye.py --verify-ac00015 --calibration
+
+  lean-bottleneck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+          sh elan-init.sh -y --default-toolchain leanprover/lean4:v4.33.0
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - run: lake update
+      - run: lake exe cache get
+      - name: Check finite well theorem and report axioms
+        run: lake env lean ACCWell.lean
