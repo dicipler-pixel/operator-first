@@ -21,6 +21,9 @@ jobs:
           curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
           bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain leanprover/lean4:v4.33.0
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve pinned Mathlib
+        working-directory: research/upg/formal
+        run: lake update
       - name: Compile, recheck and audit
         uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
         with:
