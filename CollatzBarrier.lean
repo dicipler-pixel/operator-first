@@ -58,9 +58,7 @@ theorem descent_iff_cross {p q x n B : ℕ} (hp : 0 < p)
     (h : p * x = q * n + B) :
     x < n ↔ q * n + B < p * n := by
   rw [← h]
-  constructor <;> intro hxn
-  · exact Nat.mul_lt_mul_left p hxn
-  · exact (Nat.mul_lt_mul_left p).mp hxn
+  exact (Nat.mul_lt_mul_left hp).symm
 
 /-- Cross-multiplied return criterion. -/
 theorem return_iff_cross {p q x n B : ℕ} (hp : 0 < p)
@@ -78,9 +76,7 @@ theorem growth_iff_cross {p q x n B : ℕ} (hp : 0 < p)
     (h : p * x = q * n + B) :
     n < x ↔ p * n < q * n + B := by
   rw [← h]
-  constructor <;> intro hnx
-  · exact Nat.mul_lt_mul_left p hnx
-  · exact (Nat.mul_lt_mul_left p).mp hnx
+  exact (Nat.mul_lt_mul_left hp).symm
 
 /-- Collatz prefix descent written with the exact ordered correction. -/
 theorem collatz_prefix_descent_iff (a x : ℕ → ℕ)
