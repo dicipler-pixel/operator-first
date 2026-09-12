@@ -41,24 +41,90 @@ Verdict: the full integral abelian data are still almost blind to the hard word-
 
 This strengthens the earlier conclusion about the abelian eye: Smith form / abelianized group was not merely too coarse because it was reduced modulo something. Even the unreduced integral row-operation metric loses the information that makes the hard case hard.
 
+## Cyclic cancellation eye — KEEP for discovery / move ordering
+
+For cyclically reduced relators `r,s`, let `k(r,s)` be the largest free cancellation obtainable in a product after cyclic rotation and inversion of either relator. Define
+
+`surplus(r,s) = 2 k(r,s) - min(|r|,|s|)`.
+
+Positive surplus has a direct meaning: once the corresponding orientations are available, multiplying the shorter relator into the longer can reduce total cyclic length by exactly that surplus.
+
+Define the one-product collapse floor
+
+`F(r,s) = |r| + |s| - surplus(r,s)`.
+
+This is not an admissible move-count bound because the orientation setup itself costs moves. It is a word-order diagnostic.
+
+Opposed controls from `cancellation_eye.py`:
+
+| challenge | max cyclic cancellation | surplus | collapse floor | reference |
+|---|---:|---:|---:|---:|
+| `ac-01635` | 3 | **+3** | 10 | 8 moves |
+| `ac-00015` | 4 | **-2** | 23 | 622 moves |
+| `ac-00002` | 5 | **0** | 25 | length-well control |
+
+This is the first tested eye in the current round that sees the short-vs-hard control in the right direction while retaining a concrete mechanism: the short case already has a profitable collapse opportunity; the 622-move case has a cancellation deficit.
+
+### Exact ac-00002 well regression
+
+Closed sublevel components under raw total-relator-length caps:
+
+| cap | raw states | cyclic/inversion signatures | compression |
+|---:|---:|---:|---:|
+| 25 | 3,000 | 5 | 600x |
+| 27 | 17,720 | 9 | 1,968.9x |
+| 29 | 91,040 | 28 | 3,251.4x |
+
+At the cap layer, temporary length growth buys cancellation capacity:
+
+- length 25: surplus `0` on all 3,000 states;
+- length 27: 12,000 states at surplus `0`, 2,720 at surplus `+2`;
+- length 29: 48,000 states at surplus `0`, 10,880 at `+2`, 14,440 at `+4`.
+
+More sharply, across **all 91,040 states** in the cap-29 component the joint cyclic-length/surplus data are
+
+- `(25,0)` on 63,000 states,
+- `(27,+2)` on 13,600 states,
+- `(29,+4)` on 14,440 states.
+
+Every one has the same collapse floor `F=25`.
+
+So the well is not merely “length gets worse before it gets better.” Up to this exact cap, each two units of cyclic-length climb purchase exactly two units of potential cancellation, leaving the best one-product floor unchanged. Pure length greedy sees a hill; the cancellation eye sees a **flat hidden plateau**. Escaping the well requires finding a state that changes the collapse floor or opens a qualitatively new multiplication route, not merely maximizing overlap.
+
+### Fiber/base compression
+
+Use the ordered pair of cyclic/inversion canonical relators as a diagnostic signature. Do **not** deduplicate the raw search by this signature: conjugation/inversion setup still costs moves and raw representatives can expose different multiplications.
+
+But expensive eyes, miss history, and learned statistics can be shared across the signature.
+
+At cap 29:
+
+- 91,040 raw states occupy only 28 signatures;
+- the signature graph has 88 unique directed class-changing edges;
+- every observed class-changing transition is a relator-multiplication move;
+- conjugations/inversions stay inside the signature fiber.
+
+This is the natural architecture for the Compound Eye: raw states remain the exact path layer; the canonical signature is the shared diagnostic layer; multiplication moves are the geometry-changing events between fibers.
+
 ## Surviving direction — word-order barrier / escape geometry
 
-The public length-greedy baseline and the local `ac-00002` well experiment point to a different object. Hard paths may need to climb in word length before cancellation becomes available. Define conceptually
+Hard paths may need to climb in word length before cancellation becomes available. Define conceptually
 
 `W(s) = min_{paths s -> target} max_t L(state_t)`,
 
 where `L` is total relator length.
 
-`W` is a minimax escape height, not a group quotient and not an abelian invariant. Threshold connectivity under `L <= h` gives exact finite certificates of the form “no target path exists below height `h`.” The `ac-00002` component closure below 32 is precisely this kind of certificate.
+`W` is a minimax escape height, not a group quotient and not an abelian invariant. Threshold connectivity under `L <= h` gives exact finite certificates of the form “no target path exists below height h.” The `ac-00002` component closure below 32 is precisely this kind of certificate.
 
 This has the capacity property the rejected eyes lack: the wall height can grow with the word geometry. It also directly addresses the known failure of monotone length search.
 
-### Next ACC eye to build
+### Search architecture to test next
 
-Use two outputs, kept separate:
+Keep three outputs separate:
 
-1. **Distance floor** — cheap admissible lower bounds only if they pass calibration. Current finite quotient and integral exponent-matrix floors are too weak for the hard pool.
-2. **Escape / neck predictor** — estimate where a path must deliberately lengthen, using threshold components, cancellation structure, cyclic overlaps, conjugation opportunities, and shared subpaths across the 10,115-instance pool.
+1. **Distance floor** — cheap admissible lower bounds only if they pass opposed controls. Current finite quotient and integral exponent-matrix floors are too weak for the hard pool.
+2. **Collapse floor / neck predictor** — cyclic overlap, cancellation surplus, orientation setup cost, and whether the best one-product floor actually drops.
+3. **Shared fiber memory** — cache expensive diagnostics and failure history by cyclic/inversion signature while retaining raw representatives and exact parent pointers for verification.
 
 The Compound Eye should record misses and later replay them: once a hard path is found, compare the pre-epiphany eye traces with the actual neck states and learn which word-order features anticipated the escape.
 
