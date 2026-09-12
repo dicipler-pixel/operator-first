@@ -38,6 +38,13 @@ def blockHamiltonian (A : Matrix r r ℝ) (B : Matrix r h ℝ)
 def retainedProjection : Matrix (Sum r h) (Sum r h) ℝ :=
   Matrix.fromBlocks 1 0 0 0
 
+/-- The complementary projector has the expected adapted block form. -/
+theorem one_sub_retainedProjection :
+    (1 - retainedProjection : Matrix (Sum r h) (Sum r h) ℝ) =
+      Matrix.fromBlocks 0 0 0 1 := by
+  ext i j
+  cases i <;> cases j <;> simp [retainedProjection]
+
 /-- Matrix commutator with the retained projector. -/
 def projectorCommutator (A : Matrix r r ℝ) (B : Matrix r h ℝ)
     (D : Matrix h h ℝ) : Matrix (Sum r h) (Sum r h) ℝ :=
@@ -82,10 +89,11 @@ formalized in `UPGFeedback.lean`. -/
 theorem peirceRedistribution_eq_redistribution
     (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) :
     peirceRedistribution A B D = redistribution B := by
+  rw [peirceRedistribution, one_sub_retainedProjection]
   ext i j
   cases i <;> cases j <;>
-    simp [peirceRedistribution, retainedProjection, blockHamiltonian,
-      redistribution, Matrix.fromBlocks_multiply]
+    simp [retainedProjection, blockHamiltonian, redistribution,
+      Matrix.fromBlocks_multiply]
 
 /-- Four equivalent finite diagnostics of retained-hidden coupling. -/
 theorem adapted_feedback_equivalences
@@ -116,6 +124,7 @@ theorem projector_commutes_iff_memory_zero
 
 end UPGFeedback
 
+#print axioms UPGFeedback.one_sub_retainedProjection
 #print axioms UPGFeedback.projectorCommutator_eq_blocks
 #print axioms UPGFeedback.projectorCommutator_eq_zero_iff
 #print axioms UPGFeedback.peirceRedistribution_eq_redistribution
