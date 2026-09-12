@@ -1,0 +1,25 @@
+name: ACC length-well eye
+
+on:
+  push:
+    paths:
+      - 'research/acc/**'
+      - '.github/workflows/acc-length-well.yml'
+  pull_request:
+    paths:
+      - 'research/acc/**'
+      - '.github/workflows/acc-length-well.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  finite-well-certificate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify ac-00015 exact well and accepted controls
+        run: python research/acc/length_well_eye.py --verify-ac00015 --calibration
