@@ -4,16 +4,20 @@ on:
     paths:
       - 'research/diophantine/**'
       - 'CollatzBarrier.lean'
+      - 'CollatzAlignment.lean'
       - 'CollatzDiophantine.lean'
       - 'collatz_diophantine_exact.py'
+      - 'collatz_alignment_exact.py'
       - 'COLLATZ_FORMAL_STATUS.md'
       - '.github/workflows/diophantine.yml'
   pull_request:
     paths:
       - 'research/diophantine/**'
       - 'CollatzBarrier.lean'
+      - 'CollatzAlignment.lean'
       - 'CollatzDiophantine.lean'
       - 'collatz_diophantine_exact.py'
+      - 'collatz_alignment_exact.py'
       - 'COLLATZ_FORMAL_STATUS.md'
       - '.github/workflows/diophantine.yml'
 permissions:
@@ -31,6 +35,8 @@ jobs:
       - run: python research/diophantine/verify_diophantine.py --output diophantine-ci.json
       - name: Exact Collatz saturated-barrier regression
         run: python collatz_diophantine_exact.py --limit 10000 --check-known
+      - name: Exact Collatz layer-alignment falsification harness
+        run: python collatz_alignment_exact.py
       - uses: actions/upload-artifact@v4
         with:
           name: diophantine-exact-controls
@@ -56,6 +62,8 @@ jobs:
           lake build 2>&1 | tee lean-certificates.log
       - name: Check Collatz prefix barrier
         run: lake env lean ../../../CollatzBarrier.lean
+      - name: Check Collatz phase-survival alignment
+        run: lake env lean ../../../CollatzAlignment.lean
       - name: Check Collatz Diophantine gap certificates
         run: lake env lean ../../../CollatzDiophantine.lean
       - uses: actions/upload-artifact@v4
