@@ -26,6 +26,15 @@ jobs:
       - name: Verify ac-00015 exact well and accepted controls
         run: python research/acc/length_well_eye.py --verify-ac00015 --calibration
 
+  packed-second-well:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile collision-free packed scanner
+        run: g++ -O3 -std=c++17 research/acc/length_well_packed.cpp -o /tmp/length_well_packed
+      - name: Reproduce cap-29 second-well closure
+        run: /tmp/length_well_packed 29 6000000
+
   lean-bottleneck:
     runs-on: ubuntu-latest
     steps:
