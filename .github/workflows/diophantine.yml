@@ -33,7 +33,7 @@ jobs:
       - name: Resolve pinned Mathlib
         working-directory: research/diophantine/formal
         run: lake update
-      - name: Build, independently recheck, and audit axioms
+      - name: Build base certificates and audit environment
         uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
         with:
           lake-package-directory: research/diophantine/formal
@@ -43,9 +43,29 @@ jobs:
           leanchecker-args: Certificates
           axiom-audit: true
           axiom-audit-allow: propext,Classical.choice,Quot.sound
-      - name: Elaborate integrality module explicitly
+      - name: Independently elaborate, leancheck, and audit integrality module
         working-directory: research/diophantine/formal
-        run: lake env lean SectionIntegrality.lean | tee section-integrality.log
+        shell: bash
+        run: |
+          set -o pipefail
+          lake env lean SectionIntegrality.lean 2>&1 | tee section-integrality.log
+          lake env leanchecker SectionIntegrality 2>&1 | tee section-integrality-leanchecker.log
+          python3 - <<'PY'
+          import pathlib,re
+          text=pathlib.Path('section-integrality.log').read_text()
+          src=pathlib.Path('SectionIntegrality.lean').read_text()
+          names=re.findall(r'^theorem\s+(\w+)',src,re.M)
+          assert len(names)==9, names
+          assert 'sorryAx' not in text and 'Lean.ofReduceBool' not in text
+          allow={'propext','Classical.choice','Quot.sound'}
+          for name in names:
+              pat=r"'DiophantineEye\."+re.escape(name)+r"' depends on axioms: \[([^\]]*)\]"
+              m=re.search(pat,text)
+              assert m, name
+              axes={x.strip() for x in m.group(1).split(',') if x.strip()}
+              assert axes <= allow, (name,axes)
+          print('Accepted and audited 9 SectionIntegrality theorems')
+          PY
       - name: Reject false integral-section control
         working-directory: research/diophantine/formal
         run: |
@@ -62,4 +82,5 @@ jobs:
           path: |
             research/diophantine/formal/lake-manifest.json
             research/diophantine/formal/section-integrality.log
+            research/diophantine/formal/section-integrality-leanchecker.log
             research/diophantine/formal/false-integrality.log
