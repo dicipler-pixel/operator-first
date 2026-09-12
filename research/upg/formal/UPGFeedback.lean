@@ -61,7 +61,9 @@ theorem memoryAtZero_eq_zero_iff (B : Matrix r h ℝ) :
         (fun k hk => sq_nonneg (B i k))
         (Finset.mem_univ j)
     rw [hsum] at hle
-    nlinarith [sq_nonneg (B i j)]
+    have hsquare : (B i j)^2 = 0 :=
+      le_antisymm hle (sq_nonneg (B i j))
+    simpa using (sq_eq_zero_iff.mp hsquare)
   · intro hB
     subst B
     simp [memoryAtZero]
