@@ -4,7 +4,7 @@ import Mathlib
 # Model-specific symmetries of the odd Rice--Mele determinant block
 
 This module begins the missing model-specific Lean layer in
-`moduli_transfer/ALL_SIZE_TRANSFER.md`.  It encodes the actual odd A/B block
+`moduli_transfer/ALL_SIZE_TRANSFER.md`. It encodes the actual odd A/B block
 and proves the simultaneous hopping-sign conjugacy used in the written proof.
 
 It does not yet formalize the interval-reflection conjugacy, invariant-ring
@@ -63,7 +63,10 @@ theorem hopping_sign_conjugacy (n : ℕ) (g h : ℤ → R) (a b v : R) :
 theorem signMatrix_sq (n : ℕ) :
     signMatrix (R := R) n * signMatrix (R := R) n = 1 := by
   ext i j
-  simp [signMatrix, Matrix.diagonal_mul, bSign]
+  by_cases hij : i = j
+  · subst j
+    simp [signMatrix, bSign]
+  · simp [signMatrix, hij]
 
 /-- Determinant form of the simultaneous hopping-sign symmetry:
 `F(a,b,v)=F(-a,-b,v)` for every odd block size and arbitrary Toeplitz data. -/
