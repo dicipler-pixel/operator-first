@@ -50,7 +50,7 @@ jobs:
           allow={'propext','Classical.choice','Quot.sound'}
           for filename, logfile, expected in [
               ('UPGBlockFeedback.lean','block-feedback.log',7),
-              ('UPGProjectorMetric.lean','projector-metric.log',9),
+              ('UPGProjectorMetric.lean','projector-metric.log',11),
           ]:
               src=pathlib.Path(filename).read_text()
               log=pathlib.Path(logfile).read_text()
