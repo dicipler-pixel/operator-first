@@ -61,6 +61,30 @@ theorem affine_prefix_identity (a x : ℕ → ℕ)
           rw [pow_succ]
           ring
 
+/-- Finite-prefix version of `affine_prefix_identity`.
+Only the step equations before the requested endpoint are needed. -/
+theorem affine_prefix_identity_finite (a x : ℕ → ℕ) :
+    ∀ j, (∀ i < j, 2 ^ a i * x (i + 1) = 3 * x i + 1) →
+      2 ^ prefixSum a j * x j = 3 ^ j * x 0 + correction a j := by
+  intro j
+  induction j with
+  | zero => simp
+  | succ j ih =>
+      intro hstep
+      have hprev : 2 ^ prefixSum a j * x j = 3 ^ j * x 0 + correction a j :=
+        ih (fun i hi => hstep i (Nat.lt_trans hi (Nat.lt_succ_self j)))
+      rw [prefixSum_succ, correction_succ, pow_add]
+      calc
+        (2 ^ prefixSum a j * 2 ^ a j) * x (j + 1)
+            = 2 ^ prefixSum a j * (2 ^ a j * x (j + 1)) := by ring
+        _ = 2 ^ prefixSum a j * (3 * x j + 1) := by
+          rw [hstep j (Nat.lt_succ_self j)]
+        _ = 3 * (2 ^ prefixSum a j * x j) + 2 ^ prefixSum a j := by ring
+        _ = 3 * (3 ^ j * x 0 + correction a j) + 2 ^ prefixSum a j := by rw [hprev]
+        _ = 3 ^ (j + 1) * x 0 + (3 * correction a j + 2 ^ prefixSum a j) := by
+          rw [pow_succ]
+          ring
+
 /-- Cross-multiplied descent criterion. This is the denominator-free form of
 `n > B/(p-q)` and is preferable for formal arithmetic. -/
 theorem descent_iff_cross {p q x n B : ℕ} (hp : 0 < p)
@@ -87,6 +111,35 @@ theorem growth_iff_cross {p q x n B : ℕ} (hp : 0 < p)
   rw [← h]
   exact (Nat.mul_lt_mul_left hp).symm
 
+/-- Exact survival criterion at a multiplicatively contractive endpoint.
+When `q ≤ p`, survival `n ≤ x` is equivalent to the denominator-free barrier
+condition `(p-q)n ≤ B`. -/
+theorem survival_iff_gap {p q x n B : ℕ} (hp : 0 < p) (hqp : q ≤ p)
+    (h : p * x = q * n + B) :
+    n ≤ x ↔ (p - q) * n ≤ B := by
+  constructor
+  · intro hstay
+    have hsurvival : p * n ≤ q * n + B := by
+      calc
+        p * n ≤ p * x := Nat.mul_le_mul_left p hstay
+        _ = q * n + B := h
+    have hsum : (p - q) * n + q * n ≤ B + q * n := by
+      calc
+        (p - q) * n + q * n = p * n := by
+          rw [← Nat.add_mul, Nat.sub_add_cancel hqp]
+        _ ≤ q * n + B := hsurvival
+        _ = B + q * n := Nat.add_comm _ _
+    exact Nat.le_of_add_le_add_right hsum
+  · intro hgap
+    have hsurvival : p * n ≤ q * n + B := by
+      calc
+        p * n = (p - q) * n + q * n := by
+          rw [← Nat.add_mul, Nat.sub_add_cancel hqp]
+        _ ≤ B + q * n := Nat.add_le_add_right hgap _
+        _ = q * n + B := Nat.add_comm _ _
+    rw [← h] at hsurvival
+    exact Nat.le_of_mul_le_mul_left hsurvival hp
+
 /-- Collatz prefix descent written with the exact ordered correction. -/
 theorem collatz_prefix_descent_iff (a x : ℕ → ℕ)
     (hstep : ∀ j, 2 ^ a j * x (j + 1) = 3 * x j + 1) (j : ℕ) :
@@ -105,6 +158,19 @@ theorem collatz_prefix_return_iff (a x : ℕ → ℕ)
   apply return_iff_cross (p := 2 ^ prefixSum a j) (q := 3 ^ j)
       (B := correction a j)
   · positivity
+  · exact affine_prefix_identity a x hstep j
+
+/-- At any prefix for which `3^j ≤ 2^A_j`, survival above the initial seed is
+exactly the integer power-gap barrier `(2^A_j-3^j)x₀ ≤ B_j`. -/
+theorem collatz_prefix_survival_iff_gap (a x : ℕ → ℕ)
+    (hstep : ∀ j, 2 ^ a j * x (j + 1) = 3 * x j + 1) (j : ℕ)
+    (hpow : 3 ^ j ≤ 2 ^ prefixSum a j) :
+    x 0 ≤ x j ↔
+      (2 ^ prefixSum a j - 3 ^ j) * x 0 ≤ correction a j := by
+  apply survival_iff_gap (p := 2 ^ prefixSum a j) (q := 3 ^ j)
+      (B := correction a j)
+  · positivity
+  · exact hpow
   · exact affine_prefix_identity a x hstep j
 
 /-- Monotonicity of the ordered correction under pointwise prefix-power caps.
@@ -193,11 +259,14 @@ theorem seed_lt_of_survival_gap_certificate (a u x : ℕ → ℕ)
 end CollatzBarrier
 
 #print axioms CollatzBarrier.affine_prefix_identity
+#print axioms CollatzBarrier.affine_prefix_identity_finite
 #print axioms CollatzBarrier.descent_iff_cross
 #print axioms CollatzBarrier.return_iff_cross
 #print axioms CollatzBarrier.growth_iff_cross
+#print axioms CollatzBarrier.survival_iff_gap
 #print axioms CollatzBarrier.collatz_prefix_descent_iff
 #print axioms CollatzBarrier.collatz_prefix_return_iff
+#print axioms CollatzBarrier.collatz_prefix_survival_iff_gap
 #print axioms CollatzBarrier.correction_le_envelope
 #print axioms CollatzBarrier.survival_le_envelope
 #print axioms CollatzBarrier.survival_gap_bound
