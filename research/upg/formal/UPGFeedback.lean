@@ -4,7 +4,7 @@ import Mathlib
 # UPG finite redistribution-feedback bridge
 
 This isolated module formalizes the finite Hermitian block kernel behind the
-written UPG/cascade feedback criterion.  It does not formalize open-system
+written UPG/cascade feedback criterion. It does not formalize open-system
 Markovianity, a material model, or an infinite-time memory claim.
 
 For a retained-hidden coupling block `B`, the UPG redistribution operator is the
@@ -13,7 +13,7 @@ off-diagonal block matrix
     [ 0   B ]
     [ Bᵀ  0 ]
 
-and the zero-time eliminated-sector memory matrix is `B Bᵀ`.  Both vanish
+and the zero-time eliminated-sector memory matrix is `B Bᵀ`. Both vanish
 exactly when `B` vanishes.
 -/
 
@@ -46,11 +46,11 @@ theorem redistribution_eq_zero_iff (B : Matrix r h ℝ) :
     simp [redistribution]
 
 /-- The zero-time feedback Gram is zero exactly when the coupling block is
-zero.  This uses the standard positive Gram-matrix kernel theorem in Mathlib. -/
+zero. This uses the standard positive Gram-matrix kernel theorem in Mathlib. -/
 theorem memoryAtZero_eq_zero_iff (B : Matrix r h ℝ) :
     memoryAtZero B = 0 ↔ B = 0 := by
   simpa [memoryAtZero, Matrix.conjTranspose] using
-    (Matrix.self_mul_conjTranspose_eq_zero B)
+    (Matrix.self_mul_conjTranspose_eq_zero : B * B.conjTranspose = 0 ↔ B = 0)
 
 /-- Finite Hermitian feedback criterion: vanishing redistribution, vanishing
 zero-time memory Gram, and vanishing retained-hidden coupling are equivalent. -/
