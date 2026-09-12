@@ -125,6 +125,22 @@ class TestStartOrbit(unittest.TestCase):
         self.assertEqual(c["return_distance"], 3)
         self.assertEqual(c["lane"], "padding")
 
+    def test_cancellation_eye_frozen_values(self):
+        """Pinned to the acc-collab implementation (83724f1); checked equal on 1,380 random states."""
+        self.assertEqual(eyes.cancellation_eye(self.START), {"k": 3, "surplus": -1, "cyclic_tot": 16, "floor": 17})
+        T48 = (w("YYYYYYYxxxxYXyXXyXyxyxYXYXyXXyxxxyyyy"), w("xxxxYXyXXyX"))
+        self.assertEqual(eyes.cancellation_eye(T48)["floor"], 29)
+        ak3 = (w("YXYxyx"), w("YYYYxxx"))  # ac-00399
+        self.assertEqual(eyes.cancellation_eye(ak3), {"k": 2, "surplus": -2, "cyclic_tot": 13, "floor": 15})
+
+    def test_holdout_first_ply_products_rank_above_padding(self):
+        ak3 = (w("YXYxyx"), w("YYYYxxx"))
+        floors = {m: eyes.cancellation_eye(self._apply(ak3, m))["floor"] for m in range(14)}
+        self.assertTrue(all(floors[m] == 13 for m in (2, 3, 4, 5)))
+        self.assertTrue(all(floors[m] == 15 for m in range(14) if m not in (2, 3, 4, 5)))
+        m5 = self._apply(ak3, 5)
+        self.assertEqual((eyes.total(m5), eyes.hab(m5), eyes.lane(m5, ak3)), (17, 5, "r1-only"))
+
 
 if __name__ == "__main__":
     unittest.main()

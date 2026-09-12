@@ -272,3 +272,38 @@ def checkpoint(state, start, apply_move=None, radius=0, cap=None):
     if apply_move is not None and radius > 0:
         v["return_distance"] = distance_back(state, start, apply_move, radius, cap)
     return v
+
+
+# --- cancellation eye (frozen definition, vendored from acc-collab 83724f1) ---
+# k        largest free cancellation in a product after cyclic rotation and/or
+#          inversion of either relator
+# surplus  2k - min(|core r0|, |core r1|)
+# floor    |core r0| + |core r1| - surplus   (one-product collapse floor)
+# The number is frozen; only orbit labels are attached to outcomes.
+
+def _rotations(word):
+    return [word[i:] + word[:i] for i in range(len(word))] or [word]
+
+
+def _oriented_rotations(word):
+    inv = tuple(-a for a in reversed(word))
+    return _rotations(word) + _rotations(inv)
+
+
+def _cancellation_length(left, right):
+    n = 0
+    while n < len(left) and n < len(right) and left[-1 - n] == -right[n]:
+        n += 1
+    return n
+
+
+def max_cyclic_cancellation(r, s):
+    r, s = core(r), core(s)
+    return max(_cancellation_length(a, b) for a in _oriented_rotations(r) for b in _oriented_rotations(s))
+
+
+def cancellation_eye(state):
+    r, s = core(state[0]), core(state[1])
+    k = max_cyclic_cancellation(r, s)
+    surplus = 2 * k - min(len(r), len(s))
+    return {"k": k, "surplus": surplus, "cyclic_tot": len(r) + len(s), "floor": len(r) + len(s) - surplus}
