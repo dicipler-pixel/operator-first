@@ -1,0 +1,22 @@
+name: ACC observer controls
+on:
+  push:
+    paths:
+      - 'research/acc/**'
+      - '.github/workflows/acc-observer.yml'
+  pull_request:
+    paths:
+      - 'research/acc/**'
+      - '.github/workflows/acc-observer.yml'
+permissions:
+  contents: read
+jobs:
+  calibrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact exponent-matrix opposed controls
+        run: python research/acc/observer_calibration.py
