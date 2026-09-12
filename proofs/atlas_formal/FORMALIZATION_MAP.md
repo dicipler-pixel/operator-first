@@ -70,7 +70,7 @@ Source: recovered 90-card Atlas package. This map preserves the cards but separa
 | B53 | conjecture | **HOLD** | Two curves, one source. | Conjectural common source for two limiting curves; no Lean theorem yet. |
 | B54 | measured | **NOW** | Two ways for the bound to fail. | Formalize exact finite counterexamples for both failure modes: positive det with curvature overrun and negative det. |
 | B55 | theorem | **MODEL** | Where the geometry fails is a wall of its own. | For each explicit family define geometric-wall and EP predicates and prove they differ there. Do not universalize without hypotheses. |
-| B56 | theorem | **REPAIR** | A curve and a point do not meet. | Do NOT formalize “curve and point do not meet.” Replace with dimension/transversality statements under explicit regular-value hypotheses. |
+| B56 | theorem | **NOW** | Any meeting is nontransverse. | Corrected statement: in a two-real-parameter model, a regular codimension-one wall and a regular codimension-two coalescence locus cannot meet transversely. The finite kernel proves that the combined derivative `ℝ² → ℝ³` cannot be surjective. It does not say the loci are disjoint without transversality. |
 | B57 | theorem | **NOW** | Zero length, and still moving. | Formalize nonzero null directions in indefinite forms; then an explicit moving idempotent example. Hermitian zero-length ⇒ zero tangent is a separate PSD theorem. |
 | B58 | conjecture | **HOLD** | A collective cone exceeds its parts. | Cone-superadditivity is conjectural; preserve as target only. |
 | B59 | reading | **HOLD** | Two cones, deliberately not identified. | Deliberate non-identification/readout discipline, not theorem content. |
@@ -108,7 +108,7 @@ Source: recovered 90-card Atlas package. This map preserves the cards but separa
 
 ## First implementation batch
 
-`AtlasFormalCore.lean` starts with finite kernels for B2/B16/B31/B32/B48/B51/B57/B60/B61/B66/B68/B74/B85/B90. It is deliberately narrower than the English card captions. B56 and the generic part of B90 are explicitly *not* asserted.
+`AtlasFormalCore.lean` starts with finite kernels for B2/B16/B31/B32/B48/B51/B56/B57/B60/B61/B66/B68/B74/B85/B90. It is deliberately narrower than the English card captions. B56 is repaired as a finite rank obstruction; the generic part of B90 is explicitly *not* asserted.
 
 ### Immediate second batch
 
