@@ -23,25 +23,43 @@ jobs:
           path: diophantine-ci.json
   lean-algebra:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: research/diophantine/formal
     steps:
       - uses: actions/checkout@v4
       - name: Install pinned Lean
         run: |
-          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
-          sh elan-init.sh -y --default-toolchain leanprover/lean4:v4.33.0
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain leanprover/lean4:v4.33.0
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-      - run: lake update
-      - run: lake exe cache get
-      - name: Check certificates and report axioms
-        shell: bash
+      - name: Resolve pinned Mathlib
+        working-directory: research/diophantine/formal
+        run: lake update
+      - name: Build, independently recheck, and audit axioms
+        uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
+        with:
+          lake-package-directory: research/diophantine/formal
+          use-mathlib-cache: true
+          build: true
+          leanchecker: true
+          leanchecker-args: Certificates
+          axiom-audit: true
+          axiom-audit-allow: propext,Classical.choice,Quot.sound
+      - name: Elaborate integrality module explicitly
+        working-directory: research/diophantine/formal
+        run: lake env lean SectionIntegrality.lean | tee section-integrality.log
+      - name: Reject false integral-section control
+        working-directory: research/diophantine/formal
         run: |
-          set -o pipefail
-          lake build 2>&1 | tee lean-certificates.log
+          if lake env lean FalseIntegralityControl.lean > false-integrality.log 2>&1; then
+            cat false-integrality.log
+            exit 1
+          fi
+          grep -q 'unsolved goals' false-integrality.log
+          cat false-integrality.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: diophantine-lean-certificates
-          path: research/diophantine/formal/lean-certificates.log
+          path: |
+            research/diophantine/formal/lake-manifest.json
+            research/diophantine/formal/section-integrality.log
+            research/diophantine/formal/false-integrality.log
