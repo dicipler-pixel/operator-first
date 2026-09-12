@@ -72,6 +72,41 @@ theorem projector_cross_energy_eq_memory_trace
   rw [trace_memoryAtZero_eq_couplingEnergy]
   simp [couplingEnergy, projectorCommutator_inl_inr]
 
+/-- The reverse oriented cross block carries the same squared energy. -/
+theorem projector_reverse_cross_energy_eq_couplingEnergy
+    (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) :
+    (∑ i : h, ∑ j : r,
+      (projectorCommutator A B D (Sum.inr i) (Sum.inl j)) ^ 2)
+      = couplingEnergy B := by
+  simp [projectorCommutator_inr_inl, couplingEnergy, Finset.sum_comm]
+
+/-- Sum of the two oriented cross-block energies. Because the exact commutator
+block form has zero diagonal blocks, this is the full entrywise square energy
+of `[H,P]`; the definition is kept explicit to avoid hiding a norm convention. -/
+def projectorCrossEnergy
+    (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) : ℝ :=
+  (∑ i : r, ∑ j : h,
+      (projectorCommutator A B D (Sum.inl i) (Sum.inr j)) ^ 2) +
+  (∑ i : h, ∑ j : r,
+      (projectorCommutator A B D (Sum.inr i) (Sum.inl j)) ^ 2)
+
+/-- Exact factor-of-two identity for the full two-oriented cross-block energy. -/
+theorem projectorCrossEnergy_eq_two_mul_couplingEnergy
+    (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) :
+    projectorCrossEnergy A B D = 2 * couplingEnergy B := by
+  rw [projectorCrossEnergy, projector_cross_energy_eq_memory_trace,
+    trace_memoryAtZero_eq_couplingEnergy,
+    projector_reverse_cross_energy_eq_couplingEnergy]
+  ring
+
+/-- With the conventional Grassmann/projector factor one-half, the commutator
+cross-energy is exactly the retained-hidden coupling energy. -/
+theorem half_projectorCrossEnergy_eq_couplingEnergy
+    (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) :
+    (1 / 2 : ℝ) * projectorCrossEnergy A B D = couplingEnergy B := by
+  rw [projectorCrossEnergy_eq_two_mul_couplingEnergy]
+  ring
+
 /-- Zero projector commutator is equivalent to zero cross-sector coupling
 energy. -/
 theorem projectorCommutator_eq_zero_iff_couplingEnergy_eq_zero
@@ -86,4 +121,7 @@ end UPGFeedback
 #print axioms UPGFeedback.projectorCommutator_inl_inr
 #print axioms UPGFeedback.projectorCommutator_inr_inl
 #print axioms UPGFeedback.projector_cross_energy_eq_memory_trace
+#print axioms UPGFeedback.projector_reverse_cross_energy_eq_couplingEnergy
+#print axioms UPGFeedback.projectorCrossEnergy_eq_two_mul_couplingEnergy
+#print axioms UPGFeedback.half_projectorCrossEnergy_eq_couplingEnergy
 #print axioms UPGFeedback.projectorCommutator_eq_zero_iff_couplingEnergy_eq_zero
