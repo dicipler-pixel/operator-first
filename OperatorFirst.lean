@@ -15,6 +15,7 @@ an operational state-discrimination interpretation is a separate obligation.
 import Mathlib
 import OperatorFirst.HypersurfaceSquareLineage
 import OperatorFirst.ProjectionTraceBridge
+import OperatorFirst.FourBodyPSDWallBridge
 
 open Matrix
 
