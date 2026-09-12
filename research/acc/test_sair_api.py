@@ -113,6 +113,17 @@ class TestReconcile(unittest.TestCase):
             self.assertIn("ac-00001:", submit); self.assertIn("ac-00002:", submit); self.assertNotIn("ac-00004:", submit)
             self.assertNotIn("_moves", json.dumps(rep))  # moves never leak into the json table
 
+    def test_incomplete_history_is_flagged(self):
+        live = {"data": {"items": []}}
+        mine = {"data": {"items": [{"submissionId": "s1", "results": []}], "totalCount": 30, "nextCursor": "abc"}}
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            (d / "s.json").write_text(json.dumps(live)); (d / "m.json").write_text(json.dumps(mine)); (d / "c.txt").write_text("")
+            reconcile_live.run(str(d / "s.json"), str(d / "m.json"), [str(d / "c.txt")], str(d / "out"), trust_unverified=True)
+            rep = json.load(open(d / "out" / "PRIVATE_RECONCILIATION.json"))
+            self.assertFalse(rep["server_history_complete"])
+            self.assertEqual(rep["server_submissions"], 1)
+
     def test_unverified_paths_are_not_trusted_by_default(self):
         live = {"data": {"items": [{"challengeId": "ac-00001", "status": "unsolved", "currentBestLength": None}]}}
         with tempfile.TemporaryDirectory() as d:

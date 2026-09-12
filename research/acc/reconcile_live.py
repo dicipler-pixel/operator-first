@@ -85,7 +85,10 @@ def load_mine(path):
             ids_by_len[cid][L].append(sid)
             if cid not in best or L < best[cid]:
                 best[cid] = L
-    complete = not doc.get("errors") and (doc.get("pages") is None or True)
+    d = doc.get("data", doc) if isinstance(doc, dict) else {}
+    total = _first(d, "totalCount", "total") if isinstance(d, dict) else None
+    cursor = _first(d, "nextCursor", "next_cursor") if isinstance(d, dict) else None
+    complete = (not doc.get("errors") and cursor is None and (total is None or int(total) == len(subs)))
     return best, ids_by_len, len(subs), complete
 
 
