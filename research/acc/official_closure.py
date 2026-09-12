@@ -34,8 +34,10 @@ def length(state):
     return sum(len(r) for r in state)
 
 
-def closure(initial, cap, progress_every=0):
+def closure(initial, cap, progress_every=0, moves=None):
     """Exact connected component of `initial` under legal moves, never exceeding `cap`.
+
+    `moves` restricts the grammar (e.g. Lisitsa frozen-r1: (0,2,3,6,7,8,9)); default all 14.
 
     Returns (size, min_length, closed, level_census). `closed` is True when the
     component was fully enumerated, i.e. every legal move from every member
@@ -54,7 +56,7 @@ def closure(initial, cap, progress_every=0):
     while frontier:
         nxt = []
         for s in frontier:
-            for m in range(core.NUM_MOVES):
+            for m in (moves if moves is not None else range(core.NUM_MOVES)):
                 t = core.apply_move(s, m)
                 lt = length(t)
                 if lt > cap:
@@ -82,6 +84,7 @@ def main():
     ap.add_argument("--cap", type=int, required=True)
     ap.add_argument("--expect-size", type=int)
     ap.add_argument("--state", help="JSON pair of relators, overriding the manifest start")
+    ap.add_argument("--moves", help="comma-separated move ids to restrict the grammar, e.g. 0,2,3,6,7,8,9")
     args = ap.parse_args()
 
     if args.state:
@@ -91,11 +94,12 @@ def main():
         ch = {c["challenge_id"]: c for c in man["challenges"]}
         initial = ch[args.challenge]["initial_relators"]
 
-    size, min_len, closed, census = closure(initial, args.cap, progress_every=1_000_000)
+    mv = tuple(int(x) for x in args.moves.split(",")) if args.moves else None
+    size, min_len, closed, census = closure(initial, args.cap, progress_every=1_000_000, moves=mv)
     start_len = sum(len(r) for r in initial)
     descends = min_len < start_len
     print(json.dumps({
-        "challenge": args.challenge, "cap": args.cap, "start_length": start_len,
+        "challenge": args.challenge, "cap": args.cap, "start_length": start_len, "moves": mv,
         "component_size": size, "min_length": min_len, "closed": closed,
         "descent_found": descends, "level_census": census,
     }, indent=2))
