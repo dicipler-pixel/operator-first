@@ -39,7 +39,13 @@ append result nodes after, so findings stop living only in chat transcripts.
 6. Upstream drift checked: the hub's recorded SAIR head `99a65377` is an
    ancestor of `a0fd6e6f` and the pool/manifest bytes are identical between
    them. No re-freeze; earlier work stays valid.
-7. DAG regression suite: 15/15.
+7. **Independent closure engine** (`research/acc/official_closure.py`, built on
+   `verifier.core`, no shared code with the C++/string engines) reproduces
+   every published well count exactly: `ac-00015` cap 26 = 105,912;
+   `ac-00002` cap 31 = 1,021,696 and cap 32 = 1,303,928; second well cap 29
+   = 5,149,128 and cap 30 = 9,096,912 with the full level census matching.
+   Every certified well bound now rests on two independent implementations.
+8. DAG regression suite 15/15; closure regression 3/3.
 
 ## What failed / what is missing
 
@@ -59,9 +65,8 @@ append result nodes after, so findings stop living only in chat transcripts.
 
 - `ac-00002` is Miller-Schupp in form (n = 6) but is in **none** of MS-1190,
   AC-19, AC19_extended or AC-1M. It has no prior art to inherit.
-- The `ac-00002` cap-31/32 closure counts were produced by reruns of the same
-  move kernel, unlike the `ac-00015` cap-29 count which was cross-checked by an
-  independent packed engine. That is the weakest link in the certified chain.
+- (Resolved this session.) The `ac-00002` cap-31/32 and second-well cap-30
+  counts previously had a single engine behind them; see item 7 above.
 
 ## Public/private boundary
 
