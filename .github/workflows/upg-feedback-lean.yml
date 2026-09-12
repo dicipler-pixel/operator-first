@@ -1,0 +1,45 @@
+name: UPG feedback finite bridge
+on:
+  push:
+    branches: [formal/upg-feedback-bridge-2026-09-12]
+    paths: ['research/upg/formal/**','.github/workflows/upg-feedback-lean.yml']
+  pull_request:
+    paths: ['research/upg/formal/**','.github/workflows/upg-feedback-lean.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install Lean
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain leanprover/lean4:v4.33.0
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve pinned Mathlib
+        working-directory: research/upg/formal
+        run: lake update
+      - name: Compile, recheck and audit
+        uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
+        with:
+          lake-package-directory: research/upg/formal
+          use-mathlib-cache: true
+          build: true
+          leanchecker: true
+          leanchecker-args: UPGFeedback
+          axiom-audit: true
+          axiom-audit-allow: propext,Classical.choice,Quot.sound
+      - name: Reject false zero-memory control
+        working-directory: research/upg/formal
+        run: |
+          if lake env lean FalseControl.lean > false-control.log 2>&1; then
+            cat false-control.log
+            exit 1
+          fi
+          grep -q 'unsolved goals' false-control.log
+          cat false-control.log
