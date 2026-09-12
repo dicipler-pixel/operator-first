@@ -100,6 +100,9 @@ or the scan will not finish.
   an independent bidirectional search.
 - **Not closed.** The cap-32 component of the post-deletion state D exceeded
   24.4M states and was killed; no bound is claimed.
+- **ac-00002 well raised.** Official-kernel closures from the start at cap 33
+  (4,658,392 states) and cap 34 (6,312,448 states) are closed with minimum 25.
+  Every descent must visit total length >= 35; certified depth is now +10.
 - **Shortening is exhausted.** Segment meet-in-the-middle (windows 8-24) left
   the beam routes for ac-00104/00974/04308 unchanged, like the earlier window
   shortener.
