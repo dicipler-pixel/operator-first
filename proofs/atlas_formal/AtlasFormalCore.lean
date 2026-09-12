@@ -202,6 +202,23 @@ theorem rank_one_complex_realpart_not_definite (x y s t : ℝ) :
   rw [rank_one_complex_realpart_det]
   exact neg_nonpos.mpr (sq_nonneg _)
 
+/-! ## B56 — an intersection is necessarily nontransverse -/
+
+/-- B56 finite transversality kernel.  A wall equation together with the two
+real coalescence equations has three scalar linearizations.  In a two-parameter
+model their combined derivative is a linear map `ℝ² → ℝ³`, and therefore cannot
+be surjective.
+
+This is deliberately not the false claim that a curve and a point cannot meet.
+It certifies only the rank obstruction used by the corrected statement: if the
+wall and the isolated coalescence locus meet, that meeting is nontransverse. -/
+theorem b56_combined_derivative_not_surjective
+    (D : (Fin 2 → ℝ) →ₗ[ℝ] (Fin 3 → ℝ)) :
+    ¬ Function.Surjective D := by
+  intro hD
+  have hdim := D.finrank_le_finrank_of_surjective hD
+  norm_num at hdim
+
 /-! ## B90 — exact local normal forms, not the genericity claim -/
 
 /-- The positive-semidefinite tangency normal form. -/
@@ -243,5 +260,6 @@ end AtlasFormal
 #print axioms AtlasFormal.chiral_eigenvalue_pair
 #print axioms AtlasFormal.refraction_turning_barrier
 #print axioms AtlasFormal.rank_one_complex_realpart_det
+#print axioms AtlasFormal.b56_combined_derivative_not_surjective
 #print axioms AtlasFormal.hermitian_soft_lapse
 #print axioms AtlasFormal.open_lapse_square
