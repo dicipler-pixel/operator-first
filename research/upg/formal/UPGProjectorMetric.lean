@@ -107,6 +107,25 @@ theorem half_projectorCrossEnergy_eq_couplingEnergy
   rw [projectorCrossEnergy_eq_two_mul_couplingEnergy]
   ring
 
+/-- The symmetric Peirce redistribution tangent has square trace exactly twice
+the retained-hidden coupling energy. -/
+theorem trace_redistribution_square_eq_two_mul_couplingEnergy
+    (B : Matrix r h ℝ) :
+    Matrix.trace (redistribution B * redistribution B) =
+      2 * couplingEnergy B := by
+  simp [redistribution, Matrix.trace, Matrix.mul_apply, Matrix.transpose_apply,
+    couplingEnergy, pow_two, Finset.sum_comm]
+  ring
+
+/-- Therefore the standard one-half trace-square projector metric of the
+symmetric redistribution tangent equals the coupling energy exactly. -/
+theorem half_trace_redistribution_square_eq_couplingEnergy
+    (B : Matrix r h ℝ) :
+    (1 / 2 : ℝ) * Matrix.trace (redistribution B * redistribution B) =
+      couplingEnergy B := by
+  rw [trace_redistribution_square_eq_two_mul_couplingEnergy]
+  ring
+
 /-- Zero projector commutator is equivalent to zero cross-sector coupling
 energy. -/
 theorem projectorCommutator_eq_zero_iff_couplingEnergy_eq_zero
@@ -124,4 +143,6 @@ end UPGFeedback
 #print axioms UPGFeedback.projector_reverse_cross_energy_eq_couplingEnergy
 #print axioms UPGFeedback.projectorCrossEnergy_eq_two_mul_couplingEnergy
 #print axioms UPGFeedback.half_projectorCrossEnergy_eq_couplingEnergy
+#print axioms UPGFeedback.trace_redistribution_square_eq_two_mul_couplingEnergy
+#print axioms UPGFeedback.half_trace_redistribution_square_eq_couplingEnergy
 #print axioms UPGFeedback.projectorCommutator_eq_zero_iff_couplingEnergy_eq_zero
