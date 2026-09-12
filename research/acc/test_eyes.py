@@ -100,6 +100,31 @@ class TestStartOrbit(unittest.TestCase):
         self.assertEqual(outcomes[-1][1], "return")
         self.assertTrue(all(o == "advance" for _, o in outcomes[:-1]))
 
+    def test_grok_vocabulary_on_noff9(self):
+        """Grok's 2026-09-12 briefing: Noff-9 is an r0-only escape; T16 is on-orbit at both levels."""
+        s = self.START
+        for m in [2, 10, 2, 12, 8, 8, 8, 12, 12]:
+            s = self._apply(s, m)
+        self.assertEqual(len(eyes.core(s[0])), 25)
+        self.assertEqual(len(eyes.core(s[1])), 9)
+        self.assertEqual(eyes.conj_sig(s[1]), eyes.conj_sig(self.START[1]))   # rotation of start r1
+        self.assertEqual(eyes.orbit_flags(s, self.START, "conj"), {"r0_off": True, "r1_off": False, "pair_off": True})
+        self.assertEqual(eyes.lane(s, self.START), "r0-only")
+        self.assertEqual(eyes.orbit_flags(self.T16, self.START, "conj"), {"r0_off": False, "r1_off": False, "pair_off": False})
+        self.assertEqual(eyes.lane(self.T16, self.START), "padding")
+
+    def test_conj_level_is_finer_than_invconj(self):
+        s = self._apply(self.START, 0)  # invert r0: off at conj level, on at invconj level
+        self.assertTrue(eyes.orbit_flags(s, self.START, "conj")["r0_off"])
+        self.assertFalse(eyes.orbit_flags(s, self.START, "invconj")["r0_off"])
+
+    def test_checkpoint_has_three_flags_at_both_levels(self):
+        c = eyes.checkpoint(self.T16, self.START, self._apply, radius=4)
+        for lvl in ("conj", "invconj"):
+            self.assertEqual(set(c[lvl]), {"r0_off", "r1_off", "pair_off"})
+        self.assertEqual(c["return_distance"], 3)
+        self.assertEqual(c["lane"], "padding")
+
 
 if __name__ == "__main__":
     unittest.main()

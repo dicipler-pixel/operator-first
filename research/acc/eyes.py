@@ -156,6 +156,50 @@ def in_start_orbit(state, start):
     return orbit_signature(state) == orbit_signature(start)
 
 
+# Grok's pinned vocabulary (2026-09-12).  Two signature levels:
+#   conj_sig     min rotation of core(w)                    invariant under moves 6-13
+#   invconj_sig  min over rotations of core and core^-1     invariant under moves 0,1,6-13
+# relator_class above IS invconj_sig; core IS cyclic_reduce(free_reduce(w)).
+
+def core(word):
+    return cyclic_reduce(word)
+
+
+def conj_sig(word):
+    c = core(word)
+    return min(c[i:] + c[:i] for i in range(len(c))) if c else ()
+
+
+invconj_sig = relator_class
+
+
+def pair_conj_sig(state):
+    return (conj_sig(state[0]), conj_sig(state[1]))
+
+
+def pair_invconj_sig(state):
+    return (invconj_sig(state[0]), invconj_sig(state[1]))
+
+
+def orbit_flags(state, start, level="invconj"):
+    """Ordered-pair flags, no relator swap. level 'conj' uses PAIR_CONJ_SIG (moves 6-13);
+    level 'invconj' uses PAIR_INVCONJ_SIG (moves 0,1,6-13)."""
+    sig = pair_conj_sig if level == "conj" else pair_invconj_sig
+    a, b = sig(state), sig(start)
+    r0_off, r1_off = a[0] != b[0], a[1] != b[1]
+    return {"r0_off": r0_off, "r1_off": r1_off, "pair_off": r0_off or r1_off}
+
+
+def lane(state, start, level="invconj"):
+    """padding: on-orbit; r0-only / r1-only: single-relator escape; pair-off: both left."""
+    f = orbit_flags(state, start, level)
+    if not f["pair_off"]:
+        return "padding"
+    if f["r0_off"] and f["r1_off"]:
+        return "pair-off"
+    return "r0-only" if f["r0_off"] else "r1-only"
+
+
 def distance_back(state, start, apply_move, radius, cap=None):
     """Exact move distance from `state` back to `start` under all 14 moves, or None
     if greater than `radius`. Bidirectional BFS; `cap` bounds total relator length."""
@@ -204,13 +248,27 @@ def orbit_vector(state, start, apply_move=None, radius=0, cap=None):
     return v
 
 
-def collapse_outcome(path_states, start):
+def collapse_outcome(path_states, start, level="invconj"):
     """Classify each LENGTH_DROP along a path: 'return' if the landing state is in
     the start orbit, else 'advance'. Answers the required regression: does a word-
-    length collapse advance, or merely return to where the search began?"""
+    length collapse advance, or merely return to where the search began?
+    The collapse-floor number itself is frozen; only the outcome label is added."""
     out = []
     for i in range(1, len(path_states)):
         p, c = path_states[i - 1], path_states[i]
         if total(c) < total(p):
-            out.append((i, "return" if in_start_orbit(c, start) else "advance"))
+            f = orbit_flags(c, start, level)
+            out.append((i, "advance" if f["pair_off"] else "return"))
     return out
+
+
+def checkpoint(state, start, apply_move=None, radius=0, cap=None):
+    """The three flags Grok asked for at every checkpoint, at both signature levels,
+    plus the lane label and a capped RETURN_DISTANCE (None beyond radius)."""
+    v = {"tot": total(state), "hab": hab(state), "foxA": foxA(state),
+         "conj": orbit_flags(state, start, "conj"),
+         "invconj": orbit_flags(state, start, "invconj"),
+         "lane": lane(state, start)}
+    if apply_move is not None and radius > 0:
+        v["return_distance"] = distance_back(state, start, apply_move, radius, cap)
+    return v
