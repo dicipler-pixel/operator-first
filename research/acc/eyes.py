@@ -307,3 +307,34 @@ def cancellation_eye(state):
     k = max_cyclic_cancellation(r, s)
     surplus = 2 * k - min(len(r), len(s))
     return {"k": k, "surplus": surplus, "cyclic_tot": len(r) + len(s), "floor": len(r) + len(s) - surplus}
+
+
+def max_cyclic_cancellation_fast(r, s):
+    """Same value as max_cyclic_cancellation, computed as the longest word u that is a
+    cyclic subword of core(r) and whose inverse (or itself) is a cyclic subword of
+    core(s); binary search on |u| with subword sets instead of all rotation pairs."""
+    r, s = core(r), core(s)
+    if not r or not s:
+        return 0
+    n = min(len(r), len(s))
+    s_inv = tuple(-a for a in reversed(s))
+    rr, ss, si = r + r, s + s, s_inv + s_inv
+
+    def has_common(L):
+        subs = {rr[i:i + L] for i in range(len(r))}
+        return any(ss[i:i + L] in subs or si[i:i + L] in subs for i in range(len(s)))
+
+    lo, hi = 0, n
+    while lo < hi:
+        mid = (lo + hi + 1) // 2
+        if has_common(mid):
+            lo = mid
+        else:
+            hi = mid - 1
+    return lo
+
+
+def collapse_floor_fast(state):
+    r, s = core(state[0]), core(state[1])
+    k = max_cyclic_cancellation_fast(r, s)
+    return len(r) + len(s) - (2 * k - min(len(r), len(s)))

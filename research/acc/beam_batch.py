@@ -16,9 +16,24 @@ import time
 
 from verifier import core
 from solve_batch import key, length, build_basin, finish_from_basin
+from eyes import collapse_floor_fast, orbit_flags
 
 
-def beam(initial, basin, width, max_depth, cap):
+def rank_key(rank, t, lt, depth, start):
+    """Beam ranking. 'length': shortest total length (the public baseline).
+    'floor': the frozen cancellation-eye collapse floor first, then length, so a state
+    that can collapse further after setup moves outranks a shorter one that cannot.
+    'floor-off': floor, then off-orbit before padding, then length."""
+    if rank == "length":
+        return (lt, depth)
+    f = collapse_floor_fast(t)
+    if rank == "floor":
+        return (f, lt, depth)
+    off = 0 if orbit_flags(t, start)["pair_off"] else 1
+    return (f, off, lt, depth)
+
+
+def beam(initial, basin, width, max_depth, cap, rank="length", prefilter=0):
     start = (tuple(initial[0]), tuple(initial[1]))
     if key(start) in basin:
         return finish_from_basin(start, basin), 0
@@ -44,8 +59,16 @@ def beam(initial, basin, width, max_depth, cap):
                 cand.append((lt, len(p), t, p))
         if not cand:
             break
-        cand.sort(key=lambda x: (x[0], x[1]))
-        layer = [(t, p) for _, _, t, p in cand[:width]]
+        if rank == "length":
+            cand.sort(key=lambda x: (x[0], x[1]))
+            layer = [(t, p) for _, _, t, p in cand[:width]]
+        else:
+            # two-stage funnel: cheap length pre-filter, then the eye ranks the survivors
+            if prefilter:
+                cand.sort(key=lambda x: (x[0], x[1]))
+                cand = cand[:prefilter]
+            cand.sort(key=lambda x: rank_key(rank, x[2], x[0], x[1], start))
+            layer = [(t, p) for _, _, t, p in cand[:width]]
     return None, expanded
 
 
@@ -58,6 +81,8 @@ def main():
     ap.add_argument("--depth", type=int, default=40)
     ap.add_argument("--cap", type=int, default=60)
     ap.add_argument("--radius", type=int, default=7)
+    ap.add_argument("--rank", choices=["length", "floor", "floor-off"], default="length")
+    ap.add_argument("--prefilter", type=int, default=0, help="keep this many shortest candidates before eye ranking (0 = all)")
     a = ap.parse_args()
 
     man = json.load(open(a.manifest))
@@ -72,8 +97,8 @@ def main():
         for cid in ids:
             c = ch[cid]
             t1 = time.time()
-            moves, expanded = beam(c["initial_relators"], basin, a.width, a.depth, a.cap)
-            rec = {"challenge_id": cid, "method": f"beam w={a.width} d={a.depth} r={a.radius}",
+            moves, expanded = beam(c["initial_relators"], basin, a.width, a.depth, a.cap, a.rank, a.prefilter)
+            rec = {"challenge_id": cid, "method": f"beam w={a.width} d={a.depth} r={a.radius} rank={a.rank} pre={a.prefilter}",
                    "expanded": expanded, "seconds": round(time.time() - t1, 2), "ok": False}
             if moves is not None:
                 v = core.verify(c, moves, c["move_spec_version"], limits)
