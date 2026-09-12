@@ -36,27 +36,33 @@ jobs:
           leanchecker-args: UPGFeedback
           axiom-audit: true
           axiom-audit-allow: propext,Classical.choice,Quot.sound
-      - name: Independently check adapted block module
+      - name: Independently check adapted block and metric modules
         working-directory: research/upg/formal
         shell: bash
         run: |
           set -o pipefail
           lake env lean UPGBlockFeedback.lean 2>&1 | tee block-feedback.log
           lake env leanchecker UPGBlockFeedback 2>&1 | tee block-feedback-leanchecker.log
+          lake env lean UPGProjectorMetric.lean 2>&1 | tee projector-metric.log
+          lake env leanchecker UPGProjectorMetric 2>&1 | tee projector-metric-leanchecker.log
           python3 - <<'PY'
           import pathlib,re
-          src=pathlib.Path('UPGBlockFeedback.lean').read_text()
-          log=pathlib.Path('block-feedback.log').read_text()
-          names=re.findall(r'^\s*theorem\s+([A-Za-z0-9_]+)',src,re.M)
-          assert len(names)==6,names
-          assert 'sorryAx' not in log and 'Lean.ofReduceBool' not in log
           allow={'propext','Classical.choice','Quot.sound'}
-          for name in names:
-              m=re.search(r"'UPGFeedback\."+re.escape(name)+r"' depends on axioms: \[([^\]]*)\]",log)
-              assert m,name
-              axes={x.strip() for x in m.group(1).split(',') if x.strip()}
-              assert axes <= allow,(name,axes)
-          print('Accepted and audited',len(names),'adapted-block theorems')
+          for filename, logfile, expected in [
+              ('UPGBlockFeedback.lean','block-feedback.log',7),
+              ('UPGProjectorMetric.lean','projector-metric.log',6),
+          ]:
+              src=pathlib.Path(filename).read_text()
+              log=pathlib.Path(logfile).read_text()
+              names=re.findall(r'^\s*theorem\s+([A-Za-z0-9_]+)',src,re.M)
+              assert len(names)==expected,(filename,names)
+              assert 'sorryAx' not in log and 'Lean.ofReduceBool' not in log
+              for name in names:
+                  m=re.search(r"'UPGFeedback\."+re.escape(name)+r"' depends on axioms: \[([^\]]*)\]",log)
+                  assert m,(filename,name)
+                  axes={x.strip() for x in m.group(1).split(',') if x.strip()}
+                  assert axes <= allow,(name,axes)
+              print('Accepted and audited',len(names),filename,'theorems')
           PY
       - name: Reject false zero-memory control
         working-directory: research/upg/formal
