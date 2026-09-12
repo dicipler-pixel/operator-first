@@ -47,6 +47,7 @@ theorem barrier_lt_iff_cross {C₁ C₂ g₁ g₂ : ℕ}
     (hg₁ : 0 < g₁) (hg₂ : 0 < g₂) :
     (C₁ : ℚ) / g₁ < (C₂ : ℚ) / g₂ ↔ C₁ * g₂ < C₂ * g₁ := by
   norm_num [div_lt_div_iff₀, hg₁, hg₂]
+  norm_cast
 
 end CollatzDiophantine
 
