@@ -1,7 +1,9 @@
 name: UPG feedback finite bridge
 on:
   push:
-    branches: [formal/upg-feedback-bridge-2026-09-12]
+    branches:
+      - formal/upg-feedback-bridge-2026-09-12
+      - formal/upg-adapted-block-equivalence-2026-09-12
     paths: ['research/upg/formal/**','.github/workflows/upg-feedback-lean.yml']
   pull_request:
     paths: ['research/upg/formal/**','.github/workflows/upg-feedback-lean.yml']
@@ -24,7 +26,7 @@ jobs:
       - name: Resolve pinned Mathlib
         working-directory: research/upg/formal
         run: lake update
-      - name: Compile, recheck and audit
+      - name: Compile, recheck and audit base project
         uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
         with:
           lake-package-directory: research/upg/formal
@@ -34,6 +36,28 @@ jobs:
           leanchecker-args: UPGFeedback
           axiom-audit: true
           axiom-audit-allow: propext,Classical.choice,Quot.sound
+      - name: Independently check adapted block module
+        working-directory: research/upg/formal
+        shell: bash
+        run: |
+          set -o pipefail
+          lake env lean UPGBlockFeedback.lean 2>&1 | tee block-feedback.log
+          lake env leanchecker UPGBlockFeedback 2>&1 | tee block-feedback-leanchecker.log
+          python3 - <<'PY'
+          import pathlib,re
+          src=pathlib.Path('UPGBlockFeedback.lean').read_text()
+          log=pathlib.Path('block-feedback.log').read_text()
+          names=re.findall(r'^\s*theorem\s+([A-Za-z0-9_]+)',src,re.M)
+          assert len(names)==6,names
+          assert 'sorryAx' not in log and 'Lean.ofReduceBool' not in log
+          allow={'propext','Classical.choice','Quot.sound'}
+          for name in names:
+              m=re.search(r"'UPGFeedback\."+re.escape(name)+r"' depends on axioms: \[([^\]]*)\]",log)
+              assert m,name
+              axes={x.strip() for x in m.group(1).split(',') if x.strip()}
+              assert axes <= allow,(name,axes)
+          print('Accepted and audited',len(names),'adapted-block theorems')
+          PY
       - name: Reject false zero-memory control
         working-directory: research/upg/formal
         run: |
