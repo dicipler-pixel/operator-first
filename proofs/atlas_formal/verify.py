@@ -45,6 +45,7 @@ try:
         "false_indefinite_positive": "example : (0:ℝ) < (1^2 - 1^2) := by norm_num",
         "false_gram_sign": "example : ((1:ℝ)^2 - 1^2) * (2^2 - 2^2) - (1*2 - 1*2)^2 > 0 := by norm_num",
         "false_product_one": "example : (2:ℕ) * 1 = 1 := by norm_num",
+        "false_b56_dimension": "example : (3:ℕ) ≤ 2 := by norm_num",
     }
     for name, text in false_controls.items():
         f = OUT / f"{name}.lean"
