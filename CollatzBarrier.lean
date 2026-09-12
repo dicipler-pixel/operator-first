@@ -4,8 +4,8 @@ import Mathlib
 # Exact Collatz prefix barrier
 
 Machine-checkable algebra extracted from the accelerated odd Collatz map.
-This module proves only the exact finite-prefix identities and cross-multiplied
-barrier statements. It does **not** claim the Collatz conjecture.
+This module proves only exact finite-prefix identities and envelope inequalities.
+It does **not** claim the Collatz conjecture.
 -/
 
 namespace CollatzBarrier
@@ -21,6 +21,11 @@ def correction (a : ℕ → ℕ) : ℕ → ℕ
   | 0 => 0
   | j + 1 => 3 * correction a j + 2 ^ prefixSum a j
 
+/-- Envelope correction with prescribed exponent caps `u_j`. -/
+def envelopeCorrection (u : ℕ → ℕ) : ℕ → ℕ
+  | 0 => 0
+  | j + 1 => 3 * envelopeCorrection u j + 2 ^ u j
+
 @[simp] theorem prefixSum_zero (a : ℕ → ℕ) : prefixSum a 0 = 0 := rfl
 @[simp] theorem prefixSum_succ (a : ℕ → ℕ) (j : ℕ) :
     prefixSum a (j + 1) = prefixSum a j + a j := rfl
@@ -28,6 +33,10 @@ def correction (a : ℕ → ℕ) : ℕ → ℕ
 @[simp] theorem correction_zero (a : ℕ → ℕ) : correction a 0 = 0 := rfl
 @[simp] theorem correction_succ (a : ℕ → ℕ) (j : ℕ) :
     correction a (j + 1) = 3 * correction a j + 2 ^ prefixSum a j := rfl
+
+@[simp] theorem envelopeCorrection_zero (u : ℕ → ℕ) : envelopeCorrection u 0 = 0 := rfl
+@[simp] theorem envelopeCorrection_succ (u : ℕ → ℕ) (j : ℕ) :
+    envelopeCorrection u (j + 1) = 3 * envelopeCorrection u j + 2 ^ u j := rfl
 
 /-- Exact affine-prefix identity.
 
@@ -98,6 +107,42 @@ theorem collatz_prefix_return_iff (a x : ℕ → ℕ)
   · positivity
   · exact affine_prefix_identity a x hstep j
 
+/-- Monotonicity of the ordered correction under pointwise prefix-power caps.
+This is the algebraic core of the saturated first-contraction envelope. -/
+theorem correction_le_envelope (a u : ℕ → ℕ) :
+    ∀ m, (∀ i < m, 2 ^ prefixSum a i ≤ 2 ^ u i) →
+      correction a m ≤ envelopeCorrection u m := by
+  intro m
+  induction m with
+  | zero => simp
+  | succ m ih =>
+      intro hcap
+      have hprev : correction a m ≤ envelopeCorrection u m :=
+        ih (fun i hi => hcap i (Nat.lt_trans hi (Nat.lt_succ_self m)))
+      have hlast : 2 ^ prefixSum a m ≤ 2 ^ u m := hcap m (Nat.lt_succ_self m)
+      rw [correction_succ, envelopeCorrection_succ]
+      exact Nat.add_le_add (Nat.mul_le_mul_left 3 hprev) hlast
+
+/-- Generic survival-envelope inequality.
+
+If a prefix has not descended, its terminal divisor power is at least `2^L`,
+and every earlier correction term is bounded by an envelope, then the seed
+must satisfy the corresponding cross-multiplied survival inequality. -/
+theorem survival_le_envelope (a u x : ℕ → ℕ)
+    (hstep : ∀ j, 2 ^ a j * x (j + 1) = 3 * x j + 1)
+    (m L : ℕ)
+    (hstay : x 0 ≤ x m)
+    (hterminal : 2 ^ L ≤ 2 ^ prefixSum a m)
+    (hcap : ∀ i < m, 2 ^ prefixSum a i ≤ 2 ^ u i) :
+    2 ^ L * x 0 ≤ 3 ^ m * x 0 + envelopeCorrection u m := by
+  have hcorr : correction a m ≤ envelopeCorrection u m :=
+    correction_le_envelope a u m hcap
+  calc
+    2 ^ L * x 0 ≤ 2 ^ prefixSum a m * x 0 := Nat.mul_le_mul_right _ hterminal
+    _ ≤ 2 ^ prefixSum a m * x m := Nat.mul_le_mul_left _ hstay
+    _ = 3 ^ m * x 0 + correction a m := affine_prefix_identity a x hstep m
+    _ ≤ 3 ^ m * x 0 + envelopeCorrection u m := Nat.add_le_add_left hcorr _
+
 end CollatzBarrier
 
 #print axioms CollatzBarrier.affine_prefix_identity
@@ -106,3 +151,5 @@ end CollatzBarrier
 #print axioms CollatzBarrier.growth_iff_cross
 #print axioms CollatzBarrier.collatz_prefix_descent_iff
 #print axioms CollatzBarrier.collatz_prefix_return_iff
+#print axioms CollatzBarrier.correction_le_envelope
+#print axioms CollatzBarrier.survival_le_envelope
