@@ -1,0 +1,75 @@
+name: Rice-Mele odd-block symmetry
+on:
+  push:
+    branches: [formal/rice-mele-odd-symmetry-2026-09-12]
+    paths:
+      - 'OperatorFirst/RiceMeleOddSymmetry.lean'
+      - 'OperatorFirst.lean'
+      - 'rice_mele_formal/**'
+      - '.github/workflows/rice-mele-odd-symmetry.yml'
+  pull_request:
+    paths:
+      - 'OperatorFirst/RiceMeleOddSymmetry.lean'
+      - 'OperatorFirst.lean'
+      - 'rice_mele_formal/**'
+      - '.github/workflows/rice-mele-odd-symmetry.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain "$(cat lean-toolchain)"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve Mathlib
+        run: |
+          lake update
+          lake exe cache get
+      - name: Build root and explicitly check Rice-Mele module
+        shell: bash
+        run: |
+          set -o pipefail
+          lake build 2>&1 | tee rice_mele_build.log
+          lake env lean OperatorFirst/RiceMeleOddSymmetry.lean 2>&1 | tee rice_mele_axioms.log
+          lake env leanchecker OperatorFirst.RiceMeleOddSymmetry 2>&1 | tee rice_mele_leanchecker.log
+          python3 - <<'PY'
+          import pathlib,re
+          src=pathlib.Path('OperatorFirst/RiceMeleOddSymmetry.lean').read_text()
+          log=pathlib.Path('rice_mele_axioms.log').read_text()
+          names=re.findall(r'^\s*theorem\s+([A-Za-z0-9_]+)',src,re.M)
+          assert len(names)==4,names
+          assert 'sorryAx' not in log and 'Lean.ofReduceBool' not in log
+          allow={'propext','Classical.choice','Quot.sound'}
+          for name in names:
+              pat=r"'OperatorFirst\.RiceMeleOddSymmetry\."+re.escape(name)+r"' depends on axioms: \[([^\]]*)\]"
+              m=re.search(pat,log)
+              assert m,name
+              axes={x.strip() for x in m.group(1).split(',') if x.strip()}
+              assert axes <= allow,(name,axes)
+          print('Accepted and audited',len(names),'Rice-Mele odd-block symmetry theorems')
+          PY
+      - name: Reject false B-sublattice sign
+        run: |
+          if lake env lean rice_mele_formal/FalseControl.lean > rice_mele_false.log 2>&1; then
+            cat rice_mele_false.log
+            exit 1
+          fi
+          grep -q 'unsolved goals' rice_mele_false.log
+          cat rice_mele_false.log
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: rice-mele-odd-symmetry-evidence
+          path: |
+            rice_mele_build.log
+            rice_mele_axioms.log
+            rice_mele_leanchecker.log
+            rice_mele_false.log
