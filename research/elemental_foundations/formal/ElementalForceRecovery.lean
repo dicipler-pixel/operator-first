@@ -4,8 +4,8 @@ import Mathlib
 # Elemental nonlinear-force recovery certificates
 
 Finite algebraic certificates for the cubic-coupling example in the elemental
-foundations manuscript.  The model statement is conditional on the declared
-polynomial force law and calibrated coordinates.  It is not an atom-removal
+foundations manuscript. The model statement is conditional on the declared
+polynomial force law and calibrated coordinates. It is not an atom-removal
 law or a material fit.
 -/
 
@@ -47,13 +47,11 @@ theorem recover_sbeta (sα sβ sγ a : ℝ) (ha : a ≠ 0) :
     sβ = - zForce sα sβ sγ a 0 / ((3/100 : ℝ) * a^2) := by
   rw [zForce_x_axis]
   field_simp [ha]
-  ring
 
 theorem recover_sgamma (sα sβ sγ a : ℝ) (ha : a ≠ 0) :
     sγ = - zForce sα sβ sγ 0 a / ((1/25 : ℝ) * a^2) := by
   rw [zForce_y_axis]
   field_simp [ha]
-  ring
 
 theorem recover_salpha (sα sβ sγ a : ℝ) (ha : a ≠ 0) :
     sα = -(
@@ -102,6 +100,7 @@ theorem observed_diagonal_combination (offset sα sβ sγ a : ℝ) :
       zForce sα sβ sγ a 0 -
       zForce sα sβ sγ 0 a := by
   unfold observedZForce
+  rw [zForce_origin]
   ring
 
 /-- Four readings remove an unknown common force offset and recover all three
@@ -126,41 +125,29 @@ theorem four_force_recovery_with_offset
     recover_salpha sα sβ sγ a ha⟩
 
 /-- Deterministic error propagation for the three-readout recovery formulas.
-If each force reading has absolute error at most δ, then the recovered beta and
-gamma numerators inherit δ, while the alpha combination inherits at most 3δ. -/
+If each force reading has absolute error at most δ, then the alpha numerator
+inherits at most 3δ. -/
 theorem three_reading_error_combination {e10 e01 e11 δ : ℝ}
-    (hδ : 0 ≤ δ)
     (h10 : |e10| ≤ δ) (h01 : |e01| ≤ δ) (h11 : |e11| ≤ δ) :
     |e11 - e10 - e01| ≤ 3*δ := by
-  have hsum : |e11 - e10 - e01| ≤ |e11| + |e10| + |e01| := by
-    calc
-      |e11 - e10 - e01| ≤ |e11 - e10| + |e01| := abs_sub _ _
-      _ ≤ (|e11| + |e10|) + |e01| := by
-        gcongr
-        exact abs_sub e11 e10
-  linarith
+  rcases abs_le.mp h10 with ⟨h10L, h10U⟩
+  rcases abs_le.mp h01 with ⟨h01L, h01U⟩
+  rcases abs_le.mp h11 with ⟨h11L, h11U⟩
+  apply abs_le.mpr
+  constructor <;> linarith
 
 /-- With an additional offset reading, the inclusion-exclusion numerator for
 alpha inherits at most four times the per-reading absolute error. -/
 theorem four_reading_error_combination {e00 e10 e01 e11 δ : ℝ}
-    (hδ : 0 ≤ δ)
     (h00 : |e00| ≤ δ) (h10 : |e10| ≤ δ)
     (h01 : |e01| ≤ δ) (h11 : |e11| ≤ δ) :
     |e11 - e10 - e01 + e00| ≤ 4*δ := by
-  have hsum : |e11 - e10 - e01 + e00| ≤
-      |e11| + |e10| + |e01| + |e00| := by
-    calc
-      |e11 - e10 - e01 + e00| ≤ |e11 - e10 - e01| + |e00| := by
-        simpa [sub_eq_add_neg, add_assoc, add_left_comm, add_comm] using
-          (abs_add (e11 - e10 - e01) e00)
-      _ ≤ (|e11| + |e10| + |e01|) + |e00| := by
-        gcongr
-        calc
-          |e11 - e10 - e01| ≤ |e11 - e10| + |e01| := abs_sub _ _
-          _ ≤ (|e11| + |e10|) + |e01| := by
-            gcongr
-            exact abs_sub e11 e10
-  linarith
+  rcases abs_le.mp h00 with ⟨h00L, h00U⟩
+  rcases abs_le.mp h10 with ⟨h10L, h10U⟩
+  rcases abs_le.mp h01 with ⟨h01L, h01U⟩
+  rcases abs_le.mp h11 with ⟨h11L, h11U⟩
+  apply abs_le.mpr
+  constructor <;> linarith
 
 end
 
