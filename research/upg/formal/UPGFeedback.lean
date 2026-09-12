@@ -46,11 +46,25 @@ theorem redistribution_eq_zero_iff (B : Matrix r h ℝ) :
     simp [redistribution]
 
 /-- The zero-time feedback Gram is zero exactly when the coupling block is
-zero. This uses the standard positive Gram-matrix kernel theorem in Mathlib. -/
+zero. The reverse direction is proved directly from the diagonal sum of
+squares, avoiding any complex-conjugation representation choice. -/
 theorem memoryAtZero_eq_zero_iff (B : Matrix r h ℝ) :
     memoryAtZero B = 0 ↔ B = 0 := by
-  simpa [memoryAtZero, Matrix.conjTranspose] using
-    (Matrix.self_mul_conjTranspose_eq_zero : B * B.conjTranspose = 0 ↔ B = 0)
+  constructor
+  · intro hK
+    ext i j
+    have hdiag := congrArg (fun M : Matrix r r ℝ => M i i) hK
+    have hsum : (∑ k, (B i k)^2) = 0 := by
+      simpa [memoryAtZero, Matrix.mul_apply, Matrix.transpose_apply, pow_two] using hdiag
+    have hle : (B i j)^2 ≤ ∑ k, (B i k)^2 := by
+      exact Finset.single_le_sum
+        (fun k hk => sq_nonneg (B i k))
+        (Finset.mem_univ j)
+    rw [hsum] at hle
+    nlinarith [sq_nonneg (B i j)]
+  · intro hB
+    subst B
+    simp [memoryAtZero]
 
 /-- Finite Hermitian feedback criterion: vanishing redistribution, vanishing
 zero-time memory Gram, and vanishing retained-hidden coupling are equivalent. -/
