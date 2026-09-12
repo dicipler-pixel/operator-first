@@ -65,7 +65,7 @@ theorem signMatrix_sq (n : ℕ) :
   ext i j
   by_cases hij : i = j
   · subst j
-    simp [signMatrix, bSign]
+    cases i <;> simp [signMatrix, bSign]
   · simp [signMatrix, hij]
 
 /-- Determinant form of the simultaneous hopping-sign symmetry:
