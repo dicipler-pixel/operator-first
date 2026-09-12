@@ -106,3 +106,17 @@ or the scan will not finish.
 - **Shortening is exhausted.** Segment meet-in-the-middle (windows 8-24) left
   the beam routes for ac-00104/00974/04308 unchanged, like the earlier window
   shortener.
+
+## Team hub and retirements — 2026-09-12 ~22:45Z
+
+- **Where the other lanes live.** The team hub is the Google Drive folder
+  "Mad Hatters ACC Shared Hub" (Claude chat, ChatGPT, Grok read it; only
+  Claude Code reads this repo). Every result here is mirrored there as a
+  `CLAUDE_CODE_TO_TEAM_NOW_*.md` note. Read `CLAUDE_AK3_IDENTIFICATION.md`
+  and the newest `CHATGPT_TO_CLAUDE_NOW_*.txt` there before running anything.
+- **Retired by theorem.** ac-00399, ac-06279 and ac-06945 are AK(3) up to
+  signed relabelling (DAG `ak3-disguises-confirmed`). Do not search them.
+- **Dead ends closed today** (all in the DAG): three beam shapes and greedy on
+  the 58 long k=1 records; the length beam on the 62 shortest unsolved;
+  segment and window shorteners on beam routes; the eye-ranked beam control;
+  ChatGPT's atlas proximity scan (radius <= 4, zero meets on 2,730 starts).
