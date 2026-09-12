@@ -54,6 +54,9 @@ def check(nodes):
             errors.append(f"{n['id']}: private node carries an observed payload")
 
     for n in nodes:
+        for rel in n.get("relations", []):
+            if not isinstance(rel, dict) or rel.get("target") not in by_id:
+                errors.append(f"{n.get('id')}: relations -> unknown node {rel!r}")
         for field in ("depends_on", "supersedes"):
             targets = n.get(field, [])
             if isinstance(targets, str):

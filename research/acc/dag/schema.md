@@ -38,6 +38,8 @@ reconstructing a substitute (AGENTS.md; ACC brief section 6).
     observed       structured result payload
     caveat         what this node explicitly does NOT establish
     visibility     public | private  (private => summary only in this repo)
+    relations      list of {type, target}; target must exist. Types in use:
+                   productive_escape, tradeoff_with, reproduces, refutes, supports
 
 ## Invariants enforced by `dag.py --check`
 
