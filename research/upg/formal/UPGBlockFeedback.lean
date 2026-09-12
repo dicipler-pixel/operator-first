@@ -48,8 +48,10 @@ def projectorCommutator (A : Matrix r r ℝ) (B : Matrix r h ℝ)
 theorem projectorCommutator_eq_blocks
     (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) :
     projectorCommutator A B D = Matrix.fromBlocks 0 (-B) B.transpose 0 := by
-  simp [projectorCommutator, blockHamiltonian, retainedProjection,
-    Matrix.fromBlocks_multiply]
+  ext i j
+  cases i <;> cases j <;>
+    simp [projectorCommutator, blockHamiltonian, retainedProjection,
+      Matrix.fromBlocks_multiply]
 
 /-- Commutation with the retained projector is exactly absence of retained-hidden
 coupling in the adapted block basis. -/
@@ -67,8 +69,7 @@ theorem projectorCommutator_eq_zero_iff
     simpa using h
   · intro hB
     subst B
-    simp [projectorCommutator, blockHamiltonian, retainedProjection,
-      Matrix.fromBlocks_multiply]
+    simpa using (projectorCommutator_eq_blocks A (0 : Matrix r h ℝ) D)
 
 /-- Off-diagonal redistribution written directly as a Peirce cross term. -/
 def peirceRedistribution (A : Matrix r r ℝ) (B : Matrix r h ℝ)
@@ -81,8 +82,10 @@ formalized in `UPGFeedback.lean`. -/
 theorem peirceRedistribution_eq_redistribution
     (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) :
     peirceRedistribution A B D = redistribution B := by
-  simp [peirceRedistribution, retainedProjection, blockHamiltonian,
-    redistribution, Matrix.fromBlocks_multiply]
+  ext i j
+  cases i <;> cases j <;>
+    simp [peirceRedistribution, retainedProjection, blockHamiltonian,
+      redistribution, Matrix.fromBlocks_multiply]
 
 /-- Four equivalent finite diagnostics of retained-hidden coupling. -/
 theorem adapted_feedback_equivalences
