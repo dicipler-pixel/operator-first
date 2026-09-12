@@ -4,7 +4,7 @@ This checkpoint records one surviving Compound-Eye observable for the SAIR Andre
 
 ## Scope
 
-The rank-2 move kernel in `length_well_eye.py` matches the official SAIR `ac-r2-v1` specification:
+The rank-2 move kernels in this directory match the official SAIR `ac-r2-v1` specification:
 
 - moves 0--1: relator inversion;
 - moves 2--5: right multiplication by the other relator or its inverse;
@@ -27,6 +27,18 @@ If the cap-B component closes and contains no state shorter than `P`, then every
 The **escape ceiling** is the smallest ceiling that permits a path to a shorter state. The **well depth** is escape ceiling minus starting length.
 
 This is a bottleneck observable. It is not intended as a linear predictor of total solution length.
+
+## Lean-certified bottleneck inference
+
+`ACCWell.lean` formalizes the abstract graph-theoretic step. If a set `C`
+
+- contains the start state,
+- is closed under every legal move whose result remains at height at most `B`, and
+- contains no state lower than the start,
+
+then every finite move sequence ending below the start must visit a state of height strictly greater than `B`.
+
+The theorem `ACCWell.descent_forces_cap_exit` and its supporting lemmas compile in the branch CI with no `sorryAx`. The finite state enumeration remains computational; Lean certifies the inference made from a verified closed component.
 
 ## Exact first well: `ac-00015`
 
@@ -52,13 +64,13 @@ A separate cap-27 breadth-first search found a 20-move descent as well, so 20 is
 
 The user's independent solved reference for this instance uses 622 moves. That number is used only as a hard calibration reference here, not as a claim of minimality.
 
-## Layered well discovered after the first descent
+## Layered well after the first descent
 
 The first escape lands at the length-20 state
 
 `((2,2,2,-1,-1,-2,-1,-1,2), (-2,1,2,1,-2,-2,1,-2,1,-2,1))`.
 
-Running the same exact cap-component test on this state reveals a substantially deeper second well:
+Exact cap-component computations now give:
 
 | ceiling | exact component size | minimum length | result |
 | ---: | ---: | ---: | --- |
@@ -67,14 +79,29 @@ Running the same exact cap-component test on this state reveals a substantially 
 | 27 | 919,656 | 20 | closed, no descent |
 | 28 | 1,737,200 | 20 | closed, no descent |
 | 29 | 5,149,128 | 20 | closed, no descent |
+| 30 | **9,096,912** | 20 | closed, no descent |
 
-Therefore any second descent from this state must visit total length at least **30**. Its currently certified second-well depth is **at least +10**.
+Therefore every second descent from this state must visit total length at least **31**. The currently certified second-well depth is **at least +11**.
 
-A cap-30 run exceeded the execution limit before completion. No conclusion about cap 30 is recorded.
+The cap-30 level census is:
+
+`L20=792, L21=1760, L22=5104, L23=19552, L24=28424, L25=125296, L26=156440, L27=697664, L28=810936, L29=3449504, L30=3801440`.
+
+The cap-29 count `5,149,128` was first obtained with the ordinary exact string-state engine. The independent packed engine `length_well_packed.cpp` reproduces that count exactly and then closes cap 30 at `9,096,912`, providing an internal representation cross-check.
+
+### Exact packed representation
+
+For ceilings at most 31, `length_well_packed.cpp` uses a collision-free key:
+
+- 2 bits per letter for at most 31 letters;
+- `|r0|` stored above bit 63;
+- `|r1|` stored above the first length field.
+
+The placement of the length fields is part of the correctness requirement. A preliminary cap-31 experiment using lower length-field bits was discarded when overlap with the 31st letter was identified. No result from that discarded representation is used here.
+
+A corrected cap-31 search has exceeded 11.2 million discovered states without finding a descent before the execution window closed. **This is not a closure result and gives no cap-31 lower bound.** Ceiling 31 remains open.
 
 This layered-well behavior is the strongest current explanation for why the 622-move control is qualitatively harder than the accepted controls: escaping one uphill barrier does not enter a monotone downhill basin; it enters another, deeper barrier.
-
-The large closures above were reproduced with `length_well_fast.cpp`, a C++17 implementation of the same exact move kernel. The default GitHub regression currently certifies the smaller first-well result in Python; the multi-million-state second-well closures are reproducible but are not run on every commit.
 
 ## Exact lower bound: `ac-00002`
 
@@ -134,10 +161,12 @@ A practical Compound-Eye search should therefore treat total length and well str
 
 ## Regression status
 
-GitHub workflow `.github/workflows/acc-length-well.yml` recomputes the full `ac-00015` cap-26 closure, replays the ceiling-27 witness, and runs the accepted calibration controls. The first branch run completed successfully.
+GitHub workflow `.github/workflows/acc-length-well.yml` recomputes the full `ac-00015` cap-26 closure, replays the ceiling-27 witness, runs the accepted calibration controls, and checks `ACCWell.lean`. The repaired Lean bottleneck theorem and the finite regression are green on the branch.
+
+`length_well_packed.cpp` contains exact regression assertions for the second-well cap-29 count and the measured cap-30 count. The multi-million-state packed scans are intentionally not run on every ordinary commit.
 
 ## Next proof/search target
 
-The next useful object is a **boundary-of-well policy**: identify moves from states near the cap boundary that increase access to lower-length components, rather than ranking only by immediate length. Candidate measurements include cap-component frontier size, structural multiplication exits versus pure conjugation exits, return-channel count, and cancellation gain after crossing the boundary.
+Ceiling 31 is now the constructive frontier for the second `ac-00015` well. The useful next object is a **boundary-of-well policy** at cap 31: identify a real descending exit if one exists without repeatedly rediscovering the 9,096,912-state cap-30 interior.
 
-Any new eye should be tested first against `ac-00015`, `ac-00002`, and the accepted calibration set before being added to the solver.
+Candidate measurements include cap-component frontier size, structural multiplication exits versus conjugation exits, return-channel count, and cancellation gain after crossing the boundary. Any new eye should be tested first against `ac-00015`, `ac-00002`, and the accepted calibration set before being added to the solver.
