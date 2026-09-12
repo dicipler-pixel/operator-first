@@ -6,6 +6,7 @@ Jeromie Beasley -- https://doi.org/10.5281/zenodo.22124938
 
   Part I   the commutator identity  [S+K, S-K] = -2 [S,K], and reciprocity
   Part II  the pure-marker identity D^2 + V^2 = 1
+  Part III finite Collatz valuation-word dynamics and exact contraction barriers
 
 Single module on purpose: everything lives in this one file so the library has
 no subdirectory to go missing. The definitions of D and V are mathematical;
@@ -147,6 +148,88 @@ theorem distinguishability_of_orthogonal (u v : E) (h : ⟪u, v⟫ = 0) :
   rw [distinguishability, visibility, h]
   norm_num
 
+/-! # Part III -- finite Collatz valuation-word algebra
+
+This section deliberately formalizes only finite prescribed words.  A list
+`[a₀, ..., aₖ]` records the powers of two that one *asks* to divide after
+successive odd `3n+1` moves.  The statements below do not assert that every
+word is realized by an integer Collatz orbit, nor that dangerous words can or
+cannot concatenate forever.  That realization problem is a separate theorem
+obligation.
+-/
+
+section CollatzFiniteWords
+
+/-- One odd-to-odd affine step over `ℚ` with prescribed two-adic exponent `a`.
+For an actually realized odd Collatz step one would have `a = v₂(3n+1)`. -/
+def collatzQStep (a : ℕ) (x : ℚ) : ℚ :=
+  (3 * x + 1) / (2 : ℚ) ^ a
+
+/-- Apply a finite prescribed valuation word from left to right. -/
+def collatzQWord : List ℕ → ℚ → ℚ
+  | [], x => x
+  | a :: w, x => collatzQWord w (collatzQStep a x)
+
+/-- Multiplicative coefficient of the affine map associated with a word. -/
+def collatzWordMul : List ℕ → ℚ
+  | [] => 1
+  | a :: w => collatzWordMul w * (3 / (2 : ℚ) ^ a)
+
+/-- Additive coefficient of the affine map associated with a word. -/
+def collatzWordAdd : List ℕ → ℚ
+  | [] => 0
+  | a :: w => collatzWordMul w / (2 : ℚ) ^ a + collatzWordAdd w
+
+/-- Every finite prescribed valuation word acts affinely over `ℚ`. -/
+theorem collatzQWord_affine (w : List ℕ) (x : ℚ) :
+    collatzQWord w x = collatzWordMul w * x + collatzWordAdd w := by
+  induction w with
+  | nil => simp [collatzQWord, collatzWordMul, collatzWordAdd]
+  | cons a w ih =>
+      simp only [collatzQWord]
+      rw [ih]
+      simp only [collatzQStep, collatzWordMul, collatzWordAdd]
+      ring
+
+/-- The exact finite-word contraction barrier.  It is defined whenever the
+multiplicative coefficient is below one; the theorem below carries that
+hypothesis explicitly. -/
+def collatzBarrier (w : List ℕ) : ℚ :=
+  collatzWordAdd w / (1 - collatzWordMul w)
+
+/-- If the multiplicative part of a prescribed word is contracting, then the
+word sends `x` below itself exactly when `x` lies above its affine barrier. -/
+theorem collatzQWord_lt_self_iff_barrier_lt (w : List ℕ) (x : ℚ)
+    (hmul : collatzWordMul w < 1) :
+    collatzQWord w x < x ↔ collatzBarrier w < x := by
+  rw [collatzQWord_affine]
+  unfold collatzBarrier
+  have hgap : 0 < 1 - collatzWordMul w := sub_pos.mpr hmul
+  constructor
+  · intro h
+    apply (div_lt_iff₀ hgap).2
+    linarith
+  · intro h
+    have hb := (div_lt_iff₀ hgap).1 h
+    linarith
+
+/-- The one-letter word `[2]` has multiplier `3/4`. -/
+theorem collatzWordMul_two : collatzWordMul [2] = (3 : ℚ) / 4 := by
+  norm_num [collatzWordMul]
+
+/-- The one-letter word `[2]` has exact barrier `1`. -/
+theorem collatzBarrier_two : collatzBarrier [2] = 1 := by
+  norm_num [collatzBarrier, collatzWordAdd, collatzWordMul]
+
+/-- Consequently the prescribed `a = 2` odd step contracts every rational
+starting point strictly above one. -/
+theorem collatzQWord_two_lt_self {x : ℚ} (hx : 1 < x) :
+    collatzQWord [2] x < x := by
+  norm_num [collatzQWord, collatzQStep]
+  linarith
+
+end CollatzFiniteWords
+
 end OperatorFirst
 
 /-! Explicit dependency reports for every theorem in this module. -/
@@ -164,3 +247,8 @@ end OperatorFirst
 #print axioms OperatorFirst.visibility_self
 #print axioms OperatorFirst.distinguishability_self
 #print axioms OperatorFirst.distinguishability_of_orthogonal
+#print axioms OperatorFirst.collatzQWord_affine
+#print axioms OperatorFirst.collatzQWord_lt_self_iff_barrier_lt
+#print axioms OperatorFirst.collatzWordMul_two
+#print axioms OperatorFirst.collatzBarrier_two
+#print axioms OperatorFirst.collatzQWord_two_lt_self
