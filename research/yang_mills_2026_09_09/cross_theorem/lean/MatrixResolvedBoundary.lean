@@ -1,5 +1,6 @@
 import CrossTheorem
 import Mathlib.LinearAlgebra.Matrix.PosDef
+import Mathlib.Analysis.Matrix.Order
 
 /-!
 # Matrix-valued energy-resolved boundary comparison
@@ -8,14 +9,15 @@ Finite-dimensional positive-semidefinite lift of the scalar closing step in
 `CrossTheorem.lean`.
 
 Each positive matrix contribution retains its own denominator label before
-inversion.  Replacing all labels by one common lower floor can only increase
-the comparison penalty in PSD order.  This is the exact finite matrix step used
-in the written energy-resolved Yang--Mills certificate.  It does not formalize
+inversion. Replacing all labels by one common lower floor can only increase
+the comparison penalty in PSD order. This is the exact finite matrix step used
+in the written energy-resolved Yang--Mills certificate. It does not formalize
 Peter--Weyl completeness, Haar integration, the infinite hidden Hamiltonian, or
 Schur/Feshbach spectral transfer.
 -/
 
 open Matrix
+open scoped MatrixOrder
 
 namespace YangMillsCrossTheorem
 
@@ -86,7 +88,7 @@ theorem commonFloor_sub_resolved_eq_gap
   rw [sub_smul]
 
 /-- Energy-resolved positive matrix penalties improve or match the common-floor
-comparison in PSD order.  Equivalently, the common-floor penalty minus the
+comparison in PSD order. Equivalently, the common-floor penalty minus the
 resolved penalty is positive semidefinite. -/
 theorem commonFloor_sub_resolved_posSemidef
     (M : ι → Matrix n n ℝ) (energy : ι → ℝ)
@@ -99,21 +101,20 @@ theorem commonFloor_sub_resolved_posSemidef
   rw [commonFloor_sub_resolved_eq_gap]
   exact matrixPenaltyGap_posSemidef M energy s c offset z hM hs he hz
 
-/-- Quadratic-form consequence of the PSD matrix comparison. -/
-theorem resolved_quadratic_le_commonFloor
+/-- Native matrix-order form of the result: the energy-resolved penalty is no
+larger than the common-floor penalty. -/
+theorem resolvedMatrixPenalty_le_commonFloor
     (M : ι → Matrix n n ℝ) (energy : ι → ℝ)
     (s c offset z : ℝ)
     (hM : ∀ i, (M i).PosSemidef)
     (hs : 0 ≤ s) (he : ∀ i, c ≤ energy i)
-    (hz : z < s*c+offset)
-    (x : n → ℝ) :
-    x ⬝ᵥ (resolvedMatrixPenalty M energy s offset z *ᵥ x) ≤
-      x ⬝ᵥ (commonFloorMatrixPenalty M s c offset z *ᵥ x) := by
-  have hPSD := commonFloor_sub_resolved_posSemidef
+    (hz : z < s*c+offset) :
+    resolvedMatrixPenalty M energy s offset z ≤
+      commonFloorMatrixPenalty M s c offset z := by
+  change (commonFloorMatrixPenalty M s c offset z -
+    resolvedMatrixPenalty M energy s offset z).PosSemidef
+  exact commonFloor_sub_resolved_posSemidef
     M energy s c offset z hM hs he hz
-  have hq := hPSD.2 x
-  rw [Matrix.sub_mulVec, dotProduct_sub] at hq
-  linarith
 
 end
 
@@ -123,4 +124,4 @@ end YangMillsCrossTheorem
 #print axioms YangMillsCrossTheorem.matrixPenaltyGap_posSemidef
 #print axioms YangMillsCrossTheorem.commonFloor_sub_resolved_eq_gap
 #print axioms YangMillsCrossTheorem.commonFloor_sub_resolved_posSemidef
-#print axioms YangMillsCrossTheorem.resolved_quadratic_le_commonFloor
+#print axioms YangMillsCrossTheorem.resolvedMatrixPenalty_le_commonFloor
