@@ -61,7 +61,7 @@ theorem affine_prefix_identity (a x : ℕ → ℕ)
           rw [pow_succ]
           ring
 
-/-- Cross-multiplied descent criterion.  This is the denominator-free form of
+/-- Cross-multiplied descent criterion. This is the denominator-free form of
 `n > B/(p-q)` and is preferable for formal arithmetic. -/
 theorem descent_iff_cross {p q x n B : ℕ} (hp : 0 < p)
     (h : p * x = q * n + B) :
@@ -143,6 +143,53 @@ theorem survival_le_envelope (a u x : ℕ → ℕ)
     _ = 3 ^ m * x 0 + correction a m := affine_prefix_identity a x hstep m
     _ ≤ 3 ^ m * x 0 + envelopeCorrection u m := Nat.add_le_add_left hcorr _
 
+/-- Direct power-gap form of the survival envelope.
+
+Once `3^m ≤ 2^L`, a prefix that has not descended must satisfy
+`(2^L - 3^m) * x_0 ≤ envelopeCorrection u m`. This is the exact integer
+Diophantine obstruction behind the saturated barrier denominator. -/
+theorem survival_gap_bound (a u x : ℕ → ℕ)
+    (hstep : ∀ j, 2 ^ a j * x (j + 1) = 3 * x j + 1)
+    (m L : ℕ)
+    (hpow : 3 ^ m ≤ 2 ^ L)
+    (hstay : x 0 ≤ x m)
+    (hterminal : 2 ^ L ≤ 2 ^ prefixSum a m)
+    (hcap : ∀ i < m, 2 ^ prefixSum a i ≤ 2 ^ u i) :
+    (2 ^ L - 3 ^ m) * x 0 ≤ envelopeCorrection u m := by
+  have hsurvival :
+      2 ^ L * x 0 ≤ 3 ^ m * x 0 + envelopeCorrection u m :=
+    survival_le_envelope a u x hstep m L hstay hterminal hcap
+  have hsum :
+      (2 ^ L - 3 ^ m) * x 0 + 3 ^ m * x 0 ≤
+        envelopeCorrection u m + 3 ^ m * x 0 := by
+    calc
+      (2 ^ L - 3 ^ m) * x 0 + 3 ^ m * x 0 = 2 ^ L * x 0 := by
+        rw [← Nat.add_mul, Nat.sub_add_cancel hpow]
+      _ ≤ 3 ^ m * x 0 + envelopeCorrection u m := hsurvival
+      _ = envelopeCorrection u m + 3 ^ m * x 0 := Nat.add_comm _ _
+  exact Nat.le_of_add_le_add_right hsum
+
+/-- Finite exclusion certificate obtained from the exact power gap.
+
+If the envelope is strictly smaller than `(2^L-3^m)N`, then no seed `x_0`
+that survives the prefix can be at least `N`. -/
+theorem seed_lt_of_survival_gap_certificate (a u x : ℕ → ℕ)
+    (hstep : ∀ j, 2 ^ a j * x (j + 1) = 3 * x j + 1)
+    (m L N : ℕ)
+    (hpow : 3 ^ m ≤ 2 ^ L)
+    (hgap : 0 < 2 ^ L - 3 ^ m)
+    (hstay : x 0 ≤ x m)
+    (hterminal : 2 ^ L ≤ 2 ^ prefixSum a m)
+    (hcap : ∀ i < m, 2 ^ prefixSum a i ≤ 2 ^ u i)
+    (hcertificate : envelopeCorrection u m < (2 ^ L - 3 ^ m) * N) :
+    x 0 < N := by
+  have hmul : (2 ^ L - 3 ^ m) * x 0 ≤ envelopeCorrection u m :=
+    survival_gap_bound a u x hstep m L hpow hstay hterminal hcap
+  have hstrict :
+      (2 ^ L - 3 ^ m) * x 0 < (2 ^ L - 3 ^ m) * N :=
+    lt_of_le_of_lt hmul hcertificate
+  exact (Nat.mul_lt_mul_left hgap).mp hstrict
+
 end CollatzBarrier
 
 #print axioms CollatzBarrier.affine_prefix_identity
@@ -153,3 +200,5 @@ end CollatzBarrier
 #print axioms CollatzBarrier.collatz_prefix_return_iff
 #print axioms CollatzBarrier.correction_le_envelope
 #print axioms CollatzBarrier.survival_le_envelope
+#print axioms CollatzBarrier.survival_gap_bound
+#print axioms CollatzBarrier.seed_lt_of_survival_gap_certificate
