@@ -1,6 +1,6 @@
 # Exact Diophantine Reduction of the Saturated Collatz Barrier
 
-This note records the exact arithmetic reduction behind the saturated first-contraction barrier.  It is deliberately narrower than the Collatz conjecture.
+This note records the exact arithmetic reduction behind the saturated first-contraction barrier. It is deliberately narrower than the Collatz conjecture.
 
 ## 1. Setup
 
@@ -23,7 +23,7 @@ Because `2^{i lambda} = 3^i`,
 
 `u_i = floor(log_2(3^i))`.
 
-For a positive integer `N`, `floor(log_2 N) = bit_length(N)-1`.  Therefore
+For a positive integer `N`, `floor(log_2 N) = bit_length(N)-1`. Therefore
 
 `u_i = bit_length(3^i)-1`.
 
@@ -77,7 +77,7 @@ The saturated barrier is therefore the exact rational number
 
 `H*_m = C_m / G_m`.
 
-This identity is the main Diophantine simplification.  The apparent small real denominator is an ordinary integer gap between a power of two and a power of three.
+This identity is the main Diophantine simplification. The apparent small real denominator is an ordinary integer gap between a power of two and a power of three.
 
 ## 5. Exact comparison and exact record search
 
@@ -89,7 +89,7 @@ if and only if
 
 `C_a G_b < C_b G_a`.
 
-Consequently record barriers can be found with integer arithmetic only.  The script `collatz_diophantine_exact.py` uses precisely this test.
+Consequently record barriers can be found with integer arithmetic only. The script `collatz_diophantine_exact.py` uses precisely this test.
 
 The exact regression through `m=10000` gives 25 record indices:
 
@@ -99,11 +99,17 @@ The corresponding upper rational approximants `p_m/m` begin
 
 `2/1, 5/3, 8/5, 27/17, 46/29, 65/41, 149/94, 233/147, 317/200, 401/253, 485/306, 1539/971, ...`.
 
-In the exact finite scan through 10000 every one is reduced and every consecutive pair in this record list has determinant
+There is a second exact scan that never evaluates `lambda`. Because `p_m = bit_length(3^m)`, strict record minima of the upper approximants `p_m/m` can be detected by the integer test
+
+`p_m * n < p_n * m`.
+
+Through `m=10000`, the strict record-minimum pairs `(m,p_m)` from this upper-approximation scan are **exactly the same 25 pairs** as the saturated-barrier record pairs. This is a finite exact regression fact, not yet an infinite equivalence theorem.
+
+In the same finite scan every record approximant is reduced, and every consecutive pair has determinant
 
 `p_i m_{i+1} - p_{i+1} m_i = 1`.
 
-That finite determinant pattern is consistent with the observed upper-convergent / semiconvergent structure.  It is not, by itself, an infinite classification theorem for barrier records.
+The coincidence with strict best upper approximations, together with the determinant-one pattern, explains why upper continued-fraction convergents / semiconvergents appear. Standard continued-fraction theory classifies best one-sided approximations in those terms. What is not yet proved here is that every future `H*_m` record must coincide with a new best upper approximation.
 
 ## 6. Denominator-free survival certificate
 
@@ -111,7 +117,7 @@ Suppose a finite prefix gives a survival inequality
 
 `P n <= Q n + C`
 
-with `Q <= P`.  Then elementary cancellation gives
+with `Q <= P`. Then elementary cancellation gives
 
 `(P-Q)n <= C`.
 
@@ -129,7 +135,7 @@ so survival implies
 
 This is the useful form for formal work: no division and no real logarithm occurs.
 
-A finite exclusion certificate follows immediately.  If
+A finite exclusion certificate follows immediately. If
 
 `C_m < G_m N`,
 
@@ -167,9 +173,9 @@ then
 
 `1/(6 e_m) < H*_m <= 1/(3 ln(2) e_m)`.
 
-Thus the barrier is within a universal constant factor of the reciprocal error of the upper rational approximation `p_m/m` to `log_2 3`.  This is the rigorous reason continued-fraction approximants are the natural candidate spike locations.
+Thus the barrier is within a universal constant factor of the reciprocal error of the upper rational approximation `p_m/m` to `log_2 3`. This is the rigorous reason continued-fraction approximants are the natural candidate spike locations.
 
-The standard continued-fraction theorem that best one-sided rational approximations are convergents or semiconvergents supplies the external Diophantine interpretation.  The exact barrier comparison itself does not require that theorem.
+The standard continued-fraction theorem that best one-sided rational approximations are convergents or semiconvergents supplies the external Diophantine interpretation. The exact barrier comparison itself does not require that theorem.
 
 ## 8. What this does and does not finish
 
@@ -179,6 +185,7 @@ This closes the arithmetic ambiguity in the saturated barrier:
 - its denominator is the integer gap `2^{p_m}-3^m`;
 - record searches need no floating point;
 - finite survival bounds reduce to exact integer inequalities;
+- through `m=10000`, barrier records and strict best-upper-approximation records coincide exactly;
 - the relation to one-sided rational approximation is quantitative, not merely visual.
 
-It does **not** prove that a single deterministic Collatz orbit cannot realize exceptional low-valuation prefixes forever.  The remaining global task is still a compatibility / realization theorem for one orbit, not another average-drift computation.
+It does **not** prove that a single deterministic Collatz orbit cannot realize exceptional low-valuation prefixes forever. The remaining global task is still a compatibility / realization theorem for one orbit, not another average-drift computation.
