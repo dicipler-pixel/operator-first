@@ -47,5 +47,59 @@ class TestEvents(unittest.TestCase):
         self.assertEqual(eyes.nondominated(vecs), [True, True, False])
 
 
+class TestStartOrbit(unittest.TestCase):
+    """Regression for the 2026-09-12 correction: T16 is three conjugations from the
+    official ac-00008 start, so eyes that differ between them are coordinate changes."""
+    START = (w("YYxyxYX"), w("YXyXXyxxx"))
+    T16 = (w("YxyxYXY"), w("yXXyxxxYX"))
+
+    def _apply(self, s, m):
+        try:
+            from verifier import core
+            return core.apply_move(s, m)
+        except ImportError:  # local mirror of ac-r2-v1 for the test only
+            r0, r1 = s
+            inv = lambda w_: tuple(-a for a in reversed(w_))
+            red = eyes._free_reduce
+            if m == 0: return (inv(r0), r1)
+            if m == 1: return (r0, inv(r1))
+            if m == 2: return (red(r0 + r1), r1)
+            if m == 3: return (red(r0 + inv(r1)), r1)
+            if m == 4: return (r0, red(r1 + r0))
+            if m == 5: return (r0, red(r1 + inv(r0)))
+            g = (1, -1, 2, -2)[(m - 6) % 4]
+            return ((red((g,) + r0 + (-g,)), r1) if m <= 9 else (r0, red((g,) + r1 + (-g,))))
+
+    def test_t16_is_in_start_orbit(self):
+        s = self.START
+        for m in [8, 12, 10]:
+            s = self._apply(s, m)
+        self.assertEqual(s, self.T16)
+        self.assertTrue(eyes.in_start_orbit(self.T16, self.START))
+        self.assertEqual(eyes.distance_back(self.T16, self.START, self._apply, 4), 3)
+
+    def test_relator_class_invariant_under_conjugation_and_inversion(self):
+        s = self.START
+        for m in [0, 1, 6, 7, 8, 9, 10, 11, 12, 13, 8, 12]:
+            s = self._apply(s, m)
+            self.assertEqual(eyes.orbit_signature(s), eyes.orbit_signature(self.START))
+
+    def test_multiplication_leaves_orbit(self):
+        s = self._apply(self.START, 2)
+        self.assertFalse(eyes.in_start_orbit(s, self.START))
+        self.assertEqual(eyes.orbit_vector(s, self.START)["class_changes"], 1)
+
+    def test_collapse_outcome_labels_return_vs_advance(self):
+        # T48 -> ... -> T16: the final collapse lands in the start orbit => 'return'
+        T48 = (w("YYYYYYYxxxxYXyXXyXyxyxYXYXyXXyxxxyyyy"), w("xxxxYXyXXyX"))
+        states = [T48]
+        for m in [0, 8, 8, 8, 8, 8, 8, 13, 2, 12, 11, 9, 0, 11, 11, 11, 12, 3, 10]:
+            states.append(self._apply(states[-1], m))
+        self.assertEqual(states[-1], self.T16)
+        outcomes = eyes.collapse_outcome(states, self.START)
+        self.assertEqual(outcomes[-1][1], "return")
+        self.assertTrue(all(o == "advance" for _, o in outcomes[:-1]))
+
+
 if __name__ == "__main__":
     unittest.main()

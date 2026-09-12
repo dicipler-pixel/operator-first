@@ -82,3 +82,24 @@ level alone holds 3,801,440 states, so a full boundary enumeration is roughly
 53M edge evaluations. Budget a two-stage funnel — cheap labels on every exit,
 expensive labels (Magnus depth, return-channel counts) on a filtered subset —
 or the scan will not finish.
+
+## Late correction — 2026-09-12 ~21:00Z
+
+- **T16 is in the start orbit.** `[8,12,10]` takes the official `ac-00008`
+  start to T16; both relators keep their conjugacy classes. The 71-move
+  Noff-9 -> Noff-18 -> T48 -> T16 excursion is a loop. Do not use ORIG-16 vs
+  T16 as evidence that hab/foxA/H3/D detected a better basin.
+- **Required regression added.** `research/acc/eyes.py` now has an exact
+  start-orbit eye (`orbit_signature`, `in_start_orbit`, `distance_back`,
+  `collapse_outcome`). The cancellation eye's collapse floor predicted both
+  ac-00008 collapses exactly (48->29, 29->16), but the second one is a
+  *return* to the start orbit. Read collapse floor and start-orbit together.
+- **Confirmed team routes.** Noff-9 -> T16 in 10 moves (none <= 9 under cap
+  60); start -> the length-38 hab-0 state in 12 moves (none <= 11 under cap
+  60). Both replayed under the official kernel; both bounds re-derived with
+  an independent bidirectional search.
+- **Not closed.** The cap-32 component of the post-deletion state D exceeded
+  24.4M states and was killed; no bound is claimed.
+- **Shortening is exhausted.** Segment meet-in-the-middle (windows 8-24) left
+  the beam routes for ac-00104/00974/04308 unchanged, like the earlier window
+  shortener.

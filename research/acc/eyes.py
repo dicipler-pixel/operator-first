@@ -109,3 +109,108 @@ def nondominated(vectors, keys=("tot", "hab", "foxA")):
                 break
         flags.append(not dominated)
     return flags
+
+
+# --- start-orbit proximity eye ---------------------------------------------
+#
+# Correction recorded 2026-09-12: ac-00008's "T16" is three conjugation moves
+# from the official start ([8,12,10]).  Eyes that change between two states in
+# the same relator conjugacy orbit measure a coordinate change, not progress.
+# Every eye below is exact; none is a heuristic.
+
+def _free_reduce(word):
+    out = []
+    for a in word:
+        if out and out[-1] == -a:
+            out.pop()
+        else:
+            out.append(a)
+    return tuple(out)
+
+
+def cyclic_reduce(word):
+    word = _free_reduce(word)
+    while len(word) >= 2 and word[0] == -word[-1]:
+        word = word[1:-1]
+    return word
+
+
+def relator_class(word):
+    """Canonical representative of the relator's conjugacy class up to inversion:
+    the lexicographically least rotation of the cyclically reduced word or its inverse.
+    Invariant under moves 0, 1 and 6-13 (inversion and one-letter conjugation)."""
+    c = cyclic_reduce(word)
+    inv = tuple(-a for a in reversed(c))
+    cands = [c[i:] + c[:i] for i in range(len(c))] + [inv[i:] + inv[:i] for i in range(len(inv))]
+    return min(cands) if cands else ()
+
+
+def orbit_signature(state):
+    """Ordered pair of relator classes. Equal signatures <=> the two states differ only
+    by inversions and conjugations of each relator separately (no multiplication has
+    changed either relator's class)."""
+    return (relator_class(state[0]), relator_class(state[1]))
+
+
+def in_start_orbit(state, start):
+    return orbit_signature(state) == orbit_signature(start)
+
+
+def distance_back(state, start, apply_move, radius, cap=None):
+    """Exact move distance from `state` back to `start` under all 14 moves, or None
+    if greater than `radius`. Bidirectional BFS; `cap` bounds total relator length."""
+    if state == start:
+        return 0
+    def grow(front, seen):
+        nxt = []
+        for s in front:
+            for m in range(14):
+                q = apply_move(s, m)
+                if cap is not None and len(q[0]) + len(q[1]) > cap:
+                    continue
+                if q in seen:
+                    continue
+                seen[q] = seen[s] + 1
+                nxt.append(q)
+        return nxt
+    A, B = {state: 0}, {start: 0}
+    fa, fb = [state], [start]
+    for _ in range(radius):
+        if len(fa) <= len(fb):
+            fa = grow(fa, A)
+        else:
+            fb = grow(fb, B)
+        meet = set(A) & set(B)
+        if meet:
+            d = min(A[q] + B[q] for q in meet)
+            if d <= radius:
+                return d
+    return None
+
+
+def orbit_vector(state, start, apply_move=None, radius=0, cap=None):
+    """Start-orbit proximity eye. Fields:
+      in_start_orbit   exact: same relator classes as the start
+      class_changes    how many of the two relators left their start class (0, 1, 2)
+      cyclic_tot       total cyclically reduced length
+      dist_back        exact distance to the start if <= radius (needs apply_move), else None
+    """
+    sig, s0 = orbit_signature(state), orbit_signature(start)
+    v = {"in_start_orbit": sig == s0,
+         "class_changes": int(sig[0] != s0[0]) + int(sig[1] != s0[1]),
+         "cyclic_tot": len(sig[0]) + len(sig[1])}
+    if apply_move is not None and radius > 0:
+        v["dist_back"] = distance_back(state, start, apply_move, radius, cap)
+    return v
+
+
+def collapse_outcome(path_states, start):
+    """Classify each LENGTH_DROP along a path: 'return' if the landing state is in
+    the start orbit, else 'advance'. Answers the required regression: does a word-
+    length collapse advance, or merely return to where the search began?"""
+    out = []
+    for i in range(1, len(path_states)):
+        p, c = path_states[i - 1], path_states[i]
+        if total(c) < total(p):
+            out.append((i, "return" if in_start_orbit(c, start) else "advance"))
+    return out
