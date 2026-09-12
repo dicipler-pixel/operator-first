@@ -19,6 +19,12 @@ then the saturated first-contraction barrier is exactly the rational number
 
 The recurrence C_{m+1} = 3 C_m + 2**u_m lets us scan record barriers using
 integer arithmetic only.  Rational comparisons are done by cross products.
+
+A second exact scan tracks strict record minima of the upper approximation
+p_m/m to log_2(3).  Because every p_m is computed from bit length, this scan
+also uses no real logarithm.  Through m=10,000 its record pairs coincide
+exactly with the saturated-barrier record pairs; CI treats that as a finite
+regression fact, not as an infinite theorem.
 """
 
 from __future__ import annotations
@@ -83,18 +89,54 @@ def scan_exact_barrier_records(limit: int) -> list[BarrierRecord]:
     return records
 
 
+def scan_exact_upper_approximation_records(limit: int) -> list[tuple[int, int]]:
+    """Strict record minima of p_m/m, where p_m=ceil(m log_2 3).
+
+    The comparison p/m < p0/m0 is performed as p*m0 < p0*m, so neither
+    log_2(3) nor floating-point arithmetic occurs in this scan.
+    """
+    if limit < 1:
+        return []
+
+    pow3 = 1
+    records: list[tuple[int, int]] = []
+    best_m = 0
+    best_p = 0
+
+    for m in range(1, limit + 1):
+        pow3 *= 3
+        p = pow3.bit_length()
+        assert (1 << (p - 1)) < pow3 < (1 << p)
+
+        if not records or p * best_m < best_p * m:
+            records.append((m, p))
+            best_m, best_p = m, p
+
+    return records
+
+
 def check_known(records: list[BarrierRecord], limit: int) -> None:
     checked_limit = min(limit, 10_000)
     expected = [m for m in KNOWN_RECORDS_THROUGH_10000 if m <= checked_limit]
-    actual = [r.m for r in records if r.m <= checked_limit]
+    checked = [r for r in records if r.m <= checked_limit]
+    actual = [r.m for r in checked]
     if actual != expected:
         raise AssertionError(
             f"record mismatch through {checked_limit}: expected {expected}, got {actual}"
         )
 
+    # The barrier-record pairs coincide exactly with strict record minima of
+    # the upper approximants p_m/m on this finite range.
+    upper_records = scan_exact_upper_approximation_records(checked_limit)
+    barrier_pairs = [(r.m, r.p) for r in checked]
+    if barrier_pairs != upper_records:
+        raise AssertionError(
+            "barrier records and exact upper-approximation records differ "
+            f"through {checked_limit}: barrier={barrier_pairs}, upper={upper_records}"
+        )
+
     # The observed record upper approximants p_m/m are reduced, and consecutive
     # records through 10,000 are Farey neighbours with determinant +1.
-    checked = [r for r in records if r.m <= checked_limit]
     for r in checked:
         if gcd(r.p, r.m) != 1:
             raise AssertionError(f"record p/m is not reduced at m={r.m}")
@@ -119,11 +161,13 @@ def main() -> None:
     args = parser.parse_args()
 
     records = scan_exact_barrier_records(args.limit)
+    upper_records = scan_exact_upper_approximation_records(args.limit)
     if args.check_known:
         check_known(records, args.limit)
 
     print(f"exact saturated Collatz barrier scan: m <= {args.limit}")
-    print(f"record count: {len(records)}")
+    print(f"barrier record count: {len(records)}")
+    print(f"upper-approximation record count: {len(upper_records)}")
     print("m\tp\tgap_bits\tcorrection_bits\tp/m")
     for r in records:
         num, den = r.reduced_upper_approximation
@@ -134,6 +178,7 @@ def main() -> None:
 
     if args.check_known:
         print("known-record regression: PASS")
+        print("barrier = exact upper-approximation records through checked range: PASS")
 
 
 if __name__ == "__main__":
