@@ -43,7 +43,7 @@ theorem one_sub_retainedProjection :
     (1 - retainedProjection : Matrix (Sum r h) (Sum r h) ℝ) =
       Matrix.fromBlocks 0 0 0 1 := by
   ext i j
-  cases i <;> cases j <;> simp [retainedProjection]
+  cases i <;> cases j <;> simp [retainedProjection, Matrix.one_apply]
 
 /-- Matrix commutator with the retained projector. -/
 def projectorCommutator (A : Matrix r r ℝ) (B : Matrix r h ℝ)
