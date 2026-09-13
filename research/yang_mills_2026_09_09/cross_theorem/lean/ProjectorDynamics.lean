@@ -88,7 +88,7 @@ theorem projectorCrossEnergy_eq_two_mul_couplingEnergy
   have hupper :
       (∑ i : r, ∑ j : h,
         (projectorCommutator A B D (Sum.inl i) (Sum.inr j)) ^ 2) = couplingEnergy B := by
-    simp [projectorCommutator_eq_blocks, couplingEnergy, neg_sq]
+    simp [projectorCommutator_eq_blocks, couplingEnergy]
   have hlower :
       (∑ i : h, ∑ j : r,
         (projectorCommutator A B D (Sum.inr i) (Sum.inl j)) ^ 2) = couplingEnergy B := by
