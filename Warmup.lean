@@ -14,6 +14,8 @@ arbitrary ring, T2 for square matrices over any commutative ring.
 
 import Mathlib
 
+open Matrix
+
 namespace OperatorFirst
 
 /-! ## T1 — the commutator identity -/
