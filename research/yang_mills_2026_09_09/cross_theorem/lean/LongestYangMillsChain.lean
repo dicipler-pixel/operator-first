@@ -56,13 +56,15 @@ theorem transport_metric_memory_chain
     (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ)
     (hU0 : U 0 = 1) (hV0 : V 0 = 1)
     (hU : ∀ (i j : Sum r h),
-      HasDerivAt (fun t => U t i j) (YangMillsFinite.blockGenerator A B D i j) 0)
+      HasDerivAt (fun t : ℝ => U t i j)
+        (YangMillsFinite.blockGenerator A B D i j) (0 : ℝ))
     (hV : ∀ (i j : Sum r h),
-      HasDerivAt (fun t => V t i j) ((-YangMillsFinite.blockGenerator A B D) i j) 0) :
+      HasDerivAt (fun t : ℝ => V t i j)
+        ((-YangMillsFinite.blockGenerator A B D) i j) (0 : ℝ)) :
     (∀ (i j : Sum r h),
       HasDerivAt
-        (fun t => (U t * YangMillsFinite.retainedProjection * V t) i j)
-        (YangMillsFinite.projectorCommutator A B D i j) 0) ∧
+        (fun t : ℝ => (U t * YangMillsFinite.retainedProjection * V t) i j)
+        (YangMillsFinite.projectorCommutator A B D i j) (0 : ℝ)) ∧
     (1 / 2 : ℝ) * YangMillsFinite.projectorCrossEnergy A B D =
       YangMillsFinite.couplingEnergy B ∧
     Matrix.trace (YangMillsFinite.memoryAtZero B) =
@@ -113,7 +115,7 @@ theorem resolved_penalty_preserves_retained_floor
 /-- The energy-resolved comparison feeds the exact finite Schur floor transfer.
 The one-sided hypothesis `hResolvedLeSchur` is the load-bearing bridge: the
 energy-resolved retained lower comparison lies below the actual finite Schur
-complement.  Equality is not required.  This matches the paper's order chain
+complement. Equality is not required. This matches the paper's order chain
 `K_res(z) <= S_H(z)` and keeps the physical comparison hypothesis explicit. -/
 theorem resolved_schur_chain_to_full_floor
     (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) (μ : ℝ)
