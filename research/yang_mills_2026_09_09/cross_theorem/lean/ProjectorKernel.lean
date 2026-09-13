@@ -26,30 +26,27 @@ theorem frameProjector_idempotent
     (Q : Matrix a r K) (A : Matrix r a K)
     (hAQ : A * Q = 1) :
     frameProjector Q A * frameProjector Q A = frameProjector Q A := by
-  unfold frameProjector
-  calc
-    (Q * A) * (Q * A) = Q * (A * Q) * A := by simp [Matrix.mul_assoc]
-    _ = Q * 1 * A := by rw [hAQ]
-    _ = Q * A := by simp
+  simpa [frameProjector, Matrix.mul_assoc] using
+    congrArg (fun X : Matrix r r K => Q * X * A) hAQ
 
 /-- The frame lies in the image of its generated projector. -/
 theorem frameProjector_fixes_frame
     (Q : Matrix a r K) (A : Matrix r a K)
     (hAQ : A * Q = 1) :
     frameProjector Q A * Q = Q := by
-  unfold frameProjector
-  calc
-    (Q * A) * Q = Q * (A * Q) := by simp [Matrix.mul_assoc]
-    _ = Q * 1 := by rw [hAQ]
-    _ = Q := by simp
+  simpa [frameProjector, Matrix.mul_assoc] using
+    congrArg (fun X : Matrix r r K => Q * X) hAQ
 
 /-- The complementary idempotent annihilates the frame. -/
 theorem complement_annihilates_frame
     (Q : Matrix a r K) (A : Matrix r a K)
     (hAQ : A * Q = 1) :
     (1 - frameProjector Q A) * Q = 0 := by
-  rw [Matrix.sub_mul]
-  simp [frameProjector_fixes_frame Q A hAQ]
+  calc
+    (1 - frameProjector Q A) * Q = Q - frameProjector Q A * Q := by
+      rw [Matrix.sub_mul, Matrix.one_mul]
+    _ = Q - Q := by rw [frameProjector_fixes_frame Q A hAQ]
+    _ = 0 := sub_self Q
 
 end YangMillsFinite
 
