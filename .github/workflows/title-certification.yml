@@ -50,6 +50,11 @@ jobs:
         run: |
           set -o pipefail
           lake env lean research/certification/RecoveredMathBatchC.lean 2>&1 | tee recovered-math-batch-c.log
+      - name: Check recovered math batch D and axioms
+        shell: bash
+        run: |
+          set -o pipefail
+          lake env lean research/certification/RecoveredMathBatchD.lean 2>&1 | tee recovered-math-batch-d.log
       - name: Reject the old 28.26-as-double convention
         shell: bash
         run: |
@@ -74,4 +79,5 @@ jobs:
             recovered-math-batch-a.log
             recovered-math-batch-b.log
             recovered-math-batch-c.log
+            recovered-math-batch-d.log
             false-harmonic-control.log
