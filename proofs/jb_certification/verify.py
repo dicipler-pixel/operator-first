@@ -15,7 +15,7 @@ def run(name, args, negative=False):
     if negative:
         if p.returncode == 0 or not re.search(r"proved that the proposition.*false|unsolved goals|no goals to be solved|failed", p.stdout, re.S):
             raise RuntimeError("False control did not fail mathematically: " + name)
-        if re.search(r"unknown (?:module|identifier|constant)|unexpected token", p.stdout):
+        if re.search(r"unknown (?:module|identifier|constant|tactic)|unexpected token|failed to synthesize", p.stdout):
             raise RuntimeError("False control failed for infrastructure reason: " + name)
     elif p.returncode:
         raise RuntimeError(name + " failed")
@@ -41,12 +41,13 @@ try:
             if m.group(2) and set(x.strip() for x in m.group(2).split(",")) - {"propext", "Classical.choice", "Quot.sound"}:
                 raise RuntimeError("Forbidden axiom: " + name)
         run(f"leanchecker_{mod}", ["lake", "env", "leanchecker", mod])
+    # Each control is a false statement of the same shape as a certified kernel; it must be
+    # rejected on mathematical grounds (unsolved goals / False), never for a missing import.
     false_controls = {
-        # pairing is NOT conserved without the inverse relation: a concrete counterexample must not be provable as an identity
-        "false_pairing_no_inverse": "import JBCertCore\nexample : ((2:ℤ) * 3) * (3 * 5) = 2 * 5 := by norm_num",
-        "false_coboundary_no_endpoint": "import JBCertCore\nexample : (2:ℚ) * 3 * (1/3) = 3 := by norm_num",
-        "false_kronecker_not_idempotent": "import JBCertMatrix\nexample : (2:ℕ) * 2 = 2 := by norm_num",
-        "false_inverse_order": "import JBCertMatrix\nexample : ((1:ℚ)/2) * 3 * 2 = 1 := by norm_num",
+        "false_pairing_no_inverse": "import Mathlib.Tactic\nimport JBCertCore\nexample : ((2:ℤ) * 3) * (3 * 5) = 2 * 5 := by norm_num",
+        "false_coboundary_no_endpoint": "import Mathlib.Tactic\nimport JBCertCore\nexample : (2:ℚ) * 3 * (1/3) = 3 := by norm_num",
+        "false_kronecker_not_idempotent": "import Mathlib.Tactic\nimport JBCertMatrix\nexample : (2:ℕ) * 2 = 2 := by norm_num",
+        "false_inverse_order": "import Mathlib.Tactic\nimport JBCertMatrix\nexample : ((1:ℚ)/2) * 3 * 2 = 1 := by norm_num",
     }
     for name, text in false_controls.items():
         f = OUT / f"{name}.lean"
