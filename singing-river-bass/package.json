@@ -14,7 +14,8 @@
     "assets:manifest": "node tools/build_manifest.mjs",
     "assets:all": "npm run assets:fetch && npm run assets:glb && npm run assets:textures && npm run assets:manifest",
     "bench": "node tools/bench.mjs",
-    "playtest": "node tools/playtest.mjs"
+    "playtest": "node tools/playtest.mjs",
+    "build:artifact": "vite build --config vite.artifact.config.js && node tools/build_artifact.mjs"
   },
   "dependencies": {
     "three": "0.186.0"

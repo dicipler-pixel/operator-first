@@ -16,3 +16,6 @@ assets/**
 # their own .git directories, so vendoring them into this history is wrong.
 # Their LICENSE files ARE committed, under LICENSES/, so provenance survives.
 shaders/retro/*/
+
+# Artifact build output, regenerate with `npm run build:artifact`.
+dist-artifact/
