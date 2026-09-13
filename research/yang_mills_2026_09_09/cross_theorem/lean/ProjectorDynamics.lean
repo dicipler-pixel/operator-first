@@ -81,8 +81,9 @@ def projectorCrossEnergy
 theorem projectorCrossEnergy_eq_two_mul_couplingEnergy
     (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) :
     projectorCrossEnergy A B D = 2 * couplingEnergy B := by
+  unfold projectorCrossEnergy
   rw [projectorCommutator_eq_blocks]
-  unfold projectorCrossEnergy couplingEnergy
+  unfold couplingEnergy
   simp only [Matrix.fromBlocks_apply₁₂, Matrix.fromBlocks_apply₂₁,
     Matrix.neg_apply, Matrix.transpose_apply]
   rw [Finset.sum_comm]
@@ -99,9 +100,9 @@ private theorem hasDerivAt_matrix_mul_sum
     {n : Type*} [Fintype n] [DecidableEq n]
     (U V : ℝ → Matrix n n ℝ) (U0 V0 KU KV : Matrix n n ℝ)
     (hU0 : U 0 = U0) (hV0 : V 0 = V0)
-    (hU : ∀ i j, HasDerivAt (fun t => U t i j) (KU i j) 0)
-    (hV : ∀ i j, HasDerivAt (fun t => V t i j) (KV i j) 0) :
-    ∀ i j,
+    (hU : ∀ (i j : n), HasDerivAt (fun t => U t i j) (KU i j) 0)
+    (hV : ∀ (i j : n), HasDerivAt (fun t => V t i j) (KV i j) 0) :
+    ∀ (i j : n),
       HasDerivAt (fun t => (U t * V t) i j)
         ((KU * V0 + U0 * KV) i j) 0 := by
   intro i j
@@ -115,18 +116,18 @@ theorem hasDerivAt_retained_transport_commutator
     (U V : ℝ → Matrix (Sum r h) (Sum r h) ℝ)
     (K : Matrix (Sum r h) (Sum r h) ℝ)
     (hU0 : U 0 = 1) (hV0 : V 0 = 1)
-    (hU : ∀ i j, HasDerivAt (fun t => U t i j) (K i j) 0)
-    (hV : ∀ i j, HasDerivAt (fun t => V t i j) ((-K) i j) 0) :
-    ∀ i j,
+    (hU : ∀ (i j : Sum r h), HasDerivAt (fun t => U t i j) (K i j) 0)
+    (hV : ∀ (i j : Sum r h), HasDerivAt (fun t => V t i j) ((-K) i j) 0) :
+    ∀ (i j : Sum r h),
       HasDerivAt
         (fun t => (U t * retainedProjection * V t) i j)
         ((K * retainedProjection - retainedProjection * K) i j) 0 := by
   intro i j
-  have hUP : ∀ a b,
+  have hUP : ∀ (a b : Sum r h),
       HasDerivAt (fun t => (U t * retainedProjection) a b)
         ((K * retainedProjection) a b) 0 := by
     intro a b
-    have hconst : ∀ p q,
+    have hconst : ∀ (p q : Sum r h),
         HasDerivAt (fun _ : ℝ => retainedProjection p q) 0 0 := by
       intro p q
       simpa using
@@ -145,11 +146,11 @@ theorem retained_transport_tangent_and_metric_bridge
     (U V : ℝ → Matrix (Sum r h) (Sum r h) ℝ)
     (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ)
     (hU0 : U 0 = 1) (hV0 : V 0 = 1)
-    (hU : ∀ i j,
+    (hU : ∀ (i j : Sum r h),
       HasDerivAt (fun t => U t i j) (blockGenerator A B D i j) 0)
-    (hV : ∀ i j,
+    (hV : ∀ (i j : Sum r h),
       HasDerivAt (fun t => V t i j) ((-blockGenerator A B D) i j) 0) :
-    (∀ i j,
+    (∀ (i j : Sum r h),
       HasDerivAt
         (fun t => (U t * retainedProjection * V t) i j)
         (projectorCommutator A B D i j) 0) ∧
