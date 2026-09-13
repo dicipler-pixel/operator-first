@@ -1,0 +1,39 @@
+name: YM lean error surface
+on:
+  push:
+    branches: [claude/confident-fermi-09rd02]
+    paths:
+      - 'research/yang_mills_2026_09_09/cross_theorem/lean/**'
+      - '.github/workflows/ym-lean-debug.yml'
+  workflow_dispatch:
+jobs:
+  surface:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: research/yang_mills_2026_09_09/cross_theorem/lean
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install elan
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Compile each module and print every diagnostic
+        run: |
+          set +e
+          lake update  2>&1 | tail -5
+          lake exe cache get 2>&1 | tail -3
+          lake env lean --version
+          status=0
+          for f in CrossTheorem MatrixResolvedBoundary SchurCongruence ProjectorKernel CouplingFeedback ObservabilityKernel ProjectorDynamics; do
+            echo "=============== $f.lean"
+            lake env lean "$f.lean" 2>&1
+            rc=$?
+            echo "--------------- $f exit=$rc"
+            [ $rc -ne 0 ] && status=1
+          done
+          echo "OVERALL=$status"
+          exit 0
