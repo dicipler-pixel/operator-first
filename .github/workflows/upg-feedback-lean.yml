@@ -61,7 +61,7 @@ jobs:
               ('UPGProjectorMetric.lean','projector-metric.log',7),
               ('UPGProjectorDynamics.lean','projector-dynamics.log',3),
               ('UPGInterfacePersistence.lean','interface-persistence.log',6),
-              ('UPGInterfaceSpectrum.lean','interface-spectrum.log',5),
+              ('UPGInterfaceSpectrum.lean','interface-spectrum.log',6),
           ]:
               src=pathlib.Path(filename).read_text()
               log=pathlib.Path(logfile).read_text()
