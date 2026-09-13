@@ -8,6 +8,7 @@ on:
       - 'CollatzRealization.lean'
       - 'CollatzMovingAnchor.lean'
       - 'CollatzNoFixedWindow.lean'
+      - 'CollatzExceptionalThreshold.lean'
       - 'CollatzDiophantine.lean'
       - 'collatz_diophantine_exact.py'
       - 'collatz_alignment_exact.py'
@@ -21,6 +22,7 @@ on:
       - 'CollatzRealization.lean'
       - 'CollatzMovingAnchor.lean'
       - 'CollatzNoFixedWindow.lean'
+      - 'CollatzExceptionalThreshold.lean'
       - 'CollatzDiophantine.lean'
       - 'collatz_diophantine_exact.py'
       - 'collatz_alignment_exact.py'
@@ -89,6 +91,18 @@ jobs:
           set -o pipefail
           lake env bash -lc 'cd "$GITHUB_WORKSPACE" && LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o CollatzNoFixedWindow.olean CollatzNoFixedWindow.lean' 2>&1 | tee root-logs/no-fixed-window.log
           ! grep -q 'sorryAx' root-logs/no-fixed-window.log
+      - name: Check Collatz exceptional-cylinder resolution threshold
+        run: |
+          set -o pipefail
+          lake env bash -lc 'cd "$GITHUB_WORKSPACE" && LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o CollatzExceptionalThreshold.olean CollatzExceptionalThreshold.lean' 2>&1 | tee root-logs/exceptional-threshold.log
+          ! grep -q 'sorryAx' root-logs/exceptional-threshold.log
+      - name: Leanchecker Collatz exceptional-cylinder threshold
+        run: |
+          set -o pipefail
+          lake env bash -lc 'cd "$GITHUB_WORKSPACE" && LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" leanchecker CollatzExceptionalThreshold' 2>&1 | tee root-logs/exceptional-threshold-leanchecker.log
+      - name: Hash Collatz interface sources
+        run: |
+          sha256sum "$GITHUB_WORKSPACE/CollatzMovingAnchor.lean" "$GITHUB_WORKSPACE/CollatzNoFixedWindow.lean" "$GITHUB_WORKSPACE/CollatzExceptionalThreshold.lean" > root-logs/collatz-interface-source-hashes.txt
       - name: Check Collatz Diophantine gap certificates
         run: |
           set -o pipefail
