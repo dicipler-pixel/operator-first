@@ -68,18 +68,18 @@ re-verified by the official verifier, and the delivered files re-checked with th
 
 | board | pass sequence | records improved | moves saved | records total |
 |---|---|---:|---:|---:|
-| AC (196 merged records) | W8, W10, W12, W14, W10+2, W12+2, W14+2, W16 | **172 of 196** | **3,420** (19,710 → 16,290; 17.4%) | delivered as v3 |
+| AC (196 merged records) | W8, W10, W12, W14, W10+2, W12+2, W14+2, W16, W16+2, W18 | **174 of 196** | **4,316** (19,710 → 15,394; 21.9%) | delivered as v4 |
 | stable AC (196 merged records) | corridor cap 2, W5, W6, W5+2, W6+2 | **37 of 196** | **60** | delivered as v2 |
 
 Largest single AC gains: ac-07369 125 → 69, ac-03141 140 → 89, ac-08635 162 → 113, ac-00207 147 → 100.
 Each larger window kept finding more (W16 alone: 451 moves), so the records are not yet at a fixed point;
-passes with W16+2 and W18 are running. Cost grows roughly 3–4× per +2 of window.
+W16+2 saved 451 and W18 saved 445 more; W18+2 and W20 are running. Cost grows roughly 3–4× per +2 of window (W18: 44 min on 3 workers).
 
 Reading: the earlier "records are tail-tight" finding was correct but narrow. The waste in the hub's
 records is spread along the whole path in short detours of a few moves each, invisible to any tail-only
 or corridor-only pass, and only an exact segment search finds it. This is now the mandatory pipeline
 stage before any upload, and every already-uploaded record should be re-run through it.
 
-Delivered to the hub: `CLAUDE_AC_RECORD_IMPROVEMENTS_20260913_v3.txt` (172 lines, supersedes v1/v2) and
+Delivered to the hub: `CLAUDE_AC_RECORD_IMPROVEMENTS_20260913_v4.txt` (174 lines, supersedes v1–v3; official CLI `accepted: true`, 174/174) and
 `CLAUDE_STABLE_RECORD_IMPROVEMENTS_20260913_v2.txt` (37 lines, supersedes v1). Only shortened records,
 each a complete verified path; upload as new files.
