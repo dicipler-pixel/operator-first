@@ -1,0 +1,777 @@
+{
+ "schema": "compound-eye-intervention-ledger-v1",
+ "trials": [
+  {
+   "createdUTC": "2026-09-13T04:55:23.788Z",
+   "dataset": "ms-train-0333__training vs ms-train-0333__submission_training_424_finished.txt",
+   "datasetTitle": "ms-train-0333 (ac-r2-v1) — 23 moves | ms-train-0333 (ac-r2-v1) — 15 moves",
+   "prediction": "ms-train-0333 finished: 15 moves (was 23), max length after corridor entry <= L_entry+2, fewer plateau steps than the original",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 1,
+     "rmsOriginal": 8.927952359490575,
+     "rmsCombined": 8.927952359490575,
+     "rmsResidual": 0
+    }
+   },
+   "observation": "orig steps=23 fin steps=15; entry=6 L_entry=9 max after entry=11; plateaus orig=11 fin=5",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:55:23.788Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 1,
+     "rmsOriginal": 10.231690964840562,
+     "rmsCombined": 10.231690964840562,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "F1_length_trace",
+   "harness_verdict": "confirmed",
+   "recipe_file": "F1_length_trace_finished_recipe.json",
+   "baseline_recipe_file": "F1_length_trace_original_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:55:23.798Z",
+   "dataset": "ms-train-0333__training vs ms-train-0333__submission_training_424_finished.txt",
+   "datasetTitle": "ms-train-0333 (ac-r2-v1) — 23 moves | ms-train-0333 (ac-r2-v1) — 15 moves",
+   "prediction": "operand letters added over the corridor tail (sum of delta_total + cancellations after entry) is smaller in the finished path than in the original",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 2,
+     "rmsOriginal": 2.7613402542968153,
+     "rmsCombined": 2.7613402542968153,
+     "rmsResidual": 0
+    }
+   },
+   "observation": "operand letters over tail: orig=25 (17 moves) fin=19 (9 moves)",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:55:23.798Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 2,
+     "rmsOriginal": 3.5443617196894563,
+     "rmsCombined": 3.5443617196894563,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "F2_less_churn",
+   "harness_verdict": "confirmed",
+   "recipe_file": "F2_less_churn_finished_recipe.json",
+   "baseline_recipe_file": "F2_less_churn_original_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:55:23.800Z",
+   "dataset": "ms-train-0333__training vs ms-train-0333__submission_training_424_finished.txt",
+   "datasetTitle": "ms-train-0333 (ac-r2-v1) — 23 moves | ms-train-0333 (ac-r2-v1) — 15 moves",
+   "prediction": "in the shape view X=cancellations, Y=delta_total, the finished tail has fewer (0,0) points than the original tail",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": true,
+       "weight": 1,
+       "route": "y",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": true,
+       "weight": 1,
+       "route": "x",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 2,
+     "rmsOriginal": 2.7613402542968153,
+     "rmsCombined": 2.7613402542968153,
+     "rmsResidual": 0
+    }
+   },
+   "observation": "(0,0) points in tail: orig=1 fin=1",
+   "verdict": "failed",
+   "closedUTC": "2026-09-13T04:55:23.800Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": true,
+       "weight": 1,
+       "route": "y",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": true,
+       "weight": 1,
+       "route": "x",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 2,
+     "rmsOriginal": 3.5443617196894563,
+     "rmsCombined": 3.5443617196894563,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "F3_fewer_origin_points",
+   "harness_verdict": "refuted",
+   "recipe_file": "F3_fewer_origin_points_finished_recipe.json",
+   "baseline_recipe_file": "F3_fewer_origin_points_original_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:55:23.802Z",
+   "dataset": "ms-train-0333__training vs ms-train-0333__submission_training_424_finished.txt",
+   "datasetTitle": "ms-train-0333 (ac-r2-v1) — 23 moves | ms-train-0333 (ac-r2-v1) — 15 moves",
+   "prediction": "the finished tail of ms-train-0333 contains at most one inversion (move_class_code 1)",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 1,
+     "rmsOriginal": 2.4238399287081647,
+     "rmsCombined": 2.4238399287081647,
+     "rmsResidual": 0
+    }
+   },
+   "observation": "inversions in tail: orig=1 fin=1; finished tail classes=[3,2,3,2,2,2,2,2,1]",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:55:23.802Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 1,
+     "rmsOriginal": 2.222048604328897,
+     "rmsCombined": 2.222048604328897,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "F4_tail_inversions",
+   "harness_verdict": "confirmed",
+   "recipe_file": "F4_tail_inversions_finished_recipe.json",
+   "baseline_recipe_file": "F4_tail_inversions_original_recipe.json"
+  }
+ ]
+}

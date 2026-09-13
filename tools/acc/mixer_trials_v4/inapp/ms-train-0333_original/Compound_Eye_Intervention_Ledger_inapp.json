@@ -1,0 +1,194 @@
+{
+  "schema": "compound-eye-intervention-ledger-v1",
+  "trials": [
+    {
+      "createdUTC": "2026-09-13T04:57:51.859Z",
+      "dataset": "imported",
+      "datasetTitle": "ms-train-0333 (ac-r2-v1) — 23 moves",
+      "prediction": "Solo on total length: 23 steps, entry at step 6 with length 9, the original tail wanders for 17 moves with 11 plateau steps before reaching 2",
+      "before": {
+        "settings": {
+          "normalization": "rms",
+          "center": false,
+          "smoothing": 1,
+          "view": "shape",
+          "showComponents": true,
+          "showOriginal": true,
+          "scale": 1,
+          "cursor": 0,
+          "channels": {
+            "total_length": {
+              "enabled": true,
+              "weight": 1,
+              "route": "x",
+              "frequency": 0,
+              "phase": 0
+            },
+            "len_r0": {
+              "enabled": true,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "len_r1": {
+              "enabled": true,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "n_generators": {
+              "enabled": true,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "delta_total": {
+              "enabled": true,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "cancellations": {
+              "enabled": true,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "abelian_ok": {
+              "enabled": true,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "dist_to_target": {
+              "enabled": true,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "move_id": {
+              "enabled": true,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "move_class_code": {
+              "enabled": true,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            }
+          }
+        },
+        "mix": {
+          "activeCount": 10,
+          "rmsOriginal": 7.544221825106064,
+          "rmsCombined": 7.544221825106064,
+          "rmsResidual": 0
+        }
+      },
+      "observation": "stats after solo: 1 active / 10 available tracesOriginal RMS 1Displayed RMS 1Gaps 0 | enabled: ['Total relator length']",
+      "verdict": "matched",
+      "closedUTC": "2026-09-13T04:57:52.543Z",
+      "after": {
+        "settings": {
+          "normalization": "rms",
+          "center": false,
+          "smoothing": 1,
+          "view": "shape",
+          "showComponents": true,
+          "showOriginal": true,
+          "scale": 1,
+          "cursor": 0,
+          "channels": {
+            "total_length": {
+              "enabled": true,
+              "weight": 1,
+              "route": "x",
+              "frequency": 0,
+              "phase": 0
+            },
+            "len_r0": {
+              "enabled": false,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "len_r1": {
+              "enabled": false,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "n_generators": {
+              "enabled": false,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "delta_total": {
+              "enabled": false,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "cancellations": {
+              "enabled": false,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "abelian_ok": {
+              "enabled": false,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "dist_to_target": {
+              "enabled": false,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "move_id": {
+              "enabled": false,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            },
+            "move_class_code": {
+              "enabled": false,
+              "weight": 1,
+              "route": "y",
+              "frequency": 0,
+              "phase": 0
+            }
+          }
+        },
+        "mix": {
+          "activeCount": 1,
+          "rmsOriginal": 1.0000000000000002,
+          "rmsCombined": 1.0000000000000002,
+          "rmsResidual": 0
+        }
+      }
+    }
+  ]
+}
