@@ -128,24 +128,38 @@ theorem hasDerivAt_retained_transport_commutator
       HasDerivAt (fun t : ℝ => V t i j) ((-K) i j) (0 : ℝ)) :
     ∀ (i j : Sum r h),
       HasDerivAt
-        (fun t : ℝ => (U t * retainedProjection * V t) i j)
-        ((K * retainedProjection - retainedProjection * K) i j) (0 : ℝ) := by
+        (fun t : ℝ =>
+          (U t * (retainedProjection : Matrix (Sum r h) (Sum r h) ℝ) * V t) i j)
+        ((K * (retainedProjection : Matrix (Sum r h) (Sum r h) ℝ) -
+          (retainedProjection : Matrix (Sum r h) (Sum r h) ℝ) * K) i j)
+        (0 : ℝ) := by
   intro i j
   have hUP : ∀ (a b : Sum r h),
-      HasDerivAt (fun t : ℝ => (U t * retainedProjection) a b)
-        ((K * retainedProjection) a b) (0 : ℝ) := by
+      HasDerivAt
+        (fun t : ℝ =>
+          (U t * (retainedProjection : Matrix (Sum r h) (Sum r h) ℝ)) a b)
+        ((K * (retainedProjection : Matrix (Sum r h) (Sum r h) ℝ)) a b)
+        (0 : ℝ) := by
     intro a b
     have hconst : ∀ (p q : Sum r h),
-        HasDerivAt (fun _ : ℝ => retainedProjection p q) 0 (0 : ℝ) := by
+        HasDerivAt
+          (fun _ : ℝ =>
+            (retainedProjection : Matrix (Sum r h) (Sum r h) ℝ) p q)
+          0 (0 : ℝ) := by
       intro p q
       simpa using
-        (hasDerivAt_const (x := (0 : ℝ)) (c := retainedProjection p q))
-    have h := hasDerivAt_matrix_mul_sum U (fun _ : ℝ => retainedProjection)
-      1 retainedProjection K 0 hU0 rfl hU hconst a b
+        (hasDerivAt_const (x := (0 : ℝ))
+          (c := (retainedProjection : Matrix (Sum r h) (Sum r h) ℝ) p q))
+    have h := hasDerivAt_matrix_mul_sum U
+      (fun _ : ℝ => (retainedProjection : Matrix (Sum r h) (Sum r h) ℝ))
+      1 (retainedProjection : Matrix (Sum r h) (Sum r h) ℝ) K 0
+      hU0 rfl hU hconst a b
     simpa using h
   have hprod := hasDerivAt_matrix_mul_sum
-    (fun t : ℝ => U t * retainedProjection) V retainedProjection 1
-    (K * retainedProjection) (-K)
+    (fun t : ℝ =>
+      U t * (retainedProjection : Matrix (Sum r h) (Sum r h) ℝ))
+    V (retainedProjection : Matrix (Sum r h) (Sum r h) ℝ) 1
+    (K * (retainedProjection : Matrix (Sum r h) (Sum r h) ℝ)) (-K)
     (by simp [hU0]) hV0 hUP hV i j
   simpa [Matrix.mul_assoc, sub_eq_add_neg, Matrix.mul_neg] using hprod
 
@@ -160,7 +174,8 @@ theorem retained_transport_tangent_and_metric_bridge
       HasDerivAt (fun t : ℝ => V t i j) ((-blockGenerator A B D) i j) (0 : ℝ)) :
     (∀ (i j : Sum r h),
       HasDerivAt
-        (fun t : ℝ => (U t * retainedProjection * V t) i j)
+        (fun t : ℝ =>
+          (U t * (retainedProjection : Matrix (Sum r h) (Sum r h) ℝ) * V t) i j)
         (projectorCommutator A B D i j) (0 : ℝ)) ∧
     (1 / 2 : ℝ) * projectorCrossEnergy A B D = couplingEnergy B := by
   constructor
