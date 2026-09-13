@@ -106,14 +106,14 @@ theorem resolved_penalty_preserves_retained_floor
   have hzero :
       (0 : Matrix r r ℝ) ≤
         CrossTheorem.retainedAtFloor A μ -
-          YangMillsCrossTheorem.commonFloorMatrixPenalty M s c offset z := by
-    change (CrossTheorem.retainedAtFloor A μ -
-      YangMillsCrossTheorem.commonFloorMatrixPenalty M s c offset z).PosSemidef
-    exact hFloor
-  have hout := le_trans hzero hmono
-  change (CrossTheorem.retainedAtFloor A μ -
-    YangMillsCrossTheorem.resolvedMatrixPenalty M energy s offset z).PosSemidef
-  exact hout
+          YangMillsCrossTheorem.commonFloorMatrixPenalty M s c offset z :=
+    hFloor.nonneg
+  have hout :
+      (0 : Matrix r r ℝ) ≤
+        CrossTheorem.retainedAtFloor A μ -
+          YangMillsCrossTheorem.resolvedMatrixPenalty M energy s offset z :=
+    le_trans hzero hmono
+  exact hout.posSemidef
 
 /-- The energy-resolved comparison feeds the exact finite Schur floor transfer.
 The one-sided hypothesis `hResolvedLeSchur` is the load-bearing bridge: the
@@ -143,16 +143,13 @@ theorem resolved_schur_chain_to_full_floor
   have hzero :
       (0 : Matrix r r ℝ) ≤
         CrossTheorem.retainedAtFloor A μ -
-          YangMillsCrossTheorem.resolvedMatrixPenalty M energy s offset z := by
-    change (CrossTheorem.retainedAtFloor A μ -
-      YangMillsCrossTheorem.resolvedMatrixPenalty M energy s offset z).PosSemidef
-    exact hResolved
+          YangMillsCrossTheorem.resolvedMatrixPenalty M energy s offset z :=
+    hResolved.nonneg
   have hSchurOrder :
       (0 : Matrix r r ℝ) ≤ CrossTheorem.schurAtFloor A B D μ :=
     le_trans hzero hResolvedLeSchur
-  have hSchur : (CrossTheorem.schurAtFloor A B D μ).PosSemidef := by
-    change (CrossTheorem.schurAtFloor A B D μ).PosSemidef at hSchurOrder
-    exact hSchurOrder
+  have hSchur : (CrossTheorem.schurAtFloor A B D μ).PosSemidef :=
+    hSchurOrder.posSemidef
   exact (CrossTheorem.full_shift_posSemidef_iff_schur
     A B D μ hHidden).mpr hSchur
 
