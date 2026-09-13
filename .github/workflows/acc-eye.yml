@@ -1,0 +1,79 @@
+name: ACC hand-off and compound eye
+
+# The tests and the hand-off checks must be visible to someone who is not the
+# party that wrote them. A green run here is the independent evidence; a
+# passing test reported only in a transcript is not.
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af
+        with:
+          node-version: '20'
+
+      - name: the frozen instrument must be untouched on this branch
+        run: |
+          git fetch --depth=2 origin "${{ github.sha }}"
+          if git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -q '^tools/compound-eye/'; then
+            echo "tools/compound-eye/ is frozen and was modified"; exit 1
+          fi
+
+      - name: run ledger invariants
+        run: python3 tools/acc/mixer_trace_v1.py --check
+
+      - name: run ledger tests
+        run: python3 tools/acc/test_mixer_log_v1.py
+
+      - name: compound eye tests (v1)
+        run: python3 tools/acc/test_eye_v1.py
+
+      - name: hand-off and coordinate-agreement tests (v2)
+        run: python3 tools/acc/test_eye_v2.py
+
+      - name: frontiermath lane tests
+        run: python3 -m unittest discover -s research/frontiermath -v
+
+      - name: independent transport check of every sealed hand-off
+        run: python3 tools/acc/handoff_v2.py verify-all --checker ci | tee handoff-check.txt
+
+      - name: compound view of every claim
+        run: |
+          python3 tools/acc/eye_report_v1.py --claims
+          for c in $(python3 tools/acc/eye_report_v1.py --claims | awk '{print $1}'); do
+            python3 tools/acc/eye_report_v1.py "$c" | tee -a compound-view.txt
+          done
+
+      - name: no claim may be marked verified without an attested result
+        run: |
+          python3 - <<'EOF'
+          import json, pathlib, sys
+          p = pathlib.Path("ledger/handoff/handoffs_v2.jsonl")
+          rows = [json.loads(l) for l in p.read_text().splitlines() if l.strip()] if p.exists() else []
+          bad = [r for r in rows
+                 if r.get("record") == "attest" and r.get("claim_verified") is True
+                 and not r.get("result_artifact")]
+          if bad:
+              print("attestations marked verified with no result artifact:", bad)
+              sys.exit(1)
+          print(f"{len(rows)} hand-off records; no unsupported claim verification")
+          EOF
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: acc-eye-evidence
+          path: |
+            handoff-check.txt
+            compound-view.txt
+          if-no-files-found: ignore

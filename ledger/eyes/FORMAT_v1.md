@@ -84,3 +84,17 @@ strings.
     python3 tools/acc/eye_report_v1.py <claim_id> [--json]
     python3 tools/acc/eye_report_v1.py --claims
     python3 tools/acc/test_eye_v1.py
+
+---
+
+## v2 recorder (`eye_log_v2.js`)
+
+Review found that a commensurable set checked only that the coordinate arrays
+were the same **length**. Two eyes reporting at different x-points of equal
+length were mixed anyway, pairing values that do not correspond — wrong in a way
+nothing downstream could see. v2 requires the coordinate array, the coordinate
+label and the `x_unit` to **agree** across every member of the set, including
+members at weight zero, and names the first index where they differ. Sets
+recorded by v2 carry `coordinate_agreement` and schema `compound-eye-set-v2`.
+
+The unsafe-integer sweep now covers the whole row, not just `output`.
