@@ -50,6 +50,18 @@ theorem floorBlock_eq_full_shift
     (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) (μ : ℝ) :
     floorBlock A B D μ =
       symBlock A B D - μ • (1 : Matrix (Sum r h) (Sum r h) ℝ) := by
+  have hOne :
+      (1 : Matrix (Sum r h) (Sum r h) ℝ) =
+        Matrix.fromBlocks (1 : Matrix r r ℝ) 0 0 (1 : Matrix h h ℝ) := by
+    symm
+    exact Matrix.fromBlocks_one
+  have hShift :
+      μ • (1 : Matrix (Sum r h) (Sum r h) ℝ) =
+        Matrix.fromBlocks
+          (μ • (1 : Matrix r r ℝ)) 0 0 (μ • (1 : Matrix h h ℝ)) := by
+    rw [hOne, Matrix.fromBlocks_smul]
+    simp
+  rw [hShift]
   ext i j
   cases i <;> cases j <;>
     simp [floorBlock, retainedAtFloor, hiddenAtFloor, symBlock]
