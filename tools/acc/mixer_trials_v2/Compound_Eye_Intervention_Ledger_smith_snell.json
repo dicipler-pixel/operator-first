@@ -1,0 +1,5304 @@
+{
+ "schema": "compound-eye-intervention-ledger-v1",
+ "trials": [
+  {
+   "createdUTC": "2026-09-13T04:14:28.485Z",
+   "dataset": "ms-train-0160__training__smith",
+   "datasetTitle": "ms-train-0160 (ac-r2-v1) — 7 moves — Smith/Snell v1",
+   "prediction": "gammaA on ms-train-0160 equals Grok Map A table: [0, 0, -5/19, -1/6, -1/4, 0, -1/5, 0]",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "combined=[0,0,-0.263158,-0.166667,-0.25,0,-0.2,0]; mismatches=[]",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:14:28.492Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 1,
+     "rmsOriginal": 0.15792793267029454,
+     "rmsCombined": 0.15792793267029454,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "S0_mapA_control",
+   "harness_verdict": "confirmed",
+   "recipe_file": "S0_mapA_control_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:14:28.525Z",
+   "dataset": "ms-train-0066__training__smith",
+   "datasetTitle": "ms-train-0066 (ac-r2-v1) — 159 moves — Smith/Snell v1",
+   "prediction": "X=smith_re, Y=smith_im on the 159-move run: max radius < 1, and Im==0 exactly on steps where the taken layer had p==0 (d+ == d-) or no layer",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "points=160, max|Gamma|=0.6501, Im==0<->p==0 mismatches=0, Im==0 count=62",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:14:28.525Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": true,
+       "weight": 1,
+       "route": "x",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": true,
+       "weight": 1,
+       "route": "y",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 2,
+     "rmsOriginal": 0.3287607638142711,
+     "rmsCombined": 0.3287607638142711,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "S1_smith_disk",
+   "harness_verdict": "confirmed",
+   "recipe_file": "S1_smith_disk_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:14:28.532Z",
+   "dataset": "ms-train-0066__training__smith",
+   "datasetTitle": "ms-train-0066 (ac-r2-v1) — 159 moves — Smith/Snell v1",
+   "prediction": "gammaA (X) with smith_im (Y): distinct rounded-to-0.05 gammaA values on the 159-move run <= 12, i.e. Map A is a sparse real-axis line",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "distinct gammaA cells (width 0.05)=7; gammaA range [-0.273, 0.200]",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:14:28.532Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": true,
+       "weight": 1,
+       "route": "x",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": true,
+       "weight": 1,
+       "route": "y",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 2,
+     "rmsOriginal": 0.10690161631232227,
+     "rmsCombined": 0.10690161631232227,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "S2_mapA_sparse",
+   "harness_verdict": "confirmed",
+   "recipe_file": "S2_mapA_sparse_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:14:28.537Z",
+   "dataset": "ms-train-0066__training__smith",
+   "datasetTitle": "ms-train-0066 (ac-r2-v1) — 159 moves — Smith/Snell v1",
+   "prediction": "smith_radius mean rises monotonically across run thirds on the 159-move run (first < middle < last)",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "mean |Gamma| by third=[0.2056,0.3289,0.2707]",
+   "verdict": "failed",
+   "closedUTC": "2026-09-13T04:14:28.537Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 1,
+     "rmsOriginal": 0.35821991669031034,
+     "rmsCombined": 0.35821991669031034,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "S3_radius_by_third",
+   "harness_verdict": "refuted",
+   "recipe_file": "S3_radius_by_third_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:14:28.548Z",
+   "dataset": "ms-train-0066__training__smith",
+   "datasetTitle": "ms-train-0066 (ac-r2-v1) — 159 moves — Smith/Snell v1",
+   "prediction": "strict Snell (L_prev sin theta_in = L sin theta_out) holds within 0.5 on >= 90% of layer steps of the 159-move run — I predict this FAILS",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "layer steps=125, |L_prev sin(in) - L sin(out)|<0.5 on 9 (7.2%)",
+   "verdict": "failed",
+   "closedUTC": "2026-09-13T04:14:28.548Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": true,
+       "weight": -1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 2,
+     "rmsOriginal": 8.01545893158958,
+     "rmsCombined": 8.01545893158958,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "N1_snell_strict",
+   "harness_verdict": "refuted",
+   "recipe_file": "N1_snell_strict_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:14:28.552Z",
+   "dataset": "ms-train-0342__training__smith",
+   "datasetTitle": "ms-train-0342 (ac-r2-v1) — 83 moves — Smith/Snell v1",
+   "prediction": "snell_sign_agree on ms-train-0342: exactly one 0 (step 45), all other layer steps 1",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "zeros at [45], ones=53, undecided(p==0 or inversion)=30",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:14:28.553Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 1,
+     "rmsOriginal": 0.9940297973880049,
+     "rmsCombined": 0.9940297973880049,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "N2_snell_direction",
+   "harness_verdict": "confirmed",
+   "recipe_file": "N2_snell_direction_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:14:28.560Z",
+   "dataset": "ms-train-0342__training__smith",
+   "datasetTitle": "ms-train-0342 (ac-r2-v1) — 83 moves — Smith/Snell v1",
+   "prediction": "on ms-train-0342 total_length goes 13->15 at step 45 (against the one-move lookahead) and is < 13 by step 50",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "L[44..52]=[13,15,15,15,15,14,14,14,13]",
+   "verdict": "failed",
+   "closedUTC": "2026-09-13T04:14:28.560Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 1,
+     "rmsOriginal": 12.17726218350062,
+     "rmsCombined": 12.17726218350062,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "N3_growth_then_shrink",
+   "harness_verdict": "refuted",
+   "recipe_file": "N3_growth_then_shrink_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:14:28.563Z",
+   "dataset": "ms-train-0066__training__smith",
+   "datasetTitle": "ms-train-0066 (ac-r2-v1) — 159 moves — Smith/Snell v1",
+   "prediction": "snell_in (letters*sin) with smith_angle (radians) under source normalization is refused by the unit guard",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "mixer refused: These channels have different units. Choose display RMS normalization, or select matching units.",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:14:28.563Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "gammaA": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_radius": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smith_angle": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taken_layer": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_in": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_out": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "snell_sign_agree": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "run_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L0_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L1_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L2_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L3_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L4_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_re": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_im": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_p": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "L5_q": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "trial_name": "N4_units_guard",
+   "harness_verdict": "confirmed",
+   "recipe_file": null
+  }
+ ]
+}
