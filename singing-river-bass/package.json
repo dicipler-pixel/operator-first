@@ -1,0 +1,25 @@
+{
+  "name": "singing-river-bass",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A late-90s arcade fishing game on four real Southeast waters.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "assets:fetch": "bash tools/fetch_assets.sh",
+    "assets:glb": "node tools/convert_to_glb.mjs",
+    "assets:textures": "node tools/downsample_textures.mjs",
+    "assets:manifest": "node tools/build_manifest.mjs",
+    "assets:all": "npm run assets:fetch && npm run assets:glb && npm run assets:textures && npm run assets:manifest",
+    "bench": "node tools/bench.mjs"
+  },
+  "dependencies": {
+    "three": "0.186.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1",
+    "vite": "8.3.0"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "_source": "Compiled 2026-09-13 from MDWFP, Outdoor Alabama, GA DNR/GON and local fishing records.",
+  "_note": "Weight ranges are typical rod-and-reel catches, not state records. Trophy is the threshold for the NEW PERSONAL BEST fanfare.",
+  "maps": {
+    "krebs_lake": {
+      "display": "KREBS LAKE",
+      "location": "Pascagoula, Mississippi",
+      "lat": 30.3833,
+      "lon": -88.5606,
+      "water": "brackish oxbow of the Pascagoula, formerly Lake Catahoula",
+      "elevation_ft": 3,
+      "landmark": "LaPointe-Krebs House, built c.1757 - oldest standing building in Mississippi",
+      "time_of_day": "evening",
+      "species": [
+        {"name": "Red Drum", "scientific": "Sciaenops ocellatus", "weight_lb": {"min": 2.0, "max": 30.0, "trophy": 15.0}, "depth_ft": [2, 10], "best_lures": ["gold spoon", "soft plastic shrimp", "cut mullet"], "note": "Tailing on the flats at low light."},
+        {"name": "Black Drum", "scientific": "Pogonias cromis", "weight_lb": {"min": 2.0, "max": 40.0, "trophy": 20.0}, "depth_ft": [4, 15], "best_lures": ["cracked crab", "dead shrimp on bottom"], "note": "Bottom feeder. Slow and heavy."},
+        {"name": "Speckled Trout", "scientific": "Cynoscion nebulosus", "weight_lb": {"min": 0.75, "max": 6.0, "trophy": 4.0}, "depth_ft": [2, 8], "best_lures": ["live shrimp under a cork", "soft plastic jig"], "note": "Around dock lights after dark."},
+        {"name": "Bluegill", "scientific": "Lepomis macrochirus", "weight_lb": {"min": 0.2, "max": 1.2, "trophy": 0.9}, "depth_ft": [1, 6], "best_lures": ["cricket", "red wiggler", "tiny popper"], "note": "Off the docks. The first fish anyone catches here."},
+        {"name": "Channel Catfish", "scientific": "Ictalurus punctatus", "weight_lb": {"min": 1.0, "max": 15.0, "trophy": 8.0}, "depth_ft": [5, 20], "best_lures": ["cut bait", "chicken liver", "stinkbait"], "note": "Works the bottom all night."}
+      ]
+    },
+    "pascagoula_river": {
+      "display": "PASCAGOULA RIVER",
+      "location": "Jackson County, Mississippi",
+      "water": "largest undammed river in the contiguous US - 80 miles, Leaf and Chickasawhay confluence to the Gulf",
+      "special_mechanic": "SALT LEDGE - the fresh/salt boundary slides with the tide. In late summer it can sit a few miles north of the I-10 bridge. Species available depend on which side the boat is on.",
+      "time_of_day": "midday",
+      "species": [
+        {"name": "Largemouth Bass", "scientific": "Micropterus salmoides", "weight_lb": {"min": 1.0, "max": 10.0, "trophy": 6.0}, "depth_ft": [2, 15], "best_lures": ["chartreuse spinnerbait", "white crankbait", "plastic worm"], "note": "FRESH side. Cypress knees and laydowns. 12-inch minimum, 10 fish."},
+        {"name": "Bluegill", "scientific": "Lepomis macrochirus", "weight_lb": {"min": 0.2, "max": 1.2, "trophy": 0.9}, "depth_ft": [1, 6], "best_lures": ["cricket", "worm"], "note": "FRESH side. Sloughs and backwater."},
+        {"name": "Flathead Catfish", "scientific": "Pylodictis olivaris", "weight_lb": {"min": 3.0, "max": 50.0, "trophy": 25.0}, "depth_ft": [10, 40], "best_lures": ["live bream", "large shiner"], "note": "FRESH side. Live bait only. Most prized of the three cats."},
+        {"name": "Blue Catfish", "scientific": "Ictalurus furcatus", "weight_lb": {"min": 2.0, "max": 40.0, "trophy": 20.0}, "depth_ft": [10, 45], "best_lures": ["cut shad", "cut mullet"], "note": "FRESH side. Middle river, around the bluffs."},
+        {"name": "Channel Catfish", "scientific": "Ictalurus punctatus", "weight_lb": {"min": 1.0, "max": 15.0, "trophy": 8.0}, "depth_ft": [5, 25], "best_lures": ["chicken liver", "stinkbait"], "note": "FRESH side."},
+        {"name": "Longnose Gar", "scientific": "Lepisosteus osseus", "weight_lb": {"min": 2.0, "max": 20.0, "trophy": 12.0}, "depth_ft": [1, 8], "best_lures": ["rope lure", "live shiner"], "note": "FRESH side. Rolls on the surface. Hard to hook, unmistakable."},
+        {"name": "Redfish", "scientific": "Sciaenops ocellatus", "weight_lb": {"min": 2.0, "max": 30.0, "trophy": 15.0}, "depth_ft": [2, 12], "best_lures": ["gold spoon", "soft plastic"], "note": "SALT side. Marsh drains and tide rips."},
+        {"name": "Speckled Trout", "scientific": "Cynoscion nebulosus", "weight_lb": {"min": 0.75, "max": 6.0, "trophy": 4.0}, "depth_ft": [2, 10], "best_lures": ["live shrimp under a cork"], "note": "SALT side. Grass flats, current edges."},
+        {"name": "Southern Flounder", "scientific": "Paralichthys lethostigma", "weight_lb": {"min": 1.0, "max": 6.0, "trophy": 4.0}, "depth_ft": [3, 15], "best_lures": ["live minnow on bottom", "jighead"], "note": "SALT side. Flat on the bottom, ambushes."}
+      ]
+    },
+    "escatawpa_river": {
+      "display": "ESCATAWPA RIVER",
+      "location": "George/Jackson Co. MS and Mobile/Washington Co. AL",
+      "water": "129-mile blackwater tributary of the Pascagoula. Tannin-stained, tea-coloured, white sand bars. Drops about one foot per mile.",
+      "name_origin": "Choctaw Uska-a-Topa, roughly 'where cane is cut' - rivercane",
+      "time_of_day": "morning, mist",
+      "species": [
+        {"name": "Largemouth Bass", "scientific": "Micropterus salmoides", "weight_lb": {"min": 1.0, "max": 8.0, "trophy": 5.0}, "depth_ft": [2, 12], "best_lures": ["black plastic worm", "spinnerbait", "buzzbait"], "note": "Dark lures against dark water. Work the cypress roots."},
+        {"name": "Chain Pickerel", "scientific": "Esox niger", "weight_lb": {"min": 1.0, "max": 4.0, "trophy": 3.0}, "depth_ft": [1, 8], "best_lures": ["inline spinner", "small jerkbait"], "note": "Ambush predator in the weed edges. Fast and toothy."},
+        {"name": "Longear Sunfish", "scientific": "Lepomis megalotis", "weight_lb": {"min": 0.15, "max": 0.6, "trophy": 0.45}, "depth_ft": [1, 5], "best_lures": ["cricket", "tiny jig"], "note": "Small but the most vividly coloured fish in the game. Orange and electric blue."},
+        {"name": "Longnose Gar", "scientific": "Lepisosteus osseus", "weight_lb": {"min": 2.0, "max": 20.0, "trophy": 12.0}, "depth_ft": [1, 8], "best_lures": ["rope lure"], "note": "Sunning in the shallows over the white sand."},
+        {"name": "Channel Catfish", "scientific": "Ictalurus punctatus", "weight_lb": {"min": 1.0, "max": 15.0, "trophy": 8.0}, "depth_ft": [5, 20], "best_lures": ["cut bait", "liver"], "note": "Deep holes on the outside bends."},
+        {"name": "Striped Bass", "scientific": "Morone saxatilis", "weight_lb": {"min": 3.0, "max": 20.0, "trophy": 12.0}, "depth_ft": [5, 25], "best_lures": ["bucktail", "live shad"], "note": "Runs up from the bay."},
+        {"name": "Redfish", "scientific": "Sciaenops ocellatus", "weight_lb": {"min": 2.0, "max": 20.0, "trophy": 12.0}, "depth_ft": [2, 10], "best_lures": ["gold spoon"], "note": "Lower reaches only, where it goes brackish fast."}
+      ]
+    },
+    "lake_lanier": {
+      "display": "LAKE LANIER",
+      "location": "Hall and Forsyth Counties, Georgia",
+      "water": "38,000-acre Army Corps reservoir on the upper Chattahoochee, ~50 miles NE of Atlanta. Deep and clear.",
+      "structure": "Standing timber - the forest was flooded when the lake was impounded and is still down there. Plus roadbeds, rock humps, brushpiles, sunk boats.",
+      "special_mechanic": "SONAR - chunky 1997-style fish finder strip showing bottom contour and fish arcs. This is the map where depth matters.",
+      "forage": "blueback herring and threadfin shad",
+      "time_of_day": "bright midday",
+      "species": [
+        {"name": "Spotted Bass", "scientific": "Micropterus punctulatus", "weight_lb": {"min": 0.75, "max": 6.0, "trophy": 4.0}, "depth_ft": [15, 45], "best_lures": ["swimbait", "fluke", "drop shot", "topwater riser"], "note": "THE fish here. Widely called the best spotted bass lake in the country. Holds in the top limbs of drowned trees."},
+        {"name": "Striped Bass", "scientific": "Morone saxatilis", "weight_lb": {"min": 3.0, "max": 30.0, "trophy": 20.0}, "depth_ft": [10, 60], "best_lures": ["live herring on a planer board", "bucktail", "big gizzard shad"], "note": "Suspends in submerged timber next to the river channel. Lake record 47 lb."},
+        {"name": "Largemouth Bass", "scientific": "Micropterus salmoides", "weight_lb": {"min": 1.0, "max": 10.0, "trophy": 6.0}, "depth_ft": [5, 25], "best_lures": ["spinnerbait", "plastic worm", "crankbait"], "note": "Submerged timber in the creeks. Lake record 17 lb 9 oz."},
+        {"name": "Black Crappie", "scientific": "Pomoxis nigromaculatus", "weight_lb": {"min": 0.4, "max": 2.5, "trophy": 1.75}, "depth_ft": [10, 30], "best_lures": ["small jig", "live minnow"], "note": "Brushpiles. Goes deep in summer heat."},
+        {"name": "Channel Catfish", "scientific": "Ictalurus punctatus", "weight_lb": {"min": 1.0, "max": 20.0, "trophy": 10.0}, "depth_ft": [15, 50], "best_lures": ["cut bait", "liver"], "note": "Deep flats."}
+      ]
+    }
+  }
+}

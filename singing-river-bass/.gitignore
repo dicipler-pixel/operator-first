@@ -1,0 +1,18 @@
+node_modules/
+
+# Vite build output. Stage 5 points GitHub Pages at this; until then it is a
+# rebuildable artifact, not source. `npm run build` regenerates it.
+docs/
+
+# Downloaded CC0 packs and the archives they came from. Big, binary, and
+# reproducible with `npm run assets:fetch`. src/data/manifest.json is the
+# committed record of what should be here.
+.asset-cache/
+assets/**
+!assets/**/
+!assets/**/.gitkeep
+
+# Third-party MIT shader repos, cloned by tools/fetch_assets.sh. They carry
+# their own .git directories, so vendoring them into this history is wrong.
+# Their LICENSE files ARE committed, under LICENSES/, so provenance survives.
+shaders/retro/*/

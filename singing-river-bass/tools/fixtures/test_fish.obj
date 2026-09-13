@@ -1,0 +1,21 @@
+# tools/fixtures/test_fish.obj
+# A deliberately crude fish-shaped test solid: tapered body + tail fin.
+# This is NOT a game asset. It exists so tools/convert_to_glb.mjs can be proved
+# to work before the CC0 packs land. 8 triangles.
+v  0.00  0.00  1.00
+v  0.35  0.18  0.10
+v  0.35 -0.18  0.10
+v -0.35  0.18  0.10
+v -0.35 -0.18  0.10
+v  0.00  0.00 -0.90
+v  0.00  0.45 -1.30
+v  0.00 -0.45 -1.30
+vn 0.0 0.0 1.0
+f 1//1 2//1 3//1
+f 1//1 4//1 2//1
+f 1//1 5//1 4//1
+f 1//1 3//1 5//1
+f 6//1 3//1 2//1
+f 6//1 2//1 4//1
+f 6//1 4//1 5//1
+f 6//1 7//1 8//1
