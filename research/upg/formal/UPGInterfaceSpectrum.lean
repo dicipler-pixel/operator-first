@@ -26,6 +26,28 @@ theorem memoryAtZero_diag_nonneg (B : Matrix r h ℝ) (i : r) :
   rw [memoryAtZero_diag_eq_sum_sq]
   exact Finset.sum_nonneg (fun j _ => sq_nonneg (B i j))
 
+/-- A retained channel has zero Gram weight exactly when every interface
+coupling leaving that retained channel vanishes. -/
+theorem memoryAtZero_diag_eq_zero_iff_row_zero (B : Matrix r h ℝ) (i : r) :
+    memoryAtZero B i i = 0 ↔ ∀ j : h, B i j = 0 := by
+  constructor
+  · intro hdiag j
+    have hsum : (∑ k : h, (B i k) ^ 2) = 0 := by
+      simpa [memoryAtZero_diag_eq_sum_sq] using hdiag
+    have hle : (B i j) ^ 2 ≤ ∑ k : h, (B i k) ^ 2 := by
+      exact Finset.single_le_sum
+        (fun k hk => sq_nonneg (B i k))
+        (Finset.mem_univ j)
+    rw [hsum] at hle
+    have hsquare : (B i j) ^ 2 = 0 :=
+      le_antisymm hle (sq_nonneg (B i j))
+    exact sq_eq_zero_iff.mp hsquare
+  · intro hrow
+    rw [memoryAtZero_diag_eq_sum_sq]
+    apply Finset.sum_eq_zero
+    intro j hj
+    simp [hrow j]
+
 /-- The scalar interface coupling energy is nonnegative. -/
 theorem couplingEnergy_nonneg (B : Matrix r h ℝ) :
     0 ≤ couplingEnergy B := by
@@ -58,6 +80,7 @@ end UPGFeedback
 
 #print axioms UPGFeedback.memoryAtZero_diag_eq_sum_sq
 #print axioms UPGFeedback.memoryAtZero_diag_nonneg
+#print axioms UPGFeedback.memoryAtZero_diag_eq_zero_iff_row_zero
 #print axioms UPGFeedback.couplingEnergy_nonneg
 #print axioms UPGFeedback.neg_commutator_square_retained_diag_nonneg
 #print axioms UPGFeedback.coupling_zero_iff_tangent_and_memory_zero
