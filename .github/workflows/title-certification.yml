@@ -29,9 +29,31 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          lake env lean research/certification/TitleKernelBatch1.lean 2>&1 | tee title-certification-lean.log
+          lake env lean research/certification/TitleKernelBatch1.lean 2>&1 | tee title-certification-batch1.log
+      - name: Check standard mathematics audit and axioms
+        shell: bash
+        run: |
+          set -o pipefail
+          lake env lean research/certification/StandardMathAudit.lean 2>&1 | tee standard-math-audit.log
+      - name: Reject the old 28.26-as-double convention
+        shell: bash
+        run: |
+          cat > /tmp/FalseHarmonicControl.lean <<'EOF'
+          import Mathlib
+          example : (2 : ℚ) * (1414 / 100 : ℚ) = (2826 / 100 : ℚ) := by
+            norm_num
+          EOF
+          if lake env lean /tmp/FalseHarmonicControl.lean > false-harmonic-control.log 2>&1; then
+            echo 'ERROR: false harmonic control unexpectedly compiled'
+            cat false-harmonic-control.log
+            exit 1
+          fi
+          grep -Eq 'unsolved goals|tactic.*failed|error:' false-harmonic-control.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: title-certification-batch1
-          path: title-certification-lean.log
+          name: title-certification-lean-audit
+          path: |
+            title-certification-batch1.log
+            standard-math-audit.log
+            false-harmonic-control.log
