@@ -1,5 +1,5 @@
 import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-import Mathlib.Data.Matrix.Kronecker
+import Mathlib.LinearAlgebra.Matrix.Kronecker
 import JBCertCore
 
 /-!
