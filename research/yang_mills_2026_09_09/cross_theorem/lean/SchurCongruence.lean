@@ -22,7 +22,7 @@ def symBlock (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) :
 
 /-- Lower triangular Schur elimination matrix. -/
 def schurElim (B : Matrix r h ℝ) (R : Matrix h h ℝ) :
-    Matrix (Sum r h) (Sum r h) ℝ :=
+    Matrix (Sum r h) (Sum h h ℝ) :=
   Matrix.fromBlocks 1 0 (-(R * B.transpose)) 1
 
 /-- Finite Schur complement with an explicit hidden inverse `R`. -/
@@ -49,9 +49,9 @@ theorem schur_congruence
     rw [← Matrix.mul_assoc, hDR, Matrix.one_mul]
   have hCtrans : (R * B.transpose).transpose = B * R := by
     rw [Matrix.transpose_mul, Matrix.transpose_transpose, hRsymm]
-  simp [schurElim, symBlock, schurComplement,
+  simp [schurElim, symBlock, schurComplement, sub_eq_add_neg,
     Matrix.fromBlocks_transpose, Matrix.fromBlocks_multiply,
-    hCtrans, hBRD, hDRBt, hDsymm]
+    hCtrans, hBRD, hDRBt]
 
 /-- The explicit elimination matrix has an explicit inverse when no spectral
 assumption beyond the displayed algebra is needed. -/
