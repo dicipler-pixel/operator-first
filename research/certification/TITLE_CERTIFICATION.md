@@ -51,7 +51,7 @@ This is the algebraic kernel behind Bridge Ledger B2. It does not by itself cert
 
 ## Batch 1 Lean kernels — GREEN
 
-Dedicated workflow run `34734234567` succeeded on the current branch.
+Dedicated workflow run `34734366215` succeeded.
 
 1. `JB-SPACING-001`: `(a+c)-(b+c)=a-b` in an additive commutative group.
 2. `JB-FOFT24-001`: commuting central/baseline shifts cancel from a commutator.
@@ -61,7 +61,7 @@ These are exact algebraic kernels only. No paper-level interpretation is promote
 
 ## Cross-corpus standard-mathematics audit — GREEN
 
-`research/certification/StandardMathAudit.lean` strips project-specific names from mathematics that is already standard and checks the surviving kernels directly in Lean. The same dedicated run `34734234567` compiled every statement and printed its axiom dependencies.
+`research/certification/StandardMathAudit.lean` strips project-specific names from mathematics that is already standard and checks the surviving kernels directly in Lean. Dedicated workflow run `34734366215` compiled every statement, printed its axiom dependencies, and passed the explicit false-harmonic control.
 
 Lean-accepted kernels:
 
@@ -77,12 +77,18 @@ Lean-accepted kernels:
 10. An idempotent annihilates its left complement.
 11. If an operator commutes with an idempotent, its retained/hidden cross block vanishes.
 12. `sin^2(theta) + cos^2(theta) = 1`.
-13. `28.28 = 2 * 14.14` exactly over the rationals.
-14. `42.42 = 3 * 14.14` exactly over the rationals.
-15. `28.26 != 2 * 14.14` exactly; the workflow also rejects the deliberately false equality as a negative control.
-16. The decimal-number gap `|14.14 - 14.134725| = 0.005275` exactly as rational arithmetic.
+13. For an overlap `x` in `[0,1]`, `cos(arccos x)=x`; this is the scalar kernel behind principal-angle encoding.
+14. Standard quadratic harmonic-oscillator energy is nonnegative.
+15. Under the older base convention, `28.26 = 2 * 14.13` exactly.
+16. Under the older base convention, `42.39 = 3 * 14.13` exactly.
+17. Under the later base convention, `28.28 = 2 * 14.14` exactly.
+18. Under the later base convention, `42.42 = 3 * 14.14` exactly.
+19. `28.26 != 2 * 14.14` exactly; the workflow also rejects that deliberately false equality as a negative control.
+20. The decimal-number gap `|14.14 - 14.134725| = 0.005275` exactly as rational arithmetic.
 
-Boundary: items 13–16 are arithmetic statements only. In particular, numerical proximity to the decimal `14.134725` does **not** establish a zeta-field, physical resonance, cosmological frequency, or causal mechanism. The Dirac, Poisson, non-Markovian, projector, and angle interpretations likewise require their own model hypotheses beyond the algebraic kernels formalized here.
+The frequency result is especially useful historically: **28.26 was not random or simply “wrong”; it is internally exact with the older 14.13 base. It becomes inconsistent only when 14.14 is substituted without updating the harmonic.** That separates two historical conventions instead of throwing both away.
+
+Boundary: items 15–20 are arithmetic statements only. In particular, numerical proximity to the decimal `14.134725` does **not** establish a zeta-field, physical resonance, cosmological frequency, or causal mechanism. The Dirac, Poisson, non-Markovian, projector, harmonic-oscillator, and angle interpretations likewise require their own model hypotheses beyond the algebraic kernels formalized here.
 
 ## Fences
 
