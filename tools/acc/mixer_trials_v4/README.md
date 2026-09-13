@@ -10,7 +10,7 @@ repository author's. Claude executed. Telemetry only; exact replay via the offic
 2. `acc_run_decoder_v2.py --submission finisher_v1/training_424_finished.txt` → `decoded_finished_v1/` (424 recipes, verifier ok 424/424, abelian ok every step), ledger `decoded_runs_finished_v1.jsonl`.
 3. `acc_postrun_mix_v1.js` on both recipe sets → `postrun_mix_ledger_v1.jsonl` (848 lines, one per run per set). This is the "mix after every run" stage: every recipe is read through the frozen core, mixed with its own settings and with the app defaults, put through three fixed trail mixes (bookkeeping identity, plateau count, shape y ≥ −x) and round-tripped `recipe() → read() → mix()`.
 4. Four recorded trials, original vs finished, on ms-train-0333 (the largest saving, tail 17 → 9); every recipe replayed through `run_mixer.js` byte-identically.
-5. Playback in the real Canonical 5.1 page (fresh page load per file; the app keeps one "imported" slot, so pasting a second recipe into a live page does not replace the first — that is why the earlier import validation is being re-run with a reload per file, see below).
+5. Playback in the real Canonical 5.1 page (fresh page load per file; the app keeps one "imported" slot, so pasting a second recipe into a live page does not replace the first — that is why the import validation was re-run with a reload per file and a title check that the app shows the recipe's own move count: originals 424/424, finished 424/424, no page errors; logs in `inapp/validate_*_fresh.log`).
 
 ## Postrun mix, both sets
 
