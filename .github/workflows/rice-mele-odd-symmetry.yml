@@ -45,7 +45,8 @@ jobs:
           assert 'sorryAx' not in log and 'Lean.ofReduceBool' not in log
           allow={'propext','Classical.choice','Quot.sound'}
           for name in names:
-              pat=r"'OperatorFirst\.RiceMeleOddSymmetry\."+re.escape(name)+r"' depends on axioms: \[([^\]]]*)\]"
+              prefix=f"'OperatorFirst.RiceMeleOddSymmetry.{name}' depends on axioms: ["
+              pat=re.escape(prefix)+r'([^\]]*)\]'
               m=re.search(pat,log,re.S)
               assert m,name
               axes={x.strip() for x in m.group(1).replace('\n',' ').split(',') if x.strip()}
