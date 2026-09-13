@@ -22,8 +22,11 @@ jobs:
         with:
           node-version: '22'
 
-      # Content, not history: a manifest of every file under tools/compound-eye/
-      # recorded when the instrument was frozen. This needs no git credentials
+      # Content, not history: a manifest of every TRACKED file under
+      # tools/compound-eye/, recorded when the instrument was frozen. Tracked,
+      # not on-disk: the first manifest was built with `find` and picked up 13
+      # local __pycache__ files that are not in the repository, so it described
+      # one sandbox rather than the instrument. This needs no git credentials
       # and no fetch depth, and it catches a change made on any commit, not only
       # the last one.
       - name: the frozen instrument must match its recorded content
@@ -31,7 +34,7 @@ jobs:
           sha256sum -c ledger/mixer/COMPOUND_EYE_FREEZE_v1.sha256 --quiet \
             || { echo "tools/compound-eye/ is frozen and its content has changed"; exit 1; }
           recorded=$(wc -l < ledger/mixer/COMPOUND_EYE_FREEZE_v1.sha256)
-          present=$(find tools/compound-eye -type f | wc -l)
+          present=$(git ls-files tools/compound-eye | wc -l)
           echo "$recorded files recorded, $present present"
           [ "$recorded" = "$present" ] \
             || { echo "a file was added to or removed from the frozen instrument"; exit 1; }
