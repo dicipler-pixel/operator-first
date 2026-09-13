@@ -1,7 +1,7 @@
 name: Yang Mills cross theorem closing steps
 on:
   push:
-    branches: [research/yang-mills-2026-09-09, formal/yang-mills-matrix-boundary-2026-09-12, formal/yang-mills-schur-congruence-2026-09-13, formal/yang-mills-nonuniform-tail-gap-2026-09-13]
+    branches: [research/yang-mills-2026-09-09, formal/yang-mills-matrix-boundary-2026-09-12, formal/yang-mills-schur-congruence-2026-09-13, formal/yang-mills-nonuniform-tail-gap-2026-09-13, formal/yang-mills-spectral-floor-transfer-2026-09-13]
     paths: ['research/yang_mills_2026_09_09/cross_theorem/lean/**','.github/workflows/yang-mills-cross-theorem-lean.yml']
   pull_request:
     paths: ['research/yang_mills_2026_09_09/cross_theorem/lean/**','.github/workflows/yang-mills-cross-theorem-lean.yml']
@@ -65,10 +65,18 @@ jobs:
         run: |
           set -o pipefail
           lake env leanchecker TailGapTransfer 2>&1 | tee evidence/tail-gap-leanchecker.log
+      - name: Check Schur spectral-floor transfer
+        run: |
+          set -o pipefail
+          lake env lean SchurFloorTransfer.lean 2>&1 | tee evidence/schur-floor-lean.log
+      - name: Leanchecker spectral-floor transfer
+        run: |
+          set -o pipefail
+          lake env leanchecker SchurFloorTransfer 2>&1 | tee evidence/schur-floor-leanchecker.log
       - name: Audit declarations and axioms
         run: |
           set -euo pipefail
-          sha256sum CrossTheorem.lean MatrixResolvedBoundary.lean SchurCongruence.lean TailGapTransfer.lean lean-toolchain lakefile.toml > evidence/source-hashes.txt
+          sha256sum CrossTheorem.lean MatrixResolvedBoundary.lean SchurCongruence.lean TailGapTransfer.lean SchurFloorTransfer.lean lean-toolchain lakefile.toml > evidence/source-hashes.txt
           python3 - <<'PY'
           import pathlib,re
           old_files=['CrossTheorem.lean','MatrixResolvedBoundary.lean']
@@ -87,6 +95,7 @@ jobs:
           for src_path,log_path,expected in [
               ('SchurCongruence.lean','evidence/schur-lean.log',3),
               ('TailGapTransfer.lean','evidence/tail-gap-lean.log',6),
+              ('SchurFloorTransfer.lean','evidence/schur-floor-lean.log',3),
           ]:
               source=pathlib.Path(src_path).read_text(); text=pathlib.Path(log_path).read_text()
               names=re.findall(r'^\s*theorem\s+([A-Za-z0-9_]+)',source,re.M)
@@ -96,7 +105,7 @@ jobs:
               for axes in re.findall(r'depends on axioms:\s*\[([^\]]*)\]',text):
                   assert set(x.strip() for x in axes.split(',') if x.strip()) <= {'propext','Classical.choice','Quot.sound'},axes
               assert 'sorryAx' not in text and 'Lean.ofReduceBool' not in text
-          print('Accepted and audited',total,'existing declarations plus 3 Schur and 6 tail/allocation theorems')
+          print('Accepted and audited',total,'existing declarations plus 3 Schur, 6 tail/allocation, and 3 spectral-floor theorems')
           PY
       - name: Reject a false inequality
         run: |
