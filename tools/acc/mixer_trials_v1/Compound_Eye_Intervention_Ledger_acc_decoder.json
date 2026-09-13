@@ -1,0 +1,1496 @@
+{
+ "schema": "compound-eye-intervention-ledger-v1",
+ "trials": [
+  {
+   "createdUTC": "2026-09-13T04:00:06.833Z",
+   "dataset": "ms-train-0160__training",
+   "datasetTitle": "ms-train-0160 (ac-r2-v1) — 7 moves",
+   "prediction": "delta_total(w=+1) + cancellations(w=+1) equals 2 on every conjugate step, |other relator| on every multiply step, 0 on invert/step0",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "combined=[0,2,5,2,2,0,1,0]; mismatches=[]",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:00:06.833Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 2,
+     "rmsOriginal": 2.179449471770337,
+     "rmsCombined": 2.179449471770337,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "T1_delta_plus_canc",
+   "harness_verdict": "confirmed",
+   "recipe_file": "T1_delta_plus_canc_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:00:06.846Z",
+   "dataset": "ms-train-0384__training",
+   "datasetTitle": "ms-train-0384 (ac-r2-v1) — 64 moves",
+   "prediction": "same identity holds on every step of ms-train-0384 (I guessed this was the 159-move run; the ledger records the real step count)",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "steps=64, mismatches=0",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:00:06.846Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 2,
+     "rmsOriginal": 2.8742892097940427,
+     "rmsCombined": 2.8742892097940427,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "T2_identity_0384",
+   "harness_verdict": "confirmed",
+   "recipe_file": "T2_identity_0384_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:00:06.849Z",
+   "dataset": "ms-train-0066__training",
+   "datasetTitle": "ms-train-0066 (ac-r2-v1) — 159 moves",
+   "prediction": "same identity holds on all 159 steps of ms-train-0066, the true longest run",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "steps=159, mismatches=0",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:00:06.849Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 2,
+     "rmsOriginal": 2.8460498941515415,
+     "rmsCombined": 2.8460498941515415,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "T2b_identity_longest",
+   "harness_verdict": "confirmed",
+   "recipe_file": "T2b_identity_longest_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:00:06.850Z",
+   "dataset": "ms-train-0160__training",
+   "datasetTitle": "ms-train-0160 (ac-r2-v1) — 7 moves",
+   "prediction": "total_length (letters) with dist_to_target (letters (proxy)) under source normalization is REFUSED by the unit guard; no mix is produced",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "mixer refused: These channels have different units. Choose display RMS normalization, or select matching units.",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:00:06.850Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": true,
+       "weight": -1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "trial_name": "T3a_unit_guard",
+   "harness_verdict": "confirmed",
+   "recipe_file": null
+  },
+  {
+   "createdUTC": "2026-09-13T04:00:06.850Z",
+   "dataset": "ms-train-0160__training",
+   "datasetTitle": "ms-train-0160 (ac-r2-v1) — 7 moves",
+   "prediction": "under rms: combined != 0 on interior steps (scales differ), but y*scale/weight recovers raw values so total-dist = 0 except last step = 2",
+   "before": {
+    "settings": {
+     "normalization": "rms",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "combined=[-0.009,-0.009,-0.0052,-0.0037,-0.0022,-0.0022,-0.0015,0.2872]; scales T=6.9642 D=6.9282; de-normalized total-dist=[0,0,0,0,0,0,0,2]",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:00:06.850Z",
+   "after": {
+    "settings": {
+     "normalization": "rms",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": true,
+       "weight": -1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 2,
+     "rmsOriginal": 0.10166605384675936,
+     "rmsCombined": 0.10166605384675936,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "T3b_proxy_rms",
+   "harness_verdict": "confirmed",
+   "recipe_file": "T3b_proxy_rms_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:00:06.851Z",
+   "dataset": "ms-train-0384__training",
+   "datasetTitle": "ms-train-0384 (ac-r2-v1) — 64 moves",
+   "prediction": "smoothing=5 on total_length of the longest run: residual RMS < 1.0 letter, because the path is mostly plateaus and 1-2 letter steps",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "rms(original)=13.814 rms(smoothed)=13.795 rms(residual)=0.489",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:00:06.851Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 5,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 1,
+     "rmsOriginal": 13.81415104994763,
+     "rmsCombined": 13.79451395970932,
+     "rmsResidual": 0.4892694711348906
+    }
+   },
+   "trial_name": "T4_smoothing_residual",
+   "harness_verdict": "confirmed",
+   "recipe_file": "T4_smoothing_residual_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:00:06.852Z",
+   "dataset": "ms-train-0384__training",
+   "datasetTitle": "ms-train-0384 (ac-r2-v1) — 64 moves",
+   "prediction": "X=cancellations, Y=delta_total: every point satisfies y >= -x (a step cannot shrink by more than it cancelled)",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "points=65, y<-x violations=0, max x=12, min y=-4",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:00:06.852Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": true,
+       "weight": 1,
+       "route": "y",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": true,
+       "weight": 1,
+       "route": "x",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 2,
+     "rmsOriginal": 2.8742892097940427,
+     "rmsCombined": 2.8742892097940427,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "T5_shape_x_canc_y_delta",
+   "harness_verdict": "confirmed",
+   "recipe_file": "T5_shape_x_canc_y_delta_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:00:06.853Z",
+   "dataset": "ms-train-0160__training",
+   "datasetTitle": "ms-train-0160 (ac-r2-v1) — 7 moves",
+   "prediction": "abelian_ok(+1) + n_generators(-1) under rms is -1 at every step (source-unit arithmetic: 1 - 2)",
+   "before": {
+    "settings": {
+     "normalization": "rms",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "combined=[0,0,0,0,0,0,0,0]; per-channel scales=[[\"n_generators\",2],[\"abelian_ok\",1]]",
+   "verdict": "failed",
+   "closedUTC": "2026-09-13T04:00:06.853Z",
+   "after": {
+    "settings": {
+     "normalization": "rms",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": true,
+       "weight": -1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 2,
+     "rmsOriginal": 0,
+     "rmsCombined": 0,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "T6_wrong_on_purpose",
+   "harness_verdict": "refuted",
+   "recipe_file": "T6_wrong_on_purpose_recipe.json"
+  }
+ ]
+}
