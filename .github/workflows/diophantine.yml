@@ -69,23 +69,23 @@ jobs:
       - name: Compile Collatz prefix barrier module
         run: |
           set -o pipefail
-          lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o "$GITHUB_WORKSPACE/CollatzBarrier.olean" ../../../CollatzBarrier.lean' 2>&1 | tee root-logs/barrier.log
+          lake env bash -lc 'cd "$GITHUB_WORKSPACE" && LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o CollatzBarrier.olean CollatzBarrier.lean' 2>&1 | tee root-logs/barrier.log
       - name: Compile Collatz phase-survival alignment module
         run: |
           set -o pipefail
-          lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o "$GITHUB_WORKSPACE/CollatzAlignment.olean" ../../../CollatzAlignment.lean' 2>&1 | tee root-logs/alignment.log
+          lake env bash -lc 'cd "$GITHUB_WORKSPACE" && LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o CollatzAlignment.olean CollatzAlignment.lean' 2>&1 | tee root-logs/alignment.log
       - name: Compile Collatz exact realization cylinders module
         run: |
           set -o pipefail
-          lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o "$GITHUB_WORKSPACE/CollatzRealization.olean" ../../../CollatzRealization.lean' 2>&1 | tee root-logs/realization.log
+          lake env bash -lc 'cd "$GITHUB_WORKSPACE" && LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o CollatzRealization.olean CollatzRealization.lean' 2>&1 | tee root-logs/realization.log
       - name: Check Collatz moving-anchor interface
         run: |
           set -o pipefail
-          lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o "$GITHUB_WORKSPACE/CollatzMovingAnchor.olean" ../../../CollatzMovingAnchor.lean' 2>&1 | tee root-logs/moving-anchor.log
+          lake env bash -lc 'cd "$GITHUB_WORKSPACE" && LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o CollatzMovingAnchor.olean CollatzMovingAnchor.lean' 2>&1 | tee root-logs/moving-anchor.log
       - name: Check Collatz Diophantine gap certificates
         run: |
           set -o pipefail
-          lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzDiophantine.lean' 2>&1 | tee root-logs/diophantine.log
+          lake env bash -lc 'cd "$GITHUB_WORKSPACE" && LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean CollatzDiophantine.lean' 2>&1 | tee root-logs/diophantine.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
