@@ -56,3 +56,30 @@ sac-02632, sac-03519, sac-04337, sac-05264, sac-05393, sac-06225, sac-06526, sac
 
 `CLAUDE_AC_RECORD_IMPROVEMENTS_20260913_v1.txt` (30 lines) and `CLAUDE_STABLE_RECORD_IMPROVEMENTS_20260913_v1.txt`
 (11 lines): only the shortened records, each a complete verified path, ready to upload as new files.
+
+## Whole-path segment optimisation (`acc_segment_optimizer_v1.py`, `acc_segment_optimizer_sac_v1.py`) — same day, later
+
+Exact window replacement over the entire certificate: cut revisited states, then for every window of W
+moves search a strictly shorter segment between the same two states by meet-in-the-middle BFS (AC) or
+forward BFS (stable), with every intermediate state capped at the window's own peak length (+2 in the
+later passes). Splice, restart around the splice, repeat until no window improves. Every output path
+re-verified by the official verifier, and the delivered files re-checked with the official CLI
+(`python -m verifier --submission …`: `accepted: true`).
+
+| board | pass sequence | records improved | moves saved | records total |
+|---|---|---:|---:|---:|
+| AC (196 merged records) | W8, W10, W12, W14, W10+2, W12+2, W14+2, W16 | **172 of 196** | **3,420** (19,710 → 16,290; 17.4%) | delivered as v3 |
+| stable AC (196 merged records) | corridor cap 2, W5, W6, W5+2, W6+2 | **37 of 196** | **60** | delivered as v2 |
+
+Largest single AC gains: ac-07369 125 → 69, ac-03141 140 → 89, ac-08635 162 → 113, ac-00207 147 → 100.
+Each larger window kept finding more (W16 alone: 451 moves), so the records are not yet at a fixed point;
+passes with W16+2 and W18 are running. Cost grows roughly 3–4× per +2 of window.
+
+Reading: the earlier "records are tail-tight" finding was correct but narrow. The waste in the hub's
+records is spread along the whole path in short detours of a few moves each, invisible to any tail-only
+or corridor-only pass, and only an exact segment search finds it. This is now the mandatory pipeline
+stage before any upload, and every already-uploaded record should be re-run through it.
+
+Delivered to the hub: `CLAUDE_AC_RECORD_IMPROVEMENTS_20260913_v3.txt` (172 lines, supersedes v1/v2) and
+`CLAUDE_STABLE_RECORD_IMPROVEMENTS_20260913_v2.txt` (37 lines, supersedes v1). Only shortened records,
+each a complete verified path; upload as new files.
