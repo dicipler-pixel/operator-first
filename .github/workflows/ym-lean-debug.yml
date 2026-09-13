@@ -27,6 +27,9 @@ jobs:
           lake update  2>&1 | tail -5
           lake exe cache get 2>&1 | tail -3
           lake env lean --version
+          echo "=============== lake build (this is the step that fails in the cross-theorem workflow)"
+          lake build 2>&1 | tail -60
+          echo "--------------- lake build exit=${PIPESTATUS[0]}"
           status=0
           for f in CrossTheorem MatrixResolvedBoundary SchurCongruence ProjectorKernel CouplingFeedback ObservabilityKernel ProjectorDynamics; do
             echo "=============== $f.lean"
