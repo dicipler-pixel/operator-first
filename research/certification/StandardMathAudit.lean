@@ -4,8 +4,8 @@ import Mathlib
 # Standard mathematics audit of recovered EFRO / SD-UFSKO kernels
 
 This file deliberately removes project-specific names whenever the content is
-standard mathematics.  A theorem below certifies only the exact mathematical
-kernel stated here.  It does not certify a physical identification, a field
+standard mathematics. A theorem below certifies only the exact mathematical
+kernel stated here. It does not certify a physical identification, a field
 model, a cosmological interpretation, or a theory-of-everything claim.
 
 The purpose is to separate what is structurally true from what still requires
@@ -17,7 +17,7 @@ namespace StandardMathAudit
 /-! ## 1. Energy-frequency bookkeeping -/
 
 /-- If frequency is defined by `f = m c^2 / h`, with nonzero `h`, then
-`h f = m c^2`.  This is ordinary algebra, not a new physical law. -/
+`h f = m c^2`. This is ordinary algebra, not a new physical law. -/
 theorem planck_mass_frequency_consistency
     (h f m c : ℝ) (hh : h ≠ 0) (hf : f = m * c ^ 2 / h) :
     h * f = m * c ^ 2 := by
@@ -25,7 +25,7 @@ theorem planck_mass_frequency_consistency
   field_simp [hh]
 
 /-- A scalar coupling can be absorbed into an effective scalar mass parameter
-purely by distributivity.  This does not formalize the Dirac equation. -/
+purely by distributivity. This does not formalize the Dirac equation. -/
 theorem effective_mass_distributivity (m eta phi psi : ℝ) :
     (m + eta * phi) * psi = m * psi + eta * phi * psi := by
   ring
@@ -35,7 +35,7 @@ theorem effective_mass_distributivity (m eta phi psi : ℝ) :
 variable {V W : Type*} [AddCommGroup V] [Module ℝ V]
   [AddCommGroup W] [Module ℝ W]
 
-/-- Linear differential/source operators superpose sources.  A Poisson equation
+/-- Linear differential/source operators superpose sources. A Poisson equation
 is a model-specific specialization of this standard linear fact. -/
 theorem linear_source_superposition (L : V →ₗ[ℝ] W) (x y : V) :
     L (x + y) = L x + L y := by
@@ -66,13 +66,17 @@ variable {ι : Type*} [DecidableEq ι]
 
 /-- A finite history-dependent linear memory functional. -/
 def finiteMemory (s : Finset ι) (K x : ι → ℝ) : ℝ :=
-  ∑ i in s, K i * x i
+  s.sum (fun i => K i * x i)
 
 /-- The finite memory functional is additive in the history signal. -/
 theorem finiteMemory_add (s : Finset ι) (K x y : ι → ℝ) :
     finiteMemory s K (fun i => x i + y i) =
       finiteMemory s K x + finiteMemory s K y := by
-  simp [finiteMemory, mul_add, Finset.sum_add_distrib]
+  unfold finiteMemory
+  rw [← Finset.sum_add_distrib]
+  apply Finset.sum_congr rfl
+  intro i hi
+  ring
 
 /-- A zero memory kernel contributes zero memory. -/
 theorem finiteMemory_zero_kernel (s : Finset ι) (x : ι → ℝ) :
@@ -107,7 +111,7 @@ theorem idempotent_cross_left_zero (P : R) (hP : P * P = P) :
     _ = 0 := by rw [hP]; simp
 
 /-- If an operator commutes with an idempotent, its off-diagonal Peirce block
-vanishes.  This is the finite algebraic kernel behind many retained/hidden
+vanishes. This is the finite algebraic kernel behind many retained/hidden
 subspace decompositions. -/
 theorem commuting_operator_cross_block_zero
     (H P : R) (hP : P * P = P) (hcomm : H * P = P * H) :
@@ -141,9 +145,10 @@ theorem old_28_26_is_not_exact_double :
     (2 : ℚ) * (1414 / 100 : ℚ) ≠ (2826 / 100 : ℚ) := by
   norm_num
 
-/-- The exact rational gap between `14.14` and `14.134725` is `0.005275`.
-This proves numerical proximity only; it carries no physical interpretation. -/
-theorem first_zeta_ordinate_numeric_gap :
+/-- The exact rational gap between the decimal numbers `14.14` and
+`14.134725` is `0.005275`. This proves numerical proximity only; it does not
+prove anything about the Riemann zeta function or any physical frequency. -/
+theorem decimal_14_134725_gap :
     |(1414 / 100 : ℚ) - (565389 / 40000 : ℚ)| = (211 / 40000 : ℚ) := by
   norm_num [abs_of_nonneg]
 
@@ -162,6 +167,6 @@ theorem first_zeta_ordinate_numeric_gap :
 #print axioms StandardMathAudit.double_fourteen_point_fourteen
 #print axioms StandardMathAudit.triple_fourteen_point_fourteen
 #print axioms StandardMathAudit.old_28_26_is_not_exact_double
-#print axioms StandardMathAudit.first_zeta_ordinate_numeric_gap
+#print axioms StandardMathAudit.decimal_14_134725_gap
 
 end StandardMathAudit
