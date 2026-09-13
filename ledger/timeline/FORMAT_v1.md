@@ -69,11 +69,36 @@ appends the current board to `snapshots_v1.jsonl`. One snapshot is a point; the
 tool says so until there are at least two. `.github/workflows/acc-timeline.yml`
 runs daily and takes a snapshot as CI evidence.
 
-**Known limitation.** That scheduled run has `contents: read`, so its snapshot
-is uploaded as a run artifact and does not land in the repository. The durable
-series is the committed `snapshots_v1.jsonl`; the CI runs are independent
-samples alongside it. Making CI commit its snapshots would need write access to
-the branch, which is a decision for the repository owner, not a default.
+**The series is committed by CI.** `.github/workflows/acc-timeline.yml` runs
+daily with `contents: write`, takes a snapshot, and commits it, so the series
+is durable in the repository rather than living only in run artifacts that
+expire. The commit is done by `tools/acc/commit_snapshot_v1.sh`, which is the
+one place CI can alter the record, and it refuses everything except one
+appended row:
+
+| guard | behaviour |
+| --- | --- |
+| nothing changed | exit 0, no commit |
+| branch not in `ALLOWED_BRANCHES` | exit 0, no commit, says so |
+| anything but the snapshot ledger staged | refuse, exit 1 |
+| more than one line added | refuse, exit 1 |
+| any line removed or rewritten | refuse, exit 1 — an append-only ledger that loses a line is corrupted |
+| push rejected | rebase onto the remote and retry, four times, never force |
+
+Those paths are tested by `tools/acc/test_commit_snapshot_v1.sh` in throwaway
+repositories, and that test runs on every CI run *before* the commit step is
+reached. A scheduled event cannot be fired by hand, so the write path is tested
+rather than trusted.
+
+**Two caveats that follow from how GitHub schedules work.** A `schedule`
+trigger only fires for the workflow file as it exists on the repository's
+**default branch**, which here is `main`. Until this is merged there, the daily
+run does not happen and the only samples come from `push` events, which take a
+snapshot as evidence and deliberately do **not** commit. The same applies to
+the `workflow_dispatch` button. And once it is on `main`, a scheduled run
+checks out `main`, so that is the branch the series accumulates on — which is
+why `ALLOWED_BRANCHES` lists exactly `main` and the working branch and refuses
+anything else.
 
 ## Use
 

@@ -1,8 +1,9 @@
 name: ACC timeline
 
 # Running the tools longer is the whole point: one snapshot is a point, a
-# series needs time to pass. This runs on a schedule so the record accumulates
-# from independent samples rather than from one afternoon's writes.
+# series needs time to pass. This runs on a schedule, takes a snapshot of the
+# board, and COMMITS it so the series is durable in the repository rather than
+# living only in run artifacts that expire.
 
 on:
   schedule:
@@ -14,8 +15,23 @@ on:
       - 'tools/acc/test_timeline_v1.py'
       - '.github/workflows/acc-timeline.yml'
 
+# Needed to commit the snapshot. Everything else this job does is read-only.
 permissions:
-  contents: read
+  contents: write
+
+# Two runs appending to the same append-only ledger would race.
+concurrency:
+  group: acc-timeline-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  # The only file this workflow is ever allowed to commit.
+  SNAPSHOT_PATH: ledger/timeline/snapshots_v1.jsonl
+  # The only branches it is allowed to push to. A ref outside this list is
+  # refused rather than written to — the repository owner decides where the
+  # series lives, and a workflow inherited by some other branch must not
+  # quietly start committing there.
+  ALLOWED_BRANCHES: 'main claude/confident-fermi-09rd02'
 
 jobs:
   timeline:
@@ -25,10 +41,17 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           fetch-depth: 0          # the commit history IS the longer clock
-          persist-credentials: false
+          # Credentials are kept only on the events that commit. A push event
+          # takes a snapshot for evidence and does not write.
+          persist-credentials: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
 
       - name: timeline tests
         run: python3 tools/acc/test_timeline_v1.py
+
+      # The commit step below is the only place CI can write to the record.
+      # Its refusal paths are tested here, on every run, before it is reached.
+      - name: commit-guard tests
+        run: tools/acc/test_commit_snapshot_v1.sh
 
       - name: observation window
         run: python3 tools/acc/timeline_v1.py --window | tee timeline-window.txt
@@ -39,13 +62,33 @@ jobs:
       - name: take a snapshot of the board
         run: |
           python3 tools/acc/timeline_v1.py snapshot
-          tail -1 ledger/timeline/snapshots_v1.jsonl > timeline-snapshot.json
+          tail -1 "$SNAPSHOT_PATH" > timeline-snapshot.json
           cat timeline-snapshot.json
+
+      - name: the snapshot must not be lossy
+        run: |
+          python3 - <<'EOF'
+          import json, os, sys
+          snap = json.loads(open(os.environ["SNAPSHOT_PATH"]).read().splitlines()[-1])
+          obs = [json.loads(l) for l in
+                 open("ledger/eyes/observations_v1.jsonl") if l.strip()]
+          real = {o["blocked_on"] for o in obs if o.get("blocked_on")}
+          stored = set(snap["board"]["blockers"])
+          if not stored <= real:
+              print("snapshot holds blocker text absent from the observations:")
+              print(stored - real)
+              sys.exit(1)
+          print(f"{len(stored)} blocker(s) stored verbatim")
+          EOF
 
       - name: before and after the most recent ledger commit
         run: |
           last=$(git log -1 --format=%h -- ledger/)
           python3 tools/acc/timeline_v1.py --around "$last" | tee timeline-around.txt
+
+      - name: commit the snapshot
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: tools/acc/commit_snapshot_v1.sh
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
@@ -53,6 +96,7 @@ jobs:
           name: acc-timeline-${{ github.run_number }}
           path: |
             timeline-window.txt
+            timeline-recurring.txt
             timeline-snapshot.json
             timeline-around.txt
           if-no-files-found: ignore
