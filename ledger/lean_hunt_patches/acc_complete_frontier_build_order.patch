@@ -1,0 +1,12 @@
+--- a/.github/workflows/acc-length-well.yml
++++ b/.github/workflows/acc-length-well.yml
+@@ -47,6 +47,8 @@
+       - run: lake update
+       - run: lake exe cache get
+       - name: Check finite well theorem and report axioms
+-        run: lake env lean ACCWell.lean
++        run: |
++          mkdir -p .lake/build/lib/lean
++          lake env lean ACCWell.lean -o .lake/build/lib/lean/ACCWell.olean
+       - name: Check complete first-exit frontier theorem and report axioms
+         run: lake env lean ACCFrontier.lean

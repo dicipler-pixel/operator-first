@@ -1,0 +1,11 @@
+--- a/OperatorFirst.lean
++++ b/OperatorFirst.lean
+@@ -183,7 +183,7 @@
+ /-- Every finite prescribed valuation word acts affinely over `ℚ`. -/
+ theorem collatzQWord_affine (w : List ℕ) (x : ℚ) :
+     collatzQWord w x = collatzWordMul w * x + collatzWordAdd w := by
+-  induction w with
++  induction w generalizing x with
+   | nil => simp [collatzQWord, collatzWordMul, collatzWordAdd]
+   | cons a w ih =>
+       simp only [collatzQWord]

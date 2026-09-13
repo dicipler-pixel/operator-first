@@ -1,0 +1,70 @@
+name: Lean hunt verification
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/confident-fermi-09rd02
+    paths:
+      - 'ledger/lean_hunt_patches/**'
+      - '.github/workflows/lean-hunt-verify.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  collatz-finite-word-barrier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the branch that holds the declarations
+        uses: actions/checkout@v4
+        with:
+          ref: formalize/collatz-finite-word-barrier
+      - name: Check out the hunt lane for its patches
+        uses: actions/checkout@v4
+        with:
+          ref: claude/confident-fermi-09rd02
+          path: hunt
+      - name: Apply the repair
+        run: |
+          git apply -v hunt/ledger/lean_hunt_patches/collatz_finite_word_barrier_affine.patch
+          git --no-pager diff --stat
+      - name: Install pinned Lean
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+          sh elan-init.sh -y --default-toolchain leanprover/lean4:v4.33.0
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - run: lake update
+      - run: lake exe cache get
+      - name: Compile OperatorFirst and report axioms
+        run: lake env lean OperatorFirst.lean
+
+  acc-complete-frontier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the branch that holds the declarations
+        uses: actions/checkout@v4
+        with:
+          ref: formal/acc-complete-frontier-2026-09-13
+      - name: Check out the hunt lane for its patches
+        uses: actions/checkout@v4
+        with:
+          ref: claude/confident-fermi-09rd02
+          path: hunt
+      - name: Apply the repair
+        run: |
+          git apply -v hunt/ledger/lean_hunt_patches/acc_complete_frontier_build_order.patch
+          git --no-pager diff --stat
+      - name: Install pinned Lean
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+          sh elan-init.sh -y --default-toolchain leanprover/lean4:v4.33.0
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - run: lake update
+      - run: lake exe cache get
+      - name: Check finite well theorem and report axioms
+        run: |
+          mkdir -p .lake/build/lib/lean
+          lake env lean ACCWell.lean -o .lake/build/lib/lean/ACCWell.olean
+      - name: Check complete first-exit frontier theorem and report axioms
+        run: lake env lean ACCFrontier.lean
