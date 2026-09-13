@@ -120,28 +120,54 @@ theorem commuting_operator_cross_block_zero
 
 end Projectors
 
-/-! ## 6. Angular geometry -/
+/-! ## 6. Angular and overlap geometry -/
 
 /-- The sine/cosine squared partition is standard Euclidean trigonometry. -/
 theorem angular_partition (theta : ℝ) :
     Real.sin theta ^ 2 + Real.cos theta ^ 2 = 1 := by
   simpa [add_comm] using Real.sin_sq_add_cos_sq theta
 
-/-! ## 7. Exact arithmetic around the recovered 14.14 convention -/
+/-- If a normalized overlap lies in `[0,1]`, defining an angle by arccos
+recovers that overlap as its cosine. This is the scalar kernel used in
+principal-angle constructions; singular-value/subspace hypotheses are separate. -/
+theorem overlap_recovered_from_arccos (x : ℝ) (h0 : 0 ≤ x) (h1 : x ≤ 1) :
+    Real.cos (Real.arccos x) = x := by
+  exact Real.cos_arccos (by linarith) h1
 
-/-- `28.28` is exactly twice `14.14`. -/
+/-! ## 7. Harmonic-oscillator kernel -/
+
+/-- Standard quadratic harmonic-oscillator energy is nonnegative. This does not
+identify any particular physical mode with a harmonic oscillator. -/
+theorem harmonic_oscillator_energy_nonnegative (velocity omega position : ℝ) :
+    0 ≤ (1 / 2 : ℝ) * velocity ^ 2 +
+      (1 / 2 : ℝ) * omega ^ 2 * position ^ 2 := by
+  positivity
+
+/-! ## 8. Exact arithmetic around the recovered 14.13 / 14.14 conventions -/
+
+/-- Under the older `14.13` convention, `28.26` really is its exact double. -/
+theorem old_28_26_is_exact_double_of_14_13 :
+    (2 : ℚ) * (1413 / 100 : ℚ) = (2826 / 100 : ℚ) := by
+  norm_num
+
+/-- Under the older `14.13` convention, `42.39` is its exact triple. -/
+theorem old_42_39_is_exact_triple_of_14_13 :
+    (3 : ℚ) * (1413 / 100 : ℚ) = (4239 / 100 : ℚ) := by
+  norm_num
+
+/-- `28.28` is exactly twice the later `14.14` convention. -/
 theorem double_fourteen_point_fourteen :
     (2 : ℚ) * (1414 / 100 : ℚ) = (2828 / 100 : ℚ) := by
   norm_num
 
-/-- `42.42` is exactly three times `14.14`. -/
+/-- `42.42` is exactly three times the later `14.14` convention. -/
 theorem triple_fourteen_point_fourteen :
     (3 : ℚ) * (1414 / 100 : ℚ) = (4242 / 100 : ℚ) := by
   norm_num
 
 /-- The older `28.26` value is not the exact second harmonic of `14.14`.
-This is a useful bug detector: the two conventions cannot both be exact. -/
-theorem old_28_26_is_not_exact_double :
+Thus the old and new base-frequency conventions cannot be mixed exactly. -/
+theorem old_28_26_is_not_exact_double_of_14_14 :
     (2 : ℚ) * (1414 / 100 : ℚ) ≠ (2826 / 100 : ℚ) := by
   norm_num
 
@@ -164,9 +190,13 @@ theorem decimal_14_134725_gap :
 #print axioms StandardMathAudit.idempotent_cross_left_zero
 #print axioms StandardMathAudit.commuting_operator_cross_block_zero
 #print axioms StandardMathAudit.angular_partition
+#print axioms StandardMathAudit.overlap_recovered_from_arccos
+#print axioms StandardMathAudit.harmonic_oscillator_energy_nonnegative
+#print axioms StandardMathAudit.old_28_26_is_exact_double_of_14_13
+#print axioms StandardMathAudit.old_42_39_is_exact_triple_of_14_13
 #print axioms StandardMathAudit.double_fourteen_point_fourteen
 #print axioms StandardMathAudit.triple_fourteen_point_fourteen
-#print axioms StandardMathAudit.old_28_26_is_not_exact_double
+#print axioms StandardMathAudit.old_28_26_is_not_exact_double_of_14_14
 #print axioms StandardMathAudit.decimal_14_134725_gap
 
 end StandardMathAudit
