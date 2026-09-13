@@ -13,10 +13,10 @@ namespace RecoveredMathBatchC
 /-! ## E. Transmission-line algebra without hiding square-root assumptions -/
 
 /-- Squared characteristic impedance model. -/
-def lineZsq (L C : ℝ) : ℝ := L / C
+noncomputable def lineZsq (L C : ℝ) : ℝ := L / C
 
 /-- Squared propagation-speed model. -/
-def lineVsq (L C : ℝ) : ℝ := 1 / (L * C)
+noncomputable def lineVsq (L C : ℝ) : ℝ := 1 / (L * C)
 
 /-- Exact relation between the squared quantities, assuming nonzero line
 parameters. This avoids introducing square-root branch issues too early. -/
@@ -25,7 +25,6 @@ theorem lineZsq_div_lineVsq
     lineZsq L C / lineVsq L C = L ^ 2 := by
   unfold lineZsq lineVsq
   field_simp [hL, hC]
-  ring
 
 /-- Product identity for the squared quantities. -/
 theorem lineZsq_mul_lineVsq
@@ -33,7 +32,6 @@ theorem lineZsq_mul_lineVsq
     lineZsq L C * lineVsq L C = 1 / C ^ 2 := by
   unfold lineZsq lineVsq
   field_simp [hL, hC]
-  ring
 
 /-- Under positive inductance and capacitance, both squared quantities are
 strictly positive. -/
@@ -93,10 +91,10 @@ theorem constant_factor_recurrence_closed_form
       rw [pow_succ]
       ring
 
-/-- Iterating a linear map is literally repeated composition; this is the safe
-algebraic core behind a scale map `Psi_(n+k)=S^k Psi_n`. -/
+/-- Zero iterations act as the identity; this is the safe algebraic core behind
+statements of the form `Psi_(n+k)=S^k Psi_n`. -/
 theorem iterate_zero_apply {α : Type*} (S : α → α) (x : α) :
-    Function.iterate S 0 x = x := by
+    (S^[0]) x = x := by
   simp
 
 #print axioms RecoveredMathBatchC.lineZsq_div_lineVsq
