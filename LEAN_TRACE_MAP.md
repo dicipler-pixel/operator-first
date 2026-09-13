@@ -44,6 +44,8 @@ Use the stable `LC-###` tag, then record:
 | `LC-020` | Collatz prefix barriers / Diophantine kernels | #24 | regression `09743c542a0be14a86b8795e3203507be1d83a4d`; branch formal head `2279bda8ff8ca03f2d4c68410ffffdc09405edf5` | run `34674344025` | `CollatzBarrier.lean`, `CollatzDiophantine.lean` |
 | `LC-021` | Collatz bounded-collapse | #40 | merged into main at `82f1c4c03102a9dfee005314f4301a6d52db5485` | merged certificate | bounded Collatz formal module on main / PR #40 |
 | `LC-022` | Recovered standard-math / title-kernel audit | #43 | mathematical source `7981e790a5df6e26c9049936e70c4c1c7d702d9b` | run `34734366215` | `research/certification/StandardMathAudit.lean` plus title-kernel batch |
+| `LC-023` | Yang–Mills nonuniform allocation floor | #56 | `37c08ade9bfd62f0efc4674d72fb49e287fc98fd` | dedicated `34744922404`; CI `34744922445` | `research/yang_mills_2026_09_09/cross_theorem/lean/NonuniformAllocationFloor.lean` |
+| `LC-024` | Collatz one-cylinder exceptional threshold | #57 | `08d3a66728c4ca867f68146189aee93e27570e33` | dedicated `34744804576`; CI `34744804643` | `CollatzExceptionalThreshold.lean` |
 
 The authoritative theorem descriptions, hypotheses, supersession rules, and boundaries remain in `LEAN_CERTIFICATES_MASTER.md`.
 
@@ -68,10 +70,10 @@ These remain visible so no work is lost, but they must not be cited under an `LC
 - #53 Collatz moving-anchor interface;
 - #54 finite Yang–Mills Schur spectral-floor transfer;
 - #55 Collatz no-fixed-window Mersenne obstruction;
-- #56 Yang–Mills nonuniform allocation floor;
-- #57 Collatz one-cylinder exceptional threshold.
 
 Some of these branches already have successful workflows or green ancestors. That does **not** change the rule: promotion requires the exact theorem-source snapshot to be entered into the master registry with its evidence contract.
+
+PR #56 and PR #57 are now promoted only at the exact LC-023 and LC-024 heads above. Their parent declarations remain ancestry and are not separate additions to either new-inventory count.
 
 ---
 
