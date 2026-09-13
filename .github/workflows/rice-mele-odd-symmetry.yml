@@ -40,15 +40,15 @@ jobs:
           import pathlib,re
           src=pathlib.Path('OperatorFirst/RiceMeleOddSymmetry.lean').read_text()
           log=pathlib.Path('rice_mele_axioms.log').read_text()
-          names=re.findall(r'^\s*theorem\s+([A-Za-z0-9_]+)',src,re.M)
+          names=re.findall(r'^\s*(?:@\[[^\]]+\]\s*)*theorem\s+([A-Za-z0-9_]+)',src,re.M)
           assert len(names)==4,names
           assert 'sorryAx' not in log and 'Lean.ofReduceBool' not in log
           allow={'propext','Classical.choice','Quot.sound'}
           for name in names:
-              pat=r"'OperatorFirst\.RiceMeleOddSymmetry\."+re.escape(name)+r"' depends on axioms: \[([^\]]*)\]"
-              m=re.search(pat,log)
+              pat=r"'OperatorFirst\.RiceMeleOddSymmetry\."+re.escape(name)+r"' depends on axioms: \[([^\]]]*)\]"
+              m=re.search(pat,log,re.S)
               assert m,name
-              axes={x.strip() for x in m.group(1).split(',') if x.strip()}
+              axes={x.strip() for x in m.group(1).replace('\n',' ').split(',') if x.strip()}
               assert axes <= allow,(name,axes)
           print('Accepted and audited',len(names),'Rice-Mele odd-block symmetry theorems')
           PY
