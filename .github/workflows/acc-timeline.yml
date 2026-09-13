@@ -1,0 +1,58 @@
+name: ACC timeline
+
+# Running the tools longer is the whole point: one snapshot is a point, a
+# series needs time to pass. This runs on a schedule so the record accumulates
+# from independent samples rather than from one afternoon's writes.
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tools/acc/timeline_v1.py'
+      - 'tools/acc/test_timeline_v1.py'
+      - '.github/workflows/acc-timeline.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  timeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0          # the commit history IS the longer clock
+          persist-credentials: false
+
+      - name: timeline tests
+        run: python3 tools/acc/test_timeline_v1.py
+
+      - name: observation window
+        run: python3 tools/acc/timeline_v1.py --window | tee timeline-window.txt
+
+      - name: what recurs
+        run: python3 tools/acc/timeline_v1.py --recurring | tee timeline-recurring.txt
+
+      - name: take a snapshot of the board
+        run: |
+          python3 tools/acc/timeline_v1.py snapshot
+          tail -1 ledger/timeline/snapshots_v1.jsonl > timeline-snapshot.json
+          cat timeline-snapshot.json
+
+      - name: before and after the most recent ledger commit
+        run: |
+          last=$(git log -1 --format=%h -- ledger/)
+          python3 tools/acc/timeline_v1.py --around "$last" | tee timeline-around.txt
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: acc-timeline-${{ github.run_number }}
+          path: |
+            timeline-window.txt
+            timeline-snapshot.json
+            timeline-around.txt
+          if-no-files-found: ignore
