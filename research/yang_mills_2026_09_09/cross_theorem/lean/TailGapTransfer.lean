@@ -17,6 +17,12 @@ an absolute-value bound unless that is the only estimate available.  The tail
 budgets may be completely nonuniform; only their total enters the surviving
 gap.
 
+A second layer allows each tail budget to be distributed across several cells.
+This is the finite bookkeeping needed when local pieces overlap: cellwise
+budgets may be heterogeneous, and an overlap is harmless provided the chosen
+allocations cover every tail budget and the total cell budget stays below the
+base margin.
+
 This is finite algebra only.  It does not prove the Yang--Mills polymer
 activity/locality estimate, a volume-uniform spectral gap, a continuum limit,
 or Osterwalder--Schrader reconstruction.  Those remain separate analytic
@@ -85,9 +91,51 @@ theorem gap_transfer_of_absolute_tail
   intro i
   exact le_trans (le_abs_self (tail i)) (htail i)
 
+variable {κ : Type*} [Fintype κ] [DecidableEq κ]
+
+/-- **Overlap-aware allocation ledger.**  A tail budget may be split over many
+cells.  If the allocations covering each tail sum to at least that tail's
+budget, and every cell's accumulated allocation is at most its cell budget,
+then the total tail budget is at most the total cell budget.  No disjointness
+of supports is assumed. -/
+theorem overlap_allocation_total_le
+    (eps : ι → ℝ) (alloc : ι → κ → ℝ) (cellBudget : κ → ℝ)
+    (hcover : ∀ i, eps i ≤ ∑ c, alloc i c)
+    (hcell : ∀ c, (∑ i, alloc i c) ≤ cellBudget c) :
+    (∑ i, eps i) ≤ ∑ c, cellBudget c := by
+  calc
+    (∑ i, eps i) ≤ ∑ i, ∑ c, alloc i c := by
+      exact Finset.sum_le_sum (fun i _ => hcover i)
+    _ = ∑ c, ∑ i, alloc i c := by
+      rw [Finset.sum_comm]
+    _ ≤ ∑ c, cellBudget c := by
+      exact Finset.sum_le_sum (fun c _ => hcell c)
+
+/-- A positive retained gap follows from an overlap-aware cell ledger whenever
+its *total* budget is below the base margin.  Thus overlapping pieces need not
+be assigned equal shares and need not form a disjoint partition; the proof
+only consumes a certified allocation cover and cellwise caps. -/
+theorem positive_gap_of_overlap_allocation
+    (base : ℝ) (tail eps : ι → ℝ) (alloc : ι → κ → ℝ)
+    (cellBudget : κ → ℝ) (δ scale : ℝ)
+    (hscale : 0 < scale)
+    (hbase : δ * scale ≤ base)
+    (htail : ∀ i, tail i ≤ eps i * scale)
+    (hcover : ∀ i, eps i ≤ ∑ c, alloc i c)
+    (hcell : ∀ c, (∑ i, alloc i c) ≤ cellBudget c)
+    (hbudget : (∑ c, cellBudget c) < δ) :
+    0 < base - ∑ i, tail i := by
+  have heps : (∑ i, eps i) ≤ ∑ c, cellBudget c :=
+    overlap_allocation_total_le eps alloc cellBudget hcover hcell
+  have htotal : (∑ i, eps i) < δ := lt_of_le_of_lt heps hbudget
+  exact positive_gap_of_nonuniform_tail base tail eps δ scale
+    hscale hbase htail htotal
+
 end CrossTheorem
 
 #print axioms CrossTheorem.nonuniform_tail_sum_le
 #print axioms CrossTheorem.gap_transfer_of_nonuniform_tail
 #print axioms CrossTheorem.positive_gap_of_nonuniform_tail
 #print axioms CrossTheorem.gap_transfer_of_absolute_tail
+#print axioms CrossTheorem.overlap_allocation_total_le
+#print axioms CrossTheorem.positive_gap_of_overlap_allocation
