@@ -75,6 +75,7 @@ theorem mass_ansatz_pos
     0 < hbar * f0 / c ^ 2 * kappaR n := by
   have hkNat : 0 < kappa n := kappa_pos n
   have hk : 0 < kappaR n := by
+    unfold kappaR
     exact_mod_cast hkNat
   have hc2 : 0 < c ^ 2 := sq_pos_of_ne_zero hc
   positivity
@@ -87,17 +88,12 @@ theorem pure_phase_preserves_norm (V : ℂ) (theta : ℝ) :
   rw [norm_mul, Complex.norm_exp]
   simp
 
-/-- The same fact stated for absolute value. -/
-theorem pure_phase_preserves_abs (V : ℂ) (theta : ℝ) :
-    Complex.abs (V * Complex.exp (Complex.I * (theta : ℂ))) = Complex.abs V := by
-  simpa [Complex.norm_def] using pure_phase_preserves_norm V theta
-
 /-! ## A4. Finite admissible-path sums -/
 
 variable {ι : Type*} [DecidableEq ι]
 
 /-- Finite sum over an explicitly declared admissible class. -/
-def pathSum (s : Finset ι) (phase : ι → ℝ) : ℂ :=
+noncomputable def pathSum (s : Finset ι) (phase : ι → ℝ) : ℂ :=
   s.sum (fun γ => Complex.exp (Complex.I * (phase γ : ℂ)))
 
 /-- Every individual phase factor in the finite path sum has norm one. -/
@@ -142,7 +138,6 @@ theorem pathSum_congr_on
 #print axioms RecoveredMathBatchA.mass_ansatz_energy_identity
 #print axioms RecoveredMathBatchA.mass_ansatz_pos
 #print axioms RecoveredMathBatchA.pure_phase_preserves_norm
-#print axioms RecoveredMathBatchA.pure_phase_preserves_abs
 #print axioms RecoveredMathBatchA.path_phase_unit_norm
 #print axioms RecoveredMathBatchA.pathSum_norm_le_card
 #print axioms RecoveredMathBatchA.pathSum_congr_on
