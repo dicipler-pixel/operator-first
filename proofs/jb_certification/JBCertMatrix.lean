@@ -1,3 +1,7 @@
+import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+import Mathlib.Data.Matrix.Kronecker
+import JBCertCore
+
 /-!
 # JB certification — matrix specialisations
 
@@ -6,9 +10,6 @@ Kronecker mixed-product kernel with its projector consequence (the finite algebr
 Proposition 7 of *What Transport Keeps*; the normalised-stress formula itself is not stated
 here because it needs the Frobenius norm and is fenced until that layer is formalised).
 -/
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-import Mathlib.Data.Matrix.Kronecker
-import JBCertCore
 
 open Matrix
 open scoped Kronecker

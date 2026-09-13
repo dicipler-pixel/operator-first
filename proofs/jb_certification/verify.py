@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Compile, axiom-audit, leancheck, and run false controls for JBCertCore and JBCertMatrix."""
-import hashlib, json, pathlib, re, shutil, subprocess
+import hashlib, json, pathlib, re, shutil, subprocess, sys
 ROOT = pathlib.Path(__file__).resolve().parent
 OUT = ROOT / "evidence"
 OUT.mkdir(exist_ok=True)
@@ -60,3 +60,4 @@ finally:
     report["named_theorems"] = sum(len(v["theorems"]) for v in report["modules"].values())
     (OUT / "report.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2), flush=True)
+sys.exit(0 if report["status"] == "PASS" else 1)

@@ -1,3 +1,6 @@
+import Mathlib.Algebra.Group.Basic
+import Mathlib.Algebra.Group.Defs
+
 /-!
 # JB certification — finite transport kernels (Mathlib, no analysis)
 
@@ -13,8 +16,6 @@ invertible matrices over any field (`JBCertMatrix.lean`). No recessive-mode sele
 readout-error bound, no asymptotics, no spectral or physical statement is made here; those
 are fenced in `CERTIFICATION_REGISTRY_JB.md`.
 -/
-import Mathlib.Algebra.Group.Basic
-import Mathlib.Algebra.Group.Defs
 
 namespace JBCert
 
