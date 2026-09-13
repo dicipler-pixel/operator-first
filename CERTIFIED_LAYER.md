@@ -4,7 +4,11 @@ This file is the public release registry for results that have crossed the certi
 
 Only material with an auditable proof/certificate path belongs here. Exploratory heuristics, physical interpretations, live competition intelligence, unfinished conjectures, and unverified numerical patterns stay outside this layer.
 
-The complete source-revision inventory is maintained in **[`LEAN_CERTIFICATES_MASTER.md`](LEAN_CERTIFICATES_MASTER.md)**. That master ledger records all currently recovered green Lean certificate snapshots, exact commits/runs, overlap/supersession rules, pending lanes, and withdrawn/non-certificate work. This front page stays intentionally small.
+The complete source-revision inventory is maintained in **[`LEAN_CERTIFICATES_MASTER.md`](LEAN_CERTIFICATES_MASTER.md)**. That master ledger records all currently recovered green Lean certificate snapshots, exact commits/runs, overlap/supersession rules, pending lanes, and withdrawn/non-certificate work.
+
+For a direct **where-is-it / how-do-I-trace-it** index, use **[`LEAN_TRACE_MAP.md`](LEAN_TRACE_MAP.md)**. It maps every promoted `LC-###` certificate tag to the exact PR, verified source snapshot, workflow evidence, and primary source location, and separately lists current unpromoted formal branches so newer work cannot be confused with certified ancestors.
+
+This front page stays intentionally small.
 
 ## Status vocabulary
 
