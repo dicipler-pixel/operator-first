@@ -1,0 +1,7497 @@
+{
+ "summary": {
+  "cap_over_entry_length": 0,
+  "runs": 424,
+  "finish_shorter_than_official": 359,
+  "equal": 65,
+  "longer_or_needs_higher_cap": 0,
+  "unsolved_within_cap": 0,
+  "total_moves_saved": 918,
+  "max_bfs_nodes": 2852
+ },
+ "runs": [
+  {
+   "id": "ms-train-0001",
+   "entry": 5,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 8,
+   "finish": [
+    0,
+    4,
+    1
+   ],
+   "finish_len": 3,
+   "spliced_len": 8,
+   "verify": "{'ok': True, 'length': 8, 'peak_total_relator_length': 7, 'work': 43, 'certifica",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0002",
+   "entry": 6,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 8,
+   "finish": [
+    0,
+    4,
+    1
+   ],
+   "finish_len": 3,
+   "spliced_len": 9,
+   "verify": "{'ok': True, 'length': 9, 'peak_total_relator_length': 9, 'work': 58, 'certifica",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0003",
+   "entry": 7,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 8,
+   "finish": [
+    0,
+    4,
+    1
+   ],
+   "finish_len": 3,
+   "spliced_len": 10,
+   "verify": "{'ok': True, 'length': 10, 'peak_total_relator_length': 11, 'work': 75, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0004",
+   "entry": 8,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 8,
+   "finish": [
+    0,
+    4,
+    1
+   ],
+   "finish_len": 3,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 13, 'work': 94, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0005",
+   "entry": 9,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 8,
+   "finish": [
+    0,
+    4,
+    1
+   ],
+   "finish_len": 3,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 15, 'work': 115, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0006",
+   "entry": 10,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 8,
+   "finish": [
+    0,
+    4,
+    1
+   ],
+   "finish_len": 3,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 17, 'work': 138, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0007",
+   "entry": 11,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 8,
+   "finish": [
+    0,
+    4,
+    1
+   ],
+   "finish_len": 3,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 19, 'work': 163, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0008",
+   "entry": 5,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 36,
+   "finish": [
+    11,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 9,
+   "verify": "{'ok': True, 'length': 9, 'peak_total_relator_length': 7, 'work': 44, 'certifica",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0009",
+   "entry": 6,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 36,
+   "finish": [
+    11,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 10,
+   "verify": "{'ok': True, 'length': 10, 'peak_total_relator_length': 9, 'work': 57, 'certific",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0010",
+   "entry": 7,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 36,
+   "finish": [
+    11,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 11, 'work': 72, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0011",
+   "entry": 8,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 36,
+   "finish": [
+    11,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 13, 'work': 89, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0012",
+   "entry": 9,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 36,
+   "finish": [
+    11,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 15, 'work': 108, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0013",
+   "entry": 10,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 36,
+   "finish": [
+    11,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 17, 'work': 129, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0014",
+   "entry": 11,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 36,
+   "finish": [
+    11,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 19, 'work': 152, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0015",
+   "entry": 7,
+   "L_entry": 4,
+   "official_tail": 6,
+   "bfs_nodes": 23,
+   "finish": [
+    1,
+    2,
+    2,
+    8
+   ],
+   "finish_len": 4,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 8, 'work': 62, 'certific",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0016",
+   "entry": 10,
+   "L_entry": 3,
+   "official_tail": 2,
+   "bfs_nodes": 5,
+   "finish": [
+    6,
+    2
+   ],
+   "finish_len": 2,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 10, 'work': 91, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0017",
+   "entry": 11,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 19,
+   "finish": [
+    0,
+    3,
+    10,
+    4
+   ],
+   "finish_len": 4,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 12, 'work': 108, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0018",
+   "entry": 12,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 39,
+   "finish": [
+    11,
+    5,
+    3,
+    4,
+    10
+   ],
+   "finish_len": 5,
+   "spliced_len": 17,
+   "verify": "{'ok': True, 'length': 17, 'peak_total_relator_length': 14, 'work': 156, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0019",
+   "entry": 13,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 8,
+   "finish": [
+    1,
+    3,
+    0
+   ],
+   "finish_len": 3,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 16, 'work': 163, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0020",
+   "entry": 18,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 8,
+   "finish": [
+    1,
+    3,
+    0
+   ],
+   "finish_len": 3,
+   "spliced_len": 21,
+   "verify": "{'ok': True, 'length': 21, 'peak_total_relator_length': 18, 'work': 253, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0021",
+   "entry": 22,
+   "L_entry": 3,
+   "official_tail": 1,
+   "bfs_nodes": 1,
+   "finish": [
+    2
+   ],
+   "finish_len": 1,
+   "spliced_len": 23,
+   "verify": "{'ok': True, 'length': 23, 'peak_total_relator_length': 20, 'work': 307, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0022",
+   "entry": 5,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 47,
+   "finish": [
+    0,
+    4,
+    11,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 10,
+   "verify": "{'ok': True, 'length': 10, 'peak_total_relator_length': 8, 'work': 50, 'certific",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0023",
+   "entry": 6,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 47,
+   "finish": [
+    0,
+    4,
+    11,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 10, 'work': 61, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0024",
+   "entry": 7,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 47,
+   "finish": [
+    0,
+    4,
+    11,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 12, 'work': 74, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0025",
+   "entry": 8,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 47,
+   "finish": [
+    0,
+    4,
+    11,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 14, 'work': 89, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0026",
+   "entry": 9,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 47,
+   "finish": [
+    0,
+    4,
+    11,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 16, 'work': 106, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0027",
+   "entry": 10,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 23,
+   "finish": [
+    5,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 18, 'work': 121, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0028",
+   "entry": 11,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 47,
+   "finish": [
+    0,
+    4,
+    11,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 20, 'work': 146, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0029",
+   "entry": 13,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 32,
+   "finish": [
+    3,
+    0,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 17,
+   "verify": "{'ok': True, 'length': 17, 'peak_total_relator_length': 9, 'work': 125, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0030",
+   "entry": 7,
+   "L_entry": 4,
+   "official_tail": 6,
+   "bfs_nodes": 37,
+   "finish": [
+    0,
+    5,
+    3,
+    4,
+    10
+   ],
+   "finish_len": 5,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 11, 'work': 83, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0031",
+   "entry": 7,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 126,
+   "finish": [
+    11,
+    5,
+    3,
+    4,
+    2,
+    10
+   ],
+   "finish_len": 6,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 13, 'work': 105, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0032",
+   "entry": 11,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 20,
+   "finish": [
+    1,
+    3,
+    3,
+    0
+   ],
+   "finish_len": 4,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 15, 'work': 144, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0033",
+   "entry": 11,
+   "L_entry": 4,
+   "official_tail": 6,
+   "bfs_nodes": 37,
+   "finish": [
+    0,
+    5,
+    3,
+    4,
+    10
+   ],
+   "finish_len": 5,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 17, 'work': 151, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0034",
+   "entry": 12,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 126,
+   "finish": [
+    11,
+    5,
+    3,
+    4,
+    2,
+    10
+   ],
+   "finish_len": 6,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 19, 'work': 202, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0035",
+   "entry": 18,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 108,
+   "finish": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 24,
+   "verify": "{'ok': True, 'length': 24, 'peak_total_relator_length': 21, 'work': 273, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0036",
+   "entry": 5,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 121,
+   "finish": [
+    0,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 6,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 9, 'work': 67, 'certific",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0037",
+   "entry": 5,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 121,
+   "finish": [
+    0,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 6,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 11, 'work': 71, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0038",
+   "entry": 6,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 121,
+   "finish": [
+    0,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 6,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 13, 'work': 84, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0039",
+   "entry": 7,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 121,
+   "finish": [
+    0,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 6,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 15, 'work': 99, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0040",
+   "entry": 9,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 111,
+   "finish": [
+    0,
+    4,
+    2,
+    5,
+    3,
+    9
+   ],
+   "finish_len": 6,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 17, 'work': 123, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0041",
+   "entry": 10,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 7,
+   "finish": [
+    0,
+    3,
+    3
+   ],
+   "finish_len": 3,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 19, 'work': 127, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0042",
+   "entry": 10,
+   "L_entry": 4,
+   "official_tail": 3,
+   "bfs_nodes": 10,
+   "finish": [
+    1,
+    3,
+    3
+   ],
+   "finish_len": 3,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 21, 'work': 141, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0043",
+   "entry": 5,
+   "L_entry": 6,
+   "official_tail": 9,
+   "bfs_nodes": 196,
+   "finish": [
+    0,
+    4,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 7,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 10, 'work': 82, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0044",
+   "entry": 6,
+   "L_entry": 6,
+   "official_tail": 10,
+   "bfs_nodes": 190,
+   "finish": [
+    0,
+    4,
+    4,
+    2,
+    5,
+    3,
+    9
+   ],
+   "finish_len": 7,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 12, 'work': 95, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0045",
+   "entry": 5,
+   "L_entry": 6,
+   "official_tail": 9,
+   "bfs_nodes": 196,
+   "finish": [
+    0,
+    4,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 7,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 14, 'work': 90, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0046",
+   "entry": 6,
+   "L_entry": 6,
+   "official_tail": 9,
+   "bfs_nodes": 196,
+   "finish": [
+    0,
+    4,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 7,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 16, 'work': 105, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0047",
+   "entry": 7,
+   "L_entry": 6,
+   "official_tail": 9,
+   "bfs_nodes": 196,
+   "finish": [
+    0,
+    4,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 7,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 18, 'work': 122, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0048",
+   "entry": 9,
+   "L_entry": 6,
+   "official_tail": 10,
+   "bfs_nodes": 266,
+   "finish": [
+    0,
+    1,
+    5,
+    5,
+    1,
+    2,
+    5,
+    3
+   ],
+   "finish_len": 8,
+   "spliced_len": 17,
+   "verify": "{'ok': True, 'length': 17, 'peak_total_relator_length': 20, 'work': 156, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0049",
+   "entry": 10,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 18,
+   "finish": [
+    0,
+    3,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 22, 'work': 155, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0050",
+   "entry": 9,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 16,
+   "finish": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 10, 'work': 83, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0051",
+   "entry": 23,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 138,
+   "finish": [
+    1,
+    2,
+    2,
+    7,
+    4,
+    3
+   ],
+   "finish_len": 6,
+   "spliced_len": 29,
+   "verify": "{'ok': True, 'length': 29, 'peak_total_relator_length': 12, 'work': 250, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0052",
+   "entry": 60,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 16,
+   "finish": [
+    2,
+    4,
+    3
+   ],
+   "finish_len": 3,
+   "spliced_len": 63,
+   "verify": "{'ok': True, 'length': 63, 'peak_total_relator_length': 14, 'work': 731, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0053",
+   "entry": 135,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 16,
+   "finish": [
+    2,
+    4,
+    3
+   ],
+   "finish_len": 3,
+   "spliced_len": 138,
+   "verify": "{'ok': True, 'length': 138, 'peak_total_relator_length': 16, 'work': 1885, 'cert",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0054",
+   "entry": 14,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 54,
+   "finish": [
+    1,
+    4,
+    2,
+    5,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 19,
+   "verify": "{'ok': True, 'length': 19, 'peak_total_relator_length': 10, 'work': 150, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0055",
+   "entry": 10,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 10, 'work': 107, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0056",
+   "entry": 13,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 10, 'work': 137, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0057",
+   "entry": 19,
+   "L_entry": 6,
+   "official_tail": 9,
+   "bfs_nodes": 137,
+   "finish": [
+    5,
+    5,
+    3,
+    4,
+    2,
+    10
+   ],
+   "finish_len": 6,
+   "spliced_len": 25,
+   "verify": "{'ok': True, 'length': 25, 'peak_total_relator_length': 12, 'work': 231, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0058",
+   "entry": 7,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 109,
+   "finish": [
+    0,
+    5,
+    3,
+    4,
+    2,
+    10
+   ],
+   "finish_len": 6,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 14, 'work': 111, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0059",
+   "entry": 23,
+   "L_entry": 6,
+   "official_tail": 10,
+   "bfs_nodes": 226,
+   "finish": [
+    5,
+    5,
+    1,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 7,
+   "spliced_len": 30,
+   "verify": "{'ok': True, 'length': 30, 'peak_total_relator_length': 16, 'work': 299, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0060",
+   "entry": 13,
+   "L_entry": 6,
+   "official_tail": 11,
+   "bfs_nodes": 190,
+   "finish": [
+    1,
+    4,
+    4,
+    2,
+    5,
+    3,
+    0
+   ],
+   "finish_len": 7,
+   "spliced_len": 20,
+   "verify": "{'ok': True, 'length': 20, 'peak_total_relator_length': 18, 'work': 218, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0061",
+   "entry": 26,
+   "L_entry": 4,
+   "official_tail": 3,
+   "bfs_nodes": 10,
+   "finish": [
+    1,
+    2,
+    2
+   ],
+   "finish_len": 3,
+   "spliced_len": 29,
+   "verify": "{'ok': True, 'length': 29, 'peak_total_relator_length': 20, 'work': 315, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0062",
+   "entry": 11,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 109,
+   "finish": [
+    0,
+    5,
+    3,
+    4,
+    2,
+    10
+   ],
+   "finish_len": 6,
+   "spliced_len": 17,
+   "verify": "{'ok': True, 'length': 17, 'peak_total_relator_length': 22, 'work': 198, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0063",
+   "entry": 7,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 36,
+   "finish": [
+    11,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 10, 'work': 66, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0064",
+   "entry": 24,
+   "L_entry": 4,
+   "official_tail": 5,
+   "bfs_nodes": 21,
+   "finish": [
+    0,
+    5,
+    1,
+    4
+   ],
+   "finish_len": 4,
+   "spliced_len": 28,
+   "verify": "{'ok': True, 'length': 28, 'peak_total_relator_length': 12, 'work': 266, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0065",
+   "entry": 58,
+   "L_entry": 6,
+   "official_tail": 11,
+   "bfs_nodes": 177,
+   "finish": [
+    0,
+    2,
+    2,
+    2,
+    4,
+    3,
+    0
+   ],
+   "finish_len": 7,
+   "spliced_len": 65,
+   "verify": "{'ok': True, 'length': 65, 'peak_total_relator_length': 14, 'work': 751, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0066",
+   "entry": 152,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 29,
+   "finish": [
+    2,
+    4,
+    1,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 156,
+   "verify": "{'ok': True, 'length': 156, 'peak_total_relator_length': 16, 'work': 2153, 'cert",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0067",
+   "entry": 7,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 8,
+   "finish": [
+    0,
+    4,
+    3
+   ],
+   "finish_len": 3,
+   "spliced_len": 10,
+   "verify": "{'ok': True, 'length': 10, 'peak_total_relator_length': 11, 'work': 79, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0068",
+   "entry": 24,
+   "L_entry": 4,
+   "official_tail": 5,
+   "bfs_nodes": 21,
+   "finish": [
+    0,
+    5,
+    1,
+    4
+   ],
+   "finish_len": 4,
+   "spliced_len": 28,
+   "verify": "{'ok': True, 'length': 28, 'peak_total_relator_length': 13, 'work': 265, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0069",
+   "entry": 40,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 106,
+   "finish": [
+    0,
+    2,
+    2,
+    4,
+    3,
+    0
+   ],
+   "finish_len": 6,
+   "spliced_len": 46,
+   "verify": "{'ok': True, 'length': 46, 'peak_total_relator_length': 15, 'work': 500, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0070",
+   "entry": 3,
+   "L_entry": 6,
+   "official_tail": 11,
+   "bfs_nodes": 217,
+   "finish": [
+    1,
+    9,
+    6,
+    3,
+    8,
+    4,
+    3
+   ],
+   "finish_len": 7,
+   "spliced_len": 10,
+   "verify": "{'ok': True, 'length': 10, 'peak_total_relator_length': 11, 'work': 70, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0071",
+   "entry": 29,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 41,
+   "finish": [
+    7,
+    2,
+    4,
+    1,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 34,
+   "verify": "{'ok': True, 'length': 34, 'peak_total_relator_length': 13, 'work': 330, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0072",
+   "entry": 84,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 11,
+   "finish": [
+    4,
+    1,
+    2
+   ],
+   "finish_len": 3,
+   "spliced_len": 87,
+   "verify": "{'ok': True, 'length': 87, 'peak_total_relator_length': 15, 'work': 1140, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0073",
+   "entry": 10,
+   "L_entry": 3,
+   "official_tail": 1,
+   "bfs_nodes": 1,
+   "finish": [
+    2
+   ],
+   "finish_len": 1,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 11, 'work': 88, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0074",
+   "entry": 67,
+   "L_entry": 5,
+   "official_tail": 11,
+   "bfs_nodes": 99,
+   "finish": [
+    3,
+    3,
+    5,
+    11,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 72,
+   "verify": "{'ok': True, 'length': 72, 'peak_total_relator_length': 13, 'work': 777, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0075",
+   "entry": 12,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 146,
+   "finish": [
+    5,
+    1,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 11, 'work': 137, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0076",
+   "entry": 11,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 47,
+   "finish": [
+    0,
+    4,
+    11,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 11, 'work': 104, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0077",
+   "entry": 57,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 21,
+   "finish": [
+    0,
+    4,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 61,
+   "verify": "{'ok': True, 'length': 61, 'peak_total_relator_length': 15, 'work': 702, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0078",
+   "entry": 8,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 67,
+   "finish": [
+    4,
+    11,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 5,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 11, 'work': 86, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0079",
+   "entry": 60,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 33,
+   "finish": [
+    0,
+    4,
+    2,
+    0,
+    4
+   ],
+   "finish_len": 5,
+   "spliced_len": 65,
+   "verify": "{'ok': True, 'length': 65, 'peak_total_relator_length': 13, 'work': 710, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0080",
+   "entry": 18,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 11, 'work': 189, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0081",
+   "entry": 2,
+   "L_entry": 6,
+   "official_tail": 9,
+   "bfs_nodes": 97,
+   "finish": [
+    2,
+    9,
+    5,
+    11,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 7,
+   "verify": "{'ok': True, 'length': 7, 'peak_total_relator_length': 11, 'work': 46, 'certific",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0082",
+   "entry": 23,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 22,
+   "finish": [
+    0,
+    5,
+    5,
+    11
+   ],
+   "finish_len": 4,
+   "spliced_len": 27,
+   "verify": "{'ok': True, 'length': 27, 'peak_total_relator_length': 13, 'work': 247, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0083",
+   "entry": 28,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 74,
+   "finish": [
+    3,
+    0,
+    2,
+    4,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 33,
+   "verify": "{'ok': True, 'length': 33, 'peak_total_relator_length': 15, 'work': 350, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0084",
+   "entry": 17,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 16,
+   "finish": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 21,
+   "verify": "{'ok': True, 'length': 21, 'peak_total_relator_length': 11, 'work': 162, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0085",
+   "entry": 36,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 24,
+   "finish": [
+    2,
+    0,
+    4,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 40,
+   "verify": "{'ok': True, 'length': 40, 'peak_total_relator_length': 13, 'work': 424, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0086",
+   "entry": 24,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 28,
+   "verify": "{'ok': True, 'length': 28, 'peak_total_relator_length': 12, 'work': 254, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0087",
+   "entry": 14,
+   "L_entry": 6,
+   "official_tail": 9,
+   "bfs_nodes": 137,
+   "finish": [
+    5,
+    5,
+    3,
+    4,
+    2,
+    10
+   ],
+   "finish_len": 6,
+   "spliced_len": 20,
+   "verify": "{'ok': True, 'length': 20, 'peak_total_relator_length': 13, 'work': 181, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0088",
+   "entry": 20,
+   "L_entry": 4,
+   "official_tail": 6,
+   "bfs_nodes": 37,
+   "finish": [
+    0,
+    5,
+    3,
+    4,
+    10
+   ],
+   "finish_len": 5,
+   "spliced_len": 25,
+   "verify": "{'ok': True, 'length': 25, 'peak_total_relator_length': 11, 'work': 207, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0089",
+   "entry": 9,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 24,
+   "finish": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 13, 'work': 110, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0090",
+   "entry": 25,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 28,
+   "verify": "{'ok': True, 'length': 28, 'peak_total_relator_length': 12, 'work': 270, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0091",
+   "entry": 24,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 33,
+   "finish": [
+    0,
+    1,
+    4,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 29,
+   "verify": "{'ok': True, 'length': 29, 'peak_total_relator_length': 13, 'work': 271, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0092",
+   "entry": 9,
+   "L_entry": 6,
+   "official_tail": 10,
+   "bfs_nodes": 226,
+   "finish": [
+    5,
+    5,
+    1,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 7,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 11, 'work': 123, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0093",
+   "entry": 44,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 23,
+   "finish": [
+    0,
+    1,
+    2,
+    9
+   ],
+   "finish_len": 4,
+   "spliced_len": 48,
+   "verify": "{'ok': True, 'length': 48, 'peak_total_relator_length': 15, 'work': 561, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0094",
+   "entry": 4,
+   "L_entry": 6,
+   "official_tail": 9,
+   "bfs_nodes": 97,
+   "finish": [
+    2,
+    9,
+    5,
+    11,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 9,
+   "verify": "{'ok': True, 'length': 9, 'peak_total_relator_length': 11, 'work': 64, 'certific",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0095",
+   "entry": 32,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 138,
+   "finish": [
+    1,
+    2,
+    2,
+    7,
+    4,
+    3
+   ],
+   "finish_len": 6,
+   "spliced_len": 38,
+   "verify": "{'ok': True, 'length': 38, 'peak_total_relator_length': 13, 'work': 373, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0096",
+   "entry": 16,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 108,
+   "finish": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 11, 'work': 180, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0097",
+   "entry": 12,
+   "L_entry": 7,
+   "official_tail": 9,
+   "bfs_nodes": 275,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2,
+    2,
+    2
+   ],
+   "finish_len": 7,
+   "spliced_len": 19,
+   "verify": "{'ok': True, 'length': 19, 'peak_total_relator_length': 13, 'work': 186, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0098",
+   "entry": 27,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 27,
+   "finish": [
+    4,
+    2,
+    0,
+    4
+   ],
+   "finish_len": 4,
+   "spliced_len": 31,
+   "verify": "{'ok': True, 'length': 31, 'peak_total_relator_length': 15, 'work': 318, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0099",
+   "entry": 7,
+   "L_entry": 6,
+   "official_tail": 8,
+   "bfs_nodes": 185,
+   "finish": [
+    0,
+    5,
+    5,
+    3,
+    4,
+    2,
+    10
+   ],
+   "finish_len": 7,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 17, 'work': 136, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0100",
+   "entry": 34,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 39,
+   "verify": "{'ok': True, 'length': 39, 'peak_total_relator_length': 19, 'work': 428, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0101",
+   "entry": 31,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 108,
+   "finish": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 37,
+   "verify": "{'ok': True, 'length': 37, 'peak_total_relator_length': 21, 'work': 403, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0102",
+   "entry": 14,
+   "L_entry": 10,
+   "official_tail": 12,
+   "bfs_nodes": 1977,
+   "finish": [
+    0,
+    1,
+    6,
+    2,
+    2,
+    2,
+    2,
+    2,
+    7,
+    3
+   ],
+   "finish_len": 10,
+   "spliced_len": 24,
+   "verify": "{'ok': True, 'length': 24, 'peak_total_relator_length': 23, 'work': 327, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0103",
+   "entry": 14,
+   "L_entry": 6,
+   "official_tail": 9,
+   "bfs_nodes": 196,
+   "finish": [
+    0,
+    4,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 7,
+   "spliced_len": 21,
+   "verify": "{'ok': True, 'length': 21, 'peak_total_relator_length': 11, 'work': 179, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0104",
+   "entry": 12,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 35,
+   "finish": [
+    4,
+    2,
+    5,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 13, 'work': 145, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0105",
+   "entry": 14,
+   "L_entry": 4,
+   "official_tail": 3,
+   "bfs_nodes": 14,
+   "finish": [
+    2,
+    2,
+    0
+   ],
+   "finish_len": 3,
+   "spliced_len": 17,
+   "verify": "{'ok': True, 'length': 17, 'peak_total_relator_length': 15, 'work': 149, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0106",
+   "entry": 5,
+   "L_entry": 7,
+   "official_tail": 10,
+   "bfs_nodes": 538,
+   "finish": [
+    0,
+    4,
+    4,
+    4,
+    2,
+    5,
+    3,
+    8
+   ],
+   "finish_len": 8,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 17, 'work': 114, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0107",
+   "entry": 6,
+   "L_entry": 7,
+   "official_tail": 10,
+   "bfs_nodes": 538,
+   "finish": [
+    0,
+    4,
+    4,
+    4,
+    2,
+    5,
+    3,
+    8
+   ],
+   "finish_len": 8,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 19, 'work': 131, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0108",
+   "entry": 7,
+   "L_entry": 7,
+   "official_tail": 10,
+   "bfs_nodes": 538,
+   "finish": [
+    0,
+    4,
+    4,
+    4,
+    2,
+    5,
+    3,
+    8
+   ],
+   "finish_len": 8,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 21, 'work': 150, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0109",
+   "entry": 18,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 78,
+   "finish": [
+    5,
+    5,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 23,
+   "verify": "{'ok': True, 'length': 23, 'peak_total_relator_length': 23, 'work': 230, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0110",
+   "entry": 11,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 4,
+   "finish": [
+    3,
+    3
+   ],
+   "finish_len": 2,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 11, 'work': 95, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0111",
+   "entry": 41,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 39,
+   "finish": [
+    1,
+    9,
+    3,
+    9
+   ],
+   "finish_len": 4,
+   "spliced_len": 45,
+   "verify": "{'ok': True, 'length': 45, 'peak_total_relator_length': 13, 'work': 496, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0112",
+   "entry": 13,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 20,
+   "finish": [
+    1,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 17,
+   "verify": "{'ok': True, 'length': 17, 'peak_total_relator_length': 11, 'work': 141, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0113",
+   "entry": 10,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 23,
+   "finish": [
+    5,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 13, 'work': 120, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0114",
+   "entry": 10,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 19,
+   "finish": [
+    0,
+    3,
+    10,
+    4
+   ],
+   "finish_len": 4,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 12, 'work': 93, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0115",
+   "entry": 55,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 36,
+   "finish": [
+    11,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 59,
+   "verify": "{'ok': True, 'length': 59, 'peak_total_relator_length': 14, 'work': 663, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0116",
+   "entry": 85,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 11,
+   "finish": [
+    4,
+    1,
+    2
+   ],
+   "finish_len": 3,
+   "spliced_len": 88,
+   "verify": "{'ok': True, 'length': 88, 'peak_total_relator_length': 16, 'work': 1051, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0117",
+   "entry": 6,
+   "L_entry": 3,
+   "official_tail": 2,
+   "bfs_nodes": 3,
+   "finish": [
+    1,
+    4
+   ],
+   "finish_len": 2,
+   "spliced_len": 8,
+   "verify": "{'ok': True, 'length': 8, 'peak_total_relator_length': 12, 'work': 58, 'certific",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0118",
+   "entry": 33,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 106,
+   "finish": [
+    0,
+    2,
+    2,
+    4,
+    3,
+    0
+   ],
+   "finish_len": 6,
+   "spliced_len": 39,
+   "verify": "{'ok': True, 'length': 39, 'peak_total_relator_length': 14, 'work': 396, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0119",
+   "entry": 38,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 39,
+   "finish": [
+    5,
+    5,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 42,
+   "verify": "{'ok': True, 'length': 42, 'peak_total_relator_length': 16, 'work': 475, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0120",
+   "entry": 16,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 54,
+   "finish": [
+    1,
+    4,
+    2,
+    5,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 21,
+   "verify": "{'ok': True, 'length': 21, 'peak_total_relator_length': 12, 'work': 185, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0121",
+   "entry": 82,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 21,
+   "finish": [
+    0,
+    4,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 86,
+   "verify": "{'ok': True, 'length': 86, 'peak_total_relator_length': 15, 'work': 1068, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0122",
+   "entry": 23,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 26,
+   "verify": "{'ok': True, 'length': 26, 'peak_total_relator_length': 12, 'work': 248, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0123",
+   "entry": 11,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 121,
+   "finish": [
+    0,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 6,
+   "spliced_len": 17,
+   "verify": "{'ok': True, 'length': 17, 'peak_total_relator_length': 12, 'work': 130, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0124",
+   "entry": 93,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 4,
+   "finish": [
+    4,
+    3
+   ],
+   "finish_len": 2,
+   "spliced_len": 95,
+   "verify": "{'ok': True, 'length': 95, 'peak_total_relator_length': 14, 'work': 1146, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0125",
+   "entry": 77,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 4,
+   "finish": [
+    4,
+    3
+   ],
+   "finish_len": 2,
+   "spliced_len": 79,
+   "verify": "{'ok': True, 'length': 79, 'peak_total_relator_length': 16, 'work': 949, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0126",
+   "entry": 10,
+   "L_entry": 4,
+   "official_tail": 6,
+   "bfs_nodes": 23,
+   "finish": [
+    1,
+    2,
+    2,
+    8
+   ],
+   "finish_len": 4,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 12, 'work': 106, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0127",
+   "entry": 8,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 36,
+   "finish": [
+    11,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 14, 'work': 87, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0128",
+   "entry": 33,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 106,
+   "finish": [
+    0,
+    2,
+    2,
+    4,
+    3,
+    0
+   ],
+   "finish_len": 6,
+   "spliced_len": 39,
+   "verify": "{'ok': True, 'length': 39, 'peak_total_relator_length': 16, 'work': 426, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0129",
+   "entry": 41,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 106,
+   "finish": [
+    0,
+    2,
+    2,
+    4,
+    3,
+    0
+   ],
+   "finish_len": 6,
+   "spliced_len": 47,
+   "verify": "{'ok': True, 'length': 47, 'peak_total_relator_length': 18, 'work': 590, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0130",
+   "entry": 77,
+   "L_entry": 4,
+   "official_tail": 5,
+   "bfs_nodes": 21,
+   "finish": [
+    0,
+    5,
+    1,
+    4
+   ],
+   "finish_len": 4,
+   "spliced_len": 81,
+   "verify": "{'ok': True, 'length': 81, 'peak_total_relator_length': 20, 'work': 1126, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0131",
+   "entry": 101,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 57,
+   "finish": [
+    0,
+    5,
+    5,
+    1,
+    4
+   ],
+   "finish_len": 5,
+   "spliced_len": 106,
+   "verify": "{'ok': True, 'length': 106, 'peak_total_relator_length': 22, 'work': 1613, 'cert",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0132",
+   "entry": 8,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 21,
+   "finish": [
+    1,
+    2,
+    2,
+    0
+   ],
+   "finish_len": 4,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 12, 'work': 85, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0133",
+   "entry": 50,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 21,
+   "finish": [
+    0,
+    4,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 54,
+   "verify": "{'ok': True, 'length': 54, 'peak_total_relator_length': 14, 'work': 607, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0134",
+   "entry": 33,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 138,
+   "finish": [
+    1,
+    2,
+    2,
+    7,
+    4,
+    3
+   ],
+   "finish_len": 6,
+   "spliced_len": 39,
+   "verify": "{'ok': True, 'length': 39, 'peak_total_relator_length': 16, 'work': 412, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0135",
+   "entry": 6,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 4,
+   "finish": [
+    11,
+    5
+   ],
+   "finish_len": 2,
+   "spliced_len": 8,
+   "verify": "{'ok': True, 'length': 8, 'peak_total_relator_length': 12, 'work': 58, 'certific",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0136",
+   "entry": 36,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 138,
+   "finish": [
+    1,
+    2,
+    2,
+    7,
+    4,
+    3
+   ],
+   "finish_len": 6,
+   "spliced_len": 42,
+   "verify": "{'ok': True, 'length': 42, 'peak_total_relator_length': 14, 'work': 433, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0137",
+   "entry": 24,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 29,
+   "verify": "{'ok': True, 'length': 29, 'peak_total_relator_length': 12, 'work': 267, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0138",
+   "entry": 12,
+   "L_entry": 4,
+   "official_tail": 6,
+   "bfs_nodes": 37,
+   "finish": [
+    0,
+    5,
+    3,
+    4,
+    10
+   ],
+   "finish_len": 5,
+   "spliced_len": 17,
+   "verify": "{'ok': True, 'length': 17, 'peak_total_relator_length': 14, 'work': 146, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0139",
+   "entry": 13,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 31,
+   "finish": [
+    1,
+    5,
+    3,
+    4,
+    10
+   ],
+   "finish_len": 5,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 12, 'work': 149, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0140",
+   "entry": 9,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 36,
+   "finish": [
+    11,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 14, 'work': 100, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0141",
+   "entry": 74,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 106,
+   "finish": [
+    0,
+    2,
+    2,
+    4,
+    3,
+    0
+   ],
+   "finish_len": 6,
+   "spliced_len": 80,
+   "verify": "{'ok': True, 'length': 80, 'peak_total_relator_length': 18, 'work': 936, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0142",
+   "entry": 16,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 41,
+   "finish": [
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 20,
+   "verify": "{'ok': True, 'length': 20, 'peak_total_relator_length': 12, 'work': 188, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0143",
+   "entry": 29,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 108,
+   "finish": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 35,
+   "verify": "{'ok': True, 'length': 35, 'peak_total_relator_length': 14, 'work': 357, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0144",
+   "entry": 36,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 133,
+   "finish": [
+    1,
+    4,
+    2,
+    5,
+    3,
+    0
+   ],
+   "finish_len": 6,
+   "spliced_len": 42,
+   "verify": "{'ok': True, 'length': 42, 'peak_total_relator_length': 16, 'work': 473, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0145",
+   "entry": 24,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 32,
+   "finish": [
+    3,
+    0,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 28,
+   "verify": "{'ok': True, 'length': 28, 'peak_total_relator_length': 18, 'work': 288, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0146",
+   "entry": 7,
+   "L_entry": 7,
+   "official_tail": 9,
+   "bfs_nodes": 491,
+   "finish": [
+    0,
+    5,
+    5,
+    3,
+    4,
+    2,
+    2,
+    10
+   ],
+   "finish_len": 8,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 20, 'work': 166, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0147",
+   "entry": 48,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 146,
+   "finish": [
+    5,
+    1,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 54,
+   "verify": "{'ok': True, 'length': 54, 'peak_total_relator_length': 22, 'work': 673, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0148",
+   "entry": 38,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 32,
+   "finish": [
+    3,
+    0,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 42,
+   "verify": "{'ok': True, 'length': 42, 'peak_total_relator_length': 24, 'work': 512, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0149",
+   "entry": 21,
+   "L_entry": 6,
+   "official_tail": 9,
+   "bfs_nodes": 196,
+   "finish": [
+    0,
+    4,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 7,
+   "spliced_len": 28,
+   "verify": "{'ok': True, 'length': 28, 'peak_total_relator_length': 12, 'work': 257, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0150",
+   "entry": 19,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 78,
+   "finish": [
+    5,
+    5,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 24,
+   "verify": "{'ok': True, 'length': 24, 'peak_total_relator_length': 14, 'work': 215, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0151",
+   "entry": 8,
+   "L_entry": 4,
+   "official_tail": 6,
+   "bfs_nodes": 10,
+   "finish": [
+    1,
+    2,
+    2
+   ],
+   "finish_len": 3,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 12, 'work': 75, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0152",
+   "entry": 39,
+   "L_entry": 5,
+   "official_tail": 3,
+   "bfs_nodes": 16,
+   "finish": [
+    8,
+    2,
+    8
+   ],
+   "finish_len": 3,
+   "spliced_len": 42,
+   "verify": "{'ok': True, 'length': 42, 'peak_total_relator_length': 14, 'work': 458, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0153",
+   "entry": 17,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 54,
+   "finish": [
+    1,
+    4,
+    2,
+    5,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 12, 'work': 186, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0154",
+   "entry": 11,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 16,
+   "finish": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 14, 'work': 119, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0155",
+   "entry": 51,
+   "L_entry": 3,
+   "official_tail": 2,
+   "bfs_nodes": 2,
+   "finish": [
+    0,
+    5
+   ],
+   "finish_len": 2,
+   "spliced_len": 53,
+   "verify": "{'ok': True, 'length': 53, 'peak_total_relator_length': 18, 'work': 680, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0156",
+   "entry": 13,
+   "L_entry": 4,
+   "official_tail": 6,
+   "bfs_nodes": 37,
+   "finish": [
+    0,
+    5,
+    3,
+    4,
+    10
+   ],
+   "finish_len": 5,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 12, 'work': 135, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0157",
+   "entry": 49,
+   "L_entry": 4,
+   "official_tail": 9,
+   "bfs_nodes": 35,
+   "finish": [
+    0,
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 5,
+   "spliced_len": 54,
+   "verify": "{'ok': True, 'length': 54, 'peak_total_relator_length': 15, 'work': 623, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0158",
+   "entry": 17,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 21,
+   "verify": "{'ok': True, 'length': 21, 'peak_total_relator_length': 12, 'work': 186, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0159",
+   "entry": 63,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 33,
+   "finish": [
+    0,
+    1,
+    4,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 68,
+   "verify": "{'ok': True, 'length': 68, 'peak_total_relator_length': 15, 'work': 797, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0160",
+   "entry": 4,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 4,
+   "finish": [
+    11,
+    5
+   ],
+   "finish_len": 2,
+   "spliced_len": 6,
+   "verify": "{'ok': True, 'length': 6, 'peak_total_relator_length': 12, 'work': 44, 'certific",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0161",
+   "entry": 45,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 16,
+   "finish": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 49,
+   "verify": "{'ok': True, 'length': 49, 'peak_total_relator_length': 14, 'work': 544, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0162",
+   "entry": 38,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 16,
+   "finish": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 42,
+   "verify": "{'ok': True, 'length': 42, 'peak_total_relator_length': 16, 'work': 499, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0163",
+   "entry": 22,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 26,
+   "verify": "{'ok': True, 'length': 26, 'peak_total_relator_length': 12, 'work': 233, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0164",
+   "entry": 10,
+   "L_entry": 4,
+   "official_tail": 2,
+   "bfs_nodes": 4,
+   "finish": [
+    2,
+    2
+   ],
+   "finish_len": 2,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 14, 'work': 119, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0165",
+   "entry": 12,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 7,
+   "finish": [
+    0,
+    3,
+    3
+   ],
+   "finish_len": 3,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 12, 'work': 121, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0166",
+   "entry": 29,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 55,
+   "finish": [
+    1,
+    2,
+    0,
+    3,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 34,
+   "verify": "{'ok': True, 'length': 34, 'peak_total_relator_length': 14, 'work': 354, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0167",
+   "entry": 10,
+   "L_entry": 3,
+   "official_tail": 2,
+   "bfs_nodes": 3,
+   "finish": [
+    1,
+    4
+   ],
+   "finish_len": 2,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 12, 'work': 98, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0168",
+   "entry": 33,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 43,
+   "finish": [
+    0,
+    2,
+    2,
+    4,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 38,
+   "verify": "{'ok': True, 'length': 38, 'peak_total_relator_length': 14, 'work': 379, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0169",
+   "entry": 33,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 37,
+   "verify": "{'ok': True, 'length': 37, 'peak_total_relator_length': 12, 'work': 364, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0170",
+   "entry": 26,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 30,
+   "verify": "{'ok': True, 'length': 30, 'peak_total_relator_length': 12, 'work': 282, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0171",
+   "entry": 24,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 146,
+   "finish": [
+    5,
+    1,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 30,
+   "verify": "{'ok': True, 'length': 30, 'peak_total_relator_length': 12, 'work': 276, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0172",
+   "entry": 12,
+   "L_entry": 6,
+   "official_tail": 10,
+   "bfs_nodes": 226,
+   "finish": [
+    5,
+    5,
+    1,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 7,
+   "spliced_len": 19,
+   "verify": "{'ok': True, 'length': 19, 'peak_total_relator_length': 12, 'work': 158, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0173",
+   "entry": 49,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 54,
+   "verify": "{'ok': True, 'length': 54, 'peak_total_relator_length': 13, 'work': 577, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0174",
+   "entry": 23,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 27,
+   "finish": [
+    4,
+    2,
+    0,
+    4
+   ],
+   "finish_len": 4,
+   "spliced_len": 27,
+   "verify": "{'ok': True, 'length': 27, 'peak_total_relator_length': 16, 'work': 268, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0175",
+   "entry": 39,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 43,
+   "verify": "{'ok': True, 'length': 43, 'peak_total_relator_length': 13, 'work': 454, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0176",
+   "entry": 26,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 33,
+   "finish": [
+    0,
+    1,
+    4,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 31,
+   "verify": "{'ok': True, 'length': 31, 'peak_total_relator_length': 16, 'work': 328, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0177",
+   "entry": 25,
+   "L_entry": 6,
+   "official_tail": 10,
+   "bfs_nodes": 226,
+   "finish": [
+    5,
+    5,
+    1,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 7,
+   "spliced_len": 32,
+   "verify": "{'ok': True, 'length': 32, 'peak_total_relator_length': 12, 'work': 305, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0178",
+   "entry": 9,
+   "L_entry": 6,
+   "official_tail": 5,
+   "bfs_nodes": 51,
+   "finish": [
+    1,
+    2,
+    2,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 16, 'work': 141, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0179",
+   "entry": 34,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 38,
+   "verify": "{'ok': True, 'length': 38, 'peak_total_relator_length': 12, 'work': 374, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0180",
+   "entry": 10,
+   "L_entry": 8,
+   "official_tail": 9,
+   "bfs_nodes": 160,
+   "finish": [
+    0,
+    6,
+    3,
+    3,
+    3,
+    7,
+    2
+   ],
+   "finish_len": 7,
+   "spliced_len": 17,
+   "verify": "{'ok': True, 'length': 17, 'peak_total_relator_length': 16, 'work': 180, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0181",
+   "entry": 5,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 4,
+   "finish": [
+    11,
+    5
+   ],
+   "finish_len": 2,
+   "spliced_len": 7,
+   "verify": "{'ok': True, 'length': 7, 'peak_total_relator_length': 12, 'work': 53, 'certific",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0182",
+   "entry": 13,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 8,
+   "finish": [
+    0,
+    4,
+    3
+   ],
+   "finish_len": 3,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 14, 'work': 151, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0183",
+   "entry": 21,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 26,
+   "verify": "{'ok': True, 'length': 26, 'peak_total_relator_length': 12, 'work': 226, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0184",
+   "entry": 12,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 16,
+   "finish": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 12, 'work': 123, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0185",
+   "entry": 11,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 8,
+   "finish": [
+    0,
+    4,
+    1
+   ],
+   "finish_len": 3,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 14, 'work': 130, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0186",
+   "entry": 30,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 138,
+   "finish": [
+    1,
+    2,
+    2,
+    7,
+    4,
+    3
+   ],
+   "finish_len": 6,
+   "spliced_len": 36,
+   "verify": "{'ok': True, 'length': 36, 'peak_total_relator_length': 16, 'work': 371, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0187",
+   "entry": 33,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 14,
+   "finish": [
+    4,
+    1,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 36,
+   "verify": "{'ok': True, 'length': 36, 'peak_total_relator_length': 18, 'work': 426, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0188",
+   "entry": 74,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 22,
+   "finish": [
+    0,
+    5,
+    5,
+    11
+   ],
+   "finish_len": 4,
+   "spliced_len": 78,
+   "verify": "{'ok': True, 'length': 78, 'peak_total_relator_length': 20, 'work': 1050, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0189",
+   "entry": 98,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 16,
+   "finish": [
+    2,
+    4,
+    3
+   ],
+   "finish_len": 3,
+   "spliced_len": 101,
+   "verify": "{'ok': True, 'length': 101, 'peak_total_relator_length': 22, 'work': 1454, 'cert",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0190",
+   "entry": 10,
+   "L_entry": 4,
+   "official_tail": 5,
+   "bfs_nodes": 22,
+   "finish": [
+    1,
+    2,
+    0,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 12, 'work': 94, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0191",
+   "entry": 48,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 15,
+   "finish": [
+    11,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 51,
+   "verify": "{'ok': True, 'length': 51, 'peak_total_relator_length': 14, 'work': 587, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0192",
+   "entry": 13,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 12, 'work': 144, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0193",
+   "entry": 39,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 33,
+   "finish": [
+    0,
+    4,
+    2,
+    0,
+    4
+   ],
+   "finish_len": 5,
+   "spliced_len": 44,
+   "verify": "{'ok': True, 'length': 44, 'peak_total_relator_length': 14, 'work': 486, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0194",
+   "entry": 38,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 23,
+   "finish": [
+    0,
+    1,
+    2,
+    9
+   ],
+   "finish_len": 4,
+   "spliced_len": 42,
+   "verify": "{'ok': True, 'length': 42, 'peak_total_relator_length': 16, 'work': 516, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0195",
+   "entry": 19,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 60,
+   "finish": [
+    1,
+    2,
+    2,
+    0,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 24,
+   "verify": "{'ok': True, 'length': 24, 'peak_total_relator_length': 12, 'work': 210, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0196",
+   "entry": 16,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 121,
+   "finish": [
+    0,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 6,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 14, 'work': 192, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0197",
+   "entry": 17,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 78,
+   "finish": [
+    5,
+    5,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 16, 'work': 201, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0198",
+   "entry": 18,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 33,
+   "finish": [
+    0,
+    1,
+    4,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 23,
+   "verify": "{'ok': True, 'length': 23, 'peak_total_relator_length': 18, 'work': 216, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0199",
+   "entry": 5,
+   "L_entry": 8,
+   "official_tail": 11,
+   "bfs_nodes": 891,
+   "finish": [
+    0,
+    4,
+    4,
+    4,
+    4,
+    2,
+    5,
+    3,
+    8
+   ],
+   "finish_len": 9,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 20, 'work': 135, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0200",
+   "entry": 6,
+   "L_entry": 8,
+   "official_tail": 11,
+   "bfs_nodes": 891,
+   "finish": [
+    0,
+    4,
+    4,
+    4,
+    4,
+    2,
+    5,
+    3,
+    8
+   ],
+   "finish_len": 9,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 22, 'work': 154, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0201",
+   "entry": 7,
+   "L_entry": 8,
+   "official_tail": 11,
+   "bfs_nodes": 891,
+   "finish": [
+    0,
+    4,
+    4,
+    4,
+    4,
+    2,
+    5,
+    3,
+    8
+   ],
+   "finish_len": 9,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 24, 'work': 175, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0202",
+   "entry": 17,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    3,
+    0,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 21,
+   "verify": "{'ok': True, 'length': 21, 'peak_total_relator_length': 12, 'work': 178, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0203",
+   "entry": 63,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 33,
+   "finish": [
+    0,
+    4,
+    2,
+    0,
+    4
+   ],
+   "finish_len": 5,
+   "spliced_len": 68,
+   "verify": "{'ok': True, 'length': 68, 'peak_total_relator_length': 15, 'work': 840, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0204",
+   "entry": 9,
+   "L_entry": 3,
+   "official_tail": 2,
+   "bfs_nodes": 2,
+   "finish": [
+    0,
+    4
+   ],
+   "finish_len": 2,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 12, 'work': 99, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0205",
+   "entry": 12,
+   "L_entry": 3,
+   "official_tail": 2,
+   "bfs_nodes": 2,
+   "finish": [
+    0,
+    4
+   ],
+   "finish_len": 2,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 14, 'work': 146, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0206",
+   "entry": 14,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 146,
+   "finish": [
+    5,
+    1,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 20,
+   "verify": "{'ok': True, 'length': 20, 'peak_total_relator_length': 12, 'work': 165, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0207",
+   "entry": 18,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 81,
+   "finish": [
+    4,
+    2,
+    5,
+    1,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 23,
+   "verify": "{'ok': True, 'length': 23, 'peak_total_relator_length': 14, 'work': 222, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0208",
+   "entry": 22,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 16,
+   "finish": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 26,
+   "verify": "{'ok': True, 'length': 26, 'peak_total_relator_length': 12, 'work': 217, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0209",
+   "entry": 11,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 111,
+   "finish": [
+    0,
+    4,
+    2,
+    5,
+    3,
+    9
+   ],
+   "finish_len": 6,
+   "spliced_len": 17,
+   "verify": "{'ok': True, 'length': 17, 'peak_total_relator_length': 14, 'work': 151, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0210",
+   "entry": 17,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 146,
+   "finish": [
+    5,
+    1,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 23,
+   "verify": "{'ok': True, 'length': 23, 'peak_total_relator_length': 12, 'work': 193, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0211",
+   "entry": 15,
+   "L_entry": 4,
+   "official_tail": 6,
+   "bfs_nodes": 37,
+   "finish": [
+    0,
+    5,
+    3,
+    4,
+    10
+   ],
+   "finish_len": 5,
+   "spliced_len": 20,
+   "verify": "{'ok': True, 'length': 20, 'peak_total_relator_length': 14, 'work': 194, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0212",
+   "entry": 17,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 20,
+   "verify": "{'ok': True, 'length': 20, 'peak_total_relator_length': 12, 'work': 179, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0213",
+   "entry": 6,
+   "L_entry": 8,
+   "official_tail": 13,
+   "bfs_nodes": 1150,
+   "finish": [
+    0,
+    10,
+    4,
+    11,
+    4,
+    2,
+    5,
+    3,
+    8
+   ],
+   "finish_len": 9,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 14, 'work': 129, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0214",
+   "entry": 40,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 44,
+   "verify": "{'ok': True, 'length': 44, 'peak_total_relator_length': 13, 'work': 453, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0215",
+   "entry": 21,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 32,
+   "finish": [
+    3,
+    0,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 25,
+   "verify": "{'ok': True, 'length': 25, 'peak_total_relator_length': 14, 'work': 236, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0216",
+   "entry": 36,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 39,
+   "verify": "{'ok': True, 'length': 39, 'peak_total_relator_length': 13, 'work': 403, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0217",
+   "entry": 28,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 60,
+   "finish": [
+    1,
+    2,
+    2,
+    0,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 33,
+   "verify": "{'ok': True, 'length': 33, 'peak_total_relator_length': 14, 'work': 330, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0218",
+   "entry": 6,
+   "L_entry": 6,
+   "official_tail": 10,
+   "bfs_nodes": 183,
+   "finish": [
+    1,
+    9,
+    2,
+    0,
+    8,
+    4,
+    3
+   ],
+   "finish_len": 7,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 13, 'work': 106, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0219",
+   "entry": 60,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 39,
+   "finish": [
+    1,
+    9,
+    3,
+    9
+   ],
+   "finish_len": 4,
+   "spliced_len": 64,
+   "verify": "{'ok': True, 'length': 64, 'peak_total_relator_length': 15, 'work': 758, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0220",
+   "entry": 22,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 20,
+   "finish": [
+    1,
+    3,
+    3,
+    0
+   ],
+   "finish_len": 4,
+   "spliced_len": 26,
+   "verify": "{'ok': True, 'length': 26, 'peak_total_relator_length': 13, 'work': 245, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0221",
+   "entry": 17,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 147,
+   "finish": [
+    13,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 23,
+   "verify": "{'ok': True, 'length': 23, 'peak_total_relator_length': 17, 'work': 271, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0222",
+   "entry": 18,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 13, 'work': 197, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0223",
+   "entry": 11,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 147,
+   "finish": [
+    13,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 17,
+   "verify": "{'ok': True, 'length': 17, 'peak_total_relator_length': 15, 'work': 162, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0224",
+   "entry": 32,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 37,
+   "verify": "{'ok': True, 'length': 37, 'peak_total_relator_length': 13, 'work': 361, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0225",
+   "entry": 50,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 55,
+   "verify": "{'ok': True, 'length': 55, 'peak_total_relator_length': 13, 'work': 587, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0226",
+   "entry": 17,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 41,
+   "finish": [
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 21,
+   "verify": "{'ok': True, 'length': 21, 'peak_total_relator_length': 13, 'work': 205, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0227",
+   "entry": 13,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 19,
+   "finish": [
+    0,
+    3,
+    10,
+    4
+   ],
+   "finish_len": 4,
+   "spliced_len": 17,
+   "verify": "{'ok': True, 'length': 17, 'peak_total_relator_length': 13, 'work': 129, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0228",
+   "entry": 28,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 106,
+   "finish": [
+    0,
+    2,
+    2,
+    4,
+    3,
+    0
+   ],
+   "finish_len": 6,
+   "spliced_len": 34,
+   "verify": "{'ok': True, 'length': 34, 'peak_total_relator_length': 15, 'work': 337, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0229",
+   "entry": 46,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 114,
+   "finish": [
+    0,
+    2,
+    4,
+    1,
+    2,
+    4
+   ],
+   "finish_len": 6,
+   "spliced_len": 52,
+   "verify": "{'ok': True, 'length': 52, 'peak_total_relator_length': 17, 'work': 594, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0230",
+   "entry": 27,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 32,
+   "verify": "{'ok': True, 'length': 32, 'peak_total_relator_length': 13, 'work': 302, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0231",
+   "entry": 12,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 41,
+   "finish": [
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 13, 'work': 147, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0232",
+   "entry": 14,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 146,
+   "finish": [
+    5,
+    1,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 20,
+   "verify": "{'ok': True, 'length': 20, 'peak_total_relator_length': 15, 'work': 185, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0233",
+   "entry": 72,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 75,
+   "verify": "{'ok': True, 'length': 75, 'peak_total_relator_length': 14, 'work': 893, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0234",
+   "entry": 12,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 4,
+   "finish": [
+    5,
+    5
+   ],
+   "finish_len": 2,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 13, 'work': 118, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0235",
+   "entry": 3,
+   "L_entry": 8,
+   "official_tail": 12,
+   "bfs_nodes": 547,
+   "finish": [
+    8,
+    3,
+    0,
+    9,
+    9,
+    5,
+    11,
+    2
+   ],
+   "finish_len": 8,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 15, 'work': 93, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0236",
+   "entry": 44,
+   "L_entry": 4,
+   "official_tail": 5,
+   "bfs_nodes": 21,
+   "finish": [
+    0,
+    5,
+    1,
+    4
+   ],
+   "finish_len": 4,
+   "spliced_len": 48,
+   "verify": "{'ok': True, 'length': 48, 'peak_total_relator_length': 19, 'work': 607, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0237",
+   "entry": 67,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 71,
+   "verify": "{'ok': True, 'length': 71, 'peak_total_relator_length': 14, 'work': 817, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0238",
+   "entry": 47,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 32,
+   "finish": [
+    3,
+    0,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 51,
+   "verify": "{'ok': True, 'length': 51, 'peak_total_relator_length': 16, 'work': 631, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0239",
+   "entry": 27,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 27,
+   "finish": [
+    4,
+    2,
+    0,
+    4
+   ],
+   "finish_len": 4,
+   "spliced_len": 31,
+   "verify": "{'ok': True, 'length': 31, 'peak_total_relator_length': 19, 'work': 337, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0240",
+   "entry": 53,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 41,
+   "finish": [
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 57,
+   "verify": "{'ok': True, 'length': 57, 'peak_total_relator_length': 13, 'work': 643, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0241",
+   "entry": 35,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 39,
+   "verify": "{'ok': True, 'length': 39, 'peak_total_relator_length': 15, 'work': 440, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0242",
+   "entry": 9,
+   "L_entry": 7,
+   "official_tail": 6,
+   "bfs_nodes": 114,
+   "finish": [
+    1,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 19, 'work': 173, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0243",
+   "entry": 19,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 19,
+   "finish": [
+    0,
+    3,
+    10,
+    4
+   ],
+   "finish_len": 4,
+   "spliced_len": 23,
+   "verify": "{'ok': True, 'length': 23, 'peak_total_relator_length': 13, 'work': 196, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0244",
+   "entry": 29,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 32,
+   "finish": [
+    3,
+    0,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 33,
+   "verify": "{'ok': True, 'length': 33, 'peak_total_relator_length': 17, 'work': 367, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0245",
+   "entry": 55,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 59,
+   "verify": "{'ok': True, 'length': 59, 'peak_total_relator_length': 14, 'work': 667, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0246",
+   "entry": 39,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 133,
+   "finish": [
+    1,
+    4,
+    2,
+    5,
+    3,
+    0
+   ],
+   "finish_len": 6,
+   "spliced_len": 45,
+   "verify": "{'ok': True, 'length': 45, 'peak_total_relator_length': 17, 'work': 489, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0247",
+   "entry": 38,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 108,
+   "finish": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 44,
+   "verify": "{'ok': True, 'length': 44, 'peak_total_relator_length': 13, 'work': 453, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0248",
+   "entry": 28,
+   "L_entry": 6,
+   "official_tail": 9,
+   "bfs_nodes": 137,
+   "finish": [
+    5,
+    5,
+    3,
+    4,
+    2,
+    10
+   ],
+   "finish_len": 6,
+   "spliced_len": 34,
+   "verify": "{'ok': True, 'length': 34, 'peak_total_relator_length': 17, 'work': 376, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0249",
+   "entry": 10,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 13, 'work': 125, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0250",
+   "entry": 10,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 24,
+   "finish": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 17, 'work': 137, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0251",
+   "entry": 94,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 11,
+   "finish": [
+    2,
+    0,
+    4
+   ],
+   "finish_len": 3,
+   "spliced_len": 97,
+   "verify": "{'ok': True, 'length': 97, 'peak_total_relator_length': 23, 'work': 1523, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0252",
+   "entry": 46,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 50,
+   "verify": "{'ok': True, 'length': 50, 'peak_total_relator_length': 13, 'work': 532, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0253",
+   "entry": 92,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 23,
+   "finish": [
+    0,
+    1,
+    2,
+    9
+   ],
+   "finish_len": 4,
+   "spliced_len": 96,
+   "verify": "{'ok': True, 'length': 96, 'peak_total_relator_length': 15, 'work': 1236, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0254",
+   "entry": 11,
+   "L_entry": 9,
+   "official_tail": 8,
+   "bfs_nodes": 647,
+   "finish": [
+    0,
+    2,
+    2,
+    2,
+    2,
+    6,
+    2,
+    8
+   ],
+   "finish_len": 8,
+   "spliced_len": 19,
+   "verify": "{'ok': True, 'length': 19, 'peak_total_relator_length': 17, 'work': 208, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0255",
+   "entry": 22,
+   "L_entry": 6,
+   "official_tail": 10,
+   "bfs_nodes": 226,
+   "finish": [
+    5,
+    5,
+    1,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 7,
+   "spliced_len": 29,
+   "verify": "{'ok': True, 'length': 29, 'peak_total_relator_length': 13, 'work': 277, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0256",
+   "entry": 30,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 23,
+   "finish": [
+    0,
+    1,
+    2,
+    9
+   ],
+   "finish_len": 4,
+   "spliced_len": 34,
+   "verify": "{'ok': True, 'length': 34, 'peak_total_relator_length': 15, 'work': 389, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0257",
+   "entry": 11,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 24,
+   "finish": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 17, 'work': 153, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0258",
+   "entry": 10,
+   "L_entry": 3,
+   "official_tail": 1,
+   "bfs_nodes": 1,
+   "finish": [
+    2
+   ],
+   "finish_len": 1,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 13, 'work': 96, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0259",
+   "entry": 12,
+   "L_entry": 3,
+   "official_tail": 7,
+   "bfs_nodes": 19,
+   "finish": [
+    0,
+    4,
+    1,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 13, 'work': 139, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0260",
+   "entry": 23,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 104,
+   "finish": [
+    0,
+    2,
+    2,
+    4,
+    1,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 29,
+   "verify": "{'ok': True, 'length': 29, 'peak_total_relator_length': 15, 'work': 269, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0261",
+   "entry": 30,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 35,
+   "verify": "{'ok': True, 'length': 35, 'peak_total_relator_length': 13, 'work': 351, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0262",
+   "entry": 21,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 146,
+   "finish": [
+    5,
+    1,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 27,
+   "verify": "{'ok': True, 'length': 27, 'peak_total_relator_length': 15, 'work': 264, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0263",
+   "entry": 17,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 13, 'work': 200, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0264",
+   "entry": 12,
+   "L_entry": 8,
+   "official_tail": 13,
+   "bfs_nodes": 1241,
+   "finish": [
+    5,
+    1,
+    4,
+    4,
+    2,
+    0,
+    4,
+    2,
+    2
+   ],
+   "finish_len": 9,
+   "spliced_len": 21,
+   "verify": "{'ok': True, 'length': 21, 'peak_total_relator_length': 15, 'work': 222, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0265",
+   "entry": 16,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 146,
+   "finish": [
+    5,
+    1,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 13, 'work': 194, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0266",
+   "entry": 18,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 41,
+   "finish": [
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 15, 'work': 223, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0267",
+   "entry": 88,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 83,
+   "finish": [
+    4,
+    2,
+    5,
+    3,
+    0
+   ],
+   "finish_len": 5,
+   "spliced_len": 93,
+   "verify": "{'ok': True, 'length': 93, 'peak_total_relator_length': 17, 'work': 1283, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0268",
+   "entry": 41,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 45,
+   "verify": "{'ok': True, 'length': 45, 'peak_total_relator_length': 13, 'work': 481, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0269",
+   "entry": 26,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 85,
+   "finish": [
+    5,
+    3,
+    12,
+    4,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 31,
+   "verify": "{'ok': True, 'length': 31, 'peak_total_relator_length': 15, 'work': 310, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0270",
+   "entry": 15,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 20,
+   "verify": "{'ok': True, 'length': 20, 'peak_total_relator_length': 13, 'work': 171, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0271",
+   "entry": 16,
+   "L_entry": 3,
+   "official_tail": 2,
+   "bfs_nodes": 5,
+   "finish": [
+    6,
+    2
+   ],
+   "finish_len": 2,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 15, 'work': 173, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0272",
+   "entry": 68,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 72,
+   "verify": "{'ok': True, 'length': 72, 'peak_total_relator_length': 14, 'work': 843, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0273",
+   "entry": 47,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 51,
+   "verify": "{'ok': True, 'length': 51, 'peak_total_relator_length': 14, 'work': 558, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0274",
+   "entry": 65,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 83,
+   "finish": [
+    4,
+    2,
+    5,
+    3,
+    0
+   ],
+   "finish_len": 5,
+   "spliced_len": 70,
+   "verify": "{'ok': True, 'length': 70, 'peak_total_relator_length': 15, 'work': 855, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0275",
+   "entry": 22,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 27,
+   "verify": "{'ok': True, 'length': 27, 'peak_total_relator_length': 13, 'work': 254, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0276",
+   "entry": 2,
+   "L_entry": 8,
+   "official_tail": 10,
+   "bfs_nodes": 251,
+   "finish": [
+    2,
+    9,
+    9,
+    5,
+    11,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 8,
+   "verify": "{'ok': True, 'length': 8, 'peak_total_relator_length': 15, 'work': 63, 'certific",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0277",
+   "entry": 57,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 138,
+   "finish": [
+    1,
+    2,
+    2,
+    7,
+    4,
+    3
+   ],
+   "finish_len": 6,
+   "spliced_len": 63,
+   "verify": "{'ok': True, 'length': 63, 'peak_total_relator_length': 17, 'work': 720, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0278",
+   "entry": 42,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 138,
+   "finish": [
+    1,
+    2,
+    2,
+    7,
+    4,
+    3
+   ],
+   "finish_len": 6,
+   "spliced_len": 48,
+   "verify": "{'ok': True, 'length': 48, 'peak_total_relator_length': 19, 'work': 589, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0279",
+   "entry": 46,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 138,
+   "finish": [
+    1,
+    2,
+    2,
+    7,
+    4,
+    3
+   ],
+   "finish_len": 6,
+   "spliced_len": 52,
+   "verify": "{'ok': True, 'length': 52, 'peak_total_relator_length': 21, 'work': 714, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0280",
+   "entry": 15,
+   "L_entry": 3,
+   "official_tail": 1,
+   "bfs_nodes": 1,
+   "finish": [
+    2
+   ],
+   "finish_len": 1,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 13, 'work': 159, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0281",
+   "entry": 4,
+   "L_entry": 8,
+   "official_tail": 10,
+   "bfs_nodes": 251,
+   "finish": [
+    2,
+    9,
+    9,
+    5,
+    11,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 10,
+   "verify": "{'ok': True, 'length': 10, 'peak_total_relator_length': 15, 'work': 85, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0282",
+   "entry": 28,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 43,
+   "finish": [
+    0,
+    2,
+    2,
+    4,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 33,
+   "verify": "{'ok': True, 'length': 33, 'peak_total_relator_length': 17, 'work': 387, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0283",
+   "entry": 55,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 62,
+   "finish": [
+    1,
+    2,
+    2,
+    4,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 60,
+   "verify": "{'ok': True, 'length': 60, 'peak_total_relator_length': 19, 'work': 771, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0284",
+   "entry": 36,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 40,
+   "verify": "{'ok': True, 'length': 40, 'peak_total_relator_length': 13, 'work': 404, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0285",
+   "entry": 13,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 109,
+   "finish": [
+    0,
+    5,
+    3,
+    4,
+    2,
+    10
+   ],
+   "finish_len": 6,
+   "spliced_len": 19,
+   "verify": "{'ok': True, 'length': 19, 'peak_total_relator_length': 15, 'work': 180, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0286",
+   "entry": 11,
+   "L_entry": 3,
+   "official_tail": 2,
+   "bfs_nodes": 2,
+   "finish": [
+    0,
+    4
+   ],
+   "finish_len": 2,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 13, 'work': 118, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0287",
+   "entry": 5,
+   "L_entry": 8,
+   "official_tail": 10,
+   "bfs_nodes": 251,
+   "finish": [
+    2,
+    9,
+    9,
+    5,
+    11,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 15, 'work': 99, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0288",
+   "entry": 54,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 22,
+   "finish": [
+    0,
+    5,
+    5,
+    11
+   ],
+   "finish_len": 4,
+   "spliced_len": 58,
+   "verify": "{'ok': True, 'length': 58, 'peak_total_relator_length': 19, 'work': 746, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0289",
+   "entry": 8,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 19,
+   "finish": [
+    0,
+    3,
+    10,
+    4
+   ],
+   "finish_len": 4,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 13, 'work': 77, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0290",
+   "entry": 37,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 8,
+   "finish": [
+    1,
+    3,
+    0
+   ],
+   "finish_len": 3,
+   "spliced_len": 40,
+   "verify": "{'ok': True, 'length': 40, 'peak_total_relator_length': 15, 'work': 464, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0291",
+   "entry": 73,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 27,
+   "finish": [
+    4,
+    2,
+    0,
+    4
+   ],
+   "finish_len": 4,
+   "spliced_len": 77,
+   "verify": "{'ok': True, 'length': 77, 'peak_total_relator_length': 17, 'work': 1014, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0292",
+   "entry": 8,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 47,
+   "finish": [
+    0,
+    4,
+    11,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 13, 'work': 84, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0293",
+   "entry": 41,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 21,
+   "finish": [
+    0,
+    4,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 45,
+   "verify": "{'ok': True, 'length': 45, 'peak_total_relator_length': 15, 'work': 502, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0294",
+   "entry": 35,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 138,
+   "finish": [
+    1,
+    2,
+    2,
+    7,
+    4,
+    3
+   ],
+   "finish_len": 6,
+   "spliced_len": 41,
+   "verify": "{'ok': True, 'length': 41, 'peak_total_relator_length': 17, 'work': 464, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0295",
+   "entry": 16,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 60,
+   "finish": [
+    1,
+    2,
+    2,
+    0,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 21,
+   "verify": "{'ok': True, 'length': 21, 'peak_total_relator_length': 13, 'work': 173, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0296",
+   "entry": 11,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 28,
+   "finish": [
+    0,
+    13,
+    4,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 15, 'work': 137, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0297",
+   "entry": 79,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 7,
+   "finish": [
+    0,
+    3,
+    8
+   ],
+   "finish_len": 3,
+   "spliced_len": 82,
+   "verify": "{'ok': True, 'length': 82, 'peak_total_relator_length': 19, 'work': 1073, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0298",
+   "entry": 16,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 8,
+   "finish": [
+    1,
+    3,
+    0
+   ],
+   "finish_len": 3,
+   "spliced_len": 19,
+   "verify": "{'ok': True, 'length': 19, 'peak_total_relator_length': 13, 'work': 177, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0299",
+   "entry": 9,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 15, 'work': 106, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0300",
+   "entry": 41,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 23,
+   "finish": [
+    0,
+    1,
+    2,
+    9
+   ],
+   "finish_len": 4,
+   "spliced_len": 45,
+   "verify": "{'ok': True, 'length': 45, 'peak_total_relator_length': 17, 'work': 553, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0301",
+   "entry": 50,
+   "L_entry": 5,
+   "official_tail": 3,
+   "bfs_nodes": 16,
+   "finish": [
+    8,
+    2,
+    8
+   ],
+   "finish_len": 3,
+   "spliced_len": 53,
+   "verify": "{'ok': True, 'length': 53, 'peak_total_relator_length': 19, 'work': 722, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0302",
+   "entry": 15,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 108,
+   "finish": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 21,
+   "verify": "{'ok': True, 'length': 21, 'peak_total_relator_length': 13, 'work': 173, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0303",
+   "entry": 85,
+   "L_entry": 5,
+   "official_tail": 3,
+   "bfs_nodes": 16,
+   "finish": [
+    8,
+    2,
+    8
+   ],
+   "finish_len": 3,
+   "spliced_len": 88,
+   "verify": "{'ok': True, 'length': 88, 'peak_total_relator_length': 15, 'work': 1131, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0304",
+   "entry": 38,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 42,
+   "verify": "{'ok': True, 'length': 42, 'peak_total_relator_length': 13, 'work': 430, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0305",
+   "entry": 24,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 28,
+   "verify": "{'ok': True, 'length': 28, 'peak_total_relator_length': 13, 'work': 272, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0306",
+   "entry": 36,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 39,
+   "verify": "{'ok': True, 'length': 39, 'peak_total_relator_length': 13, 'work': 408, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0307",
+   "entry": 15,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 160,
+   "finish": [
+    0,
+    1,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 7,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 15, 'work': 223, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0308",
+   "entry": 52,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 55,
+   "verify": "{'ok': True, 'length': 55, 'peak_total_relator_length': 13, 'work': 605, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0309",
+   "entry": 33,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 36,
+   "verify": "{'ok': True, 'length': 36, 'peak_total_relator_length': 15, 'work': 410, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0310",
+   "entry": 20,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 23,
+   "verify": "{'ok': True, 'length': 23, 'peak_total_relator_length': 13, 'work': 224, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0311",
+   "entry": 37,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 54,
+   "finish": [
+    1,
+    4,
+    2,
+    5,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 42,
+   "verify": "{'ok': True, 'length': 42, 'peak_total_relator_length': 15, 'work': 482, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0312",
+   "entry": 26,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 121,
+   "finish": [
+    0,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 6,
+   "spliced_len": 32,
+   "verify": "{'ok': True, 'length': 32, 'peak_total_relator_length': 17, 'work': 337, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0313",
+   "entry": 25,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 78,
+   "finish": [
+    5,
+    5,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 30,
+   "verify": "{'ok': True, 'length': 30, 'peak_total_relator_length': 19, 'work': 316, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0314",
+   "entry": 20,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 33,
+   "finish": [
+    0,
+    1,
+    4,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 25,
+   "verify": "{'ok': True, 'length': 25, 'peak_total_relator_length': 21, 'work': 254, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0315",
+   "entry": 5,
+   "L_entry": 9,
+   "official_tail": 12,
+   "bfs_nodes": 2207,
+   "finish": [
+    0,
+    4,
+    4,
+    4,
+    4,
+    2,
+    5,
+    3,
+    3,
+    8
+   ],
+   "finish_len": 10,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 23, 'work': 161, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0316",
+   "entry": 6,
+   "L_entry": 9,
+   "official_tail": 12,
+   "bfs_nodes": 2207,
+   "finish": [
+    0,
+    4,
+    4,
+    4,
+    4,
+    2,
+    5,
+    3,
+    3,
+    8
+   ],
+   "finish_len": 10,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 25, 'work': 182, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0317",
+   "entry": 13,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 54,
+   "finish": [
+    1,
+    4,
+    2,
+    5,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 13, 'work': 151, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0318",
+   "entry": 14,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 37,
+   "finish": [
+    1,
+    4,
+    11,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 19,
+   "verify": "{'ok': True, 'length': 19, 'peak_total_relator_length': 15, 'work': 180, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0319",
+   "entry": 47,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 24,
+   "finish": [
+    2,
+    0,
+    4,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 51,
+   "verify": "{'ok': True, 'length': 51, 'peak_total_relator_length': 17, 'work': 606, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0320",
+   "entry": 87,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 21,
+   "finish": [
+    0,
+    4,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 91,
+   "verify": "{'ok': True, 'length': 91, 'peak_total_relator_length': 19, 'work': 1133, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0321",
+   "entry": 17,
+   "L_entry": 4,
+   "official_tail": 6,
+   "bfs_nodes": 32,
+   "finish": [
+    4,
+    11,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 21,
+   "verify": "{'ok': True, 'length': 21, 'peak_total_relator_length': 13, 'work': 191, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0322",
+   "entry": 27,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 121,
+   "finish": [
+    0,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 6,
+   "spliced_len": 33,
+   "verify": "{'ok': True, 'length': 33, 'peak_total_relator_length': 15, 'work': 352, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0323",
+   "entry": 29,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 33,
+   "verify": "{'ok': True, 'length': 33, 'peak_total_relator_length': 13, 'work': 332, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0324",
+   "entry": 91,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 111,
+   "finish": [
+    0,
+    4,
+    2,
+    5,
+    3,
+    9
+   ],
+   "finish_len": 6,
+   "spliced_len": 97,
+   "verify": "{'ok': True, 'length': 97, 'peak_total_relator_length': 15, 'work': 1200, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0325",
+   "entry": 15,
+   "L_entry": 6,
+   "official_tail": 9,
+   "bfs_nodes": 165,
+   "finish": [
+    1,
+    4,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 7,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 17, 'work': 239, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0326",
+   "entry": 50,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 53,
+   "verify": "{'ok': True, 'length': 53, 'peak_total_relator_length': 14, 'work': 589, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0327",
+   "entry": 26,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 125,
+   "finish": [
+    0,
+    5,
+    1,
+    2,
+    5,
+    3
+   ],
+   "finish_len": 6,
+   "spliced_len": 32,
+   "verify": "{'ok': True, 'length': 32, 'peak_total_relator_length': 17, 'work': 358, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0328",
+   "entry": 11,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 48,
+   "finish": [
+    5,
+    1,
+    2,
+    0,
+    4
+   ],
+   "finish_len": 5,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 13, 'work': 129, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0329",
+   "entry": 14,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 24,
+   "finish": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 17, 'work': 210, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0330",
+   "entry": 34,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 38,
+   "verify": "{'ok': True, 'length': 38, 'peak_total_relator_length': 13, 'work': 381, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0331",
+   "entry": 30,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 33,
+   "verify": "{'ok': True, 'length': 33, 'peak_total_relator_length': 13, 'work': 341, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0332",
+   "entry": 20,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 23,
+   "verify": "{'ok': True, 'length': 23, 'peak_total_relator_length': 13, 'work': 227, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0333",
+   "entry": 6,
+   "L_entry": 9,
+   "official_tail": 17,
+   "bfs_nodes": 2852,
+   "finish": [
+    0,
+    10,
+    4,
+    11,
+    4,
+    2,
+    5,
+    3,
+    3,
+    8
+   ],
+   "finish_len": 10,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 17, 'work': 156, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0334",
+   "entry": 15,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 10,
+   "finish": [
+    1,
+    2,
+    0
+   ],
+   "finish_len": 3,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 13, 'work': 164, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0335",
+   "entry": 9,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 8,
+   "finish": [
+    0,
+    4,
+    3
+   ],
+   "finish_len": 3,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 15, 'work': 123, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0336",
+   "entry": 69,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 29,
+   "finish": [
+    2,
+    4,
+    1,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 73,
+   "verify": "{'ok': True, 'length': 73, 'peak_total_relator_length': 17, 'work': 876, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0337",
+   "entry": 45,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 106,
+   "finish": [
+    0,
+    2,
+    2,
+    4,
+    3,
+    0
+   ],
+   "finish_len": 6,
+   "spliced_len": 51,
+   "verify": "{'ok': True, 'length': 51, 'peak_total_relator_length': 19, 'work': 609, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0338",
+   "entry": 31,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 114,
+   "finish": [
+    0,
+    2,
+    4,
+    1,
+    2,
+    4
+   ],
+   "finish_len": 6,
+   "spliced_len": 37,
+   "verify": "{'ok': True, 'length': 37, 'peak_total_relator_length': 21, 'work': 455, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0339",
+   "entry": 35,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 39,
+   "verify": "{'ok': True, 'length': 39, 'peak_total_relator_length': 13, 'work': 408, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0340",
+   "entry": 12,
+   "L_entry": 6,
+   "official_tail": 10,
+   "bfs_nodes": 107,
+   "finish": [
+    0,
+    4,
+    4,
+    2,
+    5,
+    3
+   ],
+   "finish_len": 6,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 15, 'work': 169, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0341",
+   "entry": 13,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 14,
+   "finish": [
+    3,
+    3,
+    3
+   ],
+   "finish_len": 3,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 13, 'work': 145, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0342",
+   "entry": 79,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 39,
+   "finish": [
+    1,
+    9,
+    3,
+    9
+   ],
+   "finish_len": 4,
+   "spliced_len": 83,
+   "verify": "{'ok': True, 'length': 83, 'peak_total_relator_length': 15, 'work': 1002, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0343",
+   "entry": 18,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 10,
+   "finish": [
+    1,
+    6,
+    3
+   ],
+   "finish_len": 3,
+   "spliced_len": 21,
+   "verify": "{'ok': True, 'length': 21, 'peak_total_relator_length': 17, 'work': 229, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0344",
+   "entry": 56,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 39,
+   "finish": [
+    1,
+    9,
+    3,
+    9
+   ],
+   "finish_len": 4,
+   "spliced_len": 60,
+   "verify": "{'ok': True, 'length': 60, 'peak_total_relator_length': 23, 'work': 885, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0345",
+   "entry": 13,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 121,
+   "finish": [
+    0,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 6,
+   "spliced_len": 19,
+   "verify": "{'ok': True, 'length': 19, 'peak_total_relator_length': 13, 'work': 155, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0346",
+   "entry": 36,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 78,
+   "finish": [
+    5,
+    5,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 41,
+   "verify": "{'ok': True, 'length': 41, 'peak_total_relator_length': 17, 'work': 487, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0347",
+   "entry": 57,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 61,
+   "verify": "{'ok': True, 'length': 61, 'peak_total_relator_length': 13, 'work': 669, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0348",
+   "entry": 30,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 32,
+   "finish": [
+    2,
+    0,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 34,
+   "verify": "{'ok': True, 'length': 34, 'peak_total_relator_length': 15, 'work': 382, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0349",
+   "entry": 10,
+   "L_entry": 9,
+   "official_tail": 10,
+   "bfs_nodes": 470,
+   "finish": [
+    0,
+    6,
+    3,
+    3,
+    3,
+    3,
+    7,
+    2
+   ],
+   "finish_len": 8,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 19, 'work': 216, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0350",
+   "entry": 73,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 76,
+   "verify": "{'ok': True, 'length': 76, 'peak_total_relator_length': 14, 'work': 893, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0351",
+   "entry": 40,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 43,
+   "verify": "{'ok': True, 'length': 43, 'peak_total_relator_length': 16, 'work': 530, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0352",
+   "entry": 30,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 78,
+   "finish": [
+    5,
+    5,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 35,
+   "verify": "{'ok': True, 'length': 35, 'peak_total_relator_length': 19, 'work': 413, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0353",
+   "entry": 45,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 48,
+   "verify": "{'ok': True, 'length': 48, 'peak_total_relator_length': 13, 'work': 512, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0354",
+   "entry": 46,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 49,
+   "verify": "{'ok': True, 'length': 49, 'peak_total_relator_length': 13, 'work': 535, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0355",
+   "entry": 16,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 4,
+   "finish": [
+    5,
+    5
+   ],
+   "finish_len": 2,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 13, 'work': 170, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0356",
+   "entry": 25,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 29,
+   "verify": "{'ok': True, 'length': 29, 'peak_total_relator_length': 13, 'work': 266, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0357",
+   "entry": 17,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 47,
+   "finish": [
+    0,
+    4,
+    11,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 13, 'work': 188, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0358",
+   "entry": 21,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 55,
+   "finish": [
+    1,
+    2,
+    0,
+    3,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 26,
+   "verify": "{'ok': True, 'length': 26, 'peak_total_relator_length': 13, 'work': 224, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0359",
+   "entry": 31,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 34,
+   "verify": "{'ok': True, 'length': 34, 'peak_total_relator_length': 13, 'work': 345, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0360",
+   "entry": 56,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 60,
+   "verify": "{'ok': True, 'length': 60, 'peak_total_relator_length': 13, 'work': 664, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0361",
+   "entry": 60,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 64,
+   "verify": "{'ok': True, 'length': 64, 'peak_total_relator_length': 14, 'work': 723, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0362",
+   "entry": 63,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 39,
+   "finish": [
+    1,
+    9,
+    3,
+    9
+   ],
+   "finish_len": 4,
+   "spliced_len": 67,
+   "verify": "{'ok': True, 'length': 67, 'peak_total_relator_length': 15, 'work': 821, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0363",
+   "entry": 20,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 24,
+   "verify": "{'ok': True, 'length': 24, 'peak_total_relator_length': 13, 'work': 233, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0364",
+   "entry": 105,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 33,
+   "finish": [
+    0,
+    1,
+    4,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 110,
+   "verify": "{'ok': True, 'length': 110, 'peak_total_relator_length': 16, 'work': 1399, 'cert",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0365",
+   "entry": 16,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 146,
+   "finish": [
+    5,
+    1,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 13, 'work': 191, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0366",
+   "entry": 30,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 15,
+   "finish": [
+    4,
+    2,
+    5
+   ],
+   "finish_len": 3,
+   "spliced_len": 33,
+   "verify": "{'ok': True, 'length': 33, 'peak_total_relator_length': 13, 'work': 326, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0367",
+   "entry": 21,
+   "L_entry": 6,
+   "official_tail": 7,
+   "bfs_nodes": 67,
+   "finish": [
+    3,
+    6,
+    3,
+    3,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 26,
+   "verify": "{'ok': True, 'length': 26, 'peak_total_relator_length': 15, 'work': 277, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0368",
+   "entry": 9,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 60,
+   "finish": [
+    1,
+    2,
+    2,
+    0,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 13, 'work': 110, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0369",
+   "entry": 43,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 24,
+   "finish": [
+    1,
+    4,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 47,
+   "verify": "{'ok': True, 'length': 47, 'peak_total_relator_length': 17, 'work': 537, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0370",
+   "entry": 23,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 108,
+   "finish": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 29,
+   "verify": "{'ok': True, 'length': 29, 'peak_total_relator_length': 13, 'work': 269, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0371",
+   "entry": 46,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 51,
+   "verify": "{'ok': True, 'length': 51, 'peak_total_relator_length': 13, 'work': 546, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0372",
+   "entry": 18,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 47,
+   "finish": [
+    13,
+    4,
+    2,
+    0,
+    4
+   ],
+   "finish_len": 5,
+   "spliced_len": 23,
+   "verify": "{'ok': True, 'length': 23, 'peak_total_relator_length': 13, 'work': 196, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0373",
+   "entry": 12,
+   "L_entry": 3,
+   "official_tail": 1,
+   "bfs_nodes": 1,
+   "finish": [
+    2
+   ],
+   "finish_len": 1,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 13, 'work': 114, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0374",
+   "entry": 24,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 28,
+   "verify": "{'ok': True, 'length': 28, 'peak_total_relator_length': 13, 'work': 258, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0375",
+   "entry": 16,
+   "L_entry": 4,
+   "official_tail": 3,
+   "bfs_nodes": 10,
+   "finish": [
+    1,
+    2,
+    2
+   ],
+   "finish_len": 3,
+   "spliced_len": 19,
+   "verify": "{'ok': True, 'length': 19, 'peak_total_relator_length': 13, 'work': 167, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0376",
+   "entry": 29,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 29,
+   "finish": [
+    4,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 33,
+   "verify": "{'ok': True, 'length': 33, 'peak_total_relator_length': 13, 'work': 319, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0377",
+   "entry": 13,
+   "L_entry": 3,
+   "official_tail": 4,
+   "bfs_nodes": 4,
+   "finish": [
+    3,
+    0
+   ],
+   "finish_len": 2,
+   "spliced_len": 15,
+   "verify": "{'ok': True, 'length': 15, 'peak_total_relator_length': 13, 'work': 135, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0378",
+   "entry": 20,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 61,
+   "finish": [
+    1,
+    2,
+    2,
+    2,
+    8
+   ],
+   "finish_len": 5,
+   "spliced_len": 25,
+   "verify": "{'ok': True, 'length': 25, 'peak_total_relator_length': 13, 'work': 213, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0379",
+   "entry": 9,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 36,
+   "finish": [
+    11,
+    2,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 13,
+   "verify": "{'ok': True, 'length': 13, 'peak_total_relator_length': 13, 'work': 94, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0380",
+   "entry": 7,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 47,
+   "finish": [
+    0,
+    4,
+    11,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 13, 'work': 78, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0381",
+   "entry": 18,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 23,
+   "finish": [
+    1,
+    3,
+    3,
+    9
+   ],
+   "finish_len": 4,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 17, 'work': 233, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0382",
+   "entry": 4,
+   "L_entry": 6,
+   "official_tail": 9,
+   "bfs_nodes": 97,
+   "finish": [
+    2,
+    9,
+    5,
+    11,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 9,
+   "verify": "{'ok': True, 'length': 9, 'peak_total_relator_length': 13, 'work': 68, 'certific",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0383",
+   "entry": 11,
+   "L_entry": 8,
+   "official_tail": 11,
+   "bfs_nodes": 531,
+   "finish": [
+    8,
+    2,
+    0,
+    9,
+    9,
+    4,
+    1,
+    2
+   ],
+   "finish_len": 8,
+   "spliced_len": 19,
+   "verify": "{'ok': True, 'length': 19, 'peak_total_relator_length': 15, 'work': 202, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0384",
+   "entry": 55,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 138,
+   "finish": [
+    1,
+    2,
+    2,
+    7,
+    4,
+    3
+   ],
+   "finish_len": 6,
+   "spliced_len": 61,
+   "verify": "{'ok': True, 'length': 61, 'peak_total_relator_length': 21, 'work': 807, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0385",
+   "entry": 9,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 55,
+   "finish": [
+    1,
+    2,
+    0,
+    3,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 13, 'work': 103, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0386",
+   "entry": 15,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 10,
+   "finish": [
+    1,
+    6,
+    3
+   ],
+   "finish_len": 3,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 15, 'work': 193, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0387",
+   "entry": 10,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 19,
+   "finish": [
+    0,
+    3,
+    10,
+    4
+   ],
+   "finish_len": 4,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 13, 'work': 93, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0388",
+   "entry": 44,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 11,
+   "finish": [
+    2,
+    0,
+    4
+   ],
+   "finish_len": 3,
+   "spliced_len": 47,
+   "verify": "{'ok': True, 'length': 47, 'peak_total_relator_length': 17, 'work': 575, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0389",
+   "entry": 6,
+   "L_entry": 4,
+   "official_tail": 7,
+   "bfs_nodes": 47,
+   "finish": [
+    0,
+    4,
+    11,
+    2,
+    5
+   ],
+   "finish_len": 5,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 13, 'work': 68, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0390",
+   "entry": 39,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 16,
+   "finish": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 43,
+   "verify": "{'ok': True, 'length': 43, 'peak_total_relator_length': 15, 'work': 491, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0391",
+   "entry": 72,
+   "L_entry": 4,
+   "official_tail": 8,
+   "bfs_nodes": 21,
+   "finish": [
+    0,
+    4,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 76,
+   "verify": "{'ok': True, 'length': 76, 'peak_total_relator_length': 17, 'work': 982, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0392",
+   "entry": 9,
+   "L_entry": 3,
+   "official_tail": 2,
+   "bfs_nodes": 4,
+   "finish": [
+    2,
+    0
+   ],
+   "finish_len": 2,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 13, 'work': 88, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0393",
+   "entry": 13,
+   "L_entry": 4,
+   "official_tail": 5,
+   "bfs_nodes": 14,
+   "finish": [
+    3,
+    3,
+    0
+   ],
+   "finish_len": 3,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 13, 'work': 119, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0394",
+   "entry": 14,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 24,
+   "finish": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "finish_len": 4,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 15, 'work': 194, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0395",
+   "entry": 13,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 1,
+   "finish": [
+    3
+   ],
+   "finish_len": 1,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 13, 'work': 129, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0396",
+   "entry": 20,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 36,
+   "finish": [
+    3,
+    3,
+    3,
+    9
+   ],
+   "finish_len": 4,
+   "spliced_len": 24,
+   "verify": "{'ok': True, 'length': 24, 'peak_total_relator_length': 13, 'work': 209, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0397",
+   "entry": 17,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 121,
+   "finish": [
+    0,
+    4,
+    4,
+    2,
+    5,
+    8
+   ],
+   "finish_len": 6,
+   "spliced_len": 23,
+   "verify": "{'ok': True, 'length': 23, 'peak_total_relator_length': 13, 'work': 190, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0398",
+   "entry": 15,
+   "L_entry": 4,
+   "official_tail": 5,
+   "bfs_nodes": 15,
+   "finish": [
+    3,
+    3,
+    9
+   ],
+   "finish_len": 3,
+   "spliced_len": 18,
+   "verify": "{'ok': True, 'length': 18, 'peak_total_relator_length': 15, 'work': 165, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0399",
+   "entry": 12,
+   "L_entry": 4,
+   "official_tail": 4,
+   "bfs_nodes": 4,
+   "finish": [
+    3,
+    3
+   ],
+   "finish_len": 2,
+   "spliced_len": 14,
+   "verify": "{'ok': True, 'length': 14, 'peak_total_relator_length': 13, 'work': 132, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0400",
+   "entry": 15,
+   "L_entry": 3,
+   "official_tail": 3,
+   "bfs_nodes": 4,
+   "finish": [
+    11,
+    5
+   ],
+   "finish_len": 2,
+   "spliced_len": 17,
+   "verify": "{'ok': True, 'length': 17, 'peak_total_relator_length': 15, 'work': 199, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0401",
+   "entry": 33,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 106,
+   "finish": [
+    0,
+    2,
+    2,
+    4,
+    3,
+    0
+   ],
+   "finish_len": 6,
+   "spliced_len": 39,
+   "verify": "{'ok': True, 'length': 39, 'peak_total_relator_length': 17, 'work': 433, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0402",
+   "entry": 53,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 104,
+   "finish": [
+    0,
+    2,
+    2,
+    4,
+    1,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 59,
+   "verify": "{'ok': True, 'length': 59, 'peak_total_relator_length': 19, 'work': 746, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0403",
+   "entry": 17,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 21,
+   "verify": "{'ok': True, 'length': 21, 'peak_total_relator_length': 13, 'work': 196, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0404",
+   "entry": 28,
+   "L_entry": 6,
+   "official_tail": 9,
+   "bfs_nodes": 142,
+   "finish": [
+    5,
+    5,
+    5,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 6,
+   "spliced_len": 34,
+   "verify": "{'ok': True, 'length': 34, 'peak_total_relator_length': 15, 'work': 364, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0405",
+   "entry": 94,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 111,
+   "finish": [
+    0,
+    4,
+    2,
+    5,
+    3,
+    9
+   ],
+   "finish_len": 6,
+   "spliced_len": 100,
+   "verify": "{'ok': True, 'length': 100, 'peak_total_relator_length': 17, 'work': 1344, 'cert",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0406",
+   "entry": 30,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 34,
+   "verify": "{'ok': True, 'length': 34, 'peak_total_relator_length': 13, 'work': 339, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0407",
+   "entry": 54,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 7,
+   "finish": [
+    0,
+    3,
+    8
+   ],
+   "finish_len": 3,
+   "spliced_len": 57,
+   "verify": "{'ok': True, 'length': 57, 'peak_total_relator_length': 15, 'work': 682, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0408",
+   "entry": 27,
+   "L_entry": 3,
+   "official_tail": 5,
+   "bfs_nodes": 16,
+   "finish": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "finish_len": 4,
+   "spliced_len": 31,
+   "verify": "{'ok': True, 'length': 31, 'peak_total_relator_length': 17, 'work': 287, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0409",
+   "entry": 32,
+   "L_entry": 5,
+   "official_tail": 5,
+   "bfs_nodes": 61,
+   "finish": [
+    1,
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 37,
+   "verify": "{'ok': True, 'length': 37, 'peak_total_relator_length': 13, 'work': 389, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0410",
+   "entry": 18,
+   "L_entry": 6,
+   "official_tail": 7,
+   "bfs_nodes": 103,
+   "finish": [
+    1,
+    2,
+    0,
+    3,
+    3,
+    3
+   ],
+   "finish_len": 6,
+   "spliced_len": 24,
+   "verify": "{'ok': True, 'length': 24, 'peak_total_relator_length': 17, 'work': 254, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0411",
+   "entry": 25,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 29,
+   "verify": "{'ok': True, 'length': 29, 'peak_total_relator_length': 13, 'work': 289, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0412",
+   "entry": 26,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 35,
+   "finish": [
+    3,
+    6,
+    3,
+    3
+   ],
+   "finish_len": 4,
+   "spliced_len": 30,
+   "verify": "{'ok': True, 'length': 30, 'peak_total_relator_length': 13, 'work': 288, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0413",
+   "entry": 8,
+   "L_entry": 3,
+   "official_tail": 6,
+   "bfs_nodes": 8,
+   "finish": [
+    1,
+    4,
+    3
+   ],
+   "finish_len": 3,
+   "spliced_len": 11,
+   "verify": "{'ok': True, 'length': 11, 'peak_total_relator_length': 13, 'work': 98, 'certifi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0414",
+   "entry": 5,
+   "L_entry": 8,
+   "official_tail": 11,
+   "bfs_nodes": 264,
+   "finish": [
+    0,
+    2,
+    9,
+    9,
+    5,
+    11,
+    2
+   ],
+   "finish_len": 7,
+   "spliced_len": 12,
+   "verify": "{'ok': True, 'length': 12, 'peak_total_relator_length': 15, 'work': 111, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0415",
+   "entry": 46,
+   "L_entry": 5,
+   "official_tail": 6,
+   "bfs_nodes": 39,
+   "finish": [
+    5,
+    5,
+    5,
+    1
+   ],
+   "finish_len": 4,
+   "spliced_len": 50,
+   "verify": "{'ok': True, 'length': 50, 'peak_total_relator_length': 21, 'work': 637, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0416",
+   "entry": 17,
+   "L_entry": 6,
+   "official_tail": 7,
+   "bfs_nodes": 67,
+   "finish": [
+    3,
+    6,
+    3,
+    3,
+    3
+   ],
+   "finish_len": 5,
+   "spliced_len": 22,
+   "verify": "{'ok': True, 'length': 22, 'peak_total_relator_length': 13, 'work': 213, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0417",
+   "entry": 87,
+   "L_entry": 5,
+   "official_tail": 4,
+   "bfs_nodes": 39,
+   "finish": [
+    1,
+    9,
+    3,
+    9
+   ],
+   "finish_len": 4,
+   "spliced_len": 91,
+   "verify": "{'ok': True, 'length': 91, 'peak_total_relator_length': 15, 'work': 1148, 'certi",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0418",
+   "entry": 26,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 108,
+   "finish": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 32,
+   "verify": "{'ok': True, 'length': 32, 'peak_total_relator_length': 13, 'work': 301, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0419",
+   "entry": 33,
+   "L_entry": 5,
+   "official_tail": 9,
+   "bfs_nodes": 108,
+   "finish": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "finish_len": 6,
+   "spliced_len": 39,
+   "verify": "{'ok': True, 'length': 39, 'peak_total_relator_length': 15, 'work': 427, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0420",
+   "entry": 35,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 40,
+   "verify": "{'ok': True, 'length': 40, 'peak_total_relator_length': 17, 'work': 465, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0421",
+   "entry": 50,
+   "L_entry": 5,
+   "official_tail": 10,
+   "bfs_nodes": 133,
+   "finish": [
+    1,
+    4,
+    2,
+    5,
+    3,
+    0
+   ],
+   "finish_len": 6,
+   "spliced_len": 56,
+   "verify": "{'ok': True, 'length': 56, 'peak_total_relator_length': 19, 'work': 711, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0422",
+   "entry": 32,
+   "L_entry": 5,
+   "official_tail": 8,
+   "bfs_nodes": 74,
+   "finish": [
+    5,
+    3,
+    4,
+    2,
+    10
+   ],
+   "finish_len": 5,
+   "spliced_len": 37,
+   "verify": "{'ok': True, 'length': 37, 'peak_total_relator_length': 21, 'work': 427, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0423",
+   "entry": 7,
+   "L_entry": 8,
+   "official_tail": 10,
+   "bfs_nodes": 811,
+   "finish": [
+    0,
+    5,
+    5,
+    5,
+    3,
+    4,
+    2,
+    2,
+    10
+   ],
+   "finish_len": 9,
+   "spliced_len": 16,
+   "verify": "{'ok': True, 'length': 16, 'peak_total_relator_length': 23, 'work': 193, 'certif",
+   "verify_ok": true
+  },
+  {
+   "id": "ms-train-0424",
+   "entry": 40,
+   "L_entry": 5,
+   "official_tail": 7,
+   "bfs_nodes": 64,
+   "finish": [
+    1,
+    2,
+    6,
+    2,
+    2
+   ],
+   "finish_len": 5,
+   "spliced_len": 45,
+   "verify": "{'ok': True, 'length': 45, 'peak_total_relator_length': 25, 'work': 565, 'certif",
+   "verify_ok": true
+  }
+ ]
+}
