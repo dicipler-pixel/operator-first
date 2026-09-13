@@ -62,9 +62,16 @@ nana.rotation.y = Math.PI + 0.10;
 scene.add(nana);
 
 // Cooler on her off-hand side. A tappable object in the world.
+//
+// Pulled forward of the chair rather than level with it. Level with the chair
+// it sat exactly on the BOTTOM EDGE of the 4:3 picture, so half of its touch
+// target fell into the letterbox bar — where taps are not picked at all,
+// because clientToRenderPixel correctly rejects anything outside the rendered
+// image. Measured: only two taps in seven landed. Forward of the chair it sits
+// clear of the edge and is still, plainly, beside her.
 const cooler = createCooler();
-cooler.position.set(SEAT.x - 0.66, 0.06, SEAT.z + 0.10);
-cooler.rotation.y = -0.22;
+cooler.position.set(SEAT.x - 0.74, 0.06, SEAT.z - 0.46);
+cooler.rotation.y = -0.30;
 scene.add(cooler);
 
 const rodHolder = createRodHolder();
@@ -239,7 +246,7 @@ const trip = new Trip(mapData, {
     bobber.visible = false;
     hud.showTension(false);
     hud.setPrompt('HE WAS RIGHT THERE.');
-    board.show(trip.records, 'He was right there.', () => trip.boardDone());
+    showBoard('He was right there.');
   },
 
   onRelease: () => {
@@ -260,6 +267,27 @@ hud.setName('NANA');
 hud.setCooler(trip.coolerLeft);
 refreshBest();
 hud.setPrompt('TAP THE WATER TO CAST');
+
+// Packing up and sitting back down re-rolls the trip. Without it, a trip that
+// rolled NO BIG ONE could never produce Walter for as long as the page stayed
+// open — which is exactly what it felt like in play.
+function startNewTrip() {
+  if (walterFish) { scene.remove(walterFish); walterFish = null; }
+  if (releaseFish) { scene.remove(releaseFish); releaseFish = null; }
+  if (hookedFish) { scene.remove(hookedFish); hookedFish = null; }
+  if (canPlaced) { scene.remove(can); canPlaced = false; }
+  walterShadow.visible = false;
+  bobber.visible = false;
+  trip.newTrip();
+  hud.setCooler(trip.coolerLeft);
+  hud.setPrompt('TAP THE WATER TO CAST');
+  hud.say('Right. Again.');
+  refreshBest();
+}
+
+function showBoard(headline) {
+  board.show(trip.records, headline ?? null, () => trip.boardDone(), startNewTrip);
+}
 
 function refreshBest() {
   const best = trip.records.best;
@@ -298,7 +326,7 @@ function onStateChange(s) {
       break;
     case STATE.BOARD:
       hud.setPrompt('');
-      if (!board.active) board.show(trip.records, null, () => trip.boardDone());
+      if (!board.active) showBoard(null);
       break;
     case STATE.FIGHT:
       hud.setPrompt('HOLD TO REEL — LET GO TO GIVE LINE');
@@ -324,6 +352,9 @@ function spawnHookedFish() {
 
 // ---------------------------------------------------------------------------
 // Three controls, one thumb. No swipes, no pinch, no drag, no tilt.
+
+const can = createCan();
+let canPlaced = false;
 
 const raycaster = new THREE.Raycaster();
 const waterPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
@@ -394,9 +425,14 @@ addEventListener('keydown', (e) => {
   if (e.key === 't' || e.key === 'T') trip.forceWalter('trout');
   if (e.key === 'r' || e.key === 'R') trip.forceWalter('red');
   // Debug: show the record board.
-  if (e.key === 'v' || e.key === 'V') board.show(trip.records, null, () => trip.boardDone());
+  if (e.key === 'v' || e.key === 'V') showBoard(null);
 });
 addEventListener('keyup', (e) => { if (e.code === 'Space') hold(false); });
+document.getElementById('records-btn').addEventListener('pointerdown', (e) => {
+  e.preventDefault(); e.stopPropagation();
+  showBoard(null);
+});
+
 addEventListener('resize', () => pipeline.resize());
 
 // ---------------------------------------------------------------------------
@@ -417,8 +453,6 @@ startScreen.addEventListener('pointerdown', async () => {
 let animState = 'idle';
 let animTime = 0;
 let nextOutboard = 40 + Math.random() * 60;
-const can = createCan();
-let canPlaced = false;
 
 const tmpTip = new THREE.Vector3();
 const linePositions = fishingLine.geometry.attributes.position;
@@ -437,6 +471,9 @@ pipeline.start((dt, elapsed) => {
     scene.fog.color.copy(sky);
     syncRetroLighting(scene, { sunColor, fogColor: sky });
     sfx.setAmbience({ heat: trip.heat });
+
+    const hint = trip.maybeHintCooler();
+    if (hint) hud.say(hint);
 
     nextOutboard -= dt;
     if (nextOutboard <= 0) { sfx.distantOutboard(); nextOutboard = 70 + Math.random() * 90; }

@@ -33,18 +33,26 @@ export class RecordBoard {
       red: uiRoot.querySelector('#sight-red'),
     };
     this.headline = uiRoot.querySelector('#board-headline');
+    this.newTripBtn = uiRoot.querySelector('#new-trip');
     this.active = false;
     this.onDone = null;
+    this.onNewTrip = null;
 
     this.root.addEventListener('pointerdown', () => this.hide());
+    this.newTripBtn.addEventListener('pointerdown', (e) => {
+      e.stopPropagation();
+      this.hide();
+      this.onNewTrip?.();
+    });
   }
 
   /**
    * @param {object} records  from Trip.records
    * @param {string|null} headline  e.g. `HE WAS RIGHT THERE.` after an almost
    */
-  show(records, headline, onDone) {
+  show(records, headline, onDone, onNewTrip) {
     this.onDone = onDone;
+    if (onNewTrip) this.onNewTrip = onNewTrip;
     this.active = true;
 
     for (const key of Object.keys(WALTER_FORMS)) {

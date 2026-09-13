@@ -67,6 +67,25 @@
   }
   #hud-say.on { opacity: 1; }
 
+  /* Not a gameplay control — it lives in the letterbox bar with the other
+     readouts, and the game still has three controls. 64pt minimum like
+     everything else. */
+  #records-btn {
+    pointer-events: auto; margin-top: 6px; min-height: 64px; padding: 0 26px;
+    background: var(--panel); border: 2px solid var(--bevel); box-shadow: 1px 1px 0 #000;
+    color: var(--ink); font: inherit; font-size: 20px; font-weight: 700;
+    letter-spacing: .08em; text-shadow: 1px 1px 0 #000; cursor: pointer;
+  }
+  #ui.celebrating #records-btn { display: none; }
+
+  .board-actions { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  #new-trip {
+    min-height: 64px; padding: 0 24px; max-width: 100%;
+    background: #2c4738; border: 2px solid var(--bevel); box-shadow: 1px 1px 0 #000;
+    color: var(--ink); font: inherit; font-size: 21px; font-weight: 700;
+    letter-spacing: .06em; text-shadow: 1px 1px 0 #000; cursor: pointer;
+  }
+
   /* ---- line tension: fills AND changes width, never colour alone ------ */
   /* In the bottom letterbox bar, directly above the reel bar — where the
      thumb already is, and out of the 320x240 picture. */
@@ -178,6 +197,7 @@
     <div id="top">
       <div id="hud-prompt" class="caps">—</div>
       <div id="hud-say"></div>
+      <button id="records-btn" class="caps" type="button">Records</button>
     </div>
 
     <div id="catch">
@@ -207,7 +227,10 @@
         <div>RED <b id="sight-red" class="num">0</b></div>
       </div>
 
-      <div id="board-hint" class="caps">Tap to go back</div>
+      <div class="board-actions">
+        <button id="new-trip" class="caps" type="button">Pack up &amp; sit back down</button>
+        <div id="board-hint" class="caps">Tap anywhere else to go back</div>
+      </div>
     </div>
 
     <div id="bottom">

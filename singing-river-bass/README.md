@@ -22,6 +22,9 @@ npm run waltertest   # drives all three Walter branches end to end
 
 **Playing it.** Tap the water to cast. Tap anywhere to set the hook when the rod
 bends. Hold the bar to reel, let go to give line. Tap the cooler if you want one.
+Tap **RECORDS** in the top bar for the board, and **PACK UP & SIT BACK DOWN**
+there to start a new afternoon — that re-rolls Walter. Records survive.
+
 Keyboard: `space` hook/reel, `C` cooler, `V` record board, and for testing only:
 `B` skip the 30-60s wait, `T` force Walter as the trout, `R` force him as the red.
 
@@ -29,7 +32,9 @@ Bites come every 30 to 60 seconds by design — this is a slow game about sittin
 somewhere nice. `B` exists so you do not have to wait to test it.
 
 **Walter** rolls once per trip at sit-down: 50% he shows and she lands him, 25%
-he shows and goes, 25% no big one. He turns up as a gator speckled trout at
+he shows and goes, 25% no big one. A trip that rolled no big one stays that way
+until she packs up and sits back down, so that button is how you get another
+roll. He turns up as a gator speckled trout at
 exactly 8.40 lb or a bull redfish at exactly 34.80 lb, and those numbers never
 move. The fight runs 30-60 seconds against 5 for everything else, he stays a
 shadow under the surface until the reveal, and she always puts him back.

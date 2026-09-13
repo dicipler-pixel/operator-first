@@ -274,6 +274,26 @@ export function createCooler() {
   lid.add(lidMesh);
   cooler.userData.lid = lid;
 
+  // A GENEROUS INVISIBLE HIT PROXY.
+  //
+  // The cooler is the only interactive object in the world, and measured on a
+  // 390px phone the visible box is 71x64 CSS pixels with no forgiveness at all
+  // — a dead-centre tap worked and 22 pixels off missed. That is nominally at
+  // the 64pt floor and useless in practice with a thumb, which is why the beer
+  // was undiscoverable. 00_DESIGN_BIBLE.md §4 sets 64pt as a MINIMUM, not a
+  // target, so this proxy is about two and a half times the visible cooler.
+  //
+  // It stays a world object rather than becoming a fourth button: the proxy
+  // moves with the cooler, is occluded by nothing, and draws nothing.
+  const proxy = new THREE.Mesh(
+    new THREE.BoxGeometry(1.45, 1.05, 1.15),
+    new THREE.MeshBasicMaterial({ visible: false }),
+  );
+  proxy.position.set(0, 0.34, 0);
+  proxy.name = 'cooler_hit';
+  cooler.add(proxy);
+  cooler.userData.hitProxy = proxy;
+
   // handle + latch, so it reads as a cooler and not a box
   const handle = mesh(paint(new THREE.BoxGeometry(0.06, 0.10, 0.03), 0x3a3f44), mat);
   handle.position.set(0, 0.30, 0.20);

@@ -89,6 +89,7 @@ export class Trip {
 
     this.caught = [];
     this.lastCatch = null;
+    this.hintShown = false;
 
     this.say = {
       crackBeer: makeCycler(LINES.crackBeer),
@@ -588,6 +589,58 @@ export class Trip {
     setTimeout(() => sfx.sfxHiss(), 490);
     setTimeout(() => { this.hooks.onSay?.(LINES.walterToast); sfx.sfxToast(); }, 900);
     return true;
+  }
+
+
+  /**
+   * She packs up and sits back down. A NEW AFTERNOON.
+   *
+   * This is the piece that was missing, and it mattered more than it looks.
+   * The Walter roll happens once, the moment she sits down — but she never got
+   * up again, so a trip that rolled NO BIG ONE stayed a no-big-one trip
+   * forever. A quarter of all sessions could never produce him at all, with
+   * nothing to tell the player why. That is the difference between "nothing
+   * announces this", which is the design, and "he is not in the game", which
+   * is what it actually felt like.
+   *
+   * Records survive. The afternoon resets: fresh roll, full cooler, heat gone.
+   */
+  newTrip() {
+    const r = Math.random();
+    this.walterRoll = r < 0.50 ? 'walter' : r < 0.75 ? 'almost' : 'none';
+    this.walterForm = Math.random() < 0.5 ? 'trout' : 'red';
+    this.walterSpent = false;
+    this.walterOn = false;
+    this.walterChance = undefined;
+    this.walterSeed = Math.random() * 100;
+    this.walterToasted = false;
+
+    this.elapsed = 0;
+    this.heat = 0;
+    this.coolerLeft = COOLER_CAPACITY;
+    this.hasDrink = false;
+    this.pending = null;
+    this.lastCatch = null;
+    this.caught = [];
+    this.tension = 0;
+    this.distance = 1;
+    this.reeling = false;
+    this.hintShown = false;
+    sfx.setAmbience({ heat: 0, hushed: false });
+    this.setState(STATE.IDLE);
+  }
+
+  /**
+   * A one-time nudge that the cooler is there, once she has settled in. The
+   * start screen mentions it and it is easy to miss, and a drink she never
+   * finds is atmosphere she never gets.
+   */
+  maybeHintCooler() {
+    if (this.hintShown) return null;
+    if (this.elapsed < 70 || this.coolerLeft <= 0) return null;
+    if (this.state !== STATE.WAITING && this.state !== STATE.IDLE) return null;
+    this.hintShown = true;
+    return 'TAP THE COOLER IF YOU WANT ONE';
   }
 
   /** Debug only: force the trip's Walter to be available on the next bite. */
