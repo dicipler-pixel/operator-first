@@ -1,0 +1,62 @@
+{
+ "schema": "compound-eye-mixer-recipe-v1",
+ "engine_version": "1.0.0",
+ "dataset": {
+  "schema": "compound-eye-traces-v1",
+  "id": "eyes__frontiermath-ell3-rank9__three-rank-by-candidate",
+  "title": "frontiermath-ell3-rank9 / three-rank-by-candidate",
+  "description": "set-level combination of 1 commensurable eyes",
+  "context": {
+   "object_id": "frontiermath-ell3-rank9",
+   "model_id": "three-rank-by-candidate",
+   "coordinate": "candidate row",
+   "x_unit": "ledger row ordinal",
+   "source_stage": "computation"
+  },
+  "x": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "traces": [
+   {
+    "id": "invariant-factor",
+    "label": "the invariant factors and 3-rank of the class group of a given discriminant",
+    "unit": "3-rank",
+    "source": "{\"repo\":\"operator-first\",\"path\":\"research/frontiermath/bqf_class_group_v1.py\"}",
+    "color": "#68e2d0",
+    "values": [
+     1,
+     3,
+     null,
+     null,
+     null
+    ],
+    "defaultRoute": "x"
+   }
+  ]
+ },
+ "settings": {
+  "normalization": "source",
+  "center": false,
+  "smoothing": 1,
+  "view": "shape",
+  "showComponents": true,
+  "showOriginal": true,
+  "scale": 1,
+  "cursor": 0,
+  "channels": {
+   "invariant-factor": {
+    "enabled": true,
+    "weight": 1,
+    "route": "x",
+    "frequency": 0,
+    "phase": 0
+   }
+  }
+ },
+ "baseline": null,
+ "meaning": "A reproducible visual composition; weights, centering and smoothing are chosen display operations, not automatically physical laws."
+}
