@@ -177,6 +177,15 @@ A Lean certificate certifies only the encoded statement and explicit hypotheses.
 - Scope: contributionwise PSD improvement when positive energy-labelled terms retain their individual denominators instead of being replaced by one common floor.
 - Boundary: no Peter–Weyl completeness, full hidden Hamiltonian, infinite-dimensional inverse order, inertia, volume-uniformity, or continuum result.
 
+### LC-023 — Yang–Mills nonuniform overlapping allocation floor
+- PR: **#56**
+- Verified head: `37c08ade9bfd62f0efc4674d72fb49e287fc98fd`
+- Evidence runs: dedicated `34744922404`; repository CI same head `34744922445`
+- Ancestry: stacked on PR #54 at base snapshot `f819aa5d5d7858f3d93b6d9fd4305d7dfc32d123`, following the PR #52/#54 Yang–Mills tail/Schur-floor lineage.
+- New inventory at this snapshot: **3 named theorems** in `NonuniformAllocationFloor.lean`. The workflow also rebuilt and audited the inherited 17 scalar/matrix declarations, 3 Schur-congruence theorems, 6 tail-transfer theorems, and 3 Schur-floor theorems; those inherited declarations are ancestry and are **not counted again** as new here.
+- Scope: for finite index types, nonnegative real energy components, and arbitrary real allocation coefficients whose total charge per energy component is at most one, the total allocated weighted energy is at most the original total. Cellwise scalar lower-floor hypotheses then sum to a global scalar lower floor, with an equivalent nonnegative-residual form. Equal allocation, nonnegative allocation coefficients, and disjoint cells are not assumptions.
+- Boundary: scalar/quadratic-form bookkeeping only. It does not establish the physical Yang–Mills local-floor hypotheses, RG/polymer activity bounds, a volume-uniform gap, thermodynamic or continuum limits, Osterwalder–Schrader reconstruction, or the Clay mass-gap theorem.
+
 ## UPG / retained-hidden coupling
 
 ### LC-019 — UPG redistribution / zero-time feedback kernel
@@ -202,6 +211,15 @@ A Lean certificate certifies only the encoded statement and explicit hypotheses.
 - Scope: every `1 ≤ n ≤ 100000` reaches 1 within at most 400 ordinary Collatz steps, with Boolean-checker soundness proved and finite range discharged by `native_decide`.
 - Boundary: bounded theorem only.
 
+### LC-024 — Collatz one-cylinder exceptional threshold
+- PR: **#57**
+- Verified head: `08d3a66728c4ca867f68146189aee93e27570e33`
+- Evidence runs: dedicated `34744804576`; repository CI same head `34744804643`
+- Ancestry: stacked on PR #55 at base snapshot `e349bb438135e0397996cea021ff074d642cbc67`; imports `CollatzNoFixedWindow.lean` and continues the PR #53 moving-anchor interface.
+- New inventory at this snapshot: **5 named theorems** in `CollatzExceptionalThreshold.lean`; `phaseResolution` is a definition, not a theorem. The workflow also compiled and checked the inherited moving-anchor and no-fixed-window modules and retained the broader Collatz exact controls; those inherited declarations are **not counted again** as new here.
+- Scope: for `M > 0` exact cylinders, an exceptional fraction `bad/M < 1/M` forces `bad = 0`, while `bad ≠ 0` forces fraction at least `1/M`. At corrected odd-to-odd phase resolution `M = 2^(S+1)`, the same two directions hold and the resolution is positive.
+- Boundary: finite counting interface at a fixed resolution only. It does not prove that any Tao-style almost-all estimate attains this moving threshold, moving-anchor escape, exclusion of arbitrary infinite valuation sequences, or the Collatz conjecture.
+
 ## Recovered / audit certificates
 
 ### LC-022 — Standard-mathematics / title-kernel audit
@@ -222,6 +240,8 @@ The following relations prevent double counting:
 - PR #9 extends PR #8 with the overlap/Taylor bridge; do not sum all inherited declarations as independent discoveries.
 - PR #25 extends earlier Elemental formal work; its 49 Revision-4 declarations are the new inventory for that revision, not the total inherited theorem corpus.
 - PR #27 contains the Yang–Mills scalar closing layer plus the PSD matrix lift; the 17-declaration audit is the project inventory for that snapshot, not 17 additional independent physics results.
+- PR #56 extends the PR #52/#54 Yang–Mills tail/Schur-floor lineage. Only its 3 `NonuniformAllocationFloor.lean` theorems are new at LC-023; all rechecked parent declarations remain inherited.
+- PR #57 extends the PR #53/#55 Collatz moving-anchor/no-fixed-window lineage. Only its 5 `CollatzExceptionalThreshold.lean` theorems are new at LC-024; all rechecked parent declarations remain inherited.
 
 ---
 
