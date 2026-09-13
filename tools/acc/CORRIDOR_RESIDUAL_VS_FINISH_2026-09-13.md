@@ -77,3 +77,23 @@ should be, on the lane that holds the well dump (PR 44 / PR 47 frontier work).
    (257 moves, empty-presentation target, corridor = some relator a single letter). Stable-training control:
    424 official stable solutions, 370 shortened, 53 kept, 1 hit the BFS node limit (kept unchanged), 1,320 moves
    saved, every output line re-verified by the official sac-r8-v1 verifier, 184 s.
+
+## Independent cross-check of the residual → finish calibration (2026-09-13, `corridor_calibration_v1.py`)
+
+Forward BFS from **every** corridor state of residual R (single letter in either slot, either sign; other
+relator a freely reduced word of length R with exponent sum ±1 in the other generator), 14 official moves,
+cap (R+1)+2. Compared with the reverse-BFS table reported from the ChatGPT lane:
+
+| R | states (mine / theirs) | shortest | median | 90% ≤ | worst | agree |
+|---:|---:|---:|---:|---:|---:|---|
+| 1 | 16 / 8 | 0 | 3 | 4 / 5 | 5 | counts and 90% differ (I include both signs and both slots; they report 8) |
+| 2 | 64 / 64 | 1 | 3 | 4 | 4 | yes |
+| 3 | 128 / 128 | 1 | 4 | 5 | 6 | yes |
+| 4 | 256 / 256 | 2 | 4 | 6 | 7 | yes |
+| 5 | 768 / 768 | 2 | 5 | 6 | 8 | yes |
+| 6 | 2368 / 2368 | 3 | 6 | 7 | 9 | yes |
+| 7 | 6528 / 6528 | 3 | 7 | 8 | 10 | yes |
+
+Two independent engines (their reverse BFS, my forward BFS on the official kernel) agree row for row from
+R = 2 to 7. R = 8 is appended when the run completes. ms-train-0333 enters at R = 8 and its exact cap-2
+finish is 9, inside their R = 8 row (median 8, 90% ≤ 9, worst 11).
