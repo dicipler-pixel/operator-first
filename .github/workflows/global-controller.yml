@@ -1,0 +1,70 @@
+name: Global-controller fast-slow certificate
+
+on:
+  push:
+    paths:
+      - 'OperatorFirst/GlobalConstraint.lean'
+      - 'research/global-controller/**'
+      - '.github/workflows/global-controller.yml'
+  pull_request:
+    paths:
+      - 'OperatorFirst/GlobalConstraint.lean'
+      - 'research/global-controller/**'
+      - '.github/workflows/global-controller.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  lean-certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      LEAN_NUM_THREADS: 2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain "$(cat lean-toolchain)"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Compile exact finite kernel
+        shell: bash
+        run: |
+          set -o pipefail
+          lake env lean OperatorFirst/GlobalConstraint.lean 2>&1 | tee global-controller-lean.log
+      - name: Independent kernel recheck and axiom audit
+        uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
+        with:
+          use-mathlib-cache: true
+          build: true
+          leanchecker: true
+          leanchecker-args: OperatorFirst.GlobalConstraint
+          axiom-audit: true
+          axiom-audit-allow: propext,Classical.choice,Quot.sound
+      - name: False-control rejection
+        shell: bash
+        run: |
+          cat > /tmp/GlobalConstraintFalseControl.lean <<'EOF'
+          import OperatorFirst.GlobalConstraint
+          open OperatorFirst.GlobalConstraint
+          example : quadraticError (relax (1 / 2 : ℝ) 1 0) 0 > quadraticError 1 0 := by
+            norm_num [quadraticError, relax]
+          EOF
+          if lake env lean /tmp/GlobalConstraintFalseControl.lean > false-control.log 2>&1; then
+            echo 'ERROR: deliberately false contraction claim unexpectedly compiled'
+            cat false-control.log
+            exit 1
+          else
+            echo 'PASS: deliberately false contraction claim was rejected'
+            cat false-control.log
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: global-controller-lean-certificate
+          path: |
+            global-controller-lean.log
+            false-control.log
