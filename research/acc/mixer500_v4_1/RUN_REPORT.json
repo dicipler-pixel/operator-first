@@ -1,0 +1,39 @@
+{
+  "registered_eyes": 500,
+  "inherited_catalog_entries": 191,
+  "new_generic_executable_views": 309,
+  "generic_eye_instances_per_column": 5871,
+  "feature_columns": [
+    "tot",
+    "len_r0",
+    "len_r1",
+    "hab",
+    "foxA",
+    "cyc_tot",
+    "k",
+    "surplus",
+    "floor",
+    "r0_off",
+    "r1_off",
+    "pair_off",
+    "sm_m01_radius",
+    "sm_m10_radius",
+    "sm_c0x_radius",
+    "sm_c0y_radius",
+    "sm_c1x_radius",
+    "sm_c1y_radius",
+    "min_child_delta"
+  ],
+  "new_unique_kernel_groups": 52,
+  "raw_rows": 3000,
+  "raw_columns": 20,
+  "target_column": "remaining",
+  "order_enforced": [
+    "RAW_INPUT_MANIFEST",
+    "EYES_ALL_RAW",
+    "INDIVIDUAL_EYE_SUMMARY",
+    "MIXING_STATS",
+    "DIVERSE_PANEL"
+  ],
+  "warning": "500 registered views do not equal 500 independent experiments. Kernel groups are reported explicitly."
+}
