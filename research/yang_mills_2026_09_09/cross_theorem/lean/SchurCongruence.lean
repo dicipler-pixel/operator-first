@@ -43,12 +43,15 @@ theorem schur_congruence
     (hRsymm : R.transpose = R) :
     (schurElim B R).transpose * symBlock A B D * schurElim B R =
       Matrix.fromBlocks (schurComplement A B R) 0 0 D := by
-  ext i j
-  cases i <;> cases j <;>
-    simp [schurElim, symBlock, schurComplement, Matrix.fromBlocks_multiply,
-      Matrix.transpose_fromBlocks, Matrix.transpose_mul, hDR, hRD, hDsymm, hRsymm,
-      Matrix.mul_assoc] <;>
-    ring_nf
+  have hBRD : B * R * D = B := by
+    rw [Matrix.mul_assoc, hRD, Matrix.mul_one]
+  have hDRBt : D * (R * B.transpose) = B.transpose := by
+    rw [← Matrix.mul_assoc, hDR, Matrix.one_mul]
+  have hCtrans : (R * B.transpose).transpose = B * R := by
+    rw [Matrix.transpose_mul, Matrix.transpose_transpose, hRsymm]
+  simp [schurElim, symBlock, schurComplement,
+    Matrix.fromBlocks_transpose, Matrix.fromBlocks_multiply,
+    hCtrans, hBRD, hDRBt, hDsymm]
 
 /-- The explicit elimination matrix has an explicit inverse when no spectral
 assumption beyond the displayed algebra is needed. -/
@@ -60,19 +63,13 @@ def schurElimInv (B : Matrix r h ℝ) (R : Matrix h h ℝ) :
 theorem schurElim_mul_inv
     (B : Matrix r h ℝ) (R : Matrix h h ℝ) :
     schurElim B R * schurElimInv B R = 1 := by
-  ext i j
-  cases i <;> cases j <;>
-    simp [schurElim, schurElimInv, Matrix.fromBlocks_multiply] <;>
-    ring
+  simp [schurElim, schurElimInv, Matrix.fromBlocks_multiply]
 
 /-- Reverse inverse identity. -/
 theorem schurElimInv_mul
     (B : Matrix r h ℝ) (R : Matrix h h ℝ) :
     schurElimInv B R * schurElim B R = 1 := by
-  ext i j
-  cases i <;> cases j <;>
-    simp [schurElim, schurElimInv, Matrix.fromBlocks_multiply] <;>
-    ring
+  simp [schurElim, schurElimInv, Matrix.fromBlocks_multiply]
 
 end CrossTheorem
 
