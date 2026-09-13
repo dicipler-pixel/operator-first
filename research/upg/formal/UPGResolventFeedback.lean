@@ -34,7 +34,7 @@ feedback is equivalent to vanishing coupling. -/
 theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
     (B : Matrix r h ℝ) (R C L : Matrix h h ℝ)
     (hR : R = C * C.transpose)
-    (hCL : C * L = 1) :
+    (hCL : C * L = (1 : Matrix h h ℝ)) :
     feedbackWith B R = 0 ↔ B = 0 := by
   constructor
   · intro hfb
@@ -43,7 +43,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
       exact hfb
     have hBC : B * C = 0 := (memoryAtZero_eq_zero_iff (B * C)).mp hgram
     calc
-      B = B * 1 := by simp
+      B = B * (1 : Matrix h h ℝ) := by simp
       _ = B * (C * L) := by rw [hCL]
       _ = (B * C) * L := by rw [Matrix.mul_assoc]
       _ = 0 := by rw [hBC]; simp
@@ -56,7 +56,7 @@ the same explicit right-invertibility hypothesis. -/
 theorem nonzero_coupling_gives_nonzero_factorized_feedback
     (B : Matrix r h ℝ) (R C L : Matrix h h ℝ)
     (hR : R = C * C.transpose)
-    (hCL : C * L = 1)
+    (hCL : C * L = (1 : Matrix h h ℝ))
     (hB : B ≠ 0) :
     feedbackWith B R ≠ 0 := by
   intro hzero
