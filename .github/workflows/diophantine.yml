@@ -6,6 +6,7 @@ on:
       - 'CollatzBarrier.lean'
       - 'CollatzAlignment.lean'
       - 'CollatzRealization.lean'
+      - 'CollatzMovingAnchor.lean'
       - 'CollatzDiophantine.lean'
       - 'collatz_diophantine_exact.py'
       - 'collatz_alignment_exact.py'
@@ -17,6 +18,7 @@ on:
       - 'CollatzBarrier.lean'
       - 'CollatzAlignment.lean'
       - 'CollatzRealization.lean'
+      - 'CollatzMovingAnchor.lean'
       - 'CollatzDiophantine.lean'
       - 'collatz_diophantine_exact.py'
       - 'collatz_alignment_exact.py'
@@ -68,6 +70,8 @@ jobs:
         run: lake env lean ../../../CollatzAlignment.lean
       - name: Check Collatz exact realization cylinders
         run: lake env lean ../../../CollatzRealization.lean
+      - name: Check Collatz moving-anchor interface
+        run: lake env lean ../../../CollatzMovingAnchor.lean
       - name: Check Collatz Diophantine gap certificates
         run: lake env lean ../../../CollatzDiophantine.lean
       - uses: actions/upload-artifact@v4
