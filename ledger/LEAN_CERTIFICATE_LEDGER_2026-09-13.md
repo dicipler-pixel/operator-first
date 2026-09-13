@@ -2,13 +2,13 @@
 
 Authoritative format per the author's instruction: theorem name, exact Lean declaration, source file, verified commit, verification run. Extracted read-only from every branch of `dicipler-pixel/operator-first` (git objects) and the GitHub Actions run history; nothing was compiled here.
 
-**Status meaning.** VERIFIED = at least one branch containing this exact statement has a completed workflow run with conclusion success on that branch's head commit, from a workflow that references the file (by path, module, directory, or as a root lake library under `ci.yml`). FAILED-AT-HEAD = only failing runs found at head. UNVERIFIED = no run at head could be tied to the file. A run verifies the whole file/library it built, not the theorem in isolation; a `sorry`-free build is what the workflow asserts, and axiom audits exist only where the workflow performs them.
+**Status meaning.** VERIFIED = at least one branch containing this exact statement has a completed workflow run with conclusion success on that branch's head commit, from a workflow that references the file (by path, module, directory, or as a root lake library under `ci.yml`). FAILED-AT-HEAD = only failing runs found at head. UNVERIFIED = no run at head could be tied to the file. A run verifies the whole file/library it built, not the theorem in isolation; a `sorry`-free build is what the workflow asserts (no `.lean` file on any branch contains `sorry`), and axiom audits exist only where the workflow performs them. Runs marked `built <sha>` come from path-scoped workflows that did not re-run on the branch head; they are accepted only when the file's last commit is an ancestor of the commit the run built, i.e. the file content the run compiled is the content listed.
 
 | status | declarations |
 |---|---:|
 | FAILED-AT-HEAD | 65 |
-| UNVERIFIED | 26 |
-| VERIFIED | 986 |
+| UNVERIFIED | 16 |
+| VERIFIED | 996 |
 | **total** | **1077** |
 
 Unique declarations 1077 in 106 files across 70 branches. The same theorem name appears more than once when its statement differs between branches; each variant is its own row.
@@ -3122,9 +3122,9 @@ theorem comm_add_sub (S K : R) : comm (S + K) (S - K) = -(2 * comm S K)
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/compound-eye-diophantine-20260907 | e055123f8e4b | db860edd3836 | ci.yml | 34172899574 (failure), 34172897051 (failure) | FAILED-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml | 34395098723 (success) | VERIFIED |
@@ -3162,7 +3162,7 @@ theorem comm_add_sub (S K : R) : comm (S + K) (S - K) = -(2 * comm S K)
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 3b8451ef2000 | ci.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | gravity/c1-overlap-bridge | 63c11a656ea7 | 7b1b2962d9d9 | ci.yml | 34130027400 (success), 34130023552 (failure) | VERIFIED |
 | gravity/finite-projector-proof-audit | 2ded71b0e7a7 | 7b1b2962d9d9 | ci.yml | 34035655125 (success), 34035653120 (success) | VERIFIED |
@@ -3200,9 +3200,9 @@ theorem normal_iff_comm_zero (h2 : ∀ x : R, (2 : R) * x = 0 → x = 0) (S K : 
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/compound-eye-diophantine-20260907 | e055123f8e4b | db860edd3836 | ci.yml | 34172899574 (failure), 34172897051 (failure) | FAILED-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml | 34395098723 (success) | VERIFIED |
@@ -3240,7 +3240,7 @@ theorem normal_iff_comm_zero (h2 : ∀ x : R, (2 : R) * x = 0 → x = 0) (S K : 
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 3b8451ef2000 | ci.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | gravity/c1-overlap-bridge | 63c11a656ea7 | 7b1b2962d9d9 | ci.yml | 34130027400 (success), 34130023552 (failure) | VERIFIED |
 | gravity/finite-projector-proof-audit | 2ded71b0e7a7 | 7b1b2962d9d9 | ci.yml | 34035655125 (success), 34035653120 (success) | VERIFIED |
@@ -3278,9 +3278,9 @@ theorem transpose_mul_of_symm {B V : Matrix n n α} (hB : Bᵀ = B)
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/compound-eye-diophantine-20260907 | e055123f8e4b | db860edd3836 | ci.yml | 34172899574 (failure), 34172897051 (failure) | FAILED-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml | 34395098723 (success) | VERIFIED |
@@ -3318,7 +3318,7 @@ theorem transpose_mul_of_symm {B V : Matrix n n α} (hB : Bᵀ = B)
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 3b8451ef2000 | ci.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | gravity/c1-overlap-bridge | 63c11a656ea7 | 7b1b2962d9d9 | ci.yml | 34130027400 (success), 34130023552 (failure) | VERIFIED |
 | gravity/finite-projector-proof-audit | 2ded71b0e7a7 | 7b1b2962d9d9 | ci.yml | 34035655125 (success), 34035653120 (success) | VERIFIED |
@@ -3356,9 +3356,9 @@ theorem reciprocity {B V : Matrix n n α} (hB : Bᵀ = B) (hV : Vᵀ * B = B * V
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/compound-eye-diophantine-20260907 | e055123f8e4b | db860edd3836 | ci.yml | 34172899574 (failure), 34172897051 (failure) | FAILED-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml | 34395098723 (success) | VERIFIED |
@@ -3396,7 +3396,7 @@ theorem reciprocity {B V : Matrix n n α} (hB : Bᵀ = B) (hV : Vᵀ * B = B * V
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 3b8451ef2000 | ci.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | gravity/c1-overlap-bridge | 63c11a656ea7 | 7b1b2962d9d9 | ci.yml | 34130027400 (success), 34130023552 (failure) | VERIFIED |
 | gravity/finite-projector-proof-audit | 2ded71b0e7a7 | 7b1b2962d9d9 | ci.yml | 34035655125 (success), 34035653120 (success) | VERIFIED |
@@ -3434,9 +3434,9 @@ theorem inner_mul_inner_swap (u v : E) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/compound-eye-diophantine-20260907 | e055123f8e4b | db860edd3836 | ci.yml | 34172899574 (failure), 34172897051 (failure) | FAILED-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml | 34395098723 (success) | VERIFIED |
@@ -3474,7 +3474,7 @@ theorem inner_mul_inner_swap (u v : E) :
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 3b8451ef2000 | ci.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | gravity/c1-overlap-bridge | 63c11a656ea7 | 7b1b2962d9d9 | ci.yml | 34130027400 (success), 34130023552 (failure) | VERIFIED |
 | gravity/finite-projector-proof-audit | 2ded71b0e7a7 | 7b1b2962d9d9 | ci.yml | 34035655125 (success), 34035653120 (success) | VERIFIED |
@@ -3512,9 +3512,9 @@ theorem gram_det (u v : E) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/compound-eye-diophantine-20260907 | e055123f8e4b | db860edd3836 | ci.yml | 34172899574 (failure), 34172897051 (failure) | FAILED-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml | 34395098723 (success) | VERIFIED |
@@ -3552,7 +3552,7 @@ theorem gram_det (u v : E) :
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 3b8451ef2000 | ci.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | gravity/c1-overlap-bridge | 63c11a656ea7 | 7b1b2962d9d9 | ci.yml | 34130027400 (success), 34130023552 (failure) | VERIFIED |
 | gravity/finite-projector-proof-audit | 2ded71b0e7a7 | 7b1b2962d9d9 | ci.yml | 34035655125 (success), 34035653120 (success) | VERIFIED |
@@ -3590,9 +3590,9 @@ theorem gram_det_of_unit (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/compound-eye-diophantine-20260907 | e055123f8e4b | db860edd3836 | ci.yml | 34172899574 (failure), 34172897051 (failure) | FAILED-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml | 34395098723 (success) | VERIFIED |
@@ -3630,7 +3630,7 @@ theorem gram_det_of_unit (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 3b8451ef2000 | ci.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | gravity/c1-overlap-bridge | 63c11a656ea7 | 7b1b2962d9d9 | ci.yml | 34130027400 (success), 34130023552 (failure) | VERIFIED |
 | gravity/finite-projector-proof-audit | 2ded71b0e7a7 | 7b1b2962d9d9 | ci.yml | 34035655125 (success), 34035653120 (success) | VERIFIED |
@@ -3668,9 +3668,9 @@ theorem visibility_le_one (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/compound-eye-diophantine-20260907 | e055123f8e4b | db860edd3836 | ci.yml | 34172899574 (failure), 34172897051 (failure) | FAILED-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml | 34395098723 (success) | VERIFIED |
@@ -3708,7 +3708,7 @@ theorem visibility_le_one (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 3b8451ef2000 | ci.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | gravity/c1-overlap-bridge | 63c11a656ea7 | 7b1b2962d9d9 | ci.yml | 34130027400 (success), 34130023552 (failure) | VERIFIED |
 | gravity/finite-projector-proof-audit | 2ded71b0e7a7 | 7b1b2962d9d9 | ci.yml | 34035655125 (success), 34035653120 (success) | VERIFIED |
@@ -3746,9 +3746,9 @@ theorem one_sub_visibility_sq_nonneg (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ 
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/compound-eye-diophantine-20260907 | e055123f8e4b | db860edd3836 | ci.yml | 34172899574 (failure), 34172897051 (failure) | FAILED-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml | 34395098723 (success) | VERIFIED |
@@ -3786,7 +3786,7 @@ theorem one_sub_visibility_sq_nonneg (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ 
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 3b8451ef2000 | ci.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | gravity/c1-overlap-bridge | 63c11a656ea7 | 7b1b2962d9d9 | ci.yml | 34130027400 (success), 34130023552 (failure) | VERIFIED |
 | gravity/finite-projector-proof-audit | 2ded71b0e7a7 | 7b1b2962d9d9 | ci.yml | 34035655125 (success), 34035653120 (success) | VERIFIED |
@@ -3824,9 +3824,9 @@ theorem duality (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/compound-eye-diophantine-20260907 | e055123f8e4b | db860edd3836 | ci.yml | 34172899574 (failure), 34172897051 (failure) | FAILED-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml | 34395098723 (success) | VERIFIED |
@@ -3864,7 +3864,7 @@ theorem duality (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 3b8451ef2000 | ci.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | gravity/c1-overlap-bridge | 63c11a656ea7 | 7b1b2962d9d9 | ci.yml | 34130027400 (success), 34130023552 (failure) | VERIFIED |
 | gravity/finite-projector-proof-audit | 2ded71b0e7a7 | 7b1b2962d9d9 | ci.yml | 34035655125 (success), 34035653120 (success) | VERIFIED |
@@ -3903,9 +3903,9 @@ theorem gram_det_eq_distinguishability_sq (u v : E) (hu : ‖u‖ = 1)
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/compound-eye-diophantine-20260907 | e055123f8e4b | db860edd3836 | ci.yml | 34172899574 (failure), 34172897051 (failure) | FAILED-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml | 34395098723 (success) | VERIFIED |
@@ -3943,7 +3943,7 @@ theorem gram_det_eq_distinguishability_sq (u v : E) (hu : ‖u‖ = 1)
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 3b8451ef2000 | ci.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | gravity/c1-overlap-bridge | 63c11a656ea7 | 7b1b2962d9d9 | ci.yml | 34130027400 (success), 34130023552 (failure) | VERIFIED |
 | gravity/finite-projector-proof-audit | 2ded71b0e7a7 | 7b1b2962d9d9 | ci.yml | 34035655125 (success), 34035653120 (success) | VERIFIED |
@@ -3980,9 +3980,9 @@ theorem visibility_self (u : E) (hu : ‖u‖ = 1) : visibility u u = 1
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/compound-eye-diophantine-20260907 | e055123f8e4b | db860edd3836 | ci.yml | 34172899574 (failure), 34172897051 (failure) | FAILED-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml | 34395098723 (success) | VERIFIED |
@@ -4020,7 +4020,7 @@ theorem visibility_self (u : E) (hu : ‖u‖ = 1) : visibility u u = 1
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 3b8451ef2000 | ci.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | gravity/c1-overlap-bridge | 63c11a656ea7 | 7b1b2962d9d9 | ci.yml | 34130027400 (success), 34130023552 (failure) | VERIFIED |
 | gravity/finite-projector-proof-audit | 2ded71b0e7a7 | 7b1b2962d9d9 | ci.yml | 34035655125 (success), 34035653120 (success) | VERIFIED |
@@ -4058,9 +4058,9 @@ theorem distinguishability_self (u : E) (hu : ‖u‖ = 1) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/compound-eye-diophantine-20260907 | e055123f8e4b | db860edd3836 | ci.yml | 34172899574 (failure), 34172897051 (failure) | FAILED-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml | 34395098723 (success) | VERIFIED |
@@ -4098,7 +4098,7 @@ theorem distinguishability_self (u : E) (hu : ‖u‖ = 1) :
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 3b8451ef2000 | ci.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | gravity/c1-overlap-bridge | 63c11a656ea7 | 7b1b2962d9d9 | ci.yml | 34130027400 (success), 34130023552 (failure) | VERIFIED |
 | gravity/finite-projector-proof-audit | 2ded71b0e7a7 | 7b1b2962d9d9 | ci.yml | 34035655125 (success), 34035653120 (success) | VERIFIED |
@@ -4136,9 +4136,9 @@ theorem distinguishability_of_orthogonal (u v : E) (h : ⟪u, v⟫ = 0) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/compound-eye-diophantine-20260907 | e055123f8e4b | db860edd3836 | ci.yml | 34172899574 (failure), 34172897051 (failure) | FAILED-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml | 34395098723 (success) | VERIFIED |
@@ -4176,7 +4176,7 @@ theorem distinguishability_of_orthogonal (u v : E) (h : ⟪u, v⟫ = 0) :
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 3b8451ef2000 | ci.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | gravity/c1-overlap-bridge | 63c11a656ea7 | 7b1b2962d9d9 | ci.yml | 34130027400 (success), 34130023552 (failure) | VERIFIED |
 | gravity/finite-projector-proof-audit | 2ded71b0e7a7 | 7b1b2962d9d9 | ci.yml | 34035655125 (success), 34035653120 (success) | VERIFIED |
@@ -9538,7 +9538,7 @@ theorem open_lapse_square (t : ℝ) : (openLapse t)^2 = |t|
 
 ## `proofs/jb_certification/JBCertCore.lean` — 5 declarations
 
-### `pairing_conserved_step` — UNVERIFIED
+### `pairing_conserved_step` — VERIFIED
 
 ```lean
 theorem pairing_conserved_step (ℓ z M Minv : G) (h : M * Minv = 1) :
@@ -9547,9 +9547,9 @@ theorem pairing_conserved_step (ℓ z M Minv : G) (h : M * Minv = 1) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | cbef28151893 | 6839737e95e1 | jb-certification.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 6839737e95e1 | jb-certification.yml | 34745152338 (success, built 7529b93e87c5) | VERIFIED |
 
-### `pairing_conserved_iter` — UNVERIFIED
+### `pairing_conserved_iter` — VERIFIED
 
 ```lean
 theorem pairing_conserved_iter (ℓ z : G) (Ms : List (G × G))
@@ -9559,9 +9559,9 @@ theorem pairing_conserved_iter (ℓ z : G) (Ms : List (G × G))
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | cbef28151893 | 6839737e95e1 | jb-certification.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 6839737e95e1 | jb-certification.yml | 34745152338 (success, built 7529b93e87c5) | VERIFIED |
 
-### `pairing_gauge_invariant` — UNVERIFIED
+### `pairing_gauge_invariant` — VERIFIED
 
 ```lean
 theorem pairing_gauge_invariant (ℓ x S Sinv : G) (h : S * Sinv = 1) :
@@ -9570,9 +9570,9 @@ theorem pairing_gauge_invariant (ℓ x S Sinv : G) (h : S * Sinv = 1) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | cbef28151893 | 6839737e95e1 | jb-certification.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 6839737e95e1 | jb-certification.yml | 34745152338 (success, built 7529b93e87c5) | VERIFIED |
 
-### `coboundary_transport` — UNVERIFIED
+### `coboundary_transport` — VERIFIED
 
 ```lean
 theorem coboundary_transport (T U C : ℕ → G)
@@ -9582,9 +9582,9 @@ theorem coboundary_transport (T U C : ℕ → G)
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | cbef28151893 | 6839737e95e1 | jb-certification.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 6839737e95e1 | jb-certification.yml | 34745152338 (success, built 7529b93e87c5) | VERIFIED |
 
-### `coboundary_endpoint_matters` — UNVERIFIED
+### `coboundary_endpoint_matters` — VERIFIED
 
 ```lean
 theorem coboundary_endpoint_matters (T U C : ℕ → G)
@@ -9594,12 +9594,12 @@ theorem coboundary_endpoint_matters (T U C : ℕ → G)
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | cbef28151893 | 6839737e95e1 | jb-certification.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 6839737e95e1 | jb-certification.yml | 34745152338 (success, built 7529b93e87c5) | VERIFIED |
 
 
 ## `proofs/jb_certification/JBCertMatrix.lean` — 5 declarations
 
-### `pairing_conserved_dual` — UNVERIFIED
+### `pairing_conserved_dual` — VERIFIED
 
 ```lean
 theorem pairing_conserved_dual [DecidableEq n] (ℓ : Matrix (Fin 1) n K) (x : Matrix n (Fin 1) K)
@@ -9609,9 +9609,9 @@ theorem pairing_conserved_dual [DecidableEq n] (ℓ : Matrix (Fin 1) n K) (x : M
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | cbef28151893 | 0114c3b1a6d8 | jb-certification.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 0114c3b1a6d8 | jb-certification.yml | 34745152338 (success, built 7529b93e87c5) | VERIFIED |
 
-### `pairing_conserved_matrix` — UNVERIFIED
+### `pairing_conserved_matrix` — VERIFIED
 
 ```lean
 theorem pairing_conserved_matrix [DecidableEq n] (ℓ : Matrix (Fin 1) n K) (z : Matrix n (Fin 1) K)
@@ -9621,9 +9621,9 @@ theorem pairing_conserved_matrix [DecidableEq n] (ℓ : Matrix (Fin 1) n K) (z :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | cbef28151893 | 0114c3b1a6d8 | jb-certification.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 0114c3b1a6d8 | jb-certification.yml | 34745152338 (success, built 7529b93e87c5) | VERIFIED |
 
-### `pairing_gauge_invariant_matrix` — UNVERIFIED
+### `pairing_gauge_invariant_matrix` — VERIFIED
 
 ```lean
 theorem pairing_gauge_invariant_matrix [DecidableEq n] (ℓ : Matrix (Fin 1) n K) (x : Matrix n (Fin 1) K)
@@ -9633,9 +9633,9 @@ theorem pairing_gauge_invariant_matrix [DecidableEq n] (ℓ : Matrix (Fin 1) n K
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | cbef28151893 | 0114c3b1a6d8 | jb-certification.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 0114c3b1a6d8 | jb-certification.yml | 34745152338 (success, built 7529b93e87c5) | VERIFIED |
 
-### `kronecker_mixed_product` — UNVERIFIED
+### `kronecker_mixed_product` — VERIFIED
 
 ```lean
 theorem kronecker_mixed_product (A : Matrix l m K) (B : Matrix p q K)
@@ -9645,9 +9645,9 @@ theorem kronecker_mixed_product (A : Matrix l m K) (B : Matrix p q K)
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | cbef28151893 | 0114c3b1a6d8 | jb-certification.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 0114c3b1a6d8 | jb-certification.yml | 34745152338 (success, built 7529b93e87c5) | VERIFIED |
 
-### `kronecker_idempotent` — UNVERIFIED
+### `kronecker_idempotent` — VERIFIED
 
 ```lean
 theorem kronecker_idempotent (P : Matrix n n K) (Q : Matrix r r K)
@@ -9657,7 +9657,7 @@ theorem kronecker_idempotent (P : Matrix n n K) (Q : Matrix r r K)
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | cbef28151893 | 0114c3b1a6d8 | jb-certification.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 0114c3b1a6d8 | jb-certification.yml | 34745152338 (success, built 7529b93e87c5) | VERIFIED |
 
 
 ## `proofs/peel_constitutive/OpticalMetric.lean` — 16 declarations
@@ -10602,13 +10602,13 @@ theorem hermitian_round_trip_weight_nonneg (M : ℂ) (Delta : ℝ) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742371944 (success, built 82f1c4c03102) | VERIFIED |
 | acc-public-bridge-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | 34742378390 (success, built 82f1c4c03102) | VERIFIED |
 | formal/collatz-bounded-collapse | 9c403a91b7a6 | f4dfed619126 | collatz-bounded.yml | 34721393896 (success), 34721387761 (success) | VERIFIED |
 | formal/recovered-math-batch-a-2026-09-12 | 95f426a32217 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | formal/title-certs-batch1-2026-09-12 | 68f6d8693638 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742369510 (success, built 82f1c4c03102) | VERIFIED |
 | main | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34724307086 (success) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
@@ -10622,13 +10622,13 @@ theorem hermitian_round_trip_weight_nonneg (M : ℂ) (Delta : ℝ) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742371944 (success, built 82f1c4c03102) | VERIFIED |
 | acc-public-bridge-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | 34742378390 (success, built 82f1c4c03102) | VERIFIED |
 | formal/collatz-bounded-collapse | 9c403a91b7a6 | f4dfed619126 | collatz-bounded.yml | 34721393896 (success), 34721387761 (success) | VERIFIED |
 | formal/recovered-math-batch-a-2026-09-12 | 95f426a32217 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | formal/title-certs-batch1-2026-09-12 | 68f6d8693638 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742369510 (success, built 82f1c4c03102) | VERIFIED |
 | main | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34724307086 (success) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
@@ -10642,13 +10642,13 @@ theorem hermitian_round_trip_weight_nonneg (M : ℂ) (Delta : ℝ) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742371944 (success, built 82f1c4c03102) | VERIFIED |
 | acc-public-bridge-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | 34742378390 (success, built 82f1c4c03102) | VERIFIED |
 | formal/collatz-bounded-collapse | 9c403a91b7a6 | f4dfed619126 | collatz-bounded.yml | 34721393896 (success), 34721387761 (success) | VERIFIED |
 | formal/recovered-math-batch-a-2026-09-12 | 95f426a32217 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | formal/title-certs-batch1-2026-09-12 | 68f6d8693638 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742369510 (success, built 82f1c4c03102) | VERIFIED |
 | main | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34724307086 (success) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
@@ -10662,13 +10662,13 @@ theorem hermitian_round_trip_weight_nonneg (M : ℂ) (Delta : ℝ) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742371944 (success, built 82f1c4c03102) | VERIFIED |
 | acc-public-bridge-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | 34742378390 (success, built 82f1c4c03102) | VERIFIED |
 | formal/collatz-bounded-collapse | 9c403a91b7a6 | f4dfed619126 | collatz-bounded.yml | 34721393896 (success), 34721387761 (success) | VERIFIED |
 | formal/recovered-math-batch-a-2026-09-12 | 95f426a32217 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | formal/title-certs-batch1-2026-09-12 | 68f6d8693638 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742369510 (success, built 82f1c4c03102) | VERIFIED |
 | main | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34724307086 (success) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
@@ -10683,13 +10683,13 @@ theorem reachesOneB_sound {n fuel : Nat} (h : reachesOneB n fuel = true) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742371944 (success, built 82f1c4c03102) | VERIFIED |
 | acc-public-bridge-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | 34742378390 (success, built 82f1c4c03102) | VERIFIED |
 | formal/collatz-bounded-collapse | 9c403a91b7a6 | f4dfed619126 | collatz-bounded.yml | 34721393896 (success), 34721387761 (success) | VERIFIED |
 | formal/recovered-math-batch-a-2026-09-12 | 95f426a32217 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | formal/title-certs-batch1-2026-09-12 | 68f6d8693638 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742369510 (success, built 82f1c4c03102) | VERIFIED |
 | main | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34724307086 (success) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
@@ -10704,13 +10704,13 @@ theorem bounded_checker_100000 :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742371944 (success, built 82f1c4c03102) | VERIFIED |
 | acc-public-bridge-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | 34742378390 (success, built 82f1c4c03102) | VERIFIED |
 | formal/collatz-bounded-collapse | 9c403a91b7a6 | f4dfed619126 | collatz-bounded.yml | 34721393896 (success), 34721387761 (success) | VERIFIED |
 | formal/recovered-math-batch-a-2026-09-12 | 95f426a32217 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | formal/title-certs-batch1-2026-09-12 | 68f6d8693638 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742369510 (success, built 82f1c4c03102) | VERIFIED |
 | main | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34724307086 (success) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
@@ -10725,13 +10725,13 @@ theorem bounded_collapse_100000 (n : Nat) (hpos : 1 ≤ n) (hbound : n ≤ 10000
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742371944 (success, built 82f1c4c03102) | VERIFIED |
 | acc-public-bridge-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | 34742378390 (success, built 82f1c4c03102) | VERIFIED |
 | formal/collatz-bounded-collapse | 9c403a91b7a6 | f4dfed619126 | collatz-bounded.yml | 34721393896 (success), 34721387761 (success) | VERIFIED |
 | formal/recovered-math-batch-a-2026-09-12 | 95f426a32217 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | formal/title-certs-batch1-2026-09-12 | 68f6d8693638 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742369510 (success, built 82f1c4c03102) | VERIFIED |
 | main | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34724307086 (success) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
@@ -10746,13 +10746,13 @@ theorem bounded_collapse_has_witness {n fuel : Nat} (h : ReachesOneWithin n fuel
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742371944 (success, built 82f1c4c03102) | VERIFIED |
 | acc-public-bridge-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | 34742378390 (success, built 82f1c4c03102) | VERIFIED |
 | formal/collatz-bounded-collapse | 9c403a91b7a6 | f4dfed619126 | collatz-bounded.yml | 34721393896 (success), 34721387761 (success) | VERIFIED |
 | formal/recovered-math-batch-a-2026-09-12 | 95f426a32217 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | formal/title-certs-batch1-2026-09-12 | 68f6d8693638 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742369510 (success, built 82f1c4c03102) | VERIFIED |
 | main | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34724307086 (success) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
@@ -10767,13 +10767,13 @@ theorem bounded_scope (n : Nat) (hpos : 1 ≤ n) (hbound : n ≤ 100000) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742371944 (success, built 82f1c4c03102) | VERIFIED |
 | acc-public-bridge-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | cbef28151893 | 82f1c4c03102 | collatz-bounded.yml | 34742378390 (success, built 82f1c4c03102) | VERIFIED |
 | formal/collatz-bounded-collapse | 9c403a91b7a6 | f4dfed619126 | collatz-bounded.yml | 34721393896 (success), 34721387761 (success) | VERIFIED |
 | formal/recovered-math-batch-a-2026-09-12 | 95f426a32217 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | formal/title-certs-batch1-2026-09-12 | 68f6d8693638 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34742369510 (success, built 82f1c4c03102) | VERIFIED |
 | main | 82f1c4c03102 | 82f1c4c03102 | collatz-bounded.yml | 34724307086 (success) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 82f1c4c03102 | collatz-bounded.yml | — | NO-RUN-AT-HEAD |
@@ -11622,7 +11622,7 @@ theorem second_order_hidden_return
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 3306bbdb71c1 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 3306bbdb71c1 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 
 ## `research/compound_eye_cortex_2026_09_10/formal_transport_memory/TransportMemory.lean` — 15 declarations
@@ -11637,7 +11637,7 @@ theorem sufficient_constant_on_fiber {X Y Z : Type*}
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `fiber_witness_obstructs_sufficiency` — VERIFIED
 
@@ -11650,7 +11650,7 @@ theorem fiber_witness_obstructs_sufficiency {X Y Z : Type*}
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `collision_persists_under_postcompression` — VERIFIED
 
@@ -11662,7 +11662,7 @@ theorem collision_persists_under_postcompression {X Y Z : Type*}
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `witness_persists_under_postcompression` — VERIFIED
 
@@ -11675,7 +11675,7 @@ theorem witness_persists_under_postcompression {X Y Z W : Type*}
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `paired_observation_injective_iff` — VERIFIED
 
@@ -11688,7 +11688,7 @@ theorem paired_observation_injective_iff {X Y Z : Type*}
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `opposite_events_cancel` — VERIFIED
 
@@ -11698,7 +11698,7 @@ theorem opposite_events_cancel (a : ℤ) : netFlow [a, -a] = 0
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `zero_net_can_have_events` — VERIFIED
 
@@ -11709,7 +11709,7 @@ theorem zero_net_can_have_events :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `endpoint_view_not_injective` — VERIFIED
 
@@ -11719,7 +11719,7 @@ theorem endpoint_view_not_injective : ¬ Function.Injective endpointView
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `current_skew` — VERIFIED
 
@@ -11730,7 +11730,7 @@ theorem current_skew (T : Matrix n n ℝ) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `current_relabel_covariant` — VERIFIED
 
@@ -11741,7 +11741,7 @@ theorem current_relabel_covariant (e : n ≃ n) (T : Matrix n n ℝ) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `reverse_triangle_circulation` — VERIFIED
 
@@ -11754,7 +11754,7 @@ theorem reverse_triangle_circulation
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `sign_frame_outer_invariant` — VERIFIED
 
@@ -11765,7 +11765,7 @@ theorem sign_frame_outer_invariant (s : ℝ) (q : n → ℝ) (hs : s ^ 2 = 1) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `nonnegative_linear_mode_has_zero_slope` — VERIFIED
 
@@ -11776,7 +11776,7 @@ theorem nonnegative_linear_mode_has_zero_slope (a : ℝ)
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `signed_linear_crossing_exists` — VERIFIED
 
@@ -11787,7 +11787,7 @@ theorem signed_linear_crossing_exists :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `local_vs_integrated_exponent` — VERIFIED
 
@@ -11798,7 +11798,7 @@ theorem local_vs_integrated_exponent (n : ℝ) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 
 ## `research/coxeter_rank2_2026_09_10/DihedralBridge.lean` — 22 declarations
@@ -12315,7 +12315,7 @@ theorem discriminant_identity (a b c x y z : ℤ) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 4400d843e82d | diophantine.yml | 34181845749 (success) | VERIFIED |
-| main | 82f1c4c03102 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 4400d843e82d | diophantine.yml | 34182112530 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
@@ -12327,7 +12327,7 @@ theorem discriminant_identity (a b c x y z : ℤ) :
 | research/elemental-foundations | 8abd8cc23f22 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations-v4 | 7e9f1ddc85d3 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-peel | 67b638d6a4b2 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 4400d843e82d | diophantine.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 4400d843e82d | diophantine.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89) | VERIFIED |
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 
@@ -12376,7 +12376,7 @@ theorem epoch_polynomial_family (t : ℤ) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 4400d843e82d | diophantine.yml | 34181845749 (success) | VERIFIED |
-| main | 82f1c4c03102 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 4400d843e82d | diophantine.yml | 34182112530 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
@@ -12388,7 +12388,7 @@ theorem epoch_polynomial_family (t : ℤ) :
 | research/elemental-foundations | 8abd8cc23f22 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations-v4 | 7e9f1ddc85d3 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-peel | 67b638d6a4b2 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 4400d843e82d | diophantine.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 4400d843e82d | diophantine.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89) | VERIFIED |
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 
@@ -12436,7 +12436,7 @@ theorem epoch_congruence_family (u s : ℤ) (h : u^3+930*s=368) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 4400d843e82d | diophantine.yml | 34181845749 (success) | VERIFIED |
-| main | 82f1c4c03102 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 4400d843e82d | diophantine.yml | 34182112530 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
@@ -12448,7 +12448,7 @@ theorem epoch_congruence_family (u s : ℤ) (h : u^3+930*s=368) :
 | research/elemental-foundations | 8abd8cc23f22 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations-v4 | 7e9f1ddc85d3 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-peel | 67b638d6a4b2 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 4400d843e82d | diophantine.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 4400d843e82d | diophantine.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89) | VERIFIED |
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 
@@ -12500,7 +12500,7 @@ theorem circle_section_cleared (u : ℚ) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 4400d843e82d | diophantine.yml | 34181845749 (success) | VERIFIED |
-| main | 82f1c4c03102 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 4400d843e82d | diophantine.yml | 34182112530 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
@@ -12512,7 +12512,7 @@ theorem circle_section_cleared (u : ℚ) :
 | research/elemental-foundations | 8abd8cc23f22 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations-v4 | 7e9f1ddc85d3 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-peel | 67b638d6a4b2 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 4400d843e82d | diophantine.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 4400d843e82d | diophantine.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89) | VERIFIED |
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 
@@ -12559,7 +12559,7 @@ theorem circle_denominator_positive (u : ℚ) : 0 < 1+u^2
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 4400d843e82d | diophantine.yml | 34181845749 (success) | VERIFIED |
-| main | 82f1c4c03102 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 4400d843e82d | diophantine.yml | 34182112530 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
@@ -12571,7 +12571,7 @@ theorem circle_denominator_positive (u : ℚ) : 0 < 1+u^2
 | research/elemental-foundations | 8abd8cc23f22 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations-v4 | 7e9f1ddc85d3 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-peel | 67b638d6a4b2 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 4400d843e82d | diophantine.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 4400d843e82d | diophantine.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89) | VERIFIED |
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 
@@ -12619,7 +12619,7 @@ theorem pell_norm_preserved (A x v r s : ℤ) (h : r^2-A*s^2=1) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 4400d843e82d | diophantine.yml | 34181845749 (success) | VERIFIED |
-| main | 82f1c4c03102 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 4400d843e82d | diophantine.yml | 34182112530 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
@@ -12631,7 +12631,7 @@ theorem pell_norm_preserved (A x v r s : ℤ) (h : r^2-A*s^2=1) :
 | research/elemental-foundations | 8abd8cc23f22 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations-v4 | 7e9f1ddc85d3 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-peel | 67b638d6a4b2 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 4400d843e82d | diophantine.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 4400d843e82d | diophantine.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89) | VERIFIED |
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 
@@ -12679,7 +12679,7 @@ theorem tangent_identity (m r s d : ℤ) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 4400d843e82d | diophantine.yml | 34181845749 (success) | VERIFIED |
-| main | 82f1c4c03102 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 4400d843e82d | diophantine.yml | 34182112530 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
@@ -12691,7 +12691,7 @@ theorem tangent_identity (m r s d : ℤ) :
 | research/elemental-foundations | 8abd8cc23f22 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations-v4 | 7e9f1ddc85d3 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-peel | 67b638d6a4b2 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 4400d843e82d | diophantine.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 4400d843e82d | diophantine.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89) | VERIFIED |
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 4400d843e82d | diophantine.yml | — | NO-RUN-AT-HEAD |
 
@@ -13912,7 +13912,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `resolved_term_le` — VERIFIED
 
@@ -13930,7 +13930,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `resolved_sum_le` — VERIFIED
 
@@ -13949,7 +13949,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `shared_shift_does_not_improve_floor` — VERIFIED
 
@@ -13965,7 +13965,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `projection_margin` — VERIFIED
 
@@ -13980,7 +13980,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `window_error_nonnegative` — VERIFIED
 
@@ -13997,7 +13997,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `budget_comparison` — VERIFIED
 
@@ -14013,7 +14013,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `gap_transfer_closing_step` — VERIFIED
 
@@ -14031,7 +14031,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `cube_local_allocation` — VERIFIED
 
@@ -14046,7 +14046,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `cube_allocated_floor` — VERIFIED
 
@@ -14062,7 +14062,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `cube_endpoint_order` — VERIFIED
 
@@ -14079,7 +14079,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `cube_margin` — VERIFIED
 
@@ -14095,7 +14095,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 
 ## `research/yang_mills_2026_09_09/cross_theorem/lean/MatrixResolvedBoundary.lean` — 5 declarations
@@ -14690,7 +14690,7 @@ theorem forcing_iff_kernel_not_le (A : V →ₗ[K] W) (b : V →ₗ[K] K) :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `dual_certificate` — VERIFIED
 
@@ -14706,7 +14706,7 @@ theorem dual_certificate (A : V →ₗ[K] W) (b : V →ₗ[K] K)
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `presentation_invariant` — VERIFIED
 
@@ -14723,7 +14723,7 @@ theorem presentation_invariant {U : Type*} [AddCommGroup U] [Module K U]
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `nonzero_target_rescaling` — VERIFIED
 
@@ -14739,7 +14739,7 @@ theorem nonzero_target_rescaling (A : V →ₗ[K] W) (b : V →ₗ[K] K)
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `shifted_operator_on_kernel` — VERIFIED
 
@@ -14756,7 +14756,7 @@ theorem shifted_operator_on_kernel (G : V →ₗ[K] V) (v : V)
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `inverse_on_kernel` — VERIFIED
 
@@ -14773,7 +14773,7 @@ theorem inverse_on_kernel (G : V →ₗ[K] V) (R : V → V) (v : V)
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `projector_detects_forcing` — VERIFIED
 
@@ -14792,7 +14792,7 @@ theorem projector_detects_forcing (A : E →ₗ[ℝ] W) (P : E →ₗ[ℝ] E)
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `normalized_label_sum` — VERIFIED
 
@@ -14808,7 +14808,7 @@ theorem normalized_label_sum (a b : ℚ) (h : a+b ≠ 0) :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `normalized_difference` — VERIFIED
 
@@ -14824,7 +14824,7 @@ theorem normalized_difference (t s : ℚ) :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 ### `normalized_difference_nonzero` — VERIFIED
 
@@ -14839,7 +14839,7 @@ theorem normalized_difference_nonzero (t s : ℚ) (h : t ≠ s) : t-s ≠ 0
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 0cfcc41ebe74 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34412059750 (success, built 0cfcc41ebe74) | VERIFIED |
 
 
 ## `research/yang_mills_2026_09_09/lean/GaugeCertificates.lean` — 21 declarations
@@ -14858,7 +14858,7 @@ theorem inner_factorization :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `inner_unit_diagonal` — VERIFIED
 
@@ -14873,7 +14873,7 @@ theorem inner_unit_diagonal : ∀ i : Fin 10, innerL i i = 1
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `inner_lower_triangular` — VERIFIED
 
@@ -14889,7 +14889,7 @@ theorem inner_lower_triangular :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `inner_pivots_positive` — VERIFIED
 
@@ -14904,7 +14904,7 @@ theorem inner_pivots_positive : ∀ i : Fin 10, 0 < innerD i
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `outer_factorization` — VERIFIED
 
@@ -14920,7 +14920,7 @@ theorem outer_factorization :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `outer_unit_diagonal` — VERIFIED
 
@@ -14935,7 +14935,7 @@ theorem outer_unit_diagonal : ∀ i : Fin 7, outerL i i = 1
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `outer_lower_triangular` — VERIFIED
 
@@ -14951,7 +14951,7 @@ theorem outer_lower_triangular :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `outer_first_negative` — VERIFIED
 
@@ -14966,7 +14966,7 @@ theorem outer_first_negative : outerD 0 < 0
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `outer_other_pivots_positive` — VERIFIED
 
@@ -14982,7 +14982,7 @@ theorem outer_other_pivots_positive :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `allocated_local_casimir` — VERIFIED
 
@@ -14998,7 +14998,7 @@ theorem allocated_local_casimir :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `inner_normalized_coupling` — VERIFIED
 
@@ -15013,7 +15013,7 @@ theorem inner_normalized_coupling : (1 : ℚ) / (21/40) = 40/21
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `inner_normalized_energy` — VERIFIED
 
@@ -15028,7 +15028,7 @@ theorem inner_normalized_energy : (21/10 : ℚ) / (21/40) = 4
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `inner_tail_separation` — VERIFIED
 
@@ -15043,7 +15043,7 @@ theorem inner_tail_separation : (4 : ℚ) < 8
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `derived_hidden_floor` — VERIFIED
 
@@ -15059,7 +15059,7 @@ theorem derived_hidden_floor :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `test_energy_separation` — VERIFIED
 
@@ -15074,7 +15074,7 @@ theorem test_energy_separation : (6 : ℚ) < 10 ∧ (10 : ℚ) < 182/15
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `outer_tail_denominator` — VERIFIED
 
@@ -15089,7 +15089,7 @@ theorem outer_tail_denominator : (182/15 : ℚ) - 10 = 32/15
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `certified_margin_arithmetic` — VERIFIED
 
@@ -15104,7 +15104,7 @@ theorem certified_margin_arithmetic : (10 : ℚ) - 6 = 4
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `global_shift_does_not_fix_denominator` — VERIFIED
 
@@ -15120,7 +15120,7 @@ theorem global_shift_does_not_fix_denominator (d r c : ℚ) :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `shared_rectangle_electric` — VERIFIED
 
@@ -15135,7 +15135,7 @@ theorem shared_rectangle_electric : (6 : ℚ)*(4/3)=8
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `independent_rectangle_is_wrong` — VERIFIED
 
@@ -15150,7 +15150,7 @@ theorem independent_rectangle_is_wrong : (8 : ℚ)*(4/3) ≠ 8
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 ### `first_baryonic_tail` — VERIFIED
 
@@ -15165,7 +15165,7 @@ theorem first_baryonic_tail : (7 : ℚ)*(4/3)=28/3
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89), 34406733960 (success, built 64d0ca9c76a0), 34407919722 (success, built f7f14139a8f1), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
 
 
 ## `tools/compound-eye/preserved/original_modular_release/preserved/compound-eye-0.4/frontier/originals/AK_granularity_products(2).lean` — 7 declarations
@@ -15211,13 +15211,13 @@ theorem granularity (p q : Nat) (hq : q < 40) (h : 40 * p ≤ 67 * q) : 3 * p �
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -15268,13 +15268,13 @@ theorem granularity_sharp : 40 * 67 ≤ 67 * 40 ∧ ¬ (3 * 67 ≤ 5 * 40)
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -15326,13 +15326,13 @@ theorem five_thirds_attained (k : Nat) (hk : 3 * k < 40) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -15383,13 +15383,13 @@ theorem below_floor_excluded (p q : Nat) (h : 9 * p < 16 * q) : 9 * p < 16 * q
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -15441,13 +15441,13 @@ theorem density_adds (m1 n1 m2 n2 : Nat) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -15499,13 +15499,13 @@ theorem product_never_helps (m1 n1 m2 n2 : Nat) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -15557,13 +15557,13 @@ theorem density_of_power (m n : Nat) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -15617,13 +15617,13 @@ theorem granularity (p q : Nat) (hq : q < 40) (h : 40 * p ≤ 67 * q) : 3 * p �
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -15674,13 +15674,13 @@ theorem granularity_sharp : 40 * 67 ≤ 67 * 40 ∧ ¬ (3 * 67 ≤ 5 * 40)
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -15732,13 +15732,13 @@ theorem five_thirds_attained (k : Nat) (hk : 3 * k < 40) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -15789,13 +15789,13 @@ theorem below_floor_excluded (p q : Nat) (h : 9 * p < 16 * q) : 9 * p < 16 * q
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -15847,13 +15847,13 @@ theorem density_adds (m1 n1 m2 n2 : Nat) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -15905,13 +15905,13 @@ theorem product_never_helps (m1 n1 m2 n2 : Nat) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -15963,13 +15963,13 @@ theorem density_of_power (m n : Nat) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -16025,19 +16025,19 @@ theorem discriminant_identity (a b c x y z : ℤ) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
 | research/elemental-foundations-v4 | 7e9f1ddc85d3 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34691846110 (failure), 34691846111 (failure), 34691843886 (failure) | FAILED-AT-HEAD |
 | research/elemental-peel | 67b638d6a4b2 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-peel.yml | 34188408311 (success), 34188408262 (success), 34188360579 (success), 34188360532 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 90e3516f47eb | compound-eye.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 90e3516f47eb | compound-eye.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89) | VERIFIED |
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 
@@ -16084,19 +16084,19 @@ theorem epoch_polynomial_family (t : ℤ) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
 | research/elemental-foundations-v4 | 7e9f1ddc85d3 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34691846110 (failure), 34691846111 (failure), 34691843886 (failure) | FAILED-AT-HEAD |
 | research/elemental-peel | 67b638d6a4b2 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-peel.yml | 34188408311 (success), 34188408262 (success), 34188360579 (success), 34188360532 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 90e3516f47eb | compound-eye.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 90e3516f47eb | compound-eye.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89) | VERIFIED |
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 
@@ -16142,19 +16142,19 @@ theorem epoch_congruence_family (u s : ℤ) (h : u^3+930*s=368) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
 | research/elemental-foundations-v4 | 7e9f1ddc85d3 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34691846110 (failure), 34691846111 (failure), 34691843886 (failure) | FAILED-AT-HEAD |
 | research/elemental-peel | 67b638d6a4b2 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-peel.yml | 34188408311 (success), 34188408262 (success), 34188360579 (success), 34188360532 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 90e3516f47eb | compound-eye.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 90e3516f47eb | compound-eye.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89) | VERIFIED |
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 
@@ -16204,19 +16204,19 @@ theorem circle_section_cleared (u : ℚ) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
 | research/elemental-foundations-v4 | 7e9f1ddc85d3 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34691846110 (failure), 34691846111 (failure), 34691843886 (failure) | FAILED-AT-HEAD |
 | research/elemental-peel | 67b638d6a4b2 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-peel.yml | 34188408311 (success), 34188408262 (success), 34188360579 (success), 34188360532 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 90e3516f47eb | compound-eye.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 90e3516f47eb | compound-eye.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89) | VERIFIED |
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 
@@ -16261,19 +16261,19 @@ theorem circle_denominator_positive (u : ℚ) : 0 < 1+u^2
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
 | research/elemental-foundations-v4 | 7e9f1ddc85d3 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34691846110 (failure), 34691846111 (failure), 34691843886 (failure) | FAILED-AT-HEAD |
 | research/elemental-peel | 67b638d6a4b2 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-peel.yml | 34188408311 (success), 34188408262 (success), 34188360579 (success), 34188360532 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 90e3516f47eb | compound-eye.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 90e3516f47eb | compound-eye.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89) | VERIFIED |
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 
@@ -16319,19 +16319,19 @@ theorem pell_norm_preserved (A x v r s : ℤ) (h : r^2-A*s^2=1) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
 | research/elemental-foundations-v4 | 7e9f1ddc85d3 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34691846110 (failure), 34691846111 (failure), 34691843886 (failure) | FAILED-AT-HEAD |
 | research/elemental-peel | 67b638d6a4b2 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-peel.yml | 34188408311 (success), 34188408262 (success), 34188360579 (success), 34188360532 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 90e3516f47eb | compound-eye.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 90e3516f47eb | compound-eye.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89) | VERIFIED |
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 
@@ -16377,19 +16377,19 @@ theorem tangent_identity (m r s d : ℤ) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
 | research/elemental-foundations-v4 | 7e9f1ddc85d3 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34691846110 (failure), 34691846111 (failure), 34691843886 (failure) | FAILED-AT-HEAD |
 | research/elemental-peel | 67b638d6a4b2 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-peel.yml | 34188408311 (success), 34188408262 (success), 34188360579 (success), 34188360532 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 90e3516f47eb | compound-eye.yml, yang-mills-september9.yml | — | NO-RUN-AT-HEAD |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 90e3516f47eb | compound-eye.yml, yang-mills-september9.yml | 34375163350 (success, built 131b0e33dd89) | VERIFIED |
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 
@@ -16745,13 +16745,13 @@ theorem response_is_weighted_metric (a gap x : ℝ)
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -16804,13 +16804,13 @@ theorem response_weight_positive (gap x : ℝ)
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -16862,13 +16862,13 @@ theorem static_response (a gap : ℝ) (hg : gap ≠ 0) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -16920,13 +16920,13 @@ theorem weighted_zero_iff (w q : ι → ℝ) (hw : ∀ i, 0 < w i) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -16977,13 +16977,13 @@ theorem gram_zero_iff (q : ι → ℝ) : gramForm q = 0 ↔ ∀ i, q i = 0
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -17035,13 +17035,13 @@ theorem matching_null_directions (w q : ι → ℝ) (hw : ∀ i, 0 < w i) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -17093,13 +17093,13 @@ theorem response_lower_bound (w q : ι → ℝ) (lo : ℝ) (hw : ∀ i, lo ≤ w
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -17151,13 +17151,13 @@ theorem response_upper_bound (w q : ι → ℝ) (hi : ℝ) (hw : ∀ i, w i ≤ 
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -17211,13 +17211,13 @@ theorem constant_gap_factor (a : ι → ℝ) (gap x : ℝ)
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -17269,13 +17269,13 @@ theorem numerator_zero_away_from_poles :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -17327,13 +17327,13 @@ theorem tune_out_metric_nonzero :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -17385,13 +17385,13 @@ theorem squared_phase_matching (n1 n2 s1 s2 : ℝ) (h : n1*s1=n2*s2) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -17443,13 +17443,13 @@ theorem weighted_mono (a b q : ι → ℝ) (h : ∀ i, a i ≤ b i) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -17501,13 +17501,13 @@ theorem weighted_nonneg (w q : ι → ℝ) (h : ∀ i, 0 ≤ w i) :
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -17560,13 +17560,13 @@ theorem peel_null_persists (after before q : ι → ℝ)
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -17619,13 +17619,13 @@ theorem positive_reweighting_null_equivalence (a b q : ι → ℝ)
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -17646,9 +17646,9 @@ theorem comm_add_sub (S K : R) : comm (S + K) (S - K) = -(2 * comm S K)
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml, compound-eye.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
@@ -17676,16 +17676,16 @@ theorem comm_add_sub (S K : R) : comm (S + K) (S - K) = -(2 * comm S K)
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 90e3516f47eb | ci.yml, compound-eye.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml, compound-eye.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml, compound-eye.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml, compound-eye.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | ci.yml, compound-eye.yml | 34181845761 (success), 34181845742 (success), 34181843202 (success), 34181843185 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success) | VERIFIED |
+| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success), 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | ci.yml, compound-eye.yml | 34744504004 (success), 34744502407 (success) | VERIFIED |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | ci.yml, compound-eye.yml | 34717423917 (success), 34717344316 (success) | VERIFIED |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | ci.yml, compound-eye.yml | 34754195095 (success), 34754184930 (success) | VERIFIED |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml | 34184767903 (success), 34184767848 (success), 34184767905 (success), 34184766105 (success), 34184766027 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | ci.yml, compound-eye.yml | 34239797479 (success) | VERIFIED |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success), 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | ci.yml, compound-eye.yml | 34560748737 (success) | VERIFIED |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | ci.yml, compound-eye.yml | 34398791804 (success), 34398783692 (success) | VERIFIED |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191687677 (success), 34191646404 (success), 34191646307 (success), 34191646235 (success) | VERIFIED |
@@ -17704,9 +17704,9 @@ theorem normal_iff_comm_zero (h2 : ∀ x : R, (2 : R) * x = 0 → x = 0) (S K : 
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml, compound-eye.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
@@ -17734,16 +17734,16 @@ theorem normal_iff_comm_zero (h2 : ∀ x : R, (2 : R) * x = 0 → x = 0) (S K : 
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 90e3516f47eb | ci.yml, compound-eye.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml, compound-eye.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml, compound-eye.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml, compound-eye.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | ci.yml, compound-eye.yml | 34181845761 (success), 34181845742 (success), 34181843202 (success), 34181843185 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success) | VERIFIED |
+| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success), 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | ci.yml, compound-eye.yml | 34744504004 (success), 34744502407 (success) | VERIFIED |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | ci.yml, compound-eye.yml | 34717423917 (success), 34717344316 (success) | VERIFIED |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | ci.yml, compound-eye.yml | 34754195095 (success), 34754184930 (success) | VERIFIED |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml | 34184767903 (success), 34184767848 (success), 34184767905 (success), 34184766105 (success), 34184766027 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | ci.yml, compound-eye.yml | 34239797479 (success) | VERIFIED |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success), 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | ci.yml, compound-eye.yml | 34560748737 (success) | VERIFIED |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | ci.yml, compound-eye.yml | 34398791804 (success), 34398783692 (success) | VERIFIED |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191687677 (success), 34191646404 (success), 34191646307 (success), 34191646235 (success) | VERIFIED |
@@ -17762,9 +17762,9 @@ theorem transpose_mul_of_symm {B V : Matrix n n α} (hB : Bᵀ = B)
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml, compound-eye.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
@@ -17792,16 +17792,16 @@ theorem transpose_mul_of_symm {B V : Matrix n n α} (hB : Bᵀ = B)
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 90e3516f47eb | ci.yml, compound-eye.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml, compound-eye.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml, compound-eye.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml, compound-eye.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | ci.yml, compound-eye.yml | 34181845761 (success), 34181845742 (success), 34181843202 (success), 34181843185 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success) | VERIFIED |
+| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success), 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | ci.yml, compound-eye.yml | 34744504004 (success), 34744502407 (success) | VERIFIED |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | ci.yml, compound-eye.yml | 34717423917 (success), 34717344316 (success) | VERIFIED |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | ci.yml, compound-eye.yml | 34754195095 (success), 34754184930 (success) | VERIFIED |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml | 34184767903 (success), 34184767848 (success), 34184767905 (success), 34184766105 (success), 34184766027 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | ci.yml, compound-eye.yml | 34239797479 (success) | VERIFIED |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success), 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | ci.yml, compound-eye.yml | 34560748737 (success) | VERIFIED |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | ci.yml, compound-eye.yml | 34398791804 (success), 34398783692 (success) | VERIFIED |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191687677 (success), 34191646404 (success), 34191646307 (success), 34191646235 (success) | VERIFIED |
@@ -17820,9 +17820,9 @@ theorem reciprocity {B V : Matrix n n α} (hB : Bᵀ = B) (hV : Vᵀ * B = B * V
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml, compound-eye.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
@@ -17850,16 +17850,16 @@ theorem reciprocity {B V : Matrix n n α} (hB : Bᵀ = B) (hV : Vᵀ * B = B * V
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 90e3516f47eb | ci.yml, compound-eye.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml, compound-eye.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml, compound-eye.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml, compound-eye.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | ci.yml, compound-eye.yml | 34181845761 (success), 34181845742 (success), 34181843202 (success), 34181843185 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success) | VERIFIED |
+| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success), 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | ci.yml, compound-eye.yml | 34744504004 (success), 34744502407 (success) | VERIFIED |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | ci.yml, compound-eye.yml | 34717423917 (success), 34717344316 (success) | VERIFIED |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | ci.yml, compound-eye.yml | 34754195095 (success), 34754184930 (success) | VERIFIED |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml | 34184767903 (success), 34184767848 (success), 34184767905 (success), 34184766105 (success), 34184766027 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | ci.yml, compound-eye.yml | 34239797479 (success) | VERIFIED |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success), 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | ci.yml, compound-eye.yml | 34560748737 (success) | VERIFIED |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | ci.yml, compound-eye.yml | 34398791804 (success), 34398783692 (success) | VERIFIED |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191687677 (success), 34191646404 (success), 34191646307 (success), 34191646235 (success) | VERIFIED |
@@ -17878,9 +17878,9 @@ theorem inner_mul_inner_swap (u v : E) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml, compound-eye.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
@@ -17908,16 +17908,16 @@ theorem inner_mul_inner_swap (u v : E) :
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 90e3516f47eb | ci.yml, compound-eye.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml, compound-eye.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml, compound-eye.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml, compound-eye.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | ci.yml, compound-eye.yml | 34181845761 (success), 34181845742 (success), 34181843202 (success), 34181843185 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success) | VERIFIED |
+| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success), 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | ci.yml, compound-eye.yml | 34744504004 (success), 34744502407 (success) | VERIFIED |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | ci.yml, compound-eye.yml | 34717423917 (success), 34717344316 (success) | VERIFIED |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | ci.yml, compound-eye.yml | 34754195095 (success), 34754184930 (success) | VERIFIED |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml | 34184767903 (success), 34184767848 (success), 34184767905 (success), 34184766105 (success), 34184766027 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | ci.yml, compound-eye.yml | 34239797479 (success) | VERIFIED |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success), 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | ci.yml, compound-eye.yml | 34560748737 (success) | VERIFIED |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | ci.yml, compound-eye.yml | 34398791804 (success), 34398783692 (success) | VERIFIED |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191687677 (success), 34191646404 (success), 34191646307 (success), 34191646235 (success) | VERIFIED |
@@ -17936,9 +17936,9 @@ theorem gram_det (u v : E) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml, compound-eye.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
@@ -17966,16 +17966,16 @@ theorem gram_det (u v : E) :
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 90e3516f47eb | ci.yml, compound-eye.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml, compound-eye.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml, compound-eye.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml, compound-eye.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | ci.yml, compound-eye.yml | 34181845761 (success), 34181845742 (success), 34181843202 (success), 34181843185 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success) | VERIFIED |
+| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success), 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | ci.yml, compound-eye.yml | 34744504004 (success), 34744502407 (success) | VERIFIED |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | ci.yml, compound-eye.yml | 34717423917 (success), 34717344316 (success) | VERIFIED |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | ci.yml, compound-eye.yml | 34754195095 (success), 34754184930 (success) | VERIFIED |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml | 34184767903 (success), 34184767848 (success), 34184767905 (success), 34184766105 (success), 34184766027 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | ci.yml, compound-eye.yml | 34239797479 (success) | VERIFIED |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success), 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | ci.yml, compound-eye.yml | 34560748737 (success) | VERIFIED |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | ci.yml, compound-eye.yml | 34398791804 (success), 34398783692 (success) | VERIFIED |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191687677 (success), 34191646404 (success), 34191646307 (success), 34191646235 (success) | VERIFIED |
@@ -17994,9 +17994,9 @@ theorem gram_det_of_unit (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml, compound-eye.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
@@ -18024,16 +18024,16 @@ theorem gram_det_of_unit (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 90e3516f47eb | ci.yml, compound-eye.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml, compound-eye.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml, compound-eye.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml, compound-eye.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | ci.yml, compound-eye.yml | 34181845761 (success), 34181845742 (success), 34181843202 (success), 34181843185 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success) | VERIFIED |
+| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success), 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | ci.yml, compound-eye.yml | 34744504004 (success), 34744502407 (success) | VERIFIED |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | ci.yml, compound-eye.yml | 34717423917 (success), 34717344316 (success) | VERIFIED |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | ci.yml, compound-eye.yml | 34754195095 (success), 34754184930 (success) | VERIFIED |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml | 34184767903 (success), 34184767848 (success), 34184767905 (success), 34184766105 (success), 34184766027 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | ci.yml, compound-eye.yml | 34239797479 (success) | VERIFIED |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success), 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | ci.yml, compound-eye.yml | 34560748737 (success) | VERIFIED |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | ci.yml, compound-eye.yml | 34398791804 (success), 34398783692 (success) | VERIFIED |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191687677 (success), 34191646404 (success), 34191646307 (success), 34191646235 (success) | VERIFIED |
@@ -18052,9 +18052,9 @@ theorem visibility_le_one (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml, compound-eye.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
@@ -18082,16 +18082,16 @@ theorem visibility_le_one (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 90e3516f47eb | ci.yml, compound-eye.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml, compound-eye.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml, compound-eye.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml, compound-eye.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | ci.yml, compound-eye.yml | 34181845761 (success), 34181845742 (success), 34181843202 (success), 34181843185 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success) | VERIFIED |
+| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success), 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | ci.yml, compound-eye.yml | 34744504004 (success), 34744502407 (success) | VERIFIED |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | ci.yml, compound-eye.yml | 34717423917 (success), 34717344316 (success) | VERIFIED |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | ci.yml, compound-eye.yml | 34754195095 (success), 34754184930 (success) | VERIFIED |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml | 34184767903 (success), 34184767848 (success), 34184767905 (success), 34184766105 (success), 34184766027 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | ci.yml, compound-eye.yml | 34239797479 (success) | VERIFIED |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success), 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | ci.yml, compound-eye.yml | 34560748737 (success) | VERIFIED |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | ci.yml, compound-eye.yml | 34398791804 (success), 34398783692 (success) | VERIFIED |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191687677 (success), 34191646404 (success), 34191646307 (success), 34191646235 (success) | VERIFIED |
@@ -18110,9 +18110,9 @@ theorem one_sub_visibility_sq_nonneg (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ 
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml, compound-eye.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
@@ -18140,16 +18140,16 @@ theorem one_sub_visibility_sq_nonneg (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ 
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 90e3516f47eb | ci.yml, compound-eye.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml, compound-eye.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml, compound-eye.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml, compound-eye.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | ci.yml, compound-eye.yml | 34181845761 (success), 34181845742 (success), 34181843202 (success), 34181843185 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success) | VERIFIED |
+| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success), 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | ci.yml, compound-eye.yml | 34744504004 (success), 34744502407 (success) | VERIFIED |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | ci.yml, compound-eye.yml | 34717423917 (success), 34717344316 (success) | VERIFIED |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | ci.yml, compound-eye.yml | 34754195095 (success), 34754184930 (success) | VERIFIED |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml | 34184767903 (success), 34184767848 (success), 34184767905 (success), 34184766105 (success), 34184766027 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | ci.yml, compound-eye.yml | 34239797479 (success) | VERIFIED |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success), 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | ci.yml, compound-eye.yml | 34560748737 (success) | VERIFIED |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | ci.yml, compound-eye.yml | 34398791804 (success), 34398783692 (success) | VERIFIED |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191687677 (success), 34191646404 (success), 34191646307 (success), 34191646235 (success) | VERIFIED |
@@ -18168,9 +18168,9 @@ theorem duality (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml, compound-eye.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
@@ -18198,16 +18198,16 @@ theorem duality (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 90e3516f47eb | ci.yml, compound-eye.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml, compound-eye.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml, compound-eye.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml, compound-eye.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | ci.yml, compound-eye.yml | 34181845761 (success), 34181845742 (success), 34181843202 (success), 34181843185 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success) | VERIFIED |
+| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success), 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | ci.yml, compound-eye.yml | 34744504004 (success), 34744502407 (success) | VERIFIED |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | ci.yml, compound-eye.yml | 34717423917 (success), 34717344316 (success) | VERIFIED |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | ci.yml, compound-eye.yml | 34754195095 (success), 34754184930 (success) | VERIFIED |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml | 34184767903 (success), 34184767848 (success), 34184767905 (success), 34184766105 (success), 34184766027 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | ci.yml, compound-eye.yml | 34239797479 (success) | VERIFIED |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success), 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | ci.yml, compound-eye.yml | 34560748737 (success) | VERIFIED |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | ci.yml, compound-eye.yml | 34398791804 (success), 34398783692 (success) | VERIFIED |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191687677 (success), 34191646404 (success), 34191646307 (success), 34191646235 (success) | VERIFIED |
@@ -18227,9 +18227,9 @@ theorem gram_det_eq_distinguishability_sq (u v : E) (hu : ‖u‖ = 1)
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml, compound-eye.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
@@ -18257,16 +18257,16 @@ theorem gram_det_eq_distinguishability_sq (u v : E) (hu : ‖u‖ = 1)
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 90e3516f47eb | ci.yml, compound-eye.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml, compound-eye.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml, compound-eye.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml, compound-eye.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | ci.yml, compound-eye.yml | 34181845761 (success), 34181845742 (success), 34181843202 (success), 34181843185 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success) | VERIFIED |
+| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success), 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | ci.yml, compound-eye.yml | 34744504004 (success), 34744502407 (success) | VERIFIED |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | ci.yml, compound-eye.yml | 34717423917 (success), 34717344316 (success) | VERIFIED |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | ci.yml, compound-eye.yml | 34754195095 (success), 34754184930 (success) | VERIFIED |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml | 34184767903 (success), 34184767848 (success), 34184767905 (success), 34184766105 (success), 34184766027 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | ci.yml, compound-eye.yml | 34239797479 (success) | VERIFIED |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success), 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | ci.yml, compound-eye.yml | 34560748737 (success) | VERIFIED |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | ci.yml, compound-eye.yml | 34398791804 (success), 34398783692 (success) | VERIFIED |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191687677 (success), 34191646404 (success), 34191646307 (success), 34191646235 (success) | VERIFIED |
@@ -18284,9 +18284,9 @@ theorem visibility_self (u : E) (hu : ‖u‖ = 1) : visibility u u = 1
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml, compound-eye.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
@@ -18314,16 +18314,16 @@ theorem visibility_self (u : E) (hu : ‖u‖ = 1) : visibility u u = 1
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 90e3516f47eb | ci.yml, compound-eye.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml, compound-eye.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml, compound-eye.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml, compound-eye.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | ci.yml, compound-eye.yml | 34181845761 (success), 34181845742 (success), 34181843202 (success), 34181843185 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success) | VERIFIED |
+| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success), 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | ci.yml, compound-eye.yml | 34744504004 (success), 34744502407 (success) | VERIFIED |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | ci.yml, compound-eye.yml | 34717423917 (success), 34717344316 (success) | VERIFIED |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | ci.yml, compound-eye.yml | 34754195095 (success), 34754184930 (success) | VERIFIED |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml | 34184767903 (success), 34184767848 (success), 34184767905 (success), 34184766105 (success), 34184766027 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | ci.yml, compound-eye.yml | 34239797479 (success) | VERIFIED |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success), 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | ci.yml, compound-eye.yml | 34560748737 (success) | VERIFIED |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | ci.yml, compound-eye.yml | 34398791804 (success), 34398783692 (success) | VERIFIED |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191687677 (success), 34191646404 (success), 34191646307 (success), 34191646235 (success) | VERIFIED |
@@ -18342,9 +18342,9 @@ theorem distinguishability_self (u : E) (hu : ‖u‖ = 1) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml, compound-eye.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
@@ -18372,16 +18372,16 @@ theorem distinguishability_self (u : E) (hu : ‖u‖ = 1) :
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 90e3516f47eb | ci.yml, compound-eye.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml, compound-eye.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml, compound-eye.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml, compound-eye.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | ci.yml, compound-eye.yml | 34181845761 (success), 34181845742 (success), 34181843202 (success), 34181843185 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success) | VERIFIED |
+| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success), 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | ci.yml, compound-eye.yml | 34744504004 (success), 34744502407 (success) | VERIFIED |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | ci.yml, compound-eye.yml | 34717423917 (success), 34717344316 (success) | VERIFIED |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | ci.yml, compound-eye.yml | 34754195095 (success), 34754184930 (success) | VERIFIED |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml | 34184767903 (success), 34184767848 (success), 34184767905 (success), 34184766105 (success), 34184766027 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | ci.yml, compound-eye.yml | 34239797479 (success) | VERIFIED |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success), 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | ci.yml, compound-eye.yml | 34560748737 (success) | VERIFIED |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | ci.yml, compound-eye.yml | 34398791804 (success), 34398783692 (success) | VERIFIED |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191687677 (success), 34191646404 (success), 34191646307 (success), 34191646235 (success) | VERIFIED |
@@ -18400,9 +18400,9 @@ theorem distinguishability_of_orthogonal (u v : E) (h : ⟪u, v⟫ = 0) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-collab-2026-09-11 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742371931 (success, built 82f1c4c03102) | VERIFIED |
 | acc-length-well-eye-2026-09-12 | 6cbe71cf99df | 90e3516f47eb | ci.yml, compound-eye.yml | 34686433657 (success) | VERIFIED |
-| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| acc-public-bridge-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34732178974 (success, built 82f1c4c03102) | VERIFIED |
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
@@ -18430,16 +18430,16 @@ theorem distinguishability_of_orthogonal (u v : E) (h : ⟪u, v⟫ = 0) :
 | formalize/collatz-finite-word-barrier | 3b8451ef2000 | 90e3516f47eb | ci.yml, compound-eye.yml | 34712872173 (failure), 34712860375 (failure) | FAILED-AT-HEAD |
 | formalize/projector-conjugation-derivative | c06021a2f119 | 90e3516f47eb | ci.yml, compound-eye.yml | 34717402257 (success), 34717400111 (success) | VERIFIED |
 | formalize/two-rail-minimal-topology | 84a443db8412 | 90e3516f47eb | ci.yml, compound-eye.yml | 34716901857 (success), 34716900033 (success) | VERIFIED |
-| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | — | NO-RUN-AT-HEAD |
+| gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34742369513 (success, built 82f1c4c03102) | VERIFIED |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | ci.yml, compound-eye.yml | 34730887825 (success), 34730879843 (success) | VERIFIED |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | ci.yml, compound-eye.yml | 34181845761 (success), 34181845742 (success), 34181843202 (success), 34181843185 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success) | VERIFIED |
+| main | 82f1c4c03102 | 90e3516f47eb | ci.yml, compound-eye.yml | 34724307093 (success), 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | ci.yml, compound-eye.yml | 34744504004 (success), 34744502407 (success) | VERIFIED |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | ci.yml, compound-eye.yml | 34717423917 (success), 34717344316 (success) | VERIFIED |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | ci.yml, compound-eye.yml | 34754195095 (success), 34754184930 (success) | VERIFIED |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml | 34184767903 (success), 34184767848 (success), 34184767905 (success), 34184766105 (success), 34184766027 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | ci.yml, compound-eye.yml | 34239797479 (success) | VERIFIED |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | ci.yml, compound-eye.yml, qg-transport-universal-replay.yml | 34546942239 (success), 34546938346 (success), 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | ci.yml, compound-eye.yml | 34560748737 (success) | VERIFIED |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | ci.yml, compound-eye.yml | 34398791804 (success), 34398783692 (success) | VERIFIED |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, ci.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191687677 (success), 34191646404 (success), 34191646307 (success), 34191646235 (success) | VERIFIED |
@@ -18493,13 +18493,13 @@ theorem comm_add_sub (S K : R) : comm (S + K) (S - K) = -(2 * comm S K)
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -18551,13 +18551,13 @@ theorem normal_iff_comm_zero (h2 : ∀ x : R, (2 : R) * x = 0 → x = 0) (S K : 
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -18609,13 +18609,13 @@ theorem transpose_mul_of_symm {B V : Matrix n n α} (hB : Bᵀ = B)
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
@@ -18667,13 +18667,13 @@ theorem reciprocity {B V : Matrix n n α} (hB : Bᵀ = B) (hV : Vᵀ * B = B * V
 | gpt-multi-agent-hub-2026-09-12 | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | gpt/acc-cap31-frontier-2026-09-12 | 59cbbea603d2 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | integration/universal-3-2-master-sync | 8dbeae48f897 | 90e3516f47eb | compound-eye.yml | 34181845761 (success), 34181843202 (success) | VERIFIED |
-| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
+| main | 82f1c4c03102 | 90e3516f47eb | compound-eye.yml | 34182112513 (success, built 401f6b4b2555) | VERIFIED |
 | publication/certified-layer-2026-09-12 | b2776d655b4d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | recovery-chat-audit-2026-09-12 | be1fcdda627f | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | release/lean-certified-works-2026-09-13 | 4eae20d269d8 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/all-eyes-live-sweeps | 01a42b046479 | 90e3516f47eb | all-eyes.yml, compound-eye.yml | 34184767903 (success), 34184767905 (success), 34184766105 (success), 34184765996 (success) | VERIFIED |
 | research/combined-peel-hypersurface-20260908 | 0afcc21e1a15 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | — | NO-RUN-AT-HEAD |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 90e3516f47eb | compound-eye.yml, qg-transport-universal-replay.yml | 34534028902 (success, built c0f9ed20d17f) | VERIFIED |
 | research/coxeter-rank2-2026-09-10 | ba148052049d | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/earth-moon-2026-09-09 | 3c3a8b2845ef | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | research/elemental-foundations | 8abd8cc23f22 | 90e3516f47eb | all-eyes.yml, compound-eye.yml, elemental-foundations-numerics.yml, elemental-peel.yml | 34191687704 (success), 34191687688 (success), 34191646404 (success), 34191646307 (success) | VERIFIED |
