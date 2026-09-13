@@ -63,7 +63,10 @@ theorem transport_metric_memory_chain
         ((-YangMillsFinite.blockGenerator A B D) i j) (0 : ℝ)) :
     (∀ (i j : Sum r h),
       HasDerivAt
-        (fun t : ℝ => (U t * YangMillsFinite.retainedProjection * V t) i j)
+        (fun t : ℝ =>
+          (U t *
+            (YangMillsFinite.retainedProjection : Matrix (Sum r h) (Sum r h) ℝ) *
+            V t) i j)
         (YangMillsFinite.projectorCommutator A B D i j) (0 : ℝ)) ∧
     (1 / 2 : ℝ) * YangMillsFinite.projectorCrossEnergy A B D =
       YangMillsFinite.couplingEnergy B ∧
