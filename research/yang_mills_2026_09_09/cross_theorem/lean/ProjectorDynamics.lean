@@ -85,9 +85,13 @@ theorem projectorCrossEnergy_eq_two_mul_couplingEnergy
   rw [projectorCommutator_eq_blocks]
   unfold couplingEnergy
   simp only [Matrix.fromBlocks_apply₁₂, Matrix.fromBlocks_apply₂₁,
-    Matrix.neg_apply, Matrix.transpose_apply]
-  ring_nf
-  rw [Finset.sum_comm]
+    Matrix.neg_apply, Matrix.transpose_apply, neg_sq]
+  have hswap :
+      (∑ i : h, ∑ j : r, (B j i)^2) =
+        ∑ i : r, ∑ j : h, (B i j)^2 := by
+    rw [Finset.sum_comm]
+  rw [hswap]
+  ring
 
 /-- Conventional one-half projector normalization equals coupling energy. -/
 theorem half_projectorCrossEnergy_eq_couplingEnergy
