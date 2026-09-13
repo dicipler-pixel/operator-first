@@ -30,16 +30,12 @@ jobs:
           bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain "$(cat lean-toolchain)"
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Resolve Mathlib
-        run: |
-          lake update
-          lake exe cache get
-      - name: Build root and explicitly check Rice-Mele module
+        run: lake update
+      - name: Explicitly elaborate Rice-Mele source and capture axioms
         shell: bash
         run: |
           set -o pipefail
-          lake build 2>&1 | tee rice_mele_build.log
           lake env lean OperatorFirst/RiceMeleOddSymmetry.lean 2>&1 | tee rice_mele_axioms.log
-          lake env leanchecker OperatorFirst.RiceMeleOddSymmetry 2>&1 | tee rice_mele_leanchecker.log
           python3 - <<'PY'
           import pathlib,re
           src=pathlib.Path('OperatorFirst/RiceMeleOddSymmetry.lean').read_text()
@@ -56,6 +52,15 @@ jobs:
               assert axes <= allow,(name,axes)
           print('Accepted and audited',len(names),'Rice-Mele odd-block symmetry theorems')
           PY
+      - name: Build and independently kernel-recheck audited root
+        uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
+        with:
+          use-mathlib-cache: true
+          build: true
+          leanchecker: true
+          leanchecker-args: OperatorFirst
+          axiom-audit: true
+          axiom-audit-allow: propext,Classical.choice,Quot.sound
       - name: Reject false B-sublattice sign
         run: |
           if lake env lean rice_mele_formal/FalseControl.lean > rice_mele_false.log 2>&1; then
@@ -69,7 +74,5 @@ jobs:
         with:
           name: rice-mele-odd-symmetry-evidence
           path: |
-            rice_mele_build.log
             rice_mele_axioms.log
-            rice_mele_leanchecker.log
             rice_mele_false.log
