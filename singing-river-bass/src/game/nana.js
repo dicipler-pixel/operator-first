@@ -312,6 +312,21 @@ export function animateNana(nana, state, t, elapsed, intensity = 0) {
       lerpTo(j.neck, [0.20 * p, 0, 0.06 * p], 0.25);
       break;
     }
+    case 'release': {
+      // She leans over the arm of the chair and eases him into the shallows.
+      // Slow, and she stays leaning while he sits there — that pause is the
+      // whole beat, and rushing back upright throws it away.
+      const p = Math.min(1, t / 1.6);
+      const back = t > 3.6 ? Math.min(1, (t - 3.6) / 1.0) : 0;
+      const lean = p * (1 - back);
+      lerpTo(j.torso, [0.52 * lean - 0.06, -0.20 * lean, 0.10 * lean], 0.14);
+      lerpTo(j.rShoulder, [-0.30 - 0.85 * lean, 0, -0.30 + 0.18 * lean], 0.14);
+      lerpTo(j.rElbow, [-0.55 + 0.30 * lean, 0, 0], 0.14);
+      lerpTo(j.lShoulder, [-0.42 - 0.80 * lean, 0, 0.36 - 0.14 * lean], 0.14);
+      lerpTo(j.lElbow, [-0.95 + 0.42 * lean, 0, 0], 0.14);
+      lerpTo(j.neck, [0.40 * lean, 0, 0], 0.14);
+      break;
+    }
     case 'cooler': {
       // Reaches down to her off-hand side, cracks one, sets it in the holder.
       const p = Math.min(1, t / 2.0);

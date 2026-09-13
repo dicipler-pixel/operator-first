@@ -12,14 +12,13 @@
 // NOTHING PUNISHES. No timer, no fail state, no way to lose. A fish that
 // throws the hook is `HE GOT OFF!` with a rueful sound, never a failure screen.
 //
-// WALTER IS NOT HERE YET. He is Stage 4, and 11_BANK_WALTER_v2.md §7 puts him
-// last on purpose: everything before him has to feel good enough that a trip
-// with no big one is still worth taking, because that is a quarter of them.
-// The trip roll is stubbed below so that when he lands, the roll happens once
-// at sit-down and not once per cast.
+// WALTER rolls ONCE PER TRIP, at sit-down, and the result is held secretly
+// until the game decides to spend it. Per-cast rolling turns him up every
+// ninety seconds and he stops being Walter.
 
 import * as THREE from 'three';
 import { rollWeight, lengthForWeight } from './fish.js';
+import { WALTER_FORMS, walterFightProfile, walterFightSeconds, walterPace } from './walter.js';
 import { LINES, makeCycler } from './lines.js';
 import * as sfx from '../audio/sfx.js';
 
@@ -31,6 +30,12 @@ export const STATE = {
   FIGHT: 'fight',          // hooked, hold to reel
   LANDED: 'landed',        // celebration owns the screen
   COOLER: 'cooler',        // reaching down, two seconds
+
+  // ---- Walter. A ceremony, not a jump scare. ------------------------
+  WALTER_TAKE: 'walterTake',     // the rod loads slowly and heavily
+  WALTER_REVEAL: 'walterReveal', // he turns near the top and the flank catches
+  RELEASE: 'release',            // she eases him back into the shallows
+  BOARD: 'board',                // cut to the record board
 };
 
 // A forgiving hook window. Sega Bass gives you a fraction of a second; this
@@ -44,6 +49,14 @@ const BITE_MAX = 60;
 
 const CAST_TIME = 0.85;
 const BIG_FISH_LB = 2.0;      // above this, the full turntable celebration
+
+// Walter gets a longer, calmer window. He is a ceremony; rushing her here
+// would be the one place in the game that punishes.
+const WALTER_HOOK_WINDOW = 2.6;
+
+// He is not available in the first minutes of a trip. Small fish first, so the
+// afternoon has a shape before he turns up.
+const WALTER_EARLIEST = 100;
 
 const COOLER_CAPACITY = 6;    // six in the cooler
 
@@ -85,16 +98,36 @@ export class Trip {
       goodCatch: makeCycler(LINES.goodCatch),
       gotOff: makeCycler(LINES.gotOff),
       idle: makeCycler(LINES.idle),
+      walterTake: makeCycler(LINES.walterTake),
+      walterFight: makeCycler(LINES.walterFight),
+      walterLanded: makeCycler(LINES.walterLanded),
+      walterRelease: makeCycler(LINES.walterRelease),
+      walterAlmost: makeCycler(LINES.walterAlmost),
     };
 
     // ---- the trip roll, rolled ONCE, right now, at sit-down -----------
     // Held secretly until the game decides to spend it. Per-cast rolling
     // destroys the game. Walter does not fire yet (Stage 4) but the roll is
     // made here so the structure is right when he lands.
+    //   0.00 - 0.50  WALTER        he shows, he fights, she lands him   50%
+    //   0.50 - 0.75  ALMOST WALTER he shows, he fights, he goes         25%
+    //   0.75 - 1.00  NO BIG ONE    a good day of small fish             25%
+    //
+    // Fifty percent is very high for a legendary fish and that is deliberate.
+    // Do not "fix" it. This is not a game about scarcity. He cannot be a
+    // surprise at that rate, so the drama lives somewhere else instead.
     const r = Math.random();
     this.walterRoll = r < 0.50 ? 'walter' : r < 0.75 ? 'almost' : 'none';
     this.walterForm = Math.random() < 0.5 ? 'trout' : 'red';
     this.walterSpent = false;
+    this.walterOn = false;
+    this.walterSeed = Math.random() * 100;
+    this.walterToasted = false;
+
+    // Nothing announces a no-big-one trip. There is no "no Walter today"
+    // message — that turns a pleasant afternoon into a notification about
+    // absence. The trip is just bream and a channel cat and the light going
+    // orange, and that is a complete thing on its own.
 
     this._records = loadRecords();
   }
@@ -112,7 +145,7 @@ export class Trip {
 
   /** TAP on the water. Casts, or sets the hook if a fish is on. */
   tapWater(point) {
-    if (this.state === STATE.BITE) return this.setHook();
+    if (this.state === STATE.BITE || this.state === STATE.WALTER_TAKE) return this.setHook();
     if (this.state === STATE.IDLE || this.state === STATE.WAITING) {
       this.castTarget = point;
       this.setState(STATE.CASTING);
@@ -124,17 +157,20 @@ export class Trip {
 
   /** TAP anywhere while the rod is bent also sets the hook — forgiving. */
   tapAnywhere() {
-    if (this.state === STATE.BITE) return this.setHook();
+    if (this.state === STATE.BITE || this.state === STATE.WALTER_TAKE) return this.setHook();
     return null;
   }
 
   setHook() {
-    if (this.state !== STATE.BITE) return null;
+    if (this.state !== STATE.BITE && this.state !== STATE.WALTER_TAKE) return null;
     sfx.sfxHookSet();
     sfx.dragStart();
     this.setState(STATE.FIGHT);
-    this.tension = 0.25;
+    this.tension = this.walterOn ? 0.40 : 0.25;
     this.distance = 1;
+    this.fightTime = 0;
+    this.revealed = false;
+    if (this.walterOn) this.hooks.onSay?.(this.say.walterFight());
     return 'hooked';
   }
 
@@ -197,6 +233,38 @@ export class Trip {
         if (this.biteTimer <= 0) this.startBite();
         break;
 
+      case STATE.WALTER_TAKE:
+        // The rod loads slowly and heavily rather than snapping. She has a
+        // long, calm window; this beat is not a reflex test.
+        this.hookTimer -= dt;
+        if (this.hookTimer <= 0) {
+          // Even Walter slipping the hook before she sets it is not a failure.
+          this.walterOn = false;
+          this.pending = null;
+          this.setState(STATE.WAITING);
+          this.biteTimer = BITE_MIN + Math.random() * (BITE_MAX - BITE_MIN);
+          this.hooks.onSay?.(this.say.walterAlmost());
+          this.hooks.onWalterEnd?.();
+          sfx.sfxGotOff();
+        }
+        break;
+
+      case STATE.WALTER_REVEAL:
+        if (this.stateTime >= 2.2) {
+          if (this.walterRoll === 'almost') this.almostWalter();
+          else this.landFish();
+        }
+        break;
+
+      case STATE.RELEASE:
+        // He sits there a second — they do — then he's gone with one push of
+        // the tail. Then the record board.
+        if (this.stateTime >= 5.2) {
+          this.hooks.onWalterEnd?.();
+          this.setState(STATE.BOARD);
+        }
+        break;
+
       case STATE.BITE:
         this.hookTimer -= dt;
         if (this.hookTimer <= 0) {
@@ -220,6 +288,8 @@ export class Trip {
   }
 
   startBite() {
+    if (this.shouldSpendWalter()) return this.startWalter();
+
     const species = this.pickSpecies();
     const lb = rollWeight(species);
     this.pending = {
@@ -233,6 +303,47 @@ export class Trip {
     this.hookTimer = HOOK_WINDOW;
     this.setState(STATE.BITE);
     sfx.sfxStrike();
+  }
+
+  /**
+   * Decide whether THIS bite is the one the trip roll gets spent on. The roll
+   * itself was made at sit-down and never changes; this only picks the moment.
+   */
+  shouldSpendWalter() {
+    if (this.walterSpent) return false;
+    if (this.walterRoll === 'none') return false;
+    if (this.elapsed < WALTER_EARLIEST) return false;
+    // Rising chance per bite once he is eligible, so he always turns up
+    // eventually but never at a predictable count.
+    this.walterChance = (this.walterChance ?? 0.22) + 0.16;
+    return Math.random() < this.walterChance;
+  }
+
+  /**
+   * He is a ceremony, not a jump scare. The water goes still, the cicadas
+   * stop, the light shifts a little, and the rod loads slowly.
+   */
+  startWalter() {
+    this.walterSpent = true;
+    this.walterOn = true;
+    const form = WALTER_FORMS[this.walterForm];
+    this.pending = {
+      species: form.species,
+      scientific: form.scientific,
+      label: form.label,
+      lb: form.lb,                  // never moves
+      length: form.length,
+      walter: true,
+      form: this.walterForm,
+      strength: 1,
+    };
+    this.fightLength = walterFightSeconds(this.walterForm);
+    this.hookTimer = WALTER_HOOK_WINDOW;
+    this.setState(STATE.WALTER_TAKE);
+    sfx.setAmbience({ hushed: true });
+    sfx.sfxWalterTake();
+    this.hooks.onWalterStart?.(this.walterForm);
+    this.hooks.onSay?.(this.say.walterTake());
   }
 
   /**
@@ -261,6 +372,9 @@ export class Trip {
   updateFight(dt) {
     const f = this.pending;
     if (!f) return this.setState(STATE.IDLE);
+    this.fightTime = (this.fightTime ?? 0) + dt;
+
+    if (f.walter) return this.updateWalterFight(dt);
 
     // The fish surges on its own rhythm. Reeling closes distance but loads the
     // line; giving line bleeds tension off.
@@ -289,6 +403,112 @@ export class Trip {
     if (this.distance <= 0) this.landFish();
   }
 
+  /**
+   * The long fight. Thirty to sixty seconds, against five for everything else.
+   *
+   * A big red fights deep and slow and dogged. A gator trout runs shallow and
+   * headshakes and jumps. The two have to FEEL different, so that by about
+   * twenty seconds in she starts to suspect which one she's got — and is
+   * sometimes wrong.
+   *
+   * He stays UNDER THE SURFACE for the whole of this. A heavy shape, a boil, a
+   * swirl, no colour. The reveal is worth nothing if he can be read early.
+   */
+  updateWalterFight(dt) {
+    this.walterProfile = walterFightProfile(this.pending.form, this.fightTime, this.walterSeed);
+    const pull = this.walterProfile.pull;
+
+    // Distance is paced to the form's fight length rather than to raw reeling,
+    // so the ceremony runs as long as it should whatever she does with the bar.
+    //
+    // The 0.55 is the point. Sizing this for CONTINUOUS reeling is wrong: the
+    // tension bar means she can only hold the bar down roughly half to two
+    // thirds of the time, so a rate tuned to continuous reeling stretches a
+    // 52-second fight past two minutes and the ceremony turns into a chore.
+    // Tuned instead, per form, so that the share of the fight the bar actually
+    // lets her spend reeling lands inside the thirty-to-sixty-second window.
+    // See walterPace() — the red needed a different number from the trout.
+    const gain = 1 / (this.fightLength * walterPace(this.pending.form));
+
+    if (this.reeling) {
+      this.distance -= dt * gain * (1.25 - pull * 0.30);
+      this.tension += dt * (0.30 + pull * 0.80);
+    } else {
+      this.tension -= dt * 0.58;
+      // He takes a little back when she gives line, but nowhere near enough to
+      // stall her — there is no way to lose Walter to bad play.
+      this.distance += dt * gain * pull * 0.20;
+    }
+
+    this.tension = THREE.MathUtils.clamp(this.tension, 0, 1.25);
+    this.distance = THREE.MathUtils.clamp(this.distance, 0, 1);
+    sfx.dragSet(Math.min(1, this.tension));
+
+    if (this.walterProfile.jump) sfx.sfxSplash(0.8);
+
+    // He does not throw the hook on over-tension. There is no way to lose
+    // Walter to a mistake — whether he goes was decided at sit-down, and
+    // dressing that up as her error would be a lie about the trip table.
+    // Over-tension just stalls her.
+    if (this.tension >= 1.0) {
+      this.distance = Math.min(1, this.distance + dt * 0.05);
+    }
+
+    if (this.distance <= 0.02 && !this.revealed) {
+      this.revealed = true;
+      this.setState(STATE.WALTER_REVEAL);
+      sfx.dragStop();
+      sfx.sfxWalterReveal();
+      this.hooks.onWalterReveal?.(this.pending.form);
+    }
+  }
+
+  /**
+   * ALMOST WALTER — 25%.
+   *
+   * She hooks him, fights him, gets him to the surface where she SEES him —
+   * and then he's gone. Line goes slack.
+   *
+   * She sees him long enough to know WHICH FORM it was, and that matters,
+   * because it feeds the counter. This must never read as failure. The near
+   * miss becomes something she collects rather than something she loses.
+   * Thirty years of almost is the whole story of a fish like this.
+   */
+  almostWalter() {
+    sfx.dragStop();
+    sfx.sfxSplash(1.2);
+    sfx.sfxGotOff();
+
+    this._records.sightings[this.walterForm] = (this._records.sightings[this.walterForm] ?? 0) + 1;
+    saveRecords(this._records);
+
+    this.walterOn = false;
+    this.pending = null;
+    this.hooks.onAlmostWalter?.(this.walterForm);
+    this.hooks.onSay?.(this.say.walterAlmost());
+    sfx.setAmbience({ hushed: false });   // the cicadas come back
+    this.setState(STATE.BOARD);
+  }
+
+  /**
+   * She lets him go. The most important thing in the design.
+   *
+   * The celebration does not end on the weight. It ends with her putting him
+   * back. Without a release he is USED UP — caught, logged, done — and the
+   * point of him evaporates by the third session. Releasing him means he is
+   * never finished: the record board is a log of encounters, not a kill count.
+   *
+   * It is also just true. Nobody keeps a thirty-five pound bull red.
+   */
+  releaseWalter() {
+    this.setState(STATE.RELEASE);
+    this.hooks.onSay?.(this.say.walterRelease());
+    this.hooks.onRelease?.(this.walterForm);
+    setTimeout(() => sfx.sfxSplash(1.0), 2600);
+    // Cicadas come back up as he goes.
+    setTimeout(() => sfx.setAmbience({ hushed: false }), 3000);
+  }
+
   loseFish() {
     sfx.dragStop();
     sfx.sfxGotOff();
@@ -306,6 +526,24 @@ export class Trip {
     const fish = this.pending;
     this.pending = null;
     this.overTime = 0;
+
+    if (fish.walter) {
+      // Two Walter slots, not one. She can have landed one, both, or neither,
+      // and the empty slot is a standing reason to go back.
+      //
+      // WALTER IS ALWAYS RELEASED. Never kept, never logged as a kill — so he
+      // does not touch `best` or the caught count, which are about fish she
+      // brought home.
+      this._records.walter[fish.form] = fish.lb;
+      saveRecords(this._records);
+      this.caught.push(fish);
+      this.lastCatch = fish;
+      this.walterOn = false;
+      this.setState(STATE.LANDED);
+      this.hooks.onCatch?.(fish);
+      this.hooks.onSay?.(this.say.walterLanded());
+      return;
+    }
 
     const prev = this._records.best[fish.species];
     fish.isPersonalBest = !prev || fish.lb > prev;
@@ -326,7 +564,40 @@ export class Trip {
 
   /** Called by the celebration when it is finished with the screen. */
   celebrationDone() {
-    if (this.state === STATE.LANDED) this.setState(STATE.IDLE);
+    if (this.state !== STATE.LANDED) return;
+    // Walter's ceremony does not end on the weight. It ends with the release.
+    if (this.lastCatch?.walter) return this.releaseWalter();
+    this.setState(STATE.IDLE);
+  }
+
+  /** Called by the record board when she dismisses it. */
+  boardDone() {
+    if (this.state === STATE.BOARD) this.setState(STATE.IDLE);
+  }
+
+  /**
+   * The Walter beer. Optional, and a ritual rather than a mechanic. Last line
+   * of a good trip, and the only one with music under it.
+   */
+  toastWalter() {
+    if (this.walterToasted || this.coolerLeft <= 0) return false;
+    this.walterToasted = true;
+    this.coolerLeft--;
+    sfx.sfxCoolerOpen();
+    setTimeout(() => sfx.sfxCrack(), 420);
+    setTimeout(() => sfx.sfxHiss(), 490);
+    setTimeout(() => { this.hooks.onSay?.(LINES.walterToast); sfx.sfxToast(); }, 900);
+    return true;
+  }
+
+  /** Debug only: force the trip's Walter to be available on the next bite. */
+  forceWalter(form) {
+    if (form) this.walterForm = form;
+    if (this.walterRoll === 'none') this.walterRoll = 'walter';
+    this.walterSpent = false;
+    this.walterChance = 1;
+    this.elapsed = Math.max(this.elapsed, WALTER_EARLIEST + 1);
+    this.forceBite();
   }
 
   /** Debug only: skip the 30-60s wait. Bound to B in main.js. */

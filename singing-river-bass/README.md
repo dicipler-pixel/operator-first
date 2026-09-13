@@ -9,7 +9,7 @@ superseded and will build the wrong game — the one exception is the "Fetch"
 section of `02`, which is still the correct asset list and is what
 `tools/fetch_assets.sh` implements.
 
-## Stages 1-3 done. Walter is Stage 4 and not here yet.
+## Stages 1-4 done. Stage 5 (PWA + Pages) is what is left.
 
 ```
 npm install
@@ -17,14 +17,22 @@ npm run dev          # game at http://127.0.0.1:5173
 npm run build        # -> docs/
 npm run bench        # headless frame-rate measurement
 npm run playtest     # drives a whole catch in Chromium, --shots for screenshots
+npm run waltertest   # drives all three Walter branches end to end
 ```
 
 **Playing it.** Tap the water to cast. Tap anywhere to set the hook when the rod
 bends. Hold the bar to reel, let go to give line. Tap the cooler if you want one.
-Keyboard: `space` hook/reel, `C` cooler, `B` skip the 30-60s wait (debug only).
+Keyboard: `space` hook/reel, `C` cooler, `V` record board, and for testing only:
+`B` skip the 30-60s wait, `T` force Walter as the trout, `R` force him as the red.
 
 Bites come every 30 to 60 seconds by design — this is a slow game about sitting
 somewhere nice. `B` exists so you do not have to wait to test it.
+
+**Walter** rolls once per trip at sit-down: 50% he shows and she lands him, 25%
+he shows and goes, 25% no big one. He turns up as a gator speckled trout at
+exactly 8.40 lb or a bull redfish at exactly 34.80 lb, and those numbers never
+move. The fight runs 30-60 seconds against 5 for everything else, he stays a
+shadow under the surface until the reveal, and she always puts him back.
 
 The Stage 1 water test is kept at `/watertest.html`: it cycles the four map
 presets every 6 seconds. Tap left/right to change water, `A` auto-cycle,

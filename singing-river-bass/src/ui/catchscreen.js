@@ -19,11 +19,15 @@
 
 import * as THREE from 'three';
 import { createFish, animateFish } from '../game/fish.js';
+import { createWalter } from '../game/walter.js';
 import { createRetroMaterial, paint, syncRetroLighting } from '../render/retro.js';
 import * as sfx from '../audio/sfx.js';
 
 const SMALL_SECONDS = 1.5;
 const BIG_SECONDS = 4.0;
+// Longer still, and he gets his own music. The longest ceremony in the game —
+// and it still is not the end of his beat, because the release follows it.
+const WALTER_SECONDS = 6.5;
 
 export class CatchScreen {
   constructor(uiRoot) {
@@ -73,14 +77,17 @@ export class CatchScreen {
     this.t = 0;
     this.tickedTenths = 0;
     this.data = fish;
-    this.duration = fish.big ? BIG_SECONDS : SMALL_SECONDS;
+    this.duration = fish.walter ? WALTER_SECONDS : fish.big ? BIG_SECONDS : SMALL_SECONDS;
 
     // Start broadside. The profile is what identifies a fish; nose-on it is a
     // blob whatever you do to the geometry.
     this.turntable.rotation.y = Math.PI / 2;
     if (this.fish) this.turntable.remove(this.fish);
     // Scale up for the presentation — a bluegill at true scale is a speck.
-    this.fish = createFish(fish.species, Math.max(0.55, fish.length * 1.9));
+    this.fish = fish.walter
+      ? createWalter(fish.form)
+      : createFish(fish.species, Math.max(0.55, fish.length * 1.9));
+    if (fish.walter) this.fish.scale.multiplyScalar(0.95);
     this.turntable.add(this.fish);
     // The turntable is a presentation, not the bank. Light it from the front
     // so the markings that distinguish one species from another actually show.
@@ -94,17 +101,22 @@ export class CatchScreen {
       fogNear: 6, fogFar: 18,
     });
 
-    this.el.species.textContent = fish.species.toUpperCase();
+    // `WALTER — TROUT`, not `SPECKLED TROUT`. Naming the size rather than the
+    // species is how people who actually fish it talk.
+    this.el.species.textContent = (fish.label ?? fish.species).toUpperCase();
     this.el.weight.textContent = '0.00 LBS';
     this.el.best.classList.toggle('on', !!fish.isPersonalBest);
     this.el.sub.textContent = fish.scientific ?? '';
     this.el.root.classList.add('on');
-    this.el.root.classList.toggle('big', !!fish.big);
+    this.el.root.classList.toggle('big', !!(fish.big || fish.walter));
+    this.el.root.classList.toggle('walter', !!fish.walter);
     // Everything stops. The rest of the HUD gets out of the way — a reel bar
     // and a bite prompt underneath the ceremony ruins it.
     this.el.root.parentElement.classList.add('celebrating');
 
-    if (fish.big) sfx.sfxFanfare(); else sfx.sfxChime();
+    if (fish.walter) sfx.sfxWalterFanfare();
+    else if (fish.big) sfx.sfxFanfare();
+    else sfx.sfxChime();
   }
 
   update(dt, elapsed) {
@@ -122,7 +134,7 @@ export class CatchScreen {
       if (tenths % 2 === 0) sfx.sfxTick();
     }
 
-    this.turntable.rotation.y += dt * (this.data.big ? 0.95 : 1.8);
+    this.turntable.rotation.y += dt * (this.data.walter ? 0.72 : this.data.big ? 0.95 : 1.8);
     if (this.fish) animateFish(this.fish, elapsed, 0.35);
 
     if (this.t >= this.duration) this.hide();

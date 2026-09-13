@@ -122,20 +122,30 @@ let cicadaGain = null;
 let lapGain = null;
 
 function buildAmbience() {
-  // Cicadas: band-passed noise amplitude-modulated at ~11 Hz. Crude, and from
-  // twelve feet away in August it is close enough to sit under everything.
+  // Cicadas. FAR back in the mix, and deliberately so.
+  //
+  // The first version of this was band-passed noise amplitude-modulated at
+  // 11 Hz around 4.2 kHz. That is close to the real insect and it was
+  // genuinely unpleasant to sit under — a hard buzz right in the most
+  // fatiguing part of the spectrum, running continuously for a whole session.
+  // A real cicada wall works outdoors because it is diffuse and you can look
+  // away from it; through phone speakers it is just an irritant.
+  //
+  // So: down around 2.2 kHz where it reads as distant rather than adjacent,
+  // a slow shallow pulse instead of a fast deep one, and a level low enough
+  // that you notice it when it stops rather than while it plays. Walter's
+  // hush still works — arguably better, because the silence lands against
+  // something restful instead of a relief from noise.
   const cic = noiseSource(true);
   const cf = ctx.createBiquadFilter();
-  cf.type = 'bandpass'; cf.frequency.value = 4200; cf.Q.value = 2.2;
+  cf.type = 'bandpass'; cf.frequency.value = 2200; cf.Q.value = 0.9;
+  const cfHi = ctx.createBiquadFilter();
+  cfHi.type = 'lowpass'; cfHi.frequency.value = 3200;   // shave the hard top
   cicadaGain = ctx.createGain();
-  cicadaGain.gain.value = 0.030;
-  const lfo = ctx.createOscillator();
-  const lfoGain = ctx.createGain();
-  lfo.frequency.value = 11;
-  lfoGain.gain.value = 0.016;
-  lfo.connect(lfoGain).connect(cicadaGain.gain);
-  cic.connect(cf).connect(cicadaGain).connect(ambienceGain);
-  cic.start(); lfo.start();
+  cicadaGain.gain.value = 0.0001;   // starts silent; the scheduler brings them in
+  cic.connect(cf).connect(cfHi).connect(cicadaGain).connect(ambienceGain);
+  cic.start();
+  scheduleCicadas();
 
   // Water lapping: low-passed noise, slowly swelling.
   const lap = noiseSource(true);
@@ -154,16 +164,89 @@ function buildAmbience() {
   ambienceGain.gain.linearRampToValueAtTime(1.0, ctx.currentTime + 2.5);
 }
 
-/** Cicadas creep louder as the heat builds, and stop dead when Walter is on. */
+// Cicadas COME AND GO. They are audible maybe fifteen percent of the time.
+//
+// A continuous bed is what makes insect noise grating — once it never stops,
+// there is nothing to stop noticing, and it just sits on top of everything for
+// the whole session. Real cicadas on that bank swell up, run for a while, and
+// drop away again for a minute or two, and that intermittency is most of why
+// it reads as somewhere pleasant rather than as noise.
+//
+// It also costs nothing and buys the Walter hush: he cannot silence something
+// that is already silent most of the time, so the hush is scheduled to land on
+// a live stretch when it can.
+let cicadaHeat = 0;
+let cicadaHushed = false;
+let cicadaTimer = null;
+
+// 15% of the original level. The first pass ran at 0.030 continuously; this
+// peaks at 0.0045 and only during a stretch, so it sits under the water rather
+// than over it.
+const CICADA_FULL = 0.030;        // what the first, unpleasant version ran at
+const CICADA_LEVEL = 0.15;        // fifteen percent of it
+
+function cicadaPeak() {
+  // Heat nudges it, but never past a fifth of the original.
+  return CICADA_FULL * CICADA_LEVEL * (1 + cicadaHeat * 0.35);
+}
+
+function scheduleCicadas() {
+  if (!ctx || !cicadaGain) return;
+  clearTimeout(cicadaTimer);
+  if (cicadaHushed) return;
+
+  // Audible roughly fifteen percent of the time: a short stretch, then a long
+  // quiet one. Slow ramps at both ends so a stretch arrives and leaves without
+  // ever being an event.
+  const gap = 52 + Math.random() * 38;      // a minute or so of nothing
+  const rise = 3.5;
+  const hold = 4 + Math.random() * 4;
+  const fall = 4.5;
+
+  cicadaTimer = setTimeout(() => {
+    if (!ctx || cicadaHushed) return;
+    const t = ctx.currentTime;
+    const g = cicadaGain.gain;
+    g.cancelScheduledValues(t);
+    g.setValueAtTime(Math.max(0.0001, g.value), t);
+    g.linearRampToValueAtTime(cicadaPeak(), t + rise);
+    g.setValueAtTime(cicadaPeak(), t + rise + hold);
+    g.linearRampToValueAtTime(0.0001, t + rise + hold + fall);
+    scheduleCicadas();
+  }, gap * 1000);
+}
+
+/** True while a cicada stretch is actually audible. */
+export function cicadasAudible() {
+  return !!cicadaGain && cicadaGain.gain.value > 0.0008;
+}
+
+/**
+ * Heat nudges how loud a cicada stretch gets when one comes. Walter stops them
+ * dead — and if they happen to be in a quiet gap when he takes it, the lapping
+ * dropping away carries the hush instead.
+ */
 export function setAmbience({ heat = 0, hushed = false } = {}) {
   if (!ctx || !cicadaGain) return;
-  const t = ctx.currentTime;
-  const target = hushed ? 0.0 : 0.030 + heat * 0.030;
-  cicadaGain.gain.cancelScheduledValues(t);
-  cicadaGain.gain.linearRampToValueAtTime(target, t + (hushed ? 0.9 : 2.0));
+  cicadaHeat = heat;
+
+  if (hushed !== cicadaHushed) {
+    cicadaHushed = hushed;
+    const t = ctx.currentTime;
+    if (hushed) {
+      clearTimeout(cicadaTimer);
+      cicadaGain.gain.cancelScheduledValues(t);
+      cicadaGain.gain.setValueAtTime(Math.max(0.0001, cicadaGain.gain.value), t);
+      cicadaGain.gain.linearRampToValueAtTime(0.0001, t + 1.1);
+    } else {
+      scheduleCicadas();
+    }
+  }
+
   if (lapGain) {
+    const t = ctx.currentTime;
     lapGain.gain.cancelScheduledValues(t);
-    lapGain.gain.linearRampToValueAtTime(hushed ? 0.020 : 0.055, t + 1.2);
+    lapGain.gain.linearRampToValueAtTime(hushed ? 0.016 : 0.050, t + 1.2);
   }
 }
 
@@ -314,6 +397,63 @@ export function sfxAhh() {
   src.connect(f).connect(g).connect(master);
   src.start(t0); src.stop(t0 + 0.7);
 }
+// --- Walter -------------------------------------------------------------
+
+/**
+ * He takes it. The rod loads slowly and heavily rather than snapping, and the
+ * sound has to do the same — a low swell, not the sharp two-note strike alert
+ * a bream gets. From the way this lands she knows it's a Walter. She does not
+ * know which one.
+ */
+export function sfxWalterTake() {
+  if (playSample('waltertake')) return;
+  if (!ctx) return;
+  const t0 = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  const g = ctx.createGain();
+  const f = ctx.createBiquadFilter();
+  osc.type = 'triangle';
+  osc.frequency.setValueAtTime(150, t0);
+  osc.frequency.exponentialRampToValueAtTime(74, t0 + 1.5);
+  f.type = 'lowpass'; f.frequency.value = 900;
+  g.gain.setValueAtTime(0.0001, t0);
+  g.gain.exponentialRampToValueAtTime(0.30, t0 + 0.55);   // loads slowly
+  g.gain.exponentialRampToValueAtTime(0.0001, t0 + 1.9);
+  osc.connect(f).connect(g).connect(master);
+  osc.start(t0); osc.stop(t0 + 2.0);
+  // A single low note under it, in the 500-2k band so it still reads.
+  tone(660, { t: 0.12, dur: 0.9, peak: 0.12, type: 'triangle', slideTo: 520 });
+}
+
+/** He turns near the top and the flank catches the light. */
+export function sfxWalterReveal() {
+  if (playSample('walterreveal')) return;
+  sfxSplash(1.3);
+  tone(392, { dur: 0.5, peak: 0.18, type: 'triangle', slideTo: 587 });
+  tone(587, { t: 0.24, dur: 0.7, peak: 0.16 });
+}
+
+/**
+ * His own music. Longer than the fanfare and warmer — this is the only
+ * celebration in the game with a tune rather than a flourish.
+ */
+export function sfxWalterFanfare() {
+  if (playSample('walterfanfare')) return;
+  const mel = [[392, 0], [523, 0.26], [659, 0.52], [784, 0.78], [659, 1.10], [784, 1.32], [1047, 1.62]];
+  for (const [f, t] of mel) tone(f, { t, dur: 0.46, peak: 0.24, type: 'square' });
+  for (const [f, t] of [[196, 0], [262, 0.78], [330, 1.62]]) {
+    tone(f, { t, dur: 1.1, peak: 0.13, type: 'triangle' });
+  }
+}
+
+/** "To Walter." The only line with music under it. */
+export function sfxToast() {
+  if (playSample('toast')) return;
+  for (const [f, t] of [[523, 0], [659, 0.20], [784, 0.40]]) {
+    tone(f, { t, dur: 0.9, peak: 0.13, type: 'triangle' });
+  }
+}
+
 export function sfxCoolerOpen() {
   if (playSample('coolerlid')) return;
   burst({ dur: 0.12, peak: 0.16, freq: 520, q: 1.2 });

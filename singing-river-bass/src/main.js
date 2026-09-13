@@ -19,8 +19,10 @@ import {
 import { createNana, animateNana } from './game/nana.js';
 import { createFish, animateFish, lengthForWeight } from './game/fish.js';
 import { Trip, STATE } from './game/trip.js';
+import { createWalter, createWalterShadow, WALTER_FORMS } from './game/walter.js';
 import { Hud } from './ui/hud.js';
 import { CatchScreen } from './ui/catchscreen.js';
+import { RecordBoard } from './ui/board.js';
 import * as sfx from './audio/sfx.js';
 import mapData from './data/04_species_and_maps.json';
 
@@ -31,6 +33,7 @@ const startScreen = document.getElementById('start');
 const pipeline = new RetroPipeline(canvas);
 const hud = new Hud(ui);
 const catchScreen = new CatchScreen(ui);
+const board = new RecordBoard(ui);
 
 // ---------------------------------------------------------------------------
 // Scene
@@ -116,6 +119,16 @@ scene.add(bobber);
 // The hooked fish, swimming out there during the fight.
 let hookedFish = null;
 
+// Walter. For most of the fight she sees the shadow, not the fish: a heavy
+// shape, a boil, a swirl, no colour. The coloured fish only exists from the
+// reveal onward.
+const walterShadow = createWalterShadow();
+walterShadow.visible = false;
+scene.add(walterShadow);
+let walterFish = null;
+let walterHush = 0;          // 0..1, how far into the hush we are
+let releaseFish = null;
+
 // ---- camera: just behind and above her shoulder ---------------------------
 const camera = new THREE.PerspectiveCamera(52, RENDER_WIDTH / RENDER_HEIGHT, 0.1, 200);
 // Just behind and above her shoulder. She sits low-left of centre with the
@@ -125,6 +138,47 @@ const CAM_HOME = new THREE.Vector3(SEAT.x - 0.44, 1.92, SEAT.z + 3.05);
 const CAM_LOOK = new THREE.Vector3(SEAT.x + 0.16, 0.62, SEAT.z - 16.0);
 camera.position.copy(CAM_HOME);
 camera.lookAt(CAM_LOOK);
+
+// The camera only ever moves for Walter. Everything else in the game is played
+// from the one seated over-the-shoulder shot, so when it does move it means
+// something. The reveal and the release both push in close — at the home
+// framing a 34.80 lb bull red is a small orange shape beside her, which is not
+// what that moment is for.
+const camPos = CAM_HOME.clone();
+const camLook = CAM_LOOK.clone();
+const _wantPos = new THREE.Vector3();
+const _wantLook = new THREE.Vector3();
+
+function updateCamera(dt) {
+  _wantPos.copy(CAM_HOME);
+  _wantLook.copy(CAM_LOOK);
+  let ease = 1.4;
+
+  const subject = walterFish ?? releaseFish;
+  if (subject) {
+    // Frame him from slightly off his shoulder, close enough that the flank
+    // fills the shot and the markings read.
+    //
+    // Pull the distance in for the smaller form. At a fixed distance the
+    // 8.40 lb trout reads as a minnow next to the 34.80 lb red, which loses
+    // the reveal for one of the two forms. Scaling by sqrt keeps the trout
+    // visibly the smaller fish while still filling the frame.
+    const len = WALTER_FORMS[subject.userData.walterForm]?.length ?? 1.2;
+    const k = Math.sqrt(len / 1.35);
+    _wantPos.set(
+      subject.position.x + 1.45 * k,
+      subject.position.y + 0.76 * k,
+      subject.position.z + 2.35 * k,
+    );
+    _wantLook.copy(subject.position);
+    ease = 1.1;
+  }
+
+  camPos.lerp(_wantPos, Math.min(1, dt * ease));
+  camLook.lerp(_wantLook, Math.min(1, dt * ease));
+  camera.position.copy(camPos);
+  camera.lookAt(camLook);
+}
 
 syncRetroLighting(scene, {
   sun: KREBS_LIGHT.sun,
@@ -156,6 +210,50 @@ const trip = new Trip(mapData, {
   },
   onSay: (line) => hud.say(line),
   onState: (s) => onStateChange(s),
+
+  // The water goes still. The cicadas stop. The light shifts a little.
+  onWalterStart: () => {
+    walterShadow.visible = true;
+    bobber.visible = true;
+    hud.setPrompt('...');
+    hud.flash('walter');
+  },
+
+  // He turns near the top and the flank catches the light. Copper with a black
+  // dot, or silver with speckles. This is the beat the two forms exist for,
+  // and at 128px and 15-bit colour the two are still instantly different.
+  onWalterReveal: (form) => {
+    walterShadow.visible = false;
+    hud.setReelEnabled(false);
+    walterFish = createWalter(form);
+    scene.add(walterFish);
+    hud.setPrompt(form === 'red' ? 'COPPER. THAT BLACK SPOT.' : 'SILVER. THOSE SPECKLES.');
+    hud.showTension(false);
+    hud.flash('catch');
+  },
+
+  // She saw him long enough to know which form it was. Never `YOU LOST HIM`.
+  onAlmostWalter: (form) => {
+    if (walterFish) { scene.remove(walterFish); walterFish = null; }
+    walterShadow.visible = false;
+    bobber.visible = false;
+    hud.showTension(false);
+    hud.setPrompt('HE WAS RIGHT THERE.');
+    board.show(trip.records, 'He was right there.', () => trip.boardDone());
+  },
+
+  onRelease: () => {
+    if (walterFish) { scene.remove(walterFish); walterFish = null; }
+    releaseFish = createWalter(trip.walterForm);
+    scene.add(releaseFish);
+    hud.setPrompt('');
+  },
+
+  onWalterEnd: () => {
+    walterShadow.visible = false;
+    if (walterFish) { scene.remove(walterFish); walterFish = null; }
+    if (releaseFish) { scene.remove(releaseFish); releaseFish = null; }
+  },
 });
 
 hud.setName('NANA');
@@ -185,11 +283,28 @@ function onStateChange(s) {
       hud.setPrompt('TAP! SET THE HOOK!');
       hud.flash('strike');
       break;
+    case STATE.WALTER_TAKE:
+      // She knows it's a Walter from the way the rod loads. She does NOT know
+      // which one, and the prompt must not give it away.
+      hud.setPrompt('SOMETHING HEAVY. TAP.');
+      hud.flash('walter');
+      break;
+    case STATE.WALTER_REVEAL:
+    case STATE.RELEASE:
+      // The ceremony owns the screen. A live reel bar under it says there is
+      // still something to do, and there is not.
+      hud.showTension(false);
+      hud.setReelEnabled(false);
+      break;
+    case STATE.BOARD:
+      hud.setPrompt('');
+      if (!board.active) board.show(trip.records, null, () => trip.boardDone());
+      break;
     case STATE.FIGHT:
       hud.setPrompt('HOLD TO REEL — LET GO TO GIVE LINE');
       hud.showTension(true);
       hud.setReelEnabled(true);
-      spawnHookedFish();
+      if (!trip.walterOn) spawnHookedFish();
       break;
     case STATE.IDLE:
       hud.setPrompt('TAP THE WATER TO CAST');
@@ -237,7 +352,14 @@ canvas.addEventListener('pointerdown', (e) => {
   // The hook window is forgiving on purpose: a tap anywhere sets it.
   if (trip.state === STATE.BITE) { trip.setHook(); return; }
 
-  if (tappedCooler(ray)) { trip.tapCooler(); hud.setCooler(trip.coolerLeft); return; }
+  if (tappedCooler(ray)) {
+    // After the release, the cooler is the Walter beer. A ritual rather than a
+    // mechanic, and the only line in the game with music under it.
+    if (trip.lastCatch?.walter && !trip.walterToasted) trip.toastWalter();
+    else trip.tapCooler();
+    hud.setCooler(trip.coolerLeft);
+    return;
+  }
 
   if (ray.ray.intersectPlane(waterPlane, hitPoint)) {
     // Only water in front of her counts as a cast target.
@@ -268,6 +390,11 @@ addEventListener('keydown', (e) => {
   if (e.key === 'c' || e.key === 'C') { trip.tapCooler(); hud.setCooler(trip.coolerLeft); }
   // Debug: skip the 30-60s wait. Bites are meant to be slow; this is for testing.
   if (e.key === 'b' || e.key === 'B') trip.forceBite();
+  // Debug: force this trip's Walter. T = trout form, R = red form.
+  if (e.key === 't' || e.key === 'T') trip.forceWalter('trout');
+  if (e.key === 'r' || e.key === 'R') trip.forceWalter('red');
+  // Debug: show the record board.
+  if (e.key === 'v' || e.key === 'V') board.show(trip.records, null, () => trip.boardDone());
 });
 addEventListener('keyup', (e) => { if (e.code === 'Space') hold(false); });
 addEventListener('resize', () => pipeline.resize());
@@ -318,9 +445,10 @@ pipeline.start((dt, elapsed) => {
     const want =
       trip.state === STATE.CASTING ? 'cast' :
       trip.state === STATE.FIGHT ? 'fight' :
+      trip.state === STATE.WALTER_TAKE ? 'fight' :
       trip.state === STATE.COOLER ? 'cooler' :
-      trip.state === STATE.LANDED ? 'lift' :
-      (trip.state === STATE.FIGHT && trip.reeling) ? 'reel' : 'idle';
+      trip.state === STATE.RELEASE ? 'release' :
+      trip.state === STATE.LANDED ? 'lift' : 'idle';
     const resolved = (trip.state === STATE.FIGHT && trip.reeling) ? 'reel' : want;
     if (resolved !== animState) { animState = resolved; animTime = 0; }
     animTime += dt;
@@ -341,6 +469,78 @@ pipeline.start((dt, elapsed) => {
       if (trip.tension >= 1.0) hud.flash('over');
     }
 
+    // ---- Walter: the hush, the shadow, the reveal ---------------------
+    // The water goes still and the light shifts a little. Both are slow enough
+    // that you feel them rather than see them happen.
+    const wantHush = trip.walterOn || trip.state === STATE.RELEASE;
+    walterHush += ((wantHush ? 1 : 0) - walterHush) * dt * 0.9;
+    const wu = water.material.uniforms;
+    wu.uWaveHeight.value = 0.025 * (1 - walterHush * 0.86);
+    wu.uWaveSpeed.value = 0.35 * (1 - walterHush * 0.55);
+
+    if (walterShadow.visible) {
+      const prof = trip.walterProfile ?? { depth: 0.7, headshake: 0 };
+      const reach = 2.6 + trip.distance * 12.0;
+      const drift = Math.sin(elapsed * 0.8 + trip.walterSeed) * (0.5 + trip.distance * 1.4);
+      walterShadow.position.set(SEAT.x + drift, -0.32 - prof.depth * 0.55, SEAT.z - reach);
+      walterShadow.lookAt(SEAT.x, walterShadow.position.y, SEAT.z);
+      walterShadow.rotation.z = Math.sin(elapsed * 6) * prof.headshake * 0.25;
+      // The boil sits on the surface above him and grows as he comes up.
+      const boil = walterShadow.userData.boil;
+      const swirl = walterShadow.userData.swirl;
+      const up = -walterShadow.position.y;
+      boil.position.y = up; swirl.position.y = up + 0.01;
+      const size = 0.55 + (1 - trip.distance) * 0.65;
+      boil.scale.setScalar(size); swirl.scale.setScalar(size * (1 + Math.sin(elapsed * 1.4) * 0.12));
+      walterShadow.userData.boilMat.uniforms.uAlpha.value = 0.18 + (1 - trip.distance) * 0.34;
+      bobber.position.set(walterShadow.position.x, 0.02, walterShadow.position.z + 0.5);
+    }
+
+    if (walterFish) {
+      // THE REVEAL. He turns near the top and the flank catches the light.
+      //
+      // He has to actually BREACH the surface, not hover just under it: the
+      // water plane writes depth, so anything at or below y=0 is simply hidden
+      // and all the player gets is the caption. The first version of this sat
+      // him at y=-0.16 and he was invisible for the whole beat — which threw
+      // away the one moment the two forms exist for.
+      //
+      // So: up out of the water, close enough to read, held broadside.
+      const p = Math.min(1, trip.stateTime / 2.2);
+      const rise = Math.sin(Math.min(1, p * 1.4) * Math.PI * 0.5);   // eases up, holds
+      walterFish.position.set(
+        SEAT.x + 0.30,
+        0.10 + rise * 0.30,
+        SEAT.z - 2.55 + p * 0.35,
+      );
+      // Broadside from the start, rolling slowly so the flank turns into the
+      // light rather than spinning.
+      walterFish.rotation.set(
+        -0.10 - rise * 0.16,
+        Math.PI * 0.5 + p * 0.28,
+        Math.sin(elapsed * 2.2) * 0.16 - rise * 0.22,
+      );
+      bobber.position.set(walterFish.position.x, 0.02, walterFish.position.z + 0.45);
+    }
+
+    if (releaseFish) {
+      // She eases him into the shallows. He sits there a second — they do —
+      // then he's gone with one push of the tail.
+      const t = trip.stateTime;
+      const easeIn = Math.min(1, t / 2.4);
+      const gone = t > 4.0 ? Math.min(1, (t - 4.0) / 1.2) : 0;
+      // Same trap as the reveal: keep him just proud of the surface while she
+      // holds him, so the moment before he goes is actually visible.
+      releaseFish.position.set(
+        SEAT.x - 0.5 + easeIn * 0.1,
+        0.46 - easeIn * 0.36 - gone * 0.22,
+        SEAT.z - 1.1 - easeIn * 0.7 - gone * 9.0,
+      );
+      releaseFish.rotation.set(0.1 - gone * 0.25, Math.PI * 0.5 - gone * 0.35, 0);
+      animateFish(releaseFish, elapsed, gone > 0 ? 1.6 : 0.12);
+      releaseFish.visible = gone < 0.98;
+    }
+
     // ---- the hooked fish, out in the water ----------------------------
     if (hookedFish && trip.pending) {
       const reach = 3.5 + trip.distance * 13.0;
@@ -354,6 +554,8 @@ pipeline.start((dt, elapsed) => {
       bobber.position.y = 0.02 + Math.sin(elapsed * 1.7) * 0.02;
     }
   }
+
+  if (running) updateCamera(dt);
 
   // ---- line from rod tip to bobber ------------------------------------
   rod.updateWorldMatrix(true, false);
@@ -375,7 +577,7 @@ pipeline.__benchScene = scene;
 pipeline.__benchCamera = camera;
 window.__srb = {
   PlaneGeometry: THREE.PlaneGeometry,
-  pipeline, water, trip, hud, catchScreen, nana, scene, camera,
+  pipeline, water, trip, hud, catchScreen, board, nana, scene, camera,
   stats: pipeline.stats,
   presets: ['krebs'],
   setPreset: () => {},

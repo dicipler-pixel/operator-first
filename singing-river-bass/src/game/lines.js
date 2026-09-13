@@ -68,6 +68,53 @@ export const LINES = {
     "Walter's out there somewhere.",
     "Take your time.",
   ],
+
+  // ---- Walter, verbatim from 13_VOICE_v2.md §2 ------------------------
+  // Short. She isn't making a speech, she's talking to a fish.
+
+  // When he takes it — rod loads heavy, water goes still.
+  walterTake: [
+    "...well now.",
+    "That's him.",
+    "Oh, you're kidding me.",
+  ],
+
+  // Mid-fight, once she's fairly sure which form.
+  walterFight: [
+    "You're the big one.",
+    "Don't you dare.",
+    "Not this time, buddy.",
+  ],
+
+  walterLanded: [
+    "Walter. You old devil.",
+    "Hello, handsome.",
+    "I knew you were down there.",
+  ],
+
+  // At the release — ONE line, then nothing.
+  //
+  // 13_VOICE_v2.md §4 flags this as the one slot still worth replacing: it is
+  // the emotional end of the entire game, three words and then nothing but a
+  // splash. If she has something she actually says to a fish she's putting
+  // back, it goes here.
+  walterRelease: [
+    "Go on. Get.",
+    "See you next time.",
+    "Stay out of trouble.",
+  ],
+
+  // Almost Walter, as the line goes slack. Never `YOU LOST HIM`, never a
+  // failure sound. A rueful note and the cicadas come back.
+  walterAlmost: [
+    "He was right there.",
+    "...Every time.",
+    "Well. That's Walter.",
+  ],
+
+  // The Walter beer. A ritual rather than a mechanic. Last line of a good
+  // trip, and the only one with music under it.
+  walterToast: "To Walter.",
 };
 
 /** Cycle a list without immediate repeats. */
