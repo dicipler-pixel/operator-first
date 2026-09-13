@@ -6,6 +6,8 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   base: process.env.SRB_BASE ?? '/operator-first/',
   build: {
+    // Two pages: the game, and the Stage 1 water test kept alongside it.
+    rollupOptions: { input: { main: 'index.html', watertest: 'watertest.html' } },
     outDir: 'docs',
     emptyOutDir: true,
     target: 'es2020',

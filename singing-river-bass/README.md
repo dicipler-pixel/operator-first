@@ -9,17 +9,26 @@ superseded and will build the wrong game — the one exception is the "Fetch"
 section of `02`, which is still the correct asset list and is what
 `tools/fetch_assets.sh` implements.
 
-## Stage 1 — scaffold, assets, render  *(current)*
+## Stages 1-3 done. Walter is Stage 4 and not here yet.
 
 ```
 npm install
-npm run dev          # water test at http://127.0.0.1:5173
+npm run dev          # game at http://127.0.0.1:5173
 npm run build        # -> docs/
 npm run bench        # headless frame-rate measurement
+npm run playtest     # drives a whole catch in Chromium, --shots for screenshots
 ```
 
-The water test cycles the four map presets every 6 seconds.
-Tap left/right to change water. `A` auto-cycle, `D` dither, `S` vertex snap.
+**Playing it.** Tap the water to cast. Tap anywhere to set the hook when the rod
+bends. Hold the bar to reel, let go to give line. Tap the cooler if you want one.
+Keyboard: `space` hook/reel, `C` cooler, `B` skip the 30-60s wait (debug only).
+
+Bites come every 30 to 60 seconds by design — this is a slow game about sitting
+somewhere nice. `B` exists so you do not have to wait to test it.
+
+The Stage 1 water test is kept at `/watertest.html`: it cycles the four map
+presets every 6 seconds. Tap left/right to change water, `A` auto-cycle,
+`D` dither, `S` vertex snap.
 
 ### Stack
 

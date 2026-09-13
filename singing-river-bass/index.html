@@ -2,51 +2,188 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- Kill zoom. Double-tap zoom and pinch ruin this for someone with unsteady
-     hands, and viewport-fit=cover is what lets env(safe-area-inset-*) work. -->
 <meta name="viewport" content="width=device-width, initial-scale=1,
       maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<title>SINGING RIVER BASS — water test</title>
+<title>SINGING RIVER BASS</title>
 <style>
+  /* Chunky humanist sans, all caps for headings, hard one-pixel drop shadow
+     down and right, one-pixel bevel on every panel. Numbers in stretched
+     italic. Body text 20pt minimum, key numbers 28pt and up, full contrast —
+     no grey-on-grey, no thin weights. 00_DESIGN_BIBLE.md §3 and §4. */
+  :root {
+    --ink: #ffffff;
+    --panel: rgba(8, 12, 16, 0.82);
+    --bevel: rgba(255, 255, 255, 0.35);
+    --gold: #ffe08a;
+  }
   html, body {
     margin: 0; padding: 0; height: 100%; background: #000; overflow: hidden;
     touch-action: manipulation; overscroll-behavior: none;
     user-select: none; -webkit-user-select: none;
     -webkit-tap-highlight-color: transparent;
     font-family: "Trebuchet MS", "Segoe UI", Verdana, system-ui, sans-serif;
+    color: var(--ink);
   }
-  #game { display: block; width: 100vw; height: 100vh; image-rendering: pixelated; }
+  #game {
+    position: fixed; inset: 0; display: block; width: 100vw; height: 100vh;
+    image-rendering: pixelated;
+  }
 
-  /* Chunky humanist sans, all caps, hard one-pixel drop shadow down and right,
-     per the design bible. 20pt floor on body text. */
-  .plate {
-    position: fixed; left: 0; right: 0;
-    color: #fff; text-shadow: 1px 1px 0 #000;
-    text-transform: uppercase; letter-spacing: 0.04em;
-    pointer-events: none; text-align: center;
+  .caps { text-transform: uppercase; letter-spacing: 0.045em; font-weight: 700;
+          text-shadow: 1px 1px 0 #000; }
+  .num  { font-style: italic; transform: scaleX(1.12); transform-origin: center;
+          display: inline-block; max-width: 100%; }
+
+  /* ---- start screen: iOS will not play audio until the user taps ------ */
+  #start {
+    position: fixed; inset: 0; z-index: 40; background: #05080b;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 18px; padding: 24px; text-align: center; cursor: pointer;
   }
-  #label {
-    top: max(12px, env(safe-area-inset-top)); font-size: 26px; font-weight: 700;
+  #start.gone { display: none; }
+  #start h1 { font-size: 34px; margin: 0; line-height: 1.1; }
+  #start h2 { font-size: 21px; margin: 0; color: var(--gold); font-weight: 700; }
+  #start p  { font-size: 20px; margin: 0; opacity: 0.85; max-width: 30ch; line-height: 1.35; }
+  #start .blink { font-size: 26px; margin-top: 10px; animation: blink 1.2s steps(2) infinite; }
+  @keyframes blink { 50% { opacity: 0.15; } }
+
+  /* ---- HUD lives in the letterbox bars -------------------------------- */
+  #ui { position: fixed; inset: 0; z-index: 20; pointer-events: none; opacity: 0; }
+  #ui.on { opacity: 1; }
+  /* Everything stops. Nothing else on screen during the ceremony. */
+  #ui.celebrating #top, #ui.celebrating #bottom { display: none; }
+
+  #top {
+    position: absolute; left: 0; right: 0; top: 0;
+    padding: max(10px, env(safe-area-inset-top)) 14px 8px;
+    display: flex; flex-direction: column; gap: 6px; align-items: center;
   }
-  /* One stacked column at the bottom so the two readouts can never overlap,
-     whatever the text wraps to. Safe-area padding keeps the home indicator
-     off it. */
+  #hud-prompt { font-size: 21px; min-height: 25px; text-align: center; }
+  #hud-say {
+    font-size: 22px; color: var(--gold); text-transform: none; letter-spacing: 0;
+    font-style: italic; opacity: 0; transition: opacity .35s; text-align: center;
+    min-height: 27px; text-shadow: 1px 1px 0 #000;
+  }
+  #hud-say.on { opacity: 1; }
+
+  /* ---- line tension: fills AND changes width, never colour alone ------ */
+  /* In the bottom letterbox bar, directly above the reel bar — where the
+     thumb already is, and out of the 320x240 picture. */
+  #tension { display: none; }
+  #tension.on { display: block; }
+  #tension-track {
+    height: 26px; background: var(--panel); border: 2px solid var(--bevel);
+    box-shadow: 1px 1px 0 #000;
+  }
+  #tension-bar {
+    height: 100%; width: 0%; background: #9fd0ff;
+    transition: width .06s linear;
+  }
+  #tension-bar.high { background: #ffd24a; }
+  #tension-bar.over { background: #ff7a5c; }
+  #tension-label { font-size: 20px; margin-top: 4px; }
+
+  /* ---- bottom: the reel bar, permanent, across the bottom third ------- */
   #bottom {
-    bottom: 0; display: flex; flex-direction: column; gap: 8px;
-    padding: 0 12px max(12px, env(safe-area-inset-bottom));
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 8px 12px max(12px, env(safe-area-inset-bottom));
+    display: flex; flex-direction: column; gap: 8px; pointer-events: none;
   }
-  #help    { font-size: 20px; font-weight: 700; color: #cfe4ff; line-height: 1.25; }
-  #readout { font-size: 20px; font-weight: 700; color: #ffe9a8; line-height: 1.25; }
+  #stats { display: flex; justify-content: space-between; align-items: baseline;
+           gap: 10px; font-size: 20px; }
+  #stats > div { flex: 0 0 auto; white-space: nowrap; }
+  #hud-name { color: var(--gold); }
+
+  /* 64pt minimum touch target. Not 44. Thumb-reachable one-handed. */
+  #reel {
+    pointer-events: auto; min-height: 88px; width: 100%;
+    background: var(--panel); border: 2px solid var(--bevel);
+    box-shadow: 1px 1px 0 #000; color: var(--ink);
+    font: inherit; font-size: 28px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; text-shadow: 1px 1px 0 #000;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+  }
+  #reel.down { background: rgba(120, 170, 210, 0.55); }
+  #reel.dim  { opacity: 0.45; }
+
+  /* ---- screen-edge flash: every audio cue has a visual twin ----------- */
+  #flash { position: absolute; inset: 0; pointer-events: none; opacity: 0; }
+  #flash.on { animation: edge .45s ease-out 1; }
+  #flash.strike { box-shadow: inset 0 0 0 12px #ffd24a; }
+  #flash.over   { box-shadow: inset 0 0 0 12px #ff7a5c; }
+  #flash.catch  { box-shadow: inset 0 0 0 14px #9fd0ff; }
+  @keyframes edge { 0% { opacity: 1; } 100% { opacity: 0; } }
+
+  /* ---- catch celebration ---------------------------------------------- */
+  #catch {
+    position: absolute; inset: 0; display: none;
+    flex-direction: column; align-items: center; justify-content: space-between;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(20px, env(safe-area-inset-bottom));
+    text-align: center;
+  }
+  #catch-top, #catch-foot { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  #catch.on { display: flex; }
+  #catch-species { font-size: 34px; line-height: 1.05; }
+  #catch-sub { font-size: 20px; font-style: italic; opacity: 0.8; text-transform: none;
+               letter-spacing: 0; text-shadow: 1px 1px 0 #000; }
+  #catch-weight { font-size: 50px; color: var(--gold); }
+  #catch.big #catch-weight { font-size: 62px; }
+  #catch-best {
+    font-size: 26px; color: #fff; display: none;
+    background: #b5381f; padding: 4px 14px; border: 2px solid var(--bevel);
+    box-shadow: 1px 1px 0 #000;
+  }
+  #catch-best.on { display: inline-block; }
 </style>
 </head>
 <body>
   <canvas id="game"></canvas>
-  <div id="label" class="plate">—</div>
-  <div id="bottom" class="plate">
-    <div id="help">TAP LEFT / RIGHT TO CHANGE WATER · A AUTO · D DITHER · S SNAP</div>
-    <div id="readout">—</div>
+
+  <div id="ui">
+    <div id="flash"></div>
+
+    <div id="top">
+      <div id="hud-prompt" class="caps">—</div>
+      <div id="hud-say"></div>
+    </div>
+
+    <div id="catch">
+      <div id="catch-top">
+        <div id="catch-species" class="caps">—</div>
+        <div id="catch-sub"></div>
+      </div>
+      <div id="catch-foot">
+        <div id="catch-best" class="caps">New Personal Best!</div>
+        <div id="catch-weight" class="caps num">0.00 LBS</div>
+        <div class="caps" style="font-size:24px;letter-spacing:.24em;opacity:.9">NANA</div>
+      </div>
+    </div>
+
+    <div id="bottom">
+      <div id="tension">
+        <div id="tension-track"><div id="tension-bar"></div></div>
+        <div id="tension-label" class="caps">LINE</div>
+      </div>
+      <div id="stats" class="caps">
+        <div id="hud-name">NANA</div>
+        <div id="cooler-count">COOLER 6</div>
+        <div id="hud-best">BEST ——</div>
+      </div>
+      <button id="reel" class="caps" type="button">HOLD TO REEL</button>
+    </div>
   </div>
+
+  <div id="start">
+    <h1 class="caps">Singing River Bass</h1>
+    <h2 class="caps">Starring Nana</h2>
+    <p>Krebs Lake, Pascagoula, Mississippi.<br>Late afternoon, going to evening.</p>
+    <p style="font-size:20px;opacity:.7">Tap the water to cast. Tap to set the hook.
+       Hold the bar to reel. Tap the cooler if you want one.</p>
+    <div class="blink caps">Tap to start</div>
+  </div>
+
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>

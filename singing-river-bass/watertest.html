@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Kill zoom. Double-tap zoom and pinch ruin this for someone with unsteady
+     hands, and viewport-fit=cover is what lets env(safe-area-inset-*) work. -->
+<meta name="viewport" content="width=device-width, initial-scale=1,
+      maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>SINGING RIVER BASS — water test</title>
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%; background: #000; overflow: hidden;
+    touch-action: manipulation; overscroll-behavior: none;
+    user-select: none; -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: "Trebuchet MS", "Segoe UI", Verdana, system-ui, sans-serif;
+  }
+  #game { display: block; width: 100vw; height: 100vh; image-rendering: pixelated; }
+
+  /* Chunky humanist sans, all caps, hard one-pixel drop shadow down and right,
+     per the design bible. 20pt floor on body text. */
+  .plate {
+    position: fixed; left: 0; right: 0;
+    color: #fff; text-shadow: 1px 1px 0 #000;
+    text-transform: uppercase; letter-spacing: 0.04em;
+    pointer-events: none; text-align: center;
+  }
+  #label {
+    top: max(12px, env(safe-area-inset-top)); font-size: 26px; font-weight: 700;
+  }
+  /* One stacked column at the bottom so the two readouts can never overlap,
+     whatever the text wraps to. Safe-area padding keeps the home indicator
+     off it. */
+  #bottom {
+    bottom: 0; display: flex; flex-direction: column; gap: 8px;
+    padding: 0 12px max(12px, env(safe-area-inset-bottom));
+  }
+  #help    { font-size: 20px; font-weight: 700; color: #cfe4ff; line-height: 1.25; }
+  #readout { font-size: 20px; font-weight: 700; color: #ffe9a8; line-height: 1.25; }
+</style>
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <div id="label" class="plate">—</div>
+  <div id="bottom" class="plate">
+    <div id="help">TAP LEFT / RIGHT TO CHANGE WATER · A AUTO · D DITHER · S SNAP</div>
+    <div id="readout">—</div>
+  </div>
+  <script type="module" src="/src/watertest.js"></script>
+</body>
+</html>

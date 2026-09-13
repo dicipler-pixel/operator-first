@@ -13,7 +13,8 @@
     "assets:textures": "node tools/downsample_textures.mjs",
     "assets:manifest": "node tools/build_manifest.mjs",
     "assets:all": "npm run assets:fetch && npm run assets:glb && npm run assets:textures && npm run assets:manifest",
-    "bench": "node tools/bench.mjs"
+    "bench": "node tools/bench.mjs",
+    "playtest": "node tools/playtest.mjs"
   },
   "dependencies": {
     "three": "0.186.0"
