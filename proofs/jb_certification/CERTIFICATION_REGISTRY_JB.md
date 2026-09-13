@@ -1,0 +1,18 @@
+# JB certification registry — source pack of 2026-09-12
+
+Tag progression: `SRC -> ISO -> TRY -> GREEN -> CERT -> PUB`; `FENCE` = excluded until its dependencies are formalized.
+A green kernel is not a green paper. Status below is as of the last commit that touched this file; the CI run id is the evidence, never this table.
+
+| Tag | Declaration(s) | Source | Statement (finite kernel only) | Toolchain | Status |
+|---|---|---|---|---|---|
+| JB-PROJ-001 / JB-WTK3-001 | `JBCert.pairing_conserved_step`, `pairing_conserved_iter`, `pairing_gauge_invariant` (monoid); `pairing_conserved_dual`, `pairing_conserved_matrix`, `pairing_gauge_invariant_matrix` (matrices) | *What Transport Keeps* ed. 3, Theorem 3 first display and moving-coordinate statement; projector paper, conserved Casoratian pairing | `(ℓ M)(M⁻¹ z) = ℓ z`, finite iteration, `x' = S⁻¹x, ℓ'ᵀ = ℓᵀS` invariance | Lean 4.33.0 / Mathlib v4.33.0 | TRY (written; CI not yet green) |
+| JB-WTK3-002 | `JBCert.coboundary_transport`, `coboundary_endpoint_matters` | *What Transport Keeps* ed. 3, Theorem 4 first display (= official Corollary 2 [C]) | `T(n)U(n+1) = U(n)C(n) ⇒ T(0)⋯T(N−1) = U(0)[C(0)⋯C(N−1)]U(N)⁻¹` in any group | same | TRY |
+| JB-PROJ-002 | `JBCert.kronecker_mixed_product`, `kronecker_idempotent` | projector paper, Kronecker factorization; WTK Proposition 7 (algebraic core) | `(A⊗B)(C⊗D) = (AC)⊗(BD)`; idempotent ⊗ idempotent is idempotent | same | TRY |
+| JB-WTK3-003 | — | WTK Theorem 3, readout-error bound `|py/qy − K| ≤ ‖p−Kq‖‖r‖/(|qx|−‖q‖‖r‖)` | needs normed-space layer | — | ISO (isolated; not yet written in Lean) |
+| JB-WTK3-004 | — | WTK Proposition 7, `𝒮(B) = 1 − |u*v|²` and `1−𝒮(B⊗C) = (1−𝒮(B))(1−𝒮(C))` | needs Frobenius norm / inner product | — | ISO |
+| JB-PROJ-003 | — | projector paper, order-2 Casoratian-dual selection theorem; simple-dominant-mode convergence | analytic hypotheses (minimal solution / recessive mode) | — | FENCE until the finite algebra above is GREEN and the minimal hypotheses are isolated |
+| FENCE | — | numerical curvature values and slopes (WTK §4, Theorem 6/6a computations); saddle-point and Birkhoff–Trjitzinsky inputs; physical/optical identifications (WTK §7–8, [H]); the Q(√2) fundamental-unit remark; any ACC heuristic | not theorems of this pack | — | FENCE |
+
+## Provenance
+- Source files: Drive `Mad Hatters ACC Shared Hub/CLAUDE_CERTIFICATION_HANDOFF_2026-09-12/` — `What_Transport_Keeps (3).html`, `What_Transport_Keeps_Proofs_and_Code (3).zip` (`checks/formal_status.json`: `lean_certified: false`), `projector_calibration_merged (3)(1).pdf` (15.7 MB; not readable through the Drive tool in this session — statements taken from the handoff note), `Ramanujan_Challenge_Proofs_02_08(1).pdf` (cited source only, `JB-RAM-REF`).
+- No Lean toolchain could be installed in this container (`release.lean-lang.org` and the Mathlib cache host are blocked by egress policy), so nothing here was compiled locally. The workflow `.github/workflows/jb-certification.yml` is the only compile path; its evidence artifact and run id promote a row from TRY to GREEN.
