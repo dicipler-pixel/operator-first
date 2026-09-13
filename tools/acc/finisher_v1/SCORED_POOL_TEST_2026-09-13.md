@@ -40,4 +40,19 @@ out of this public file; the per-id report lives with the private hub files.)
 Reading: the records are corridor-tight but not window-tight. The waste is one move, sitting 7–10 moves
 before the end, above the corridor. Under winner-take-all scoring, one move is the difference between
 holding a record and scoring zero, so these go up as a **new upload** (rule: later same-id lines in one
-file are skipped after the first verified one). Window 16 result appended when it finishes.
+file are skipped after the first verified one). Window 16 did not finish inside a 20-minute budget (BFS
+volume grows fast with the window); window 10 is the delivered result.
+
+## Stable AC records (`acc_finisher_sac_v1.py`, corridor, cap 2)
+
+| file | paths | shortened | kept | BFS node limit hit | moves saved | seconds |
+|---|---:|---:|---:|---:|---:|---:|
+| MINMERGE_STABLE (196 records) | 196 | **11** | 179 | 6 | 11 (one move each) | 254 |
+
+All 11 spliced paths accepted by the official sac-r8-v1 verifier. Ids: sac-00076, sac-00887, sac-02623,
+sac-02632, sac-03519, sac-04337, sac-05264, sac-05393, sac-06225, sac-06526, sac-06935.
+
+## Delivered to the hub (Google Drive, same folder as the source records)
+
+`CLAUDE_AC_RECORD_IMPROVEMENTS_20260913_v1.txt` (30 lines) and `CLAUDE_STABLE_RECORD_IMPROVEMENTS_20260913_v1.txt`
+(11 lines): only the shortened records, each a complete verified path, ready to upload as new files.

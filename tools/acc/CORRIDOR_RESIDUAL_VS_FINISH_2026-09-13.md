@@ -93,7 +93,8 @@ cap (R+1)+2. Compared with the reverse-BFS table reported from the ChatGPT lane:
 | 5 | 768 / 768 | 2 | 5 | 6 | 8 | yes |
 | 6 | 2368 / 2368 | 3 | 6 | 7 | 9 | yes |
 | 7 | 6528 / 6528 | 3 | 7 | 8 | 10 | yes |
+| 8 | 17920 / 17920 | 4 | 8 | 9 | 11 | yes |
 
 Two independent engines (their reverse BFS, my forward BFS on the official kernel) agree row for row from
-R = 2 to 7. R = 8 is appended when the run completes. ms-train-0333 enters at R = 8 and its exact cap-2
+R = 2 to 8 (R = 8: 17,920 states, shortest 4, median 8, 90% ≤ 9, worst 11). ms-train-0333 enters at R = 8 and its exact cap-2
 finish is 9, inside their R = 8 row (median 8, 90% ≤ 9, worst 11).
