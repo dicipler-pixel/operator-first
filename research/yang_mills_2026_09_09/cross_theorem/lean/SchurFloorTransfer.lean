@@ -39,7 +39,7 @@ def floorBlock (A : Matrix r r ℝ) (B : Matrix r h ℝ)
 
 /-- Effective retained operator at candidate floor `μ`, after eliminating the
 strictly-positive hidden shifted block. -/
-def schurAtFloor (A : Matrix r r ℝ) (B : Matrix r h ℝ)
+noncomputable def schurAtFloor (A : Matrix r r ℝ) (B : Matrix r h ℝ)
     (D : Matrix h h ℝ) (μ : ℝ) : Matrix r r ℝ :=
   retainedAtFloor A μ -
     B * (hiddenAtFloor D μ)⁻¹ * B.transpose
@@ -50,9 +50,20 @@ theorem floorBlock_eq_full_shift
     (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) (μ : ℝ) :
     floorBlock A B D μ =
       symBlock A B D - μ • (1 : Matrix (Sum r h) (Sum r h) ℝ) := by
-  ext i j
-  rcases i with i | i <;> rcases j with j | j <;>
-    simp [floorBlock, retainedAtFloor, hiddenAtFloor, symBlock]
+  have hOne :
+      (1 : Matrix (Sum r h) (Sum r h) ℝ) =
+        Matrix.fromBlocks (1 : Matrix r r ℝ) 0 0 (1 : Matrix h h ℝ) := by
+    symm
+    exact Matrix.fromBlocks_one
+  rw [hOne, Matrix.fromBlocks_smul]
+  change
+    Matrix.fromBlocks (A - μ • (1 : Matrix r r ℝ)) B B.transpose
+        (D - μ • (1 : Matrix h h ℝ)) =
+      Matrix.fromBlocks A B B.transpose D -
+        Matrix.fromBlocks (μ • (1 : Matrix r r ℝ)) 0 0
+          (μ • (1 : Matrix h h ℝ))
+  rw [sub_eq_add_neg, Matrix.fromBlocks_neg, Matrix.fromBlocks_add]
+  simp [floorBlock, retainedAtFloor, hiddenAtFloor, symBlock, sub_eq_add_neg]
 
 /-- **Finite spectral-floor Schur transfer.**  If the hidden block remains
 strictly positive after shifting by `μ`, then the full shifted block is positive
