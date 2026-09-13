@@ -1,0 +1,37 @@
+name: Collatz bounded-collapse certificate
+
+on:
+  push:
+    paths:
+      - 'research/collatz/**'
+      - '.github/workflows/collatz-bounded.yml'
+  pull_request:
+    paths:
+      - 'research/collatz/**'
+      - '.github/workflows/collatz-bounded.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  lean-certificate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+          sh elan-init.sh -y --default-toolchain leanprover/lean4:v4.33.0
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - run: lake update
+      - run: lake exe cache get
+      - name: Check bounded-collapse certificate and axioms
+        shell: bash
+        run: |
+          set -o pipefail
+          lake env lean research/collatz/formal/CollatzBounded.lean 2>&1 | tee collatz-bounded-lean.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: collatz-bounded-lean-certificate
+          path: collatz-bounded-lean.log
