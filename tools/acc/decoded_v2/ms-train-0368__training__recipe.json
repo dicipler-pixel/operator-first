@@ -1,0 +1,371 @@
+{
+ "schema": "compound-eye-mixer-recipe-v1",
+ "engine_version": "1.0.0",
+ "dataset": {
+  "schema": "compound-eye-traces-v1",
+  "id": "ms-train-0368__training",
+  "title": "ms-train-0368 (ac-r2-v1) \u2014 15 moves",
+  "description": "Per-step channels of one Andrews-Curtis move sequence replayed through the official verifier. dist_to_target is a proxy label, not a distance. Step 0 is the initial presentation.",
+  "context": {
+   "object_id": "ms-train-0368",
+   "model_id": "ac-r2-v1",
+   "coordinate": "step",
+   "x_unit": "moves applied",
+   "source_stage": "training"
+  },
+  "x": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "traces": [
+   {
+    "id": "total_length",
+    "label": "Total relator length",
+    "unit": "letters",
+    "source": "acc_run_decoder v2; official SAIR verifier replay (ac-r2-v1); provenance: training",
+    "values": [
+     13,
+     13,
+     13,
+     13,
+     8,
+     7,
+     7,
+     7,
+     7,
+     5,
+     5,
+     4,
+     4,
+     3,
+     2,
+     2
+    ],
+    "defaultRoute": "x"
+   },
+   {
+    "id": "len_r0",
+    "label": "Length of r0",
+    "unit": "letters",
+    "source": "acc_run_decoder v2; official SAIR verifier replay (ac-r2-v1); provenance: training",
+    "values": [
+     5,
+     5,
+     5,
+     5,
+     5,
+     4,
+     4,
+     4,
+     4,
+     4,
+     4,
+     3,
+     3,
+     2,
+     1,
+     1
+    ],
+    "defaultRoute": "y"
+   },
+   {
+    "id": "len_r1",
+    "label": "Length of r1",
+    "unit": "letters",
+    "source": "acc_run_decoder v2; official SAIR verifier replay (ac-r2-v1); provenance: training",
+    "values": [
+     8,
+     8,
+     8,
+     8,
+     3,
+     3,
+     3,
+     3,
+     3,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "defaultRoute": "y"
+   },
+   {
+    "id": "n_generators",
+    "label": "Number of generators (rank)",
+    "unit": "count",
+    "source": "acc_run_decoder v2; official SAIR verifier replay (ac-r2-v1); provenance: training",
+    "values": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "defaultRoute": "y"
+   },
+   {
+    "id": "delta_total",
+    "label": "Change in total length this step",
+    "unit": "letters",
+    "source": "acc_run_decoder v2; official SAIR verifier replay (ac-r2-v1); provenance: training",
+    "values": [
+     0,
+     0,
+     0,
+     0,
+     -5,
+     -1,
+     0,
+     0,
+     0,
+     -2,
+     0,
+     -1,
+     0,
+     -1,
+     -1,
+     0
+    ],
+    "defaultRoute": "y"
+   },
+   {
+    "id": "cancellations",
+    "label": "Letters removed by free reduction this step",
+    "unit": "letters",
+    "source": "acc_run_decoder v2; official SAIR verifier replay (ac-r2-v1); provenance: training",
+    "values": [
+     0,
+     0,
+     2,
+     2,
+     10,
+     4,
+     0,
+     2,
+     2,
+     6,
+     0,
+     2,
+     2,
+     2,
+     2,
+     0
+    ],
+    "defaultRoute": "y"
+   },
+   {
+    "id": "abelian_ok",
+    "label": "Relation matrix unimodular (invariant; 0 = broken replay)",
+    "unit": "flag",
+    "source": "acc_run_decoder v2; official SAIR verifier replay (ac-r2-v1); provenance: training",
+    "values": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "defaultRoute": "y"
+   },
+   {
+    "id": "dist_to_target",
+    "label": "Distance-to-target proxy (0 only at exact target, else total length)",
+    "unit": "letters (proxy)",
+    "source": "acc_run_decoder v2; official SAIR verifier replay (ac-r2-v1); provenance: training",
+    "values": [
+     13,
+     13,
+     13,
+     13,
+     8,
+     7,
+     7,
+     7,
+     7,
+     5,
+     5,
+     4,
+     4,
+     3,
+     2,
+     0
+    ],
+    "defaultRoute": "y"
+   },
+   {
+    "id": "move_id",
+    "label": "Move id applied at this step (-1 at step 0)",
+    "unit": "move id",
+    "source": "acc_run_decoder v2; official SAIR verifier replay (ac-r2-v1); provenance: training",
+    "values": [
+     -1,
+     0,
+     12,
+     6,
+     4,
+     2,
+     0,
+     7,
+     9,
+     4,
+     0,
+     2,
+     6,
+     2,
+     2,
+     1
+    ],
+    "defaultRoute": "y"
+   },
+   {
+    "id": "move_class_code",
+    "label": "Move class code 1 invert 2 multiply 3 conjugate 4 stabilize 5 destabilize (0 at step 0)",
+    "unit": "code",
+    "source": "acc_run_decoder v2; official SAIR verifier replay (ac-r2-v1); provenance: training",
+    "values": [
+     0,
+     1,
+     3,
+     3,
+     2,
+     2,
+     1,
+     3,
+     3,
+     2,
+     1,
+     2,
+     3,
+     2,
+     2,
+     1
+    ],
+    "defaultRoute": "y"
+   }
+  ]
+ },
+ "settings": {
+  "normalization": "rms",
+  "center": false,
+  "smoothing": 1,
+  "view": "shape",
+  "showComponents": true,
+  "showOriginal": true,
+  "scale": 1,
+  "cursor": 0,
+  "channels": {
+   "total_length": {
+    "enabled": true,
+    "weight": 1,
+    "route": "x",
+    "frequency": 0,
+    "phase": 0
+   },
+   "len_r0": {
+    "enabled": true,
+    "weight": 1,
+    "route": "y",
+    "frequency": 0,
+    "phase": 0
+   },
+   "len_r1": {
+    "enabled": true,
+    "weight": 1,
+    "route": "y",
+    "frequency": 0,
+    "phase": 0
+   },
+   "n_generators": {
+    "enabled": true,
+    "weight": 1,
+    "route": "y",
+    "frequency": 0,
+    "phase": 0
+   },
+   "delta_total": {
+    "enabled": true,
+    "weight": 1,
+    "route": "y",
+    "frequency": 0,
+    "phase": 0
+   },
+   "cancellations": {
+    "enabled": true,
+    "weight": 1,
+    "route": "y",
+    "frequency": 0,
+    "phase": 0
+   },
+   "abelian_ok": {
+    "enabled": true,
+    "weight": 1,
+    "route": "y",
+    "frequency": 0,
+    "phase": 0
+   },
+   "dist_to_target": {
+    "enabled": true,
+    "weight": 1,
+    "route": "y",
+    "frequency": 0,
+    "phase": 0
+   },
+   "move_id": {
+    "enabled": true,
+    "weight": 1,
+    "route": "y",
+    "frequency": 0,
+    "phase": 0
+   },
+   "move_class_code": {
+    "enabled": true,
+    "weight": 1,
+    "route": "y",
+    "frequency": 0,
+    "phase": 0
+   }
+  }
+ },
+ "baseline": null,
+ "meaning": "A reproducible visual composition; weights, centering and smoothing are chosen display operations, not automatically physical laws. Display RMS normalization is selected because the channels have different units."
+}
