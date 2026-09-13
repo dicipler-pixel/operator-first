@@ -42,24 +42,30 @@ theorem hasDerivAt_retained_transport_commutator
     (hV : ∀ i j, HasDerivAt (fun t => V t i j) ((-K) i j) 0) :
     ∀ i j,
       HasDerivAt
-        (fun t => (U t * retainedProjection * V t) i j)
-        ((K * retainedProjection - retainedProjection * K) i j) 0 := by
+        (fun t => (U t * (retainedProjection (r := r) (h := h)) * V t) i j)
+        ((K * (retainedProjection (r := r) (h := h)) -
+          (retainedProjection (r := r) (h := h)) * K) i j) 0 := by
   intro i j
   have hUP : ∀ a b,
-      HasDerivAt (fun t => (U t * retainedProjection) a b)
-        ((K * retainedProjection) a b) 0 := by
+      HasDerivAt
+        (fun t => (U t * (retainedProjection (r := r) (h := h))) a b)
+        ((K * (retainedProjection (r := r) (h := h))) a b) 0 := by
     intro a b
     have hconst : ∀ p q,
-        HasDerivAt (fun _ : ℝ => retainedProjection p q) 0 0 := by
+        HasDerivAt
+          (fun _ : ℝ => (retainedProjection (r := r) (h := h)) p q) 0 0 := by
       intro p q
       simpa using
-        (hasDerivAt_const (x := (0 : ℝ)) (c := retainedProjection p q))
-    have h := hasDerivAt_matrix_mul_sum U (fun _ => retainedProjection)
-      1 retainedProjection K 0 hU0 rfl hU hconst a b
+        (hasDerivAt_const (x := (0 : ℝ))
+          (c := (retainedProjection (r := r) (h := h)) p q))
+    have h := hasDerivAt_matrix_mul_sum U
+      (fun _ => retainedProjection (r := r) (h := h))
+      1 (retainedProjection (r := r) (h := h)) K 0 hU0 rfl hU hconst a b
     simpa using h
   have hprod := hasDerivAt_matrix_mul_sum
-    (fun t => U t * retainedProjection) V retainedProjection 1
-    (K * retainedProjection) (-K)
+    (fun t => U t * (retainedProjection (r := r) (h := h))) V
+    (retainedProjection (r := r) (h := h)) 1
+    (K * (retainedProjection (r := r) (h := h))) (-K)
     (by simp [hU0]) hV0 hUP hV i j
   simpa [Matrix.mul_assoc, sub_eq_add_neg, Matrix.mul_neg] using hprod
 
@@ -76,7 +82,7 @@ theorem hasDerivAt_retained_transport_blockCommutator
       HasDerivAt (fun t => V t i j) ((-blockHamiltonian A B D) i j) 0) :
     ∀ i j,
       HasDerivAt
-        (fun t => (U t * retainedProjection * V t) i j)
+        (fun t => (U t * (retainedProjection (r := r) (h := h)) * V t) i j)
         (projectorCommutator A B D i j) 0 := by
   intro i j
   simpa [projectorCommutator] using
@@ -96,7 +102,7 @@ theorem retained_transport_tangent_and_metric_bridge
       HasDerivAt (fun t => V t i j) ((-blockHamiltonian A B D) i j) 0) :
     (∀ i j,
       HasDerivAt
-        (fun t => (U t * retainedProjection * V t) i j)
+        (fun t => (U t * (retainedProjection (r := r) (h := h)) * V t) i j)
         (projectorCommutator A B D i j) 0) ∧
     (1 / 2 : ℝ) * projectorCrossEnergy A B D = couplingEnergy B := by
   constructor
