@@ -71,9 +71,8 @@ theorem nonuniform_allocation_global_floor
     _ = (∑ c, potential c) + ∑ c, ∑ i, alloc c i * energy i := by
           rw [Finset.sum_add_distrib]
     _ ≤ (∑ c, potential c) + ∑ i, energy i := by
-          exact add_le_add_left
-            (allocation_weighted_energy_le_total energy alloc henergy hcap)
-            (∑ c, potential c)
+          have h := allocation_weighted_energy_le_total energy alloc henergy hcap
+          linarith
 
 /-- Equivalent residual form of the global floor certificate. -/
 theorem nonuniform_allocation_residual_nonnegative
