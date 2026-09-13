@@ -1,0 +1,1649 @@
+[
+ {
+  "eye": "ce.operator.partition",
+  "function": "finite_core",
+  "test": "H_PP, H_PQ, H_QQ blocks are the declared index blocks",
+  "expected": "[[-1.6038628505068948, 0.02440715374947322], [0.02440715374947322, -1.9165304108721775]]",
+  "got": "[[-1.6038628505068948, 0.02440715374947322], [0.02440715374947322, -1.9165304108721775]]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.operator.effective",
+  "function": "finite_core",
+  "test": "self-energy B (z-D)^{-1} B^T and H_eff = A + Sigma",
+  "expected": "0",
+  "got": "0.0",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.operator.resolvent",
+  "function": "finite_core",
+  "test": "projected full resolvent = reduced resolvent (Feshbach identity)",
+  "expected": "0",
+  "got": "1.8516090914561556e-16",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.operator.dissipation",
+  "function": "finite_core",
+  "test": "Gamma_eta PSD with 2 eta B R* R B* factorization",
+  "expected": "0",
+  "got": "6.54815680991653e-16",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.operator.conditioning",
+  "function": "finite_core",
+  "test": "cond(zI-D) and min singular value match numpy",
+  "expected": "4.242307683915793",
+  "got": "4.242307683915793",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.force",
+  "function": "response_core",
+  "test": "energy and gradient of E0(q)=-sqrt(1+q^2)+Kq^2/2 at q=0.4",
+  "expected": "(np.float64(-1.021032961426901), np.float64(-0.09139067497332398))",
+  "got": "(-1.021032961426901, -0.09139067635410386)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.hessian",
+  "function": "response_core",
+  "test": "Hessian vs finite difference",
+  "expected": "-0.10041090181545087",
+  "got": "-0.10041094041832732",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.projector_geometry",
+  "function": "response_core",
+  "test": "quantum metric = (d\u03b8/dq)^2/4 with tan\u03b8=q, i.e. 1/(4(1+q^2)^2) (my first expectation 1/(4(1+q^2)) was wrong; the eye was right), zero Berry curvature for a real family",
+  "expected": "(0.18579072532699162, 0)",
+  "got": "(0.1857907253269917, 0.0)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.topology.polygon_winding",
+  "function": "winding",
+  "test": "diamond around origin: 1",
+  "expected": "1",
+  "got": "1",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.data.provenance",
+  "function": "provenance",
+  "test": "records source kind and input hash; asserts nothing",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "metadata only"
+ },
+ {
+  "eye": "ce.data.nuclear_readiness",
+  "function": "provenance",
+  "test": "missing experimental inputs -> blocked with the list",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "checklist only"
+ },
+ {
+  "eye": "ce.prediction.quantum.*",
+  "function": "scalar_prediction",
+  "test": "returns the declared candidate predictions for readout left_weight unchanged (passthrough)",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "no computation: copies declared numbers"
+ },
+ {
+  "eye": "ce.inference.next/closure (quantum)",
+  "function": "inference",
+  "test": "next-observation ranking and predictive closure run on the demo problem",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "next keys engine,input_sha256,context,absolute_numerical_allowance,evidence_kind | closure keys engine,input_sha256,context,status,input_readouts"
+ },
+ {
+  "eye": "ce.prediction.rc.*",
+  "function": "scalar_prediction",
+  "test": "returns the declared candidate predictions for readout initial_voltage unchanged (passthrough)",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "no computation: copies declared numbers"
+ },
+ {
+  "eye": "ce.inference.next/closure (rc)",
+  "function": "inference",
+  "test": "next-observation ranking and predictive closure run on the demo problem",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "next keys engine,input_sha256,context,absolute_numerical_allowance,evidence_kind | closure keys engine,input_sha256,context,status,input_readouts"
+ },
+ {
+  "eye": "ce.prediction.geometry.*",
+  "function": "scalar_prediction",
+  "test": "returns the declared candidate predictions for readout lower_energy unchanged (passthrough)",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "no computation: copies declared numbers"
+ },
+ {
+  "eye": "ce.inference.next/closure (geometry)",
+  "function": "inference",
+  "test": "next-observation ranking and predictive closure run on the demo problem",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "next keys engine,input_sha256,context,absolute_numerical_allowance,evidence_kind | closure keys engine,input_sha256,context,status,input_readouts"
+ },
+ {
+  "eye": "ce.response.holonomy",
+  "function": "holonomy",
+  "test": "Wilson loop = exp(i sum phases); gauge residual 0 (telescoping, tautology)",
+  "expected": "(np.float64(0.3623577544766736), np.float64(0.9320390859672263))",
+  "got": "[0.3623577544766736, 0.9320390859672263]",
+  "verdict": "PASS",
+  "note": "gauge_residual is identically 0 by construction"
+ },
+ {
+  "eye": "ce.response.geometric_phase",
+  "function": "geometric_phase",
+  "test": "Bargmann product of three qubit states matches independent product; phase = -arg",
+  "expected": "-0.7853981633974482",
+  "got": "-0.7853981633974482",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.weak_value",
+  "function": "weak_value",
+  "test": "<0|Z|+>/<0|+> = 1, success prob 1/2",
+  "expected": "(1, 0.5)",
+  "got": "([1.0, 0.0], 0.5000000000000001)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.weak_value",
+  "function": "weak_value",
+  "test": "orthogonal pre/post refused",
+  "expected": "blocked",
+  "got": "blocked",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.pointer",
+  "function": "pointer",
+  "test": "weak regime: pointer_X/(2g) \u2248 Re weak value (=1)",
+  "expected": "1",
+  "got": "0.9999333346666537",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.abl",
+  "function": "abl",
+  "test": "ABL with post=|0>: conditional probs [1,0]",
+  "expected": "[1, 0]",
+  "got": "[1.0, 0.0]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.cheshire",
+  "function": "cheshire",
+  "test": "fixed Cheshire-cat weak values L=1,R=0,L_X=0,R_X=1 (constant output, no input)",
+  "expected": "{'L': 1, 'R': 0, 'L_X': 0, 'R_X': 1}",
+  "got": "{'L': 1.0, 'R': 0.0, 'L_X': 0.0, 'R_X': 1.0}",
+  "verdict": "PASS",
+  "note": "constant eye: takes no input"
+ },
+ {
+  "eye": "ce.response.phase_conjugation",
+  "function": "phase_conjugation",
+  "test": "|conj(iz) - i conj(z)| = 2|z| for z=1+2i",
+  "expected": "4.47213595499958",
+  "got": "4.47213595499958",
+  "verdict": "PASS",
+  "note": "constant-shaped diagnostic"
+ },
+ {
+  "eye": "ce.response.constitutive_null",
+  "function": "constitutive_null",
+  "test": "sampled Q matches its own analytic formula and contrast identity",
+  "expected": "0",
+  "got": "(7.827429102573777e-17, 8.881784197001252e-16)",
+  "verdict": "PASS",
+  "note": "self-consistency check between two in-eye formulas"
+ },
+ {
+  "eye": "ce.response.passivity",
+  "function": "passivity",
+  "test": "largest power gain 0.64, contractive",
+  "expected": "(0.64, True)",
+  "got": "(0.6400000000000001, True)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.recycling",
+  "function": "recycling",
+  "test": "finite geometric sums: useful 0.2*(1+.5+.25)=0.35, asymptote 0.4",
+  "expected": "(0.35, 0.4)",
+  "got": "(0.35000000000000003, 0.4)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.reservoir",
+  "function": "reservoir",
+  "test": "rate bookkeeping: optical 0.5, electronic 2.7, total 3.2 = pin-u-heat",
+  "expected": "(0.5, 2.7, 3.2)",
+  "got": "(0.5, 2.7, 3.2)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.loop_loss",
+  "function": "loop_loss",
+  "test": "0.9^3",
+  "expected": "0.729",
+  "got": "0.7290000000000001",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.kerr",
+  "function": "kerr",
+  "test": "phases -chi n(n-1)/2 = [0,0,-0.1,-0.3], second difference constant -chi",
+  "expected": "([0, 0, -0.1, -0.3], [-0.1, -0.1])",
+  "got": "([0.0, -0.0, -0.1, -0.30000000000000004], [-0.1, -0.10000000000000003])",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.neutrality",
+  "function": "neutrality",
+  "test": "two-carrier Drude Hall coefficient (nh mu_h^2 - ne mu_e^2)/(e(ne mu_e+nh mu_h)^2)",
+  "expected": "-0.28",
+  "got": "-0.28",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.hall_fit",
+  "function": "hall_fit",
+  "test": "recovers intercept 0.5 and coefficient 0.2 from exact quadratic data",
+  "expected": "(0.5, 0.2)",
+  "got": "(0.4999999999999994, 0.1999999999999999)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.harmonic",
+  "function": "harmonic",
+  "test": "chi(A sin t)^2: dc = chi A^2/2 = 1, cos2w = -1, sin2w = 0",
+  "expected": "(1, -1, 0)",
+  "got": "(1.0, -1.0, 5.551115123125783e-17)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.probability_budget",
+  "function": "probability_budget",
+  "test": "row sums and max residual 0.1",
+  "expected": "([1, 0.9], 0.1)",
+  "got": "([1.0, 0.9], 0.09999999999999998)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.fidelity_drift",
+  "function": "fidelity_drift",
+  "test": "OLS slope -0.1/s",
+  "expected": "-0.1",
+  "got": "-0.09999999999999991",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.modular_translation",
+  "function": "modular_translation",
+  "test": "<psi|T|psi> for a momentum eigenstate on 4 sites = e^{-i pi/2}",
+  "expected": "[np.float64(0.0), np.float64(-1.0)]",
+  "got": "[0.0, -1.0]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.nonabelian_loop",
+  "function": "nonabelian_loop",
+  "test": "ordered product trace matches; gauge-transformed loop has same trace and is conjugate by G0",
+  "expected": "[np.float64(0.2599960826846312), np.float64(0.0)]",
+  "got": "[0.2599960826846312, 0.0]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.response.incoherent_covariance",
+  "function": "incoherent_covariance",
+  "test": "steady covariance solves A C + C A^T + D = 0",
+  "expected": "[0.5208333333333334, 0.25]",
+  "got": "[0.5208333333333334, 0.25]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.torus",
+  "function": "torus",
+  "test": "trefoil T(2,3): crossing 3, genus 1, Alexander t^2-t+1, determinant 3",
+  "expected": "(3, 1, 't**2 - t + 1', 3)",
+  "got": "(3, 1, 't**2 - t + 1', 3)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.torus",
+  "function": "torus",
+  "test": "T(3,4)=8_19: crossing 8, genus 3, det 3",
+  "expected": "(8, 3, 3)",
+  "got": "(8, 3, 3)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.torus",
+  "function": "torus",
+  "test": "non-coprime refused",
+  "expected": "blocked",
+  "got": "blocked",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.recipe",
+  "function": "recipe",
+  "test": "constructed curve lies on S^3 and on z^p+w^q=0",
+  "expected": "0",
+  "got": "(2.402421040812719e-15, 4.440892098500626e-16)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.rational_degree",
+  "function": "rational_degree",
+  "test": "Hopf charge alpha q + p = 5 with 5 regular preimages",
+  "expected": "(5, 5)",
+  "got": "(5, 5)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.fox",
+  "function": "fox",
+  "test": "figure-eight twisted torsion = (t^2-4t+1)/t^2 up to sign/unit",
+  "expected": "0",
+  "got": "(t**2 - 4*t + 1)/t**2",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.fox",
+  "function": "fox",
+  "test": "corrupted representation refused",
+  "expected": "blocked",
+  "got": "blocked",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.moves",
+  "function": "moves",
+  "test": "torsion invariant under conjugation + basis change (ratio is a unit)",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.branch",
+  "function": "branch",
+  "test": "constant witness output",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "constant eye: takes no input"
+ },
+ {
+  "eye": "ce.knotlab.jones",
+  "function": "jones",
+  "test": "Kashaev estimator at N=2000: raw 2.0648 (converges as Vol + 3\u03c0 log N/N); minus the known (3/2)log N term it is within 0.3% of Vol(4_1)=2.0299",
+  "expected": "2.029883212819307",
+  "got": "2.0290212358819355",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.jones",
+  "function": "jones",
+  "test": "Melvin-Morton: J_N(e^{xi/N}) -> 1/(3-2cosh xi) (error small at N=400)",
+  "expected": "0",
+  "got": "8.973136957837214e-07",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.saddle",
+  "function": "saddle",
+  "test": "Vol(4_1) = 2 Im Li2(e^{i pi/3}) = 2.02988 and matches Lobachevsky integral",
+  "expected": "2.029883212819307",
+  "got": "2.0298832128193074",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.winding",
+  "function": "winding",
+  "test": "square around origin: winding 1",
+  "expected": "1",
+  "got": "1",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.winding",
+  "function": "winding",
+  "test": "triangle not enclosing origin: winding 0",
+  "expected": "0",
+  "got": "0",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.eta",
+  "function": "eta",
+  "test": "eta of spectrum n+a on the circle = 1-2{a} = 0.5; Hurwitz check agrees",
+  "expected": "0.5",
+  "got": "(0.5, 0.5)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.spectral_flow",
+  "function": "spectral_flow",
+  "test": "spectral flow floor(b)-floor(a)=1 and eta-change balance residual 0",
+  "expected": "(1, 0)",
+  "got": "(1, 0.0)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.chiral",
+  "function": "chiral",
+  "test": "chiral matrix of A=diag(1,0): eigenvalues \u00b11,0,0; kernel 2; eta 0",
+  "expected": "(2, 0)",
+  "got": "(2, 0)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.cs",
+  "function": "cs",
+  "test": "|e^{2 pi i k m}-1| for k=2.5,m=1 = 2",
+  "expected": "2",
+  "got": "2.0",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.potential",
+  "function": "potential",
+  "test": "log(|0|+0.1)",
+  "expected": "-2.3025850929940455",
+  "got": "-2.3025850929940455",
+  "verdict": "PASS",
+  "note": "near-trivial"
+ },
+ {
+  "eye": "ce.knotlab.braid_jones",
+  "function": "braid_jones",
+  "test": "closure of sigma_1 on 2 strands is the unknot: Jones = 1",
+  "expected": "1",
+  "got": "1",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.braid_jones",
+  "function": "braid_jones",
+  "test": "trefoil sigma_1^3: Jones in t is one of the two chiral forms (-t^-4+t^-3+t^-1 or its mirror)",
+  "expected": "['-t**(-4)+t**(-3)+1/t', '-t**4+t**3+t']",
+  "got": "-t**4 + t**3 + t",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.braid_move",
+  "function": "braid_move",
+  "test": "RII cancellation recognised",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.braid_move",
+  "function": "braid_move",
+  "test": "RIII braid relation recognised",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.linking",
+  "function": "linking",
+  "test": "Gauss integral for the Hopf link = \u00b11",
+  "expected": "1",
+  "got": "1.000041331194043",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.nematic_energy",
+  "function": "nematic_energy",
+  "test": "uniform twist: elastic = K/2 * (pi/2)^2 * 2 = pi^2/4, half turn",
+  "expected": "(2.4674011002723395, 0.5)",
+  "got": "(2.4674011002723395, 0.5)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.optical_jones",
+  "function": "optical_jones",
+  "test": "half-wave plate at 0 deg: field i*(1,0), unitary",
+  "expected": "([0, 1], [0, 0])",
+  "got": "[[6.123233995736766e-17, 1.0], [0.0, 0.0]]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.aps_admission",
+  "function": "aps_admission",
+  "test": "metadata checklist only",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "no mathematics: checklist"
+ },
+ {
+  "eye": "ce.knotlab.homfly",
+  "function": "homfly",
+  "test": "8_19 HOMFLY specialises to Alexander of T(3,4) and Jones t^3+t^5-t^8",
+  "expected": "('t^6-t^5+t^3-t+1 (sym)', 't^3+t^5-t^8')",
+  "got": "('r**6 - r**4 + 1 - 1/r**4 + r**(-6)', '-r**16 + r**10 + r**6')",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.knotlab.spin_response",
+  "function": "spin_response",
+  "test": "polarization (0.75-0.25)/1 = 0.5",
+  "expected": "0.5",
+  "got": "0.5",
+  "verdict": "PASS",
+  "note": "arithmetic only"
+ },
+ {
+  "eye": "ce.skew.normality",
+  "function": "normality",
+  "test": "Jordan block: spectral abscissa 0, numerical abscissa 1/2",
+  "expected": "(0, 0.5)",
+  "got": "(0.0, 0.5)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.skew.normality",
+  "function": "normality",
+  "test": "||exp(H)||_2 at t=1 vs independent",
+  "expected": "1.618033988749895",
+  "got": "1.618033988749895",
+  "verdict": "PASS",
+  "note": "identity residual is a tautology (H H*-H* H = -2[S,K] always)"
+ },
+ {
+  "eye": "ce.skew.normality",
+  "function": "normality",
+  "test": "random complex: identity residual ~0 (tautology) and commutator norm = ||H H*-H* H||/2",
+  "expected": "7.513398777366416",
+  "got": "7.513398777366416",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.skew.gram",
+  "function": "gram",
+  "test": "eigenvalues of B*B/tr sum to 1 and match numpy",
+  "expected": "[0.0540430818, 0.3700132264, 0.5759436919]",
+  "got": "[0.0540430818, 0.3700132264, 0.5759436919]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.skew.gram",
+  "function": "gram",
+  "test": "top projector idempotent, rank 1, commutes with H",
+  "expected": "0",
+  "got": "4.537421195513984e-16",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.skew.gram",
+  "function": "gram",
+  "test": "zero transport is refused",
+  "expected": "blocked",
+  "got": "blocked",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.skew.pairing",
+  "function": "pairing",
+  "test": "bilinear pairing ell.x preserved under A / A^{-T} and frame S / S^{-1}: residuals 0",
+  "expected": "0",
+  "got": "(1.2412670766236366e-15, 3.196594111384947e-15)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.skew.pairing",
+  "function": "pairing",
+  "test": "singular transport refused",
+  "expected": "blocked",
+  "got": "blocked",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.skew.metric_frame",
+  "function": "metric_frame",
+  "test": "norm and rate covariance residuals 0 (exact identities), G-rate max eigenvalue matches",
+  "expected": "-0.2846931112406772",
+  "got": "-0.2846931112406772",
+  "verdict": "PASS",
+  "note": "both residuals are algebraic tautologies; the eye checks its own arithmetic"
+ },
+ {
+  "eye": "ce.skew.metric_frame",
+  "function": "metric_frame",
+  "test": "indefinite metric refused",
+  "expected": "blocked",
+  "got": "blocked",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.skew.cluster",
+  "function": "cluster",
+  "test": "Riesz projector for 2-cluster {\u00b1sqrt(0.25)} equals diag(1,1,0) (delta=0.25)",
+  "expected": "0",
+  "got": "1.6745213578716207e-16",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.skew.cluster",
+  "function": "cluster",
+  "test": "Riesz projector for 2-cluster {\u00b1sqrt(0.0)} equals diag(1,1,0) (delta=0.0)",
+  "expected": "0",
+  "got": "5.602029677698104e-17",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.skew.cluster",
+  "function": "cluster",
+  "test": "Riesz projector for 2-cluster {\u00b1sqrt(-0.5)} equals diag(1,1,0) (delta=-0.5)",
+  "expected": "0",
+  "got": "8.045624444439158e-16",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.skew.cluster",
+  "function": "cluster",
+  "test": "cluster outside contour refused",
+  "expected": "blocked",
+  "got": "blocked",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.skew.stress_composition",
+  "function": "stress_composition",
+  "test": "claimed law stress(A\u2297B) = s1+s2-s1*s2 holds on 4 cases",
+  "expected": "[]",
+  "got": "[]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.skew.hall_power",
+  "function": "hall_power",
+  "test": "E.sigma.E and symmetric part; antisymmetric power is identically 0",
+  "expected": "(np.float64(9.0), 0.0)",
+  "got": "(9.0, 0.0)",
+  "verdict": "PASS",
+  "note": "antisymmetric_power is always exactly 0 for any real E: a trivial output"
+ },
+ {
+  "eye": "ce.cascade.positive_peel",
+  "function": "positive_peel",
+  "test": "exact ranks of Q^T W Q under decreasing weights: [2,2,1], kernel inclusion true",
+  "expected": "([2, 2, 1], True)",
+  "got": "([2, 2, 1], True)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.cascade.positive_peel",
+  "function": "positive_peel",
+  "test": "increasing weights refused",
+  "expected": "blocked",
+  "got": "blocked",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.cascade.schur_cascade",
+  "function": "schur_cascade",
+  "test": "nested Schur complements equal direct ones and boundary inverse equals block of full inverse",
+  "expected": "0",
+  "got": "([0.0, 1.4217791915866692e-15], 4.443059973708341e-17)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.cascade.memory_certificate",
+  "function": "memory_certificate",
+  "test": "nilpotent hidden chain: first nonzero moment j=1, Hankel rank 2 (minimal realization of 1/z^2 is 2-dimensional), transfer 1/z^2",
+  "expected": "(1, 2, 'z**(-2)')",
+  "got": "(1, 2, 'z**(-2)')",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.cascade.memory_certificate",
+  "function": "memory_certificate",
+  "test": "decoupled C=0: all moments zero, silent",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.cascade.time_memory",
+  "function": "time_memory",
+  "test": "variation-of-constants residual ~0 and memoryless error > 0",
+  "expected": "0",
+  "got": "[1.1102230246251565e-16, 2.2887833992611187e-16]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.cascade.cycle_profile",
+  "function": "cycle_profile",
+  "test": "3-cycle+fixed point: spectrum of displacement Gram matches independent build, moved=3, Hamming 3/4",
+  "expected": "[np.float64(-0.0), np.float64(0.0), np.float64(1.5), np.float64(1.5)]",
+  "got": "[np.float64(0.0), np.float64(0.0), np.float64(1.5), np.float64(1.5)]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.cascade.window_census",
+  "function": "window_census",
+  "test": "counts in [eps,1-eps]: [1,1], traces, ordered decrease true",
+  "expected": "([1, 1], True)",
+  "got": "([1, 1], True)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.cascade.tomography",
+  "function": "tomography",
+  "test": "quadratic form recovered exactly from basis + pair-sum probes; probe count n(n+1)/2",
+  "expected": "(0, 10)",
+  "got": "(3.1401849173675503e-16, 10)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.cascade.affine_scale",
+  "function": "affine_scale",
+  "test": "resolvent covariance a R_{aH+b}(az+b) = R_H(z)",
+  "expected": "0",
+  "got": "5.502656616981753e-16",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.qhe.ledger",
+  "function": "ledger",
+  "test": "four-stroke Otto-like ledger: work/heat match independent midpoint sums, cycle closed, first law residual 0",
+  "expected": "(np.float64(-0.6000000000000001), np.float64(-0.6000000000000001), True)",
+  "got": "(-0.6000000000000001, -0.6000000000000001, True)",
+  "verdict": "PASS",
+  "note": "balance_residual is an exact algebraic identity (always 0)"
+ },
+ {
+  "eye": "ce.qhe.ledger",
+  "function": "ledger",
+  "test": "work sign: total work extracted equals -(sum of stroke work) and net heat + work_output = 0 over a closed cycle",
+  "expected": "0",
+  "got": "0.0",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.qhe.entropy_balance",
+  "function": "entropy_balance",
+  "test": "Clausius: sigma = S(final)-S(initial) - Q/T",
+  "expected": "0.2680642071684971",
+  "got": "0.2680642071684971",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.qhe.ergotropy",
+  "function": "ergotropy",
+  "test": "excited qubit: ergotropy = gap = 1, passive energy 0",
+  "expected": "(1, 0)",
+  "got": "(1.0, 0.0)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.qhe.ergotropy",
+  "function": "ergotropy",
+  "test": "|+> under Z-gap H: ergotropy 1/2, coherence = S(dephased)-S(pure) = ln2",
+  "expected": "(0.5, np.float64(0.6931471805599453))",
+  "got": "(0.5, 0.6931471805599453)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.qhe.lindblad",
+  "function": "lindblad",
+  "test": "amplitude damping GKSL: trace preserving, Choi PSD, eigenvalues {0,-\u03b3,-\u03b3/2\u00b1i}",
+  "expected": "(0, True)",
+  "got": "(0.0, True)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.qhe.ladder",
+  "function": "ladder",
+  "test": "two-level rate ladder relaxes to stationary [2/3,1/3]",
+  "expected": "[0.6666666666666666, 0.3333333333333333]",
+  "got": "[0.6666666666666969, 0.3333333333333017]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.qhe.spectral_overlap",
+  "function": "spectral_overlap",
+  "test": "trapezoid overlaps [2,1]",
+  "expected": "[2, 1]",
+  "got": "[2.0, 1.0]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.qhe.backflow",
+  "function": "backflow",
+  "test": "trace distances [1,0.6,0.8]: positive variation 0.2 witnesses backflow",
+  "expected": "([1, 0.6, 0.8], 0.2, True)",
+  "got": "([1.0, 0.6000000000000001, 0.8], 0.19999999999999996, True)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.qhe.data_audit",
+  "function": "data_audit",
+  "test": "fractions 0.7/0.3",
+  "expected": "(0.7, 0.3)",
+  "got": "(0.7, 0.30000000000000004)",
+  "verdict": "PASS",
+  "note": "bookkeeping only"
+ },
+ {
+  "eye": "ce.qhe.readout_transfer",
+  "function": "readout_transfer",
+  "test": "inverts y=C^T x exactly",
+  "expected": "[0.3, 0.7]",
+  "got": "[0.3, 0.7]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.hilbert",
+  "function": "snapshot",
+  "test": "closed-form evolution equals expm(-iHt) psi0",
+  "expected": "0",
+  "got": "1.5763335523345495e-16",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.spectrum",
+  "function": "snapshot",
+  "test": "levels equal eigvalsh(H)",
+  "expected": "[np.float64(-1.5), np.float64(0.0), np.float64(1.5)]",
+  "got": "[np.float64(-1.5), np.float64(0.0), np.float64(1.5)]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.projector",
+  "function": "snapshot",
+  "test": "pure state: purity 1",
+  "expected": "1",
+  "got": "1.0000000000000002",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.location",
+  "function": "snapshot",
+  "test": "site weights |psi|^2 and mean position p3-p1",
+  "expected": "[0.603260161468, 0.34687616408, 0.049863674453]",
+  "got": "[0.603260161468, 0.34687616408, 0.049863674453]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.boundary",
+  "function": "snapshot",
+  "test": "endpoint weight p1+p3",
+  "expected": "0.6531238359201991",
+  "got": "0.6531238359201991",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.phase",
+  "function": "snapshot",
+  "test": "relative phase arg(conj(psi1) psi2)",
+  "expected": "-1.3800697816750334",
+  "got": "-1.3800697816750334",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.coherence",
+  "function": "snapshot",
+  "test": "l1 coherence = sum|rho_ij| - tr rho",
+  "expected": "1.524800039514545",
+  "got": "1.5248000395145447",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.flow",
+  "function": "snapshot",
+  "test": "bond current -2g Im(conj(psi1)psi2) and continuity dp/dt = flow divergence (residual 0)",
+  "expected": "0.8983014609285678",
+  "got": "0.8983014609285678",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.paths",
+  "function": "snapshot",
+  "test": "12th-order path sum: observed error below the exact-arithmetic tail bound",
+  "expected": "True",
+  "got": "(2.9893669801409083e-16, 4.65721367564637e-16)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.memory",
+  "function": "snapshot",
+  "test": "initial fidelity p1 and principal angle acos(sqrt p1)",
+  "expected": "(np.float64(0.6032601614675339), 0.6813895269642948)",
+  "got": "(0.6032601614675339, 0.6813895269642948)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.resolution",
+  "function": "snapshot",
+  "test": "site count above threshold",
+  "expected": "2",
+  "got": "2",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.symmetry",
+  "function": "snapshot",
+  "test": "reflection expectation <psi|R|psi>",
+  "expected": "0.02493183722633263",
+  "got": "0.02493183722633252",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.energy",
+  "function": "snapshot",
+  "test": "energy expectation conserved: equals <psi0|H|psi0>",
+  "expected": "0.5",
+  "got": "0.5000000000000001",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.intervention",
+  "function": "snapshot",
+  "test": "counterfactual coupling 1.1g: right-site weights match independent expm",
+  "expected": "(np.float64(0.29748641604327924), np.float64(0.33526987116463947))",
+  "got": "(0.29748641604327913, 0.33526987116463947)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.consistency",
+  "function": "snapshot",
+  "test": "norm residual 0",
+  "expected": "0",
+  "got": "2.220446049250313e-16",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.quantum.identification",
+  "function": "snapshot",
+  "test": "density-matrix reconstruction error 0 (tautology: rebuilt from the same rho)",
+  "expected": "0",
+  "got": "1.3634026491955018e-16",
+  "verdict": "PASS",
+  "note": "reconstruction copies rho entry by entry: trivially zero"
+ },
+ {
+  "eye": "ce.rc.* (9 eyes)",
+  "function": "rc_snapshot",
+  "test": "V=V0 e^{-Gt/C}, I=GV, dV/dt=-GV/C, energy CV^2/2, power GV^2, balance residuals 0",
+  "expected": "(2.3364023492142145, 4.672804698428429, -1.1682011746071073, 10.917551874827401)",
+  "got": "(2.3364023492142145, 4.672804698428429, -1.1682011746071073, 10.917551874827401)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.geometry.* (8 eyes)",
+  "function": "geometric_snapshot",
+  "test": "P=uu^T rank-one, H=I-2P has levels \u00b11, probe weight cos^2, pair overlap cos sin, rate d/d\u03b8 cos^2 = -sin 2\u03b8",
+  "expected": "(-1, 1, 0.3863989526534564, 0.4869238154390976, -0.9738476308781951)",
+  "got": "([-1.0, 1.0], 0.3863989526534564, 0.4869238154390976, -0.9738476308781951)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.inference.analyze (quantum)",
+  "function": "analyze",
+  "test": "demo candidate problem validates and analyzes",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "exercised; output keys: engine,input_sha256,context,absolute_numerical_allowance,evidence_kind,scope"
+ },
+ {
+  "eye": "ce.inference.analyze (rc)",
+  "function": "analyze",
+  "test": "demo candidate problem validates and analyzes",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "exercised; output keys: engine,input_sha256,context,absolute_numerical_allowance,evidence_kind,scope"
+ },
+ {
+  "eye": "ce.inference.analyze (geometry)",
+  "function": "analyze",
+  "test": "demo candidate problem validates and analyzes",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "exercised; output keys: engine,input_sha256,context,absolute_numerical_allowance,evidence_kind,scope"
+ },
+ {
+  "eye": "ce.inference.discover",
+  "function": "discover",
+  "test": "fixed demo law rediscovery runs",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "quantum_continuity,geometric_transport,circuit_energy_balance"
+ },
+ {
+  "eye": "ce.inference.track",
+  "function": "track",
+  "test": "tracking example request runs",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "status,remaining,history,scope"
+ },
+ {
+  "eye": "ce.frontier.admission/transport/cost/forcing",
+  "function": "exact_ak",
+  "test": "kt_7_4 tower builds and certifies",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "vertices=4 edges=4 keys=schema,problem,input_sha256,arithmetic,source_rules,n,m,r"
+ },
+ {
+  "eye": "ce.frontier.forcing",
+  "function": "exact_ak.certify",
+  "test": "negative control: dropping one generator changes the certificate (not the same forcing/score)",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "status=incomplete_forcing forcing_complete=False score=3/2 forced=0 (baseline: complete, 7/4, 4 forced)"
+ },
+ {
+  "eye": "ce.frontier.graph/cut",
+  "function": "earth_moon.screen",
+  "test": "earth_moon_c7k4 example screens",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "vertices=28,edges=154,arithmetic=exact graph incidence and counts,source_target=https://epoch.ai/frontiermath/open-problems/earth-moon,official_epoch_verifier_run=False,status=rejected_for_stated_cand"
+ },
+ {
+  "eye": "ce.search.decision_dag / ce.frontier.coverage",
+  "function": "decision_dag+check_dag",
+  "test": "positive-control search runs and independent check passes",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "nodes=3 audit={'all_passed': True, 'context_sha256': 'd32865b266b33088c6c1998e29a9c561eabcf7497505e60cc6956f3453d2236d', 'nodes_checked': 3, 'obstructions_checked': 2, 'rational_transitions_checked': 2, 'configurations_certified': 1, 'complete_configurations': 1, 'positive_certificates_checked': 1, "
+ },
+ {
+  "eye": "ce.knotlab.jones",
+  "function": "jones",
+  "test": "Kashaev estimator minus the known (3/2)log N correction is within 0.3% of Vol(4_1)",
+  "expected": "2.029883212819307",
+  "got": "2.0290212358819355",
+  "verdict": "PASS",
+  "note": "raw estimator converges like Vol + 3\u03c0 log N / N; eye scope says \"not a volume theorem\""
+ },
+ {
+  "eye": "ce.continuum/finite (self_energy family)",
+  "function": "finite_core",
+  "test": "Feshbach: projected full resolvent equals reduced resolvent with self-energy",
+  "expected": "0",
+  "got": "3.519266141566872e-16",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.continuum/finite",
+  "function": "finite_core",
+  "test": "Gamma = i(S-S*) is Hermitian PSD and factorizes as 2 eta B R* R B*",
+  "expected": "0",
+  "got": "1.2717771753045826e-14",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.continuum.self_energy",
+  "function": "continuum_core",
+  "test": "surface Green function matches (w-sqrt(w^2-4))/2 with coupling^2 = 0.25",
+  "expected": "[(-0.095492+0j), (-0.125-0.216506j), -0.25j, (0.125-0.216506j), (0.095492+0j)]",
+  "got": "[(-0.095492+0j), (-0.125-0.216506j), -0.25j, (0.125-0.216506j), (0.095492+0j)]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.continuum.width",
+  "function": "continuum_core",
+  "test": "Gamma = -2 Im Sigma vanishes outside the band and is 0.25*sqrt(4-E^2) inside (E=0: 0.5)",
+  "expected": "[0, np.float64(0.4330127018922193), 0.5, np.float64(0.4330127018922193), 0]",
+  "got": "[-0.0, 0.43301270189221935, 0.4999999999999999, 0.43301270189221935, -0.0]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.continuum.spectral",
+  "function": "continuum_core",
+  "test": "spectral density = -Im G/pi with G = 1/(E - e0 - Sigma)",
+  "expected": "[0.0, 0.08481983, 1.273239545, 0.08481983, -0.0]",
+  "got": "[0.0, 0.08481983, 1.273239545, 0.08481983, -0.0]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.geometry.* (response_core)",
+  "function": "response_core",
+  "test": "2-level: gradient 0, energy Hessian -1 (= second derivative of -sqrt(1+q^2)), quantum metric 1/4",
+  "expected": "(0, -1, 0.25)",
+  "got": "(0.0, -1.0, 0.25)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.geometry.* (response_core)",
+  "function": "response_core",
+  "test": "finite-difference gradient and Hessian of E0(q)=-sqrt(1+q^2)+K q^2/2 at q=0.4",
+  "expected": "(np.float64(-0.09139067497332398), np.float64(-0.10041090181545087))",
+  "got": "(-0.09139067635410386, -0.10041094041832732)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.data.calibration",
+  "function": "calibrate",
+  "test": "E = a x + b and sigma^2 = J Cov J^T + a^2 sigma_ADC^2",
+  "expected": "(51, np.float64(1.0099504938362078))",
+  "got": "(51.0, 1.0099504938362078)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.topology.additive_charge",
+  "function": "charge",
+  "test": "3 = 1+2 conserved",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": "integer addition"
+ },
+ {
+  "eye": "ce.knotlab/winding (eyes.py)",
+  "function": "winding",
+  "test": "square around origin: 1",
+  "expected": "1",
+  "got": "1",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.dynamics.norm_balance",
+  "function": "run",
+  "test": "d|psi|^2/dt = 2 Im(F)|psi|^2/hbar for i hbar dpsi/dt = F psi: -0.5",
+  "expected": "-0.5",
+  "got": "(-0.5, -0.5)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.optical.constitutive",
+  "function": "run",
+  "test": "weights 2 gap^3/(gap^2-x^2) and metric = sum (a/gap)(a/gap)^T",
+  "expected": "[2.6666666666666665, 4.266666666666667]",
+  "got": "[2.6666666666666665, 4.266666666666667]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.horizon.orientation",
+  "function": "orientation",
+  "test": "det sign and reflection leaves Gram unchanged",
+  "expected": "(np.float64(1.0), 0)",
+  "got": "(1, 0.0)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.horizon.wall_path",
+  "function": "wall_path",
+  "test": "path length to wall = arcsin|q| (quad vs closed form), horizontal residual 0",
+  "expected": "0.5235987755982989",
+  "got": "(0.5235987755982989, 0.5235987755982989)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.horizon.shape_transport",
+  "function": "shape_transport",
+  "test": "metric self-adjointness and lift similarity residuals 0 away from the wall",
+  "expected": "0",
+  "got": "(1.3877787807814457e-17, 2.7755575615628914e-17)",
+  "verdict": "PASS",
+  "note": "residuals are checks of the eye's own construction"
+ },
+ {
+  "eye": "ce.horizon.shape_transport",
+  "function": "shape_transport",
+  "test": "at the wall (w3=0): coordinate operator is a Jordan block, lifted operator nilpotent part reported",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.horizon.oscillator_scaling",
+  "function": "oscillator_scaling",
+  "test": "omega=sqrt(2 lambda)=[1,2], amplitudes sqrt(2E)/omega, energies all E",
+  "expected": "([1, 2], [np.float64(1.4142135623730951), np.float64(0.7071067811865476)], [1, 1])",
+  "got": "([1.0, 2.0], [1.4142135623730951, 0.7071067811865476], [1.0000000000000002, 1.0000000000000002])",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.horizon.causal_surface",
+  "function": "causal_surface",
+  "test": "PG light rays dr/dt = \u00b11 - sqrt(2M/r): outgoing 1/2 at r=8M, 0 at horizon, -1 at r=M/2; Kretschmann 48M^2/r^6",
+  "expected": "([0.5, 0, -1], [0.00018310546875, 0.75, 3072.0])",
+  "got": "([0.5, 0.0, -1.0], [0.00018310546875, 0.75, 3072.0])",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.horizon.causal_surface",
+  "function": "causal_surface",
+  "test": "static observer inside horizon refused",
+  "expected": "blocked",
+  "got": "blocked",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.horizon.opacity_channels",
+  "function": "opacity_channels",
+  "test": "exp(-tau), characteristics U\u00b1cs",
+  "expected": "([1, np.float64(0.36787944117144233)], [-0.5, 1.5], True)",
+  "got": "([1.0, 0.36787944117144233], [-0.5, 1.5], True)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.horizon.observability",
+  "function": "observability",
+  "test": "rotation with position readout: algebraic observability rank 2",
+  "expected": "2",
+  "got": "2",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.horizon.observability",
+  "function": "observability",
+  "test": "decoupled hidden mode: rank 1, least visible direction along x2",
+  "expected": "(1, [0, 1])",
+  "got": "(1, [0.0, 1.0])",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.horizon.interior_ambiguity",
+  "function": "interior_ambiguity",
+  "test": "two interiors with identical outside channel: outside difference 0, inside difference > 0",
+  "expected": "0",
+  "got": "(0.0, True)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.horizon.two_sided_response",
+  "function": "two_sided_response",
+  "test": "both Schur complements invert to blocks of the full resolvent",
+  "expected": "0",
+  "got": "(2.940036450735426e-16, 4.582822933906874e-16)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.horizon.riesz_group",
+  "function": "riesz_group",
+  "test": "Riesz projector onto {1,2} = diag(1,1,0), idempotent, commutes",
+  "expected": "0",
+  "got": "8.021016354693438e-16",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.horizon.riesz_group",
+  "function": "riesz_group",
+  "test": "wrong declared count refused",
+  "expected": "blocked",
+  "got": "blocked",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.dio.integer_witness",
+  "function": "integer_witness",
+  "test": "z^2 + y^2 z + x^3 = 0 at (0,0,0) and (-1,0,1): residuals [0,0]",
+  "expected": "[0, 0]",
+  "got": "[0, 0]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.dio.integer_witness",
+  "function": "integer_witness",
+  "test": "floats refused",
+  "expected": "blocked",
+  "got": "blocked",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.dio.discriminant",
+  "function": "discriminant",
+  "test": "x=1,y=0: disc = -4, no integer z",
+  "expected": "(-4, False)",
+  "got": "(-4, False)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.dio.discriminant",
+  "function": "discriminant",
+  "test": "x=-1,y=0: disc 4, z in {-1,1}",
+  "expected": "[-1, 1]",
+  "got": "[-1, 1]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.dio.pell_orbit",
+  "function": "pell_orbit",
+  "test": "Pell orbit under unit 3+2sqrt2 preserves v^2-2x^2 = -1; orbit x: 1,5,29",
+  "expected": "([1, 5, 29], True)",
+  "got": "([1, 5, 29], True)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.dio.pell_orbit",
+  "function": "pell_orbit",
+  "test": "non-unit refused",
+  "expected": "blocked",
+  "got": "blocked",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.dio.polynomial_identity",
+  "function": "polynomial_identity",
+  "test": "x=-t^2, y=0, z=t^3: z^2 + x^3 = t^6 - t^6 = 0 identically",
+  "expected": "True",
+  "got": "True",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.dio.integral_cover",
+  "function": "integral_cover",
+  "test": "circle radius 5: rational u^2=(r-y)/(r+y) square for y in {-5? excluded}, includes y=0 (u=1), y=3 ((2/8)=1/4), y=4 (1/9)",
+  "expected": "[-5, -4, -3, 0, 3, 4]",
+  "got": "[-5, -4, -3, 0, 3, 4, 5]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.dio.prime_evolution",
+  "function": "prime_evolution",
+  "test": "values n/p all 1: mean 1, se 0",
+  "expected": "(1, 0)",
+  "got": "(1.0, 0.0)",
+  "verdict": "PASS",
+  "note": "descriptive stats only"
+ },
+ {
+  "eye": "ce.dio.twist_selection",
+  "function": "twist_selection",
+  "test": "selects a on discovery block; validation mean 0",
+  "expected": "('a', 0)",
+  "got": "('a', 0.0)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.dio.fibre_transfer",
+  "function": "fibre_transfer",
+  "test": "finite-field pushforward identity residual 0 and multiplicities match the character-sum target",
+  "expected": "(0, True)",
+  "got": "(0, True)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.upg.redistribution_memory",
+  "function": "redistribution_memory",
+  "test": "||B+B*||^2 = 2 tr(BB*) identity; kernel at t=0 equals BB*",
+  "expected": "0",
+  "got": "1.7763568394002505e-15",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.upg.spectral_susceptibility",
+  "function": "spectral_susceptibility",
+  "test": "projector derivative matches finite difference; Sylvester residual 0; metric speed tr(dP^2)/2 = 1",
+  "expected": "(1, 0)",
+  "got": "(1.0, 0.0)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.upg.gluing_sign",
+  "function": "gluing_sign",
+  "test": "logdet correction = logdet M - logdet A - logdet D, equals Schur correction, nonpositive",
+  "expected": "-0.21974618753427544",
+  "got": "-0.21974618753427633",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.upg.nct_anchor",
+  "function": "nct_anchor",
+  "test": "clock/shift commutator UVU*V* = e^{2\u03c0i/5} I: winding of the 5 eigenvalue phases = 1",
+  "expected": "1",
+  "got": "1",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.upg.signature_flow",
+  "function": "signature_flow",
+  "test": "trefoil Seifert matrix: Levine-Tristram signature at t=\u03c0 is \u00b12, Alexander |det| = 3",
+  "expected": "(2, 3)",
+  "got": "(2, 2.9999999999999996)",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "ce.horizon.curvature_norm",
+  "function": "curvature_norm",
+  "test": "whitened unit-speed curvature eigenvalues of K=g with |V|_g^2=4: [1/4,1/4]",
+  "expected": "[0.25, 0.25]",
+  "got": "[0.25, 0.25]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "generic:zscore",
+  "function": "preprocess",
+  "test": "z-score with sample std, NaN passed through",
+  "expected": "[-0.065938047, 1.252822899, 0.593442426, -1.384698994, -0.395628284]",
+  "got": "[-0.065938047, 1.252822899, 0.593442426, -1.384698994, -0.395628284]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "generic:first_difference",
+  "function": "preprocess",
+  "test": "first difference uses the last finite value across a NaN gap: [0,2,-1,-3,1.5]",
+  "expected": "[0, 2, -1, -3, 1.5]",
+  "got": "[0.0, 2.0, -1.0, -3.0, 1.5]",
+  "verdict": "PASS",
+  "note": "NaN gaps are skipped, not reset; the NaN position itself stays NaN"
+ },
+ {
+  "eye": "generic:rolling_std",
+  "function": "summarize_trace",
+  "test": "rolling std window 3 (sample) = 1 from i=2 on",
+  "expected": "[0, np.float64(0.7071067811865476), 1, 1, 1]",
+  "got": "[0.0, 0.7071067811865476, 1.0, 1.0, 1.0]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "generic:zero_crossing",
+  "function": "summarize_trace",
+  "test": "zero crossings per pair in window 2: [0,1,1,1]",
+  "expected": "[0, 1, 1, 1]",
+  "got": "[0.0, 1.0, 1.0, 1.0]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "generic:curvature",
+  "function": "summarize_trace",
+  "test": "second difference in window: [0,0,1,1]",
+  "expected": "[0, 0, 1, 1]",
+  "got": "[0.0, 0.0, 1.0, 1.0]",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "generic:pearson",
+  "function": "pearson",
+  "test": "pearson of exactly linear data = 1",
+  "expected": "1",
+  "got": "1.0",
+  "verdict": "PASS",
+  "note": ""
+ },
+ {
+  "eye": "generic:roughness",
+  "function": "roughness",
+  "test": "mean absolute step",
+  "expected": "1.5",
+  "got": "1.5",
+  "verdict": "PASS",
+  "note": ""
+ }
+]

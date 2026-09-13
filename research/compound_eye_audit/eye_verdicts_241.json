@@ -1,0 +1,3313 @@
+[
+ {
+  "id": "ce.cascade.affine_scale@1.0.0",
+  "family": "Peeling cascade certificates",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "030516d9f5b2",
+  "function": "affine_scale",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "resolvent covariance a R_{aH+b}(az+b) = R_H(z)"
+  ]
+ },
+ {
+  "id": "ce.cascade.cycle_profile@1.0.0",
+  "family": "Peeling cascade certificates",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "030516d9f5b2",
+  "function": "cycle_profile",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "3-cycle+fixed point: spectrum of displacement Gram matches independent build, moved=3, Hamming 3/4"
+  ]
+ },
+ {
+  "id": "ce.cascade.memory_certificate@1.0.0",
+  "family": "Peeling cascade certificates",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "030516d9f5b2",
+  "function": "memory_certificate",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "nilpotent hidden chain: first nonzero moment j=1, Hankel rank 2 (minimal realization of 1/z^2 is 2-dimensional), transfer 1/z^2",
+   "decoupled C=0: all moments zero, silent"
+  ]
+ },
+ {
+  "id": "ce.cascade.positive_peel@1.0.0",
+  "family": "Peeling cascade certificates",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "030516d9f5b2",
+  "function": "positive_peel",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "exact ranks of Q^T W Q under decreasing weights: [2,2,1], kernel inclusion true",
+   "increasing weights refused"
+  ]
+ },
+ {
+  "id": "ce.cascade.schur_cascade@1.0.0",
+  "family": "Peeling cascade certificates",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "030516d9f5b2",
+  "function": "schur_cascade",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "nested Schur complements equal direct ones and boundary inverse equals block of full inverse"
+  ]
+ },
+ {
+  "id": "ce.cascade.time_memory@1.0.0",
+  "family": "Peeling cascade certificates",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "030516d9f5b2",
+  "function": "time_memory",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "variation-of-constants residual ~0 and memoryless error > 0"
+  ]
+ },
+ {
+  "id": "ce.cascade.tomography@1.0.0",
+  "family": "Peeling cascade certificates",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "030516d9f5b2",
+  "function": "tomography",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "quadratic form recovered exactly from basis + pair-sum probes; probe count n(n+1)/2"
+  ]
+ },
+ {
+  "id": "ce.cascade.window_census@1.0.0",
+  "family": "Peeling cascade certificates",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "030516d9f5b2",
+  "function": "window_census",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "counts in [eps,1-eps]: [1,1], traces, ordered decrease true"
+  ]
+ },
+ {
+  "id": "ce.continuum.self_energy@1.0.0",
+  "family": "continuum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "continuum",
+  "checks": 5,
+  "passed": 5,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "Feshbach: projected full resolvent equals reduced resolvent with self-energy",
+   "Gamma = i(S-S*) is Hermitian PSD and factorizes as 2 eta B R* R B*",
+   "surface Green function matches (w-sqrt(w^2-4))/2 with coupling^2 = 0.25",
+   "Gamma = -2 Im Sigma vanishes outside the band and is 0.25*sqrt(4-E^2) inside (E=0: 0.5)",
+   "spectral density = -Im G/pi with G = 1/(E - e0 - Sigma)"
+  ]
+ },
+ {
+  "id": "ce.continuum.spectral@1.0.0",
+  "family": "continuum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "continuum",
+  "checks": 5,
+  "passed": 5,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "Feshbach: projected full resolvent equals reduced resolvent with self-energy",
+   "Gamma = i(S-S*) is Hermitian PSD and factorizes as 2 eta B R* R B*",
+   "surface Green function matches (w-sqrt(w^2-4))/2 with coupling^2 = 0.25",
+   "Gamma = -2 Im Sigma vanishes outside the band and is 0.25*sqrt(4-E^2) inside (E=0: 0.5)",
+   "spectral density = -Im G/pi with G = 1/(E - e0 - Sigma)"
+  ]
+ },
+ {
+  "id": "ce.continuum.thresholds@1.0.0",
+  "family": "continuum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "continuum",
+  "checks": 5,
+  "passed": 5,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "Feshbach: projected full resolvent equals reduced resolvent with self-energy",
+   "Gamma = i(S-S*) is Hermitian PSD and factorizes as 2 eta B R* R B*",
+   "surface Green function matches (w-sqrt(w^2-4))/2 with coupling^2 = 0.25",
+   "Gamma = -2 Im Sigma vanishes outside the band and is 0.25*sqrt(4-E^2) inside (E=0: 0.5)",
+   "spectral density = -Im G/pi with G = 1/(E - e0 - Sigma)"
+  ]
+ },
+ {
+  "id": "ce.continuum.width@1.0.0",
+  "family": "continuum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "continuum",
+  "checks": 5,
+  "passed": 5,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "Feshbach: projected full resolvent equals reduced resolvent with self-energy",
+   "Gamma = i(S-S*) is Hermitian PSD and factorizes as 2 eta B R* R B*",
+   "surface Green function matches (w-sqrt(w^2-4))/2 with coupling^2 = 0.25",
+   "Gamma = -2 Im Sigma vanishes outside the band and is 0.25*sqrt(4-E^2) inside (E=0: 0.5)",
+   "spectral density = -Im G/pi with G = 1/(E - e0 - Sigma)"
+  ]
+ },
+ {
+  "id": "ce.data.calibration@1.0.0",
+  "family": "measurement",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "calibrate",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "E = a x + b and sigma^2 = J Cov J^T + a^2 sigma_ADC^2"
+  ]
+ },
+ {
+  "id": "ce.data.nuclear_readiness@1.0.0",
+  "family": "measurement",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "provenance",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: checklist",
+  "tests": [
+   "missing experimental inputs -> blocked with the list"
+  ]
+ },
+ {
+  "id": "ce.data.provenance@1.0.0",
+  "family": "measurement",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "provenance",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: hashes and declarations",
+  "tests": [
+   "records source kind and input hash; asserts nothing"
+  ]
+ },
+ {
+  "id": "ce.dio.discriminant@1.0.0",
+  "family": "Diophantine evolution",
+  "evidence_class": "explicit_per_request",
+  "plugin": "3d3584d33472",
+  "function": "discriminant",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "x=1,y=0: disc = -4, no integer z",
+   "x=-1,y=0: disc 4, z in {-1,1}"
+  ]
+ },
+ {
+  "id": "ce.dio.fibre_transfer@1.0.0",
+  "family": "Diophantine evolution",
+  "evidence_class": "explicit_per_request",
+  "plugin": "3d3584d33472",
+  "function": "fibre_transfer",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "finite-field pushforward identity residual 0 and multiplicities match the character-sum target"
+  ]
+ },
+ {
+  "id": "ce.dio.integer_witness@1.0.0",
+  "family": "Diophantine evolution",
+  "evidence_class": "explicit_per_request",
+  "plugin": "3d3584d33472",
+  "function": "integer_witness",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "z^2 + y^2 z + x^3 = 0 at (0,0,0) and (-1,0,1): residuals [0,0]",
+   "floats refused"
+  ]
+ },
+ {
+  "id": "ce.dio.integral_cover@1.0.0",
+  "family": "Diophantine evolution",
+  "evidence_class": "explicit_per_request",
+  "plugin": "3d3584d33472",
+  "function": "integral_cover",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "circle radius 5: rational u^2=(r-y)/(r+y) square for y in {-5? excluded}, includes y=0 (u=1), y=3 ((2/8)=1/4), y=4 (1/9)"
+  ]
+ },
+ {
+  "id": "ce.dio.pell_orbit@1.0.0",
+  "family": "Diophantine evolution",
+  "evidence_class": "explicit_per_request",
+  "plugin": "3d3584d33472",
+  "function": "pell_orbit",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "Pell orbit under unit 3+2sqrt2 preserves v^2-2x^2 = -1; orbit x: 1,5,29",
+   "non-unit refused"
+  ]
+ },
+ {
+  "id": "ce.dio.polynomial_identity@1.0.0",
+  "family": "Diophantine evolution",
+  "evidence_class": "explicit_per_request",
+  "plugin": "3d3584d33472",
+  "function": "polynomial_identity",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "x=-t^2, y=0, z=t^3: z^2 + x^3 = t^6 - t^6 = 0 identically"
+  ]
+ },
+ {
+  "id": "ce.dio.prime_evolution@1.0.0",
+  "family": "Diophantine evolution",
+  "evidence_class": "explicit_per_request",
+  "plugin": "3d3584d33472",
+  "function": "prime_evolution",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: descriptive mean and standard error",
+  "tests": [
+   "values n/p all 1: mean 1, se 0"
+  ]
+ },
+ {
+  "id": "ce.dio.twist_selection@1.0.0",
+  "family": "Diophantine evolution",
+  "evidence_class": "explicit_per_request",
+  "plugin": "3d3584d33472",
+  "function": "twist_selection",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: descriptive selection",
+  "tests": [
+   "selects a on discovery block; validation mean 0"
+  ]
+ },
+ {
+  "id": "ce.dynamics.norm_balance@1.0.0",
+  "family": "dynamics",
+  "evidence_class": "model_calculation",
+  "plugin": "c9b5680819e4",
+  "function": "run",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "d|psi|^2/dt = 2 Im(F)|psi|^2/hbar for i hbar dpsi/dt = F psi: -0.5"
+  ]
+ },
+ {
+  "id": "ce.elemental.channels@1.0.0",
+  "family": "Elemental peeling laboratory",
+  "evidence_class": "elemental_data_or_declared_model",
+  "plugin": "123676ec5c1a",
+  "function": "channels",
+  "checks": 0,
+  "passed": 0,
+  "verdict": "CODE MISSING",
+  "comment": "referenced plugin 123676ec\u2026 is absent from the zip and from the repository",
+  "tests": []
+ },
+ {
+  "id": "ce.elemental.color@1.0.0",
+  "family": "Elemental peeling laboratory",
+  "evidence_class": "elemental_data_or_declared_model",
+  "plugin": "123676ec5c1a",
+  "function": "color",
+  "checks": 0,
+  "passed": 0,
+  "verdict": "CODE MISSING",
+  "comment": "referenced plugin 123676ec\u2026 is absent from the zip and from the repository",
+  "tests": []
+ },
+ {
+  "id": "ce.elemental.components@1.0.0",
+  "family": "Elemental peeling laboratory",
+  "evidence_class": "elemental_data_or_declared_model",
+  "plugin": "123676ec5c1a",
+  "function": "components",
+  "checks": 0,
+  "passed": 0,
+  "verdict": "CODE MISSING",
+  "comment": "referenced plugin 123676ec\u2026 is absent from the zip and from the repository",
+  "tests": []
+ },
+ {
+  "id": "ce.elemental.film@1.0.0",
+  "family": "Elemental peeling laboratory",
+  "evidence_class": "elemental_data_or_declared_model",
+  "plugin": "123676ec5c1a",
+  "function": "film",
+  "checks": 0,
+  "passed": 0,
+  "verdict": "CODE MISSING",
+  "comment": "referenced plugin 123676ec\u2026 is absent from the zip and from the repository",
+  "tests": []
+ },
+ {
+  "id": "ce.elemental.junction@1.0.0",
+  "family": "Elemental peeling laboratory",
+  "evidence_class": "elemental_data_or_declared_model",
+  "plugin": "123676ec5c1a",
+  "function": "junction",
+  "checks": 0,
+  "passed": 0,
+  "verdict": "CODE MISSING",
+  "comment": "referenced plugin 123676ec\u2026 is absent from the zip and from the repository",
+  "tests": []
+ },
+ {
+  "id": "ce.elemental.side_peel@1.0.0",
+  "family": "Elemental peeling laboratory",
+  "evidence_class": "elemental_data_or_declared_model",
+  "plugin": "123676ec5c1a",
+  "function": "side_peel",
+  "checks": 0,
+  "passed": 0,
+  "verdict": "CODE MISSING",
+  "comment": "referenced plugin 123676ec\u2026 is absent from the zip and from the repository",
+  "tests": []
+ },
+ {
+  "id": "ce.elemental.spacing@1.0.0",
+  "family": "Elemental peeling laboratory",
+  "evidence_class": "elemental_data_or_declared_model",
+  "plugin": "123676ec5c1a",
+  "function": "spacing",
+  "checks": 0,
+  "passed": 0,
+  "verdict": "CODE MISSING",
+  "comment": "referenced plugin 123676ec\u2026 is absent from the zip and from the repository",
+  "tests": []
+ },
+ {
+  "id": "ce.extensions.backreaction@1.0.0",
+  "family": "extensions",
+  "evidence_class": "model_calculation",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "SPECIFIED ONLY",
+  "comment": "a text requirement; no computation exists",
+  "tests": []
+ },
+ {
+  "id": "ce.extensions.entanglement@1.0.0",
+  "family": "extensions",
+  "evidence_class": "model_calculation",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "SPECIFIED ONLY",
+  "comment": "a text requirement; no computation exists",
+  "tests": []
+ },
+ {
+  "id": "ce.extensions.holonomy@1.0.0",
+  "family": "extensions",
+  "evidence_class": "model_calculation",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "SPECIFIED ONLY",
+  "comment": "a text requirement; no computation exists",
+  "tests": []
+ },
+ {
+  "id": "ce.extensions.inference@1.0.0",
+  "family": "extensions",
+  "evidence_class": "model_calculation",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "SPECIFIED ONLY",
+  "comment": "a text requirement; no computation exists",
+  "tests": []
+ },
+ {
+  "id": "ce.extensions.nonhermitian@1.0.0",
+  "family": "extensions",
+  "evidence_class": "model_calculation",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "SPECIFIED ONLY",
+  "comment": "a text requirement; no computation exists",
+  "tests": []
+ },
+ {
+  "id": "ce.extensions.scale@1.0.0",
+  "family": "extensions",
+  "evidence_class": "model_calculation",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "SPECIFIED ONLY",
+  "comment": "a text requirement; no computation exists",
+  "tests": []
+ },
+ {
+  "id": "ce.extensions.thermodynamics@1.0.0",
+  "family": "extensions",
+  "evidence_class": "model_calculation",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "SPECIFIED ONLY",
+  "comment": "a text requirement; no computation exists",
+  "tests": []
+ },
+ {
+  "id": "ce.extensions.topology@1.0.0",
+  "family": "extensions",
+  "evidence_class": "model_calculation",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "SPECIFIED ONLY",
+  "comment": "a text requirement; no computation exists",
+  "tests": []
+ },
+ {
+  "id": "ce.extensions.translation@1.0.0",
+  "family": "extensions",
+  "evidence_class": "model_calculation",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "SPECIFIED ONLY",
+  "comment": "a text requirement; no computation exists",
+  "tests": []
+ },
+ {
+  "id": "ce.frontier.admission@1.0.0",
+  "family": "exact frontier",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "frontier",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "kt_7_4 tower builds and certifies"
+  ]
+ },
+ {
+  "id": "ce.frontier.cost@1.0.0",
+  "family": "exact frontier",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "frontier",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "kt_7_4 tower builds and certifies"
+  ]
+ },
+ {
+  "id": "ce.frontier.coverage@1.0.0",
+  "family": "exact frontier",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "frontier",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "kt_7_4 tower builds and certifies"
+  ]
+ },
+ {
+  "id": "ce.frontier.cut@1.0.0",
+  "family": "exact frontier",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "frontier",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "kt_7_4 tower builds and certifies",
+   "earth_moon_c7k4 example screens"
+  ]
+ },
+ {
+  "id": "ce.frontier.forcing@1.0.0",
+  "family": "exact frontier",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "frontier",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "kt_7_4 tower builds and certifies",
+   "negative control: dropping one generator changes the certificate (not the same forcing/score)"
+  ]
+ },
+ {
+  "id": "ce.frontier.graph@1.0.0",
+  "family": "exact frontier",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "frontier",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "kt_7_4 tower builds and certifies",
+   "earth_moon_c7k4 example screens"
+  ]
+ },
+ {
+  "id": "ce.frontier.obstruction@1.0.0",
+  "family": "exact frontier",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "frontier",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "kt_7_4 tower builds and certifies"
+  ]
+ },
+ {
+  "id": "ce.frontier.transport@1.0.0",
+  "family": "exact frontier",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "frontier",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "kt_7_4 tower builds and certifies"
+  ]
+ },
+ {
+  "id": "ce.geometry.energy_levels@1.0.0",
+  "family": "geometry",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "P=uu^T rank-one, H=I-2P has levels \u00b11, probe weight cos^2, pair overlap cos sin, rate d/d\u03b8 cos^2 = -sin 2\u03b8",
+   "2-level: gradient 0, energy Hessian -1 (= second derivative of -sqrt(1+q^2)), quantum metric 1/4",
+   "finite-difference gradient and Hessian of E0(q)=-sqrt(1+q^2)+K q^2/2 at q=0.4"
+  ]
+ },
+ {
+  "id": "ce.geometry.idempotence@1.0.0",
+  "family": "geometry",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "P=uu^T rank-one, H=I-2P has levels \u00b11, probe weight cos^2, pair overlap cos sin, rate d/d\u03b8 cos^2 = -sin 2\u03b8",
+   "2-level: gradient 0, energy Hessian -1 (= second derivative of -sqrt(1+q^2)), quantum metric 1/4",
+   "finite-difference gradient and Hessian of E0(q)=-sqrt(1+q^2)+K q^2/2 at q=0.4"
+  ]
+ },
+ {
+  "id": "ce.geometry.operator@1.0.0",
+  "family": "geometry",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "P=uu^T rank-one, H=I-2P has levels \u00b11, probe weight cos^2, pair overlap cos sin, rate d/d\u03b8 cos^2 = -sin 2\u03b8",
+   "2-level: gradient 0, energy Hessian -1 (= second derivative of -sqrt(1+q^2)), quantum metric 1/4",
+   "finite-difference gradient and Hessian of E0(q)=-sqrt(1+q^2)+K q^2/2 at q=0.4"
+  ]
+ },
+ {
+  "id": "ce.geometry.probe_weight@1.0.0",
+  "family": "geometry",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "P=uu^T rank-one, H=I-2P has levels \u00b11, probe weight cos^2, pair overlap cos sin, rate d/d\u03b8 cos^2 = -sin 2\u03b8",
+   "2-level: gradient 0, energy Hessian -1 (= second derivative of -sqrt(1+q^2)), quantum metric 1/4",
+   "finite-difference gradient and Hessian of E0(q)=-sqrt(1+q^2)+K q^2/2 at q=0.4"
+  ]
+ },
+ {
+  "id": "ce.geometry.probe_weight_rate_per_radian@1.0.0",
+  "family": "geometry",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "P=uu^T rank-one, H=I-2P has levels \u00b11, probe weight cos^2, pair overlap cos sin, rate d/d\u03b8 cos^2 = -sin 2\u03b8",
+   "2-level: gradient 0, energy Hessian -1 (= second derivative of -sqrt(1+q^2)), quantum metric 1/4",
+   "finite-difference gradient and Hessian of E0(q)=-sqrt(1+q^2)+K q^2/2 at q=0.4"
+  ]
+ },
+ {
+  "id": "ce.geometry.projector@1.0.0",
+  "family": "geometry",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "P=uu^T rank-one, H=I-2P has levels \u00b11, probe weight cos^2, pair overlap cos sin, rate d/d\u03b8 cos^2 = -sin 2\u03b8",
+   "2-level: gradient 0, energy Hessian -1 (= second derivative of -sqrt(1+q^2)), quantum metric 1/4",
+   "finite-difference gradient and Hessian of E0(q)=-sqrt(1+q^2)+K q^2/2 at q=0.4"
+  ]
+ },
+ {
+  "id": "ce.geometry.signed_pair_overlap@1.0.0",
+  "family": "geometry",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "P=uu^T rank-one, H=I-2P has levels \u00b11, probe weight cos^2, pair overlap cos sin, rate d/d\u03b8 cos^2 = -sin 2\u03b8",
+   "2-level: gradient 0, energy Hessian -1 (= second derivative of -sqrt(1+q^2)), quantum metric 1/4",
+   "finite-difference gradient and Hessian of E0(q)=-sqrt(1+q^2)+K q^2/2 at q=0.4"
+  ]
+ },
+ {
+  "id": "ce.geometry.transport_residual@1.0.0",
+  "family": "geometry",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "P=uu^T rank-one, H=I-2P has levels \u00b11, probe weight cos^2, pair overlap cos sin, rate d/d\u03b8 cos^2 = -sin 2\u03b8",
+   "2-level: gradient 0, energy Hessian -1 (= second derivative of -sqrt(1+q^2)), quantum metric 1/4",
+   "finite-difference gradient and Hessian of E0(q)=-sqrt(1+q^2)+K q^2/2 at q=0.4"
+  ]
+ },
+ {
+  "id": "ce.hierarchy.fusion@1.0.0",
+  "family": "Hierarchical Compound Eye",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "e3bdc65ffc87",
+  "function": "run_fusion",
+  "checks": 0,
+  "passed": 0,
+  "verdict": "CODE MISSING",
+  "comment": "referenced plugin e3bdc65f\u2026 is absent from the zip and from the repository",
+  "tests": []
+ },
+ {
+  "id": "ce.hierarchy.scale@1.0.0",
+  "family": "Hierarchical Compound Eye",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "e3bdc65ffc87",
+  "function": "run_scale",
+  "checks": 0,
+  "passed": 0,
+  "verdict": "CODE MISSING",
+  "comment": "referenced plugin e3bdc65f\u2026 is absent from the zip and from the repository",
+  "tests": []
+ },
+ {
+  "id": "ce.horizon.causal_surface@1.0.0",
+  "family": "Inside/outside comparison",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "b03e02b91cb1",
+  "function": "causal_surface",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "PG light rays dr/dt = \u00b11 - sqrt(2M/r): outgoing 1/2 at r=8M, 0 at horizon, -1 at r=M/2; Kretschmann 48M^2/r^6",
+   "static observer inside horizon refused"
+  ]
+ },
+ {
+  "id": "ce.horizon.curvature_norm@1.0.0",
+  "family": "Inside/outside comparison",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "6e988595fb84",
+  "function": "curvature_norm",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "whitened unit-speed curvature eigenvalues of K=g with |V|_g^2=4: [1/4,1/4]"
+  ]
+ },
+ {
+  "id": "ce.horizon.interior_ambiguity@1.0.0",
+  "family": "Inside/outside comparison",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "b03e02b91cb1",
+  "function": "interior_ambiguity",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "two interiors with identical outside channel: outside difference 0, inside difference > 0"
+  ]
+ },
+ {
+  "id": "ce.horizon.observability@1.0.0",
+  "family": "Inside/outside comparison",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "b03e02b91cb1",
+  "function": "observability",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "rotation with position readout: algebraic observability rank 2",
+   "decoupled hidden mode: rank 1, least visible direction along x2"
+  ]
+ },
+ {
+  "id": "ce.horizon.opacity_channels@1.0.0",
+  "family": "Inside/outside comparison",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "b03e02b91cb1",
+  "function": "opacity_channels",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "exp(-tau), characteristics U\u00b1cs"
+  ]
+ },
+ {
+  "id": "ce.horizon.orientation@1.0.0",
+  "family": "Inside/outside comparison",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "b03e02b91cb1",
+  "function": "orientation",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "det sign and reflection leaves Gram unchanged"
+  ]
+ },
+ {
+  "id": "ce.horizon.oscillator_scaling@1.0.0",
+  "family": "Inside/outside comparison",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "b03e02b91cb1",
+  "function": "oscillator_scaling",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "omega=sqrt(2 lambda)=[1,2], amplitudes sqrt(2E)/omega, energies all E"
+  ]
+ },
+ {
+  "id": "ce.horizon.riesz_group@1.0.0",
+  "family": "Inside/outside comparison",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "b03e02b91cb1",
+  "function": "riesz_group",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "Riesz projector onto {1,2} = diag(1,1,0), idempotent, commutes",
+   "wrong declared count refused"
+  ]
+ },
+ {
+  "id": "ce.horizon.shape_transport@1.0.0",
+  "family": "Inside/outside comparison",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "b03e02b91cb1",
+  "function": "shape_transport",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "metric self-adjointness and lift similarity residuals 0 away from the wall",
+   "at the wall (w3=0): coordinate operator is a Jordan block, lifted operator nilpotent part reported"
+  ]
+ },
+ {
+  "id": "ce.horizon.two_sided_response@1.0.0",
+  "family": "Inside/outside comparison",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "b03e02b91cb1",
+  "function": "two_sided_response",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "both Schur complements invert to blocks of the full resolvent"
+  ]
+ },
+ {
+  "id": "ce.horizon.wall_path@1.0.0",
+  "family": "Inside/outside comparison",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "b03e02b91cb1",
+  "function": "wall_path",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "path length to wall = arcsin|q| (quad vs closed form), horizontal residual 0"
+  ]
+ },
+ {
+  "id": "ce.hypersurface.frozen_response@1.0.0",
+  "family": "Elemental hypersurface model",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "686107d201e8",
+  "function": "frozen_response",
+  "checks": 0,
+  "passed": 0,
+  "verdict": "CODE MISSING",
+  "comment": "referenced plugin 686107d2\u2026 is absent from the zip and from the repository",
+  "tests": []
+ },
+ {
+  "id": "ce.hypersurface.metric_memory@1.0.0",
+  "family": "Elemental hypersurface model",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "38f26f057739",
+  "function": "run",
+  "checks": 0,
+  "passed": 0,
+  "verdict": "CODE MISSING",
+  "comment": "referenced plugin 38f26f05\u2026 is absent from the zip and from the repository",
+  "tests": []
+ },
+ {
+  "id": "ce.hypersurface.pauli_scattering@1.0.0",
+  "family": "Elemental hypersurface model",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "686107d201e8",
+  "function": "pauli_scattering",
+  "checks": 0,
+  "passed": 0,
+  "verdict": "CODE MISSING",
+  "comment": "referenced plugin 686107d2\u2026 is absent from the zip and from the repository",
+  "tests": []
+ },
+ {
+  "id": "ce.hypersurface.state_dynamics@1.0.0",
+  "family": "Elemental hypersurface model",
+  "evidence_class": "declared_model_calculation",
+  "plugin": "686107d201e8",
+  "function": "state_dynamics",
+  "checks": 0,
+  "passed": 0,
+  "verdict": "CODE MISSING",
+  "comment": "referenced plugin 686107d2\u2026 is absent from the zip and from the repository",
+  "tests": []
+ },
+ {
+  "id": "ce.inference.analyze@1.0.0",
+  "family": "inference",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "inference",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "demo candidate problem validates and analyzes",
+   "demo candidate problem validates and analyzes",
+   "demo candidate problem validates and analyzes"
+  ]
+ },
+ {
+  "id": "ce.inference.closure@1.0.0",
+  "family": "inference",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "inference",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "next-observation ranking and predictive closure run on the demo problem",
+   "next-observation ranking and predictive closure run on the demo problem",
+   "next-observation ranking and predictive closure run on the demo problem"
+  ]
+ },
+ {
+  "id": "ce.inference.discover@1.0.0",
+  "family": "inference",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "inference",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "fixed demo law rediscovery runs"
+  ]
+ },
+ {
+  "id": "ce.inference.next@1.0.0",
+  "family": "inference",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "inference",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "next-observation ranking and predictive closure run on the demo problem",
+   "next-observation ranking and predictive closure run on the demo problem",
+   "next-observation ranking and predictive closure run on the demo problem"
+  ]
+ },
+ {
+  "id": "ce.inference.track@1.0.0",
+  "family": "inference",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "inference",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "tracking example request runs"
+  ]
+ },
+ {
+  "id": "ce.knotlab.adjoint_torsion@1.0.0",
+  "family": "open construction",
+  "evidence_class": "unimplemented",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "UNIMPLEMENTED",
+  "comment": "declared open construction, no code",
+  "tests": []
+ },
+ {
+  "id": "ce.knotlab.aps_admission@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "aps_admission",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: checklist of metadata flags, no mathematics",
+  "tests": [
+   "metadata checklist only"
+  ]
+ },
+ {
+  "id": "ce.knotlab.aps_knot_operator@1.0.0",
+  "family": "open construction",
+  "evidence_class": "unimplemented",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "UNIMPLEMENTED",
+  "comment": "declared open construction, no code",
+  "tests": []
+ },
+ {
+  "id": "ce.knotlab.braid_jones@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "braid_jones",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "closure of sigma_1 on 2 strands is the unknot: Jones = 1",
+   "trefoil sigma_1^3: Jones in t is one of the two chiral forms (-t^-4+t^-3+t^-1 or its mirror)"
+  ]
+ },
+ {
+  "id": "ce.knotlab.braid_move@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "braid_move",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "RII cancellation recognised",
+   "RIII braid relation recognised"
+  ]
+ },
+ {
+  "id": "ce.knotlab.branch@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "branch",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "constant: takes no input; fixed figure-eight witness",
+  "tests": [
+   "constant witness output"
+  ]
+ },
+ {
+  "id": "ce.knotlab.chiral@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "chiral",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "chiral matrix of A=diag(1,0): eigenvalues \u00b11,0,0; kernel 2; eta 0"
+  ]
+ },
+ {
+  "id": "ce.knotlab.cs@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "cs",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: |e^{2\u03c0ikm}-1|",
+  "tests": [
+   "|e^{2 pi i k m}-1| for k=2.5,m=1 = 2"
+  ]
+ },
+ {
+  "id": "ce.knotlab.eta@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "eta",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "eta of spectrum n+a on the circle = 1-2{a} = 0.5; Hurwitz check agrees"
+  ]
+ },
+ {
+  "id": "ce.knotlab.fox@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "fox",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "figure-eight twisted torsion = (t^2-4t+1)/t^2 up to sign/unit",
+   "corrupted representation refused"
+  ]
+ },
+ {
+  "id": "ce.knotlab.homfly@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "homfly",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "constant: fixed 8_19 polynomial specialisations",
+  "tests": [
+   "8_19 HOMFLY specialises to Alexander of T(3,4) and Jones t^3+t^5-t^8"
+  ]
+ },
+ {
+  "id": "ce.knotlab.hopf_integral_3d@1.0.0",
+  "family": "open construction",
+  "evidence_class": "unimplemented",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "UNIMPLEMENTED",
+  "comment": "declared open construction, no code",
+  "tests": []
+ },
+ {
+  "id": "ce.knotlab.jones@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "jones",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "Kashaev estimator at N=2000: raw 2.0648 (converges as Vol + 3\u03c0 log N/N); minus the known (3/2)log N term it is within 0.3% of Vol(4_1)=2.0299",
+   "Melvin-Morton: J_N(e^{xi/N}) -> 1/(3-2cosh xi) (error small at N=400)",
+   "Kashaev estimator minus the known (3/2)log N correction is within 0.3% of Vol(4_1)"
+  ]
+ },
+ {
+  "id": "ce.knotlab.learned_soliton_potential@1.0.0",
+  "family": "open construction",
+  "evidence_class": "unimplemented",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "UNIMPLEMENTED",
+  "comment": "declared open construction, no code",
+  "tests": []
+ },
+ {
+  "id": "ce.knotlab.linking@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "linking",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "Gauss integral for the Hopf link = \u00b11"
+  ]
+ },
+ {
+  "id": "ce.knotlab.moves@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "moves",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "torsion invariant under conjugation + basis change (ratio is a unit)"
+  ]
+ },
+ {
+  "id": "ce.knotlab.nematic_energy@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "nematic_energy",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "uniform twist: elastic = K/2 * (pi/2)^2 * 2 = pi^2/4, half turn"
+  ]
+ },
+ {
+  "id": "ce.knotlab.nematic_relaxation_3d@1.0.0",
+  "family": "open construction",
+  "evidence_class": "unimplemented",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "UNIMPLEMENTED",
+  "comment": "declared open construction, no code",
+  "tests": []
+ },
+ {
+  "id": "ce.knotlab.nonabelian_reconnection@1.0.0",
+  "family": "open construction",
+  "evidence_class": "unimplemented",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "UNIMPLEMENTED",
+  "comment": "declared open construction, no code",
+  "tests": []
+ },
+ {
+  "id": "ce.knotlab.optical_jones@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "optical_jones",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "half-wave plate at 0 deg: field i*(1,0), unitary"
+  ]
+ },
+ {
+  "id": "ce.knotlab.potential@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "potential",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: log(|A|+eps)",
+  "tests": [
+   "log(|0|+0.1)"
+  ]
+ },
+ {
+  "id": "ce.knotlab.quantum_trace_insertions@1.0.0",
+  "family": "open construction",
+  "evidence_class": "unimplemented",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "UNIMPLEMENTED",
+  "comment": "declared open construction, no code",
+  "tests": []
+ },
+ {
+  "id": "ce.knotlab.rational_degree@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "rational_degree",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "Hopf charge alpha q + p = 5 with 5 regular preimages"
+  ]
+ },
+ {
+  "id": "ce.knotlab.recipe@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "recipe",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "constructed curve lies on S^3 and on z^p+w^q=0"
+  ]
+ },
+ {
+  "id": "ce.knotlab.saddle@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "saddle",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "constant: fixed 4_1 dilogarithm constants",
+  "tests": [
+   "Vol(4_1) = 2 Im Li2(e^{i pi/3}) = 2.02988 and matches Lobachevsky integral"
+  ]
+ },
+ {
+  "id": "ce.knotlab.spectral_flow@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "spectral_flow",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "spectral flow floor(b)-floor(a)=1 and eta-change balance residual 0"
+  ]
+ },
+ {
+  "id": "ce.knotlab.spin_response@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "spin_response",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: one ratio",
+  "tests": [
+   "polarization (0.75-0.25)/1 = 0.5"
+  ]
+ },
+ {
+  "id": "ce.knotlab.torus@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "torus",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "trefoil T(2,3): crossing 3, genus 1, Alexander t^2-t+1, determinant 3",
+   "T(3,4)=8_19: crossing 8, genus 3, det 3",
+   "non-coprime refused"
+  ]
+ },
+ {
+  "id": "ce.knotlab.tqft_gluing@1.0.0",
+  "family": "open construction",
+  "evidence_class": "unimplemented",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "UNIMPLEMENTED",
+  "comment": "declared open construction, no code",
+  "tests": []
+ },
+ {
+  "id": "ce.knotlab.winding@1.0.0",
+  "family": "knot memory and fields",
+  "evidence_class": "model_calculation",
+  "plugin": "69db0c2e81e7",
+  "function": "winding",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "square around origin: winding 1",
+   "triangle not enclosing origin: winding 0",
+   "square around origin: 1"
+  ]
+ },
+ {
+  "id": "ce.operator.conditioning@1.0.0",
+  "family": "operator boundary",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "finite_operator",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "cond(zI-D) and min singular value match numpy"
+  ]
+ },
+ {
+  "id": "ce.operator.dissipation@1.0.0",
+  "family": "operator boundary",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "finite_operator",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "Gamma_eta PSD with 2 eta B R* R B* factorization"
+  ]
+ },
+ {
+  "id": "ce.operator.effective@1.0.0",
+  "family": "operator boundary",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "finite_operator",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "self-energy B (z-D)^{-1} B^T and H_eff = A + Sigma"
+  ]
+ },
+ {
+  "id": "ce.operator.partition@1.0.0",
+  "family": "operator boundary",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "finite_operator",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "H_PP, H_PQ, H_QQ blocks are the declared index blocks"
+  ]
+ },
+ {
+  "id": "ce.operator.resolvent@1.0.0",
+  "family": "operator boundary",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "finite_operator",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "projected full resolvent = reduced resolvent (Feshbach identity)"
+  ]
+ },
+ {
+  "id": "ce.optical.constitutive@1.0.0",
+  "family": "optical response",
+  "evidence_class": "model_calculation",
+  "plugin": "c065d16e6062",
+  "function": "run",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "weights 2 gap^3/(gap^2-x^2) and metric = sum (a/gap)(a/gap)^T"
+  ]
+ },
+ {
+  "id": "ce.prediction.geometry.lower_energy@1.0.0",
+  "family": "candidate readouts",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "scalar_prediction",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: passthrough of declared candidate numbers, no computation",
+  "tests": [
+   "returns the declared candidate predictions for readout lower_energy unchanged (passthrough)"
+  ]
+ },
+ {
+  "id": "ce.prediction.geometry.probe_weight@1.0.0",
+  "family": "candidate readouts",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "scalar_prediction",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: passthrough of declared candidate numbers, no computation",
+  "tests": [
+   "returns the declared candidate predictions for readout lower_energy unchanged (passthrough)"
+  ]
+ },
+ {
+  "id": "ce.prediction.geometry.signed_pair_overlap@1.0.0",
+  "family": "candidate readouts",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "scalar_prediction",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: passthrough of declared candidate numbers, no computation",
+  "tests": [
+   "returns the declared candidate predictions for readout lower_energy unchanged (passthrough)"
+  ]
+ },
+ {
+  "id": "ce.prediction.geometry.weight_derivative@1.0.0",
+  "family": "candidate readouts",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "scalar_prediction",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: passthrough of declared candidate numbers, no computation",
+  "tests": [
+   "returns the declared candidate predictions for readout lower_energy unchanged (passthrough)"
+  ]
+ },
+ {
+  "id": "ce.prediction.quantum.bond_current@1.0.0",
+  "family": "candidate readouts",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "scalar_prediction",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: passthrough of declared candidate numbers, no computation",
+  "tests": [
+   "returns the declared candidate predictions for readout left_weight unchanged (passthrough)"
+  ]
+ },
+ {
+  "id": "ce.prediction.quantum.energy_gap@1.0.0",
+  "family": "candidate readouts",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "scalar_prediction",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: passthrough of declared candidate numbers, no computation",
+  "tests": [
+   "returns the declared candidate predictions for readout left_weight unchanged (passthrough)"
+  ]
+ },
+ {
+  "id": "ce.prediction.quantum.left_weight@1.0.0",
+  "family": "candidate readouts",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "scalar_prediction",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: passthrough of declared candidate numbers, no computation",
+  "tests": [
+   "returns the declared candidate predictions for readout left_weight unchanged (passthrough)"
+  ]
+ },
+ {
+  "id": "ce.prediction.quantum.middle_weight@1.0.0",
+  "family": "candidate readouts",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "scalar_prediction",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: passthrough of declared candidate numbers, no computation",
+  "tests": [
+   "returns the declared candidate predictions for readout left_weight unchanged (passthrough)"
+  ]
+ },
+ {
+  "id": "ce.prediction.quantum.real_coherence@1.0.0",
+  "family": "candidate readouts",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "scalar_prediction",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: passthrough of declared candidate numbers, no computation",
+  "tests": [
+   "returns the declared candidate predictions for readout left_weight unchanged (passthrough)"
+  ]
+ },
+ {
+  "id": "ce.prediction.rc.initial_energy@1.0.0",
+  "family": "candidate readouts",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "scalar_prediction",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: passthrough of declared candidate numbers, no computation",
+  "tests": [
+   "returns the declared candidate predictions for readout initial_voltage unchanged (passthrough)"
+  ]
+ },
+ {
+  "id": "ce.prediction.rc.initial_resistor_current@1.0.0",
+  "family": "candidate readouts",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "scalar_prediction",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: passthrough of declared candidate numbers, no computation",
+  "tests": [
+   "returns the declared candidate predictions for readout initial_voltage unchanged (passthrough)"
+  ]
+ },
+ {
+  "id": "ce.prediction.rc.initial_voltage@1.0.0",
+  "family": "candidate readouts",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "scalar_prediction",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: passthrough of declared candidate numbers, no computation",
+  "tests": [
+   "returns the declared candidate predictions for readout initial_voltage unchanged (passthrough)"
+  ]
+ },
+ {
+  "id": "ce.prediction.rc.initial_voltage_slope@1.0.0",
+  "family": "candidate readouts",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "scalar_prediction",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: passthrough of declared candidate numbers, no computation",
+  "tests": [
+   "returns the declared candidate predictions for readout initial_voltage unchanged (passthrough)"
+  ]
+ },
+ {
+  "id": "ce.prediction.rc.voltage_after_half_second@1.0.0",
+  "family": "candidate readouts",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "scalar_prediction",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: passthrough of declared candidate numbers, no computation",
+  "tests": [
+   "returns the declared candidate predictions for readout initial_voltage unchanged (passthrough)"
+  ]
+ },
+ {
+  "id": "ce.qhe.backflow@1.0.0",
+  "family": "Quantum heat engine",
+  "evidence_class": "source_stage_declared_per_request",
+  "plugin": "a9a2bc4beca8",
+  "function": "backflow",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "trace distances [1,0.6,0.8]: positive variation 0.2 witnesses backflow"
+  ]
+ },
+ {
+  "id": "ce.qhe.data_audit@1.0.0",
+  "family": "Quantum heat engine",
+  "evidence_class": "source_stage_declared_per_request",
+  "plugin": "a9a2bc4beca8",
+  "function": "data_audit",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: ratios of two counts",
+  "tests": [
+   "fractions 0.7/0.3"
+  ]
+ },
+ {
+  "id": "ce.qhe.entropy_balance@1.0.0",
+  "family": "Quantum heat engine",
+  "evidence_class": "source_stage_declared_per_request",
+  "plugin": "a9a2bc4beca8",
+  "function": "entropy_balance",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "Clausius: sigma = S(final)-S(initial) - Q/T"
+  ]
+ },
+ {
+  "id": "ce.qhe.ergotropy@1.0.0",
+  "family": "Quantum heat engine",
+  "evidence_class": "source_stage_declared_per_request",
+  "plugin": "a9a2bc4beca8",
+  "function": "ergotropy",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "excited qubit: ergotropy = gap = 1, passive energy 0",
+   "|+> under Z-gap H: ergotropy 1/2, coherence = S(dephased)-S(pure) = ln2"
+  ]
+ },
+ {
+  "id": "ce.qhe.ladder@1.0.0",
+  "family": "Quantum heat engine",
+  "evidence_class": "source_stage_declared_per_request",
+  "plugin": "a9a2bc4beca8",
+  "function": "ladder",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "two-level rate ladder relaxes to stationary [2/3,1/3]"
+  ]
+ },
+ {
+  "id": "ce.qhe.ledger@1.0.0",
+  "family": "Quantum heat engine",
+  "evidence_class": "source_stage_declared_per_request",
+  "plugin": "a9a2bc4beca8",
+  "function": "ledger",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "tautology: first-law residual is an exact midpoint identity, always 0",
+  "tests": [
+   "four-stroke Otto-like ledger: work/heat match independent midpoint sums, cycle closed, first law residual 0",
+   "work sign: total work extracted equals -(sum of stroke work) and net heat + work_output = 0 over a closed cycle"
+  ]
+ },
+ {
+  "id": "ce.qhe.lindblad@1.0.0",
+  "family": "Quantum heat engine",
+  "evidence_class": "source_stage_declared_per_request",
+  "plugin": "a9a2bc4beca8",
+  "function": "lindblad",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "amplitude damping GKSL: trace preserving, Choi PSD, eigenvalues {0,-\u03b3,-\u03b3/2\u00b1i}"
+  ]
+ },
+ {
+  "id": "ce.qhe.readout_transfer@1.0.0",
+  "family": "Quantum heat engine",
+  "evidence_class": "source_stage_declared_per_request",
+  "plugin": "880f1f842738",
+  "function": "readout_transfer",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: one linear solve",
+  "tests": [
+   "inverts y=C^T x exactly"
+  ]
+ },
+ {
+  "id": "ce.qhe.spectral_overlap@1.0.0",
+  "family": "Quantum heat engine",
+  "evidence_class": "source_stage_declared_per_request",
+  "plugin": "a9a2bc4beca8",
+  "function": "spectral_overlap",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "trapezoid overlaps [2,1]"
+  ]
+ },
+ {
+  "id": "ce.quantum.boundary@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "endpoint weight p1+p3"
+  ]
+ },
+ {
+  "id": "ce.quantum.coherence@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "l1 coherence = sum|rho_ij| - tr rho"
+  ]
+ },
+ {
+  "id": "ce.quantum.consistency@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "norm residual 0"
+  ]
+ },
+ {
+  "id": "ce.quantum.energy@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "energy expectation conserved: equals <psi0|H|psi0>"
+  ]
+ },
+ {
+  "id": "ce.quantum.flow@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "bond current -2g Im(conj(psi1)psi2) and continuity dp/dt = flow divergence (residual 0)"
+  ]
+ },
+ {
+  "id": "ce.quantum.hilbert@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "closed-form evolution equals expm(-iHt) psi0"
+  ]
+ },
+ {
+  "id": "ce.quantum.identification@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "tautology: reconstruction copies rho, so the error is 0 by construction",
+  "tests": [
+   "density-matrix reconstruction error 0 (tautology: rebuilt from the same rho)"
+  ]
+ },
+ {
+  "id": "ce.quantum.intervention@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "counterfactual coupling 1.1g: right-site weights match independent expm"
+  ]
+ },
+ {
+  "id": "ce.quantum.location@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "site weights |psi|^2 and mean position p3-p1"
+  ]
+ },
+ {
+  "id": "ce.quantum.memory@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "initial fidelity p1 and principal angle acos(sqrt p1)"
+  ]
+ },
+ {
+  "id": "ce.quantum.paths@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "12th-order path sum: observed error below the exact-arithmetic tail bound"
+  ]
+ },
+ {
+  "id": "ce.quantum.phase@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "relative phase arg(conj(psi1) psi2)"
+  ]
+ },
+ {
+  "id": "ce.quantum.projector@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "pure state: purity 1"
+  ]
+ },
+ {
+  "id": "ce.quantum.resolution@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "site count above threshold"
+  ]
+ },
+ {
+  "id": "ce.quantum.spectrum@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "levels equal eigvalsh(H)"
+  ]
+ },
+ {
+  "id": "ce.quantum.symmetry@1.0.0",
+  "family": "quantum",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "quantum",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "reflection expectation <psi|R|psi>"
+  ]
+ },
+ {
+  "id": "ce.rc.charge_balance_a@1.0.0",
+  "family": "electrical",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "V=V0 e^{-Gt/C}, I=GV, dV/dt=-GV/C, energy CV^2/2, power GV^2, balance residuals 0"
+  ]
+ },
+ {
+  "id": "ce.rc.decay_eigenvalue_per_s@1.0.0",
+  "family": "electrical",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "V=V0 e^{-Gt/C}, I=GV, dV/dt=-GV/C, energy CV^2/2, power GV^2, balance residuals 0"
+  ]
+ },
+ {
+  "id": "ce.rc.dissipated_power_w@1.0.0",
+  "family": "electrical",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "V=V0 e^{-Gt/C}, I=GV, dV/dt=-GV/C, energy CV^2/2, power GV^2, balance residuals 0"
+  ]
+ },
+ {
+  "id": "ce.rc.energy_balance_w@1.0.0",
+  "family": "electrical",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "V=V0 e^{-Gt/C}, I=GV, dV/dt=-GV/C, energy CV^2/2, power GV^2, balance residuals 0"
+  ]
+ },
+ {
+  "id": "ce.rc.energy_j@1.0.0",
+  "family": "electrical",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "V=V0 e^{-Gt/C}, I=GV, dV/dt=-GV/C, energy CV^2/2, power GV^2, balance residuals 0"
+  ]
+ },
+ {
+  "id": "ce.rc.energy_rate_w@1.0.0",
+  "family": "electrical",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "V=V0 e^{-Gt/C}, I=GV, dV/dt=-GV/C, energy CV^2/2, power GV^2, balance residuals 0"
+  ]
+ },
+ {
+  "id": "ce.rc.resistor_current_a@1.0.0",
+  "family": "electrical",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "V=V0 e^{-Gt/C}, I=GV, dV/dt=-GV/C, energy CV^2/2, power GV^2, balance residuals 0"
+  ]
+ },
+ {
+  "id": "ce.rc.voltage_rate_v_per_s@1.0.0",
+  "family": "electrical",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "V=V0 e^{-Gt/C}, I=GV, dV/dt=-GV/C, energy CV^2/2, power GV^2, balance residuals 0"
+  ]
+ },
+ {
+  "id": "ce.rc.voltage_v@1.0.0",
+  "family": "electrical",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "lab_snapshot",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "V=V0 e^{-Gt/C}, I=GV, dV/dt=-GV/C, energy CV^2/2, power GV^2, balance residuals 0"
+  ]
+ },
+ {
+  "id": "ce.response.abl@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "abl",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "ABL with post=|0>: conditional probs [1,0]"
+  ]
+ },
+ {
+  "id": "ce.response.cheshire@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "cheshire",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "constant: takes no input; fixed Cheshire-cat weak values",
+  "tests": [
+   "fixed Cheshire-cat weak values L=1,R=0,L_X=0,R_X=1 (constant output, no input)"
+  ]
+ },
+ {
+  "id": "ce.response.constitutive_null@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "constitutive_null",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "tautology: residuals compare two in-eye formulas with each other",
+  "tests": [
+   "sampled Q matches its own analytic formula and contrast identity"
+  ]
+ },
+ {
+  "id": "ce.response.fidelity_drift@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "fidelity_drift",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: OLS slope of two columns",
+  "tests": [
+   "OLS slope -0.1/s"
+  ]
+ },
+ {
+  "id": "ce.response.force@1.0.0",
+  "family": "deformation",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "response",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "energy and gradient of E0(q)=-sqrt(1+q^2)+Kq^2/2 at q=0.4"
+  ]
+ },
+ {
+  "id": "ce.response.geometric_phase@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "geometric_phase",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "Bargmann product of three qubit states matches independent product; phase = -arg"
+  ]
+ },
+ {
+  "id": "ce.response.hall_fit@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "hall_fit",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "recovers intercept 0.5 and coefficient 0.2 from exact quadratic data"
+  ]
+ },
+ {
+  "id": "ce.response.harmonic@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "harmonic",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "chi(A sin t)^2: dc = chi A^2/2 = 1, cos2w = -1, sin2w = 0"
+  ]
+ },
+ {
+  "id": "ce.response.hessian@1.0.0",
+  "family": "deformation",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "response",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "Hessian vs finite difference"
+  ]
+ },
+ {
+  "id": "ce.response.holonomy@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "holonomy",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "tautology: gauge residual telescopes to 0 by construction",
+  "tests": [
+   "Wilson loop = exp(i sum phases); gauge residual 0 (telescoping, tautology)"
+  ]
+ },
+ {
+  "id": "ce.response.incoherent_covariance@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "195c54b89e53",
+  "function": "incoherent_covariance",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "steady covariance solves A C + C A^T + D = 0"
+  ]
+ },
+ {
+  "id": "ce.response.kerr@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "kerr",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "phases -chi n(n-1)/2 = [0,0,-0.1,-0.3], second difference constant -chi"
+  ]
+ },
+ {
+  "id": "ce.response.loop_loss@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "loop_loss",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: eta^N",
+  "tests": [
+   "0.9^3"
+  ]
+ },
+ {
+  "id": "ce.response.modular_translation@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "195c54b89e53",
+  "function": "modular_translation",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "<psi|T|psi> for a momentum eigenstate on 4 sites = e^{-i pi/2}"
+  ]
+ },
+ {
+  "id": "ce.response.neutrality@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "neutrality",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "two-carrier Drude Hall coefficient (nh mu_h^2 - ne mu_e^2)/(e(ne mu_e+nh mu_h)^2)"
+  ]
+ },
+ {
+  "id": "ce.response.nonabelian_loop@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "195c54b89e53",
+  "function": "nonabelian_loop",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "ordered product trace matches; gauge-transformed loop has same trace and is conjugate by G0"
+  ]
+ },
+ {
+  "id": "ce.response.passivity@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "passivity",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "largest power gain 0.64, contractive"
+  ]
+ },
+ {
+  "id": "ce.response.phase_conjugation@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "phase_conjugation",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "constant: one-line obstruction 2|z|",
+  "tests": [
+   "|conj(iz) - i conj(z)| = 2|z| for z=1+2i"
+  ]
+ },
+ {
+  "id": "ce.response.pointer@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "pointer",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "weak regime: pointer_X/(2g) \u2248 Re weak value (=1)"
+  ]
+ },
+ {
+  "id": "ce.response.probability_budget@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "probability_budget",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: row sums",
+  "tests": [
+   "row sums and max residual 0.1"
+  ]
+ },
+ {
+  "id": "ce.response.projector_geometry@1.0.0",
+  "family": "deformation",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "response",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "quantum metric = (d\u03b8/dq)^2/4 with tan\u03b8=q, i.e. 1/(4(1+q^2)^2) (my first expectation 1/(4(1+q^2)) was wrong; the eye was right), zero Berry curvature for a real family"
+  ]
+ },
+ {
+  "id": "ce.response.recycling@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "recycling",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: finite geometric series",
+  "tests": [
+   "finite geometric sums: useful 0.2*(1+.5+.25)=0.35, asymptote 0.4"
+  ]
+ },
+ {
+  "id": "ce.response.reservoir@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "reservoir",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: rate bookkeeping",
+  "tests": [
+   "rate bookkeeping: optical 0.5, electronic 2.7, total 3.2 = pin-u-heat"
+  ]
+ },
+ {
+  "id": "ce.response.weak_value@1.0.0",
+  "family": "Aharonov photonic and electronic response",
+  "evidence_class": "calculation_on_declared_inputs",
+  "plugin": "ee6f5f72d333",
+  "function": "weak_value",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "<0|Z|+>/<0|+> = 1, success prob 1/2",
+   "orthogonal pre/post refused"
+  ]
+ },
+ {
+  "id": "ce.search.decision_dag@1.0.0",
+  "family": "decision DAG",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "search",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "positive-control search runs and independent check passes"
+  ]
+ },
+ {
+  "id": "ce.search.new_regions@1.0.0",
+  "family": "decision DAG",
+  "evidence_class": "archived_computational_evidence",
+  "plugin": "eyes.py",
+  "function": "search",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "positive-control search runs and independent check passes"
+  ]
+ },
+ {
+  "id": "ce.search.proof_cost@1.0.0",
+  "family": "decision DAG",
+  "evidence_class": "archived_computational_evidence",
+  "plugin": "eyes.py",
+  "function": "search",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "positive-control search runs and independent check passes"
+  ]
+ },
+ {
+  "id": "ce.search.scoped_obstructions@1.0.0",
+  "family": "decision DAG",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "search",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "positive-control search runs and independent check passes"
+  ]
+ },
+ {
+  "id": "ce.skew.cluster@1.0.0",
+  "family": "Transport selection pairing and skew response",
+  "evidence_class": "model_calculation",
+  "plugin": "d052dca520a3",
+  "function": "cluster",
+  "checks": 4,
+  "passed": 4,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "Riesz projector for 2-cluster {\u00b1sqrt(0.25)} equals diag(1,1,0) (delta=0.25)",
+   "Riesz projector for 2-cluster {\u00b1sqrt(0.0)} equals diag(1,1,0) (delta=0.0)",
+   "Riesz projector for 2-cluster {\u00b1sqrt(-0.5)} equals diag(1,1,0) (delta=-0.5)",
+   "cluster outside contour refused"
+  ]
+ },
+ {
+  "id": "ce.skew.gram@1.0.0",
+  "family": "Transport selection pairing and skew response",
+  "evidence_class": "model_calculation",
+  "plugin": "d052dca520a3",
+  "function": "gram",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "eigenvalues of B*B/tr sum to 1 and match numpy",
+   "top projector idempotent, rank 1, commutes with H",
+   "zero transport is refused"
+  ]
+ },
+ {
+  "id": "ce.skew.hall_power@1.0.0",
+  "family": "Transport selection pairing and skew response",
+  "evidence_class": "model_calculation",
+  "plugin": "d052dca520a3",
+  "function": "hall_power",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "tautology: antisymmetric power E\u00b7A\u00b7E is identically 0",
+  "tests": [
+   "E.sigma.E and symmetric part; antisymmetric power is identically 0"
+  ]
+ },
+ {
+  "id": "ce.skew.metric_frame@1.0.0",
+  "family": "Transport selection pairing and skew response",
+  "evidence_class": "model_calculation",
+  "plugin": "d052dca520a3",
+  "function": "metric_frame",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "tautology: both covariance residuals are exact identities of the eye's own arithmetic",
+  "tests": [
+   "norm and rate covariance residuals 0 (exact identities), G-rate max eigenvalue matches",
+   "indefinite metric refused"
+  ]
+ },
+ {
+  "id": "ce.skew.normality@1.0.0",
+  "family": "Transport selection pairing and skew response",
+  "evidence_class": "model_calculation",
+  "plugin": "d052dca520a3",
+  "function": "normality",
+  "checks": 3,
+  "passed": 3,
+  "verdict": "CORRECT",
+  "comment": "tautology: the normality identity residual is algebraically always 0",
+  "tests": [
+   "Jordan block: spectral abscissa 0, numerical abscissa 1/2",
+   "||exp(H)||_2 at t=1 vs independent",
+   "random complex: identity residual ~0 (tautology) and commutator norm = ||H H*-H* H||/2"
+  ]
+ },
+ {
+  "id": "ce.skew.pairing@1.0.0",
+  "family": "Transport selection pairing and skew response",
+  "evidence_class": "model_calculation",
+  "plugin": "d052dca520a3",
+  "function": "pairing",
+  "checks": 2,
+  "passed": 2,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "bilinear pairing ell.x preserved under A / A^{-T} and frame S / S^{-1}: residuals 0",
+   "singular transport refused"
+  ]
+ },
+ {
+  "id": "ce.skew.stress_composition@1.0.0",
+  "family": "Transport selection pairing and skew response",
+  "evidence_class": "model_calculation",
+  "plugin": "d052dca520a3",
+  "function": "stress_composition",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "claimed law stress(A\u2297B) = s1+s2-s1*s2 holds on 4 cases"
+  ]
+ },
+ {
+  "id": "ce.topology.additive_charge@1.0.0",
+  "family": "topology",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "charge",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "trivial: integer sum",
+  "tests": [
+   "3 = 1+2 conserved"
+  ]
+ },
+ {
+  "id": "ce.topology.polygon_winding@1.0.0",
+  "family": "topology",
+  "evidence_class": "model_calculation",
+  "plugin": "eyes.py",
+  "function": "winding",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "diamond around origin: 1"
+  ]
+ },
+ {
+  "id": "ce.upg.gluing_sign@1.0.0",
+  "family": "Projector and boundary integration",
+  "evidence_class": "explicit_per_request",
+  "plugin": "6cc3256223b2",
+  "function": "gluing_sign",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "logdet correction = logdet M - logdet A - logdet D, equals Schur correction, nonpositive"
+  ]
+ },
+ {
+  "id": "ce.upg.nct_anchor@1.0.0",
+  "family": "Projector and boundary integration",
+  "evidence_class": "explicit_per_request",
+  "plugin": "6cc3256223b2",
+  "function": "nct_anchor",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "clock/shift commutator UVU*V* = e^{2\u03c0i/5} I: winding of the 5 eigenvalue phases = 1"
+  ]
+ },
+ {
+  "id": "ce.upg.redistribution_memory@1.0.0",
+  "family": "Projector and boundary integration",
+  "evidence_class": "explicit_per_request",
+  "plugin": "6cc3256223b2",
+  "function": "redistribution_memory",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "||B+B*||^2 = 2 tr(BB*) identity; kernel at t=0 equals BB*"
+  ]
+ },
+ {
+  "id": "ce.upg.signature_flow@1.0.0",
+  "family": "Projector and boundary integration",
+  "evidence_class": "explicit_per_request",
+  "plugin": "6cc3256223b2",
+  "function": "signature_flow",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "trefoil Seifert matrix: Levine-Tristram signature at t=\u03c0 is \u00b12, Alexander |det| = 3"
+  ]
+ },
+ {
+  "id": "ce.upg.spectral_susceptibility@1.0.0",
+  "family": "Projector and boundary integration",
+  "evidence_class": "explicit_per_request",
+  "plugin": "6cc3256223b2",
+  "function": "spectral_susceptibility",
+  "checks": 1,
+  "passed": 1,
+  "verdict": "CORRECT",
+  "comment": "independent check passed",
+  "tests": [
+   "projector derivative matches finite difference; Sylvester residual 0; metric speed tr(dP^2)/2 = 1"
+  ]
+ },
+ {
+  "id": "ce.em.side.colouring@1.0.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.em.side.defect_support@1.0.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.em.side.endpoint@1.0.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.em.side.flip_damage@1.0.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.em.side.identity@1.0.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.em.side.invariants_set@1.0.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.em.side.joint_repair@1.0.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.em.side.lateral@1.0.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.em.side.peripheral_set@1.0.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.em.side.repair_budget@1.0.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.em.side.repair_set@1.0.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.em.side.repair_set@1.1.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.em.side.structural_context@1.0.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.em.side.whole@1.0.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.em.side.whole@1.1.0",
+  "family": "Earth Moon peripheral scanning",
+  "evidence_class": "exact_finite_graph_diagnostic",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: earth-moon side scanner, not shipped in the zip",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.allocation@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.certificate@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.comparison@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.dark_guard@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.energy_coarsening@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.energy_labels@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.forcing_dual@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_rational_application_of_pinned_linear_theorem",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.gap_set@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.gram@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.identity@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.model_set@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.observability@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.parameter_guard@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.response_set@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.response_set@1.1.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.response_set@1.2.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_rational_application_of_pinned_linear_theorem",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.source_transfer@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.support@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.whole@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.whole@1.1.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.whole@1.2.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_rational_application_of_pinned_linear_theorem",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ },
+ {
+  "id": "ce.ym.cross.window_guard@1.0.0",
+  "family": "Yang Mills cross-theorem observers",
+  "evidence_class": "exact_finite_gauge_certificate_with_written_analytic_links",
+  "plugin": "",
+  "function": null,
+  "checks": 0,
+  "passed": 0,
+  "verdict": "OUTSIDE PACKAGE",
+  "comment": "outside package: Yang\u2013Mills cross-theorem code; its Lean kernels CrossTheorem.lean / MatrixResolvedBoundary.lean are VERIFIED in the ledger",
+  "tests": []
+ }
+]
