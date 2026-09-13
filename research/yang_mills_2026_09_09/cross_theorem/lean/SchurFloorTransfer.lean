@@ -56,6 +56,7 @@ theorem floorBlock_eq_full_shift
     symm
     exact Matrix.fromBlocks_one
   rw [hOne, Matrix.fromBlocks_smul]
+  simp only [smul_zero]
   change
     Matrix.fromBlocks (A - μ • (1 : Matrix r r ℝ)) B B.transpose
         (D - μ • (1 : Matrix h h ℝ)) =
