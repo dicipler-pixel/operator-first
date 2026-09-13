@@ -1,5 +1,8 @@
 # Mixer trials v1 — predict → intervene → observe → record → replay
 
+**Authorship.** The record-and-replay discipline and the Eye Mixer instrument are the repository
+author's design; Claude executed the trials and mathematics here.
+
 Instrument: frozen Eye Mixer core (`tools/compound-eye/projects/eye_mixer/mixer_core.js`, engine 1.0.0),
 whose `validate/read/mix/recipe` are byte-identical to the Canonical 5.1 page. Nothing under
 `tools/compound-eye/` was modified. Inputs are the v2 recipes from `tools/acc/decoded_v2/`.

@@ -1,12 +1,20 @@
 # Mixer trials v2 — Smith chart and Snell law on the frozen Eye Mixer
 
+**Authorship.** The layered/offset Smith-chart idea, the Snell-law idea, the penultimate-corridor
+question, the "never remove eyes" rule and the predict → intervene → observe → record → replay
+discipline are the repository author's logic, theory, planning and research. The AI lanes
+(Claude, GPT, Grok) are credited only for the mathematics they executed under that direction:
+GPT wrote the six-layer formula file, Grok computed the Map A coefficient and an independent replay,
+Claude built the channels, trials and replays here. Exact replay via the official verifier is the
+only proof of any move sequence.
+
 Inputs: `tools/acc/smith_snell_v1/recipes/*.json` (424 recipes, 44 traces each) built by
 `tools/acc/acc_smith_snell_v1.py`, which replays the official training solutions through the
 official verifier (`acc_run_decoder_v2.replay` → `verifier.core.apply_move`) and adds:
 
-- **Map A** (Grok, war-room note 2026-09-13): `gammaA = (L − L_prev)/(L + L_prev)`.
-- **Six Smith layers** exactly as `research/acc/ACC_SMITH_MIXER_PLAN.md` on branch
-  `acc-smith-mixer-2026-09-12`: pair axes (2,3) (4,5) (6,7) (8,9) (10,11) (12,13),
+- **Map A** (coefficient computed in Grok's lane, war-room note 2026-09-13): `gammaA = (L − L_prev)/(L + L_prev)`.
+- **Six Smith layers** exactly as the formula file `research/acc/ACC_SMITH_MIXER_PLAN.md` (GPT's lane,
+  branch `acc-smith-mixer-2026-09-12`, implementing the author's layered Smith-chart idea): pair axes (2,3) (4,5) (6,7) (8,9) (10,11) (12,13),
   `q=(d⁺+d⁻)/2s`, `p=(d⁻−d⁺)/2s`, `s=2`, `Z=exp(q)+ip`, `Γ=(Z−1)/(Z+1)`. The one-move lookahead
   is the official `apply_move`. `smith_re/smith_im` are Γ of the layer containing the move taken.
 - **Snell** with refractive index n := total length and θ := arg Γ of the taken layer:
@@ -19,7 +27,7 @@ Nothing under `tools/compound-eye/` was modified; the mixer core is the frozen 1
 
 ## Controls (reproduce Grok's numbers from my replay)
 
-| quantity | Grok (session without decoded_runs.jsonl) | this branch |
+| quantity | Grok's lane (session without decoded_runs.jsonl) | this branch |
 |---|---|---|
 | steps over 424 runs | 14257 | 14257 |
 | #{delta_total > 0} / steps | 0.05674405555165883 | 809/14257 = 0.05674405555165883 |
@@ -52,7 +60,7 @@ All 7 recipes replay through `run_mixer.js` byte-identically (`replays/`), and a
   the 159-move run), and Im Γ = 0 exactly when the pair is symmetric (d⁺ = d⁻). The `x`/`y` routes
   draw it directly in the 5.1 shape view.
 - **Map A is a line, not a disk**: gammaA only takes a handful of values (7 cells of width 0.05 on
-  the longest run; Grok saw 12 of 40 pooled). It is a fine 1-D channel but should not be the disk.
+  the longest run; Grok's lane saw 12 of 40 pooled). It is a fine 1-D channel but should not be the disk.
 - **"Moves get more decisive toward the end" is false** on the longest run: mean |Γ| by third is
   0.206 / 0.329 / 0.271 (pooled 0.322 / 0.367 / 0.333). The middle third is the decisive one.
 - **Strict Snell fails** (7.2% of layer steps within 0.5 on ms-train-0066, 5.4% pooled). Total

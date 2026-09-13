@@ -2,6 +2,10 @@
 # SCRIPT: acc_smith_snell
 """acc_smith_snell v1 — Smith-chart and Snell-law channels for the Compound Eye mixer.
 
+Ideas (layered Smith chart, Snell law, penultimate corridor) are the repository
+author's; this file only executes the mathematics.  Six-layer formula per
+research/acc/ACC_SMITH_MIXER_PLAN.md (GPT lane); Map A per Grok lane.
+
 Replays the 424 official ac-r2-v1 training solutions through the official
 verifier (via acc_run_decoder_v2.replay, which calls verifier.core.apply_move)
 and, at every replayed state, computes:
