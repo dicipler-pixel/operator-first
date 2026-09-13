@@ -1,0 +1,34 @@
+{
+ "finisher": "acc_finisher v1",
+ "cap_over_entry_length": 2,
+ "input_paths": 2,
+ "shortened": 1,
+ "kept": 0,
+ "rejected_original": 0,
+ "no_corridor": 0,
+ "stable_passthrough": 0,
+ "unknown_id": 1,
+ "moves_saved": 1,
+ "runs": [
+  {
+   "challenge_id": "ms-train-0160",
+   "original_len": 7,
+   "original_ok": true,
+   "entry": 4,
+   "L_entry": 3,
+   "original_tail": 3,
+   "bfs_nodes": 7,
+   "action": "shortened",
+   "exact_tail": 2,
+   "final_len": 6,
+   "saved": 1,
+   "verify_length": 6,
+   "verify_peak": 12
+  },
+  {
+   "challenge_id": "sac-train-0160",
+   "action": "unknown_id"
+  }
+ ],
+ "seconds": 0.0
+}

@@ -1,0 +1,1845 @@
+{
+ "schema": "compound-eye-intervention-ledger-v1",
+ "trials": [
+  {
+   "createdUTC": "2026-09-13T04:41:02.448Z",
+   "dataset": "ms-train-0066__training__senses",
+   "datasetTitle": "ms-train-0066 (ac-r2-v1) — 159 moves — senses v1",
+   "prediction": "smell_linger_canc (decay 0.7) mean is highest in the last third of ms-train-0066",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_pressure": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_flat": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_max_drop": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_x_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_canc": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_growth": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_conj": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "mean linger by third=[6.365,8.639,8.371], peak step=73",
+   "verdict": "failed",
+   "closedUTC": "2026-09-13T04:41:02.448Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_pressure": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_flat": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_max_drop": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_x_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_canc": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_growth": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_conj": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 1,
+     "rmsOriginal": 8.088424759119196,
+     "rmsCombined": 8.088424759119196,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "M1_smell_canc_last_third",
+   "harness_verdict": "refuted",
+   "recipe_file": "M1_smell_canc_last_third_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:41:02.464Z",
+   "dataset": "ms-train-0066__training__senses",
+   "datasetTitle": "ms-train-0066 (ac-r2-v1) — 159 moves — senses v1",
+   "prediction": "smell_linger_canc(+1) with cancellations(-1) under source normalization is refused (units differ: lingering units vs letters)",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_pressure": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_flat": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_max_drop": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_x_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_canc": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_growth": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_conj": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "mixer refused: These channels have different units. Choose display RMS normalization, or select matching units.",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:41:02.464Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": true,
+       "weight": -1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_pressure": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_flat": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_max_drop": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_x_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_canc": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_growth": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_conj": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "trial_name": "M2_smell_is_not_smoothing",
+   "harness_verdict": "confirmed",
+   "recipe_file": null
+  },
+  {
+   "createdUTC": "2026-09-13T04:41:02.466Z",
+   "dataset": "ms-train-0342__training__senses",
+   "datasetTitle": "ms-train-0342 (ac-r2-v1) — 83 moves — senses v1",
+   "prediction": "on ms-train-0342, touch_pressure is 0 on the state before every growth step (growth only happens when no move descends); step 45 is the pooled Snell disagreement, where a flat move 13 existed but the +2 move 12 was taken",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_pressure": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_flat": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_max_drop": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_x_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_canc": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_growth": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_conj": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "growth steps=6, growth with a descending move available=[]",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:41:02.466Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_pressure": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_flat": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_max_drop": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_x_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_canc": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_growth": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_conj": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 1,
+     "rmsOriginal": 0.7071067811865476,
+     "rmsCombined": 0.7071067811865476,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "T1_touch_forced_growth",
+   "harness_verdict": "confirmed",
+   "recipe_file": "T1_touch_forced_growth_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:41:02.469Z",
+   "dataset": "ms-train-0066__training__senses",
+   "datasetTitle": "ms-train-0066 (ac-r2-v1) — 159 moves — senses v1",
+   "prediction": "taste_x_fraction in [0.3,0.7] on >= 90% of steps of ms-train-0066",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_pressure": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_flat": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_max_drop": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_x_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_canc": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_growth": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_conj": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "in-band 151/160 (94.4%), min=0.313 max=0.750",
+   "verdict": "matched",
+   "closedUTC": "2026-09-13T04:41:02.470Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_pressure": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_flat": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_max_drop": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_x_fraction": {
+       "enabled": true,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_canc": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_growth": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_conj": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 1,
+     "rmsOriginal": 0.5544186704917011,
+     "rmsCombined": 0.5544186704917011,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "S1_taste_balanced",
+   "harness_verdict": "confirmed",
+   "recipe_file": "S1_taste_balanced_recipe.json"
+  },
+  {
+   "createdUTC": "2026-09-13T04:41:02.472Z",
+   "dataset": "ms-train-0066__training__senses",
+   "datasetTitle": "ms-train-0066 (ac-r2-v1) — 159 moves — senses v1",
+   "prediction": "X=taste_alt_r0, Y=taste_alt_r1 on ms-train-0066: last point (0,0), first point both > 0.5",
+   "before": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_pressure": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_flat": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_max_drop": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_x_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_canc": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_growth": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_conj": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": null
+   },
+   "observation": "first=(0.300,0.750) last=(0,0)",
+   "verdict": "failed",
+   "closedUTC": "2026-09-13T04:41:02.472Z",
+   "after": {
+    "settings": {
+     "normalization": "source",
+     "center": false,
+     "smoothing": 1,
+     "view": "shape",
+     "showComponents": true,
+     "showOriginal": true,
+     "scale": 1,
+     "cursor": 0,
+     "channels": {
+      "total_length": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "len_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "n_generators": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "delta_total": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "cancellations": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "abelian_ok": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "dist_to_target": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_id": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "move_class_code": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_pressure": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_flat": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "touch_max_drop": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_x_fraction": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r0": {
+       "enabled": true,
+       "weight": 1,
+       "route": "x",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_alt_r1": {
+       "enabled": true,
+       "weight": 1,
+       "route": "y",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r0": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expx_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "taste_expy_r1": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_canc": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_growth": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      },
+      "smell_linger_conj": {
+       "enabled": false,
+       "weight": 1,
+       "route": "both",
+       "frequency": 0,
+       "phase": 0
+      }
+     }
+    },
+    "mix": {
+     "activeCount": 2,
+     "rmsOriginal": 1.4671778419097252,
+     "rmsCombined": 1.4671778419097252,
+     "rmsResidual": 0
+    }
+   },
+   "trial_name": "S2_taste_alternation_shape",
+   "harness_verdict": "refuted",
+   "recipe_file": "S2_taste_alternation_shape_recipe.json"
+  }
+ ]
+}

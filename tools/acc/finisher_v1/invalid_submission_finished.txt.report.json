@@ -1,0 +1,30 @@
+{
+ "finisher": "acc_finisher v1",
+ "cap_over_entry_length": 2,
+ "input_paths": 1,
+ "shortened": 0,
+ "kept": 0,
+ "rejected_original": 1,
+ "no_corridor": 0,
+ "stable_passthrough": 0,
+ "unknown_id": 0,
+ "moves_saved": 0,
+ "runs": [
+  {
+   "challenge_id": "ac-00001",
+   "original_len": 2,
+   "original_ok": false,
+   "action": "rejected_original",
+   "verify": {
+    "ok": false,
+    "code": "E_NOT_TARGET",
+    "move_index": null,
+    "final_shape": [
+     9,
+     18
+    ]
+   }
+  }
+ ],
+ "seconds": 0.0
+}
