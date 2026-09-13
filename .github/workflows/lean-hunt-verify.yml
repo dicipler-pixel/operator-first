@@ -8,6 +8,7 @@ on:
     paths:
       - 'ledger/lean_hunt_patches/**'
       - '.github/workflows/lean-hunt-verify.yml'
+      - 'Warmup.lean'
 
 permissions:
   contents: read
@@ -68,3 +69,17 @@ jobs:
           lake env lean ACCWell.lean -o .lake/build/lib/lean/ACCWell.olean
       - name: Check complete first-exit frontier theorem and report axioms
         run: lake env lean ACCFrontier.lean
+
+  warmup-declarations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
+          sh elan-init.sh -y --default-toolchain leanprover/lean4:v4.33.0
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - run: lake update
+      - run: lake exe cache get
+      - name: Compile Warmup and report axioms
+        run: lake env lean Warmup.lean

@@ -76,3 +76,10 @@ theorem reciprocity {B V : Matrix n n α} (hB : Bᵀ = B) (hV : Vᵀ * B = B * V
 end Reciprocity
 
 end OperatorFirst
+
+/-! Explicit dependency reports for every theorem in this module. -/
+
+#print axioms OperatorFirst.comm_add_sub
+#print axioms OperatorFirst.normal_iff_comm_zero
+#print axioms OperatorFirst.transpose_mul_of_symm
+#print axioms OperatorFirst.reciprocity
