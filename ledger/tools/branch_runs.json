@@ -1,0 +1,2070 @@
+{
+ "release/arithmetic-kakeya-2026-09-10": {
+  "head_prefix": "7af88c6",
+  "runs": [
+   {
+    "workflow": ".github/workflows/extension.yml",
+    "run_id": 34504271040,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-10T16:47:42Z"
+   },
+   {
+    "workflow": ".github/workflows/mixed-intake.yml",
+    "run_id": 34504271044,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-10T16:47:42Z"
+   },
+   {
+    "workflow": ".github/workflows/mixed-core.yml",
+    "run_id": 34504271041,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-10T16:47:42Z"
+   },
+   {
+    "workflow": ".github/workflows/mixed-review.yml",
+    "run_id": 34504271063,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-10T16:47:42Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34504271033,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-10T16:47:42Z"
+   }
+  ]
+ },
+ "proof-check/earth-moon-kakeya-extension-2026-09-05": {
+  "head_prefix": "41fbf3b",
+  "runs": [
+   {
+    "workflow": ".github/workflows/mixed-intake.yml",
+    "run_id": 33989244187,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-05T20:09:15Z"
+   },
+   {
+    "workflow": ".github/workflows/mixed-review.yml",
+    "run_id": 33989244152,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-05T20:09:15Z"
+   },
+   {
+    "workflow": ".github/workflows/mixed-core.yml",
+    "run_id": 33989244284,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-05T20:09:15Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 33989244155,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-05T20:09:15Z"
+   },
+   {
+    "workflow": ".github/workflows/extension.yml",
+    "run_id": 33989244224,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-05T20:09:15Z"
+   },
+   {
+    "workflow": ".github/workflows/mixed-review.yml",
+    "run_id": 33989241486,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-05T20:09:11Z"
+   },
+   {
+    "workflow": ".github/workflows/mixed-intake.yml",
+    "run_id": 33989241489,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-05T20:09:11Z"
+   },
+   {
+    "workflow": ".github/workflows/extension.yml",
+    "run_id": 33989241537,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-05T20:09:11Z"
+   },
+   {
+    "workflow": ".github/workflows/mixed-core.yml",
+    "run_id": 33989241483,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-05T20:09:11Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 33989241587,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-05T20:09:11Z"
+   }
+  ]
+ },
+ "formal/rice-mele-odd-symmetry-2026-09-12": {
+  "head_prefix": "936cf1e",
+  "runs": [
+   {
+    "workflow": ".github/workflows/moduli-transfer.yml",
+    "run_id": 34744276932,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:03:21Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34744276929,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:03:21Z"
+   },
+   {
+    "workflow": ".github/workflows/rice-mele-odd-symmetry.yml",
+    "run_id": 34744276913,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:03:21Z"
+   },
+   {
+    "workflow": ".github/workflows/endpoint.yml",
+    "run_id": 34744276911,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:03:21Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34744275575,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-13T07:03:19Z"
+   },
+   {
+    "workflow": ".github/workflows/endpoint.yml",
+    "run_id": 34744275589,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-13T07:03:19Z"
+   },
+   {
+    "workflow": ".github/workflows/moduli-transfer.yml",
+    "run_id": 34744275595,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-13T07:03:19Z"
+   },
+   {
+    "workflow": ".github/workflows/rice-mele-odd-symmetry.yml",
+    "run_id": 34744275596,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T07:03:19Z"
+   }
+  ]
+ },
+ "proof-check/endpoint-scalar-progress-2026-09-06": {
+  "head_prefix": "10efd33",
+  "runs": [
+   {
+    "workflow": ".github/workflows/moduli-transfer.yml",
+    "run_id": 34041636884,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-06T15:13:39Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34041636876,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-06T15:13:39Z"
+   },
+   {
+    "workflow": ".github/workflows/endpoint.yml",
+    "run_id": 34041636870,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-06T15:13:39Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34041634324,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-06T15:13:37Z"
+   },
+   {
+    "workflow": ".github/workflows/endpoint.yml",
+    "run_id": 34041634322,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-06T15:13:37Z"
+   },
+   {
+    "workflow": ".github/workflows/moduli-transfer.yml",
+    "run_id": 34041634339,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-06T15:13:37Z"
+   }
+  ]
+ },
+ "formal/yang-mills-nonuniform-tail-gap-2026-09-13": {
+  "head_prefix": "848125d",
+  "runs": [
+   {
+    "workflow": ".github/workflows/yang-mills-cross-theorem-lean.yml",
+    "run_id": 34743531732,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-13T06:45:24Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34743531743,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T06:45:24Z"
+   }
+  ]
+ },
+ "research/combined-peel-hypersurface-20260908": {
+  "head_prefix": "0afcc21",
+  "runs": [
+   {
+    "workflow": ".github/workflows/combined-peel-hypersurface.yml",
+    "run_id": 34239797640,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T14:40:39Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34239797479,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T14:40:39Z"
+   }
+  ]
+ },
+ "research/elemental-foundations-v4": {
+  "head_prefix": "7e9f1dd",
+  "runs": [
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34691846131,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-12T11:44:55Z"
+   },
+   {
+    "workflow": ".github/workflows/compound-eye.yml",
+    "run_id": 34691846110,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-12T11:44:55Z"
+   },
+   {
+    "workflow": ".github/workflows/elemental-foundations-numerics.yml",
+    "run_id": 34691846111,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-12T11:44:55Z"
+   },
+   {
+    "workflow": ".github/workflows/elemental-foundations.yml",
+    "run_id": 34691846133,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T11:44:55Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34691846109,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T11:44:55Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34691843813,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-12T11:44:52Z"
+   },
+   {
+    "workflow": ".github/workflows/compound-eye.yml",
+    "run_id": 34691843886,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-12T11:44:52Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34691843797,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T11:44:52Z"
+   }
+  ]
+ },
+ "formal/yang-mills-schur-congruence-2026-09-13": {
+  "head_prefix": "032f555",
+  "runs": [
+   {
+    "workflow": ".github/workflows/yang-mills-cross-theorem-lean.yml",
+    "run_id": 34743507991,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-13T06:44:54Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34743508005,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T06:44:54Z"
+   },
+   {
+    "workflow": ".github/workflows/yang-mills-cross-theorem-lean.yml",
+    "run_id": 34743506015,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-13T06:44:51Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34743506047,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T06:44:51Z"
+   }
+  ]
+ },
+ "formal/recovered-math-batch-a-2026-09-12": {
+  "head_prefix": "95f426a",
+  "runs": [
+   {
+    "workflow": ".github/workflows/title-certification.yml",
+    "run_id": 34736505023,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-13T03:51:24Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34736505024,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T03:51:24Z"
+   },
+   {
+    "workflow": ".github/workflows/title-certification.yml",
+    "run_id": 34736501742,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-13T03:51:20Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34736501747,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T03:51:20Z"
+   }
+  ]
+ },
+ "formal/yang-mills-allocation-floor-2026-09-13": {
+  "head_prefix": "37c08ad",
+  "runs": [
+   {
+    "workflow": ".github/workflows/yang-mills-cross-theorem-lean.yml",
+    "run_id": 34744922404,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:18:57Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34744922445,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:18:57Z"
+   },
+   {
+    "workflow": ".github/workflows/yang-mills-cross-theorem-lean.yml",
+    "run_id": 34744921002,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T07:18:55Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34744920943,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T07:18:55Z"
+   }
+  ]
+ },
+ "formal/yang-mills-spectral-floor-transfer-2026-09-13": {
+  "head_prefix": "f819aa5",
+  "runs": [
+   {
+    "workflow": ".github/workflows/yang-mills-cross-theorem-lean.yml",
+    "run_id": 34744360038,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T07:05:20Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34744360054,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T07:05:20Z"
+   }
+  ]
+ },
+ "gravity/c1-overlap-bridge": {
+  "head_prefix": "63c11a6",
+  "runs": [
+   {
+    "workflow": ".github/workflows/light.yml",
+    "run_id": 34130027515,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-07T13:54:39Z"
+   },
+   {
+    "workflow": ".github/workflows/overlap.yml",
+    "run_id": 34130027417,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-07T13:54:38Z"
+   },
+   {
+    "workflow": ".github/workflows/gravity.yml",
+    "run_id": 34130027413,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-07T13:54:38Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34130027400,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-07T13:54:38Z"
+   },
+   {
+    "workflow": ".github/workflows/light.yml",
+    "run_id": 34130023570,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-07T13:54:36Z"
+   },
+   {
+    "workflow": ".github/workflows/gravity.yml",
+    "run_id": 34130023555,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-07T13:54:36Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34130023552,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-07T13:54:36Z"
+   }
+  ]
+ },
+ "proof-check/mixed-intake-2026-09-05": {
+  "head_prefix": "1619b04",
+  "runs": [
+   {
+    "workflow": ".github/workflows/mixed-intake.yml",
+    "run_id": 33981714115,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-05T17:40:51Z"
+   },
+   {
+    "workflow": ".github/workflows/mixed-review.yml",
+    "run_id": 33981714121,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-05T17:40:51Z"
+   },
+   {
+    "workflow": ".github/workflows/mixed-core.yml",
+    "run_id": 33981714108,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-05T17:40:51Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 33981714133,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-05T17:40:51Z"
+   },
+   {
+    "workflow": ".github/workflows/mixed-review.yml",
+    "run_id": 33981712500,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-05T17:40:49Z"
+   },
+   {
+    "workflow": ".github/workflows/mixed-core.yml",
+    "run_id": 33981712583,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-05T17:40:49Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 33981712491,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-05T17:40:49Z"
+   },
+   {
+    "workflow": ".github/workflows/mixed-intake.yml",
+    "run_id": 33981712494,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-05T17:40:49Z"
+   }
+  ]
+ },
+ "gravity/finite-projector-proof-audit": {
+  "head_prefix": "2ded71b",
+  "runs": [
+   {
+    "workflow": ".github/workflows/gravity.yml",
+    "run_id": 34035655097,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-06T13:17:40Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34035655125,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-06T13:17:40Z"
+   },
+   {
+    "workflow": ".github/workflows/light.yml",
+    "run_id": 34035655112,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-06T13:17:40Z"
+   },
+   {
+    "workflow": ".github/workflows/gravity.yml",
+    "run_id": 34035653128,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-06T13:17:38Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34035653120,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-06T13:17:38Z"
+   },
+   {
+    "workflow": ".github/workflows/light.yml",
+    "run_id": 34035653140,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-06T13:17:38Z"
+   }
+  ]
+ },
+ "formal/yang-mills-matrix-boundary-2026-09-12": {
+  "head_prefix": "08617d2",
+  "runs": [
+   {
+    "workflow": ".github/workflows/yang-mills-cross-theorem-lean.yml",
+    "run_id": 34698115560,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T14:02:36Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34698115523,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T14:02:36Z"
+   },
+   {
+    "workflow": ".github/workflows/yang-mills-cross-theorem-lean.yml",
+    "run_id": 34698113889,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T14:02:34Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34698113870,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T14:02:34Z"
+   }
+  ]
+ },
+ "research/yang-mills-2026-09-09": {
+  "head_prefix": "4c90eaa",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34413639743,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-09T22:43:48Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34413635860,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-09T22:43:46Z"
+   }
+  ]
+ },
+ "formal/fourbody-psd-wall-bridge-2026-09-12": {
+  "head_prefix": "8857c79",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34697778888,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T13:55:35Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34697769563,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T13:55:21Z"
+   }
+  ]
+ },
+ "formal/hypersurface-square-lineage-2026-09-11": {
+  "head_prefix": "bb35fc4",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34610788005,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-11T14:33:02Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34610783541,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-11T14:32:59Z"
+   }
+  ]
+ },
+ "research/elemental-foundations": {
+  "head_prefix": "8abd8cc",
+  "runs": [
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34191687740,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T05:42:59Z"
+   },
+   {
+    "workflow": ".github/workflows/elemental-foundations-numerics.yml",
+    "run_id": 34191687704,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T05:42:59Z"
+   },
+   {
+    "workflow": ".github/workflows/compound-eye.yml",
+    "run_id": 34191687688,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T05:42:59Z"
+   },
+   {
+    "workflow": ".github/workflows/elemental-foundations.yml",
+    "run_id": 34191687695,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T05:42:59Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34191687677,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T05:42:59Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34191646315,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T05:42:21Z"
+   },
+   {
+    "workflow": ".github/workflows/elemental-foundations-numerics.yml",
+    "run_id": 34191646404,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T05:42:21Z"
+   },
+   {
+    "workflow": ".github/workflows/compound-eye.yml",
+    "run_id": 34191646307,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T05:42:21Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34191646235,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T05:42:21Z"
+   }
+  ]
+ },
+ "formal/collatz-exceptional-threshold-2026-09-13": {
+  "head_prefix": "08d3a66",
+  "runs": [
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34744804576,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:16:06Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34744804643,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:16:06Z"
+   },
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34744785046,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T07:15:37Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34744785036,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T07:15:37Z"
+   }
+  ]
+ },
+ "formal/collatz-no-fixed-window-2026-09-13": {
+  "head_prefix": "e349bb4",
+  "runs": [
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34743108443,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T06:35:10Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34743108545,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T06:35:10Z"
+   },
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34743099071,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T06:34:56Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34743099074,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T06:34:56Z"
+   }
+  ]
+ },
+ "proof-check/light-ledger-2026-09-06": {
+  "head_prefix": "41d9523",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34015381100,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-06T06:00:31Z"
+   },
+   {
+    "workflow": ".github/workflows/light.yml",
+    "run_id": 34015381110,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-06T06:00:31Z"
+   },
+   {
+    "workflow": ".github/workflows/light.yml",
+    "run_id": 34015379241,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-06T06:00:29Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34015379246,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-06T06:00:29Z"
+   }
+  ]
+ },
+ "formal/title-certs-batch1-2026-09-12": {
+  "head_prefix": "68f6d86",
+  "runs": [
+   {
+    "workflow": ".github/workflows/title-certification.yml",
+    "run_id": 34734848547,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T03:10:58Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34734848352,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T03:10:58Z"
+   },
+   {
+    "workflow": ".github/workflows/title-certification.yml",
+    "run_id": 34734847118,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T03:10:56Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34734847099,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T03:10:56Z"
+   }
+  ]
+ },
+ "research/coxeter-rank2-2026-09-10": {
+  "head_prefix": "ba14805",
+  "runs": [
+   {
+    "workflow": ".github/workflows/coxeter-rank2.yml",
+    "run_id": 34560748947,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-11T04:03:27Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34560748737,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-11T04:03:27Z"
+   }
+  ]
+ },
+ "formal/collatz-moving-anchor-interface-2026-09-13": {
+  "head_prefix": "63232d9",
+  "runs": [
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34743028699,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T06:33:15Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34743028647,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T06:33:15Z"
+   }
+  ]
+ },
+ "research/elemental-peel": {
+  "head_prefix": "67b638d",
+  "runs": [
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34188408290,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T04:50:18Z"
+   },
+   {
+    "workflow": ".github/workflows/elemental-peel.yml",
+    "run_id": 34188408311,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T04:50:18Z"
+   },
+   {
+    "workflow": ".github/workflows/compound-eye.yml",
+    "run_id": 34188408262,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T04:50:18Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34188408250,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T04:50:18Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34188360512,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T04:49:30Z"
+   },
+   {
+    "workflow": ".github/workflows/compound-eye.yml",
+    "run_id": 34188360579,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T04:49:30Z"
+   },
+   {
+    "workflow": ".github/workflows/elemental-peel.yml",
+    "run_id": 34188360532,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T04:49:30Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34188360643,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T04:49:30Z"
+   }
+  ]
+ },
+ "proof-check/offset-endpoint-2026-09-05": {
+  "head_prefix": "7818a3c",
+  "runs": [
+   {
+    "workflow": ".github/workflows/endpoint.yml",
+    "run_id": 33991660104,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-05T20:58:29Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 33991660136,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-05T20:58:29Z"
+   },
+   {
+    "workflow": ".github/workflows/endpoint.yml",
+    "run_id": 33991658318,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-05T20:58:26Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 33991658316,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-05T20:58:26Z"
+   }
+  ]
+ },
+ "formal/collatz-realization-cylinders-2026-09-13": {
+  "head_prefix": "9feb519",
+  "runs": [
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34742814677,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T06:28:05Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34742814761,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T06:28:05Z"
+   },
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34742812887,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T06:28:03Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34742812959,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T06:28:03Z"
+   }
+  ]
+ },
+ "formal/atlas-cards-2026-09-11": {
+  "head_prefix": "f4e682f",
+  "runs": [
+   {
+    "workflow": ".github/workflows/atlas-formal.yml",
+    "run_id": 34684818137,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T09:02:51Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34684818133,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T09:02:51Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34684815489,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T09:02:48Z"
+   }
+  ]
+ },
+ "formalize/collatz-capacity-realizer": {
+  "head_prefix": "adac068",
+  "runs": [
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34715391457,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-12T19:51:42Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34715391471,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T19:51:42Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34715389543,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T19:51:39Z"
+   }
+  ]
+ },
+ "research/compound-eye-cortex-2026-09-10": {
+  "head_prefix": "80fa4f7",
+  "runs": [
+   {
+    "workflow": ".github/workflows/qg-transport-eyes.yml",
+    "run_id": 34546942237,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-11T00:32:48Z"
+   },
+   {
+    "workflow": ".github/workflows/sabine-ns-audit.yml",
+    "run_id": 34546942200,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-11T00:32:48Z"
+   },
+   {
+    "workflow": ".github/workflows/qg-transport-memory.yml",
+    "run_id": 34546942260,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-11T00:32:48Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34546942239,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-11T00:32:48Z"
+   },
+   {
+    "workflow": ".github/workflows/sabine-ns-audit.yml",
+    "run_id": 34546938288,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-11T00:32:44Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34546938346,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-11T00:32:44Z"
+   }
+  ]
+ },
+ "claude/confident-fermi-09rd02": {
+  "head_prefix": "d90177b66ef2",
+  "runs": [
+   {
+    "workflow": ".github/workflows/lean-hunt-verify.yml",
+    "run_id": 34760583113,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T13:42:20Z"
+   }
+  ]
+ },
+ "collatz-barrier-lean": {
+  "head_prefix": "2279bda",
+  "runs": [
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34686622825,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T09:44:18Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34686622793,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T09:44:18Z"
+   },
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34686620651,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T09:44:15Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34686620673,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T09:44:15Z"
+   }
+  ]
+ },
+ "formalize/projector-conjugation-derivative": {
+  "head_prefix": "c06021a",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34717402257,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T20:32:33Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34717400111,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T20:32:30Z"
+   }
+  ]
+ },
+ "formalize/two-rail-minimal-topology": {
+  "head_prefix": "84a443d",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34716901857,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T20:22:31Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34716900033,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T20:22:29Z"
+   }
+  ]
+ },
+ "formal/acc-complete-frontier-2026-09-13": {
+  "head_prefix": "2e7628a",
+  "runs": [
+   {
+    "workflow": ".github/workflows/acc-length-well.yml",
+    "run_id": 34737437436,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-13T04:14:56Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34737437452,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T04:14:56Z"
+   },
+   {
+    "workflow": ".github/workflows/acc-length-well.yml",
+    "run_id": 34737428702,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-13T04:14:41Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34737428688,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T04:14:41Z"
+   }
+  ]
+ },
+ "showcase/lean-certified-2026-09-13": {
+  "head_prefix": "d22f3bf",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34743256746,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T06:38:50Z"
+   }
+  ]
+ },
+ "release/lean-certified-works-2026-09-13": {
+  "head_prefix": "4eae20d",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34754195095,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T11:20:46Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34754184930,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T11:20:34Z"
+   }
+  ]
+ },
+ "publication/certified-layer-2026-09-12": {
+  "head_prefix": "b2776d6",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34744504004,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:08:55Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34744502407,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T07:08:53Z"
+   }
+  ]
+ },
+ "main": {
+  "head_prefix": "82f1c4c",
+  "runs": [
+   {
+    "workflow": ".github/workflows/collatz-bounded.yml",
+    "run_id": 34724307086,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T23:01:40Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34724307093,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T23:01:40Z"
+   }
+  ]
+ },
+ "formalize/collatz-finite-word-barrier": {
+  "head_prefix": "3b8451e",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34712872173,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-12T19:00:29Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34712860375,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-12T19:00:16Z"
+   }
+  ]
+ },
+ "formal/collatz-bounded-collapse": {
+  "head_prefix": "9c403a9",
+  "runs": [
+   {
+    "workflow": ".github/workflows/collatz-bounded.yml",
+    "run_id": 34721393896,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T21:57:23Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34721393908,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T21:57:23Z"
+   },
+   {
+    "workflow": ".github/workflows/collatz-bounded.yml",
+    "run_id": 34721387761,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T21:57:14Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34721387735,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T21:57:14Z"
+   }
+  ]
+ },
+ "gpt/acc-cap31-frontier-2026-09-12": {
+  "head_prefix": "59cbbea",
+  "runs": [
+   {
+    "workflow": ".github/workflows/acc-length-well.yml",
+    "run_id": 34730887837,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T01:34:54Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34730887825,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T01:34:54Z"
+   },
+   {
+    "workflow": ".github/workflows/acc-length-well.yml",
+    "run_id": 34730879849,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T01:34:41Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34730879843,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T01:34:41Z"
+   }
+  ]
+ },
+ "acc-smith-mixer-2026-09-12": {
+  "head_prefix": "d003054",
+  "runs": [
+   {
+    "workflow": ".github/workflows/acc-length-well.yml",
+    "run_id": 34718965656,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T21:05:42Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34718965652,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T21:05:42Z"
+   },
+   {
+    "workflow": ".github/workflows/acc-length-well.yml",
+    "run_id": 34718943910,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T21:05:15Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34718943900,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T21:05:15Z"
+   }
+  ]
+ },
+ "acc-length-well-eye-2026-09-12": {
+  "head_prefix": "6cbe71c",
+  "runs": [
+   {
+    "workflow": ".github/workflows/acc-length-well.yml",
+    "run_id": 34686433651,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T09:39:43Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34686433657,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T09:39:43Z"
+   }
+  ]
+ },
+ "upstream/mathlib-i2-dihedral-2026-09-11": {
+  "head_prefix": "e051795",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34562193250,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-11T04:26:17Z"
+   },
+   {
+    "workflow": ".github/workflows/mathlib-i2-upstream.yml",
+    "run_id": 34562193261,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-11T04:26:17Z"
+   }
+  ]
+ },
+ "research/earth-moon-2026-09-09": {
+  "head_prefix": "3c3a8b2",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34398791804,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-09T20:03:58Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34398783692,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-09T20:03:54Z"
+   }
+  ]
+ },
+ "research/all-eyes-live-sweeps": {
+  "head_prefix": "01a42b0",
+  "runs": [
+   {
+    "workflow": ".github/workflows/compound-eye.yml",
+    "run_id": 34184767903,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T03:48:13Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34184767848,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T03:48:13Z"
+   },
+   {
+    "workflow": ".github/workflows/all-eyes.yml",
+    "run_id": 34184767905,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T03:48:13Z"
+   },
+   {
+    "workflow": ".github/workflows/compound-eye.yml",
+    "run_id": 34184766105,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T03:48:11Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34184766027,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T03:48:11Z"
+   },
+   {
+    "workflow": ".github/workflows/all-eyes.yml",
+    "run_id": 34184765996,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T03:48:11Z"
+   }
+  ]
+ },
+ "recovery-chat-audit-2026-09-12": {
+  "head_prefix": "be1fcdd",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34717423917,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T20:32:58Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34717344316,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T20:31:24Z"
+   }
+  ]
+ },
+ "integration/universal-3-2-master-sync": {
+  "head_prefix": "8dbeae4",
+  "runs": [
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34181845837,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T02:57:40Z"
+   },
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34181845749,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T02:57:40Z"
+   },
+   {
+    "workflow": ".github/workflows/compound-eye.yml",
+    "run_id": 34181845761,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T02:57:40Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34181845742,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T02:57:40Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34181843176,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T02:57:37Z"
+   },
+   {
+    "workflow": ".github/workflows/compound-eye.yml",
+    "run_id": 34181843202,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T02:57:37Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34181843185,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T02:57:37Z"
+   }
+  ]
+ },
+ "formal/lean-backlog-2026-09-12": {
+  "head_prefix": "677a539",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34698920139,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T14:18:53Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34698917120,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T14:18:50Z"
+   }
+  ]
+ },
+ "downloads/compound-eye-companion-1.1": {
+  "head_prefix": "401f6b4",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34461012885,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-10T09:30:29Z"
+   }
+  ]
+ },
+ "claude-connector-test": {
+  "head_prefix": "26875c7",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34705544725,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T16:32:25Z"
+   }
+  ]
+ },
+ "backup/earth-moon-2026-09-09-1918utc": {
+  "head_prefix": "582a70c",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34395098723,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-09T19:26:46Z"
+   }
+  ]
+ },
+ "proof-check/offset-core-2026-09-05": {
+  "head_prefix": "92a95a4",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 33976842609,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-05T16:06:48Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 33976826381,
+    "conclusion": "cancelled",
+    "event": "push",
+    "created_at": "2026-09-05T16:06:29Z"
+   }
+  ]
+ },
+ "formal/upg-resolvent-factorization-2026-09-13": {
+  "head_prefix": "5189659",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34744385918,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:05:59Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34744385920,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:05:59Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-feedback-lean.yml",
+    "run_id": 34744385942,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:05:59Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34744384342,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T07:05:56Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34744384339,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-13T07:05:56Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-feedback-lean.yml",
+    "run_id": 34744384349,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T07:05:56Z"
+   }
+  ]
+ },
+ "formal/upg-projector-dynamics-2026-09-13": {
+  "head_prefix": "3a3fe06",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34744222583,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:02:02Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34744222595,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:02:02Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-feedback-lean.yml",
+    "run_id": 34744222567,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-13T07:02:02Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34744220795,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-13T07:02:00Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34744220812,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T07:02:00Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-feedback-lean.yml",
+    "run_id": 34744220819,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-13T07:02:00Z"
+   }
+  ]
+ },
+ "formal/upg-adapted-block-equivalence-2026-09-12": {
+  "head_prefix": "377636c",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34717029485,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-12T20:25:07Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34717029495,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T20:25:07Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-feedback-lean.yml",
+    "run_id": 34717029538,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T20:25:07Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34717026693,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-12T20:25:04Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-feedback-lean.yml",
+    "run_id": 34717026653,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T20:25:04Z"
+   }
+  ]
+ },
+ "formal/peel-constitutive-20260907": {
+  "head_prefix": "4675da5",
+  "runs": [
+   {
+    "workflow": ".github/workflows/peel-constitutive.yml",
+    "run_id": 34157983201,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-07T20:04:18Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34157983166,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-07T20:04:18Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34157980773,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-07T20:04:16Z"
+   }
+  ]
+ },
+ "formal/diophantine-section-integrality-2026-09-12": {
+  "head_prefix": "3847f76",
+  "runs": [
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34698650631,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T14:13:20Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34698650616,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-12T14:13:20Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34698648479,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-12T14:13:18Z"
+   },
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34698648492,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T14:13:18Z"
+   }
+  ]
+ },
+ "backup/compound-eye-diophantine-20260907": {
+  "head_prefix": "e055123",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34172899574,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-08T00:18:39Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34172899567,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T00:18:39Z"
+   },
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34172899613,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-08T00:18:39Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34172897051,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-08T00:18:36Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34172897034,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T00:18:36Z"
+   },
+   {
+    "workflow": ".github/workflows/diophantine.yml",
+    "run_id": 34172897030,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-08T00:18:36Z"
+   }
+  ]
+ },
+ "formal/upg-feedback-bridge-2026-09-12": {
+  "head_prefix": "70c4aea",
+  "runs": [
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34698809497,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T14:16:33Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-feedback-lean.yml",
+    "run_id": 34698809495,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-12T14:16:33Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34698809612,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-12T14:16:33Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-feedback-lean.yml",
+    "run_id": 34698807078,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T14:16:30Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34698807076,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-12T14:16:30Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34698807081,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-12T14:16:30Z"
+   }
+  ]
+ },
+ "proof-check/ci-repair-2026-09-05": {
+  "head_prefix": "9bbc220",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 33974837543,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-05T15:27:05Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 33974835707,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-05T15:27:02Z"
+   }
+  ]
+ },
+ "catalog/upg-cascade-sync-20260907": {
+  "head_prefix": "b99a582",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34168992474,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-07T23:07:57Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34168992526,
+    "conclusion": "success",
+    "event": "pull_request",
+    "created_at": "2026-09-07T23:07:57Z"
+   },
+   {
+    "workflow": ".github/workflows/upg-catalog.yml",
+    "run_id": 34168963525,
+    "conclusion": "success",
+    "event": "push",
+    "created_at": "2026-09-07T23:07:26Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34168963500,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-07T23:07:26Z"
+   }
+  ]
+ },
+ "catalog/paper-atlas-register": {
+  "head_prefix": "3fd7d5e",
+  "runs": [
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34137290148,
+    "conclusion": "failure",
+    "event": "pull_request",
+    "created_at": "2026-09-07T15:14:41Z"
+   },
+   {
+    "workflow": ".github/workflows/ci.yml",
+    "run_id": 34137287997,
+    "conclusion": "failure",
+    "event": "push",
+    "created_at": "2026-09-07T15:14:40Z"
+   }
+  ]
+ }
+}

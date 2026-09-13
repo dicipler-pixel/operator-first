@@ -7,8 +7,7 @@ Authoritative format per the author's instruction: theorem name, exact Lean decl
 | status | declarations |
 |---|---:|
 | FAILED-AT-HEAD | 11 |
-| UNVERIFIED | 4 |
-| VERIFIED | 1064 |
+| VERIFIED | 1068 |
 | **total** | **1079** |
 
 Unique declarations 1079 in 106 files across 70 branches. The same theorem name appears more than once when its statement differs between branches; each variant is its own row.
@@ -3131,7 +3130,7 @@ theorem comm_add_sub (S K : R) : comm (S + K) (S - K) = -(2 * comm S K)
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | db860edd3836 | ci.yml | 34137290148 (failure), 34137287997 (failure) | FAILED-AT-HEAD |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | db860edd3836 | ci.yml | 34168992474 (failure), 34168963500 (failure) | FAILED-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 102b96e5c7e9 | ci.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -3209,7 +3208,7 @@ theorem normal_iff_comm_zero (h2 : ∀ x : R, (2 : R) * x = 0 → x = 0) (S K : 
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | db860edd3836 | ci.yml | 34137290148 (failure), 34137287997 (failure) | FAILED-AT-HEAD |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | db860edd3836 | ci.yml | 34168992474 (failure), 34168963500 (failure) | FAILED-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 102b96e5c7e9 | ci.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -3287,7 +3286,7 @@ theorem transpose_mul_of_symm {B V : Matrix n n α} (hB : Bᵀ = B)
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | db860edd3836 | ci.yml | 34137290148 (failure), 34137287997 (failure) | FAILED-AT-HEAD |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | db860edd3836 | ci.yml | 34168992474 (failure), 34168963500 (failure) | FAILED-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 102b96e5c7e9 | ci.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -3365,7 +3364,7 @@ theorem reciprocity {B V : Matrix n n α} (hB : Bᵀ = B) (hV : Vᵀ * B = B * V
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | db860edd3836 | ci.yml | 34137290148 (failure), 34137287997 (failure) | FAILED-AT-HEAD |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | db860edd3836 | ci.yml | 34168992474 (failure), 34168963500 (failure) | FAILED-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 102b96e5c7e9 | ci.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -3443,7 +3442,7 @@ theorem inner_mul_inner_swap (u v : E) :
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | db860edd3836 | ci.yml | 34137290148 (failure), 34137287997 (failure) | FAILED-AT-HEAD |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | db860edd3836 | ci.yml | 34168992474 (failure), 34168963500 (failure) | FAILED-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 102b96e5c7e9 | ci.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -3521,7 +3520,7 @@ theorem gram_det (u v : E) :
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | db860edd3836 | ci.yml | 34137290148 (failure), 34137287997 (failure) | FAILED-AT-HEAD |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | db860edd3836 | ci.yml | 34168992474 (failure), 34168963500 (failure) | FAILED-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 102b96e5c7e9 | ci.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -3599,7 +3598,7 @@ theorem gram_det_of_unit (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | db860edd3836 | ci.yml | 34137290148 (failure), 34137287997 (failure) | FAILED-AT-HEAD |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | db860edd3836 | ci.yml | 34168992474 (failure), 34168963500 (failure) | FAILED-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 102b96e5c7e9 | ci.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -3677,7 +3676,7 @@ theorem visibility_le_one (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | db860edd3836 | ci.yml | 34137290148 (failure), 34137287997 (failure) | FAILED-AT-HEAD |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | db860edd3836 | ci.yml | 34168992474 (failure), 34168963500 (failure) | FAILED-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 102b96e5c7e9 | ci.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -3755,7 +3754,7 @@ theorem one_sub_visibility_sq_nonneg (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ 
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | db860edd3836 | ci.yml | 34137290148 (failure), 34137287997 (failure) | FAILED-AT-HEAD |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | db860edd3836 | ci.yml | 34168992474 (failure), 34168963500 (failure) | FAILED-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 102b96e5c7e9 | ci.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -3833,7 +3832,7 @@ theorem duality (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | db860edd3836 | ci.yml | 34137290148 (failure), 34137287997 (failure) | FAILED-AT-HEAD |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | db860edd3836 | ci.yml | 34168992474 (failure), 34168963500 (failure) | FAILED-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 102b96e5c7e9 | ci.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -3912,7 +3911,7 @@ theorem gram_det_eq_distinguishability_sq (u v : E) (hu : ‖u‖ = 1)
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | db860edd3836 | ci.yml | 34137290148 (failure), 34137287997 (failure) | FAILED-AT-HEAD |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | db860edd3836 | ci.yml | 34168992474 (failure), 34168963500 (failure) | FAILED-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 102b96e5c7e9 | ci.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -3989,7 +3988,7 @@ theorem visibility_self (u : E) (hu : ‖u‖ = 1) : visibility u u = 1
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | db860edd3836 | ci.yml | 34137290148 (failure), 34137287997 (failure) | FAILED-AT-HEAD |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | db860edd3836 | ci.yml | 34168992474 (failure), 34168963500 (failure) | FAILED-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 102b96e5c7e9 | ci.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -4067,7 +4066,7 @@ theorem distinguishability_self (u : E) (hu : ‖u‖ = 1) :
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | db860edd3836 | ci.yml | 34137290148 (failure), 34137287997 (failure) | FAILED-AT-HEAD |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | db860edd3836 | ci.yml | 34168992474 (failure), 34168963500 (failure) | FAILED-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 102b96e5c7e9 | ci.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -4145,7 +4144,7 @@ theorem distinguishability_of_orthogonal (u v : E) (h : ⟪u, v⟫ = 0) :
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | db860edd3836 | ci.yml | 34137290148 (failure), 34137287997 (failure) | FAILED-AT-HEAD |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | db860edd3836 | ci.yml | 34168992474 (failure), 34168963500 (failure) | FAILED-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 102b96e5c7e9 | ci.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -8979,7 +8978,7 @@ theorem nontrivial_relative_of_ne (uγ um : G) (h : uγ ≠ um) :
 
 ## `Warmup.lean` — 4 declarations
 
-### `comm_add_sub` — UNVERIFIED
+### `comm_add_sub` — VERIFIED
 
 ```lean
 theorem comm_add_sub (S K : R) : comm (S + K) (S - K) = -(2 * comm S K)
@@ -8996,7 +8995,7 @@ theorem comm_add_sub (S K : R) : comm (S + K) (S - K) = -(2 * comm S K)
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | claude-connector-test | 26875c7f136c | 3f0f5e8da27a | — | — | NO-WORKFLOW |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 3f0f5e8da27a | lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 3f0f5e8da27a | lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
@@ -9056,7 +9055,7 @@ theorem comm_add_sub (S K : R) : comm (S + K) (S - K) = -(2 * comm S K)
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 
-### `normal_iff_comm_zero` — UNVERIFIED
+### `normal_iff_comm_zero` — VERIFIED
 
 ```lean
 theorem normal_iff_comm_zero (h2 : ∀ x : R, (2 : R) * x = 0 → x = 0) (S K : R) :
@@ -9074,7 +9073,7 @@ theorem normal_iff_comm_zero (h2 : ∀ x : R, (2 : R) * x = 0 → x = 0) (S K : 
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | claude-connector-test | 26875c7f136c | 3f0f5e8da27a | — | — | NO-WORKFLOW |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 3f0f5e8da27a | lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 3f0f5e8da27a | lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
@@ -9134,7 +9133,7 @@ theorem normal_iff_comm_zero (h2 : ∀ x : R, (2 : R) * x = 0 → x = 0) (S K : 
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 
-### `transpose_mul_of_symm` — UNVERIFIED
+### `transpose_mul_of_symm` — VERIFIED
 
 ```lean
 theorem transpose_mul_of_symm {B V : Matrix n n α} (hB : Bᵀ = B)
@@ -9152,7 +9151,7 @@ theorem transpose_mul_of_symm {B V : Matrix n n α} (hB : Bᵀ = B)
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | claude-connector-test | 26875c7f136c | 3f0f5e8da27a | — | — | NO-WORKFLOW |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 3f0f5e8da27a | lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 3f0f5e8da27a | lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
@@ -9212,7 +9211,7 @@ theorem transpose_mul_of_symm {B V : Matrix n n α} (hB : Bᵀ = B)
 | showcase/lean-certified-2026-09-13 | d22f3bfbe385 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | upstream/mathlib-i2-dihedral-2026-09-11 | e0517958c096 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 
-### `reciprocity` — UNVERIFIED
+### `reciprocity` — VERIFIED
 
 ```lean
 theorem reciprocity {B V : Matrix n n α} (hB : Bᵀ = B) (hV : Vᵀ * B = B * V)
@@ -9230,7 +9229,7 @@ theorem reciprocity {B V : Matrix n n α} (hB : Bᵀ = B) (hV : Vᵀ * B = B * V
 | catalog/paper-atlas-register | 3fd7d5efb7a4 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | catalog/upg-cascade-sync-20260907 | b99a58256f2e | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | claude-connector-test | 26875c7f136c | 3f0f5e8da27a | — | — | NO-WORKFLOW |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 3f0f5e8da27a | lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 3f0f5e8da27a | lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 3f0f5e8da27a | — | — | NO-WORKFLOW |
@@ -11698,7 +11697,7 @@ theorem sufficient_constant_on_fiber {X Y Z : Type*}
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `fiber_witness_obstructs_sufficiency` — VERIFIED
 
@@ -11711,7 +11710,7 @@ theorem fiber_witness_obstructs_sufficiency {X Y Z : Type*}
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `collision_persists_under_postcompression` — VERIFIED
 
@@ -11723,7 +11722,7 @@ theorem collision_persists_under_postcompression {X Y Z : Type*}
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `witness_persists_under_postcompression` — VERIFIED
 
@@ -11736,7 +11735,7 @@ theorem witness_persists_under_postcompression {X Y Z W : Type*}
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `paired_observation_injective_iff` — VERIFIED
 
@@ -11749,7 +11748,7 @@ theorem paired_observation_injective_iff {X Y Z : Type*}
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `opposite_events_cancel` — VERIFIED
 
@@ -11759,7 +11758,7 @@ theorem opposite_events_cancel (a : ℤ) : netFlow [a, -a] = 0
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `zero_net_can_have_events` — VERIFIED
 
@@ -11770,7 +11769,7 @@ theorem zero_net_can_have_events :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `endpoint_view_not_injective` — VERIFIED
 
@@ -11780,7 +11779,7 @@ theorem endpoint_view_not_injective : ¬ Function.Injective endpointView
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `current_skew` — VERIFIED
 
@@ -11791,7 +11790,7 @@ theorem current_skew (T : Matrix n n ℝ) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `current_relabel_covariant` — VERIFIED
 
@@ -11802,7 +11801,7 @@ theorem current_relabel_covariant (e : n ≃ n) (T : Matrix n n ℝ) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `reverse_triangle_circulation` — VERIFIED
 
@@ -11815,7 +11814,7 @@ theorem reverse_triangle_circulation
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `sign_frame_outer_invariant` — VERIFIED
 
@@ -11826,7 +11825,7 @@ theorem sign_frame_outer_invariant (s : ℝ) (q : n → ℝ) (hs : s ^ 2 = 1) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `nonnegative_linear_mode_has_zero_slope` — VERIFIED
 
@@ -11837,7 +11836,7 @@ theorem nonnegative_linear_mode_has_zero_slope (a : ℝ)
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `signed_linear_crossing_exists` — VERIFIED
 
@@ -11848,7 +11847,7 @@ theorem signed_linear_crossing_exists :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 ### `local_vs_integrated_exponent` — VERIFIED
 
@@ -11859,7 +11858,7 @@ theorem local_vs_integrated_exponent (n : ℝ) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34546926076 (success, built 1cf00120c82c), 34541332596 (success, built 78a890e25169) | VERIFIED |
+| research/compound-eye-cortex-2026-09-10 | 80fa4f7fb5b5 | 79857b480083 | compound-eye-cortex.yml, lean-corpus-ledger.yml, qg-transport-eyes.yml, qg-transport-memory.yml, sabine-ns-audit.yml | 34546942237 (success), 34546942200 (success), 34546942260 (success), 34546938288 (success), 34541332596 (success, built 78a890e25169), 34546926076 (success, built 1cf00120c82c) | VERIFIED |
 
 
 ## `research/coxeter_rank2_2026_09_10/DihedralBridge.lean` — 22 declarations
@@ -13910,7 +13909,7 @@ theorem redistribution_eq_zero_iff (B : Matrix r h ℝ) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 9c62988385d2 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7c4c57862e00 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -13923,7 +13922,7 @@ theorem memoryAtZero_eq_zero_iff (B : Matrix r h ℝ) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 9c62988385d2 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7c4c57862e00 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -13938,7 +13937,7 @@ theorem feedbackWith_factorized
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 9c62988385d2 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7c4c57862e00 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -13955,7 +13954,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 9c62988385d2 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7c4c57862e00 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -13972,7 +13971,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -13991,7 +13990,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14011,7 +14010,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14028,7 +14027,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14044,7 +14043,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14062,7 +14061,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14079,7 +14078,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14098,7 +14097,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14114,7 +14113,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14131,7 +14130,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14149,7 +14148,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14166,7 +14165,7 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7d71e83548e5 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14189,7 +14188,7 @@ theorem matrix_penalty_gap_coefficient_nonnegative
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14210,7 +14209,7 @@ theorem matrixPenaltyGap_posSemidef
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14230,7 +14229,7 @@ theorem commonFloor_sub_resolved_eq_gap
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14252,7 +14251,7 @@ theorem commonFloor_sub_resolved_posSemidef
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14274,7 +14273,7 @@ theorem resolvedMatrixPenalty_le_commonFloor
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-matrix-boundary-2026-09-12 | 08617d2c687e | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34698115560 (success), 34698113889 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 08617d2c687e | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
@@ -14346,7 +14345,7 @@ theorem forcing_iff_kernel_not_le (A : V →ₗ[K] W) (b : V →ₗ[K] K) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 82f7f5e8617f | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | d28038278de1 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -14359,7 +14358,7 @@ theorem dual_certificate (A : V →ₗ[K] W) (b : V →ₗ[K] K)
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 82f7f5e8617f | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | d28038278de1 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -14373,7 +14372,7 @@ theorem presentation_invariant {U : Type*} [AddCommGroup U] [Module K U]
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 82f7f5e8617f | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | d28038278de1 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -14390,7 +14389,7 @@ theorem projectorCommutator_eq_blocks
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 848125d7c5da | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 032f5550ac31 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -14404,7 +14403,7 @@ theorem projectorCommutator_eq_zero_iff
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 848125d7c5da | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 032f5550ac31 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -14417,7 +14416,7 @@ theorem trace_memoryAtZero_eq_couplingEnergy (B : Matrix r h ℝ) :
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 848125d7c5da | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 032f5550ac31 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -14431,7 +14430,7 @@ theorem projectorCrossEnergy_eq_two_mul_couplingEnergy
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 848125d7c5da | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 032f5550ac31 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -14445,7 +14444,7 @@ theorem half_projectorCrossEnergy_eq_couplingEnergy
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 848125d7c5da | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 032f5550ac31 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -14465,7 +14464,7 @@ private theorem hasDerivAt_matrix_mul_sum
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 848125d7c5da | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 032f5550ac31 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -14488,7 +14487,7 @@ theorem hasDerivAt_retained_transport_commutator
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 
 ### `retained_transport_tangent_and_metric_bridge` — VERIFIED
 
@@ -14511,7 +14510,7 @@ theorem retained_transport_tangent_and_metric_bridge
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 1691ef94e0fd | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 
 ### `hasDerivAt_retained_transport_commutator` — FAILED-AT-HEAD
 
@@ -14570,7 +14569,7 @@ theorem frameProjector_idempotent
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 6733cdaac350 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 037412b1f37c | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -14585,7 +14584,7 @@ theorem frameProjector_fixes_frame
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 6733cdaac350 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 037412b1f37c | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -14600,7 +14599,7 @@ theorem complement_annihilates_frame
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 6733cdaac350 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 037412b1f37c | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 
@@ -14622,7 +14621,7 @@ theorem schur_congruence
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | a3256741a88d | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | a3256741a88d | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 786ed8359ddf | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
@@ -14638,7 +14637,7 @@ theorem schurElim_mul_inv
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | a3256741a88d | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | a3256741a88d | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 786ed8359ddf | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
@@ -14654,7 +14653,7 @@ theorem schurElimInv_mul
 
 | branch | head | file last commit | workflow(s) | run(s) | status |
 |---|---|---|---|---|---|
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success) | VERIFIED |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 5baa8bf3b478 | yang-mills-cross-theorem-lean.yml | 34759534925 (success, built 1691ef94e0fd) | VERIFIED |
 | formal/yang-mills-allocation-floor-2026-09-13 | 37c08ade9bfd | a3256741a88d | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744922404 (success), 34744921002 (success) | VERIFIED |
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | a3256741a88d | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 786ed8359ddf | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
@@ -14999,7 +14998,7 @@ theorem inner_factorization :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `inner_unit_diagonal` — VERIFIED
 
@@ -15014,7 +15013,7 @@ theorem inner_unit_diagonal : ∀ i : Fin 10, innerL i i = 1
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `inner_lower_triangular` — VERIFIED
 
@@ -15030,7 +15029,7 @@ theorem inner_lower_triangular :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `inner_pivots_positive` — VERIFIED
 
@@ -15045,7 +15044,7 @@ theorem inner_pivots_positive : ∀ i : Fin 10, 0 < innerD i
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `outer_factorization` — VERIFIED
 
@@ -15061,7 +15060,7 @@ theorem outer_factorization :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `outer_unit_diagonal` — VERIFIED
 
@@ -15076,7 +15075,7 @@ theorem outer_unit_diagonal : ∀ i : Fin 7, outerL i i = 1
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `outer_lower_triangular` — VERIFIED
 
@@ -15092,7 +15091,7 @@ theorem outer_lower_triangular :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `outer_first_negative` — VERIFIED
 
@@ -15107,7 +15106,7 @@ theorem outer_first_negative : outerD 0 < 0
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `outer_other_pivots_positive` — VERIFIED
 
@@ -15123,7 +15122,7 @@ theorem outer_other_pivots_positive :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `allocated_local_casimir` — VERIFIED
 
@@ -15139,7 +15138,7 @@ theorem allocated_local_casimir :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `inner_normalized_coupling` — VERIFIED
 
@@ -15154,7 +15153,7 @@ theorem inner_normalized_coupling : (1 : ℚ) / (21/40) = 40/21
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `inner_normalized_energy` — VERIFIED
 
@@ -15169,7 +15168,7 @@ theorem inner_normalized_energy : (21/10 : ℚ) / (21/40) = 4
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `inner_tail_separation` — VERIFIED
 
@@ -15184,7 +15183,7 @@ theorem inner_tail_separation : (4 : ℚ) < 8
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `derived_hidden_floor` — VERIFIED
 
@@ -15200,7 +15199,7 @@ theorem derived_hidden_floor :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `test_energy_separation` — VERIFIED
 
@@ -15215,7 +15214,7 @@ theorem test_energy_separation : (6 : ℚ) < 10 ∧ (10 : ℚ) < 182/15
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `outer_tail_denominator` — VERIFIED
 
@@ -15230,7 +15229,7 @@ theorem outer_tail_denominator : (182/15 : ℚ) - 10 = 32/15
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `certified_margin_arithmetic` — VERIFIED
 
@@ -15245,7 +15244,7 @@ theorem certified_margin_arithmetic : (10 : ℚ) - 6 = 4
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `global_shift_does_not_fix_denominator` — VERIFIED
 
@@ -15261,7 +15260,7 @@ theorem global_shift_does_not_fix_denominator (d r c : ℚ) :
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `shared_rectangle_electric` — VERIFIED
 
@@ -15276,7 +15275,7 @@ theorem shared_rectangle_electric : (6 : ℚ)*(4/3)=8
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `independent_rectangle_is_wrong` — VERIFIED
 
@@ -15291,7 +15290,7 @@ theorem independent_rectangle_is_wrong : (8 : ℚ)*(4/3) ≠ 8
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 ### `first_baryonic_tail` — VERIFIED
 
@@ -15306,7 +15305,7 @@ theorem first_baryonic_tail : (7 : ℚ)*(4/3)=28/3
 | formal/yang-mills-nonuniform-tail-gap-2026-09-13 | 848125d7c5da | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743531732 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-schur-congruence-2026-09-13 | 032f5550ac31 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34743507991 (failure), 34743506015 (failure) | FAILED-AT-HEAD |
 | formal/yang-mills-spectral-floor-transfer-2026-09-13 | f819aa5d5d78 | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34744360038 (success) | VERIFIED |
-| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1), 34380125783 (success, built 8b506fc074c8) | VERIFIED |
+| research/yang-mills-2026-09-09 | 4c90eaa499cd | 7419083917f4 | yang-mills-cross-theorem-evidence.yml, yang-mills-cross-theorem-lean.yml, yang-mills-native-whole-eye.yml, yang-mills-report-audit.yml, yang-mills-september9.yml | 34406733960 (success, built 64d0ca9c76a0), 34412059750 (success, built 0cfcc41ebe74), 34380125783 (success, built 8b506fc074c8), 34375163350 (success, built 131b0e33dd89), 34407919722 (success, built f7f14139a8f1) | VERIFIED |
 
 
 ## `tools/compound-eye/preserved/original_modular_release/preserved/compound-eye-0.4/frontier/originals/AK_granularity_products(2).lean` — 7 declarations
@@ -17793,7 +17792,7 @@ theorem comm_add_sub (S K : R) : comm (S + K) (S - K) = -(2 * comm S K)
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | ci.yml, compound-eye.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml, compound-eye.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml, compound-eye.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -17851,7 +17850,7 @@ theorem normal_iff_comm_zero (h2 : ∀ x : R, (2 : R) * x = 0 → x = 0) (S K : 
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | ci.yml, compound-eye.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml, compound-eye.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml, compound-eye.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -17909,7 +17908,7 @@ theorem transpose_mul_of_symm {B V : Matrix n n α} (hB : Bᵀ = B)
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | ci.yml, compound-eye.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml, compound-eye.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml, compound-eye.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -17967,7 +17966,7 @@ theorem reciprocity {B V : Matrix n n α} (hB : Bᵀ = B) (hV : Vᵀ * B = B * V
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | ci.yml, compound-eye.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml, compound-eye.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml, compound-eye.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -18025,7 +18024,7 @@ theorem inner_mul_inner_swap (u v : E) :
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | ci.yml, compound-eye.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml, compound-eye.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml, compound-eye.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -18083,7 +18082,7 @@ theorem gram_det (u v : E) :
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | ci.yml, compound-eye.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml, compound-eye.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml, compound-eye.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -18141,7 +18140,7 @@ theorem gram_det_of_unit (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | ci.yml, compound-eye.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml, compound-eye.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml, compound-eye.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -18199,7 +18198,7 @@ theorem visibility_le_one (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | ci.yml, compound-eye.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml, compound-eye.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml, compound-eye.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -18257,7 +18256,7 @@ theorem one_sub_visibility_sq_nonneg (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ 
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | ci.yml, compound-eye.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml, compound-eye.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml, compound-eye.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -18315,7 +18314,7 @@ theorem duality (u v : E) (hu : ‖u‖ = 1) (hv : ‖v‖ = 1) :
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | ci.yml, compound-eye.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml, compound-eye.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml, compound-eye.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -18374,7 +18373,7 @@ theorem gram_det_eq_distinguishability_sq (u v : E) (hu : ‖u‖ = 1)
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | ci.yml, compound-eye.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml, compound-eye.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml, compound-eye.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -18431,7 +18430,7 @@ theorem visibility_self (u : E) (hu : ‖u‖ = 1) : visibility u u = 1
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | ci.yml, compound-eye.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml, compound-eye.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml, compound-eye.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -18489,7 +18488,7 @@ theorem distinguishability_self (u : E) (hu : ‖u‖ = 1) :
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | ci.yml, compound-eye.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml, compound-eye.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml, compound-eye.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -18547,7 +18546,7 @@ theorem distinguishability_of_orthogonal (u v : E) (h : ⟪u, v⟫ = 0) :
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | ci.yml, compound-eye.yml | 34718965652 (success), 34718943900 (success) | VERIFIED |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | ci.yml, compound-eye.yml | 34395098723 (success) | VERIFIED |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | ci.yml, compound-eye.yml | 34705544725 (success) | VERIFIED |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | ci.yml, compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | ci.yml, compound-eye.yml | 34686622793 (success), 34686620673 (success) | VERIFIED |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | ci.yml, compound-eye.yml | 34461012885 (success) | VERIFIED |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | ci.yml, compound-eye.yml | 34737437452 (success), 34737428688 (success) | VERIFIED |
@@ -18607,7 +18606,7 @@ theorem comm_add_sub (S K : R) : comm (S + K) (S - K) = -(2 * comm S K)
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
@@ -18665,7 +18664,7 @@ theorem normal_iff_comm_zero (h2 : ∀ x : R, (2 : R) * x = 0 → x = 0) (S K : 
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
@@ -18723,7 +18722,7 @@ theorem transpose_mul_of_symm {B V : Matrix n n α} (hB : Bᵀ = B)
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
@@ -18781,7 +18780,7 @@ theorem reciprocity {B V : Matrix n n α} (hB : Bᵀ = B) (hV : Vᵀ * B = B * V
 | acc-smith-mixer-2026-09-12 | d00305405eff | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | backup/earth-moon-2026-09-09-1918utc | 582a70c3069b | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | claude-connector-test | 26875c7f136c | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
-| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | compound-eye.yml, lean-hunt-verify.yml | — | NO-RUN-AT-HEAD |
+| claude/confident-fermi-09rd02 | 1691ef94e0fd | 90e3516f47eb | compound-eye.yml, lean-hunt-verify.yml | 34760583113 (success) | VERIFIED |
 | collatz-barrier-lean | 2279bda8ff8c | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | downloads/compound-eye-companion-1.1 | 401f6b4b2555 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
 | formal/acc-complete-frontier-2026-09-13 | 2e7628a90ba7 | 90e3516f47eb | compound-eye.yml | — | NO-RUN-AT-HEAD |
