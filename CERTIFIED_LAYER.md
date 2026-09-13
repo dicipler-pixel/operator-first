@@ -4,6 +4,8 @@ This file is the public release registry for results that have crossed the certi
 
 Only material with an auditable proof/certificate path belongs here. Exploratory heuristics, physical interpretations, live competition intelligence, unfinished conjectures, and unverified numerical patterns stay outside this layer.
 
+The complete source-revision inventory is maintained in **[`LEAN_CERTIFICATES_MASTER.md`](LEAN_CERTIFICATES_MASTER.md)**. That master ledger records all currently recovered green Lean certificate snapshots, exact commits/runs, overlap/supersession rules, pending lanes, and withdrawn/non-certificate work. This front page stays intentionally small.
+
 ## Status vocabulary
 
 - **LEAN** — accepted by the pinned Lean/mathlib CI job.
@@ -32,6 +34,19 @@ The module defines the ordinary Collatz step, exact iteration, an executable bou
 **Public announcement text:**
 
 > Certified layer CL-001: Lean 4.33/mathlib 4.33 verifies an exact finite Collatz theorem: every `1 <= n <= 100000` reaches `1` within at most 400 ordinary Collatz steps. The executable checker is connected to the mathematical trajectory statement by a proved soundness theorem, and the finite range is discharged with `native_decide`. This is deliberately a bounded theorem, not a proof of the global Collatz conjecture. Source: PR #40 / `research/collatz/formal/CollatzBounded.lean`.
+
+---
+
+## Master registry rule
+
+The master Lean ledger distinguishes:
+
+1. **GREEN certificate snapshots** — exact source revision plus successful verification evidence;
+2. **superseding/overlapping snapshots** — preserved without double-counting theorem families;
+3. **PENDING lanes** — source exists, but the exact current head is not promoted until its own certificate is green;
+4. **withdrawn/non-certificate lanes** — experiments, provenance ledgers, superseded branches, and corrected false starts.
+
+A branch being newer does not make it more certified. A green ancestor does not certify an untested descendant. A theorem count is not a novelty count.
 
 ---
 
