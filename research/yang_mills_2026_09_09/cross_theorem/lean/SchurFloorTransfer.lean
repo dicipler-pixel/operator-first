@@ -56,15 +56,8 @@ theorem floorBlock_eq_full_shift
     symm
     exact Matrix.fromBlocks_one
   rw [hOne, Matrix.fromBlocks_smul]
-  simp only [smul_zero]
-  change
-    Matrix.fromBlocks (A - μ • (1 : Matrix r r ℝ)) B B.transpose
-        (D - μ • (1 : Matrix h h ℝ)) =
-      Matrix.fromBlocks A B B.transpose D -
-        Matrix.fromBlocks (μ • (1 : Matrix r r ℝ)) 0 0
-          (μ • (1 : Matrix h h ℝ))
-  rw [sub_eq_add_neg, Matrix.fromBlocks_neg, Matrix.fromBlocks_add]
-  simp [floorBlock, retainedAtFloor, hiddenAtFloor, symBlock, sub_eq_add_neg]
+  simp [floorBlock, retainedAtFloor, hiddenAtFloor, symBlock, sub_eq_add_neg,
+    Matrix.fromBlocks_neg, Matrix.fromBlocks_add]
 
 /-- **Finite spectral-floor Schur transfer.**  If the hidden block remains
 strictly positive after shifting by `μ`, then the full shifted block is positive
