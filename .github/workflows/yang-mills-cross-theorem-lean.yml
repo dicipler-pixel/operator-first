@@ -1,17 +1,28 @@
-name: Yang Mills cross theorem closing steps
+name: Yang Mills longest finite chain
 on:
   push:
-    branches: [research/yang-mills-2026-09-09, formal/yang-mills-matrix-boundary-2026-09-12, formal/yang-mills-schur-congruence-2026-09-13]
-    paths: ['research/yang_mills_2026_09_09/cross_theorem/lean/**','.github/workflows/yang-mills-cross-theorem-lean.yml']
+    branches:
+      - research/yang-mills-2026-09-09
+      - formal/yang-mills-matrix-boundary-2026-09-12
+      - formal/yang-mills-schur-congruence-2026-09-13
+      - formal/yang-mills-nonuniform-tail-gap-2026-09-13
+      - formal/yang-mills-spectral-floor-transfer-2026-09-13
+      - formal/yang-mills-allocation-floor-2026-09-13
+      - formal/yang-mills-longest-chain-2026-09-13
+    paths:
+      - 'research/yang_mills_2026_09_09/cross_theorem/lean/**'
+      - '.github/workflows/yang-mills-cross-theorem-lean.yml'
   pull_request:
-    paths: ['research/yang_mills_2026_09_09/cross_theorem/lean/**','.github/workflows/yang-mills-cross-theorem-lean.yml']
+    paths:
+      - 'research/yang_mills_2026_09_09/cross_theorem/lean/**'
+      - '.github/workflows/yang-mills-cross-theorem-lean.yml'
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   finite-lean:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -20,59 +31,78 @@ jobs:
           filter: blob:none
       - name: Install Lean
         run: |
+          set -euo pipefail
           curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
           bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-      - name: Compile every finite kernel and audit axioms
+      - name: Prepare pinned mathlib
         working-directory: research/yang_mills_2026_09_09/cross_theorem/lean
         run: |
+          set -euo pipefail
           mkdir -p evidence
           lake update > evidence/update.log 2>&1
           lake exe cache get > evidence/cache.log 2>&1
           lake env lean --version > evidence/compiler.txt
-          lake build > evidence/build.log 2>&1
-          for f in CrossTheorem MatrixResolvedBoundary SchurCongruence ProjectorKernel CouplingFeedback ObservabilityKernel ProjectorDynamics; do
+          cp lake-manifest.json evidence/
+      - name: Build all registered roots
+        working-directory: research/yang_mills_2026_09_09/cross_theorem/lean
+        run: |
+          set -o pipefail
+          lake build 2>&1 | tee evidence/build.log
+      - name: Check every finite kernel and unified chain
+        working-directory: research/yang_mills_2026_09_09/cross_theorem/lean
+        run: |
+          set -euo pipefail
+          for f in CrossTheorem MatrixResolvedBoundary SchurCongruence ProjectorKernel CouplingFeedback ObservabilityKernel ProjectorDynamics TailGapTransfer SchurFloorTransfer NonuniformAllocationFloor LongestYangMillsChain; do
             lake env lean "$f.lean" > "evidence/${f}.log" 2>&1
             lake env leanchecker "$f" > "evidence/${f}-leanchecker.log" 2>&1
             cat "evidence/${f}.log"
           done
-          cp lake-manifest.json evidence/
-          sha256sum CrossTheorem.lean MatrixResolvedBoundary.lean SchurCongruence.lean ProjectorKernel.lean CouplingFeedback.lean ObservabilityKernel.lean ProjectorDynamics.lean lean-toolchain lakefile.toml > evidence/source-hashes.txt
+      - name: Audit declaration inventory, axioms, and source hashes
+        working-directory: research/yang_mills_2026_09_09/cross_theorem/lean
+        run: |
+          set -euo pipefail
+          sha256sum CrossTheorem.lean MatrixResolvedBoundary.lean SchurCongruence.lean ProjectorKernel.lean CouplingFeedback.lean ObservabilityKernel.lean ProjectorDynamics.lean TailGapTransfer.lean SchurFloorTransfer.lean NonuniformAllocationFloor.lean LongestYangMillsChain.lean lean-toolchain lakefile.toml > evidence/source-hashes.txt
           python3 - <<'PY'
           import pathlib,re
           allow={'propext','Classical.choice','Quot.sound'}
           specs=[
-            ('CrossTheorem.lean','YangMillsCrossTheorem',None),
-            ('MatrixResolvedBoundary.lean','YangMillsCrossTheorem',None),
+            ('CrossTheorem.lean','YangMillsCrossTheorem',12),
+            ('MatrixResolvedBoundary.lean','YangMillsCrossTheorem',5),
             ('SchurCongruence.lean','CrossTheorem',3),
             ('ProjectorKernel.lean','YangMillsFinite',3),
             ('CouplingFeedback.lean','YangMillsFinite',4),
             ('ObservabilityKernel.lean','YangMillsFinite',3),
             ('ProjectorDynamics.lean','YangMillsFinite',7),
+            ('TailGapTransfer.lean','CrossTheorem',6),
+            ('SchurFloorTransfer.lean','CrossTheorem',3),
+            ('NonuniformAllocationFloor.lean','CrossTheorem',3),
+            ('LongestYangMillsChain.lean','YangMillsLongestChain',7),
           ]
-          old_total=0
+          total=0
           for src,ns,expected in specs:
-            text=pathlib.Path('evidence/'+src.removesuffix('.lean')+'.log').read_text()
             source=pathlib.Path(src).read_text()
+            text=pathlib.Path('evidence/'+src.removesuffix('.lean')+'.log').read_text()
             names=re.findall(r'^\s*theorem\s+([A-Za-z0-9_]+)',source,re.M)
-            if expected is not None: assert len(names)==expected,(src,names)
-            if src in ('CrossTheorem.lean','MatrixResolvedBoundary.lean'): old_total += len(names)
+            assert len(names)==expected,(src,names)
+            total += len(names)
             for name in names:
               assert "'"+ns+"."+name+"'" in text,(src,name)
             for axes in re.findall(r'depends on axioms:\s*\[([^\]]*)\]',text):
               assert set(x.strip() for x in axes.split(',') if x.strip()) <= allow,(src,axes)
             assert 'sorryAx' not in text and 'Lean.ofReduceBool' not in text,src
-          assert old_total==17,old_total
-          print('Accepted and audited',old_total+3+3+4+3+7,'finite Yang-Mills declarations across seven modules')
+          assert total==56,total
+          print('Accepted and audited',total,'finite Yang-Mills declarations across eleven modules')
           PY
-      - name: Reject a false inequality
+      - name: Reject inherited false inequality
         working-directory: research/yang_mills_2026_09_09/cross_theorem/lean
         run: |
+          set -euo pipefail
           if lake env lean FalseControl.lean > evidence/false-control.log 2>&1; then exit 1; fi
           grep -q 'unsolved goals' evidence/false-control.log
           cat evidence/false-control.log
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: yang-mills-cross-theorem-lean
+          name: yang-mills-longest-finite-chain
           path: research/yang_mills_2026_09_09/cross_theorem/lean/evidence/
