@@ -15,6 +15,7 @@ jobs:
     defaults:
       run:
         working-directory: research/yang_mills_2026_09_09/cross_theorem/lean
+        shell: bash
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -24,32 +25,49 @@ jobs:
       - name: Install Lean
         working-directory: .
         run: |
+          set -euo pipefail
           curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
           bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Prepare pinned mathlib environment
         run: |
+          set -euo pipefail
           mkdir -p evidence
           lake update > evidence/update.log 2>&1
           lake exe cache get > evidence/cache.log 2>&1
           lake env lean --version > evidence/compiler.txt
           cp lake-manifest.json evidence/
-      - name: Check base cross theorem
-        run: lake env lean CrossTheorem.lean 2>&1 | tee evidence/lean.log
-      - name: Check matrix-resolved boundary
-        run: lake env lean MatrixResolvedBoundary.lean 2>&1 | tee evidence/matrix-lean.log
-      - name: Check exact Schur congruence
-        run: lake env lean SchurCongruence.lean 2>&1 | tee evidence/schur-lean.log
-      - name: Leanchecker Schur congruence
-        run: lake env leanchecker SchurCongruence 2>&1 | tee evidence/schur-leanchecker.log
-      - name: Check nonuniform and overlap tail transfer
-        run: lake env lean TailGapTransfer.lean 2>&1 | tee evidence/tail-gap-lean.log
-      - name: Leanchecker tail transfer
-        run: lake env leanchecker TailGapTransfer 2>&1 | tee evidence/tail-gap-leanchecker.log
       - name: Build registered library roots
-        run: lake build 2>&1 | tee evidence/build.log
+        run: |
+          set -o pipefail
+          lake build 2>&1 | tee evidence/build.log
+      - name: Check base cross theorem
+        run: |
+          set -o pipefail
+          lake env lean CrossTheorem.lean 2>&1 | tee evidence/lean.log
+      - name: Check matrix-resolved boundary
+        run: |
+          set -o pipefail
+          lake env lean MatrixResolvedBoundary.lean 2>&1 | tee evidence/matrix-lean.log
+      - name: Check exact Schur congruence
+        run: |
+          set -o pipefail
+          lake env lean SchurCongruence.lean 2>&1 | tee evidence/schur-lean.log
+      - name: Leanchecker Schur congruence
+        run: |
+          set -o pipefail
+          lake env leanchecker SchurCongruence 2>&1 | tee evidence/schur-leanchecker.log
+      - name: Check nonuniform and overlap tail transfer
+        run: |
+          set -o pipefail
+          lake env lean TailGapTransfer.lean 2>&1 | tee evidence/tail-gap-lean.log
+      - name: Leanchecker tail transfer
+        run: |
+          set -o pipefail
+          lake env leanchecker TailGapTransfer 2>&1 | tee evidence/tail-gap-leanchecker.log
       - name: Audit declarations and axioms
         run: |
+          set -euo pipefail
           sha256sum CrossTheorem.lean MatrixResolvedBoundary.lean SchurCongruence.lean TailGapTransfer.lean lean-toolchain lakefile.toml > evidence/source-hashes.txt
           python3 - <<'PY'
           import pathlib,re
@@ -82,6 +100,7 @@ jobs:
           PY
       - name: Reject a false inequality
         run: |
+          set -euo pipefail
           if lake env lean FalseControl.lean > evidence/false-control.log 2>&1; then exit 1; fi
           grep -q 'unsolved goals' evidence/false-control.log
           cat evidence/false-control.log
