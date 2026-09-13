@@ -7,6 +7,7 @@ on:
       - 'CollatzAlignment.lean'
       - 'CollatzRealization.lean'
       - 'CollatzMovingAnchor.lean'
+      - 'CollatzNoFixedWindow.lean'
       - 'CollatzDiophantine.lean'
       - 'collatz_diophantine_exact.py'
       - 'collatz_alignment_exact.py'
@@ -19,6 +20,7 @@ on:
       - 'CollatzAlignment.lean'
       - 'CollatzRealization.lean'
       - 'CollatzMovingAnchor.lean'
+      - 'CollatzNoFixedWindow.lean'
       - 'CollatzDiophantine.lean'
       - 'collatz_diophantine_exact.py'
       - 'collatz_alignment_exact.py'
@@ -82,6 +84,11 @@ jobs:
         run: |
           set -o pipefail
           lake env bash -lc 'cd "$GITHUB_WORKSPACE" && LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o CollatzMovingAnchor.olean CollatzMovingAnchor.lean' 2>&1 | tee root-logs/moving-anchor.log
+      - name: Check no fixed Collatz descent window
+        run: |
+          set -o pipefail
+          lake env bash -lc 'cd "$GITHUB_WORKSPACE" && LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o CollatzNoFixedWindow.olean CollatzNoFixedWindow.lean' 2>&1 | tee root-logs/no-fixed-window.log
+          ! grep -q 'sorryAx' root-logs/no-fixed-window.log
       - name: Check Collatz Diophantine gap certificates
         run: |
           set -o pipefail
