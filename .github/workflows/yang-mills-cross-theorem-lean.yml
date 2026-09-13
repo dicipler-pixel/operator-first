@@ -31,13 +31,13 @@ jobs:
           lake exe cache get > evidence/cache.log 2>&1
           lake env lean --version > evidence/compiler.txt
           lake build > evidence/build.log 2>&1
-          for f in CrossTheorem MatrixResolvedBoundary SchurCongruence ProjectorKernel CouplingFeedback ObservabilityKernel; do
+          for f in CrossTheorem MatrixResolvedBoundary SchurCongruence ProjectorKernel CouplingFeedback ObservabilityKernel ProjectorDynamics; do
             lake env lean "$f.lean" > "evidence/${f}.log" 2>&1
             lake env leanchecker "$f" > "evidence/${f}-leanchecker.log" 2>&1
             cat "evidence/${f}.log"
           done
           cp lake-manifest.json evidence/
-          sha256sum CrossTheorem.lean MatrixResolvedBoundary.lean SchurCongruence.lean ProjectorKernel.lean CouplingFeedback.lean ObservabilityKernel.lean lean-toolchain lakefile.toml > evidence/source-hashes.txt
+          sha256sum CrossTheorem.lean MatrixResolvedBoundary.lean SchurCongruence.lean ProjectorKernel.lean CouplingFeedback.lean ObservabilityKernel.lean ProjectorDynamics.lean lean-toolchain lakefile.toml > evidence/source-hashes.txt
           python3 - <<'PY'
           import pathlib,re
           allow={'propext','Classical.choice','Quot.sound'}
@@ -48,6 +48,7 @@ jobs:
             ('ProjectorKernel.lean','YangMillsFinite',3),
             ('CouplingFeedback.lean','YangMillsFinite',4),
             ('ObservabilityKernel.lean','YangMillsFinite',3),
+            ('ProjectorDynamics.lean','YangMillsFinite',7),
           ]
           old_total=0
           for src,ns,expected in specs:
@@ -62,7 +63,7 @@ jobs:
               assert set(x.strip() for x in axes.split(',') if x.strip()) <= allow,(src,axes)
             assert 'sorryAx' not in text and 'Lean.ofReduceBool' not in text,src
           assert old_total==17,old_total
-          print('Accepted and audited',old_total+3+3+4+3,'finite Yang-Mills declarations across six modules')
+          print('Accepted and audited',old_total+3+3+4+3+7,'finite Yang-Mills declarations across seven modules')
           PY
       - name: Reject a false inequality
         working-directory: research/yang_mills_2026_09_09/cross_theorem/lean
