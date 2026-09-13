@@ -61,17 +61,32 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
+          mkdir -p root-logs
           lake build 2>&1 | tee lean-certificates.log
       - name: Check Collatz prefix barrier
-        run: lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzBarrier.lean'
+        shell: bash
+        run: |
+          set -o pipefail
+          lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzBarrier.lean' 2>&1 | tee root-logs/barrier.log
       - name: Check Collatz phase-survival alignment
-        run: lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzAlignment.lean'
+        shell: bash
+        run: |
+          set -o pipefail
+          lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzAlignment.lean' 2>&1 | tee root-logs/alignment.log
       - name: Check Collatz exact realization cylinders
-        run: lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzRealization.lean'
+        shell: bash
+        run: |
+          set -o pipefail
+          lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzRealization.lean' 2>&1 | tee root-logs/realization.log
       - name: Check Collatz Diophantine gap certificates
-        run: lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzDiophantine.lean'
+        shell: bash
+        run: |
+          set -o pipefail
+          lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzDiophantine.lean' 2>&1 | tee root-logs/diophantine.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: diophantine-lean-certificates
-          path: research/diophantine/formal/lean-certificates.log
+          path: |
+            research/diophantine/formal/lean-certificates.log
+            research/diophantine/formal/root-logs/
