@@ -50,32 +50,46 @@ jobs:
     defaults:
       run:
         working-directory: research/diophantine/formal
+        shell: bash
     steps:
       - uses: actions/checkout@v4
       - name: Install pinned Lean
         run: |
+          set -euo pipefail
           curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
           sh elan-init.sh -y --default-toolchain leanprover/lean4:v4.33.0
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - run: lake update
       - run: lake exe cache get
       - name: Check existing Diophantine certificates and report axioms
-        shell: bash
         run: |
           set -o pipefail
+          mkdir -p root-logs
           lake build 2>&1 | tee lean-certificates.log
-      - name: Check Collatz prefix barrier
-        run: lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzBarrier.lean'
-      - name: Check Collatz phase-survival alignment
-        run: lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzAlignment.lean'
-      - name: Check Collatz exact realization cylinders
-        run: lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzRealization.lean'
+      - name: Compile Collatz prefix barrier module
+        run: |
+          set -o pipefail
+          lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o "$GITHUB_WORKSPACE/CollatzBarrier.olean" ../../../CollatzBarrier.lean' 2>&1 | tee root-logs/barrier.log
+      - name: Compile Collatz phase-survival alignment module
+        run: |
+          set -o pipefail
+          lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o "$GITHUB_WORKSPACE/CollatzAlignment.olean" ../../../CollatzAlignment.lean' 2>&1 | tee root-logs/alignment.log
+      - name: Compile Collatz exact realization cylinders module
+        run: |
+          set -o pipefail
+          lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o "$GITHUB_WORKSPACE/CollatzRealization.olean" ../../../CollatzRealization.lean' 2>&1 | tee root-logs/realization.log
       - name: Check Collatz moving-anchor interface
-        run: lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzMovingAnchor.lean'
+        run: |
+          set -o pipefail
+          lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean -o "$GITHUB_WORKSPACE/CollatzMovingAnchor.olean" ../../../CollatzMovingAnchor.lean' 2>&1 | tee root-logs/moving-anchor.log
       - name: Check Collatz Diophantine gap certificates
-        run: lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzDiophantine.lean'
+        run: |
+          set -o pipefail
+          lake env bash -lc 'LEAN_PATH="$GITHUB_WORKSPACE:$LEAN_PATH" lean ../../../CollatzDiophantine.lean' 2>&1 | tee root-logs/diophantine.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: diophantine-lean-certificates
-          path: research/diophantine/formal/lean-certificates.log
+          path: |
+            research/diophantine/formal/lean-certificates.log
+            research/diophantine/formal/root-logs/
