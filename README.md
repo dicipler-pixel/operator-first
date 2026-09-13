@@ -2,7 +2,7 @@
 
 Jeromie N. Beasley’s current research directory: **13 projects**, **18 Atlas cards**, and **Compound Eye Universal 3.2**.
 
-Start with [current project status](MASTER_STATUS.md), the [paper register](catalog/README.md), or the [reusable-results Atlas](atlas/README.md).
+Start with [current project status](MASTER_STATUS.md), the [paper register](catalog/README.md), the [reusable-results Atlas](atlas/README.md), or the [DIRECT DEPOSIT Lean-certified results hub](DIRECT_DEPOSIT/README.md).
 
 The [complete instrument](tools/compound-eye/START_HERE.md) contains **191 eye versions in 29 sets**: 172 implemented, 17 specified, and 2 archived results. It combines the independent Universal 2.2 and 3.1 lines with Eye Mixer 1.0.0.
 
