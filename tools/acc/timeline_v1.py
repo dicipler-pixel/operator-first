@@ -87,9 +87,9 @@ def collect_events():
     for r in jsonl("ledger/mixer/run_ledger_v1.jsonl"):
         sig = [("status", f"{r['lane']}:{r['status']}"), ("evidence", r["evidence"])]
         if r.get("units_commensurable") is False:
-            sig.append(("unit-guard", short(r.get("unit_guard_message"), 50)))
+            sig.append(("unit-guard", r.get("unit_guard_message")))
         if r.get("caveat"):
-            sig.append(("caveat", short(r["caveat"], 50)))
+            sig.append(("caveat", r["caveat"]))
         events.append(ev(parse_utc(r.get("recorded_utc")), "mixer-run", r["status"],
                          f"{r['lane']}/{r['run_id']}", sig, r.get("claim"),
                          f"{r['lane']}/{r['run_id']}"))
@@ -103,11 +103,11 @@ def collect_events():
     for r in jsonl("ledger/eyes/observations_v1.jsonl"):
         sig = [("verdict", f"{r['eye_id']}:{r['verdict']}"), ("evidence", r["evidence"])]
         if r.get("blocked_on"):
-            sig.append(("blocker", short(r["blocked_on"], 60)))
+            sig.append(("blocker", r["blocked_on"]))
         if r.get("failure_mode"):
-            sig.append(("failure-mode", short(r["failure_mode"], 60)))
+            sig.append(("failure-mode", r["failure_mode"]))
         for a in r.get("assumptions") or []:
-            sig.append(("assumption", short(a, 60)))
+            sig.append(("assumption", a))
         if r.get("weight") == 0:
             sig.append(("weight-zero", r["eye_id"]))
         events.append(ev(parse_utc(r.get("observed_utc")), "eye-obs", r["verdict"],
@@ -117,7 +117,7 @@ def collect_events():
     for r in jsonl("ledger/eyes/sets_v1.jsonl"):
         sig = [("set", r["set_id"])]
         if r.get("units_commensurable") is False:
-            sig.append(("unit-guard", short(r.get("unit_guard_message"), 50)))
+            sig.append(("unit-guard", r.get("unit_guard_message")))
         if r.get("roundtrip_ok") is False:
             sig.append(("replay-failure", r["set_id"]))
         events.append(ev(parse_utc(r.get("mixed_utc")), "eye-set",
@@ -273,7 +273,7 @@ def recurring_report(events, minimum=2):
             cur = s
             w.append("")
             w.append(f"  [{s}]  {why if s != 'one-batch' else why}")
-        w.append(f"    {n:>3}x  {key}")
+        w.append(f"    {n:>3}x  {short(key, 68)}")
         w.append(f"         first {occ[0]['utc'].strftime('%H:%M:%S')}  "
                  f"last {occ[-1]['utc'].strftime('%H:%M:%S')}  "
                  f"sources: {', '.join(sorted({o['source'] for o in occ}))}")
@@ -289,7 +289,7 @@ def context_report(events, key, span=3):
     for k in matches[:5]:
         occ = idx[k]
         s, why = strength(occ)
-        w.append(f"CONTEXT FOR  {k}")
+        w.append(f"CONTEXT FOR  {short(k, 66)}")
         w.append(f"  {len(occ)} occurrence(s), strength {s} — {why}")
         w.append("-" * 74)
         before_kinds, after_kinds = Counter(), Counter()

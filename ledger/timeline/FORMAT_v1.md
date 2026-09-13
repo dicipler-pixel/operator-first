@@ -83,3 +83,16 @@ the branch, which is a decision for the repository owner, not a default.
     python3 tools/acc/timeline_v1.py --around <commit|handoff_id|run_id|ISO>
     python3 tools/acc/timeline_v1.py --stream [--source S] [--since ISO]
     python3 tools/acc/timeline_v1.py snapshot
+
+## Append-only, including over my own mistakes
+
+The first snapshot in `snapshots_v1.jsonl` (`7a683e78cf35`, taken 19:29:08)
+stores both blockers **truncated with an ellipsis**. That was a defect in the
+recorder: signal keys were shortened for display and the shortened form was
+what reached the durable record. A lossy record is exactly what this system
+exists to prevent, and it was caught by reading back what CI had just written.
+
+The recorder now keeps full text in signals and truncates only at print time,
+with tests pinning both halves. The bad row is **not edited**: this ledger is
+append-only, so the correction is the next row, and the record shows the
+mistake and the repair rather than only the repair.

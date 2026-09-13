@@ -172,6 +172,39 @@ class TestWindowHonesty(unittest.TestCase):
         self.assertIn("nothing recorded", T.window_report([], []))
 
 
+class TestRecordIsNotLossy(unittest.TestCase):
+    """A stored record must carry the full text. Truncation is for display."""
+
+    def test_signal_keys_are_not_truncated(self):
+        events, _ = T.collect_events()
+        if not events:
+            self.skipTest("no ledgers present")
+        for e in events:
+            for kind, key in e["signals"]:
+                self.assertNotIn("\u2026", str(key),
+                                 f"{kind} signal was stored truncated: {key!r}")
+
+    def test_snapshot_blockers_match_the_observations_exactly(self):
+        import json
+        snaps = T.jsonl("ledger/timeline/snapshots_v1.jsonl")
+        obs = T.jsonl("ledger/eyes/observations_v1.jsonl")
+        if not snaps or not obs:
+            self.skipTest("no snapshots or observations present")
+        real = {o["blocked_on"] for o in obs if o.get("blocked_on")}
+        stored = set(snaps[-1]["board"]["blockers"])
+        self.assertTrue(stored <= real,
+                        f"snapshot holds blocker text absent from the "
+                        f"observations: {stored - real}")
+
+    def test_long_keys_are_still_shortened_when_printed(self):
+        long_key = "x" * 200
+        events = stream(mk(0, signals=(("blocker", long_key),)),
+                        mk(20000, signals=(("blocker", long_key),)))
+        out = T.recurring_report(events, 2)
+        self.assertNotIn(long_key, out)
+        self.assertIn("\u2026", out)
+
+
 class TestLiveLedgers(unittest.TestCase):
     def test_the_real_stream_orders_and_indexes(self):
         events, undated = T.collect_events()
