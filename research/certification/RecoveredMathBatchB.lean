@@ -13,7 +13,7 @@ namespace RecoveredMathBatchB
 
 /-- Real one-degree-of-freedom oscillator Lagrangian with an external scalar
 potential value `V`. -/
-def oscillatorL (m omega q qdot V : ℝ) : ℝ :=
+noncomputable def oscillatorL (m omega q qdot V : ℝ) : ℝ :=
   (1 / 2 : ℝ) * m * qdot ^ 2 -
   (1 / 2 : ℝ) * m * omega ^ 2 * q ^ 2 - V
 
@@ -31,7 +31,7 @@ theorem legendre_transform_oscillator
   unfold canonicalP oscillatorL
   ring
 
-/-- If `m > 0` and the external potential contribution is nonnegative, the
+/-- If `m >= 0` and the external potential contribution is nonnegative, the
 standard oscillator Hamiltonian is nonnegative. -/
 theorem oscillator_hamiltonian_nonnegative
     (m omega q qdot V : ℝ) (hm : 0 ≤ m) (hV : 0 ≤ V) :
