@@ -1,0 +1,62 @@
+{
+ "schema": "compound-eye-mixer-recipe-v1",
+ "engine_version": "1.0.0",
+ "dataset": {
+  "schema": "compound-eye-traces-v1",
+  "id": "frontiermath__python-lane-controls-v1",
+  "title": "FrontierMath ell=3 r=9 Python lane controls",
+  "description": "Across 5 field/lane evaluations the highest 3-rank is 8; no input reaches the rank-9 gate.",
+  "context": {
+   "object_id": "quadratic_class_groups",
+   "model_id": "frontiermath_3rank9_python_lane_v1",
+   "coordinate": "evaluation index",
+   "x_unit": "row ordinal",
+   "source_stage": "computation"
+  },
+  "x": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "traces": [
+   {
+    "id": "three_rank",
+    "label": "3-rank of the class group",
+    "unit": "3-rank",
+    "source": "frontiermath run python-lane-controls-v1",
+    "color": "#68e2d0",
+    "values": [
+     1,
+     3,
+     8,
+     8,
+     7
+    ],
+    "defaultRoute": "x"
+   }
+  ]
+ },
+ "settings": {
+  "normalization": "source",
+  "center": false,
+  "smoothing": 1,
+  "view": "shape",
+  "showComponents": true,
+  "showOriginal": true,
+  "scale": 1,
+  "cursor": 0,
+  "channels": {
+   "three_rank": {
+    "enabled": true,
+    "weight": 1,
+    "route": "x",
+    "frequency": 0,
+    "phase": 0
+   }
+  }
+ },
+ "baseline": null,
+ "meaning": "A reproducible visual composition; weights, centering and smoothing are chosen display operations, not automatically physical laws."
+}
