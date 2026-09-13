@@ -37,7 +37,7 @@ jobs:
           lake exe cache get > evidence/cache.log 2>&1
           lake env lean --version > evidence/compiler.txt
           cp lake-manifest.json evidence/
-      - name: Build registered library roots
+      - name: Build all registered finite roots
         run: |
           set -o pipefail
           lake build 2>&1 | tee evidence/build.log
@@ -57,6 +57,13 @@ jobs:
         run: |
           set -o pipefail
           lake env leanchecker SchurCongruence 2>&1 | tee evidence/schur-leanchecker.log
+      - name: Check inherited projector, coupling, observability, and dynamics kernels
+        run: |
+          set -euo pipefail
+          for f in ProjectorKernel CouplingFeedback ObservabilityKernel ProjectorDynamics; do
+            lake env lean "$f.lean" 2>&1 | tee "evidence/${f}.log"
+            lake env leanchecker "$f" 2>&1 | tee "evidence/${f}-leanchecker.log"
+          done
       - name: Check nonuniform and overlap tail transfer
         run: |
           set -o pipefail
@@ -68,35 +75,43 @@ jobs:
       - name: Audit declarations and axioms
         run: |
           set -euo pipefail
-          sha256sum CrossTheorem.lean MatrixResolvedBoundary.lean SchurCongruence.lean TailGapTransfer.lean lean-toolchain lakefile.toml > evidence/source-hashes.txt
+          sha256sum CrossTheorem.lean MatrixResolvedBoundary.lean SchurCongruence.lean ProjectorKernel.lean CouplingFeedback.lean ObservabilityKernel.lean ProjectorDynamics.lean TailGapTransfer.lean lean-toolchain lakefile.toml > evidence/source-hashes.txt
           python3 - <<'PY'
           import pathlib,re
-          old_files=['CrossTheorem.lean','MatrixResolvedBoundary.lean']
-          old_logs=['evidence/lean.log','evidence/matrix-lean.log']
+          allow={'propext','Classical.choice','Quot.sound'}
+          base=[
+              ('CrossTheorem.lean','evidence/lean.log','YangMillsCrossTheorem',None),
+              ('MatrixResolvedBoundary.lean','evidence/matrix-lean.log','YangMillsCrossTheorem',None),
+          ]
           total=0
-          for src_path,log_path in zip(old_files,old_logs):
-              source=pathlib.Path(src_path).read_text(); text=pathlib.Path(log_path).read_text()
+          for src,log,ns,expected in base:
+              source=pathlib.Path(src).read_text(); text=pathlib.Path(log).read_text()
               names=re.findall(r'^\s*theorem\s+([A-Za-z0-9_]+)',source,re.M)
               total += len(names)
-              for name in names:
-                  assert "'YangMillsCrossTheorem."+name+"'" in text,(src_path,name)
+              for name in names: assert "'"+ns+"."+name+"'" in text,(src,name)
               for axes in re.findall(r'depends on axioms:\s*\[([^\]]*)\]',text):
-                  assert set(x.strip() for x in axes.split(',') if x.strip()) <= {'propext','Classical.choice','Quot.sound'},axes
-              assert 'sorryAx' not in text and 'Lean.ofReduceBool' not in text
+                  assert set(x.strip() for x in axes.split(',') if x.strip()) <= allow,(src,axes)
+              assert 'sorryAx' not in text and 'Lean.ofReduceBool' not in text,src
           assert total == 17,total
-          for src_path,log_path,expected in [
-              ('SchurCongruence.lean','evidence/schur-lean.log',3),
-              ('TailGapTransfer.lean','evidence/tail-gap-lean.log',6),
-          ]:
-              source=pathlib.Path(src_path).read_text(); text=pathlib.Path(log_path).read_text()
+          specs=[
+              ('SchurCongruence.lean','evidence/schur-lean.log','CrossTheorem',3),
+              ('ProjectorKernel.lean','evidence/ProjectorKernel.log','YangMillsFinite',3),
+              ('CouplingFeedback.lean','evidence/CouplingFeedback.log','YangMillsFinite',4),
+              ('ObservabilityKernel.lean','evidence/ObservabilityKernel.log','YangMillsFinite',3),
+              ('ProjectorDynamics.lean','evidence/ProjectorDynamics.log','YangMillsFinite',7),
+              ('TailGapTransfer.lean','evidence/tail-gap-lean.log','CrossTheorem',6),
+          ]
+          added=0
+          for src,log,ns,expected in specs:
+              source=pathlib.Path(src).read_text(); text=pathlib.Path(log).read_text()
               names=re.findall(r'^\s*theorem\s+([A-Za-z0-9_]+)',source,re.M)
-              assert len(names)==expected,(src_path,names)
-              for name in names:
-                  assert "'CrossTheorem."+name+"'" in text,(src_path,name)
+              assert len(names)==expected,(src,names)
+              added += len(names)
+              for name in names: assert "'"+ns+"."+name+"'" in text,(src,name)
               for axes in re.findall(r'depends on axioms:\s*\[([^\]]*)\]',text):
-                  assert set(x.strip() for x in axes.split(',') if x.strip()) <= {'propext','Classical.choice','Quot.sound'},axes
-              assert 'sorryAx' not in text and 'Lean.ofReduceBool' not in text
-          print('Accepted and audited',total,'existing declarations plus 3 Schur and 6 tail/allocation theorems')
+                  assert set(x.strip() for x in axes.split(',') if x.strip()) <= allow,(src,axes)
+              assert 'sorryAx' not in text and 'Lean.ofReduceBool' not in text,src
+          print('Accepted and audited',total+added,'finite declarations across the full tail-transfer stack')
           PY
       - name: Reject a false inequality
         run: |
