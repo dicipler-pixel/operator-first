@@ -5,6 +5,7 @@ on:
       - formal/upg-feedback-bridge-2026-09-12
       - formal/upg-adapted-block-equivalence-2026-09-12
       - formal/upg-projector-dynamics-2026-09-13
+      - formal/upg-resolvent-factorization-2026-09-13
     paths: ['research/upg/formal/**','.github/workflows/upg-feedback-lean.yml']
   pull_request:
     paths: ['research/upg/formal/**','.github/workflows/upg-feedback-lean.yml']
@@ -37,7 +38,7 @@ jobs:
           leanchecker-args: UPGFeedback
           axiom-audit: true
           axiom-audit-allow: propext,Classical.choice,Quot.sound
-      - name: Independently check adapted block, metric, and dynamics modules
+      - name: Independently check adapted block, metric, dynamics, and resolvent modules
         working-directory: research/upg/formal
         shell: bash
         run: |
@@ -48,6 +49,8 @@ jobs:
           lake env leanchecker UPGProjectorMetric 2>&1 | tee projector-metric-leanchecker.log
           lake env lean UPGProjectorDynamics.lean 2>&1 | tee projector-dynamics.log
           lake env leanchecker UPGProjectorDynamics 2>&1 | tee projector-dynamics-leanchecker.log
+          lake env lean UPGResolventFeedback.lean 2>&1 | tee resolvent-feedback.log
+          lake env leanchecker UPGResolventFeedback 2>&1 | tee resolvent-feedback-leanchecker.log
           python3 - <<'PY'
           import pathlib,re
           allow={'propext','Classical.choice','Quot.sound'}
@@ -55,6 +58,7 @@ jobs:
               ('UPGBlockFeedback.lean','block-feedback.log',7),
               ('UPGProjectorMetric.lean','projector-metric.log',7),
               ('UPGProjectorDynamics.lean','projector-dynamics.log',3),
+              ('UPGResolventFeedback.lean','resolvent-feedback.log',3),
           ]:
               src=pathlib.Path(filename).read_text()
               log=pathlib.Path(logfile).read_text()
