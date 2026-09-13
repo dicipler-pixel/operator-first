@@ -86,8 +86,8 @@ theorem projectorCrossEnergy_eq_two_mul_couplingEnergy
   unfold couplingEnergy
   simp only [Matrix.fromBlocks_apply₁₂, Matrix.fromBlocks_apply₂₁,
     Matrix.neg_apply, Matrix.transpose_apply]
-  rw [Finset.sum_comm]
   ring_nf
+  rw [Finset.sum_comm]
 
 /-- Conventional one-half projector normalization equals coupling energy. -/
 theorem half_projectorCrossEnergy_eq_couplingEnergy
@@ -100,11 +100,13 @@ private theorem hasDerivAt_matrix_mul_sum
     {n : Type*} [Fintype n] [DecidableEq n]
     (U V : ℝ → Matrix n n ℝ) (U0 V0 KU KV : Matrix n n ℝ)
     (hU0 : U 0 = U0) (hV0 : V 0 = V0)
-    (hU : ∀ (i j : n), HasDerivAt (fun t => U t i j) (KU i j) 0)
-    (hV : ∀ (i j : n), HasDerivAt (fun t => V t i j) (KV i j) 0) :
+    (hU : ∀ (i j : n),
+      HasDerivAt (fun t : ℝ => U t i j) (KU i j) (0 : ℝ))
+    (hV : ∀ (i j : n),
+      HasDerivAt (fun t : ℝ => V t i j) (KV i j) (0 : ℝ)) :
     ∀ (i j : n),
-      HasDerivAt (fun t => (U t * V t) i j)
-        ((KU * V0 + U0 * KV) i j) 0 := by
+      HasDerivAt (fun t : ℝ => (U t * V t) i j)
+        ((KU * V0 + U0 * KV) i j) (0 : ℝ) := by
   intro i j
   simp only [Matrix.mul_apply, Matrix.add_apply]
   have hsum := HasDerivAt.fun_sum (u := Finset.univ)
@@ -116,27 +118,29 @@ theorem hasDerivAt_retained_transport_commutator
     (U V : ℝ → Matrix (Sum r h) (Sum r h) ℝ)
     (K : Matrix (Sum r h) (Sum r h) ℝ)
     (hU0 : U 0 = 1) (hV0 : V 0 = 1)
-    (hU : ∀ (i j : Sum r h), HasDerivAt (fun t => U t i j) (K i j) 0)
-    (hV : ∀ (i j : Sum r h), HasDerivAt (fun t => V t i j) ((-K) i j) 0) :
+    (hU : ∀ (i j : Sum r h),
+      HasDerivAt (fun t : ℝ => U t i j) (K i j) (0 : ℝ))
+    (hV : ∀ (i j : Sum r h),
+      HasDerivAt (fun t : ℝ => V t i j) ((-K) i j) (0 : ℝ)) :
     ∀ (i j : Sum r h),
       HasDerivAt
-        (fun t => (U t * retainedProjection * V t) i j)
-        ((K * retainedProjection - retainedProjection * K) i j) 0 := by
+        (fun t : ℝ => (U t * retainedProjection * V t) i j)
+        ((K * retainedProjection - retainedProjection * K) i j) (0 : ℝ) := by
   intro i j
   have hUP : ∀ (a b : Sum r h),
-      HasDerivAt (fun t => (U t * retainedProjection) a b)
-        ((K * retainedProjection) a b) 0 := by
+      HasDerivAt (fun t : ℝ => (U t * retainedProjection) a b)
+        ((K * retainedProjection) a b) (0 : ℝ) := by
     intro a b
     have hconst : ∀ (p q : Sum r h),
-        HasDerivAt (fun _ : ℝ => retainedProjection p q) 0 0 := by
+        HasDerivAt (fun _ : ℝ => retainedProjection p q) 0 (0 : ℝ) := by
       intro p q
       simpa using
         (hasDerivAt_const (x := (0 : ℝ)) (c := retainedProjection p q))
-    have h := hasDerivAt_matrix_mul_sum U (fun _ => retainedProjection)
+    have h := hasDerivAt_matrix_mul_sum U (fun _ : ℝ => retainedProjection)
       1 retainedProjection K 0 hU0 rfl hU hconst a b
     simpa using h
   have hprod := hasDerivAt_matrix_mul_sum
-    (fun t => U t * retainedProjection) V retainedProjection 1
+    (fun t : ℝ => U t * retainedProjection) V retainedProjection 1
     (K * retainedProjection) (-K)
     (by simp [hU0]) hV0 hUP hV i j
   simpa [Matrix.mul_assoc, sub_eq_add_neg, Matrix.mul_neg] using hprod
@@ -147,13 +151,13 @@ theorem retained_transport_tangent_and_metric_bridge
     (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ)
     (hU0 : U 0 = 1) (hV0 : V 0 = 1)
     (hU : ∀ (i j : Sum r h),
-      HasDerivAt (fun t => U t i j) (blockGenerator A B D i j) 0)
+      HasDerivAt (fun t : ℝ => U t i j) (blockGenerator A B D i j) (0 : ℝ))
     (hV : ∀ (i j : Sum r h),
-      HasDerivAt (fun t => V t i j) ((-blockGenerator A B D) i j) 0) :
+      HasDerivAt (fun t : ℝ => V t i j) ((-blockGenerator A B D) i j) (0 : ℝ)) :
     (∀ (i j : Sum r h),
       HasDerivAt
-        (fun t => (U t * retainedProjection * V t) i j)
-        (projectorCommutator A B D i j) 0) ∧
+        (fun t : ℝ => (U t * retainedProjection * V t) i j)
+        (projectorCommutator A B D i j) (0 : ℝ)) ∧
     (1 / 2 : ℝ) * projectorCrossEnergy A B D = couplingEnergy B := by
   constructor
   · intro i j
