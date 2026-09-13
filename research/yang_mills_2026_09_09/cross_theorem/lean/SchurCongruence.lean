@@ -22,7 +22,7 @@ def symBlock (A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) :
 
 /-- Lower triangular Schur elimination matrix. -/
 def schurElim (B : Matrix r h ℝ) (R : Matrix h h ℝ) :
-    Matrix (Sum r h) (Sum h h ℝ) :=
+    Matrix (Sum r h) (Sum r h) ℝ :=
   Matrix.fromBlocks 1 0 (-(R * B.transpose)) 1
 
 /-- Finite Schur complement with an explicit hidden inverse `R`. -/
