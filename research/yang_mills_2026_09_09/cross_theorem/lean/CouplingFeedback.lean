@@ -82,10 +82,9 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
       exact hfb
     have hBC : B * C = 0 := (memoryAtZero_eq_zero_iff (B * C)).mp hgram
     calc
-      B = B * 1 := by simp
-      _ = B * (C * L) := by rw [hCL]
+      B = B * (C * L) := by rw [hCL, Matrix.mul_one]
       _ = (B * C) * L := by rw [Matrix.mul_assoc]
-      _ = 0 := by rw [hBC]; simp
+      _ = 0 := by rw [hBC, Matrix.zero_mul]
   · intro hB
     subst B
     simp [feedbackWith]
