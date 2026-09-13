@@ -88,10 +88,11 @@ let landed = false;
 for (let i = 0; i < 220; i++) {
   const s = await page.evaluate(() => {
     const t = window.__srb.trip;
-    return { state: t.state, tension: t.tension, distance: t.distance };
+    return { state: t.state, strain: t.strain, distance: t.distance };
   });
   if (s.state !== 'fight') { landed = s.state === 'landed'; break; }
-  await page.evaluate((on) => window.__srb.trip.setReeling(on), s.tension < 0.65);
+  // Hold the bar and never let go — the whole mechanic now.
+  await page.evaluate(() => window.__srb.trip.setReeling(true));
   await page.waitForTimeout(60);
 }
 say(`fight ended, landed: ${landed}  state: ${await state()}`);

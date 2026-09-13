@@ -18,7 +18,7 @@
 
 import * as THREE from 'three';
 import { rollWeight, lengthForWeight } from './fish.js';
-import { WALTER_FORMS, walterFightProfile, walterFightSeconds, walterPace } from './walter.js';
+import { WALTER_FORMS, walterFightProfile, walterFightSeconds } from './walter.js';
 import { LINES, makeCycler } from './lines.js';
 import * as sfx from '../audio/sfx.js';
 
@@ -39,9 +39,9 @@ export const STATE = {
 };
 
 // A forgiving hook window. Sega Bass gives you a fraction of a second; this
-// gives a full second and a half. Older reflexes, capacitive touch latency,
-// and nobody is trying to eat quarters here.
-const HOOK_WINDOW = 1.5;
+// gives two and a half. Older reflexes, capacitive touch latency, and nobody
+// is trying to eat quarters here.
+const HOOK_WINDOW = 2.5;
 
 // A bite roughly every 30 to 60 seconds.
 const BITE_MIN = 30;
@@ -50,9 +50,14 @@ const BITE_MAX = 60;
 const CAST_TIME = 0.85;
 const BIG_FISH_LB = 2.0;      // above this, the full turntable celebration
 
-// Walter gets a longer, calmer window. He is a ceremony; rushing her here
-// would be the one place in the game that punishes.
-const WALTER_HOOK_WINDOW = 2.6;
+// Five seconds for everything that is not Walter, per 11_BANK_WALTER_v2.md §3,
+// plus a little for a heavy one so a drum still feels like more work than a
+// bream. Reeling is continuous now, so this IS the fight length.
+const SMALL_FIGHT_SECONDS = 4.5;
+
+// Walter gets a longer, calmer window still. He is a ceremony; rushing her
+// here would be the one place in the game that punishes.
+const WALTER_HOOK_WINDOW = 4.0;
 
 // He is not available in the first minutes of a trip. Small fish first, so the
 // afternoon has a shape before he turns up.
@@ -77,8 +82,9 @@ export class Trip {
     this.hookTimer = 0;
     this.pending = null;      // the fish currently on, or about to be
 
-    // Fight state
-    this.tension = 0;         // 0..1 — the bar that fills AND changes width
+    // Fight state. `strain` is how hard the rod is loaded — it drives the rod
+    // bend and the drag whine, and NOTHING ELSE. It cannot lose a fish.
+    this.strain = 0;
     this.distance = 1;        // 1 = far out, 0 = landed
     this.reeling = false;
 
@@ -167,9 +173,10 @@ export class Trip {
     sfx.sfxHookSet();
     sfx.dragStart();
     this.setState(STATE.FIGHT);
-    this.tension = this.walterOn ? 0.40 : 0.25;
+    this.strain = this.walterOn ? 0.40 : 0.25;
     this.distance = 1;
     this.fightTime = 0;
+    if (!this.walterOn) this.fightLength = SMALL_FIGHT_SECONDS + this.pending.lb * 0.35;
     this.revealed = false;
     if (this.walterOn) this.hooks.onSay?.(this.say.walterFight());
     return 'hooked';
@@ -377,29 +384,28 @@ export class Trip {
 
     if (f.walter) return this.updateWalterFight(dt);
 
-    // The fish surges on its own rhythm. Reeling closes distance but loads the
-    // line; giving line bleeds tension off.
+    // HOLD THE BAR AND HE COMES IN. That is the whole mechanic.
+    //
+    // This used to be a tension-management game: reeling loaded the line, and
+    // holding too long threw the hook. It read as a fail state no matter what
+    // the message said, and for the player this is built for it made the fish
+    // feel impossible rather than difficult. The design bible already says
+    // there is no way to lose; this now actually means it.
+    //
+    // The line never breaks. Letting go simply pauses her — it costs nothing
+    // and takes nothing back.
     const surge = (Math.sin(this.stateTime * 2.1) * 0.5 + 0.5) * f.strength;
 
     if (this.reeling) {
-      this.distance -= dt * (0.34 - f.strength * 0.16);
-      this.tension += dt * (0.34 + surge * 0.72);
+      this.distance -= dt / this.fightLength;
+      this.strain += (0.35 + surge * 0.55 - this.strain) * dt * 2.2;
     } else {
-      this.tension -= dt * 0.62;
-      this.distance += dt * surge * 0.045;
+      this.strain += (0.12 - this.strain) * dt * 2.2;
     }
 
-    this.tension = THREE.MathUtils.clamp(this.tension, 0, 1.25);
+    this.strain = THREE.MathUtils.clamp(this.strain, 0, 1);
     this.distance = THREE.MathUtils.clamp(this.distance, 0, 1);
-    sfx.dragSet(Math.min(1, this.tension));
-
-    if (this.tension >= 1.0) {
-      // Over-tension for long enough and he throws the hook. Never a failure.
-      this.overTime = (this.overTime ?? 0) + dt;
-      if (this.overTime > 1.3) return this.loseFish();
-    } else {
-      this.overTime = 0;
-    }
+    sfx.dragSet(this.strain);
 
     if (this.distance <= 0) this.landFish();
   }
@@ -419,41 +425,26 @@ export class Trip {
     this.walterProfile = walterFightProfile(this.pending.form, this.fightTime, this.walterSeed);
     const pull = this.walterProfile.pull;
 
-    // Distance is paced to the form's fight length rather than to raw reeling,
-    // so the ceremony runs as long as it should whatever she does with the bar.
+    // Same rule as everything else: hold the bar and he comes in, at a steady
+    // rate, with nothing that can take it away.
     //
-    // The 0.55 is the point. Sizing this for CONTINUOUS reeling is wrong: the
-    // tension bar means she can only hold the bar down roughly half to two
-    // thirds of the time, so a rate tuned to continuous reeling stretches a
-    // 52-second fight past two minutes and the ceremony turns into a chore.
-    // Tuned instead, per form, so that the share of the fight the bar actually
-    // lets her spend reeling lands inside the thirty-to-sixty-second window.
-    // See walterPace() — the red needed a different number from the trout.
-    const gain = 1 / (this.fightLength * walterPace(this.pending.form));
-
+    // He used to STALL at high tension — distance actually ran backwards. He
+    // could never technically be lost, but a bar that went red while the fish
+    // went further away is indistinguishable from losing, and that is what
+    // made him feel uncatchable. Gone. He now closes at exactly 1/fightLength
+    // per second of reeling, so the fight is as long as it says it is.
     if (this.reeling) {
-      this.distance -= dt * gain * (1.25 - pull * 0.30);
-      this.tension += dt * (0.30 + pull * 0.80);
+      this.distance -= dt / this.fightLength;
+      this.strain += (0.30 + pull * 0.60 - this.strain) * dt * 2.0;
     } else {
-      this.tension -= dt * 0.58;
-      // He takes a little back when she gives line, but nowhere near enough to
-      // stall her — there is no way to lose Walter to bad play.
-      this.distance += dt * gain * pull * 0.20;
+      this.strain += (0.15 - this.strain) * dt * 2.0;
     }
 
-    this.tension = THREE.MathUtils.clamp(this.tension, 0, 1.25);
+    this.strain = THREE.MathUtils.clamp(this.strain, 0, 1);
     this.distance = THREE.MathUtils.clamp(this.distance, 0, 1);
-    sfx.dragSet(Math.min(1, this.tension));
+    sfx.dragSet(this.strain);
 
     if (this.walterProfile.jump) sfx.sfxSplash(0.8);
-
-    // He does not throw the hook on over-tension. There is no way to lose
-    // Walter to a mistake — whether he goes was decided at sit-down, and
-    // dressing that up as her error would be a lie about the trip table.
-    // Over-tension just stalls her.
-    if (this.tension >= 1.0) {
-      this.distance = Math.min(1, this.distance + dt * 0.05);
-    }
 
     if (this.distance <= 0.02 && !this.revealed) {
       this.revealed = true;
@@ -510,23 +501,11 @@ export class Trip {
     setTimeout(() => sfx.setAmbience({ hushed: false }), 3000);
   }
 
-  loseFish() {
-    sfx.dragStop();
-    sfx.sfxGotOff();
-    sfx.sfxSplash(0.7);
-    this.overTime = 0;
-    this.pending = null;
-    this.hooks.onLost?.();
-    this.hooks.onSay?.(this.say.gotOff());
-    this.setState(STATE.IDLE);
-  }
-
   landFish() {
     sfx.dragStop();
     sfx.sfxSplash(Math.min(1.4, 0.6 + this.pending.lb / 8));
     const fish = this.pending;
     this.pending = null;
-    this.overTime = 0;
 
     if (fish.walter) {
       // Two Walter slots, not one. She can have landed one, both, or neither,
@@ -622,7 +601,7 @@ export class Trip {
     this.pending = null;
     this.lastCatch = null;
     this.caught = [];
-    this.tension = 0;
+    this.strain = 0;
     this.distance = 1;
     this.reeling = false;
     this.hintShown = false;

@@ -32,7 +32,6 @@ export const WALTER_FORMS = {
     // Long and lean. Silver-green flank, hard black speckles, yellow inside
     // the mouth.
     fight: 'shallow',
-    pace: 0.40,
   },
   red: {
     key: 'red',
@@ -43,7 +42,6 @@ export const WALTER_FORMS = {
     length: 1.35,
     // Deep-bodied and heavy. Copper-bronze, one black spot at the tail.
     fight: 'deep',
-    pace: 0.33,
   },
 };
 
@@ -148,21 +146,20 @@ export function walterFightProfile(formKey, t, seed = 0) {
   };
 }
 
-/** The fight runs thirty to sixty seconds, against five for everything else. */
-export function walterFightSeconds(formKey) {
-  return formKey === 'red' ? 50 : 34;
-}
-
 /**
- * How much of the fight she can actually spend reeling, which is what turns a
- * target duration into a distance rate.
+ * How long he takes to bring in, holding the bar.
  *
- * This is calibrated, not guessed. The red's higher sustained pull means she
- * spends far more of his fight off the bar bleeding tension, so the same rate
- * that gives the trout a 47-second fight gave the red an 84-second one — well
- * outside the thirty-to-sixty window the design asks for. Measured with
- * tools/waltertest.mjs and tuned per form.
+ * DELIBERATE DEVIATION FROM 11_BANK_WALTER_v2.md §3, which asks for thirty to
+ * sixty seconds against five for everything else. Played on a phone that was
+ * far too much fuss — a full minute of holding a button with a bar going red
+ * at you, for the player this game is actually built for. Cut to about
+ * eighteen seconds for the red and fourteen for the trout: still several times
+ * any other fish, still long enough to feel like an event and to carry the
+ * "which form is it" suspicion, but no longer an endurance test.
+ *
+ * Reeling is continuous now, so this is the real duration, not a target that
+ * a tension mechanic then stretches.
  */
-export function walterPace(formKey) {
-  return WALTER_FORMS[formKey].pace;
+export function walterFightSeconds(formKey) {
+  return formKey === 'red' ? 18 : 14;
 }

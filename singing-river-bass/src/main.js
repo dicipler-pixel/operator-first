@@ -297,6 +297,11 @@ function refreshBest() {
 }
 
 function onStateChange(s) {
+  // A fish is on: hide anything that is not part of landing it.
+  const busy = s === STATE.FIGHT || s === STATE.BITE || s === STATE.WALTER_TAKE ||
+               s === STATE.WALTER_REVEAL || s === STATE.RELEASE;
+  ui.classList.toggle('busy', busy);
+
   switch (s) {
     case STATE.CASTING:
       hud.setPrompt('');
@@ -329,7 +334,7 @@ function onStateChange(s) {
       if (!board.active) showBoard(null);
       break;
     case STATE.FIGHT:
-      hud.setPrompt('HOLD TO REEL — LET GO TO GIVE LINE');
+      hud.setPrompt('HOLD THE BAR. HE COMES IN.');
       hud.showTension(true);
       hud.setReelEnabled(true);
       if (!trip.walterOn) spawnHookedFish();
@@ -489,7 +494,7 @@ pipeline.start((dt, elapsed) => {
     const resolved = (trip.state === STATE.FIGHT && trip.reeling) ? 'reel' : want;
     if (resolved !== animState) { animState = resolved; animTime = 0; }
     animTime += dt;
-    animateNana(nana, animState, animTime, elapsed, Math.min(1, trip.tension));
+    animateNana(nana, animState, animTime, elapsed, trip.strain);
 
     // Cooler lid opens while she is reaching in.
     const lidOpen = trip.state === STATE.COOLER ? Math.min(1, trip.stateTime / 0.5) : 0;
@@ -501,10 +506,8 @@ pipeline.start((dt, elapsed) => {
     }
 
     // ---- tension bar --------------------------------------------------
-    if (trip.state === STATE.FIGHT) {
-      hud.setTension(trip.tension);
-      if (trip.tension >= 1.0) hud.flash('over');
-    }
+    // Progress, not tension. Nothing here can go wrong, so nothing here flashes.
+    if (trip.state === STATE.FIGHT) hud.setProgress(1 - trip.distance);
 
     // ---- Walter: the hush, the shadow, the reveal ---------------------
     // The water goes still and the light shifts a little. Both are slow enough
@@ -584,7 +587,7 @@ pipeline.start((dt, elapsed) => {
       const wobble = Math.sin(elapsed * 1.6) * (0.6 + trip.distance);
       hookedFish.position.set(SEAT.x + wobble, -0.10 - trip.distance * 0.25, SEAT.z - reach);
       hookedFish.lookAt(SEAT.x, 0, SEAT.z);
-      animateFish(hookedFish, elapsed, 0.5 + trip.tension);
+      animateFish(hookedFish, elapsed, 0.5 + trip.strain);
       bobber.position.set(hookedFish.position.x, 0.02, hookedFish.position.z + 0.3);
       bobber.visible = true;
     } else if (bobber.visible) {

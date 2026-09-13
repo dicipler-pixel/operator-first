@@ -76,7 +76,7 @@ async function run(branch, form, label) {
     const s = await page.evaluate(() => {
       const t = window.__srb.trip;
       return {
-        state: t.state, tension: t.tension, distance: t.distance,
+        state: t.state, strain: t.strain, distance: t.distance,
         colour: !!window.__srb.scene.children.find((o) => o.name?.startsWith('fish_') && o !== null),
       };
     });
@@ -87,7 +87,8 @@ async function run(branch, form, label) {
       if (SHOTS) await page.screenshot({ path: join(DOCS, `walter-${label}-2-reveal.png`) });
     }
     if (s.state !== 'fight' && s.state !== 'walterReveal') break;
-    await page.evaluate((on) => window.__srb.trip.setReeling(on), s.tension < 0.78);
+    // Hold the bar and never let go — the whole mechanic now.
+    await page.evaluate(() => window.__srb.trip.setReeling(true));
     await page.waitForTimeout(55);
   }
   const fightSecs = (Date.now() - t0) / 1000;

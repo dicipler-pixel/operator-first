@@ -67,16 +67,23 @@ export class Hud {
   showTension(on) { this.el.tensionWrap.classList.toggle('on', !!on); }
 
   /**
-   * Fill AND width, not just colour. Someone with a red-green deficiency —
-   * roughly one man in twelve — reads this from the geometry alone.
+   * HOW CLOSE HE IS, not how close the line is to breaking.
+   *
+   * This bar used to show line tension, filling toward a red "EASE OFF!" that
+   * meant the fish was about to be lost. Nothing else on screen said "you are
+   * failing" and that did, every few seconds, for the whole fight. Now it
+   * fills the other way: it is pure progress, it only ever goes up while she
+   * reels, and there is nothing to be punished by.
+   *
+   * Still fill AND width, never colour alone — someone with a red-green
+   * deficiency, roughly one man in twelve, reads this from the geometry.
    */
-  setTension(t) {
-    const pct = Math.min(100, t * 100);
+  setProgress(p) {
+    const pct = Math.max(0, Math.min(100, p * 100));
     this.el.tensionBar.style.width = `${pct}%`;
-    this.el.tensionBar.classList.toggle('high', t > 0.72);
-    this.el.tensionBar.classList.toggle('over', t >= 1.0);
+    this.el.tensionBar.classList.toggle('close', p > 0.72);
     this.el.tensionLabel.textContent =
-      t >= 1.0 ? 'EASE OFF!' : t > 0.72 ? 'TIGHT' : 'LINE';
+      p >= 0.98 ? 'HERE HE COMES!' : p > 0.72 ? 'ALMOST THERE' : 'REELING HIM IN';
   }
 
   setReelActive(on) { this.el.reel.classList.toggle('down', !!on); }

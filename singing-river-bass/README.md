@@ -21,7 +21,12 @@ npm run waltertest   # drives all three Walter branches end to end
 ```
 
 **Playing it.** Tap the water to cast. Tap anywhere to set the hook when the rod
-bends. Hold the bar to reel, let go to give line. Tap the cooler if you want one.
+bends. Then hold the bar — he comes in. Tap the cooler if you want one.
+
+**The line never breaks and no fish is ever lost once hooked.** Holding the bar
+is the whole fight: about five seconds for a small one, fourteen to eighteen for
+Walter. Letting go pauses her and costs nothing. The bar under the reel shows
+how close he is, not how close the line is to breaking.
 Tap **RECORDS** in the top bar for the board, and **PACK UP & SIT BACK DOWN**
 there to start a new afternoon — that re-rolls Walter. Records survive.
 
@@ -36,8 +41,8 @@ he shows and goes, 25% no big one. A trip that rolled no big one stays that way
 until she packs up and sits back down, so that button is how you get another
 roll. He turns up as a gator speckled trout at
 exactly 8.40 lb or a bull redfish at exactly 34.80 lb, and those numbers never
-move. The fight runs 30-60 seconds against 5 for everything else, he stays a
-shadow under the surface until the reveal, and she always puts him back.
+move. He stays a shadow under the surface until the reveal, and she always puts him
+back.
 
 The Stage 1 water test is kept at `/watertest.html`: it cycles the four map
 presets every 6 seconds. Tap left/right to change water, `A` auto-cycle,
