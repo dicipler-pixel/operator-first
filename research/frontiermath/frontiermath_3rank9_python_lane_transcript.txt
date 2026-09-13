@@ -1,0 +1,32 @@
+== F3 witness layer ==
+   3^9 sweep on an independent set: order 19683 / 19683 checked, independent=True
+   3^9 sweep on a dependent set:    order 6561, relation (1, 1, 0, 0, 0, 0, 0, 0, 2)
+   g inside  span: increment 0, separating chi None
+   g outside span: increment 1, separating chi (0, 0, 0, 0, 0, 0, 0, 0, 1), re-check {'chi_kills_W': True, 'chi_of_g': 1, 'old_span_rank': 8, 'augmented_rank': 9}
+
+== Control C0: Delta = -23 ==
+   form (2,1,3) discriminant -23; reduced=True; order 3
+   h = 3, exponent 3, order profile {1: 1, 3: 2}
+   |Cl[3]| = 3, 3-rank = 1  (expected 1)
+
+== Control C1: Delta = -3321607 ==
+   h = 567, exponent 63
+   order profile {1: 1, 3: 26, 7: 6, 9: 54, 21: 156, 63: 324}
+   |Cl[3]| = 27, 3-rank = 3  (expected 3)
+   invariant factors [63,3,3] confirmed: True (h=567=7*3^4, 3-rank 3 forces 3-part Z/9 x Z/3 x Z/3, exponent 63)
+
+== Stated constants of the Elkies boundaries ==
+   R16: -3D == stated field discriminant: True; disc mod 4 = 1
+   R17: b == 27m: True; m == f1*f2: True; real radicand == 3m: True
+   R17: m mod 4 = 3 so -m mod 4 = 1; 3 divides m: False
+   R17: m is a product of two distinct primes, hence provably squarefree, so -m is a fundamental discriminant and 3m is squarefree.
+   R17: allocation 17 = 7+8+2: True
+
+== Result ==
+   No rank-9 input exists in this package, so no certificate was written.
+   Highest 3-rank on record here is 8 (Elkies rank-16 and rank-17 boundaries).
+
+   ledger: frontiermath_3rank9_python_lane.jsonl (5 rows)
+Ran 13 tests in 0.963s
+
+OK
