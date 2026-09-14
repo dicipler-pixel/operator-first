@@ -1,0 +1,30 @@
+name: Collatz collapse cylinder law
+
+on:
+  pull_request:
+    paths:
+      - "CollatzBarrier.lean"
+      - "CollatzAlignment.lean"
+      - "CollatzCollapseCylinder.lean"
+      - "lakefile.toml"
+      - "lean-toolchain"
+      - ".github/workflows/collatz-collapse-cylinder.yml"
+  workflow_dispatch:
+
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          build-args: CollatzCollapseCylinder
+      - name: Direct source check
+        run: lake env lean CollatzCollapseCylinder.lean
+      - name: Independent kernel replay
+        run: lake env leanchecker .lake/build/lib/lean/CollatzCollapseCylinder.olean
+      - name: Reject admitted proofs
+        run: |
+          if grep -R -n -E 'sorryAx|Lean\.ofReduceBool' CollatzCollapseCylinder.lean; then
+            exit 1
+          fi
