@@ -74,10 +74,20 @@ RELATIONSHIPS = {
     "candidate-led-to-certificate", "candidate-later-became-useful",
 }
 
+# The ten steps of an Atlas item's life, plus the raw kinds. Additive: no
+# event already written becomes invalid, and the chain reconstruction below
+# walks exactly these in order.
+#
+#   atlas-item -> prediction -> planned-test -> eye-reading (all of them)
+#              -> combined-result -> verification -> relationship
+#              -> evidence (files/commits/certificates) -> recommendation
+#              -> remix (counterfactual)
 KINDS = {
     "input", "state", "action", "eye-reading", "failure", "decision",
     "relationship", "search-transition", "checkpoint", "certificate",
     "import", "note",
+    "atlas-item", "prediction", "planned-test", "combined-result",
+    "verification", "evidence", "recommendation", "remix",
 }
 
 
