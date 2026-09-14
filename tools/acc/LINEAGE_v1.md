@@ -63,8 +63,6 @@ test is worth nothing, so the count of matching test references is shown.
 
 ## 4. Provenance of this file
 
-- repository HEAD at generation: `cfcc9a9`
-- event stream length: 2394 events
 - sources read: `tools/compound-eye/UNIVERSAL_MANIFEST.json`, the frozen instrument tree,
   `tools/acc/MIXER_5_1_IMPORT_VALIDATION.md`, `ledger/events/stream_v1.jsonl`
 - the frozen instrument is READ ONLY here; nothing under `tools/compound-eye/` is written

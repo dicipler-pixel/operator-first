@@ -173,8 +173,10 @@ def build(argv=None):
     w("")
     w("## 4. Provenance of this file")
     w("")
-    w(f"- repository HEAD at generation: `{git('rev-parse','--short','HEAD') or 'unknown'}`")
-    w(f"- event stream length: {sum(1 for _ in open(os.path.join(ROOT,'ledger','events','stream_v1.jsonl'), encoding='utf-8')) if os.path.exists(os.path.join(ROOT,'ledger','events','stream_v1.jsonl')) else 0} events")
+    # Deliberately NO repo HEAD and NO event count here. Both change on every
+    # commit, so embedding them would make --check fail perpetually -- a freshness
+    # gate that can never be satisfied is worse than no gate. The event count is
+    # pinned separately in ledger/events/COUNT_FLOOR, which is its proper home.
     w("- sources read: `tools/compound-eye/UNIVERSAL_MANIFEST.json`, the frozen instrument tree,")
     w("  `tools/acc/MIXER_5_1_IMPORT_VALIDATION.md`, `ledger/events/stream_v1.jsonl`")
     w("- the frozen instrument is READ ONLY here; nothing under `tools/compound-eye/` is written")
