@@ -1,0 +1,537 @@
+<title>Compound Eye Atlas</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ink:#101720; --ink-2:#48596b; --ink-3:#71828f;
+  --ground:#eef1f4; --surface:#ffffff; --surface-2:#e5eaee;
+  --rule:#d3dae1; --rule-2:#b8c3cc;
+  --accent:#1f4fa8; --accent-soft:#dfe8f8;
+  --observed:#1c6b4a; --blocked:#8a5b10; --silent:#6b7480;
+  --void:#9c3226; --failed:#9c3226; --contradicted:#7a2f86; --disabled:#5a6470;
+  --sans:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ink:#e6ecf2; --ink-2:#a4b3c0; --ink-3:#7d8d9b;
+  --ground:#0e1319; --surface:#151c24; --surface-2:#1c242e;
+  --rule:#28323d; --rule-2:#3a4753;
+  --accent:#6b9df0; --accent-soft:#17273f;
+  --observed:#57b686; --blocked:#d0a250; --silent:#8b97a3;
+  --void:#e0806f; --failed:#e0806f; --contradicted:#c48ad0; --disabled:#8b97a3;
+}}
+:root[data-theme="dark"]{
+  --ink:#e6ecf2; --ink-2:#a4b3c0; --ink-3:#7d8d9b;
+  --ground:#0e1319; --surface:#151c24; --surface-2:#1c242e;
+  --rule:#28323d; --rule-2:#3a4753;
+  --accent:#6b9df0; --accent-soft:#17273f;
+  --observed:#57b686; --blocked:#d0a250; --silent:#8b97a3;
+  --void:#e0806f; --failed:#e0806f; --contradicted:#c48ad0; --disabled:#8b97a3;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);
+  font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;text-wrap:balance;font-weight:600;letter-spacing:-.01em}
+h1{font-size:1.32rem}h2{font-size:1.05rem}h3{font-size:.92rem}
+p{margin:0 0 .7em}
+button{font:inherit;color:inherit}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+.shell{display:grid;grid-template-columns:1fr;min-height:100vh}
+@media(min-width:900px){.shell{grid-template-columns:228px 1fr}}
+
+/* rail */
+.rail{background:var(--surface);border-bottom:1px solid var(--rule);
+  padding:16px;display:flex;flex-direction:column;gap:2px}
+@media(min-width:900px){.rail{border-bottom:none;border-right:1px solid var(--rule);
+  height:100vh;position:sticky;top:0;overflow-y:auto}}
+.brand{margin-bottom:14px}
+.brand .t{font-weight:700;letter-spacing:-.02em;font-size:1.02rem}
+.brand .s{font-family:var(--mono);font-size:.66rem;color:var(--ink-3);
+  letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+.ctrls{display:flex;gap:2px;overflow-x:auto;padding-bottom:4px}
+@media(min-width:900px){.ctrls{flex-direction:column;overflow:visible}}
+.ctrl{display:flex;align-items:baseline;gap:9px;background:none;border:none;
+  border-radius:3px;padding:7px 9px;cursor:pointer;text-align:left;
+  white-space:nowrap;color:var(--ink-2);font-size:.86rem}
+.ctrl:hover{background:var(--surface-2);color:var(--ink)}
+.ctrl[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.ctrl .n{font-family:var(--mono);font-size:.64rem;color:var(--ink-3);min-width:14px}
+.ctrl[aria-current="true"] .n{color:var(--accent)}
+.ctrl:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+
+/* main */
+.main{padding:22px 18px 60px;min-width:0}
+@media(min-width:900px){.main{padding:28px 30px 70px}}
+.head{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:baseline;
+  padding-bottom:14px;border-bottom:1px solid var(--rule);margin-bottom:20px}
+.head .sub{font-family:var(--mono);font-size:.7rem;color:var(--ink-3);letter-spacing:.05em}
+
+/* stat strip — not cards; a rule-separated row */
+.stats{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--rule);
+  background:var(--surface);margin-bottom:22px}
+.stat{padding:11px 16px;border-right:1px solid var(--rule);flex:1 1 108px;min-width:0}
+.stat:last-child{border-right:none}
+.stat .v{font-family:var(--mono);font-size:1.22rem;font-weight:600;
+  font-variant-numeric:tabular-nums;line-height:1.15}
+.stat .k{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);margin-top:2px}
+
+/* items */
+.items{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:1150px){.items{grid-template-columns:1fr 1fr}}
+.item{background:var(--surface);border:1px solid var(--rule);padding:15px 17px;
+  cursor:pointer;text-align:left;width:100%;display:block}
+.item:hover{border-color:var(--rule-2)}
+.item:focus-visible{outline:2px solid var(--accent);outline-offset:-1px}
+.item .id{font-family:var(--mono);font-size:.68rem;color:var(--accent);
+  letter-spacing:.02em;word-break:break-all}
+.item .ti{font-weight:600;margin:5px 0 6px;font-size:.98rem}
+.item .cr{font-size:.76rem;color:var(--ink-3)}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.chip{font-family:var(--mono);font-size:.64rem;padding:2px 6px;
+  border:1px solid var(--rule-2);color:var(--ink-2);white-space:nowrap}
+
+/* the chain: a mono seq gutter down the left */
+.chain{display:grid;gap:0}
+.step{display:grid;grid-template-columns:58px 1fr;border-top:1px solid var(--rule)}
+.step:last-child{border-bottom:1px solid var(--rule)}
+.gut{font-family:var(--mono);font-size:.64rem;color:var(--ink-3);
+  padding:13px 8px 13px 0;text-align:right;border-right:1px solid var(--rule);
+  background:var(--surface-2);line-height:1.7}
+.body{padding:13px 0 13px 15px;background:var(--surface);min-width:0}
+.step h3{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:8px;font-weight:600}
+.row{padding:6px 0;border-top:1px dotted var(--rule)}
+.row:first-of-type{border-top:none}
+.row .m{font-size:.78rem;color:var(--ink-2);margin-top:2px}
+.row .m.code{font-family:var(--mono);font-size:.72rem;word-break:break-word}
+
+.pill{display:inline-block;font-family:var(--mono);font-size:.62rem;
+  padding:1px 6px;border:1px solid currentColor;margin-right:6px;
+  text-transform:uppercase;letter-spacing:.05em}
+.p-observed{color:var(--observed)}.p-blocked{color:var(--blocked)}
+.p-silent{color:var(--silent)}.p-failed{color:var(--failed)}
+.p-contradicted{color:var(--contradicted)}.p-disabled{color:var(--disabled)}
+.void{border-left:3px solid var(--void);padding-left:11px;color:var(--void);
+  font-size:.8rem;margin-top:7px}
+.label{display:inline-block;font-family:var(--mono);font-size:.62rem;
+  background:var(--accent-soft);color:var(--accent);padding:2px 7px;
+  letter-spacing:.05em;margin-bottom:6px}
+
+input,textarea,select{font:inherit;background:var(--surface);color:var(--ink);
+  border:1px solid var(--rule-2);padding:8px 10px;width:100%;border-radius:0}
+input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:-1px}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:.68rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
+.go{background:var(--accent);color:#fff;border:none;padding:9px 18px;
+  cursor:pointer;font-weight:600;font-size:.88rem}
+.go:hover{filter:brightness(1.08)}
+.go:disabled{opacity:.5;cursor:default}
+:root[data-theme="dark"] .go,
+:root:not([data-theme="light"]) .go{color:#0e1319}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .go{color:#fff}}
+.note{font-size:.79rem;color:var(--ink-3);margin-top:9px}
+.warn{border:1px solid var(--blocked);color:var(--blocked);padding:10px 13px;
+  font-size:.82rem;margin-bottom:14px;background:var(--surface)}
+.res{background:var(--surface);border:1px solid var(--rule);padding:14px 16px;margin-top:14px}
+.hit{padding:7px 0;border-top:1px dotted var(--rule);font-size:.82rem}
+.hit:first-child{border-top:none}
+.hit .r{font-family:var(--mono);font-size:.73rem;color:var(--accent);word-break:break-all}
+.tw{overflow-x:auto}
+.prose{max-width:66ch}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="shell">
+<nav class="rail">
+  <div class="brand">
+    <div class="t">Compound Eye Atlas</div>
+    <div class="s" id="brandsub">loading ledger…</div>
+  </div>
+  <div class="ctrls" id="ctrls"></div>
+</nav>
+<main class="main" id="main"></main>
+</div>
+
+<script>
+const CONTROLS = [
+  ["home","Home"],["open","Open Atlas Item"],["record","Record Move"],
+  ["start","Start Mixer Run"],["replay","Replay Run"],["remix","Remix Eyes"],
+  ["prior","Find Prior Work"],["compare","Compare Prediction"],
+  ["next","Ask What Comes Next"],["attach","Attach Evidence"],["verify","Verify / Certify"]
+];
+let L=null, view="home", current=null, db=null, sample=null;
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function rail(){
+  $("#ctrls").innerHTML = CONTROLS.map((c,i)=>
+    `<button class="ctrl" data-v="${c[0]}" aria-current="${view===c[0]}">
+       <span class="n">${String(i).padStart(2,"0")}</span><span>${c[1]}</span></button>`).join("");
+  $("#ctrls").querySelectorAll(".ctrl").forEach(b=>
+    b.onclick=()=>{view=b.dataset.v;render()});
+}
+function head(t,s){return `<div class="head"><h1>${t}</h1><span class="sub">${s}</span></div>`}
+
+function homeView(){
+  const items=Object.entries(L.items);
+  const es=L.eye_states||{};
+  return head("Atlas","ledger/events/stream_v1.jsonl · hash-chained · append-only")
+  +`<div class="stats">
+    <div class="stat"><div class="v">${L.total_events.toLocaleString()}</div><div class="k">events</div></div>
+    <div class="stat"><div class="v">${items.length}</div><div class="k">atlas items</div></div>
+    <div class="stat"><div class="v">${(es.observed||0)}</div><div class="k">observed</div></div>
+    <div class="stat"><div class="v">${(es.blocked||0)+(es.silent||0)}</div><div class="k">blocked / silent</div></div>
+    <div class="stat"><div class="v">${L.relationships.length}</div><div class="k">relationships</div></div>
+    <div class="stat"><div class="v">${L.index.length}</div><div class="k">indexed refs</div></div>
+  </div>
+  <h2 style="margin-bottom:10px">Items</h2>
+  <div class="items">`+items.map(([id,it])=>{
+    const c=it.counts;
+    return `<button class="item" data-id="${esc(id)}">
+      <div class="id">${esc(id)}</div>
+      <div class="ti">${esc(it.head.title||"")}</div>
+      <div class="cr">${esc(it.head.attribution||"")}</div>
+      <div class="chips">
+        <span class="chip">${c["eye-reading"]} eye filings</span>
+        <span class="chip">${c["prediction"]} predictions</span>
+        <span class="chip">${c["verification"]} verified</span>
+        <span class="chip">${c["relationship"]} links</span>
+        <span class="chip">${c["evidence"]} artifacts</span>
+      </div></button>`}).join("")
+  +`</div>
+  <h2 style="margin:26px 0 10px">Failures kept</h2>
+  <div class="res">`+L.failures.map(f=>
+    `<div class="hit"><div class="r">${esc(f.component)}</div>
+     <div>${esc(f.defect)}</div>
+     <div class="m" style="font-size:.78rem;color:var(--ink-3)">caught by ${esc(f.caught_by)}</div></div>`).join("")
+  +`</div>`;
+}
+
+function stepRows(evs,kinds,title,fmt){
+  const rows=evs.filter(e=>kinds.includes(e.kind));
+  if(!rows.length) return `<div class="step"><div class="gut">—</div><div class="body">
+    <h3>${title}</h3><div class="m">none recorded</div></div></div>`;
+  return `<div class="step">
+    <div class="gut">${rows.map(r=>r.seq).join("<br>")}</div>
+    <div class="body"><h3>${title}</h3>${rows.map(fmt).join("")}</div></div>`;
+}
+
+function itemView(id){
+  const it=L.items[id]; if(!it) return head("Not found",id);
+  const e=it.events;
+  const eyes=e.filter(x=>x.kind==="eye-reading");
+  let out=head(esc(it.head.title||id),`${e.length} events · reconstructed from the ledger`);
+  out+=`<p class="prose" style="color:var(--ink-2);font-size:.86rem">
+    <span class="mono" style="color:var(--accent)">${esc(id)}</span><br>
+    ${esc(it.head.statement||"")}</p>
+    <p class="prose" style="font-size:.8rem;color:var(--ink-3)">Credit: ${esc(it.head.attribution||"—")}</p>
+    <div class="chain">`;
+  out+=stepRows(e,["prediction"],"Prediction",r=>{
+    const b=r.body; if(b.superseded_by) return "";
+    return `<div class="row"><span class="label">${esc(b.label||"PREDICTION")}</span>
+      <div>${esc(b.statement)}</div>
+      <div class="m">tested by ${esc(b.tested_by||"— not recorded, so not scored")}</div></div>`});
+  out+=stepRows(e,["planned-test"],"Planned test",r=>
+    `<div class="row"><div>${esc(r.body.method)}</div>
+     <div class="m">decides: ${esc(r.body.decides)}</div></div>`);
+  out+=`<div class="step"><div class="gut">${eyes.map(r=>r.seq).join("<br>")||"—"}</div>
+    <div class="body"><h3>All-eye observations — ${eyes.length} filings</h3>`
+    +(eyes.length?eyes.map(r=>{const b=r.body;
+      return `<div class="row"><span class="pill p-${b.state}">${b.state}</span>
+        <span class="mono" style="font-size:.78rem">${esc(b.eye_id)}</span>
+        <div class="m ${b.output?"code":""}">${esc(b.output?JSON.stringify(b.output):b.reason||"")}</div></div>`
+    }).join(""):`<div class="m">none recorded</div>`)+`</div></div>`;
+  out+=stepRows(e,["combined-result"],"Combined result",r=>{const b=r.body;
+    return `<div class="row"><div style="font-weight:600">${esc(b.outcome)}</div>
+      <div class="m">scope: ${esc(b.scope)}</div>
+      ${b.void_because?`<div class="void"><strong>VOID:</strong> ${esc(b.void_because)}</div>`:""}</div>`});
+  out+=stepRows(e,["verification"],"Verification (independent)",r=>
+    `<div class="row"><div><strong>${esc(r.body.result)}</strong> — ${esc(r.body.check)}</div>
+     <div class="m">by ${esc(r.body.by)}. ${esc(r.body.detail||"")}</div></div>`);
+  out+=stepRows(e,["relationship"],"Relationships",r=>{const b=r.body;
+    return `<div class="row"><div class="m code">${esc(b.source)} —${esc(b.relation)}→ ${esc(b.target)}</div>
+      <div class="m">${esc(b.evidence||"")}</div></div>`});
+  out+=stepRows(e,["evidence"],"Files, commits, certificates",r=>
+    `<div class="row"><div class="m code">${esc(r.body.kind)}: ${esc(r.body.ref)}</div>
+     <div class="m">${esc(r.body.note||"")}</div></div>`);
+  out+=stepRows(e,["recommendation"],"Next",r=>
+    `<div class="row"><span class="label">${esc(r.body.label||"PREDICTION")}</span>
+     <div>${esc(r.body.statement)}</div>
+     <div class="m">cites: ${esc(r.body.cites||"")}</div></div>`);
+  out+=stepRows(e,["remix"],"Counterfactual remixes",r=>
+    `<div class="row"><div>dropped ${esc(JSON.stringify(r.body.dropped))} → ${esc(r.body.outcome)}</div>
+     <div class="m">${esc(r.body.note||"")}</div></div>`);
+  return out+`</div>`;
+}
+
+function picker(id,label){
+  return `<div class="field"><label for="${id}">${label}</label>
+    <select id="${id}">${Object.keys(L.items).map(k=>
+      `<option value="${esc(k)}"${k===current?" selected":""}>${esc(k)}</option>`).join("")}</select></div>`;
+}
+
+function priorView(){
+  return head("Find prior work",`${L.index.length} indexed refs · commits, files, Lean certificates, Drive, GitHub`)
+  +`<div class="warn">This searches what has been <em>indexed into the ledger</em>. An entry marked
+    <span class="mono">listing-only</span> means the file was seen in a listing and not opened — it is a
+    pointer, not a reading.</div>
+   <div class="field"><label for="q">Search</label><input id="q" placeholder="conjugation, Collatz, LC-0, sofic, rank-9…"></div>
+   <div id="hits"></div>`;
+}
+function runSearch(){
+  const q=$("#q").value.trim().toLowerCase();
+  if(!q){$("#hits").innerHTML="";return}
+  const hits=L.index.filter(r=>JSON.stringify(r).toLowerCase().includes(q));
+  const chain=[];
+  for(const [id,it] of Object.entries(L.items))
+    for(const ev of it.events)
+      if(JSON.stringify(ev.body).toLowerCase().includes(q)) chain.push([id,ev]);
+  $("#hits").innerHTML=`<div class="res">
+    <div style="font-size:.8rem;color:var(--ink-3);margin-bottom:8px">
+      ${hits.length} indexed ref(s) · ${chain.length} chain event(s)</div>`
+    +(chain.length?`<div class="warn" style="margin:8px 0">Prior work exists in ${new Set(chain.map(c=>c[0])).size} Atlas item(s). Check before repeating it.</div>`:"")
+    +hits.slice(0,40).map(r=>`<div class="hit">
+      <div class="r">${esc(r.ref)}</div>
+      <div>${esc(r.title||"")}</div>
+      <div style="font-size:.72rem;color:var(--ink-3)">
+        ${esc(r.kind)}${r.status?" · "+esc(r.status):""} · seen: ${esc(r.seen||"—")} · ${esc(r.source||"")}</div>
+    </div>`).join("")
+    +chain.slice(0,14).map(([id,ev])=>`<div class="hit">
+      <div class="r">seq ${ev.seq} · ${esc(id)}</div>
+      <div>${esc(ev.kind)}: ${esc((ev.body.statement||ev.body.outcome||ev.body.eye_id||ev.body.relation||ev.body.ref||"")).slice(0,110)}</div>
+    </div>`).join("")
+    +(hits.length>40?`<div class="note">… ${hits.length-40} more indexed refs</div>`:"")+`</div>`;
+}
+
+function compareView(){
+  const id=current||Object.keys(L.items)[0];
+  const it=L.items[id], e=it.events;
+  const eyes={}; e.filter(x=>x.kind==="eye-reading").forEach(x=>eyes[x.body.eye_id]=x);
+  const res=e.filter(x=>x.kind==="combined-result");
+  let out=head("Compare prediction to result",esc(id))+picker("cmpsel","Atlas item")+`<div class="res">`;
+  const preds=e.filter(x=>x.kind==="prediction");
+  for(const p of preds){
+    const b=p.body; let verdict, actual;
+    if(!b.tested_by){verdict="UNLINKED — not scored"; actual="A prediction that does not name its test cannot be scored honestly.";}
+    else if(eyes[b.tested_by]){
+      const o=eyes[b.tested_by].body.output;
+      actual=o?JSON.stringify(o):(eyes[b.tested_by].body.reason||"");
+      if(b.expected_key&&o&&b.expected_key in o)
+        verdict=JSON.stringify(o[b.expected_key])===JSON.stringify(b.expected_value)
+          ?"MATCHED":"DIVERGED (wanted "+JSON.stringify(b.expected_value)+")";
+      else verdict="no machine-comparable expectation";
+    } else if(res.length){actual=res[0].body.outcome; verdict="scored against the combined result";}
+    else {verdict="not yet run"; actual="—";}
+    const col=verdict.startsWith("MATCHED")?"var(--observed)":verdict.startsWith("DIVERGED")?"var(--void)":"var(--ink-3)";
+    out+=`<div class="hit"><div class="r">seq ${p.seq} · by ${esc(b.by||"?")}</div>
+      <div>${esc(b.statement)}</div>
+      <div class="m" style="font-size:.78rem;color:var(--ink-2)">tested by ${esc(b.tested_by||"—")}</div>
+      <div class="m code" style="font-size:.72rem">${esc(String(actual).slice(0,150))}</div>
+      <div style="color:${col};font-weight:600;font-size:.82rem;margin-top:3px">${esc(verdict)}</div></div>`;
+  }
+  return out+`</div>`;
+}
+
+function remixView(){
+  const id=current||Object.keys(L.items)[0];
+  const eyes=L.items[id].events.filter(x=>x.kind==="eye-reading");
+  const ids=[...new Set(eyes.map(x=>x.body.eye_id))];
+  return head("Remix eyes",esc(id))+picker("rmxsel","Atlas item")
+  +`<div class="warn">Dropping an eye changes this view only. Nothing is deleted from the ledger — a remix
+    is a counterfactual, and the dropped filings stay on the record.</div>
+   <div class="field"><label>Drop from the combination</label>
+     ${ids.map(x=>`<label style="display:block;font-size:.85rem;text-transform:none;letter-spacing:0;color:var(--ink)">
+       <input type="checkbox" class="drop" value="${esc(x)}" style="width:auto;margin-right:7px">${esc(x)}</label>`).join("")}
+   </div><div id="rmx"></div>`;
+}
+function runRemix(){
+  const id=current||Object.keys(L.items)[0];
+  const drop=[...document.querySelectorAll(".drop:checked")].map(c=>c.value);
+  const eyes=L.items[id].events.filter(x=>x.kind==="eye-reading");
+  const kept=eyes.filter(x=>!drop.includes(x.body.eye_id));
+  const by={}; kept.forEach(x=>by[x.body.state]=(by[x.body.state]||0)+1);
+  $("#rmx").innerHTML=`<div class="res">
+    <div><strong>${kept.length}</strong> of ${eyes.length} filings remain in the combination.</div>
+    <div class="m" style="margin-top:6px">${Object.entries(by).map(([k,v])=>
+      `<span class="pill p-${k}">${k} ${v}</span>`).join("")||"nothing remains"}</div>
+    <div class="note">${drop.length?`Dropped ${drop.join(", ")}. Still on the record.`:"No eye dropped — this is the baseline combination."}</div></div>`;
+}
+
+function nextView(){
+  const id=current||Object.keys(L.items)[0];
+  const e=L.items[id].events;
+  const rec=e.filter(x=>x.kind==="recommendation");
+  const blocked=e.filter(x=>x.kind==="eye-reading"&&["blocked","silent"].includes(x.body.state));
+  const fails=e.filter(x=>x.kind==="relationship"&&x.body.relation==="failed-to-surface");
+  let out=head("Ask what comes next",esc(id))+picker("nxtsel","Atlas item")
+   +`<div class="warn"><strong>Everything below is a PREDICTION.</strong> Not a theorem, not a verified
+     computation. Each line cites the ledger events behind it.</div><div class="res">`;
+  out+=`<h3 style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)">Already recorded</h3>`;
+  out+=rec.map(r=>`<div class="hit"><div class="r">seq ${r.seq}</div><div>${esc(r.body.statement)}</div>
+    <div class="m">cites: ${esc(r.body.cites||"")}</div></div>`).join("")||`<div class="hit">none</div>`;
+  if(fails.length){out+=`<h3 style="margin-top:14px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)">What already failed to surface it</h3>`
+    +fails.map(r=>`<div class="hit"><div class="r">seq ${r.seq} · ${esc(r.body.source)}</div>
+      <div class="m">${esc(r.body.evidence||"")}</div></div>`).join("")}
+  if(blocked.length){out+=`<h3 style="margin-top:14px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)">What no eye could see, and why</h3>`
+    +blocked.map(r=>`<div class="hit"><span class="pill p-${r.body.state}">${r.body.state}</span>
+      <span class="mono" style="font-size:.76rem">${esc(r.body.eye_id)}</span>
+      <div class="m">${esc(r.body.reason||"")}</div></div>`).join("")}
+  out+=`</div><div id="aiwrap"></div>`;
+  return out;
+}
+
+function recordView(){
+  return head("Record move","appends to the shared store; folded into the repo ledger on the next sync")
+  +picker("recsel","Atlas item")
+  +`<div class="field"><label for="rkind">Kind</label><select id="rkind">
+     <option>action</option><option>note</option><option>prediction</option>
+     <option>failure</option><option>decision</option></select></div>
+   <div class="field"><label for="rtext">What happened</label>
+     <textarea id="rtext" rows="4" placeholder="Exactly what was done or seen. This is the record, not a summary."></textarea></div>
+   <button class="go" id="rgo">Record move</button>
+   <div id="rout" class="note"></div>`;
+}
+function attachView(){
+  return head("Attach evidence","a file, commit, certificate or link, tied to an item")
+  +picker("atsel","Atlas item")
+  +`<div class="field"><label for="akind">Kind</label><select id="akind">
+     <option>file</option><option>commit</option><option>lean-certificate</option>
+     <option>paper</option><option>run-artifact</option><option>link</option></select></div>
+   <div class="field"><label for="aref">Reference</label><input id="aref" placeholder="path, sha, LC-0xx, URL"></div>
+   <div class="field"><label for="anote">What it is</label><input id="anote" placeholder="one line"></div>
+   <button class="go" id="ago">Attach</button><div id="aout" class="note"></div>`;
+}
+function verifyView(){
+  let out=head("Verify / certify","independent checks, kept separate from mixer guidance");
+  out+=`<div class="warn">Verification is not mixing. Nothing on this screen weights, ranks or combines
+    anything — it records what an independent check returned.</div>`;
+  for(const [id,it] of Object.entries(L.items)){
+    const vs=it.events.filter(x=>x.kind==="verification");
+    out+=`<div class="res"><div class="r mono" style="font-size:.72rem;color:var(--accent)">${esc(id)}</div>`
+      +(vs.length?vs.map(v=>`<div class="hit"><div><strong>${esc(v.body.result)}</strong> — ${esc(v.body.check)}</div>
+        <div class="m">by ${esc(v.body.by)}. ${esc(v.body.detail||"")}</div></div>`).join("")
+        :`<div class="hit">no independent verification on record</div>`)+`</div>`;
+  }
+  return out;
+}
+function runsView(which){
+  const t=which==="start"?"Start mixer run":"Replay run";
+  return head(t,"runs are recorded through the frozen mixer core")
+  +`<div class="warn">A run cannot be started or replayed from this page. Runs execute against the frozen
+     <span class="mono">mixer_core.js</span> and the official SAIR verifier, which live in the repository —
+     this screen is the record, not the engine. Recording a run here would claim a computation that never ran.</div>
+   <div class="res"><div style="font-size:.82rem">Run it in the repository:</div>
+     <div class="hit"><div class="r">python3 tools/acc/d2_recorded_v1.py --run --cap 20 --depth 3</div>
+       <div class="m">records every transition and every eye filing</div></div>
+     <div class="hit"><div class="r">node tools/acc/eye_log_v2.js mix &lt;claim_id&gt;</div>
+       <div class="m">set-level combination through the frozen core; replays from its recipe</div></div>
+     <div class="hit"><div class="r">python3 tools/acc/event_log_v1.py --verify</div>
+       <div class="m">hash chain check over the whole stream</div></div>
+   </div>`;
+}
+
+function render(){
+  rail();
+  const m=$("#main");
+  if(view==="home") m.innerHTML=homeView();
+  else if(view==="open") m.innerHTML=picker("opnsel","Atlas item")+itemView(current||Object.keys(L.items)[0]);
+  else if(view==="prior") m.innerHTML=priorView();
+  else if(view==="compare") m.innerHTML=compareView();
+  else if(view==="remix") m.innerHTML=remixView();
+  else if(view==="next") m.innerHTML=nextView();
+  else if(view==="record") m.innerHTML=recordView();
+  else if(view==="attach") m.innerHTML=attachView();
+  else if(view==="verify") m.innerHTML=verifyView();
+  else m.innerHTML=runsView(view);
+  wire();
+}
+function wire(){
+  m_qa(".item",b=>b.onclick=()=>{current=b.dataset.id;view="open";render()});
+  ["opnsel","cmpsel","rmxsel","nxtsel","recsel","atsel"].forEach(id=>{
+    const s=$("#"+id); if(s) s.onchange=()=>{current=s.value;render()};
+  });
+  const q=$("#q"); if(q){q.oninput=runSearch;q.focus()}
+  m_qa(".drop",c=>c.onchange=runRemix); if($("#rmx")) runRemix();
+  const rg=$("#rgo"); if(rg) rg.onclick=recordMove;
+  const ag=$("#ago"); if(ag) ag.onclick=attachEvidence;
+  if(view==="next") mountAI();
+}
+function m_qa(sel,fn){document.querySelectorAll(sel).forEach(fn)}
+
+async function recordMove(){
+  const out=$("#rout"), text=$("#rtext").value.trim();
+  if(!text){out.textContent="Write what happened first — an empty move is not a record.";return}
+  if(!db){out.textContent="The shared store is not available in this view, so nothing was saved. Record it in the repository instead.";return}
+  $("#rgo").disabled=true;
+  const rec={item_id:$("#recsel").value,kind:$("#rkind").value,text,
+             recorded_utc:new Date().toISOString(),source:"atlas screen"};
+  try{
+    await db.doc("moves/"+Date.now()+"-"+Math.random().toString(36).slice(2,8)).set(rec);
+    out.textContent="Recorded. It is in the shared store and will be folded into the repo ledger on the next sync.";
+    $("#rtext").value="";
+  }catch(e){out.textContent="Not saved: "+(e&&e.code||e)+". Nothing was written.";}
+  $("#rgo").disabled=false;
+}
+async function attachEvidence(){
+  const out=$("#aout"), ref=$("#aref").value.trim();
+  if(!ref){out.textContent="A reference is required — an attachment with no reference points at nothing.";return}
+  if(!db){out.textContent="The shared store is not available in this view, so nothing was saved.";return}
+  $("#ago").disabled=true;
+  try{
+    await db.doc("evidence/"+Date.now()+"-"+Math.random().toString(36).slice(2,8)).set({
+      item_id:$("#atsel").value,kind:$("#akind").value,ref,
+      note:$("#anote").value.trim(),seen:"listing-only",
+      recorded_utc:new Date().toISOString(),source:"atlas screen"});
+    out.textContent="Attached, marked seen: listing-only until something opens it.";
+    $("#aref").value="";$("#anote").value="";
+  }catch(e){out.textContent="Not saved: "+(e&&e.code||e);}
+  $("#ago").disabled=false;
+}
+
+function mountAI(){
+  const w=$("#aiwrap"); if(!w||!sample) return;
+  w.innerHTML=`<div style="margin-top:16px"><button class="go" id="aigo">Ask the helper</button>
+    <div class="note">Reads this item's chain only. It must cite seq numbers, and its answer is a prediction.</div>
+    <div id="aiout"></div></div>`;
+  $("#aigo").onclick=async()=>{
+    const id=current||Object.keys(L.items)[0];
+    const o=$("#aiout"); o.innerHTML=`<div class="res">Thinking…</div>`;
+    $("#aigo").disabled=true;
+    const chain=L.items[id].events.map(e=>({seq:e.seq,kind:e.kind,body:e.body}));
+    try{
+      const r=await sample([{role:"user",content:
+`You are reading an append-only research ledger. Below is the complete event chain for one Atlas item.
+
+RULES YOU MUST FOLLOW:
+- Every claim you make cites the seq number(s) it comes from, like (seq 1944).
+- Label the whole answer a PREDICTION. Never say proved, verified, or theorem about your own output.
+- If an eye's reading is marked void_because, say so and do not treat it as evidence.
+- If nothing in the chain supports a suggestion, say you cannot recommend one.
+- Be short: what was tried, what was missed, what to do next.
+
+CHAIN:
+${JSON.stringify(chain).slice(0,60000)}`}],{modelTier:"default",onText:({text})=>{
+        o.innerHTML=`<div class="res"><span class="label">PREDICTION</span>
+          <div style="white-space:pre-wrap;font-size:.87rem">${esc(text)}</div></div>`}});
+      o.innerHTML=`<div class="res"><span class="label">PREDICTION</span>
+        <div style="white-space:pre-wrap;font-size:.87rem">${esc(r.text)}</div></div>`;
+    }catch(e){o.innerHTML=`<div class="res">Could not ask: ${esc(e&&e.code||String(e))}. The ledger sections above are unaffected.</div>`}
+    $("#aigo").disabled=false;
+  };
+}
+
+fetch("ledger.json").then(r=>r.json()).then(j=>{
+  L=j; current=Object.keys(L.items)[0];
+  $("#brandsub").textContent=`${L.total_events.toLocaleString()} events · ${Object.keys(L.items).length} items`;
+  render();
+}).catch(e=>{$("#main").innerHTML=`<div class="warn">Could not load the ledger snapshot: ${esc(String(e))}</div>`});
+
+(async()=>{
+  try{db=await window.claude?.use?.("db")}catch(e){db=null}
+  try{sample=await window.claude?.use?.("sample")}catch(e){sample=null}
+  if(view==="next"&&L) mountAI();
+})();
+</script>
