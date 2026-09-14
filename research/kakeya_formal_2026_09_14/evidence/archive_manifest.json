@@ -1,0 +1,778 @@
+{
+  "archive": "local_verification.tar.xz",
+  "sha256": "a7ed62953678b7b06192ef3f980e1af4b8b50471f9f49c0f5fa7ebf43d215f3c",
+  "bytes": 796164,
+  "uncompressed_file_count": 154,
+  "entries": [
+    {
+      "path": "logs/ENVIRONMENT_SETUP.md",
+      "bytes": 3849,
+      "sha256": "818e10ef4c47533f4642531b7b2d4ac35c2b35d0517ef727afa33bcf62f7e6e7"
+    },
+    {
+      "path": "logs/LEANCHECKER_SCOPE.md",
+      "bytes": 1427,
+      "sha256": "4e109a2a6540e962d4addfae1b7eb54f170790e68f57f88b3d3198ee07eea5df"
+    },
+    {
+      "path": "logs/cache_root_module_lookup.log",
+      "bytes": 134,
+      "sha256": "74a801cbbfd0d1a77cbcc5a26f8ec27f90c8fb4dc7c37877bf1971794316fea8"
+    },
+    {
+      "path": "logs/cache_root_path_lookup.log",
+      "bytes": 66,
+      "sha256": "55d8e1de38e0619a45f9010220179f6843609bce340e19d49fe38096152d5c08"
+    },
+    {
+      "path": "logs/compatibility_sha256.txt",
+      "bytes": 195,
+      "sha256": "7b40d760c240653f275fe0683d60458fc53de9111e58c64250b5d992f40e200c"
+    },
+    {
+      "path": "logs/controls_attempts/002/event.json",
+      "bytes": 435,
+      "sha256": "92001a9e1e0f3b9e8c47d9dce826adb611df5bb909c0d787747ea08cf2ef1075"
+    },
+    {
+      "path": "logs/controls_attempts/002/source.lean",
+      "bytes": 1609,
+      "sha256": "6cef719815d7354dcf35f7cf14031db452816b1e8e68ed9465d210379ada9321"
+    },
+    {
+      "path": "logs/controls_attempts/002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/controls_attempts/002/stdout.log",
+      "bytes": 435,
+      "sha256": "9b355eebbc8aa01a19249257fc8547fef79eef097244fdbdd3e618d69fee4588"
+    },
+    {
+      "path": "logs/controls_attempts/003/event.json",
+      "bytes": 435,
+      "sha256": "8da3c1921cb30fe2cea6171b8d7ac5f2ad9ebb56d2e25691dd0fae2c467803fb"
+    },
+    {
+      "path": "logs/controls_attempts/003/source.lean",
+      "bytes": 1618,
+      "sha256": "c7ff3e17f45c7fa732e0b258dc4615db8bd204a6372671d7c873340289f6ebbd"
+    },
+    {
+      "path": "logs/controls_attempts/003/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/controls_attempts/003/stdout.log",
+      "bytes": 230,
+      "sha256": "f709b7c1a6bcf80bf64698e63db24ce90e333782c6aaa091c3a1e2386c23cd19"
+    },
+    {
+      "path": "logs/controls_compile_attempt_1.log",
+      "bytes": 275,
+      "sha256": "34907a3603a7f69bf339ab7cf96ee0f75729b4f38ef34b57dbeaa09a97e422d5"
+    },
+    {
+      "path": "logs/cut_attempt_runner.py",
+      "bytes": 1419,
+      "sha256": "e45e2ec04a87b4a42f44c45317b8fe54b4790ca958decb2d11e973775f084e0e"
+    },
+    {
+      "path": "logs/cut_attempts/00/KakeyaCutCompletion.lean",
+      "bytes": 10888,
+      "sha256": "58082824adc31c1cc9af0d1629b877c62f51e1474ff74f7bd8d201d472a64790"
+    },
+    {
+      "path": "logs/cut_attempts/00/compiler.log",
+      "bytes": 321,
+      "sha256": "3c03a12973f2ce9309436ed10daeff56eeabbf0fa639d7979896cc20482f4ff8"
+    },
+    {
+      "path": "logs/cut_attempts/00/manifest.json",
+      "bytes": 287,
+      "sha256": "b7dd5b3191949a2293032aaef00c6eb214d5a5178dc07c9c61a56acf1bb69dd1"
+    },
+    {
+      "path": "logs/cut_attempts/01/KakeyaCutCompletion.lean",
+      "bytes": 10888,
+      "sha256": "58082824adc31c1cc9af0d1629b877c62f51e1474ff74f7bd8d201d472a64790"
+    },
+    {
+      "path": "logs/cut_attempts/01/compiler.log",
+      "bytes": 293,
+      "sha256": "28a056eb3fb59153f3a31aafdbf9b363fa98d79c3eaf93f9e6e4b29439d6ac61"
+    },
+    {
+      "path": "logs/cut_attempts/01/manifest.json",
+      "bytes": 287,
+      "sha256": "899a27fef6ac703624e600769f791b0da17d0f19fac6d4d0862de08f1cc0271c"
+    },
+    {
+      "path": "logs/cut_attempts/02/KakeyaCutCompletion.lean",
+      "bytes": 10888,
+      "sha256": "58082824adc31c1cc9af0d1629b877c62f51e1474ff74f7bd8d201d472a64790"
+    },
+    {
+      "path": "logs/cut_attempts/02/compiler.log",
+      "bytes": 304,
+      "sha256": "889ba98265b3247f2e75c5ec35e635fd1e8c29e8bd2dd70526d2e4d91c5bb3b0"
+    },
+    {
+      "path": "logs/cut_attempts/02/manifest.json",
+      "bytes": 426,
+      "sha256": "91da4849d4d6a8a7249e4ed694ede2c09d7aaa3f1896907dbe24501d340534c6"
+    },
+    {
+      "path": "logs/cut_attempts/03/KakeyaCutCompletion.lean",
+      "bytes": 10888,
+      "sha256": "58082824adc31c1cc9af0d1629b877c62f51e1474ff74f7bd8d201d472a64790"
+    },
+    {
+      "path": "logs/cut_attempts/03/compiler.log",
+      "bytes": 2866,
+      "sha256": "2a07e7ba922921680ed38b7455807ddbc65a1a2cd1d0009a98aa64616a7d69e9"
+    },
+    {
+      "path": "logs/cut_attempts/03/manifest.json",
+      "bytes": 581,
+      "sha256": "e1f62828af9a7a251cc0a92a7893681d75255297be7e8a72d3b8cbdeaa6bf539"
+    },
+    {
+      "path": "logs/cut_attempts/04/KakeyaCutCompletion.lean",
+      "bytes": 10928,
+      "sha256": "207f1d98641a7e6ce4e3aa9c693d4a079206a10339b8561fc039fc2e332d2826"
+    },
+    {
+      "path": "logs/cut_attempts/04/compiler.log",
+      "bytes": 1942,
+      "sha256": "e5b644c0c64fa84692e2de71d633c1bf20cdc3834215af000565c8be7e28b44e"
+    },
+    {
+      "path": "logs/cut_attempts/04/manifest.json",
+      "bytes": 581,
+      "sha256": "a10841e4ac0ced139dc7519b26a65d02b2919d6125aaf328dcc4939648e4cbde"
+    },
+    {
+      "path": "logs/cut_attempts/05/KakeyaCutCompletion.lean",
+      "bytes": 10931,
+      "sha256": "727ad20e673466d95a37cd54c9c714f8212f6a2543a8d22f4fb262cce093e895"
+    },
+    {
+      "path": "logs/cut_attempts/05/compiler.log",
+      "bytes": 141,
+      "sha256": "143252809c754a7aa1df00247edeb82cf86decf631f41e15eba352eba303b847"
+    },
+    {
+      "path": "logs/cut_attempts/05/manifest.json",
+      "bytes": 581,
+      "sha256": "86edcbe68e6c4156d78ca07d3b76cb5e896bed4e280861016a3271e9f0a0c2c5"
+    },
+    {
+      "path": "logs/cut_attempts/06/KakeyaCutAssumptionControl.lean",
+      "bytes": 2157,
+      "sha256": "bed80254199591edb1e06914b99cd05ec7147faf3e2f03c05d06d4c370834a06"
+    },
+    {
+      "path": "logs/cut_attempts/06/compiler.log",
+      "bytes": 865,
+      "sha256": "910ba977d220461d42b73dfcd64ab6a8ccc3b7162f247b52d6c0491666718bcc"
+    },
+    {
+      "path": "logs/cut_attempts/06/manifest.json",
+      "bytes": 595,
+      "sha256": "92f22880093972fc25caa74ab2a94821f72c37bfeafc91699640e0dc1e2cb711"
+    },
+    {
+      "path": "logs/cut_attempts/07/KakeyaCutAssumptionControl.lean",
+      "bytes": 2278,
+      "sha256": "d5b0b85730a811e81dd0684aa8502269a48c6018cb71e976c00530338a345806"
+    },
+    {
+      "path": "logs/cut_attempts/07/compiler.log",
+      "bytes": 264,
+      "sha256": "046031076abd4f9ad645f606a4d2ccda6da2ddafc1b9c4cf9fe5f31fbc3f1ef9"
+    },
+    {
+      "path": "logs/cut_attempts/07/manifest.json",
+      "bytes": 595,
+      "sha256": "ba64666a829cc9e725b37abc556248f490f8db52fd24f0817d3dffc7134f727c"
+    },
+    {
+      "path": "logs/cut_build_attempt_01.json",
+      "bytes": 339,
+      "sha256": "0fbd04459631aced292d9955de6fdaef7b96d5928798b035178bf72da94ec837"
+    },
+    {
+      "path": "logs/cut_build_attempt_01.log",
+      "bytes": 304,
+      "sha256": "889ba98265b3247f2e75c5ec35e635fd1e8c29e8bd2dd70526d2e4d91c5bb3b0"
+    },
+    {
+      "path": "logs/denominator_attempts/001_denominators/KakeyaDenominators.lean",
+      "bytes": 9694,
+      "sha256": "57765a4f9e4fa224ba2c2d9778bf12939eea1db6d4658c0099073876c76b4c75"
+    },
+    {
+      "path": "logs/denominator_attempts/001_denominators/attempt.json",
+      "bytes": 486,
+      "sha256": "bec7798bc5b8d9fb264eacf18ec96e0d2123cb5888a562d7ed9564dd76185ce6"
+    },
+    {
+      "path": "logs/denominator_attempts/001_denominators/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/denominator_attempts/001_denominators/stdout.log",
+      "bytes": 287,
+      "sha256": "ea3b892fe98636a53af89ee50266ae3ff3203925dc26420bc9abf6ef56738b41"
+    },
+    {
+      "path": "logs/denominator_attempts/002_KakeyaDenominators/KakeyaDenominators.lean",
+      "bytes": 9694,
+      "sha256": "57765a4f9e4fa224ba2c2d9778bf12939eea1db6d4658c0099073876c76b4c75"
+    },
+    {
+      "path": "logs/denominator_attempts/002_KakeyaDenominators/attempt.json",
+      "bytes": 486,
+      "sha256": "8719e89730b8ba2e428d6847233544faf2930c9de3213668ab1b88ab812b1607"
+    },
+    {
+      "path": "logs/denominator_attempts/002_KakeyaDenominators/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/denominator_attempts/002_KakeyaDenominators/stdout.log",
+      "bytes": 3922,
+      "sha256": "55930a233daa481be8cb06c1145b073034a31bc85c511e48fee995c8b933ab61"
+    },
+    {
+      "path": "logs/denominator_attempts/003_KakeyaDenominators/KakeyaDenominators.lean",
+      "bytes": 9691,
+      "sha256": "c592ef5d4d4a85454c06930edefb19cef211658ee9ebac47c01c02a88170051f"
+    },
+    {
+      "path": "logs/denominator_attempts/003_KakeyaDenominators/attempt.json",
+      "bytes": 486,
+      "sha256": "c4f4ac09a2c7ac4d8402162dee12a5d3004ee5c25f42a8a17d97e58b5cffc9d0"
+    },
+    {
+      "path": "logs/denominator_attempts/003_KakeyaDenominators/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/denominator_attempts/003_KakeyaDenominators/stdout.log",
+      "bytes": 941,
+      "sha256": "08441746e911aec92554b3e24f9e2c58e1b21c0d27fb026bff852e17594ad3ad"
+    },
+    {
+      "path": "logs/denominator_attempts/004_KakeyaForcingBridge/KakeyaForcingBridge.lean",
+      "bytes": 4269,
+      "sha256": "53855a666e57b007b10cbcf42a886f1b6175752fad1978e6b7416d6b915b1599"
+    },
+    {
+      "path": "logs/denominator_attempts/004_KakeyaForcingBridge/attempt.json",
+      "bytes": 488,
+      "sha256": "0f704e5c27f040fae933c4d85452fb28391a5cf96599d3383896071b66cead6a"
+    },
+    {
+      "path": "logs/denominator_attempts/004_KakeyaForcingBridge/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/denominator_attempts/004_KakeyaForcingBridge/stdout.log",
+      "bytes": 1600,
+      "sha256": "668f9ba30991084079b19afeaa1dbb814494eb5c82f7e2832e20a74fff879207"
+    },
+    {
+      "path": "logs/denominator_attempts/005_KakeyaForcingBridge/KakeyaForcingBridge.lean",
+      "bytes": 4257,
+      "sha256": "7c91a47ce7a883b4e52ce0d8ec2626b170c8491fd7e4f3c80cf211f3676fb34d"
+    },
+    {
+      "path": "logs/denominator_attempts/005_KakeyaForcingBridge/attempt.json",
+      "bytes": 488,
+      "sha256": "1164a42054babf7024431f8f1516dedb6a69a07afe68b856717b46f5d8adae5c"
+    },
+    {
+      "path": "logs/denominator_attempts/005_KakeyaForcingBridge/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/denominator_attempts/005_KakeyaForcingBridge/stdout.log",
+      "bytes": 613,
+      "sha256": "9dc4f36865e5d4981f89291019474f18bf55dd9cb6352ae49ea989a92057b8ff"
+    },
+    {
+      "path": "logs/denominator_attempts/run_attempt.py",
+      "bytes": 1439,
+      "sha256": "6adade467dc9373a72e54595233ed8aabd6e1cdf7c46c760382aabba1d879ce5"
+    },
+    {
+      "path": "logs/environment_manifest.json",
+      "bytes": 2168,
+      "sha256": "0fce7b9990d08f278431d7ed6417897c410973f50d0011b8848adeebc1546f19"
+    },
+    {
+      "path": "logs/environment_smoke.log",
+      "bytes": 50,
+      "sha256": "9ffe572c46cd882b3d63f57e420ac66c489faf4feb29dffb8f775337115aa2f3"
+    },
+    {
+      "path": "logs/github_base.json",
+      "bytes": 304,
+      "sha256": "88254c2f123b06d97209b7e4ab6c932ca4ff93896df95c55e5b69c01bdceb2fd"
+    },
+    {
+      "path": "logs/lean_download.log",
+      "bytes": 2530,
+      "sha256": "a87377d8dd366722b6455638647094b12aa7f62c22cf5bc496f1f92c9c136a95"
+    },
+    {
+      "path": "logs/lean_extract.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/lean_io.cpp",
+      "bytes": 58898,
+      "sha256": "7dd91cc0c7ebd7a1ed69ac9b870634b6ae251f28e96ba54384b5ba6e8ce20efd"
+    },
+    {
+      "path": "logs/lean_release_metadata.json",
+      "bytes": 22253,
+      "sha256": "e31616d4d25b703bdbc991f113b9f0fa4aa9a9701e23be8234761a2c4fa731ce"
+    },
+    {
+      "path": "logs/lean_shell.cpp",
+      "bytes": 588,
+      "sha256": "b311e6363d689e7b6d2e717c53981c59c63104892dc1d0cb308d977d6c6d943a"
+    },
+    {
+      "path": "logs/lean_syscall_trace.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/lean_tree.json",
+      "bytes": 4230951,
+      "sha256": "022fd22cd548af990bbbf1399c46af19592794af8dd55a73d3019ba1f22c1458"
+    },
+    {
+      "path": "logs/lean_util_shell.cpp",
+      "bytes": 12425,
+      "sha256": "502eaa752396cdff5bb448833a63be54cbbcbb3d36881eb10e235c04c64c0832"
+    },
+    {
+      "path": "logs/lean_version.txt",
+      "bytes": 106,
+      "sha256": "64f534c7cd1d0dbe701f44b4da6679d120b63f0f9f3bfab60540a07af143f1f2"
+    },
+    {
+      "path": "logs/leanchecker_help.log",
+      "bytes": 70,
+      "sha256": "937d670cc1eccbac630afea6429dd405d848eb65cdad8bef420ccfdf2c4cfc7d"
+    },
+    {
+      "path": "logs/leanchecker_source_sha256.txt",
+      "bytes": 122,
+      "sha256": "b0eac33405ecded85a043517a9c8ac9d39eb5ead30405f16809a545b6d06cb36"
+    },
+    {
+      "path": "logs/mathlib_cache.log",
+      "bytes": 104055,
+      "sha256": "0cadfc4627dfce4070055ff894780c1a34a4f7a30f375d88b65c5c261c8b4094"
+    },
+    {
+      "path": "logs/mathlib_checkout.log",
+      "bytes": 648,
+      "sha256": "871f93d05d27b6bbca7e7521243332a47ca8dec66a6f965f77a86a336e41c673"
+    },
+    {
+      "path": "logs/mathlib_clone.log",
+      "bytes": 38,
+      "sha256": "237828ee3475a4302dd790cdc56b23963ccf324986381920f2ecb9566a4ccef1"
+    },
+    {
+      "path": "logs/official_binary_sha256.txt",
+      "bytes": 227,
+      "sha256": "34031754262f8691ab3ee20780dda275c61ffe196d444267cfb6a1fe86174f30"
+    },
+    {
+      "path": "logs/proc_self_compat.c",
+      "bytes": 769,
+      "sha256": "f4a123308086cb76f44ca45692555e06df6e2401a38689fc11a278440771c501"
+    },
+    {
+      "path": "logs/project_lean_version.txt",
+      "bytes": 106,
+      "sha256": "64f534c7cd1d0dbe701f44b4da6679d120b63f0f9f3bfab60540a07af143f1f2"
+    },
+    {
+      "path": "logs/project_smoke.log",
+      "bytes": 50,
+      "sha256": "9ffe572c46cd882b3d63f57e420ac66c489faf4feb29dffb8f775337115aa2f3"
+    },
+    {
+      "path": "logs/toolchain_digest_comparison.json",
+      "bytes": 365,
+      "sha256": "7ecab7776d0d3fdb08aebb87d4f7f90c67ca4bb4b63f9a383bc299dd3be4e55d"
+    },
+    {
+      "path": "logs/toolchain_sha256.txt",
+      "bytes": 104,
+      "sha256": "3fbb97285ede1b5c4890a23ede56bbd1d6a819577cd40454adaf4996c92f1393"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/claim_record.log",
+      "bytes": 60,
+      "sha256": "f46fcdc8787b751e73a441165edfe133fe4166333a5d85e4184096da97762984"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/initial_observations_record.log",
+      "bytes": 299,
+      "sha256": "2bb9e50824074545de73a4b981ebef780788034da49a16df3e68f8cd76238310"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102737.731566Z/mix.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102737.731566Z/mix.stdout.log",
+      "bytes": 101,
+      "sha256": "634c9e2bccb48d752e53afa53901c8b9025569c43b899edf2994764008b437b0"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102737.731566Z/observations.json",
+      "bytes": 5114391,
+      "sha256": "d4bead3341009d5335c7d6fb40d0adf854de20ad407649d74b08b6c51ec98400"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102737.731566Z/record_observations.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102737.731566Z/record_observations.stdout.log",
+      "bytes": 521,
+      "sha256": "04e50ca011249bf849b122b6ff5bcfef6d00fa58983951fd6d150eabad0fd370"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102737.731566Z/record_run.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102737.731566Z/record_run.stdout.log",
+      "bytes": 107,
+      "sha256": "f2ad060538cf70a3befd9a94ee2cd9ce68adbe208d9439b8d364b8dcf58ac778"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102737.731566Z/report.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102737.731566Z/report.stdout.log",
+      "bytes": 5116648,
+      "sha256": "39bdddde8694b96db7c6b9eac98b8fd0ab27253a1a0645863daf5a10f67f04da"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102737.731566Z/run.json",
+      "bytes": 29536,
+      "sha256": "90208be1284ae4f3dd9b52dd6627ec0b03435e3cab1aac905a0d1e3f135c22b3"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102738.268052Z/mix.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102738.268052Z/mix.stdout.log",
+      "bytes": 101,
+      "sha256": "270443bec1f66ca748581e8606b3e5a5b360186250d5f25af2eee4cc5aea9c14"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102738.268052Z/observations.json",
+      "bytes": 5967913,
+      "sha256": "a68bdfc8b2505e7eb2f593d0679f168385945e4b8c0995d813b46d2c729e1592"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102738.268052Z/record_observations.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102738.268052Z/record_observations.stdout.log",
+      "bytes": 519,
+      "sha256": "8cdae93958d5f0349336d52e73c5264fb6dcebec5208c5d1c7d880fcae8dd203"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102738.268052Z/record_run.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102738.268052Z/record_run.stdout.log",
+      "bytes": 108,
+      "sha256": "c3105451ef26539dd8262db2731121ab53e93eb354f3113c7dd7cbea94b5fae9"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102738.268052Z/report.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102738.268052Z/report.stdout.log",
+      "bytes": 11078473,
+      "sha256": "1f30b7c84981783a57de803c1673ec2a56da2b0faa1ac7134deda7b8043aa351"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/20260914T102738.268052Z/run.json",
+      "bytes": 242621,
+      "sha256": "00520325dda23a9c8a68338ff32be5dcc686de2477fa9acb5a15cb079cca6872"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/claim.json",
+      "bytes": 1364,
+      "sha256": "123b3eb5acc7df61a157d513ccd4082b37f1f440641c5f43c3151be8ef11824e"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/inputs/initial-observations.json",
+      "bytes": 1577,
+      "sha256": "276bde1cbd6d4cdc633bca863ec1d5ee6207ee46d33ee1f919d775fb643af17d"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/ledger/eyes/FORMAT_v1.md",
+      "bytes": 4821,
+      "sha256": "802a0ab918eebc326c4d627be50a89a83bd040e862c99421aee7ec7acfa7666d"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/ledger/eyes/claims_v1.jsonl",
+      "bytes": 1254,
+      "sha256": "364f41fb4926c544b31614b04493300f9508a4f36182098b69ea1f250190a82c"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/ledger/eyes/observations_v1.jsonl",
+      "bytes": 11011388,
+      "sha256": "d598c171a97df0ec89e9d6468d4e16ded103d8bf2d71017600424116fc5460c4"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/ledger/mixer/FORMAT_v1.md",
+      "bytes": 4337,
+      "sha256": "65476e1fe89b8edeb72899831fe2a38981659fd04247c058e4340038f326fcdf"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/ledger/mixer/run_ledger_v1.jsonl",
+      "bytes": 261785,
+      "sha256": "6b01f47c93e00c632989f557051305237dffe928325d53aa029a8b76bf0eb8c2"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/source_manifest.json",
+      "bytes": 713,
+      "sha256": "eaae70130444943fe859d033d26e29dea862513767e0657c0afaab6e1d3a7b3c"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/tools/acc/eye_log_v2.js",
+      "bytes": 14284,
+      "sha256": "9e1b9fe5b2cf1e4dc190d4ffa2608309a278b6aa2c27306cd4cc6e3fd4338a56"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/tools/acc/eye_report_v1.py",
+      "bytes": 11073,
+      "sha256": "a0c972b4ea967eead2a8d87adaf05e38ed4671bec4575b87ed6ce1c75d4f8ba3"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/tools/acc/mixer_log_v1.js",
+      "bytes": 7918,
+      "sha256": "7c3df722fd7376eb9cf046ab1ea10ed810f5d602bb935bf1ec452af0329f1bd2"
+    },
+    {
+      "path": "research/kakeya_formal_2026_09_14/instrument/tools/compound-eye/projects/eye_mixer/mixer_core.js",
+      "bytes": 13682,
+      "sha256": "f4c99d6de4b435c02c6dc7d1c097eb0a0d43b609fc2e99af051138ecd1b25ed7"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102434.877496Z/OperatorFirst.KakeyaAuditControls_kernel.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102434.877496Z/OperatorFirst.KakeyaCutAssumptionControl_kernel.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102434.877496Z/OperatorFirst.KakeyaCutCompletion_kernel.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102434.877496Z/OperatorFirst.KakeyaDenominators_kernel.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102434.877496Z/OperatorFirst.KakeyaForcingBridge_kernel.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102434.877496Z/build.log",
+      "bytes": 3339,
+      "sha256": "c6fdbaacf6651a23693a526daeac716ee67c87f13820ea1ae999d5cd1c35084b"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102434.877496Z/declaration_audit.log",
+      "bytes": 1381,
+      "sha256": "85714ee8c9befb5f27402ea5e6669d1009c8f691e9edf794191143dddcb3a165"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102434.877496Z/lean_version.log",
+      "bytes": 106,
+      "sha256": "64f534c7cd1d0dbe701f44b4da6679d120b63f0f9f3bfab60540a07af143f1f2"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102434.877496Z/report.json",
+      "bytes": 5512,
+      "sha256": "acd384855df8c98d6feade4f2ebbc7edd690f2a88862afbb03bb1abc83451bf0"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102434.877496Z/sources/scripts/AuditKakeyaBridges.lean",
+      "bytes": 2509,
+      "sha256": "a849bb41cffd2b41dda777368604c91665815505de829fe8f4c82abc4966655c"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102434.877496Z/sources/scripts/verify_kakeya_bridges.py",
+      "bytes": 6580,
+      "sha256": "82209d8236023a07c7fb37fec1211b511189bd5bfe90912cd8ac18d9b232752d"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/OperatorFirst.KakeyaAuditControls_kernel.log",
+      "bytes": 44,
+      "sha256": "bbb020e5cefec27d61556ddf0e826d0ced06bbb55df3e8137978be84d1b34353"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/OperatorFirst.KakeyaCutAssumptionControl_kernel.log",
+      "bytes": 51,
+      "sha256": "d4e63413d6ded7535673e42eec0dc898a58b1356065604acf1cafa593e1f995d"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/OperatorFirst.KakeyaCutCompletion_kernel.log",
+      "bytes": 44,
+      "sha256": "d1df6f97d88a275096f5fd0d9054b61ad77a8c7203e854f50519929a56d5a447"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/OperatorFirst.KakeyaDenominators_kernel.log",
+      "bytes": 43,
+      "sha256": "fdc1d18974ef2f08c8a365afce3e668d7c1bd2d8387dc3d5dd8bcbb76f165fe2"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/OperatorFirst.KakeyaForcingBridge_kernel.log",
+      "bytes": 44,
+      "sha256": "753f8912d1b89bf652c03b1d91d7a09b764e410364667cbad417d448e24b73c7"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/build.log",
+      "bytes": 3134,
+      "sha256": "2cd9b03edd65de0db7960a1700c342b64a57d9144e31d68e8f0a8b0759306b71"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/declaration_audit.log",
+      "bytes": 72414,
+      "sha256": "374935f1d586651138a2f75d0d9dffc0e8343d580f2d150fa4e3a96173027daf"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/declarations.json",
+      "bytes": 80950,
+      "sha256": "b9e1395871daf7bc11ee245cfaece34d6fd43a3acefa08461157769539bdcce6"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/false_equal_kernel.lean",
+      "bytes": 231,
+      "sha256": "9ecaec7cfbab838152420a800df0ae6d354021d296ec53a14ccf14d87190bb6b"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/false_equal_kernel.log",
+      "bytes": 186,
+      "sha256": "d3423ca3fbf06416122d21a2038c37cdd003e9c56923db62ed5929b4ad31ef38"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/false_integer_unit.lean",
+      "bytes": 176,
+      "sha256": "c588b3904a0851c3e7dac31168bc84733a2971822179dfc8af630515ea11cc99"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/false_integer_unit.log",
+      "bytes": 145,
+      "sha256": "30e32a9b95c841b84379e161a5afd4987626ee707a6f66c24704b8ca4e994437"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/lean_version.log",
+      "bytes": 106,
+      "sha256": "64f534c7cd1d0dbe701f44b4da6679d120b63f0f9f3bfab60540a07af143f1f2"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/report.json",
+      "bytes": 9488,
+      "sha256": "349010779294da12307b3d0eeb4aff230d9eae9ea6e460bd0229eb9565be0e0c"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/sources/OperatorFirst/KakeyaAuditControls.lean",
+      "bytes": 1614,
+      "sha256": "6b1e48cdc36c0f2ac49d333aa95e2b7a6aed2cae4c6e7442d5c40bed7fef6743"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/sources/OperatorFirst/KakeyaCutAssumptionControl.lean",
+      "bytes": 2278,
+      "sha256": "d5b0b85730a811e81dd0684aa8502269a48c6018cb71e976c00530338a345806"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/sources/OperatorFirst/KakeyaCutCompletion.lean",
+      "bytes": 10931,
+      "sha256": "727ad20e673466d95a37cd54c9c714f8212f6a2543a8d22f4fb262cce093e895"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/sources/OperatorFirst/KakeyaDenominators.lean",
+      "bytes": 9691,
+      "sha256": "c592ef5d4d4a85454c06930edefb19cef211658ee9ebac47c01c02a88170051f"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/sources/OperatorFirst/KakeyaForcingBridge.lean",
+      "bytes": 4257,
+      "sha256": "7c91a47ce7a883b4e52ce0d8ec2626b170c8491fd7e4f3c80cf211f3676fb34d"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/sources/lake-manifest.json",
+      "bytes": 3559,
+      "sha256": "87b9bd5ed3d8d7ff2dbf9ea13c2bddfd92774fe95c9d79108864d0aff88111fc"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/sources/lakefile.toml",
+      "bytes": 289,
+      "sha256": "79ef3c275e45addaa115bc4d3dc9c6f1946dd49770e9df527f6e26bdfd99820e"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/sources/lean-toolchain",
+      "bytes": 25,
+      "sha256": "302cd63c54178885b89e669f33b38f12f4dd7ae7e5cac537b3203e3768d8fb2b"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/sources/scripts/AuditKakeyaBridges.lean",
+      "bytes": 2515,
+      "sha256": "e30ecbc0069ae34a32a3036399863d6d21042a8b7749d40cad66b3a3627f520b"
+    },
+    {
+      "path": "verification/kakeya_bridges/20260914T102536.849552Z/sources/scripts/verify_kakeya_bridges.py",
+      "bytes": 6770,
+      "sha256": "e5dd4a0a294e3aea965c66754d81dd00ef23f1a80f6f1fc92bd3bda9cad45b6e"
+    }
+  ]
+}
