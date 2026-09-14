@@ -22,13 +22,9 @@ theorem feedbackWith_diag
     feedbackWith B R i i = (B i) ⬝ᵥ (R *ᵥ B i) := by
   simp only [feedbackWith, Matrix.mul_apply, Matrix.transpose_apply,
     dotProduct, Matrix.mulVec]
+  simp_rw [Finset.sum_mul, Finset.mul_sum]
   rw [Finset.sum_comm]
-  apply Finset.sum_congr rfl
-  intro j _
-  rw [Finset.mul_sum]
-  apply Finset.sum_congr rfl
-  intro k _
-  ring
+  simp [mul_assoc]
 
 /-- A positive-definite hidden response detects every nonzero retained-hidden
 coupling through the full feedback matrix. -/
