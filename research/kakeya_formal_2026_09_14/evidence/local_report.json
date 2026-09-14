@@ -1,0 +1,210 @@
+{
+  "schema": "kakeya-bridges-verification-v1",
+  "status": "PASS",
+  "started_utc": "20260914T102536.849552Z",
+  "checks": {
+    "lean_version": {
+      "argv": [
+        "/workspace/scratch/38d2657f642a/kakeya_lean/run_lake.sh",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "started_utc": "2026-09-14T10:25:36.850712+00:00",
+      "exit_code": 0,
+      "expected_rejection": false,
+      "log": "lean_version.log",
+      "sha256": "64f534c7cd1d0dbe701f44b4da6679d120b63f0f9f3bfab60540a07af143f1f2"
+    },
+    "build": {
+      "argv": [
+        "/workspace/scratch/38d2657f642a/kakeya_lean/run_lake.sh",
+        "build",
+        "OperatorFirst.KakeyaDenominators",
+        "OperatorFirst.KakeyaCutCompletion",
+        "OperatorFirst.KakeyaForcingBridge",
+        "OperatorFirst.KakeyaAuditControls",
+        "OperatorFirst.KakeyaCutAssumptionControl"
+      ],
+      "started_utc": "2026-09-14T10:25:37.628211+00:00",
+      "exit_code": 0,
+      "expected_rejection": false,
+      "log": "build.log",
+      "sha256": "2cd9b03edd65de0db7960a1700c342b64a57d9144e31d68e8f0a8b0759306b71"
+    },
+    "OperatorFirst.KakeyaDenominators_kernel": {
+      "argv": [
+        "/workspace/scratch/38d2657f642a/kakeya_lean/run_lake.sh",
+        "env",
+        "leanchecker",
+        "-v",
+        "OperatorFirst.KakeyaDenominators"
+      ],
+      "started_utc": "2026-09-14T10:25:40.302441+00:00",
+      "exit_code": 0,
+      "expected_rejection": false,
+      "log": "OperatorFirst.KakeyaDenominators_kernel.log",
+      "sha256": "fdc1d18974ef2f08c8a365afce3e668d7c1bd2d8387dc3d5dd8bcbb76f165fe2"
+    },
+    "OperatorFirst.KakeyaCutCompletion_kernel": {
+      "argv": [
+        "/workspace/scratch/38d2657f642a/kakeya_lean/run_lake.sh",
+        "env",
+        "leanchecker",
+        "-v",
+        "OperatorFirst.KakeyaCutCompletion"
+      ],
+      "started_utc": "2026-09-14T10:25:43.678911+00:00",
+      "exit_code": 0,
+      "expected_rejection": false,
+      "log": "OperatorFirst.KakeyaCutCompletion_kernel.log",
+      "sha256": "d1df6f97d88a275096f5fd0d9054b61ad77a8c7203e854f50519929a56d5a447"
+    },
+    "OperatorFirst.KakeyaForcingBridge_kernel": {
+      "argv": [
+        "/workspace/scratch/38d2657f642a/kakeya_lean/run_lake.sh",
+        "env",
+        "leanchecker",
+        "-v",
+        "OperatorFirst.KakeyaForcingBridge"
+      ],
+      "started_utc": "2026-09-14T10:25:46.925627+00:00",
+      "exit_code": 0,
+      "expected_rejection": false,
+      "log": "OperatorFirst.KakeyaForcingBridge_kernel.log",
+      "sha256": "753f8912d1b89bf652c03b1d91d7a09b764e410364667cbad417d448e24b73c7"
+    },
+    "OperatorFirst.KakeyaAuditControls_kernel": {
+      "argv": [
+        "/workspace/scratch/38d2657f642a/kakeya_lean/run_lake.sh",
+        "env",
+        "leanchecker",
+        "-v",
+        "OperatorFirst.KakeyaAuditControls"
+      ],
+      "started_utc": "2026-09-14T10:25:50.016876+00:00",
+      "exit_code": 0,
+      "expected_rejection": false,
+      "log": "OperatorFirst.KakeyaAuditControls_kernel.log",
+      "sha256": "bbb020e5cefec27d61556ddf0e826d0ced06bbb55df3e8137978be84d1b34353"
+    },
+    "OperatorFirst.KakeyaCutAssumptionControl_kernel": {
+      "argv": [
+        "/workspace/scratch/38d2657f642a/kakeya_lean/run_lake.sh",
+        "env",
+        "leanchecker",
+        "-v",
+        "OperatorFirst.KakeyaCutAssumptionControl"
+      ],
+      "started_utc": "2026-09-14T10:25:53.163146+00:00",
+      "exit_code": 0,
+      "expected_rejection": false,
+      "log": "OperatorFirst.KakeyaCutAssumptionControl_kernel.log",
+      "sha256": "d4e63413d6ded7535673e42eec0dc898a58b1356065604acf1cafa593e1f995d"
+    },
+    "declaration_audit": {
+      "argv": [
+        "/workspace/scratch/38d2657f642a/kakeya_lean/run_lake.sh",
+        "env",
+        "lean",
+        "scripts/AuditKakeyaBridges.lean"
+      ],
+      "started_utc": "2026-09-14T10:25:56.165876+00:00",
+      "exit_code": 0,
+      "expected_rejection": false,
+      "log": "declaration_audit.log",
+      "sha256": "374935f1d586651138a2f75d0d9dffc0e8343d580f2d150fa4e3a96173027daf"
+    },
+    "false_integer_unit": {
+      "argv": [
+        "/workspace/scratch/38d2657f642a/kakeya_lean/run_lake.sh",
+        "env",
+        "lean",
+        "verification/kakeya_bridges/20260914T102536.849552Z/false_integer_unit.lean"
+      ],
+      "started_utc": "2026-09-14T10:26:09.359289+00:00",
+      "exit_code": 1,
+      "expected_rejection": true,
+      "log": "false_integer_unit.log",
+      "sha256": "30e32a9b95c841b84379e161a5afd4987626ee707a6f66c24704b8ca4e994437"
+    },
+    "false_equal_kernel": {
+      "argv": [
+        "/workspace/scratch/38d2657f642a/kakeya_lean/run_lake.sh",
+        "env",
+        "lean",
+        "verification/kakeya_bridges/20260914T102536.849552Z/false_equal_kernel.lean"
+      ],
+      "started_utc": "2026-09-14T10:26:11.133499+00:00",
+      "exit_code": 1,
+      "expected_rejection": true,
+      "log": "false_equal_kernel.log",
+      "sha256": "d3423ca3fbf06416122d21a2038c37cdd003e9c56923db62ed5929b4ad31ef38"
+    }
+  },
+  "sources": {
+    "OperatorFirst/KakeyaDenominators.lean": "c592ef5d4d4a85454c06930edefb19cef211658ee9ebac47c01c02a88170051f",
+    "OperatorFirst/KakeyaCutCompletion.lean": "727ad20e673466d95a37cd54c9c714f8212f6a2543a8d22f4fb262cce093e895",
+    "OperatorFirst/KakeyaForcingBridge.lean": "7c91a47ce7a883b4e52ce0d8ec2626b170c8491fd7e4f3c80cf211f3676fb34d",
+    "OperatorFirst/KakeyaAuditControls.lean": "6b1e48cdc36c0f2ac49d333aa95e2b7a6aed2cae4c6e7442d5c40bed7fef6743",
+    "OperatorFirst/KakeyaCutAssumptionControl.lean": "d5b0b85730a811e81dd0684aa8502269a48c6018cb71e976c00530338a345806",
+    "lean-toolchain": "302cd63c54178885b89e669f33b38f12f4dd7ae7e5cac537b3203e3768d8fb2b",
+    "lakefile.toml": "79ef3c275e45addaa115bc4d3dc9c6f1946dd49770e9df527f6e26bdfd99820e",
+    "lake-manifest.json": "87b9bd5ed3d8d7ff2dbf9ea13c2bddfd92774fe95c9d79108864d0aff88111fc",
+    "scripts/AuditKakeyaBridges.lean": "e30ecbc0069ae34a32a3036399863d6d21042a8b7749d40cad66b3a3627f520b",
+    "scripts/verify_kakeya_bridges.py": "e5dd4a0a294e3aea965c66754d81dd00ef23f1a80f6f1fc92bd3bda9cad45b6e"
+  },
+  "github_sha": null,
+  "github_head_sha": null,
+  "github_run_id": null,
+  "local_compatibility_wrapper": true,
+  "scope": "Finite nonzero-multiple forcing; no Euclidean exponent, unit-target equivalence, or search completeness claim.",
+  "mathlib_revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "declarations": 121,
+  "named_theorem_declarations": [
+    "OperatorFirst.KakeyaCutCompletion.Generator.edge.sizeOf_spec",
+    "OperatorFirst.KakeyaCutCompletion.Generator.edge.inj",
+    "OperatorFirst.KakeyaForcingBridge.extended_combination_eq_coordinate_sums",
+    "OperatorFirst.KakeyaCutCompletion.Generator.site.sizeOf_spec",
+    "OperatorFirst.KakeyaCutCompletion.restriction_generator_admissible",
+    "OperatorFirst.KakeyaDenominators.forcing_nonzero_multiple_iff",
+    "OperatorFirst.KakeyaForcingBridge.extendCoefficients_apply",
+    "OperatorFirst.KakeyaCutCompletion.restriction_generator",
+    "OperatorFirst.KakeyaDenominators.rational_integer_witness_iff",
+    "OperatorFirst.KakeyaAuditControls.rational_unit_without_integer_unit",
+    "OperatorFirst.KakeyaDenominators.finite_common_denominator",
+    "OperatorFirst.KakeyaCutCompletion.Generator.site.injEq",
+    "OperatorFirst.KakeyaCutCompletion.restriction_site",
+    "OperatorFirst.KakeyaCutCompletion.first_forcing_escapes_line",
+    "OperatorFirst.KakeyaCutCompletion.Generator.site.inj",
+    "OperatorFirst.KakeyaCutCompletion.completion_escapes_every_admissible_line",
+    "OperatorFirst.KakeyaCutAssumptionControl.forbidden_singleton_completes",
+    "OperatorFirst.KakeyaDenominators.clear_row_denominators",
+    "OperatorFirst.KakeyaCutCompletion.Generator.row.congr_simp",
+    "OperatorFirst.KakeyaAuditControls.different_forcing_with_equal_range",
+    "OperatorFirst.KakeyaCutAssumptionControl.forbidden_singleton_determinants_zero",
+    "OperatorFirst.KakeyaCutCompletion.determinant_zsmul",
+    "OperatorFirst.KakeyaCutAssumptionControl.forbidden_label_not_admissible",
+    "OperatorFirst.KakeyaCutCompletion.admissible_zsmul",
+    "OperatorFirst.KakeyaCutAssumptionControl.forbidden_singleton_can_force",
+    "OperatorFirst.KakeyaCutCompletion.line_cut_remains_unknown",
+    "OperatorFirst.KakeyaCutCompletion.completion_has_independent_surviving_labels",
+    "OperatorFirst.KakeyaCutCompletion.completion_has_independent_cut_rows",
+    "OperatorFirst.KakeyaAuditControls.same_range_different_kernels",
+    "OperatorFirst.KakeyaDenominators.stepQ_iff_stepZ",
+    "OperatorFirst.KakeyaForcingBridge.canForce_iff_stepQ",
+    "OperatorFirst.KakeyaCutCompletion.siteRow.congr_simp",
+    "OperatorFirst.KakeyaForcingBridge.canForce_iff_stepZ",
+    "OperatorFirst.KakeyaCutCompletion.Generator.cutCoefficient.congr_simp",
+    "OperatorFirst.KakeyaCutCompletion.Reachable.brecOn",
+    "OperatorFirst.KakeyaCutCompletion.restriction_combination",
+    "OperatorFirst.KakeyaDenominators.pair_row_sum_eq",
+    "OperatorFirst.KakeyaCutCompletion.first_forcing_restriction",
+    "OperatorFirst.KakeyaDenominators.cast_integerRowCombination",
+    "OperatorFirst.KakeyaDenominators.common_denominator",
+    "OperatorFirst.KakeyaCutAssumptionControl.forbidden_singleton_has_no_independent_labels",
+    "OperatorFirst.KakeyaCutCompletion.Generator.edge.injEq",
+    "OperatorFirst.KakeyaForcingBridge.combination_eq_coordinate_sums"
+  ],
+  "finished_utc": "2026-09-14T10:26:13.581431+00:00"
+}
