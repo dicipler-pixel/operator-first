@@ -16,17 +16,6 @@ jobs:
         with:
           persist-credentials: false
 
-      # The Lean build succeeds, then actions/cache/save fills the runner disk
-      # writing the .lake tarball, which fails the JOB and SKIPS leanchecker and
-      # axiom-audit. Reclaim the preinstalled toolchains we never use so the
-      # cache save has room and the audit gates actually run.
-      - name: free runner disk before the Lean cache save
-        run: |
-          df -h / | tail -1
-          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
-                      /opt/hostedtoolcache/CodeQL /usr/local/share/boost
-          df -h / | tail -1
-
       - name: install elan
         run: |
           curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
