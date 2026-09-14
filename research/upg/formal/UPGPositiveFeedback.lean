@@ -15,6 +15,21 @@ namespace UPGFeedback
 
 variable {r h : Type*} [Fintype r] [Fintype h] [DecidableEq r] [DecidableEq h]
 
+/-- The diagonal of the retained feedback is the quadratic response of the
+corresponding row of the coupling matrix. -/
+theorem feedbackWith_diag
+    (B : Matrix r h ℝ) (R : Matrix h h ℝ) (i : r) :
+    feedbackWith B R i i = (B i) ⬝ᵥ (R *ᵥ B i) := by
+  simp only [feedbackWith, Matrix.mul_apply, Matrix.transpose_apply,
+    dotProduct, Matrix.mulVec]
+  rw [Finset.sum_comm]
+  apply Finset.sum_congr rfl
+  intro j _
+  rw [Finset.mul_sum]
+  apply Finset.sum_congr rfl
+  intro k _
+  ring
+
 /-- A positive-definite hidden response detects every nonzero retained-hidden
 coupling through the full feedback matrix. -/
 theorem feedbackWith_eq_zero_iff_of_posDef
@@ -27,13 +42,15 @@ theorem feedbackWith_eq_zero_iff_of_posDef
     have hdiag : (feedbackWith B R) i i = 0 := by
       simpa using congr_fun (congr_fun hfeedback i) i
     have hquad : (B i) ⬝ᵥ (R *ᵥ B i) = 0 := by
-      simpa [feedbackWith, Matrix.mul_apply, Matrix.mulVec, dotProduct,
-        Finset.mul_sum, mul_assoc] using hdiag
+      rw [← feedbackWith_diag B R i]
+      exact hdiag
     by_contra hij
     have hrow : B i ≠ 0 := by
       intro hzero
       exact hij (congr_fun hzero j)
-    exact (ne_of_gt (hR.dotProduct_mulVec_pos hrow)) hquad
+    have hpos : 0 < (B i) ⬝ᵥ (R *ᵥ B i) := by
+      simpa using hR.dotProduct_mulVec_pos hrow
+    exact (ne_of_gt hpos) hquad
   · intro hB
     subst B
     simp [feedbackWith]
@@ -48,5 +65,6 @@ theorem nonzero_coupling_gives_nonzero_posDef_feedback
 
 end UPGFeedback
 
+#print axioms UPGFeedback.feedbackWith_diag
 #print axioms UPGFeedback.feedbackWith_eq_zero_iff_of_posDef
 #print axioms UPGFeedback.nonzero_coupling_gives_nonzero_posDef_feedback
