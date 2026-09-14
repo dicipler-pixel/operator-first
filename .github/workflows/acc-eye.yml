@@ -54,6 +54,36 @@ jobs:
       - name: frontiermath lane tests
         run: python3 -m unittest discover -s research/frontiermath -v
 
+      - name: adversarial recorder attacks (the ledger must repel all of them)
+        run: python3 tools/acc/test_recorder_adversarial_v1.py
+
+      - name: build lineage and regression matrix must be current
+        run: python3 tools/acc/lineage_v1.py --check
+
+      - name: derived Atlas snapshot must be rebuildable from the stream
+        run: |
+          python3 tools/acc/atlas_export_v1.py
+          python3 tools/acc/atlas_export_v1.py --check
+
+      # A clean tail truncation leaves every remaining hash link valid, so the
+      # chain alone cannot detect it -- found by the adversarial suite. The
+      # event count is therefore pinned here, outside the chain, and may only
+      # grow. This is the external witness the chain cannot be.
+      - name: the event stream may grow but never shrink
+        run: |
+          python3 - <<'EOF'
+          import pathlib, sys, json
+          stream = pathlib.Path("ledger/events/stream_v1.jsonl")
+          pin = pathlib.Path("ledger/events/COUNT_FLOOR")
+          n = sum(1 for l in stream.read_text().splitlines() if l.strip())
+          floor = int(pin.read_text().strip()) if pin.exists() else 0
+          print(f"events={n} recorded floor={floor}")
+          if n < floor:
+              print(f"the event stream LOST {floor-n} events; a tail truncation is "
+                    f"invisible to the hash chain and this pin is the only guard")
+              sys.exit(1)
+          EOF
+
       - name: independent transport check of every sealed hand-off
         run: python3 tools/acc/handoff_v2.py verify-all --checker ci | tee handoff-check.txt
 
