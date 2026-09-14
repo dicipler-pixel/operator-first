@@ -18,7 +18,7 @@
 
 import * as THREE from 'three';
 import { rollWeight, lengthForWeight } from './fish.js';
-import { WALTER_FORMS, walterFightProfile } from './walter.js';
+import { WALTER_FORMS, walterFightProfile, WALTER_FIGHT_SECONDS } from './walter.js';
 import { LINES, makeCycler } from './lines.js';
 import * as sfx from '../audio/sfx.js';
 
@@ -344,7 +344,11 @@ export class Trip {
     // What makes him Walter is everything AROUND the catching — the water
     // going still, the shape under the surface, the reveal, the release, the
     // board. None of that asks anything of the player.
-    this.fightLength = SMALL_FIGHT_SECONDS;
+    //
+    // The one exception is the fight length: seven seconds rather than an
+    // ordinary fish's four and a half, so he reads as heavier and the shadow
+    // has room to move before he turns. Same bite, same hook window.
+    this.fightLength = WALTER_FIGHT_SECONDS;
     this.hookTimer = HOOK_WINDOW;
     this.setState(STATE.BITE);
     sfx.setAmbience({ hushed: true });

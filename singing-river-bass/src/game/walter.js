@@ -147,19 +147,24 @@ export function walterFightProfile(formKey, t, seed = 0) {
 }
 
 /**
- * How long he takes to bring in, holding the bar.
+ * How long he takes to bring in, holding the bar. Seven seconds.
  *
  * DELIBERATE DEVIATION FROM 11_BANK_WALTER_v2.md §3, which asks for thirty to
- * sixty seconds against five for everything else. Played on a phone that was
- * far too much fuss — a full minute of holding a button with a bar going red
- * at you, for the player this game is actually built for. Cut to about
- * eighteen seconds for the red and fourteen for the trout: still several times
- * any other fish, still long enough to feel like an event and to carry the
- * "which form is it" suspicion, but no longer an endurance test.
+ * sixty seconds against five for everything else. That was far too much fuss
+ * on a phone for the player this is built for, and it is what made him feel
+ * uncatchable rather than hard.
  *
- * Reeling is continuous now, so this is the real duration, not a target that
- * a tension mechanic then stretches.
+ * Seven is the settled number: about half again as long as an ordinary fish,
+ * so he registers as heavier and there is room for the shape under the surface
+ * to move before the reveal — but everything that made him a test is gone. The
+ * bite and the hook window are the ordinary ones; this is the only thing about
+ * catching him that differs at all.
+ *
+ * Reeling is continuous, so this is the real duration, not a target that a
+ * tension mechanic then stretches.
  */
-export function walterFightSeconds(formKey) {
-  return formKey === 'red' ? 18 : 14;
+export const WALTER_FIGHT_SECONDS = 7;
+
+export function walterFightSeconds() {
+  return WALTER_FIGHT_SECONDS;
 }

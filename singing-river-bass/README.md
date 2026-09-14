@@ -29,7 +29,8 @@ The bar under the reel shows how close he is, not how close the line is to
 breaking.
 
 **Walter is caught exactly like every other fish** — same bite, same hook
-window, same few seconds of holding the bar. What makes him Walter is
+window. The only difference is that his fight is seven seconds instead of four
+and a half, so he reads as heavier. What makes him Walter is
 everything around the catching, and none of it asks anything of the player.
 Tap **RECORDS** in the top bar for the board, and **PACK UP & SIT BACK DOWN**
 there to start a new afternoon — that re-rolls Walter. Records survive.
