@@ -6,6 +6,18 @@ authors:
   - family-names: "Beasley"
     given-names: "Jeromie N."
 repository-code: "https://github.com/dicipler-pixel/operator-first"
+# Zenodo archive. Replace the placeholder with the concept DOI Zenodo issues on
+# the first release; the concept DOI resolves to the newest version forever, so
+# it never needs changing again. Per-release DOIs go under `identifiers`.
+# doi: "10.5281/zenodo.XXXXXXX"
+abstract: >-
+  Formal proofs, research notes and instrumentation from the Operator-First
+  research programme: Lean formalizations audited to a fixed trust base, the
+  Compound Eye instrument and its append-only hash-chained event ledger, the
+  two-adic counting lemma and exact n-step Syracuse digit law, and
+  Andrews-Curtis corridor search tooling. The logic, theories, planning and
+  research direction are the author's; mathematical assistance was provided by
+  AI systems and is credited as assistance, not authorship.
 license:
   - MIT
   - CC-BY-4.0
@@ -16,3 +28,20 @@ keywords:
   - Lean
   - mathematical physics
   - Compound Eye
+  - Collatz
+  - 2-adic valuation
+  - Syracuse map
+  - Andrews-Curtis
+  - axiom auditing
+  - reproducible research
+references:
+  - type: software
+    title: "ac-square-divisibility"
+    authors:
+      - family-names: "Sneiderman"
+        given-names: "Robert"
+    repository-code: "https://github.com/Robby955/ac-square-divisibility"
+    notes: >-
+      Commit d0ed2c06. Cited wherever root-conjugacy, donor-restoration,
+      coordinate-transport, divisibility, period or companion-restoration ideas
+      are used.

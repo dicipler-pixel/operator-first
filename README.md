@@ -22,7 +22,9 @@ This repository uses a mixed-license policy. Original **code, Lean formalization
 
 The repository previously exposed a CC0 root notice. Because CC0 is intended to be irrevocable, this change does not withdraw rights already granted for versions or material released under CC0. See the full [licensing notice](LICENSE).
 
-GitHub citation metadata is provided in [`CITATION.cff`](CITATION.cff). When a paper or archived release has its own DOI, cite that DOI in preference to the repository-level record.
+GitHub citation metadata is provided in [`CITATION.cff`](CITATION.cff) and Zenodo deposition metadata in [`.zenodo.json`](.zenodo.json). This repository is archived to **Zenodo**, which mints a citable DOI per release plus a concept DOI that always resolves to the newest version; cite that DOI in preference to the repository-level record, and cite a paper's own DOI ahead of both when it has one.
+
+See [publication and priority](PUBLICATION_AND_PRIORITY.md) for authorship, what is Lean-proved versus computationally verified, and attribution to other researchers.
 
 ## Keep the master current
 
