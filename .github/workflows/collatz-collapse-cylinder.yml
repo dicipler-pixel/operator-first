@@ -16,9 +16,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: leanprover/lean-action@v1
+      - name: Install pinned Lean toolchain
+        uses: leanprover/lean-action@v1
         with:
-          build-args: CollatzCollapseCylinder
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Build collapse cylinder module
+        run: lake build CollatzCollapseCylinder
       - name: Direct source check
         run: lake env lean CollatzCollapseCylinder.lean
       - name: Independent kernel replay
