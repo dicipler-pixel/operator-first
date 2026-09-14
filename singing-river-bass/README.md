@@ -24,9 +24,13 @@ npm run waltertest   # drives all three Walter branches end to end
 bends. Then hold the bar — he comes in. Tap the cooler if you want one.
 
 **The line never breaks and no fish is ever lost once hooked.** Holding the bar
-is the whole fight: about five seconds for a small one, fourteen to eighteen for
-Walter. Letting go pauses her and costs nothing. The bar under the reel shows
-how close he is, not how close the line is to breaking.
+is the whole fight, about five seconds. Letting go pauses her and costs nothing.
+The bar under the reel shows how close he is, not how close the line is to
+breaking.
+
+**Walter is caught exactly like every other fish** — same bite, same hook
+window, same few seconds of holding the bar. What makes him Walter is
+everything around the catching, and none of it asks anything of the player.
 Tap **RECORDS** in the top bar for the board, and **PACK UP & SIT BACK DOWN**
 there to start a new afternoon — that re-rolls Walter. Records survive.
 

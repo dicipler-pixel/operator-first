@@ -21,24 +21,55 @@ import { createRetroMaterial, paint, paintShaded } from '../render/retro.js';
 import { createWater, WATER_PRESETS } from '../water/06_water_lowfi_threejs.js';
 
 // Evening on the Gulf coast in August.
+// Late afternoon going to evening, but a NICE one.
+//
+// The first pass was genuinely dreary: ambient at 0.34, fog closing in at 96
+// units, and near-black olive water. Read together that is an overcast
+// November afternoon, not August on the Gulf coast. Everything below is lifted
+// — more ambient, a warmer and brighter sun, the fog pushed well back so the
+// far bank is not swimming in haze, and a higher, warmer sky.
 export const KREBS_LIGHT = {
-  sun: new THREE.Vector3(-0.35, 0.42, -0.84).normalize(),
-  sunColor: new THREE.Color(1.00, 0.74, 0.44),
-  ambient: new THREE.Color(0.34, 0.31, 0.33),
-  sky: new THREE.Color(...WATER_PRESETS.krebs.sky),
-  fogNear: 16,
-  fogFar: 96,
+  sun: new THREE.Vector3(-0.30, 0.48, -0.82).normalize(),
+  sunColor: new THREE.Color(1.00, 0.84, 0.60),
+  ambient: new THREE.Color(0.56, 0.53, 0.52),
+  sky: new THREE.Color(0.91, 0.78, 0.58),
+  fogNear: 42,
+  fogFar: 190,
+};
+
+/**
+ * Water colour lift, applied to the uniforms AFTER the mesh is built.
+ *
+ * 06_water_lowfi_threejs.js is a delivered file and constraint 13 says never
+ * overwrite one, so its krebs preset is untouched on disk. Its deep colour is
+ * [0.06, 0.10, 0.06] — near-black olive — which is accurate for brackish
+ * oxbow water and reads as a mud puddle on a phone at dusk. These override the
+ * live uniforms only.
+ */
+const KREBS_WATER_LIFT = {
+  deep: [0.14, 0.22, 0.17],
+  shallow: [0.42, 0.50, 0.33],
+  sky: [0.91, 0.78, 0.58],
+  glint: [1.00, 0.96, 0.80],
 };
 
 // Hotter palette for when the heat has built and she has not touched the cooler.
 const HOT_SUN = new THREE.Color(1.00, 0.62, 0.30);
 const HOT_SKY = new THREE.Color(0.82, 0.56, 0.32);
 
-const BANK_SAND  = 0x9a8a6c;
-const BANK_GRASS = 0x5c6640;
-const OAK_BARK   = 0x53483c;
-const OAK_LEAF   = 0x3f5233;
-const MOSS       = 0x8c9174;
+/**
+ * How high the bank sits above the water. Everything she sits on — the chair,
+ * the cooler, the rod holder, Nana herself — is placed at this height, so it
+ * is exported rather than repeated.
+ */
+export const SHELF_Y = 0.46;
+
+const BANK_SAND  = 0xcdb98c;   // pale Gulf-coast sand, not mud
+const BANK_WET   = 0xb9a678;   // damp strip at the waterline, only a shade darker
+const BANK_GRASS = 0x7f8a4e;
+const OAK_BARK   = 0x6b5c4a;
+const OAK_LEAF   = 0x5a7343;
+const MOSS       = 0xa7ab86;
 const TABBY      = 0xd9d5c6;   // low white tabby walls
 const ROOF       = 0x6b5344;
 
@@ -57,34 +88,86 @@ export function createKrebsLake() {
   // budget in 00_DESIGN_BIBLE.md is the open question here, not this number.
   const water = createWater('krebs', 260, 96);
   water.position.y = 0;
+  {
+    const u = water.material.uniforms;
+    u.uDeep.value.setRGB(...KREBS_WATER_LIFT.deep);
+    u.uShallow.value.setRGB(...KREBS_WATER_LIFT.shallow);
+    u.uSky.value.setRGB(...KREBS_WATER_LIFT.sky);
+    u.uGlint.value.setRGB(...KREBS_WATER_LIFT.glint);
+  }
   scene.add(water);
 
   // ---- near bank: the ground she is sitting on ------------------------
   const bank = new THREE.Object3D();
   scene.add(bank);
 
-  const shoreGeo = new THREE.PlaneGeometry(90, 26, 12, 5);
+  // SHE IS ON LAND, AND IT HAS TO LOOK LIKE IT.
+  //
+  // Two things went wrong before. The bank sat about 0.12 units above a
+  // waterline that itself moves, so no ground ever appeared under the chair
+  // and she read as sitting in the lake. Then, raising it as a long ramp made
+  // it worse: the slope faces the camera, the evening sun comes from behind
+  // the far bank, and a camera-facing slope catches almost no light — it
+  // rendered as a dark brown wall.
+  //
+  // So the shelf is FLAT where she sits, with only a short lip down to the
+  // water at the very edge. A flat surface has an up-facing normal, which is
+  // what actually catches this light, and she is plainly half a metre above
+  // the lake.
+  const shoreGeo = new THREE.PlaneGeometry(110, 46, 22, 14);
   shoreGeo.rotateX(-Math.PI / 2);
-  // Ripple the edge so the waterline is not a ruled line.
   {
     const pos = shoreGeo.attributes.position;
     for (let i = 0; i < pos.count; i++) {
       const x = pos.getX(i), z = pos.getZ(i);
-      pos.setY(i, 0.10 + Math.sin(x * 0.7) * 0.06 + Math.cos(x * 0.31 + z * 0.2) * 0.05 + z * 0.035);
+      // Local z runs -23 (waterline) to +23 (well behind the camera).
+      const t = THREE.MathUtils.clamp((z + 23) / 1.6, 0, 1);   // short lip
+      const rise = SHELF_Y * t * t * (3 - 2 * t);
+      const lumps = Math.sin(x * 0.42) * 0.06 + Math.cos(x * 0.19 + z * 0.3) * 0.04;
+      pos.setY(i, rise + lumps * t + Math.max(0, z) * 0.02);
     }
     pos.needsUpdate = true;
     shoreGeo.computeVertexNormals();
   }
-  const shore = mesh(paintShaded(shoreGeo, BANK_SAND, { top: 1.0, bottom: 0.8 }), mat);
-  shore.position.set(0, 0.02, 14.0);
+  const shore = mesh(paintShaded(shoreGeo, BANK_SAND, { top: 1.04, bottom: 0.94 }), mat);
+  // Waterline just in front of the chair; the shelf runs back past the camera.
+  shore.position.set(0, 0.0, 23.4);
   bank.add(shore);
 
-  // grass further back, so the bank reads sand-then-grass
-  const grassGeo = new THREE.PlaneGeometry(90, 22, 8, 4);
+  // The damp strip right at the water's edge, so there is a waterline to read
+  // instead of two planes quietly intersecting.
+  const wetGeo = new THREE.PlaneGeometry(110, 1.5, 22, 1);
+  wetGeo.rotateX(-Math.PI / 2);
+  {
+    const pos = wetGeo.attributes.position;
+    for (let i = 0; i < pos.count; i++) {
+      const x = pos.getX(i), z = pos.getZ(i);
+      pos.setY(i, 0.02 + (z + 0.75) / 1.5 * 0.10 + Math.sin(x * 0.55) * 0.02);
+    }
+    pos.needsUpdate = true;
+    wetGeo.computeVertexNormals();
+  }
+  const wet = mesh(paintShaded(wetGeo, BANK_WET, { top: 1.0, bottom: 0.95 }), mat);
+  wet.position.set(0, 0.01, 0.15);
+  bank.add(wet);
+
+  // grass further back, so the bank reads water, sand, then grass
+  const grassGeo = new THREE.PlaneGeometry(110, 30, 10, 4);
   grassGeo.rotateX(-Math.PI / 2);
-  const grass = mesh(paintShaded(grassGeo, BANK_GRASS, { top: 1.0, bottom: 0.75 }), mat);
-  grass.position.set(0, 0.28, 30.0);
+  const grass = mesh(paintShaded(grassGeo, BANK_GRASS, { top: 1.05, bottom: 0.85 }), mat);
+  grass.position.set(0, SHELF_Y + 0.34, 42.0);
   bank.add(grass);
+
+  // Reed clumps along the water's edge. Cheap, and they sell the waterline.
+  for (let i = 0; i < 26; i++) {
+    const rx = (i - 13) * 3.1 + Math.sin(i * 2.7) * 1.4;
+    if (Math.abs(rx) < 2.6) continue;          // keep her seat and view clear
+    const h = 0.55 + (i % 4) * 0.18;
+    const reed = mesh(paint(new THREE.PlaneGeometry(0.55, h), 0x93a15c), matDouble);
+    reed.position.set(rx, SHELF_Y + h / 2 - 0.06, 0.9 + Math.sin(i * 1.7) * 0.45);
+    reed.rotation.y = i * 0.9;
+    bank.add(reed);
+  }
 
   // ---- live oaks behind and to the sides, moss hanging ----------------
   function liveOak(x, z, scale, seed) {

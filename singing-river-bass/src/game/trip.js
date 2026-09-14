@@ -18,7 +18,7 @@
 
 import * as THREE from 'three';
 import { rollWeight, lengthForWeight } from './fish.js';
-import { WALTER_FORMS, walterFightProfile, walterFightSeconds } from './walter.js';
+import { WALTER_FORMS, walterFightProfile } from './walter.js';
 import { LINES, makeCycler } from './lines.js';
 import * as sfx from '../audio/sfx.js';
 
@@ -32,7 +32,6 @@ export const STATE = {
   COOLER: 'cooler',        // reaching down, two seconds
 
   // ---- Walter. A ceremony, not a jump scare. ------------------------
-  WALTER_TAKE: 'walterTake',     // the rod loads slowly and heavily
   WALTER_REVEAL: 'walterReveal', // he turns near the top and the flank catches
   RELEASE: 'release',            // she eases him back into the shallows
   BOARD: 'board',                // cut to the record board
@@ -54,10 +53,6 @@ const BIG_FISH_LB = 2.0;      // above this, the full turntable celebration
 // plus a little for a heavy one so a drum still feels like more work than a
 // bream. Reeling is continuous now, so this IS the fight length.
 const SMALL_FIGHT_SECONDS = 4.5;
-
-// Walter gets a longer, calmer window still. He is a ceremony; rushing her
-// here would be the one place in the game that punishes.
-const WALTER_HOOK_WINDOW = 4.0;
 
 // He is not available in the first minutes of a trip. Small fish first, so the
 // afternoon has a shape before he turns up.
@@ -152,7 +147,7 @@ export class Trip {
 
   /** TAP on the water. Casts, or sets the hook if a fish is on. */
   tapWater(point) {
-    if (this.state === STATE.BITE || this.state === STATE.WALTER_TAKE) return this.setHook();
+    if (this.state === STATE.BITE) return this.setHook();
     if (this.state === STATE.IDLE || this.state === STATE.WAITING) {
       this.castTarget = point;
       this.setState(STATE.CASTING);
@@ -164,12 +159,12 @@ export class Trip {
 
   /** TAP anywhere while the rod is bent also sets the hook — forgiving. */
   tapAnywhere() {
-    if (this.state === STATE.BITE || this.state === STATE.WALTER_TAKE) return this.setHook();
+    if (this.state === STATE.BITE) return this.setHook();
     return null;
   }
 
   setHook() {
-    if (this.state !== STATE.BITE && this.state !== STATE.WALTER_TAKE) return null;
+    if (this.state !== STATE.BITE) return null;
     sfx.sfxHookSet();
     sfx.dragStart();
     this.setState(STATE.FIGHT);
@@ -241,22 +236,6 @@ export class Trip {
         if (this.biteTimer <= 0) this.startBite();
         break;
 
-      case STATE.WALTER_TAKE:
-        // The rod loads slowly and heavily rather than snapping. She has a
-        // long, calm window; this beat is not a reflex test.
-        this.hookTimer -= dt;
-        if (this.hookTimer <= 0) {
-          // Even Walter slipping the hook before she sets it is not a failure.
-          this.walterOn = false;
-          this.pending = null;
-          this.setState(STATE.WAITING);
-          this.biteTimer = BITE_MIN + Math.random() * (BITE_MAX - BITE_MIN);
-          this.hooks.onSay?.(this.say.walterAlmost());
-          this.hooks.onWalterEnd?.();
-          sfx.sfxGotOff();
-        }
-        break;
-
       case STATE.WALTER_REVEAL:
         if (this.stateTime >= 2.2) {
           if (this.walterRoll === 'almost') this.almostWalter();
@@ -277,6 +256,14 @@ export class Trip {
         this.hookTimer -= dt;
         if (this.hookTimer <= 0) {
           // A missed bite. Normal, not a punishment.
+          // If she misses his bite he simply is not spent yet — he comes back
+          // on a later cast rather than being gone for the trip.
+          if (this.walterOn) {
+            this.walterOn = false;
+            this.walterSpent = false;
+            sfx.setAmbience({ hushed: false });
+            this.hooks.onWalterEnd?.();
+          }
           this.pending = null;
           this.setState(STATE.WAITING);
           this.biteTimer = BITE_MIN + Math.random() * (BITE_MAX - BITE_MIN);
@@ -345,9 +332,21 @@ export class Trip {
       form: this.walterForm,
       strength: 1,
     };
-    this.fightLength = walterFightSeconds(this.walterForm);
-    this.hookTimer = WALTER_HOOK_WINDOW;
-    this.setState(STATE.WALTER_TAKE);
+
+    // CAUGHT EXACTLY LIKE EVERY OTHER FISH.
+    //
+    // He used to have his own bite state, his own longer hook window and his
+    // own long fight. Every one of those was a way to not catch him, and
+    // together they made him feel unreachable rather than special. So the
+    // mechanics are now identical to a bluegill's: the ordinary bite, the
+    // ordinary hook window, the ordinary few seconds of holding the bar.
+    //
+    // What makes him Walter is everything AROUND the catching — the water
+    // going still, the shape under the surface, the reveal, the release, the
+    // board. None of that asks anything of the player.
+    this.fightLength = SMALL_FIGHT_SECONDS;
+    this.hookTimer = HOOK_WINDOW;
+    this.setState(STATE.BITE);
     sfx.setAmbience({ hushed: true });
     sfx.sfxWalterTake();
     this.hooks.onWalterStart?.(this.walterForm);
@@ -382,8 +381,6 @@ export class Trip {
     if (!f) return this.setState(STATE.IDLE);
     this.fightTime = (this.fightTime ?? 0) + dt;
 
-    if (f.walter) return this.updateWalterFight(dt);
-
     // HOLD THE BAR AND HE COMES IN. That is the whole mechanic.
     //
     // This used to be a tension-management game: reeling loaded the line, and
@@ -407,52 +404,23 @@ export class Trip {
     this.distance = THREE.MathUtils.clamp(this.distance, 0, 1);
     sfx.dragSet(this.strain);
 
+    // Walter keeps his profile for the LOOK of the fight only — how the shape
+    // moves under the surface, whether it headshakes, how deep it holds. It
+    // does not touch how hard he is to land.
+    if (f.walter) {
+      this.walterProfile = walterFightProfile(f.form, this.fightTime, this.walterSeed);
+      if (this.distance <= 0.02 && !this.revealed) {
+        this.revealed = true;
+        this.setState(STATE.WALTER_REVEAL);
+        sfx.dragStop();
+        sfx.sfxWalterReveal();
+        this.hooks.onWalterReveal?.(f.form);
+        return;
+      }
+      if (this.distance > 0.02) return;
+    }
+
     if (this.distance <= 0) this.landFish();
-  }
-
-  /**
-   * The long fight. Thirty to sixty seconds, against five for everything else.
-   *
-   * A big red fights deep and slow and dogged. A gator trout runs shallow and
-   * headshakes and jumps. The two have to FEEL different, so that by about
-   * twenty seconds in she starts to suspect which one she's got — and is
-   * sometimes wrong.
-   *
-   * He stays UNDER THE SURFACE for the whole of this. A heavy shape, a boil, a
-   * swirl, no colour. The reveal is worth nothing if he can be read early.
-   */
-  updateWalterFight(dt) {
-    this.walterProfile = walterFightProfile(this.pending.form, this.fightTime, this.walterSeed);
-    const pull = this.walterProfile.pull;
-
-    // Same rule as everything else: hold the bar and he comes in, at a steady
-    // rate, with nothing that can take it away.
-    //
-    // He used to STALL at high tension — distance actually ran backwards. He
-    // could never technically be lost, but a bar that went red while the fish
-    // went further away is indistinguishable from losing, and that is what
-    // made him feel uncatchable. Gone. He now closes at exactly 1/fightLength
-    // per second of reeling, so the fight is as long as it says it is.
-    if (this.reeling) {
-      this.distance -= dt / this.fightLength;
-      this.strain += (0.30 + pull * 0.60 - this.strain) * dt * 2.0;
-    } else {
-      this.strain += (0.15 - this.strain) * dt * 2.0;
-    }
-
-    this.strain = THREE.MathUtils.clamp(this.strain, 0, 1);
-    this.distance = THREE.MathUtils.clamp(this.distance, 0, 1);
-    sfx.dragSet(this.strain);
-
-    if (this.walterProfile.jump) sfx.sfxSplash(0.8);
-
-    if (this.distance <= 0.02 && !this.revealed) {
-      this.revealed = true;
-      this.setState(STATE.WALTER_REVEAL);
-      sfx.dragStop();
-      sfx.sfxWalterReveal();
-      this.hooks.onWalterReveal?.(this.pending.form);
-    }
   }
 
   /**

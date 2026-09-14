@@ -14,7 +14,7 @@ import { syncRetroLighting, createRetroMaterial, paint } from './render/retro.js
 import { updateWater } from './water/06_water_lowfi_threejs.js';
 import {
   createKrebsLake, createChair, createCooler, createRodHolder, createCan,
-  KREBS_LIGHT, setHeat,
+  KREBS_LIGHT, setHeat, SHELF_Y,
 } from './maps/krebs.js';
 import { createNana, animateNana } from './game/nana.js';
 import { createFish, animateFish, lengthForWeight } from './game/fish.js';
@@ -48,7 +48,8 @@ scene.fog = new THREE.Fog(KREBS_LIGHT.sky.clone(), KREBS_LIGHT.fogNear, KREBS_LI
 
 // Where she sits: right at the water's edge, angled a few degrees so the
 // composition is not dead-on.
-const SEAT = new THREE.Vector3(0, 0, 2.05);
+// On the bank, not in it: everything sits on the shelf.
+const SEAT = new THREE.Vector3(0, SHELF_Y, 2.05);
 
 const chair = createChair();
 chair.position.copy(SEAT);
@@ -57,7 +58,6 @@ scene.add(chair);
 
 const nana = createNana();
 nana.position.copy(SEAT);
-nana.position.y = 0.02;
 nana.rotation.y = Math.PI + 0.10;
 scene.add(nana);
 
@@ -70,12 +70,12 @@ scene.add(nana);
 // image. Measured: only two taps in seven landed. Forward of the chair it sits
 // clear of the edge and is still, plainly, beside her.
 const cooler = createCooler();
-cooler.position.set(SEAT.x - 0.74, 0.06, SEAT.z - 0.46);
+cooler.position.set(SEAT.x - 0.74, SHELF_Y + 0.03, SEAT.z - 0.46);
 cooler.rotation.y = -0.30;
 scene.add(cooler);
 
 const rodHolder = createRodHolder();
-rodHolder.position.set(SEAT.x + 0.62, 0.04, SEAT.z - 0.45);
+rodHolder.position.set(SEAT.x + 0.62, SHELF_Y + 0.02, SEAT.z - 0.45);
 scene.add(rodHolder);
 
 // ---- the rod, held in her right hand --------------------------------------
@@ -141,8 +141,8 @@ const camera = new THREE.PerspectiveCamera(52, RENDER_WIDTH / RENDER_HEIGHT, 0.1
 // Just behind and above her shoulder. She sits low-left of centre with the
 // rod running up and out to the right, the water filling the middle, and the
 // LaPointe-Krebs House on the horizon the whole time.
-const CAM_HOME = new THREE.Vector3(SEAT.x - 0.44, 1.92, SEAT.z + 3.05);
-const CAM_LOOK = new THREE.Vector3(SEAT.x + 0.16, 0.62, SEAT.z - 16.0);
+const CAM_HOME = new THREE.Vector3(SEAT.x - 0.44, SHELF_Y + 1.62, SEAT.z + 3.05);
+const CAM_LOOK = new THREE.Vector3(SEAT.x + 0.16, SHELF_Y + 0.18, SEAT.z - 16.0);
 camera.position.copy(CAM_HOME);
 camera.lookAt(CAM_LOOK);
 
@@ -222,8 +222,6 @@ const trip = new Trip(mapData, {
   onWalterStart: () => {
     walterShadow.visible = true;
     bobber.visible = true;
-    hud.setPrompt('...');
-    hud.flash('walter');
   },
 
   // He turns near the top and the flank catches the light. Copper with a black
@@ -298,7 +296,7 @@ function refreshBest() {
 
 function onStateChange(s) {
   // A fish is on: hide anything that is not part of landing it.
-  const busy = s === STATE.FIGHT || s === STATE.BITE || s === STATE.WALTER_TAKE ||
+  const busy = s === STATE.FIGHT || s === STATE.BITE ||
                s === STATE.WALTER_REVEAL || s === STATE.RELEASE;
   ui.classList.toggle('busy', busy);
 
@@ -313,14 +311,10 @@ function onStateChange(s) {
       break;
     case STATE.BITE:
       // Mirrored three ways: the rod bends, the screen edge flashes, it beeps.
-      hud.setPrompt('TAP! SET THE HOOK!');
-      hud.flash('strike');
-      break;
-    case STATE.WALTER_TAKE:
-      // She knows it's a Walter from the way the rod loads. She does NOT know
-      // which one, and the prompt must not give it away.
-      hud.setPrompt('SOMETHING HEAVY. TAP.');
-      hud.flash('walter');
+      // Walter's bite is the same bite — only the wording and the colour of the
+      // flash say something heavier is on.
+      hud.setPrompt(trip.walterOn ? 'SOMETHING HEAVY. TAP!' : 'TAP! SET THE HOOK!');
+      hud.flash(trip.walterOn ? 'walter' : 'strike');
       break;
     case STATE.WALTER_REVEAL:
     case STATE.RELEASE:
@@ -487,7 +481,6 @@ pipeline.start((dt, elapsed) => {
     const want =
       trip.state === STATE.CASTING ? 'cast' :
       trip.state === STATE.FIGHT ? 'fight' :
-      trip.state === STATE.WALTER_TAKE ? 'fight' :
       trip.state === STATE.COOLER ? 'cooler' :
       trip.state === STATE.RELEASE ? 'release' :
       trip.state === STATE.LANDED ? 'lift' : 'idle';
