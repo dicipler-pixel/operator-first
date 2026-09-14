@@ -47,6 +47,8 @@ Use the stable `LC-###` tag, then record:
 | `LC-023` | Yang–Mills nonuniform allocation floor | #56 | `37c08ade9bfd62f0efc4674d72fb49e287fc98fd` | dedicated `34744922404`; CI `34744922445` | `research/yang_mills_2026_09_09/cross_theorem/lean/NonuniformAllocationFloor.lean` |
 | `LC-024` | Collatz one-cylinder exceptional threshold | #57 | `08d3a66728c4ca867f68146189aee93e27570e33` | dedicated `34744804576`; CI `34744804643` | `CollatzExceptionalThreshold.lean` |
 
+| `LC-025` | Yang–Mills longest finite chain | #60 | `3eb82d5f5dd50e4b7ba1493859e000f15cca3b86` | dedicated `34780947094`; CI `34780947177` | `research/yang_mills_2026_09_09/cross_theorem/lean/LongestYangMillsChain.lean` |
+
 The authoritative theorem descriptions, hypotheses, supersession rules, and boundaries remain in `LEAN_CERTIFICATES_MASTER.md`.
 
 ---
@@ -65,15 +67,12 @@ These remain visible so no work is lost, but they must not be cited under an `LC
 - #48 projector transport / retained-hidden coupling metric;
 - #49 Collatz realization phase cylinders;
 - #50 factorized finite resolvent feedback;
-- #51 consolidated finite Yang–Mills projector / feedback / observability / Schur spine;
-- #52 nonuniform / overlap-aware Yang–Mills hidden-tail transfer;
 - #53 Collatz moving-anchor interface;
-- #54 finite Yang–Mills Schur spectral-floor transfer;
 - #55 Collatz no-fixed-window Mersenne obstruction;
 
 Some of these branches already have successful workflows or green ancestors. That does **not** change the rule: promotion requires the exact theorem-source snapshot to be entered into the master registry with its evidence contract.
 
-PR #56 and PR #57 are now promoted only at the exact LC-023 and LC-024 heads above. Their parent declarations remain ancestry and are not separate additions to either new-inventory count.
+PR #56, PR #57, and PR #60 are promoted only at the exact LC-023, LC-024, and LC-025 heads above. PR #60's 56-declaration inventory includes inherited lineages; only its seven `LongestYangMillsChain.lean` bridge theorems are new at LC-025.
 
 ---
 
