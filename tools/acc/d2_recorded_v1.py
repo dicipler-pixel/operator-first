@@ -39,12 +39,15 @@ from verifier import core                               # noqa: E402
 from event_log_v1 import EventLog                       # noqa: E402
 from d2_restoration_v1 import B2, C2, D2, total         # noqa: E402
 from displacement_gram_v1 import PermRep                # noqa: E402
+from numeric_tau_v1 import (NumRep, fingerprint,        # noqa: E402
+                            default_rep as tau_rep)
 
 RUN = "d2-restoration"
 REP = PermRep([1, 2, 0, 3, 4], [1, 0, 3, 4, 2])
+TAU = tau_rep()
 
 
-def eyes_on(state):
+def eyes_on(state, tau_budget=None):
     """Every roster eye files. Four of them, none optional.
 
     Returns {eye_id: (state, output, reason)} with state in the six-way
@@ -64,12 +67,16 @@ def eyes_on(state):
                                 None)
 
     # 3. twisted determinant: invariant under inversion and multiplication,
-    #    destroyed by conjugation. Too slow to evaluate per state at this
-    #    breadth, so it files `blocked` with the reason rather than vanishing.
-    out["twisted-determinant"] = ("blocked", None,
-                                  "symbolic 2N x 2N determinant per state is "
-                                  "too slow at search breadth; needs a numeric "
-                                  "evaluation at sample points")
+    #    destroyed by conjugation. Now evaluated exactly at sampled t, so it
+    #    OBSERVES instead of filing blocked. Values are strings on purpose:
+    #    these determinants run past 2^53 and must never be JSON numbers.
+    if tau_budget is None or tau_budget > 0:
+        out["twisted-determinant"] = ("observed",
+                                      {"tau_at_t": fingerprint(state, TAU)}, None)
+    else:
+        out["twisted-determinant"] = ("blocked", None,
+                                      "per-run sampling budget spent; the eye "
+                                      "is rate-limited, not absent")
 
     # 4. first-relator fixity: B2 is fixed in both endpoints of this problem,
     #    so an eye that watches whether it moved is meaningful here.
@@ -106,7 +113,7 @@ def import_legacy(log, path):
     return 0
 
 
-def run(log, cap, depth):
+def run(log, cap, depth, tau_cap=None):
     b, dsrc, cgoal = B2(), D2(2, 2), C2(2)
     start, goal = (b, dsrc), (b, cgoal)
 
@@ -129,6 +136,7 @@ def run(log, cap, depth):
     log.append("state", {"role": "start", "ref": start_ref}, RUN)
     log.append("state", {"role": "goal", "ref": goal_ref}, RUN)
 
+    tau_budget = tau_cap
     seen = {start: start_ref}
     frontier = [start]
     found = None
@@ -138,7 +146,9 @@ def run(log, cap, depth):
         nxt = []
         for s in frontier:
             parent_ref = seen[s]
-            readings = eyes_on(s)
+            readings = eyes_on(s, tau_budget)
+            if tau_budget is not None:
+                tau_budget -= 1
             for eye_id, (st, output, reason) in readings.items():
                 log.eye_reading(RUN, "d2", eye_id, st, output=output,
                                 reason=reason, state_ref=parent_ref)
@@ -189,6 +199,8 @@ def main(argv=None):
     ap.add_argument("--run", action="store_true")
     ap.add_argument("--cap", type=int, default=20)
     ap.add_argument("--depth", type=int, default=3)
+    ap.add_argument("--tau-cap", type=int, default=None,
+                    help="max states the determinant eye samples")
     ap.add_argument("--dir")
     a = ap.parse_args(argv)
 
@@ -196,7 +208,7 @@ def main(argv=None):
     if a.import_legacy:
         return import_legacy(log, a.legacy_path)
     if a.run:
-        return run(log, a.cap, a.depth)
+        return run(log, a.cap, a.depth, a.tau_cap)
     ap.print_help()
     return 0
 

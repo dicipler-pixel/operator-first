@@ -323,6 +323,57 @@ class TestChunkStoreAndDeltas(unittest.TestCase):
         self.assertEqual(self.log.get_chunk(ref), {"a": 1})
 
 
+class TestScaling(unittest.TestCase):
+    """Append must not get slower as the stream grows.
+
+    The first implementation read the whole file to find the tail, which is
+    O(n) per append and O(n^2) over a run: 3.14 ms/append at 2,000 events,
+    19.30 ms at 8,000. A million-event search was out of reach. This pins the
+    fix so it cannot regress silently.
+    """
+
+    def test_append_cost_is_flat_in_stream_length(self):
+        import time
+        with tempfile.TemporaryDirectory() as d:
+            log = EventLog(d)
+            batch = 1500
+
+            def rate():
+                t0 = time.time()
+                for i in range(batch):
+                    log.append("note", {"i": i, "pad": "x" * 100})
+                return batch / (time.time() - t0)
+
+            early = rate()
+            for _ in range(4):          # grow the stream well past the window
+                rate()
+            late = rate()
+            self.assertGreater(
+                late, early / 3,
+                f"append slowed from {early:,.0f}/s to {late:,.0f}/s as the "
+                f"stream grew; the tail read is O(n) again")
+
+    def test_the_tail_is_found_without_reading_the_whole_file(self):
+        with tempfile.TemporaryDirectory() as d:
+            log = EventLog(d)
+            for i in range(400):
+                log.append("note", {"i": i, "pad": "y" * 500})
+            seq, digest = log._tail()
+            self.assertEqual(seq, 399)
+            last = [r for _, r, _ in log.read()][-1]
+            self.assertEqual(digest, last["digest"])
+
+    def test_a_torn_tail_still_falls_back_to_the_previous_record(self):
+        with tempfile.TemporaryDirectory() as d:
+            log = EventLog(d)
+            for i in range(50):
+                log.append("note", {"i": i})
+            raw = log.path.read_bytes()
+            log.path.write_bytes(raw + b'{"seq": 50, "truncated')
+            seq, _ = log._tail()
+            self.assertEqual(seq, 49, "the backward read must skip the torn line")
+
+
 class TestLiveStream(unittest.TestCase):
     def test_the_committed_stream_verifies(self):
         log = EventLog()

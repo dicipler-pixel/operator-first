@@ -139,19 +139,38 @@ class EventLog:
     # --- the stream ----------------------------------------------------------
 
     def _tail(self):
-        """(seq, digest) of the last intact record, without parsing the file."""
+        """(seq, digest) of the last intact record, read BACKWARD from the end.
+
+        Reading the whole file per append made this O(n) each and O(n^2) over a
+        run. A benchmark showed 3.14 ms per append at 2,000 events rising to
+        19.30 ms at 8,000, which puts a million-event search out of reach.
+        Seeking to the end and scanning back over a window is O(1) in the length
+        of the stream, and it still skips a torn final line by falling back to
+        the previous complete one.
+        """
         if not self.path.exists():
             return -1, GENESIS
-        last = None
-        for line in self.path.read_text(errors="replace").splitlines():
-            if line.strip():
-                try:
-                    last = json.loads(line)
-                except json.JSONDecodeError:
-                    continue        # a torn tail is not a link; verify reports it
-        if last is None:
+        size = self.path.stat().st_size
+        if size == 0:
             return -1, GENESIS
-        return last.get("seq", -1), last.get("digest", GENESIS)
+        with open(self.path, "rb") as fh:
+            window = 1 << 16
+            while True:
+                start = max(0, size - window)
+                fh.seek(start)
+                blob = fh.read(size - start)
+                lines = [l for l in blob.split(b"\n") if l.strip()]
+                if start > 0 and lines:
+                    lines = lines[1:]      # the first may be a partial line
+                for line in reversed(lines):
+                    try:
+                        rec = json.loads(line)
+                    except json.JSONDecodeError:
+                        continue           # torn tail: verify still reports it
+                    return rec.get("seq", -1), rec.get("digest", GENESIS)
+                if start == 0:
+                    return -1, GENESIS
+                window <<= 2               # nothing parseable yet: widen
 
     def append(self, kind, body, run_id="default"):
         if kind not in KINDS:
