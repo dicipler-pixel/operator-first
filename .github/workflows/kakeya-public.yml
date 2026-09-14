@@ -1,0 +1,31 @@
+name: Public arithmetic Kakeya proof supplement
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  proofs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
+        with:
+          use-mathlib-cache: true
+          build-args: OperatorFirst.KakeyaDenominators OperatorFirst.KakeyaCutCompletion OperatorFirst.KakeyaForcingBridge OperatorFirst.KakeyaAuditControls OperatorFirst.KakeyaCutAssumptionControl
+      - name: Verify kernels, declarations, and rejection controls
+        run: python3 scripts/verify_kakeya_public.py
+      - name: Upload public verification receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kakeya-public-${{ github.run_id }}-${{ github.sha }}
+          path: verification/kakeya_public/
+          retention-days: 30
