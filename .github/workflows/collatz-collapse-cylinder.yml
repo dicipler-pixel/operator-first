@@ -29,7 +29,7 @@ jobs:
       - name: Direct source check
         run: lake env lean CollatzCollapseCylinder.lean
       - name: Independent kernel replay
-        run: lake env leanchecker .lake/build/lib/lean/CollatzCollapseCylinder.olean
+        run: lake env leanchecker CollatzCollapseCylinder
       - name: Reject admitted proofs
         run: |
           if grep -R -n -E 'sorryAx|Lean\.ofReduceBool' CollatzCollapseCylinder.lean; then
