@@ -57,6 +57,12 @@ jobs:
       - name: adversarial recorder attacks (the ledger must repel all of them)
         run: python3 tools/acc/test_recorder_adversarial_v1.py
 
+      # Each hour records independently; hours are mixed only after they close.
+      # Attack 4 replays the 2026-09-14 ten-millisecond batch and asserts it is
+      # MEASURED, not rejected -- co-authorship may never be hidden.
+      - name: hourly eye independence attacks
+        run: python3 tools/acc/test_eye_hour_adversarial_v1.py
+
       - name: build lineage and regression matrix must be current
         run: python3 tools/acc/lineage_v1.py --check
 
