@@ -46,8 +46,8 @@ Use the stable `LC-###` tag, then record:
 | `LC-022` | Recovered standard-math / title-kernel audit | #43 | mathematical source `7981e790a5df6e26c9049936e70c4c1c7d702d9b` | run `34734366215` | `research/certification/StandardMathAudit.lean` plus title-kernel batch |
 | `LC-023` | Yang–Mills nonuniform allocation floor | #56 | `37c08ade9bfd62f0efc4674d72fb49e287fc98fd` | dedicated `34744922404`; CI `34744922445` | `research/yang_mills_2026_09_09/cross_theorem/lean/NonuniformAllocationFloor.lean` |
 | `LC-024` | Collatz one-cylinder exceptional threshold | #57 | `08d3a66728c4ca867f68146189aee93e27570e33` | dedicated `34744804576`; CI `34744804643` | `CollatzExceptionalThreshold.lean` |
-
 | `LC-025` | Yang–Mills longest finite chain | #60 | `3eb82d5f5dd50e4b7ba1493859e000f15cca3b86` | dedicated `34780947094`; CI `34780947177` | `research/yang_mills_2026_09_09/cross_theorem/lean/LongestYangMillsChain.lean` |
+| `LC-026` | Collatz finite collapse cylinder | #66 | `dfd17c9c67550217ac7d6e7f7f48e8c3679bac37` | dedicated `34891364427`; CI `34891364409` | `CollatzCollapseCylinder.lean` |
 
 The authoritative theorem descriptions, hypotheses, supersession rules, and boundaries remain in `LEAN_CERTIFICATES_MASTER.md`.
 
@@ -72,7 +72,7 @@ These remain visible so no work is lost, but they must not be cited under an `LC
 
 Some of these branches already have successful workflows or green ancestors. That does **not** change the rule: promotion requires the exact theorem-source snapshot to be entered into the master registry with its evidence contract.
 
-PR #56, PR #57, and PR #60 are promoted only at the exact LC-023, LC-024, and LC-025 heads above. PR #60's 56-declaration inventory includes inherited lineages; only its seven `LongestYangMillsChain.lean` bridge theorems are new at LC-025.
+PR #56, PR #57, PR #60, and PR #66 are promoted only at the exact LC-023, LC-024, LC-025, and LC-026 heads above. PR #60's 56-declaration inventory includes inherited lineages; only its seven `LongestYangMillsChain.lean` bridge theorems are new at LC-025. PR #66 contributes exactly three new `CollatzCollapseCylinder.lean` theorems; its PR #49 / PR #35 / barrier ancestry is not counted again, and PR #49 remains separately unpromoted as its own registry snapshot.
 
 ---
 
