@@ -255,6 +255,43 @@ the move function produces successors *before* trusting any negative answer.
 A negative result from an instrument that was never shown to work is not
 evidence.
 
+## 6c. The complete length-39 profile
+
+There are only 28 AC challenges of initial total relator length 39 in the whole
+frozen manifest. That is small enough to measure *exhaustively* — no sampling,
+no selection, the entire profile at cap 47.
+
+```
+28 challenges:  12 closed, 16 budget (component exceeds 40,000,000)
+
+   2,464,344  x2   depths 46, 51            ac-02509 ac-02681
+   2,696,184  x3   depths 53, 62, 63        ac-06819 ac-07442 ac-08090
+   8,722,080  x1   depth 107                ac-01192
+  10,779,012  x5   depths 61, 61, 70, 71, 73 ac-02831 ac-03110 ac-05490
+                                             ac-07639 ac-08207
+  21,981,528  x1   depth 157                ac-01796
+```
+
+**Twelve closed corridors take five distinct sizes.**
+
+This is the within-profile pattern stated on a complete profile rather than a
+sample, which is exactly the objection that killed the pool-wide claim. The
+census that refuted that claim drew uniformly from the whole pool and mixed
+lengths, so it compared corridors living in *different graphs*; corridors at
+different caps cannot share a component and their sizes carry no information
+about each other. Fixing the profile removes that confound.
+
+It also shows the pattern is not an artifact of my earlier biased shard: two of
+these five size classes were unknown before this sweep, and the largest class
+has five members.
+
+Note what is *not* claimed. Sizes repeating within a profile is a measurement.
+Whether the repeats are distinct components is a separate question, settled
+only by search — and for the 2,464,344 and 2,696,184 classes it is settled
+(all disjoint). The five-member class at 10,779,012 contains **two corridors of
+equal depth 61**, which is the first case where "same size, same depth" makes
+the same-component reading genuinely plausible. That test is running.
+
 ## 7. What this changes
 
 - The corridor closures should be restated as disconnection results. They are
