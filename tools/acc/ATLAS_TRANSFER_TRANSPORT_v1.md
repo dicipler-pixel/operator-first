@@ -176,13 +176,92 @@ instances to the whole pool and to headroom advice. Nothing here revives that.
 This is one challenge, one cap, two measured components — a measurement, not a
 generalisation, and it says nothing about where scored solutions live.
 
+## 6b. Building the missing instrument, and what it proved
+
+`ac_corridor64_v1.c` hardcodes the trivial presentation as its target, so a BFS
+from a start can only ever answer *"is the trivial presentation in this
+component"*. The component structure of the capped graph is invisible to it.
+That is exactly the invariant `CASCADE-FOUR-RECORDS` says to track separately.
+
+`ac_corridor64_target_v1.c` takes the target from the command line. v1 is
+untouched. It range-checks the target against the cap and, on exhaustion,
+reports `disjoint=1` — because an exhausted search whose in-cap target was not
+found *is* a disjointness proof.
+
+**Regression first.** With the trivial presentation as target it must reproduce
+v1 exactly:
+
+```
+EXHAUSTED states=2464344 depth=51 cap=47 disjoint=1     (v1: 2,464,344 / 51)
+```
+
+### The two coincidences are real, and they are not one component
+
+The obvious deflationary explanation for two challenges reporting identical
+component sizes is that they are *the same component* seen from two roots —
+which would make the coincidence trivial and the depth difference a mere change
+of basepoint. That is now refused:
+
+```
+is ac-02681's start in ac-02509's component?   EXHAUSTED 2,464,344 d51  DISJOINT
+is ac-02509's start in ac-02681's component?   EXHAUSTED 2,464,344 d46  DISJOINT
+```
+
+And for the triple, all six ordered pairs:
+
+```
+ac-06819 / ac-07442 / ac-08090   — every pair DISJOINT
+                                   2,696,184 states each, depths 53, 63, 62
+```
+
+So at cap 47 the following are **proved pairwise disjoint**:
+
+| component | states | depth |
+|---|---|---|
+| ac-02509 | 2,464,344 | 51 |
+| ac-02681 | 2,464,344 | 46 |
+| ac-06819 | 2,696,184 | 53 |
+| ac-07442 | 2,696,184 | 63 |
+| ac-08090 | 2,696,184 | 62 |
+| trivial presentation | > 40,000,000 | ≥ 8 |
+
+**At least six distinct components**, and the five small ones take exactly
+**two** distinct sizes across five independent components with five different
+depths.
+
+This is `OBS-INTERIOR-AMBIGUITY` in its sharpest form: identical exterior
+response, different interior, and now the "maybe they are the same object"
+escape is closed by proof rather than left open.
+
+**What this is not.** It is five measured components at one cap in one length
+profile. The pool-wide corridor-volume quantization claim stays retracted — the
+census that killed it sampled the whole pool and found thirty closed corridors
+with thirty distinct sizes. What is new here is only that within this profile
+the coincidences are between genuinely distinct components, which the census
+never addressed and which I had previously left as the weaker "possibly the
+same component" reading.
+
+### A bug worth recording
+
+The first version of the same-component test used the official verifier's
+`apply_move` with the wrong arity, inside a `try/except Exception: continue`.
+Every call raised `TypeError`, every exception was swallowed, the frontier was
+empty at every depth, and the script cheerfully reported "not reachable". A
+search that never ran, reported as a negative result.
+
+It was caught only because a BFS that reports `total 1` at depth 8 is
+obviously broken. The fix was not just the arity: the rewritten test asserts
+the move function produces successors *before* trusting any negative answer.
+A negative result from an instrument that was never shown to work is not
+evidence.
+
 ## 7. What this changes
 
 - The corridor closures should be restated as disconnection results. They are
   stronger that way and they say what actually blocks transport.
-- The instrument needs the fourth record — the component count, or at minimum
-  whether the target's own component was ever touched. A BFS from the start
-  cannot see it, so this needs a second search seeded at the target.
+- ~~The instrument needs the fourth record~~ — built as
+  `ac_corridor64_target_v1.c`, and it immediately proved six pairwise-disjoint
+  components at cap 47.
 - Volume and depth must be recorded as different kinds of measurement, not as
   two columns of one table.
 
