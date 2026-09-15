@@ -230,6 +230,16 @@ A Lean certificate certifies only the encoded statement and explicit hypotheses.
 - Scope: for `M > 0` exact cylinders, an exceptional fraction `bad/M < 1/M` forces `bad = 0`, while `bad ≠ 0` forces fraction at least `1/M`. At corrected odd-to-odd phase resolution `M = 2^(S+1)`, the same two directions hold and the resolution is positive.
 - Boundary: finite counting interface at a fixed resolution only. It does not prove that any Tao-style almost-all estimate attains this moving threshold, moving-anchor escape, exclusion of arbitrary infinite valuation sequences, or the Collatz conjecture.
 
+### LC-026 — Collatz finite collapse-cylinder law
+- PR: **#66**
+- Verified head: `dfd17c9c67550217ac7d6e7f7f48e8c3679bac37`
+- Evidence runs: dedicated collapse-cylinder `34891364427`; repository CI same head `34891364409`.
+- Ancestry: stacked on PR #49 at exact base snapshot `9feb519a0885dcfe5c9b16cac327c5b630ef1495`. PR #49 itself extends PR #35's finite realization/survival interface, which sits on the LC-020 Collatz barrier spine.
+- New inventory at this snapshot: exactly **3 named theorems** in `CollatzCollapseCylinder.lean`: `realized_cylinder_and_survival_window`, `surviving_realizer_below_cutoff`, and `no_surviving_realizer_at_or_above_cutoff`. The new workflow and `lakefile.toml` root registration are certification infrastructure, not theorem declarations. Inherited declarations from `CollatzAlignment.lean`, `CollatzBarrier.lean`, PR #49, and PR #35 are ancestry and are **not counted again** as new here.
+- Scope: a realized valuation prefix with odd terminal state lies in its exact binary phase cylinder while finite survival is equivalent to the exact Archimedean power-gap window; if the positive gap times cutoff `N` strictly exceeds the correction, every surviving realized seed is below `N`; equivalently, there is no surviving realized seed at or above that cutoff.
+- Verification contract: the dedicated workflow built `CollatzCollapseCylinder`, checked the source directly, replayed the generated object with `leanchecker`, printed the three theorem axiom reports from the source, and rejected `sorryAx` / `Lean.ofReduceBool`; repository CI independently succeeded at the exact same head.
+- Boundary: finite conditional exclusion for one realized valuation prefix and one explicit cutoff only. It does not prove the Collatz conjecture, exclude infinite compatible branches, turn finite mass decay into a pointwise theorem, or claim novelty for classical affine-iterate or valuation-cylinder machinery.
+
 ## Recovered / audit certificates
 
 ### LC-022 — Standard-mathematics / title-kernel audit
@@ -253,6 +263,7 @@ The following relations prevent double counting:
 - PR #56 extends the PR #52/#54 Yang–Mills tail/Schur-floor lineage. Only its 3 `NonuniformAllocationFloor.lean` theorems are new at LC-023; all rechecked parent declarations remain inherited.
 - PR #60 / LC-025 recombines the finite Yang–Mills lineages from LC-017, LC-018, LC-023 and PRs #51/#52/#54. Its 56 declarations are the audited snapshot inventory; only the 7 `LongestYangMillsChain.lean` bridge theorems are new at LC-025, and the repaired inherited `ProjectorDynamics.lean` declarations are not counted again.
 - PR #57 extends the PR #53/#55 Collatz moving-anchor/no-fixed-window lineage. Only its 5 `CollatzExceptionalThreshold.lean` theorems are new at LC-024; all rechecked parent declarations remain inherited.
+- PR #66 / LC-026 extends the PR #49 realization-cylinder lane on top of PR #35 and the LC-020 barrier spine. Only the 3 `CollatzCollapseCylinder.lean` theorems are new at LC-026; PR #49/PR #35/barrier declarations remain inherited and are not counted again. PR #49 remains separately unpromoted as its own registry snapshot.
 
 ---
 
