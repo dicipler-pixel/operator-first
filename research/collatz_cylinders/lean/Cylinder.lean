@@ -516,6 +516,143 @@ That is the next piece of work, and it is bookkeeping on top of results already
 proved here rather than new mathematics.
 -/
 
+/-! ## The Syracuse algebra -/
+/-- A value with 2-adic valuation exactly `p` factors as `2^p` times an odd number. -/
+theorem strip {v p : Nat} (h : v % 2 ^ (p + 1) = 2 ^ p) :
+    ∃ A, Odd2 A ∧ v = 2 ^ p * A := by
+  have hdm : 2 ^ (p + 1) * (v / 2 ^ (p + 1)) + v % 2 ^ (p + 1) = v :=
+    Nat.div_add_mod v (2 ^ (p + 1))
+  rw [h] at hdm
+  -- name the quotient, so rewriting `v` cannot reach inside it
+  obtain ⟨Q, hQ⟩ : ∃ Q, 2 ^ (p + 1) * Q + 2 ^ p = v := ⟨v / 2 ^ (p + 1), hdm⟩
+  refine ⟨2 * Q + 1, ⟨Q, rfl⟩, ?_⟩
+  rw [← hQ, Nat.pow_succ]
+  simp [Nat.left_distrib, Nat.mul_comm, Nat.mul_left_comm, Nat.mul_assoc]
+  rw [Nat.add_mul, Nat.one_mul, ← Nat.mul_assoc]
+
+-- 3A+1 is even when A is odd, so the next stage strips one factor of two.
+theorem three_add_one_even {A : Nat} (hA : Odd2 A) : ∃ B, 3 * A + 1 = 2 * B := by
+  obtain ⟨c, rfl⟩ := hA
+  exact ⟨3 * c + 2, by omega⟩
+
+
+/-- **The Syracuse step.** Fixing the digit at a stage with odd multiplier `m`
+    factors the affine value as `2^p * (A + 2m·k)` with `A` odd, on the
+    reindexed window. -/
+theorem syr_step {m : Nat} (a p c : Nat)
+    (hc : (a + m * c) % 2 ^ (p + 1) = 2 ^ p) :
+    ∃ A, Odd2 A ∧ ∀ k, a + m * (c + 2 ^ (p + 1) * k) = 2 ^ p * (A + 2 * m * k) := by
+  obtain ⟨A, hA, hAeq⟩ := strip hc
+  refine ⟨A, hA, fun k => ?_⟩
+  have e1 : a + m * (c + 2 ^ (p + 1) * k) = (a + m * c) + m * (2 ^ (p + 1) * k) := by
+    rw [Nat.left_distrib]; omega
+  rw [e1, hAeq, Nat.left_distrib, Nat.pow_succ]
+  simp [Nat.mul_comm, Nat.mul_left_comm, Nat.mul_assoc]
+
+/-- **The next multiplier is `3m`.** With `3A+1 = 2B`, the next stage's value
+    strips one factor of two and presents the affine form `B + (3m)·k`. Since
+    `3m` is odd whenever `m` is, the counting lemma applies again unchanged --
+    which is exactly why the induction never degrades. -/
+theorem syr_next {m A B : Nat} (hAB : 3 * A + 1 = 2 * B) (k : Nat) :
+    3 * (A + 2 * m * k) + 1 = 2 * (B + 3 * m * k) := by
+  have e : ∀ x, 3 * (A + 2 * x) + 1 = 2 * (B + 3 * x) := by intro x; omega
+  rw [Nat.mul_assoc, Nat.mul_assoc]
+  exact e (m * k)
+
+theorem odd_three_mul {m : Nat} (hm : Odd2 m) : Odd2 (3 * m) := odd_mul ⟨1, rfl⟩ hm
+
+/-! ## The n-step law -/
+
+theorem filter_all_true {α : Type} : ∀ (l : List α),
+    (l.filter (fun _ => true)).length = l.length
+  | [] => rfl
+  | x :: xs => by simp [List.filter, filter_all_true xs]
+
+theorem cntFrom_true (s n : Nat) : cntFrom (fun _ => true) s n = n := by
+  unfold cntFrom; rw [filter_all_true]; exact List.length_range
+
+/-- Total resolution spent by a digit vector: the Syracuse digits are
+    `q_i = p_i + 1`, so the budget is `Σ (p_i + 1)`. -/
+def budget : List Nat → Nat
+  | [] => 0
+  | p :: ps => (p + 1) + budget ps
+
+/-- `sdig v ps` : the value `v` has Syracuse digit vector `p₁+1, …, pₙ+1`.
+
+    Each digit is an exact modular condition, never a valuation function. The
+    divisions are exact wherever they are reached — `v / 2^p` only after
+    `v % 2^(p+1) = 2^p` has been checked, and `/ 2` only on `3·odd + 1` — and
+    where the check fails `&&` short-circuits so the value is never used.
+    Recursion is structural on the digit list, so no termination proof is
+    needed. -/
+def sdig (v : Nat) : List Nat → Bool
+  | [] => true
+  | p :: ps => (v % 2 ^ (p + 1) == 2 ^ p) && sdig ((3 * (v / 2 ^ p) + 1) / 2) ps
+
+
+/--
+  **The n-step Syracuse digit law.**
+
+  For `m` odd and any digit vector `ps`, the number of `k` in a window of
+  `2^(budget ps + R)` whose affine value `a + m·k` has Syracuse digit vector
+  `p₁+1, …, pₙ+1` is exactly `2^R`.
+
+  Writing `S = budget ps = Σ(pᵢ+1)` and `K = S + R`, this says the count is
+  `2^(K-S)` — the digits are **exactly** i.i.d. `Geom(2)` on the cylinder, with
+  no error term, for as long as the window can resolve them. Phrasing the
+  window as `S + R` rather than `K` makes the budget structural: `R` is
+  literally the resolution left over, and the statement is unavailable — not
+  false, unstatable — once the budget is overspent.
+
+  The induction is one application of `count_val2` per digit. At step `t` the
+  multiplier is `3^(t+1)`, always odd, which is the lemma's only hypothesis.
+  That is why the argument never degrades.
+-/
+theorem count_sdig : ∀ (ps : List Nat) (m : Nat), Odd2 m → ∀ (a R : Nat),
+    cntFrom (fun k => sdig (a + m * k) ps) 0 (2 ^ (budget ps + R)) = 2 ^ R
+  | [], m, hm, a, R => by
+      simp only [sdig, budget, Nat.zero_add]
+      exact cntFrom_true 0 (2 ^ R)
+  | p :: ps, m, hm, a, R => by
+      have ht : 2 ^ p < 2 ^ (p + 1) := by
+        have := Nat.two_pow_pos p; rw [Nat.pow_succ]; omega
+      obtain ⟨c, hclt, hcQ, hre⟩ := hit_reindex hm a (2 ^ p) (p + 1) ht
+        (fun k => sdig ((3 * ((a + m * k) / 2 ^ p) + 1) / 2) ps)
+      have hpred : (fun k => sdig (a + m * k) (p :: ps))
+          = (fun k => hit a m (2 ^ (p + 1)) (2 ^ p) k
+                      && sdig ((3 * ((a + m * k) / 2 ^ p) + 1) / 2) ps) := rfl
+      have hwin : (2:Nat) ^ (budget (p :: ps) + R) = 2 ^ (p + 1) * 2 ^ (budget ps + R) := by
+        rw [← Nat.pow_add]
+        congr 1
+        simp only [budget]
+        omega
+      rw [hpred, hwin, hre]
+      obtain ⟨A, hA, hAeq⟩ := syr_step a p c (by simpa [hit] using hcQ)
+      obtain ⟨B, hB⟩ := three_add_one_even hA
+      have hnext :
+          (fun k' => sdig ((3 * ((a + m * (c + 2 ^ (p + 1) * k')) / 2 ^ p) + 1) / 2) ps)
+            = (fun k' => sdig (B + 3 * m * k') ps) := by
+        funext k'
+        rw [hAeq k', Nat.mul_div_cancel_left _ (Nat.two_pow_pos p), syr_next hB k',
+            Nat.mul_div_cancel_left _ (by omega : 0 < 2)]
+      rw [hnext]
+      exact count_sdig ps (3 * m) (odd_three_mul hm) B R
+
+/--
+  **The n-step law for odd numbers.** Parametrise the odd numbers as
+  `N = 2j+1`. Then among the `2^(budget ps + R)` values of `j`, exactly `2^R`
+  give `N` the Syracuse digit vector `p₁+1, …, pₙ+1`.
+
+  Since `3N+1 = 2(2+3j)`, the digits of `N` are read off the affine value
+  `2 + 3j` with multiplier `3` — odd, so `count_sdig` applies directly. With
+  `S = Σ(pᵢ+1)` and `K = S + R`, this is the statement of §4 of the note:
+  `2^(K-S)` of the `2^K` odd numbers in the window have the prescribed digit
+  vector, exactly, with no error term.
+-/
+theorem count_syracuse_digits (ps : List Nat) (R : Nat) :
+    cntFrom (fun j => sdig (2 + 3 * j) ps) 0 (2 ^ (budget ps + R)) = 2 ^ R :=
+  count_sdig ps 3 ⟨1, rfl⟩ 2 R
+
 /-!
 ## Sanity checks
 
@@ -535,6 +672,15 @@ example : cntFrom (hit 2 3 (2 ^ 1) (2 ^ 0)) 0 (2 ^ 6) = 2 ^ (6 - 0 - 1) := by de
 example : cntFrom (fun j => (3 * (2 * j + 1) + 1) % 2 ^ 3 == 2 ^ 2) 0 (2 ^ 5) = 2 ^ 3 := by decide
 example : cntFrom (fun j => (3 * (2 * j + 1) + 1) % 2 ^ 4 == 2 ^ 3) 0 (2 ^ 5) = 2 ^ 2 := by decide
 
+-- The n-step law on concrete digit vectors. Each is an independent kernel
+-- evaluation of both sides of count_sdig.
+example : cntFrom (fun k => sdig (2 + 3 * k) [0]) 0 (2 ^ (budget [0] + 3)) = 2 ^ 3 := by decide
+example : cntFrom (fun k => sdig (2 + 3 * k) [1]) 0 (2 ^ (budget [1] + 2)) = 2 ^ 2 := by decide
+example : cntFrom (fun k => sdig (2 + 3 * k) [0, 0]) 0 (2 ^ (budget [0, 0] + 2)) = 2 ^ 2 := by decide
+example : cntFrom (fun k => sdig (2 + 3 * k) [0, 1]) 0 (2 ^ (budget [0, 1] + 2)) = 2 ^ 2 := by decide
+example : cntFrom (fun k => sdig (2 + 3 * k) [1, 0]) 0 (2 ^ (budget [1, 0] + 2)) = 2 ^ 2 := by decide
+example : cntFrom (fun k => sdig (4 + 5 * k) [0, 0, 1]) 0 (2 ^ (budget [0, 0, 1] + 2)) = 2 ^ 2 := by decide
+
 -- Sharpness: at j = K the count is NOT 2^(K-j-1); the hypothesis j < K is real.
 example : cntFrom (hit 1 3 (2 ^ 3) (2 ^ 2)) 0 (2 ^ 2) = 1 := by decide
 example : cntFrom (hit 0 3 (2 ^ 3) (2 ^ 2)) 0 (2 ^ 2) = 0 := by decide
@@ -551,3 +697,6 @@ end CollatzCylinder
 #print axioms CollatzCylinder.count_first_digit
 #print axioms CollatzCylinder.cntFrom_reindex
 #print axioms CollatzCylinder.hit_reindex
+#print axioms CollatzCylinder.syr_step
+#print axioms CollatzCylinder.count_sdig
+#print axioms CollatzCylinder.count_syracuse_digits

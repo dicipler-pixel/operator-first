@@ -65,11 +65,12 @@ outcomes at `j = K`.
 
 ## Sanity checks
 
-A theorem can be true and still say the wrong thing. Eight `example`s at the end are decided by the **kernel** (`decide`, never
+A theorem can be true and still say the wrong thing. Fourteen `example`s at the end are decided by the **kernel** (`decide`, never
 `native_decide`) on concrete numbers: four confirming the counting formula, two
-exhibiting the sharpness at `j = K`, and two confirming the first-digit law —
-among the 32 odd `N` below 64, exactly 8 have first digit 2 and exactly 4 have
-first digit 3. They fail the build if a statement drifts.
+exhibiting the sharpness at `j = K`, two confirming the first-digit law — among the 32 odd `N`
+below 64, exactly 8 have first digit 2 and exactly 4 have first digit 3 — and
+six confirming the n-step law on concrete digit vectors of length 1, 2 and 3,
+with two different odd multipliers. They fail the build if a statement drifts.
 
 There is no `sorry`, no `admit`, and no `native_decide` in any proof.
 
@@ -83,6 +84,10 @@ There is no `sorry`, no `admit`, and no `native_decide` in any proof.
 'CollatzCylinder.count_val2'             depends on axioms: [propext, Classical.choice, Quot.sound]
 'CollatzCylinder.digit_eq_hit'           depends on axioms: [propext, Quot.sound]
 'CollatzCylinder.count_first_digit'      depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzCylinder.cntFrom_reindex'        depends on axioms: [propext, Quot.sound]
+'CollatzCylinder.syr_step'               depends on axioms: [propext, Quot.sound]
+'CollatzCylinder.count_sdig'             depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzCylinder.count_syracuse_digits'  depends on axioms: [propext, Classical.choice, Quot.sound]
 ```
 
 The two pillars and uniqueness are **constructive** — no `Classical.choice`.
@@ -112,21 +117,56 @@ is stripped by `two_mod_two_mul` and what remains has multiplier `3` — odd,
 which is the only hypothesis `count_val2` needs. Digits are never expressed
 through a valuation *function*; the condition stays an exact modular one.
 
+## The n-step law — proved
+
+```lean
+theorem count_syracuse_digits (ps : List Nat) (R : Nat) :
+    cntFrom (fun j => sdig (2 + 3 * j) ps) 0 (2 ^ (budget ps + R)) = 2 ^ R
+```
+
+Parametrise the odd numbers as `N = 2j+1`. Among the `2^(budget ps + R)`
+values of `j`, exactly `2^R` give `N` the Syracuse digit vector
+`p₁+1, …, pₙ+1`. With `S = Σ(pᵢ+1)` and `K = S + R` this is §4 of the note:
+`2^(K−S)` of the `2^K` odd numbers in the window, **exactly**, no error term.
+
+Phrasing the window as `S + R` rather than `K` makes the budget structural.
+`R` is literally the resolution left over, so the over-budget case is not false
+but *unstatable* — which is the sharp behaviour the note describes, expressed
+in the type rather than as a side condition.
+
+`sdig` defines the digit vector by structural recursion on the digit list, so
+no termination proof is needed and **`Syr` is never defined as a function**.
+Each digit stays an exact modular condition; the divisions are exact wherever
+they are reached (`v / 2^p` only after `v % 2^(p+1) = 2^p` is checked, `/ 2`
+only on `3·odd + 1`), and where a check fails `&&` short-circuits so the value
+is never used. The convention-free design survives all the way to the end.
+
+The induction is one `count_val2` per digit, carried by:
+
+| | |
+|---|---|
+| `cntFrom_reindex` | fixing a digit replaces the window by a progression, shortened by exactly the bits that digit spent |
+| `strip` | a value of valuation `p` factors as `2^p · odd` |
+| `syr_step` | on the reindexed window the value is `2^p · (A + 2m·k)`, `A` odd |
+| `syr_next` | with `3A+1 = 2B` the next form is `B + (3m)·k` |
+| `odd_three_mul` | `3m` is odd, so the next step's hypothesis holds |
+
+At step `t` the multiplier is `3^(t+1)`, always odd, which is the counting
+lemma's only hypothesis. That is exactly why the induction never degrades.
+
 ## What is NOT done
 
-- **The induction to `n` steps.** Fixing the first digit pins `N` to one
+- **A bridge from `sdig` to a `Syr`-based definition.** `sdig` is proved to be
+  the right predicate by construction and checked on concrete vectors, but
+  nothing here defines `Syr` and proves the two agree. Anyone wanting the
+  statement in terms of an explicit Syracuse map would have to add that.
+- ~~**The induction to `n` steps.**~~ Fixing the first digit pins `N` to one
   residue class mod `2^(q₁+1)` (`hit_unique`, proved), so the survivors are
   again an arithmetic progression, and on it `Syr` takes the form `A + 6k`
   with `A` odd — the next digit is governed by `count_val2` with multiplier
   `9`, and at step `t` by `3^(t+1)`, always odd (`odd_pow`, proved).
 
-  What is missing is the re-parametrisation itself. It needs `Syr` as a
-  function, hence a valuation function and a division, which this file has
-  deliberately avoided so that nothing depends on a `v₂ 0 = 0` convention.
-  Introducing `Syr` means introducing that function with its termination
-  proof, and carrying the window-shortening budget `S = q₁ + ⋯ + qₙ ≤ K-1`
-  through the induction. That is bookkeeping on top of results already proved
-  here rather than new mathematics — but it is not written.
+  Done — see above.
 - **The bridge to Mathlib's `padicValNat`.** The deferred statement in
   `eoc-lean-verification`'s `CylinderDigitCounting.lean` is this lemma at
   `j = q - 1` after reducing `B = 2B'`. Stating it in their parametrisation
