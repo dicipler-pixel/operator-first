@@ -318,6 +318,39 @@ capped graph, not an artifact of re-measuring the same objects. It remains a
 measurement on one profile at one cap — not a law, and not a revival of the
 pool-wide claim, which stays retracted for the reason the census gave.
 
+## 6d. Replication on a second complete profile
+
+Length 37 has 30 challenges — again small enough to measure exhaustively. At
+cap 45:
+
+```
+30 challenges: 8 closed, 22 budget
+
+   8,929,452  x1   depth 60
+   9,551,500  x3   depths 51, 64, 65      ac-02168 ac-06412 ac-08015
+  21,309,848  x3   depths 60, 61, 70      ac-00426 ac-01753 ac-00366
+  36,878,492  x1   depth 197
+```
+
+Both collision classes tested exhaustively, six pairs: **every one disjoint.**
+Eight pairwise-distinct components over four sizes.
+
+Set beside the first profile:
+
+| profile | cap | challenges | closed | sizes | distinct components |
+|---|---|---|---|---|---|
+| length 37 | 45 | 30 | 8 | **4** | 8 |
+| length 39 | 47 | 28 | 12 | **5** | 12 |
+
+The pattern replicates on an independent profile that shares no graph with the
+first — different length, different cap, different component sizes entirely.
+Two complete profiles, twenty closed corridors, nine distinct sizes, and every
+one of the twenty proved a distinct component.
+
+Lengths 38 and 40 were also run to completion (3 and 2 challenges); they yield
+one closed corridor and none, too few to say anything, and are recorded for
+completeness rather than evidence.
+
 ## 7. What this changes
 
 - The corridor closures should be restated as disconnection results. They are

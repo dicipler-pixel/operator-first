@@ -5,9 +5,12 @@ explaining them rather than fitting them.
 
 ## The observation
 
-Across 42 closed corridors measured so far — the uniform pool census plus the
-complete length-39 profile — **every single component size is divisible by 4**,
-and the greatest common divisor of all 42 is exactly 4.
+Across **51** closed corridors measured — the uniform pool census plus the
+complete length-37, 38, 39 and 40 profiles — **every single component size is
+divisible by 4**, and the greatest common divisor of all 51 is exactly 4.
+
+Nine of those 51 were measured *after* the theorem was written, as a test of
+its prediction. All nine complied.
 
 ```
 divisible by  2: 42/42
