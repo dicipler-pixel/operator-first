@@ -65,10 +65,11 @@ outcomes at `j = K`.
 
 ## Sanity checks
 
-A theorem can be true and still say the wrong thing. Six `example`s at the end
-are decided by the **kernel** (`decide`, never `native_decide`) on concrete
-numbers — four confirming the formula, two exhibiting the sharpness. They fail
-the build if the statement drifts.
+A theorem can be true and still say the wrong thing. Eight `example`s at the end are decided by the **kernel** (`decide`, never
+`native_decide`) on concrete numbers: four confirming the counting formula, two
+exhibiting the sharpness at `j = K`, and two confirming the first-digit law —
+among the 32 odd `N` below 64, exactly 8 have first digit 2 and exactly 4 have
+first digit 3. They fail the build if a statement drifts.
 
 There is no `sorry`, no `admit`, and no `native_decide` in any proof.
 
@@ -80,17 +81,52 @@ There is no `sorry`, no `admit`, and no `native_decide` in any proof.
 'CollatzCylinder.hit_unique'             depends on axioms: [propext, Quot.sound]
 'CollatzCylinder.hit_exists'             depends on axioms: [propext, Classical.choice, Quot.sound]
 'CollatzCylinder.count_val2'             depends on axioms: [propext, Classical.choice, Quot.sound]
+'CollatzCylinder.digit_eq_hit'           depends on axioms: [propext, Quot.sound]
+'CollatzCylinder.count_first_digit'      depends on axioms: [propext, Classical.choice, Quot.sound]
 ```
 
 The two pillars and uniqueness are **constructive** — no `Classical.choice`.
 The existence half pulls it in, so the main theorem sits on the standard Lean
 trust base rather than a smaller one. Stated rather than hidden.
 
+## Step one of the n-step law
+
+```lean
+theorem count_first_digit (p K' : Nat) (hp : p < K') :
+    cntFrom (fun j => (3 * (2 * j + 1) + 1) % 2 ^ (p + 2) == 2 ^ (p + 1)) 0 (2 ^ K')
+      = 2 ^ (K' - p - 1)
+```
+
+Among the `2^K'` odd numbers `N = 2j+1` below `2^(K'+1)`, exactly `2^(K'-p-1)`
+have first Syracuse digit `p+1`. Writing `q = p+1`, that is `2^(K'-q)` out of
+`2^K'` — the first digit is **exactly** `Geom(2)` on the cylinder, with no
+error term, for every `q` the window can resolve.
+
+This is the `n = 1` case of the n-step law, and the exact finite-counting form
+of the statement deferred in `eoc-lean-verification`'s
+`CylinderDigitCounting.lean`.
+
+The bridge is `digit_eq_hit`: since `3N+1 = 2(3j+2)`, the first digit being
+`p+1` is the same as `2 + 3j` having valuation exactly `p`. The factor of two
+is stripped by `two_mod_two_mul` and what remains has multiplier `3` — odd,
+which is the only hypothesis `count_val2` needs. Digits are never expressed
+through a valuation *function*; the condition stays an exact modular one.
+
 ## What is NOT done
 
-- **The n-step Syracuse digit law** (§4 of the note). It applies this lemma
-  once per step with multiplier `3^(t+1)`; `odd_pow` is the hypothesis check it
-  needs. Not formalized.
+- **The induction to `n` steps.** Fixing the first digit pins `N` to one
+  residue class mod `2^(q₁+1)` (`hit_unique`, proved), so the survivors are
+  again an arithmetic progression, and on it `Syr` takes the form `A + 6k`
+  with `A` odd — the next digit is governed by `count_val2` with multiplier
+  `9`, and at step `t` by `3^(t+1)`, always odd (`odd_pow`, proved).
+
+  What is missing is the re-parametrisation itself. It needs `Syr` as a
+  function, hence a valuation function and a division, which this file has
+  deliberately avoided so that nothing depends on a `v₂ 0 = 0` convention.
+  Introducing `Syr` means introducing that function with its termination
+  proof, and carrying the window-shortening budget `S = q₁ + ⋯ + qₙ ≤ K-1`
+  through the induction. That is bookkeeping on top of results already proved
+  here rather than new mathematics — but it is not written.
 - **The bridge to Mathlib's `padicValNat`.** The deferred statement in
   `eoc-lean-verification`'s `CylinderDigitCounting.lean` is this lemma at
   `j = q - 1` after reducing `B = 2B'`. Stating it in their parametrisation

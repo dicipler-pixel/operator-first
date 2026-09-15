@@ -346,6 +346,93 @@ theorem count_val2 {m : Nat} (hm : Odd2 m) (a j K : Nat) (hjK : j < K) :
       Nat.mul_one]
 
 /-!
+## Step one of the n-step law: the first Syracuse digit
+
+For odd `N`, write `Syr N = (3N+1) / 2^v₂(3N+1)` and let `a₀(N) = v₂(3N+1)` be
+the first digit. Parametrise the odd numbers below `2^K` as `N = 2j+1` with
+`j < 2^(K-1)`; write `K' = K-1` for that window.
+
+`a₀(N) = p+1` is again stated as an exact modular condition, not via a
+valuation function: `(3N+1) % 2^(p+2) = 2^(p+1)`.
+-/
+
+/-- Doubling a modulus: `2v ≡ 2t (mod 2M)` iff `v ≡ t (mod M)`, for `t < M`. -/
+theorem two_mod_two_mul {v t M : Nat} (hM : 0 < M) (ht : t < M) :
+    ((2 * v) % (2 * M) = 2 * t) ↔ (v % M = t) := by
+  have hdm : M * (v / M) + v % M = v := Nat.div_add_mod v M
+  have hlt : v % M < M := Nat.mod_lt _ hM
+  have hkey : (2 * v) % (2 * M) = 2 * (v % M) := by
+    have e : 2 * v = 2 * (v % M) + (2 * M) * (v / M) := by
+      have h2 : 2 * v = 2 * (M * (v / M) + v % M) := by rw [hdm]
+      rw [h2, Nat.left_distrib]
+      simp [Nat.mul_comm, Nat.mul_left_comm, Nat.mul_assoc, Nat.add_comm]
+    rw [e, Nat.add_mul_mod_self_left, Nat.mod_eq_of_lt (by omega)]
+  rw [hkey]
+  constructor
+  · intro h; omega
+  · intro h; omega
+
+/-- The first digit of `N = 2j+1` is `p+1` exactly when the affine value
+    `2 + 3j` has 2-adic valuation exactly `p`. Since `3N+1 = 2(3j+2)`, the
+    factor of two is stripped and the multiplier is `3` -- odd, which is the
+    only hypothesis `count_val2` needs. -/
+theorem digit_eq_hit (p j : Nat) :
+    ((3 * (2 * j + 1) + 1) % 2 ^ (p + 2) == 2 ^ (p + 1))
+      = hit 2 3 (2 ^ (p + 1)) (2 ^ p) j := by
+  unfold hit
+  have e1 : 3 * (2 * j + 1) + 1 = 2 * (2 + 3 * j) := by omega
+  have e2 : (2:Nat) ^ (p + 2) = 2 * 2 ^ (p + 1) := by rw [Nat.pow_succ, Nat.mul_comm]
+  have e3 : (2:Nat) ^ (p + 1) = 2 * 2 ^ p := by rw [Nat.pow_succ, Nat.mul_comm]
+  have hMpos : 0 < 2 ^ (p + 1) := Nat.two_pow_pos _
+  have ht : 2 ^ p < 2 ^ (p + 1) := by
+    have := Nat.two_pow_pos p; rw [Nat.pow_succ]; omega
+  have key := two_mod_two_mul (v := 2 + 3 * j) (t := 2 ^ p) (M := 2 ^ (p + 1)) hMpos ht
+  rw [← e3] at key
+  rw [Bool.eq_iff_iff]
+  simp only [beq_iff_eq]
+  rw [e1, e2]
+  exact key
+
+/-- **The first-digit law.** Among the `2^K'` odd numbers `N = 2j+1` below
+    `2^(K'+1)`, exactly `2^(K'-p-1)` have first Syracuse digit `p+1`.
+
+    Writing `q = p+1`, this is `2^(K'-q)` out of `2^K'`, i.e. the first digit
+    is exactly `Geom(2)` on the cylinder -- with no error term -- for every
+    `q` the window can resolve. This is the `n = 1` case of the n-step law and
+    the exact finite-counting form of the statement deferred in
+    `eoc-lean-verification`'s `CylinderDigitCounting.lean`. -/
+theorem count_first_digit (p K' : Nat) (hp : p < K') :
+    cntFrom (fun j => (3 * (2 * j + 1) + 1) % 2 ^ (p + 2) == 2 ^ (p + 1)) 0 (2 ^ K')
+      = 2 ^ (K' - p - 1) := by
+  have hpred : (fun j => (3 * (2 * j + 1) + 1) % 2 ^ (p + 2) == 2 ^ (p + 1))
+      = hit 2 3 (2 ^ (p + 1)) (2 ^ p) := by
+    funext j; exact digit_eq_hit p j
+  rw [hpred]
+  exact count_val2 (m := 3) ⟨1, rfl⟩ 2 p K' hp
+
+/-!
+## What the remaining steps need
+
+`count_first_digit` is `n = 1`. The induction to `n` steps runs as in §4 of the
+note: fixing the first digit pins `N` to one residue class mod `2^(q₁+1)`
+(`hit_unique`, already proved), so the survivors are again an arithmetic
+progression, and on it `Syr` takes the form `A + 6k` with `A` odd, making the
+next digit governed by `count_val2` with multiplier `9`. At step `t` the
+multiplier is `3^(t+1)`, always odd -- `odd_pow`, already proved, is exactly
+that hypothesis check, which is why the induction never degrades.
+
+What is NOT yet formalized is the re-parametrisation itself. It needs `Syr`
+as a function, hence a 2-adic valuation as a function and a division, which
+this file has deliberately avoided: every statement so far is an exact modular
+condition, so nothing depends on a `v₂ 0 = 0` convention. Introducing `Syr`
+means introducing that function and its termination proof, and carrying the
+window-shortening bookkeeping `S = q₁ + ⋯ + qₙ ≤ K-1` through the induction.
+
+That is the next piece of work, and it is bookkeeping on top of results already
+proved here rather than new mathematics.
+-/
+
+/-!
 ## Sanity checks
 
 A theorem can be true and still say the wrong thing. These instances are
@@ -359,6 +446,11 @@ example : cntFrom (hit 0 1 (2 ^ 1) (2 ^ 0)) 0 (2 ^ 5) = 2 ^ (5 - 0 - 1) := by de
 example : cntFrom (hit 7 9 (2 ^ 3) (2 ^ 2)) 0 (2 ^ 5) = 2 ^ (5 - 2 - 1) := by decide
 example : cntFrom (hit 2 3 (2 ^ 1) (2 ^ 0)) 0 (2 ^ 6) = 2 ^ (6 - 0 - 1) := by decide
 
+-- The first-digit law on concrete numbers: among the 32 odd N below 64,
+-- exactly 8 have first digit 2, and exactly 4 have first digit 3.
+example : cntFrom (fun j => (3 * (2 * j + 1) + 1) % 2 ^ 3 == 2 ^ 2) 0 (2 ^ 5) = 2 ^ 3 := by decide
+example : cntFrom (fun j => (3 * (2 * j + 1) + 1) % 2 ^ 4 == 2 ^ 3) 0 (2 ^ 5) = 2 ^ 2 := by decide
+
 -- Sharpness: at j = K the count is NOT 2^(K-j-1); the hypothesis j < K is real.
 example : cntFrom (hit 1 3 (2 ^ 3) (2 ^ 2)) 0 (2 ^ 2) = 1 := by decide
 example : cntFrom (hit 0 3 (2 ^ 3) (2 ^ 2)) 0 (2 ^ 2) = 0 := by decide
@@ -371,3 +463,5 @@ end CollatzCylinder
 #print axioms CollatzCylinder.hit_unique
 #print axioms CollatzCylinder.hit_exists
 #print axioms CollatzCylinder.count_val2
+#print axioms CollatzCylinder.digit_eq_hit
+#print axioms CollatzCylinder.count_first_digit
