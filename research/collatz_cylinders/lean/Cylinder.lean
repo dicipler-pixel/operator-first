@@ -345,6 +345,90 @@ theorem count_val2 {m : Nat} (hm : Odd2 m) (a j K : Nat) (hjK : j < K) :
       count_one_window hm a (2 ^ j) (j + 1) ht,
       Nat.mul_one]
 
+/-! ## Reindexing a window along a fixed digit -/
+
+-- No k in the window satisfies Q, so the conjunction counts zero.
+theorem cntFrom_and_zero (Q P : Nat → Bool) (s : Nat) :
+    ∀ n, (∀ x, x < n → Q (s + x) = false) → cntFrom (fun k => Q k && P k) s n = 0
+  | 0, _ => rfl
+  | n + 1, h => by
+      rw [cntFrom_succ, cntFrom_and_zero Q P s n (fun x hx => h x (by omega)), h n (by omega)]
+      simp
+
+-- Exactly one k in the window satisfies Q, at offset r, so the conjunction
+-- counts 1 or 0 according to P at that one place.
+theorem cntFrom_and_eq (Q P : Nat → Bool) (s : Nat) :
+    ∀ n r, r < n → Q (s + r) = true → (∀ x, x < n → Q (s + x) = true → x = r) →
+      cntFrom (fun k => Q k && P k) s n = if P (s + r) then 1 else 0
+  | 0, _, hr, _, _ => absurd hr (by omega)
+  | n + 1, r, hr, hQr, huniq => by
+      rw [cntFrom_succ]
+      rcases Nat.lt_or_ge r n with hlt | hge
+      · have hn : Q (s + n) = false := by
+          cases hQn : Q (s + n) with
+          | false => rfl
+          | true => exact absurd (huniq n (by omega) hQn) (by omega)
+        rw [cntFrom_and_eq Q P s n r hlt hQr (fun x hx hQx => huniq x (by omega) hQx), hn]
+        simp
+      · have hrn : r = n := by omega
+        subst hrn
+        rw [cntFrom_and_zero Q P s r (fun x hx => by
+              cases hQx : Q (s + x) with
+              | false => rfl
+              | true => exact absurd (huniq x (by omega) hQx) (by omega)), hQr]
+        simp
+
+/-- Periodicity carried over whole multiples of the period. -/
+theorem period_mul (Q : Nat → Bool) (M : Nat) (hQ : ∀ x, Q (x + M) = Q x) :
+    ∀ t x, Q (M * t + x) = Q x
+  | 0, x => by simp
+  | t + 1, x => by
+      have e : M * (t + 1) + x = (M * t + x) + M := by rw [Nat.mul_succ]; omega
+      rw [e, hQ, period_mul Q M hQ t x]
+
+/--
+  **Window reindexing.** If `Q` is `M`-periodic and has exactly one solution
+  `c` in `[0, M)`, then filtering a window of `t` whole periods by `Q` and
+  counting `P` is the same as counting `P` along the arithmetic progression
+  `c, c+M, c+2M, …` over a window of length `t`.
+
+  This is the engine of the n-step induction: fixing one digit replaces the
+  window by a progression and shortens it by exactly the bits that digit spent.
+-/
+theorem cntFrom_reindex (Q P : Nat → Bool) (M c : Nat) (hc : c < M)
+    (hQperiod : ∀ x, Q (x + M) = Q x) (hQc : Q c = true)
+    (hQuniq : ∀ x, x < M → Q x = true → x = c) :
+    ∀ t, cntFrom (fun k => Q k && P k) 0 (M * t)
+        = cntFrom (fun k' => P (c + M * k')) 0 t
+  | 0 => by simp [cntFrom]
+  | t + 1 => by
+      have e : M * (t + 1) = M * t + M := Nat.mul_succ M t
+      rw [e, cntFrom_add, cntFrom_reindex Q P M c hc hQperiod hQc hQuniq t,
+          cntFrom_succ, Nat.zero_add]
+      congr 1
+      -- in the block starting at M*t, the unique Q-solution sits at offset c
+      have hQshift : ∀ x, Q (M * t + x) = Q x := period_mul Q M hQperiod t
+      rw [cntFrom_and_eq Q P (M * t) M c hc
+            (by rw [hQshift]; exact hQc)
+            (fun x hx hQx => hQuniq x hx (by rw [← hQshift]; exact hQx))]
+      rw [Nat.add_comm (M * t) c]
+      simp
+
+/-- The reindexing specialised to the affine predicate: fixing the digit
+    replaces the window by an arithmetic progression, shortened by exactly the
+    `s` bits that digit spent. The progression's offset `c` is the unique
+    solution supplied by `hit_exists` and `hit_unique`. -/
+theorem hit_reindex {m : Nat} (hm : Odd2 m) (a t s : Nat) (ht : t < 2 ^ s)
+    (P : Nat → Bool) :
+    ∃ c, c < 2 ^ s ∧ hit a m (2 ^ s) t c = true ∧
+      ∀ q, cntFrom (fun k => hit a m (2 ^ s) t k && P k) 0 (2 ^ s * q)
+            = cntFrom (fun k' => P (c + 2 ^ s * k')) 0 q := by
+  obtain ⟨c, hclt, hcQ⟩ := hit_exists hm a t s ht
+  refine ⟨c, hclt, hcQ, ?_⟩
+  exact cntFrom_reindex _ P (2 ^ s) c hclt
+    (hit_periodic a m (2 ^ s) t) hcQ
+    (fun x hx hQx => hit_unique hm a t s x c hx hclt hQx hcQ)
+
 /-!
 ## Step one of the n-step law: the first Syracuse digit
 
@@ -465,3 +549,5 @@ end CollatzCylinder
 #print axioms CollatzCylinder.count_val2
 #print axioms CollatzCylinder.digit_eq_hit
 #print axioms CollatzCylinder.count_first_digit
+#print axioms CollatzCylinder.cntFrom_reindex
+#print axioms CollatzCylinder.hit_reindex
