@@ -285,12 +285,38 @@ It also shows the pattern is not an artifact of my earlier biased shard: two of
 these five size classes were unknown before this sweep, and the largest class
 has five members.
 
-Note what is *not* claimed. Sizes repeating within a profile is a measurement.
-Whether the repeats are distinct components is a separate question, settled
-only by search — and for the 2,464,344 and 2,696,184 classes it is settled
-(all disjoint). The five-member class at 10,779,012 contains **two corridors of
-equal depth 61**, which is the first case where "same size, same depth" makes
-the same-component reading genuinely plausible. That test is running.
+### Every collision tested; every one distinct
+
+Sizes repeating within a profile is a measurement. Whether the repeats are
+distinct *components* is a separate question that only search settles. All
+three multi-member classes were tested exhaustively — every ordered pair,
+2 + 6 + 10 = eighteen searches:
+
+```
+2,464,344   class (2)   all pairs DISJOINT
+2,696,184   class (3)   all pairs DISJOINT
+10,779,012  class (5)   all pairs DISJOINT
+```
+
+**The decisive case.** `ac-02831` and `ac-05490` have identical component size
+(10,779,012) **and identical depth (61)** — and are proved disjoint. Two
+exterior measurements agreeing exactly, and the objects still distinct. That is
+`OBS-INTERIOR-AMBIGUITY` pushed as far as it goes: agreement of every quantity
+the instrument reports does not make two things one thing.
+
+So for the complete length-39 profile at cap 47:
+
+> **Twelve pairwise-distinct components, taking five distinct sizes, plus the
+> trivial presentation's own — at least thirteen components.**
+
+Within-class disjointness by search, across-class free because a component has
+exactly one vertex count.
+
+The size quantization is therefore real *and* has no deflationary explanation
+left. Five values across twelve independent components is a pattern about the
+capped graph, not an artifact of re-measuring the same objects. It remains a
+measurement on one profile at one cap — not a law, and not a revival of the
+pool-wide claim, which stays retracted for the reason the census gave.
 
 ## 7. What this changes
 
