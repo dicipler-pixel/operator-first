@@ -1,0 +1,21 @@
+name: ACC representation rescue
+
+on:
+  push:
+    branches:
+      - acc-representation-rescue-2026-09-15
+  pull_request:
+    paths:
+      - 'experiments/acc/representation_rescue.py'
+      - '.github/workflows/acc-representation-rescue.yml'
+
+jobs:
+  self-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run deterministic self-test
+        run: python experiments/acc/representation_rescue.py --self-test
