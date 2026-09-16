@@ -50,8 +50,21 @@ without, so the labelled 14-channel record plus ledger plus lengths costs about 
 the bare enumeration. The design doc's prediction holds — because the children were already
 being generated, the only added work is a few integer ops per child.
 
-That is what makes the staged architecture affordable at 23.6M states, where the Python
-reference is not a candidate.
+## The wall, measured
+
+`ac-02842`, cap 19 — the full 23,609,984-state component, censused end to end:
+
+    121.1 s        ~195,000 states/second, each with all 14 labelled channels
+
+The Python reference runs at ~182 states/second (106,800 states in 588 s). Extrapolated to
+the same component that is **~36 hours** against **two minutes** — about 1,070x per state.
+
+The component size matches the independent enumerations exactly (23,609,984), so the census
+pass is not trading correctness for speed.
+
+That is what makes the staged architecture affordable at the wall. The Census layer is no
+longer the bottleneck anywhere in the run order; the deep eyes on collision cells are, which
+is exactly where the design wants the cost to sit.
 
 ## Division of labour, unchanged
 
