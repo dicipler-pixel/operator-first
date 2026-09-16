@@ -1,0 +1,26 @@
+{
+  "id": "ce.acc.parity_component",
+  "version": "1.0.0",
+  "title": "Small-prime component obstruction",
+  "family": "acc",
+  "status": "implemented",
+  "inputs": {
+    "relator_0": "1",
+    "relator_1": "1"
+  },
+  "unit_system": "model",
+  "depends_on": [],
+  "assumptions": [
+    "rho reduced mod a small prime; the 14 AC moves act on the finite pair graph",
+    "connected components of that graph are preserved by every move",
+    "idea adapted from jackyreaps/X-files: a parity that cannot flip is a global selection rule"
+  ],
+  "output_meaning": "Whether the image pair lies in the connected component of (X,Y) mod each prime. Outside means no AC path exists at all.",
+  "evidence_class": "model_calculation",
+  "limits": "Unconditional but vacuous on this pool: 9 of 36 pairs are outside mod 2 and 64 of 576 mod 3, yet zero of the 10,115 competition rows land outside either.",
+  "implementation": {
+    "path": "examples/extensions/acc_parity_component.py",
+    "sha256": "f1b7bcf506b9f638ebe20b3dcb2d387fd3a957f580fea0a50ac0501f2f20259f",
+    "function": "run"
+  }
+}
