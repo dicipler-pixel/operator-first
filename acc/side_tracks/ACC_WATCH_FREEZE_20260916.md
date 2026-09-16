@@ -8,45 +8,45 @@ Source pin: `175e1afbc23a5991f18fdfb53bdb6453393fbc7d`.
 Primary T1 source: `tools/acc/ac_t1_capladder_v1.jsonl` (240 records = 60 T1 rows x caps 17,19,21,23).
 Raw ledger parent: `acc/side_tracks/ACC_SIDE_TRACK_LEDGER_20260916.md` at `f202ac7c2ce17543b942279c4e6281667cba2bbb`.
 
-## WATCH eye 1 — T1 cap-ladder fingerprints
+## Correction note
 
-The strongest observed pairwise fingerprints are below. These are **fingerprints only**, not AC-equivalence claims.
+An earlier transcription into this WATCH file mixed in values from a different side-track table. The source JSONL itself was unchanged. The values below are re-read directly from `ac_t1_capladder_v1.jsonl` and are the authoritative WATCH values. The incorrect transcription is preserved in Git history rather than silently erased.
+
+## WATCH eye 1 — T1 cap-ladder fingerprints
 
 ### Exact full-ladder twins
 
 #### ac-05616 / ac-05894
 Both have exactly:
-- cap17: `CENSORED`, states `3344`, max_depth `21`
-- cap19: `CLOSED_FINITE`, states `12448`, max_depth `26`
-- cap21: `CLOSED_FINITE`, states `51536`, max_depth `34`
-- cap23: `CLOSED_FINITE`, states `187656`, max_depth `50`
+- cap17: `CLOSED_F`, component `288`, depth_f `11`
+- cap19: `CLOSED_F`, component `1440`, depth_f `12`
+- cap21: `CLOSED_F`, component `8544`, depth_f `17`
+- cap23: `CLOSED_F`, component `187656`, depth_f `50`
 
 #### ac-06835 / ac-07247
 Both have exactly:
-- cap17: `CENSORED`, states `8016`, max_depth `10`
-- cap19: `CENSORED`, states `42416`, max_depth `28`
-- cap21: `CLOSED_FINITE`, states `203744`, max_depth `57`
-- cap23: `CLOSED_FINITE`, states `817032`, max_depth `96`
+- cap17: `CLOSED_F`, component `288`, depth_f `11`
+- cap19: `CLOSED_F`, component `12808`, depth_f `29`
+- cap21: `CLOSED_F`, component `85640`, depth_f `25`
+- cap23: `CLOSED_F`, component `817032`, depth_f `96`
+
+### Exact component-count twins with one depth discrepancy
 
 #### ac-02024 / ac-06036
-Both have exactly:
-- cap17: `CENSORED`, states `19592`, max_depth `12`
-- cap19: `CENSORED`, states `71432`, max_depth `26`
-- cap21: `CENSORED`, states `239784`, max_depth `48`
-- cap23: `CLOSED_FINITE`, states `761544`, max_depth `205`
-
-### Near twin
+Same closed component size at every cap:
+- cap17: `288`, both depth_f `11`
+- cap19: `2848`, depth_f `21` vs `18`
+- cap21: `52240`, both depth_f `29`
+- cap23: `761544`, both depth_f `205`
 
 #### ac-00764 / ac-06570
-Same verdict and state-count vector at every cap:
-- cap17: `CENSORED`, states `13912`; both max_depth `13`
-- cap19: `CENSORED`, states `61328`; max_depth differs: `21` vs `18`
-- cap21: `CENSORED`, states `229016`; both max_depth `52`
-- cap23: `CLOSED_FINITE`, states `769968`; both max_depth `207`
+Same closed component size at every cap:
+- cap17: `288`, both depth_f `11`
+- cap19: `2848`, depth_f `21` vs `18`
+- cap21: `44416`, both depth_f `29`
+- cap23: `769968`, both depth_f `207`
 
-So the state-count fingerprint is exact; the depth fingerprint is not.
-
-## WATCH eye 1 negative controls / interpretation fence
+## Negative controls / interpretation fence
 
 At cap23 there are repeated component sizes with different maximum depths, including:
 - 571200: ac-00045 d148 / ac-03393 d149
@@ -61,22 +61,22 @@ At cap23 there are repeated component sizes with different maximum depths, inclu
 - 413632: ac-05924 d132 / ac-07556 d130
 - 601264: ac-06185 d147 / ac-07338 d149
 
-Therefore component size alone is not accepted as a class witness. Even exact size+depth, and even an exact four-cap ladder, remain observational fingerprints until an exact legal transport/component-membership witness is produced.
+Therefore component size alone is not a class witness. Even an exact four-cap size/depth fingerprint remains observational until an exact legal transport/component-membership witness is produced.
 
 ## WATCH eye 2 — independent growth/collapse trace
 
 Pinned source checked: `tools/acc/ac_growth_curves_v1.jsonl` at `175e1afbc23a5991f18fdfb53bdb6453393fbc7d`.
 
-The four strongest T1 candidate pairs above are **not jointly represented in the independent growth-curve file in a way that supports a pairwise trace comparison**. Direct checks for `ac-05616`, `ac-06835`, and `ac-02024` returned no matching growth-trace record in the fetched pinned file. No missing values are imputed and no surrogate trace is substituted.
+The strongest T1 candidate pairs are not jointly represented there in a way that supports an independent pairwise trace comparison. No missing values are imputed and no surrogate trace is substituted.
 
 The earlier scalar growth-rate idea remains killed because of the unit error recorded in the raw ledger. Growth data may be reused only as fixed-cost curve/vector observations, not as an invariant or collapse-depth theorem.
 
 ## Frozen WATCH output
 
-The WATCH pass therefore produces:
-1. three exact four-cap T1 ladder twins;
-2. one exact state-count-vector near twin with one depth discrepancy;
-3. a negative control showing cap23 size collisions are not enough;
-4. no independent growth-trace corroboration available for the strongest pair set from the pinned growth file.
+The corrected WATCH pass produces:
+1. two exact four-cap component-size+depth twins;
+2. two exact four-cap component-size twins with one cap19 depth discrepancy each;
+3. negative controls showing size collisions are not enough;
+4. no independent growth-trace corroboration for the strongest pair set.
 
-Nothing in this file is a solve, equivalence proof, nontriviality result, or leaderboard claim.
+Nothing here is a solve, equivalence proof, nontriviality result, or leaderboard claim.
