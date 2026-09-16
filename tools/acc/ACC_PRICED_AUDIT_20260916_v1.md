@@ -37,35 +37,59 @@ rows (k rose on every one of them between the two boards) where the record is
 very likely optimal. Three of the six misses were *at* record on 09-12 and
 were passed since. Nothing here is submittable, and nothing here is wasted.
 
-## 2. T1 is fully intact — and the cap discipline that built it was wrong
+## 2. T1 is fully intact — but the cap claim below was a unit error
 
 All **502** T1 rows are still `status: unsolved`, `kTeams: 0` on the 09-16
 board. Four days, zero taken. Board-wide only 58 of 2730 unsolved rows fell.
-First verified path on any T1 row still takes the full point, uncontested.
+A first verified path on any T1 row still takes the full point, uncontested.
+That part stands.
 
-The reason the T1 search found nothing is the cap. T1 searched to `len+8`.
-Measured against solved rows of the same initial length:
+> **CORRECTION (same day).** The first version of this section argued that
+> the `len+8` cap "sits ~3x below where solutions live" because no solved row
+> of `|r|`=15 has a `currentBestLength` inside `len+8`. **That compared two
+> different units.** In `ac_corridor64_bidir_v2.c`, `CAP` bounds the *total
+> relator length* of intermediate states (`if(lu+lb>CAP) return 0;`).
+> `currentBestLength` is a *move count*. A 48-move path can live entirely
+> inside a length cap of 24. The comparison proved nothing, and the
+> recommendation it produced — "search to obs_med ≈ 48, not 24" — was wrong.
+> `ACC_T1_PRICED_v1.txt`'s `obs_*` columns are move-count statistics and must
+> not be read as cap advice.
 
-| `\|r\|` | solved rows | record ≤ `len+8` | ≤ 30 | ≤ 50 | median record |
-|---|---|---|---|---|---|
-| 15 | 38 | **0** | 8 | 33 | 40 |
-| 16 | 54 | **2** | 5 | 33 | 48 |
-| 17 | 70 | 7 | 13 | 50 | 39 |
-| 18 | 79 | 6 | 6 | 52 | 40 |
+The cap question was then settled properly, by calibrating the engine against
+**solved rows used as ground truth** — rows where a path is known to exist and
+its record move-count is published. Fourteen rows at `|r|`=16–20, bidirectional,
+2M states/side, cap ladder `|r|+0 … |r|+16`:
 
-At `|r|=15`, **not one** of the 38 solved rows has a record inside `len+8`.
-The cap was set roughly at the all-time floor and about **3× below the
-median** where solutions actually live.
+| row | `\|r\|` | record | +0 | +2 | +4 | +6 | +8 | +12 | +16 |
+|---|---|---|---|---|---|---|---|---|---|
+| ac-00742 | 17 | 10 | **M10** | M10 | M10 | M10 | M10 | M10 | M10 |
+| ac-01411 | 17 | 11 | **M11** | M11 | M11 | M11 | M11 | M11 | M11 |
+| ac-10029 | 19 | 18 | **M18** | M18 | M18 | M18 | M18 | budget | budget |
+| ac-06225 | 20 | 19 | **M19** | M19 | M19 | budget | budget | budget | budget |
+| ac-07071 | 19 | 18 | CLOSED | **M21** | budget | budget | budget | budget | budget |
+| ac-04275 | 19 | 21 | CLOSED | **M21** | M21 | budget | budget | budget | budget |
+| ac-01059 | 19 | 22 | CLOSED | **M23** | budget | budget | budget | budget | budget |
+| ac-10115 | 16 | 22 | M23 | M23 | M23 | **M22** | budget | budget | budget |
+| ac-05170 | 19 | 15 | CLOSED | CLOSED | budget | budget | M17 | **M15** | budget |
 
-So the forty "MS-open closure theorems at cap ≤ 15" and the eight family
-disconnection results are sound as stated and near-vacuous as targeting
-information: they prove no path exists in a band where, empirically, almost
-no solved row has one either. They are not evidence these rows are hard. They
-are evidence the search window was too narrow.
+Three things follow, and they invert the earlier advice:
 
-`tools/acc/ACC_T1_PRICED_v1.txt` reissues all 502 rows with `obs_min`,
-`obs_med`, `obs_p75` columns — the observed record spread on solved rows of
-the same `|r|`. **Search to `obs_med`, not `len+8`.**
+1. **The engine reproduces published records.** On ground truth it finds paths
+   at exactly the board's move count (M10, M11, M18, M19, M22). The search is
+   sound; it is not missing easy solutions.
+2. **The productive cap band is `|r|+0` to `|r|+6`** — narrow, essentially the
+   original `len+8` discipline. That discipline was *right*.
+3. **Widening the cap actively destroys the search.** Past `+6`, nearly every
+   row collapses to `budget`: a larger cap legalises more moves, branching
+   rises, and a fixed budget is spent at shallower depth. This confirms the
+   independent finding already recorded in `ACC_PATH_LENGTH_BOUNDS_v1.md`
+   ("for a fixed budget, a narrower cap reaches deeper").
+
+The one genuine lesson is smaller and sharper than the wrong one: **a `CLOSED`
+verdict at a single narrow cap is not final.** `ac-07071`, `ac-04275` and
+`ac-01059` are all CLOSED at `|r|+0` and all solvable at `|r|+2`; `ac-05170`
+is CLOSED at `+0` and `+2` and needs `+12`. Closure must be swept over a
+ladder, not asserted at one cap.
 
 ## 3. The board is a shaving contest, not a solving contest
 
