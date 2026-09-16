@@ -1,0 +1,20 @@
+Gordon parity: solving q = 3,4,5,11 (start total = 2q+8)
+  q  par start  cap  len  2q+5  4q+5
+  3  odd    14   14   16    11    17
+  4 even    16   16   13    13    21
+  5  odd    18   18   26    15    25
+ 11  odd    30    -    -  (no meet at hr 0-2)
+
+all verified Gordon lengths: {3: 16, 4: 13, 5: 26, 6: 17, 7: 33, 8: 21, 10: 25}
+  q= 3 (odd ) len= 16  2q+5= 11 
+  q= 4 (even) len= 13  2q+5= 13 MATCH
+  q= 5 (odd ) len= 26  2q+5= 15 
+  q= 6 (even) len= 17  2q+5= 17 MATCH
+  q= 7 (odd ) len= 33  2q+5= 19 
+  q= 8 (even) len= 21  2q+5= 21 MATCH
+  q=10 (even) len= 25  2q+5= 25 MATCH
+
+[exited with code 0]
+
+G7 verified path (33 moves, cap 22, headroom 0), frozen-core replay -> TARGET:
+[10,10,10,10,10,4,6,11,4,11,11,4,11,2,0,11,3,8,7,5,7,7,7,9,4,12,2,6,2,4,4,4,1]
