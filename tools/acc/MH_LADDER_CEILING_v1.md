@@ -91,3 +91,38 @@ The ceiling therefore stands as first measured: R6 may reach cap 29 with a
 squeeze, R7 cannot advance, and the next real move is an invariant that
 separates component from target outright — an unrestricted one, where the
 external restricted trace lemma is a kernel-constrained special case.
+
+## Correction: growth is not a stable constant
+
+The projections above used a trailing factor of ~3.6 and described growth as
+"stable and slowly declining". That was read off the **upper rungs of R6 and
+R7 only**. Lifting the remaining sweep floors produced a counterexample:
+
+    R_4  cap 22 -> 23:   2,064,600 -> 92,052,208    x44.59
+
+Projected ~8M; actual 92M, wrong by 11x. All seventeen measured factors:
+
+| root | factors |
+|---|---|
+| R_4 | **x44.59** |
+| R_6 | x3.91  **x11.85**  x4.13  x4.24  x3.92  x3.68  x3.55 |
+| R_7 | x3.90  **x13.03**  x4.27  x4.50  x4.12  x3.85  x3.71 |
+| R_8 | x4.01 |
+| R_9 | x4.16 |
+
+min x3.55, median x4.12, max **x44.59** — a 13x spread. The x11.85 and x13.03
+spikes on R6/R7 were recorded earlier and dismissed as an early structural
+transition; R_4 shows a far larger spike much later in its ladder, so that
+reading was wrong. Spikes are a feature of these ladders, not an artifact of
+where a ladder starts.
+
+**Consequence for the projections.** The memory estimates for R6 cap 30
+(~757M) and R7 cap 31 (~369M) assumed the trailing factor continues. They are
+therefore **lower bounds on the true cost**, not estimates — a spike would put
+either far beyond them. The ceiling conclusion is unaffected in direction and
+is in fact stronger than argued: those caps are at least as unreachable as
+stated, possibly much more so.
+
+What cannot be done from this data is predict *which* rung spikes. R_4's came
+at its second measured rung, R6's and R7's at their third. Nothing measured so
+far distinguishes a spiking rung in advance.
