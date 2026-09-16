@@ -121,3 +121,34 @@ short MS-open row measured here.
 
 **Bounded negative:** 40 MS-open rows, no path at the stated closure caps,
 20M states per side, zero certificates.
+
+## Addendum 2: cap-23 atlas pass over the 34 length-15 MS-open rows
+
+One shared 60M atlas, 40M forward per challenge, 2,224s total. **0 solves.**
+
+20 CLOSED, reproducing exactly the four large wells found by the independent
+closure sweep — 13,440,784 (4 rows), 13,728,824 (4), 13,909,464 (6),
+13,978,168 (6) — via a different engine path.
+
+14 BUDGET, each now a proved path-length bound at cap 23:
+
+| challenge | forward depth | no path of length <= |
+|---|---|---|
+| ac-09961 | 132 | **140** |
+| ac-02828 | 131 | **139** |
+| ac-08892 | 113 | 121 |
+| ac-08168 | 112 | 120 |
+| ac-01956 | 100 | 108 |
+| ac-05811 | 100 | 108 |
+| ac-03471 | 81 | 89 |
+| ac-02422 | 80 | 88 |
+| ac-03525 | 26 | 34 |
+| ac-01083 | 25 | 33 |
+| ac-04300 | 24 | 32 |
+| ac-09350 | 24 | 32 |
+| ac-01558 | 21 | 29 |
+| ac-06672 | 20 | 28 |
+
+Amortising the atlas lifted ac-02422 from a bound of 72 (20M/side, shared
+budget) to 88. The atlas radius stayed at 8 even at 60M: radius 9 at cap 23
+exceeds that allocation.
