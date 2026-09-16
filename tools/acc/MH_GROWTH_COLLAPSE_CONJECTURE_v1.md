@@ -84,12 +84,48 @@ mismatch between a presentation's component and the identity's component is
 an **obstruction to connectivity that costs polynomial time to measure**,
 where the current disconnection proofs cost exponential enumeration.
 
+## The settling experiment ran, and it was censored
+
+Question 1 above — is the collapse cap-induced or intrinsic? — was run on
+`ac-03824` across caps `|r|+2 … |r|+16` at 40M states/side. `d*` is the first
+depth at which the local growth base over a 4-level sliding window drops
+below 1.5.
+
+| cap | verdict | max depth reached | `d*` |
+|---|---|---|---|
+| 18 | CLOSED_F | 116 | 14 |
+| 20 | BUDGET | 86 | 14 |
+| 22 | BUDGET | 39 | 15 |
+| 24 | BUDGET | 19 | 16 |
+| 26 | BUDGET | 14 | **not observed** |
+| 28 | BUDGET | 12 | **not observed** |
+
+**This does not answer the question.** `d*` drifts 14 → 14 → 15 → 16 over
+caps 18–24, which is slow — sublinear in the cap, the direction the
+conjecture needs. But at caps 26 and 28 `d*` is not "absent", it is
+**unobservable**: the search reaches only depth 14 and 12 before spending 40M
+states, and `d*` at the neighbouring cap was already 16. The measurement gets
+cut off exactly where it would start to discriminate.
+
+The cause is the tradeoff already documented in `ACC_PATH_LENGTH_BOUNDS_v1.md`
+and reconfirmed here: reachable depth at fixed budget falls off a cliff as the
+cap rises (116 → 86 → 39 → 19 → 14 → 12). Widening the cap to test whether
+`d*` runs away destroys the ability to see `d*` at all.
+
+So from four uncensored points, with `d*` non-decreasing throughout, I cannot
+separate "converges to ≈16" from "grows slowly without bound." **The
+conjecture is untested, not supported.** Getting an uncensored `d*` at cap 26
+needs on the order of 10^9 states/side — roughly 25x this run — or an engine
+that does not enumerate the ball at all.
+
 ## What would settle it
 
-1. **Is the collapse cap-induced or intrinsic?** Re-measure `d*` for one row
-   across caps `|r|+2 … |r|+16`. If `d*` grows without bound as the cap rises,
-   the collapse is an artifact of the cap and there is no invariant here. If
-   `d*` converges, there is.
+1. **Is the collapse cap-induced or intrinsic?** Ran it; censored by budget
+   (above). The retry needs either ~10^9 states/side, or a way to estimate the
+   growth rate without enumerating the ball — random-walk return statistics or
+   a transfer-matrix estimate on the capped move graph would both give a
+   growth exponent at polynomial cost, which is the whole point of the
+   conjecture and should have been the first method rather than BFS.
 2. **Depth-matched controls throughout.** The first result died to this; every
    subsequent comparison has to fix the depth window before fitting.
 3. **n is 22 rows.** Far too small to claim a threshold.
@@ -99,4 +135,7 @@ where the current disconnection proofs cost exponential enumeration.
 Finding 1 (growth base separates solvable from hard): **dead**, killed by its
 own depth-matched control.
 Finding 2 (growth collapses, and solvability is a race against the collapse):
-**alive, untested against question 1 above.**
+**alive but unsupported.** The collapse is real and measured. Whether `d*` is
+an intrinsic property of the presentation or an artifact of the cap is
+**unresolved** — the experiment that would decide it is budget-censored at
+exactly the caps that matter.
