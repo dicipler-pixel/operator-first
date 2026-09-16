@@ -1,0 +1,125 @@
+name: ACC AC19 bridge audit
+on:
+  push:
+    branches: [research/acc-ac19-bridge-2026-09-16]
+    paths: ['.github/workflows/acc-ac19-bridge.yml']
+permissions:
+  contents: read
+jobs:
+  bridge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Download public solved sets and search bounded bridges
+        run: |
+          python3 - <<'PY'
+          import urllib.request, json, hashlib, collections, time
+          URLS={
+            'AC19':'https://raw.githubusercontent.com/Math-AI-Caltech/ACSolverX/main/data/AC19.txt',
+            'AC19_extended':'https://raw.githubusercontent.com/Math-AI-Caltech/ACSolverX/main/data/AC19_extended.txt',
+          }
+          inv={'x':'X','X':'x','y':'Y','Y':'y'}
+          order={'Y':0,'y':1,'X':2,'x':3}
+          cmap={1:'x',-1:'X',2:'y',-2:'Y'}
+          def freered(w):
+            st=[]
+            for c in w:
+              if st and inv[c]==st[-1]: st.pop()
+              else: st.append(c)
+            return ''.join(st)
+          def cycred(w):
+            w=freered(w)
+            while len(w)>1 and inv[w[0]]==w[-1]:
+              w=freered(w[1:-1])
+            return w
+          def inverse(w): return ''.join(inv[c] for c in reversed(w))
+          def lexkey(w): return tuple(order[c] for c in w)
+          def minrot(w):
+            if not w: return w
+            return min((w[i:]+w[:i] for i in range(len(w))), key=lexkey)
+          def canon_rel(w):
+            w=cycred(w); a=minrot(w); b=minrot(inverse(w))
+            return a if lexkey(a)<=lexkey(b) else b
+          def canon_pair(a,b):
+            a,b=canon_rel(a),canon_rel(b)
+            if len(a)>len(b) or (len(a)==len(b) and lexkey(a)>lexkey(b)): a,b=b,a
+            return (a,b)
+          def parse_dataset(name,url):
+            path=f'/tmp/{name}.txt'
+            urllib.request.urlretrieve(url,path)
+            h=hashlib.sha256(open(path,'rb').read()).hexdigest()
+            s=set(); n=0
+            with open(path) as f:
+              for line in f:
+                line=line.strip()
+                if not line: continue
+                v=json.loads(line); n+=1
+                if len(v)!=48: raise RuntimeError(('bad row',name,n,len(v)))
+                a=''.join(cmap[x] for x in v[:24] if x)
+                b=''.join(cmap[x] for x in v[24:] if x)
+                s.add(canon_pair(a,b))
+            return s,n,h
+          solved={}; meta={}
+          for name,url in URLS.items():
+            s,n,h=parse_dataset(name,url); solved[name]=s
+            meta[name]={'lines':n,'canonical_pairs':len(s),'sha256':h}
+          # Anchors copied from the public Carreras AC19 audit.
+          controls={
+            'u066':('XyyyxYYYY','XyxyyyXy'),
+            'AK3':('xxxYYYY','xyxYXY'),
+            'P1':('XyyxYYY','YxxyXXX'),
+            'P2':('XyyxYYY','XyxxYXX'),
+            'P3':('XyyxYYY','XyxxyXX'),
+          }
+          control_results={k:{name:(canon_pair(*p) in s) for name,s in solved.items()} for k,p in controls.items()}
+          # Hard parser/canonicalizer anchors: u066 present in base AC19; AK3/P1/P2/P3 absent from both.
+          assert control_results['u066']['AC19'] is True, control_results
+          for k in ('AK3','P1','P2','P3'):
+            assert not control_results[k]['AC19'] and not control_results[k]['AC19_extended'], (k,control_results[k])
+          basins={
+            'ac02377_basin1':('xxyyXYY','xxYXyXy'),
+            'ac02377_basin2':('xxyXXYY','xyxYYXy'),
+            'ac02377_basin3':('xxyxYXY','xxxYYxyXY'),
+          }
+          gens=('x','X','y','Y')
+          def step(st,m):
+            a,b=st
+            if m==0:return (inverse(a),b)
+            if m==1:return (a,inverse(b))
+            if m==2:return (freered(a+b),b)
+            if m==3:return (freered(a+inverse(b)),b)
+            if m==4:return (a,freered(b+a))
+            if m==5:return (a,freered(b+inverse(a)))
+            if 6<=m<=9:
+              g=gens[m-6]; return (freered(g+a+inv[g]),b)
+            if 10<=m<=13:
+              g=gens[m-10]; return (a,freered(g+b+inv[g]))
+            raise ValueError(m)
+          def bfs_bridge(start, max_depth=5, max_total=34):
+            # Exact ordinary-move BFS; membership is tested under Two-Hump's own
+            # rotation/inversion/relator-order canonicalizer. Raw states stay raw
+            # so no symmetry is silently counted as a move.
+            q=collections.deque([(start,())]); seen={start}; bydepth=[1]
+            hit0={name:(canon_pair(*start) in s) for name,s in solved.items()}
+            if any(hit0.values()): return {'hit':True,'depth':0,'path':[],'state':start,'canonical':canon_pair(*start),'dataset_hits':hit0,'seen':1,'by_depth':bydepth}
+            lastd=0
+            while q:
+              st,path=q.popleft(); d=len(path)
+              if d>=max_depth: continue
+              if d+1>lastd: lastd=d+1; bydepth.append(0)
+              for m in range(14):
+                ns=step(st,m)
+                if len(ns[0])+len(ns[1])>max_total or ns in seen: continue
+                seen.add(ns); bydepth[-1]+=1
+                np=path+(m,); cp=canon_pair(*ns)
+                hits={name:(cp in s) for name,s in solved.items()}
+                if any(hits.values()):
+                  return {'hit':True,'depth':len(np),'path':list(np),'state':ns,'canonical':cp,'dataset_hits':hits,'seen':len(seen),'by_depth':bydepth}
+                q.append((ns,np))
+            return {'hit':False,'max_depth':max_depth,'seen':len(seen),'by_depth':bydepth}
+          results={}
+          for k,st in basins.items():
+            t=time.time(); r=bfs_bridge(st,5,34); r['seconds']=round(time.time()-t,3); r['start_canonical']=canon_pair(*st); results[k]=r
+          out={'schema':'acc-ac19-bridge-audit-v1','datasets':meta,'controls':control_results,'basins':results,'scope':'Bounded ordinary AC search to a public solved-set membership class. A membership hit is a bridge signal, not by itself a SAIR submission certificate; any positive must be compiled to a complete primitive path and replayed under the pinned official verifier.'}
+          print('ACC_AC19_RESULT='+json.dumps(out,separators=(',',':')))
+          PY
