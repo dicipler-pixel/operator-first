@@ -72,3 +72,15 @@ any root improved its `EXPONENT_PAIR` size below the starting value. The
 external search on the same roots reports 5,760,000 expansions and
 80,640,000 move proposals with 0 solves and 0 strict descent — two
 independent engines, the same wall.
+
+## Continuation past the sweep floors
+
+R6 at cap 29, with a 7-radius atlas and **200,000,000** forward states:
+`BUDGET depth=47`, so **no path of length <= 54** at cap 29. The component
+exceeds 200M, which matches the ~3.5x per-cap growth predicting ~230M. That
+cap is therefore bounded but not closed, and R6's wall stands at cap 28.
+
+n=8 and n=9 are the roots whose walls were floors -- both stopped at their
+first BUDGET under the 25M sweep allocation. Their ladders are being
+continued from cap 31 and cap 33 at 90M forward, where the predicted
+component sizes (~34M and ~45M) sit comfortably inside the allocation.
