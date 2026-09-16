@@ -1,5 +1,11 @@
 # ACC eyes — phase report, 2026-09-16
 
+> **SUPERSEDED IN PART — read `CORRECTIONS_20260916.md` first.** Four claims below are wrong:
+> the group-scoring claim (SAIR pays per `challengeId`, so a family solve scores one row),
+> the word "theorem" on cap-closed balls (one engine, one cap — not unsolvability), the
+> cross-target rediscovery counts (artifacts of a 29-path corpus), and "cannot be recorded"
+> for the ms-train starts (they are public in `competition/examples/`; it is a fetch task).
+
 Replay authority for everything below is `eyes/replay.py`, an independent Python
 implementation of moves 0–13. **The pinned SAIR verifier is not in this repo** (there is no
 `competition/` directory), so nothing here is marked `official_verify_ok`. Every artifact
@@ -81,7 +87,7 @@ All 18 target IDs named in the brief were checked against the 2026-09-16 board: 
 
 The uploaded `ACC_BRANCH_ROOT_FAMILY_118.json` supersedes the brief's target list. It gives
 8 groups of the family `(x²yx⁻¹y, xyⁿx⁻¹y⁻⁽ⁿ⁺¹⁾)` covering **118 rows, all still unsolved**,
-each with a representative — so value per solve is the group size:
+each with a representative. This is a **routing map**, not 118 points:
 
 | n | representative | rows | `\|r\|` |
 |---|---|---|---|
@@ -104,7 +110,8 @@ Searches run, shared backward ball from `(x,y)`, forward per target:
     ac-02842  cap 22  BUDGET  depth_f=30
     ac-02842  cap 24  BUDGET  depth_f=16
     ac-02842  cap 26  BUDGET  depth_f=13
-    ac-01440  cap 22  CLOSED  component=2,064,600  -> disconnection theorem at cap 22
+    ac-01440  cap 22  CLOSED  component=2,064,600  engine=ac_shared_ball_v1
+              -> no path inside the enumerated component at cap 22, ONE engine
     ac-01440  cap 24  BUDGET  depth_f=28
 
     R7 family (5 rows) cap 28  CLOSED  component=7,159,020 on ALL FIVE, identical
