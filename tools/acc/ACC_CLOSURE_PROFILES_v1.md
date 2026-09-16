@@ -84,3 +84,40 @@ ac-02828 it is cap 23 and above, nothing below.
 Combined with `ACC_PATH_LENGTH_BOUNDS_v1.md`, each challenge now has both a
 cap below which it is provably disconnected and a length below which no path
 exists at the next cap up. Neither is a solve; both bound where one could be.
+
+## Addendum: the short MS-open core is nine wells
+
+Closure profile run over all 40 MS-open challenges of length <= 15
+(`ac_msopen_closure_v1.py`, 20M states per side, headroom 1..8). These are
+k=0 rows -- nobody has solved one -- so a MEET would score the full point.
+
+**Zero solves.** Every row closed, and the 40 partition exactly into **nine**
+(cap, component) classes:
+
+| component | closes through cap | rows |
+|---|---|---|
+| 13,978,168 | 23 | 6 |
+| 13,909,464 | 23 | 6 |
+| 15,133,856 | 21 | 6 |
+| 10,951,472 | 22 | 6 |
+| 13,440,784 | 23 | 4 |
+| 13,728,824 | 23 | 4 |
+| 2,014,992 | 18 | 4 |
+| 97,704 | 19 | 2 |
+| 106,800 | 18 | 2 |
+
+6+6+6+6+4+4+4+2+2 = 40. Every size divisible by 4. `2,014,992` is the cap-18
+AK(3) well cross-validated earlier from the War Room.
+
+The unit of study is the well, not the row: a row's identity beyond its well
+carries no information that any measurement here could see. The earlier
+observation that unrelated challenges keep landing on identical component
+sizes is this, seen one pair at a time.
+
+Placement of the Mad Hatters roots against this core: every one of the 40
+opens by cap 23 at the latest, while R6 is still CLOSED at cap 26 and R7 at
+cap 28 (`MH_ACC_RUN_20260916_v1.md`). The junction roots are harder than any
+short MS-open row measured here.
+
+**Bounded negative:** 40 MS-open rows, no path at the stated closure caps,
+20M states per side, zero certificates.
