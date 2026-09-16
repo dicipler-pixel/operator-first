@@ -103,6 +103,10 @@ static uint32_t find(const St*s){
         if(eq(&pool[e],s)) return e;
         i=(i+1)&mask; }
 }
+static int cmp_u64(const void*A,const void*B){
+    uint64_t a=*(const uint64_t*)A, b=*(const uint64_t*)B;
+    return (a>b)-(a<b);
+}
 static const char LET[4]={'x','X','y','Y'};
 static void wtext(uint64_t lo,uint64_t hi,int n,char*out){
     uint8_t w[MAXW]; unpackw(lo,hi,n,w);
@@ -123,12 +127,13 @@ static int parse(const char*s,uint8_t*w){
     uint8_t o[MAXW]; int r=reduce(w,n,o); memcpy(w,o,r); return r;
 }
 int main(int argc,char**argv){
-    if(argc<5){ fprintf(stderr,"usage: census cap r0 r1 component|boundary\n"); return 2; }
+    if(argc<5){ fprintf(stderr,"usage: census cap r0 r1 component|boundary|collide\n"); return 2; }
     CAP=atoi(argv[1]);
     uint8_t a[MAXW],b[MAXW];
     int la=parse(argv[2],a), lb=parse(argv[3],b);
     if(la<0||lb<0){ fprintf(stderr,"bad word\n"); return 2; }
     int want_boundary = strcmp(argv[4],"boundary")==0;
+    int want_collide  = strcmp(argv[4],"collide")==0;
 
     uint64_t cap2=1; while(cap2< (1ULL<<26)) cap2<<=1;
     pool=malloc((size_t)(1<<25)*sizeof(St)); tab=malloc(cap2*4);
@@ -149,6 +154,64 @@ int main(int argc,char**argv){
     }
     uint32_t ncomp=nst;
     fprintf(stderr,"component=%u cap=%d\n",ncomp,CAP);
+
+    // COLLISION PASS. The architecture escalates to Magnus/Fox only on cells where a
+    // cheaper recorded view merges states. So the number that sizes the deep-eye budget is
+    // not the component size, it is how many states sit in cells of size > 1 at each ladder
+    // level. Counted here in C by hashing each level's signature and sorting; emitting
+    // 23.6M JSONL records and grouping them elsewhere is not a viable route.
+    if(want_collide){
+        uint64_t *sig=malloc((size_t)ncomp*8);
+        if(!sig){ fprintf(stderr,"alloc sig\n"); return 1; }
+        const char *LVL[4]={"scalar_total_length","boundary_histogram(RDSU)",
+                            "labelled_14_channel","exponent_ledger"};
+        printf("{\"schema\":\"harness-collision-pass-v1\",\"component\":%u,\"cap\":%d,\"levels\":[\n",ncomp,CAP);
+        for(int lvl=0; lvl<4; lvl++){
+            for(uint32_t i=0;i<ncomp;i++){
+                St s=pool[i],r;
+                uint64_t h=1469598103934665603ULL;
+                if(lvl==0){ h=(uint64_t)tot(&s); }
+                else if(lvl==1){
+                    int D=0,S=0,U=0;
+                    for(int m=0;m<14;m++){ if(!apply_nocap(&s,m,&r)) continue;
+                        int d=tot(&r)-tot(&s); if(d<0)D++; else if(d==0)S++; else U++; }
+                    h=((uint64_t)D<<40)^((uint64_t)S<<20)^(uint64_t)U;
+                } else if(lvl==2){
+                    for(int m=0;m<14;m++){ if(!apply_nocap(&s,m,&r)) continue;
+                        int d=tot(&r)-tot(&s);
+                        uint64_t c = d<0?1: d==0?2:3;
+                        h^=c; h*=1099511628211ULL; }
+                } else {
+                    int e0x,e0y,e1x,e1y;
+                    expsum(s.a0,s.b0,s.l0,&e0x,&e0y); expsum(s.a1,s.b1,s.l1,&e1x,&e1y);
+                    h^=(uint64_t)(e0x+1000); h*=1099511628211ULL;
+                    h^=(uint64_t)(e0y+1000); h*=1099511628211ULL;
+                    h^=(uint64_t)(e1x+1000); h*=1099511628211ULL;
+                    h^=(uint64_t)(e1y+1000); h*=1099511628211ULL;
+                }
+                sig[i]=h;
+            }
+            // sort to count classes and cell sizes. qsort, not a shell sort: the gap
+            // sequence n/2,n/4,... is O(n^2) in the worst case and this array is 23.6M.
+            qsort(sig,ncomp,sizeof(uint64_t),cmp_u64);
+            uint64_t classes=0, in_cells=0, biggest=0;
+            for(uint64_t i=0;i<ncomp;){
+                uint64_t j=i; while(j<ncomp && sig[j]==sig[i]) j++;
+                uint64_t n=j-i; classes++;
+                if(n>1) in_cells+=n;
+                if(n>biggest) biggest=n;
+                i=j;
+            }
+            printf("  {\"level\":\"%s\",\"classes\":%llu,\"states_in_collision_cells\":%llu,"
+                   "\"pct_needing_escalation\":%.2f,\"largest_cell\":%llu}%s\n",
+                   LVL[lvl],(unsigned long long)classes,(unsigned long long)in_cells,
+                   100.0*in_cells/ncomp,(unsigned long long)biggest, lvl<3?",":"");
+            fflush(stdout);
+        }
+        printf("]}\n");
+        free(sig);
+        return 0;
+    }
 
     // Census. For interior states the code is D/S/U by length delta. For boundary
     // children it is R when the child's move re-enters the component -- the same rule
