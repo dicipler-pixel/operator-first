@@ -84,3 +84,35 @@ n=8 and n=9 are the roots whose walls were floors -- both stopped at their
 first BUDGET under the 25M sweep allocation. Their ladders are being
 continued from cap 31 and cap 33 at 90M forward, where the predicted
 component sizes (~34M and ~45M) sit comfortably inside the allocation.
+
+## Final state of the continuation runs
+
+| root | cap | verdict | component / bound |
+|---|---|---|---|
+| R6 | 28 | **CLOSED** | 65,724,220 |
+| R6 | 29 | BUDGET, 200M, depth 47 | no path ≤ 54 |
+| R7 | 30 | **CLOSED** | 102,424,140 |
+| R7 | 31 | BUDGET, 150M, depth 35, atlas radius 7 | no path ≤ 42 |
+| R_8 | 31 | **CLOSED** | 39,303,140 |
+| R_8 | 32 | BUDGET, 90M, depth 46 | no path ≤ 53 |
+| R_9 | 33 | **CLOSED** | 54,022,680 |
+| R_9 | 34 | BUDGET, 90M, depth 43 | no path ≤ 50 |
+
+R7 cap 31 behaved exactly as the growth projection said it would: closure
+needs ~369M states (~19.5 GB) and 150M was allocated, so the run returns a
+bound rather than a wall. The projection was made before the run and is
+confirmed by it.
+
+### Consolidated family walls
+
+| n | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|
+| closed through cap | 19 | 22 | 25 | **28** | **30** | **31** | **33** | 34 |
+| min total length | 20 | 23 | 26 | **29** | **31** | **32** | **34** | 35 |
+
+Every component divisible by 4. n=3, 4, 5 and 10 remain at their 25M sweep
+floors and would lift with ordinary budget; n=6 and 7 are at the memory
+ceiling and would not.
+
+Eight roots, eight disconnection theorems, four supplementary length bounds,
+**zero certificates**.
