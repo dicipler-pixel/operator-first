@@ -1,0 +1,25 @@
+{
+  "id": "ce.acc.donor_trace",
+  "version": "1.0.0",
+  "title": "Donor-kernel trace diagnostic",
+  "family": "acc",
+  "status": "implemented",
+  "inputs": {
+    "relator_0": "1",
+    "relator_1": "1"
+  },
+  "unit_system": "model",
+  "depends_on": [],
+  "assumptions": [
+    "explicitly declared free-group map X=[[0,-1],[1,1]], Y=XZ",
+    "exact integer arithmetic, no floating point"
+  ],
+  "output_meaning": "Whether the first relator lies in ker rho, the second relator's SL(2,Z) trace, and the family parameter n implied by trace = -n(n+1)-2.",
+  "evidence_class": "model_calculation",
+  "limits": "Constrains the donor-kernel lane only. Not an unrestricted AC invariant: the legal two-move control [2,4] sends trace t to t^2-2.",
+  "implementation": {
+    "path": "examples/extensions/acc_donor_trace.py",
+    "sha256": "e92ba42d8beaa78e5a5e60f16f0df2519b7819afd621a11173671e10675bfe88",
+    "function": "run"
+  }
+}

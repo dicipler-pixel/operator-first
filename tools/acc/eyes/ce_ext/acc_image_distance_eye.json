@@ -1,0 +1,26 @@
+{
+  "id": "ce.acc.image_distance",
+  "version": "1.0.0",
+  "title": "Exact finite-image distance lower bound",
+  "family": "acc",
+  "status": "implemented",
+  "inputs": {
+    "relator_0": "1",
+    "relator_1": "1"
+  },
+  "unit_system": "model",
+  "depends_on": [],
+  "assumptions": [
+    "rho is a homomorphism, so the 14 moves act on the image pair exactly as on words",
+    "a word path projects to an image path of the same length",
+    "maximum over primes is a valid lower bound; the sum is not"
+  ],
+  "output_meaning": "Maximum over primes of the exact distance-to-goal in the finite image pair-graph. An exact lower bound on remaining ordinary AC moves; admissible as an A* heuristic.",
+  "evidence_class": "model_calculation",
+  "limits": "Weak: eccentricity is 8/9/11 for p=5/7/11 while observed word paths run 30-70 moves. Not a proven search policy; used as a greedy rank it wanders (REPORT_ACC s7).",
+  "implementation": {
+    "path": "examples/extensions/acc_image_distance.py",
+    "sha256": "da4e39ca69a0a40578a58847f0153fac05f370d6185b4612865469423ae38d0d",
+    "function": "run"
+  }
+}
