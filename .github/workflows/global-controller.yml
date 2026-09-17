@@ -57,6 +57,7 @@ jobs:
           leanchecker: true
           leanchecker-args: OperatorFirst.GlobalConstraint
           axiom-audit: true
+          axiom-audit-root: OperatorFirst.GlobalConstraint
           axiom-audit-allow: propext,Classical.choice,Quot.sound
       - name: External import and positive-control check
         shell: bash
