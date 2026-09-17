@@ -213,6 +213,8 @@ int main(int argc,char**argv){
     rng_s=strtoull(argv[3],0,10); if(!rng_s) rng_s=88172645463325252ULL;
     long restarts=atol(argv[4]); long steps=atol(argv[5]);
     int floor2 = getenv("FLOOR2") && atoi(getenv("FLOOR2"));
+    int f2thr = getenv("F2THR") ? atoi(getenv("F2THR")) : -3;
+    unsigned long long macro_fired=0, macro_seen=0;
 
     uint64_t slots=1; while(slots < NMAX*2) slots<<=1;
     TMASK=slots-1;
@@ -348,7 +350,8 @@ int main(int argc,char**argv){
                     }
                     if(f2 < (1<<20)){
                         int d2 = f2 - (cur.la+cur.lb);
-                        if(d2 <= -3 && d2 < d){ d = d2; }
+                        macro_seen++;
+                        if(d2 <= f2thr && d2 < d){ d = d2; }
                         else macro_m2 = -1;   // not a real opening; no macro
                     } else macro_m2 = -1;
                 }
@@ -356,6 +359,7 @@ int main(int argc,char**argv){
                     cur=nx;
                     if(n < (long)sizeof(path)) path[n++]=(uint8_t)m;
                     if(macro_m2 >= 0){
+                        macro_fired++;
                         St xx;
                         if(apply(&cur,macro_m2,&xx) && xx.la && xx.lb){
                             cur=xx;
@@ -367,8 +371,9 @@ int main(int argc,char**argv){
                 }
             }
         }
-        if(!done){ printf("%s NOBALL minlen=%d start=%d cap=%d\n",
-                          id,minlen,s0.la+s0.lb,CAP); fflush(stdout); }
+        if(!done){ printf("%s NOBALL minlen=%d start=%d cap=%d macro_fired=%llu evaluated=%llu\n",
+                          id,minlen,s0.la+s0.lb,CAP,macro_fired,macro_seen); fflush(stdout); }
+        macro_fired=0; macro_seen=0;
     }
     fclose(f);
     return 0;
