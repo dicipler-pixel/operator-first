@@ -13,6 +13,7 @@ on:
       - 'ACCFrontier.lean'
       - 'research/acc/**'
       - '.github/workflows/acc-length-well.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -39,8 +40,11 @@ jobs:
 
   lean-bottleneck:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
       - name: Install pinned Lean
         run: |
           curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
@@ -48,7 +52,41 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - run: lake update
       - run: lake exe cache get
-      - name: Check finite well theorem and report axioms
-        run: lake env lean ACCWell.lean
-      - name: Check complete first-exit frontier theorem and report axioms
-        run: lake env lean ACCFrontier.lean
+      - name: Compile dependency and frontier objects in import order
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .lake/build/lib/lean
+          lake env lean -o .lake/build/lib/lean/ACCWell.olean ACCWell.lean 2>&1 | tee acc-well-lean.log
+          lake env lean -o .lake/build/lib/lean/ACCFrontier.olean ACCFrontier.lean 2>&1 | tee acc-frontier-lean.log
+      - name: Independently recheck both compiled modules
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake env leanchecker ACCWell 2>&1 | tee acc-well-kernel.log
+          lake env leanchecker ACCFrontier 2>&1 | tee acc-frontier-kernel.log
+      - name: Check external imports and preserve source receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf 'import ACCWell\nimport ACCFrontier\n' > ACCImportSmoke.lean
+          lake env lean ACCImportSmoke.lean 2>&1 | tee acc-import-smoke.log
+          git rev-parse HEAD > acc-source-receipt.txt
+          sha256sum ACCWell.lean ACCFrontier.lean lakefile.toml lean-toolchain lake-manifest.json >> acc-source-receipt.txt
+          git -C .lake/packages/mathlib rev-parse HEAD >> acc-source-receipt.txt
+          if grep -E 'sorryAx|Lean.ofReduceBool' acc-well-lean.log acc-frontier-lean.log; then
+            echo 'ERROR: unapproved proof dependency'
+            exit 1
+          fi
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: acc-complete-frontier-lean-evidence
+          path: |
+            acc-*.log
+            acc-source-receipt.txt
+            ACCWell.lean
+            ACCFrontier.lean
+            lakefile.toml
+            lean-toolchain
+            lake-manifest.json
