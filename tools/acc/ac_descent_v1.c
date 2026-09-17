@@ -35,7 +35,7 @@ static int invw(const uint8_t*a,int n,uint8_t*o){
 }
 // apply move m; returns 0 if it would overflow the word buffer
 static int apply(const St*s,int m,St*r){
-    uint8_t t[2*MAXW+4];
+    uint8_t t[2*MAXW+4], u[2*MAXW+4];
     *r=*s;
     if(m==0){ uint8_t u[MAXW]; int l=invw(s->a,s->la,u); memcpy(r->a,u,l); r->la=l; return 1; }
     if(m==1){ uint8_t u[MAXW]; int l=invw(s->b,s->lb,u); memcpy(r->b,u,l); r->lb=l; return 1; }
@@ -44,14 +44,18 @@ static int apply(const St*s,int m,St*r){
         memcpy(t,s->a,lt);
         if(m==2){ if(lt+s->lb>2*MAXW) return 0; memcpy(t+lt,s->b,s->lb); lt+=s->lb; }
         else    { if(lt+s->lb>2*MAXW) return 0; lt+=invw(s->b,s->lb,t+lt); }
-        int l=reduce(t,lt,r->a); if(l>MAXW) return 0; r->la=l; return 1;
+        // BUFFER SAFETY: reduce() can emit up to lt bytes (<= 2*MAXW), so reducing
+        // straight into r->a (MAXW bytes) overflows whenever the reduced word is longer
+        // than MAXW -- the old length check ran AFTER the write. Reduce into the large
+        // temporary, check, then copy. Reported by ChatGPT; it SIGBUSes on fresh targets.
+        int l=reduce(t,lt,u); if(l>MAXW) return 0; memcpy(r->a,u,l); r->la=l; return 1;
     }
     if(m==4||m==5){
         int lt=s->lb; if(lt>MAXW) return 0;
         memcpy(t,s->b,lt);
         if(m==4){ if(lt+s->la>2*MAXW) return 0; memcpy(t+lt,s->a,s->la); lt+=s->la; }
         else    { if(lt+s->la>2*MAXW) return 0; lt+=invw(s->a,s->la,t+lt); }
-        int l=reduce(t,lt,r->b); if(l>MAXW) return 0; r->lb=l; return 1;
+        int l=reduce(t,lt,u); if(l>MAXW) return 0; memcpy(r->b,u,l); r->lb=l; return 1;
     }
     int on0=(m<=9); int g=on0?m-6:m-10; uint8_t gi=g^1;
     const uint8_t*src=on0?s->a:s->b; int ls=on0?s->la:s->lb;
