@@ -159,7 +159,9 @@ int main(int argc,char**argv){
         // complete and does not contain the other endpoint.
         if(fpend==0){
             if(bestmeet && bestn<(1<<30)){
-                printf("MEET len=%d states_f=%u states_b=%u depth_f=%u depth_b=%u\n",
+                // Forward frontier empty: the component is CLOSED at this cap, so the
+                // stored best is shortest within the cap, exactly.
+                printf("MEET_EXACT len=%d states_f=%u states_b=%u depth_f=%u depth_b=%u\n",
                        bestn,F.nst,B.nst,F.depth,B.depth);
                 printf("MOVES");
                 for(int k=0;k<bestn;k++) printf(" %d",bestout[k]);
@@ -208,7 +210,12 @@ int main(int argc,char**argv){
                 }
                 if(S->nst>=MAXST-2){
                     if(bestmeet && bestn<(1<<30)){
-                        printf("MEET len=%d states_f=%u states_b=%u depth_f=%u depth_b=%u\n",
+                        // Budget ran out. The stored best is a valid path but NOT proven
+                        // shortest -- the depth bound was never reached, so a shorter
+                        // split may sit in the part of the corridor we never expanded.
+                        // Reporting this identically to an exact result would make the
+                        // exactness claim unfalsifiable, which is worse than no claim.
+                        printf("MEET_BUDGET len=%d states_f=%u states_b=%u depth_f=%u depth_b=%u\n",
                                bestn,F.nst,B.nst,F.depth,B.depth);
                         printf("MOVES");
                         for(int k=0;k<bestn;k++) printf(" %d",bestout[k]);
@@ -219,7 +226,12 @@ int main(int argc,char**argv){
         }
         S->depth++; S->lvlend=S->nst;
         if(bestmeet && bestn<(1<<30) && (int)(F.depth+B.depth)>=bestn){
-            printf("MEET len=%d states_f=%u states_b=%u depth_f=%u depth_b=%u\n",
+            // PROVEN shortest within this cap. Any path of length n splits as f+b;
+            // taking f = min(n, F.depth) forces b <= B.depth whenever
+            // n <= F.depth + B.depth, so a shorter path would already have been seen.
+            // This holds only because both sides are COMPLETE to their stated depths,
+            // which is exactly what the budget branch above cannot promise.
+            printf("MEET_EXACT len=%d states_f=%u states_b=%u depth_f=%u depth_b=%u\n",
                    bestn,F.nst,B.nst,F.depth,B.depth);
             printf("MOVES");
             for(int k=0;k<bestn;k++) printf(" %d",bestout[k]);
