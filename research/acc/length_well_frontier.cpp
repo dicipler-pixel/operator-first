@@ -1,6 +1,12 @@
-// Exact frontier dumper stacked on length_well_packed.cpp.
+// Exact complete-frontier dumper stacked on length_well_packed.cpp.
 // Keeps the original official-kernel scanner untouched and reuses its state,
 // packing, and move definitions in this translation unit.
+//
+// IMPORTANT: a legal AC move need not change total length by only one.  Thus a
+// complete first-exit frontier from a cap-B component must include every
+// directed move from a state in the closed component to a target of length > B,
+// not only B -> B+1 moves.  Targets longer than 31 are written textually and
+// are deliberately not passed through the <=31 collision-free packed key.
 #define main length_well_packed_embedded_main
 #include "length_well_packed.cpp"
 #undef main
@@ -38,7 +44,7 @@ int main(int argc, char** argv) {
   const size_t limit = argc > 2 ? stoull(argv[2]) : 30000000ULL;
   const string prefix = argc > 3 ? argv[3] : "ac00015_cap30";
   if (cap < 20 || cap > 30) {
-    cerr << "frontier cap must lie in [20,30]; cap+1 must fit the 31-letter packing\n";
+    cerr << "frontier cap must lie in [20,30]\n";
     return 2;
   }
 
@@ -115,35 +121,45 @@ int main(int argc, char** argv) {
   }
   if (!snap) { cerr << "snapshot write failed\n"; return 6; }
 
+  // A boundary source is any state in the closed component with at least one
+  // legal successor outside the cap, regardless of the source's own length.
   ofstream boundary(boundary_path);
-  boundary << "index\tkey_hex\ttotal\tr0\tr1\n";
+  boundary << "index\tkey_hex\ttotal\tr0\tr1\toutside_moves\n";
   size_t boundary_n = 0;
-  for (size_t i = 0; i < q.size(); ++i) {
-    State s = from_key(q[i]);
-    if (total_length(s) != cap) continue;
-    boundary << i << '\t' << frontier_hex128(q[i]) << '\t' << cap << '\t'
-             << frontier_word_text(s.a) << '\t' << frontier_word_text(s.b) << '\n';
-    ++boundary_n;
-  }
-  if (!boundary) { cerr << "boundary write failed\n"; return 6; }
 
   ofstream crossings(crossings_path);
-  crossings << "source_index\tsource_key_hex\tmove\ttarget_key_hex\ttarget_total\ttarget_r0\ttarget_r1\n";
+  crossings << "source_index\tsource_key_hex\tsource_total\tmove\ttarget_key_hex_or_NA\t"
+               "target_total\tjump\ttarget_r0\ttarget_r1\n";
   size_t edge_n = 0;
+  size_t plus1_n = 0;
+  size_t larger_jump_n = 0;
+  int max_target = cap;
+
   for (size_t i = 0; i < q.size(); ++i) {
     State s = from_key(q[i]);
-    if (total_length(s) != cap) continue;
+    const int ls = total_length(s);
+    int outside_moves = 0;
     for (int m = 0; m < 14; ++m) {
       State z = move_ac(s, m);
-      if (total_length(z) != cap + 1) continue;
-      U128 kz = key(z);
-      crossings << i << '\t' << frontier_hex128(q[i]) << '\t' << m << '\t'
-                << frontier_hex128(kz) << '\t' << (cap + 1) << '\t'
-                << frontier_word_text(z.a) << '\t' << frontier_word_text(z.b) << '\n';
+      const int lz = total_length(z);
+      if (lz <= cap) continue;
+      ++outside_moves;
       ++edge_n;
+      if (lz == cap + 1) ++plus1_n; else ++larger_jump_n;
+      max_target = max(max_target, lz);
+      const string target_key = (lz <= 31) ? frontier_hex128(key(z)) : string("NA");
+      crossings << i << '\t' << frontier_hex128(q[i]) << '\t' << ls << '\t' << m << '\t'
+                << target_key << '\t' << lz << '\t' << (lz - cap) << '\t'
+                << frontier_word_text(z.a) << '\t' << frontier_word_text(z.b) << '\n';
+    }
+    if (outside_moves) {
+      boundary << i << '\t' << frontier_hex128(q[i]) << '\t' << ls << '\t'
+               << frontier_word_text(s.a) << '\t' << frontier_word_text(s.b) << '\t'
+               << outside_moves << '\n';
+      ++boundary_n;
     }
   }
-  if (!crossings) { cerr << "crossings write failed\n"; return 6; }
+  if (!boundary || !crossings) { cerr << "frontier write failed\n"; return 6; }
 
   double sec = chrono::duration<double>(chrono::steady_clock::now() - t0).count();
   cout << "COMPLETE cap=" << cap << " states=" << seen.size()
@@ -152,6 +168,8 @@ int main(int argc, char** argv) {
     if (hist[l]) cout << "L" << l << "=" << hist[l] << (l == cap ? '\n' : ' ');
   cout << "SNAPSHOT file=" << snap_path << " records=" << q.size() << '\n';
   cout << "BOUNDARY file=" << boundary_path << " states=" << boundary_n << '\n';
-  cout << "CROSSINGS file=" << crossings_path << " edges=" << edge_n << '\n';
+  cout << "CROSSINGS file=" << crossings_path << " edges=" << edge_n
+       << " plus1=" << plus1_n << " larger_jumps=" << larger_jump_n
+       << " max_target_length=" << max_target << '\n';
   return 0;
 }

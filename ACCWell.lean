@@ -1,4 +1,7 @@
-import Mathlib
+import Mathlib.Data.Nat.Basic
+import Mathlib.Data.List.Basic
+import Mathlib.Data.Set.Basic
+import Mathlib.Tactic.Push
 
 /-!
 # Finite length-well bottleneck theorem
