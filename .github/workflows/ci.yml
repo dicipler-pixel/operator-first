@@ -11,26 +11,83 @@ jobs:
     timeout-minutes: 20
     env:
       LEAN_NUM_THREADS: 2
+      SIBLING_MODULES: 'TwoRailGeometry TwoRailBridge'
+      EXPECTED_SIBLING_THEOREMS: '8'
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-
       - name: install elan
         run: |
           curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
           bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain "$(cat lean-toolchain)"
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-
       - name: resolve pinned dependencies
         run: lake update
-
-      - name: build, recheck, and audit proofs
+      - name: build, recheck, and audit root proofs
         uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
         with:
           use-mathlib-cache: true
+          use-github-cache: false
           build: true
           leanchecker: true
           leanchecker-args: OperatorFirst
           axiom-audit: true
           axiom-audit-allow: propext,Classical.choice,Quot.sound
+      - name: Explicit sibling builds, direct checks, and independent kernel replays
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p sibling-evidence
+          : > SiblingImportSmoke.lean
+          for module in $SIBLING_MODULES; do
+            lake build "+${module}" 2>&1 | tee "sibling-evidence/${module}-build.log"
+            lake env lean "${module}.lean" 2>&1 | tee "sibling-evidence/${module}-axioms.log"
+            lake env leanchecker "$module" 2>&1 | tee "sibling-evidence/${module}-kernel.log"
+            printf 'import %s\n' "$module" >> SiblingImportSmoke.lean
+            cp "${module}.lean" sibling-evidence/
+          done
+          lake env lean SiblingImportSmoke.lean 2>&1 | tee sibling-evidence/import-smoke.log
+      - name: Enforce complete named sibling-theorem axiom reports
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, pathlib, re
+          allow = {'propext', 'Classical.choice', 'Quot.sound'}
+          inventory = {}
+          for module in os.environ['SIBLING_MODULES'].split():
+              source = pathlib.Path(module + '.lean').read_text()
+              names = re.findall(r'^theorem\s+([A-Za-z0-9_]+)', source, re.M)
+              expected = {module + '.' + name for name in names}
+              printed = set(re.findall(r'^#print axioms\s+(\S+)', source, re.M))
+              if printed != expected:
+                  raise SystemExit(f'{module}: named theorem/report inventory mismatch')
+              log = pathlib.Path('sibling-evidence', module + '-axioms.log').read_text()
+              records = re.findall(r"'([^']+)'\s+(?:depends on axioms:\s*\[([^\]]*)\]|(does not depend on any axioms))", log)
+              actual = {}
+              for name, deps, empty in records:
+                  if name in actual:
+                      raise SystemExit(f'{module}: duplicate report for {name}')
+                  axioms = {a.strip() for a in deps.split(',') if a.strip()}
+                  if not axioms <= allow:
+                      raise SystemExit(f'{name}: disallowed axioms {axioms - allow}')
+                  actual[name] = sorted(axioms)
+              if set(actual) != expected:
+                  raise SystemExit(f'{module}: missing or unexpected compiler axiom reports')
+              inventory.update(actual)
+          if len(inventory) != int(os.environ['EXPECTED_SIBLING_THEOREMS']):
+              raise SystemExit('Unexpected named sibling-theorem count')
+          pathlib.Path('sibling-evidence/named-theorem-axioms.json').write_text(json.dumps(inventory, indent=2) + '\n')
+          print('PASS:', len(inventory), 'named sibling theorems; only standard transitive axioms')
+          PY
+          git rev-parse HEAD > sibling-evidence/source-receipt.txt
+          for module in $SIBLING_MODULES; do sha256sum "${module}.lean" >> sibling-evidence/source-receipt.txt; done
+          sha256sum lakefile.toml lean-toolchain lake-manifest.json >> sibling-evidence/source-receipt.txt
+          git -C .lake/packages/mathlib rev-parse HEAD >> sibling-evidence/source-receipt.txt
+          cp lakefile.toml lean-toolchain lake-manifest.json sibling-evidence/
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: sibling-module-proof-evidence
+          path: sibling-evidence/
