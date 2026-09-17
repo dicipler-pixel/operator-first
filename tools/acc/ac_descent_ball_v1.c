@@ -212,6 +212,7 @@ int main(int argc,char**argv){
     NMAX=strtoull(argv[2],0,10);
     rng_s=strtoull(argv[3],0,10); if(!rng_s) rng_s=88172645463325252ULL;
     long restarts=atol(argv[4]); long steps=atol(argv[5]);
+    int floor2 = getenv("FLOOR2") && atoi(getenv("FLOOR2"));
 
     uint64_t slots=1; while(slots < NMAX*2) slots<<=1;
     TMASK=slots-1;
@@ -313,6 +314,30 @@ int main(int argc,char**argv){
                 if(!apply(&cur,m,&nx)) continue;
                 if(!nx.la || !nx.lb) continue;
                 int d = (nx.la+nx.lb) - (cur.la+cur.lb);
+                // FLOOR2. Judging a move by its IMMEDIATE length change is what
+                // stalled this walk at minlen 18-21: on our own 19 certificates
+                // 52.6% of the winning moves do not reduce length, so a downhill
+                // rule refuses half of them outright. Measured against the moves
+                // those certificates DECLINED (310 chosen vs 4,030 declined), the
+                // quantity that separates a good uphill move from a bad one is the
+                // best length reachable in TWO moves: chosen -1.215 vs declined
+                // -0.370, and floor2 <= -3 carries a 4.4x lift over chance.
+                // Move-space rotation, by contrast, scored BELOW chance and is not
+                // used. Cost is 14 extra applications per candidate.
+                if(floor2){
+                    int f2 = 1<<20;
+                    for(int m2=0;m2<14;m2++){
+                        St xx;
+                        if(!apply(&nx,m2,&xx)) continue;
+                        if(!xx.la || !xx.lb) continue;
+                        int t2 = xx.la+xx.lb;
+                        if(t2<f2) f2=t2;
+                    }
+                    if(f2 < (1<<20)){
+                        int d2 = f2 - (cur.la+cur.lb);
+                        if(d2 < d) d = d2;
+                    }
+                }
                 if(d<=0 || rnd01() < exp(-d/temp)){
                     cur=nx;
                     if(cur.la+cur.lb < minlen) minlen = cur.la+cur.lb;
