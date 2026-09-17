@@ -56,3 +56,43 @@ Before any transformation is used to move a result from one row to another, name
 the invariant it preserves and the quantity it does not, and cite the test. A
 transformation that preserves solvability is not thereby a transformation that
 preserves the *length* of the solution — and on this board, length is the score.
+
+---
+
+## Addendum — "a long record means a sloppy path" is false
+
+Tested because it looked like free points: 343 sole-held rows carry records of 60+,
+up to **595 moves**, and our corridor routinely produces paths of 33–55. Beating a
+595 should have been a rout.
+
+Every one of the first nine came back **NOPATH**:
+
+```
+ac-00215 record 595 -> NOPATH      ac-03873 record 510 -> NOPATH
+ac-05232 record 592 -> NOPATH      ac-06796 record 418 -> NOPATH
+ac-01613 record 487 -> NOPATH      ac-00676 record 403 -> NOPATH
+```
+
+The inference was backwards. **A long record does not mean a sloppy path; it means
+a hard row.** The record is 595 because nothing shorter has been found by anyone,
+including us — those rows are exactly the ones where our corridor finds nothing at
+all within the calibrated band.
+
+It is consistent with the gap data already in hand, which I had misread as noise:
+
+| record range | our median gap |
+|---|---|
+| 25–40 | +8 |
+| 40–60 | +13 |
+| 60+ | no path found |
+
+So the corridor's reach is roughly fixed and tracks **row difficulty**, not record
+length. Rows with short records are ones where short paths exist and we land ~10
+moves long; rows with long records are ones where no short path exists and we land
+nowhere.
+
+**Consequence for target selection.** There is no easy end of this board. Value
+comes only from closing a ~10-move gap on rows we already solve, or from solving
+rows we currently cannot. Sorting by record — in either direction — is not a
+difficulty proxy, and this is the second time today that a plausible ordering
+heuristic cost compute: first hardest-record-first, now largest-record-first.
