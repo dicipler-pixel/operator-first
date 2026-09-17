@@ -143,6 +143,8 @@ int main(int argc,char**argv){
     packw(ta,t0,&sg.a0,&sg.b0); sg.l0=t0; packw(tb,t1,&sg.a1,&sg.b1); sg.l1=t1;
     if(eq(&s0,&sg)){ printf("MEET len=0 states_f=0 states_b=0\nMOVES\n"); return 0; }
 
+    int bestmeet = getenv("BESTMEET") && atoi(getenv("BESTMEET"));
+    static uint8_t bestout[200000]; int bestn=1<<30;
     Side F,B;
     if(!side_init(&F)||!side_init(&B)){ printf("ALLOC_FAIL\n"); return 1; }
     int isnew;
@@ -156,6 +158,12 @@ int main(int argc,char**argv){
         // A single empty frontier already decides it: that component is
         // complete and does not contain the other endpoint.
         if(fpend==0){
+            if(bestmeet && bestn<(1<<30)){
+                printf("MEET len=%d states_f=%u states_b=%u depth_f=%u depth_b=%u\n",
+                       bestn,F.nst,B.nst,F.depth,B.depth);
+                printf("MOVES");
+                for(int k=0;k<bestn;k++) printf(" %d",bestout[k]);
+                printf("\n"); return 0; }
             printf("CLOSED_F component=%u depth_f=%u states_b=%u depth_b=%u cap=%d\n",
                    F.nst,F.depth,B.nst,B.depth,CAP); return 3; }
         if(bpend==0){
@@ -179,19 +187,43 @@ int main(int argc,char**argv){
                     else   { nf=chain(O,o,mf);  nb=chain(S,id,mb); }
                     for(int k=0;k<nf;k++) out[n++]=mf[k];            // start -> meet
                     for(int k=nb-1;k>=0;k--) out[n++]=INV[mb[k]];    // meet -> target
+                    // BESTMEET: an alternating bidirectional BFS does NOT return the
+                    // shortest path on its first meet -- the two frontiers are at
+                    // different depths, so a meet found one level later can be shorter
+                    // overall. Keep the best and stop only when F.depth + B.depth
+                    // reaches it: every later meet has nf >= F.depth and nb >= B.depth,
+                    // so beyond that bound no improvement is possible. Exact, not a
+                    // heuristic. (ac-00104 returns 22 either way, which is how we know
+                    // its 21-move record must leave this cap band entirely.)
+                    if(bestmeet){
+                        if(n<bestn){ bestn=n; memcpy(bestout,out,n); }
+                    } else {
                     printf("MEET len=%d states_f=%u states_b=%u depth_f=%u depth_b=%u\n",
                            n,F.nst,B.nst,F.depth,B.depth);
                     printf("MOVES");
                     for(int k=0;k<n;k++) printf(" %d",out[k]);
                     printf("\n");
                     return 0;
+                    }
                 }
                 if(S->nst>=MAXST-2){
+                    if(bestmeet && bestn<(1<<30)){
+                        printf("MEET len=%d states_f=%u states_b=%u depth_f=%u depth_b=%u\n",
+                               bestn,F.nst,B.nst,F.depth,B.depth);
+                        printf("MOVES");
+                        for(int k=0;k<bestn;k++) printf(" %d",bestout[k]);
+                        printf("\n"); return 0; }
                     printf("BUDGET states_f=%u states_b=%u depth_f=%u depth_b=%u\n",
                            F.nst,B.nst,F.depth,B.depth); return 2; }
             }
         }
         S->depth++; S->lvlend=S->nst;
+        if(bestmeet && bestn<(1<<30) && (int)(F.depth+B.depth)>=bestn){
+            printf("MEET len=%d states_f=%u states_b=%u depth_f=%u depth_b=%u\n",
+                   bestn,F.nst,B.nst,F.depth,B.depth);
+            printf("MOVES");
+            for(int k=0;k<bestn;k++) printf(" %d",bestout[k]);
+            printf("\n"); return 0; }
         fprintf(stderr,"%s depth %u states %u\n",fwd?"F":"B",S->depth,S->nst);
     }
 }
