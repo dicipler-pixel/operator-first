@@ -45,9 +45,18 @@ def main():
     meta = json.load(open(sys.argv[3]))
 
     out = {"BEAT": [], "TIE": [], "FIRST": [], "WORSE": []}
-    dropped = []
+    dropped, controls = [], []
     for cid, mv in meets.items():
         if cid not in pairs:
+            continue
+        # CONTROLS ARE NOT CERTIFICATES. Synthetic pairs (pc-*, pd-*) are built by
+        # this session to prove an engine works; they are not board rows and have
+        # no record. Pricing them as FIRST solves invents score out of nothing --
+        # an early run of this tool reported "25 certificates, value 25.00" that
+        # were all controls. Anything with no board metadata is a control or a
+        # mistake, and either way it is not submittable.
+        if cid.startswith("pc-") or cid.startswith("pd-") or cid not in meta:
+            controls.append(cid)
             continue
         a, b = pairs[cid]
         raw = len(mv)
@@ -58,7 +67,7 @@ def main():
         _, _, ok = replay(a, b, mv)
         if not ok:
             dropped.append((cid, "does not replay to (x,y)")); continue
-        m = meta.get(cid, {})
+        m = meta[cid]
         rec, kt = m.get("best"), m.get("kTeams")
         e = {"challengeId": cid, "moves": mv, "len": len(mv), "raw_path": raw,
              "record": rec, "kTeams": kt,
@@ -78,7 +87,8 @@ def main():
               open(sys.argv[4], "w"), indent=1)
 
     val = sum(c["value"] for k in ("BEAT", "TIE", "FIRST") for c in out[k])
-    print(f"meets {len(meets)}  ->  FIRST {len(out['FIRST'])}  BEAT {len(out['BEAT'])}"
+    print(f"meets {len(meets)} ({len(controls)} were controls, not priced)  ->  "
+          f"FIRST {len(out['FIRST'])}  BEAT {len(out['BEAT'])}"
           f"  TIE {len(out['TIE'])}  worse {len(out['WORSE'])}  dropped {len(dropped)}")
     print(f"estimated score value of the submittable set: {val:.2f}")
     for k in ("FIRST", "BEAT", "TIE"):
