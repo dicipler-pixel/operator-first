@@ -14,6 +14,9 @@ Positive support peeling, Schur reduction and hidden-sector memory are distinct 
 - [Sign-correct positive-block gluing](../../atlas/UPG-GLUING-SIGN.md)
 - [Projector susceptibility and the separating gap](../../atlas/UPG-GAP-RANK.md)
 - [Four records of a reduction](../../atlas/CASCADE-FOUR-RECORDS.md)
+- [Persistent rational section with finite integer image](../../atlas/DIO-SECTION-INTEGRAL.md)
+- [Finite-field transfer with the omitted domain point](../../atlas/DIO-TRACE-BOUNDARY.md)
+- [Candidate evolution without false rank certificates](../../atlas/DIO-SEARCH-LIMITS.md)
 
 ## Next step
 

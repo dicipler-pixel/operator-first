@@ -1,0 +1,24 @@
+STEP 1  what is at y = 3/2
+  y^4 = 81/16  and 4(x^3+x+1) at x=1/4 = 81/16
+  so (x,y,w) = (1/4, 3/2, 0) is on the surface: the branch points are exactly the two y
+  where the fibre acquires a rational 2-torsion point.  Check the cubic factors there:
+  -4x^3-4x+(y^4-4) at x=1/4 : 0
+
+STEP 2  small rational points on fibres of the cover
+  u=    -4  y=    -45/34  points x = -16/17
+  u=    -2  y=     -9/10  points x = -19/5, -11/18, -7/10
+  u=  -3/2  y=    -15/26  points x = -25/13
+  u=    -1  y=         0  points x = -13, -2, -1
+  u=  -2/3  y=     15/26  points x = -25/13
+  u=  -1/2  y=      9/10  points x = -19/5, -11/18, -7/10
+  u=  -1/4  y=     45/34  points x = -16/17
+  u=     0  y=       3/2  points x = 1/4
+  u=   1/4  y=     45/34  points x = -16/17
+  u=   1/2  y=      9/10  points x = -19/5, -11/18, -7/10
+  u=   2/3  y=     15/26  points x = -25/13
+  u=     1  y=         0  points x = -13, -2, -1
+  u=   3/2  y=    -15/26  points x = -25/13
+  u=     2  y=     -9/10  points x = -19/5, -11/18, -7/10
+
+STEP 3  is there a section x(u)?  look at the x that appear for every u
+  x values present on EVERY sampled fibre: none

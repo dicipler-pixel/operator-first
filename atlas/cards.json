@@ -312,5 +312,92 @@
       }
     ],
     "next_step": "Specify the UPG feature map, measured response, independent splits and energy costs for the next acquisition test."
+  },
+  {
+    "id": "DIO-SECTION-INTEGRAL",
+    "title": "Persistent rational section with finite integer image",
+    "papers": [
+      "diophantine-eye",
+      "compound-eye",
+      "peeling-cascade"
+    ],
+    "statement": "An explicit non-torsion section on the \u00b13/2 circle cover has exactly two integer triples in its image.",
+    "assumptions": "Rational parameter; declared affine coordinates; nonsingular specialization for the non-torsion argument.",
+    "failure_mode": "A positive-rank cover does not imply infinitely many integer solutions on the original surface.",
+    "evidence_status": "Lean-checked cleared identity; written non-torsion/integrality proof with exact checks",
+    "verification_scope": "Lean verifies the denominator-free identity and positive denominator, not the complete non-torsion or integrality classification.",
+    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk\u2013Agbanwa. Audit and reconstruction do not assert novelty.",
+    "sources": [
+      {
+        "label": "PR #13 audit and complete backup",
+        "url": "https://github.com/dicipler-pixel/operator-first/pull/13"
+      },
+      {
+        "label": "Seven algebraic certificates (verified source)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/e5d870b421a394cf49858f59b9bd5ec5b0ef2956/research/diophantine/formal/Certificates.lean",
+        "pr": 13,
+        "path": "research/diophantine/formal/Certificates.lean",
+        "sha": "e5d870b421a394cf49858f59b9bd5ec5b0ef2956"
+      }
+    ],
+    "next_step": "Seek unbounded integral parameter orbits, with denominators retained."
+  },
+  {
+    "id": "DIO-TRACE-BOUNDARY",
+    "title": "Finite-field transfer with the omitted domain point",
+    "papers": [
+      "diophantine-eye",
+      "compound-eye",
+      "peeling-cascade"
+    ],
+    "statement": "Affine cover sum equals base sum plus twist sum minus the trace contribution at the image of the omitted domain point.",
+    "assumptions": "Odd prime, defined distinct branch points; declared affine base and circle parameter map.",
+    "failure_mode": "Dropping the u=infinity term changes the trace ledger; singular characteristics need separate handling.",
+    "evidence_status": "Written finite-count identity and exact computational controls",
+    "verification_scope": "Pointwise multiplicities and weighted sums checked; not an APS or physical spectral-flow theorem.",
+    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk\u2013Agbanwa. Audit and reconstruction do not assert novelty.",
+    "sources": [
+      {
+        "label": "PR #13 audit and complete backup",
+        "url": "https://github.com/dicipler-pixel/operator-first/pull/13"
+      },
+      {
+        "label": "Seven algebraic certificates (verified source)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/e5d870b421a394cf49858f59b9bd5ec5b0ef2956/research/diophantine/formal/Certificates.lean",
+        "pr": 13,
+        "path": "research/diophantine/formal/Certificates.lean",
+        "sha": "e5d870b421a394cf49858f59b9bd5ec5b0ef2956"
+      }
+    ],
+    "next_step": "Use explicit pushforward maps before transferring an observer or peeling analogy."
+  },
+  {
+    "id": "DIO-SEARCH-LIMITS",
+    "title": "Candidate evolution without false rank certificates",
+    "papers": [
+      "diophantine-eye",
+      "compound-eye",
+      "peeling-cascade"
+    ],
+    "statement": "Discovery ranking and independent prime validation are distinct; finite means do not prove exact rank or rule out all constructions.",
+    "assumptions": "Fixed original discovery block; all selected candidates frozen before validation; signed twist-specific variance.",
+    "failure_mode": "Correlated search maxima and split-prime selection can create misleading rank claims.",
+    "evidence_status": "Exact finite-field experiment; inferential limits explicit",
+    "verification_scope": "668 odd primes; 430 held out; 44 frozen candidates; 12,750 independent direct-sum checks.",
+    "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk\u2013Agbanwa. Audit and reconstruction do not assert novelty.",
+    "sources": [
+      {
+        "label": "PR #13 audit and complete backup",
+        "url": "https://github.com/dicipler-pixel/operator-first/pull/13"
+      },
+      {
+        "label": "Seven algebraic certificates (verified source)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/e5d870b421a394cf49858f59b9bd5ec5b0ef2956/research/diophantine/formal/Certificates.lean",
+        "pr": 13,
+        "path": "research/diophantine/formal/Certificates.lean",
+        "sha": "e5d870b421a394cf49858f59b9bd5ec5b0ef2956"
+      }
+    ],
+    "next_step": "Use the exact section and published polynomial families as calibration controls."
   }
 ]
