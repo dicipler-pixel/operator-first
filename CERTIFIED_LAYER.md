@@ -8,6 +8,8 @@ The complete source-revision inventory is maintained in **[`LEAN_CERTIFICATES_MA
 
 For a direct **where-is-it / how-do-I-trace-it** index, use **[`LEAN_TRACE_MAP.md`](LEAN_TRACE_MAP.md)**. It maps every promoted `LC-###` certificate tag to the exact PR, verified source snapshot, workflow evidence, and primary source location, and separately lists current unpromoted formal branches so newer work cannot be confused with certified ancestors.
 
+**17 September catch-up:** [`LEAN_VERIFICATION_PROGRESS_2026-09-17.md`](LEAN_VERIFICATION_PROGRESS_2026-09-17.md) records the successful isolated public Coxeter run and source-exact local replay of six modules from PRs #35, #46 (batch D only), #47 and #59. The local receipt covers 48 existing theorem declarations and nine definitions, with module-specific kernel replay, axiom audits and negative controls. It is not a GitHub Actions success for those private PRs: their new dedicated jobs stopped before runner assignment. No existing LC count is increased and no pending whole-PR gate is silently promoted. The complete private evidence archive is saved in Drive staging, with its exact filename and SHA-256 in the linked receipt.
+
 This front page stays intentionally small.
 
 ## Status vocabulary
