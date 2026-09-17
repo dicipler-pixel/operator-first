@@ -83,7 +83,57 @@ def test_end_to_end(rng, n=60):
     return f"end-to-end lift: {ok} verified, {skipped} skipped (no path in budget)"
 
 
+def test_class_bridge(rng, n=120):
+    """One solved pair must serve its whole Nielsen class, never a wrong one.
+
+    Builds B from A by a Type-I map, relator inversions and cyclic rotations --
+    exactly the symmetries the class map quotients by -- then checks that
+    bridge_pair recovers a path for B. WRONG must be 0; a miss is only lost
+    recall, and replay catches anything bad regardless.
+    """
+    from class_bridge import bridge_pair
+    from wh_lift import inverse_aut
+    from nielsen_classes import T1
+    ok = miss = wrong = 0
+    for _ in range(n):
+        A0 = free_reduce([rng.randrange(4) for _ in range(rng.randint(2, 6))])
+        A1 = free_reduce([rng.randrange(4) for _ in range(rng.randint(2, 6))])
+        if not A0 or not A1:
+            continue
+        Q = ac_bridge(A0, A1, cap=22, budget=200000)
+        if Q is None:
+            continue
+        s = rng.choice(T1)
+        sig = ([s[0]], [s[2]])
+        b0, b1 = list(A0), list(A1)
+        if rng.random() < .5:
+            b0 = [c ^ 1 for c in reversed(b0)]
+        if rng.random() < .5:
+            b1 = [c ^ 1 for c in reversed(b1)]
+        r = rng.randrange(len(b0)); b0 = b0[r:] + b0[:r]
+        r = rng.randrange(len(b1)); b1 = b1[r:] + b1[:r]
+        si = inverse_aut(sig)
+        B = (apply_aut(b0, si), apply_aut(b1, si))
+        P = bridge_pair(B, (A0, A1), Q)
+        if P is None:
+            miss += 1
+            continue
+        a, b, _ = replay(list(B[0]), list(B[1]), P)
+        tail = ac_bridge(a, b, cap=max(22, len(a) + len(b) + 6), budget=400000)
+        if tail is None:
+            miss += 1
+            continue
+        _, _, good = replay(list(B[0]), list(B[1]), P + tail)
+        if good:
+            ok += 1
+        else:
+            wrong += 1
+    assert wrong == 0, f"class_bridge produced {wrong} WRONG paths"
+    return f"class_bridge: {ok} verified, {miss} no-bridge, 0 wrong"
+
+
 if __name__ == "__main__":
     rng = random.Random(int(sys.argv[1]) if len(sys.argv) > 1 else 11)
-    for t in (test_transport_identity, test_inverse, test_end_to_end):
+    for t in (test_transport_identity, test_inverse, test_end_to_end,
+              test_class_bridge):
         print("PASS  " + t(rng))
