@@ -103,6 +103,72 @@ static uint32_t find(const St*s){
         if(eq(&pool[e],s)) return e;
         i=(i+1)&mask; }
 }
+// ---- non-normality potential: exact mod-p image distance -------------------
+// [H,H*]_ij = -2(d_i-d_j)A_ij is an EDGE quantity: the gradient of a real diagonal
+// potential d across each edge, zero exactly when d is constant on the component.
+// With d = total length the 14-vector (d_j - d_i) IS delta_total_by_move, i.e. the
+// labelled channel is already a non-normality eye with a weak potential. This supplies
+// a stronger one: distance to the trivial pair in the finite image of
+//   rho: x -> [[0,-1],[1,1]],  y -> XZ,  reduced mod p,
+// which is an exact lower bound on the remaining ordinary moves.
+static int PMOD=5, PP4=0;
+static unsigned char *IMGD=NULL;          // pair index -> distance, 255 = unreachable
+static int mmul(int A,int B,int p){       // matrices packed as a*p^3+b*p^2+c*p+d
+    int a=A/(p*p*p),b=(A/(p*p))%p,c=(A/p)%p,d=A%p;
+    int e=B/(p*p*p),f=(B/(p*p))%p,g=(B/p)%p,h=B%p;
+    int na=(a*e+b*g)%p, nb=(a*f+b*h)%p, nc=(c*e+d*g)%p, nd=(c*f+d*h)%p;
+    return ((na*p+nb)*p+nc)*p+nd;
+}
+static int minv(int A,int p){
+    int a=A/(p*p*p),b=(A/(p*p))%p,c=(A/p)%p,d=A%p;
+    int det=((a*d-b*c)%p+p)%p, di=1;
+    for(int k=1;k<p;k++) if((det*k)%p==1){ di=k; break; }
+    int na=(d*di)%p, nb=((-b*di)%p+p)%p, nc=((-c*di)%p+p)%p, nd=(a*di)%p;
+    return ((na*p+nb)*p+nc)*p+nd;
+}
+static void build_imgd(int p){
+    PMOD=p; int P4=p*p*p*p; PP4=P4;
+    int X=((0*p+(p-1))*p+1)*p+1;              // [[0,-1],[1,1]]
+    int Z=((0*p+(p-1))*p+1)*p+0;              // [[0,-1],[1,0]]
+    int Y=mmul(X,Z,p);
+    int L[4]={X,minv(X,p),Y,minv(Y,p)};
+    size_t N=(size_t)P4*P4;
+    IMGD=malloc(N); memset(IMGD,255,N);
+    size_t goal=(size_t)X*P4+Y;
+    IMGD[goal]=0;
+    size_t *q=malloc(N*sizeof(size_t)); size_t qh=0,qt=0; q[qt++]=goal;
+    const int INVM[14]={0,1,3,2,5,4,7,6,9,8,11,10,13,12};
+    while(qh<qt){
+        size_t cur=q[qh++]; int A=(int)(cur/P4), B=(int)(cur%P4); int d=IMGD[cur];
+        for(int mi=0;mi<14;mi++){
+            int m=INVM[mi], nA=A, nB=B;
+            if(m==0) nA=minv(A,p);
+            else if(m==1) nB=minv(B,p);
+            else if(m==2) nA=mmul(A,B,p);
+            else if(m==3) nA=mmul(A,minv(B,p),p);
+            else if(m==4) nB=mmul(B,A,p);
+            else if(m==5) nB=mmul(B,minv(A,p),p);
+            else if(m<=9){ int g=L[m-6]; nA=mmul(mmul(g,A,p),minv(g,p),p); }
+            else { int g=L[m-10]; nB=mmul(mmul(g,B,p),minv(g,p),p); }
+            size_t nx=(size_t)nA*P4+nB;
+            if(IMGD[nx]==255){ IMGD[nx]=(unsigned char)(d+1); q[qt++]=nx; }
+        }
+    }
+    free(q);
+}
+static int rho_of(uint64_t lo,uint64_t hi,int n,int p){
+    uint8_t w[MAXW]; unpackw(lo,hi,n,w);
+    int X=((0*p+(p-1))*p+1)*p+1, Z=((0*p+(p-1))*p+1)*p+0, Y=mmul(X,Z,p);
+    int L[4]={X,minv(X,p),Y,minv(Y,p)};
+    int M=((1*p+0)*p+0)*p+1;
+    for(int i=0;i<n;i++) M=mmul(M,L[w[i]],p);
+    return M;
+}
+static int img_dist(const St*s){
+    int A=rho_of(s->a0,s->b0,s->l0,PMOD), B=rho_of(s->a1,s->b1,s->l1,PMOD);
+    unsigned char d=IMGD[(size_t)A*PP4+B];
+    return d==255 ? -1 : (int)d;
+}
 static int cmp_u64(const void*A,const void*B){
     uint64_t a=*(const uint64_t*)A, b=*(const uint64_t*)B;
     return (a>b)-(a<b);
@@ -163,10 +229,12 @@ int main(int argc,char**argv){
     if(want_collide){
         uint64_t *sig=malloc((size_t)ncomp*8);
         if(!sig){ fprintf(stderr,"alloc sig\n"); return 1; }
-        const char *LVL[4]={"scalar_total_length","boundary_histogram(RDSU)",
-                            "labelled_14_channel","exponent_ledger"};
+        build_imgd(5);
+        const char *LVL[5]={"scalar_total_length","boundary_histogram(RDSU)",
+                            "labelled_14_channel","exponent_ledger",
+                            "nonnormality_grad[d=img_dist_mod5]"};
         printf("{\"schema\":\"harness-collision-pass-v1\",\"component\":%u,\"cap\":%d,\"levels\":[\n",ncomp,CAP);
-        for(int lvl=0; lvl<4; lvl++){
+        for(int lvl=0; lvl<5; lvl++){
             for(uint32_t i=0;i<ncomp;i++){
                 St s=pool[i],r;
                 uint64_t h=1469598103934665603ULL;
@@ -181,6 +249,13 @@ int main(int argc,char**argv){
                         int d=tot(&r)-tot(&s);
                         uint64_t c = d<0?1: d==0?2:3;
                         h^=c; h*=1099511628211ULL; }
+                } else if(lvl==4){
+                    // the commutator profile: gradient of d across all 14 outgoing edges
+                    int d0=img_dist(&s);
+                    h^=(uint64_t)(d0+2); h*=1099511628211ULL;
+                    for(int m=0;m<14;m++){ if(!apply_nocap(&s,m,&r)) continue;
+                        int g=img_dist(&r)-d0;
+                        h^=(uint64_t)(g+64); h*=1099511628211ULL; }
                 } else {
                     int e0x,e0y,e1x,e1y;
                     expsum(s.a0,s.b0,s.l0,&e0x,&e0y); expsum(s.a1,s.b1,s.l1,&e1x,&e1y);
@@ -205,7 +280,7 @@ int main(int argc,char**argv){
             printf("  {\"level\":\"%s\",\"classes\":%llu,\"states_in_collision_cells\":%llu,"
                    "\"pct_needing_escalation\":%.2f,\"largest_cell\":%llu}%s\n",
                    LVL[lvl],(unsigned long long)classes,(unsigned long long)in_cells,
-                   100.0*in_cells/ncomp,(unsigned long long)biggest, lvl<3?",":"");
+                   100.0*in_cells/ncomp,(unsigned long long)biggest, lvl<4?",":"");
             fflush(stdout);
         }
         printf("]}\n");
