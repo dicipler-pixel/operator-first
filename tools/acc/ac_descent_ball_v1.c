@@ -324,6 +324,19 @@ int main(int argc,char**argv){
                 // -0.370, and floor2 <= -3 carries a 4.4x lift over chance.
                 // Move-space rotation, by contrast, scored BELOW chance and is not
                 // used. Cost is 14 extra applications per candidate.
+                // FLOOR2 as a MACRO, not a scoring tweak.
+                //
+                // First attempt changed only the acceptance score: take the uphill
+                // move whose 2-step floor drops. Measured A/B on identical rows and
+                // budget: improved 0, same 8, WORSE 10 of 18. The reason is that the
+                // floor identifies a move that ENABLES a collapse, and a random walk
+                // then picks its next move at random instead of the one that cashes
+                // it in. The certificates commit to a two-move SEQUENCE; scoring the
+                // opener alone just licenses wandering uphill.
+                //
+                // So when an opener buys a real drop, apply BOTH moves atomically --
+                // the opener and the specific second move that achieves the floor.
+                int macro_m2 = -1;
                 if(floor2){
                     int f2 = 1<<20;
                     for(int m2=0;m2<14;m2++){
@@ -331,17 +344,26 @@ int main(int argc,char**argv){
                         if(!apply(&nx,m2,&xx)) continue;
                         if(!xx.la || !xx.lb) continue;
                         int t2 = xx.la+xx.lb;
-                        if(t2<f2) f2=t2;
+                        if(t2<f2){ f2=t2; macro_m2=m2; }
                     }
                     if(f2 < (1<<20)){
                         int d2 = f2 - (cur.la+cur.lb);
-                        if(d2 < d) d = d2;
-                    }
+                        if(d2 <= -3 && d2 < d){ d = d2; }
+                        else macro_m2 = -1;   // not a real opening; no macro
+                    } else macro_m2 = -1;
                 }
                 if(d<=0 || rnd01() < exp(-d/temp)){
                     cur=nx;
-                    if(cur.la+cur.lb < minlen) minlen = cur.la+cur.lb;
                     if(n < (long)sizeof(path)) path[n++]=(uint8_t)m;
+                    if(macro_m2 >= 0){
+                        St xx;
+                        if(apply(&cur,macro_m2,&xx) && xx.la && xx.lb){
+                            cur=xx;
+                            if(n < (long)sizeof(path)) path[n++]=(uint8_t)macro_m2;
+                            t++;               // the macro costs two steps
+                        }
+                    }
+                    if(cur.la+cur.lb < minlen) minlen = cur.la+cur.lb;
                 }
             }
         }
