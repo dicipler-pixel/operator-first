@@ -43,9 +43,35 @@ source              19 verified certificates, 310 primitive moves
 scope               SMALL SAMPLE. One corpus, all of it winning paths.
 ```
 
-**Where it is used.** `FLOOR2=1` in `ac_descent_ball_v1.c` scores a candidate by
-`min(immediate delta, 2-step floor delta)`. It keeps the uphill move that opens a
-collapse and still drops the uphill move that does not.
+**Where it is used: nowhere. RETIRED from the mixer, with the A/B that retired it.**
+
+| variant in `ac_descent_ball_v1.c` | vs baseline, identical rows and budget |
+|---|---|
+| FLOOR2 as a scoring rule | improved 0, same 8, **worse 10** of 18 |
+| FLOOR2 as an atomic two-move macro | improved 0, worse 0, same 21 of 21 |
+
+Scoring the opener alone licenses wandering uphill, because a random walk then
+picks its next move at random instead of the one that cashes the drop in. Making
+the pair atomic repaired that damage exactly — and bought nothing.
+
+**And it was genuinely exercised**, which is what makes this a negative rather
+than a non-event. Instrumented fire counts:
+
+```
+ac-01199   macro fired 17,618 of 302,386 openers evaluated   (5.8%)
+ac-00215   macro fired 13,282 of 306,613                     (4.3%)
+```
+
+A 5% injection rate of the right moves moved `minlen` not at all. So the descent's
+failure to get below 18–21 is **not a move-selection problem**. The barrier is
+structural: from these starts there is no short route down within a random walk's
+reach, whatever the local rule. That is consistent with the corridor proof —
+`ac-06639`'s shortest path under `|r|+8` is 35 moves at forward depth 28, and a
+random walk does not find a specific 35-move sequence.
+
+**Consequence: stochastic descent is the wrong tool for these rows.** Exact
+bidirectional search is the right one. S1 stays in the atlas as a real offline
+regularity, not as a search heuristic.
 
 ---
 
