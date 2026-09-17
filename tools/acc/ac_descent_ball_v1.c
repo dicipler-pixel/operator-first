@@ -187,8 +187,18 @@ static int cost(const St*s){
 // called a certificate.
 //
 // Usage: descent_ball ballcap ballmax seed restarts steps pairs.txt
-// Env: FINSTEPS (default 400000) -- budget for the in-ball finish phase.
 // ---------------------------------------------------------------------------
+static uint8_t *D;                 // BFS depth of each ball state: its EXACT
+                                   // distance to (x,y). S is in BFS order and the
+                                   // build is level-synchronous, so this costs one
+                                   // byte per state and nothing else.
+static uint32_t find_idx(uint64_t v){
+    uint64_t i=mix(v)&TMASK;
+    for(;;){ uint32_t e=T[i];
+        if(e==0xFFFFFFFFu) return 0xFFFFFFFFu;
+        if(S[e]==v) return e;
+        i=(i+1)&TMASK; }
+}
 static int in_ball(const St*s){
     if(s->la + s->lb > CAP) return 0;
     if(s->la > MAXLET || s->lb > MAXLET) return 0;
@@ -202,7 +212,6 @@ int main(int argc,char**argv){
     NMAX=strtoull(argv[2],0,10);
     rng_s=strtoull(argv[3],0,10); if(!rng_s) rng_s=88172645463325252ULL;
     long restarts=atol(argv[4]); long steps=atol(argv[5]);
-    long finsteps = getenv("FINSTEPS") ? atol(getenv("FINSTEPS")) : 400000;
 
     uint64_t slots=1; while(slots < NMAX*2) slots<<=1;
     TMASK=slots-1;
@@ -212,14 +221,19 @@ int main(int argc,char**argv){
     fprintf(stderr,"ball budget %llu states, %.2f GB\n",
             (unsigned long long)NMAX,(NMAX*8.0+slots*4.0)/1e9);
 
+    D=malloc(NMAX);
+    if(!D){ printf("ALLOC_FAIL depth array\n"); return 1; }
     uint8_t tx[1]={0}, ty[1]={2};
-    insert(pack(tx,1,ty,1));
+    insert(pack(tx,1,ty,1)); D[0]=0;
     uint64_t head=0, lvl_end=1, depth=0; int closed=1;
     while(head<N){
-        uint64_t v=S[head++], c;
+        uint64_t v=S[head]; uint8_t dv=D[head]; head++;
+        uint64_t c;
         for(int m=0;m<14;m++){
             if(!apply64(v,m,&c)) continue;
-            if(insert(c)<0){ closed=0; head=N; break; }
+            int r=insert(c);
+            if(r<0){ closed=0; head=N; break; }
+            if(r==1) D[N-1] = (dv<255)? dv+1 : 255;
         }
         if(head==lvl_end){ depth++; lvl_end=N;
             if((depth&15)==0) fprintf(stderr,"  ball depth %llu states %llu\n",
@@ -244,6 +258,10 @@ int main(int argc,char**argv){
         for(int i=0;i<l1;i++){ int v; if(fscanf(f,"%d",&v)!=1){fclose(f);return 5;} s0.b[i]=(uint8_t)v; }
 
         int done=0;
+        // A bare NOBALL says nothing about WHY. Track the shortest total length the
+        // walk ever reached: if it never gets near CAP the descent is not failing to
+        // find the ball, it is failing to get down to where the ball lives.
+        int minlen = s0.la + s0.lb;
         for(long r=0; r<restarts && !done; r++){
             St cur=s0; long n=0;
             double temp = 0.6 + 2.4*rnd01();
@@ -256,20 +274,28 @@ int main(int argc,char**argv){
                     // parent pointers (7 GB), just keep walking -- confined to CAP, biased
                     // hard toward shorter states -- until the walk lands exactly on (x,y).
                     // DMOVES then IS the whole path and no tail stage is needed.
-                    long fin=0;
-                    while(fin < finsteps){
-                        if(cur.la==1 && cur.lb==1 && cur.a[0]==0 && cur.b[0]==2) break;
-                        int fm = rnd()%14; St fx;
-                        if(!apply(&cur,fm,&fx)) { fin++; continue; }
-                        if(!fx.la || !fx.lb) { fin++; continue; }
-                        if(fx.la+fx.lb > CAP) { fin++; continue; }
-                        if(!in_ball(&fx)) { fin++; continue; }   // never leave the ball
-                        int fd = (fx.la+fx.lb) - (cur.la+cur.lb);
-                        if(fd<=0 || rnd01() < 0.25){
-                            cur=fx;
+                    // The ball BFS already computed every state's EXACT distance to
+                    // (x,y). Walking randomly inside the ball took ~100k moves on the
+                    // controls, which compression could not rescue. Instead step
+                    // strictly downhill on that depth field: each move drops the
+                    // distance by one, so the tail is a SHORTEST path and is at most
+                    // the ball's depth (101 at cap 16).
+                    uint32_t bi = find_idx(pack(cur.a,cur.la,cur.b,cur.lb));
+                    while(bi!=0xFFFFFFFFu && D[bi]>0){
+                        int moved=0;
+                        for(int fm=0; fm<14; fm++){
+                            St fx;
+                            if(!apply(&cur,fm,&fx)) continue;
+                            if(!fx.la || !fx.lb) continue;
+                            if(fx.la+fx.lb > CAP) continue;
+                            uint32_t fj = find_idx(pack(fx.a,fx.la,fx.b,fx.lb));
+                            if(fj==0xFFFFFFFFu) continue;
+                            if(D[fj] != D[bi]-1) continue;
+                            cur=fx; bi=fj;
                             if(n < (long)sizeof(path)) path[n++]=(uint8_t)fm;
+                            moved=1; break;
                         }
-                        fin++;
+                        if(!moved) break;   // cannot happen in a closed ball; bail safely
                     }
                     if(cur.la==1 && cur.lb==1 && cur.a[0]==0 && cur.b[0]==2){
                         printf("%s SOLVED steps=%ld restart=%ld\nDMOVES",id,n,r);
@@ -289,11 +315,13 @@ int main(int argc,char**argv){
                 int d = (nx.la+nx.lb) - (cur.la+cur.lb);
                 if(d<=0 || rnd01() < exp(-d/temp)){
                     cur=nx;
+                    if(cur.la+cur.lb < minlen) minlen = cur.la+cur.lb;
                     if(n < (long)sizeof(path)) path[n++]=(uint8_t)m;
                 }
             }
         }
-        if(!done){ printf("%s NOBALL\n",id); fflush(stdout); }
+        if(!done){ printf("%s NOBALL minlen=%d start=%d cap=%d\n",
+                          id,minlen,s0.la+s0.lb,CAP); fflush(stdout); }
     }
     fclose(f);
     return 0;
