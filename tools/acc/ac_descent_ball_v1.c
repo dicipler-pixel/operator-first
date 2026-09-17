@@ -213,6 +213,8 @@ int main(int argc,char**argv){
     rng_s=strtoull(argv[3],0,10); if(!rng_s) rng_s=88172645463325252ULL;
     long restarts=atol(argv[4]); long steps=atol(argv[5]);
     int floor2 = getenv("FLOOR2") && atoi(getenv("FLOOR2"));
+    double TLO = getenv("TLO") ? atof(getenv("TLO")) : 0.6;
+    double THI = getenv("THI") ? atof(getenv("THI")) : 3.0;
     int f2thr = getenv("F2THR") ? atoi(getenv("F2THR")) : -3;
     unsigned long long macro_fired=0, macro_seen=0;
 
@@ -267,7 +269,12 @@ int main(int argc,char**argv){
         int minlen = s0.la + s0.lb;
         for(long r=0; r<restarts && !done; r++){
             St cur=s0; long n=0;
-            double temp = 0.6 + 2.4*rnd01();
+            // Temperature controls how readily the walk goes UPHILL, and it is the
+            // knob the certificate audit actually points at: our winning paths take
+            // a non-length-reducing move 52.6% of the time. Every descent run this
+            // session used 0.6-3.0 and was never varied, so "descent does not work"
+            // was tested on one setting. TLO/THI make it an experiment.
+            double temp = TLO + (THI-TLO)*rnd01();
             for(long t=0; t<steps; t++){
                 if(in_ball(&cur)){
                     // PHASE 2: finish inside the ball.
