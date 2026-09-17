@@ -11,9 +11,15 @@ is 3,146 moves is beaten by any verified shorter path, so a raw 20,000-step walk
 that compresses to a few hundred moves is the difference between a certificate
 and nothing.
 
-Two reductions, applied to a fixed point:
+Three reductions, applied to a fixed point:
   - loop splice: identical (r0,r1) seen twice -> drop everything between
   - adjacent inverse pair: m followed by INV[m] -> drop both
+  - SHORTCUT: if the state at step i reaches the state at step j (j > i+2) in
+    one or two moves, replace everything between with those moves. Loop splicing
+    alone only bought 2.6-3.9x on real walks, which still leaves a 20,000-step
+    descent above the records worth beating. Shortcuts are what make a random
+    walk competitive. Found by expanding each state by 1-2 moves and looking the
+    result up in a state->index map, so it costs O(n * 14^2), not O(n^2).
 
 INV is the move-level inverse: 0 and 1 are involutions, the products 2/3 and 4/5
 invert each other, and conjugation by a generator inverts to conjugation by its
@@ -69,6 +75,48 @@ def compress(r0, r1, moves):
             k += 1
         moves = out
 
+        # shortcut pass
+        st = states_along(r0, r1, moves)
+        idx = {}
+        for i, sx in enumerate(st):
+            if sx not in idx:
+                idx[sx] = i
+        # collect every shortcut, then apply all NON-OVERLAPPING ones in a single
+        # pass. Applying only the single best per pass was correct but quadratic in
+        # practice -- 32s on a 3,886-move walk. Greedy by gain, largest first.
+        cands = []
+        for i, sx in enumerate(st):
+            a0, b0 = list(sx[0]), list(sx[1])
+            for m1 in range(14):
+                a1, b1 = apply_move(a0, b0, m1)
+                if not a1 or not b1:
+                    continue
+                j = idx.get((tuple(a1), tuple(b1)))
+                if j is not None and j > i + 1:
+                    cands.append(((j - i) - 1, i, j, [m1]))
+                for m2 in range(14):
+                    a2, b2 = apply_move(list(a1), list(b1), m2)
+                    if not a2 or not b2:
+                        continue
+                    j = idx.get((tuple(a2), tuple(b2)))
+                    if j is not None and j > i + 2:
+                        cands.append(((j - i) - 2, i, j, [m1, m2]))
+        cands = [c for c in cands if c[0] > 0]
+        if cands:
+            cands.sort(key=lambda c: -c[0])
+            taken, used = [], []
+            for g, i, j, mm in cands:
+                if any(not (j <= pi or i >= pj) for pi, pj, _ in used):
+                    continue
+                used.append((i, j, mm))
+                taken.append((i, j, mm))
+            taken.sort(key=lambda t: t[0])
+            out, cur = [], 0
+            for i, j, mm in taken:
+                out.extend(moves[cur:i]); out.extend(mm); cur = j
+            out.extend(moves[cur:])
+            moves = out
+
         if len(moves) == before:
             break
 
@@ -79,23 +127,34 @@ def compress(r0, r1, moves):
 
 
 if __name__ == "__main__":
-    import json, random
-    # self-test: random walks, compressed, endpoint preserved and never longer
+    # Self-test on LENGTH-CAPPED walks, which is how this is actually used:
+    # every path fed to compress() comes from a descent bounded by the ball cap.
+    # An uncapped random walk is not a harder test, it is a different one --
+    # product moves double relator length, so words blow up exponentially and the
+    # shortcut pass does 196 apply_move calls per state on megabyte words. That
+    # measures nothing about compression.
+    import random
     rng = random.Random(17)
+    n = int(sys.argv[1]) if len(sys.argv) > 1 else 60
+    cap = int(sys.argv[2]) if len(sys.argv) > 2 else 16
     worst = 0
-    for _ in range(300):
-        r0 = [0]; r1 = [2]
-        mv = [rng.randrange(14) for _ in range(rng.randint(5, 120))]
-        ok = []
-        a, b = list(r0), list(r1)
-        for m in mv:
-            na, nb = apply_move(a, b, m)
-            if not na or not nb:
+    for _ in range(n):
+        a, b = [0], [2]
+        mv = []
+        for _ in range(rng.randint(50, 400)):
+            m = rng.randrange(14)
+            na, nb = apply_move(list(a), list(b), m)
+            if not na or not nb or len(na) + len(nb) > cap:
                 continue
             a, b = na, nb
-            ok.append(m)
-        c = compress(r0, r1, ok)
-        assert len(c) <= len(ok)
-        worst = max(worst, len(ok) - len(c))
-    print(f"path_compress self-test: 300 walks, endpoints preserved, "
+            mv.append(m)
+        if not mv:
+            continue
+        c = compress([0], [2], mv)
+        assert len(c) <= len(mv), "compression made the path longer"
+        e1 = states_along([0], [2], mv)[-1]
+        e2 = states_along([0], [2], c)[-1]
+        assert e1 == e2, "compression changed the endpoint"
+        worst = max(worst, len(mv) - len(c))
+    print(f"path_compress self-test: {n} capped walks, endpoints preserved, "
           f"largest saving {worst} moves")
