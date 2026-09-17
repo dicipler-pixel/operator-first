@@ -18,7 +18,10 @@ These statements are intended as a finite kernel for later operator/projector
 and fast-slow generalizations.
 -/
 
-import Mathlib
+import Mathlib.Data.Real.Basic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.NormNum
 
 namespace OperatorFirst.GlobalConstraint
 
