@@ -20,6 +20,7 @@ on:
       - 'collatz_alignment_exact.py'
       - 'COLLATZ_FORMAL_STATUS.md'
       - '.github/workflows/diophantine.yml'
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
@@ -43,11 +44,14 @@ jobs:
           path: diophantine-ci.json
   lean-algebra:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     defaults:
       run:
         working-directory: research/diophantine/formal
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
       - name: Install pinned Lean
         run: |
           curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
@@ -58,16 +62,50 @@ jobs:
       - name: Check existing Diophantine certificates and report axioms
         shell: bash
         run: |
-          set -o pipefail
+          set -euo pipefail
           lake build 2>&1 | tee lean-certificates.log
-      - name: Check Collatz prefix barrier
-        run: lake env lean ../../../CollatzBarrier.lean
-      - name: Check Collatz phase-survival alignment
-        run: lake env lean ../../../CollatzAlignment.lean
-      - name: Check Collatz Diophantine gap certificates
-        run: lake env lean ../../../CollatzDiophantine.lean
-      - uses: actions/upload-artifact@v4
+      - name: Compile Collatz dependency objects in import order
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .lake/build/lib/lean
+          for module in CollatzBarrier CollatzAlignment CollatzDiophantine; do
+            lake env lean --root=../../.. -o ".lake/build/lib/lean/${module}.olean" "../../../${module}.lean" 2>&1 | tee "${module}-lean.log"
+          done
+      - name: Independently recheck all four modules
+        shell: bash
+        run: |
+          set -euo pipefail
+          for module in Certificates CollatzBarrier CollatzAlignment CollatzDiophantine; do
+            lake env leanchecker "$module" 2>&1 | tee "${module}-kernel.log"
+          done
+      - name: External imports, dependency guard, and source receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf 'import Certificates\nimport CollatzBarrier\nimport CollatzAlignment\nimport CollatzDiophantine\n' > CollatzImportSmoke.lean
+          lake env lean CollatzImportSmoke.lean 2>&1 | tee collatz-import-smoke.log
+          if grep -E 'sorryAx|Lean.ofReduceBool' lean-certificates.log Collatz*-lean.log; then
+            echo 'ERROR: unapproved proof dependency'
+            exit 1
+          fi
+          git rev-parse HEAD > collatz-source-receipt.txt
+          sha256sum Certificates.lean ../../../CollatzBarrier.lean ../../../CollatzAlignment.lean ../../../CollatzDiophantine.lean lakefile.toml lean-toolchain lake-manifest.json >> collatz-source-receipt.txt
+          git -C .lake/packages/mathlib rev-parse HEAD >> collatz-source-receipt.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
           name: diophantine-lean-certificates
-          path: research/diophantine/formal/lean-certificates.log
+          path: |
+            research/diophantine/formal/*-lean.log
+            research/diophantine/formal/*-kernel.log
+            research/diophantine/formal/lean-certificates.log
+            research/diophantine/formal/collatz-import-smoke.log
+            research/diophantine/formal/collatz-source-receipt.txt
+            research/diophantine/formal/Certificates.lean
+            research/diophantine/formal/lakefile.toml
+            research/diophantine/formal/lean-toolchain
+            research/diophantine/formal/lake-manifest.json
+            CollatzBarrier.lean
+            CollatzAlignment.lean
+            CollatzDiophantine.lean
