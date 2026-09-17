@@ -117,6 +117,7 @@ int main(int argc,char**argv){
     CAP=atoi(argv[1]);
     if(CAP>MAXLET){ printf("CAP_TOO_LARGE %d (packing holds %d)\n",CAP,MAXLET); return 4; }
     NMAX=strtoull(argv[2],0,10);
+    int notriv = getenv("NOTRIV") && atoi(getenv("NOTRIV"));
     uint8_t a[MAXLET+4],b[MAXLET+4];
     int la=parse(argv[3],a), lb=parse(argv[4],b);
     if(la<0||lb<0){ fprintf(stderr,"bad word\n"); return 2; }
@@ -140,7 +141,11 @@ int main(int argc,char**argv){
         uint64_t v=S[head++], c;
         for(int m=0;m<14;m++){
             if(!apply64(v,m,&c)) continue;
-            if(c==TARGET){ printf("MEET_TARGET at state %llu depth~%llu states=%llu\n",
+            // Building the trivial component T_K means enumerating the component OF the
+            // target, so the early exit must be suppressed there or the run aborts at
+            // depth 0. NOTRIV=1 disables it; the closure report still states whether the
+            // target is present, which is the fact that matters.
+            if(!notriv && c==TARGET){ printf("MEET_TARGET at state %llu depth~%llu states=%llu\n",
                                   (unsigned long long)head,(unsigned long long)depth,
                                   (unsigned long long)N); return 0; }
             int r=insert(c);
