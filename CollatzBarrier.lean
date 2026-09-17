@@ -1,4 +1,7 @@
-import Mathlib
+import Mathlib.Data.Nat.Basic
+import Mathlib.Algebra.Ring.Parity
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.Positivity
 
 /-!
 # Exact Collatz prefix barrier
