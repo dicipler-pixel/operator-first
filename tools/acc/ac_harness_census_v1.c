@@ -229,10 +229,17 @@ int main(int argc,char**argv){
     if(want_collide){
         uint64_t *sig=malloc((size_t)ncomp*8);
         if(!sig){ fprintf(stderr,"alloc sig\n"); return 1; }
-        build_imgd(5);
+        // IMGP selects the potential's prime. Bigger p = a finer potential: the
+        // commutator [H,H*]_ij = -2(d_i-d_j)A_ij vanishes iff d is constant, so an eye
+        // informs exactly to the extent d varies, and eccentricity rises with p
+        // (8 at p=5, 9 at p=7, 11 at p=11). The label records WHICH prime was used --
+        // a run record that says only "modP" cannot be reproduced.
+        int imgp = getenv("IMGP") ? atoi(getenv("IMGP")) : 5;
+        build_imgd(imgp);
+        char nnlabel[64];
+        snprintf(nnlabel,sizeof nnlabel,"nonnormality_grad[d=img_dist_mod%d]",imgp);
         const char *LVL[5]={"scalar_total_length","boundary_histogram(RDSU)",
-                            "labelled_14_channel","exponent_ledger",
-                            "nonnormality_grad[d=img_dist_mod5]"};
+                            "labelled_14_channel","exponent_ledger",nnlabel};
         printf("{\"schema\":\"harness-collision-pass-v1\",\"component\":%u,\"cap\":%d,\"levels\":[\n",ncomp,CAP);
         for(int lvl=0; lvl<5; lvl++){
             for(uint32_t i=0;i<ncomp;i++){

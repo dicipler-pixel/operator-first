@@ -37,10 +37,19 @@ not a proxy. Same 23,609,984-state component, same run:
 | R/D/S/U histogram | 14 | 11,788,096 | 1,686,427 |
 | labelled 14-channel | 734 | 420,128 | 32,166 |
 | exponent ledger | 1,032 | 218,746 | 22,878 |
-| **non-normality gradient, `d` = img_dist mod 5** | **12,315** | **57,798** | **1,917** |
+| non-normality gradient, `d` = img_dist mod 5 | 12,315 | 57,798 | 1,917 |
+| **non-normality gradient, `d` = img_dist mod 11** | **322,072** | **30,328** | **73** |
 
-**16.8x more classes than the labelled channel, and a 7.3x smaller largest cell.**
-Mean cell 32,166 -> 1,917.
+**438x more classes than the labelled channel** at mod 11, with a 13.9x smaller largest
+cell. Mean cell falls 32,166 -> 1,917 -> **73**.
+
+And the collision fraction finally moves off the floor: at mod 11, **99.86%** rather than
+100%, so **32,874 states are singletons** needing no escalation at all. That is the first
+level tested that leaves anything unescalated.
+
+The gain tracks the potential's eccentricity exactly as the lemma says it should — 8 at
+p=5, 11 at p=11 — which is the prediction working, not a coincidence to be explained after
+the fact.
 
 ## The small-component result pointed the wrong way
 
@@ -59,9 +68,22 @@ class of ~1,900. So an escalation trigger of "cell has more than one member" sti
 everything. The cell sizes fell 7.3x, which is real movement on the same axis, but the
 trigger rule needs a size threshold rather than a nonempty test.
 
-## Immediate follow-up
+## Follow-up, done
 
-The lemma says: find a `D` that varies more. Mod 5 has eccentricity 8. Mod 7 reaches 9 and
-mod 11 reaches 11 over 1,742,396 image states, so both should be strictly finer potentials
-for a one-line change. That is the next measurement, and it is now a directed search rather
-than a guess.
+Mod 11 was run and is reported above. `IMGP` selects the prime; the level label records
+which one, since a run record reading only "modP" cannot be reproduced.
+
+## What the eye does not do
+
+438x better screening decides **where to spend deep-eye work**. It does not extend
+**reach**. Reach is the cap ladder, and on `ac-02842` that now reads:
+
+    cap 17        31,240
+    cap 18       106,800     3.42x
+    cap 19    23,609,984   221.07x   <- the 13-shell opening
+    cap 20    51,411,456     2.18x   <- CLOSED_F, depth 149, no target
+
+So the barrier is **> cap 20**, and the 221x was a one-time opening rather than a new
+regime: cap 20 grows at 2.18x, below the T-series baseline of ~3x per cap. Extrapolating,
+cap 21 is ~112M states (~6 GB, ~10 min) and cap 22 ~244M (~13 GB, ~21 min) — both reachable
+here. Cap 23 at ~533M is not.
