@@ -7,50 +7,40 @@ This branch is the formal/reproducibility spine for two Collatz manuscripts prep
 ## Manuscript A
 
 **Exact First-Contraction Barriers in Accelerated Collatz Dynamics**  
-*Sat­urated Envelopes, Integer Power Gaps, and Machine-Checked Finite Certificates*
+*Saturated Envelopes, Integer Power Gaps, Exact Phase Layers, and Machine-Checked Finite Certificates*
 
-The manuscript treats the standard accelerated odd-map affine identity and valuation-cylinder background as prior art. Its scoped contribution is the correction-retaining prefix barrier, saturated first-coefficient-contraction envelope, exact power-gap reduction, finite exclusion certificate, exact record computation through `m <= 10000`, and ordered-prefix/survival-capacity analysis.
+Formal spine now includes:
 
-Formal spine on this branch:
-
-- `CollatzBarrier.lean` — affine prefix identity, descent/return/growth equivalences, correction envelope, survival envelope, power-gap bound, finite seed exclusion.
+- `CollatzBarrier.lean` — affine prefix identity, finite-prefix version, descent/return/growth equivalences, exact survival-gap equivalence, correction envelope, survival envelope, power-gap bound, finite seed exclusion.
+- `CollatzAlignment.lean` — finite exact phase condition at an odd endpoint and finite-prefix survival equivalence.
 - `CollatzDiophantine.lean` — generic gap-times-seed and rational barrier comparison lemmas.
 - `collatz_diophantine_exact.py` — exact integer record scan; no floating point or numerical logarithms.
-- `COLLATZ_DIOPHANTINE_EXACT.md` — exact arithmetic derivation.
-- `COLLATZ_FORMAL_STATUS.md` — permanent evidence/status ledger.
+- `collatz_alignment_exact.py` — exact phase/survival intersection and negative-control harness.
+- `COLLATZ_FORMAL_STATUS.md` — permanent theorem/evidence boundary.
 
-Exact CI checkpoint at head `09743c542a0be14a86b8795e3203507be1d83a4d`:
-
-- Actions run `34674344025`: **success**.
-- Lean job: **success**; direct checks of both Collatz Lean modules.
-- Exact-control job: **success**; 25 strict saturated-barrier records through `m=10000` and exact coincidence with strict record upper approximants on that finite range.
-- No `sorryAx` occurs in the checked Collatz theorems; reported dependencies are only standard Mathlib foundational axioms where applicable.
-
-The manuscript does **not** claim that the record coincidence continues for all `m`, and it does not claim the Collatz conjecture.
+The exact layer picture is arithmetic, not metaphor: a finite valuation prefix imposes an exact binary phase cylinder, while survival imposes an independent ordinary-integer power-gap window.
 
 ## Manuscript B
 
 **The Exceptional Frontier in Accelerated Collatz Dynamics**  
-*Exact Prefix Mass, Ordered Survival Capacity, and the Deterministic Orbit Bottleneck*
+*Exact Prefix Mass, Ordered Survival Capacity, 2-adic Phase Alignment, and the Deterministic Orbit Bottleneck*
 
-This is a structural research note, not a proof claim. It records the exact finite valuation-cylinder evidence, conditioned hard-start controls, and the corrected deterministic frontier.
+The updated structural note should emphasize a correction to the geometric intuition: successive residue cylinders do not generally shear apart. They naturally nest 2-adically. The useful tension is perpendicular: nested 2-adic compatibility versus survival by one fixed positive ordinary integer.
 
-An important correction is made explicit: the language
+The all-ones valuation branch is the basic control. Its exact least positive representatives are
 
-`A_j <= floor(j log_2 3)` for every prefix
+`3, 7, 15, 31, ... = 2^(m+1)-1`,
 
-is only a strict coefficient-noncontracting subclass. Its small finite 2-adic mass is **not** the mass of every delayed-descent prefix and cannot be used as a pointwise Collatz proof. The broader finite frontier is controlled by the ordered prefix barriers and the all-prefix survival capacity
+which align toward `-1` in the 2-adics but do not stabilize to a positive integer. The all-twos branch is the trivial fixed point `n=1`.
 
-`C(w) = min_j B_j / (2^(A_j) - 3^j)`
-
-over the supercritical prefixes, together with the exact residue/realizer constraint for the same valuation word.
-
-The note also preserves negative controls: apparent hard-start congruence and deficit-walk signals substantially weaken after conditioning on long first-descent paths and early low-valuation runs. These are not promoted to theorem status.
-
-## Literature/priority boundary
-
-The manuscripts do not claim priority for the classical affine iterate formula, parity/valuation word coding, or the use of rational approximation to `log_2 3`. Current comparisons explicitly include Terras, Garner, Lagarias, Tao, Chang, Kayadibi, De Jesus/EOC, Sharpe's machine-verified critical-line programme, the Lean formalization of Tao's theorem, and bounded-cycle/entropy work.
+A bounded-depth extinction conjecture is false: exact finite enumeration with `a_j in [1,6]` leaves feasible branches through depth 8. Therefore no publication claim should say that a uniform short-depth layer intersection vanishes.
 
 ## Open global target
 
-Nothing on this branch proves Collatz. The remaining pointwise task is a cross-scale compatibility/realization theorem: exclude one positive integer orbit from satisfying the nested residue constraints and ordered survival-capacity inequalities at every exceptional scale.
+Nothing on this branch proves Collatz.
+
+The sharpened pointwise target is:
+
+> Apart from the trivial fixed point, exclude one fixed positive integer from satisfying both the exact nested phase cylinders and every ordered survival-capacity inequality along an infinite valuation branch.
+
+For a minimal hypothetical counterexample, every odd accelerated state would have to remain at least as large as the seed, so this phase-plus-survival compatibility is the relevant deterministic obstruction. A proof must be pointwise and cross-scale; finite scans, average drift, and 2-adic nesting alone are insufficient.
