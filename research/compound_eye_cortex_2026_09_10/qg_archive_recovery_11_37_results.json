@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "campaign": "QG-ARCHIVE-RECOVERY-11-37-01",
+  "source_sha256": "3f74061c0515b2e9b4be424f256315c7d5c7daee8e51f6bbd6b578314025e79b",
+  "checks": 34,
+  "key_results": {
+    "isospectral_projector_tangent_norm2": 1.9999999999993339,
+    "same_endpoint_distance2": 2.999519565323715e-32,
+    "exp_over_rminus2": {
+      "20": 8.244614489754232e-07,
+      "40": 6.797366808466543e-15,
+      "80": 1.1558622896646776e-31
+    },
+    "u1_projector_error": 1.1102230246251565e-16,
+    "boundary_components_after_full_glue_toy": 0,
+    "paired_zero_total_flow": {
+      "events": [1, -1],
+      "net": 0
+    }
+  },
+  "scope": "Finite algebraic/structural controls and negative tests. Historical theorem contracts and physical interpretations are not proved by this script."
+}

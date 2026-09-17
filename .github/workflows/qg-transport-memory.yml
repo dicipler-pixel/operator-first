@@ -1,0 +1,55 @@
+name: QG transport-memory formal verification
+
+on:
+  push:
+    branches: [research/compound-eye-cortex-2026-09-10]
+    paths:
+      - 'research/compound_eye_cortex_2026_09_10/formal_transport_memory/**'
+      - '.github/workflows/qg-transport-memory.yml'
+  pull_request:
+    paths:
+      - 'research/compound_eye_cortex_2026_09_10/formal_transport_memory/**'
+      - '.github/workflows/qg-transport-memory.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      LEAN_NUM_THREADS: 2
+    defaults:
+      run:
+        working-directory: research/compound_eye_cortex_2026_09_10/formal_transport_memory
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.elan
+            research/compound_eye_cortex_2026_09_10/formal_transport_memory/.lake
+          key: qg-transport-memory-lean433-v1
+      - name: Install pinned Lean and dependencies
+        run: |
+          if [ ! -x "$HOME/.elan/bin/lake" ]; then
+            curl --retry 3 -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan.sh"
+            bash "$RUNNER_TEMP/elan.sh" -y --default-toolchain "$(cat lean-toolchain)"
+          fi
+          export PATH="$HOME/.elan/bin:$PATH"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          lake update
+          lake exe cache get
+      - name: Compile, audit axioms, recheck, and reject false controls
+        run: python3 verify.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qg-transport-memory-proof-evidence
+          path: research/compound_eye_cortex_2026_09_10/formal_transport_memory/evidence/
+          retention-days: 30

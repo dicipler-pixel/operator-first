@@ -1,0 +1,63 @@
+{
+  "schema": "compound-eye-discriminator-v1",
+  "hypotheses": [
+    {"id": "generator_span_bottleneck"},
+    {"id": "nonlinear_coordination_bottleneck"},
+    {"id": "missing_generator_grammar"},
+    {"id": "lineage_or_verification_artifact"}
+  ],
+  "actions": [
+    {
+      "id": "earth_moon_macro_span_test",
+      "cost": 2,
+      "changes_object": false,
+      "inputs": ["saved EM19 102-edge state", "coordinated multi-flip/permutation generators"],
+      "acceptance": ["exact labeled effect vectors", "span compared with rank-84 one-flip span", "independent defect recount"],
+      "outcomes": {
+        "target_directed_span_growth": ["generator_span_bottleneck", "missing_generator_grammar"],
+        "interaction_without_span_growth": ["nonlinear_coordination_bottleneck"],
+        "independent_disagreement": ["lineage_or_verification_artifact"]
+      },
+      "notes": "Tests whether genuinely larger legal moves add target-directed defect-space directions."
+    },
+    {
+      "id": "kakeya_obstruction_fingerprint_export",
+      "cost": 2.5,
+      "changes_object": false,
+      "inputs": ["serious Kakeya near-miss matrices", "exact kernel/dual witnesses", "grammar lineage"],
+      "acceptance": ["canonical obstruction fingerprints", "independent exact verifier", "family/grammar labels retained"],
+      "outcomes": {
+        "small_stable_obstruction_family": ["generator_span_bottleneck"],
+        "diverse_obstructions": ["nonlinear_coordination_bottleneck", "missing_generator_grammar"],
+        "lineage_disagreement": ["lineage_or_verification_artifact"]
+      },
+      "notes": "Distinguishes repeated blind subspaces from diverse failures hidden by the scalar 481712/0 census."
+    },
+    {
+      "id": "independent_verifier_replay",
+      "cost": 1,
+      "changes_object": false,
+      "inputs": ["sample Earth-Moon states", "sample Kakeya forcing matrices"],
+      "acceptance": ["independent implementations agree on native observables/certificates"],
+      "outcomes": {
+        "agreement": ["generator_span_bottleneck", "nonlinear_coordination_bottleneck", "missing_generator_grammar"],
+        "disagreement": ["lineage_or_verification_artifact"]
+      },
+      "notes": "Cheap lineage check; decisive only if it finds a disagreement."
+    },
+    {
+      "id": "cross_state_macro_interaction_panel",
+      "cost": 4,
+      "changes_object": false,
+      "inputs": ["multiple independent Earth-Moon near misses", "macro generator effects", "Kakeya obstruction fingerprints", "independent verifier outputs"],
+      "acceptance": ["labels preserved", "scale separated", "lineage recorded", "exact certificates where claimed"],
+      "outcomes": {
+        "stable_span_deficit": ["generator_span_bottleneck"],
+        "sequence_synergy": ["nonlinear_coordination_bottleneck"],
+        "new_grammar_directions": ["missing_generator_grammar"],
+        "lineage_break": ["lineage_or_verification_artifact"]
+      },
+      "notes": "Four-way discriminator. Expensive, but each declared outcome leaves one live hypothesis."
+    }
+  ]
+}

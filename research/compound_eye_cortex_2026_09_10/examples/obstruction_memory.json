@@ -1,0 +1,17 @@
+{
+  "context": {"problem": "earth-moon", "n": 19, "route": "alpha-at-most-two", "host": "new-host"},
+  "obstructions": [
+    {
+      "id": "closed-old-host-family",
+      "required_facts": {"problem": "earth-moon", "n": 19, "route": "alpha-at-most-two"},
+      "excluded_domain": {"host": "old-host"},
+      "certificate_ref": "github://pinned-old-host-exclusion"
+    },
+    {
+      "id": "generic-route-obstruction",
+      "required_facts": {"problem": "earth-moon", "n": 19, "route": "alpha-at-most-two"},
+      "excluded_domain": {},
+      "certificate_ref": "github://generic-route-certificate"
+    }
+  ]
+}

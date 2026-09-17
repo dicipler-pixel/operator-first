@@ -1,0 +1,91 @@
+{
+  "schema": "compound-eye-cortex-source-map-v1",
+  "date": "2026-09-10",
+  "purpose": "Map existing project structures into candidate instrument roles. This is not a claim that every source theorem has already been generalized to every target domain.",
+  "entries": [
+    {
+      "source_line": "QHE / Intrinsic QGT / Subspaces Before Space",
+      "structures": ["spectral projector", "principal-angle hierarchy", "Grassmannian metric", "projector persistence"],
+      "cortex_roles": ["subspace_memory", "state_continuity", "change_geometry"],
+      "status": "partly_implemented_in_existing_eyes",
+      "guardrail": "Do not identify eigenvector drift with subspace drift or transfer physical interpretation across datasets without a model contract."
+    },
+    {
+      "source_line": "Arithmetic Kakeya forcing and dual certificates",
+      "structures": ["kernel", "row span", "forcing target", "dual obstruction", "subset restriction"],
+      "cortex_roles": ["blind_spot", "recoverability", "minimal_observation_design"],
+      "status": "generic_rational_prototype_implemented_in_cortex_0_1",
+      "guardrail": "The generic exact test is linear algebra over Q. Nonlinear observability requires a separate theorem."
+    },
+    {
+      "source_line": "Light Keeps the Ledger / boundary support",
+      "structures": ["boundary contribution", "energy label", "support label", "positive residue", "safe reduction"],
+      "cortex_roles": ["boundary_energy_ledger", "lossy_compression_warning", "label_preserving_summary"],
+      "status": "scalar_prototype_implemented_matrix_version_domain_specific",
+      "guardrail": "Averaging energies before inversion can reverse the useful bound. Matrix PSD ordering needs an explicit proof."
+    },
+    {
+      "source_line": "Yang-Mills complete-tail Schur certificates",
+      "structures": ["retained block", "hidden sector", "coupling Gram", "energy-resolved residue", "spectral window"],
+      "cortex_roles": ["hidden_sector", "sufficient_bound_diagnosis", "certificate_margin_tracking"],
+      "status": "implemented_on_yang_mills_research_branch",
+      "guardrail": "A sufficient bound failing is not gaplessness; fixed-volume certificates are not a continuum mass-gap proof."
+    },
+    {
+      "source_line": "Earth-Moon flip-first / side scanner",
+      "structures": ["semantic union", "embedded state", "legal move set", "obstruction domain", "repair budget"],
+      "cortex_roles": ["alternate_representation", "search_memory", "future_opportunity_preservation"],
+      "status": "generic_representation_diagnostic_implemented_in_cortex_0_1",
+      "guardrail": "Equal score or equal semantic object does not justify merging states when their future operations differ."
+    },
+    {
+      "source_line": "Elemental Peeling / cascade work",
+      "structures": ["positive peel", "residue", "window census", "cascade", "memory certificate"],
+      "cortex_roles": ["decomposition", "residual_anomaly", "local_to_global_assembly"],
+      "status": "existing_domain_eyes_available",
+      "guardrail": "A decomposition is useful only if the residue and reconstruction error remain explicit."
+    },
+    {
+      "source_line": "Hypersurface / refraction work",
+      "structures": ["boundary crossing", "rank stratum", "refraction sheet", "regime transition"],
+      "cortex_roles": ["regime_boundary", "change_point", "assumption_switch"],
+      "status": "candidate_meta_adapter",
+      "guardrail": "A numerical change point is not automatically a physical hypersurface or phase transition."
+    },
+    {
+      "source_line": "Offset belongs to the boundary",
+      "structures": ["boundary attribution", "tare", "endpoint contribution", "support-sensitive correction"],
+      "cortex_roles": ["attribution_ledger", "baseline_tare", "boundary_vs_bulk_check"],
+      "status": "candidate_meta_adapter",
+      "guardrail": "Do not move a constant or offset between bulk and boundary without the theorem/model that licenses the rewrite."
+    },
+    {
+      "source_line": "Non-Hermitian lattice / long-life light work",
+      "structures": ["pseudospectrum", "Kreiss growth", "non-normality", "exceptional sensitivity"],
+      "cortex_roles": ["fragility_warning", "transient_growth", "non_normal_diagnostic"],
+      "status": "existing_nonhermitian_eyes_plus_candidate_meta_rules",
+      "guardrail": "Eigenvalue stability alone does not control transient amplification in a non-normal operator."
+    },
+    {
+      "source_line": "Knot, holonomy and topology work",
+      "structures": ["path class", "holonomy", "knot complement", "boundary torus", "topological invariant"],
+      "cortex_roles": ["path_memory", "topology_context", "global_constraint"],
+      "status": "existing_topology_holonomy_eyes_plus_candidate_memory_layer",
+      "guardrail": "Topological labels and dynamical phases are different evidence types."
+    },
+    {
+      "source_line": "Ordered spectral flow / time emergence",
+      "structures": ["ordered crossing", "spectral flow", "synchronization", "sequence"],
+      "cortex_roles": ["temporal_order", "cross_region_consistency", "history_direction"],
+      "status": "candidate_meta_adapter",
+      "guardrail": "An ordering parameter is not automatically calibrated physical time."
+    },
+    {
+      "source_line": "Correction ledgers and formal verification practice",
+      "structures": ["failed control", "historical version", "proof dependency", "source hash", "formal scope"],
+      "cortex_roles": ["skeptic", "correction_memory", "claim_strength_tracker"],
+      "status": "partly_present_in_registry_and_github_workflow",
+      "guardrail": "Never promote a numerical check, a written proof, and a Lean theorem to the same evidence class."
+    }
+  ]
+}

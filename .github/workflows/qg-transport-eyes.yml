@@ -1,0 +1,76 @@
+name: QG transport-memory multi-eye audit
+
+on:
+  push:
+    branches: [research/compound-eye-cortex-2026-09-10]
+    paths:
+      - 'research/compound_eye_cortex_2026_09_10/qg_transport_thoughts_check.py'
+      - 'research/compound_eye_cortex_2026_09_10/cortex.py'
+      - '.github/workflows/qg-transport-eyes.yml'
+  pull_request:
+    paths:
+      - 'research/compound_eye_cortex_2026_09_10/qg_transport_thoughts_check.py'
+      - 'research/compound_eye_cortex_2026_09_10/cortex.py'
+      - '.github/workflows/qg-transport-eyes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - name: Run fresh independent transport/memory controls
+        run: |
+          cd research/compound_eye_cortex_2026_09_10
+          python3 -S qg_transport_thoughts_check.py
+          python3 - <<'PY'
+          import json
+          q=json.load(open('qg_transport_thoughts_results.json'))
+          assert q['status']=='PASS'
+          assert q['checks']==31
+          assert q['diagnostic_channels']==11
+          assert q['eyes']['fiber_forcing']['spectrum_delta'] < 1e-12
+          assert q['eyes']['fiber_forcing']['projector_frobenius_delta'] > 0.9
+          assert q['eyes']['path_history']['same_endpoint']
+          assert q['eyes']['qhe_relabel']['distinct_scalar_values']==[-4,0,4]
+          assert abs(q['eyes']['projector_clock']['linear_length']-q['eyes']['projector_clock']['quadratic_reparam_length']) < 1e-12
+          assert q['eyes']['nonhermitian_multi']['cases'][-1]['resolvent_frobenius_at_0.5'] > 10*q['eyes']['nonhermitian_multi']['cases'][0]['resolvent_frobenius_at_0.5']
+          print('fresh controls',q['checks'],'channels',q['diagnostic_channels'])
+          PY
+      - name: Route the full live retina to the reconstructed question
+        run: |
+          python3 -S research/compound_eye_cortex_2026_09_10/cortex.py attention "spectral projector ordered transport holonomy topology memory gauge winding spectral flow nonhermitian cohomology obstruction quantum metric" --top 40 > qg_transport_attention.json
+          python3 - <<'PY'
+          import json
+          a=json.load(open('qg_transport_attention.json'))
+          assert a['catalog_eyes'] >= 191
+          assert len(a['ranked']) >= 20
+          print('catalog',a['catalog_eyes'],'routed',len(a['ranked']))
+          for r in a['ranked'][:20]:
+              print(r['ref'], '|', r['family'], '| score', r['score'], '|', ','.join(r['matched_terms']))
+          PY
+      - name: Record relevant-eye lineage cautions
+        run: |
+          python3 -S research/compound_eye_cortex_2026_09_10/lineage.py > qg_transport_lineage_catalog.json
+          python3 - <<'PY'
+          import json
+          l=json.load(open('qg_transport_lineage_catalog.json'))
+          assert l['eyes'] >= 191
+          print('lineage catalog eyes',l['eyes'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qg-transport-memory-eye-evidence
+          path: |
+            research/compound_eye_cortex_2026_09_10/qg_transport_thoughts_results.json
+            qg_transport_attention.json
+            qg_transport_lineage_catalog.json
+          retention-days: 30

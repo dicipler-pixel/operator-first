@@ -1,0 +1,122 @@
+name: Compound Eye Cortex
+
+on:
+  push:
+    branches: [research/compound-eye-cortex-2026-09-10]
+    paths:
+      - 'research/compound_eye_cortex_2026_09_10/**'
+      - '.github/workflows/compound-eye-cortex.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  meta-layer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Syntax and finite controls
+        run: |
+          python3 -m py_compile research/compound_eye_cortex_2026_09_10/cortex.py research/compound_eye_cortex_2026_09_10/lineage.py research/compound_eye_cortex_2026_09_10/theorem_genome.py research/compound_eye_cortex_2026_09_10/planner.py research/compound_eye_cortex_2026_09_10/memory.py research/compound_eye_cortex_2026_09_10/retina_ledger.py research/compound_eye_cortex_2026_09_10/mixer_memory.py research/compound_eye_cortex_2026_09_10/earth_moon_defect_operator_eye.py research/compound_eye_cortex_2026_09_10/run_kakeya_earth_moon_mixer.py research/compound_eye_cortex_2026_09_10/run_kakeya_earth_moon_planner_memory.py research/compound_eye_cortex_2026_09_10/qg_archive_ten_check.py research/compound_eye_cortex_2026_09_10/qg_archive_recovery_11_37_check.py research/compound_eye_cortex_2026_09_10/real_ym_allocation_ceiling.py
+          cd research/compound_eye_cortex_2026_09_10
+          python3 -S test_cortex.py
+          python3 -S test_cortex_02.py
+          python3 -S test_memory.py
+          python3 -S test_retina_ledger.py
+          python3 -S test_mixer_memory.py
+          python3 -S test_earth_moon_defect_operator_eye.py
+          python3 -S run_kakeya_earth_moon_mixer.py
+          python3 -S run_kakeya_earth_moon_planner_memory.py
+          python3 -S qg_archive_ten_check.py
+          python3 -S qg_archive_recovery_11_37_check.py
+          python3 - <<'PY'
+          import json
+          q=json.load(open('qg_archive_ten_results.json'))
+          assert q['status']=='PASS' and q['checks']==22
+          assert q['mixer_distortion_flags']==['MIXED_SCALE','SHARED_LINEAGE','SIGN_CANCELLATION']
+          assert q['retention_cross_cut']['isospectral']['spectrum_difference'] < 1e-12
+          assert abs(q['retention_cross_cut']['isospectral']['projector_distance_squared']-1) < 1e-12
+          assert q['retention_cross_cut']['signed_flow']['net']==0
+          assert q['retention_cross_cut']['signed_flow']['event_count']==2
+          q2=json.load(open('qg_archive_recovery_11_37_results.json'))
+          assert q2['status']=='PASS' and q2['checks']==34
+          assert q2['key_results']['isospectral_projector_tangent_norm2'] > 1.9
+          assert q2['key_results']['same_endpoint_distance2'] < 1e-24
+          assert q2['key_results']['exp_over_rminus2']['20'] < 1e-5
+          assert q2['key_results']['u1_projector_error'] < 1e-15
+          assert q2['key_results']['boundary_components_after_full_glue_toy']==0
+          assert q2['key_results']['paired_zero_total_flow']['net']==0
+          assert len(q2['key_results']['paired_zero_total_flow']['events'])==2
+          em=json.load(open('earth_moon_defect_operator_eye_results.json'))
+          assert em['status']=='PASS'
+          assert em['one_step']['linearized_move_defect_operator']['exact_rank']==84
+          assert em['one_step']['linearized_move_defect_operator']['augmented_rank_with_desired_minus_defect']==85
+          assert em['two_step']['two_step_min_defect_count_nonreverse']==5
+          camp=json.load(open('kakeya_earth_moon_campaign.json'))
+          assert camp['status']=='PASS'
+          assert camp['mixer_controls']['no_cross_project_scalar_fusion'] is True
+          pm=json.load(open('kakeya_earth_moon_planner_memory.json'))
+          assert pm['status']=='PASS' and pm['planner']['recommended']=='cross_state_macro_interaction_panel'
+          assert pm['obstruction_memory']['earth_moon_macro_scope']['status']=='DOES_NOT_APPLY'
+          assert pm['obstruction_memory']['kakeya_expanded_grammar_scope']['status']=='DOES_NOT_APPLY'
+          print('qg-archive-ten',q['status'],'checks',q['checks'],'flags',q['mixer_distortion_flags'])
+          print('qg-archive-11-37',q2['status'],'checks',q2['checks'],'dp2',q2['key_results']['isospectral_projector_tangent_norm2'])
+          print('earth-moon-defect-eye',em['status'],'rank',em['one_step']['linearized_move_defect_operator']['exact_rank'],'aug',em['one_step']['linearized_move_defect_operator']['augmented_rank_with_desired_minus_defect'])
+          print('kakeya-earth-moon-campaign',camp['status'],camp['cross_project']['common_pattern'])
+          print('frontier-planner-memory',pm['status'],pm['planner']['recommended'])
+          PY
+      - name: Exercise live-catalog attention, lineage, gap audit and planner
+        run: |
+          python3 -S research/compound_eye_cortex_2026_09_10/cortex.py attention "projector forcing boundary hidden sector" --top 12 > cortex_attention.json
+          python3 -S research/compound_eye_cortex_2026_09_10/cortex.py gaps > cortex_catalog_gaps.json
+          python3 -S research/compound_eye_cortex_2026_09_10/lineage.py > cortex_lineage_catalog.json
+          python3 -S research/compound_eye_cortex_2026_09_10/planner.py research/compound_eye_cortex_2026_09_10/examples/discriminator_plan.json > cortex_planner_example.json
+          python3 -S research/compound_eye_cortex_2026_09_10/memory.py research/compound_eye_cortex_2026_09_10/examples/obstruction_memory.json > cortex_obstruction_example.json
+          python3 - <<'PY'
+          import json
+          x=json.load(open('cortex_attention.json'));g=json.load(open('cortex_catalog_gaps.json'));l=json.load(open('cortex_lineage_catalog.json'));p=json.load(open('cortex_planner_example.json'));m=json.load(open('cortex_obstruction_example.json'));r=json.load(open('research/compound_eye_cortex_2026_09_10/retina_ledger_test_results.json'));mm=json.load(open('research/compound_eye_cortex_2026_09_10/mixer_memory_test_results.json'))
+          assert x['catalog_eyes'] >= 191 and x['ranked']
+          assert g['eyes_total']==x['catalog_eyes']==l['eyes']==r['registry_eye_versions']
+          assert len(g['specified_unimplemented'])==g['status_counts'].get('specified',0)
+          assert p['recommended']=='diagnostic_factorial_split'
+          assert len(m['applies'])==1 and len(m['does_not_apply'])==1
+          assert r['seen_not_surfaced_demo']=='SEEN_BUT_NOT_SURFACED'
+          assert mm['status']=='PASS' and 'SIGN_CANCELLATION' in mm['phase_distortion_flags']
+          print('catalog',x['catalog_eyes'],'specified',len(g['specified_unimplemented']),'planner',p['recommended'],'miss-demo',r['seen_not_surfaced_demo'],'mixer',mm['status'])
+          PY
+      - name: Real two-cube Yang-Mills bottleneck test
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/ym_native
+          gh run download 34412059750 --repo dicipler-pixel/operator-first --name yang-mills-native-whole-eye --dir /tmp/ym_native
+          test -f /tmp/ym_native/double_cube/matrices.json
+          python3 -S research/compound_eye_cortex_2026_09_10/real_ym_allocation_ceiling.py --matrix-json /tmp/ym_native/double_cube/matrices.json --out real_ym_allocation_ceiling.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: compound-eye-cortex-evidence
+          path: |
+            research/compound_eye_cortex_2026_09_10/cortex_test_results.json
+            research/compound_eye_cortex_2026_09_10/cortex_02_test_results.json
+            research/compound_eye_cortex_2026_09_10/memory_test_results.json
+            research/compound_eye_cortex_2026_09_10/retina_ledger_test_results.json
+            research/compound_eye_cortex_2026_09_10/mixer_memory_test_results.json
+            research/compound_eye_cortex_2026_09_10/earth_moon_defect_operator_eye_results.json
+            research/compound_eye_cortex_2026_09_10/kakeya_earth_moon_mix_trial.json
+            research/compound_eye_cortex_2026_09_10/kakeya_earth_moon_campaign.json
+            research/compound_eye_cortex_2026_09_10/kakeya_earth_moon_planner_memory.json
+            research/compound_eye_cortex_2026_09_10/qg_archive_ten_results.json
+            research/compound_eye_cortex_2026_09_10/qg_archive_mix_trial.json
+            research/compound_eye_cortex_2026_09_10/qg_archive_recovery_11_37_results.json
+            cortex_attention.json
+            cortex_catalog_gaps.json
+            cortex_lineage_catalog.json
+            cortex_planner_example.json
+            cortex_obstruction_example.json
+            real_ym_allocation_ceiling.json

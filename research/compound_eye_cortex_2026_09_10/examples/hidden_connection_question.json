@@ -1,0 +1,11 @@
+{
+  "schema": "compound-eye-question-v1",
+  "id": "hidden-connection-demo",
+  "goal": "Can we determine whether a target operator direction is visible after a boundary or subspace reduction, while retaining provenance and forcing information?",
+  "requirements": [
+    {"name": "provenance", "match": {"refs": ["ce.data.provenance@1.0.0"]}, "minimum_ok": 1},
+    {"name": "projector_geometry", "match": {"refs": ["ce.geometry.projector@1.0.0"]}, "minimum_ok": 1},
+    {"name": "forcing_or_obstruction", "match": {"refs": ["ce.frontier.forcing@1.0.0", "ce.frontier.obstruction@1.0.0"]}, "minimum_ok": 1},
+    {"name": "hidden_sector_or_schur", "match": {"refs": ["ce.cascade.schur_cascade@1.0.0"]}, "minimum_ok": 1}
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "run_id": "LIGHT-MATTER-WHOLE-PICTURE-01",
+  "date": "2026-09-10",
+  "source_universal_3_2_sha256": "aa01c1bea3db82e789224b72f3cdbcde97eb82bcebc827e18d01a1357862498f",
+  "retina": {
+    "eye_versions": 191,
+    "catalog_status_counts": {"implemented": 172, "specified": 17, "archived_result": 2},
+    "run_state_counts": {"standby": 116, "routed": 56, "blocked": 17, "archived": 2}
+  },
+  "scaled_controls": {
+    "random_hybrid_cases": 200000,
+    "velocity_interval_violations": 0,
+    "speed_projector_identity_max_abs_residual": 1.1372222608052596e-12,
+    "mixing_bound_violations": 0,
+    "coupling_monotonic_slowdown_violations_when_fast_gt_slow": 0,
+    "detuning_return_to_fast_violations_when_fast_gt_slow": 0,
+    "equal_bare_rate_max_abs_velocity_residual": 2.220446049250313e-16,
+    "random_rank_cases": 300,
+    "rank_deficit_rule_violations": 0,
+    "max_memory_matrix_action_on_computed_nullspace": 3.041937724879262e-14,
+    "same_speed_three_mechanism_target": 0.6,
+    "same_speed_three_mechanism_max_abs_residual": 1.1102230246251565e-16
+  },
+  "default_state": {
+    "inputs": {"vf":1.0,"vs":0.2,"g":0.6,"Delta":0.3,"Gamma":0.2,"probe":0.5,"mu":8,"rank":3,"dwellN":2,"dwellTau":0.25,"hybridFraction":0.65,"rho":0.2,"angleDeg":10.0},
+    "outputs": {"Omega":1.2369316876852983,"wf":0.6212678125181664,"ws":0.37873218748183357,"vh":0.6970142500145331,"branch":"+","vplus":0.6970142500145331,"vminus":0.5029857499854669,"mix":0.23529411764705885,"hybridDelay":0.28254908344620955,"dwellDelay":0.5,"totalSpeed":0.5609943699652274,"memoryLifetime":10.0,"selfEnergyMagnitude":0.7060180864974624,"loaded":3,"blind":5,"latticeSpeed":0.816496580927726,"xi":2.4663034623764317,"tauInf":0.9624236501192068,"directionDepth":3.5014479882697604}
+  },
+  "exact_relations": [
+    "v_h = w_f v_f + w_s v_s",
+    "v_f - v_h = w_s (v_f-v_s)",
+    "C(1-C)=|X|^2=g^2/(Delta^2+4g^2)",
+    "|X|^2 = ((v_f-v_h)(v_h-v_s))/(v_f-v_s)^2 when v_f != v_s",
+    "Sigma(z)=i integral_0^infinity exp(i z t) K(t) dt in the declared domain",
+    "rank(V) bounds the number of independently loaded fast combinations",
+    "total traversal time = bare/hybrid propagation time + material dwell time",
+    "Rice-Mele analogue: u^2=(1-rho)/(1+rho)=sech(tau_infinity)"
+  ],
+  "scope": "Finite/symbolic and numerical model integration. This run does not identify a free photon in vacuum with a tethered electron, does not transfer Arithmetic Kakeya into optics, and does not establish a TOE."
+}

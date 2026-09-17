@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "exact_check_count": 11,
+  "exact_checks": [
+    "Emax^2 = Emin^2 + 4ab",
+    "E(pi+q)^2 = Emin^2 + ab q^2 - ab q^4/12 + O(q^6)",
+    "dE/dk = -ab sin(k)/E",
+    "v_g,max = (Emax-Emin)/2, attained at E^2=Emin*Emax",
+    "v_g,max/sqrt(ab) = sqrt((Emax-Emin)/(Emax+Emin)) = exp[-1/(2 xi_c)]",
+    "massless critical equal-hopping branch has limiting |dE/dq| = t",
+    "gapped equal-hopping branch group velocity tends to 0 at q=0",
+    "lim_{Emin->0+} Emin*xi_c = sqrt(ab)",
+    "equal-hopping reference: (v_g,max/t)^2 = sech(tau_infinity)",
+    "reference-normalized boundary ell^2=Emin/Emax gives u^2=(1-ell^2)/(1+ell^2)",
+    "Light response divided difference is exact on a pole-free interval"
+  ],
+  "scope": "Finite/symbolic Rice-Mele and Light response-kernel checks. No physical photon/electron identification, Lorentz derivation, gauge dynamics, continuum limit, or TOE is certified by this run."
+}
