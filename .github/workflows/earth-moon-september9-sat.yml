@@ -1,0 +1,79 @@
+name: Earth Moon September 9 fixed-layer certificates
+on:
+  push:
+    branches: [research/earth-moon-2026-09-09]
+    paths: ['.github/workflows/earth-moon-september9-sat.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  dependencies:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Preserve pinned wheel for local continuation
+        run: |
+          mkdir wheels
+          python3 -m pip download --dest wheels --only-binary=:all: --no-deps --python-version 313 --abi cp313 --platform manylinux_2_28_x86_64 'python-sat==1.9.dev15'
+          sha256sum wheels/* > wheels/SHA256SUMS.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: earth-moon-pysat-wheel
+          path: wheels/
+  fixed-layer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    strategy:
+      fail-fast: false
+      matrix:
+        side: [0, 1]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          sparse-checkout: research/earth_moon_2026_09_09
+          filter: blob:none
+      - name: Install pinned solver and graph library
+        run: python3 -m pip install 'python-sat==1.9.dev15' 'networkx==3.5'
+      - name: Execute bounded searches and verify proof logs
+        working-directory: research/earth_moon_2026_09_09
+        env:
+          SIDE: ${{ matrix.side }}
+        run: |
+          mkdir -p evidence
+          g++ -O3 -std=c++17 scripts/rup_check.cpp -o evidence/rup_check
+          python3 - <<'PY'
+          import os,pathlib,subprocess,json,sys,hashlib,platform
+          import pysat,networkx
+          root=pathlib.Path('.').resolve();out=root/'evidence';side=int(os.environ['SIDE']);rows=[]
+          (out/'versions.json').write_text(json.dumps({'python':platform.python_version(),'pysat':pysat.__version__,'networkx':networkx.__version__,'side':side},indent=2)+'\n')
+          cases=[('control_sat',5,0,'lazy',20),('control_unsat',4,0,'lazy',20),('near4_radius8',4,8,'lazy',180),('zero_full',0,120,'lazy',180),('near4_order8',4,8,'order',180)]
+          for name,bad,radius,encoding,seconds in cases:
+              dest=out/name
+              cmd=[sys.executable,'scripts/fixed_layer_sat.py','--input','inputs/five.faces','--side',str(side),'--bad',str(bad),'--radius',str(radius),'--encoding',encoding,'--seconds',str(seconds),'--models','12000','--out',str(dest)]
+              with (out/(name+'.log')).open('w') as f:
+                  try:p=subprocess.run(cmd,stdout=f,stderr=subprocess.STDOUT,timeout=seconds+150);code=p.returncode
+                  except subprocess.TimeoutExpired:code=124
+              row={'case':name,'exit_code':code,'proof_checked':False}
+              if (dest/'report.json').exists():
+                  r=json.loads((dest/'report.json').read_text());row.update(r)
+                  if r['status']=='UNSAT_PROOF_LOGGED':
+                      try:
+                          p=subprocess.run([str(out/'rup_check'),str(dest/'final.cnf'),str(dest/'proof.drup')],capture_output=True,text=True,timeout=90)
+                          (dest/'independent_rup.log').write_text(p.stdout+p.stderr)
+                          row['proof_checked']=p.returncode==0
+                          if p.returncode==0:row['status']='UNSAT_RUP_CHECKED'
+                      except subprocess.TimeoutExpired:row['proof_checker_timed_out']=True
+                  if name=='control_sat':assert r['status']=='SAT_PLANAR',r
+                  if name=='control_unsat':assert row['status']=='UNSAT_RUP_CHECKED',row
+              rows.append(row)
+              (out/'SUMMARY.json').write_text(json.dumps(rows,indent=2)+'\n')
+              print(name,row.get('status','NO_REPORT'),flush=True)
+          (out/'source_hashes.json').write_text(json.dumps({str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in list((root/'scripts').glob('*'))+list((root/'inputs').glob('*')) if p.is_file()},indent=2)+'\n')
+          assert all(x['exit_code']==0 for x in rows),rows
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: earth-moon-fixed-layer-${{ matrix.side }}
+          path: research/earth_moon_2026_09_09/evidence/

@@ -1,0 +1,15 @@
+# Replayed 100-edge floor and new endpoint experiments
+
+9 September 2026, Jeromie N. Beasley research programme. The two mathematical census jobs in run34390926327 completed successfully. The independent threshold72 audit covers8,044 profile orbits and checks4,799,908 RUP additions. The prior note's different run counts are historical; the complete newly replayed formulas, cuts and proofs have now been durably committed under `evidence/verified_c5_20260909/` by backup commit08d70203792cf1f7e29f6b9e053c62b37d7f8bea. The archive's full SHA256 is b6d7b1c489d76e1e9429f38fcb8132773c62d2ff2abcf53237d2014023cbf4db. No Lean or general Earth–Moon impossibility claim follows.
+
+The original five-triple component is exactly40 states and2,828 legal transitions. Every state keeps the same five triples. Every exit has at least six triples, so an improving single-flip path must cross a genuine one-unit score barrier. This is local to that component; it does not constrain other decompositions, relative permutations or stellar macro moves.
+
+The threshold71 survivor in `inputs/c5_71_survivor_G.json` has100 edges, exact chromatic number10 and clique number8, but no certified two-planar partition. It passes all triangle-free-subgraph density tests: support sizes3–13 by Mantel and sizes14–19 by six independently RUP-checked UNSAT problems. The separate density auditor reconstructs every CNF and exhaustively tests the equality-cardinality encoding through seven inputs. This graph shows that these necessary density tests alone do not settle the current remaining candidate.
+
+The direct partition solver remains UNKNOWN after240seconds,6,080 full assignments and12,160 checked Kuratowski cuts. Both300-second eager three-order variants also remain UNKNOWN. The latter encode separate three-order witnesses for the two layers, not a common geometric embedding.
+
+New stellar relocations remove a vertex fan, retriangulate the disk with absent diagonals, and reinsert the same vertex into another face as one atomic move. Both committed endpoints retain51 edges and34 faces per layer. The12-million-proposal batch includes eight starts from the saved pair and four fresh independently mixed triangulation pairs. Its best remains five triples, now at102 edges. Target-guided runs separately keep both full planar layers but score missing edges of the particular100-edge graph; the missing-edge score is not a certificate or a structural-barrier theorem. These runs and their independent Python replays are being archived separately from the earlier pure-flip search.
+
+The recovered C++ hybrid seed90309 run reproduces a five-triple102-edge checkpoint with33,918 replayed atomic moves under the pinned current source. This does not match the early note's6,174-move description, which is not used as a replay claim. Current actual paths and normalized endpoint certificates are authoritative.
+
+No main merge, winning biplanar ten-color graph, new Lean compilation, or after-session autonomous process is claimed.

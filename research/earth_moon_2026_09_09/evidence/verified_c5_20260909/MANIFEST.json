@@ -1,0 +1,68 @@
+{
+  "research_source_commit": "6e84239b8093c76c7d122ec72ede473d46162260",
+  "artifacts": [
+    {
+      "artifact_id": 10119842564,
+      "name": "c5_threshold72.zip",
+      "bytes": 129280660,
+      "sha256": "b6d7b1c489d76e1e9429f38fcb8132773c62d2ff2abcf53237d2014023cbf4db",
+      "parts": [
+        {
+          "name": "c5_threshold72.zip.part000",
+          "bytes": 45000000,
+          "sha256": "189958062bc3fc084fdabf191d26357662092a47e7d059e1f4ae783938fcf95b"
+        },
+        {
+          "name": "c5_threshold72.zip.part001",
+          "bytes": 45000000,
+          "sha256": "c3cab89d9b7ba9a68b47014850055ad48525aced0809195cb65a9f2d87404597"
+        },
+        {
+          "name": "c5_threshold72.zip.part002",
+          "bytes": 39280660,
+          "sha256": "be56b97208b675c07847336542f58119d43f2c871c6747edf6bd3822cb7947d1"
+        }
+      ]
+    },
+    {
+      "artifact_id": 10119589730,
+      "name": "c5_threshold71.zip",
+      "bytes": 111566,
+      "sha256": "2c667130edfaf0b7f97432bb9a2ce9323c58316c9025b2c795f8f6ad579b06c1",
+      "parts": [
+        {
+          "name": "c5_threshold71.zip.part000",
+          "bytes": 111566,
+          "sha256": "2c667130edfaf0b7f97432bb9a2ce9323c58316c9025b2c795f8f6ad579b06c1"
+        }
+      ]
+    },
+    {
+      "artifact_id": 10117678458,
+      "name": "earlier_fixed_layer0.zip",
+      "bytes": 180653,
+      "sha256": "d118ec88585bed56ea30197e16d6eb702473b52e261400e0427c72647dd380ff",
+      "parts": [
+        {
+          "name": "earlier_fixed_layer0.zip.part000",
+          "bytes": 180653,
+          "sha256": "d118ec88585bed56ea30197e16d6eb702473b52e261400e0427c72647dd380ff"
+        }
+      ]
+    },
+    {
+      "artifact_id": 10117678052,
+      "name": "earlier_fixed_layer1.zip",
+      "bytes": 180302,
+      "sha256": "d15f5d7db9b537baba21a6f8b4eb60ba06fdfcf71673d502dac68c4f5590facd",
+      "parts": [
+        {
+          "name": "earlier_fixed_layer1.zip.part000",
+          "bytes": 180302,
+          "sha256": "d15f5d7db9b537baba21a6f8b4eb60ba06fdfcf71673d502dac68c4f5590facd"
+        }
+      ]
+    }
+  ],
+  "note": "Archive preservation, not a new theorem or search. Earlier failed fixed-layer controls are preserved as failures. Each part is below GitHub binary size limits."
+}

@@ -1,0 +1,33 @@
+name: Earth Moon native Compound Eye side scanner
+on:
+  push:
+    branches: [research/earth-moon-2026-09-09]
+    paths: ['research/earth_moon_2026_09_09/side_scanner/**', '.github/workflows/earth-moon-side-scanner.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-observer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          sparse-checkout: research/earth_moon_2026_09_09
+          filter: blob:none
+      - name: Execute actual registry observers and exhaustive repair controls
+        working-directory: research/earth_moon_2026_09_09/side_scanner
+        run: python3 -S scan.py --out ci_evidence --check-reference-budgets
+      - name: Preserve the exact deployment source beside its outputs
+        if: always()
+        working-directory: research/earth_moon_2026_09_09/side_scanner
+        run: |
+          mkdir -p ci_evidence/deployed_source
+          cp *.py ci_evidence/deployed_source/
+          cp -r ../inputs ci_evidence/deployed_source/reference_inputs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: earth-moon-native-side-scanner
+          path: research/earth_moon_2026_09_09/side_scanner/ci_evidence/
