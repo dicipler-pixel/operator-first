@@ -1,0 +1,100 @@
+name: Yang Mills report evidence audit
+on:
+  push:
+    branches: [research/yang-mills-2026-09-09]
+    paths: ['.github/workflows/yang-mills-report-audit.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: 131b0e33dd893201a1cb68252ea8c1b9382c4ca3
+          persist-credentials: false
+          sparse-checkout: research/yang_mills_2026_09_09
+          filter: blob:none
+      - name: Recover prior source trees and preserve publication status
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import pathlib,shutil,json,urllib.request,os,base64,hashlib
+          root=pathlib.Path('report_evidence');root.mkdir()
+          prefix='research/yang_mills_2026_09_09/'
+          shutil.copytree(prefix,root/'published')
+          api='https://api.github.com/repos/dicipler-pixel/operator-first/'
+          def get(path):
+              req=urllib.request.Request(api+path,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+              with urllib.request.urlopen(req,timeout=60) as r:return json.load(r)
+          old=get('git/trees/c972fce1a95e248d6b953e638f089277a58d01b8?recursive=1')
+          new=get('git/trees/cce4c5310b097f284932e2fc71364cb63c4538fd?recursive=1')
+          assert not old.get('truncated') and not new.get('truncated')
+          oldfiles={x['path']:x for x in old['tree'] if x['type']=='blob' and x['path'].startswith(prefix)}
+          extras=[]
+          for x in new['tree']:
+              if x['type']!='blob' or not x['path'].startswith(prefix):continue
+              if x['path'] in oldfiles and oldfiles[x['path']]['sha']==x['sha']:continue
+              b=base64.b64decode(get('git/blobs/'+x['sha'])['content'])
+              assert hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()==x['sha']
+              p=root/'recovered_uncommitted'/x['path'][len(prefix):];p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b);extras.append(x)
+          summary={'previous_published_commit':'131b0e33dd893201a1cb68252ea8c1b9382c4ca3','previous_published_files':list(oldfiles.values()),'previous_uncommitted_tree':'cce4c5310b097f284932e2fc71364cb63c4538fd','recovered_uncommitted_entries':extras,'note':'Recovery and reruns for the report; not a new theorem, search, or Lean compilation. Uncommitted files are preserved separately, not silently made part of the prior branch.'}
+          (root/'PUBLICATION_SNAPSHOT.json').write_text(json.dumps(summary,indent=2)+'\n')
+          for p,x in oldfiles.items():
+              b=(root/'published'/p[len(prefix):]).read_bytes()
+              assert hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()==x['sha']
+          shutil.copytree(root/'published',root/'rerun_work')
+          extra=root/'recovered_uncommitted'
+          for p in extra.rglob('*'):
+              if p.is_file():
+                  dest=root/'rerun_work'/p.relative_to(extra);dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,dest)
+          print('Verified published files',len(oldfiles),'Recovered unattached-tree files',len(extras))
+          PY
+      - name: Rerun exact existing targets
+        run: |
+          python3 - <<'PY'
+          import pathlib,subprocess,sys,json,time
+          root=pathlib.Path('report_evidence').resolve();work=root/'rerun_work';results=root/'fresh_results';results.mkdir()
+          scripts=work/'scripts';rows=[]
+          jobs=[('baseline','su3_character_certificate.py',[]),('bare','two_plaquette_certificate.py',['--out',str(results/'bare.json')]),('allocated','lifted_two_plaquette_certificate.py',['--out',str(results/'allocated.json')]),('fifteen','two_plaquette_extended.py',['--out',str(results/'fifteen.json')]),('nineteen','two_plaquette_19.py',['--out',str(results/'nineteen.json')]),('local_window','local_window_budget.py',['--out',str(results/'local_window.json')]),('scaling','scaling_controls.py',['--out',str(results/'scaling.json')]),('spatial','spatial_stability_checks.py',['--out',str(results/'spatial.json')])]
+          for name,script,args in jobs:
+              start=time.monotonic()
+              with (results/(name+'.log')).open('w') as f:p=subprocess.run([sys.executable,'-S',str(scripts/script)]+args,stdout=f,stderr=subprocess.STDOUT,cwd=work,timeout=300)
+              rows.append({'name':name,'exit_code':p.returncode,'seconds':time.monotonic()-start})
+              print(name,p.returncode,flush=True)
+          (results/'RUNS.json').write_text(json.dumps(rows,indent=2)+'\n')
+          assert all(x['exit_code']==0 for x in rows),rows
+          missing=[s for s in ['scripts/two_sided_targets.json','proofs/TWO_PLAQUETTES.md','proofs/LOCAL_ENERGY_FLOORS.md','proofs/SCALING_AND_OBSTRUCTIONS.md'] if not (work/s).exists()]
+          (results/'MISSING_REFERENCED_FILES.json').write_text(json.dumps(missing,indent=2)+'\n')
+          print('Missing referenced files',missing)
+          PY
+      - name: Independent numerical checks on recovered prior programs
+        run: |
+          python3 -m pip install 'numpy==2.2.6' 'scipy==1.15.3'
+          python3 - <<'PY'
+          import pathlib,subprocess,sys,json,os,time
+          root=pathlib.Path('report_evidence').resolve();work=root/'rerun_work';out=root/'fresh_results';rows=[]
+          env=dict(os.environ,OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1')
+          for name in ['test_local_window','test_su3_independent']:
+              start=time.monotonic()
+              with (out/(name+'.log')).open('w') as f:p=subprocess.run([sys.executable,str(work/'tests'/(name+'.py')),'--out',str(out/(name+'.json'))],stdout=f,stderr=subprocess.STDOUT,env=env,timeout=400)
+              rows.append({'name':name,'exit_code':p.returncode,'seconds':time.monotonic()-start});print(name,p.returncode,flush=True)
+          (out/'NUMERICAL_RUNS.json').write_text(json.dumps(rows,indent=2)+'\n')
+          assert all(x['exit_code']==0 for x in rows),rows
+          PY
+      - name: Hash the report evidence
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import pathlib,json,hashlib
+          r=pathlib.Path('report_evidence')
+          if r.exists():(r/'SHA256.json').write_text(json.dumps({str(p.relative_to(r)):hashlib.sha256(p.read_bytes()).hexdigest() for p in r.rglob('*') if p.is_file()},indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: yang-mills-full-report-evidence
+          path: report_evidence/

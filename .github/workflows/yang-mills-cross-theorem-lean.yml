@@ -1,0 +1,56 @@
+name: Yang Mills cross theorem closing steps
+on:
+  push:
+    branches: [research/yang-mills-2026-09-09]
+    paths: ['research/yang_mills_2026_09_09/cross_theorem/lean/**','.github/workflows/yang-mills-cross-theorem-lean.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  finite-lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          sparse-checkout: research/yang_mills_2026_09_09/cross_theorem/lean
+          filter: blob:none
+      - name: Install Lean
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Compile every closing step and audit axioms
+        working-directory: research/yang_mills_2026_09_09/cross_theorem/lean
+        run: |
+          mkdir -p evidence
+          lake update > evidence/update.log 2>&1
+          lake exe cache get > evidence/cache.log 2>&1
+          lake env lean --version > evidence/compiler.txt
+          lake env lean CrossTheorem.lean > evidence/lean.log 2>&1
+          cat evidence/lean.log
+          cp lake-manifest.json evidence/
+          sha256sum CrossTheorem.lean lean-toolchain lakefile.toml > evidence/source-hashes.txt
+          python3 - <<'PY'
+          import pathlib,re
+          source=pathlib.Path('CrossTheorem.lean').read_text();text=pathlib.Path('evidence/lean.log').read_text()
+          names=re.findall(r'^\s*theorem\s+([A-Za-z0-9_]+)',source,re.M)
+          assert len(names)==12
+          for name in names:assert "'YangMillsCrossTheorem."+name+"'" in text,name
+          for axes in re.findall(r'depends on axioms:\s*\[([^\]]*)\]',text):
+              assert set(x.strip() for x in axes.split(',') if x.strip()) <= {'propext','Classical.choice','Quot.sound'},axes
+          assert 'sorryAx' not in text and 'Lean.ofReduceBool' not in text
+          print('Accepted and audited',len(names),'declarations; finite/scalar scope only')
+          PY
+      - name: Reject a false inequality
+        working-directory: research/yang_mills_2026_09_09/cross_theorem/lean
+        run: |
+          if lake env lean FalseControl.lean > evidence/false-control.log 2>&1; then exit 1; fi
+          grep -q 'unsolved goals' evidence/false-control.log
+          cat evidence/false-control.log
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: yang-mills-cross-theorem-lean
+          path: research/yang_mills_2026_09_09/cross_theorem/lean/evidence/

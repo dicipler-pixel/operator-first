@@ -1,0 +1,62 @@
+name: Yang Mills September 9 finite certificates
+on:
+  push:
+    branches: [research/yang-mills-2026-09-09]
+    paths:
+      - 'research/yang_mills_2026_09_09/lean/**'
+      - '.github/workflows/yang-mills-september9.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          sparse-checkout: research/yang_mills_2026_09_09/lean
+          filter: blob:none
+      - name: Install pinned Lean through elan
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          sha256sum "$RUNNER_TEMP/elan-init.sh"
+          bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Build dependencies and check all finite declarations
+        working-directory: research/yang_mills_2026_09_09/lean
+        run: |
+          mkdir -p evidence
+          lake update > evidence/lake-update.log 2>&1
+          lake exe cache get > evidence/cache.log 2>&1
+          lake env lean --version > evidence/compiler.txt
+          lake env lean GaugeCertificates.lean > evidence/lean.log 2>&1
+          cat evidence/lean.log
+          cp lake-manifest.json evidence/
+          sha256sum GaugeCertificates.lean lean-toolchain lakefile.toml > evidence/source-hashes.txt
+      - name: Audit axioms and reject a false arithmetic statement
+        working-directory: research/yang_mills_2026_09_09/lean
+        run: |
+          python3 - <<'PY'
+          import pathlib,re
+          text=pathlib.Path('evidence/lean.log').read_text()
+          names=re.findall(r'^theorem ([A-Za-z0-9_]+)',pathlib.Path('GaugeCertificates.lean').read_text(),re.M)
+          for name in names:
+              assert "'YangMillsSeptember9."+name+"'" in text, name
+          for match in re.findall(r'depends on axioms:\s*\[([^\]]*)\]',text):
+              assert set(x.strip() for x in match.split(',') if x.strip()) <= {'propext','Classical.choice','Quot.sound'},match
+          assert 'sorryAx' not in text and 'Lean.ofReduceBool' not in text
+          print('Audited',len(names),'named declarations')
+          PY
+          if lake env lean FalseControl.lean > evidence/false-control.log 2>&1; then
+            echo 'ERROR: intentionally false statement accepted'
+            exit 1
+          fi
+          grep -q 'unsolved goals' evidence/false-control.log
+          cat evidence/false-control.log
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: yang-mills-september9-lean
+          path: research/yang_mills_2026_09_09/lean/evidence/
