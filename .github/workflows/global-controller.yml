@@ -6,11 +6,16 @@ on:
       - 'OperatorFirst/GlobalConstraint.lean'
       - 'research/global-controller/**'
       - '.github/workflows/global-controller.yml'
+      - 'lakefile.toml'
+      - 'lean-toolchain'
   pull_request:
     paths:
       - 'OperatorFirst/GlobalConstraint.lean'
       - 'research/global-controller/**'
       - '.github/workflows/global-controller.yml'
+      - 'lakefile.toml'
+      - 'lean-toolchain'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -22,49 +27,82 @@ jobs:
     env:
       LEAN_NUM_THREADS: 2
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
       - name: Install pinned Lean
         run: |
           curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
           bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain "$(cat lean-toolchain)"
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-      - name: Resolve pinned dependencies
-        run: lake update
+      - name: Resolve pinned dependencies and record source
+        run: |
+          lake update
+          git rev-parse HEAD > global-controller-source.txt
+          sha256sum OperatorFirst/GlobalConstraint.lean lakefile.toml lean-toolchain lake-manifest.json >> global-controller-source.txt
+          lake env lean --version >> global-controller-source.txt
+          git -C .lake/packages/mathlib rev-parse HEAD >> global-controller-source.txt
       - name: Compile exact finite kernel
         shell: bash
         run: |
-          set -o pipefail
+          set -euo pipefail
           lake env lean OperatorFirst/GlobalConstraint.lean 2>&1 | tee global-controller-lean.log
-      - name: Independent kernel recheck and axiom audit
+      - name: Build actual module, independently recheck, and audit axioms
         uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
         with:
           use-mathlib-cache: true
+          use-github-cache: false
           build: true
+          build-args: 'OperatorFirst +OperatorFirst.GlobalConstraint'
           leanchecker: true
           leanchecker-args: OperatorFirst.GlobalConstraint
           axiom-audit: true
           axiom-audit-allow: propext,Classical.choice,Quot.sound
-      - name: False-control rejection
+      - name: External import and positive-control check
         shell: bash
         run: |
-          cat > /tmp/GlobalConstraintFalseControl.lean <<'EOF'
+          set -euo pipefail
+          cat > GlobalConstraintPositiveControl.lean <<'EOF'
+          import OperatorFirst.GlobalConstraint
+          open OperatorFirst.GlobalConstraint
+          example : quadraticError (relax (1 / 2 : ℝ) 1 0) 0 < quadraticError 1 0 := by
+            norm_num [quadraticError, relax]
+          #check relax_contracts
+          #check larger_rate_contracts_at_least_as_much
+          #check relax_strict_contracts
+          EOF
+          lake env lean GlobalConstraintPositiveControl.lean 2>&1 | tee positive-control.log
+      - name: False-control rejection must be mathematical
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > GlobalConstraintFalseControl.lean <<'EOF'
           import OperatorFirst.GlobalConstraint
           open OperatorFirst.GlobalConstraint
           example : quadraticError (relax (1 / 2 : ℝ) 1 0) 0 > quadraticError 1 0 := by
             norm_num [quadraticError, relax]
           EOF
-          if lake env lean /tmp/GlobalConstraintFalseControl.lean > false-control.log 2>&1; then
-            echo 'ERROR: deliberately false contraction claim unexpectedly compiled'
-            cat false-control.log
+          if lake env lean GlobalConstraintFalseControl.lean > false-control.log 2>&1; then
+            echo 'ERROR: deliberately false contraction claim compiled'
             exit 1
-          else
-            echo 'PASS: deliberately false contraction claim was rejected'
-            cat false-control.log
           fi
-      - uses: actions/upload-artifact@v4
+          cat false-control.log
+          if grep -Eiq 'unknown module|unknown identifier|object file|unexpected token|no such file|failed to synthesize' false-control.log; then
+            echo 'ERROR: control failed for an infrastructure or elaboration reason'
+            exit 1
+          fi
+          grep -q 'unsolved goals' false-control.log
+          echo 'PASS: the imported, well-typed false contraction claim was mathematically rejected'
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
           name: global-controller-lean-certificate
           path: |
             global-controller-lean.log
+            global-controller-source.txt
+            positive-control.log
             false-control.log
+            OperatorFirst/GlobalConstraint.lean
+            lakefile.toml
+            lean-toolchain
+            lake-manifest.json
