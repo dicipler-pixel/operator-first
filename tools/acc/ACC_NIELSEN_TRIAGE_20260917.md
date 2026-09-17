@@ -41,17 +41,22 @@ target absent):
 | sibling | conjugacy path (6–13) | signed-generator map, even up to conjugacy |
 |---|---|---|
 | ac-02089 | **none found** | **none found** |
-| ac-04376 | none found | running |
-| ac-05932 | none found | running |
+| ac-04376 | **none found** | **none found** |
+| ac-05932 | **none found** | **none found** |
+
+Complete for all three. The automorphism test enumerated all eight signed-generator maps of
+`F_2` and, for each, ran a conjugacy BFS from its image to the sibling — so a hit would have
+been found under *relabel-then-conjugate*, not just under conjugation alone. Bounds: cap 30,
+3M states per BFS.
 
     ac-00413  YYYXyyx / YXXXyxx
     ac-02089  YYYXyyx / YXXyxxx     r0 identical, r1 differs
     ac-04376  YYYxyyX / YXXXyxx     r0 differs, r1 identical
 
 **So the cap-22 `CLOSED` count does NOT transfer.** `ac-00413` remains one certified well, not
-four. The "92,600-state family linked pairwise by a signed-generator mechanism" is, for
-`ac-02089` at least, not supported: no conjugacy word within cap 30 connects them, and none
-of the eight signed-generator automorphisms maps one to the other even after conjugation.
+four. The "92,600-state family linked pairwise by a signed-generator/invert/rotate mechanism"
+is not supported for **any** of the three: no conjugacy word within cap 30 connects them, and
+none of the eight signed-generator automorphisms maps one onto another even after conjugation.
 
 A missing path is **not** proof of different orbits — only that nothing connects them inside
 the searched depth and cap. The honest status is: hypothesis, not transfer.
