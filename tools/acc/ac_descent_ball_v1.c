@@ -187,6 +187,7 @@ static int cost(const St*s){
 // called a certificate.
 //
 // Usage: descent_ball ballcap ballmax seed restarts steps pairs.txt
+// Env: FINSTEPS (default 400000) -- budget for the in-ball finish phase.
 // ---------------------------------------------------------------------------
 static int in_ball(const St*s){
     if(s->la + s->lb > CAP) return 0;
@@ -201,6 +202,7 @@ int main(int argc,char**argv){
     NMAX=strtoull(argv[2],0,10);
     rng_s=strtoull(argv[3],0,10); if(!rng_s) rng_s=88172645463325252ULL;
     long restarts=atol(argv[4]); long steps=atol(argv[5]);
+    long finsteps = getenv("FINSTEPS") ? atol(getenv("FINSTEPS")) : 400000;
 
     uint64_t slots=1; while(slots < NMAX*2) slots<<=1;
     TMASK=slots-1;
@@ -247,6 +249,35 @@ int main(int argc,char**argv){
             double temp = 0.6 + 2.4*rnd01();
             for(long t=0; t<steps; t++){
                 if(in_ball(&cur)){
+                    // PHASE 2: finish inside the ball.
+                    // Every state reachable from here without exceeding CAP is still a
+                    // ball member, hence still provably trivial, and the ball is connected
+                    // at depth 101. So rather than hand the tail to a second engine with
+                    // parent pointers (7 GB), just keep walking -- confined to CAP, biased
+                    // hard toward shorter states -- until the walk lands exactly on (x,y).
+                    // DMOVES then IS the whole path and no tail stage is needed.
+                    long fin=0;
+                    while(fin < finsteps){
+                        if(cur.la==1 && cur.lb==1 && cur.a[0]==0 && cur.b[0]==2) break;
+                        int fm = rnd()%14; St fx;
+                        if(!apply(&cur,fm,&fx)) { fin++; continue; }
+                        if(!fx.la || !fx.lb) { fin++; continue; }
+                        if(fx.la+fx.lb > CAP) { fin++; continue; }
+                        if(!in_ball(&fx)) { fin++; continue; }   // never leave the ball
+                        int fd = (fx.la+fx.lb) - (cur.la+cur.lb);
+                        if(fd<=0 || rnd01() < 0.25){
+                            cur=fx;
+                            if(n < (long)sizeof(path)) path[n++]=(uint8_t)fm;
+                        }
+                        fin++;
+                    }
+                    if(cur.la==1 && cur.lb==1 && cur.a[0]==0 && cur.b[0]==2){
+                        printf("%s SOLVED steps=%ld restart=%ld\nDMOVES",id,n,r);
+                        for(long k=0;k<n;k++) printf(" %d",path[k]);
+                        printf("\n"); fflush(stdout); done=1; break;
+                    }
+                    // reached the ball but not the target within the finish budget:
+                    // still a real hit, the tail just has to come from elsewhere
                     printf("%s BALLHIT steps=%ld restart=%ld\nDMOVES",id,n,r);
                     for(long k=0;k<n;k++) printf(" %d",path[k]);
                     printf("\n"); fflush(stdout); done=1; break;
