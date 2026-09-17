@@ -87,12 +87,8 @@ theorem stepwise_strict_decrease_below_initial
   cases n with
   | zero => simp at hn
   | succ n =>
-      induction n with
-      | zero => simpa using hstep 0
-      | succ n ih =>
-          have hs : V (n + 2) < V (n + 1) := by
-            simpa [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using hstep (n + 1)
-          exact lt_trans hs ih
+      exact lt_of_lt_of_le (hstep n)
+        (stepwise_nonincreasing_le_initial V (fun k => (hstep k).le) n)
 
 #print axioms RecoveredMathBatchD.quadratic_kinetic_difference_quotient
 #print axioms RecoveredMathBatchD.squared_distance_difference_quotient
