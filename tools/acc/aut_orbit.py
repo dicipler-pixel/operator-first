@@ -18,10 +18,15 @@ One lookup per orbit element, against a ball we already hold. Automorphism moves
 are not AC moves -- they rewrite the presentation globally -- so this reaches
 states no AC forward search sees at any feasible budget.
 
-This also repairs a real weakness in greedy Whitehead minimisation: steepest
-descent stops at the first local minimum. A BFS over the orbit crosses plateaus
-and tolerates a temporary length increase up to the bound, so it finds short
-representatives descent cannot.
+A second motivation for BFS was that greedy Whitehead descent could stop at a
+local minimum, where BFS crosses plateaus and tolerates a temporary rise.
+MEASURED ON THIS BOARD, THAT PAID NOTHING: over all 2,672 unsolved rows, with
+the BFS bound at 20, the number whose orbit contains anything shorter than the
+greedy minimum is ZERO. Greedy descent was already finding the true minimum
+every time. The claim is kept here as a recorded negative -- it is also a piece
+of good news, since the 1,202-class map is built on those greedy minima and they
+turn out to be genuine. The ~38 length-<=16 elements an average row contributes
+are length-PRESERVING Type-I images and rotations, not shorter forms.
 
 Every orbit element carries the bookkeeping needed to lift a hit back to the
 original row: chi (the composite automorphism) and P (the AC moves recording the
