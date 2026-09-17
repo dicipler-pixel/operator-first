@@ -34,7 +34,7 @@ from collections import defaultdict
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.dirname(HERE))
-from replay import replay
+from replay import replay, apply_move
 from class_bridge import bridge_pair
 from wh_lift import ac_bridge
 from path_compress import compress
@@ -73,51 +73,100 @@ def main():
         r = b["initial_relators"]
         return list(r[0]), list(r[1])
 
-    best = {}
-    tried = compiled = promoted = 0
-    for h, ent in idx.items():
-        if len(ent) < 2:
+    # 17,934 candidates improve SOME row, but compiling a transport is the
+    # expensive step (inverse_aut runs a search). Only the best few per row can
+    # possibly matter, so rank by projected length and compile the top K. That
+    # turns ~18k compilations into ~73*K.
+    # MIN-SUFFIX INDEX, not a pairwise loop. The first version compared every pair
+    # inside each hash bucket: fine for 29 runs, intractable at 125, because the
+    # cost is quadratic in trajectories. Job A made the index bigger, so the index
+    # had to get smarter. Only one number matters per state -- the shortest known
+    # suffix from it to (x,y) over every run that ever passed through it.
+    minsuf = {}
+    for rid, b in R.items():
+        if not b["landed_on_target"]:
             continue
-        for (ra, ia) in ent:
-            A = R[ra]
-            a0, a1 = init_of(A)
-            sa0, sa1, _ = replay(a0, a1, A["moves"][:ia])
-            for (rb, jb) in ent:
-                if ra == rb and ia >= jb:
+        n = b["moves_total"]
+        for s_ in b["steps"]:
+            h, k = s_["canonical_state_hash"], s_["step"]
+            suf = n - k
+            cur = minsuf.get(h)
+            if cur is None or suf < cur[0]:
+                minsuf[h] = (suf, rid, k)
+
+    TOPK = int(os.environ.get("SPLICE_TOPK", "6"))
+    percand = {}
+    statecache = {}
+
+    def states_of(rid):
+        if rid not in statecache:
+            B = R[rid]
+            b0, b1 = init_of(B)
+            acc = [(b0, b1)]
+            x, y = list(b0), list(b1)
+            for m in B["moves"]:
+                x, y = apply_move(x, y, m)
+                acc.append((list(x), list(y)))
+            statecache[rid] = acc
+        return statecache[rid]
+
+    for ra, A in R.items():
+        if not A["landed_on_target"]:
+            continue
+        for s_ in A["steps"]:
+            ia = s_["step"]
+            ent = minsuf.get(s_["canonical_state_hash"])
+            if ent is None:
+                continue
+            suf, rb, jb = ent
+            if ia + suf >= A["moves_total"]:
+                continue
+            if rb == ra and jb == ia:
+                continue
+            percand.setdefault(ra, []).append((ia + suf, ia, rb, jb))
+
+    best = {}
+    tried = compiled = 0
+    for ra, cands in percand.items():
+        A = R[ra]
+        a0, a1 = init_of(A)
+        cid = A["challenge_id"]
+        seen = set()
+        for proj, ia, rb, jb in sorted(cands)[:TOPK * 4]:
+            if len(seen) >= TOPK:
+                break
+            key = (ia, rb, jb)
+            if key in seen:
+                continue
+            seen.add(key)
+            tried += 1
+            sa = states_of(ra)[ia]
+            sb = states_of(rb)[jb]
+            tail = bridge_pair((sa[0], sa[1]), (sb[0], sb[1]), R[rb]["moves"][jb:])
+            if tail is None:
+                continue
+            compiled += 1
+            cand = list(A["moves"][:ia]) + tail
+            x, y, ok = replay(a0, a1, cand)
+            if not ok:
+                fin = ac_bridge(x, y, cap=max(24, len(x) + len(y) + 6), budget=200000)
+                if fin is None:
                     continue
-                tried += 1
-                B = R[rb]
-                b0, b1 = init_of(B)
-                sb0, sb1, _ = replay(b0, b1, B["moves"][:jb])
-                Q = B["moves"][jb:]
-                tail = bridge_pair((sa0, sa1), (sb0, sb1), Q)
-                if tail is None:
-                    continue
-                compiled += 1
-                cand = list(A["moves"][:ia]) + tail
-                x, y, ok = replay(a0, a1, cand)
-                if not ok:
-                    fin = ac_bridge(x, y, cap=max(24, len(x) + len(y) + 6),
-                                    budget=300000)
-                    if fin is None:
-                        continue
-                    cand = cand + fin
-                try:
-                    cand = compress(a0, a1, cand)
-                except AssertionError:
-                    continue
-                _, _, ok = replay(a0, a1, cand)
-                if not ok:
-                    continue
-                cid = A["challenge_id"]
-                if len(cand) < A["moves_total"] and (
-                        cid not in best or len(cand) < best[cid]["len"]):
-                    best[cid] = {"challengeId": cid, "len": len(cand),
-                                 "was": A["moves_total"], "moves": cand,
-                                 "from_run": ra, "i": ia,
-                                 "suffix_run": rb, "suffix_challenge": B["challenge_id"],
-                                 "j": jb}
-                    promoted += 1
+                cand = cand + fin
+            try:
+                cand = compress(a0, a1, cand)
+            except AssertionError:
+                continue
+            _, _, ok = replay(a0, a1, cand)
+            if not ok:
+                continue
+            if len(cand) < A["moves_total"] and (
+                    cid not in best or len(cand) < best[cid]["len"]):
+                best[cid] = {"challengeId": cid, "len": len(cand),
+                             "was": A["moves_total"], "moves": cand,
+                             "from_run": ra, "i": ia,
+                             "suffix_run": rb, "suffix_challenge": R[rb]["challenge_id"],
+                             "j": jb}
 
     out = sorted(best.values(), key=lambda e: e["was"] - e["len"], reverse=True)
     json.dump(out, open(dst, "w"), indent=1)
