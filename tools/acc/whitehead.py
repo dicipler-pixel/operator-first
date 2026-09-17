@@ -11,9 +11,13 @@ is shown rather than hidden.)
                                      A Nielsen invitation. Not a certificate: the
                                      automorphism must still be compiled into official
                                      0-13 and replayed.
-  connected and 2-connected      ->  no length-dropping Whitehead move exists. The pair is
-                                     Whitehead-minimal, tot-first search is doomed, and the
-                                     row belongs in the hump + T_R meet lane.
+  connected and 2-connected      ->  a STRUCTURAL signal about free splittings ONLY.
+
+*** RETRACTED: this file previously claimed 2-connected => Whitehead-minimal. That is
+    FALSE. Minimality is decided by testing the finite Type-II Whitehead family for a
+    length drop -- see wh_min.py. Measured counterexamples: ac-01083 and ac-03525 are both
+    2-connected here and both shorten from cyclic total 15 to 14. Board-wide, this file
+    reported 0 shortenable rows; the exact test finds 748 of 2,672. Use wh_min.py. ***
 
 This is an eye on the NIELSEN metric. It never transfers a CLOSED count and it is never
 a conjugacy test -- conjugation only rotates a core, so Wh is conjugation-invariant and

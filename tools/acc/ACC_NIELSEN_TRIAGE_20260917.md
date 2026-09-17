@@ -17,17 +17,35 @@ Vertices `x, X, y, Y`; for each consecutive pair `(a,b)` in each cyclic relator,
 **strictly shortens** the pair — a Nielsen invitation worth compiling into 0–13. Connected
 and 2-connected means no length-dropping Whitehead move exists at all.
 
-**All 2,672 unsolved rows are 2-connected. Zero cut vertices, zero disconnected.**
+All 2,672 unsolved rows are 2-connected, with zero cut vertices.
 
-That closes the entire Whitehead lane for discovery in one sweep: **there is no unsolved row
-on this board that Whitehead reduction can shorten.** Every one of them is Whitehead-minimal,
-which is precisely the configuration where tot-first search is doomed and the row belongs in
-the hump + `T_R` meet lane. The eight hard rows checked individually — `ac-02842`,
-`ac-06556`, `ac-03467`, `ac-08126`, `ac-00413`, `ac-02089`, `ac-00738`, `ac-00399` — are all
-2-connected, matching the predicted signature `|det M|=1` + Wh 2-connected + tot-first dies.
-
-Worth stating as a negative rather than a silence: nobody should spend cycles on Whitehead
-reduction for these rows again.
+> ### RETRACTED — this section's conclusion was wrong
+>
+> I concluded from that that no unsolved row can be Whitehead-shortened, and that the whole
+> Whitehead lane was closed. **Both claims are false.** `connected and no cut vertex` is a
+> structural signal about free splittings; it is **not** equivalent to Whitehead-minimality.
+> Minimality is decided by testing the finite **Type-II** Whitehead family for an actual
+> cyclic-length drop. Type-I maps (signed permutations) preserve length and can never
+> decide it.
+>
+> Counterexample supplied by ChatGPT and reproduced here: `ac-01083` and `ac-03525` are both
+> 2-connected and both shorten from cyclic total **15 to 14**. The shortened `ac-03525` is
+> `(YXXYx, YYYYXyyyx)` — which is `ac-02842` verbatim, independently confirming that
+> transport.
+>
+> Re-running the board with the exact test (`wh_min.py`, 12 Type-II maps in rank 2):
+>
+>     Whitehead-MINIMAL       1,924
+>     Whitehead-SHORTENABLE     748      <- this section had said ZERO
+>
+> Drop sizes run from 1 to **15**. `ac-08669` falls from cyclic total 39 to 24; twenty-plus
+> rows fall from 39 to 25. Rows at tot 39 are out of reach; at 24-25 they are inside the
+> band where search actually works. **These 748 are free Nielsen gains and nobody has
+> touched them.**
+>
+> The corrected Atlas line: *Whitehead minimisation is an eye on the Nielsen metric. Graph
+> topology may route attention but does not certify AC equivalence or cyclic-length
+> minimality.*
 
 ## 3. Conjugacy BFS — the only test that transfers a well
 
