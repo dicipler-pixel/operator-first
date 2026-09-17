@@ -1,0 +1,32 @@
+name: Discrete-continuous obstruction Lean check
+
+on:
+  push:
+    branches:
+      - formal/discrete-continuous-obstruction
+  pull_request:
+    paths:
+      - 'research/mastery-equations/lean/DiscreteContinuousObstruction.lean'
+      - '.github/workflows/discrete-continuous-obstruction.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Lean
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/elan-init.sh
+          bash /tmp/elan-init.sh -y --default-toolchain "$(cat lean-toolchain)"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Compile obstruction theorem
+        run: lake env lean research/mastery-equations/lean/DiscreteContinuousObstruction.lean
