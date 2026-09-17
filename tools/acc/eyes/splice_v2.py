@@ -61,13 +61,16 @@ def main():
         for s in b["steps"]:
             idx[s["canonical_state_hash"]].append((rid, s["step"]))
 
-    C2P = {1: 0, -1: 1, 2: 2, -2: 3}
-
     def init_of(b):
+        """Every run in this index stores PACKED letters {0,1,2,3}.
+
+        Two wrong guesses got made here before a side test settled it: first
+        that words of 1s and 2s were signed {1,-1,2,-2} (they are not), then
+        that provenance distinguished two encodings (it does not -- the original
+        recorder is packed as well, which a KeyError(3) proved immediately).
+        There is one encoding. No conversion.
+        """
         r = b["initial_relators"]
-        if r and isinstance(r[0], list) and r[0] and isinstance(r[0][0], int) \
-           and abs(r[0][0]) in (1, 2):
-            return [C2P[x] for x in r[0]], [C2P[x] for x in r[1]]
         return list(r[0]), list(r[1])
 
     best = {}

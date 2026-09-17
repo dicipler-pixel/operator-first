@@ -150,6 +150,7 @@ int main(int argc,char**argv){
     // T_K is built at CAP; the forward search may need to climb above K to reach it
     // (ac-02842 starts at 14 and its first length-13 states appear only at cap 19).
     int FCAP = (argc>=6) ? atoi(argv[5]) : CAP;
+    int bestmeet = getenv("BESTMEET") && atoi(getenv("BESTMEET"));
     if(FCAP>MAXW){ printf("FCAP_TOO_LARGE %d\n",FCAP); return 4; }
 
     static Side B,F;
@@ -191,6 +192,7 @@ int main(int argc,char**argv){
         if(l0+l1>CAP){ printf("%s START_OUTSIDE_CAP %d cap=%d\n",id,l0+l1,CAP); fflush(stdout); continue; }
 
         side_reset(&F);
+        static uint8_t bestout[200000]; int bestn=1<<30;
         St s0; memset(&s0,0,sizeof s0);
         packw(a,l0,&s0.a0,&s0.b0); s0.l0=l0;
         packw(b,l1,&s0.a1,&s0.b1); s0.l1=l1;
@@ -213,6 +215,18 @@ int main(int argc,char**argv){
                         int nf=chain(&F,fid,mf), nb=chain(&B,o,mb), n=0;
                         for(int k=0;k<nf;k++) out[n++]=mf[k];
                         for(int k=nb-1;k>=0;k--) out[n++]=INV[mb[k]];
+                        // BESTMEET: the first meet in forward-BFS order is the one with
+                        // the smallest FORWARD depth, NOT the shortest total path -- a
+                        // meet one level deeper can carry a much shorter backward chain.
+                        // ac-00104 came back 22 against a record of 21 for exactly this
+                        // reason. Keep the best total instead, and stop only when the
+                        // forward depth reaches it: beyond that no meet can improve,
+                        // because the backward chain is never negative. That bound makes
+                        // this the true shortest path through the ball, not a heuristic.
+                        if(bestmeet){
+                            if(n<bestn){ bestn=n; memcpy(bestout,out,n); }
+                            continue;
+                        }
                         printf("%s MEET len=%d states_f=%u depth_f=%u\nMOVES",id,n,F.nst,F.depth);
                         for(int k=0;k<n;k++) printf(" %d",out[k]);
                         printf("\n"); fflush(stdout);
@@ -223,6 +237,12 @@ int main(int argc,char**argv){
             }
             if(done) break;
             F.depth++; F.lvlend=F.nst;
+            if(bestmeet && bestn < (1<<30) && (int)F.depth >= bestn) break;
+        }
+        if(bestmeet && bestn < (1<<30)){
+            printf("%s MEET len=%d states_f=%u depth_f=%u\nMOVES",id,bestn,F.nst,F.depth);
+            for(int k=0;k<bestn;k++) printf(" %d",bestout[k]);
+            printf("\n"); fflush(stdout); done=1;
         }
         if(!done){
             if(F.lvlend<=F.head) printf("%s CLOSED_F component=%u depth_f=%u\n",id,F.nst,F.depth);
