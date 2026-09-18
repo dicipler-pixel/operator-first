@@ -18,6 +18,7 @@ INV = {0:0, 1:1, 2:3, 3:2, 4:5, 5:4, 6:7, 7:6, 8:9, 9:8, 10:11, 11:10, 12:13, 13
 LET = {"x": 0, "x^-1": 1, "y": 2, "y^-1": 3}
 CAP = 40           # max letters per relator inside the search
 NODE_CAP = 5_000_000
+SLACK = int(__import__('os').environ.get('MIN_SLACK', '8'))
 
 def load_board(p):
     out = {}
@@ -32,11 +33,16 @@ def load_board(p):
         out[d["challenge_id"]] = (ws[0], ws[1])
     return out
 
+#: total-length bound for intermediate states, set per row from the start.
+BOUND = [10 ** 6]
+
 def neighbours(st):
     r0, r1 = list(st[0]), list(st[1])
     for m in range(14):
         a, b = R.apply_move(r0, r1, m)
         if not a or not b or len(a) > CAP or len(b) > CAP:
+            continue
+        if len(a) + len(b) > BOUND[0]:
             continue
         yield m, (tuple(a), tuple(b))
 
@@ -120,6 +126,9 @@ def main():
     for n, (cid, mv) in enumerate(rows, 1):
         prefix = mv[:-2]
         start = tuple(tuple(R.free_reduce(list(w))) for w in board[cid])
+        # a shorter path rarely needs to grow far past the start; bounding the
+        # intermediate length is what makes the exhaustive search finish
+        BOUND[0] = sum(len(w) for w in start) + SLACK
         found, why = shorter_than(start, len(prefix), NODE_CAP)
         if found is not None:
             verdict = "SHORTER"
