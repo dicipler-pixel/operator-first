@@ -101,6 +101,7 @@ def main():
     ap.add_argument("--budget", type=int, default=20000)
     ap.add_argument("--only", help="file of challenge ids, one per line")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--shard", default="0/1", help="i/n: take every n-th row")
     ap.add_argument("--out", default="research/acc/sac/SWEEP_RESULTS.jsonl")
     a = ap.parse_args()
 
@@ -117,11 +118,16 @@ def main():
         ids = [i for i in ids if i in want]
     if a.limit:
         ids = ids[:a.limit]
+    si, sn = (int(v) for v in a.shard.split("/"))
+    ids = [c for n, c in enumerate(ids) if n % sn == si]
 
     solved = 0
     with open(a.out, "w") as f:
         for n, cid in enumerate(ids, 1):
             r0, r1 = board[cid]
+            if n % 100 == 0:
+                print(f"  .. {n}/{len(ids)} scanned, {solved} solved "
+                      f"({time.time()-t0:.0f}s)", flush=True)
             path = solve(r0, r1, ball, a.budget, a.search_cap)
             if path is None:
                 continue
@@ -133,9 +139,8 @@ def main():
             f.write(json.dumps({"id": cid, "len": len(path) + 2,
                                 "moves": path + [16, 15]}) + "\n")
             f.flush()
-            if solved % 10 == 0:
-                print(f"  {n}/{len(ids)} scanned, {solved} solved "
-                      f"({time.time()-t0:.0f}s)", flush=True)
+            print(f"  +{cid} {len(path)+2} moves  [{n}/{len(ids)} scanned, "
+                  f"{solved} solved, {time.time()-t0:.0f}s]", flush=True)
     print(f"DONE {len(ids)} scanned, {solved} solved, {time.time()-t0:.0f}s")
 
 if __name__ == "__main__":
