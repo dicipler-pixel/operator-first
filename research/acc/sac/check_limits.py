@@ -23,6 +23,10 @@ def load_board(p):
 def main():
     f = sys.argv[1] if len(sys.argv) > 1 else "research/acc/sac/SAC_SUBMIT_FINAL.txt"
     board = load_board("research/acc/sac/stable_ac.jsonl")
+    # AC rows are the same presentations under the ac- prefix; their target is
+    # (x, y) rather than the empty presentation.
+    for k in list(board):
+        board[k.replace("sac-", "ac-")] = board[k]
     rows = []
     for line in open(f):
         line = line.strip()
@@ -48,8 +52,9 @@ def main():
             worst["length"] = max(worst["length"], tot)
             worst["rank"] = max(worst["rank"], len(st))
         else:
-            if st != ():
-                fails.append((cid, None, "did not reach the empty presentation"))
+            want = ((1,), (2,)) if cid.startswith("ac-") else ()
+            if st != want:
+                fails.append((cid, None, f"did not reach {'(x, y)' if want else 'the empty presentation'}"))
         worst["work"] = max(worst["work"], work)
 
     got = {"lines": len(rows), "bytes": os.path.getsize(f), **worst}
