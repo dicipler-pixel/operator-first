@@ -92,32 +92,44 @@ def tail(ball, state):
     return out
 
 def solve(r0, r1, ball, budget, slack):
+    """Best-first on dM with a length-slack bound. Parent pointers, not
+    stored move lists, so memory stays proportional to states visited."""
     start = (tuple(R.free_reduce(list(r0))), tuple(R.free_reduce(list(r1))))
     cap = len(start[0]) + len(start[1]) + slack
     if start in ball:
         return tail(ball, start)
-    seen = {start: 0}
-    pq = [(dM(start), 0, start, [])]
+    parent = {start: (None, None)}       # state -> (prev, move)
+    depth = {start: 0}
+    pq = [(dM(start), 0, start)]
     n = 0
+
+    def rebuild(st):
+        out = []
+        while parent[st][0] is not None:
+            st, m = parent[st]
+            out.append(m)
+        return list(reversed(out))
+
     while pq and n < budget:
-        _, g, st, path = heapq.heappop(pq)
+        _, g, st = heapq.heappop(pq)
         n += 1
+        if depth.get(st, 1 << 30) < g:
+            continue
         a0, b0 = list(st[0]), list(st[1])
         for m in range(14):
             a, b = R.apply_move(a0, b0, m)
             if not a or not b or len(a) + len(b) > cap:
                 continue
             k = (tuple(a), tuple(b))
-            if k in seen and seen[k] <= g + 1:
+            if k in depth and depth[k] <= g + 1:
                 continue
-            seen[k] = g + 1
-            np = path + [m]
+            depth[k] = g + 1
+            parent[k] = (st, m)
             if k in ball:
                 t = tail(ball, k)
                 if t is not None:
-                    return np + t
-            # key on dM first, then length: climb the plateau, not the hill
-            heapq.heappush(pq, (dM(k) * 4 + (len(a) + len(b)) // 4 + g, g + 1, k, np))
+                    return rebuild(k) + t
+            heapq.heappush(pq, (dM(k) * 4 + (len(a) + len(b)) // 4 + g, g + 1, k))
     return None
 
 def main():
