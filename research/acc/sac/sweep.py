@@ -110,7 +110,8 @@ def main():
     print(f"ball: depth {a.ball_depth} cap {a.ball_cap} -> {len(ball):,} states "
           f"({time.time()-t0:.1f}s)", flush=True)
 
-    ids = sorted(board)
+    # easiest first: total relator length is the best cheap difficulty proxy
+    ids = sorted(board, key=lambda c: (len(board[c][0]) + len(board[c][1]), c))
     if a.only:
         want = {l.strip() for l in open(a.only) if l.strip()}
         ids = [i for i in ids if i in want]
@@ -132,7 +133,7 @@ def main():
             f.write(json.dumps({"id": cid, "len": len(path) + 2,
                                 "moves": path + [16, 15]}) + "\n")
             f.flush()
-            if solved % 25 == 0:
+            if solved % 10 == 0:
                 print(f"  {n}/{len(ids)} scanned, {solved} solved "
                       f"({time.time()-t0:.0f}s)", flush=True)
     print(f"DONE {len(ids)} scanned, {solved} solved, {time.time()-t0:.0f}s")
