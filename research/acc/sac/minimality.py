@@ -17,7 +17,7 @@ TRIVIAL = ((0,), (2,))
 INV = {0:0, 1:1, 2:3, 3:2, 4:5, 5:4, 6:7, 7:6, 8:9, 9:8, 10:11, 11:10, 12:13, 13:12}
 LET = {"x": 0, "x^-1": 1, "y": 2, "y^-1": 3}
 CAP = 40           # max letters per relator inside the search
-NODE_CAP = 900_000
+NODE_CAP = 5_000_000
 
 def load_board(p):
     out = {}
@@ -40,15 +40,32 @@ def neighbours(st):
             continue
         yield m, (tuple(a), tuple(b))
 
-def shorter_than(start, limit):
-    """Exhaustive bidirectional BFS for a path start -> TRIVIAL of length
-    < limit. Returns (moves, None) if found, (None, 'exhausted'|'capped')."""
+def shorter_than(start, limit, node_cap):
+    """Exhaustive bidirectional BFS for a path start -> TRIVIAL shorter than
+    `limit`. Parent pointers rather than stored move lists, so memory stays
+    proportional to states visited. Returns (moves, None) if a shorter path
+    exists, else (None, 'exhausted'|'capped')."""
     if start == TRIVIAL:
         return [], None
-    fwd, bwd = {start: []}, {TRIVIAL: []}
+    fwd = {start: (None, None)}          # state -> (parent, move_from_parent)
+    bwd = {TRIVIAL: (None, None)}
     ff, bf = [start], [TRIVIAL]
     df = db = 0
-    nodes = 0
+
+    def path_fwd(st):
+        out = []
+        while fwd[st][0] is not None:
+            st, m = fwd[st]
+            out.append(m)
+        return list(reversed(out))
+
+    def path_bwd(st):
+        out = []
+        while bwd[st][0] is not None:
+            st, m = bwd[st]
+            out.append(INV[m])
+        return out
+
     while df + db < limit - 1:
         if len(ff) <= len(bf):
             nxt = []
@@ -56,10 +73,9 @@ def shorter_than(start, limit):
                 for m, ns in neighbours(st):
                     if ns in fwd:
                         continue
-                    nodes += 1
-                    fwd[ns] = fwd[st] + [m]
+                    fwd[ns] = (st, m)
                     if ns in bwd:
-                        return fwd[ns] + [INV[x] for x in reversed(bwd[ns])], None
+                        return path_fwd(ns) + path_bwd(ns), None
                     nxt.append(ns)
             ff = nxt
             df += 1
@@ -69,14 +85,13 @@ def shorter_than(start, limit):
                 for m, ns in neighbours(st):
                     if ns in bwd:
                         continue
-                    nodes += 1
-                    bwd[ns] = bwd[st] + [m]
+                    bwd[ns] = (st, m)
                     if ns in fwd:
-                        return fwd[ns] + [INV[x] for x in reversed(bwd[ns])], None
+                        return path_fwd(ns) + path_bwd(ns), None
                     nxt.append(ns)
             bf = nxt
             db += 1
-        if nodes > NODE_CAP:
+        if len(fwd) + len(bwd) > node_cap:
             return None, "capped"
         if not ff or not bf:
             return None, "exhausted"
@@ -105,7 +120,7 @@ def main():
     for n, (cid, mv) in enumerate(rows, 1):
         prefix = mv[:-2]
         start = tuple(tuple(R.free_reduce(list(w))) for w in board[cid])
-        found, why = shorter_than(start, len(prefix))
+        found, why = shorter_than(start, len(prefix), NODE_CAP)
         if found is not None:
             verdict = "SHORTER"
             new = found + [16, 15]
