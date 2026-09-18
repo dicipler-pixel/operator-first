@@ -113,6 +113,59 @@ def _align(u, target, base):
     return None
 
 
+def align_cost(u, target, base):
+    """Move cost of _align(u, target, base) without building the path, or None.
+
+    Ranking splice candidates by projected length alone is wrong: the projection
+    i + min_suffix ignores the symmetry transport, and transport was measured at
+    3-9 moves on the near-record rows -- the same margin those rows need. This
+    prices the route so the router can rank by projected + transport instead of a
+    lower bound that omits the deciding term.
+    """
+    down, cu, _ = _core(u, base)
+    _, ct_core, ct = _core(target, base)
+    best = None
+    for inv_flag in (0, 1):
+        w = invert(cu) if inv_flag else list(cu)
+        if len(w) != len(ct_core):
+            continue
+        for rot in range(len(w) or 1):
+            if w[rot:] + w[:rot] != list(ct_core):
+                continue
+            c = len(down) + (1 if inv_flag else 0) + rot + len(ct)
+            if best is None or c < best:
+                best = c
+    return best
+
+
+def pair_cost(B, A):
+    """Total transport cost to bring pair B onto pair A, or None if unreachable.
+
+    Mirrors bridge_pair's search over Type-I maps and the swap, but only prices
+    it. Cheap enough to run over every candidate before committing to any.
+    """
+    best = None
+    for s in T1:
+        sig = _t1_aut(s)
+        u0 = apply_aut(list(B[0]), sig)
+        u1 = apply_aut(list(B[1]), sig)
+        for swapped in (0, 1):
+            pre = len(swap_moves(u0)) if swapped else 0
+            v0, v1 = (u1, u0) if swapped else (u0, u1)
+            c0 = align_cost(v0, A[0], 6)
+            if c0 is None:
+                continue
+            c1 = align_cost(v1, A[1], 10)
+            if c1 is None:
+                continue
+            # a non-identity Type-I map transports the whole SUFFIX, whose
+            # conjugations inflate; priced separately by the caller when needed
+            c = pre + c0 + c1
+            if best is None or c < best:
+                best = c
+    return best
+
+
 def bridge_pair(B, A, Q):
     """Path solving pair B, reusing Q which solves pair A. None if unrelated.
 
