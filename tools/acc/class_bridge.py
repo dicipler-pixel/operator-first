@@ -56,29 +56,60 @@ def _t1_aut(s):
     return ([s[0]], [s[2]])
 
 
+def _core(w, base):
+    """Conjugate w down to its cyclic core. Returns (moves, core, conjugator).
+
+    w = c . core . c^-1, and conjugating by the front letter's inverse strips one
+    letter off each end: a^-1 . (a u a^-1) . a = u, which is move base + (a^1).
+    """
+    mv, cur, conj = [], list(w), []
+    while len(cur) >= 2 and cur[0] == (cur[-1] ^ 1):
+        conj.append(cur[0])
+        mv.append(base + (cur[0] ^ 1))
+        cur = cur[1:-1]
+    return mv, cur, conj
+
+
+def _uncore(conj, base):
+    """Moves rebuilding c . core . c^-1 from the core, innermost letter first."""
+    return [base + g for g in reversed(conj)]
+
+
 def _align(u, target, base):
     """Moves turning relator u into `target` by inversion + rotation, or None.
 
-    base is 6 for r0, 10 for r1. Conjugation is g.r.g^-1, so rotating the front
-    letter a to the back is conjugation by a^-1, i.e. move base + (a^1).
+    base is 6 for r0, 10 for r1.
+
+    The earlier version required len(u) == len(target) and so refused any pair
+    that are conjugates of the SAME cyclic core by DIFFERENT conjugators -- which
+    is most of what the index actually offers, because canon compares cyclically
+    reduced words. That recall gap, not the search, was what blocked the
+    cross-row splices the harness had already located.
+
+    The general route has three legs, all of them real moves:
+        conjugate u DOWN to its cyclic core      (|c_u| conjugations)
+        invert and/or rotate the core            (1 + rot moves)
+        conjugate UP to target's conjugator      (|c_t| conjugations)
     """
+    down, cu, _ = _core(u, base)
+    _, ct_core, ct = _core(target, base)
     for inv_flag in (0, 1):
-        w = invert(u) if inv_flag else list(u)
-        if len(w) != len(target):
+        w = invert(cu) if inv_flag else list(cu)
+        # inverting a cyclically reduced word leaves it cyclically reduced
+        if len(w) != len(ct_core):
             continue
         for rot in range(len(w) or 1):
-            if w[rot:] + w[:rot] == list(target):
-                mv = [base + 1] if inv_flag and base == 6 else []
-                if inv_flag and base == 10:
-                    mv = [1]
-                elif inv_flag:
-                    mv = [0]
-                # rotate: move the first letter to the back, rot times
-                cur = list(w)
-                for _ in range(rot):
-                    mv.append(base + (cur[0] ^ 1))
-                    cur = cur[1:] + cur[:1]
-                return mv
+            if w[rot:] + w[:rot] != list(ct_core):
+                continue
+            mv = list(down)
+            if inv_flag:
+                mv.append(0 if base == 6 else 1)
+            cur = list(w)
+            for _ in range(rot):
+                mv.append(base + (cur[0] ^ 1))
+                cur = cur[1:] + cur[:1]
+            mv.extend(_uncore(ct, base))
+            return mv
     return None
 
 
