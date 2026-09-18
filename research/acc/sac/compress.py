@@ -77,7 +77,7 @@ def bfs_between(a, b, maxd):
             break
     return None
 
-def compress(initial, moves, window=6, rounds=4):
+def compress(initial, moves, window=8, rounds=5):
     cur = list(moves)
     for _ in range(rounds):
         seq = states_along(initial, cur)
@@ -122,7 +122,8 @@ def main():
     wins = 0
     with open(out, "w") as f:
         for n, (cid, moves) in enumerate(rows, 1):
-            short = compress(board[cid], moves)
+            tail = moves[-2:] if moves[-2:] == [16, 15] else []
+            short = compress(board[cid], moves[:-2] if tail else moves) + tail
             ok, why = S.verify(board[cid], short)
             if not ok:
                 print(f"  REJECT {cid}: {why}", flush=True)
