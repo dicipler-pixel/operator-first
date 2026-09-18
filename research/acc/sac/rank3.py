@@ -110,7 +110,11 @@ def search(start, width, steps, ceiling, rng):
         if not cand:
             return None
         cand.sort(key=lambda z: z[0])
-        cur = [(s, p) for _c, s, p in cand[:width]]
+        keep = cand[:width // 2]
+        rest = cand[width // 2:width * 6]
+        if rest:
+            keep += rng.sample(rest, min(len(rest), width - len(keep)))
+        cur = [(s, p) for _c, s, p in keep]
         seen.update(s for s, _p in cur)
         if len(seen) > 1_500_000:
             return None

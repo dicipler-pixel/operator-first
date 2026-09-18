@@ -85,7 +85,13 @@ def run(start, ball, width, steps, ceiling, rng):
         if not cand:
             return None
         cand.sort(key=lambda z: z[0])
-        cur = [(k, p) for _s, k, p in cand[:width]]
+        # half the beam on merit, half sampled from the rest, so that
+        # separate seeds explore genuinely different excursions
+        keep = cand[:width // 2]
+        rest = cand[width // 2:width * 6]
+        if rest:
+            keep += rng.sample(rest, min(len(rest), width - len(keep)))
+        cur = [(k, p) for _s, k, p in keep]
         seen.update(k for k, _p in cur)
         if len(seen) > 3_000_000:
             return None
