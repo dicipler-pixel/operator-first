@@ -77,7 +77,7 @@ def bfs_between(a, b, maxd):
             break
     return None
 
-def compress(initial, moves, window=8, rounds=5):
+def compress(initial, moves, window=10, rounds=5):
     cur = list(moves)
     for _ in range(rounds):
         seq = states_along(initial, cur)
