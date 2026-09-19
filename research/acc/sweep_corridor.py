@@ -6,14 +6,17 @@ from verifier import core
 LIM={"max_path_length":100000,"max_total_relator_length":10000,"max_work":5000000}
 
 ids=json.loads(sys.argv[1]) if sys.argv[1].startswith("[") else json.load(open(sys.argv[1]))
-CAPS=[int(c) for c in sys.argv[2].split(",")]
+# caps are RELATIVE to each row's start total length ("+0,+2,+4"), or absolute ("16,18")
+CAPSPEC=sys.argv[2]; RELATIVE=CAPSPEC.strip().startswith("+")
+CAPS=[int(c) for c in CAPSPEC.replace("+","").split(",")]
 BUDGET=int(sys.argv[3]); OUT=sys.argv[4]
 
 recs=[]; found=[]
 for i,cid in enumerate(ids,1):
     ch=manifest()[cid]; start=sum(len(w) for w in ch["initial_relators"])
     best=None
-    for cap in CAPS:
+    caps=[start+c for c in CAPS] if RELATIVE else CAPS
+    for cap in caps:
         if cap<start: continue
         t=time.time()
         try: r=run(cid,cap,BUDGET,timeout=600)
