@@ -1,0 +1,1630 @@
+{
+ "source_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+ "ac_blob": "09434a6e46090e6c086afa1104b49a4f890a4855",
+ "stable_blob": "001da23a60777023522944f4168a78d1bc838bb2",
+ "move_spec_version": "ac-r2-v1",
+ "move_spec_hash": "sha256:e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+ "stable_move_spec_version": "sac-r8-v1",
+ "stable_move_spec_hash": "sha256:27ecd0ebd4af39871cbfb23ecbd8be73710e85e04d8be788c1d81117d9f4b2b0",
+ "letter_encoding": {
+  "x": 1,
+  "x^-1": -1,
+  "y": 2,
+  "y^-1": -2
+ },
+ "digit_shorthand": {
+  "0": "x",
+  "1": "x^-1",
+  "2": "y",
+  "3": "y^-1"
+ },
+ "ac_target": [
+  [
+   1
+  ],
+  [
+   2
+  ]
+ ],
+ "stable_target": [],
+ "generated_by": "automated join of config/board_102.json against the official manifest at the pinned commit; never transcribed",
+ "cases": {
+  "00056": {
+   "ac_id": "ac-00056",
+   "stable_id": "sac-00056",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -1,
+     -2,
+     1,
+     1,
+     1
+    ],
+    [
+     -2,
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     2,
+     1
+    ]
+   ],
+   "total_length": 16,
+   "ac_instance_hash": "sha256:0a34101da80aeec3545da922d7aaacf22a63aa48b42115754f66f3b545bc7adc",
+   "stable_instance_hash": "sha256:375bb50e1f1d18f1bd522a2038d77cf97ea76569a4aefdee394fad400b963d50",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "00084": {
+   "ac_id": "ac-00084",
+   "stable_id": "sac-00084",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     -1
+    ],
+    [
+     -2,
+     -1,
+     -1,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     1
+    ]
+   ],
+   "total_length": 16,
+   "ac_instance_hash": "sha256:e50d061cb83199a0b0e49fb881242c029dd52de7a8645f74da278561779431f4",
+   "stable_instance_hash": "sha256:94208146c0b77ae2b7b83ec6f4777a25aed3ff6601bee3ddce16cd1fa3f4652f",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "00413": {
+   "ac_id": "ac-00413",
+   "stable_id": "sac-00413",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -1,
+     -1,
+     2,
+     1,
+     1
+    ]
+   ],
+   "total_length": 14,
+   "ac_instance_hash": "sha256:7d8a08afd4c3582d7a9ddb6451db26888f7ca69350936d350f23e67bff261865",
+   "stable_instance_hash": "sha256:7693f7fc221839893927bf91633d6ab8816b659933fd473ee579649b1b96ff57",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "00472": {
+   "ac_id": "ac-00472",
+   "stable_id": "sac-00472",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -2,
+     1,
+     2,
+     1
+    ],
+    [
+     -2,
+     -2,
+     -2,
+     -2,
+     -2,
+     1,
+     1,
+     1,
+     1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:5c6c0b364280f253d6f066c3e2b6501fce60a948cd151e6ac48111ea7fd4d5eb",
+   "stable_instance_hash": "sha256:083865cd0a5e43658cfa90a6aad0f74fba79713d17ad32a2198a9abca7dd0f37",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "00491": {
+   "ac_id": "ac-00491",
+   "stable_id": "sac-00491",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     1,
+     -2,
+     1,
+     2,
+     -1
+    ],
+    [
+     -2,
+     -1,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     -2,
+     1
+    ]
+   ],
+   "total_length": 16,
+   "ac_instance_hash": "sha256:c0e68b4e2bf66fc442ed54b10e3b98a88634ffe0423b4046f125c4da36a2c4d4",
+   "stable_instance_hash": "sha256:d15719ea028dd827513869f97b543d4867baef6b7601dd2629bc8b8f9c7e02bd",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "00719": {
+   "ac_id": "ac-00719",
+   "stable_id": "sac-00719",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     -1,
+     2,
+     1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:e7a5975790a60a1017a7ad2c1b03f4121fc3951002a20cfd045163711414dfa3",
+   "stable_instance_hash": "sha256:e7c0ae4c574722bd8942224d8c50ea98c119cf68afbe2a3a5d7e431abf3d898c",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "01571": {
+   "ac_id": "ac-01571",
+   "stable_id": "sac-01571",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     2,
+     -1,
+     2,
+     1,
+     1,
+     1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:265130efb011f17629d26c8c305c29e4ad33c6b708a6c3ea7d097dacd290149f",
+   "stable_instance_hash": "sha256:549d62c8bdb6f0bacc7c7f1e9145e7bd2ed83ef23ce0a0e3893a9c88e6a9ef4e",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "01887": {
+   "ac_id": "ac-01887",
+   "stable_id": "sac-01887",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -2,
+     1,
+     2,
+     -1,
+     -2,
+     -1,
+     -1
+    ],
+    [
+     -2,
+     -1,
+     -1,
+     -2,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     1
+    ]
+   ],
+   "total_length": 19,
+   "ac_instance_hash": "sha256:02fc71c8a9361ebea9912a9eceea5a2c2d6ecaa5f1900a0feee541822d241fa2",
+   "stable_instance_hash": "sha256:a0cfe03041b2d482a53a6a10205fdf02e3af1d5c026e7e625e0779388efb7e24",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "02003": {
+   "ac_id": "ac-02003",
+   "stable_id": "sac-02003",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -1,
+     -1,
+     2,
+     1,
+     1
+    ],
+    [
+     -2,
+     -1,
+     2,
+     -1,
+     -1,
+     -1,
+     -1,
+     2,
+     -1,
+     -1,
+     -1,
+     2,
+     -1,
+     -2,
+     1,
+     1,
+     1
+    ]
+   ],
+   "total_length": 24,
+   "ac_instance_hash": "sha256:72daaf06ec3bb27099f3109a4c0cb359fc9eacf956a85e728bd6bb859c9c6add",
+   "stable_instance_hash": "sha256:3a6f125257fe15657b661aad8b000bc52d1915cef282cfab2e06c1e9104b5aea",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "02089": {
+   "ac_id": "ac-02089",
+   "stable_id": "sac-02089",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     1
+    ]
+   ],
+   "total_length": 14,
+   "ac_instance_hash": "sha256:fb1e9c9459924b404921549541da3e60fc009c40519329974589980efa1383cc",
+   "stable_instance_hash": "sha256:960873ad48994d92eeb0898feac3ece736edc588925d0b0de79c2c64b603e394",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "02178": {
+   "ac_id": "ac-02178",
+   "stable_id": "sac-02178",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     1,
+     -2,
+     1,
+     2,
+     -1,
+     -1
+    ]
+   ],
+   "total_length": 16,
+   "ac_instance_hash": "sha256:d3fa24f2a5e666d90266fe97139bfb942779b05fcbb7ffaa6b6e74feb851c707",
+   "stable_instance_hash": "sha256:ed85bea9a512d5cc99b97f845dbcd1abb08624f56df2c117c9ad5ae294ec35b5",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "02216": {
+   "ac_id": "ac-02216",
+   "stable_id": "sac-02216",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -1,
+     -2,
+     1,
+     1,
+     2,
+     -1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:e9221634df9d2abec665fd59cf884e0bc060e4f7a3a231cb03c87e675d552abf",
+   "stable_instance_hash": "sha256:7be608d7f4eeb0c22a8ac4ae1b49d379008b5a0322d74a725b2ba1421e03aaca",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "02217": {
+   "ac_id": "ac-02217",
+   "stable_id": "sac-02217",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     -1,
+     2,
+     -1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:24cd660a829d92042726dd5912585fd2b092d5e6152b5de167c7f2fdabb5d59d",
+   "stable_instance_hash": "sha256:ba9eff250c64184b3d00c84ed590619f6d8df861bd9ae7fda007facddbe88e62",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "02554": {
+   "ac_id": "ac-02554",
+   "stable_id": "sac-02554",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -2,
+     1,
+     1,
+     2,
+     -1
+    ],
+    [
+     -2,
+     -1,
+     2,
+     -1,
+     2,
+     1,
+     -2,
+     1,
+     -2,
+     1
+    ]
+   ],
+   "total_length": 17,
+   "ac_instance_hash": "sha256:61eadb29dd2021fe0a10322c5ddead81bf069231e5cf68d75a3dde3d1d1492b0",
+   "stable_instance_hash": "sha256:eeecca5b708f2733b09de1630161cdaa3145432f8774484fc20f22faa11fcc89",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "02555": {
+   "ac_id": "ac-02555",
+   "stable_id": "sac-02555",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -2,
+     -1,
+     2,
+     -1,
+     -1,
+     -2,
+     1,
+     1
+    ]
+   ],
+   "total_length": 16,
+   "ac_instance_hash": "sha256:e204c263bdbdff2c9dfff8d111882fd73ec3cbf2a14907ee5189db02b68667da",
+   "stable_instance_hash": "sha256:a3526dbe057fcb4620d618cd7b6a56d6c98ab9997a5029061af9261b6cc28736",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "02563": {
+   "ac_id": "ac-02563",
+   "stable_id": "sac-02563",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     1,
+     1,
+     1,
+     2,
+     -1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:51b5fcd966a519be40b5923ad6cd5c6404ab8ee15dc1060af71ef32982bee48b",
+   "stable_instance_hash": "sha256:f9d29ec60f9f8737569a1904dc6f5540cf42e6e34624fa818c43f5ea2bd66cc8",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "02576": {
+   "ac_id": "ac-02576",
+   "stable_id": "sac-02576",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     1,
+     1
+    ],
+    [
+     -2,
+     -2,
+     -2,
+     1,
+     1,
+     2,
+     2,
+     -1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:15e7b4b432aeb0348fcb25895b36eeeb260ebd510cd064477c8e8205eaa3059a",
+   "stable_instance_hash": "sha256:c118835e275cf6a31d95c6ac0d219f9a9871e7e0827fd8b824b485460d31ec4d",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "02698": {
+   "ac_id": "ac-02698",
+   "stable_id": "sac-02698",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     -1,
+     -2,
+     1,
+     2,
+     1,
+     1
+    ]
+   ],
+   "total_length": 16,
+   "ac_instance_hash": "sha256:6e6b48b8c328db8e6a7ba1f7eff86bc424d12b8c29b07fdc8de00cefbff5b3d4",
+   "stable_instance_hash": "sha256:bf65d5786e2d125c8d4900673c726d6eece520569c5f5e6e6bbaf34274174aba",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "02803": {
+   "ac_id": "ac-02803",
+   "stable_id": "sac-02803",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -1,
+     -1,
+     -2,
+     1,
+     1
+    ],
+    [
+     -2,
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     2,
+     1
+    ]
+   ],
+   "total_length": 16,
+   "ac_instance_hash": "sha256:dc3263aaf98911ba10f0e23c15bcd636b9bead6cbfda90d4f19bba6bf5c6f05f",
+   "stable_instance_hash": "sha256:2d28f30c1d2c496ddca1ff103fd85ad9f7304cc7dc20183bc7448424e415026b",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "02883": {
+   "ac_id": "ac-02883",
+   "stable_id": "sac-02883",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -1,
+     -2,
+     1,
+     1,
+     -2,
+     1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:774605bdccb5c3b6e1a227255ac99b3c7feb0ddee7e47f9007a22bc35e5ee120",
+   "stable_instance_hash": "sha256:cf38f845a5ff2559e3821321a5d90e691fc9015a7eb5aabbd23ca2fa133ad355",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "02923": {
+   "ac_id": "ac-02923",
+   "stable_id": "sac-02923",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     2,
+     1,
+     1,
+     2,
+     -1
+    ],
+    [
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1,
+     -2,
+     1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:10a6fc6c4799c923e529bec1cfdf35e00e76ac936d612bd040a9704f323c1276",
+   "stable_instance_hash": "sha256:1c9608aa1b40048102cfedb6ce33e7b90dad3065f1a43f07077e1391a6d23651",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "03238": {
+   "ac_id": "ac-03238",
+   "stable_id": "sac-03238",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -1,
+     -1,
+     2,
+     1,
+     1
+    ],
+    [
+     -2,
+     -1,
+     2,
+     -1,
+     -1,
+     2,
+     -1,
+     -1,
+     2,
+     1,
+     -2,
+     1,
+     1,
+     1
+    ]
+   ],
+   "total_length": 21,
+   "ac_instance_hash": "sha256:7f1ca14d1be2cfa9093493f53987550122c052a91c6278c93868d4c1c4556479",
+   "stable_instance_hash": "sha256:87c6094a6d23c9fd3a1c74a073ec2e6c4a950ce10e3d88456bdecd64eddd8bb5",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "03467": {
+   "ac_id": "ac-03467",
+   "stable_id": "sac-03467",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -1,
+     -2,
+     1,
+     1,
+     1
+    ]
+   ],
+   "total_length": 14,
+   "ac_instance_hash": "sha256:b65e847fbc587dbe6dfc91d8d20724b0c6559fc5f4c2af676473502b2f69da28",
+   "stable_instance_hash": "sha256:9578aceaabc7467dd5edc886c3bde1e4a7498e4c5a8f26e26e51b98d6647636d",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "03706": {
+   "ac_id": "ac-03706",
+   "stable_id": "sac-03706",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     1,
+     2,
+     -1,
+     -2,
+     -1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     1
+    ]
+   ],
+   "total_length": 16,
+   "ac_instance_hash": "sha256:59c70ab839bfe842a3fe3ba28e232c7005e527d58946589ee54c6d22a01bf419",
+   "stable_instance_hash": "sha256:48d97fef65c67a51f51fb333075cfe89b66ac13147752941050e88f67fe4f546",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "03707": {
+   "ac_id": "ac-03707",
+   "stable_id": "sac-03707",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     -1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     -1,
+     -2,
+     -1,
+     -2,
+     -1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1
+    ]
+   ],
+   "total_length": 21,
+   "ac_instance_hash": "sha256:400b66c7d30b08b8330a716503ed6ab4d2798c77bd20d817a6aa6844773efef7",
+   "stable_instance_hash": "sha256:bdfccb0e1df2676f5a871070e736696271f503af4b2fc3bbb5fb9b31fb70f26e",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "04376": {
+   "ac_id": "ac-04376",
+   "stable_id": "sac-04376",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     1,
+     2,
+     2,
+     -1
+    ],
+    [
+     -2,
+     -1,
+     -1,
+     -1,
+     2,
+     1,
+     1
+    ]
+   ],
+   "total_length": 14,
+   "ac_instance_hash": "sha256:d8238a1de981a46473f33e3d4bec1c07dbb8fae68575946a8231ffdfeb05cf72",
+   "stable_instance_hash": "sha256:915d56c94c3479910ac86714c46f518b4492a4288ecb62c90b86bb191ab035b3",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "04720": {
+   "ac_id": "ac-04720",
+   "stable_id": "sac-04720",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     1,
+     2,
+     1,
+     1,
+     2,
+     -1
+    ]
+   ],
+   "total_length": 16,
+   "ac_instance_hash": "sha256:18197ca76a867d41d99b7deca9b7fa8f0987d95e74a5a116ad2ff7c535c1e016",
+   "stable_instance_hash": "sha256:1248c987f80d4d16f3cb768c2a9aae2fb0d988b8c4a657793ebabe77bcae9c90",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "04947": {
+   "ac_id": "ac-04947",
+   "stable_id": "sac-04947",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     1,
+     2,
+     -1,
+     -1,
+     -1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     -1,
+     -2,
+     -1,
+     2,
+     1,
+     2,
+     1
+    ]
+   ],
+   "total_length": 17,
+   "ac_instance_hash": "sha256:35ece25b236906488cc878a4355ac996bc5155654199859f1a367423e342ed6e",
+   "stable_instance_hash": "sha256:25c555848036975efe1d9e1862847223677017fc877b2ef65b54b60c77377fa3",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "05710": {
+   "ac_id": "ac-05710",
+   "stable_id": "sac-05710",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     1,
+     2,
+     -1,
+     -2,
+     -1
+    ],
+    [
+     -2,
+     -2,
+     -1,
+     -1,
+     -1,
+     2,
+     1,
+     1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:1cff7b480fc695961cb8fd9bf1dd6b01d266e6a2a7a3b117560325139be4597d",
+   "stable_instance_hash": "sha256:e29af1a421fb0800c324b6267c2abf8430378bb6e52ee7238cb629bea3f691ce",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "05743": {
+   "ac_id": "ac-05743",
+   "stable_id": "sac-05743",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1,
+     -2,
+     -1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:b6962f83332bbe32a1a25e7dc6959da13efabcf4152cfa2636a2335359986ba7",
+   "stable_instance_hash": "sha256:5d13131cc420e8484d043825f12049287285096f32a5261b515789e408407575",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "05856": {
+   "ac_id": "ac-05856",
+   "stable_id": "sac-05856",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -2,
+     -1,
+     -1,
+     2,
+     1
+    ],
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1,
+     2,
+     1
+    ]
+   ],
+   "total_length": 16,
+   "ac_instance_hash": "sha256:03e28d75957d4cd61543fcfd6a0f9d823228805658778f5cda36f09e52430f6e",
+   "stable_instance_hash": "sha256:5b51e87834931d5e7fb3b80c2b5d1ce3b9993ea0d05b03594fb047261fde0eb3",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "05932": {
+   "ac_id": "ac-05932",
+   "stable_id": "sac-05932",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     1,
+     2,
+     2,
+     -1
+    ],
+    [
+     -2,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     1
+    ]
+   ],
+   "total_length": 14,
+   "ac_instance_hash": "sha256:84679feeff40082ad043de2373e2e9bd0cc34fc66ea37840c7af13137c272a93",
+   "stable_instance_hash": "sha256:6e24d689a405e1ad0ea0977964960a4d68efb94732515468f479ad312092f0c3",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "06104": {
+   "ac_id": "ac-06104",
+   "stable_id": "sac-06104",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     2,
+     -1,
+     -1,
+     -1,
+     2,
+     1,
+     1
+    ],
+    [
+     -2,
+     -1,
+     2,
+     -1,
+     2,
+     1,
+     -2,
+     1,
+     -2,
+     1
+    ]
+   ],
+   "total_length": 19,
+   "ac_instance_hash": "sha256:9f1b6732740029baa43b20fc688b49017c46b9d5100c2236fc5acb019af3e8e0",
+   "stable_instance_hash": "sha256:e6d5aae29163d3b82108b542081b5fbecfc9a549f05390b7b2b40fdbe7c48867",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "06576": {
+   "ac_id": "ac-06576",
+   "stable_id": "sac-06576",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     -1,
+     -2,
+     1,
+     1,
+     1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:8a083416631c301fb86f300b613fa6925c8416c5fc741b375b03596c1811a55b",
+   "stable_instance_hash": "sha256:62edd458b56bcd056afecf913f8dfe8be50d17d5334cc32c5359774b1adb6f72",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "06760": {
+   "ac_id": "ac-06760",
+   "stable_id": "sac-06760",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -1,
+     -1,
+     -1,
+     -2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     -1,
+     -2,
+     -1,
+     2,
+     1,
+     2,
+     1
+    ]
+   ],
+   "total_length": 17,
+   "ac_instance_hash": "sha256:d3d1b93b9bad98983e1aaba7cd5a17e6ca73c727db6761c434480a3138293ed9",
+   "stable_instance_hash": "sha256:1c1deea150aba1975e5945001f85b50463b77f1e8fc2fc0df2a983bc669a88ad",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "07314": {
+   "ac_id": "ac-07314",
+   "stable_id": "sac-07314",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     -2,
+     -2,
+     -2,
+     1,
+     2,
+     1,
+     2,
+     -1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:f6e15bf277304d9edc3a66bdfcd9d5b16248609196eab2eaf9a915ca6097bae0",
+   "stable_instance_hash": "sha256:8c2fdebca4a56b9f64cfd69b586a05e12ab55dbc7ea7be1784b783cec0f154ad",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "07698": {
+   "ac_id": "ac-07698",
+   "stable_id": "sac-07698",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -1,
+     -1,
+     -2,
+     1,
+     -2,
+     1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:5f775aef366e5eff9cb208fc5e7c62def9b4c6660032861ec804ce100716cf17",
+   "stable_instance_hash": "sha256:b0ad77474682bc9df15c331ba07577f5f31dcf985fcbb03571c7f30a7745528b",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "07804": {
+   "ac_id": "ac-07804",
+   "stable_id": "sac-07804",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -1,
+     -2,
+     1,
+     1,
+     1,
+     2,
+     -1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     -1,
+     -2,
+     -1,
+     2,
+     1,
+     2,
+     1
+    ]
+   ],
+   "total_length": 19,
+   "ac_instance_hash": "sha256:bccb8cae810fa2ba8dbb095cb5ece71aa831ec5748ab7629036d7adf2dbade32",
+   "stable_instance_hash": "sha256:a7c1e09c9e6c55d93a58c4f3390067e5e114ecdfba02fc4597deb62104764786",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "07856": {
+   "ac_id": "ac-07856",
+   "stable_id": "sac-07856",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     1,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     -1,
+     -2,
+     -1,
+     2,
+     1,
+     2,
+     1
+    ]
+   ],
+   "total_length": 19,
+   "ac_instance_hash": "sha256:077a2b7d45ce67c02d931b892c82dadc6783d20d56a717a61fe3d904e1d6e95e",
+   "stable_instance_hash": "sha256:6ebd89d9c1f6e8b2ceb8d1b5fa1912c62ba36a7537913db02b46df42987716a9",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "08126": {
+   "ac_id": "ac-08126",
+   "stable_id": "sac-08126",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -1,
+     -1,
+     -2,
+     1,
+     1
+    ]
+   ],
+   "total_length": 14,
+   "ac_instance_hash": "sha256:bf4161de3440c4f694af60b5304cadfcb360dd92db9cb2fd61dced0658d5e30c",
+   "stable_instance_hash": "sha256:f190dee99fba8492288d33f0c74237b19c91f206328cb739d1076c226f2d7936",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "08524": {
+   "ac_id": "ac-08524",
+   "stable_id": "sac-08524",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     2,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     -2,
+     -1,
+     2,
+     -1,
+     2,
+     1,
+     -2,
+     1,
+     -2,
+     1
+    ]
+   ],
+   "total_length": 19,
+   "ac_instance_hash": "sha256:b13d101e2b10f4c7f200d8f6b4a608a7d0be3ec5f45559a2585243fe71e7f8b2",
+   "stable_instance_hash": "sha256:066dc6d4f19df6fb0c3b3d39723937bb0fd390d99e4ccb2e304a8341382bbb37",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "08765": {
+   "ac_id": "ac-08765",
+   "stable_id": "sac-08765",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     2,
+     -1,
+     2,
+     1,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     -1,
+     -2,
+     -1,
+     2,
+     1,
+     2,
+     1
+    ]
+   ],
+   "total_length": 17,
+   "ac_instance_hash": "sha256:c9fb0209b3e14f59ac46e97c685a7f88aa4a6a5423fbc69d236b9aab15511696",
+   "stable_instance_hash": "sha256:a7d193eb8762adb2fed43b3e31955d6d76fc29c93b134d8b72ca4b11a5cc4fc1",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "08807": {
+   "ac_id": "ac-08807",
+   "stable_id": "sac-08807",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     -1,
+     2,
+     1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:6e6cb8ae20a4f4a9f20060a8ea95978157d05d1310f1d2dd85ebf061684bafd3",
+   "stable_instance_hash": "sha256:8b7a5dc2d3ad969a04acdad100955d441416b01e1153ca4ba5a7e91263ffaf48",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "09138": {
+   "ac_id": "ac-09138",
+   "stable_id": "sac-09138",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -1,
+     2,
+     -1,
+     -2,
+     1,
+     -2,
+     1
+    ]
+   ],
+   "total_length": 16,
+   "ac_instance_hash": "sha256:adf3b1959dd2993fb9ead069d675d2e64578d366688465c378b52d46b601b6bf",
+   "stable_instance_hash": "sha256:8ebdb03c6da4828fdfc1343e2cffed5136d8fb2ec56e221395054b768a19f434",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "09242": {
+   "ac_id": "ac-09242",
+   "stable_id": "sac-09242",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     1,
+     1,
+     2,
+     -1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     -1,
+     -2,
+     -1,
+     2,
+     1,
+     2,
+     1,
+     1
+    ]
+   ],
+   "total_length": 17,
+   "ac_instance_hash": "sha256:5af7fedc4ac5df499406d160b367e1ab68ac079226c22303ae6b8cad4d13c680",
+   "stable_instance_hash": "sha256:5d6a54ddd4304c30d15cdad37806043f4f03a601fbbc8068f5cc78cd1675a32e",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "09488": {
+   "ac_id": "ac-09488",
+   "stable_id": "sac-09488",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -2,
+     1,
+     1,
+     1,
+     -2,
+     1,
+     1
+    ],
+    [
+     -2,
+     -1,
+     2,
+     -1,
+     2,
+     1,
+     -2,
+     1,
+     -2,
+     1
+    ]
+   ],
+   "total_length": 19,
+   "ac_instance_hash": "sha256:df4df0d9a3bf3c9b0545e8d9a1c6393037634e2d200c4ac24eb86d904eb9c82e",
+   "stable_instance_hash": "sha256:100b11f5b329df371c68869b67b52cedf71683c25661f1e5c7f565e9fc4fef49",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "09571": {
+   "ac_id": "ac-09571",
+   "stable_id": "sac-09571",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     -2,
+     -2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1
+    ]
+   ],
+   "total_length": 16,
+   "ac_instance_hash": "sha256:7ca7edacfc44101c2c186f211525ca2839eaf6b8310357565d4e044b17dc22cc",
+   "stable_instance_hash": "sha256:876944c3b968f9b3fd961b2ea95aced449daf475befed167bdaacbfc491ddabf",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "09723": {
+   "ac_id": "ac-09723",
+   "stable_id": "sac-09723",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -2,
+     -1,
+     -1,
+     -1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     -1,
+     -2,
+     1,
+     2,
+     1,
+     2,
+     -1
+    ]
+   ],
+   "total_length": 17,
+   "ac_instance_hash": "sha256:1d1ae2add64d3a88cda86ba3ad4803dce4535b496626491590f26163e6766c44",
+   "stable_instance_hash": "sha256:4ea01e408ce61a698fa25cbbd44e3a70e3ca8834c9c9d0d3734b31ec80735f63",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "09827": {
+   "ac_id": "ac-09827",
+   "stable_id": "sac-09827",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     2,
+     -1,
+     -1,
+     2,
+     1,
+     1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:7f1439ea00b564c2442ff5fbfcdc0821da5caa14946a271caf1902162132092d",
+   "stable_instance_hash": "sha256:ceb003851720d7f15aa948cd6f8c2e43ccadea7f3ab2d67c96a60de2bd543465",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "09861": {
+   "ac_id": "ac-09861",
+   "stable_id": "sac-09861",
+   "initial_relators": [
+    [
+     -2,
+     -1,
+     -1,
+     -1,
+     -1,
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     -1,
+     -2,
+     -1,
+     2,
+     1,
+     2,
+     -1
+    ]
+   ],
+   "total_length": 19,
+   "ac_instance_hash": "sha256:867eedbefe925502d6f688cb5e00276facfbadba3604343572ca57daaa29c17b",
+   "stable_instance_hash": "sha256:918dbb34884c20a38213d4bd0854d7a8e3d9f458b96656e1fe2ac6f4da8fd939",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  },
+  "10066": {
+   "ac_id": "ac-10066",
+   "stable_id": "sac-10066",
+   "initial_relators": [
+    [
+     -2,
+     -2,
+     -2,
+     -1,
+     2,
+     2,
+     1
+    ],
+    [
+     -2,
+     -1,
+     -2,
+     -1,
+     -1,
+     -2,
+     1,
+     1
+    ]
+   ],
+   "total_length": 15,
+   "ac_instance_hash": "sha256:181152131fd5afa23c1863b2def90edbf7f31cd7925a74038244130d0e6767b5",
+   "stable_instance_hash": "sha256:326eee82f3f388d02889d015251e3983376a43d9bc4fd3e8bb7f20ab0729c7cb",
+   "ac_base_score": 1,
+   "stable_base_score": 1
+  }
+ }
+}

@@ -52,61 +52,86 @@ the run it appears in.
 
 ---
 
-## W0 — Pin the move table and the verifier (BLOCKING)
+## W0 — Official pins (INSTALLED, calibration GREEN)
 
-**Why this is first.** Every path in the handoff is a list of integer move
-indices (`[1,11,5,12,1]`, `[6,10,10,13,8,6,6,3,1]`, the Stable cleanup
-`[16,15]`). Those indices only mean something against the official move
-ordering. Indices 0–13 appear in ordinary paths and 15–16 in the Stable
-cleanup. Guessing the ordering produces code that runs, reports numbers and is
-wrong.
+**Do not infer any contract in this section. It is pinned, vendored and
+verified.** Earlier drafts of this file asked a session to reconstruct the move
+ordering and the digit convention from geometry. That was wrong: invariant
+checks exist to catch corruption, not to let each session rebuild the
+conventions from scratch.
 
-**Do this:**
+### Pinned sources
 
-1. Obtain from the official challenge materials, and commit under
-   `research/acc/config/`:
-   - `moves.json` — the ordered move table, index → exact operation, including
-     the Stable stabilization/destabilization entries and the generator cap (8).
-   - `presentations.csv` — official start presentation for every suffix on the
-     102-track board (`config/board_102.json`), in the encoding of
-     `acc/words.py`.
-   - the pinned verifier (vendored, or a recorded exact version + hash).
-2. Add `"pinned": true` plus a sha256 of the source material to `moves.json`.
-3. Make every entry point refuse to run when `pinned` is absent or false. Exit
-   non-zero with the reason. No default fallback table.
+SAIR repository, commit `a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e`:
 
-**Accept:** `python -m acc.cli calibrate` reproduces all of the following from
-`config/lanes.json` without special-casing:
-
-| check | expected |
+| artifact | pin |
 |---|---|
-| `ac-02216 --[1,11,5,12,1]--> ac-02555` | lands exactly; peak total length 18 |
-| depth-2 balls around `ac-02216` and `ac-02555` | 160 states each, disjoint |
-| `ac-02555 --[6,10,10,13,8,6,6,3,1]--> xxyxYXXy / xxYxyyXXy` | lands exactly; peak 20 |
-| depth-4 balls, same two endpoints | 14,475 and 14,476 states, disjoint |
-| `ac-02555 --[7,5,...,12,12,1]--> ac-02178` | 19 moves, peak 24 |
-| K basin `0002113 / 0020213303`, cap 17 | 280 states, CLOSED, target absent, 12 cheapest exits |
-| H junction `0002113 / 00022130312`, cap 18 | 45,856 states, CLOSED, 53,804 length-19 exits, 85 ordinary boundary reps |
-| abelianized determinant along every replay | constant ±1 |
-| digit convention | both basin roots give det ±1 (see below) |
+| `competition/tools/verifier/data/move_spec.json` | `ac-r2-v1`, `sha256:e13f57d8…e07643` |
+| `competition/tools/verifier/data/stable_move_spec.json` | `sac-r8-v1`, `sha256:27ecd0eb…f4b2b0` |
+| `competition/problems/ac.jsonl` | git blob `09434a6e46090e6c086afa1104b49a4f890a4855` |
+| `competition/problems/stable_ac.jsonl` | git blob `001da23a60777023522944f4168a78d1bc838bb2` |
 
-**One convention is already half-pinned.** The digit encoding is *not*
-`0=x, 1=y, 2=x⁻¹, 3=y⁻¹`. Under that reading the K basin root
-`0002113 / 0020213303` has abelianized determinant **−6**, and the determinant
-is an AC invariant fixed at ±1 for anything AC-equivalent to `⟨x,y | x,y⟩` — so
-that reading is refuted outright. Digits pair as generator-then-inverse
-(`0,1` inverses; `2,3` inverses); `acc/words.py` uses `0=x, 1=x⁻¹, 2=y, 3=y⁻¹`,
-which puts both the K basin and H junction roots at det ±1. The invariant fixes
-the pairing but not which generator is named `x` — the eight surviving readings
-differ only by the `x ↔ y` and inversion relabellings. Confirm the exact one
-against the official material, and note that a wrong choice among those eight is
-harmless for counts but **not** for replaying a literal move list.
+The spec hashes are **payload digests, not file digests**: `move_spec.json`
+declares `"hash_covers": "moves"`, and the value is
+`sha256(JCS(moves))` via the official `verifier.canon.move_spec_hash`. Hashing
+the raw file gives a different number and proves nothing. `acc/moves.py`
+recomputes both and refuses to load on any disagreement.
 
-Any mismatch means the table is wrong. **Stop and report the mismatch — do not
-tune the table until the numbers agree.** These seven checks are cheap and they
-are the only independent evidence that the conventions are right.
+The verifier is vendored at `vendor/verifier/` with every file's git blob hash
+recorded in `vendor/PROVENANCE.json` and checked identical to source. There are
+no local move semantics: `acc/moves.py` delegates to `verifier.core.apply_move`.
 
-**Record:** `runs/W0-calibration.json` with every expected/observed pair.
+### Encodings — fixed, not searched
+
+Ordinary alphabet is `1=x, -1=X, 2=y, -2=Y`. The historical compact digit
+shorthand is exactly `0=x, 1=X, 2=y, 3=Y`. **Do not search over alternative
+digit conventions.**
+
+### Ordinary move table (`ac-r2-v1`, 14 moves)
+
+```
+ 0  r0 <- r0^-1        7  r0 <- X r0 x
+ 1  r1 <- r1^-1        8  r0 <- y r0 Y
+ 2  r0 <- r0 r1        9  r0 <- Y r0 y
+ 3  r0 <- r0 r1^-1    10  r1 <- x r1 X
+ 4  r1 <- r1 r0       11  r1 <- X r1 x
+ 5  r1 <- r1 r0^-1    12  r1 <- y r1 Y
+ 6  r0 <- x r0 X      13  r1 <- Y r1 y
+```
+
+**The set is closed under inversion**: `0` and `1` self-inverse, `2↔3`, `4↔5`,
+`6↔7`, `8↔9`, `10↔11`, `12↔13`. The spec's own notes say so, the `inverse`
+column is an involution, and `apply_move(apply_move(p,i), INVERSE[i]) == p` holds
+for all 14 on live states. Forward and backward search share one table.
+
+### Starts — joined, never transcribed
+
+`config/presentations.json` is built by joining the 51 suffixes in
+`config/board_102.json` against the official manifest at the pinned commit. The
+join asserts, and fails hard on: 51/51 suffixes present in **both** tracks;
+`initial_relators` identical for every `ac-`/`sac-` pair; manifest relators
+agreeing with the independent `ac.jsonl` description text; and all 102
+`instance_hash` values recomputed with `verifier.canon.instance_hash`. All four
+assertions pass. AC target is the exact ordered `[[1],[2]]`; Stable target is `[]`.
+
+### Calibration result — 22/22 PASS
+
+`runs/W0-calibration.json`. Every number below is the handoff's, reproduced
+against official rows under the official spec:
+
+| check | result |
+|---|---|
+| `ac-02216 --[1,11,5,12,1]--> ac-02555` | lands exactly, peak 18, **exact distance 5** |
+| depth-2 balls, both endpoints | 160 and 160, **disjoint** → no path ≤ 4 |
+| `ac-02555 --[6,10,10,13,8,6,6,3,1]--> xxyxYXXy / xxYxyyXXy` | lands exactly, peak 20 |
+| depth-4 balls, both endpoints | 14,475 and 14,476, **disjoint** → no path ≤ 8 |
+| `ac-02555 --[19 moves]--> ac-02178` | lands exactly, peak 24 (no shortest claim) |
+| K basin `0002113 / 0020213303` cap 17 | 280 `CLOSED`, target absent, 12 cheapest exits |
+| H junction `0002113 / 00022130312` cap 18 | 45,856 `CLOSED`, 53,804 length-19 exits, 85 reps |
+| abelianized determinant on all replays | constant ±1 |
+
+Re-run after any change to `acc/`, the vendored verifier or the pins. A single
+mismatch means stop and report — never tune a contract until numbers agree.
 
 ---
 
@@ -116,17 +141,17 @@ are the only independent evidence that the conventions are right.
 
 **Build** under `research/acc/acc/`:
 
-- `words.py` — **already committed.** Signed-integer letters (`1=x, -1=X, 2=y,
-  -2=Y`), letter/digit codecs, `free_reduce` (the exact state normal form),
+- `words.py` — **already committed.** Signed-integer letters matching the
+  official alphabet (`1=x, -1=X, 2=y, -2=Y`), letter/digit codecs, `free_reduce` (the exact state normal form),
   `cyclic_canonical` and `normalize_ordinary` (rotation + inversion + relator
   swap — for *counting boundaries only*, never as a search key),
   `abelianized_determinant`, `encode_state`/`decode_state`. Do not change its
   semantics; downstream counts depend on them.
-- `moves.py` — load `config/moves.json`; `apply(pres, i)`; `inverse_spec(i)`.
-  **The 14-move ordinary set is not symmetric**: the inverse of `r1 → r1·r2` is
-  `r1 → r1·r2⁻¹`, which is not itself a listed move. Backward search must use
-  inverse specs, not the forward table. Getting this wrong quietly inflates every
-  distance.
+- `moves.py` — load `config/move_spec.json` **verbatim** from the pinned SAIR
+  commit. Do not hand-write the table, and do not derive it. The ordinary set is
+  **closed under inversion**: `0` and `1` are self-inverse, and `2↔3`, `4↔5`,
+  `6↔7`, `8↔9`, `10↔11`, `12↔13`. Backward and bidirectional search therefore use
+  the same table as forward search, with the inverse taken from those pairs.
 - `search.py`:
   - `capped_closure(start, cap, max_states)` → visited set, boundary list
     (states with at least one child of total length > cap), and status
@@ -138,15 +163,20 @@ are the only independent evidence that the conventions are right.
   - `component_graph(seeds, cap)` → basins and the cheapest exits between them.
 - `store.py` — append-only JSONL, one record per candidate, sha256 per record.
 
+`acc/moves.py` and `acc/search.py` are committed and green. Free reduction,
+move application and the inverse column all come from the vendored official
+verifier; nothing in `acc/` reimplements move semantics.
+
 **Scale note.** These lanes' interiors (cap23–cap25, 10–14M states) are already
 `CLOSED` in `config/lanes.json`; the handoff forbids rerunning them. Size this
 module for boundary, collar and gateway work — thousands to low millions of
 states — and make `max_states` a required argument so an accidental interior
 rerun trips the budget instead of running for a day.
 
-**Accept:** W0's calibration table passes, plus round-trip tests: `apply` then
-`inverse_spec` returns the original state for all 14 moves on 1,000 random
-reachable states; `normalize_ordinary` is idempotent; `encode`/`decode` round-trips.
+**Accept:** W0's 22-check calibration passes, plus round-trip tests: `apply_move`
+then `apply_move(..., INVERSE[i])` returns the original state for all 14 moves on
+1,000 random reachable states; `normalize_ordinary` is idempotent;
+`encode_state`/`decode_state` round-trips.
 
 ---
 
@@ -325,9 +355,29 @@ candidate — and still goes through the replay gate before it is called one.
 
 ## W11 — Stable AC track
 
-Same initial presentation as the matching `ac-` suffix; different target
-(empty presentation) and different grammar (stabilization/destabilization, at
-most 8 generators).
+Same initial presentation as the matching `ac-` suffix (asserted identical in
+W0's join); different target and different grammar.
+
+**Load the entire official `stable_move_spec.json` (`sac-r8-v1`). Do not
+implement only IDs 14–16.**
+
+- **257** frozen move IDs, `max_rank = 8`.
+- IDs **0–13** are byte-identical to the ordinary table (verified).
+- ID **14** stabilizes: appends a fresh generator `k+1` as its own relator.
+- IDs **15–22** destabilize relators 0–7 respectively.
+- The remaining IDs are the higher-rank inversions, multiplications and
+  conjugations.
+- Applicability and relabelling semantics come from `vendor/verifier/stable_core.py`.
+  Note its contract differs from the ordinary one: `apply_move` returns
+  `(new_state, None)` or `(None, reason)` where reason is one of
+  `max_rank_exceeded`, `relator_out_of_rank`, `destabilize_precondition`,
+  `generator_out_of_rank`. A move that is *not applicable* is not an error to
+  swallow — record it as a rejected branch with its reason (invariant 5).
+- Destabilizing relator `i` requires that relator to be exactly one **positive**
+  generator appearing in no other relator; surviving words are relabelled.
+
+**Verified:** from the exact ordinary target `(x, y)`, `[16,15]` destabilizes the
+`y` relator then the `x` relator and reaches the empty presentation `()`.
 
 Rules that are easy to get wrong:
 - A Stable hit is **not** an AC hit. Never report one as the other.

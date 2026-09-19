@@ -1,0 +1,140 @@
+{
+ "spec": "ac-r2-v1",
+ "commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+ "move_spec_hash": "sha256:e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+ "checks": [
+  {
+   "check": "bridge ac-02216 -[1,11,5,12,1]-> ac-02555",
+   "expected": true,
+   "observed": true,
+   "pass": true
+  },
+  {
+   "check": "  peak total relator length",
+   "expected": 18,
+   "observed": 18,
+   "pass": true
+  },
+  {
+   "check": "  exact gateway distance",
+   "expected": 5,
+   "observed": 5,
+   "pass": true
+  },
+  {
+   "check": "  depth-2 ball around ac-02216",
+   "expected": 160,
+   "observed": 160,
+   "pass": true
+  },
+  {
+   "check": "  depth-2 ball around ac-02555",
+   "expected": 160,
+   "observed": 160,
+   "pass": true
+  },
+  {
+   "check": "  depth-2 balls disjoint (proves no path <=4)",
+   "expected": true,
+   "observed": true,
+   "pass": true
+  },
+  {
+   "check": "bridge ac-02555 -[9 moves]-> synthetic junction",
+   "expected": true,
+   "observed": true,
+   "pass": true
+  },
+  {
+   "check": "  peak total relator length",
+   "expected": 20,
+   "observed": 20,
+   "pass": true
+  },
+  {
+   "check": "  depth-4 ball around ac-02555",
+   "expected": 14475,
+   "observed": 14475,
+   "pass": true
+  },
+  {
+   "check": "  depth-4 ball around junction",
+   "expected": 14476,
+   "observed": 14476,
+   "pass": true
+  },
+  {
+   "check": "  depth-4 balls disjoint (proves no path <=8)",
+   "expected": true,
+   "observed": true,
+   "pass": true
+  },
+  {
+   "check": "connector ac-02555 -[19 moves]-> ac-02178",
+   "expected": true,
+   "observed": true,
+   "pass": true
+  },
+  {
+   "check": "  peak total relator length",
+   "expected": 24,
+   "observed": 24,
+   "pass": true
+  },
+  {
+   "check": "K basin cap17 states",
+   "expected": 280,
+   "observed": 280,
+   "pass": true
+  },
+  {
+   "check": "  status",
+   "expected": "CLOSED",
+   "observed": "CLOSED",
+   "pass": true
+  },
+  {
+   "check": "  target absent",
+   "expected": true,
+   "observed": true,
+   "pass": true
+  },
+  {
+   "check": "  cheapest exits",
+   "expected": 12,
+   "observed": 12,
+   "pass": true
+  },
+  {
+   "check": "H junction cap18 states",
+   "expected": 45856,
+   "observed": 45856,
+   "pass": true
+  },
+  {
+   "check": "  status",
+   "expected": "CLOSED",
+   "observed": "CLOSED",
+   "pass": true
+  },
+  {
+   "check": "  cheapest length-19 exits",
+   "expected": 53804,
+   "observed": 53804,
+   "pass": true
+  },
+  {
+   "check": "  ordinary boundary reps",
+   "expected": 85,
+   "observed": 85,
+   "pass": true
+  },
+  {
+   "check": "determinant constant (+-1) on all replays",
+   "expected": true,
+   "observed": true,
+   "pass": true
+  }
+ ],
+ "all_pass": true
+}
