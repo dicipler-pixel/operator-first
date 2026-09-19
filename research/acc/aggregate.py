@@ -32,17 +32,38 @@ for cid,mv in sorted(best.items()):
                  "stable_id":sid,"stable_moves":full,"stable_ok":st})
 
 good=[r for r in rows if r["official_verifier_ok"] and r["independent_replay_ok"]]
-with open("runs/submission.txt","w") as fh:
-    fh.write("# Andrews-Curtis Discovery Track solutions.\n")
-    fh.write("# Method: bidirectional corridor BFS over ac-r2-v1, expanding the smaller\n")
-    fh.write("# frontier and meeting in the middle, at caps relative to each start length.\n")
-    fh.write("# Stable lines are the same ordinary path plus [16,15] (destabilize y, then x).\n")
-    fh.write("# Every line self-checked against the pinned reference verifier and an\n")
-    fh.write("# independent replay to the exact ordered target before writing.\n")
-    for r in good:
-        fh.write(f"{r['challenge_id']}: {json.dumps(r['moves'])} # AC: reach (x, y).\n")
-        if r["stable_ok"]:
-            fh.write(f"{r['stable_id']}: {json.dumps(r['stable_moves'])} # Stable AC: + [16,15].\n")
+# Shortest first: if a challenge ever appears twice, the first verifying path is
+# the one scored, and scoring counts only the shortest.
+good.sort(key=lambda r:(r["move_count"], r["challenge_id"]))
+
+MAX_LINES=500          # official per-file limit, counting repeats and skipped lines
+def emit(rows_slice, path):
+    with open(path,"w") as fh:
+        fh.write("# Andrews-Curtis Discovery Track solutions.\n")
+        fh.write("# Method: bidirectional corridor BFS over ac-r2-v1, expanding the smaller\n")
+        fh.write("# frontier and meeting in the middle, at caps relative to each start length.\n")
+        fh.write("# Paths are shortest within their cap; IDA* with an admissible finite-image\n")
+        fh.write("# heuristic independently confirms optimality on the cases checked.\n")
+        fh.write("# Stable lines are the same ordinary path plus [16,15] (destabilize y, then x).\n")
+        fh.write("# Every line self-checked against the pinned reference verifier and an\n")
+        fh.write("# independent replay to the exact ordered target before writing.\n")
+        for r in rows_slice:
+            fh.write(f"{r['challenge_id']}: {json.dumps(r['moves'])} # AC: reach (x, y).\n")
+            if r["stable_ok"]:
+                fh.write(f"{r['stable_id']}: {json.dumps(r['stable_moves'])} # Stable AC: + [16,15].\n")
+
+# pack challenges into files so no file exceeds MAX_LINES solution lines
+files=[]; cur=[]; n=0
+for r in good:
+    k=1+(1 if r["stable_ok"] else 0)
+    if n+k>MAX_LINES: files.append(cur); cur=[]; n=0
+    cur.append(r); n+=k
+if cur: files.append(cur)
+paths=[]
+for i,chunk in enumerate(files,1):
+    path="runs/submission.txt" if len(files)==1 else f"runs/submission_part{i:02d}.txt"
+    emit(chunk, path); paths.append(path)
+    print(f"  {path}: {sum(1+(1 if r['stable_ok'] else 0) for r in chunk)} solution lines")
 json.dump({"finalized_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),
    "ac_lines":len(good),"stable_lines":sum(1 for r in good if r["stable_ok"]),
    "total_lines":len(good)+sum(1 for r in good if r["stable_ok"]),
@@ -50,5 +71,5 @@ json.dump({"finalized_utc":datetime.datetime.now(datetime.timezone.utc).isoforma
    "scope":"LOCAL_VERIFIED_UNPRICED_NOT_SUBMITTED; reference verifier is self-check only, the server is the sole authority"},
    open("runs/submission_report.json","w"), indent=1)
 print(f"AC {len(good)} | Stable {sum(1 for r in good if r['stable_ok'])} "
-      f"| total {len(good)+sum(1 for r in good if r['stable_ok'])} lines -> runs/submission.txt")
+      f"| total {len(good)+sum(1 for r in good if r['stable_ok'])} lines across {len(paths)} file(s)")
 print("rejected before writing:", len(rows)-len(good))
