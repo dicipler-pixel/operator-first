@@ -1,0 +1,147 @@
+{
+  "source": "ACC_FURTHER_TRACING_HANDOFF_20260919.md",
+  "scope_note": "Tracing handoff. No submit-ready ordinary-AC certificate. Reuse geometry; do not rerun closed interiors.",
+  "teacher_corpus": {
+    "verified_certificates": 19,
+    "primitive_moves": 310,
+    "nondecreasing_moves": 163,
+    "nondecreasing_fraction": 0.526,
+    "rejects_greedy_child": 81,
+    "rejects_greedy_fraction": 0.261,
+    "setup_moves_recovering_within_5": 118,
+    "turn_ge_0_50": {"hits": 52, "total": 58, "rate": 0.897},
+    "turn_ge_0_75": {"hits": 17, "total": 18, "rate": 0.944}
+  },
+  "lanes": [
+    {
+      "id": "A",
+      "class": "ac-05710",
+      "members": ["ac-00491", "ac-01887", "ac-03706", "ac-05710", "ac-05856", "ac-09242"],
+      "closed": {"cap19": 26224, "cap20": 74384, "cap21": 236896, "cap22": 537296,
+                 "cap23": 1620440, "cap24": 3558168, "cap25": 10224840},
+      "boundary": {"cap": 26, "unique_states": 7680984, "cyclic_total_26": 143000, "ordinary_norm_reps": 4064},
+      "known_negative": "depth-2 collar from all 4064 reps: 0 low escapes back to <=25 outside the original component",
+      "trace_next": ["do not rerun cap25 interior", "observe all 4064 ports",
+                     "mix only after recording", "push depth 3/4 collar on selected shape families + matched controls"]
+    },
+    {
+      "id": "B",
+      "class": "ac-00719",
+      "members": ["ac-00719", "ac-01571", "ac-02563", "ac-03238", "ac-04947", "ac-07314", "ac-07804", "ac-08524"],
+      "closed": {"cap23": 13440784},
+      "boundary": {"cap": 24, "unique_states": 11039240, "cyclic_total_24": 243208, "ordinary_norm_reps": 8079},
+      "known_low_components": [448, 31008, 86456],
+      "trace_next": ["continue the component graph from known low wells",
+                     "do not re-enumerate the 13.4M interior",
+                     "compare shape at productive vs dead basin mouths"]
+    },
+    {
+      "id": "C",
+      "class": "ac-02923",
+      "members": ["ac-02923"],
+      "boundary": {"linear_exits": 12739932, "cyclic_total_25": 233564,
+                   "whitehead_minimal": 137368, "unresolved_after_magnus3": 39816},
+      "ambiguity": {"mod": 11, "states": 82, "cells": 41},
+      "spent_negative": {"depth1": 1218634, "depth2": 4084130, "depth3": 8734856, "depth4": 14870066,
+                         "total_through_depth4": 29045054, "suffix_hits": 0, "radius8_hits": 0,
+                         "depth5": "incomplete; no bound claimed"},
+      "trace_next": ["run BOTH members of every ambiguity pair",
+                     "preserve raw Eye vectors",
+                     "compare which member changes basin / gateway distance / suffix proximity first"]
+    },
+    {
+      "id": "D",
+      "class": "ac-02217",
+      "members": ["ac-02217", "ac-06576", "ac-07698", "ac-09571", "ac-09723"],
+      "closed": {"cap23": 13978168},
+      "boundary": {"first_climb_children": 11475356, "cyclic_total_24": 245724,
+                   "whitehead_minimal": 144316, "normalized_hard_port_reps": 5085},
+      "spent_negative": {"signed_atlas_hits": 0, "multisource_through_depth4": 30829180,
+                         "suffix_intersections": 0, "radius8_through_depth3": 0},
+      "trace_next": ["do not rerun depth1-4 uniformly",
+                     "use the mixer to separate temporal-shape families among the 5085 ports",
+                     "allocate deeper budget by shape family with matched controls"]
+    },
+    {
+      "id": "E",
+      "class": "ac-03467/ac-08126",
+      "members": ["ac-03467", "ac-08126"],
+      "closed": {"cap22_each": 10951472},
+      "facts": {"exact_capped_sets_disjoint": true,
+                "ac-03467_min_total_in_cap22": 14,
+                "ac-03467_min_relator_lengths": [7, 7],
+                "mandatory_hump": "any solution must cross total length >= 23 before shortening below start"},
+      "symmetry": "y -> y^-1",
+      "bridges": {
+        "ac-08126_to_phi_ac-03467": [10, 10, 13, 11, 11, 11, 6, 8, 8, 7, 1, 0],
+        "ac-03467_to_phi_ac-08126": [0, 1, 6, 8, 8, 7, 10, 10, 10, 13, 11, 11],
+        "moves": 12, "peak": 14, "transport_overhead": "about 13 moves after basis restoration"
+      },
+      "trace_next": ["search one representative deeply",
+                     "treat the sibling as transfer/control",
+                     "compare same-size-but-different-response geometry in the mixer"]
+    },
+    {
+      "id": "F",
+      "class": "ac-00056",
+      "members": ["ac-00056", "ac-00084", "ac-02803", "ac-03707", "ac-09861"],
+      "closed": {"cap25": 11427216},
+      "boundary": {"cap": 26, "states": 9128176, "cyclic_total_26": 157872, "ordinary_norm_reps": 5138},
+      "dead_escape_control": {"new_total25_state": 1, "closed_bubble_states": 504,
+                              "bubble_cap26_boundary": 40, "bubble_ordinary_norm_reps": 10,
+                              "signed_finisher_hits": 0},
+      "trace_next": ["use the 10 bubble reps as a clean dead-escape control",
+                     "compare their mixed shape against productive basin mouths in lane B"]
+    }
+  ],
+  "exact_gateways": [
+    {"from": "ac-02216", "to": "ac-02555", "path": [1, 11, 5, 12, 1], "distance": 5, "peak_total_length": 18,
+     "proof": "unrestricted depth-2 balls from both endpoints are 160 states each and disjoint, so no path of length <= 4",
+     "shortest": true},
+    {"from": "ac-02555", "to": "xxyxYXXy / xxYxyyXXy", "path": [6, 10, 10, 13, 8, 6, 6, 3, 1], "distance": 9,
+     "peak_total_length": 20,
+     "proof": "unrestricted depth-4 balls are 14475 and 14476 states and disjoint, so no path of length <= 8",
+     "shortest": true},
+    {"from": "ac-02555", "to": "ac-02178",
+     "path": [7, 5, 6, 5, 9, 12, 12, 5, 8, 4, 10, 13, 4, 10, 1, 5, 12, 12, 1],
+     "distance": 19, "peak_total_length": 24, "shortest": false,
+     "proof": "replayed connector only; no shortest-path claim"}
+  ],
+  "basins": [
+    {"name": "K basin", "root": "0002113 / 0020213303", "cap": 17, "states": 280, "status": "CLOSED",
+     "target_present": false, "cheapest_exits": 12,
+     "note": "all 64 productive mixer branches behind ac-02555 converged here"},
+    {"name": "H junction", "root": "0002113 / 00022130312", "cap": 18, "states": 45856, "status": "CLOSED",
+     "target_present": false, "cheapest_length19_exits": 53804, "ordinary_boundary_reps": 85}
+  ],
+  "mixer_validation": {
+    "ac-02555_junction": {"exceptional_exits": 72, "primitive_transitions": 1008, "exact_children_dedup": 944,
+                          "nondecreasing_candidates": 936, "productive": 64, "population_rate": 0.0684,
+                          "top93_rate": 0.2688, "bottom93_rate": 0.0, "enrichment": 3.93,
+                          "note": "all 64 productive branches converged to the same K basin"},
+    "official_retest": {"targets": ["ac-04619", "ac-02216"], "transitions": 156, "productive": 24,
+                        "rate": 0.1538, "roc_auc": 0.7206, "top10pct": "7/15 = 0.4667", "bottom10pct": "0/15",
+                        "control_warning": "on ac-02216 immediate length beat the mixer in the very top slice; the mixer must be context-conditional, not one universal score"}
+  },
+  "spent_negatives": {
+    "gateway_continuation": {
+      "ordinary_suffix_reverse": {"expansions": 852916, "finishes": 0},
+      "signed_atlas_macro": {"expansions": 7972, "finishes": 0},
+      "family_stratified_mixture_control": {"expansions": 19617819, "finishes": 0},
+      "H_normalized_boundary": {"expansions": 10350960, "finishes": 0},
+      "stochastic_descent": {"jobs": 3, "result": "NOHIT"}
+    },
+    "trajectory_audit": {
+      "exact_suffix_dictionary_states": 182639, "complete_paths": 1980, "official_starts": 922,
+      "trajectory_state_visits": 300088, "trace_instrumented_visits": 595965,
+      "distinct_exact_middle_states": 19185, "ordinary_normalized_reps": 565,
+      "signed_nielsen_roots": 220, "compiled_finishing_atlas_splices": 0
+    },
+    "status": "bounded negatives, not impossibility results"
+  },
+  "do_not_repeat": [
+    "ac-02842 and ac-06556: huge exact cap21 closure already spent; no blind rerun",
+    "ac-00738 and its previously closed classmates: no blind rerun",
+    "any prior BUDGET/NOHIT run stays labeled bounded/incomplete, never CLOSED"
+  ]
+}

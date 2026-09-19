@@ -1,0 +1,366 @@
+{
+  "source": "ACC_AC_STABLE_BROAD_TEST_WAVE_20260919.md",
+  "rule": "Every base suffix runs BOTH tracks: ac-<suffix> (ordinary) and sac-<suffix> (Stable).",
+  "pairing_note": "AC and Stable AC share the initial presentation for matching suffixes; targets and legal grammars differ. A Stable-only hit does NOT imply an ordinary AC hit. If an ordinary certificate P is found, compile and test the Stable cleanup P + [16,15] under the pinned official verifier before claiming the paired Stable result.",
+  "classes": {
+    "05710": [
+      "00491",
+      "01887",
+      "03706",
+      "05710",
+      "05856",
+      "09242"
+    ],
+    "00719": [
+      "00719",
+      "01571",
+      "02563",
+      "03238",
+      "04947",
+      "07314",
+      "07804",
+      "08524"
+    ],
+    "00056": [
+      "00056",
+      "00084",
+      "02803",
+      "03707",
+      "09861"
+    ],
+    "02217": [
+      "02217",
+      "06576",
+      "07698",
+      "09571",
+      "09723"
+    ],
+    "03467_symmetry_pair": [
+      "03467",
+      "08126"
+    ],
+    "02923_ambiguity": [
+      "02923"
+    ],
+    "02883": [
+      "02003",
+      "02698",
+      "02883",
+      "06760",
+      "09138",
+      "09488",
+      "10066"
+    ],
+    "02216_gateway_network": [
+      "02216",
+      "02554",
+      "04720",
+      "05743",
+      "06104",
+      "07856",
+      "08765",
+      "08807",
+      "09827",
+      "02555",
+      "02178"
+    ],
+    "00413_transport": [
+      "00413",
+      "02089",
+      "04376",
+      "05932"
+    ],
+    "fresh_cheap_singles": [
+      "02576",
+      "00472"
+    ]
+  },
+  "track_roles": {
+    "AC": [
+      "Treat mandatory humps, component exits, exact gateway distance, Whitehead/Magnus collisions and suffix-memory hits as outcome labels.",
+      "Do not reward a return to the original well merely because total length drops."
+    ],
+    "Stable": [
+      "Add eyes for stabilization timing, generator count, destabilization readiness, and whether a temporary generator opens a route unavailable in rank 2.",
+      "Keep stable-only moves out of the AC teacher labels.",
+      "A Stable path that returns to rank 2 records that re-entry state as an AC structural clue, not an AC certificate.",
+      "At most 8 generators."
+    ]
+  },
+  "allocation": {
+    "rule": "Round-robin across all 51 base presentations. Do not siege one target.",
+    "phase_A": "cheap common observation layer on all 102 track cases",
+    "phase_B": "retain top mixed-shape family + matched controls per case",
+    "phase_C": "deepen only cases that produced measurable structural progress"
+  },
+  "promotion_triggers": [
+    "exact full certificate",
+    "new low component outside the known well",
+    "exact suffix/reverse-ball collision",
+    "reduced exact gateway distance",
+    "stable-only path exposing a reusable rank-2 re-entry shape",
+    "the same temporal shape firing productively in multiple unrelated classes"
+  ],
+  "output_row": "suffix | AC status | Stable status | population observed | best shape recipe | control comparison | new basin? | suffix hit? | gateway change? | certificate? | exact move list if any | replay status",
+  "counts": {
+    "base_presentations": 51,
+    "track_cases": 102
+  },
+  "cases": [
+    {
+      "suffix": "00056",
+      "ac": "ac-00056",
+      "stable": "sac-00056"
+    },
+    {
+      "suffix": "00084",
+      "ac": "ac-00084",
+      "stable": "sac-00084"
+    },
+    {
+      "suffix": "00413",
+      "ac": "ac-00413",
+      "stable": "sac-00413"
+    },
+    {
+      "suffix": "00472",
+      "ac": "ac-00472",
+      "stable": "sac-00472"
+    },
+    {
+      "suffix": "00491",
+      "ac": "ac-00491",
+      "stable": "sac-00491"
+    },
+    {
+      "suffix": "00719",
+      "ac": "ac-00719",
+      "stable": "sac-00719"
+    },
+    {
+      "suffix": "01571",
+      "ac": "ac-01571",
+      "stable": "sac-01571"
+    },
+    {
+      "suffix": "01887",
+      "ac": "ac-01887",
+      "stable": "sac-01887"
+    },
+    {
+      "suffix": "02003",
+      "ac": "ac-02003",
+      "stable": "sac-02003"
+    },
+    {
+      "suffix": "02089",
+      "ac": "ac-02089",
+      "stable": "sac-02089"
+    },
+    {
+      "suffix": "02178",
+      "ac": "ac-02178",
+      "stable": "sac-02178"
+    },
+    {
+      "suffix": "02216",
+      "ac": "ac-02216",
+      "stable": "sac-02216"
+    },
+    {
+      "suffix": "02217",
+      "ac": "ac-02217",
+      "stable": "sac-02217"
+    },
+    {
+      "suffix": "02554",
+      "ac": "ac-02554",
+      "stable": "sac-02554"
+    },
+    {
+      "suffix": "02555",
+      "ac": "ac-02555",
+      "stable": "sac-02555"
+    },
+    {
+      "suffix": "02563",
+      "ac": "ac-02563",
+      "stable": "sac-02563"
+    },
+    {
+      "suffix": "02576",
+      "ac": "ac-02576",
+      "stable": "sac-02576"
+    },
+    {
+      "suffix": "02698",
+      "ac": "ac-02698",
+      "stable": "sac-02698"
+    },
+    {
+      "suffix": "02803",
+      "ac": "ac-02803",
+      "stable": "sac-02803"
+    },
+    {
+      "suffix": "02883",
+      "ac": "ac-02883",
+      "stable": "sac-02883"
+    },
+    {
+      "suffix": "02923",
+      "ac": "ac-02923",
+      "stable": "sac-02923"
+    },
+    {
+      "suffix": "03238",
+      "ac": "ac-03238",
+      "stable": "sac-03238"
+    },
+    {
+      "suffix": "03467",
+      "ac": "ac-03467",
+      "stable": "sac-03467"
+    },
+    {
+      "suffix": "03706",
+      "ac": "ac-03706",
+      "stable": "sac-03706"
+    },
+    {
+      "suffix": "03707",
+      "ac": "ac-03707",
+      "stable": "sac-03707"
+    },
+    {
+      "suffix": "04376",
+      "ac": "ac-04376",
+      "stable": "sac-04376"
+    },
+    {
+      "suffix": "04720",
+      "ac": "ac-04720",
+      "stable": "sac-04720"
+    },
+    {
+      "suffix": "04947",
+      "ac": "ac-04947",
+      "stable": "sac-04947"
+    },
+    {
+      "suffix": "05710",
+      "ac": "ac-05710",
+      "stable": "sac-05710"
+    },
+    {
+      "suffix": "05743",
+      "ac": "ac-05743",
+      "stable": "sac-05743"
+    },
+    {
+      "suffix": "05856",
+      "ac": "ac-05856",
+      "stable": "sac-05856"
+    },
+    {
+      "suffix": "05932",
+      "ac": "ac-05932",
+      "stable": "sac-05932"
+    },
+    {
+      "suffix": "06104",
+      "ac": "ac-06104",
+      "stable": "sac-06104"
+    },
+    {
+      "suffix": "06576",
+      "ac": "ac-06576",
+      "stable": "sac-06576"
+    },
+    {
+      "suffix": "06760",
+      "ac": "ac-06760",
+      "stable": "sac-06760"
+    },
+    {
+      "suffix": "07314",
+      "ac": "ac-07314",
+      "stable": "sac-07314"
+    },
+    {
+      "suffix": "07698",
+      "ac": "ac-07698",
+      "stable": "sac-07698"
+    },
+    {
+      "suffix": "07804",
+      "ac": "ac-07804",
+      "stable": "sac-07804"
+    },
+    {
+      "suffix": "07856",
+      "ac": "ac-07856",
+      "stable": "sac-07856"
+    },
+    {
+      "suffix": "08126",
+      "ac": "ac-08126",
+      "stable": "sac-08126"
+    },
+    {
+      "suffix": "08524",
+      "ac": "ac-08524",
+      "stable": "sac-08524"
+    },
+    {
+      "suffix": "08765",
+      "ac": "ac-08765",
+      "stable": "sac-08765"
+    },
+    {
+      "suffix": "08807",
+      "ac": "ac-08807",
+      "stable": "sac-08807"
+    },
+    {
+      "suffix": "09138",
+      "ac": "ac-09138",
+      "stable": "sac-09138"
+    },
+    {
+      "suffix": "09242",
+      "ac": "ac-09242",
+      "stable": "sac-09242"
+    },
+    {
+      "suffix": "09488",
+      "ac": "ac-09488",
+      "stable": "sac-09488"
+    },
+    {
+      "suffix": "09571",
+      "ac": "ac-09571",
+      "stable": "sac-09571"
+    },
+    {
+      "suffix": "09723",
+      "ac": "ac-09723",
+      "stable": "sac-09723"
+    },
+    {
+      "suffix": "09827",
+      "ac": "ac-09827",
+      "stable": "sac-09827"
+    },
+    {
+      "suffix": "09861",
+      "ac": "ac-09861",
+      "stable": "sac-09861"
+    },
+    {
+      "suffix": "10066",
+      "ac": "ac-10066",
+      "stable": "sac-10066"
+    }
+  ]
+}
