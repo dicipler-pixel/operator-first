@@ -16,15 +16,22 @@ Presentation = Tuple[Word, ...]
 
 LETTER_TO_CODE = {"x": 1, "X": -1, "y": 2, "Y": -2}
 CODE_TO_LETTER = {1: "x", -1: "X", 2: "y", -2: "Y"}
-DIGIT_TO_CODE = {"0": 1, "1": 2, "2": -1, "3": -2}
-CODE_TO_DIGIT = {1: "0", 2: "1", -1: "2", -2: "3"}
+# Digit encoding. The pairing (0,1) and (2,3) as inverse pairs is forced by the
+# abelianized determinant: it is an AC invariant pinned at +-1, and the reading
+# 0=x,1=y,2=x^-1,3=y^-1 makes the K basin root `0002113 / 0020213303` come out
+# at det = -6, which no presentation AC-equivalent to <x,y | x,y> can be. Only
+# the eight generator-then-inverse readings survive, and they agree up to the
+# x<->y and inversion relabellings. Confirm the exact one in W0; the invariant
+# fixes the pairing but not which generator is called x.
+DIGIT_TO_CODE = {"0": 1, "1": -1, "2": 2, "3": -2}
+CODE_TO_DIGIT = {1: "0", -1: "1", 2: "2", -2: "3"}
 
 
 def parse_word(text: str) -> Word:
     """Parse a word in either the letter encoding or the digit encoding.
 
     Letter encoding: x, y are generators; X, Y are their inverses.
-    Digit encoding: 0=x, 1=y, 2=x^-1, 3=y^-1.
+    Digit encoding: 0=x, 1=x^-1, 2=y, 3=y^-1 (see DIGIT_TO_CODE).
     Rank > 2 uses the explicit ``g<k>`` / ``G<k>`` form, space separated.
     """
     text = text.strip()

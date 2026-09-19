@@ -36,7 +36,12 @@ Letters are signed integers: `1 = x`, `-1 = x⁻¹`, `2 = y`, `-2 = y⁻¹`. Bot
 notations used in the handoff parse and round-trip:
 
 - letter form — `xxyxYXXy / xxYxyyXXy`
-- digit form — `0=x, 1=y, 2=x⁻¹, 3=y⁻¹`, e.g. `0002113 / 0020213303`
+- digit form — `0=x, 1=x⁻¹, 2=y, 3=y⁻¹`, e.g. `0002113 / 0020213303`
+
+The digit pairing was not guessed. The reading `0=x, 1=y, 2=x⁻¹, 3=y⁻¹` puts the
+K basin root at abelianized determinant −6; that determinant is an AC invariant
+pinned at ±1, so the reading is refuted. Digits pair generator-then-inverse,
+which puts both the K basin and H junction roots at ±1.
 
 `free_reduce` is the exact state normal form. `normalize_ordinary` (rotation +
 inversion + relator swap) is for contracting and counting boundaries **only** —

@@ -88,6 +88,19 @@ wrong.
 | K basin `0002113 / 0020213303`, cap 17 | 280 states, CLOSED, target absent, 12 cheapest exits |
 | H junction `0002113 / 00022130312`, cap 18 | 45,856 states, CLOSED, 53,804 length-19 exits, 85 ordinary boundary reps |
 | abelianized determinant along every replay | constant ±1 |
+| digit convention | both basin roots give det ±1 (see below) |
+
+**One convention is already half-pinned.** The digit encoding is *not*
+`0=x, 1=y, 2=x⁻¹, 3=y⁻¹`. Under that reading the K basin root
+`0002113 / 0020213303` has abelianized determinant **−6**, and the determinant
+is an AC invariant fixed at ±1 for anything AC-equivalent to `⟨x,y | x,y⟩` — so
+that reading is refuted outright. Digits pair as generator-then-inverse
+(`0,1` inverses; `2,3` inverses); `acc/words.py` uses `0=x, 1=x⁻¹, 2=y, 3=y⁻¹`,
+which puts both the K basin and H junction roots at det ±1. The invariant fixes
+the pairing but not which generator is named `x` — the eight surviving readings
+differ only by the `x ↔ y` and inversion relabellings. Confirm the exact one
+against the official material, and note that a wrong choice among those eight is
+harmless for counts but **not** for replaying a literal move list.
 
 Any mismatch means the table is wrong. **Stop and report the mismatch — do not
 tune the table until the numbers agree.** These seven checks are cheap and they
