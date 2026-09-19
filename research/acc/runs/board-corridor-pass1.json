@@ -1,0 +1,985 @@
+{
+ "finalized_utc": "2026-09-19T20:45:58.752233+00:00",
+ "engine": "ac_corridor64_bidir_v2 (compiled)",
+ "caps": [
+  18,
+  20,
+  22,
+  24
+ ],
+ "budget_per_side": 5000000,
+ "certificates_found": 0,
+ "found": [],
+ "records": [
+  {
+   "run": "corridor-ac-00056",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-00056",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 16,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=1260 depth_f=11 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.4
+   }
+  },
+  {
+   "run": "corridor-ac-00084",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-00084",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 16,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=1260 depth_f=11 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.2
+   }
+  },
+  {
+   "run": "corridor-ac-00413",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-00413",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 14,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=92600 depth_f=77 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.3
+   }
+  },
+  {
+   "run": "corridor-ac-00472",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-00472",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=12720 depth_f=32 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-00491",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-00491",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 16,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=2688 depth_f=18 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-00719",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-00719",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=24040 depth_f=58 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.3
+   }
+  },
+  {
+   "run": "corridor-ac-01571",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-01571",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=24040 depth_f=58 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-01887",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-01887",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 19,
+    "cap": 20,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=9432 depth_f=21 states_b=5115 depth_b=4 cap=20",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-02003",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "BUDGET",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-02003",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 24,
+    "cap": 24,
+    "budget_per_side": 5000000,
+    "engine_line": "BUDGET states_f=4999998 states_b=2512679 depth_f=40 depth_b=7",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 9.4
+   }
+  },
+  {
+   "run": "corridor-ac-02089",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-02089",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 14,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=92600 depth_f=78 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-02178",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-02178",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 16,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=2156 depth_f=18 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-02216",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-02216",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=45856 depth_f=116 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-02217",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-02217",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=5068 depth_f=21 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-02554",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-02554",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 17,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=1484 depth_f=18 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-02555",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-02555",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 16,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=45856 depth_f=116 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-02563",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-02563",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=24040 depth_f=58 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-02576",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-02576",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=29472 depth_f=22 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-02698",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-02698",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 16,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=6300 depth_f=40 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-02803",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-02803",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 16,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=1260 depth_f=11 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-02883",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-02883",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=6300 depth_f=27 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-02923",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-02923",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=29648 depth_f=61 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-03238",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-03238",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 21,
+    "cap": 22,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=4595328 depth_f=218 states_b=322817 depth_b=6 cap=22",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 6.9
+   }
+  },
+  {
+   "run": "corridor-ac-03467",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-03467",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 14,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=47896 depth_f=76 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-03706",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-03706",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 16,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=2688 depth_f=19 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-03707",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-03707",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 21,
+    "cap": 22,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=1232 depth_f=19 states_b=662 depth_b=3 cap=22",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-04376",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-04376",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 14,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=92600 depth_f=75 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-04720",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-04720",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 16,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=45856 depth_f=99 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-04947",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-04947",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 17,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=2716 depth_f=25 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-05710",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-05710",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=3864 depth_f=21 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-05743",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-05743",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=45856 depth_f=117 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-05856",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-05856",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 16,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=2688 depth_f=18 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-05932",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-05932",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 14,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=92600 depth_f=78 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-06104",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-06104",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 19,
+    "cap": 20,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=8640 depth_f=19 states_b=5115 depth_b=4 cap=20",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-06576",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-06576",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=5068 depth_f=20 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-06760",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-06760",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 17,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=588 depth_f=14 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-07314",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-07314",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=24040 depth_f=58 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-07698",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-07698",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=5068 depth_f=20 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-07804",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-07804",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 19,
+    "cap": 20,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=12456 depth_f=29 states_b=5115 depth_b=4 cap=20",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-07856",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-07856",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 19,
+    "cap": 20,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=8640 depth_f=20 states_b=5115 depth_b=4 cap=20",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-08126",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-08126",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 14,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=47896 depth_f=77 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-08524",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-08524",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 19,
+    "cap": 20,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=12456 depth_f=27 states_b=5115 depth_b=4 cap=20",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-08765",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-08765",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 17,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=1484 depth_f=17 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-08807",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-08807",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=45856 depth_f=118 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-09138",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-09138",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 16,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=6300 depth_f=38 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-09242",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-09242",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 17,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=2640 depth_f=26 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-09488",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-09488",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 19,
+    "cap": 20,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=360 depth_f=12 states_b=88 depth_b=2 cap=20",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-09571",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-09571",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 16,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=1260 depth_f=11 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-09723",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-09723",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 17,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=280 depth_f=11 states_b=88 depth_b=2 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-09827",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-09827",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=45856 depth_f=117 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-09861",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-09861",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 19,
+    "cap": 20,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=360 depth_f=12 states_b=88 depth_b=2 cap=20",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-10066",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/board-corridor-pass1.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-10066",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 5000000,
+    "engine_line": "CLOSED_F component=6300 depth_f=29 states_b=662 depth_b=3 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  }
+ ],
+ "correction_scope": "BUDGET carries only the df+db lower bound. CLOSED_F/CLOSED_B is disconnection at that cap, not impossibility."
+}

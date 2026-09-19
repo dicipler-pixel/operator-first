@@ -1,0 +1,71 @@
+{
+ "finalized_utc": "2026-09-19T20:45:28.674464+00:00",
+ "engine": "ac_corridor64_bidir_v2 (compiled)",
+ "caps": [
+  18,
+  20
+ ],
+ "budget_per_side": 1500000,
+ "certificates_found": 0,
+ "found": [],
+ "records": [
+  {
+   "run": "corridor-ac-02216",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/tmp.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-02216",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 1500000,
+    "engine_line": "CLOSED_F component=45856 depth_f=116 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-03467",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/tmp.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-03467",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 14,
+    "cap": 18,
+    "budget_per_side": 1500000,
+    "engine_line": "CLOSED_F component=47896 depth_f=76 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.1
+   }
+  },
+  {
+   "run": "corridor-ac-00719",
+   "phase": "bidirectional corridor sweep",
+   "result": "NO_CERTIFICATE",
+   "stop_reason": "CLOSED_F",
+   "completeness_or_impossibility_claim": false,
+   "raw_result_file": "runs/tmp.json",
+   "parameters_and_counts": {
+    "challenge_id": "ac-00719",
+    "algorithm": "ac_corridor64_bidir_v2",
+    "start_total_length": 15,
+    "cap": 18,
+    "budget_per_side": 1500000,
+    "engine_line": "CLOSED_F component=24040 depth_f=58 states_b=5115 depth_b=4 cap=18",
+    "moves": null,
+    "official_verifier_ok": null,
+    "seconds": 0.0
+   }
+  }
+ ],
+ "correction_scope": "BUDGET carries only the df+db lower bound. CLOSED_F/CLOSED_B is disconnection at that cap, not impossibility."
+}
