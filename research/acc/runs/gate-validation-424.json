@@ -1,0 +1,19 @@
+{
+ "finalized_utc": "2026-09-19T20:36:27.111966+00:00",
+ "what": "End-to-end gate validation on the 424 published training certificates.",
+ "scope": "Training instances are OUTSIDE the official 10,115 pool and earn no points. This validates the harness, it is not a submission.",
+ "n": 424,
+ "checks": {
+  "official_verify": 424,
+  "independent_replay": 424,
+  "peak_match": 424,
+  "certificate_hash": 424
+ },
+ "all_pass": true,
+ "length_stats": {
+  "min": 7,
+  "median": 26,
+  "max": 159,
+  "mean": 33.6
+ }
+}
