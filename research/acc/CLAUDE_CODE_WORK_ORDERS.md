@@ -47,8 +47,26 @@ the run it appears in.
 9. **Do not rerun spent geometry.** `config/lanes.json` carries the closed
    interiors, the spent negatives and the do-not-repeat set. Work from stored
    boundaries. If a rerun seems necessary, say why in writing first.
-10. **Status vocabulary is fixed**: `CLOSED`, `BUDGET`, `NOHIT`, `PRODUCTIVE`,
-    `CERTIFIED`. `CERTIFIED` requires invariant 8.
+10. **Acquisition is decided by applicability, never by the mixer.** An eye's
+    mixing weight, solo state, display visibility or apparent usefulness must not
+    decide whether its applicable observation is acquired. Flat and redundant
+    results still belong in the record. Shared kernels may avoid duplicate
+    computation, but each eye still needs its own identified result. Dependencies
+    are computation relationships, not permission to collapse results into one
+    score. The acceptance test: **changing weights or visibility must not change
+    the acquired ledger.**
+11. **Status vocabularies are fixed, and they are two different vocabularies.**
+    Per-search outcome: `EXHAUSTED` (bounded closure — the existing programs' name
+    for what this file calls `CLOSED`), `BUDGET` (unknown beyond budget), `NOHIT`,
+    `PRODUCTIVE`, `FOUND_REPLAY_FAILED`, `CERTIFIED`. Per-eye acquisition status:
+    `ok`, `not_run`, `blocked`, `inapplicable`, `error` — and an actual measured
+    zero is none of those. Never collapse them.
+12. **A routing score is not a certificate, and local verification is not
+    acceptance.** Keep proof rank and routing utility in separate fields. Proof
+    rank requires `applicable` + `certificate_verified` + `scope_complete`.
+    Local verification is not server acceptance and not pricing: the existing
+    gate writes `LOCAL_VERIFIED_UNPRICED_NOT_SUBMITTED` with
+    `current_board_checked: false` and `submitted: false`, and so does this work.
 
 ---
 
@@ -161,7 +179,20 @@ mismatch means stop and report — never tune a contract until numbers agree.
     therefore no path of length ≤ `2d`. Forward from `a`, inverse-moves from `b`.
   - `multi_source_ball(sources, depth, cap)`.
   - `component_graph(seeds, cap)` → basins and the cheapest exits between them.
+  - `complete_frontier(closure, cap)` → **every** directed edge from the
+    component to a state above the cap, and `mandatory_hump_certificate(...)`
+    which checks the three hypotheses of `ACCWell.descent_forces_cap_exit`
+    (see `proof/`) and refuses to conclude when any fails.
 - `store.py` — append-only JSONL, one record per candidate, sha256 per record.
+
+**`cheapest_exits` is a reporting slice, not a frontier.** The handoff's "12
+cheapest exits" and "53,804 cheapest length-19 exits" are minimum-height slices.
+Measured on the same components, the complete frontier is **2,240** edges for the
+K basin (vs 12) and **365,456** for the H junction (vs 53,804). Exit heights
+observed are 18–25 and 27 off a cap of 17, and 19–27 and 29 off a cap of 18 — so
+an ordinary move really does jump several length levels at once, and a frontier
+built as a `cap → cap+1` shell would miss most of it. Never use the cheapest
+slice where the frontier theorem requires the complete frontier.
 
 `acc/moves.py` and `acc/search.py` are committed and green. Free reduction,
 move application and the inverse column all come from the vendored official
@@ -199,6 +230,19 @@ corpus recovers within 5 moves at 89.7% and 94.4%), `recovers_within_5`,
 *Algebraic* — `exponent_sums`, `abelianized_determinant`, `whitehead_minimal`,
 `whitehead_drop`, `magnus3_residue`, `mod11_label` (lane C's ambiguity labelling).
 
+*Exact lower bound* — `finite_image_distance` (**implemented**, `acc/image_distance.py`).
+rho sends the free group into SL(2, Z/p) with `x -> [[0,-1],[1,1]]` and
+`y -> [[-1,0],[1,-1]]`. rho is a homomorphism and the fourteen moves act on the
+image pair exactly as on words, so a word path projects to an image path of the
+**same** length and the image distance to the target is an exact lower bound on
+the ordinary moves still required. Verified against its audited state counts:
+p=5 → 14,396, p=7 → 112,892, p=11 → 1,742,396, total 1,869,684; admissible on
+400/400 random states within 14 moves of the target. Board bounds computed for
+all 51 cases (`runs/image-distance-board.json`) run 2–9 moves with nothing
+unreachable, so this is a usable A*/IDA* heuristic `h` and **not** an
+obstruction — it rules out nothing on this board. It certifies nothing and must
+never be used as a greedy rank.
+
 *Structural* — `component_id`, `component_novelty`, `escape_to_lower_total`,
 `gateway_distance_delta`, `suffix_proximity`.
 
@@ -221,12 +265,30 @@ signal is gone before you measure it.
 
 **Goal:** a small, replayable shape recipe fitted *after* observation.
 
-**Build** `acc/mixer.py`: standardize, L2 logistic fit (stdlib only — the repo
-has no numpy), deterministic seed, export recipe = weights + means + stds + Eye
-ids and versions + the population it was fitted on.
+**Different eye classes combine by different rules. A single linear fit over all
+of them is wrong.** Before writing the mixer, sort every Eye into one of:
+
+| class | combination rule |
+|---|---|
+| exact lower bounds (`finite_image_distance`) | **maximum**, never a sum and never a weighted average. Each prime is an independent valid bound; adding them is unsound. |
+| gated admissions (`fox_admission`) | a fixed free-group map; the donor-kernel gate and the full-tuple gate are **different gates** and do not merge. |
+| declared-map diagnostics (`sl2z_holonomy`, donor trace) | valid only under its declared map or lane; not an unrestricted AC invariant. Lane-restricted signals stay lane-restricted. |
+| descriptive channels (length, turn, branch width) | these, and only these, are what the weighted mixer may fit. |
+
+**Build** `acc/mixer.py` over the descriptive channels only: standardize, L2
+logistic fit (stdlib only — the repo has no numpy), deterministic seed, export
+recipe = weights + means + stds + Eye ids and versions + the population it was
+fitted on.
 
 Report on every fit: ROC AUC, top-decile and bottom-decile rates, enrichment
 over the population rate, and all three controls from invariant 6.
+
+Emit **routing utility only**, in its own field, and keep proof rank separate
+(invariant 12). Follow the recovered guarded scorer: a routing score is
+`signal x novelty x control_generalization`, and it is **refused outright** when
+held-out or control survival is missing. Proof-level promotion needs
+`applicable` + `certificate_verified` + `scope_complete`. A mixer that emits a
+number when its controls did not run is the failure mode this rule exists for.
 
 **Accept:** refitting the recorded `ac-02555` population reproduces the handoff's
 direct-mixture fit — top 93: 25/93 = 26.88%, full population 64/936 = 6.84%,
@@ -351,6 +413,11 @@ index the suffix dictionary by normalized rep, then test every lane's ports and
 collar states against it for an exact collision. A collision is a certificate
 candidate — and still goes through the replay gate before it is called one.
 
+**Matching a transformed root is not an ordinary-AC certificate.** The Whitehead
+atlas tools cyclically/signed-normalize word pairs, try shears and match solved
+roots; a hit there is a lead, not a path. Only a literal ordinary move list that
+replays from the official start to the exact ordered `(x, y)` is a certificate.
+
 ---
 
 ## W11 — Stable AC track
@@ -417,6 +484,45 @@ exact move list if any | replay status
 
 A complete path is published as a literal challenge line **only after
 independent official replay**.
+
+---
+
+## W13 — Certificate gate (the only path to a claim)
+
+Reuse the recovered gate's shape; do not invent a new one. It is a **double**
+gate, and both halves must pass:
+
+1. the pinned official verifier — `core.verify(challenge, moves, "ac-r2-v1", LIMITS)`
+   with `max_path_length` 100,000, `max_total_relator_length` 10,000,
+   `max_work` 5,000,000;
+2. an **independent replay** by a second implementation, stepping the start
+   through the move list and asserting the final state is the exact ordered
+   target.
+
+Reject on anything else: a non-integer or out-of-range move id, a challenge id
+that is not an official row (a synthetic junction root is not a challenge id), or
+either half failing.
+
+On acceptance write one record with `status: LOCAL_VERIFIED_UNPRICED_NOT_SUBMITTED`,
+`current_board_checked: false`, `submitted: false`, and the scope line
+"ordinary AC; no stable moves; no pricing or submission claim". Nothing in this
+repository prices, uploads or submits.
+
+**Record every negative in the recovered ledger schema** — one record per run
+with `run`, `phase`, `result`, `stop_reason`,
+`completeness_or_impossibility_claim`, `raw_result_file`, and
+`parameters_and_counts`. The existing ledger holds 135 records and every one has
+`completeness_or_impossibility_claim: false`; its stop reasons are
+`DEPTH_LIMIT_WITH_BEAM_PRUNING`, `STATE_BUDGET_REACHED`,
+`TIME_BUDGET_WITH_PARTIAL_MACRO_LAYER`,
+`CONFIGURED_STOCHASTIC_RESTARTS_FINISHED`, `ZERO_COMPILED_FINISHES`. Match that
+schema so the new work joins the existing ledger instead of starting a rival one.
+
+**Move count and peak length are recorded separately and never inferred from each
+other.** The recovered finisher's note is the reason: on `ac-09868`, a 40-move
+path peaks at 15 while a 25-move path peaks at 20 — the shorter path climbs
+higher. Any splice cap that forbids the climb can only ever find the long low
+road, so the cap is a dial to sweep, not a constant.
 
 ---
 

@@ -53,8 +53,76 @@ def capped_closure(start: Presentation, cap: int, max_states: int) -> Closure:
     return Closure(status, seen, boundary, exits)
 
 
+def min_height(closure: Closure) -> int:
+    """Smallest total relator length anywhere in the component."""
+    from .words import decode_state
+    return min(total_length(decode_state(k)) for k in closure.visited)
+
+
+def complete_frontier(closure: Closure, cap: int) -> List[tuple]:
+    """EVERY directed edge from the component to a state above the cap.
+
+    This is the frontier required by `ACCFrontier.cap_closed_exit_forces_above_cap_edge`
+    (see `proof/`).  The theorem deliberately does not assume a first exit has
+    height cap+1 -- an ordinary AC move can jump several length levels -- so a
+    frontier restricted to the cheapest exits is NOT a complete frontier and
+    must never be used as one in a mandatory-hump argument.
+    """
+    out = []
+    for state in closure.boundary:
+        for move_id, child in children(state):
+            if total_length(child) > cap:
+                out.append((state, move_id, child, total_length(child)))
+    return out
+
+
+def mandatory_hump_certificate(closure: Closure, start: Presentation, cap: int) -> dict:
+    """Check the hypotheses of `ACCWell.descent_forces_cap_exit` (see `proof/`).
+
+    Hypotheses, in the theorem's order:
+      hstart   -- start is in the component;
+      hclosed  -- the component is closed under every move whose target stays at
+                  height <= cap.  A BFS that emptied its frontier gives exactly
+                  this; a BUDGET run does NOT, and the certificate is refused;
+      hlower   -- no state of the component is lower than the start.
+
+    On success the conclusion is: every finite move sequence from `start` that
+    ends lower than `start` must visit a state of total length > cap.
+    """
+    h0 = total_length(start)
+    lo = min_height(closure)
+    frontier = complete_frontier(closure, cap)
+    heights = sorted({h for _, _, _, h in frontier})
+    hyp = {
+        "hstart": encode_state(start) in closure.visited,
+        "hclosed": closure.status == "CLOSED",
+        "hlower": lo >= h0,
+    }
+    ok = all(hyp.values())
+    return {
+        "theorem": "ACCWell.descent_forces_cap_exit",
+        "hypotheses": hyp,
+        "holds": ok,
+        "cap": cap,
+        "start_height": h0,
+        "component_min_height": lo,
+        "component_size": closure.size,
+        "complete_frontier_edges": len(frontier),
+        "distinct_exit_heights": heights,
+        "exit_jumps_more_than_one_level": bool(heights and max(heights) > cap + 1),
+        "conclusion": (
+            f"every finite move sequence from the start that ends below total length "
+            f"{h0} must visit a state of total length > {cap}"
+        ) if ok else None,
+        "refused_because": None if ok else [k for k, v in hyp.items() if not v],
+    }
+
+
 def cheapest_exits(closure: Closure, cap: int) -> List[Presentation]:
-    """Distinct over-cap children of minimum total length."""
+    """Distinct over-cap children of MINIMUM total length.
+
+    A reporting slice, not the complete frontier -- see `complete_frontier`.
+    """
     best: Dict[int, list] = {}
     for state in closure.boundary:
         for _, child in children(state):

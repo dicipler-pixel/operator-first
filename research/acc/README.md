@@ -18,6 +18,11 @@ primitive moves. Everything here is tracing and cross-lane comparison.
 | `config/lanes.json` | Six lanes, closed interiors, exact bridges, basins, spent negatives, do-not-repeat set. |
 | `config/board_102.json` | 51 base presentations / 102 track cases, allocation rule, promotion triggers, output row. |
 | `acc/words.py` | Exact word and presentation arithmetic. The encoding contract every count depends on. |
+| `acc/moves.py` | Adapter over the official vendored verifier. No local move semantics. |
+| `acc/search.py` | Capped closure, complete frontier, exact balls, bidirectional distance, mandatory-hump certificate. |
+| `acc/image_distance.py` | Exact finite-image lower bound on moves remaining (admissible A*/IDA* heuristic). |
+| `proof/` | Lean 4 length-well and complete-frontier theorems, hash-verified. |
+| `vendor/` | Official SAIR verifier at the pinned commit, with per-file blob provenance. |
 
 ## Pins installed — W0 calibration GREEN (22/22)
 
@@ -51,6 +56,31 @@ as a way to rediscover a convention.
 `free_reduce` is the exact state normal form. `normalize_ordinary` (rotation +
 inversion + relator swap) is for contracting and counting boundaries **only** —
 never as the state key of an exact search.
+
+## The proof track
+
+`proof/` holds two abstract Lean 4 theorems and their standalone build
+(`lake env lean ACC_Length_Well_Proof_Standalone.lean`), all five files
+hash-verified against `SHA256SUMS.json`:
+
+- `ACCWell.descent_forces_cap_exit` — if a component contains the start, is
+  closed under every move whose target stays at or below a cap, and holds no
+  state lower than the start, then **any** descent below the start must visit a
+  state above the cap.
+- `ACCFrontier.cap_closed_exit_forces_above_cap_edge` — any path leaving such a
+  component traverses an actual directed edge whose target is above the cap. It
+  deliberately does **not** assume the first exit sits at cap+1.
+
+Neither proves or disproves Andrews–Curtis. They are a schema: exact finite
+enumeration supplies the hypotheses, the theorem supplies the conclusion.
+`acc/search.py::mandatory_hump_certificate` checks the hypotheses and refuses
+when any fails — measured, it holds for the K basin (min height 17 = start
+height) and is **refused** for the H junction, whose component reaches down to
+height 15 below a start of 18.
+
+That second theorem's caution is empirically necessary, not pedantic: measured
+exit heights off a cap of 17 are 18–25 and 27. A `cap → cap+1` shell frontier
+would miss most of the real frontier.
 
 ## Non-negotiables
 
