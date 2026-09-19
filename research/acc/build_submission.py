@@ -6,7 +6,7 @@ ordered target.  Nothing here prices, uploads or submits.
 """
 import sys, json, datetime
 sys.path.insert(0,'vendor'); sys.path.insert(0,'.')
-from verifier import core, stable_core
+from verifier import core, specs
 from acc.moves import apply_move, TARGET
 
 SAIR="/home/user/saircompetition/andrews-curtis"
@@ -23,13 +23,18 @@ def replay_ok(cid, moves):
     return s==TARGET
 
 def stable_ok(cid, moves):
+    """A Stable line is the ordinary path plus [16,15]: destabilize y, then x.
+
+    Stable challenges verify through their OWN spec (sac-r8-v1, 257 moves,
+    max_rank 8), not through the ordinary verifier.  Each spec object carries
+    its own `verify`; dispatch on the challenge's move_spec_version.
+    """
     sid="s"+cid
     if sid not in MAN: return False, None
     full=list(moves)+[16,15]
-    v=core.verify(MAN[sid], full, "sac-r8-v1", LIM) if False else None
-    # stable challenges verify through the stable spec
-    from verifier import specs
-    v=core.verify(MAN[sid], full, "sac-r8-v1", LIM)
+    ch=MAN[sid]
+    spec=specs.SPECS[ch["move_spec_version"]]
+    v=spec.verify(ch, full, ch["move_spec_version"], LIM)
     return bool(v.get("ok")), full
 
 def main(src, out):
