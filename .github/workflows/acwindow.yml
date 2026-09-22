@@ -22,6 +22,8 @@ env:
   # `lean-toolchain` pins a different version for the mathlib project, so the
   # toolchain is forced here explicitly; ELAN_TOOLCHAIN outranks that file.
   ELAN_TOOLCHAIN: leanprover/lean4:v4.29.1
+  LEAN_FILE: lean/acc/ACWindow.lean
+  EXPECTED_SHA256: a5d61103cfe60a249d1673fa170d36b2bb08f87908c35700fdaae0495fb7d5d4
 
 jobs:
   lean:
@@ -29,6 +31,14 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+
+      # The README pins the hash of the file the proofs were checked against.
+      # If an edit changes the bytes, fail here rather than silently verifying
+      # something other than the recorded artifact.
+      - name: Verify SHA-256
+        run: |
+          set -euo pipefail
+          echo "${EXPECTED_SHA256}  ${LEAN_FILE}" | sha256sum -c -
 
       - name: Install elan (Lean v4.29.1)
         run: |
@@ -40,13 +50,25 @@ jobs:
       - name: Report toolchain
         run: lean --version
 
+      # The file compiles completely silent: exit 0 and no output at all. Both
+      # are checked, so a regression to a `sorry` warning or an unused-variable
+      # note fails the job instead of passing as a green nonzero-free run.
       - name: Compile ACWindow.lean
         run: |
           set -uo pipefail
-          lean lean/acc/ACWindow.lean
+          out="$(lean "${LEAN_FILE}" 2>&1)"
           status=$?
+
           if [ "$status" -ne 0 ]; then
-            echo "::error file=lean/acc/ACWindow.lean::lean exited with status $status"
+            printf '%s\n' "$out"
+            echo "::error file=${LEAN_FILE}::lean exited with status ${status}"
             exit "$status"
           fi
-          echo "lean exited 0"
+
+          if [ -n "$out" ]; then
+            printf '%s\n' "$out"
+            echo "::error file=${LEAN_FILE}::lean exited 0 but emitted diagnostics; expected a silent build"
+            exit 1
+          fi
+
+          echo "lean exited 0 with no diagnostics"
