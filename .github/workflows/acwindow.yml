@@ -1,0 +1,52 @@
+name: ACWindow Lean check
+
+on:
+  push:
+    branches:
+      - main
+      - claude/acc-window-lean
+    paths:
+      - 'lean/acc/ACWindow.lean'
+      - '.github/workflows/acwindow.yml'
+  pull_request:
+    paths:
+      - 'lean/acc/ACWindow.lean'
+      - '.github/workflows/acwindow.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  # ACWindow.lean targets core Lean 4 v4.29.1. The repository-root
+  # `lean-toolchain` pins a different version for the mathlib project, so the
+  # toolchain is forced here explicitly; ELAN_TOOLCHAIN outranks that file.
+  ELAN_TOOLCHAIN: leanprover/lean4:v4.29.1
+
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install elan (Lean v4.29.1)
+        run: |
+          set -euo pipefail
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/elan-init.sh
+          bash /tmp/elan-init.sh -y --default-toolchain leanprover/lean4:v4.29.1
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Report toolchain
+        run: lean --version
+
+      - name: Compile ACWindow.lean
+        run: |
+          set -uo pipefail
+          lean lean/acc/ACWindow.lean
+          status=$?
+          if [ "$status" -ne 0 ]; then
+            echo "::error file=lean/acc/ACWindow.lean::lean exited with status $status"
+            exit "$status"
+          fi
+          echo "lean exited 0"
