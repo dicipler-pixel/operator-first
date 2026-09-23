@@ -22,7 +22,56 @@ head `7e9f1ddc85d3eada5c449069bd2a3893655432f0`. Conclusion: success.
   lines and then exits successfully.
 - **Count mismatch.** axiom-audit reports "audited 47 declaration(s) under
   'ElementalFoundations'", but the three source files contain 49 theorems and all 49
-  appear in the `#print axioms` output.
+  appear in the `#print axioms` output. See "Axiom-audit scope" below: the 47 is not
+  "49 minus 2".
+
+## Axiom-audit scope
+
+The step ran `leanprover/lean-action@50fcf42` `scripts/run_axiom_audit.sh`. That script
+builds `leanprover-community/axiom-audit` v0.1.2 (`46024e005996495c65ef609368e11ab39c4222e3`)
+and runs `lake env axiom-audit --allow propext,Classical.choice,Quot.sound`, with no
+`--root` and no `--modules`. In `AxiomAudit.lean` / `Main.lean` at that commit:
+
+1. **Root.** `detectRoot` takes the first `[[lean_lib]] name` in `lakefile.toml`, which is
+   `ElementalFoundations`.
+2. **Imports.** With no `--modules`/`--modules-from`, it imports only the module
+   `#[root]`, i.e. `ElementalFoundations`.
+3. **Candidates.** `audit` keeps every constant in the environment whose *defining module*
+   satisfies `inAuditedLib root m` (`m == root || root.isPrefixOf m`). The filter is by
+   module name. It does not look at namespace or attributes, and it includes `def`s and
+   compiler-generated constants as well as theorems.
+
+At `7e9f1dd` the library has three sibling top-level modules
+(`roots = ["ElementalFoundations", "ElementalForceRecovery", "ElementalBoundaryLedger"]`),
+each importing only `Mathlib`, and `ElementalFoundations.lean` imports neither of the
+other two. So:
+
+- **19 of the 49 theorems are skipped, not 2.** Skipped: all 14 theorems in
+  `ElementalForceRecovery.lean` and all 5 in `ElementalBoundaryLedger.lean`. Their modules
+  are never imported. Even if they were, `ElementalForceRecovery` and
+  `ElementalBoundaryLedger` are not `ElementalFoundations` or `ElementalFoundations.*`, so
+  the module filter would still drop them. Their shared `namespace ElementalFoundations`
+  makes no difference, and nor does the `@[simp]` on `zForce_origin`.
+- **The 47 audited constants all come from `ElementalFoundations.lean`.** They are its 30
+  theorems, its 7 `def`s (`cross`, `characteristic`, `denominator`, `transmission`,
+  `isolatedStrength`, `commonRecord`, `inverseChord`), and 10 more constants, which are
+  presumably compiler-generated (equation lemmas, auxiliary `_proof_` terms and the like).
+  Those 10 could not be named here: installing the Lean toolchain to rebuild the
+  environment was blocked by the network policy of the session that wrote this note.
+- **Why the 19 are still checked elsewhere.** Their axiom dependencies appear only in the
+  `#print axioms` lines of the Lake build output (`ElementalForceRecovery.lean:156-169`,
+  `ElementalBoundaryLedger.lean:113-117`). Every one of them is
+  `[propext, Classical.choice, Quot.sound]`. axiom-audit did not certify them.
+- **leanchecker has the same scope.** The workflow passes
+  `leanchecker-args: ElementalFoundations`, which lean-action documents as restricting
+  checking to the listed module prefixes. So the other two modules were probably not
+  rechecked either.
+
+Passing `axiom-audit-root` does not fix this, because a single root cannot cover three
+sibling modules. It would take `--modules ElementalFoundations,ElementalForceRecovery,ElementalBoundaryLedger`
+(which lean-action@50fcf42 does not expose), or moving the two extra files under
+`ElementalFoundations/`. This note records the finding only. The workflow, the audit
+script and the Lean files are unchanged.
 
 ## Theorems at 7e9f1dd (49)
 
