@@ -1,0 +1,96 @@
+2026-09-12T11:48:28.9151235Z ##[group]Run : Audit axioms with axiom-audit
+2026-09-12T11:48:28.9151607Z [36;1m: Audit axioms with axiom-audit[0m
+2026-09-12T11:48:28.9151952Z [36;1m${GITHUB_ACTION_PATH}/scripts/run_axiom_audit.sh[0m
+2026-09-12T11:48:28.9212875Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-12T11:48:28.9213241Z env:
+2026-09-12T11:48:28.9213446Z   LEAN_NUM_THREADS: 2
+2026-09-12T11:48:28.9213746Z   AXIOM_AUDIT_ALLOW: propext,Classical.choice,Quot.sound
+2026-09-12T11:48:28.9214093Z   AXIOM_AUDIT_ROOT: 
+2026-09-12T11:48:28.9214316Z ##[endgroup]
+2026-09-12T11:48:28.9299459Z ##[group]axiom-audit Output
+2026-09-12T11:48:28.9299990Z Auditing axioms with leanprover-community/axiom-audit
+2026-09-12T11:48:28.9316913Z Building the project...
+2026-09-12T11:48:32.9449394Z ℹ [8706/8709] Replayed ElementalForceRecovery
+2026-09-12T11:48:32.9450436Z info: ElementalForceRecovery.lean:156:0: 'ElementalFoundations.zForce_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9451839Z info: ElementalForceRecovery.lean:157:0: 'ElementalFoundations.zForce_x_axis' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9453383Z info: ElementalForceRecovery.lean:158:0: 'ElementalFoundations.zForce_y_axis' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9454745Z info: ElementalForceRecovery.lean:159:0: 'ElementalFoundations.zForce_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9456467Z info: ElementalForceRecovery.lean:160:0: 'ElementalFoundations.recover_sbeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9458451Z info: ElementalForceRecovery.lean:161:0: 'ElementalFoundations.recover_sgamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9459931Z info: ElementalForceRecovery.lean:162:0: 'ElementalFoundations.recover_salpha' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9461386Z info: ElementalForceRecovery.lean:163:0: 'ElementalFoundations.three_force_recovery' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9463134Z info: ElementalForceRecovery.lean:164:0: 'ElementalFoundations.observed_x_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9464625Z info: ElementalForceRecovery.lean:165:0: 'ElementalFoundations.observed_y_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9466382Z info: ElementalForceRecovery.lean:166:0: 'ElementalFoundations.observed_diagonal_combination' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9467989Z info: ElementalForceRecovery.lean:167:0: 'ElementalFoundations.four_force_recovery_with_offset' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9469574Z info: ElementalForceRecovery.lean:168:0: 'ElementalFoundations.three_reading_error_combination' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9471208Z info: ElementalForceRecovery.lean:169:0: 'ElementalFoundations.four_reading_error_combination' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9472393Z ℹ [8707/8709] Replayed ElementalBoundaryLedger
+2026-09-12T11:48:32.9473449Z info: ElementalBoundaryLedger.lean:113:0: 'ElementalFoundations.resolvedLedger_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9475551Z info: ElementalBoundaryLedger.lean:114:0: 'ElementalFoundations.resolvedLedger_le_commonFloor' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9477200Z info: ElementalBoundaryLedger.lean:115:0: 'ElementalFoundations.resolvedQuadraticLedger_le_commonFloor' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9478849Z info: ElementalBoundaryLedger.lean:116:0: 'ElementalFoundations.commonFloorLedger_eq_aggregate' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:32.9480504Z info: ElementalBoundaryLedger.lean:117:0: 'ElementalFoundations.commonFloorQuadraticLedger_eq_aggregate' depends on axioms: [propext,
+2026-09-12T11:48:32.9481713Z  Classical.choice,
+2026-09-12T11:48:32.9482285Z  Quot.sound]
+2026-09-12T11:48:33.0451812Z ℹ [8708/8709] Replayed ElementalFoundations
+2026-09-12T11:48:33.0452709Z info: ElementalFoundations.lean:280:0: 'ElementalFoundations.cross_expansion' depends on axioms: [propext]
+2026-09-12T11:48:33.0453561Z info: ElementalFoundations.lean:281:0: 'ElementalFoundations.cross_commutator' depends on axioms: [propext]
+2026-09-12T11:48:33.0454555Z info: ElementalFoundations.lean:282:0: 'ElementalFoundations.cross_zero_iff_commutes' depends on axioms: [propext]
+2026-09-12T11:48:33.0474375Z info: ElementalFoundations.lean:283:0: 'ElementalFoundations.centered_characteristic' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0475716Z info: ElementalFoundations.lean:284:0: 'ElementalFoundations.denominator_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0476726Z info: ElementalFoundations.lean:285:0: 'ElementalFoundations.denominator_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0477662Z info: ElementalFoundations.lean:286:0: 'ElementalFoundations.mirror_transmission' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0478570Z info: ElementalFoundations.lean:287:0: 'ElementalFoundations.initial_plus' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0479801Z info: ElementalFoundations.lean:288:0: 'ElementalFoundations.initial_minus' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0480730Z info: ElementalFoundations.lean:289:0: 'ElementalFoundations.isolated_optical_equal' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0481653Z info: ElementalFoundations.lean:290:0: 'ElementalFoundations.plus_later' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0482659Z info: ElementalFoundations.lean:291:0: 'ElementalFoundations.minus_later' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0483562Z info: ElementalFoundations.lean:292:0: 'ElementalFoundations.later_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0484490Z info: ElementalFoundations.lean:293:0: 'ElementalFoundations.plus_first_order_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0485738Z info: ElementalFoundations.lean:294:0: 'ElementalFoundations.minus_first_order_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0486774Z info: ElementalFoundations.lean:295:0: 'ElementalFoundations.no_conductance_only_predictor' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0487741Z info: ElementalFoundations.lean:296:0: 'ElementalFoundations.common_record_plus_minus' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0488689Z info: ElementalFoundations.lean:297:0: 'ElementalFoundations.no_common_record_predictor' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0489624Z info: ElementalFoundations.lean:298:0: 'ElementalFoundations.plus_later_lt_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0490520Z info: ElementalFoundations.lean:299:0: 'ElementalFoundations.half_lt_minus_later' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0491416Z info: ElementalFoundations.lean:300:0: 'ElementalFoundations.later_gap_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0492321Z info: ElementalFoundations.lean:301:0: 'ElementalFoundations.two_model_minimax_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0493249Z info: ElementalFoundations.lean:302:0: 'ElementalFoundations.robust_separation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0494166Z info: ElementalFoundations.lean:303:0: 'ElementalFoundations.robust_pair_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0495278Z info: ElementalFoundations.lean:304:0: 'ElementalFoundations.inverse_chord_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0496204Z info: ElementalFoundations.lean:305:0: 'ElementalFoundations.inverse_le_chord' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0497123Z info: ElementalFoundations.lean:306:0: 'ElementalFoundations.inverse_penalty_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0498084Z info: ElementalFoundations.lean:307:0: 'ElementalFoundations.resolved_two_channel_le_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0499046Z info: ElementalFoundations.lean:308:0: 'ElementalFoundations.two_channel_chord_coarsening' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0500042Z info: ElementalFoundations.lean:309:0: 'ElementalFoundations.mean_before_inverse_underestimates' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-12T11:48:33.0856503Z Build completed successfully (8709 jobs).
+2026-09-12T11:48:33.1237528Z Fetching axiom-audit @ v0.1.2 (46024e005996495c65ef609368e11ab39c4222e3)...
+2026-09-12T11:48:33.1254153Z Cloning into '/home/runner/work/_temp/axiom-audit.WCb8t8/axiom-audit'...
+2026-09-12T11:48:33.6545746Z Note: switching to '46024e005996495c65ef609368e11ab39c4222e3'.
+2026-09-12T11:48:33.6546066Z 
+2026-09-12T11:48:33.6546542Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-09-12T11:48:33.6547043Z changes and commit them, and you can discard any commits you make in this
+2026-09-12T11:48:33.6547533Z state without impacting any branches by switching back to a branch.
+2026-09-12T11:48:33.6547815Z 
+2026-09-12T11:48:33.6548010Z If you want to create a new branch to retain commits you create, you may
+2026-09-12T11:48:33.6548610Z do so (now or later) by using -c with the switch command. Example:
+2026-09-12T11:48:33.6548869Z 
+2026-09-12T11:48:33.6548984Z   git switch -c <new-branch-name>
+2026-09-12T11:48:33.6549169Z 
+2026-09-12T11:48:33.6549280Z Or undo this operation with:
+2026-09-12T11:48:33.6549453Z 
+2026-09-12T11:48:33.6549544Z   git switch -
+2026-09-12T11:48:33.6549678Z 
+2026-09-12T11:48:33.6549901Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-09-12T11:48:33.6550207Z 
+2026-09-12T11:48:36.2036536Z ✔ [2/6] Built AxiomAudit (2.5s)
+2026-09-12T11:48:36.9042819Z ✔ [3/6] Built AxiomAudit:c.o (620ms)
+2026-09-12T11:48:37.3046906Z ✔ [4/6] Built Main (1.0s)
+2026-09-12T11:48:37.6040500Z ✔ [5/6] Built Main:c.o (318ms)
+2026-09-12T11:48:39.3080380Z ✔ [6/6] Built «axiom-audit»:exe (1.7s)
+2026-09-12T11:48:39.3085268Z Build completed successfully (6 jobs).
+2026-09-12T11:48:44.4862109Z axiom-audit: audited 47 declaration(s) under 'ElementalFoundations'; all within the allowlist [propext, Classical.choice, Quot.sound].
+2026-09-12T11:48:44.5307633Z axiom-audit completed successfully
+2026-09-12T11:48:44.5366593Z ##[endgroup]
+2026-09-12T11:48:44.5376139Z ##[end-action id=__leanprover_lean-action.axiom-audit;outcome=success;conclusion=success;duration_ms=15624]

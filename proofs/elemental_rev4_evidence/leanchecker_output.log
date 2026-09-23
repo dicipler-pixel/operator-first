@@ -1,0 +1,16 @@
+2026-09-12T11:48:14.6383419Z ##[group]Run : Check Environment with leanchecker
+2026-09-12T11:48:14.6383825Z [36;1m: Check Environment with leanchecker[0m
+2026-09-12T11:48:14.6384213Z [36;1m${GITHUB_ACTION_PATH}/scripts/run_leanchecker.sh[0m
+2026-09-12T11:48:14.6423853Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-12T11:48:14.6424215Z env:
+2026-09-12T11:48:14.6424424Z   LEAN_NUM_THREADS: 2
+2026-09-12T11:48:14.6424680Z   LEANCHECKER_INPUT: true
+2026-09-12T11:48:14.6424934Z   LEAN4CHECKER_INPUT: false
+2026-09-12T11:48:14.6425415Z   LEANCHECKER_ARGS: ElementalFoundations
+2026-09-12T11:48:14.6425698Z ##[endgroup]
+2026-09-12T11:48:14.6508890Z ##[group]leanchecker Output
+2026-09-12T11:48:14.6509208Z Checking environment with leanchecker
+2026-09-12T11:48:14.6541050Z Using bundled leanchecker from the active Lean toolchain
+2026-09-12T11:48:28.9108628Z ##[endgroup]
+2026-09-12T11:48:28.9108831Z 
+2026-09-12T11:48:28.9120218Z ##[end-action id=__leanprover_lean-action.__run_5;outcome=success;conclusion=success;duration_ms=14275]
