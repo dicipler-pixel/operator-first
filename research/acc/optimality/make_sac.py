@@ -23,12 +23,13 @@ for sid, (p, kind) in sorted(best.items(), key=lambda kv: rows['ac-' + kv[0][4:]
     h = held['sac'].get(sid)
     if h is None or len(p) < h:
         sac_lines.append(f"{sid}: {json.dumps(p).replace(' ', '')}  # {len(p)} moves via {kind}; team held {h}; AC record {rows['ac-'+sid[4:]]['R']}")
-out = repo / 'ACC_SAC_20260924.txt'
-out.write_text("# Stable AC lines improving on the team's held lengths (history of 2026-09-24); official stable verifier replayed\n" + "\n".join(sac_lines) + "\n")
+(repo / 'ACC_SAC_20260924_annotated.txt').write_text("\n".join(sac_lines) + "\n")
+(repo / 'ACC_SAC_20260924.txt').write_text("".join(l.split('  #')[0] + "\n" for l in sac_lines))
 # AC tie file minus rows already held at R
-ac_lines = [l for l in (repo / 'ACC_TIES_20260924.txt').read_text().splitlines() if l.startswith('ac-')]
+ac_lines = [l for l in (repo / 'ACC_TIES_20260924_annotated.txt').read_text().splitlines() if l.startswith('ac-')]
 new_ac = [l for l in ac_lines if held['ac'].get(l.split(':')[0], 999) > rows[l.split(':')[0]]['R']]
-(repo / 'ACC_TIES_NEW_20260924.txt').write_text("# AC tie lines not yet held by the team (per submission history)\n" + "\n".join(new_ac) + "\n")
+(repo / 'ACC_TIES_NEW_20260924_annotated.txt').write_text("\n".join(new_ac) + "\n")
+(repo / 'ACC_TIES_NEW_20260924.txt').write_text("".join(l.split('  #')[0] + "\n" for l in new_ac))
 for fn in ('ACC_SAC_20260924.txt', 'ACC_TIES_NEW_20260924.txt'):
     p = subprocess.run([sys.executable, '-m', 'verifier', '--manifest', 'competition/tools/verifier/data/manifest.json', '--submission', str(repo / fn)],
                        cwd=sair, env={'PYTHONPATH': 'competition/tools', 'PATH': '/usr/bin:/bin'}, capture_output=True, text=True)

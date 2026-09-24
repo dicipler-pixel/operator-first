@@ -9,7 +9,8 @@ for l in open(jl):
     if r.get('official_core_verify', {}).get('ok') and len(r['path']) == x['R']:
         lines.append(f"{r['row']}: {json.dumps(r['path']).replace(' ', '')}  # ties record {x['R']}, k={x['k']} (2026-09-14 snapshot), value 2^-{x['k']}")
         total += 2 ** -x['k']
-pathlib.Path(out).write_text("# ACC tie paths 2026-09-24; each is an exact-optimal path (records proven optimal, WARROOM_2026-09-24_optimality_R*.md)\n" + "\n".join(lines) + "\n")
+pathlib.Path(out.replace('.txt', '_annotated.txt')).write_text("\n".join(lines) + "\n")
+pathlib.Path(out).write_text("".join(l.split('  #')[0] + "\n" for l in lines))
 print(f"{len(lines)} tie lines, value if k unchanged: {total:.4f}")
 p = subprocess.run([sys.executable, '-m', 'verifier', '--manifest', 'competition/tools/verifier/data/manifest.json', '--submission', str(pathlib.Path(out).resolve()), '--pretty'],
                    cwd=sair, env={'PYTHONPATH': 'competition/tools', 'PATH': '/usr/bin:/bin'}, capture_output=True, text=True)
