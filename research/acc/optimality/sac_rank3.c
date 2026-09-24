@@ -72,9 +72,13 @@ static int tfind(const Tb*T,uint64_t a,uint64_t b){ uint64_t i=(uint64_t)(((unsi
   for(;;){ if(!T->t[2*i]) return -1; if(T->t[2*i]==a&&(T->t[2*i+1]&~0xFULL)==b) return (int)(T->t[2*i+1]&0xF); if(++i==T->N) i=0; } }
 static int tins(Tb*T,uint64_t a,uint64_t b,int d){ if(T->n*10>=T->N*8){ fprintf(stderr,"table full\n"); exit(4);} uint64_t i=(uint64_t)(((unsigned __int128)a*T->N)>>64);
   for(;;){ if(!T->t[2*i]){ T->t[2*i]=a; T->t[2*i+1]=b|(uint64_t)d; T->n++; return 1; } if(T->t[2*i]==a&&(T->t[2*i+1]&~0xFULL)==b) return 0; if(++i==T->N) i=0; } }
-// layered state storage
-typedef struct { S*v; uint64_t n,cap; } Vec;
-static void push(Vec*V,const S*s){ if(V->n==V->cap){ V->cap=V->cap?V->cap*2:1024; V->v=realloc(V->v,V->cap*sizeof(S)); if(!V->v){fprintf(stderr,"oom\n");exit(3);} } V->v[V->n++]=*s; }
+// layered state storage: variable-length byte arena (no per-state word cap)
+typedef struct { uint8_t*b; uint64_t n,cap,cnt; } Vec;
+static void push(Vec*V,const S*s){ uint64_t need=2; for(int j=0;j<s->k;j++) need+=2+s->l[j];
+  if(V->n+need>V->cap){ V->cap=V->cap?V->cap*2:(1<<20); while(V->n+need>V->cap) V->cap*=2; V->b=realloc(V->b,V->cap); if(!V->b){fprintf(stderr,"oom\n");exit(3);} }
+  uint8_t*p=V->b+V->n; *p++=(uint8_t)s->k; for(int j=0;j<s->k;j++){ *p++=(uint8_t)(s->l[j]&255); *p++=(uint8_t)(s->l[j]>>8); memcpy(p,s->w[j],s->l[j]); p+=s->l[j]; }
+  V->n=p-V->b; V->cnt++; }
+static uint64_t get(const Vec*V,uint64_t off,S*s){ const uint8_t*p=V->b+off; s->k=*p++; for(int j=0;j<s->k;j++){ s->l[j]=p[0]|(p[1]<<8); p+=2; memcpy(s->w[j],p,s->l[j]); p+=s->l[j]; } return p-V->b; }
 static Tb FT,BT; static Vec FL[16],BL[16]; static int curd;
 static int BMAX; static void addB(const S*p,int m,void*u){ (void)m;(void)u; uint64_t a,b; fp(p,&a,&b); if(tins(&BT,a,b,curd)&&curd<BMAX) push(&BL[curd],p); }
 static int stepwalk_found; static S walkS; static int walkm;
@@ -85,16 +89,16 @@ int main(int argc,char**argv){ build();
   MAXR=atoi(argv[1]); int A=atoi(argv[2]),B=atoi(argv[3]); BMAX=B;
   uint64_t NS=getenv("NSLOTS")?strtoull(getenv("NSLOTS"),0,10):(1ULL<<26); tinit(&BT,NS); uint64_t a,b; S r;
   S e; e.k=0; fp(&e,&a,&b); tins(&BT,a,b,0); push(&BL[0],&e);
-  for(curd=1;curd<=B;curd++){ for(uint64_t q=0;q<BL[curd-1].n;q++) preds(&BL[curd-1].v[q],addB,NULL);
+  for(curd=1;curd<=B;curd++){ { static S cur; for(uint64_t off=0;off<BL[curd-1].n;) { off=get(&BL[curd-1],off,&cur); preds(&cur,addB,NULL); } }
     fprintf(stderr,"B layer %d: total %llu\n",curd,(unsigned long long)BT.n); }
   char tag[64];
   while(scanf("%63s",tag)==1){ S s0; s0.k=2; for(int j=0;j<2;j++){ if(scanf("%d",&s0.l[j])!=1) return 1; for(int x=0;x<s0.l[j];x++){ int v; if(scanf("%d",&v)!=1) return 1; s0.w[j][x]=(int8_t)v; } }
-    OVERFLOW=0; tinit(&FT,NS); for(int d=0;d<16;d++) FL[d].n=0;
+    OVERFLOW=0; tinit(&FT,NS); for(int d=0;d<16;d++){ FL[d].n=0; FL[d].cnt=0; }
     fp(&s0,&a,&b); tins(&FT,a,b,0); push(&FL[0],&s0); int best=99; S bestS; int bdS=0,bdT=0; uint64_t streamed=0;
     { int dt=tfind(&BT,a,b); if(dt>=0){ best=dt; bestS=s0; bdS=0; bdT=dt; } }
-    for(int d=1;d<=A;d++){ for(uint64_t q=0;q<FL[d-1].n;q++) for(int m=0;m<257;m++){ if(!apply(&FL[d-1].v[q],m,&r)) continue; fp(&r,&a,&b);
+    static S cur; for(int d=1;d<=A;d++){ for(uint64_t off=0;off<FL[d-1].n;){ off=get(&FL[d-1],off,&cur); for(int m=0;m<257;m++){ if(!apply(&cur,m,&r)) continue; fp(&r,&a,&b);
           if(d<A){ if(tins(&FT,a,b,d)){ push(&FL[d],&r); int dt=tfind(&BT,a,b); if(dt>=0&&d+dt<best){ best=d+dt; bestS=r; bdS=d; bdT=dt; } } }
-          else { if(tfind(&FT,a,b)>=0) continue; streamed++; int dt=tfind(&BT,a,b); if(dt>=0&&d+dt<best){ best=d+dt; bestS=r; bdS=d; bdT=dt; } } } }
+          else { if(tfind(&FT,a,b)>=0) continue; streamed++; int dt=tfind(&BT,a,b); if(dt>=0&&d+dt<best){ best=d+dt; bestS=r; bdS=d; bdT=dt; } } } } }
     printf("%s F_stored=%llu streamed=%llu",tag,(unsigned long long)FT.n,(unsigned long long)streamed);
     if(OVERFLOW) printf(" WARNING_CAP_HIT=%ld(not_exact)",OVERFLOW);
     if(best==99){ printf(" NO_MEET rank<=%d dist>%d\n",MAXR,A+B); fflush(stdout); free(FT.t); continue; }
