@@ -1,0 +1,66 @@
+// Beam search + exact finish. Forward beam from the start keeps the W states of smallest total
+// relator length per depth (ties broken by fingerprint), deduplicated across all depths. Every
+// generated state is looked up in T_9 (distance to (x,y)) and, via the generator swap, in T_9
+// again (distance to (y,x)). A hit at depth d with ball distance t gives an AC path d+t (to (x,y))
+// or a Stable AC path d+t+2 (via (y,x)). Kernel/fingerprint/table shared with acc_opt.c.
+// usage: acc_beam TFILE W DMAX l0 w.. l1 w..
+#define ACC_NO_MAIN
+#include "acc_opt.c"
+typedef struct { uint64_t off; uint32_t par; uint8_t mv; uint32_t len; } Node;
+static uint8_t*AR; static uint64_t ARn,ARcap;
+static uint64_t store(const St*s){ uint64_t need=4+s->l[0]+s->l[1]; if(ARn+need>ARcap){ ARcap=ARcap?ARcap*2:(1ULL<<26); while(ARn+need>ARcap) ARcap*=2; AR=realloc(AR,ARcap); if(!AR) die("arena"); }
+  uint8_t*p=AR+ARn; p[0]=s->l[0]&255; p[1]=s->l[0]>>8; p[2]=s->l[1]&255; p[3]=s->l[1]>>8; memcpy(p+4,s->w[0],s->l[0]); memcpy(p+4+s->l[0],s->w[1],s->l[1]); uint64_t o=ARn; ARn+=need; return o; }
+static void load(uint64_t o,St*s){ uint8_t*p=AR+o; s->l[0]=p[0]|(p[1]<<8); s->l[1]=p[2]|(p[3]<<8); memcpy(s->w[0],p+4,s->l[0]); memcpy(s->w[1],p+4+s->l[0],s->l[1]); }
+static void swapst(const St*s,St*r){ r->l[0]=s->l[0]; r->l[1]=s->l[1]; for(int j=0;j<2;j++) for(int i=0;i<s->l[j];i++) r->w[j][i]=s->w[j][i]^2; } // x<->y: 0<->2, 1<->3
+static const uint8_t PI[14]={0,1,2,3,4,5,8,9,6,7,12,13,10,11};
+typedef struct { uint64_t key; uint32_t idx; } Cand;
+static int cmpc(const void*a,const void*b){ uint64_t x=((Cand*)a)->key,y=((Cand*)b)->key; return x<y?-1:x>y; }
+int main(int argc,char**argv){
+  const char*tf=argv[1]; uint64_t W=strtoull(argv[2],0,10); int DMAX=atoi(argv[3]); St s0; parse_state(argv,4,&s0);
+  struct stat stt; int fd=open(tf,O_RDONLY); if(fd<0||fstat(fd,&stt)) die("tfile");
+  TT.t=mmap(0,stt.st_size,PROT_READ,MAP_SHARED|MAP_POPULATE,fd,0); if(TT.t==MAP_FAILED) die("mmap"); TT.N=stt.st_size/16;
+  Tab V; tab_init(&V,1ULL<<24);
+  Node*nodes=malloc(sizeof(Node)*(W*(uint64_t)(DMAX+1)+1)); uint64_t nn=0;
+  uint64_t h1,h2; fp(&s0,&h1,&h2); tab_ins(&V,h1,h2,0,1); nodes[nn++]=(Node){store(&s0),0xFFFFFFFFu,255,(uint32_t)(s0.l[0]+s0.l[1])};
+  uint64_t lo=0,hi=1; int bestAC=1<<30,bestSAC=1<<30; uint32_t acNode=0,sacNode=0; int acT=0,sacT=0; St acSt,sacSt;
+  Cand*C=malloc(sizeof(Cand)*W*14); St*tmpS=malloc(sizeof(St)*1); (void)tmpS;
+  static St cur,nx,sw; St*kids=NULL; uint64_t kcap=0;
+  // scratch arena for one depth's children; permanent arena (AR) holds kept states only
+  uint8_t*SA=NULL; uint64_t SAn=0,SAcap=0; Tab L; tab_init(&L,1ULL<<23);
+  for(int d=1;d<=DMAX;d++){
+    if(d>=bestAC && d+2>=bestSAC) break;
+    Node*tmpN=malloc(sizeof(Node)*(hi-lo)*14+1); uint64_t nt=0; SAn=0; memset(L.t,0,16*L.N); L.n=0;
+    for(uint64_t i=lo;i<hi;i++){ load(nodes[i].off,&cur);
+      for(int m=0;m<14;m++){ apply(&cur,m,&nx); fp(&nx,&h1,&h2);
+        if(tab_find(&V,h1,h2)>=0) continue; if(tab_ins(&L,h1,h2,1,1)>=0) continue;
+        int t=tab_find(&TT,h1,h2); if(t>=0&&d+t<bestAC){ bestAC=d+t; acNode=(uint32_t)i; acT=t; acSt=nx; }
+        swapst(&nx,&sw); uint64_t g1,g2; fp(&sw,&g1,&g2); int u=tab_find(&TT,g1,g2);
+        if(u>=0&&d+u+2<bestSAC){ bestSAC=d+u+2; sacNode=(uint32_t)i; sacT=u; sacSt=nx; }
+        uint32_t len=nx.l[0]+nx.l[1]; uint64_t need=4+len;
+        if(SAn+need>SAcap){ SAcap=SAcap?SAcap*2:(1ULL<<26); while(SAn+need>SAcap) SAcap*=2; SA=realloc(SA,SAcap); if(!SA) die("scratch"); }
+        uint8_t*q=SA+SAn; q[0]=nx.l[0]&255; q[1]=nx.l[0]>>8; q[2]=nx.l[1]&255; q[3]=nx.l[1]>>8; memcpy(q+4,nx.w[0],nx.l[0]); memcpy(q+4+nx.l[0],nx.w[1],nx.l[1]);
+        tmpN[nt]=(Node){SAn,(uint32_t)i,(uint8_t)m,len}; SAn+=need;
+        C[nt]=(Cand){((uint64_t)len<<40)|(h1>>24),(uint32_t)nt}; nt++; } }
+    uint64_t keep=nt<W?nt:W; if(nt>W){ qsort(C,nt,sizeof(Cand),cmpc);
+      // diversity ("zag"): keep the best DIV fraction by length, fill the rest evenly from the longer remainder
+      double DIV=getenv("BEAM_DIV")?atof(getenv("BEAM_DIV")):1.0; uint64_t k1=(uint64_t)(W*DIV); if(k1>W) k1=W;
+      if(k1<W){ uint64_t rest=nt-k1, need=W-k1; for(uint64_t q=0;q<need;q++){ uint64_t src=k1+(uint64_t)((double)q*rest/need); C[k1+q]=C[src]; } } }
+    lo=nn; for(uint64_t k=0;k<keep;k++){ Node x=tmpN[C[k].idx]; uint8_t*q=SA+x.off; St t2; t2.l[0]=q[0]|(q[1]<<8); t2.l[1]=q[2]|(q[3]<<8);
+        memcpy(t2.w[0],q+4,t2.l[0]); memcpy(t2.w[1],q+4+t2.l[0],t2.l[1]); x.off=store(&t2); fp(&t2,&h1,&h2); tab_ins(&V,h1,h2,(d>15?15:d),1); nodes[nn++]=x; }
+    hi=nn; free(tmpN);
+    uint32_t mn=~0u,mx=0; for(uint64_t i=lo;i<hi;i++){ if(nodes[i].len<mn) mn=nodes[i].len; if(nodes[i].len>mx) mx=nodes[i].len; }
+    if(d%10==0||bestAC<(1<<30)) fprintf(stderr,"d=%d gen=%llu kept=%llu len[%u..%u] bestAC=%d bestSAC=%d arena=%lluMB\n",d,(unsigned long long)nt,(unsigned long long)keep,mn,mx,bestAC<(1<<30)?bestAC:-1,bestSAC<(1<<30)?bestSAC:-1,(unsigned long long)(ARn>>20));
+    if(hi==lo) break; }
+  // rebuild: prefix via parent chain, then exact finish through T_9
+  for(int which=0;which<2;which++){ int best=which?bestSAC:bestAC; if(best>=(1<<30)){ printf("%s NONE\n",which?"SAC":"AC"); continue; }
+    uint32_t pn=which?sacNode:acNode; St fin=which?sacSt:acSt; int t=which?sacT:acT;
+    int pre[4096],np=0; // moves from start to parent node, then the move to fin
+    // find the move from parent to fin
+    load(nodes[pn].off,&cur); int mfin=-1; for(int m=0;m<14;m++){ apply(&cur,m,&nx); if(st_eq(&nx,&fin)){ mfin=m; break; } }
+    uint32_t q=pn; while(nodes[q].par!=0xFFFFFFFFu){ pre[np++]=nodes[q].mv; q=nodes[q].par; }
+    int path[8192],L=0; for(int i=np-1;i>=0;i--) path[L++]=pre[i]; path[L++]=mfin;
+    St c=fin; if(which) swapst(&fin,&c);
+    for(int k=t;k>0;k--){ int ok=0; for(int m=0;m<14;m++){ apply(&c,m,&nx); fp(&nx,&h1,&h2); if(tab_find(&TT,h1,h2)==k-1){ path[L++]=which?PI[m]:m; c=nx; ok=1; break; } } if(!ok){ printf("REBUILD_FAIL\n"); break; } }
+    if(which){ path[L++]=15; path[L++]=15; }
+    printf("%s %d PATH",which?"SAC":"AC",L); for(int i=0;i<L;i++) printf(" %d",path[i]); printf("\n"); }
+  return 0; }
