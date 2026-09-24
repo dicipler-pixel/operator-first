@@ -7,8 +7,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
+#ifndef MW
 #define MW 200
+#endif
+#ifndef MR
 #define MR 8
+#endif
+static long OVERFLOW=0;
 typedef struct { int k; int l[MR]; int8_t w[MR][MW]; } S;
 typedef struct { int cat,i,j,inv,c; } Row; // cat: 0 inv,1 mult,2 conj,3 stab,4 destab
 static Row T[257]; static int MAXR;
@@ -37,10 +42,10 @@ static int apply(const S*s,int m,S*r){ Row R=T[m]; int k=s->k;
   if(R.cat==1){ int j=R.j; if(j>=k) return 0; int n=0; int8_t o[2*MW];
     for(int t=0;t<s->l[i];t++) n=red(o,n,s->w[i][t]);
     if(!R.inv) for(int t=0;t<s->l[j];t++) n=red(o,n,s->w[j][t]); else for(int t=s->l[j]-1;t>=0;t--) n=red(o,n,(int8_t)-s->w[j][t]);
-    if(n>MW-2) return 0; memcpy(r->w[i],o,n); r->l[i]=n; return 1; }
+    if(n>MW-2){ OVERFLOW++; return 0; } memcpy(r->w[i],o,n); r->l[i]=n; return 1; }
   int c=R.c; if(abs(c)>k) return 0; int n=0; int8_t o[MW+4]; n=red(o,n,(int8_t)c);
   for(int t=0;t<s->l[i];t++) n=red(o,n,s->w[i][t]); n=red(o,n,(int8_t)-c);
-  if(n>MW-2) return 0; memcpy(r->w[i],o,n); r->l[i]=n; return 1; }
+  if(n>MW-2){ OVERFLOW++; return 0; } memcpy(r->w[i],o,n); r->l[i]=n; return 1; }
 static int inv_of(int m){ Row R=T[m]; if(R.cat==0) return m; if(R.cat==1) return R.inv?m-1:m+1; if(R.cat==2) return (R.c>0)?m+1:m-1; return -1; }
 static int seq(const S*a,const S*b){ if(a->k!=b->k) return 0; for(int j=0;j<a->k;j++){ if(a->l[j]!=b->l[j]||memcmp(a->w[j],b->w[j],a->l[j])) return 0; } return 1; }
 // predecessors: all (p,m) with apply(p,m)==t
@@ -71,29 +76,35 @@ static int tins(Tb*T,uint64_t a,uint64_t b,int d){ if(T->n*10>=T->N*8){ fprintf(
 typedef struct { S*v; uint64_t n,cap; } Vec;
 static void push(Vec*V,const S*s){ if(V->n==V->cap){ V->cap=V->cap?V->cap*2:1024; V->v=realloc(V->v,V->cap*sizeof(S)); if(!V->v){fprintf(stderr,"oom\n");exit(3);} } V->v[V->n++]=*s; }
 static Tb FT,BT; static Vec FL[16],BL[16]; static int curd;
-static void addB(const S*p,int m,void*u){ (void)m;(void)u; uint64_t a,b; fp(p,&a,&b); if(tins(&BT,a,b,curd)) push(&BL[curd],p); }
+static int BMAX; static void addB(const S*p,int m,void*u){ (void)m;(void)u; uint64_t a,b; fp(p,&a,&b); if(tins(&BT,a,b,curd)&&curd<BMAX) push(&BL[curd],p); }
 static int stepwalk_found; static S walkS; static int walkm;
 static void findpredF(const S*p,int m,void*u){ int want=*(int*)u; uint64_t a,b; if(stepwalk_found) return; fp(p,&a,&b); if(tfind(&FT,a,b)==want){ stepwalk_found=1; walkS=*p; walkm=m; } }
 int main(int argc,char**argv){ build();
   if(!strcmp(argv[1],"apply")){ MAXR=8; int m; S t,r; while(scanf("%d %d",&m,&t.k)==2){ for(int j=0;j<t.k;j++){ if(scanf("%d",&t.l[j])!=1) return 1; for(int x=0;x<t.l[j];x++){ int v; if(scanf("%d",&v)!=1) return 1; t.w[j][x]=(int8_t)v; } }
       if(!apply(&t,m,&r)){ printf("NA\n"); continue; } printf("%d",r.k); for(int j=0;j<r.k;j++){ printf(" %d",r.l[j]); for(int x=0;x<r.l[j];x++) printf(" %d",r.w[j][x]); } printf("\n"); } return 0; }
-  MAXR=atoi(argv[1]); int A=atoi(argv[2]),B=atoi(argv[3]); S s0; s0.k=2; int ai=4;
-  for(int j=0;j<2;j++){ s0.l[j]=atoi(argv[ai++]); for(int x=0;x<s0.l[j];x++) s0.w[j][x]=(int8_t)atoi(argv[ai++]); }
-  tinit(&FT,1ULL<<26); tinit(&BT,1ULL<<26); uint64_t a,b; S r;
-  // backward ball from ()
+  MAXR=atoi(argv[1]); int A=atoi(argv[2]),B=atoi(argv[3]); BMAX=B;
+  uint64_t NS=getenv("NSLOTS")?strtoull(getenv("NSLOTS"),0,10):(1ULL<<26); tinit(&BT,NS); uint64_t a,b; S r;
   S e; e.k=0; fp(&e,&a,&b); tins(&BT,a,b,0); push(&BL[0],&e);
   for(curd=1;curd<=B;curd++){ for(uint64_t q=0;q<BL[curd-1].n;q++) preds(&BL[curd-1].v[q],addB,NULL);
-    fprintf(stderr,"B layer %d: %llu (total %llu)\n",curd,(unsigned long long)BL[curd].n,(unsigned long long)BT.n); }
-  // forward ball
-  fp(&s0,&a,&b); tins(&FT,a,b,0); push(&FL[0],&s0); int best=99; S bestS; int bdS=0,bdT=0;
-  { int dt=tfind(&BT,a,b); if(dt>=0){ best=dt; bestS=s0; bdS=0; bdT=dt; } }
-  for(int d=1;d<=A;d++){ for(uint64_t q=0;q<FL[d-1].n;q++) for(int m=0;m<257;m++){ if(!apply(&FL[d-1].v[q],m,&r)) continue; fp(&r,&a,&b);
-        if(tins(&FT,a,b,d)){ push(&FL[d],&r); int dt=tfind(&BT,a,b); if(dt>=0&&d+dt<best){ best=d+dt; bestS=r; bdS=d; bdT=dt; } } }
-    fprintf(stderr,"F layer %d: %llu\n",d,(unsigned long long)FL[d].n); }
-  int maxrank_used=2;
-  if(best==99){ printf("NO_MEET rank<=%d dist>%d\n",MAXR,A+B); return 0; }
-  int path[64],L=0,rev[32]; S c=bestS;
-  for(int k=bdS;k>0;k--){ int want=k-1; stepwalk_found=0; preds(&c,findpredF,&want); if(!stepwalk_found){ printf("REBUILD_FAIL F\n"); return 5; } rev[k-1]=walkm; c=walkS; if(c.k>maxrank_used) maxrank_used=c.k; }
-  for(int k=0;k<bdS;k++) path[L++]=rev[k];
-  c=bestS; for(int k=bdT;k>0;k--){ int ok=0; for(int m=0;m<257&&!ok;m++){ if(!apply(&c,m,&r)) continue; fp(&r,&a,&b); if(tfind(&BT,a,b)==k-1){ path[L++]=m; c=r; ok=1; if(c.k>maxrank_used) maxrank_used=c.k; } } if(!ok){ printf("REBUILD_FAIL B\n"); return 5; } }
-  printf("MEET rank<=%d dist=%d maxrank_on_path=%d path",MAXR,best,maxrank_used); for(int i=0;i<L;i++) printf(" %d",path[i]); printf("\n"); return 0; }
+    fprintf(stderr,"B layer %d: total %llu\n",curd,(unsigned long long)BT.n); }
+  char tag[64];
+  while(scanf("%63s",tag)==1){ S s0; s0.k=2; for(int j=0;j<2;j++){ if(scanf("%d",&s0.l[j])!=1) return 1; for(int x=0;x<s0.l[j];x++){ int v; if(scanf("%d",&v)!=1) return 1; s0.w[j][x]=(int8_t)v; } }
+    OVERFLOW=0; tinit(&FT,NS); for(int d=0;d<16;d++) FL[d].n=0;
+    fp(&s0,&a,&b); tins(&FT,a,b,0); push(&FL[0],&s0); int best=99; S bestS; int bdS=0,bdT=0; uint64_t streamed=0;
+    { int dt=tfind(&BT,a,b); if(dt>=0){ best=dt; bestS=s0; bdS=0; bdT=dt; } }
+    for(int d=1;d<=A;d++){ for(uint64_t q=0;q<FL[d-1].n;q++) for(int m=0;m<257;m++){ if(!apply(&FL[d-1].v[q],m,&r)) continue; fp(&r,&a,&b);
+          if(d<A){ if(tins(&FT,a,b,d)){ push(&FL[d],&r); int dt=tfind(&BT,a,b); if(dt>=0&&d+dt<best){ best=d+dt; bestS=r; bdS=d; bdT=dt; } } }
+          else { if(tfind(&FT,a,b)>=0) continue; streamed++; int dt=tfind(&BT,a,b); if(dt>=0&&d+dt<best){ best=d+dt; bestS=r; bdS=d; bdT=dt; } } } }
+    printf("%s F_stored=%llu streamed=%llu",tag,(unsigned long long)FT.n,(unsigned long long)streamed);
+    if(OVERFLOW) printf(" WARNING_CAP_HIT=%ld(not_exact)",OVERFLOW);
+    if(best==99){ printf(" NO_MEET rank<=%d dist>%d\n",MAXR,A+B); fflush(stdout); free(FT.t); continue; }
+    int path[64],L=0,rev[32],mr=2; S c=bestS; int bad=0;
+    for(int k=bdS;k>0;k--){ int want=k-1; stepwalk_found=0; preds(&c,findpredF,&want); if(!stepwalk_found){ bad=1; break; } rev[k-1]=walkm; c=walkS; if(c.k>mr) mr=c.k; }
+    for(int k=0;k<bdS&&!bad;k++) path[L++]=rev[k];
+    c=bestS; if(bestS.k>mr) mr=bestS.k;
+    for(int k=bdT;k>0&&!bad;k--){ int ok=0; for(int m=0;m<257&&!ok;m++){ if(!apply(&c,m,&r)) continue; fp(&r,&a,&b); int dd=tfind(&BT,a,b);
+          if(dd==k-1){ path[L++]=m; c=r; ok=1; if(c.k>mr) mr=c.k; } } if(!ok) bad=1; }
+    if(bad) printf(" MEET dist=%d REBUILD_FAIL\n",best);
+    else { printf(" MEET rank<=%d dist=%d maxrank_on_path=%d path",MAXR,best,mr); for(int i=0;i<L;i++) printf(" %d",path[i]); printf("\n"); }
+    fflush(stdout); free(FT.t); }
+  return 0; }
