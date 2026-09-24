@@ -16,7 +16,8 @@ int main(int argc,char**argv){
   { int t=tab_find(&TT,h1,h2); if(t>=0){ bestAC=t; mAC=s0; dAC=0; tAC=t; } }
   FILE*o=openf(dir,tag,0,"wb"); wr_state(o,&s0); fclose(o); int d; int closed=0;
   // depth labels only go to 15 in 4 bits, so store the BFS depth mod 16 and keep parents implicit via layer files
-  for(d=1;;d++){ if(d>=bestAC && d+2>=bestSAC) break;
+  int MAXD=getenv("MAXD")?atoi(getenv("MAXD")):1<<30;
+  for(d=1;;d++){ if(d>=bestAC && d+2>=bestSAC) break; if(d>MAXD) break;
     FILE*in=openf(dir,tag,d-1,"rb"); FILE*out=openf(dir,tag,d,"wb"); uint64_t c=0;
     while(rd_state(in,&cc)) for(int m=0;m<14;m++){ apply(&cc,m,&nn2); if(nn2.l[0]+nn2.l[1]>CAP) continue; fp(&nn2,&h1,&h2);
         if(tab_ins(&SS,h1,h2,d&15,1)>=0) continue; c++; wr_state(out,&nn2);
