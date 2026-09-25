@@ -11,7 +11,7 @@ int main(int argc,char**argv){
   const char*tf=argv[1]; int CAP=atoi(argv[2]); uint64_t BUD=strtoull(argv[3],0,10); const char*dir=argv[4],*tag=argv[5]; St s0; parse_state(argv,6,&s0);
   struct stat stt; int fd=open(tf,O_RDONLY); if(fd<0||fstat(fd,&stt)) die("tfile");
   TT.t=mmap(0,stt.st_size,PROT_READ,MAP_SHARED|MAP_POPULATE,fd,0); TT.N=stt.st_size/16;
-  tab_init(&SS,1ULL<<24); uint64_t h1,h2; fp(&s0,&h1,&h2); tab_ins(&SS,h1,h2,0,1);
+  tab_init(&SS,1ULL<<(getenv("INIT_LOG2")?atoi(getenv("INIT_LOG2")):24)); uint64_t h1,h2; fp(&s0,&h1,&h2); tab_ins(&SS,h1,h2,0,1);
   int bestAC=1<<30,bestSAC=1<<30,dAC=0,dSAC=0,tAC=0,tSAC=0; St mAC,mSAC;
   { int t=tab_find(&TT,h1,h2); if(t>=0){ bestAC=t; mAC=s0; dAC=0; tAC=t; } }
   FILE*o=openf(dir,tag,0,"wb"); wr_state(o,&s0); fclose(o); int d; int closed=0;
