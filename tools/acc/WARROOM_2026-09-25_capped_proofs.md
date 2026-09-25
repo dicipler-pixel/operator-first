@@ -41,3 +41,12 @@ Independent C++ successor generator, checked against the official core on 3,500 
 | ac-00313 | 12 / 10 / 4 | 20 / 24 / 30 | 29 | inconclusive (100–150M-node limits) |
 
 These are relayed results; the logs are not in this repository. Grade: external, unreplayed here.
+
+## Luna (GPT, relayed by the user), 2026-09-25: swap-finish screens on the 20 pasted SAC rows
+
+Source: the user pasted Luna's session log. We have not rerun these computations. Scope as Luna stated it:
+
+- Exact ≤15 meet-in-the-middle screen of the swapped start σ(s) against (x,y) over ac-05000..10115 (in overlapping 500-row batches), plus the seven listed rows below ac-05000. None of the 20 listed rows has a (y,x)+[15,15] Stable AC path of ≤17 moves.
+- Exact 8+8 extension (≈98.1M swapped-start states through depth 8 per row). For all 20 listed rows there is no swap-finish path of ≤18 moves. This covers only that finish route; other Stable AC routes are not excluded.
+- Rank-3, cap-140 Stable AC beam on sac-06969 through depth 39 found no certificate. This is a beam miss, not a proof.
+- Incidental hits: sac-07248 16, 07280 16, 07445 15, 07565 17, 08374 16, 08408 16, 08491 10, 08495 17, 08671 17, 09434 16, 09621 16, 09846 16, 09951 17. We replayed all 13 through the official SAIR CLI and all were accepted. Every one equals a length the team already holds or has submitted (ACC_SAC_ALL_NEW_20260924 / ACC_SAC_BOARD_20260924), so none is a new submission.
