@@ -44,7 +44,16 @@ int main(int argc,char**argv){
     uint64_t keep=nt<W?nt:W; if(nt>W){ qsort(C,nt,sizeof(Cand),cmpc);
       // diversity ("zag"): keep the best DIV fraction by length, fill the rest evenly from the longer remainder
       double DIV=getenv("BEAM_DIV")?atof(getenv("BEAM_DIV")):1.0; uint64_t k1=(uint64_t)(W*DIV); if(k1>W) k1=W;
-      if(k1<W){ uint64_t rest=nt-k1, need=W-k1; for(uint64_t q=0;q<need;q++){ uint64_t src=k1+(uint64_t)((double)q*rest/need); C[k1+q]=C[src]; } } }
+      if(k1<W){ uint64_t rest=nt-k1, need=W-k1; for(uint64_t q=0;q<need;q++){ uint64_t src=k1+(uint64_t)((double)q*rest/need); C[k1+q]=C[src]; } }
+      // novelty quota: at most NOV states per shape bucket (lengths + exponent sums), rest filled in length order
+      int NOV=getenv("BEAM_NOV")?atoi(getenv("BEAM_NOV")):0;
+      if(NOV>0){ static uint16_t cnt[1<<20]; memset(cnt,0,sizeof cnt); Cand*K=malloc(sizeof(Cand)*W); uint8_t*used=calloc(nt,1); uint64_t kk=0;
+        for(uint64_t q=0;q<nt&&kk<W;q++){ Node x=tmpN[C[q].idx]; uint8_t*z=SA+x.off; int l0=z[0]|(z[1]<<8), l1=z[2]|(z[3]<<8); int e[4]={0,0,0,0};
+          for(int t=0;t<l0;t++){ uint8_t c=z[4+t]; e[(c>>1)]+=(c&1)?-1:1; } for(int t=0;t<l1;t++){ uint8_t c=z[4+l0+t]; e[2+(c>>1)]+=(c&1)?-1:1; }
+          uint64_t b=((uint64_t)l0*1315423911ULL)^((uint64_t)l1*2654435761ULL)^((uint64_t)(e[0]+64)<<8)^((uint64_t)(e[1]+64)<<16)^((uint64_t)(e[2]+64)<<24)^((uint64_t)(e[3]+64)<<32);
+          b=(b*0x9E3779B97F4A7C15ULL)>>44; if(cnt[b]<NOV){ cnt[b]++; K[kk++]=C[q]; used[q]=1; } }
+        for(uint64_t q=0;q<nt&&kk<W;q++) if(!used[q]) K[kk++]=C[q];
+        memcpy(C,K,sizeof(Cand)*kk); free(K); free(used); } }
     lo=nn; for(uint64_t k=0;k<keep;k++){ Node x=tmpN[C[k].idx]; uint8_t*q=SA+x.off; St t2; t2.l[0]=q[0]|(q[1]<<8); t2.l[1]=q[2]|(q[3]<<8);
         memcpy(t2.w[0],q+4,t2.l[0]); memcpy(t2.w[1],q+4+t2.l[0],t2.l[1]); x.off=store(&t2); fp(&t2,&h1,&h2); tab_ins(&V,h1,h2,(d>15?15:d),1); nodes[nn++]=x; }
     hi=nn; free(tmpN);
