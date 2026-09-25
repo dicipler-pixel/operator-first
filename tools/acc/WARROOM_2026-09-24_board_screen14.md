@@ -16,3 +16,10 @@ Wall 2,270 s for 20,230 starts.
 - **Stable AC lines improving on team-held lengths (all accepted by the official CLI):** see `ACC_SAC_BOARD_20260924.txt` — sac-08374 21->16, sac-00894 17->15, sac-05911 17->16, sac-02008 / 02067 / 08408 / 07280 17->16.
 
 Raw per-start output: `research/acc/optimality/runs/2026-09-24/board_a5.txt.gz`. Fingerprint caveat as in the R-band records.
+
+## Addendum 2026-09-25 — distance <= 15 for all rows with AC record >= 20, both finishes
+
+Same engine and T_9, a = 6 (every distance <= 15 decided exactly).
+
+- **(x,y) finish:** all 7,352 rows whose 2026-09-14 snapshot record is >= 20: **no row has an AC path of length <= 15** (`board_a6.txt`).
+- **(y,x) finish:** the same 7,352 rows, generator-swapped starts: **no row reaches (y,x) within 15 moves**, so the swap finish gives no Stable AC path of length <= 17 on any of them (`board_yx_a6.txt.gz`, 7,352 rows).
