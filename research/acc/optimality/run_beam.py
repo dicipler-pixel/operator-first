@@ -38,7 +38,7 @@ for t in json.load(open(TGT)):
         if 'ac' in rec and len(rec['ac']) + 2 < len(sac): sac = rec['ac'] + [16, 15]
         rec['sac'] = sac; rec['sac_len'] = len(sac)
     rec['wall_s'] = round(time.time() - t0, 1)
-    verdict = ('BEAT' if rec.get('ac_len', 999) < t['record'] else 'TIE' if rec.get('ac_len', 999) == t['record'] else 'above')
+    verdict = ('nopath' if 'ac_len' not in rec else 'BEAT' if rec['ac_len'] < t['record'] else 'TIE' if rec['ac_len'] == t['record'] else 'above')
     rec['verdict'] = verdict
     print(json.dumps({k: v for k, v in rec.items() if k not in ('ac', 'sac')}), flush=True)
     with open(OUT, 'a') as f: f.write(json.dumps(rec) + '\n')
