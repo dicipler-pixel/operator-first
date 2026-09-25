@@ -50,3 +50,7 @@ Source: the user pasted Luna's session log. We have not rerun these computations
 - Exact 8+8 extension (≈98.1M swapped-start states through depth 8 per row). For all 20 listed rows there is no swap-finish path of ≤18 moves. This covers only that finish route; other Stable AC routes are not excluded.
 - Rank-3, cap-140 Stable AC beam on sac-06969 through depth 39 found no certificate. This is a beam miss, not a proof.
 - Incidental hits: sac-07248 16, 07280 16, 07445 15, 07565 17, 08374 16, 08408 16, 08491 10, 08495 17, 08671 17, 09434 16, 09621 16, 09846 16, 09951 17. We replayed all 13 through the official SAIR CLI and all were accepted. Every one equals a length the team already holds or has submitted (ACC_SAC_ALL_NEW_20260924 / ACC_SAC_BOARD_20260924), so none is a new submission.
+
+## Gateway bridge ac-02216 -> ac-02555 (from Luna, replayed locally)
+
+Bridge [1,11,5,12,1]. We replayed it with the official `verifier.core.apply_move` from the ac-02216 initial relators. The result is exactly the ac-02555 initial relators ([-2,-2,-2,-1,2,2,1], [-2,-2,-1,2,-1,-1,-2,1,1]). So any certificate P for ac-02555 gives [1,11,5,12,1]+P for ac-02216. Luna states that no path of length ≤4 connects the two; we have not rechecked that minimality. Both rows were unsolved in the 09-14 snapshot.
