@@ -54,3 +54,16 @@ Source: the user pasted Luna's session log. We have not rerun these computations
 ## Gateway bridge ac-02216 -> ac-02555 (from Luna, replayed locally)
 
 Bridge [1,11,5,12,1]. We replayed it with the official `verifier.core.apply_move` from the ac-02216 initial relators. The result is exactly the ac-02555 initial relators ([-2,-2,-2,-1,2,2,1], [-2,-2,-1,2,-1,-1,-2,1,1]). So any certificate P for ac-02555 gives [1,11,5,12,1]+P for ac-02216. Luna states that no path of length ≤4 connects the two; we have not rechecked that minimality. Both rows were unsolved in the 09-14 snapshot.
+
+## ac-00104 (live record 21, k=9), 2026-09-26: exact capped search for a ≤20-move path
+
+Start total length 12; our incumbent is 22 (diverse beam + windows). We ran `acc_capped` with MAXD=11 plus the exact T_9 finish, so any path of ≤20 moves whose first 11 moves stay within the total-length cap would have been found. Each result below covers only paths within the stated cap.
+
+| cap | states (depth ≤ 11) | result |
+|---|---|---|
+| 20 | 1,261,688 | proved: none ≤ 20 |
+| 24 | 16,626,604 | proved: none ≤ 20 |
+| 28 | 123,926,728 | proved: none ≤ 20 |
+| 32 | 175,171,857 through depth 10 | depth 10 clean (none ≤ 19 in cap); depth 11 not completed (table mmap failed under the 14 GB ulimit) |
+
+A 20-move path, if one exists, must exceed total relator length 28 within its first 11 moves. Log: scratch `cap00104.log`.
