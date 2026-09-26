@@ -79,7 +79,7 @@ These come from the capped lemma. R is the best-known length on the live board. 
 | ac-00037 | 31 | 31 | 32 | no path ≤ 31 within C | C = 32, 33, 34, 35 (179,371,165) |
 | ac-00313 | 29 | 33 | 34 | no path ≤ 33 within C | C = 30 (105,391,935) |
 | ac-00043 | 21 | 25 | none found by beams | no path ≤ 25 within C | C = 22, 24, 26, 28, 30, 32 (103,802,597) |
-| ac-00104 | 12 | 21 | 21 (found at C = 24 by the depth-12 run) | no path ≤ **20** within C | C = 20, 24, 28 (123,926,728) |
+| ac-00104 | 12 | 21 | 21 (found at C = 26 by a depth-12 run) | no path ≤ **20** within C | C = 20, 24, 28 (123,926,728) |
 | ac-00083 | 17 | 30 | 32 | no path ≤ 30 within C | C = 20, 22, 24, 26, 28 (60,485,890) |
 | ac-00135 | 16 | 31 | 40 | no path ≤ 31 within C | C = 18, 20, 22, 24, 26 (192,273,119) |
 | ac-00286 | 14 | 26 | none | no path ≤ 26 within C | C = 16–26 (100,305,259) |
