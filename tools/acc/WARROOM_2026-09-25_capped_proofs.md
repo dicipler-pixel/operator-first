@@ -67,3 +67,16 @@ Start total length 12; our incumbent is 22 (diverse beam + windows). We ran `acc
 | 32 | 175,171,857 through depth 10 | depth 10 clean (none ≤ 19 in cap); depth 11 not completed (table mmap failed under the 14 GB ulimit) |
 
 A 20-move path, if one exists, must exceed total relator length 28 within its first 11 moves. Log: scratch `cap00104.log`.
+
+## Two-level beam key test (BEAM_LOOK=1), 2026-09-26
+
+The idea comes from the Papadimitriou–Ratajczak note: height first, with a secondary coordinate as tiebreak. Primary key = the best total length reachable in one more move; tiebreak = own length. W=200k, DIV=0.6, DMAX = record+2.
+
+| row | record | previous best | BEAM_LOOK=1 |
+|---|---|---|---|
+| ac-00104 | 21 | 22 | 22 |
+| ac-00083 | 30 | 32 | 32 |
+| ac-00123 | 31 | 33 | no path |
+| ac-00037 | 31 | 32 | 32 |
+
+No gain on any row. The option stays in `acc_beam.c`, off by default.
