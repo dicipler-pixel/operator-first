@@ -27,6 +27,8 @@ int main(int argc,char**argv){
   static St cur,nx,sw; St*kids=NULL; uint64_t kcap=0;
   // scratch arena for one depth's children; permanent arena (AR) holds kept states only
   uint8_t*SA=NULL; uint64_t SAn=0,SAcap=0; Tab L; tab_init(&L,1ULL<<23);
+  // BEAM_LOOK=1: two-level key (height = best total length reachable in one more move, tiebreak = own length)
+  int LOOK=getenv("BEAM_LOOK")?atoi(getenv("BEAM_LOOK")):0;
   for(int d=1;d<=DMAX;d++){
     if(d>=bestAC && d+2>=bestSAC) break;
     Node*tmpN=malloc(sizeof(Node)*(hi-lo)*14+1); uint64_t nt=0; SAn=0; memset(L.t,0,16*L.N); L.n=0;
@@ -40,7 +42,10 @@ int main(int argc,char**argv){
         if(SAn+need>SAcap){ SAcap=SAcap?SAcap*2:(1ULL<<26); while(SAn+need>SAcap) SAcap*=2; SA=realloc(SA,SAcap); if(!SA) die("scratch"); }
         uint8_t*q=SA+SAn; q[0]=nx.l[0]&255; q[1]=nx.l[0]>>8; q[2]=nx.l[1]&255; q[3]=nx.l[1]>>8; memcpy(q+4,nx.w[0],nx.l[0]); memcpy(q+4+nx.l[0],nx.w[1],nx.l[1]);
         tmpN[nt]=(Node){SAn,(uint32_t)i,(uint8_t)m,len}; SAn+=need;
-        C[nt]=(Cand){((uint64_t)len<<40)|(h1>>24),(uint32_t)nt}; nt++; } }
+        uint64_t key=((uint64_t)len<<40)|(h1>>24);
+        if(LOOK){ uint32_t best=len; St y; for(int m2=0;m2<14;m2++){ apply(&nx,m2,&y); uint32_t l2=y.l[0]+y.l[1]; if(l2<best) best=l2; }
+          key=((uint64_t)best<<52)|((uint64_t)(len&4095)<<40)|(h1>>24); }
+        C[nt]=(Cand){key,(uint32_t)nt}; nt++; } }
     uint64_t keep=nt<W?nt:W; if(nt>W){ qsort(C,nt,sizeof(Cand),cmpc);
       // diversity ("zag"): keep the best DIV fraction by length, fill the rest evenly from the longer remainder
       double DIV=getenv("BEAM_DIV")?atof(getenv("BEAM_DIV")):1.0; uint64_t k1=(uint64_t)(W*DIV); if(k1>W) k1=W;
