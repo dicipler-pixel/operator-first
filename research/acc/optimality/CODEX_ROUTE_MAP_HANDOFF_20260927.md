@@ -32,3 +32,16 @@ sac-09292: [1,4,10,12,12,12,12,5,6,2,2,2,2,2,2,2,16,15]
 - A sign-flipped suffix atlas (109,534 short transformed states) and depth-4 root BFS over those 66 found no tie or beat.
 - Radius-9 filter was built by streaming 304,332,182 neighbor inserts from the 21,738,013 states at exact radius 8; every positive hit is confirmed by an exact radius-8 neighbor. This avoids the 4.5 GB T9 disk file for exploratory searches. The team's full T9 remains the preferred faster tool when available.
 - No SAIR POST was made from this session. No WIN proof-track file is appropriate because no new point was established.
+
+## Global tube check on ac-05818
+
+An exact shortest-path BFS was restricted to the union of radius-R neighborhoods around all 36 ordered states of the 35-move route. It allows switching lanes repeatedly, including detours that cannot be represented by one contiguous window replacement. Results:
+
+| Radius | Allowed states | BFS states visited through 34 moves | Route ≤ 34 |
+|---:|---:|---:|---|
+| 3 | 42,655 | 39,759 | none |
+| 4 | 391,687 | 359,007 | none |
+| 5 | 3,555,823 | 3,183,477 | none |
+| 6 | 32,087,950 | 27,911,371 | none |
+
+The radius-6 run used packed states and 123-bit fingerprints, with a 6.5 GB virtual-memory cap; it completed without OOM. A competitive path must leave this radius-6 union at some point, subject to the fingerprint collision caveat. This supports an outbound excursion search that deliberately preserves states beyond the known route's local neighborhood. No team record or SAIR submission changed.
