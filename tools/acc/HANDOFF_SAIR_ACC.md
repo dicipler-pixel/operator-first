@@ -1,0 +1,84 @@
+# SAIR ACC: handoff for a new Claude session (written 2026-09-27)
+
+Read this first. It records what the earlier session knew, so a new session can continue
+without its chat history. Branch: `claude/gallant-bardeen-0pgpae`.
+
+## Goal
+Get Mad Hatters points in the SAIR Andrews–Curtis Challenge (Discovery track, AC and Stable AC).
+- Beat a live record: 1.0 point. Tie it: 2^(1-k), where k is the number of teams on it.
+- Only compare against **live** records. The 09-14 snapshot records are stale: other teams have
+  beaten most of them since.
+- Deliver clean lines `ac-XXXXX: [...]` and `sac-XXXXX: [...]`. Every line must pass the official
+  checker first. When the user asks for "new ones", give one file with only the new lines.
+- The user wants plain, short language and short lists. The user also wants the searches kept running.
+
+## Live board
+- Needs network access to `api.sair.foundation` and the key in env var `SAIR_API_KEY`.
+- See `tools/acc/SAIR_API_NOTES.md`. It needs a browser User-Agent, or Cloudflare returns error 1010.
+```
+curl -sS -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36" \
+  -H "Authorization: Bearer $SAIR_API_KEY" -H "Accept: application/json" \
+  "https://api.sair.foundation/api/public/v1/competitions/acc/discoveries/snapshot?problem=ac" -o live_ac.json
+```
+- Repeat with `problem=stable_ac`.
+- The last manual check of our rows, from 2026-09-27 19:20Z, is in
+  `research/acc/optimality/runs/2026-09-27/live_board_our_rows_20260927T1920Z.txt`.
+  Its columns are id, live record and k.
+
+## Setup (about 10 minutes)
+```
+S=<scratchpad>; mkdir -p $S/work
+git clone https://github.com/SAIRcompetition/Andrews-Curtis $S/sair && (cd $S/sair && git checkout a0fd6e6)
+gcc -O3 -march=native -o $S/acc_beam research/acc/optimality/acc_beam.c -lm
+gcc -O3 -march=native -o $S/acc_opt  research/acc/optimality/acc_opt.c -lm
+bash tools/acc/build_T9.sh $S/work     # builds T9.tab: 4.48 GB, SHA-256 checked, takes a few minutes
+```
+- Official checker:
+  `cd $S/sair && PYTHONPATH=competition/tools python3 -m verifier --manifest competition/tools/verifier/data/manifest.json --submission FILE`
+- Old session scripts are in `research/acc/optimality/runs/2026-09-27/scripts/`. They hard-code
+  the old scratch path. Fix that with:
+  `sed -i "s#/tmp/claude-0/-home-user-operator-first/211fc7c6-f60e-5702-90d7-e59337b51555/scratchpad#$S#g" *.sh`
+- Their results (`results/*.jsonl`) and target lists (`targets/*.json`) are next to the scripts.
+  Copy them into `$S/work` so the helper scripts can find them.
+
+## Tools and what works
+- **Moves:** official kernel ac-r2-v1, moves 0..13.
+- **SAC finish:** AC path + `[16,15]`, or the swap path (6↔8, 7↔9, 10↔12, 11↔13) + `[15,15]`.
+  Always keep the shorter of the searched SAC and AC+2. The script `emitcap.sh` does this.
+- **Search engine:** `acc_beam`, beam search with the T9 table as the finish. Settings are
+  environment variables:
+  - `BEAM_H=1`: the ACSolverX priority (L + 2.53K + 6.418MK + 8.458S + 3.292·|#x−#y|/L). This
+    produced most of our ties.
+  - `BEAM_DIV`, `BEAM_NOV`, `BEAM_LOOK`.
+  - `BEAM_SEED` + `BEAM_NOISE`: seeded restarts that explore different routes.
+- **Runners:**
+  - `run_beam.py`: loops over a targets JSON list `[{"id","record","k"}]`.
+  - `run_live.sh NAME` / `run_live_seed.sh NAME` (with `SEED=`, `NOISE=`): run on
+    `work/NAME_targets.json`.
+- **Splicer:** `tools/acc/splice/splice.py`. It builds a pool of paths, adds radius-R shortcut
+  edges, runs Dijkstra, and restarts from waypoints. `seedsplice.sh` seeds it with the best
+  H-beam path.
+- **Exact capped search:** `acc_capped.c`, driven by the `capgen*.sh` scripts. Give it caps
+  **above** the start length.
+- **Line emitter:** `emitH.sh NNNNN`, with the number only and **no `ac-` prefix**. Passing the
+  prefix once made a bad commit.
+- **Weak spots so far:**
+  - k=2 rows with records of 44–70: 0 found out of 34.
+  - SAC k=1 rows: 0 out of 17.
+  - Unsolved rows: 0 out of 126.
+  - Beat-by-one on the scoring rows: 0.
+
+## Status at handoff
+- Live-confirmed ties are in `ACC_SUBMIT_NEW14_20260927.txt`: ac-09391 (35), ac-01373 (30),
+  ac-00313 (33), and sac-00313 (35, not yet checked against the SAC board).
+- Do **not** send NEW11/12/13. Their lines are longer than the live records now.
+- Still unchecked against the live SAC board: `ACC_SUBMIT_FIX_sac01734_20260927.txt` (38) and
+  `ACC_SUBMIT_SACFILL_20260927.txt` (sac-07158, 41).
+- **Next steps:**
+  1. Pull both live boards.
+  2. Build targets from rows where our best path is 1–3 moves over the live record, putting low
+     k first. `targets/livenear_targets.json` is a start.
+  3. Add k=1 rows with records of 25–60.
+  4. Run the seeded H-beam and the splicer on them.
+- Don't upload the T9 table to GitHub until the user says so. `tools/acc/make_T9_zip.sh` is ready.
+- Never ask the user to paste keys or tokens into chat.

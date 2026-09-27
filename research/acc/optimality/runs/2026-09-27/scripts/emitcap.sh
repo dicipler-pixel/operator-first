@@ -2,6 +2,8 @@
 # usage: emitcap.sh ID "ac moves space-separated" ["sac moves space-separated"]
 S=/tmp/claude-0/-home-user-operator-first/211fc7c6-f60e-5702-90d7-e59337b51555/scratchpad; R=/home/user/operator-first
 ID=$1; AC=$(echo $2 | tr ' ' ','); if [ -n "$3" ]; then SAC=$(echo $3 | tr ' ' ','); else SAC="$AC,16,15"; fi
+# keep the shorter of the searched SAC path and AC+[16,15]
+ALT="$AC,16,15"; if [ $(echo "$SAC" | tr "," "\n" | wc -l) -gt $(echo "$ALT" | tr "," "\n" | wc -l) ]; then SAC="$ALT"; fi
 F=$R/ACC_CANDIDATE_${ID}_20260926.txt
 printf "ac-$ID: [$AC]\nsac-$ID: [$SAC]\n" > $F
 REC=$(python3 -c "
