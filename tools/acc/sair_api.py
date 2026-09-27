@@ -12,7 +12,9 @@ Authorization header), or from the environment variable SAIR_API_KEY. It is neve
   python3 tools/acc/sair_api.py plan FILE... --sair DIR [--board DIR] [--out FILE]
         check every line with the official verifier, compare with the live board and our history,
         and write one file with only the lines that score (unsolved, beat, tie), best first
-  python3 tools/acc/sair_api.py submit FILE [--yes]     dry run unless --yes; a POST is never retried
+  python3 tools/acc/sair_api.py send FILE... [--yes]    THE way to submit: fresh boards + history, keep only
+        unsolved/beat/tie lines not already sent, POST within 5 minutes of the pull (dry run without --yes)
+  python3 tools/acc/sair_api.py submit FILE             dry run of the raw POST (live sends go through `send`)
   python3 tools/acc/sair_api.py status SUBMISSION_ID    wait for one submission to finish
 
 Every live submission is logged to research/acc/live/submit_log.jsonl.
@@ -316,7 +318,52 @@ def summarize(sid, final, source):
          "results": [{k: r.get(k) for k in ("challenge_id", "ok", "length", "code")} for r in res]})
 
 
-def submit(args):
+FRESH_S = 300   # user rule: the live check must be at most 5 minutes old when we POST
+
+
+def send(args):
+    """User rule (2026-09-27): pull boards + history fresh, keep only lines that are unsolved, beat
+    or tie on their exact row and are shorter than anything we already sent, and POST within
+    5 minutes of that pull. Lines must already have passed the official verifier (search session)."""
+    t0 = time.time()
+    board_dir = LIVE / "boards"
+    pull_boards(board_dir)
+    hist = fetch_mine()
+    board = load_board(board_dir)
+    sent = our_best(hist)
+    for cid, ln in our_best(local_history()).items():
+        sent[cid] = min(ln, sent.get(cid, ln))
+    lines = parse_lines(args.files)
+    keep = []
+    print(f"{'row':10} {'ours':>4} {'live':>4} {'k':>3}  decision")
+    for cid in sorted(lines):
+        L = len(lines[cid])
+        rec, k = board.get(cid, (None, None))
+        if cid not in board:
+            why = "DROP not on board"
+        elif cid in sent and sent[cid] <= L:
+            why = f"DROP already sent {sent[cid]}"
+        elif rec is None:
+            why = "SEND unsolved"
+        elif L < rec:
+            why = "SEND beat"
+        elif L == rec:
+            why = f"SEND tie (k {k} -> {k + 1})"
+        else:
+            why = "DROP behind"
+        print(f"{cid:10} {L:>4} {str(rec):>4} {str(k):>3}  {why}")
+        if why.startswith("SEND"):
+            keep.append(cid)
+    if not keep:
+        print("nothing to send")
+        return
+    out = REPO / f"ACC_SUBMIT_API_{stamp()}.txt"
+    out.write_text("".join(f"{c}: [{','.join(map(str, lines[c]))}]\n" for c in keep), encoding="utf-8")
+    print(f"{len(keep)} line(s) -> {out.name}")
+    submit(argparse.Namespace(file=str(out), yes=args.yes), fresh_t0=t0)
+
+
+def submit(args, fresh_t0=None):
     text = pathlib.Path(args.file).read_text(encoding="utf-8")
     body_lines = [l for l in text.splitlines() if l.strip() and not l.lstrip().startswith("#")]
     bad = [l for l in body_lines if not LINE.match(l)]
@@ -332,6 +379,12 @@ def submit(args):
     if not args.yes:
         print("dry run: nothing sent (add --yes to send; uses daily quota)")
         return
+    if fresh_t0 is None:
+        raise ApiError("not sending: use `send`, which checks the live board first (user rule)")
+    age = time.time() - fresh_t0
+    if age > FRESH_S:
+        raise ApiError(f"not sending: live check is {age:.0f}s old (limit {FRESH_S}s); run `send` again")
+    print(f"live check age at send: {age:.0f}s")
     if not spec.get("submissionOpen") or not me.get("canSubmit"):
         raise ApiError(f"not sending: open={spec.get('submissionOpen')} canSubmit={me.get('canSubmit')} "
                        f"reason={me.get('submitBlockedReason')}")
@@ -401,6 +454,9 @@ def main():
     s = sub.add_parser("submit")
     s.add_argument("file")
     s.add_argument("--yes", action="store_true")
+    sd = sub.add_parser("send")
+    sd.add_argument("files", nargs="+")
+    sd.add_argument("--yes", action="store_true")
     st = sub.add_parser("status")
     st.add_argument("sid")
     args = ap.parse_args()
@@ -426,6 +482,8 @@ def main():
             print(cid, best[cid])
     elif args.cmd == "plan":
         plan(args)
+    elif args.cmd == "send":
+        send(args)
     elif args.cmd == "submit":
         submit(args)
     elif args.cmd == "status":

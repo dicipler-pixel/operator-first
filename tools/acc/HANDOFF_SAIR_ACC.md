@@ -13,8 +13,18 @@ Before **every** submission:
    or shorter. Drop everything else.
 4. Every kept line must have passed the official verifier (this session can run it, and
    `tools/acc/plan_offline.py` does all of steps 2–4 offline).
-5. Show the user the row, length, live record and k before sending.
+5. The user's rule (2026-09-27 22:4xZ): **ties, beats and unsolved rows may be sent without
+   asking first**, but the live check must be **at most 5 minutes old** when the POST goes out.
+   Report the row, length, live record and k after sending.
 6. The session with SAIR network access sends. The search session produces and verifies lines.
+
+**Tool:** `python3 tools/acc/sair_api.py send FILE... --yes` does steps 1–3 and 5 in one go. It
+pulls fresh, prints the table, keeps only UNSOLVED, BEAT or TIE lines that haven't been sent, and
+refuses to POST if the pull is more than 300 s old. `submit --yes` alone is refused on purpose.
+Without `--yes`, it's a dry run.
+
+**Sent log:** `research/acc/live/submit_log.jsonl`. Submission 2558 (22:45Z) sent NEW15: 6 ties,
+all accepted.
 
 ## Goal
 Get Mad Hatters points in the SAIR Andrews–Curtis Challenge (Discovery track, AC and Stable AC).
