@@ -3,6 +3,19 @@
 Read this first. It records what the earlier session knew, so a new session can continue
 without its chat history. Branch: `claude/gallant-bardeen-0pgpae`.
 
+## SUBMISSION RULE (agreed with the user, 2026-09-27): no exceptions
+Before **every** submission:
+1. Pull the live boards (`sair_api.py boards`) and our history (`sair_api.py mine`) fresh, right then.
+   Never reuse an older pull.
+2. For each line, read the live record (`currentBestLength`) and the team count (`kTeams`) for its
+   exact row number.
+3. Keep a line only if it is UNSOLVED, a BEAT, or a TIE, and we haven't already sent that length
+   or shorter. Drop everything else.
+4. Every kept line must have passed the official verifier (this session can run it, and
+   `tools/acc/plan_offline.py` does all of steps 2–4 offline).
+5. Show the user the row, length, live record and k before sending.
+6. The session with SAIR network access sends. The search session produces and verifies lines.
+
 ## Goal
 Get Mad Hatters points in the SAIR Andrews–Curtis Challenge (Discovery track, AC and Stable AC).
 - Beat a live record: 1.0 point. Tie it: 2^(1-k), where k is the number of teams on it.
