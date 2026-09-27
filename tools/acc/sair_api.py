@@ -8,6 +8,7 @@ Authorization header), or from the environment variable SAIR_API_KEY. It is neve
   python3 tools/acc/sair_api.py boards [--out DIR]      pull the live AC and Stable AC boards (gzip JSON)
   python3 tools/acc/sair_api.py mine                    our submission history -> our best length per row
   python3 tools/acc/sair_api.py leaderboard [ac|stable_ac]
+  python3 tools/acc/sair_api.py changes                 what other teams did since the previous SAIR refresh
   python3 tools/acc/sair_api.py spec                    submission rules and limits
   python3 tools/acc/sair_api.py plan FILE... --sair DIR [--board DIR] [--out FILE]
         check every line with the official verifier, compare with the live board and our history,
@@ -136,7 +137,65 @@ def pull_boards(out):
             json.dump({"pulledAt": t, "data": data}, fh)
         solved = [i for i in items if i.get("currentBestLength") is not None]
         print(f"{problem}: {len(items)} rows, {len(solved)} solved -> {path}")
+        lb = get(f"/leaderboard?problem={problem}&limit=100")
+        with gzip.open(out / f"leaderboard_{problem}_{t}.json.gz", "wt", encoding="utf-8") as fh:
+            json.dump({"pulledAt": t, "data": lb}, fh)
     return t
+
+
+def board_pulls(board_dir, problem, kind=""):
+    """[(generatedAt, path)] for every saved pull, one per SAIR refresh, oldest first."""
+    seen = {}
+    for f in sorted(glob.glob(str(pathlib.Path(board_dir) / f"{kind}{problem}_*.json.gz"))):
+        with gzip.open(f, "rt", encoding="utf-8") as fh:
+            gen = json.load(fh)["data"].get("generatedAt")
+        seen.setdefault(gen, f)
+    return sorted(seen.items())
+
+
+def changes(args):
+    """What other teams did between two SAIR refreshes: rows whose record or team count changed,
+    and team score/row-count deltas. Rows we sent in that window are marked (ours)."""
+    if not args.no_pull:
+        pull_boards(args.board)
+    mine = our_best(fetch_mine()) if not args.no_pull else {}
+    for problem in ("ac", "stable_ac"):
+        pulls = board_pulls(args.board, problem)
+        if len(pulls) < 2:
+            print(f"{problem}: need two different SAIR refreshes; pull again after the next one")
+            continue
+        (g0, f0), (g1, f1) = pulls[-2 - args.back], pulls[-1]
+        load = lambda f: {i["challengeId"]: i for i in json.load(gzip.open(f, "rt"))["data"]["items"]}
+        a, b = load(f0), load(f1)
+        rows = []
+        for cid, new in b.items():
+            old = a.get(cid, {})
+            r0, k0, r1, k1 = old.get("currentBestLength"), old.get("kTeams") or 0, new.get("currentBestLength"), new.get("kTeams") or 0
+            if (r0, k0) == (r1, k1):
+                continue
+            what = ("SOLVED" if r0 is None else "BEAT" if r1 < r0 else "TIE" if k1 > k0 else "k down" if k1 < k0 else "?")
+            ours = " (ours)" if mine.get(cid) == r1 else ""
+            rows.append((what, cid, r0, k0, r1, k1, ours))
+        print(f"\n{problem}: {g0} -> {g1}: {len(rows)} row(s) changed")
+        order = {"SOLVED": 0, "BEAT": 1, "TIE": 2}
+        for what, cid, r0, k0, r1, k1, ours in sorted(rows, key=lambda x: (order.get(x[0], 3), x[1]))[:args.limit]:
+            print(f"  {what:6} {cid}  {r0}/k{k0} -> {r1}/k{k1}{ours}")
+        lbs = board_pulls(args.board, problem, "leaderboard_")
+        gens = {g for g, _ in lbs}
+        if len(lbs) >= 2:
+            (h0, l0), (h1, l1) = lbs[-2], lbs[-1]
+            ld = lambda f: {x["team"]["teamNumber"]: x for x in json.load(gzip.open(f, "rt"))["data"]["items"]}
+            A, B = ld(l0), ld(l1)
+            moved = []
+            for tn, x in B.items():
+                y = A.get(tn, {"score": "0", "currentBestCount": 0, "rank": None})
+                ds = float(x["score"]) - float(y["score"])
+                dc = x["currentBestCount"] - y["currentBestCount"]
+                if abs(ds) > 1e-9 or dc:
+                    moved.append((ds, x["team"]["teamName"] or tn, x["rank"], x["score"], dc))
+            print(f"  teams ({h0} -> {h1}):")
+            for ds, name, rank, score, dc in sorted(moved, reverse=True)[:args.limit]:
+                print(f"    {name[:24]:24} rank {rank:>3}  score {float(score):9.3f}  {ds:+8.3f}  rows {dc:+d}")
 
 
 def load_board(board_dir):
@@ -454,6 +513,11 @@ def main():
     s = sub.add_parser("submit")
     s.add_argument("file")
     s.add_argument("--yes", action="store_true")
+    ch = sub.add_parser("changes")
+    ch.add_argument("--board", default=str(LIVE / "boards"))
+    ch.add_argument("--no-pull", action="store_true")
+    ch.add_argument("--back", type=int, default=0, help="compare with an older refresh")
+    ch.add_argument("--limit", type=int, default=40)
     sd = sub.add_parser("send")
     sd.add_argument("files", nargs="+")
     sd.add_argument("--yes", action="store_true")
@@ -482,6 +546,8 @@ def main():
             print(cid, best[cid])
     elif args.cmd == "plan":
         plan(args)
+    elif args.cmd == "changes":
+        changes(args)
     elif args.cmd == "send":
         send(args)
     elif args.cmd == "submit":
