@@ -19,6 +19,7 @@ Read budget: 360 GETs per window (reset 00:00 UTC seen); non-send reads stop at 
         unsolved/beat/tie lines not already sent, POST within 5 minutes of the pull (dry run without --yes)
   python3 tools/acc/sair_api.py submit FILE             dry run of the raw POST (live sends go through `send`)
   python3 tools/acc/sair_api.py status SUBMISSION_ID    wait for one submission to finish
+  python3 tools/acc/sair_api.py download ID...          original TXT of our past submissions (cached)
 
 Every live submission is logged to research/acc/live/submit_log.jsonl.
 """
@@ -94,7 +95,11 @@ def call(method, path, body=None, retry=True, auth=True):
             with urllib.request.urlopen(req, timeout=180) as r:
                 raw = r.read()
                 note_rate(r.headers)
-                return r.status, (json.loads(raw) if raw else {}), dict(r.headers)
+                try:
+                    body = json.loads(raw) if raw else {}
+                except ValueError:                       # e.g. /submissions/{id}/download (TXT)
+                    body = {"text": raw.decode("utf-8", "replace")}
+                return r.status, body, dict(r.headers)
         except urllib.error.HTTPError as e:
             note_rate(e.headers)
             raw = e.read().decode("utf-8", "replace")
@@ -121,6 +126,19 @@ def note_rate(h):
                                                   dt.timezone.utc).strftime("%H:%MZ")
     except (TypeError, ValueError):
         pass
+
+
+def download(sid):
+    """Original TXT of one of our submissions, cached in research/acc/live/downloads/."""
+    path = LIVE / "downloads" / f"{sid}.txt"
+    if path.exists():
+        return path.read_text(encoding="utf-8")
+    code, body, _ = call("GET", f"/submissions/{sid}/download")
+    if code != 200 or "text" not in body:
+        raise ApiError(f"download {sid}: {http_problem(code, body)}")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(body["text"], encoding="utf-8")
+    return body["text"]
 
 
 def fetch_team(team_id, problem):
@@ -593,6 +611,8 @@ def main():
     sd = sub.add_parser("send")
     sd.add_argument("files", nargs="+")
     sd.add_argument("--yes", action="store_true")
+    dl = sub.add_parser("download")
+    dl.add_argument("sids", nargs="+")
     st = sub.add_parser("status")
     st.add_argument("sid")
     args = ap.parse_args()
@@ -626,6 +646,11 @@ def main():
         send(args)
     elif args.cmd == "submit":
         submit(args)
+    elif args.cmd == "download":
+        for sid in args.sids:
+            text = download(sid)
+            print(f"{sid}: {sum(1 for l in text.splitlines() if LINE.match(l))} lines -> "
+                  f"research/acc/live/downloads/{sid}.txt")
     elif args.cmd == "status":
         final = wait(args.sid, timeout_s=60) or get(f"/submissions/{args.sid}")
         summarize(args.sid, final, None)
