@@ -26,6 +26,14 @@ Without `--yes`, it's a dry run.
 **Sent log:** `research/acc/live/submit_log.jsonl`. Submission 2558 (22:45Z) sent NEW15: 6 ties,
 all accepted.
 
+## Key docs (2026-09-27)
+- `tools/acc/METHODS_PLAYBOOK.md`: what works and what doesn't, with evidence. Read it before
+  picking a method, and add to it after every win or clear failure.
+- `tools/acc/HELP_WANTED.md`: the brief for the user's helper AIs (our struggles and the asks).
+- `tools/acc/proof_track/WIN_TEMPLATE.md`: **every 1-point result** (a beat, or a row we hold
+  alone) gets a write-up on how we got it, with commit hashes (user rule).
+- `tools/acc/targets_easy_lowk_20260927.json`: 66 rows held by 1–2 teams with records of 36 or less.
+
 ## Goal
 Get Mad Hatters points in the SAIR Andrews–Curtis Challenge (Discovery track, AC and Stable AC).
 - Beat a live record: 1.0 point. Tie it: 2^(1-k), where k is the number of teams on it.
