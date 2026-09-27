@@ -1,46 +1,43 @@
-# SAIR API notes (for pulling our submissions and the live board)
+# SAIR API — how to pull the live board (updated 2026-09-27)
 
-Checked 2026-09-27. Sources searched:
-- The official repo `SAIRcompetition/Andrews-Curtis` at a0fd6e6. It has **no API docs**. The README only says "SAIR hosts registration, teams, submissions, and leaderboards".
-- The web. Only Terry Tao's post (https://terrytao.wordpress.com/2026/09/11/sair-competition-andrew-curtis-challenge/) turned up, and it has nothing on the API.
-- sair.foundation and api.sair.foundation. **Blocked from this Claude container**, so I can't open them. To let Claude call them, add `api.sair.foundation` under the environment's Network access settings.
+Source: two public competitor repos that use the API in working code
+(github.com/nahomar/andrews-curtis-solver `solver/sair.py`,
+github.com/Amey-Thakur/SAIR-ANDREWS-CURTIS-CHALLENGE `src/harness/submit.py`).
+Official docs (blocked from Claude's machine): https://docs.sair.foundation/docs/endpoints/competitions/acc/
+and https://docs.sair.foundation/llms.txt
 
-## 1. CONFIRMED: our team's submissions
+Base: `https://api.sair.foundation/api/public/v1/competitions/acc`
 
+| What | Method + path |
+|---|---|
+| **Full AC board (all 10,115 records)** | `GET /discoveries/snapshot?problem=ac` |
+| **Full Stable AC board** | `GET /discoveries/snapshot?problem=stable_ac` |
+| Team leaderboard | `GET /leaderboard?problem=ac&limit=100` |
+| Our submissions | `GET /submissions/mine` |
+| Our team / can we submit | `GET /me` |
+| Submission rules | `GET /submission-spec` |
+
+Headers needed:
+- `Authorization: Bearer YOUR_SAIR_API_KEY`  (make a key on the SAIR site under API)
+- `Accept: application/json`
+- A browser-like `User-Agent` (Cloudflare blocks non-browser agents with error 1010), e.g.
+  `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36`
+
+Snapshot reply shape: `{"ok":true,"data":{"problem":"ac","contractVersion":"acc-discovery-txt-v2",
+"totalCount":10115,"items":[{"challengeId","status","currentBestLength","kTeams"}, ...]}}`
+
+## ReqBin steps
+1. Method **GET**, URL: `https://api.sair.foundation/api/public/v1/competitions/acc/discoveries/snapshot?problem=ac`
+2. **Auth** tab → **Bearer Token** → paste your SAIR API key.
+3. **Headers** tab → add `User-Agent` with the browser string above, and `Accept: application/json`.
+4. **Send**. Save/copy the whole JSON reply and upload it to Claude. Repeat with `problem=stable_ac`.
+
+Safety: ReqBin sees your key. Make a separate key for this, never paste the key into chat,
+and delete/revoke it on the SAIR site when done.
+
+## curl alternative (your own computer, key stays local)
 ```
-GET https://api.sair.foundation/api/public/v1/competitions/acc/submissions/mine?limit=20
+curl -H "Authorization: Bearer $SAIR_API_KEY" -H "Accept: application/json" \
+     -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36" \
+     "https://api.sair.foundation/api/public/v1/competitions/acc/discoveries/snapshot?problem=ac" -o board_ac.json
 ```
-- It needs you to be logged in. It works in the browser tab where you're signed into SAIR.
-- The response is `{"ok":true,"data":{"items":[...],"totalCount":N,"nextCursor":"..."}}`.
-- Each item has `submissionId, status, receivedAt, solutionCount, results:[{challenge_id, ok, length, problem}], errorMessage`.
-- For more pages, `nextCursor` is the key. The query param name is **unconfirmed**. Try `&cursor=<nextCursor>`.
-
-## 2. NOT CONFIRMED: the board / records by other teams
-
-We have the board's JSON shape (you pasted it), but not the exact URL:
-```
-{"ok":true,"data":{"problem":"ac","competitionId":"acc","contractVersion":"acc-discovery-txt-v2",
- "totalCount":10115,"items":[{"problem","challengeId","status","currentBestLength","kTeams"}]}}
-```
-My best guesses. They are **untested**, so don't trust them until you've seen one work:
-```
-https://api.sair.foundation/api/public/v1/competitions/acc/challenges?problem=ac
-https://api.sair.foundation/api/public/v1/competitions/acc/leaderboard
-```
-Records by other teams show up as `currentBestLength` dropping, or as `kTeams` going up, between two snapshots.
-
-## 3. How to get the exact URL yourself (2 minutes)
-
-1. Open the ACC leaderboard / challenges page on competition.sair.foundation while logged in.
-2. Press F12 (or right-click → Inspect), open the **Network** tab, and tick **Fetch/XHR**.
-3. Reload the page. Click the request whose Response starts with `{"ok":true`.
-4. Right-click it → **Copy → Copy URL**. That URL is the "actual wording". Paste the **URL only** to Claude.
-5. Do the same on the "My submissions" page for the submissions URL.
-
-**Never paste "Copy as cURL" output, cookies, or `Authorization:` headers** into chat, ReqBin or anywhere else. They contain your login token.
-
-## 4. What to send Claude
-- The copied URL (no headers).
-- Or the JSON response body. Save it with Response → right-click → "Save as" / copy, then paste or upload it.
-
-From the board JSON, Claude can list every row where another team has a record we don't match.
