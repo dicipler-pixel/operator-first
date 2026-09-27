@@ -29,6 +29,9 @@ Without `--yes`, it's a dry run.
   accepted. It already covers all 4 rows of NEW16 (sac-09757, 06754, 00276, 08702). **Don't
   resend NEW16.**
 
+- Submission 2566 (23:36Z): ac-03305 23 (tie, k6) and **sac-03305 24 (tie on a row held by one
+  team, about +0.5)**, found by the adaptive exact capped sweep at caps 37 and 40.
+
 **Verifier permission:** at 23:29Z the user told the API session to run the official verifier
 ("run the verifier"). That session can now verify and send by itself.
 

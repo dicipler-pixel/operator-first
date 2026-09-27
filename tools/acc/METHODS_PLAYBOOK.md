@@ -35,6 +35,16 @@ Always: keep the shorter of searched SAC and AC + 2 (`emitcap.sh`). Re-run the A
 every board pull: SAC records move, and a row can become a tie without any new search. Every line goes through the
 official verifier before `sair_api.py send`.
 
+### Win log
+- **2026-09-27 23:36Z, sac-03305: tie at 24 on a row held by one team (about +0.5), plus
+  ac-03305 at 23 (tie, k 6→7). Submission 2566.** Found by the adaptive exact capped sweep
+  (`run_capped_sweep.py`: start total length 24, raise the cap until the state budget runs out).
+  - Caps 24–36 are proved empty.
+  - The Stable AC path first appears at cap 37 and the AC path at cap 40 (133M states).
+  - The H-beam on the same row gave only 27/29.
+  - Lesson: on short rows held by 1–2 teams, the record path climbs 13–16 letters above the start,
+    so push the cap high. A cheap start (2M states at start + 6) means big caps are affordable.
+
 ## What has not worked (don't repeat without a new idea)
 - k=2 rows with records 44–70: 0 of 34 reached with H-beam.
 - SAC k=1 rows: 0 of 17. Unsolved rows: 0 of 126 (beam). Beat-by-one on scoring rows: 0.
