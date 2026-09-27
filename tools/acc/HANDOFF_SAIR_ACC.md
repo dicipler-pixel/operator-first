@@ -35,6 +35,8 @@ Without `--yes`, it's a dry run.
 - Submission 2569 (23:50Z): ac-01629 23 (tie, k4→5) and sac-01629 25 (tie, k3→4, AC + `[16,15]`),
   about +0.19. From exact sweep C.
 
+- Submission 2572 (23:56Z): ac-05558 24 and sac-05558 26 (ties, k5→6 each, about +0.06), from sweep C.
+
 **Verifier permission:** at 23:29Z the user told the API session to run the official verifier
 ("run the verifier"). That session can now verify and send by itself.
 
