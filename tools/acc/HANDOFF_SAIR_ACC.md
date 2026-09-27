@@ -26,7 +26,8 @@ Without `--yes`, it's a dry run.
 **Sent log:** `research/acc/live/submit_log.jsonl`.
 - Submission 2558 (22:45Z): NEW15, 6 ties, all accepted.
 - Submission 2565 (23:29Z): SACPLUS2, 6 Stable AC ties (our accepted AC paths + `[16,15]`), all
-  accepted.
+  accepted. It already covers all 4 rows of NEW16 (sac-09757, 06754, 00276, 08702). **Don't
+  resend NEW16.**
 
 **Verifier permission:** at 23:29Z the user told the API session to run the official verifier
 ("run the verifier"). That session can now verify and send by itself.
