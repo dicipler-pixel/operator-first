@@ -29,6 +29,7 @@ int main(int argc,char**argv){
   uint8_t*SA=NULL; uint64_t SAn=0,SAcap=0; Tab L; tab_init(&L,1ULL<<23);
   // BEAM_LOOK=1: two-level key (height = best total length reachable in one more move, tiebreak = own length)
   int LOOK=getenv("BEAM_LOOK")?atoi(getenv("BEAM_LOOK")):0;
+  int NOISE=getenv("BEAM_NOISE")?atoi(getenv("BEAM_NOISE")):0; uint64_t SEED=getenv("BEAM_SEED")?strtoull(getenv("BEAM_SEED"),0,10)*0xD1B54A32D192ED03ULL:0;
   for(int d=1;d<=DMAX;d++){
     if(d>=bestAC && d+2>=bestSAC) break;
     Node*tmpN=malloc(sizeof(Node)*(hi-lo)*14+1); uint64_t nt=0; SAn=0; memset(L.t,0,16*L.N); L.n=0;
@@ -42,7 +43,9 @@ int main(int argc,char**argv){
         if(SAn+need>SAcap){ SAcap=SAcap?SAcap*2:(1ULL<<26); while(SAn+need>SAcap) SAcap*=2; SA=realloc(SA,SAcap); if(!SA) die("scratch"); }
         uint8_t*q=SA+SAn; q[0]=nx.l[0]&255; q[1]=nx.l[0]>>8; q[2]=nx.l[1]&255; q[3]=nx.l[1]>>8; memcpy(q+4,nx.w[0],nx.l[0]); memcpy(q+4+nx.l[0],nx.w[1],nx.l[1]);
         tmpN[nt]=(Node){SAn,(uint32_t)i,(uint8_t)m,len}; SAn+=need;
-        uint64_t key=((uint64_t)len<<40)|(h1>>24);
+        // BEAM_NOISE=n, BEAM_SEED=s: add a seeded pseudo-random 0..n to the length key (route diversity)
+        uint32_t klen=len; if(NOISE){ uint64_t z=(h1^SEED)*0x9E3779B97F4A7C15ULL; z^=z>>29; klen+=(uint32_t)(z%(uint64_t)(NOISE+1)); }
+        uint64_t key=((uint64_t)klen<<40)|((h1^SEED)>>24);
         if(LOOK){ uint32_t best=len; St y; for(int m2=0;m2<14;m2++){ apply(&nx,m2,&y); uint32_t l2=y.l[0]+y.l[1]; if(l2<best) best=l2; }
           key=((uint64_t)best<<52)|((uint64_t)(len&4095)<<40)|(h1>>24); }
         C[nt]=(Cand){key,(uint32_t)nt}; nt++; } }

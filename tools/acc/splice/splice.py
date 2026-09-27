@@ -7,7 +7,7 @@ start to (x,y) gives the best spliced path. Waypoint restarts run acc_beam (no d
 states along the current best path to add new, different routes to the pool, then splice again.
 
 usage: splice.py SAIR BIN TFILE ROW POOL.jsonl [--radius 2] [--rounds 3] [--width 20000]
-                 [--fracs 0.2,0.35,0.5,0.65,0.8] [--jobs 3] [--div 0.3,0.6,0.9]
+                 [--fracs 0.2,0.35,0.5,0.65,0.8] [--jobs 3] [--div 0.3,0.6,0.9] [--seeds 3] [--noise 2]
 POOL.jsonl: one {"path":[...]} per line (moves 0..13). New paths are appended to it.
 Prints BEST <len> <json> after each round; every printed path passes the official verifier."""
 import argparse, heapq, json, os, re, subprocess, sys, time
@@ -18,7 +18,7 @@ for a in ('sair', 'bin', 'tfile', 'row', 'pool'): ap.add_argument(a)
 ap.add_argument('--radius', type=int, default=2); ap.add_argument('--rounds', type=int, default=3)
 ap.add_argument('--width', default='20000'); ap.add_argument('--fracs', default='0.2,0.35,0.5,0.65,0.8')
 ap.add_argument('--jobs', type=int, default=3); ap.add_argument('--div', default='0.3,0.6,0.9')
-ap.add_argument('--dmax', default='600')
+ap.add_argument('--dmax', default='600'); ap.add_argument('--noise', default='2'); ap.add_argument('--seeds', type=int, default=3)
 A = ap.parse_args()
 sys.path.insert(0, A.sair + '/competition/tools'); from verifier import core
 man = json.load(open(A.sair + '/competition/tools/verifier/data/manifest.json'))
@@ -75,9 +75,9 @@ def splice(pool):
     while v != src: u, mv = prev[v]; out[:0] = list(mv); v = u
     return out, len(node)
 
-def beam_from(prefix, div='0.6'):
+def beam_from(prefix, div='0.6', seed=0):
     s = states(prefix)[-1]
-    env = dict(os.environ, BEAM_DIV=div)
+    env = dict(os.environ, BEAM_DIV=div, BEAM_SEED=str(seed), BEAM_NOISE=A.noise if seed else '0')
     p = subprocess.run([A.bin + '/acc_beam', A.tfile, A.width, A.dmax, *enc(s)], capture_output=True, text=True, env=env, timeout=2600)
     m = re.search(r'^AC \d+ PATH ([\d ]+)', p.stdout, re.M)
     if not m: return None
@@ -102,7 +102,8 @@ for rnd in range(A.rounds + 1):
     if rnd == A.rounds: break
     fr = [float(x) for x in A.fracs.split(',')]
     with ThreadPoolExecutor(A.jobs) as ex:
-        jobs = [(f, d) for f in fr for d in A.div.split(',')]
-        for p in ex.map(lambda fd: beam_from(best[:int(fd[0] * len(best))], fd[1]), jobs):
+        dv = A.div.split(','); base = rnd * 1000
+        jobs = [(f, dv[k % len(dv)], base + k + 1) for f in fr for k in range(A.seeds)]
+        for p in ex.map(lambda j: beam_from(best[:int(j[0] * len(best))], j[1], j[2]), jobs):
             if p: print(f'  waypoint path {len(p)}', flush=True)
             add(pool, p)
