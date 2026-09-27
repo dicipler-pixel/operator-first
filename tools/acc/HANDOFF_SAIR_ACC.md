@@ -40,7 +40,9 @@ Standard library only. Reads the key from `SAIR_API_KEY` and never prints it.
 **Before it can work, the user must:**
 1. Add `api.sair.foundation` to the environment's allowed domains. Without it, the proxy returns
    `CONNECT tunnel failed, response 403`.
-2. Add the `SAIR_API_KEY` environment variable.
+2. Add the key as an environment **API credential**: allowed website `api.sair.foundation`, header
+   `Authorization`, prefix `Bearer`, value = the key. The proxy adds the header, so the key never
+   enters the container. A `SAIR_API_KEY` environment variable also works as a fallback.
 
 Both take effect in a new session.
 

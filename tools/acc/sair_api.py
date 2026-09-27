@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Mad Hatters client for the SAIR Andrews-Curtis Challenge API (standard library only).
 
-The key is read from the environment variable SAIR_API_KEY and is never printed or written.
+The key comes from the environment's API credential for api.sair.foundation (the proxy adds the
+Authorization header), or from the environment variable SAIR_API_KEY. It is never printed or written.
 
   python3 tools/acc/sair_api.py check                   network + key + team status, in plain words
   python3 tools/acc/sair_api.py boards [--out DIR]      pull the live AC and Stable AC boards (gzip JSON)
@@ -60,12 +61,11 @@ def explain(exc):
 
 
 def call(method, path, body=None, retry=True, auth=True):
+    # Key source: SAIR_API_KEY if set; otherwise the environment's API credential for
+    # api.sair.foundation, which the proxy adds as "Authorization: Bearer ..." on the way out.
     key = os.environ.get("SAIR_API_KEY", "").strip()
-    if auth and not key:
-        raise ApiError("SAIR_API_KEY is not set: add it as an environment variable "
-                       "(environment settings), never paste it into chat")
     headers = {"Accept": "application/json", "User-Agent": UA}
-    if auth:
+    if auth and key:
         headers["Authorization"] = f"Bearer {key}"
     data = None
     if body is not None:
@@ -98,7 +98,9 @@ def call(method, path, body=None, retry=True, auth=True):
 def http_problem(code, body):
     raw = json.dumps(body)[:400]
     if code == 401:
-        return "HTTP 401: the key was refused (wrong, expired or revoked); make a new one on the SAIR site"
+        return ("HTTP 401: no valid key reached SAIR. Check the environment's API credential "
+                "(allowed website exactly api.sair.foundation, header Authorization, prefix Bearer, "
+                "value = the key only), or make a new key on the SAIR site")
     if code == 403 and "1010" in raw:
         return "HTTP 403 / Cloudflare 1010: browser User-Agent rejected"
     if code == 403:
@@ -351,9 +353,10 @@ def check():
     except ApiError as e:
         print(f"network: {e}")
         return 2
-    if not os.environ.get("SAIR_API_KEY", "").strip():
-        print("key: SAIR_API_KEY is not set (add it in the environment settings)")
-        return 2
+    if os.environ.get("SAIR_API_KEY", "").strip():
+        print("key: from SAIR_API_KEY")
+    else:
+        print("key: none in this process; relying on the environment's API credential")
     code, body, _ = call("GET", "/me")
     if code != 200:
         print(f"key: {http_problem(code, body)}")
