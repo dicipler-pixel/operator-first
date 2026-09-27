@@ -45,6 +45,17 @@ official verifier before `sair_api.py send`.
   - Lesson: on short rows held by 1–2 teams, the record path climbs 13–16 letters above the start,
     so push the cap high. A cheap start (2M states at start + 6) means big caps are affordable.
 
+### Exact capped proofs so far (no record-length path stays within the cap)
+| row | start total | record (target) | proved empty through cap | budget at the next cap |
+|---|---|---|---|---|
+| ac-06969 | 27 | AC 38 | 32 (first 29 moves) | 123M states at cap 32 |
+| ac-00145 | 15 | AC 39 | 22 (first 30 moves) | 70M budget hit at cap 23 |
+| ac-06936 | 25 | AC 26 / SAC 27 | 33 | 180M budget hit at cap 34 |
+| ac-03305 | 24 | AC 23 / SAC 24 | 36 (then SAC found at 37, AC at 40) | solved |
+
+Short rows held by few teams need humps of 10+ letters. Memory (15 GB) caps us near 180M
+states per run.
+
 ## What has not worked (don't repeat without a new idea)
 - k=2 rows with records 44–70: 0 of 34 reached with H-beam.
 - SAC k=1 rows: 0 of 17. Unsolved rows: 0 of 126 (beam). Beat-by-one on scoring rows: 0.
