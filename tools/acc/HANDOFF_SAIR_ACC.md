@@ -23,8 +23,13 @@ pulls fresh, prints the table, keeps only UNSOLVED, BEAT or TIE lines that haven
 refuses to POST if the pull is more than 300 s old. `submit --yes` alone is refused on purpose.
 Without `--yes`, it's a dry run.
 
-**Sent log:** `research/acc/live/submit_log.jsonl`. Submission 2558 (22:45Z) sent NEW15: 6 ties,
-all accepted.
+**Sent log:** `research/acc/live/submit_log.jsonl`.
+- Submission 2558 (22:45Z): NEW15, 6 ties, all accepted.
+- Submission 2565 (23:29Z): SACPLUS2, 6 Stable AC ties (our accepted AC paths + `[16,15]`), all
+  accepted.
+
+**Verifier permission:** at 23:29Z the user told the API session to run the official verifier
+("run the verifier"). That session can now verify and send by itself.
 
 ## Key docs (2026-09-27)
 - `tools/acc/METHODS_PLAYBOOK.md`: what works and what doesn't, with evidence. Read it before
