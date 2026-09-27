@@ -15,7 +15,11 @@ Base: `https://api.sair.foundation/api/public/v1/competitions/acc`
 | Team leaderboard | `GET /leaderboard?problem=ac&limit=100` |
 | Our submissions | `GET /submissions/mine` |
 | Our team / can we submit | `GET /me` |
-| Submission rules | `GET /submission-spec` |
+| Submission rules | `GET /submission-spec` (limits: maxSolutions, maxBodyBytes, dailySubmissions) |
+| **Submit** | `POST /submissions` body `{"payload":{"text":"ac-00001: [..]\n..."},"meta":{"description":"..."}}` → 202 + `data.submissionId`; uses daily quota; never retry a POST |
+| One submission | `GET /submissions/{id}` → `data.status` queued/…/complete/failed, `data.results[]` |
+
+Our client: `tools/acc/sair_api.py` (check / boards / mine / plan / submit / status).
 
 Headers needed:
 - `Authorization: Bearer YOUR_SAIR_API_KEY`  (make a key on the SAIR site under API)

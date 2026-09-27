@@ -25,6 +25,34 @@ curl -sS -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
   `research/acc/optimality/runs/2026-09-27/live_board_our_rows_20260927T1920Z.txt`.
   Its columns are id, live record and k.
 
+## API client: `tools/acc/sair_api.py` (added 2026-09-27, second session)
+Standard library only. Reads the key from `SAIR_API_KEY` and never prints it.
+- `check`: tests the network, the key and the team status, and reports the results in plain words. Run it first.
+- `boards`: pulls both live boards into `research/acc/live/boards/` as gzipped JSON.
+- `mine`: shows our submission history and our best length per row.
+- `plan FILE... --sair $S/sair`: runs the official verifier on each line, then compares it with the
+  live board and our history. It writes `ACC_SUBMIT_API_<time>.txt` with only the lines that
+  score, best first.
+- `submit FILE`: a dry run. `submit FILE --yes` sends the file with one POST, which is never
+  retried, then waits and logs to `research/acc/live/submit_log.jsonl`.
+- `status ID`: waits for one submission to finish.
+
+**Before it can work, the user must:**
+1. Add `api.sair.foundation` to the environment's allowed domains. Without it, the proxy returns
+   `CONNECT tunnel failed, response 403`.
+2. Add the `SAIR_API_KEY` environment variable.
+
+Both take effect in a new session.
+
+The user wants Claude to lead submissions through the API. Show the `plan` output to the user
+before the first `--yes`.
+
+**Permission note:** in session 2, the auto-mode classifier blocked running the official SAIR
+verifier because it is external code cloned from GitHub. `run_beam.py`, `splice.py` and the other
+tools import it. The user must allow it, for example with a Bash permission rule for
+`python3 -m verifier`. Until then, use `research/acc/optimality/run_beam_raw.py`. It is the same
+search with no verifier import, and it saves unchecked paths (`"checked": false`).
+
 ## Setup (about 10 minutes)
 ```
 S=<scratchpad>; mkdir -p $S/work
