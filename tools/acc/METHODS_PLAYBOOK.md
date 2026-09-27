@@ -29,7 +29,10 @@ leaderboard to 4 decimals on 2026-09-27.
 | **(y,x) finish for Stable AC** | SAC: path to (y,x) + `[15,15]` beats AC path + `[16,15]` | sac-08374 21→16, sac-00894 17→15, five more 17→16 (2026-09-24) | automatic in the beam (swap = moves 6↔8, 7↔9, 10↔12, 11↔13) |
 | **Exact MITM (S_a ∩ T_9)** (`acc_opt`, `acc_batch`) | proving optimality / board-wide screens ≤ 15 | all 10,115 rows screened; 53 exact optima at 15–19 | see `proof_track/PROOF_TRACK_SUBMISSION.md` |
 
-Always: keep the shorter of searched SAC and AC + 2 (`emitcap.sh`). Every line goes through the
+| **SAC = our accepted AC + `[16,15]`** | free SAC ties when the SAC record = our AC length + 2 | 6 found on 2026-09-27 (`ACC_SUBMIT_SACPLUS2_20260927.txt`) | offline check vs board; moves from `sair_api.py download ID` |
+
+Always: keep the shorter of searched SAC and AC + 2 (`emitcap.sh`). Re-run the AC+2 check after
+every board pull: SAC records move, and a row can become a tie without any new search. Every line goes through the
 official verifier before `sair_api.py send`.
 
 ## What has not worked (don't repeat without a new idea)
