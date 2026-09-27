@@ -30,6 +30,7 @@ import sys
 import tempfile
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 
 BASE = "https://api.sair.foundation/api/public/v1/competitions/acc"
@@ -173,6 +174,17 @@ def our_best(history):
     return best
 
 
+def fetch_mine():
+    """All pages of /submissions/mine (20 per page, `cursor` = previous nextCursor)."""
+    items, cursor = [], None
+    while True:
+        page = get("/submissions/mine" + (f"?cursor={urllib.parse.quote(cursor)}" if cursor else ""))
+        items += page.get("items", [])
+        cursor = page.get("nextCursor")
+        if not cursor:
+            return {"items": items, "totalCount": page.get("totalCount", len(items))}
+
+
 def local_history():
     log = LIVE / "submit_log.jsonl"
     rows = []
@@ -237,7 +249,7 @@ def plan(args):
     board = load_board(args.board)
     sent = our_best(local_history())
     if not args.no_history:
-        sent.update({k: min(v, sent.get(k, v)) for k, v in our_best(get("/submissions/mine")).items()})
+        sent.update({k: min(v, sent.get(k, v)) for k, v in our_best(fetch_mine()).items()})
     rows, behind = [], []
     for cid, mv in lines.items():
         if cid not in ok or ok[cid] != len(mv):
@@ -402,12 +414,14 @@ def main():
     elif args.cmd == "leaderboard":
         print(json.dumps(get(f"/leaderboard?problem={args.problem}&limit=100"), indent=1)[:6000])
     elif args.cmd == "mine":
-        hist = get("/submissions/mine")
+        hist = fetch_mine()
         best = our_best(hist)
         path = LIVE / f"mine_{stamp()}.json"
         LIVE.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(hist), encoding="utf-8")
-        print(f"history saved to {path}; accepted rows: {len(best)}")
+        keep = ("submissionId", "status", "receivedAt", "solutionCount", "results", "errorMessage")
+        path.write_text(json.dumps({"items": [{k: it.get(k) for k in keep} for it in hist["items"]]}),
+                        encoding="utf-8")
+        print(f"history saved to {path}; submissions: {len(hist['items'])}; accepted rows: {len(best)}")
         for cid in sorted(best):
             print(cid, best[cid])
     elif args.cmd == "plan":
