@@ -6,6 +6,7 @@
 // usage: acc_beam TFILE W DMAX l0 w.. l1 w..
 #define ACC_NO_MAIN
 #include "acc_opt.c"
+#include <math.h>
 typedef struct { uint64_t off; uint32_t par; uint8_t mv; uint32_t len; } Node;
 static uint8_t*AR; static uint64_t ARn,ARcap;
 static uint64_t store(const St*s){ uint64_t need=4+s->l[0]+s->l[1]; if(ARn+need>ARcap){ ARcap=ARcap?ARcap*2:(1ULL<<26); while(ARn+need>ARcap) ARcap*=2; AR=realloc(AR,ARcap); if(!AR) die("arena"); }
@@ -14,6 +15,15 @@ static void load(uint64_t o,St*s){ uint8_t*p=AR+o; s->l[0]=p[0]|(p[1]<<8); s->l[
 static void swapst(const St*s,St*r){ r->l[0]=s->l[0]; r->l[1]=s->l[1]; for(int j=0;j<2;j++) for(int i=0;i<s->l[j];i++) r->w[j][i]=s->w[j][i]^2; } // x<->y: 0<->2, 1<->3
 static const uint8_t PI[14]={0,1,2,3,4,5,8,9,6,7,12,13,10,11};
 typedef struct { uint64_t key; uint32_t idx; } Cand;
+// BEAM_H=1: ACSolverX tuned priority (Avi161/ACSolverX HEURISTICS.md), scaled x16:
+// L + 2.53*K + 6.418*MK + 8.458*S + 3.292*|#x-#y|/L. K = sum over relators of cyclic generator-block
+// count (0 for a pure power), MK = max of the two, S = mean block length of the thinner generator.
+static uint32_t hprio(const St*s){ int L=s->l[0]+s->l[1]; if(!L) return 0; int K=0,MK=0,cnt[2]={0,0},blk[2]={0,0};
+  for(int r=0;r<2;r++){ int n=s->l[r]; if(!n) continue; int k=0;
+    for(int i=0;i<n;i++){ int g=s->w[r][i]>>1, gp=s->w[r][(i+n-1)%n]>>1; cnt[g]++; if(g!=gp){ k++; blk[g]++; } }
+    if(k==0) blk[s->w[r][0]>>1]++; int kr=k/2; K+=kr; if(kr>MK) MK=kr; }
+  int th=cnt[0]<=cnt[1]?0:1; double S=blk[th]?(double)cnt[th]/blk[th]:0; double im=fabs((double)(cnt[0]-cnt[1]))/L;
+  double P=L+2.53*K+6.418*MK+8.458*S+3.292*im; return (uint32_t)(P*16.0); }
 static int cmpc(const void*a,const void*b){ uint64_t x=((Cand*)a)->key,y=((Cand*)b)->key; return x<y?-1:x>y; }
 int main(int argc,char**argv){
   const char*tf=argv[1]; uint64_t W=strtoull(argv[2],0,10); int DMAX=atoi(argv[3]); St s0; parse_state(argv,4,&s0);
@@ -29,6 +39,7 @@ int main(int argc,char**argv){
   uint8_t*SA=NULL; uint64_t SAn=0,SAcap=0; Tab L; tab_init(&L,1ULL<<23);
   // BEAM_LOOK=1: two-level key (height = best total length reachable in one more move, tiebreak = own length)
   int LOOK=getenv("BEAM_LOOK")?atoi(getenv("BEAM_LOOK")):0;
+  int HP=getenv("BEAM_H")?atoi(getenv("BEAM_H")):0;
   int NOISE=getenv("BEAM_NOISE")?atoi(getenv("BEAM_NOISE")):0; uint64_t SEED=getenv("BEAM_SEED")?strtoull(getenv("BEAM_SEED"),0,10)*0xD1B54A32D192ED03ULL:0;
   for(int d=1;d<=DMAX;d++){
     if(d>=bestAC && d+2>=bestSAC) break;
@@ -44,7 +55,7 @@ int main(int argc,char**argv){
         uint8_t*q=SA+SAn; q[0]=nx.l[0]&255; q[1]=nx.l[0]>>8; q[2]=nx.l[1]&255; q[3]=nx.l[1]>>8; memcpy(q+4,nx.w[0],nx.l[0]); memcpy(q+4+nx.l[0],nx.w[1],nx.l[1]);
         tmpN[nt]=(Node){SAn,(uint32_t)i,(uint8_t)m,len}; SAn+=need;
         // BEAM_NOISE=n, BEAM_SEED=s: add a seeded pseudo-random 0..n to the length key (route diversity)
-        uint32_t klen=len; if(NOISE){ uint64_t z=(h1^SEED)*0x9E3779B97F4A7C15ULL; z^=z>>29; klen+=(uint32_t)(z%(uint64_t)(NOISE+1)); }
+        uint32_t klen=HP?hprio(&nx):len; if(NOISE){ uint64_t z=(h1^SEED)*0x9E3779B97F4A7C15ULL; z^=z>>29; klen+=(uint32_t)(z%(uint64_t)(NOISE+1)); }
         uint64_t key=((uint64_t)klen<<40)|((h1^SEED)>>24);
         if(LOOK){ uint32_t best=len; St y; for(int m2=0;m2<14;m2++){ apply(&nx,m2,&y); uint32_t l2=y.l[0]+y.l[1]; if(l2<best) best=l2; }
           key=((uint64_t)best<<52)|((uint64_t)(len&4095)<<40)|(h1>>24); }
