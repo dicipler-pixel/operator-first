@@ -45,3 +45,20 @@ An exact shortest-path BFS was restricted to the union of radius-R neighborhoods
 | 6 | 32,087,950 | 27,911,371 | none |
 
 The radius-6 run used packed states and 123-bit fingerprints, with a 6.5 GB virtual-memory cap; it completed without OOM. A competitive path must leave this radius-6 union at some point, subject to the fingerprint collision caveat. This supports an outbound excursion search that deliberately preserves states beyond the known route's local neighborhood. No team record or SAIR submission changed.
+
+## Two-interstate search on ac-05818
+
+A depth-6 exact root search into the validated suffix atlas found three full routes: the 35-move route above and two 36-move alternatives. The first 36-move route and the 35-move route share **only start and goal** as exact ordered states. An additional 35-move route was recovered from the joint radius-3 graph; it adds 11 states to the graph. All four routes have official core verification receipts and exact state sequences in [the mergeable graph map](ac-05818_two_interstates_map.json), now 83 nodes and 87 labeled edges.
+
+The exact shortest-path search allowed any number of switches inside the union of the two distinct routes' radius-R neighborhoods. It looked for a path of at most 34 moves:
+
+| Joint radius | Allowed states | Reached within 34 moves | Tie or beat |
+|---:|---:|---:|---|
+| 3 | 83,551 | 77,480 | none |
+| 4 | 767,892 | 698,448 | none |
+| 5 | 6,975,226 | 6,177,667 | none |
+| 6 | 62,967,597 | 54,138,001 | none |
+
+The radius-6 traversal used disk frontier layers and 123-bit fingerprints. A separate positive control, with the 36-move route as primary, reconstructed another 35-move route through the same graph and passed official core verification (certificate `sha256:5df43220b2a5997c5ba5e9fdea3959514818e4900852bd2bcf1b6c5e3c59f31a`). Exact contiguous-window replacement on the alternate 36-move route checked 377 windows of lengths 2–14 and found no shorter replacement. These are corridor-restricted results, not a global shortestness proof; any competitive route must leave both tested radius-6 neighborhoods at some point, apart from the negligible fingerprint-collision caveat.
+
+A depth-5 suffix-atlas search also found `ac-07119` at 35 moves versus the snapshot AC record 33 and Stable AC record 34. Its exact window search found no shorter section. No new scoring submission was produced by these checks.
