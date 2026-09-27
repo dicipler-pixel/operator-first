@@ -40,7 +40,7 @@ int main(int argc,char**argv){
   // BEAM_LOOK=1: two-level key (height = best total length reachable in one more move, tiebreak = own length)
   int LOOK=getenv("BEAM_LOOK")?atoi(getenv("BEAM_LOOK")):0;
   int HP=getenv("BEAM_H")?atoi(getenv("BEAM_H")):0;
-  int NOISE=getenv("BEAM_NOISE")?atoi(getenv("BEAM_NOISE")):0; uint64_t SEED=getenv("BEAM_SEED")?strtoull(getenv("BEAM_SEED"),0,10)*0xD1B54A32D192ED03ULL:0;
+  int NOISE=getenv("BEAM_NOISE")?atoi(getenv("BEAM_NOISE")):0; if(HP) NOISE*=16; /* priority is scaled x16 */ uint64_t SEED=getenv("BEAM_SEED")?strtoull(getenv("BEAM_SEED"),0,10)*0xD1B54A32D192ED03ULL:0;
   for(int d=1;d<=DMAX;d++){
     if(d>=bestAC && d+2>=bestSAC) break;
     Node*tmpN=malloc(sizeof(Node)*(hi-lo)*14+1); uint64_t nt=0; SAn=0; memset(L.t,0,16*L.N); L.n=0;
