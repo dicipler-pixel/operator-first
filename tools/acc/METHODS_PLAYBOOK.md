@@ -44,6 +44,9 @@ official verifier before `sair_api.py send`.
   - The H-beam on the same row gave only 27/29.
   - Lesson: on short rows held by 1–2 teams, the record path climbs 13–16 letters above the start,
     so push the cap high. A cheap start (2M states at start + 6) means big caps are affordable.
+- **2026-09-27 23:50Z, ac-01629 23 and sac-01629 25 (ties, k4 and k3, about +0.19), submission 2569.**
+  Found by exact sweep C (start total length 23, AC path at cap 42). The Stable AC line is the
+  AC path + `[16,15]`: every AC hit now produces its Stable AC line automatically.
 
 ### Exact capped proofs so far (no record-length path stays within the cap)
 | row | start total | record (target) | proved empty through cap | budget at the next cap |

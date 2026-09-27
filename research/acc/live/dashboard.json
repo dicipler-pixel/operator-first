@@ -1,26 +1,26 @@
 {
  "summary": {
-  "updatedAt": "2026-09-27T23:46Z",
-  "leaderboardAt": "2026-09-27T23:35:00Z",
+  "updatedAt": "2026-09-27T23:50Z",
+  "leaderboardAt": "2026-09-27T23:50:00Z",
   "ac": {
    "rank": 18,
-   "teams": 44,
-   "score": 0.4151,
-   "estimate": 0.4307,
-   "ties": 216
+   "teams": 45,
+   "score": 0.4307,
+   "estimate": 0.5557,
+   "ties": 217
   },
   "sac": {
    "rank": 14,
-   "teams": 41,
-   "score": 1.1565,
-   "estimate": 1.6565,
-   "ties": 229
+   "teams": 42,
+   "score": 1.6565,
+   "estimate": 1.9065,
+   "ties": 230
   },
-  "sentToday": 17,
+  "sentToday": 18,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-27T23:35Z",
-  "subsTotal": 88
+  "boardAt": "2026-09-27T23:50Z",
+  "subsTotal": 89
  },
  "scores": {
   "points": [
@@ -50,6 +50,15 @@
     "sac": 1.1565,
     "sacRank": 14,
     "sacTeams": 41
+   },
+   {
+    "at": "2026-09-27T23:50:00Z",
+    "ac": 0.4307,
+    "acRank": 18,
+    "acTeams": 45,
+    "sac": 1.6565,
+    "sacRank": 14,
+    "sacTeams": 42
    }
   ]
  },
@@ -135,16 +144,16 @@
    },
    {
     "d": "2026-09-27",
-    "subs": 17,
-    "ac": 122,
-    "sac": 121
+    "subs": 18,
+    "ac": 123,
+    "sac": 122
    }
   ]
  },
  "standing": {
   "gaps": {
    "ac": {
-    "0": 216,
+    "0": 217,
     "1": 5,
     "2": 6,
     "3": 4,
@@ -153,7 +162,7 @@
     "11+": 209
    },
    "sac": {
-    "0": 229,
+    "0": 230,
     "1": 6,
     "2": 8,
     "3": 4,
@@ -176,7 +185,7 @@
     "1": 0,
     "2": 0,
     "3": 0,
-    "4": 0,
+    "4": 1,
     "5": 2,
     "6": 2,
     "7": 6,
@@ -189,7 +198,7 @@
    "sac": {
     "1": 0,
     "2": 1,
-    "3": 0,
+    "3": 1,
     "4": 1,
     "5": 5,
     "6": 11,
@@ -207,8 +216,8 @@
    {
     "rank": 12,
     "name": "NavierStoked",
-    "score": 5.3631,
-    "rows": 333,
+    "score": 5.3006,
+    "rows": 332,
     "alone": 1,
     "us": false
    },
@@ -239,7 +248,7 @@
    {
     "rank": 16,
     "name": "relentless",
-    "score": 1.4494,
+    "score": 1.1994,
     "rows": 282,
     "alone": 0,
     "us": false
@@ -255,8 +264,8 @@
    {
     "rank": 18,
     "name": "Mad Hatters",
-    "score": 0.4151,
-    "rows": 215,
+    "score": 0.4307,
+    "rows": 216,
     "alone": 0,
     "us": true
    },
@@ -277,13 +286,13 @@
     "us": false
    }
   ],
-  "acAt": "2026-09-27T23:35:00Z",
+  "acAt": "2026-09-27T23:50:00Z",
   "sac": [
    {
     "rank": 8,
     "name": "Math vs Vibes",
-    "score": 51.827,
-    "rows": 944,
+    "score": 51.452,
+    "rows": 942,
     "alone": 10,
     "us": false
    },
@@ -306,8 +315,8 @@
    {
     "rank": 11,
     "name": "NavierStoked",
-    "score": 6.6287,
-    "rows": 342,
+    "score": 6.5506,
+    "rows": 341,
     "alone": 0,
     "us": false
    },
@@ -330,8 +339,8 @@
    {
     "rank": 14,
     "name": "Mad Hatters",
-    "score": 1.1565,
-    "rows": 228,
+    "score": 1.6565,
+    "rows": 229,
     "alone": 0,
     "us": true
    },
@@ -352,7 +361,7 @@
     "us": false
    }
   ],
-  "sacAt": "2026-09-27T23:35:00Z"
+  "sacAt": "2026-09-27T23:50:00Z"
  },
  "searches": {
   "items": [
@@ -384,7 +393,7 @@
     "k": null,
     "best": null,
     "status": "running",
-    "detail": "Exact capped sweep: 0 of 390 rows done, 0 with a tie or beat."
+    "detail": "Exact capped sweep: 1 of 390 rows done, 0 with a tie or beat."
    },
    {
     "key": "midC",
@@ -394,7 +403,7 @@
     "k": null,
     "best": null,
     "status": "running",
-    "detail": "Exact capped sweep: 0 of 106 rows done, 0 with a tie or beat."
+    "detail": "Exact capped sweep: 2 of 106 rows done, 1 with a tie or beat (ac-01629)."
    },
    {
     "key": "easy-beam",
@@ -512,6 +521,11 @@
     "at": "2026-09-27T23:36Z",
     "kind": "submit",
     "text": "Submission 2566: 2/2 accepted. sac-03305 tie on a row held by one team (+0.5) and ac-03305."
+   },
+   {
+    "at": "2026-09-27T23:50Z",
+    "kind": "submit",
+    "text": "Submission 2569: 2/2 accepted. ac-01629 and sac-01629 ties (+0.19) from exact sweep C."
    }
   ]
  }
