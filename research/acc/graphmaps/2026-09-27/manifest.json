@@ -1,0 +1,60 @@
+{
+  "verifier_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "source_archive": "ACC-graphmaps-delta-20260927.tar.zst",
+  "source_archive_sha256": "c704ff2d3f6067d25ae92e44cd72e96b5036853a536a089f3b74347a578d21b2",
+  "route_map_records": 117,
+  "source_records": 114,
+  "added_codex_records": 3,
+  "route_counts_by_spec": {
+    "ac-r2-v1": 60,
+    "sac-r8-v1": 57
+  },
+  "unique_challenge_ids": 116,
+  "nodes_by_spec": {
+    "ac-r2-v1": 1520,
+    "sac-r8-v1": 1519
+  },
+  "unique_nodes": 3039,
+  "directed_labeled_edges_by_spec": {
+    "ac-r2-v1": 1519,
+    "sac-r8-v1": 1519
+  },
+  "unique_directed_labeled_edges": 3038,
+  "path_edge_occurrences": 3460,
+  "id_scheme": "sha256(spec + newline + compact JSON of exact nested signed-integer state); exact state is included in nodes.jsonl.gz",
+  "paths": [
+    {
+      "id": "ac-02902",
+      "length": 31,
+      "record_snapshot": 31,
+      "k_snapshot": 2,
+      "work": 624,
+      "hash": "sha256:d7fe9b96081ef42cbe3c6ebe05d24a5f4458fe9d2de69d7ff0973d71e3382121",
+      "path_sha256": "2ebda34392a537c441c93462fa58a4d5f8f0ec96a327a8fcebad1a895b9d117e"
+    },
+    {
+      "id": "ac-01639",
+      "length": 31,
+      "record_snapshot": 31,
+      "k_snapshot": 2,
+      "work": 599,
+      "hash": "sha256:5ebf13dc17ccbba98264d38459a25ca0b0a0ff3b129716d0697361fa2b568d68",
+      "path_sha256": "b89b00875bbd09a621c5da55a97a2f370abb6bb1e839d539df1192062c759a9b"
+    },
+    {
+      "id": "ac-02446",
+      "length": 31,
+      "record_snapshot": 31,
+      "k_snapshot": 3,
+      "work": 586,
+      "hash": "sha256:2137c5e76a5cd73e83c3999cd089cab926c769d5ebd3d8afb7a5d36a9593c1b1",
+      "path_sha256": "4f14a8250e0583a79e340122a69f8080dd242e2dec423b546f1d1522e287d79e"
+    }
+  ],
+  "files": {
+    "route_maps.jsonl.gz": "8f6617665b9c59f2bcff8dd6e7a05afd87c726cbee6ff48b3ee955f493fa602a",
+    "nodes.jsonl.gz": "b57d394ded3e67f20a5b4310bb2abc603cd95833b501a8c2d13da8c6922d9d90",
+    "edges.jsonl.gz": "e6efadd9ee3ce75e42efa3b87e379e189b84ed6814ac077eb59244fb29e7ed6c",
+    "candidate_lines.txt": "7b226284e315055b71939c03cf79856bece34e5d06c2bb0564c39cc1f2b39610"
+  }
+}
