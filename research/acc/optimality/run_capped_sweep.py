@@ -35,6 +35,9 @@ for t in json.load(open(TGT)):
                 path = list(map(int, m.group(2).split())); key = which.lower()
                 info[key + '_len'] = len(path)
                 if len(path) < len(rec.get(key, [0] * 999)): rec[key] = path
+        # every AC path is also a Stable AC path: AC + [16, 15] (destabilize y, then x)
+        if 'ac' in rec and len(rec['ac']) + 2 < len(rec.get('sac', [0] * 999)):
+            rec['sac'] = rec['ac'] + [16, 15]; info['sac_len'] = len(rec['sac']); info['sac_from_ac'] = True
         # complete = every layer through MAXD searched (depth reported as MAXD+1) or a path found
         # CLOSED = no state within the cap is left (the whole capped space was searched)
         info['complete'] = (info['end'] == 'CLOSED' or bool(info['depth'] and info['depth'] > maxd)
