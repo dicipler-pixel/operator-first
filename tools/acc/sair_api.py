@@ -9,6 +9,8 @@ Authorization header), or from the environment variable SAIR_API_KEY. It is neve
   python3 tools/acc/sair_api.py mine                    our submission history -> our best length per row
   python3 tools/acc/sair_api.py leaderboard [ac|stable_ac]
   python3 tools/acc/sair_api.py changes                 what other teams did since the previous SAIR refresh
+  python3 tools/acc/sair_api.py teams [--above N]       scoring rows of the N teams ranked just above us
+Read budget: 360 GETs per window (reset 00:00 UTC seen); non-send reads stop at 40 left.
   python3 tools/acc/sair_api.py spec                    submission rules and limits
   python3 tools/acc/sair_api.py plan FILE... --sair DIR [--board DIR] [--out FILE]
         check every line with the official verifier, compare with the live board and our history,
@@ -51,6 +53,13 @@ class ApiError(SystemExit):
     pass
 
 
+# Read budget: X-Ratelimit-Limit 360 per window (reset seen at 00:00 UTC). Keep a reserve so a
+# submission (`send`: boards, history, spec, me, POST, polls ~ 20 calls) is never starved.
+RESERVE = 40
+RATE = {"remaining": None, "reset": None}
+ESSENTIAL = False
+
+
 def explain(exc):
     """Turn a transport failure into a plain-language cause."""
     text = str(exc)
@@ -76,12 +85,18 @@ def call(method, path, body=None, retry=True, auth=True):
         data = json.dumps(body).encode("utf-8")
         headers["Content-Type"] = "application/json"
     for attempt in range(6 if retry else 1):
+        if (not ESSENTIAL and method == "GET" and RATE["remaining"] is not None
+                and RATE["remaining"] <= RESERVE):
+            raise ApiError(f"read budget low ({RATE['remaining']} left until reset "
+                           f"{RATE['reset']}); saving them for submissions")
         req = urllib.request.Request(BASE + path, data=data, method=method, headers=headers)
         try:
             with urllib.request.urlopen(req, timeout=180) as r:
                 raw = r.read()
+                note_rate(r.headers)
                 return r.status, (json.loads(raw) if raw else {}), dict(r.headers)
         except urllib.error.HTTPError as e:
+            note_rate(e.headers)
             raw = e.read().decode("utf-8", "replace")
             try:
                 payload = json.loads(raw)
@@ -97,6 +112,57 @@ def call(method, path, body=None, retry=True, auth=True):
                 continue
             raise ApiError(f"cannot reach {HOST}: {explain(getattr(e, 'reason', e))}")
     return 429, {"error": "still rate limited after retries"}, {}
+
+
+def note_rate(h):
+    try:
+        RATE["remaining"] = int(h.get("X-Ratelimit-Remaining"))
+        RATE["reset"] = dt.datetime.fromtimestamp(int(h.get("X-Ratelimit-Reset")),
+                                                  dt.timezone.utc).strftime("%H:%MZ")
+    except (TypeError, ValueError):
+        pass
+
+
+def fetch_team(team_id, problem):
+    """Every row a team currently scores on: {challengeId: [length, kTeams, teamPoints]}."""
+    rows, cursor, entry = {}, None, None
+    while True:
+        q = f"/leaderboard/teams/{team_id}/challenges?problem={problem}&limit=100"
+        page = get(q + (f"&cursor={urllib.parse.quote(cursor)}" if cursor else ""))
+        entry = entry or page.get("entry")
+        for it in page.get("items", []):
+            rows[it["challengeId"]] = [it["currentBestLength"], it["kTeams"], float(it["teamPoints"])]
+        cursor = page.get("nextCursor")
+        if not cursor:
+            return entry, rows, page.get("generatedAt")
+
+
+def teams_cmd(args):
+    """Scoring rows of the teams ranked just above us (or --ranks), saved for later diffs."""
+    out = LIVE / "teams"
+    out.mkdir(parents=True, exist_ok=True)
+    for problem in ("ac", "stable_ac"):
+        me = get(f"/leaderboard/me?problem={problem}")["entry"]
+        lb = get(f"/leaderboard?problem={problem}&limit=100")["items"]
+        ranks = set(args.ranks) if args.ranks else set(range(max(1, me["rank"] - args.above), me["rank"] + 1))
+        snap = {"problem": problem, "pulledAt": stamp(), "teams": {}}
+        print(f"\n{problem}: we are rank {me['rank']}, score {float(me['score']):.4f}")
+        for x in sorted(lb, key=lambda x: x["rank"]):
+            if x["rank"] not in ranks:
+                continue
+            entry, rows, gen = fetch_team(x["team"]["teamId"], problem)
+            snap["generatedAt"] = gen
+            name = x["team"]["teamName"] or x["team"]["teamNumber"]
+            snap["teams"][x["team"]["teamNumber"]] = {"name": name, "rank": x["rank"],
+                                                     "score": x["score"], "rows": rows}
+            top = sorted(rows.items(), key=lambda kv: -kv[1][2])[:args.show]
+            alone = sum(1 for v in rows.values() if v[1] == 1)
+            print(f"  #{x['rank']:<3} {name[:22]:22} score {float(x['score']):8.4f}  rows {len(rows):5}  "
+                  f"alone {alone:3}  best: " + ", ".join(f"{c} {v[0]}/k{v[1]}" for c, v in top))
+        path = out / f"{problem}_{stamp()}.json.gz"
+        with gzip.open(path, "wt", encoding="utf-8") as fh:
+            json.dump(snap, fh)
+    print(f"\nreads left: {RATE['remaining']} (reset {RATE['reset']})")
 
 
 def http_problem(code, body):
@@ -384,6 +450,8 @@ def send(args):
     """User rule (2026-09-27): pull boards + history fresh, keep only lines that are unsolved, beat
     or tie on their exact row and are shorter than anything we already sent, and POST within
     5 minutes of that pull. Lines must already have passed the official verifier (search session)."""
+    global ESSENTIAL
+    ESSENTIAL = True
     t0 = time.time()
     board_dir = LIVE / "boards"
     pull_boards(board_dir)
@@ -513,6 +581,10 @@ def main():
     s = sub.add_parser("submit")
     s.add_argument("file")
     s.add_argument("--yes", action="store_true")
+    tm = sub.add_parser("teams")
+    tm.add_argument("--above", type=int, default=6, help="teams ranked this many places above us")
+    tm.add_argument("--ranks", type=int, nargs="*")
+    tm.add_argument("--show", type=int, default=4)
     ch = sub.add_parser("changes")
     ch.add_argument("--board", default=str(LIVE / "boards"))
     ch.add_argument("--no-pull", action="store_true")
@@ -546,6 +618,8 @@ def main():
             print(cid, best[cid])
     elif args.cmd == "plan":
         plan(args)
+    elif args.cmd == "teams":
+        teams_cmd(args)
     elif args.cmd == "changes":
         changes(args)
     elif args.cmd == "send":
