@@ -1,0 +1,330 @@
+<title>Mad Hatters ACC Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --plane:#f6f6f3; --surface:#fcfcfb; --ink:#0b0b0b; --ink-2:#52514e; --muted:#77756f;
+  --grid:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,.10);
+  --s1:#2a78d6; --s2:#eb6834; --other:#b9b7ae;
+  --good:#0ca30c; --good-ink:#006300; --warn:#fab219; --crit:#d03b3b;
+  --chip-good:#e3f3e3; --chip-warn:#fdf1d6; --chip-idle:#ecebe6; --chip-crit:#f8e1e1;
+  --accent:#1f4f8f;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --plane:#0f0f0e; --surface:#1a1a19; --ink:#ffffff; --ink-2:#c3c2b7; --muted:#9a988f;
+    --grid:#2c2c2a; --axis:#46463f; --ring:rgba(255,255,255,.10);
+    --s1:#3987e5; --s2:#d95926; --other:#55544e;
+    --good-ink:#0ca30c; --chip-good:#16301a; --chip-warn:#3a2f12; --chip-idle:#2a2a27; --chip-crit:#3a1c1c;
+    --accent:#86b6ef;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --plane:#0f0f0e; --surface:#1a1a19; --ink:#ffffff; --ink-2:#c3c2b7; --muted:#9a988f;
+  --grid:#2c2c2a; --axis:#46463f; --ring:rgba(255,255,255,.10);
+  --s1:#3987e5; --s2:#d95926; --other:#55544e;
+  --good-ink:#0ca30c; --chip-good:#16301a; --chip-warn:#3a2f12; --chip-idle:#2a2a27; --chip-crit:#3a1c1c;
+  --accent:#86b6ef;
+}
+*{box-sizing:border-box}
+body{background:var(--plane);color:var(--ink);font:15px/1.5 var(--sans);margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:28px 56px;display:grid;gap:28px}
+h1,h2,h3{margin:0;text-wrap:balance;font-weight:600}
+h1{font-size:28px;letter-spacing:-.01em}
+h2{font-size:17px}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.sub{color:var(--ink-2);font-size:14px}
+.mono{font-family:var(--mono);font-size:13px}
+header{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between}
+header .meta{display:grid;gap:2px;justify-items:end;text-align:right}
+@media (max-width:640px){header .meta{justify-items:start;text-align:left}}
+.chip{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:500;background:var(--chip-idle);color:var(--ink)}
+.chip .dot{width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.chip.good{background:var(--chip-good)} .chip.good .dot{background:var(--good)}
+.chip.warn{background:var(--chip-warn)} .chip.warn .dot{background:var(--warn)}
+.chip.crit{background:var(--chip-crit)} .chip.crit .dot{background:var(--crit)}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:900px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.tiles{grid-template-columns:1fr}}
+.tile{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:14px 16px;display:grid;gap:4px;align-content:start}
+.tile .lab{font-size:12px;color:var(--ink-2);font-weight:500}
+.tile .big{font-size:30px;font-weight:600;line-height:1.1}
+.tile .big small{font-size:15px;font-weight:500;color:var(--ink-2)}
+.tile .note{font-size:13px;color:var(--ink-2)}
+.up{color:var(--good-ink);font-weight:600}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;background:var(--surface);border:1px solid var(--ring);border-radius:10px;overflow:hidden}
+@media (max-width:820px){.flow{grid-template-columns:1fr}}
+.step{padding:12px 14px;display:grid;gap:3px;position:relative;border-right:1px solid var(--grid)}
+.step:last-child{border-right:0}
+@media (max-width:820px){.step{border-right:0;border-bottom:1px solid var(--grid)}.step:last-child{border-bottom:0}}
+.step .n{font-size:11px;color:var(--muted);font-family:var(--mono)}
+.step b{font-size:14px;font-weight:600}
+.step span{font-size:13px;color:var(--ink-2)}
+.step .v{font-size:13px;color:var(--ink);font-weight:500}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.grid2{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:16px;display:grid;gap:10px;min-width:0}
+.panel .hd{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:space-between;align-items:baseline}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--ink-2);flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+.chart .lbl{fill:var(--ink-2);font-weight:500}
+.tip{position:absolute;pointer-events:none;background:var(--surface);color:var(--ink);border:1px solid var(--ring);box-shadow:0 4px 14px rgba(0,0,0,.12);border-radius:8px;padding:7px 9px;font-size:12px;line-height:1.45;white-space:nowrap;z-index:5}
+.tip b{font-weight:600}
+.tip i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px}
+details{font-size:13px;color:var(--ink-2)}
+details summary{cursor:pointer;width:max-content}
+details summary:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+#searches,#methods{min-width:640px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--grid);vertical-align:top}
+th{font-weight:500;color:var(--ink-2);font-size:12px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.us td{font-weight:600}
+.ladder{display:grid;gap:6px}
+.rung{display:grid;grid-template-columns:34px minmax(0,150px) minmax(0,1fr) 62px;gap:10px;align-items:center;font-size:13px}
+.rung .rk{color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
+.rung .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rung .bar{height:10px;border-radius:0 4px 4px 0;background:var(--other);min-width:2px}
+.rung.us .bar{background:var(--s1)}
+.rung.us .nm{font-weight:600}
+.rung .sc{text-align:right;font-variant-numeric:tabular-nums}
+.log{display:grid;gap:0}
+.ev{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:8px 0;border-bottom:1px solid var(--grid);font-size:13px}
+.ev:last-child{border-bottom:0}
+.ev time{color:var(--muted);font-family:var(--mono);font-size:12px}
+@media (max-width:520px){.ev{grid-template-columns:1fr;gap:2px}}
+.state{font-size:12px}
+.foot{font-size:12px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+  <header>
+    <div style="display:grid;gap:4px">
+      <span class="eyebrow">Mad Hatters · SAIR Andrews–Curtis Challenge</span>
+      <h1>ACC Tracker</h1>
+      <span class="sub">What we've found, what we've sent, and what's running now.</span>
+    </div>
+    <div class="meta">
+      <span id="live" class="chip"><span class="dot"></span><span>Snapshot</span></span>
+      <span class="sub" id="updated"></span>
+    </div>
+  </header>
+
+  <section class="tiles" aria-label="Standing">
+    <div class="tile"><span class="lab">Stable AC rank</span><span class="big" id="t-sac-rank"></span><span class="note" id="t-sac-note"></span></div>
+    <div class="tile"><span class="lab">AC rank</span><span class="big" id="t-ac-rank"></span><span class="note" id="t-ac-note"></span></div>
+    <div class="tile"><span class="lab">Rows where we tie the record</span><span class="big" id="t-ties"></span><span class="note" id="t-ties-note"></span></div>
+    <div class="tile"><span class="lab">Sent today</span><span class="big" id="t-sent"></span><span class="note">Each send uses one of the daily 40, pass or fail.</span></div>
+  </section>
+
+  <section aria-label="How a line gets sent" style="display:grid;gap:10px">
+    <h2>How a line gets sent</h2>
+    <div class="flow" id="flow"></div>
+  </section>
+
+  <section class="grid2">
+    <div class="panel">
+      <div class="hd"><h2>Score over time</h2><div class="legend" id="lg-score"></div></div>
+      <span class="sub">Official leaderboard points at each SAIR refresh.</span>
+      <div class="chart" id="c-score"></div>
+      <details><summary>Show as table</summary><div class="tbl" id="tb-score"></div></details>
+    </div>
+    <div class="panel">
+      <div class="hd"><h2>Lines accepted per day</h2><div class="legend" id="lg-days"></div></div>
+      <span class="sub">Every line SAIR accepted from us, including resends.</span>
+      <div class="chart" id="c-days"></div>
+      <details><summary>Show as table</summary><div class="tbl" id="tb-days"></div></details>
+    </div>
+    <div class="panel">
+      <div class="hd"><h2>How far our rows are from the record</h2><div class="legend" id="lg-gaps"></div></div>
+      <span class="sub">Moves over the live record, for every row we've had accepted. 0 means we tie it.</span>
+      <div class="chart" id="c-gaps"></div>
+      <details><summary>Show as table</summary><div class="tbl" id="tb-gaps"></div></details>
+    </div>
+    <div class="panel">
+      <div class="hd"><h2>Our ties by team count</h2><div class="legend" id="lg-ties"></div></div>
+      <span class="sub">A tie shared by k teams is worth 2<sup>1−k</sup> points: 1 team 1.0, 2 teams 0.5, 3 teams 0.25.</span>
+      <div class="chart" id="c-ties"></div>
+      <details><summary>Show as table</summary><div class="tbl" id="tb-ties"></div></details>
+    </div>
+  </section>
+
+  <section class="grid2" aria-label="Teams around us">
+    <div class="panel"><div class="hd"><h2>AC: teams around us</h2><span class="sub" id="rv-ac-at"></span></div><div class="ladder" id="rv-ac"></div></div>
+    <div class="panel"><div class="hd"><h2>Stable AC: teams around us</h2><span class="sub" id="rv-sac-at"></span></div><div class="ladder" id="rv-sac"></div></div>
+  </section>
+
+  <section class="panel" aria-label="Searches">
+    <div class="hd"><h2>Searches</h2><span class="sub">Paths are checked by the official verifier before any send.</span></div>
+    <div class="tbl"><table id="searches"><thead><tr><th>Target</th><th>Goal</th><th>State</th><th>Where it stands</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="panel" aria-label="Methods">
+    <div class="hd"><h2>Methods: what works</h2><span class="sub">From the playbook. Add a line after every win or clear failure.</span></div>
+    <div class="tbl"><table id="methods"><thead><tr><th>Method</th><th>Use it for</th><th>Result</th><th>Evidence</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="panel" aria-label="What we did">
+    <div class="hd"><h2>What we did</h2></div>
+    <div class="log" id="log"></div>
+  </section>
+
+  <p class="foot">Data comes from the SAIR API through <span class="mono">tools/acc/sair_api.py</span> and <span class="mono">tools/acc/dashboard_data.py</span> on branch <span class="mono">claude/gallant-bardeen-0pgpae</span>. Estimates count our newest sends before SAIR's next refresh.</p>
+</div>
+
+<script id="seed" type="application/json">__SEED__</script>
+<script>
+(function(){
+  "use strict";
+  var D = JSON.parse(document.getElementById("seed").textContent);
+  var NS = "http://www.w3.org/2000/svg";
+  var $ = function(id){ return document.getElementById(id); };
+  function el(tag, attrs, parent){ var e=document.createElementNS(NS,tag); for(var k in attrs) e.setAttribute(k, attrs[k]); if(parent) parent.appendChild(e); return e; }
+  function h(tag, cls, text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+  function fmt(n, d){ return n==null ? "–" : Number(n).toFixed(d==null?3:d); }
+  function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+  function niceMax(v){ if(v<=0) return 1; var p=Math.pow(10,Math.floor(Math.log10(v))); var m=v/p; var s=m<=1?1:m<=2?2:m<=2.5?2.5:m<=5?5:10; return s*p; }
+  function when(iso){ if(!iso) return ""; var d=new Date(iso.replace(/Z?$/,"Z")); if(isNaN(d)) return iso; return d.toISOString().slice(5,16).replace("T"," ")+" UTC"; }
+  function roundTop(x,y,w,hh,r){ r=Math.min(r,w/2,hh); return "M"+x+","+(y+hh)+"V"+(y+r)+"Q"+x+","+y+" "+(x+r)+","+y+"H"+(x+w-r)+"Q"+(x+w)+","+y+" "+(x+w)+","+(y+r)+"V"+(y+hh)+"Z"; }
+  function legend(id, items){ var L=$(id); L.textContent=""; items.forEach(function(it){ var s=h("span"); var i=h("i"); i.style.background="var("+it[1]+")"; s.appendChild(i); s.appendChild(document.createTextNode(it[0])); L.appendChild(s); }); }
+  function table(id, head, rows){ var t=h("table"); var tr=h("tr"); head.forEach(function(x,i){ var th=h("th",i?"num":"",x); tr.appendChild(th); }); var th0=h("thead"); th0.appendChild(tr); t.appendChild(th0); var tb=h("tbody"); rows.forEach(function(r){ var row=h("tr"); r.forEach(function(x,i){ row.appendChild(h("td",i?"num":"",x)); }); tb.appendChild(row); }); t.appendChild(tb); var box=$(id); box.textContent=""; box.appendChild(t); }
+  function tipper(box){ var t=h("div","tip"); t.hidden=true; box.appendChild(t); return {show:function(html,x,y){ t.innerHTML=html; t.hidden=false; var bw=box.clientWidth, tw=t.offsetWidth; var left=Math.min(Math.max(0,x+12), bw-tw); t.style.left=left+"px"; t.style.top=Math.max(0,y-10)+"px"; }, hide:function(){ t.hidden=true; }}; }
+  function sw(v){ return '<i style="background:var('+v+')"></i>'; }
+
+  /* ---------- summary ---------- */
+  function renderSummary(){
+    var S=D.summary||{}; var a=S.ac||{}, s=S.sac||{};
+    $("t-sac-rank").innerHTML = (s.rank||"–")+' <small>of '+(s.teams||"–")+'</small>';
+    $("t-ac-rank").innerHTML = (a.rank||"–")+' <small>of '+(a.teams||"–")+'</small>';
+    function note(o){ var up = o.estimate!=null && o.score!=null && o.estimate - o.score > 0.0005;
+      return fmt(o.score)+" points" + (up ? ' · <span class="up">≈ '+fmt(o.estimate)+' after our newest sends count</span>' : ""); }
+    $("t-sac-note").innerHTML = note(s); $("t-ac-note").innerHTML = note(a);
+    $("t-ties").textContent = (a.ties||0)+(s.ties||0);
+    $("t-ties-note").textContent = "AC "+(a.ties||0)+" · Stable AC "+(s.ties||0)+" · held alone: "+(S.alone||0);
+    $("t-sent").innerHTML = (S.sentToday||0)+' <small>submissions</small>';
+    $("updated").textContent = "Data "+when(S.updatedAt)+" · leaderboard "+when(S.leaderboardAt);
+    var running=(D.searches&&D.searches.items||[]).filter(function(x){return x.status==="running";}).length;
+    var F=$("flow"); F.textContent="";
+    [["1","Find","Exact capped search and beam", running+" searches running"],
+     ["2","Official check","SAIR's own verifier, every line","No line skips it"],
+     ["3","Live check","Fresh board and our history","At most 5 min before sending"],
+     ["4","Send","Only ties, beats and unsolved rows",(S.sentToday||0)+" of 40 today"],
+     ["5","Write-up","Every 1-point result","Proof track, with commit hashes"]].forEach(function(r){
+      var d=h("div","step"); d.appendChild(h("span","n",r[0])); d.appendChild(h("b",null,r[1])); d.appendChild(h("span",null,r[2])); d.appendChild(h("span","v",r[3])); F.appendChild(d); });
+  }
+
+  /* ---------- score line chart ---------- */
+  function renderScore(){
+    var P=(D.scores&&D.scores.points)||[]; var box=$("c-score"); box.textContent="";
+    legend("lg-score",[["Stable AC","--s2"],["AC","--s1"]]);
+    table("tb-score",["Refresh (UTC)","AC","AC rank","Stable AC","Stable AC rank"],P.map(function(p){return [when(p.at),fmt(p.ac),p.acRank,fmt(p.sac),p.sacRank];}));
+    if(!P.length){ box.appendChild(h("p","sub","No leaderboard refresh saved yet.")); return; }
+    var W=560,H=250,m={l:40,r:92,t:14,b:28}, iw=W-m.l-m.r, ih=H-m.t-m.b;
+    var svg=el("svg",{viewBox:"0 0 "+W+" "+H,role:"img","aria-label":"Score over time"},box);
+    var t0=new Date(P[0].at).getTime(), t1=new Date(P[P.length-1].at).getTime(); if(t1===t0){t0-=1800e3;t1+=1800e3;}
+    var ymax=niceMax(Math.max.apply(null,P.map(function(p){return Math.max(p.ac,p.sac);}))*1.15);
+    var X=function(t){return m.l+(new Date(t).getTime()-t0)/(t1-t0)*iw;}, Y=function(v){return m.t+ih-v/ymax*ih;};
+    for(var i=0;i<=4;i++){ var v=ymax*i/4, y=Y(v); el("line",{x1:m.l,x2:m.l+iw,y1:y,y2:y,stroke:"var(--grid)","stroke-width":1},svg); var tx=el("text",{x:m.l-6,y:y+4,"text-anchor":"end"},svg); tx.textContent=v.toFixed(ymax<2?2:1); }
+    el("line",{x1:m.l,x2:m.l+iw,y1:Y(0),y2:Y(0),stroke:"var(--axis)","stroke-width":1},svg);
+    var ticks=[P[0],P[P.length-1]]; if(P.length>2) ticks.splice(1,0,P[Math.floor(P.length/2)]);
+    ticks.forEach(function(p,j){ var tx=el("text",{x:X(p.at),y:H-8,"text-anchor":j===0?"start":j===ticks.length-1?"end":"middle"},svg); tx.textContent=when(p.at).slice(6,11); });
+    [["sac","--s2","Stable AC"],["ac","--s1","AC"]].forEach(function(s){
+      var d=P.map(function(p,i){return (i?"L":"M")+X(p.at).toFixed(1)+","+Y(p[s[0]]).toFixed(1);}).join("");
+      el("path",{d:d,fill:"none",stroke:"var("+s[1]+")","stroke-width":2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+      P.forEach(function(p){ el("circle",{cx:X(p.at),cy:Y(p[s[0]]),r:4,fill:"var("+s[1]+")",stroke:"var(--surface)","stroke-width":2},svg); });
+      var last=P[P.length-1]; var lb=el("text",{x:X(last.at)+10,y:Y(last[s[0]])+4,"class":"lbl"},svg); lb.textContent=s[2]+" "+fmt(last[s[0]],2);
+    });
+    var cross=el("line",{y1:m.t,y2:m.t+ih,stroke:"var(--axis)","stroke-width":1,visibility:"hidden"},svg);
+    var hit=el("rect",{x:m.l,y:m.t,width:iw,height:ih,fill:"transparent"},svg); var tp=tipper(box);
+    hit.addEventListener("pointermove",function(e){ var r=svg.getBoundingClientRect(), sx=(e.clientX-r.left)*W/r.width; var best=0,bd=1e9; P.forEach(function(p,i){var dd=Math.abs(X(p.at)-sx); if(dd<bd){bd=dd;best=i;}}); var p=P[best];
+      cross.setAttribute("x1",X(p.at)); cross.setAttribute("x2",X(p.at)); cross.setAttribute("visibility","visible");
+      tp.show("<b>"+when(p.at)+"</b><br>"+sw("--s2")+"Stable AC "+fmt(p.sac)+" · rank "+p.sacRank+"<br>"+sw("--s1")+"AC "+fmt(p.ac)+" · rank "+p.acRank, X(p.at)*r.width/W, Y(Math.max(p.ac,p.sac))*r.height/H); });
+    hit.addEventListener("pointerleave",function(){ cross.setAttribute("visibility","hidden"); tp.hide(); });
+  }
+
+  /* ---------- bar charts ---------- */
+  function bars(id, cats, series, opts){
+    var box=$(id); box.textContent=""; var W=560,H=250,m={l:40,r:8,t:14,b:opts.rot?44:28}, iw=W-m.l-m.r, ih=H-m.t-m.b;
+    var svg=el("svg",{viewBox:"0 0 "+W+" "+H,role:"img","aria-label":opts.label},box);
+    var tot=cats.map(function(_,i){ return opts.stack ? series.reduce(function(a,s){return a+s.v[i];},0) : Math.max.apply(null,series.map(function(s){return s.v[i];})); });
+    var raw=Math.max.apply(null,tot.concat([1]))*1.05/4, p10=Math.pow(10,Math.floor(Math.log10(raw))), st=[1,2,5,10].map(function(x){return x*p10;}).filter(function(x){return x>=raw;})[0];
+    var ymax=Math.max(4,Math.ceil(st)*4); var Y=function(v){return m.t+ih-v/ymax*ih;};
+    for(var i=0;i<=4;i++){ var v=ymax*i/4, y=Y(v); el("line",{x1:m.l,x2:m.l+iw,y1:y,y2:y,stroke:"var(--grid)","stroke-width":1},svg); var tx=el("text",{x:m.l-6,y:y+4,"text-anchor":"end"},svg); tx.textContent=Math.round(v); }
+    var band=iw/cats.length, pad=Math.min(10,band*0.18), bw=band-2*pad; var tp=tipper(box);
+    cats.forEach(function(c,i){
+      var x0=m.l+i*band+pad, base=Y(0);
+      if(opts.stack){ var acc=0; series.forEach(function(s,j){ var v=s.v[i]; if(!v) return; var y1=Y(acc+v), y0=Y(acc); var hh=Math.max(0,y0-y1-(acc>0?2:0)); var top=(j===series.length-1)||series.slice(j+1).every(function(q){return !q.v[i];});
+          if(top) el("path",{d:roundTop(x0,y1,bw,hh,4),fill:"var("+s.c+")"},svg); else el("rect",{x:x0,y:y1,width:bw,height:hh,fill:"var("+s.c+")"},svg); acc+=v; }); }
+      else { var gw=(bw-2*(series.length-1))/series.length; series.forEach(function(s,j){ var v=s.v[i]; if(!v) return; var y1=Y(v); el("path",{d:roundTop(x0+j*(gw+2),y1,gw,base-y1,3),fill:"var("+s.c+")"},svg); }); }
+      if(opts.showEvery===undefined || i%opts.showEvery===0 || i===cats.length-1){
+        var tx=el("text",{x:m.l+i*band+band/2,y:opts.rot?H-26:H-8,"text-anchor":opts.rot?"end":"middle",transform:opts.rot?"rotate(-40 "+(m.l+i*band+band/2)+" "+(H-26)+")":""},svg); tx.textContent=c; }
+      var hit=el("rect",{x:m.l+i*band,y:m.t,width:band,height:ih,fill:"transparent"},svg);
+      hit.addEventListener("pointermove",function(e){ var r=svg.getBoundingClientRect(); var html="<b>"+(opts.tipLabel?opts.tipLabel(c):c)+"</b>"; series.forEach(function(s){ html+="<br>"+sw(s.c)+s.n+": "+s.v[i]; }); if(opts.tipExtra) html+="<br>"+opts.tipExtra(i); tp.show(html,(m.l+i*band+band/2)*r.width/W, Y(tot[i])*r.height/H); });
+      hit.addEventListener("pointerleave",function(){ tp.hide(); });
+    });
+    el("line",{x1:m.l,x2:m.l+iw,y1:Y(0),y2:Y(0),stroke:"var(--axis)","stroke-width":1},svg);
+  }
+  function renderBars(){
+    var days=(D.days&&D.days.days)||[];
+    legend("lg-days",[["AC","--s1"],["Stable AC","--s2"]]);
+    bars("c-days", days.map(function(d){return d.d.slice(5);}), [{n:"AC",c:"--s1",v:days.map(function(d){return d.ac;})},{n:"Stable AC",c:"--s2",v:days.map(function(d){return d.sac;})}],
+      {stack:true,label:"Lines accepted per day",rot:days.length>8,tipLabel:function(c){return "Sep "+c.slice(3);},tipExtra:function(i){return days[i].subs+" submissions";}});
+    table("tb-days",["Day","Submissions","AC lines","Stable AC lines"],days.map(function(d){return [d.d,d.subs,d.ac,d.sac];}));
+    var st=D.standing||{gaps:{ac:{},sac:{}},buckets:[],ties:{ac:{},sac:{}}}; var B=st.buckets||[];
+    legend("lg-gaps",[["AC","--s1"],["Stable AC","--s2"]]);
+    bars("c-gaps", B.map(function(b){return b==="0"?"tie":"+"+b;}), [{n:"AC",c:"--s1",v:B.map(function(b){return st.gaps.ac[b]||0;})},{n:"Stable AC",c:"--s2",v:B.map(function(b){return st.gaps.sac[b]||0;})}],
+      {label:"Rows by moves over the live record",tipLabel:function(c){return c==="tie"?"Tie the record":c+" moves over";}});
+    table("tb-gaps",["Moves over record","AC rows","Stable AC rows"],B.map(function(b){return [b,st.gaps.ac[b]||0,st.gaps.sac[b]||0];}));
+    var K=[]; for(var k=1;k<=12;k++) K.push(String(k));
+    legend("lg-ties",[["AC","--s1"],["Stable AC","--s2"]]);
+    bars("c-ties", K.map(function(k){return k==="12"?"12+":k;}), [{n:"AC",c:"--s1",v:K.map(function(k){return st.ties.ac[k]||0;})},{n:"Stable AC",c:"--s2",v:K.map(function(k){return st.ties.sac[k]||0;})}],
+      {label:"Our ties by team count",tipLabel:function(c){return c+" teams on the record";},tipExtra:function(i){var k=i+1; return "Worth "+(k>=12?"≤ ":"")+Math.pow(2,1-k).toPrecision(2)+" each";}});
+    table("tb-ties",["Teams on record","AC ties","Stable AC ties","Points per tie"],K.map(function(k){return [k==="12"?"12+":k,st.ties.ac[k]||0,st.ties.sac[k]||0,Math.pow(2,1-Number(k)).toPrecision(2)];}));
+  }
+
+  /* ---------- rivals, searches, methods, log ---------- */
+  function renderRivals(){
+    var R=D.rivals||{};
+    [["ac","rv-ac"],["sac","rv-sac"]].forEach(function(p){
+      var L=$(p[1]); L.textContent=""; var rows=R[p[0]]||[]; var mx=Math.max.apply(null,rows.map(function(r){return r.score;}).concat([0.001]));
+      $(p[1]+"-at").textContent = R[p[0]+"At"] ? when(R[p[0]+"At"]) : "";
+      rows.forEach(function(r){ var d=h("div","rung"+(r.us?" us":"")); d.appendChild(h("span","rk","#"+r.rank)); var nm=h("span","nm",r.name); nm.title=r.name+" · "+r.rows+" scoring rows"; d.appendChild(nm);
+        var bw=h("div"); var b=h("div","bar"); b.style.width=Math.max(0.4,r.score/mx*100)+"%"; bw.appendChild(b); d.appendChild(bw); d.appendChild(h("span","sc",r.score.toFixed(r.score<10?3:1))); L.appendChild(d); });
+    });
+  }
+  function chip(state){ var map={running:["good","Running"],works:["good","Works"],partial:["warn","Partly"],paused:["","Paused"],stopped:["","Stopped"],"not yet":["crit","Not yet"]}; var m=map[state]||["",state]; var c=h("span","chip "+m[0]); c.appendChild(h("span","dot")); c.appendChild(document.createTextNode(m[1])); return c; }
+  function renderTables(){
+    var tb=document.querySelector("#searches tbody"); tb.textContent="";
+    ((D.searches&&D.searches.items)||[]).forEach(function(s){ var tr=h("tr"); var t1=h("td"); t1.appendChild(h("span","mono",s.row)); if(s.record) t1.appendChild(h("div","sub","record "+s.record+(s.k?" · "+s.k+" teams":"")+(s.best?" · ours "+s.best:""))); tr.appendChild(t1);
+      tr.appendChild(h("td",null,s.goal)); var t3=h("td"); t3.appendChild(chip(s.status)); tr.appendChild(t3); tr.appendChild(h("td",null,s.detail)); tb.appendChild(tr); });
+    var mb=document.querySelector("#methods tbody"); mb.textContent="";
+    ((D.methods&&D.methods.items)||[]).forEach(function(s){ var tr=h("tr"); tr.appendChild(h("td",null,s.name)); tr.appendChild(h("td",null,s.use||"–")); var t3=h("td"); t3.appendChild(chip(s.state)); tr.appendChild(t3); tr.appendChild(h("td",null,s.evidence)); mb.appendChild(tr); });
+    var L=$("log"); L.textContent="";
+    ((D.log&&D.log.items)||[]).slice().reverse().forEach(function(e){ var d=h("div","ev"); var t=h("time",null,e.at.length>10?when(e.at):e.at); t.setAttribute("datetime",e.at); d.appendChild(t); d.appendChild(h("span",null,e.text)); L.appendChild(d); });
+  }
+  function renderAll(){ renderSummary(); renderScore(); renderBars(); renderRivals(); renderTables(); }
+  renderAll();
+  var rt; window.addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(renderScore,150); });
+
+  /* ---------- live data from the artifact database ---------- */
+  if(window.claude && window.claude.use){
+    window.claude.use("db").then(function(db){
+      if(!db) return;
+      db.collection("dash").onSnapshot(function(snap){
+        if(snap.empty) return;
+        snap.docs.forEach(function(d){ if(d.exists) D[d.id]=d.data(); });
+        var c=$("live"); c.className="chip good"; c.lastChild.textContent="Live";
+        renderAll();
+      }, function(){ var c=$("live"); c.className="chip"; c.lastChild.textContent="Snapshot"; });
+    });
+  }
+})();
+</script>

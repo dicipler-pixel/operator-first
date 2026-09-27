@@ -42,6 +42,15 @@ Without `--yes`, it's a dry run.
 - `tools/acc/proof_track/WIN_TEMPLATE.md`: **every 1-point result** (a beat, or a row we hold
   alone) gets a write-up on how we got it, with commit hashes (user rule).
 - `tools/acc/targets_easy_lowk_20260927.json`: 66 rows held by 1–2 teams with records of 36 or less.
+- `tools/acc/targets_mid_25to40_k2to6_20260927.json`: 496 rows (records 25–40, 1–6 teams, AC and
+  Stable AC), sorted by tie value. Sweeps B and C run the exact capped search on them.
+- **Tracker page:** https://claude.ai/artifact/PesMNAWMhazVqhNx5DpP5u (private to the user, charts and
+  tables). To update it:
+  1. Run `python3 tools/acc/dashboard_data.py`. It uses no API reads and writes
+     `research/acc/live/dashboard.json`.
+  2. Write each top-level key to the page's database: ArtifactData `batch`, `set dash/<key>`.
+  3. Change the page layout only in `tools/acc/dashboard/acc_tracker_template.html`. Build it with
+     `--page OUT` and republish with the Artifact tool using `url`.
 
 ## Goal
 Get Mad Hatters points in the SAIR Andrews–Curtis Challenge (Discovery track, AC and Stable AC).

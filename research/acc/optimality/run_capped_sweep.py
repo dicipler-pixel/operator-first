@@ -15,8 +15,8 @@ for t in json.load(open(TGT)):
     cid = t['id']
     if cid in done: continue
     r0, r1 = C[cid]['initial_relators']; start = len(r0) + len(r1)
-    ra, rs = t.get('ac_record') or 999, t.get('sac_record') or 999
-    maxd = max(ra - 9, rs - 11)
+    ra, rs = t.get('ac_record') or 0, t.get('sac_record') or 0      # 0 = not a target on that board
+    maxd = max(ra - 9 if ra else 0, rs - 11 if rs else 0)
     enc = [str(len(r0)), *[str(E[a]) for a in r0], str(len(r1)), *[str(E[a]) for a in r1]]
     rec = {'id': cid, 'start': start, 'ac_record': t.get('ac_record'), 'sac_record': t.get('sac_record'),
            'checked': False, 'caps': []}
@@ -36,10 +36,13 @@ for t in json.load(open(TGT)):
                 info[key + '_len'] = len(path)
                 if len(path) < len(rec.get(key, [0] * 999)): rec[key] = path
         # complete = every layer through MAXD searched (depth reported as MAXD+1) or a path found
-        info['complete'] = bool(info['depth'] and info['depth'] > maxd) or 'ac_len' in info or 'sac_len' in info
+        # CLOSED = no state within the cap is left (the whole capped space was searched)
+        info['complete'] = (info['end'] == 'CLOSED' or bool(info['depth'] and info['depth'] > maxd)
+                            or 'ac_len' in info or 'sac_len' in info)
         rec['caps'].append(info)
         print(json.dumps({'id': cid, **info}), flush=True)
-        if len(rec.get('ac', [0] * 999)) <= ra and len(rec.get('sac', [0] * 999)) <= rs: break
+        if ((not ra or len(rec.get('ac', [0] * 999)) <= ra)
+                and (not rs or len(rec.get('sac', [0] * 999)) <= rs)): break
         if not info['complete']: break           # budget reached: higher caps only get bigger
     done_caps = [c['cap'] for c in rec['caps'] if c['complete']]
     rec['proved_cap'] = max(done_caps) if done_caps else None   # no record path within this cap
