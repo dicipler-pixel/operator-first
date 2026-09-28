@@ -1150,3 +1150,7 @@ First solves: 15 rows, none (switch to the opposite approach at 20). Long-row tw
 Helpers: Sonnet 6/200 (21:55Z line, no hits); Astra setup done 21:55Z, run restarting (0/150). Codex: ac-05378 42 AC
 TIE (k7) in inbox (plan_offline TIE). For Charlie's relay: sac-05378 now one move short (session 2's yx_mid from
 Codex's path: best route to (y,x) 42, Stable 44 vs 43).
+22:20Z (session 1): read session3's mixer studies (21:25Z, 21:55Z; exchange/session3/). Taken on board: per-line Smith
+tracks progress second only to length (+0.59 pooled / +0.76 within path); faithful Sanov Smith best separates unsolved
+rows; planar splice ac-09762 78 -> 76; Bob's macros as beam moves = no gain. Hence Bob's new job: blocks as a
+post-search splice vocabulary on 40 near misses (ORDERS_bob_blocks_20260928.md).
