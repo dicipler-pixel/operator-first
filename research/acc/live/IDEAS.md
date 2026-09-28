@@ -1,3 +1,18 @@
+## 2026-09-28 10:30Z, session 2 (lead): the team lead's "Cross the wall" verses, read as search ideas
+- "Surface can fail, the deeper count still seen" = P2: raw length (surface) climbs over the hump; P2 (the deeper
+  count) stays flat on 64–73% of record hump paths. Already our best new tool.
+- **"Cross the wall, keep the record clean" → P2-capped exact search (running, helper):** cap the exact BFS on
+  P2(state) ≤ P2(start) + c instead of on total length. Length is free to cross the wall; P2 must stay clean. If P2 is
+  flat on most record paths, the capped set containing them should be far smaller than a length cap of start+16.
+  Prototype `optimality/acc_capped_p2.c`, tests on 03305/01629/05558/07435/08201 vs the length-capped state counts.
+- **"Rotation ... lifted the floor that kept every path pinched"** → P2 can't rank conjugations (it's rotation-free), so
+  climbing rotations sit at rank 8–9. Score what a rotation unlocks: a true 2–3-move lookahead over real moves (L2, L3),
+  added to the score zoo, reported separately on conjugation steps.
+- **"Perfect symmetry is a quiet cage"** → test whether record paths avoid symmetric states (r1 a rotation/inverse/mirror
+  image of r0); if so, rank symmetric states down. In the score zoo.
+- **"What needed a licence is gone with the pairing"** = bounds that rely on definiteness (monotone length, positive
+  metrics) fail at the wall, exact counts survive — the same lesson as B94 and our dead invariant lower bounds.
+
 ## 2026-09-28 10:05Z, session 2 (lead): the whole atlas thrown at AC — ledger, score zoo, beam ideas
 - **Full atlas ledger:** `research/acc/live/ATLAS_AC_LEDGER.md` — every plate and card (21 plates, 93 cards B1–B96,
   18 repo cards; 132 lines): 23 METHOD, 20 DIAGNOSTIC, 18 PROCESS, 71 NONE. Working methods so far: B31/Plate IV (P2),
