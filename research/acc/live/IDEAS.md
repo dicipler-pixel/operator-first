@@ -1,3 +1,21 @@
+## 2026-09-28 03:50Z, session 2 (lead): the team lead's Stable AC insight
+- **Idea (the team lead):** many teams only do AC and never send the Stable AC line, so Stable AC is
+  thinner.
+- **Board check (7,443 rows solved on both):**
+  - Average teams on a record: AC 3.05, Stable AC 2.85. Stable AC has fewer teams on 1,148 rows and
+    more on 530.
+  - **95 rows have a Stable AC record longer than AC record + 2.** All of them are held on AC by one
+    team that never sent AC + [16,15].
+  - On those rows, any AC path of length ≤ SAC record − 3 **beats** Stable AC (1 point), even if it is
+    above the AC record. Slack above the AC record: 0 on 42 rows, 1 on 22, 2 on 10, ≥ 3 on 21 (e.g.
+    ac-03179: AC 55, any AC ≤ 59 beats SAC 62; ac-04396: AC 68, ≤ 73 beats 76).
+- **Running:**
+  - `sacbeat`: H-beam W = 200k over the 95 rows, slack ≥ 3 first, shortest first. `tools/acc/ops/beam_list.sh`.
+  - `k2ac`: AC rows held by 2 teams, record ≤ 36, AC only, with the SAC tie taken for free via + [16,15].
+    7 new rows (another 15 are already in sweeps A/B); then sweep D resumes.
+- For the helpers: the sacbeat list is `research/acc/live/sweeps/sacbeat_targets.json`. A route map that
+  gets any AC path under `record` on one of these rows is worth a full point on Stable AC.
+
 ## 2026-09-28 03:10Z, session 2 (lead): reverse search? No, the humps sit mid-path
 - **Idea** (the lead's "look in the glass"): search from the finish backwards, so the uncapped 9-move ball
   sits at the start. It would help if record paths climb near the start.
