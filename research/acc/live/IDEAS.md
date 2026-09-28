@@ -1,4 +1,4 @@
-## 2026-09-28 12:45Z, session 2 (lead): why level-by-level chain routes cannot reach the records (row-op argument)
+## 2026-09-28 12:18Z, session 2 (lead): why level-by-level chain routes cannot reach the records (row-op argument)
 - **Shadow:** the exponent-sum rows of (r0, r1) form a unimodular 2x2 matrix; a multiplication is a row op, while
   conjugation and inversion are free. One level (BS, Y^k X y^(k-1) x^a) -> (BS, Y^(k-1) X y^(k-2) x^(2a)) is
   [[-1,0],[a-1,-1]] -> [[-1,0],[2a-1,-1]]. BFS in SL2(Z) (`optimality/chain_rowops/sl2geo.py`): the minimum is
@@ -12,7 +12,7 @@
   y-exponent sums other than +-1 appear. That is the search target for n=4 (record 48): look for routes where r0 is
   not a BS conjugate at the midpoint. Beams (winner arm, W=20k, depth 50) find no path on ac-01784 (n=4).
 
-## 2026-09-28 12:20Z, session 2 (lead): YXXyx chain: where the leaders save (level-cost beams; song "a smaller set of moves")
+## 2026-09-28 12:10Z, session 2 (lead): YXXyx chain: where the leaders save (level-cost beams; song "a smaller set of moves")
 - Lisitsa's MS_n(w*) archive (16,232 moves, MS(9) = 8,634) is **our YXXyx chain** (Codex 11:52Z). Board records are ~8x shorter
   (n=9: 1,046 vs 8,634), so the archive scores nothing; archived at `research/acc/proof_track/ms_lisitsa_ak3_20260928/`.
 - **Record law:** rec(n) - rec(n-1) = 2^n + 1 (or +2): 80->145->275->532->1046->2071; rec(n) ~ 2^(n+1) + n + 11..13.
