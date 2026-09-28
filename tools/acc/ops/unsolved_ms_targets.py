@@ -1,7 +1,7 @@
 """Targets for an unsolved-MS lane: rows unsolved by every team whose MS(n,w) family has a solved n.
 Ordered by distance to the nearest solved n, then that solved record. AK(3)-class rows are skipped (open problems).
 usage: python3 tools/acc/ops/unsolved_ms_targets.py NAME COUNT   (run from the repo root; writes $ACC_S/work/NAME_targets.json)
-Any path at all is a first solve (1.0), so ac_record/sac_record are set to 999 for watch_sweeps."""
+Any path at all is a first solve (1.0), so ac_record/sac_record are set to 998 for watch_sweeps (it reads a missing path as 999)."""
 import gzip, glob, json, os, sys
 name, count = sys.argv[1], int(sys.argv[2])
 d = json.load(open('research/acc/live/ledger/ms_families_by_w_20260928.json'))
@@ -22,7 +22,7 @@ out.sort(); seen = set(); T = []
 for g, l, cid, w, n in out:
     if cid in seen: continue
     seen.add(cid)
-    T.append({'id': cid, 'record': 118, 'k': 0, 'ac_record': 999, 'sac_record': 999,
+    T.append({'id': cid, 'record': 118, 'k': 0, 'ac_record': 998, 'sac_record': 998,
               'hint': f'MS({n},{w}); nearest solved n at distance {g}, record {l}'})
 S = os.environ.get('ACC_S', '/tmp/claude-0/-home-user-operator-first/3cb9951d-8cab-51bf-a791-90f0d5bac4db/scratchpad')
 json.dump(T[:count], open(f'{S}/work/{name}_targets.json', 'w'))
