@@ -650,3 +650,15 @@ Read: "00_Mad_Hatters_ACC_Combined_War_Room — full preservation 2026-09-16" an
    ac-00225 51, 01353 57, 01463 46, 02134 61, 02433 73, 03060 28, 03710 58, 04011 46, 05178 62, 05463 50, 05804 48,
    06085 60, 06516 151, 07308 74, 08340 57. The paper's archive mentions 362-move certificates for r1 = x y^m.
    Turning the recipe into letter moves needs conjugation by long words, so its length vs these records is unknown.
+
+## 2026-09-28 10:40Z, session 1: the song ("Same pulse underneath") read against the MS chains
+- "Two pitches meet ... count the throb": the 28-move n=3 path already does this. It builds y = x^7 and y = x^6 and
+  one move (r0 <- r0·r1) leaves x. The beat replaces a peel.
+- "The twin on the far side of the cut": the (y,x) Stable AC finish (13 SAC ties today).
+- **"You measure a tick with a tick" -> recursion T(n) = 2·T(n-1) - c.** Evidence: our exact small cases 8, 15, 28
+  (n = 1, 2, 3) and the YXXyx chain records 80, 145, 275, 532, 1046, 2071, each = 2 x previous - (15..21).
+  That is the signature of "level step + the n-1 solution used twice", not of a single linear build.
+- Test: the n=3 28-move recipe applied to MS(4, YXXyx) keeps its shape move for move with one extra y-level.
+  After 17 moves it sits at (x^6 YYXyxx, yXYxx) (BS relator intact, doubling-ready). Finish from there: H-beam 39
+  (P2 none within 45), total 56. After 21 moves: r0 = x^7 YYXyx. So the recipe transfers, but the finish still costs
+  ~2^(n+1); the saving has to come from a recursion that avoids the full-size run. Open for the helpers.
