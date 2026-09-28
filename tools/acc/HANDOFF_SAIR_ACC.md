@@ -40,6 +40,11 @@ Without `--yes`, it's a dry run.
 
 - Submission 2572 (23:56Z): ac-05558 24 and sac-05558 26 (ties, k5→6 each, about +0.06), from sweep C.
 
+- Submission 2581 (01:24Z, first batch under the batching rule): ac/sac-07435 (26/28, k6→7) and
+  ac/sac-08201 (31/33, k5→6), 4/4 accepted, about +0.09. From sweep C.
+- Board watcher: `changes` every 30 min into `research/acc/live/changes/`. It alerts on
+  "LOST OUR TIE" or a newly solved row.
+
 **Verifier permission:** at 23:29Z the user told the API session to run the official verifier
 ("run the verifier"). That session can now verify and send by itself.
 

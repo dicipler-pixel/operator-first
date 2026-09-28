@@ -200,7 +200,8 @@ def build(work):
     notes = {"2558": "6 ties (NEW15).", "2565": "6 Stable AC ties from our AC paths + [16,15].",
              "2566": "sac-03305 tie on a row held by one team (+0.5) and ac-03305.",
              "2569": "ac-01629 and sac-01629 ties (+0.19) from exact sweep C.",
-             "2572": "ac-05558 and sac-05558 ties (+0.06) from exact sweep C."}
+             "2572": "ac-05558 and sac-05558 ties (+0.06) from exact sweep C.",
+             "2581": "First batch: ac/sac-07435 and ac/sac-08201 ties (+0.09) from exact sweep C."}
     for x in subs:
         if x["id"] in notes:
             ok = sum(1 for r in x["results"] if r.get("ok"))
