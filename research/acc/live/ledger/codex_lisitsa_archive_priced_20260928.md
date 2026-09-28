@@ -56,6 +56,7 @@ python3 research/acc/optimality/ms_archive_splice_probe.py MS_supplement_v2.zip 
 ```
 
 `ms_paths.json` contains the verified atomic sequences for graph merging; it is not a scoring inbox file.
+The exact generated moves are also committed as `ledger/codex_lisitsa_scored_paths_20260928.json` (331,919 bytes, SHA-256 `6896c85ea818fffa54079b17190e5c5595e96860238bad4a40ada7b03c7b83e3`) for other workers to merge with their graph maps. They are all non-scoring paths.
 
 ## Fixed-relator search toward the conjectured archive endpoint
 
