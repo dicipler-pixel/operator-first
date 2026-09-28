@@ -122,4 +122,26 @@ driver at `de40c3c7687f06e6543e681ee6f924f3b8fb1342` (repository dicipler-pixel/
   our path-finding beam, not in these proofs.
 - M. Bridson, arXiv:1504.04187: context on the complexity of balanced presentations.
 - SAIR: `AC.lean`, `ac-r2-v1`, reference verifier and benchmark (commit a0fd6e6).
-- Prepared with Claude (Anthropic), in the team's repository, from the team's own search runs.
+
+## 8. Provenance and AI use
+
+This work was done by the Mad Hatters team with substantial AI assistance. We describe each
+part's role.
+
+- **Direction (human).** The team lead set the mission and chose what to pursue. They made the
+  working rules: fresh live-board checks before every submission, batched sends, and a written
+  proof for every 1-point result. They reviewed results throughout and directed the other AI
+  helpers.
+- **Guidance: [NAME OF THE TEAM'S MAIN AI ASSISTANT].** For more than a week, the team lead worked
+  with this assistant to plan the project and write the instructions and prompts that steered the
+  Claude sessions.
+- **Execution and drafting: Claude (Anthropic), in Claude Code sessions.** Claude wrote and ran the
+  search code in this repository and ran the exact capped searches: the T₉ table, `acc_capped.c`,
+  the sweep driver, and the analysis scripts. It computed the tables and drafted this note.
+  Earlier Claude sessions on the same project built the T₉ table and the capped-search engine.
+- **Other helpers.** A Codex assistant prepared route maps used elsewhere in the project, but not
+  in this note's results. Grok prepared our companion note ACC-P000009.
+- **Checks.** Every path in §3 was replayed and accepted by the official verifier and by the SAIR
+  server. Every bound comes from code and logs in the repository at the commits in §6. The team
+  lead reviewed the note before submission. AI assistance does not change the scope of the claims
+  in §2 and §5.
