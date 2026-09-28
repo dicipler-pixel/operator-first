@@ -1,4 +1,4 @@
-# Orders: run the two-eyes beam on high-value rows (helpers, 2026-09-28 13:50Z)
+# Orders: run the two-eyes beam on high-value rows (helpers, 2026-09-28; lists refreshed 15:13Z board)
 
 You search; only session 2 sends. The new beam (BEAM_DUAL=0.75) beat our old best on 7 of 10 rows and got
 2 new ties in its first hour (submission 2670). Two row lists, one per machine, no overlap with our lanes:
