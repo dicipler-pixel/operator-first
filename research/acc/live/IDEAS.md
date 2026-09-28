@@ -20,22 +20,22 @@
 
 ## 2026-09-28 05:00Z, session 2 (lead): the team lead's older ACC repos (mad-hatters-acc-private, acwindow-lean)
 - **47 unsolved AC rows are in the AK(3) class** (open problem). List and provenance:
-  . Found by matching every start against acwindow-lean's exhaustive
+  `research/acc/live/AK3_CLASS_ROWS.json`. Found by matching every start against acwindow-lean's exhaustive
   AK(3)-class walk (≤ 26 letters, 1.28M members); rechecked independently by the lead. **Skip them.**
   Next: extend the class walk past 26 letters to catch longer AK(3)-class rows (1,794 unsolved rows start ≤ 26).
 - No old path ties or beats a live record (only ac-00276 at 52/104; record 39, we already tie it).
-- **Primitive-relator finish** (acwindow-lean , Lemma A in ): a state
+- **Primitive-relator finish** (acwindow-lean `evidence/genus/primitive.py`, Lemma A in `notes/ACWindow_note.md`): a state
   where one relator is primitive can always be finished, and the proof builds the path, so it is a much
   larger finish target than T9. Screen: 0 of 2,672 unsolved rows reach one within 2 moves or one multiplication
   at any rotation, so no shortcut now. It could still be a cheap stop test inside the beam. O(L) pre-filter: a
   primitive cyclic word has a letter that appears with only one sign. Path builder not written.
-- Cyclic-class walk (): groups rows into AC classes (solve one, get all). Not a valid
+- Cyclic-class walk (`evidence/genus/house_walk_resumable.py`): groups rows into AC classes (solve one, get all). Not a valid
   relaxation for pruning the capped search. Its 5-minute pickle checkpoints are worth copying.
 - Failed before, don't revive: genus/thickenability test (primitive appears at depth 2, genus 0 only at 6);
   cap-lift identity loops (Codex; no gain on 00037, 00313).
-- acwindow-lean's Lean proofs: AK(n) → AK(−n−1) fold; a 9-move path for AK(3)'s image in C5*C5; 
+- acwindow-lean's Lean proofs: AK(n) → AK(−n−1) fold; a 9-move path for AK(3)'s image in C5*C5; `ACCWell`
   (the formal shape of our capped proofs, but it needs a move-count version). No new pruning rule.
-- Prior art list worth reading:  (Carreras 2607.23611,
+- Prior art list worth reading: mad-hatters-acc-private `ACC_PRIOR_ART_CORRIDOR_HANDOFF_2026-09-13.md` (Carreras 2607.23611,
   Two-Hump, Myasnikov–Myasnikov–Shpilrain).
 
 ## 2026-09-28 04:55Z, session 2 (lead): ideas from the team lead's older Lean repos
