@@ -173,7 +173,8 @@ def build(work):
     # live P2 lanes (winner arm: P2=2 + class quota 16 + elite 5000) and the send queue
     for name, label, goal in (("p2a", "P2 lane A", "Hump rows ≤ 45: ties and beats"),
                               ("p2b", "P2 lane B", "Hump rows ≤ 45: ties and beats"),
-                              ("p2u", "Unsolved MS rows", "First solves (1.0 each): unsolved rows in Miller–Schupp families with a solved neighbour")):
+                              ("p2u", "Unsolved MS rows", "First solves (1.0 each): unsolved rows in Miller–Schupp families with a solved neighbour"),
+                              ("p2r", "Near-miss re-pass", "Rows 1–3 over the record, second eye DUAL 0.5")):
         res = jl(f"{work}/{name}_cap.jsonl")
         TT = {t["id"]: t for t in json.load(open(f"{work}/{name}_targets.json"))} if os.path.exists(f"{work}/{name}_targets.json") else {}
         if not TT:
@@ -182,7 +183,7 @@ def build(work):
                                                           or (TT[r["id"]].get("sac_record") and (r.get("sac_len") or 999) <= TT[r["id"]]["sac_record"]))]
         paths = sum(1 for r in res if r.get("ac_len"))
         searches.append({"key": name, "row": f"{len(TT)} rows", "goal": goal, "record": None, "k": None, "best": None,
-                         "status": "running", "detail": f"{label}, P2 beam (winner arm): {len(res)} of {len(TT)} rows done, "
+                         "status": "running", "detail": f"{label}, two-eyes beam (BEAM_DUAL): {len(res)} of {len(TT)} rows done, "
                                                         f"{paths} with a path, {len(hh)} at or under the record"
                                                         + (f" ({', '.join(hh[:8])})" if hh else "") + "."})
     searches = [x for x in searches if x["row"] not in ("0 rows", "0 easy rows")]  # scratch lists gone after restarts

@@ -1,6 +1,6 @@
 {
  "summary": {
-  "updatedAt": "2026-09-28T12:45Z",
+  "updatedAt": "2026-09-28T12:53Z",
   "leaderboardAt": "2026-09-28T12:40:00Z",
   "ac": {
    "rank": 16,
@@ -669,7 +669,7 @@
     "k": null,
     "best": null,
     "status": "running",
-    "detail": "P2 lane A, P2 beam (winner arm): 149 of 308 rows done, 22 with a path, 3 at or under the record (ac-03060, ac-05835, ac-01698)."
+    "detail": "P2 lane A, two-eyes beam (BEAM_DUAL): 151 of 308 rows done, 22 with a path, 3 at or under the record (ac-03060, ac-05835, ac-01698)."
    },
    {
     "key": "p2b",
@@ -679,7 +679,7 @@
     "k": null,
     "best": null,
     "status": "running",
-    "detail": "P2 lane B, P2 beam (winner arm): 140 of 307 rows done, 20 with a path, 2 at or under the record (ac-03789, ac-00222)."
+    "detail": "P2 lane B, two-eyes beam (BEAM_DUAL): 141 of 307 rows done, 21 with a path, 2 at or under the record (ac-03789, ac-00222)."
    },
    {
     "key": "p2u",
@@ -689,7 +689,17 @@
     "k": null,
     "best": null,
     "status": "running",
-    "detail": "Unsolved MS rows, P2 beam (winner arm): 1 of 40 rows done, 0 with a path, 0 at or under the record."
+    "detail": "Unsolved MS rows, two-eyes beam (BEAM_DUAL): 2 of 40 rows done, 0 with a path, 0 at or under the record."
+   },
+   {
+    "key": "p2r",
+    "row": "20 rows",
+    "goal": "Rows 1\u20133 over the record, second eye DUAL 0.5",
+    "record": null,
+    "k": null,
+    "best": null,
+    "status": "running",
+    "detail": "Near-miss re-pass, two-eyes beam (BEAM_DUAL): 0 of 20 rows done, 0 with a path, 0 at or under the record."
    },
    {
     "key": "queue",
