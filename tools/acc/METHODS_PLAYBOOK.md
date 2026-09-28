@@ -94,6 +94,11 @@ states per run.
 - P2 as an exact-search region bound (`acc_capped_p2.c`, CAP_P2 c=0..2): P2-flat is the base rate (74–92% of a capped
   region), so it saves only 8–26% inside a length cap. P2 c=0 + pad<=2 found AC 23 on ac-03305 in 36M states (already tied);
   missed 4 other rows (their record paths carry pad 4–8). Keep only as an optional filter. `ledger/p2cap_exact_20260928.json`.
+- **Rule (user, 14:05Z): when a method fails, cycle through untried ideas and always try the OPPOSITE approach before
+  giving up.** Opposites tried 14:05–14:30Z: mirror-twin beam (swap x<->y and the relators; exact symmetry, no extra moves;
+  `tools/acc/ops/twin_beam.py`): same length on ac-00975/03871/04211, worse on 03719/08031, but new distinct paths for
+  splicing. Climb-first beam (BEAM_CLIMB=c, inverted length key for depths 1..c): ac-03305 c=0,3 -> 24, c=5 -> 27,
+  c=7 -> 33: DEAD as a pure inversion. Fast stable peel on our record paths: longest final peel is 18 (<30), no gain.
 - (y,x) shortcut on SAC near-misses (2026-09-28 12:20Z): 0 of 6 (sac-02717, 04586, 03871, 04211, 03719, 08031).
 - YXXyx chain rows (MS_n(w*), Lisitsa's family) with the winner beam: nopath at n>=4 (ac-01784, ac-04042; depth record+2).
   Level-by-level routes cost ~3*2^n (row-op argument, `optimality/chain_rowops/`); records are ~2^(n+1).

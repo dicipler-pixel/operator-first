@@ -202,6 +202,10 @@ static uint32_t comm_len(const St*s){ static uint8_t o[4*MAXW+8]; int n=0;   /* 
 // traced state that becomes a candidate: its rank in the sorted candidate list, the tie block [lo,hi) of its key
 // without the fingerprint bits, the cut keys at k1 = W*DIV and W, and whether it survived. Observation only.
 static int QUOTA=0,WHM=0; static uint64_t ELITE=0; static double DUALF=0;
+// BEAM_CLIMB=c ("opposite approach", 2026-09-28): for depths 1..c the plain length key is inverted (longer first), so the
+// beam deliberately climbs before it descends; hump rows' record paths must first grow the relators. Main and second-eye
+// keys both use the inverted key during the climb. Unset: no change.
+static int CLIMB=0;
 // BEAM_DUAL=f (0<f<1; "two eyes", from the beam-loss diagnostic: P2 drops roads at single-step P2 rises that the plain
 // H key keeps): the first f*W survivors are chosen by the main key exactly as without BEAM_DUAL (QUOTA/ELITE/DIV/NOV
 // as set, with f*W in place of W); the other (1-f)*W are the best by the plain key (klen: hprio when BEAM_H=1, else
@@ -273,6 +277,7 @@ int main(int argc,char**argv){
   if(P2M){ nodes[0].p2=p2_of(&s0); fprintf(stderr,"p2: mode %d cut %d start P2=%u P1m=%u\n",P2M,P2CUT,nodes[0].p2,p1m_of(&s0)); }
   QUOTA=getenv("BEAM_QUOTA")?atoi(getenv("BEAM_QUOTA")):0; WHM=getenv("BEAM_WH")?atoi(getenv("BEAM_WH")):0;
   ELITE=getenv("BEAM_ELITE")?strtoull(getenv("BEAM_ELITE"),0,10):0; if(ELITE&&QUOTA<=0) die("BEAM_ELITE needs BEAM_QUOTA");
+  CLIMB=getenv("BEAM_CLIMB")?atoi(getenv("BEAM_CLIMB")):0; if(CLIMB) fprintf(stderr,"climb: inverted length key for depths 1..%d\n",CLIMB);
   DUALF=getenv("BEAM_DUAL")?atof(getenv("BEAM_DUAL")):0; if(DUALF<0||DUALF>=1||(DUALF>0&&LOOK)) die("BEAM_DUAL must be in (0,1), not with BEAM_LOOK");
   if(DUALF>0) fprintf(stderr,"dual: first eye %.3f of W by the main key, the rest by the plain key\n",DUALF);
   if(QUOTA<0||(WHM!=0&&WHM!=1)) die("BEAM_QUOTA must be >= 0 and BEAM_WH 0 or 1");
@@ -320,6 +325,7 @@ int main(int argc,char**argv){
           if(P2M==3) key=((uint64_t)cp2<<55)|((uint64_t)comm_len(&nx)<<45)|(pm<<35)|(kl<<17)|((h1^SEED)>>47);  /* P2 | comm_len | P1m | klen | 17 fp */
           if(WHM){ uint64_t wv=tWH[nt]; key=P2M==2?(((uint64_t)cp2<<55)|(wv<<45)|(kl<<27)|((h1^SEED)>>37))      /* P2 | WH | klen | 27 fp */
                                                 :(((uint64_t)cp2<<55)|(wv<<45)|(pm<<35)|(kl<<17)|((h1^SEED)>>47)); } }  /* P2 | WH | P1m | klen | 17 fp */
+        if(CLIMB&&d<=CLIMB){ uint32_t kc=klen>=0xFFFFFu?0:0xFFFFFu-klen; key=((uint64_t)kc<<40)|((h1^SEED)>>24); if(tK2) tK2[nt]=key; }
         if(LOOK){ uint32_t best=len; St y; for(int m2=0;m2<14;m2++){ apply(&nx,m2,&y); uint32_t l2=y.l[0]+y.l[1]; if(l2<best) best=l2; }
           key=((uint64_t)best<<52)|((uint64_t)(len&4095)<<40)|(h1>>24); }
         if(NTR){ int ti=trace_find(h1,h2); if(ti>=0&&ntrh<256){ trNt[ntrh]=(uint32_t)nt; trI[ntrh]=ti; trT[ntrh]=t; trKey[ntrh]=key; ntrh++; } }
