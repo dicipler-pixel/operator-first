@@ -1,6 +1,7 @@
 """Opposite-orientation beam: run the beam on the exact mirror twin of a row (swap letters x<->y AND swap the two
 relators; this symmetry fixes the target (x,y)), then map the path back move by move and replay it on the original.
 usage: python3 tools/acc/ops/twin_beam.py ROW [W] [DMAX]   (env: BEAM_* as for acc_beam; BIN dir via TWIN_BIN)
+TWIN_MODE=yx2: swap the relators only (the other (y,x) orientation).
 TWIN_MODE=yx: swap letters only (keep relator order): the twin's path to (x,y) is a path from the row to (y,x), so the
 Stable AC line is that path + [15,15] (reported as "sac"); the AC fields are then not set."""
 import json, os, re, subprocess, sys, time
@@ -11,8 +12,11 @@ man = json.load(open(S + '/sair/competition/tools/verifier/data/manifest.json'))
 C = {c['challenge_id']: c for c in man['challenges']}
 L = {1: 'x', -1: 'X', 2: 'y', -2: 'Y'}; SW = str.maketrans('xXyY', 'yYxX')
 r0, r1 = [''.join(L[i] for i in r) for r in C[row]['initial_relators']]
-YX = os.environ.get('TWIN_MODE') == 'yx'
-if YX:
+YX = os.environ.get('TWIN_MODE') in ('yx', 'yx2')
+if os.environ.get('TWIN_MODE') == 'yx2':
+    t0, t1 = r1, r0                                    # twin = (r1, r0): relators swapped, letters kept; its (x,y) is our (y,x)
+    BACK = {0: 1, 1: 0, 2: 4, 3: 5, 4: 2, 5: 3, 6: 10, 7: 11, 8: 12, 9: 13, 10: 6, 11: 7, 12: 8, 13: 9}
+elif YX:
     t0, t1 = r0.translate(SW), r1.translate(SW)        # twin = (sigma(r0), sigma(r1)); its (x,y) is our (y,x)
     BACK = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 8, 7: 9, 8: 6, 9: 7, 10: 12, 11: 13, 12: 10, 13: 11}
 else:
