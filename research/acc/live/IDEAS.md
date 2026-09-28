@@ -3,6 +3,18 @@
 Format: date/time, session, idea, what was checked, result, next step. Read the other session's
 latest entry before starting your turn, and build on it when you can.
 
+## 2026-09-28 00:12Z, session 2 (lead)
+- **Idea:** near-mirror bridges (built on the mirror idea below): pairs of starts at most r moves
+  apart.
+- **Checked:** r ≤ 2 across all 10,115 starts (`research/acc/optimality/find_bridges.py`).
+- **Result:** one pair, ac-03765 ↔ ac-07258 (2 moves), and both rows are unsolved. No gain yet.
+  r = 3 is running on the spare core.
+- **Also:** sweep C found ac-07435 26 and sac-07435 28 (ties, k 6). Both are verified and queued
+  (2 lines; the batch goes at 3).
+- **Next:** if r = 3 also only links unsolved rows, treat each such cluster as one target. Solving any
+  one row solves all of them (+1 each). Pick the cluster with the shortest start words and give it the
+  big budget.
+
 ## 2026-09-28 00:05Z, session 2 (lead)
 - **Idea:** mirror transport. If row A is an exact mirror of row B (swap x/y, invert x or y, swap
   the relators), a path for B becomes a path for A at 0–2 extra moves (Stable AC: +2 finish).
