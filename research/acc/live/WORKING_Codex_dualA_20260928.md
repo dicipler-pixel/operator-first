@@ -7,3 +7,5 @@
 - Status at 14:12Z: both A and B beam processes running; no A row complete yet.
 
 - Update at 14:17Z: first row ac-02818 exhausted in 169 s with no path. The 86 rows were split into first 43 (A1) and last 43 (A2) on the same 8-core machine, with identical search flags and separate work directories. The A1 output is `work/dualA_cap.jsonl`; A2 is `work/dualA2_cap.jsonl`. The original full-list process was interrupted after row one, and A1 resumed from that saved row. No rows overlap between active A1/A2 runners.
+
+- Update at 14:51Z: A1 full exact windows unchanged; A2 after its tenth saved result restarted with identical beam flags and 180-second post-beam AC/SAC window caps only when the raw path is +4..+6 over record and value ≤0.125. On timeout it preserves the raw path and records `ac_window_timeout_s`/`sac_window_timeout_s`; this is incomplete polishing, not a negative proof. A2 processed ac-02454 at 52/54 versus 46/48 in 700s with no cut before the cap. A and B have 41 completed rows combined and still no qualifying line. Smith/Snell pilot logged separately in `ledger/smith_snell_pilot_20260928.md`.
