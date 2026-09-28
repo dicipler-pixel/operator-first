@@ -7,6 +7,7 @@ scores = json.load(open(f'{R}/dashboard.json'))['scores']['points']
 t = (t.replace('__PATHS__', json.dumps(json.load(open(f'{R}/record/paths.json'))))
       .replace('__IDEAS__', json.dumps(json.load(open(f'{R}/record/ideas.json'))))
       .replace('__SCORES__', json.dumps(scores))
+      .replace('__FAMS__', json.dumps(json.load(open(f'{R}/record/families.json'))))
       .replace('__PROOF__', json.dumps(json.load(open(f'{R}/record/proof.json'))))
       .replace('__UPDATED__', datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%MZ')))
 open(sys.argv[1], 'w').write(t); print('wrote', sys.argv[1], len(t), 'bytes')

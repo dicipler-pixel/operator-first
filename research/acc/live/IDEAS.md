@@ -719,3 +719,11 @@ User's lines and what each became (all on made-up rows MS(n, YXXyx), official ke
    rank-3 lane): run sac_rank3 3 8 8 on "MS2 5 -2 -1 -1 2 1 7 -2 -2 -2 -1 2 2 1" (stdin) on a bigger machine;
    a meet <= 16 means rank 3 beats AC + 2 on this family.**
 Note: sac_rank3 reads starts from stdin ("tag l0 w.. l1 w.."), not argv.
+
+## 2026-09-28 12:10Z, session 1: commutator census (helper) checked; family map added to the record page
+- Core identity checked: H = S + K (S symmetric, K skew) gives [H, H^T] = -2[S, K] (error ~1e-15 at n = 3, 6, 10).
+  It is the identity behind the paper's "non-normality energy = move Dirichlet form". No new search move for ACC; the
+  search-side commutator remains the relator load |[r0, r1]| (hump predictor, +0.36). The physics-paper notes
+  (K vs A in black hole v2, the commutator in the metric slot, the abelian gauge term) stay with those papers.
+- Record page now has a Family map: 48 second words x n = 1..10, each cell = AC record, coloured by unsolved /
+  1 team / 2-3 / 4+, outlined where we tie. Data: record/families.json (rebuilt by tools/acc/build_record.py).

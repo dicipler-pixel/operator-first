@@ -74,6 +74,15 @@ svg text{font-family:var(--mono);font-size:10px;fill:var(--muted)}
 .idea dd{margin:0}
 .q{font-size:13px;border-top:1px dashed var(--line);padding-top:6px;color:var(--muted)} .q b{color:var(--ink);font-weight:600}
 code,.raw{font:12px var(--mono);color:var(--muted);overflow-wrap:anywhere}
+.fmap{overflow-x:auto} .fmap table{border-collapse:separate;border-spacing:2px;font:12px var(--mono);font-variant-numeric:tabular-nums}
+.fmap th{font-weight:500;color:var(--muted);padding:2px 4px;text-align:center}
+.fmap td.w{text-align:right;padding-right:8px;color:var(--ink);white-space:nowrap}
+.fmap td.c{width:44px;height:26px;text-align:center;border-radius:3px;color:#fff}
+.fmap td.c.u{background:var(--ink);color:var(--bg)} .fmap td.c.k1{background:#C2410C} .fmap td.c.k2{background:#E08A3C}
+.fmap td.c.k4{background:var(--X);color:var(--ink)} .fmap td.c.ours{outline:2px solid var(--ok);outline-offset:-2px}
+.fmap td.c.none{background:transparent}
+.fmap tr.chain td.w{font-weight:600} .fkey{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.fkey i{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:-2px;margin-right:4px}
 @media (max-width:520px){.idea dl{grid-template-columns:1fr}.idea dt{padding-top:6px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -125,6 +134,13 @@ code,.raw{font:12px var(--mono);color:var(--muted);overflow-wrap:anywhere}
   </div>
 </section>
 
+<section aria-labelledby="h-map">
+  <h2 id="h-map">Family map</h2>
+  <p class="muted">Most unsolved rows, and many rows held by one team, are Miller–Schupp presentations MS(n, w): one relator y<sup>−(n+1)</sup>x<sup>−1</sup>y<sup>n</sup>x, the other a short word w. Each row below is one w; each column one n. The number is the AC record (– = unsolved). Bold rows are the ten doubling chains, whose records grow like 2<sup>n+1</sup>.</p>
+  <div class="fkey"><span><i style="background:var(--ink)"></i>unsolved by everyone</span><span><i style="background:#C2410C"></i>held by 1 team</span><span><i style="background:#E08A3C"></i>2–3 teams</span><span><i style="background:var(--X)"></i>4+ teams</span><span><i style="outline:2px solid var(--ok);outline-offset:-2px;background:transparent"></i>we tie it</span></div>
+  <div class="fmap"><table id="fmap"></table></div>
+</section>
+
 <section aria-labelledby="h-proof">
   <h2 id="h-proof">Proof track: AK(3) and the ACWindow note</h2>
   <p class="muted">From the proof-track chat (repo dicipler-pixel/acwindow-lean). This lane is about whether AK(3) is AC-trivial, not about leaderboard paths. “Reported” means stated in that chat and not re-run here.</p>
@@ -144,6 +160,7 @@ const PATHS = __PATHS__;
 const IDEAS = __IDEAS__;
 const SCORES = __SCORES__;
 const PROOF = __PROOF__;
+const FAMS = __FAMS__;
 
 /* ---- standing ---- */
 (function(){
@@ -247,6 +264,12 @@ function renderIdeas(){
 ['all',...order].forEach(k=>{ const b=document.createElement('button'); const n=k==='all'?IDEAS.length:IDEAS.filter(i=>i.st===k).length;
   b.textContent=(k==='all'?'All':ST[k][0])+` (${n})`; b.setAttribute('aria-pressed',k==='all'); b.onclick=()=>{filt=k; fl.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b)); renderIdeas();}; fl.appendChild(b); });
 renderIdeas();
+(function(){ const t=document.getElementById('fmap'); let h='<tr><th>w</th>'; for(let n=1;n<=10;n++) h+=`<th>n=${n}</th>`; h+='</tr>';
+  for(const r of FAMS){ h+=`<tr class="${r.chain?'chain':''}"><td class="w">${esc(r.w)}</td>`;
+    for(let n=1;n<=10;n++){ const c=r.cells[n]; if(!c){ h+='<td class="c none"></td>'; continue; }
+      const [rec,k,id,st]=c; const cls=!rec?'u':(k<=1?'k1':(k<=3?'k2':'k4')); const ours=(st==='tie'||st==='beat')?' ours':'';
+      h+=`<td class="c ${cls}${ours}" title="${id}: record ${rec||'none'}${rec?', '+k+' team'+(k==1?'':'s'):''}${st?', ours: '+st:''}">${rec||'–'}</td>`; }
+    h+='</tr>'; } t.innerHTML=h; })();
 const PS={formal:['Lean-formalized','var(--ok)'],checked:['Re-checked here','var(--ok)'],written:['Written argument','var(--sig)'],computed:['Computed (reported)','var(--run)'],negative:['Negative result','var(--no)'],note:['Scope / note','var(--unt)']};
 document.getElementById('proof').innerHTML=PROOF.map(i=>`<article class="idea" style="--c:${PS[i.st][1]}">
   <div class="top"><h3>${esc(i.lane)}</h3><span class="chip">${PS[i.st][0]}</span></div>
