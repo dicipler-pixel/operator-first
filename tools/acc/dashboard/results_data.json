@@ -1,27 +1,27 @@
 {
- "built": "2026-09-28T17:58Z",
+ "built": "2026-09-28T18:30Z",
  "summary": {
-  "updatedAt": "2026-09-28T17:58Z",
-  "leaderboardAt": "2026-09-28T17:55:00Z",
+  "updatedAt": "2026-09-28T18:30Z",
+  "leaderboardAt": "2026-09-28T18:25:00Z",
   "ac": {
    "rank": 16,
    "teams": 45,
-   "score": 1.264,
-   "estimate": 1.514,
-   "ties": 253
+   "score": 1.514,
+   "estimate": 1.5453,
+   "ties": 254
   },
   "sac": {
    "rank": 14,
    "teams": 42,
-   "score": 3.3324,
-   "estimate": 3.5824,
-   "ties": 258
+   "score": 3.5824,
+   "estimate": 4.0824,
+   "ties": 259
   },
-  "sentToday": 10,
+  "sentToday": 11,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-28T17:55Z",
-  "subsTotal": 100
+  "boardAt": "2026-09-28T18:25Z",
+  "subsTotal": 101
  },
  "points": [
   {
@@ -426,6 +426,15 @@
    "acRank": 16,
    "acTeams": 45,
    "sac": 3.3324,
+   "sacRank": 14,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-28T18:25:00Z",
+   "ac": 1.514,
+   "acRank": 16,
+   "acTeams": 45,
+   "sac": 3.5824,
    "sacRank": 14,
    "sacTeams": 42
   }
@@ -1532,9 +1541,9 @@
    "k_then": 2,
    "val_then": 0.25,
    "rec_now": 34,
-   "k_now": 2,
+   "k_now": 3,
    "holding": true,
-   "val_now": 0.5,
+   "val_now": 0.25,
    "method": "Two-eyes beam (DUAL)"
   },
   {
@@ -1546,18 +1555,46 @@
    "k_then": 2,
    "val_then": 0.25,
    "rec_now": 36,
-   "k_now": 2,
+   "k_now": 3,
    "holding": true,
-   "val_now": 0.5,
+   "val_now": 0.25,
+   "method": "Two-eyes beam (DUAL)"
+  },
+  {
+   "sub": "2692",
+   "at": "18:29",
+   "row": "ac-08429",
+   "kind": "AC",
+   "len": 35,
+   "k_then": 5,
+   "val_then": 0.03125,
+   "rec_now": 35,
+   "k_now": 5,
+   "holding": true,
+   "val_now": 0.0625,
+   "method": "Two-eyes beam (DUAL)"
+  },
+  {
+   "sub": "2692",
+   "at": "18:29",
+   "row": "sac-03771",
+   "kind": "Stable AC",
+   "len": 40,
+   "k_then": 1,
+   "val_then": 0.5,
+   "rec_now": 40,
+   "k_now": 1,
+   "holding": true,
+   "val_now": 1,
    "method": "Two-eyes beam (DUAL)"
   }
  ],
  "byMethod": [
   {
    "method": "Two-eyes beam (DUAL)",
-   "lines": 6,
-   "now": 1.3144,
-   "held": 6
+   "lines": 8,
+   "now": 1.8769,
+   "held": 8
   },
   {
    "method": "P2 lookahead",
