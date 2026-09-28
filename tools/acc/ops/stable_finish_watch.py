@@ -55,10 +55,21 @@ def endings(state):
 
 hits = {}
 scanned = 0
+stable_scanned = 0
 for raw in open(args.sweep):
     item = json.loads(raw)
-    ac_id = item.get("id")
+    row_id = item.get("id")
+    ac_id = row_id.replace("sac-", "ac-") if isinstance(row_id, str) else None
     path = item.get("ac") or item.get("path")
+    stable_path = item.get("sac")
+    source = "ac"
+    if not isinstance(path, list) and isinstance(stable_path, list):
+        if stable_path[-2:] not in ([15, 15], [16, 15]):
+            continue
+        path = stable_path[:-2]
+        if any(not isinstance(m, int) or not (0 <= m < 14) for m in path):
+            continue
+        source = "sac"
     if not ac_id or not ac_id.startswith("ac-") or not isinstance(path, list):
         continue
     if ac_id not in manifest:
@@ -66,13 +77,19 @@ for raw in open(args.sweep):
     sac_id = ac_id.replace("ac-", "sac-")
     if sac_id not in board:
         continue
-    check = core.verify(manifest[ac_id], path, core.MOVE_SPEC_VERSION, limits)
+    check = (core.verify(manifest[ac_id], path, core.MOVE_SPEC_VERSION, limits)
+             if source == "ac" else
+             stable_core.verify(manifest[sac_id], stable_path,
+                                stable_core.MOVE_SPEC_VERSION, limits))
     if not check.get("ok"):
-        raise ValueError(f"Input AC line invalid: {ac_id}: {check}")
-    scanned += 1
+        raise ValueError(f"Input {source} line invalid: {ac_id}: {check}")
+    if source == "ac":
+        scanned += 1
+    else:
+        stable_scanned += 1
     state = tuple(map(tuple, manifest[ac_id]["initial_relators"]))
-    best = None
-    best_index = None
+    best = stable_path if source == "sac" else None
+    best_index = len(path) if source == "sac" else None
     for i in range(len(path) + 1):
         for tail in endings(state):
             candidate = path[:i] + tail
@@ -88,7 +105,7 @@ for raw in open(args.sweep):
                                   stable_core.MOVE_SPEC_VERSION, limits)
     if not verdict.get("ok"):
         raise ValueError(f"Stable candidate invalid: {sac_id}: {verdict}")
-    rec = {"id": sac_id, "source_ac_id": ac_id,
+    rec = {"id": sac_id, "source_ac_id": ac_id, "source_kind": source,
            "source_ac_length": len(path), "prefix_index": best_index,
            "sac_len": len(best),
            "snapshot_record": record_length,
@@ -104,6 +121,7 @@ with open(args.out, "w") as file:
     for key in sorted(hits):
         file.write(json.dumps(hits[key]) + "\n")
 print(json.dumps({"verified_ac_paths": scanned,
+                  "verified_sac_paths": stable_scanned,
                   "snapshot_scoring_stable_lines":
                   sum(r["scoreable_on_snapshot"] for r in hits.values()),
                   "near_miss_lines":
