@@ -55,6 +55,8 @@ official verifier before `sair_api.py send`.
 | ac-00145 | 15 | AC 39 | 22 (first 30 moves) | 70M budget hit at cap 23 |
 | ac-06936 | 25 | AC 26 / SAC 27 | 33 | 180M budget hit at cap 34 |
 | ac-03305 | 24 | AC 23 / SAC 24 | 36 (then SAC found at 37, AC at 40) | solved |
+| ac-03871 | 23 | AC 30 / SAC 32 | 32 | cap 33: `FATAL mmap table` (the table doubling hit the 13 GB limit, which acts as the budget) |
+| ac-05818 | 25 | AC 34 / SAC 36 | 26 | 180M budget hit at cap 27 (depth 25) |
 
 Short rows held by few teams need humps of 10+ letters.
 
