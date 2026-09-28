@@ -1,8 +1,8 @@
 #!/bin/bash
-# Wake the lead when session 1 pushes a new inbox file (or a non-API ACC_SUBMIT_* file). Private ref only.
+# Wake the lead when a session pushes a new inbox or exchange file (or a non-API ACC_SUBMIT_* file). Private ref only.
 cd /home/user/operator-first || exit 1
 SEEN=${ACC_S:-/tmp/claude-0/-home-user-operator-first/3cb9951d-8cab-51bf-a791-90f0d5bac4db/scratchpad}/work/inbox_seen.txt
-list() { git ls-tree -r --name-only refs/watch/lead 2>/dev/null | grep -E '^research/acc/live/inbox/[^/]+\.txt$|^ACC_SUBMIT_[^/]*\.txt$' | grep -v '^ACC_SUBMIT_API_' | sort; }
+list() { git ls-tree -r --name-only refs/watch/lead 2>/dev/null | grep -E '^research/acc/live/(inbox|exchange)/[^/]+\.[a-z]+$|^ACC_SUBMIT_[^/]*\.txt$' | grep -v '^ACC_SUBMIT_API_' | sort; }
 git fetch -q origin +claude/gallant-bardeen-0pgpae:refs/watch/lead 2>/dev/null
 [ -f "$SEEN" ] || list > "$SEEN"
 end=$(( $(date +%s) + 8*3600 ))
