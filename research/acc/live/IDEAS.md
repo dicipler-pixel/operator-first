@@ -1,3 +1,30 @@
+## 2026-09-28 01:17Z, Codex helper: ac-09311 one-over corridor
+- **Idea:** on k=1 rows with a 42-move record, use a larger H beam to reach a one-over witness and merge its route with a divergent finish.
+- **Checked:** ac-09239, ac-09165, ac-09317 at width 100k gave no finish. ac-09311 gave verified AC 44 at width 100k and verified AC 43 at width 180k. These share 24 initial states, then diverge; the map is `research/acc/optimality/ac-09311_two_routes_map.json`.
+- **Result:** neither is a score against record 42. Exact local windows through 14 found no shortcut. Radius-6 union had 54,987,511 states, 48,227,459 reached within 42 moves, no tie. No inbox line or SAIR POST. Only paths within this corridor are excluded.
+- **Next:** seek a third finish that leaves the first 24-state shared opening, or return to exact sweep hits when they arrive. Always check `SENT_ROWS.txt` and fresh board before queueing.
+
+## 2026-09-28 01:15Z, ChatGPT helper: detour height and a Pareto pilot
+- **Drive research read:** `ACC-P000009 — Detour width on two Andrews–Curtis graphs` distinguishes arbitrary-word Lean conjugation from scored `ac-r2-v1` letter conjugation.
+- **Derived bound:** on solution-relevant states, `L>=2`; each scored move gives `L_next<=2L`. Therefore a depth-`d` path from initial total `L0` has height at most `L0*2^d`. For ac-00145 (`L0=15`), even depth 38 has a finite but unusable cap of 4,123,168,604,160.
+- **New idea tested:** keep nondominated exact-state labels `(moves, peak total length)`; target labels answer shortest-distance queries for every cap. On a synthetic five-step control, the Pareto profile `(4,8)` matched separate capped BFS (no path at caps 2–7 through depth 5; shortest 4 at cap 8).
+- **Negative result:** the Pareto pilot used 71,638 transitions versus 55,005 for the separate cap searches (about 30% more) on this small case. Do not replace the current sweep on this evidence. The test and graph-bound analysis are in `research/acc/optimality/detour_height_pareto_note_20260928.md`; runnable script is `research/acc/optimality/pareto_height_pilot_20260928.py`.
+- **Cap discipline:** this independently supports keeping witness peak separate from exact `closed_cap_through`. The ac-00145 31-height witness does not certify exhaustion below 31.
+- **Outcome:** method test only; no scored path. Next step is a matched-cost comparison on a non-active short row if one opens.
+
+## 2026-09-28 00:57Z, Codex helper: state exclusion and four-route corridor on ac-00145
+- **Idea:** ban exact ordered states from a known route at selected depths in the H beam to discover a second path with a different middle or opening, then search the union of route neighborhoods for any number of lane switches.
+- **Checked:** three new official-CLI-verified AC 40 routes (all already covered by our accepted 40). A single-state ban at depth 24 gave a lower-peak finish; banning depths 5–22 gave a route with 23 new states before rejoining around state 24. The [four-route graph](../optimality/ac-00145_four_routes_map.json) has 85 nodes/88 labeled edges. Radius-5 union: 6,682,338 states, no ≤39 path; radius-6 union: 59,899,612 states, 55,165,741 reached within 39, no path. This is a corridor bound, not a global shortestness proof.
+- **Next:** ac-05064, our accepted 40 versus record 38 (k=2), starts with the same first relator and one sign difference in the second. A verified beam 40 has no shortcut in 429 windows of lengths 2–14. An uncapped depth-4 exact bridge check from all 40 route states found 16 joins near the shared goal (503,190 source-local states), but the best combined line is 40, so no ≤38 bridge. The phase beam found no finish; the 400k H beam found another AC 40. Banning route states 5–22 produced an independent AC 41 with peak 33. Both routes resisted local windows through 14; their radius-6 union had 51,512,374 states and no ≤39 route (48,681,575 visited). Map: `research/acc/optimality/ac-05064_two_routes_map.json`. Next: try low-k AC 42–43 records from the user's ac-09xxx list, beginning ac-09239.
+- **Duplicate gate:** neither 40-move line is a new submission. Check `SENT_ROWS.txt` and official verifier on any shorter candidate before inboxing.
+
+## 2026-09-28 00:52Z, ChatGPT helper: ac-00145 route-peak audit and cap distinction
+- **Target status:** `SENT_ROWS.txt` has ac-00145 at 40 vs live 39, k=1; it is already active in Sweep B, so I did not launch another search.
+- **Replay:** independently ran the candidate from `ACC_CANDIDATE_00145_20260926.txt` through the pinned official core (commit `a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e`). It reaches exact `(x,y)` in 40 moves; work 620; receipt hash `sha256:bbfbb1176ddd44ec9eb509086c7a677f560a50b1ba1f5a784b82331adfe51dd4`.
+- **Height:** total relator lengths by state are in `research/acc/optimality/ac-00145_route_peak_audit_20260928.json`. Peak is 31, first reached after move 24. Cap 31 contains the known route; cap 32 does too.
+- **Cap correction to the 00:25 proposal:** a witness path's peak is not an exhaustive-search boundary. The 41 states on this route do not show that every state below total length 31 was searched. Track `known_route_peak` separately from `closed_cap_through`; skip a lower cap only when the exact run ledger certifies that cap is exhausted. For ac-00145, the peak gives a feasible ceiling for this witness, not a proof that lower caps are covered.
+- **Outcome:** no new candidate or score; only the route-height audit. Full evidence: `research/acc/optimality/ac-00145_route_peak_audit_20260928.json`.
+
 # ACC ideas log (both sessions add one idea per turn; newest first)
 
 Format: date/time, session, idea, what was checked, result, next step. Read the other session's
