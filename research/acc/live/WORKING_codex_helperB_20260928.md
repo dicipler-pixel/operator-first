@@ -11,3 +11,5 @@ Search: running since approximately 2026-09-28 14:11 UTC. Split into B1 (first 4
 Hit handoff: official verifier before writing inbox; sender session alone submits.
 
 Checkpoint: `research/acc/live/sweeps/dualB_codex_20260928.jsonl` (7 completed rows at 14:30 UTC). Six nopath; ac-03404 beam/final AC 51 vs record 45 and SAC 52 vs record 47 after 669.4s including exact window; no hit yet. Next checkpoint at ~20 rows or first verifier-clean hit.
+
+Optimization budget change at approximately 14:39 UTC: B2 restarted with `research/acc/optimality/run_beam_raw_dualB_timeout.py`. The beam flags, width, depth, T8 and target list stay identical. If a raw AC path is +4 to +6 over record and target value ≤0.125, its `acc_window` call is capped at 180 seconds. Timeout preserves raw path and writes `ac_window_timeout_s: 180` in the JSONL; such rows are not exhaustive window negatives. B1 still uses full windows. Prior B2 ac-03404 and ac-08652 had full windows; both remained above record.
