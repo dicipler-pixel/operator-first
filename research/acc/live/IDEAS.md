@@ -919,3 +919,7 @@ height needed to return are different coordinates. Our capped exact searches alr
 needs ceiling > 21 (complete) and, with moves {0-8,12}/+10/+11, > 25 (complete). Lisitsa's MS(9) route stays at
 21-28 letters but is 8,623 moves: low ceiling, long distance. The records sit in between (short, but must climb).
 Next test in this frame: find the first ceiling at which MS(3), MS(4) connect to (x,y) within their optimum length.
+14:35Z (session 1): standing job queue. `tools/acc/job_runner.sh` starts the next line of work/jobqueue.txt whenever < 4
+heavy search processes run and disk > 5 GB. Queue: (1) near misses through the cycler (17 rows at record +1/+2, k <= 3,
+led by ac-00975 35/34 k1, ac-05149 34/33 k1, ac-00145 40/39 k1, ac-08995 46/45 k1; started now), (2) MS(3) first-
+ceiling test (caps 14-18), (3) 737 one-team rows with records 41-60 that we don't tie, through the cycler.
