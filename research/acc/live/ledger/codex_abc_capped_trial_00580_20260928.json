@@ -1,0 +1,18 @@
+{
+  "id": "ac-00580",
+  "cap": 28,
+  "budget": 60000000,
+  "maxd": 30,
+  "timeout_s": 600,
+  "tool": "acc_capped_disk with T8, anonymous fixed visited",
+  "official_revision": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "returncode": 0,
+  "timed_out": false,
+  "wall_s": 95.61,
+  "summary": "[ac00580] cap=28 states=60000000 depth=24 STOPPED",
+  "last_depth": "[ac00580] cap=28 d=24 +11779045 total=60000000 bestAC=-1 bestSAC=-1",
+  "found": {},
+  "status": "incomplete",
+  "stdout_path": "work/abc_memrow/trial.stdout",
+  "stderr_path": "work/abc_memrow/trial.stderr"
+}
