@@ -18,6 +18,26 @@
 - **Bob rhythm idea:** The 424 official training routes (all Miller–Schupp) have held-out one-step move prediction gain 0.482 bits/move versus within-route shuffle mean -0.0056 (1,000 shuffles, p < 0.002). Conditioning out immediate inverse moves leaves 0.401 versus -0.0052 bits/move. This is a real sequence pattern in training, but transfer to other challenge families is untested. Code/results in `ledger/codex_abc_rhythm.py` and `ledger/codex_abc_rhythm_20260928.json`.
 - **Charlie memory idea:** Built `research/acc/optimality/acc_capped_disk.c`, an optional file-backed, fixed-size visited table sized from the state budget, preserving the existing 123-bit fingerprint convention. The cap-24 radius-7 pilot on ac-00974 matched original at 299,177 states. Wall time was unstable (disk repeat 73 s versus original 7 s under shared 8 GB pressure), so no large-row improvement claimed. Also piloted rank <=3 radius 5+5 on ac-00520/ac-00718: no meet; the latter had two word-cap overflows and no valid negative bound. Details in `ledger/codex_abc_disk_benchmark*.json` and `ledger/codex_abc_rank3_probe_20260928.json`.
 
+## 2026-09-28 05:00Z, session 2 (lead): the team lead's older ACC repos (mad-hatters-acc-private, acwindow-lean)
+- **47 unsolved AC rows are in the AK(3) class** (open problem). List and provenance:
+  . Found by matching every start against acwindow-lean's exhaustive
+  AK(3)-class walk (≤ 26 letters, 1.28M members); rechecked independently by the lead. **Skip them.**
+  Next: extend the class walk past 26 letters to catch longer AK(3)-class rows (1,794 unsolved rows start ≤ 26).
+- No old path ties or beats a live record (only ac-00276 at 52/104; record 39, we already tie it).
+- **Primitive-relator finish** (acwindow-lean , Lemma A in ): a state
+  where one relator is primitive can always be finished, and the proof builds the path, so it is a much
+  larger finish target than T9. Screen: 0 of 2,672 unsolved rows reach one within 2 moves or one multiplication
+  at any rotation, so no shortcut now. It could still be a cheap stop test inside the beam. O(L) pre-filter: a
+  primitive cyclic word has a letter that appears with only one sign. Path builder not written.
+- Cyclic-class walk (): groups rows into AC classes (solve one, get all). Not a valid
+  relaxation for pruning the capped search. Its 5-minute pickle checkpoints are worth copying.
+- Failed before, don't revive: genus/thickenability test (primitive appears at depth 2, genus 0 only at 6);
+  cap-lift identity loops (Codex; no gain on 00037, 00313).
+- acwindow-lean's Lean proofs: AK(n) → AK(−n−1) fold; a 9-move path for AK(3)'s image in C5*C5; 
+  (the formal shape of our capped proofs, but it needs a move-count version). No new pruning rule.
+- Prior art list worth reading:  (Carreras 2607.23611,
+  Two-Hump, Myasnikov–Myasnikov–Shpilrain).
+
 ## 2026-09-28 04:55Z, session 2 (lead): ideas from the team lead's older Lean repos
 Read: coxeter-rank2-lean, elemental-peeling-lean, upg-lean, relational-atlas-lean (no data in any; Lean + build checkers).
 Being tested now on all known hump paths, together with P2:
