@@ -1,3 +1,17 @@
+## 2026-09-28 11:45Z, session 2 (lead): who holds the doubling chains — grothendiecksga.com (T00096) — and the prior art
+- **Team:** grothendiecksga.com (ACC01-T00096), AC rank 4 all night (486 pts, 2,011 scoring rows, 323 held alone). Score fell
+  548 → 487 at 04:11Z when another team beat ~1,000 long rows. **They score on 53 of our 68 doubling-chain rows and hold 38
+  alone**, including all of YXXyx n=5..10 and YYxyXYx n=5..10. Raw: `research/acc/live/teams/T00096_ac_20260928T1140Z.json`.
+  So they have a general construction; nobody else is close on these rows.
+- **Prior art (web search):** A. Lisitsa, "New Andrews–Curtis trivializations for Miller–Schupp group presentations",
+  Examples and Counterexamples 6 (2024) 100168: trivializations of MS_n(w*) for n = 3..8 (w* = y^-1 x^-1 y x^-1 y x = our
+  **YXyXyx** chain), and **two conjectures on the structure of the simplifications for all n ≥ 3**. Supplementary sequences on
+  Zenodo record 14647749. Also: "Automated theorem proving reveals a lengthy AC trivialization for a Miller–Schupp trivial
+  group presentation" (8,634 steps), and arXiv 2304.03196 (AC trivializations via 4-manifold trisections).
+- **Blocked:** arxiv.org, zenodo.org, sciencedirect.com, livrepository.liverpool.ac.uk are denied by this environment's network
+  policy. Ask: the team lead can add them to the allowed domains, or drop the paper PDF + Zenodo files in Drive / the chat.
+  The structure conjectures are exactly the chain build we are missing.
+
 ## 2026-09-28 11:35Z, session 2 (lead): the team lead's commutator census, mapped to AC and screened
 - Census kinds → AC scores: group commutator [r0,r1] (= comm_len, the winner), projector/invariance |[r0,x]|+|[r1,y]|
   (zero at the finish), mixed min_g |[r0, g r1 g^-1]|, self |[r, rev(r)]|, tangent/flatness (share of commuting move pairs).
