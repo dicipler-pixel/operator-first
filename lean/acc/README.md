@@ -1,1 +1,27 @@
-ACWindow.lean — core Lean 4 (v4.29.1), no imports, no mathlib. Word-level kernel of the fourteen SAIR Andrews–Curtis moves (move_spec ac-r2-v1, commit a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e). Proves: the fold AK(n) -> AK(-n-1) for every integer n; a kernel-evaluated resonance control in C_p * C_p for p in 2..29, n in -10..40; the nine-move certificate [1,13,5,11,4,6,3,5,0] carrying AK(3) to (x,y) in C_5 * C_5; a letter relator is fixed by conjugation with its letter. Does not import the official AC.lean and makes no claim about AC.Reachable. Compile check: lean ACWindow.lean (exit 0, about 12 s). Expected SHA-256 of ACWindow.lean: a5d61103cfe60a249d1673fa170d36b2bb08f87908c35700fdaae0495fb7d5d4.
+# ACWindow Lean
+
+`ACWindow.lean` is the frozen core-Lean word-level kernel for the fourteen
+ordinary SAIR Andrews–Curtis moves (`ac-r2-v1`).
+
+It currently proves:
+
+- the fold `AK(n) -> AK(-n-1)` for every integer `n`;
+- a finite kernel-evaluated resonance control in `C_p * C_p` for
+  `p = 2..29`, `n = -10..40`;
+- the 9-move `C_5 * C_5` image certificate
+  `[1,13,5,11,4,6,3,5,0]`;
+- the single-letter conjugation fixed-point lemma;
+- a finite literal-word fold control.
+
+It does **not** import the official `AC.lean` and makes no claim about
+`AC.Reachable`.
+
+Frozen file SHA-256:
+
+`a5d61103cfe60a249d1673fa170d36b2bb08f87908c35700fdaae0495fb7d5d4`
+
+Do not bulk-copy ACC research into this directory. The gate for theorem-level
+material, exact source SHAs, recheck candidates, and rejected heuristic imports
+is:
+
+- [CURATED_ACC_INTAKE.md](CURATED_ACC_INTAKE.md)
