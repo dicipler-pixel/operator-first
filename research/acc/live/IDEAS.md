@@ -601,3 +601,22 @@ Echo reruns with the rebuilt binary (valid, 06:55Z):
 P2's gain looks confined to short hump rows (session 2's <= 45 list). Switched both lanes to depth record+15 so
 they produce roads for the cross-row pool (road cycle), not direct ties. Raw: scratch work/p2c*_cap.jsonl.
 Also: P2 on made-up MS(4, YXXyx): none within 60 moves (W 20k and 100k); n=3 gives 29 (exact cap-20 path is 28).
+
+## 2026-09-28 09:30Z, session 1: leads from the user's old work (Drive "dicipler downloads")
+Read: "00_Mad_Hatters_ACC_Combined_War_Room — full preservation 2026-09-16" and "Idle Wheels, Housings and Light" (Sept 2026).
+1. **R_n = (x^2 y x^-1 y, x y^n x^-1 y^-(n+1))**, the old War Room's priority family ("R7 then R6"). On today's board:
+   n=2 solved (ac-00104, 21, k10); **n = 3..10: 21 rows, all unsolved by every team** (ac-02842, 06556, 01440, 06388,
+   01223, 09596, 02799, 02968, 05297, 06364, 00945, 05233, 06242, 06865, 07712, 01696, 06290, 01834, 04293, 04027,
+   04310). Each first solve = 1 AC + 1 SAC point. The old plan: an exponent-substitution eye (detect u^-1 v^a u = v^b)
+   and Euclid-style reduction of the (n, n+1) exponent pair. Note: the doubling chains we found today reduce to exactly
+   such a relation (BS(1,2): y^-1 x^2 y = x). R_n is an MS family with w = x^2 y x^-1 y, so the same engine may apply
+   if w can be turned into a BS relator. Open; worth a helper lane.
+2. **External construction lane:** Robby955/ac-square-divisibility (public GitHub, v0.1.0) proves a parametric rank-2
+   AC construction for G(p,s) when p | s or p | s+1, with Lean-backed "exact transports" (doubling, pinch, mirror/sign,
+   complementary-height, parameter shear) and official-verifier replay. Different family, but its doubling transport is
+   the kind of macro the MS chains need. Not yet read here (outside this session's repo scope).
+3. **Primitive-relator recipe** (paper Lemma A.1: a normally generating pair with a primitive relator is AC-trivial,
+   constructively). Board: 104 rows have a primitive relator (rank-2 test), 0 unsolved, **15 held by one team**:
+   ac-00225 51, 01353 57, 01463 46, 02134 61, 02433 73, 03060 28, 03710 58, 04011 46, 05178 62, 05463 50, 05804 48,
+   06085 60, 06516 151, 07308 74, 08340 57. The paper's archive mentions 362-move certificates for r1 = x y^m.
+   Turning the recipe into letter moves needs conjugation by long words, so its length vs these records is unknown.
