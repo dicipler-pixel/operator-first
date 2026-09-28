@@ -19,3 +19,8 @@ The new lines match the task's captured 2026-09-27 records at 31 moves; captured
 Each route is a path in its own exact move graph. AC and Stable AC use separate namespaces and move specs; do not combine their vertices. The graph contains only observed route corridors, not all legal neighbors or a complete connected component. Fingerprint-based candidate generation is probabilistic in principle, but all three appended paths were independently checked from official starts.
 
 Verifier commit: `a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e`.
+
+
+## 2026-09-28 graph splice audit
+
+The exact state-join audit for the two archived `sac-09365` routes found nine intersections. Joining the 31-move route's first 24 moves to the 32-move alternate route's suffix after move 25 reproduces the existing 31-move route exactly. The 31-move route passes the pinned official Stable AC verifier and TXT parser (work 553, peak total relator length 25). This shortens the supplied 32-move path, but it was already present in the source graph archive and is not a new certificate. The exact intersection and verifier receipt are in [graph_splice_audit_2026-09-28.json](graph_splice_audit_2026-09-28.json). The route/node/edge counts are unchanged.
