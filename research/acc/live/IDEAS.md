@@ -5,6 +5,33 @@
 - On ac-00580 at total-length cap 28, the earlier T9 ledger stopped after depth 23 at 48,220,955 states. The T8/fixed-visited engine reproduced **exactly** that depth-23 count and continued into depth 24, stopping at a 60M-state budget after 95.61 seconds. No AC/SAC meet. This is a repeatable memory/scope improvement, not a complete search or proof. Full command, raw logs, and explicit incomplete status: `ledger/codex_abc_capped_trial.py`, `ledger/codex_abc_capped_trial_00580_20260928.*`.
 - On Bob's ac-00766 near miss, cap 28 already had 426,246 states at depth 7; the next layer paged under shared 8 GB pressure. The run was interrupted and marked incomplete. A radius-8 goal ball plus a 25-step prefix could tie record 33, but this broad BFS is unlikely to reach such depth within our budget. Shift to route-specific joins or a different road, not a higher broad cap. `ledger/codex_abc_capped_trial_00766_20260928.*`.
 
+## 2026-09-28 05:30Z, session 2 (lead): P2 SURVIVES; Miller–Schupp doubling chain, first phase is general
+**P2 test** (`optimality/p2_hump_test.py`, `ledger/p2_hump_test_20260928.json`): 609 verified paths on 526 rows,
+240 at the live record, 56 of them hump paths.
+| score | median climb | climbing moves in top 3 |
+|---|---|---|
+| raw length | 9 | 0.00 |
+| P1 | 2 | 0.22 |
+| P1m (rotate the multiplier only) | 1.5 | 0.41 |
+| P2 (cut 8) | 0 | 0.22 |
+| P2 cut 8, then P1m, then raw | 0 | 0.41 |
+- Kill conditions not met: P2 survives. Its ranking gain is on multiplication moves only (conjugations leave it
+  unchanged). P2 predicts moves remaining better than length (leave-one-out error 3.18 vs 4.52).
+- C cost: P2 cut 8 is 15–97 µs per state; only the 4 multiplication children need it. About 1–5 min per row at
+  W=20,000, depth 40. **Next: `BEAM_P2` in `acc_beam.c` (P2 cut 8 → P1m → raw) and a matched A/B on hump rows.**
+- Add-ons: E1 weak survive (min relator length rises on 96% of humps, but (min,max,P2) predicts best: 2.18);
+  U1 dead (median same-relator run 2); C1 survives (humps: fewer hyperbolic, more finite-order transfers, p=0.005).
+
+**Miller–Schupp doubling chain (building on session 1's find), w = YXyXyx, r1 = Y^(n+1) X y^n x:**
+- Our n=3 path (ac-09243, 36; record 32) has 4 phases: reduce (18) → build r0 = Y x^7 (6) → set up r1 = X^6 y (5)
+  → peel one x per move (6) + 1.
+- **The reduce phase's first part is general:** moves `3,8,2,6,12,4` then `12` × n turn every n into
+  r0 = y X Y^(n-1) x Y X y^n, r1 = XyxYX (the Baumslag–Solitar relator y x y^-1 = x^2). Checked n = 3..6.
+- In the group, the target is r0 = Y x^(2^n − 1) (n=4: Y x^15), then the peel.
+- **The crux is the build:** our build costs ~2 moves per new x (1 multiplication + 1 conjugation to rotate).
+  The records (2^(n+1) + 16..40) imply ~1 move per x in build and peel. 2 per x gives ~3·2^n (n=10: ~3,100 vs 2,088).
+- Running: H-beam from the n=4 BS-stage state (10 moves in), W=50k, depth 46 (record 56).
+
 ## 2026-09-28, Codex ABC: smaller goal ball for constrained memory
 - Built T8 with `work/acc_opt tball 8 40000000 work/T8.tab work/abc_t8`: 24,587,144 goal states, 640,000,000 bytes, SHA-256 `38f05b56d5e79d9df03cc3cd96cd8433725b051111984a8dad4fbe30d07068f8`. T9 has 214,977,551 states and 4,480,000,000 bytes. The smaller map removes 3.84 GB of table footprint while requiring up to one additional forward move for the same meet length.
 - On a known ac-00236 15-move path at cap 25, the disk-backed capped engine found an officially accepted AC 15 and SAC 17 with both tables. T9 first saw AC 15 at forward depth 6 (2,561 cumulative states); T8 first saw it at depth 7 (7,615 cumulative). Same depth-7 final state count in the benchmark; wall times are confounded by file cache, so no speed claim. Code and raw results: `ledger/codex_abc_ball_split.py` and `ledger/codex_abc_ball_split_20260928.json`.
