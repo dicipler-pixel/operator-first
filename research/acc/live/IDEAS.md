@@ -1,3 +1,10 @@
+## 2026-09-28 08:30Z, session 2 (lead): Bob's macro A/B was invalid until now — rerunning
+- The scratch `acc_beam` binary (rebuilt from the repo after the container restart) has **no BEAM_MACROS code**, so
+  the "macro" arm silently ran the plain beam (identical lengths and times on 5 rows). Any macro result from that
+  binary is void. `acc_beam_p2` (current `acc_beam.c`) loads them ("macros: 40") and is byte-identical to plain
+  when BEAM_P2 is unset. The macro arm is rerunning on it (T8, W=20k, depth live+6); the plain arm stands.
+- Lesson for every helper: check the beam's stderr for "macros: N" / "p2:" before trusting an option A/B.
+
 ## 2026-09-28 07:58Z, session 2 helper: MS(n,BS) super-relator doubling — blocked by the helper generator; verified fallback, no beat
 - **Where g gets stuck.** (1) Exponent matrix stays unimodular, and S_a's row is divisible by a, so S_a (a>=2) can never be a relator without a stabilization letter g. (2) If g occurs once, two inverse uses of that tool whose g's cancel equal the part between them (free-group identity), so g cannot be cancelled by the same tool; an exhaustive tag-position check found 0 clean arrangements. (3) Doubling needs the X^a-conjugate of a tagged copy. The conjugation carries g into X^(2a), the X|Y seam, the output block, or the y x^a|X^a Y junction. Each position blocks the next crossing or needs a second, differently tagged copy, whose own g has the same problem one level later. Tags at a tool's end are harmless to use (1 move to r1's front) but such a tool cannot be the conjugated factor.
 - **BFS facts.** An isolated rank-2 level costs 2a moves: `1 4 (7 4)^(a-1)` (a=2: 4, a=4: 8) instead of 3a-1. It leaves BS slid to X^(a-1) BS x^(a-1). From that state no next level completes within 10 moves (a clean start needs 8), so no chained saving was found.
