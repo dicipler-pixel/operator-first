@@ -51,5 +51,6 @@
   "ac-09217",
   "ac-09350",
   "ac-09906"
- ]
+ ],
+ "independent_check_20260928": "The team lead's audit of Lisitsa (arXiv 2501.18601) / Shehper et al. (arXiv 2408.15332 \u00a73.5): 53 h_i moves (67 standard AC moves) take P = (ABaBAbaBBabAb, BAbbABabaBBa) to AK(3); replay tools/acc/ak3_p_to_ak3_replay.py passes. P lies in the acwindow-lean AK(3)-class walk (canonical form found among the 1,284,411 members), confirming the walk. The early paper's stable-triviality conclusion was withdrawn in the corrected article, so AK(3)'s stable status stays open and the sac- twins of these rows stay skipped. P itself is not a board row."
 }

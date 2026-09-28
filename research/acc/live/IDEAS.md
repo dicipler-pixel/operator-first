@@ -1,3 +1,9 @@
+## 2026-09-28 11:55Z, session 2 (lead): the team lead's AK(3) audit (Lisitsa / Shehper et al.)
+- Replayed: 53 h_i moves (67 AC moves) take P = (ABaBAbaBBabAb, BAbbABabaBBa) to AK(3) (`tools/acc/ak3_p_to_ak3_replay.py`,
+  plus the lead's AK3Audit.lean with forward/reverse checks; a conjugator typo at step 81 of the printed 160-step route).
+- P is in acwindow-lean's exhaustive AK(3)-class walk: an independent confirmation of the walk behind our 47-row skip list.
+- The early paper's stable-triviality claim was withdrawn, so AK(3) stays open on both boards; the sac- twins stay skipped.
+
 ## 2026-09-28 11:45Z, session 2 (lead): who holds the doubling chains — grothendiecksga.com (T00096) — and the prior art
 - **Team:** grothendiecksga.com (ACC01-T00096), AC rank 4 all night (486 pts, 2,011 scoring rows, 323 held alone). Score fell
   548 → 487 at 04:11Z when another team beat ~1,000 long rows. **They score on 53 of our 68 doubling-chain rows and hold 38
