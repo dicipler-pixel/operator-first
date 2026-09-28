@@ -1069,3 +1069,9 @@ and split into two shards.
   ≤ 18: stalls at 97 (different valley). (3) No step of ≤ 14 moves between exact level shapes k=4 → k=3 of the
   pulse family (two-sided BFS depth 7+7, per-relator cap 26, complete within those bounds). (4) A bridge from the
   n=6 opening into a radius-3 tube of the n=5 path exists (repeating block `7 9 2 0` ×5) but totals 86 > 78.
+
+## 2026-09-28 Codex: exact short-endpoint distances through six letters
+
+- Complete candidate scope: all 1,768 ordered, freely reduced relator pairs of total length ≤6 with abelianization determinant ±1; 14 SAIR ac-r2-v1 moves. They exactly equal the capped-length-6 component of (x,y), proving every such endpoint is AC-trivial.
+- Exact **unrestricted** maximum shortest moves for endpoint length ≤2,3,4,5,6: **5,5,6,7,8**. Upper bounds by complete length-6 BFS; lower bounds by disjoint *uncapped* balls around (x,y) and witnesses (y,x), (Y,YYx), (Y,YYYx), (Y,YYYYx), respectively. This is a finite endpoint result, not a general bound.
+- Reproduce: `research/acc/optimality/reverse_small_presentations.py`; full proof scope, counts, paths, hashes, and pinned verifier 24,752-transition cross-check in `research/acc/live/ledger/reverse_small_endpoints_20260928.md`. No challenge rows run or submitted for this result.
