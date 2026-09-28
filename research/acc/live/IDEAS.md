@@ -1,3 +1,11 @@
+## 2026-09-28 13:00Z, session 2 (lead): BEAM_DUAL "two eyes" wins; all lanes switched
+- Builder helper A/B (W=20000, depth record+6, T8, 10 rows): DUAL 0.75 vs the quota/elite winner is shorter on 7, never
+  longer, finds paths on ac-04081 (38) and ac-08305 (39) where the winner found none, 20–60% faster. DUAL 0.5: shorter on 6,
+  longer on ac-06045, the only arm at ac-00061 26. Every record-length line it found is a tie we already hold.
+- Lanes p2a, p2u restarted on `P2_DUAL=0.75 P2_ELITE=5000` (binary `acc_beam_y` = acc_beam.c at HEAD); p2b switches after
+  its current row. The earlier P2 rows (149/140 done) were searched with the old winner; a DUAL re-pass over their
+  1-2-off rows is the next cheap lane.
+
 ## 2026-09-28 12:50Z, session 2 (lead): unsolved-MS lane p2u (digest lead: "106 second words", first solves = 1.0)
 - 106 MS(n,w) families have some n solved and some unsolved; they hold **373 unsolved non-AK(3) rows** (15 more are
   AK(3)-class, skipped). Examples: YYYYYxYXX n=5 solved in **15** (ac-04662) but n=4 unsolved (ac-08441); YYxYxYXXX n=2 in

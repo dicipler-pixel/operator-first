@@ -22,6 +22,10 @@ leaderboard to 4 decimals on 2026-09-27.
    path there (1 of 195 tried). Use only with a new idea.
 
 ## Methods that work (with evidence)
+- **BEAM_DUAL=0.75 "two eyes"** (13:00Z, adopted on all lanes): 3/4 of the beam by the P2 key with quota 16 / elite 5000,
+  1/4 by plain H. Against the previous winner on 10 rows: shorter on 7, never longer, paths on 2 rows the winner missed,
+  20–60% faster. f=0.5 is the only arm with ac-00061 at 26 but is longer on ac-06045. `ledger/dual_beam_ab_20260928.json`;
+  run with `P2_DUAL=0.75 P2_ELITE=5000 bash tools/acc/ops/p2_list.sh NAME 20000`.
 
 | Method | Use it for | Evidence | How |
 |---|---|---|---|
