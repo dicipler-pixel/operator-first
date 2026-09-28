@@ -25,3 +25,11 @@ ac/sac-01962 ac/sac-07550 ac/sac-09703 ac/sac-01918 ac/sac-04896 ac/sac-04194 ac
 ac/sac-02440 ac/sac-06137 ac/sac-03952 ac/sac-06186 ac/sac-07456 ac/sac-01474 ac/sac-01945 
 ac/sac-07084 ac/sac-01293 ac/sac-07199 ac/sac-02150 ac/sac-07864 ac/sac-00974 ac/sac-05668 
 ac/sac-08425 ac/sac-05937 ac/sac-04278 ac/sac-09437 ac/sac-05091 ac/sac-00654
+
+
+## Helper side task — 2026-09-28 01:28Z
+
+- Reserved `ac/sac-06095` for an endpoint-preserving exact path-shortening pass. Current ledger line: `ac-06095 47 42 1 behind`; the matching Stable row is `sac-06095 49 44 1 behind`.
+- The pair was absent from both worklists when checked. This is a separate window-shortening lane; it does not change the existing 146-row Stable AC capped-search list.
+- Input route: `ACC_CANDIDATE_06095_20260926.txt` (AC and SAC lines; official replay passed before reservation). Exact window tool: `acc_window.c`, gaps at most 14, radius 7 on each side, no relator cap. Verify any splice with the pinned official core; do not submit.
+- Status at reservation: queued for this window pass; no new search result yet.
