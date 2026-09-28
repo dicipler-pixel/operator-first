@@ -1,75 +1,5 @@
 [
 {
-"id": "ac-06262",
-"score": 0.06002,
-"ac_record": 35,
-"k": 2,
-"ours_ac": 36,
-"sac_record": 37,
-"k_sac": 2,
-"ours_sac": 38,
-"tries": 3,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-10098",
-"score": 0.04862,
-"ac_record": 40,
-"k": 1,
-"ours_ac": 42,
-"sac_record": 42,
-"k_sac": 1,
-"ours_sac": 43,
-"tries": 4,
-"value": 1.0,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-05818",
-"score": 0.0441,
-"ac_record": 34,
-"k": 2,
-"ours_ac": 36,
-"sac_record": 36,
-"k_sac": 2,
-"ours_sac": 38,
-"tries": 2,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-04586",
-"score": 0.04296,
-"ac_record": 39,
-"k": 11,
-"ours_ac": 40,
-"sac_record": 40,
-"k_sac": 2,
-"ours_sac": 41,
-"tries": 2,
-"value": 0.2505,
-"lane": "yx",
-"family": ""
-},
-{
-"id": "ac-05378",
-"score": 0.0389,
-"ac_record": 42,
-"k": 7,
-"ours_ac": 44,
-"sac_record": 43,
-"k_sac": 1,
-"ours_sac": 44,
-"tries": 3,
-"value": 0.5078,
-"lane": "yx",
-"family": ""
-},
-{
 "id": "ac-00018",
 "score": 0.036,
 "ac_record": 43,
@@ -78,7 +8,7 @@
 "sac_record": 45,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -1092,6 +1022,20 @@
 "family": ""
 },
 {
+"id": "ac-04586",
+"score": 0.02105,
+"ac_record": 39,
+"k": 11,
+"ours_ac": 40,
+"sac_record": 40,
+"k_sac": 2,
+"ours_sac": 41,
+"tries": 4,
+"value": 0.2505,
+"lane": "yx",
+"family": ""
+},
+{
 "id": "ac-04539",
 "score": 0.02067,
 "ac_record": 42,
@@ -1104,20 +1048,6 @@
 "value": 0.1875,
 "lane": "family",
 "family": "MS(7,YYYYXYXyyx)"
-},
-{
-"id": "ac-07730",
-"score": 0.02026,
-"ac_record": 41,
-"k": 3,
-"ours_ac": 42,
-"sac_record": 43,
-"k_sac": 2,
-"ours_sac": 44,
-"tries": 4,
-"value": 0.375,
-"lane": "dual",
-"family": ""
 },
 {
 "id": "ac-03961",
@@ -1148,6 +1078,20 @@
 "family": "MS(3,YYYYxyxyX)"
 },
 {
+"id": "ac-06250",
+"score": 0.02025,
+"ac_record": 44,
+"k": 1,
+"ours_ac": null,
+"sac_record": 46,
+"k_sac": 2,
+"ours_sac": null,
+"tries": 1,
+"value": 0.75,
+"lane": "family",
+"family": "MS(4,YYYXYYxYX)"
+},
+{
 "id": "ac-07068",
 "score": 0.02025,
 "ac_record": 44,
@@ -1170,7 +1114,7 @@
 "sac_record": 47,
 "k_sac": 2,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.75,
 "lane": "dual",
 "family": ""
@@ -1184,51 +1128,9 @@
 "sac_record": 46,
 "k_sac": 2,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.75,
 "lane": "dual",
-"family": ""
-},
-{
-"id": "ac-08221",
-"score": 0.02021,
-"ac_record": 32,
-"k": 6,
-"ours_ac": null,
-"sac_record": 33,
-"k_sac": 1,
-"ours_sac": null,
-"tries": 2,
-"value": 0.5156,
-"lane": "yx",
-"family": "MS(3,YYXYYXYYx)"
-},
-{
-"id": "ac-00145",
-"score": 0.0196,
-"ac_record": 39,
-"k": 1,
-"ours_ac": null,
-"sac_record": 42,
-"k_sac": 11,
-"ours_sac": null,
-"tries": 2,
-"value": 0.5,
-"lane": "family",
-"family": "MS(1,YYYxxYxYXX)"
-},
-{
-"id": "ac-06540",
-"score": 0.0196,
-"ac_record": 38,
-"k": 2,
-"ours_ac": null,
-"sac_record": 39,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 2,
-"value": 0.5,
-"lane": "yx",
 "family": ""
 },
 {
@@ -1242,76 +1144,6 @@
 "ours_sac": 40,
 "tries": 2,
 "value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-08923",
-"score": 0.0196,
-"ac_record": 38,
-"k": 2,
-"ours_ac": null,
-"sac_record": 40,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 2,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-01304",
-"score": 0.01921,
-"ac_record": 37,
-"k": 1,
-"ours_ac": null,
-"sac_record": 39,
-"k_sac": 1,
-"ours_sac": null,
-"tries": 4,
-"value": 1.0,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-02404",
-"score": 0.01921,
-"ac_record": 36,
-"k": 1,
-"ours_ac": null,
-"sac_record": 38,
-"k_sac": 1,
-"ours_sac": null,
-"tries": 4,
-"value": 1.0,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-04067",
-"score": 0.01921,
-"ac_record": 34,
-"k": 1,
-"ours_ac": null,
-"sac_record": 36,
-"k_sac": 1,
-"ours_sac": null,
-"tries": 4,
-"value": 1.0,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-04735",
-"score": 0.01921,
-"ac_record": 35,
-"k": 1,
-"ours_ac": null,
-"sac_record": 37,
-"k_sac": 1,
-"ours_sac": null,
-"tries": 4,
-"value": 1.0,
 "lane": "dual",
 "family": ""
 },
@@ -1509,6 +1341,20 @@
 "tries": 0,
 "value": 0.125,
 "lane": "dual",
+"family": ""
+},
+{
+"id": "ac-05378",
+"score": 0.01906,
+"ac_record": 42,
+"k": 7,
+"ours_ac": 44,
+"sac_record": 43,
+"k_sac": 1,
+"ours_sac": 44,
+"tries": 5,
+"value": 0.5078,
+"lane": "yx",
 "family": ""
 },
 {
@@ -1834,62 +1680,6 @@
 "family": ""
 },
 {
-"id": "ac-01562",
-"score": 0.0161,
-"ac_record": 40,
-"k": 2,
-"ours_ac": null,
-"sac_record": 42,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 2,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-01971",
-"score": 0.0161,
-"ac_record": 40,
-"k": 2,
-"ours_ac": null,
-"sac_record": 41,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 2,
-"value": 0.5,
-"lane": "yx",
-"family": ""
-},
-{
-"id": "ac-02514",
-"score": 0.0161,
-"ac_record": 40,
-"k": 2,
-"ours_ac": null,
-"sac_record": 42,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 2,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-03186",
-"score": 0.0161,
-"ac_record": 40,
-"k": 2,
-"ours_ac": null,
-"sac_record": 42,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 2,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
 "id": "ac-03977",
 "score": 0.0161,
 "ac_record": 40,
@@ -1904,40 +1694,12 @@
 "family": ""
 },
 {
-"id": "ac-04922",
-"score": 0.0161,
-"ac_record": 39,
-"k": 2,
-"ours_ac": null,
-"sac_record": 41,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 2,
-"value": 0.5,
-"lane": "family",
-"family": "MS(4,YYYYYYxyyXX)"
-},
-{
 "id": "ac-05125",
 "score": 0.0161,
 "ac_record": 40,
 "k": 2,
 "ours_ac": null,
 "sac_record": 42,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 2,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-05467",
-"score": 0.0161,
-"ac_record": 39,
-"k": 2,
-"ours_ac": null,
-"sac_record": 41,
 "k_sac": 2,
 "ours_sac": null,
 "tries": 2,
@@ -1974,68 +1736,12 @@
 "family": ""
 },
 {
-"id": "ac-07439",
-"score": 0.0161,
-"ac_record": 39,
-"k": 2,
-"ours_ac": null,
-"sac_record": 41,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 2,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-07674",
-"score": 0.0161,
-"ac_record": 39,
-"k": 2,
-"ours_ac": null,
-"sac_record": 41,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 2,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-07792",
-"score": 0.0161,
-"ac_record": 39,
-"k": 2,
-"ours_ac": null,
-"sac_record": 41,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 2,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
 "id": "ac-09067",
 "score": 0.0161,
 "ac_record": 40,
 "k": 2,
 "ours_ac": null,
 "sac_record": 42,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 2,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-09254",
-"score": 0.0161,
-"ac_record": 39,
-"k": 2,
-"ours_ac": null,
-"sac_record": 41,
 "k_sac": 2,
 "ours_sac": null,
 "tries": 2,
@@ -2184,20 +1890,6 @@
 "family": ""
 },
 {
-"id": "ac-07790",
-"score": 0.01578,
-"ac_record": 40,
-"k": 1,
-"ours_ac": null,
-"sac_record": 42,
-"k_sac": 1,
-"ours_sac": null,
-"tries": 4,
-"value": 1.0,
-"lane": "family",
-"family": "MS(5,YYXYYXyyx)"
-},
-{
 "id": "ac-08274",
 "score": 0.01578,
 "ac_record": 40,
@@ -2293,6 +1985,20 @@
 "tries": 5,
 "value": 0.5039,
 "lane": "yx",
+"family": ""
+},
+{
+"id": "ac-07792",
+"score": 0.01471,
+"ac_record": 39,
+"k": 2,
+"ours_ac": 40,
+"sac_record": 41,
+"k_sac": 2,
+"ours_sac": 41,
+"tries": 5,
+"value": 0.5,
+"lane": "dual",
 "family": ""
 },
 {
@@ -2506,17 +2212,17 @@
 "family": ""
 },
 {
-"id": "ac-08578",
+"id": "ac-06262",
 "score": 0.01441,
 "ac_record": 35,
-"k": 8,
-"ours_ac": 35,
-"sac_record": 36,
-"k_sac": 1,
-"ours_sac": 37,
+"k": 2,
+"ours_ac": 36,
+"sac_record": 37,
+"k_sac": 2,
+"ours_sac": 38,
 "tries": 7,
 "value": 0.5,
-"lane": "yx",
+"lane": "dual",
 "family": ""
 },
 {
@@ -2532,6 +2238,20 @@
 "value": 1.0,
 "lane": "family",
 "family": "MS(3,YYYYXXYxyxx)"
+},
+{
+"id": "ac-08221",
+"score": 0.01415,
+"ac_record": 32,
+"k": 6,
+"ours_ac": null,
+"sac_record": 33,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 3,
+"value": 0.5156,
+"lane": "yx",
+"family": "MS(3,YYXYYXYYx)"
 },
 {
 "id": "ac-00989",
@@ -2660,20 +2380,6 @@
 "family": ""
 },
 {
-"id": "ac-04198",
-"score": 0.0135,
-"ac_record": 43,
-"k": 3,
-"ours_ac": null,
-"sac_record": 44,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 0,
-"value": 0.375,
-"lane": "yx",
-"family": ""
-},
-{
 "id": "ac-04981",
 "score": 0.0135,
 "ac_record": 43,
@@ -2686,20 +2392,6 @@
 "value": 0.375,
 "lane": "dual",
 "family": ""
-},
-{
-"id": "ac-06250",
-"score": 0.0135,
-"ac_record": 45,
-"k": 2,
-"ours_ac": null,
-"sac_record": 46,
-"k_sac": 1,
-"ours_sac": null,
-"tries": 1,
-"value": 0.75,
-"lane": "yx",
-"family": "MS(4,YYYXYYxYX)"
 },
 {
 "id": "ac-07486",
@@ -2772,6 +2464,48 @@
 "family": ""
 },
 {
+"id": "ac-01304",
+"score": 0.01345,
+"ac_record": 37,
+"k": 1,
+"ours_ac": null,
+"sac_record": 39,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 5,
+"value": 1.0,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-02404",
+"score": 0.01345,
+"ac_record": 36,
+"k": 1,
+"ours_ac": null,
+"sac_record": 38,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 5,
+"value": 1.0,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-04067",
+"score": 0.01345,
+"ac_record": 34,
+"k": 1,
+"ours_ac": null,
+"sac_record": 36,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 5,
+"value": 1.0,
+"lane": "dual",
+"family": ""
+},
+{
 "id": "ac-04431",
 "score": 0.01345,
 "ac_record": 39,
@@ -2783,6 +2517,20 @@
 "tries": 5,
 "value": 1.0,
 "lane": "yx",
+"family": ""
+},
+{
+"id": "ac-04735",
+"score": 0.01345,
+"ac_record": 35,
+"k": 1,
+"ours_ac": null,
+"sac_record": 37,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 5,
+"value": 1.0,
+"lane": "dual",
 "family": ""
 },
 {
@@ -3346,6 +3094,118 @@
 "family": ""
 },
 {
+"id": "ac-10098",
+"score": 0.01167,
+"ac_record": 40,
+"k": 1,
+"ours_ac": 42,
+"sac_record": 42,
+"k_sac": 1,
+"ours_sac": 43,
+"tries": 8,
+"value": 1.0,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-01971",
+"score": 0.01127,
+"ac_record": 40,
+"k": 2,
+"ours_ac": null,
+"sac_record": 41,
+"k_sac": 2,
+"ours_sac": null,
+"tries": 3,
+"value": 0.5,
+"lane": "yx",
+"family": ""
+},
+{
+"id": "ac-03186",
+"score": 0.01127,
+"ac_record": 40,
+"k": 2,
+"ours_ac": null,
+"sac_record": 42,
+"k_sac": 2,
+"ours_sac": null,
+"tries": 3,
+"value": 0.5,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-04922",
+"score": 0.01127,
+"ac_record": 39,
+"k": 2,
+"ours_ac": null,
+"sac_record": 41,
+"k_sac": 2,
+"ours_sac": null,
+"tries": 3,
+"value": 0.5,
+"lane": "family",
+"family": "MS(4,YYYYYYxyyXX)"
+},
+{
+"id": "ac-05467",
+"score": 0.01127,
+"ac_record": 39,
+"k": 2,
+"ours_ac": null,
+"sac_record": 41,
+"k_sac": 2,
+"ours_sac": null,
+"tries": 3,
+"value": 0.5,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-07439",
+"score": 0.01127,
+"ac_record": 39,
+"k": 2,
+"ours_ac": null,
+"sac_record": 41,
+"k_sac": 2,
+"ours_sac": null,
+"tries": 3,
+"value": 0.5,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-07674",
+"score": 0.01127,
+"ac_record": 39,
+"k": 2,
+"ours_ac": null,
+"sac_record": 41,
+"k_sac": 2,
+"ours_sac": null,
+"tries": 3,
+"value": 0.5,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-09254",
+"score": 0.01127,
+"ac_record": 39,
+"k": 2,
+"ours_ac": null,
+"sac_record": 41,
+"k_sac": 2,
+"ours_sac": null,
+"tries": 3,
+"value": 0.5,
+"lane": "dual",
+"family": ""
+},
+{
 "id": "ac-00152",
 "score": 0.01125,
 "ac_record": 44,
@@ -3850,20 +3710,6 @@
 "family": ""
 },
 {
-"id": "ac-08174",
-"score": 0.01102,
-"ac_record": 37,
-"k": 5,
-"ours_ac": null,
-"sac_record": 38,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 2,
-"value": 0.2812,
-"lane": "yx",
-"family": ""
-},
-{
 "id": "ac-02386",
 "score": 0.01092,
 "ac_record": 34,
@@ -3920,20 +3766,6 @@
 "family": ""
 },
 {
-"id": "ac-05909",
-"score": 0.01059,
-"ac_record": 39,
-"k": 2,
-"ours_ac": null,
-"sac_record": 41,
-"k_sac": 5,
-"ours_sac": null,
-"tries": 2,
-"value": 0.2812,
-"lane": "dual",
-"family": ""
-},
-{
 "id": "ac-03789",
 "score": 0.0105,
 "ac_record": 34,
@@ -3973,6 +3805,20 @@
 "tries": 2,
 "value": 0.2656,
 "lane": "yx",
+"family": ""
+},
+{
+"id": "ac-05909",
+"score": 0.01019,
+"ac_record": 39,
+"k": 2,
+"ours_ac": null,
+"sac_record": 41,
+"k_sac": 6,
+"ours_sac": null,
+"tries": 2,
+"value": 0.2656,
+"lane": "dual",
 "family": ""
 },
 {
@@ -4113,6 +3959,20 @@
 "tries": 2,
 "value": 0.2539,
 "lane": "yx",
+"family": ""
+},
+{
+"id": "ac-07730",
+"score": 0.00993,
+"ac_record": 41,
+"k": 3,
+"ours_ac": 42,
+"sac_record": 43,
+"k_sac": 2,
+"ours_sac": 44,
+"tries": 6,
+"value": 0.375,
+"lane": "dual",
 "family": ""
 },
 {
@@ -4396,6 +4256,20 @@
 "family": ""
 },
 {
+"id": "ac-08923",
+"score": 0.0096,
+"ac_record": 38,
+"k": 2,
+"ours_ac": null,
+"sac_record": 40,
+"k_sac": 2,
+"ours_sac": null,
+"tries": 4,
+"value": 0.5,
+"lane": "dual",
+"family": ""
+},
+{
 "id": "ac-02612",
 "score": 0.00956,
 "ac_record": 30,
@@ -4478,6 +4352,20 @@
 "value": 0.2656,
 "lane": "yx",
 "family": ""
+},
+{
+"id": "ac-07790",
+"score": 0.00953,
+"ac_record": 40,
+"k": 1,
+"ours_ac": 42,
+"sac_record": 42,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 7,
+"value": 1.0,
+"lane": "family",
+"family": "MS(5,YYXYYXyyx)"
 },
 {
 "id": "ac-00288",
@@ -4590,20 +4478,6 @@
 "value": 0.2812,
 "lane": "dual",
 "family": ""
-},
-{
-"id": "ac-01965",
-"score": 0.00903,
-"ac_record": 40,
-"k": 7,
-"ours_ac": null,
-"sac_record": 41,
-"k_sac": 1,
-"ours_sac": null,
-"tries": 3,
-"value": 0.5078,
-"lane": "yx",
-"family": "MS(5,YYYXYYXyx)"
 },
 {
 "id": "ac-00042",
@@ -4788,20 +4662,6 @@
 "family": ""
 },
 {
-"id": "ac-01352",
-"score": 0.009,
-"ac_record": 46,
-"k": 1,
-"ours_ac": null,
-"sac_record": 48,
-"k_sac": 1,
-"ours_sac": null,
-"tries": 0,
-"value": 1.0,
-"lane": "dual",
-"family": ""
-},
-{
 "id": "ac-01457",
 "score": 0.009,
 "ac_record": 47,
@@ -4894,7 +4754,7 @@
 "sac_record": 47,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "yx",
 "family": ""
@@ -5580,7 +5440,7 @@
 "sac_record": 50,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "yx",
 "family": ""
@@ -6090,34 +5950,6 @@
 "family": "MS(1,YYYxYxxYXX)"
 },
 {
-"id": "ac-03208",
-"score": 0.00789,
-"ac_record": 39,
-"k": 2,
-"ours_ac": null,
-"sac_record": 41,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 4,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-04331",
-"score": 0.00789,
-"ac_record": 39,
-"k": 2,
-"ours_ac": null,
-"sac_record": 41,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 4,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
 "id": "ac-06968",
 "score": 0.00788,
 "ac_record": 42,
@@ -6524,6 +6356,20 @@
 "family": ""
 },
 {
+"id": "ac-08578",
+"score": 0.00706,
+"ac_record": 35,
+"k": 9,
+"ours_ac": 35,
+"sac_record": 36,
+"k_sac": 1,
+"ours_sac": 37,
+"tries": 9,
+"value": 0.5,
+"lane": "yx",
+"family": ""
+},
+{
 "id": "ac-00009",
 "score": 0.007,
 "ac_record": 34,
@@ -6616,7 +6462,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -6714,7 +6560,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -6756,7 +6602,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -6784,7 +6630,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -6812,7 +6658,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "family",
 "family": "MS(3,YYYxYXYxyXX)"
@@ -6868,7 +6714,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -6882,7 +6728,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -6924,7 +6770,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -6938,7 +6784,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -6966,7 +6812,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -6980,7 +6826,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -7036,7 +6882,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -7078,7 +6924,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "family",
 "family": "MS(3,YYYxYXyxYXX)"
@@ -7120,7 +6966,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "family",
 "family": "MS(4,YYYYXYXYYx)"
@@ -7162,7 +7008,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -7274,7 +7120,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -7302,7 +7148,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -7330,7 +7176,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "family",
 "family": "MS(2,YYYYxxYXXYX)"
@@ -7344,7 +7190,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -7358,7 +7204,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "family",
 "family": "MS(7,YYYYXyXYYx)"
@@ -7456,7 +7302,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "family",
 "family": "MS(6,YYYXYXYYYx)"
@@ -7526,7 +7372,7 @@
 "sac_record": 51,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -7896,20 +7742,6 @@
 "family": ""
 },
 {
-"id": "ac-00162",
-"score": 0.00675,
-"ac_record": 46,
-"k": 2,
-"ours_ac": null,
-"sac_record": 47,
-"k_sac": 1,
-"ours_sac": null,
-"tries": 1,
-"value": 0.75,
-"lane": "yx",
-"family": ""
-},
-{
 "id": "ac-00869",
 "score": 0.00675,
 "ac_record": 48,
@@ -7974,7 +7806,7 @@
 "sac_record": 49,
 "k_sac": 2,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.75,
 "lane": "dual",
 "family": ""
@@ -8050,6 +7882,20 @@
 "family": "MS(4,YYYYYYxyXX)"
 },
 {
+"id": "ac-04198",
+"score": 0.00675,
+"ac_record": 43,
+"k": 4,
+"ours_ac": null,
+"sac_record": 44,
+"k_sac": 3,
+"ours_sac": null,
+"tries": 0,
+"value": 0.1875,
+"lane": "yx",
+"family": ""
+},
+{
 "id": "ac-05140",
 "score": 0.00675,
 "ac_record": 49,
@@ -8058,7 +7904,7 @@
 "sac_record": 50,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.75,
 "lane": "yx",
 "family": ""
@@ -8072,7 +7918,7 @@
 "sac_record": 49,
 "k_sac": 2,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.75,
 "lane": "dual",
 "family": ""
@@ -8120,20 +7966,6 @@
 "family": ""
 },
 {
-"id": "ac-06793",
-"score": 0.00675,
-"ac_record": 48,
-"k": 1,
-"ours_ac": null,
-"sac_record": 50,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 0,
-"value": 0.75,
-"lane": "dual",
-"family": ""
-},
-{
 "id": "ac-07481",
 "score": 0.00675,
 "ac_record": 47,
@@ -8142,7 +7974,7 @@
 "sac_record": 49,
 "k_sac": 2,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.75,
 "lane": "dual",
 "family": ""
@@ -8156,7 +7988,7 @@
 "sac_record": 48,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.75,
 "lane": "yx",
 "family": ""
@@ -8184,7 +8016,7 @@
 "sac_record": 49,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.75,
 "lane": "yx",
 "family": ""
@@ -8240,21 +8072,7 @@
 "sac_record": 49,
 "k_sac": 2,
 "ours_sac": null,
-"tries": 0,
-"value": 0.75,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-09983",
-"score": 0.00675,
-"ac_record": 48,
-"k": 1,
-"ours_ac": null,
-"sac_record": 50,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.75,
 "lane": "dual",
 "family": ""
@@ -8398,6 +8216,20 @@
 "value": 0.251,
 "lane": "yx",
 "family": ""
+},
+{
+"id": "ac-01965",
+"score": 0.00632,
+"ac_record": 40,
+"k": 7,
+"ours_ac": null,
+"sac_record": 41,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 4,
+"value": 0.5078,
+"lane": "yx",
+"family": "MS(5,YYYXYYXyx)"
 },
 {
 "id": "ac-00395",
@@ -8764,6 +8596,20 @@
 "family": ""
 },
 {
+"id": "ac-08174",
+"score": 0.00612,
+"ac_record": 37,
+"k": 5,
+"ours_ac": null,
+"sac_record": 38,
+"k_sac": 3,
+"ours_sac": null,
+"tries": 2,
+"value": 0.1562,
+"lane": "yx",
+"family": ""
+},
+{
 "id": "ac-09423",
 "score": 0.00612,
 "ac_record": 36,
@@ -8814,7 +8660,7 @@
 "sac_record": 51,
 "k_sac": 2,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.75,
 "lane": "dual",
 "family": ""
@@ -8842,21 +8688,7 @@
 "sac_record": 51,
 "k_sac": 2,
 "ours_sac": null,
-"tries": 0,
-"value": 0.75,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-00791",
-"score": 0.00575,
-"ac_record": 50,
-"k": 1,
-"ours_ac": null,
-"sac_record": 52,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.75,
 "lane": "dual",
 "family": ""
@@ -9066,7 +8898,7 @@
 "sac_record": 51,
 "k_sac": 2,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.75,
 "lane": "dual",
 "family": ""
@@ -9209,6 +9041,20 @@
 "tries": 2,
 "value": 0.1562,
 "lane": "dual",
+"family": ""
+},
+{
+"id": "ac-00162",
+"score": 0.00563,
+"ac_record": 46,
+"k": 3,
+"ours_ac": null,
+"sac_record": 47,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 1,
+"value": 0.625,
+"lane": "yx",
 "family": ""
 },
 {
@@ -9402,7 +9248,7 @@
 "sac_record": 48,
 "k_sac": 3,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.625,
 "lane": "family",
 "family": "MS(7,YYYYXYYXyyx)"
@@ -9416,7 +9262,7 @@
 "sac_record": 48,
 "k_sac": 3,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.625,
 "lane": "dual",
 "family": ""
@@ -9584,7 +9430,7 @@
 "sac_record": 48,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.625,
 "lane": "yx",
 "family": "MS(4,YYYYXYYxx)"
@@ -9696,7 +9542,7 @@
 "sac_record": 50,
 "k_sac": 3,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.625,
 "lane": "dual",
 "family": ""
@@ -9752,7 +9598,7 @@
 "sac_record": 50,
 "k_sac": 3,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.625,
 "lane": "dual",
 "family": ""
@@ -9808,7 +9654,7 @@
 "sac_record": 48,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.625,
 "lane": "yx",
 "family": ""
@@ -9838,6 +9684,34 @@
 "ours_sac": null,
 "tries": 2,
 "value": 0.1875,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-03208",
+"score": 0.00552,
+"ac_record": 39,
+"k": 2,
+"ours_ac": null,
+"sac_record": 41,
+"k_sac": 2,
+"ours_sac": null,
+"tries": 5,
+"value": 0.5,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-04331",
+"score": 0.00552,
+"ac_record": 39,
+"k": 2,
+"ours_ac": null,
+"sac_record": 41,
+"k_sac": 2,
+"ours_sac": null,
+"tries": 5,
+"value": 0.5,
 "lane": "dual",
 "family": ""
 },
@@ -9908,6 +9782,20 @@
 "ours_sac": null,
 "tries": 2,
 "value": 0.1406,
+"lane": "yx",
+"family": ""
+},
+{
+"id": "ac-06540",
+"score": 0.0054,
+"ac_record": 38,
+"k": 2,
+"ours_ac": 48,
+"sac_record": 39,
+"k_sac": 2,
+"ours_sac": null,
+"tries": 4,
+"value": 0.5,
 "lane": "yx",
 "family": ""
 },
@@ -10220,6 +10108,20 @@
 "family": ""
 },
 {
+"id": "ac-00791",
+"score": 0.00513,
+"ac_record": 50,
+"k": 1,
+"ours_ac": null,
+"sac_record": 52,
+"k_sac": 3,
+"ours_sac": null,
+"tries": 0,
+"value": 0.625,
+"lane": "dual",
+"family": ""
+},
+{
 "id": "ac-00076",
 "score": 0.00506,
 "ac_record": 45,
@@ -10242,7 +10144,7 @@
 "sac_record": 50,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.5625,
 "lane": "yx",
 "family": ""
@@ -10396,7 +10298,7 @@
 "sac_record": 48,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.5625,
 "lane": "yx",
 "family": ""
@@ -11880,7 +11782,7 @@
 "sac_record": 57,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -12860,7 +12762,7 @@
 "sac_record": 69,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "yx",
 "family": ""
@@ -15744,7 +15646,7 @@
 "sac_record": 66,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -16562,20 +16464,6 @@
 "family": ""
 },
 {
-"id": "ac-06117",
-"score": 0.005,
-"ac_record": 65,
-"k": 1,
-"ours_ac": null,
-"sac_record": 67,
-"k_sac": 1,
-"ours_sac": null,
-"tries": 0,
-"value": 1.0,
-"lane": "dual",
-"family": ""
-},
-{
 "id": "ac-06132",
 "score": 0.005,
 "ac_record": 63,
@@ -16755,20 +16643,6 @@
 "tries": 0,
 "value": 1.0,
 "lane": "yx",
-"family": ""
-},
-{
-"id": "ac-06363",
-"score": 0.005,
-"ac_record": 68,
-"k": 1,
-"ours_ac": null,
-"sac_record": 70,
-"k_sac": 1,
-"ours_sac": null,
-"tries": 0,
-"value": 1.0,
-"lane": "dual",
 "family": ""
 },
 {
@@ -17116,7 +16990,7 @@
 "sac_record": 60,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -18908,7 +18782,7 @@
 "sac_record": 60,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 1.0,
 "lane": "dual",
 "family": ""
@@ -21008,7 +20882,7 @@
 "sac_record": 49,
 "k_sac": 5,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.5312,
 "lane": "dual",
 "family": ""
@@ -21232,7 +21106,7 @@
 "sac_record": 50,
 "k_sac": 6,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.5156,
 "lane": "dual",
 "family": ""
@@ -21246,7 +21120,7 @@
 "sac_record": 50,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.5156,
 "lane": "yx",
 "family": ""
@@ -21260,7 +21134,7 @@
 "sac_record": 49,
 "k_sac": 1,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.5156,
 "lane": "yx",
 "family": ""
@@ -21524,6 +21398,20 @@
 "k": 2,
 "ours_ac": null,
 "sac_record": 50,
+"k_sac": 2,
+"ours_sac": null,
+"tries": 0,
+"value": 0.5,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-01352",
+"score": 0.0045,
+"ac_record": 46,
+"k": 2,
+"ours_ac": null,
+"sac_record": 48,
 "k_sac": 2,
 "ours_sac": null,
 "tries": 0,
@@ -21960,7 +21848,7 @@
 "sac_record": 50,
 "k_sac": 2,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.5,
 "lane": "yx",
 "family": ""
@@ -22652,20 +22540,6 @@
 "family": ""
 },
 {
-"id": "ac-01729",
-"score": 0.00394,
-"ac_record": 39,
-"k": 3,
-"ours_ac": null,
-"sac_record": 41,
-"k_sac": 3,
-"ours_sac": null,
-"tries": 4,
-"value": 0.25,
-"lane": "dual",
-"family": ""
-},
-{
 "id": "ac-02150",
 "score": 0.00394,
 "ac_record": 37,
@@ -22690,20 +22564,6 @@
 "ours_sac": null,
 "tries": 0,
 "value": 0.0703,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-03762",
-"score": 0.00394,
-"ac_record": 39,
-"k": 3,
-"ours_ac": null,
-"sac_record": 41,
-"k_sac": 3,
-"ours_sac": null,
-"tries": 4,
-"value": 0.25,
 "lane": "dual",
 "family": ""
 },
@@ -23612,7 +23472,7 @@
 "sac_record": 61,
 "k_sac": 2,
 "ours_sac": null,
-"tries": 0,
+"tries": 1,
 "value": 0.75,
 "lane": "dual",
 "family": ""
@@ -24226,6 +24086,20 @@
 "k": 1,
 "ours_ac": null,
 "sac_record": 69,
+"k_sac": 2,
+"ours_sac": null,
+"tries": 0,
+"value": 0.75,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-06117",
+"score": 0.00375,
+"ac_record": 65,
+"k": 1,
+"ours_ac": null,
+"sac_record": 67,
 "k_sac": 2,
 "ours_sac": null,
 "tries": 0,
@@ -25256,20 +25130,6 @@
 "family": ""
 },
 {
-"id": "ac-00252",
-"score": 0.0035,
-"ac_record": 37,
-"k": 5,
-"ours_ac": null,
-"sac_record": 39,
-"k_sac": 5,
-"ours_sac": null,
-"tries": 0,
-"value": 0.0625,
-"lane": "dual",
-"family": ""
-},
-{
 "id": "ac-00349",
 "score": 0.0035,
 "ac_record": 50,
@@ -25844,20 +25704,6 @@
 "family": ""
 },
 {
-"id": "ac-04991",
-"score": 0.0035,
-"ac_record": 50,
-"k": 2,
-"ours_ac": null,
-"sac_record": 52,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 0,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
 "id": "ac-05176",
 "score": 0.0035,
 "ac_record": 50,
@@ -26004,20 +25850,6 @@
 "k": 2,
 "ours_ac": null,
 "sac_record": 52,
-"k_sac": 2,
-"ours_sac": null,
-"tries": 0,
-"value": 0.5,
-"lane": "dual",
-"family": ""
-},
-{
-"id": "ac-07228",
-"score": 0.0035,
-"ac_record": 49,
-"k": 2,
-"ours_ac": null,
-"sac_record": 51,
 "k_sac": 2,
 "ours_sac": null,
 "tries": 0,
@@ -26670,6 +26502,20 @@
 "family": ""
 },
 {
+"id": "ac-06793",
+"score": 0.00338,
+"ac_record": 48,
+"k": 1,
+"ours_ac": 57,
+"sac_record": 50,
+"k_sac": 2,
+"ours_sac": 59,
+"tries": 1,
+"value": 0.75,
+"lane": "dual",
+"family": ""
+},
+{
 "id": "ac-06885",
 "score": 0.00338,
 "ac_record": 42,
@@ -26890,6 +26736,20 @@
 "ours_sac": null,
 "tries": 0,
 "value": 0.1875,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-09983",
+"score": 0.00338,
+"ac_record": 48,
+"k": 2,
+"ours_ac": null,
+"sac_record": 50,
+"k_sac": 3,
+"ours_sac": null,
+"tries": 0,
+"value": 0.375,
 "lane": "dual",
 "family": ""
 },
@@ -27987,6 +27847,146 @@
 },
 {
 "id": "ac-07997",
+"score": 0.0033,
+"ac_record": 69,
+"k": 1,
+"ours_ac": null,
+"sac_record": 71,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 0,
+"value": 1.0,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-08226",
+"score": 0.0033,
+"ac_record": 69,
+"k": 1,
+"ours_ac": null,
+"sac_record": 71,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 0,
+"value": 1.0,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-08302",
+"score": 0.0033,
+"ac_record": 69,
+"k": 1,
+"ours_ac": null,
+"sac_record": 71,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 0,
+"value": 1.0,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-08360",
+"score": 0.0033,
+"ac_record": 70,
+"k": 1,
+"ours_ac": null,
+"sac_record": 72,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 0,
+"value": 1.0,
+"lane": "family",
+"family": "MS(6,YYYxYYxYX)"
+},
+{
+"id": "ac-08518",
+"score": 0.0033,
+"ac_record": 69,
+"k": 1,
+"ours_ac": null,
+"sac_record": 71,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 0,
+"value": 1.0,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-08739",
+"score": 0.0033,
+"ac_record": 69,
+"k": 1,
+"ours_ac": null,
+"sac_record": 71,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 0,
+"value": 1.0,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-08800",
+"score": 0.0033,
+"ac_record": 69,
+"k": 1,
+"ours_ac": null,
+"sac_record": 71,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 0,
+"value": 1.0,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-08816",
+"score": 0.0033,
+"ac_record": 74,
+"k": 1,
+"ours_ac": null,
+"sac_record": 68,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 0,
+"value": 1.0,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-09053",
+"score": 0.0033,
+"ac_record": 69,
+"k": 1,
+"ours_ac": null,
+"sac_record": 71,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 0,
+"value": 1.0,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-09084",
+"score": 0.0033,
+"ac_record": 70,
+"k": 1,
+"ours_ac": null,
+"sac_record": 72,
+"k_sac": 1,
+"ours_sac": null,
+"tries": 0,
+"value": 1.0,
+"lane": "dual",
+"family": ""
+},
+{
+"id": "ac-09183",
 "score": 0.0033,
 "ac_record": 69,
 "k": 1,
