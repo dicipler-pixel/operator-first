@@ -3,8 +3,8 @@
 You search; only session 2 sends. The new beam (BEAM_DUAL=0.75) beat our old best on 7 of 10 rows and got
 2 new ties in its first hour (submission 2670). Two row lists, one per machine, no overlap with our lanes:
 
-- **Helper A** (Codex): `research/acc/live/targets_dual_helperA_20260928.json` (86 rows)
-- **Helper B** (Luna or Bob): `research/acc/live/targets_dual_helperB_20260928.json` (86 rows)
+- **Helper A** (Codex): `research/acc/live/targets_dual_helperA_20260928.json` (82 rows)
+- **Helper B** (Luna or Bob): `research/acc/live/targets_dual_helperB_20260928.json` (82 rows)
 
 Rows: AC records 41–52, not held by us, tie value 0.1–1.0 (AC + SAC together), best value per move first.
 
