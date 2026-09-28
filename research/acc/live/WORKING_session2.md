@@ -1,3 +1,15 @@
+# Session 2 (lead, sender): live lanes (updated 2026-09-28 20:20Z)
+
+Current (skip these rows):
+- **rk1 / rk2**: two-eyes beam on the top 300 dual+yx rows of TARGETS_RANKED (`$S/work/rk1_targets.json`, `rk2_targets.json`, 150 each).
+- **p2v**: two-eyes beam, 299 rows.
+- **(y,x) lane**: yxl (178 rows) + yxl2; long rows (SAC > 90) parked. Fable holds `targets_yx_fable_20260928.json`.
+- **near_escalate**: every row 1 over a record with k <= 2 gets mirror twin (AC) and yx/yx2 twins (SAC).
+- **ac-07790** (MCSC family, record 40): iterative mid-restart from our 45 path.
+- Helpers' new slices (20:15Z): `ORDERS_helpers_20260928T2015Z.md` (Codex mirror, Luna yx2, Bob fresh dual).
+
+---
+
 # Rows the API session (session 2) is working on (updated 2026-09-27 23:58Z)
 
 Exact capped sweeps (`run_capped_sweep.py`), AC and Stable AC together; every AC hit also yields AC + [16,15].
