@@ -50,6 +50,8 @@ Without `--yes`, it's a dry run.
   already sent.
 - Submission 2632 (07:07Z, batch): ac/sac-07004 (43/45) and ac-04278 (35), k14 ties from session 1's road
   cycle, 3/3 accepted (tiny value).
+- **Submission 2638 (08:19Z): ac/sac-03060 28/30, k1 ties (+1.0), the first win from the P2 beam** (atlas B31
+  lookahead), plus ac-05835 33 (k13). 3/3 accepted.
 - Board watcher: `changes` every 30 min into `research/acc/live/changes/`. It alerts on
   "LOST OUR TIE" or a newly solved row.
 
