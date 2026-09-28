@@ -947,6 +947,11 @@ def main():
         '(L3,P2,P1m,raw)': [('L3', 1), ('P2c8', 1), ('P1m', 1), ('raw', 1)],
         '(P2,cage,P1m,raw)': [('P2c8', 1), ('cage', 1), ('P1m', 1), ('raw', 1)],
     }
+    # symmetry ranked HIGHER (more symmetric first; sign -1), lead's follow-up after the pass-through result
+    for sy in ('stab', 'cage', 'cage_n', 'selfsym'):
+        COMBOS['(P2,%s_high,P1m,H)' % sy] = [('P2c8', 1), (sy, -1), ('P1m', 1), ('H', 1)]
+        COMBOS['(P2,comm_len,%s_high,P1m,H)' % sy] = [('P2c8', 1), ('comm_len', 1), (sy, -1), ('P1m', 1), ('H', 1)]
+        COMBOS['(P2,%s_high,comm_len,P1m,H)' % sy] = [('P2c8', 1), (sy, -1), ('comm_len', 1), ('P1m', 1), ('H', 1)]
     for nm, comps in COMBOS.items():
         if all(n in active for n, _ in comps):
             configs['combo|' + nm] = (comps, {'score': nm, 'direction': 'as listed', 'flipped_post_hoc': False,
@@ -994,7 +999,8 @@ def main():
     boots = [[brng.choice(hump_pis) for _ in hump_pis] for _ in range(args.boot)]
     base_ids = {'raw': 'raw|low|prim', 'P1m': 'P1m|low|prim', 'P2c8': 'P2c8|low|prim',
                 'P2c8>P1m': 'combo|(P2,P1m)', 'K0 P2c8>P1m>raw': 'combo|K0 (P2,P1m,raw)',
-                'beam P2=2 H': 'combo|beam P2=2 H: (P2,H)', 'beam P2=1 H': 'combo|beam P2=1 H: (P2,P1m,H)'}
+                'beam P2=2 H': 'combo|beam P2=2 H: (P2,H)', 'beam P2=1 H': 'combo|beam P2=1 H: (P2,P1m,H)',
+                'P2>comm_len>P1m>H': 'combo|(P2,comm_len,P1m,H)'}
 
     def agg(cid, sample, which):
         pp = perpath[cid]
@@ -1030,8 +1036,9 @@ def main():
     for cid, e in res.items():
         if e['hump_climb'] is None or (e['hump_climb']['top3'] < thr and e['mode'] != 'combo'):
             continue
-        e['boot95_d_top3_climb'] = {bn: boot_delta(cid, base_ids[bn], 'climb') for bn in ('P1m', 'K0 P2c8>P1m>raw')}
-        e['boot95_d_top3_all'] = {bn: boot_delta(cid, base_ids[bn], 'all') for bn in ('P1m', 'K0 P2c8>P1m>raw')}
+        bl = ('P1m', 'K0 P2c8>P1m>raw') + (('P2>comm_len>P1m>H',) if e['mode'] == 'combo' else ())
+        e['boot95_d_top3_climb'] = {bn: boot_delta(cid, base_ids[bn], 'climb') for bn in bl}
+        e['boot95_d_top3_all'] = {bn: boot_delta(cid, base_ids[bn], 'all') for bn in bl}
         nboot += 1
     print('bootstrap done', nboot, round(time.time() - T0, 1), flush=True)
 

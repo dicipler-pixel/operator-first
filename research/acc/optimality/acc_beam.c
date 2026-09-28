@@ -188,6 +188,8 @@ static uint32_t comm_len(const St*s){ static uint8_t o[4*MAXW+8]; int n=0;   /* 
 // rotation, the smaller of the word's and its inverse's). Candidates are admitted in key order; BEAM_DIV then keeps
 // its best fraction and samples its tail from the admitted list only. If fewer than W are admitted, the remaining
 // slots are filled from the over-quota candidates in key order. Not combinable with BEAM_NOV.
+// BEAM_ELITE=e (with BEAM_QUOTA; "protect what can be protected, release the rest"): the best e candidates by the full
+// key are admitted regardless of class and do not use up their class's quota; the quota applies to the rest only.
 // BEAM_WH=1 (atlas B83, "measure in a matched frame"): secondary key = Whitehead-minimal cyclic total length, found by
 // greedy steepest descent over the 8 automorphisms x->x y^e, x->y^e x, y->y x^e, y->x^e y (e = +-1) applied to both
 // cyclic words until none lowers the total. It sits right after P2 when BEAM_P2 is set (in P1m's slot for mode 2,
@@ -198,7 +200,7 @@ static uint32_t comm_len(const St*s){ static uint8_t o[4*MAXW+8]; int n=0;   /* 
 // (index on a known path, hex fingerprints of that state as fp() gives them). Each depth prints to stderr, for every
 // traced state that becomes a candidate: its rank in the sorted candidate list, the tie block [lo,hi) of its key
 // without the fingerprint bits, the cut keys at k1 = W*DIV and W, and whether it survived. Observation only.
-static int QUOTA=0,WHM=0; static uint64_t WHcalls,WHhits,WHsat; static double WHtime;
+static int QUOTA=0,WHM=0; static uint64_t ELITE=0; static uint64_t WHcalls,WHhits,WHsat; static double WHtime;
 static int at_least_rot(const uint8_t*s,int n){ int i=0,j=1,k=0;   /* s holds the word twice */
   while(i<n&&j<n&&k<n){ uint8_t a=s[i+k],b=s[j+k]; if(a==b){ k++; continue; } if(a>b) i+=k+1; else j+=k+1; if(i==j) j++; k=0; }
   return i<j?i:j; }
@@ -262,6 +264,7 @@ int main(int argc,char**argv){
   P2M=getenv("BEAM_P2")?atoi(getenv("BEAM_P2")):0; if(P2M&&P2M!=1&&P2M!=2&&P2M!=3) die("BEAM_P2 must be 1, 2 or 3"); if(getenv("BEAM_P2CUT")) P2CUT=atoi(getenv("BEAM_P2CUT"));
   if(P2M){ nodes[0].p2=p2_of(&s0); fprintf(stderr,"p2: mode %d cut %d start P2=%u P1m=%u\n",P2M,P2CUT,nodes[0].p2,p1m_of(&s0)); }
   QUOTA=getenv("BEAM_QUOTA")?atoi(getenv("BEAM_QUOTA")):0; WHM=getenv("BEAM_WH")?atoi(getenv("BEAM_WH")):0;
+  ELITE=getenv("BEAM_ELITE")?strtoull(getenv("BEAM_ELITE"),0,10):0; if(ELITE&&QUOTA<=0) die("BEAM_ELITE needs BEAM_QUOTA");
   if(QUOTA<0||(WHM!=0&&WHM!=1)) die("BEAM_QUOTA must be >= 0 and BEAM_WH 0 or 1");
   if(QUOTA>0&&getenv("BEAM_NOV")&&atoi(getenv("BEAM_NOV"))>0) die("BEAM_QUOTA and BEAM_NOV together"); if(WHM&&LOOK) die("BEAM_WH and BEAM_LOOK together"); if(WHM&&P2M==3) die("BEAM_WH and BEAM_P2=3 together");
   int ATL=QUOTA>0||WHM; uint64_t*NCL=NULL; uint16_t*NWH=NULL;
@@ -321,7 +324,7 @@ int main(int argc,char**argv){
         static uint64_t*qk; static uint32_t*qc; static uint64_t qcap; uint64_t hs=1; while(hs<2*nt) hs<<=1;
         if(hs>qcap){ qk=realloc(qk,8*hs); qc=realloc(qc,4*hs); if(!qk||!qc) die("quota alloc"); qcap=hs; } memset(qk,0,8*hs);
         uint32_t*A=malloc(4*nt),*R=malloc(4*nt); uint64_t nA=0,nR=0,ncls=0; if(!A||!R) die("quota alloc");
-        for(uint64_t q=0;q<nt;q++){ uint64_t c=tCL[C[q].idx],sl=fmix_a(c)&(hs-1); while(qk[sl]&&qk[sl]!=c) sl=(sl+1)&(hs-1);
+        for(uint64_t q=0;q<nt;q++){ if(q<ELITE){ A[nA++]=(uint32_t)q; continue; } uint64_t c=tCL[C[q].idx],sl=fmix_a(c)&(hs-1); while(qk[sl]&&qk[sl]!=c) sl=(sl+1)&(hs-1);
           if(!qk[sl]){ qk[sl]=c; qc[sl]=0; ncls++; } if(qc[sl]<(uint32_t)QUOTA){ qc[sl]++; A[nA++]=(uint32_t)q; } else R[nR++]=(uint32_t)q; }
         for(int j=0;j<ntrh;j++){ for(uint64_t q=0;q<nA;q++) if(A[q]==(uint32_t)trRank[j]){ trAdm[j]=1; trQ[j]=(int64_t)q; break; }
           if(trAdm[j]<0) for(uint64_t q=0;q<nR;q++) if(R[q]==(uint32_t)trRank[j]){ trAdm[j]=0; trQ[j]=(int64_t)q; break; } }
