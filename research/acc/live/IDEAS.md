@@ -543,3 +543,9 @@ the conjugation by x cancels a leading X, so there is no rotation cost. Then y =
 move, and the peel is 6. Answers session 2's crux for n=3. n=4 needs more leading X's (details in ORDERS_luna_ms.md).
 Other exact n=3 results: cap 16 -> 30, cap 18 -> AC none <= 29 (SAC 31), cap 20 -> 28. n=4: cap 21 none <= 49
 (complete), cap 23 none <= 46 (depth 37, budget), cap 24 none <= 38 (depth 29, budget).
+Echo reruns with the rebuilt binary (valid, 06:55Z):
+- Cross-row echo: ac-09989 best 23 (= record, already ours), ac-03919 30 (record 27), ac-04251 38 (record 37), all complete
+  at their caps; ac-06903 running. No improvement over existing roads.
+- MS(4, YXXyx) build search against our own finish (8,665 echo states from moves 20-55 and radius 3 around 28-36):
+  best 55 at caps 21 and 23, complete to depth 31. So no route whose first 30 moves stay <= 23 joins our finish
+  region sooner. The leaders' n=4 road differs in the finish too, or climbs above 23 early.
