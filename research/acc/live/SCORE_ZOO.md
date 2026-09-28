@@ -86,3 +86,30 @@ Put a word-level tie-break **between P2 and P1m** (BEAM_P2=1 layout: P2 | new | 
 Caveats: this is ranking on known paths, not beam outcomes. 536 configurations were screened, and post-hoc sign flips
 are flagged in the JSON. The CIs of the top six keys clear K0 by ≥ 0.14 on climbing steps. Some record paths came from beams keyed on length, H or P1m,
 which would bias the screen toward the baselines, not the new scores.
+
+## Follow-up: symmetry ranked higher (more symmetric first)
+
+This follow-up asks whether record paths' preference for symmetric states (0.71 record vs 0.51 siblings) helps as a tie-break.
+Same harness, one niced run. The JSON was regenerated with the new keys added; old keys are unchanged, except that
+the at-record set now has **247** paths (one new record path in the repo). Hump numbers are unchanged. The Δ columns are
+against (P2, comm_len, P1m, H), with a paired path bootstrap and 95% CI.
+
+| key | climbing top-3 | climbing conj | all steps top-3 | Δ climbing | Δ all |
+|---|---|---|---|---|---|
+| (P2, comm_len, P1m, H) | 0.616 | 0.512 | 0.652 | 0 | 0 |
+| (P2, stab_high, P1m, H) | 0.436 | 0.072 | 0.629 | [−0.25, −0.11] | [−0.05, +0.01] |
+| (P2, cage_high, P1m, H) | 0.439 | 0.072 | 0.629 | [−0.24, −0.11] | [−0.05, +0.01] |
+| (P2, comm_len, stab_high, P1m, H) | 0.623 | 0.512 | **0.686** | [−0.01, +0.02] | **[+0.03, +0.04]** |
+| (P2, stab_high, comm_len, P1m, H) | 0.616 | 0.512 | **0.686** | [−0.02, +0.01] | **[+0.03, +0.04]** |
+| (P2, comm_len, cage_high, P1m, H) | 0.620 | 0.512 | **0.686** | [0.00, +0.01] | **[+0.03, +0.04]** |
+| (P2, cage_high, comm_len, P1m, H) | 0.620 | 0.512 | **0.686** | [0.00, +0.01] | **[+0.03, +0.04]** |
+| (P2, comm_len, selfsym_high, P1m, H) | 0.564 | 0.512 | 0.645 | [−0.08, −0.03] | [−0.01, 0.00] |
+
+`stab` counts the signed letter permutations that fix the pair of classes. `cage` = 1 if r1 ~ σ(r0)^±1 for one of the 8
+signed letter permutations; `cage_n` gives the same numbers. `selfsym` counts per-relator self-symmetries.
+
+**Reading.** Symmetry is class-level, so it cannot separate conjugation children (climbing conjugations stay at 0.512).
+Behind comm_len, `cage_high` or `stab_high` adds **+0.03 to +0.04 on all steps** (CI excludes 0) and ≈ 0 on climbing steps.
+The gain is mostly endgame (cage states occur only in the last 6 moves). Without comm_len it is no better than P2=1 H.
+`selfsym_high` hurts. **Beam:** P2 | comm_len | cage flag (1 bit, preferred) | P1m | klen. The cage bit is cheap: canonical
+forms of σ(r0) for 8 σ, compared with r1's class, only on multiplication children (the others inherit it).
