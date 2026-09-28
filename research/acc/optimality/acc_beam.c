@@ -5,7 +5,8 @@
 // or a Stable AC path d+t+2 (via (y,x)). Kernel/fingerprint/table shared with acc_opt.c.
 // usage: acc_beam TFILE W DMAX l0 w.. l1 w..
 // Options (env): BEAM_H, BEAM_BAL, BEAM_DIV, BEAM_NOV, BEAM_NOISE, BEAM_SEED, BEAM_LOOK, BEAM_SHADOW(+_FILE),
-// BEAM_MACROS(+BEAM_MACW), BEAM_P2 (+BEAM_P2CUT); see the comments at each. All off by default.
+// BEAM_MACROS(+BEAM_MACW), BEAM_P2 (+BEAM_P2CUT), BEAM_QUOTA, BEAM_WH, BEAM_TRACE_FILE; see the comments at each.
+// All off by default.
 // build: gcc -O3 -march=native -o acc_beam acc_beam.c -lm
 #define ACC_NO_MAIN
 #include "acc_opt.c"
@@ -174,6 +175,65 @@ static uint16_t p2_of(const St*s){ static char r0[MAXW+1],r1[MAXW+1],A[MAXW+1],B
 static uint32_t p1m_of(const St*s){ static char r0[MAXW+1],r1[MAXW+1]; p2_enc(s->w[0],s->l[0],r0); p2_enc(s->w[1],s->l[1],r1);
   int v=p2_p1m(r0,s->l[0],r1,s->l[1]); return v>1023?1023:(uint32_t)v; }
 // ---- P2 end ----
+// ---- atlas begin ----
+// BEAM_QUOTA=q (atlas B16/B17, "overflow builds its own wall"): at most q survivors per class, class = the unordered
+// pair of cyclic conjugacy classes of (r0, r1), each taken up to inversion (hash of the cyclically reduced word's least
+// rotation, the smaller of the word's and its inverse's). Candidates are admitted in key order; BEAM_DIV then keeps
+// its best fraction and samples its tail from the admitted list only. If fewer than W are admitted, the remaining
+// slots are filled from the over-quota candidates in key order. Not combinable with BEAM_NOV.
+// BEAM_WH=1 (atlas B83, "measure in a matched frame"): secondary key = Whitehead-minimal cyclic total length, found by
+// greedy steepest descent over the 8 automorphisms x->x y^e, x->y^e x, y->y x^e, y->x^e y (e = +-1) applied to both
+// cyclic words until none lowers the total. It sits right after P2 when BEAM_P2 is set (in P1m's slot for mode 2,
+// before P1m for mode 1), else right after the existing key; only fingerprint tie-break bits come after it.
+// Class and WH are functions of the class, so conjugation (6-13) and inversion (0-1) children inherit them;
+// multiplication (2-5) and macro children compute them, WH through a class-keyed cache.
+// BEAM_TRACE_FILE=f (atlas B20 / Plate XI, "lost among ties, ranked wrong, or short of width?"): lines "i h1 h2"
+// (index on a known path, hex fingerprints of that state as fp() gives them). Each depth prints to stderr, for every
+// traced state that becomes a candidate: its rank in the sorted candidate list, the tie block [lo,hi) of its key
+// without the fingerprint bits, the cut keys at k1 = W*DIV and W, and whether it survived. Observation only.
+static int QUOTA=0,WHM=0; static uint64_t WHcalls,WHhits,WHsat; static double WHtime;
+static int at_least_rot(const uint8_t*s,int n){ int i=0,j=1,k=0;   /* s holds the word twice */
+  while(i<n&&j<n&&k<n){ uint8_t a=s[i+k],b=s[j+k]; if(a==b){ k++; continue; } if(a>b) i+=k+1; else j+=k+1; if(i==j) j++; k=0; }
+  return i<j?i:j; }
+static uint64_t at_rel_class(const uint8_t*w,int n){ int i=0,j=n; while(j-i>1&&w[i]==(w[j-1]^1)){ i++; j--; } int m=j-i;
+  if(!m) return 0x5BD1E9955BD1E995ULL; static uint8_t d[2*MAXW],di[2*MAXW];
+  memcpy(d,w+i,m); memcpy(d+m,w+i,m); for(int t=0;t<m;t++) di[t]=w[j-1-t]^1; memcpy(di+m,di,m);
+  int a=at_least_rot(d,m),b=at_least_rot(di,m); const uint8_t*p=memcmp(d+a,di+b,m)<=0?d+a:di+b;
+  uint64_t h=0x9E3779B97F4A7C15ULL^((uint64_t)m*0xC2B2AE3D27D4EB4FULL),c=0; int t=0;
+  for(int q=0;q<m;q++){ c|=(uint64_t)p[q]<<(2*t); if(++t==32){ h=fmix_a(h^c); c=0; t=0; } }
+  return fmix_a(h^c^((uint64_t)t<<58)); }
+static uint64_t at_class(const St*s){ uint64_t a=at_rel_class(s->w[0],s->l[0]),b=at_rel_class(s->w[1],s->l[1]);
+  if(a>b){ uint64_t t=a; a=b; b=t; } return fmix_b(a*0x9FB21C651E98DF25ULL^rotl(b,23))|1ULL; }
+static int wh_img(const uint8_t*w,int n,int a,uint8_t*o){     /* a: bit2 gen (x/y), bit1 side (g->g t / g->t g), bit0 e */
+  uint8_t g=(a>>2)?2:0,t=(uint8_t)(((a>>2)?0:2)|(a&1)); int side=(a>>1)&1,L=0;
+  for(int i=0;i<n;i++){ uint8_t c=w[i];
+    if(c==g){ if(!side){ L=push_red(o,L,g); L=push_red(o,L,t); } else { L=push_red(o,L,t); L=push_red(o,L,g); } }
+    else if(c==(g^1)){ if(!side){ L=push_red(o,L,t^1); L=push_red(o,L,g^1); } else { L=push_red(o,L,g^1); L=push_red(o,L,t^1); } }
+    else L=push_red(o,L,c); }
+  int i=0,j=L; while(j-i>1&&o[i]==(o[j-1]^1)){ i++; j--; } if(i) memmove(o,o+i,j-i); return j-i; }
+#define WHCAP 4000                    /* cyclic total above this: WH saturates at 1023 */
+static uint16_t wh_min(const St*s){ static uint8_t buf[6][2*WHCAP+8]; uint8_t*cu[2]={buf[0],buf[1]},*bs[2]={buf[2],buf[3]},*cd[2]={buf[4],buf[5]};
+  int n[2]; for(int r=0;r<2;r++){ int i=0,j=s->l[r]; const uint8_t*w=s->w[r]; while(j-i>1&&w[i]==(w[j-1]^1)){ i++; j--; } n[r]=j-i;
+    if(n[0]+(r?n[1]:0)>WHCAP){ WHsat++; return 1023; } memcpy(cu[r],w+i,n[r]); }
+  int tot=n[0]+n[1];
+  for(;;){ int best=tot,bn[2]={0,0};
+    for(int a=0;a<8;a++){ int l0=wh_img(cu[0],n[0],a,cd[0]),l1=wh_img(cu[1],n[1],a,cd[1]);
+      if(l0+l1<best){ best=l0+l1; bn[0]=l0; bn[1]=l1; uint8_t*t0=bs[0],*t1=bs[1]; bs[0]=cd[0]; bs[1]=cd[1]; cd[0]=t0; cd[1]=t1; } }
+    if(best>=tot) break; uint8_t*t0=cu[0],*t1=cu[1]; cu[0]=bs[0]; cu[1]=bs[1]; bs[0]=t0; bs[1]=t1; n[0]=bn[0]; n[1]=bn[1]; tot=best; }
+  return (uint16_t)(tot>1023?1023:tot); }
+typedef struct { uint64_t c; uint16_t v; } WHCache; static WHCache*WHC;
+#define WHCB 18
+static uint16_t wh_of(const St*s,uint64_t cls){ double t0=now(); WHcalls++;
+  if(!WHC){ WHC=calloc((size_t)1<<WHCB,sizeof(WHCache)); if(!WHC) die("wh cache"); }
+  WHCache*e=&WHC[fmix_a(cls)>>(64-WHCB)]; if(e->c==cls){ WHhits++; WHtime+=now()-t0; return e->v; }
+  uint16_t v=wh_min(s); e->c=cls; e->v=v; WHtime+=now()-t0; return v; }
+#define TRMAX 4096
+static int NTR; static uint64_t TRh1[TRMAX],TRh2[TRMAX]; static int TRi[TRMAX];
+static void load_trace(const char*fn){ FILE*f=fopen(fn,"r"); if(!f) die("trace file"); char line[256];
+  while(NTR<TRMAX&&fgets(line,sizeof line,f)){ int i; unsigned long long a,b; if(sscanf(line,"%d %llx %llx",&i,&a,&b)!=3) continue;
+    TRi[NTR]=i; TRh1[NTR]=a; TRh2[NTR]=b; NTR++; } fclose(f); }
+static int trace_find(uint64_t h1,uint64_t h2){ for(int k=0;k<NTR;k++) if(TRh1[k]==h1&&TRh2[k]==h2) return TRi[k]; return -1; }
+// ---- atlas end ----
 static int cmpc(const void*a,const void*b){ uint64_t x=((Cand*)a)->key,y=((Cand*)b)->key; return x<y?-1:x>y; }
 int main(int argc,char**argv){
   const char*tf=argv[1]; uint64_t W=strtoull(argv[2],0,10); int DMAX=atoi(argv[3]); St s0; parse_state(argv,4,&s0);
@@ -194,13 +254,25 @@ int main(int argc,char**argv){
   SHW=getenv("BEAM_SHADOW")?atof(getenv("BEAM_SHADOW")):0.0; if(SHW>0){ if(!getenv("BEAM_SHADOW_FILE")) die("BEAM_SHADOW_FILE"); load_probes(getenv("BEAM_SHADOW_FILE")); }
   P2M=getenv("BEAM_P2")?atoi(getenv("BEAM_P2")):0; if(P2M&&P2M!=1&&P2M!=2) die("BEAM_P2 must be 1 or 2"); if(getenv("BEAM_P2CUT")) P2CUT=atoi(getenv("BEAM_P2CUT"));
   if(P2M){ nodes[0].p2=p2_of(&s0); fprintf(stderr,"p2: mode %d cut %d start P2=%u P1m=%u\n",P2M,P2CUT,nodes[0].p2,p1m_of(&s0)); }
+  QUOTA=getenv("BEAM_QUOTA")?atoi(getenv("BEAM_QUOTA")):0; WHM=getenv("BEAM_WH")?atoi(getenv("BEAM_WH")):0;
+  if(QUOTA<0||(WHM!=0&&WHM!=1)) die("BEAM_QUOTA must be >= 0 and BEAM_WH 0 or 1");
+  if(QUOTA>0&&getenv("BEAM_NOV")&&atoi(getenv("BEAM_NOV"))>0) die("BEAM_QUOTA and BEAM_NOV together"); if(WHM&&LOOK) die("BEAM_WH and BEAM_LOOK together");
+  int ATL=QUOTA>0||WHM; uint64_t*NCL=NULL; uint16_t*NWH=NULL;
+  if(ATL){ NCL=malloc(8*(W*(uint64_t)(DMAX+1)+1)); NWH=malloc(2*(W*(uint64_t)(DMAX+1)+1)); if(!NCL||!NWH) die("atlas alloc");
+    NCL[0]=at_class(&s0); NWH[0]=WHM?wh_of(&s0,NCL[0]):0; fprintf(stderr,"atlas: quota %d wh %d start WH=%u\n",QUOTA,WHM,NWH[0]); }
+  if(getenv("BEAM_TRACE_FILE")){ uint64_t g1,g2; load_trace(getenv("BEAM_TRACE_FILE")); fp(&s0,&g1,&g2); fprintf(stderr,"trace: %d states; start state is index %d\n",NTR,trace_find(g1,g2)); }
+  const int KS=LOOK?40:P2M?((WHM&&P2M==1)?17:27):(WHM?30:40);   /* key bits below the ranking fields (fingerprint tie-break) */
+  static uint32_t trNt[256]; static int trI[256],trT[256]; static uint64_t trKey[256]; int ntrh=0;
   int NOISE=getenv("BEAM_NOISE")?atoi(getenv("BEAM_NOISE")):0; if(HP) NOISE*=16; /* priority is scaled x16 */ uint64_t SEED=getenv("BEAM_SEED")?strtoull(getenv("BEAM_SEED"),0,10)*0xD1B54A32D192ED03ULL:0;
   for(int d=1;d<=DMAX;d++){
     if(d>=bestAC && d+2>=bestSAC) break;
     Node*tmpN=malloc(sizeof(Node)*(hi-lo)*(14+NMAC)+1); uint64_t nt=0; SAn=0; memset(L.t,0,16*L.N); L.n=0;
+    uint64_t*tCL=ATL?malloc(8*((hi-lo)*(14+NMAC)+1)):NULL; uint16_t*tWH=ATL?malloc(2*((hi-lo)*(14+NMAC)+1)):NULL; ntrh=0;
+    if(ATL&&(!tCL||!tWH)) die("atlas alloc");
     for(uint64_t i=lo;i<hi;i++){ load(nodes[i].off,&cur);
       for(int m=0;m<14+NMAC;m++){ int ctd=nodes[i].td+1; if(m<14) apply(&cur,m,&nx); else { if(!apply_macro(&cur,m-14,&nx)) continue; ctd=nodes[i].td+MACL[m-14]; } fp(&nx,&h1,&h2);
-        if(tab_find(&V,h1,h2)>=0) continue; if(tab_ins(&L,h1,h2,1,1)>=0) continue;
+        if(tab_find(&V,h1,h2)>=0){ if(NTR){ int ti=trace_find(h1,h2); if(ti>=0) fprintf(stderr,"TRACE d=%d i=%d visited\n",d,ti); } continue; }
+        if(tab_ins(&L,h1,h2,1,1)>=0) continue;
         int t=tab_find(&TT,h1,h2); if(t>=0&&ctd+t<bestAC){ bestAC=ctd+t; acNode=(uint32_t)i; acT=t; acSt=nx; acMv=m; }
         swapst(&nx,&sw); uint64_t g1,g2; fp(&sw,&g1,&g2); int u=tab_find(&TT,g1,g2);
         if(u>=0&&ctd+u+2<bestSAC){ bestSAC=ctd+u+2; sacNode=(uint32_t)i; sacT=u; sacSt=nx; sacMv=m; }
@@ -215,17 +287,42 @@ int main(int argc,char**argv){
             if((nchk&0xFFFFF)==0) fprintf(stderr,"P2 inherit check: %llu uncached recomputations, %llu mismatches\n",(unsigned long long)nchk,(unsigned long long)bad); }
 #endif
         } }
+        if(ATL){ if((m>=2&&m<=5)||m>=14){ tCL[nt]=at_class(&nx); tWH[nt]=WHM?wh_of(&nx,tCL[nt]):0; } else { tCL[nt]=NCL[i]; tWH[nt]=NWH[i]; } }
         tmpN[nt]=(Node){SAn,(uint32_t)i,(uint8_t)m,len,(uint16_t)ctd,cp2}; SAn+=need;
         // BEAM_NOISE=n, BEAM_SEED=s: add a seeded pseudo-random 0..n to the length key (route diversity)
         uint32_t klen=HP?hprio(&nx):len; if(SHW>0) klen+=(uint32_t)(SHW*(HP?16.0:1.0)*shadow(&nx)+0.5); if(NMAC) klen+=(uint32_t)(MACW*(HP?16.0:1.0)*(ctd-d)+0.5); if(NOISE){ uint64_t z=(h1^SEED)*0x9E3779B97F4A7C15ULL; z^=z>>29; klen+=(uint32_t)(z%(uint64_t)(NOISE+1)); }
         uint64_t key=((uint64_t)klen<<40)|((h1^SEED)>>24);
+        if(WHM) key=((uint64_t)klen<<40)|((uint64_t)tWH[nt]<<30)|((h1^SEED)>>34);   /* BEAM_WH: klen | WH (10 bits) | 30 fp bits */
         // BEAM_P2: P2 (9 bits) | P1m (10 bits, mode 1 only) | existing klen (18 bits, saturated) | 27 fingerprint bits
         if(P2M){ uint64_t kl=klen>0x3FFFFu?0x3FFFFu:klen, pm=P2M==1?p1m_of(&nx):0;
-          key=((uint64_t)cp2<<55)|(pm<<45)|(kl<<27)|((h1^SEED)>>37); }
+          key=((uint64_t)cp2<<55)|(pm<<45)|(kl<<27)|((h1^SEED)>>37);
+          if(WHM){ uint64_t wv=tWH[nt]; key=P2M==2?(((uint64_t)cp2<<55)|(wv<<45)|(kl<<27)|((h1^SEED)>>37))      /* P2 | WH | klen | 27 fp */
+                                                :(((uint64_t)cp2<<55)|(wv<<45)|(pm<<35)|(kl<<17)|((h1^SEED)>>47)); } }  /* P2 | WH | P1m | klen | 17 fp */
         if(LOOK){ uint32_t best=len; St y; for(int m2=0;m2<14;m2++){ apply(&nx,m2,&y); uint32_t l2=y.l[0]+y.l[1]; if(l2<best) best=l2; }
           key=((uint64_t)best<<52)|((uint64_t)(len&4095)<<40)|(h1>>24); }
+        if(NTR){ int ti=trace_find(h1,h2); if(ti>=0&&ntrh<256){ trNt[ntrh]=(uint32_t)nt; trI[ntrh]=ti; trT[ntrh]=t; trKey[ntrh]=key; ntrh++; } }
         C[nt]=(Cand){key,(uint32_t)nt}; nt++; } }
-    uint64_t keep=nt<W?nt:W; if(nt>W){ qsort(C,nt,sizeof(Cand),cmpc);
+    uint64_t keep=nt<W?nt:W; static int64_t trRank[256],trLo[256],trHi[256],trQ[256]; static int trAdm[256]; uint64_t cutK1=0,cutW=0,k1tr=0;
+    for(int j=0;j<ntrh;j++){ trRank[j]=trLo[j]=trHi[j]=trQ[j]=-1; trAdm[j]=-1; }
+    if(nt>W){ qsort(C,nt,sizeof(Cand),cmpc);
+      if(ntrh){ double DV=getenv("BEAM_DIV")?atof(getenv("BEAM_DIV")):1.0; k1tr=(uint64_t)(W*DV); if(k1tr>W) k1tr=W; cutK1=C[k1tr?k1tr-1:0].key; cutW=C[W-1].key;
+        for(int j=0;j<ntrh;j++){ uint64_t p=0; while(p<nt&&C[p].idx!=trNt[j]) p++; trRank[j]=(int64_t)p; uint64_t hk=C[p].key>>KS,a=p,b=p+1;
+          while(a>0&&(C[a-1].key>>KS)==hk) a--; while(b<nt&&(C[b].key>>KS)==hk) b++; trLo[j]=(int64_t)a; trHi[j]=(int64_t)b; } }
+      if(QUOTA>0){ // BEAM_QUOTA: admit in key order while the class has < q survivors; DIV samples its tail from the admitted list
+        double DIV=getenv("BEAM_DIV")?atof(getenv("BEAM_DIV")):1.0; uint64_t k1=(uint64_t)(W*DIV); if(k1>W) k1=W;
+        static uint64_t*qk; static uint32_t*qc; static uint64_t qcap; uint64_t hs=1; while(hs<2*nt) hs<<=1;
+        if(hs>qcap){ qk=realloc(qk,8*hs); qc=realloc(qc,4*hs); if(!qk||!qc) die("quota alloc"); qcap=hs; } memset(qk,0,8*hs);
+        uint32_t*A=malloc(4*nt),*R=malloc(4*nt); uint64_t nA=0,nR=0,ncls=0; if(!A||!R) die("quota alloc");
+        for(uint64_t q=0;q<nt;q++){ uint64_t c=tCL[C[q].idx],sl=fmix_a(c)&(hs-1); while(qk[sl]&&qk[sl]!=c) sl=(sl+1)&(hs-1);
+          if(!qk[sl]){ qk[sl]=c; qc[sl]=0; ncls++; } if(qc[sl]<(uint32_t)QUOTA){ qc[sl]++; A[nA++]=(uint32_t)q; } else R[nR++]=(uint32_t)q; }
+        for(int j=0;j<ntrh;j++){ for(uint64_t q=0;q<nA;q++) if(A[q]==(uint32_t)trRank[j]){ trAdm[j]=1; trQ[j]=(int64_t)q; break; }
+          if(trAdm[j]<0) for(uint64_t q=0;q<nR;q++) if(R[q]==(uint32_t)trRank[j]){ trAdm[j]=0; trQ[j]=(int64_t)q; break; } }
+        Cand*K=malloc(sizeof(Cand)*W); uint64_t kk=0; if(!K) die("quota alloc");
+        if(nA>=W){ for(uint64_t q=0;q<k1;q++) K[kk++]=C[A[q]];
+          if(k1<W){ uint64_t rest=nA-k1,need=W-k1; for(uint64_t q=0;q<need;q++) K[kk++]=C[A[k1+(uint64_t)((double)q*rest/need)]]; } }
+        else { for(uint64_t q=0;q<nA;q++) K[kk++]=C[A[q]]; for(uint64_t q=0;q<nR&&kk<W;q++) K[kk++]=C[R[q]]; }
+        memcpy(C,K,sizeof(Cand)*kk); free(K); free(A); free(R);
+        if(d%10==0) fprintf(stderr,"quota d=%d classes=%llu admitted=%llu\n",d,(unsigned long long)ncls,(unsigned long long)nA); } else {
       // diversity ("zag"): keep the best DIV fraction by length, fill the rest evenly from the longer remainder
       double DIV=getenv("BEAM_DIV")?atof(getenv("BEAM_DIV")):1.0; uint64_t k1=(uint64_t)(W*DIV); if(k1>W) k1=W;
       if(k1<W){ uint64_t rest=nt-k1, need=W-k1; for(uint64_t q=0;q<need;q++){ uint64_t src=k1+(uint64_t)((double)q*rest/need); C[k1+q]=C[src]; } }
@@ -237,13 +334,19 @@ int main(int argc,char**argv){
           uint64_t b=((uint64_t)l0*1315423911ULL)^((uint64_t)l1*2654435761ULL)^((uint64_t)(e[0]+64)<<8)^((uint64_t)(e[1]+64)<<16)^((uint64_t)(e[2]+64)<<24)^((uint64_t)(e[3]+64)<<32);
           b=(b*0x9E3779B97F4A7C15ULL)>>44; if(cnt[b]<NOV){ cnt[b]++; K[kk++]=C[q]; used[q]=1; } }
         for(uint64_t q=0;q<nt&&kk<W;q++) if(!used[q]) K[kk++]=C[q];
-        memcpy(C,K,sizeof(Cand)*kk); free(K); free(used); } }
+        memcpy(C,K,sizeof(Cand)*kk); free(K); free(used); } } }
+    for(int j=0;j<ntrh;j++){ int64_t pos=-1; for(uint64_t k=0;k<keep;k++) if(C[k].idx==trNt[j]){ pos=(int64_t)k; break; }
+      uint16_t tw=ATL?tWH[trNt[j]]:0;
+      fprintf(stderr,"TRACE d=%d i=%d t=%d kept=%d pos=%lld rank=%lld nt=%llu W=%llu k1=%llu tie_lo=%lld tie_hi=%lld key=%016llx cutk1=%016llx cutW=%016llx ks=%d adm=%d qpos=%lld p2=%u wh=%u len=%u\n",
+        d,trI[j],trT[j],pos>=0,(long long)pos,(long long)trRank[j],(unsigned long long)nt,(unsigned long long)W,(unsigned long long)k1tr,(long long)trLo[j],(long long)trHi[j],
+        (unsigned long long)trKey[j],(unsigned long long)cutK1,(unsigned long long)cutW,KS,trAdm[j],(long long)trQ[j],tmpN[trNt[j]].p2,tw,tmpN[trNt[j]].len); }
     lo=nn; for(uint64_t k=0;k<keep;k++){ Node x=tmpN[C[k].idx]; uint8_t*q=SA+x.off; St t2; t2.l[0]=q[0]|(q[1]<<8); t2.l[1]=q[2]|(q[3]<<8);
-        memcpy(t2.w[0],q+4,t2.l[0]); memcpy(t2.w[1],q+4+t2.l[0],t2.l[1]); x.off=store(&t2); fp(&t2,&h1,&h2); tab_ins(&V,h1,h2,(d>15?15:d),1); nodes[nn++]=x; }
-    hi=nn; free(tmpN);
+        memcpy(t2.w[0],q+4,t2.l[0]); memcpy(t2.w[1],q+4+t2.l[0],t2.l[1]); x.off=store(&t2); fp(&t2,&h1,&h2); tab_ins(&V,h1,h2,(d>15?15:d),1); if(ATL){ NCL[nn]=tCL[C[k].idx]; NWH[nn]=tWH[C[k].idx]; } nodes[nn++]=x; }
+    hi=nn; free(tmpN); free(tCL); free(tWH);
     uint32_t mn=~0u,mx=0; for(uint64_t i=lo;i<hi;i++){ if(nodes[i].len<mn) mn=nodes[i].len; if(nodes[i].len>mx) mx=nodes[i].len; }
     if(d%10==0||bestAC<(1<<30)) fprintf(stderr,"d=%d gen=%llu kept=%llu len[%u..%u] bestAC=%d bestSAC=%d arena=%lluMB\n",d,(unsigned long long)nt,(unsigned long long)keep,mn,mx,bestAC<(1<<30)?bestAC:-1,bestSAC<(1<<30)?bestSAC:-1,(unsigned long long)(ARn>>20));
     if(hi==lo) break; }
+  if(WHM) fprintf(stderr,"wh: calls %llu (cache hits %llu, saturated %llu), %.1f s in WH\n",(unsigned long long)WHcalls,(unsigned long long)WHhits,(unsigned long long)WHsat,WHtime);
   if(P2M) fprintf(stderr,"p2: computed %llu (cache hits %llu, saturated %llu) inherited %llu, %.1f s in P2\n",(unsigned long long)P2calls,(unsigned long long)P2hits,(unsigned long long)P2satn,(unsigned long long)P2inh,P2time);
   // rebuild: prefix via parent chain, then exact finish through T_9
   for(int which=0;which<2;which++){ int best=which?bestSAC:bestAC; if(best>=(1<<30)){ printf("%s NONE\n",which?"SAC":"AC"); continue; }

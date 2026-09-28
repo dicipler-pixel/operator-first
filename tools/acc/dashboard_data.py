@@ -205,7 +205,8 @@ def build(work):
              "2606": "Batch: 13 Stable AC ties from session 1 mirrored roads + ac/sac-03028 (+0.02).",
              "2607": "Batch: 20 AC ties from session 1 unsent roads + ac/sac-09989 (+0.01).",
              "2632": "Batch: ac/sac-07004 and ac-04278 k14 ties (tiny).",
-             "2638": "ac/sac-03060 k1 ties (+1.0): first win from the P2 beam (atlas B31). Plus ac-05835."}
+             "2638": "ac/sac-03060 k1 ties (+1.0): first win from the P2 beam (atlas B31). Plus ac-05835.",
+             "2648": "ac-01698, ac-03789 (P2 lanes) and sac-01698 via the (y,x) shortcut (+0.2)."}
     for x in subs:
         if x["id"] in notes:
             ok = sum(1 for r in x["results"] if r.get("ok"))

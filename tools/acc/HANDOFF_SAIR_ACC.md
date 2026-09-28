@@ -52,6 +52,8 @@ Without `--yes`, it's a dry run.
   cycle, 3/3 accepted (tiny value).
 - **Submission 2638 (08:19Z): ac/sac-03060 28/30, k1 ties (+1.0), the first win from the P2 beam** (atlas B31
   lookahead), plus ac-05835 33 (k13). 3/3 accepted.
+- Submission 2648 (10:07Z): ac-01698 36 (k4), ac-03789 34 (k7) from the P2 lanes, and sac-01698 37 (k3) from the
+  (y,x) shortcut on our P2 path (`tools/acc/yx_shortcut.py`). 3/3 accepted, about +0.2.
 - Board watcher: `changes` every 30 min into `research/acc/live/changes/`. It alerts on
   "LOST OUR TIE" or a newly solved row.
 
