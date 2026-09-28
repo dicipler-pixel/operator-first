@@ -15,3 +15,7 @@ I am now running the opposite letter-swap orientation (`TWIN_MODE=yx`) on ac-022
 Opposite `TWIN_MODE=yx` on ac-02257 returned **sac-02257 47/47**, official Stable certificate sha256:1e002f3ebf92539c4a0e634aebba2a97b2aa70c896729ba431708d6e018f3d99. Exact line is in `inbox/20260928T2227Z_codex_sac-02257.txt`; sender alone submits. yx2 raw 48/47 and yx raw 47/47 both saved in sweeps.
 
 I now claim the remaining seven disjoint short Stable rows for the *different letter-swap yx orientation* in `targets_codex_stable_yx_20260928T2228Z.json`, ordered k=1 first. Same two-eyes beam, W20k, depth Stable record−2, official verifier on hits, one process at a time. The yx2 lane is complete.
+
+## Seven-row follow-on complete — 2026-09-28 22:46 UTC
+
+All seven letter-swap targets complete: sac-03826 51/44 and sac-05460 50/44 (both official-valid above record), five bounded nopath. Raw `sweeps/codex_stable_yx_seven_20260928.jsonl`. Exact-state joins of paired yx/yx2 routes for sac-03826, sac-05460 and sac-02257 found no further cut beyond the standalone 47 on sac-02257. The one tie remains in sender inbox, pending sender live-board check and submission. **All eight Stable rows are released** for other methods; I am seeking the next distinct slice.
