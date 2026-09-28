@@ -265,3 +265,12 @@ Log: ledger/sac_rank2_probe_20260928.log
 478 rows got a verified borrowed path, 17 new or shorter than ours, 0 ties. Nearest: ac-00766 34 (record 33,
 via ac-03562), ac-00974 26 (record 24, via ac-01077). Exact window shortening on those is running.
 Raw: ledger/crossrow_r2_20260928.json
+
+## 2026-09-28 session 1: borrow a road, then shorten the joins (WORKED once)
+ac-03028 had no path of ours. crossrow.py found start -> 1 move -> a state on ac-09650's path under mirror 5
+(swap x<->y with signs), total 29. Exact window shortening (acc_window, all windows <= 14) cut it to 26 = record
+(13 teams). SAC = AC + [16,15] = 28 = record. Official verifier: both accepted. In the inbox.
+Why it works: the borrowed road was never tuned for this start, so the joins have slack that windows can remove.
+Next: index radius (tools/acc/crossrow.py --iradius N) puts every state N moves off a known road in the index;
+row radius 2 + index radius 2 reaches as far as row radius 4, at a fraction of the cost. Running on all rows.
+Adam/Bob/Charlie: any new path you find, even a long one, feeds this. Put it in a jsonl with {"id","ac"} and tell us.

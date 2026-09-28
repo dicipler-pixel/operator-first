@@ -13,12 +13,15 @@ import argparse, itertools, json, re, sys
 
 ap = argparse.ArgumentParser(); ap.add_argument('sair'); ap.add_argument('live'); ap.add_argument('out')
 ap.add_argument('files', nargs='+'); ap.add_argument('--radius', type=int, default=2)
+ap.add_argument('--iradius', type=int, default=0, help='also index states this many moves off each known path')
+ap.add_argument('--kmax', type=int, default=0, help='only rows held by <= kmax teams (0 = all)')
 ap.add_argument('--train', help='SAIR examples/training_424.json: index its known paths too')
 A = ap.parse_args()
 sys.path.insert(0, A.sair + '/competition/tools'); from verifier import core
 man = json.load(open(A.sair + '/competition/tools/verifier/data/manifest.json'))
 C = {c['challenge_id']: c for c in man['challenges']}
 live = {l.split()[0]: int(l.split()[1]) for l in open(A.live)}
+kt = {l.split()[0]: int(l.split()[2]) for l in open(A.live) if len(l.split()) > 2}
 GOAL = ((1,), (2,)); GENS = core.GENS
 
 # ---- 16 mirrors: letter map (signed permutation of 1,2) + optional word switch ----
@@ -82,7 +85,7 @@ for i, p in paths.items():
     if st[-1] != GOAL: continue
     for t, x in enumerate(st):
         rem = len(p) - t
-        if x not in idx or idx[x][2] > rem: idx[x] = (i, t, rem)
+        if x not in idx or idx[x][2] > rem: idx[x] = (i, t, rem, ())
 if A.train:  # training instances are not scored rows; their states can still carry a finish
     for t in json.load(open(A.train))['instances']:
         k = 'T:' + t['training_id']; s = tuple(map(tuple, t['initial_relators'])); st = [s]; p = t['moves']
@@ -90,22 +93,32 @@ if A.train:  # training instances are not scored rows; their states can still ca
         if st[-1] != GOAL: continue
         paths[k] = p
         for u, x in enumerate(st):
-            if x not in idx or idx[x][2] > len(p) - u: idx[x] = (k, u, len(p) - u)
+            if x not in idx or idx[x][2] > len(p) - u: idx[x] = (k, u, len(p) - u, ())
+INV = (0, 1, 3, 2, 5, 4, 7, 6, 9, 8, 11, 10, 13, 12)  # each official move's inverse
+for _ in range(A.iradius):
+    add_ = {}
+    for x, (i, t, rem, back) in idx.items():
+        for m in range(14):
+            y = core.apply_move(x, m)
+            if y in idx or (y in add_ and add_[y][2] <= rem + 1): continue
+            add_[y] = (i, t, rem + 1, (INV[m],) + back)
+    idx.update(add_)
 print('paths', len(paths), 'indexed states', len(idx), flush=True)
 
 # ---- lookup ----
 best = {}
 for j, c in C.items():
     if not j.startswith('ac-'): continue
+    if A.kmax and not (0 < kt.get(j, 0) <= A.kmax): continue
     s0 = tuple(map(tuple, c['initial_relators'])); front = {s0: []}; seen = {s0}
     for d in range(A.radius + 1):
         for x, pre in front.items():
             for k, t in enumerate(T):
                 hit = idx.get(tstate(t, x))
                 if not hit or FIX[k] is None: continue
-                i, t0, rem = hit
+                i, t0, rem, back = hit
                 if len(pre) + rem + len(FIX[k]) >= best.get(j, (10 ** 9,))[0]: continue
-                cand = pre + [tmove(TI[k], m) for m in paths[i][t0:]] + FIX[k]
+                cand = pre + [tmove(TI[k], m) for m in list(back) + paths[i][t0:]] + FIX[k]
                 if core.verify(c, cand, 'ac-r2-v1', man['limits'])['ok']:
                     best[j] = (len(cand), cand, i, k, len(pre))
         if d == A.radius: break
