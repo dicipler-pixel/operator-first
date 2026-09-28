@@ -14,7 +14,8 @@ METHOD_BY_ROW = {"ac-03060": "P2 lookahead", "sac-03060": "P2 lookahead", "ac-05
     "ac-08078": "Two-eyes beam (DUAL)", "ac-02528": "User / Charlie line",
     "ac-02275": "Two-eyes beam (DUAL)", "sac-02275": "Two-eyes beam (DUAL)",
     "sac-03771": "Two-eyes beam (DUAL)", "ac-08429": "Two-eyes beam (DUAL)",
-    "ac-08578": "Two-eyes beam (DUAL)", "ac-04191": "Helper B two-eyes list", "sac-04191": "Helper B two-eyes list"}
+    "ac-08578": "Two-eyes beam (DUAL)", "ac-04191": "Helper B two-eyes list", "sac-04191": "Helper B two-eyes list",
+    "ac-05818": "Codex mirror twin", "sac-05818": "Codex mirror twin"}
 def board(kind, ts):
     fs = sorted(glob.glob(f"research/acc/live/boards/{kind}_2026*.json.gz"))
     best = None

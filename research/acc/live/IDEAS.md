@@ -1075,3 +1075,12 @@ and split into two shards.
 - Complete candidate scope: all 1,768 ordered, freely reduced relator pairs of total length ≤6 with abelianization determinant ±1; 14 SAIR ac-r2-v1 moves. They exactly equal the capped-length-6 component of (x,y), proving every such endpoint is AC-trivial.
 - Exact **unrestricted** maximum shortest moves for endpoint length ≤2,3,4,5,6: **5,5,6,7,8**. Upper bounds by complete length-6 BFS; lower bounds by disjoint *uncapped* balls around (x,y) and witnesses (y,x), (Y,YYx), (Y,YYYx), (Y,YYYYx), respectively. This is a finite endpoint result, not a general bound.
 - Reproduce: `research/acc/optimality/reverse_small_presentations.py`; full proof scope, counts, paths, hashes, and pinned verifier 24,752-transition cross-check in `research/acc/live/ledger/reverse_small_endpoints_20260928.md`. No challenge rows run or submitted for this result.
+
+## 2026-09-28 20:30Z session 2: stabilization census, P2 cache size, mirror twin payoff
+- **Real stabilization is rare on the board.** Board 18:56Z, SAC record minus AC record over all rows: +2 on 6,540,
+  +1 on 660 (the (y,x) finish), +3 on 44, and <= 0 on only 108 (mostly long rows held by 1 team, e.g. ac-03395 317 / 308).
+  So stabilization moves (ids 14-256) are not where Stable-AC points are; the +1 rows are, and the yx lanes cover them.
+- **P2 cache size is not the bottleneck.** acc_beam two-eyes at W=20000 on ac-06262: 2.34M P2 calls, 72% cache hits with
+  2^18 slots, 75% with 2^22; identical output, 4% faster. Misses are first-time pairs; P2 eval is ~70% of beam time.
+- **Mirror twin pays on long rows.** Codex's first mirror-twin row, ac-05818: 52 -> 34 (tie, k2, + SAC 36): submission 2701.
+  Session 2 started lane `mir` (120 top-ranked rows we are above, not in Codex's 80).
