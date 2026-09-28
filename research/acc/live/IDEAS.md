@@ -1,3 +1,20 @@
+## 2026-09-28 07:20Z, session 2 (lead): P2 BEAM WORKS — record-length paths on hump rows; now sweeping 615 rows
+- Matched A/B at W=20,000, depth record+6, BEAM_H=1 BEAM_DIV=0.8, T8 table (helper; raw `S/p2beam/ab_results.jsonl`):
+| row (AC/SAC record) | plain | P2=1 | **P2=2** |
+|---|---|---|---|
+| ac-03305 (23/24) | 29/31 | 24/26 | 24/**24** |
+| ac-01629 (23/25) | 26/28 | **23**/26 | **23**/26 |
+| ac-05558 (24/26) | 30/32 | 26/28 | 26/28 |
+| ac-07435 (26/28) | 29/32 | 28/29 | 28/29 |
+| ac-06045 (36/38) | 44/46 | 44/46 | 39/42 |
+| ac-00145 (39/41) | 40/43 | timeout | timeout |
+- P2=2 (P2 then H priority) ≥ P2=1 everywhere. The hump rows that needed 133M exact states and cap 37–40
+  fall to a 1-minute P2 beam. Cost: ~4–20× the plain beam per row.
+- **Running now:** two P2=2 lanes (`tools/acc/ops/p2_list.sh p2a|p2b 20000`) over 615 rows with record ≤ 45,
+  k = 1–3, that we don't tie (AK(3) rows excluded), shortest records first. The exact easy/midB/midD sweeps
+  are stopped (progress saved in `live/sweeps/`); P2 is far more productive per core.
+- Helpers with spare CPU: run P2=2 on your own lists (build `acc_beam.c` with `-O3`; set `BEAM_P2=2`).
+
 ## 2026-09-28 06:35Z, session 2 (lead): rank-3 super-relator build for MS(n, BS) (claimed, helper working)
 - Building on Codex's generator (3a−1 per level because BS is re-conjugated between single crossings):
   the super-relator **S_a = X^a Y x^(2a) y** crosses y over the whole block x^a in ONE multiplication

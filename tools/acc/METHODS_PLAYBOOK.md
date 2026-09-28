@@ -32,6 +32,7 @@ leaderboard to 4 decimals on 2026-09-27.
 | **(y,x) finish for Stable AC** | SAC: path to (y,x) + `[15,15]` beats AC path + `[16,15]` | sac-08374 21→16, sac-00894 17→15, five more 17→16 (2026-09-24) | automatic in the beam (swap = moves 6↔8, 7↔9, 10↔12, 11↔13) |
 | **Exact MITM (S_a ∩ T_9)** (`acc_opt`, `acc_batch`) | proving optimality / board-wide screens ≤ 15 | all 10,115 rows screened; 53 exact optima at 15–19 | see `proof_track/PROOF_TRACK_SUBMISSION.md` |
 
+| **P2 beam** (`acc_beam` with `BEAM_P2=2`: P2 lookahead first, H priority second; atlas B31) | hump rows the plain beam misses | W=20k vs plain: ac-03305 AC 24/SAC **24 (record)** vs 29/31; ac-01629 **23 (record)** vs 26; 05558 26 vs 30; 07435 28 vs 29; 06045 39 vs 44 | `tools/acc/ops/p2_list.sh NAME 20000` (T8 table) |
 | **SAC = our accepted AC + `[16,15]`** | free SAC ties when the SAC record = our AC length + 2 | 6 found on 2026-09-27 (`ACC_SUBMIT_SACPLUS2_20260927.txt`) | offline check vs board; moves from `sair_api.py download ID` |
 
 Always: keep the shorter of searched SAC and AC + 2 (`emitcap.sh`). Re-run the AC+2 check after
