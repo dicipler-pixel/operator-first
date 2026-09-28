@@ -313,3 +313,11 @@ the start. First rows: ac-09989, 03919, 04251, 06903.
 Stopped: unk15 beam (helper's 15 unsolved L0 16-18 rows; BEAM_H=1 DIV=1.0 BAL=1, width 200000, depth 600):
 8 rows done in 3.5 h, 0 solutions (ac-00008 00066 00137 00254 00392 00045 00095 00164). Incomplete; rows 9-15 not run.
 Raw: ledger/beam_unk15_20260928.jsonl
+
+## 2026-09-28 session 1: unsent roads (WORKED: 20 AC ties to inbox, + ac/sac-09989)
+Pooled every verified road we hold: repo lines, graph-map archive (60 AC routes), route maps, scratch runs:
+677 roads on 496 rows (tools/acc/crossrow.py keeps extra roads per row as "id#n"). Lookup (row r2 + index r2):
+20 AC rows where we hold a road at the live record that is not in our accepted history (16 never sent,
+3 behind). Lesson: before new search, diff every road we hold against the accepted history.
+Borrowed road + exact window also tied ac-09989 (24 -> 23 = record, via ac-01229).
+Raw: ledger/crossrow_roads_{ac,sac}_20260928.json
