@@ -1121,3 +1121,13 @@ Note: ac-05818 was also in session 1's near-miss cycler list; Codex's inbox line
 - Negatives: Snell-keyed beam (lam 1: 57, lam 2: none) and Bob's 30 macros (58 = plain 58, W=8000) do not beat the
   plain layered beam (56) on ac-07790. Cross-row progress regression fails (held-out error ~33 moves).
 - MS(5, YYXXYx) unsolved descent 19 -> 15: per-line Smith shows r1 closing 7.2 -> 1.8 while r0 stays 1.8 -> 1.9.
+
+## 2026-09-28 21:55Z, session3: eye table for all 10,115 rows; faithful Smith eye; YYXXYx descents
+- exchange/session3/unsolved_data_v1/eye_table_all_rows.csv: every eye at every row's start state, with record/teams.
+- Unsolved rows start shorter (median 24 vs 29). Separators (AUC for unsolved): faithful Smith r1 (Sanov) 0.12,
+  i.e. 0.88 inverted, the best single eye; Smith abelian 0.18; longest run in r1 0.76; image distance 0.47 (none).
+- The order-6 rho used for per-line Smith has blind spots (both lines 0 at total 17 on MS(5,YYXXYx), not solved).
+  Sanov (x->[[1,2],[0,1]], y->[[1,0],[2,1]]) is faithful on F2: distance 0 iff the relator equals x (or y).
+- Record model trained on solved rows: held-out Spearman 0.42 (median error 20 moves). Its "easiest" unsolved rows
+  are BS-type pairs (ac-05932 etc., session 1's list) and AK(3)-class rows: shortness is not easiness here.
+- MS(n, YYXXYx) recorded descents n=4..10 (beam W=8000, depth 80): odd n drop by 2, even n none (parity again).
