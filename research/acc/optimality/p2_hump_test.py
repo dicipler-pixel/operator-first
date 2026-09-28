@@ -27,7 +27,11 @@ Sources: every ac path in root ACC_*.txt, research/acc/** and tools/acc/** (text
 are converted by dropping the two stabilisation moves).  Each path is replayed with the
 official verifier core (SAIR clone) and must end at (x, y).  One path per row: the shortest.
 
-usage: nice -n 10 python3 p2_hump_test.py [--sair DIR] [--out JSON] [--nocut-rank] [--selftest]
+Primary set = rows whose best verified path equals the live board record (snapshot BOARD);
+secondary = every verified row.  Also runs the lead's E1 / U1 / C1 checks on the same hump set.
+
+usage: nice -n 10 python3 p2_hump_test.py [--sair DIR] [--out JSON] [--selftest] [--no-secondary] [--no-timing]
+                                           [--c-bench C_BENCH_OUTPUT.txt]
 """
 import argparse, glob, gzip, json, math, os, random, re, statistics, sys, time
 from collections import Counter, defaultdict
@@ -553,9 +557,6 @@ def selftest(paths, nstates=60, seed=7):
     return {'states_checked': min(nstates, len(pool)), 'mismatches': nbad}
 
 
-VALUES = ('raw', 'P1', 'P1m', 'P2c8', 'P2c40', 'P2f40', 'P2c')   # P2c = no cut (cyc); P2f = free variant
-
-
 def values(s, want):
     out = {}
     if 'raw' in want:
@@ -574,23 +575,8 @@ def values(s, want):
         out['P2c'], out['P2f'] = p2(s[0], s[1], None)
     return out
 
-
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument('--sair', default=SAIR_DEFAULT)
-    ap.add_argument('--out', default=OUT_DEFAULT)
-    ap.add_argument('--nocut-rank', action='store_true', help='also rank siblings by P2 with no cut (slow)')
-    ap.add_argument('--selftest', action='store_true')
-    ap.add_argument('--hump', type=int, default=6)
-    ap.add_argument('--all-rows', action='store_true', help='analyse every verified row, not only record-length rows')
-    args = ap.parse_args()
-    T0 = time.time()
-    official = load_official(args.sair)
-    man = {c['challenge_id']: c['initial_relators']
-           for c in json.load(open(os.path.join(args.sair, 'competition/tools/verifier/data/manifest.json')))['challenges']}
-    board = {c['challengeId']: c['currentBestLength'] for c in json.load(gzip.open(BOARD))['data']['items']}
-
-    # 1-2. collect, replay, dedupe by row (shortest verified; ties -> lexicographically smallest)
+def collect_rows(official, man, board):
+    """1-2. collect, replay, dedupe by row (shortest verified; ties -> lexicographically smallest)."""
     raw, nfiles = collect()
     distinct, bad, per_row = set(), [], {}
     for rid, mv, src in raw:
@@ -611,81 +597,124 @@ def main():
     for p in per_row.values():
         p['record'] = board.get(p['row'])
         p['at_record'] = p['record'] is not None and len(p['moves']) <= p['record']
+        p['raw'] = [tot(s) for s in p['states']]
     rows_all = sorted(per_row.values(), key=lambda p: p['row'])
-    paths = rows_all if args.all_rows else [p for p in rows_all if p['at_record']]
     collection = {'raw_lines': len(raw), 'files_with_paths': nfiles, 'distinct_row_paths': len(distinct),
                   'replay_failures': len(bad), 'rows_verified': len(rows_all),
                   'rows_at_board_record': sum(1 for p in rows_all if p['at_record']),
-                  'board_snapshot': os.path.relpath(BOARD, REPO), 'analysed_set': 'all' if args.all_rows else 'at_record',
-                  'official_core_crosscheck': official is not None}
-    print('collected', collection, flush=True)
+                  'board_snapshot': os.path.relpath(BOARD, REPO), 'official_core_crosscheck': official is not None,
+                  'note': 'session-1 163-path data file is not in the repo (only path_chart_163.svg); '
+                          'the at-record set below supersedes it'}
+    return rows_all, collection, bad
 
-    st = selftest(paths) if args.selftest else None
-    if st:
-        print('selftest', st, flush=True)
 
-    # 3. hump paths
+def rel(m):
+    """U1: which relator a move changes."""
+    return 0 if m in (0, 2, 3, 6, 7, 8, 9) else 1
+
+
+def runs(ms):
+    out, cur, n = [], None, 0
+    for m in ms:
+        r = rel(m)
+        if r == cur:
+            n += 1
+        else:
+            if n:
+                out.append(n)
+            cur, n = r, 1
+    if n:
+        out.append(n)
+    return out
+
+
+def run_stats(rl):
+    if not rl:
+        return None
+    c = Counter(rl)
+    mw = sorted(x for x in rl for _ in range(x))
+    return {'runs': len(rl), 'median': med(rl), 'mean': rnd(mean(rl)), 'move_weighted_median': med(mw),
+            'hist': {str(k): c[k] for k in sorted(c)}}
+
+
+def segments(p):
+    """Maximal hump excursions (a, b): total(s_a) <= start < total(s_a+1 .. s_b-1), total(s_b) <= start."""
+    r, s0, segs, t = p['raw'], p['raw'][0], [], 0
+    while t < len(r) - 1:
+        if r[t] <= s0 < r[t + 1]:
+            b = t + 1
+            while r[b] > s0:
+                b += 1
+            segs.append((t, b))
+            t = b
+        else:
+            t += 1
+    return segs
+
+
+def analyse(paths, hump_thr, nocut_rank, label, series=True):
+    T0 = time.time()
     for p in paths:
-        r = [tot(s) for s in p['states']]
-        p['raw'] = r
-        p['hump'] = max(r) - r[0] >= args.hump
+        p['hump'] = max(p['raw']) - p['raw'][0] >= hump_thr
     humps = [p for p in paths if p['hump']]
-    print('paths', len(paths), 'hump', len(humps), flush=True)
+    print(label, 'paths', len(paths), 'hump', len(humps), flush=True)
 
-    # 4. climbs along hump paths (+ all path states for E1)
+    # 4. climbs along hump paths
     path_keys = ('raw', 'P0cyc', 'P1', 'P1f', 'P1m', 'P2c8', 'P2f8', 'P2c40', 'P2f40', 'P2c', 'P2f')
     per_path = []
-    t_climb = time.time()
     for i, p in enumerate(humps):
         seq = [values(s, path_keys) for s in p['states']]
         p['seq'] = seq
         climbs = {k: max(v[k] for v in seq) - seq[0][k] for k in path_keys}
-        per_path.append({'row': p['row'], 'len': len(p['moves']), 'record': p['record'], 'src': p['src'],
-                         'start': p['raw'][0], 'peak': max(p['raw']), 'climb': climbs,
-                         'series': {k: [v[k] for v in seq] for k in ('raw', 'P1', 'P2c40', 'P2c')}})
-        if i % 20 == 0:
-            print('  climb', i, p['row'], climbs, round(time.time() - t_climb, 1), flush=True)
+        e = {'row': p['row'], 'len': len(p['moves']), 'record': p['record'], 'src': p['src'],
+             'start': p['raw'][0], 'peak': max(p['raw']), 'climb': climbs}
+        if series:
+            e['series'] = {k: [v[k] for v in seq] for k in ('raw', 'P0cyc', 'P1', 'P1m', 'P2c8', 'P2c40', 'P2c')}
+        per_path.append(e)
+        if i % 25 == 0:
+            print('  climb', i, p['row'], round(time.time() - T0, 1), flush=True)
     for p in paths:
-        if 'seq' not in p:
+        if not p['hump']:
             p['seq'] = [values(s, ('raw', 'P2c40')) for s in p['states']]
-    print('climbs done', round(time.time() - t_climb, 1), flush=True)
 
-    # 4b. sibling ranks at each step of each hump path
-    rank_keys = ['raw', 'P1', 'P1m', 'P2c8', 'P2c40', 'P2f40'] + (['P2c'] if args.nocut_rank else [])
+    # 4b. sibling ranks; a rank key is a tuple of value names, always followed by raw as tiebreak
+    rank_keys = [('raw',), ('P1',), ('P1m',), ('P2c8',), ('P2c40',), ('P2f40',)]
+    if nocut_rank:
+        rank_keys.append(('P2c',))
+    rank_keys += [('P1', 'P1m'), ('P2c8', 'P1m')]
+    need = sorted({v for k in rank_keys for v in k} | {'raw'})
+    names = ['>'.join(k) for k in rank_keys]
     steps = []
-    t_rank = time.time()
     for i, p in enumerate(humps):
         for t, m in enumerate(p['moves']):
             s = p['states'][t]
-            kids = [apply_move(s, j) for j in range(14)]
-            vals = [values(c, rank_keys) for c in kids]
+            vals = [values(apply_move(s, j), need) for j in range(14)]
             rawv = [v['raw'] for v in vals]
             rec = {'row': p['row'], 't': t, 'move': m, 'climb': rawv[m] > tot(s),
                    'above_start': max(tot(s), rawv[m]) > p['raw'][0]}
-            rec['rank_raw'], rec['rank_raw_opt'] = mid_rank(rawv, m)
-            for k in rank_keys[1:]:
-                kv = [(v[k], v['raw']) for v in vals]
-                rec['rank_' + k], rec['rank_' + k + '_opt'] = mid_rank(kv, m)
-                rec['rank_' + k + '_only'] = mid_rank([v[k] for v in vals], m)[0]
+            for k, nm in zip(rank_keys, names):
+                kv = [tuple(v[x] for x in k) + (v['raw'],) for v in vals]
+                rec['rank_' + nm], rec['rank_' + nm + '_opt'] = mid_rank(kv, m)
+                rec['rank_' + nm + '_only'] = mid_rank([tuple(v[x] for x in k) for v in vals], m)[0]
             steps.append(rec)
-        if i % 20 == 0:
-            print('  rank', i, p['row'], round(time.time() - t_rank, 1), flush=True)
-    print('ranks done', round(time.time() - t_rank, 1), flush=True)
+        if i % 25 == 0:
+            print('  rank', i, p['row'], round(time.time() - T0, 1), flush=True)
 
     def rank_summary(sel):
         out = {'steps': len(sel)}
-        for k in rank_keys:
-            col = 'rank_' + k
+        if not sel:
+            return out
+        for nm in names:
+            col = 'rank_' + nm
             rs = [r[col] for r in sel]
             d = {'mean_rank': rnd(mean(rs)), 'top3': rnd(mean([1.0 if x <= 3 else 0.0 for x in rs])),
-                 'top7': rnd(mean([1.0 if x <= 7 else 0.0 for x in rs]))}
-            ro = [r[col + '_opt'] for r in sel]
-            d['top3_optimistic'] = rnd(mean([1.0 if x <= 3 else 0.0 for x in ro]))
-            if k != 'raw':
+                 'top7': rnd(mean([1.0 if x <= 7 else 0.0 for x in rs])),
+                 'top3_optimistic': rnd(mean([1.0 if x <= 3 else 0.0 for x in (r[col + '_opt'] for r in sel)]))}
+            if nm != 'raw':
                 only = [r[col + '_only'] for r in sel]
-                d['mean_rank_value_only'] = rnd(mean(only))
-                d['top3_value_only'] = rnd(mean([1.0 if x <= 3 else 0.0 for x in only]))
-            out[k] = d
+                d['mean_rank_no_raw_tiebreak'] = rnd(mean(only))
+                d['top3_no_raw_tiebreak'] = rnd(mean([1.0 if x <= 3 else 0.0 for x in only]))
+            out[nm] = d
         return out
 
     ranks = {'all_steps': rank_summary(steps),
@@ -694,55 +723,25 @@ def main():
              'climbing_conj_moves': rank_summary([r for r in steps if r['climb'] and r['move'] >= 6]),
              'above_start_steps': rank_summary([r for r in steps if r['above_start']])}
 
-    climb_keys = ('raw', 'P0cyc', 'P1', 'P1f', 'P1m', 'P2c8', 'P2f8', 'P2c40', 'P2f40', 'P2c', 'P2f')
     climb_summary = {}
-    for k in climb_keys:
+    for k in path_keys:
         cs = [pp['climb'][k] for pp in per_path]
-        climb_summary[k] = {'median': med(cs), 'mean': rnd(mean(cs)), 'max': max(cs),
+        climb_summary[k] = {'median': med(cs), 'mean': rnd(mean(cs)), 'max': max(cs) if cs else None,
                             'frac_zero_or_less': rnd(mean([1.0 if c <= 0 else 0.0 for c in cs])),
                             'frac_ge6': rnd(mean([1.0 if c >= 6 else 0.0 for c in cs]))}
 
-    # 5. kill condition (fixed before the run)
+    # 5. kill condition (fixed before the run): dead if median climb >= raw median / 2, or the
+    #    top-3 fraction on climbing steps is not higher than raw's
     raw_med = climb_summary['raw']['median']
     cl = ranks['climbing_steps']
-
-    def verdict(k):
-        c1 = climb_summary[k]['median'] >= raw_med / 2.0
-        c2 = not (cl[k]['top3'] > cl['raw']['top3'])
-        return {'median_climb': climb_summary[k]['median'], 'raw_median_climb': raw_med,
-                'dead_by_climb': c1, 'top3_climbing': cl[k]['top3'], 'raw_top3_climbing': cl['raw']['top3'],
-                'dead_by_rank': c2, 'survives': not (c1 or c2)}
-
-    verdicts = {k: verdict(k) for k in rank_keys[1:]}
-
-    # 6. timing per state (fresh caches), binned by raw total length
-    timing = defaultdict(lambda: defaultdict(list))
-    rng = random.Random(11)
-    pool = [s for p in paths for s in p['states'] if 20 <= tot(s) <= 70]
-    rng.shuffle(pool)
-    opc = defaultdict(lambda: defaultdict(list))
-    for s in pool[:240]:
-        b = '%d-%d' % (tot(s) // 10 * 10, tot(s) // 10 * 10 + 9)
-        for name, fn in (('P1', lambda: p1(*s)), ('P1m', lambda: p1m(*s)),
-                         ('P2c8', lambda: p2(s[0], s[1], 8)), ('P2c40', lambda: p2(s[0], s[1], 40)),
-                         ('P2nocut', lambda: p2(s[0], s[1], None))):
-            _P1.clear()
-            _P2.clear()
-            c0 = (CNT.pairs, CNT.words, CNT.word_chars, CNT.lcs, CNT.lcs_cells)
-            t = time.perf_counter()
-            fn()
-            timing[b][name].append(time.perf_counter() - t)
-            c1 = (CNT.pairs, CNT.words, CNT.word_chars, CNT.lcs, CNT.lcs_cells)
-            opc[b][name].append([y - x for x, y in zip(c0, c1)])
-    timing_out = {}
-    for b in sorted(timing):
-        timing_out[b] = {}
-        for name, ts in timing[b].items():
-            ops = opc[b][name]
-            timing_out[b][name] = {'n': len(ts), 'py_ms_median': rnd(1000 * med(ts), 3),
-                                   'pairs': med([o[0] for o in ops]), 'words': med([o[1] for o in ops]),
-                                   'word_chars': med([o[2] for o in ops]), 'lcs_calls': med([o[3] for o in ops]),
-                                   'lcs_cells': med([o[4] for o in ops])}
+    verdicts = {}
+    for nm in names[1:]:
+        ck = nm.split('>')[0]
+        c1 = climb_summary[ck]['median'] >= raw_med / 2.0
+        c2 = not (cl[nm]['top3'] > cl['raw']['top3'])
+        verdicts[nm] = {'median_climb': climb_summary[ck]['median'], 'raw_median_climb': raw_med,
+                        'dead_by_climb': c1, 'top3_climbing': cl[nm]['top3'], 'raw_top3_climbing': cl['raw']['top3'],
+                        'dead_by_rank': c2, 'survives': not (c1 or c2)}
 
     # E1: min(|r0|,|r1|) on humps; spread of moves-remaining given L, (min,max), (min,max,P2)
     e1_paths = []
@@ -755,25 +754,21 @@ def main():
           'frac_min_never_above_start_in_hump': rnd(mean([1.0 if e['min_rise_in_hump'] <= 0 else 0.0 for e in e1_paths])),
           'frac_min_rise_le2_in_hump': rnd(mean([1.0 if e['min_rise_in_hump'] <= 2 else 0.0 for e in e1_paths])),
           'frac_min_never_above_start_whole_path': rnd(mean([1.0 if e['min_rise_path'] <= 0 else 0.0 for e in e1_paths])),
-          'median_min_rise_in_hump': med([e['min_rise_in_hump'] for e in e1_paths])}
+          'median_min_rise_in_hump': med([e['min_rise_in_hump'] for e in e1_paths]),
+          'spread_note': 'moves-remaining = path length - step; pooled_sd = ANOVA residual SD (df N-G); '
+                         'loo_mae = leave-one-out bin-mean error, singleton bins fall back to coarser bins'}
     srows = []
     for p in paths:
         N = len(p['moves'])
         for t, (s, v) in enumerate(zip(p['states'], p['seq'])):
             a, b = sorted((len(s[0]), len(s[1])))
             srows.append({'rem': N - t, 'L': a + b, 'mm': (a, b), 'P2': v['P2c40'], 'hump': p['hump']})
-    fL = lambda r: r['L']
-    fM = lambda r: r['mm']
-    fMP = lambda r: (r['mm'], r['P2'])
-    fLP = lambda r: (r['L'], r['P2'])
-    fP = lambda r: r['P2']
-    e1['spread_all_states'] = {'N': len(srows), 'L': spread(srows, fL, []), 'P2': spread(srows, fP, []),
-                               'L_P2': spread(srows, fLP, [fL]),
-                               'min_max': spread(srows, fM, [fL]), 'min_max_P2': spread(srows, fMP, [fM, fL])}
-    hs = [r for r in srows if r['hump']]
-    e1['spread_hump_path_states'] = {'N': len(hs), 'L': spread(hs, fL, []), 'P2': spread(hs, fP, []),
-                                     'L_P2': spread(hs, fLP, [fL]),
-                                     'min_max': spread(hs, fM, [fL]), 'min_max_P2': spread(hs, fMP, [fM, fL])}
+    fL, fM, fP = (lambda r: r['L']), (lambda r: r['mm']), (lambda r: r['P2'])
+    fMP, fLP = (lambda r: (r['mm'], r['P2'])), (lambda r: (r['L'], r['P2']))
+    for nm, rows in (('spread_all_states', srows), ('spread_hump_path_states', [r for r in srows if r['hump']])):
+        e1[nm] = {'N': len(rows), 'L': spread(rows, fL, []), 'P2': spread(rows, fP, []),
+                  'L_P2': spread(rows, fLP, [fL]), 'min_max': spread(rows, fM, [fL]),
+                  'min_max_P2': spread(rows, fMP, [fM, fL])}
     rises = 1 - e1['frac_min_never_above_start_in_hump']
     sp = e1['spread_all_states']
     e1['kill'] = {'min_rises_in_most_humps': rises > 0.5,
@@ -781,45 +776,6 @@ def main():
                   'dead': rises > 0.5 and sp['min_max']['loo_mae'] >= sp['L']['loo_mae']}
 
     # U1: run lengths of consecutive moves touching the same relator
-    def rel(m):
-        return 0 if m in (0, 2, 3, 6, 7, 8, 9) else 1
-
-    def runs(ms):
-        out, cur, n = [], None, 0
-        for m in ms:
-            r = rel(m)
-            if r == cur:
-                n += 1
-            else:
-                if n:
-                    out.append(n)
-                cur, n = r, 1
-        if n:
-            out.append(n)
-        return out
-
-    def run_stats(rl):
-        if not rl:
-            return None
-        c = Counter(rl)
-        mw = sorted(x for x in rl for _ in range(x))
-        return {'runs': len(rl), 'median': med(rl), 'mean': rnd(mean(rl)), 'move_weighted_median': med(mw),
-                'hist': {str(k): c[k] for k in sorted(c)}}
-
-    def segments(p):
-        """Maximal hump excursions: (a, b) state indices, total(s_a) <= start < total(s_a+1..b-1), total(s_b) <= start."""
-        r, s0, segs, t = p['raw'], p['raw'][0], [], 0
-        while t < len(r) - 1:
-            if r[t] <= s0 < r[t + 1]:
-                b = t + 1
-                while r[b] > s0:
-                    b += 1
-                segs.append((t, b))
-                t = b
-            else:
-                t += 1
-        return segs
-
     all_runs, hump_all_runs, seg_runs = [], [], []
     for p in paths:
         all_runs += runs(p['moves'])
@@ -828,7 +784,8 @@ def main():
         for a, b in segments(p):
             seg_runs += runs(p['moves'][a:b])
     u1 = {'all_paths_overall': run_stats(all_runs), 'hump_paths_overall': run_stats(hump_all_runs),
-          'inside_hump_segments': run_stats(seg_runs)}
+          'inside_hump_segments': run_stats(seg_runs),
+          'segment_note': 'hump segment = moves a..b-1 of a maximal excursion above the start total'}
     u1['kill'] = {'median_run_inside_humps': u1['inside_hump_segments']['median'],
                   'dead': u1['inside_hump_segments']['median'] < 3}
 
@@ -838,8 +795,7 @@ def main():
     for p in humps:
         Ms = [exp_matrix(s) for s in p['states']]
         for a, b in segments(p):
-            c = classify_T(Ms[a], Ms[b])
-            hump_cls[c] += 1
+            hump_cls[classify_T(Ms[a], Ms[b])] += 1
             seg_list.append((p, b - a))
     for p, ln in seg_list:
         Ms = [exp_matrix(s) for s in p['states']]
@@ -848,33 +804,108 @@ def main():
             rand_cls[classify_T(Ms[a], Ms[a + ln])] += 1
     cats = ('pmI', 'finite', 'parabolic', 'hyperbolic')
     nh, nr = sum(hump_cls.values()), sum(rand_cls.values())
-    ph = {c: rnd(hump_cls[c] / nh) for c in cats}
-    pr = {c: rnd(rand_cls[c] / nr) for c in cats}
-    tv = 0.5 * sum(abs(hump_cls[c] / nh - rand_cls[c] / nr) for c in cats)
-    # Monte Carlo p-value: TV of nh draws from the random-segment mix vs that mix
     probs = [rand_cls[c] / nr for c in cats]
+    tv = 0.5 * sum(abs(hump_cls[c] / nh - rand_cls[c] / nr) for c in cats)
     ge = 0
     for _ in range(4000):
         cnt = Counter(rng.choices(range(4), weights=probs, k=nh))
         if 0.5 * sum(abs(cnt[i] / nh - probs[i]) for i in range(4)) >= tv - 1e-12:
             ge += 1
-    c1 = {'hump_segments': nh, 'random_segments': nr, 'hump_mix': ph, 'random_mix': pr,
+    c1 = {'hump_segments': nh, 'random_segments': nr,
+          'hump_counts': {c: hump_cls[c] for c in cats},
+          'hump_mix': {c: rnd(hump_cls[c] / nh) for c in cats}, 'random_mix': {c: rnd(rand_cls[c] / nr) for c in cats},
           'tv_distance': rnd(tv), 'mc_p_value': rnd((ge + 1) / 4001.0, 4),
-          'segment_len_median': med([ln for _, ln in seg_list])}
+          'segment_len_median': med([ln for _, ln in seg_list]),
+          'method': 'segment = state before the total first exceeds start .. first state back at <= start; '
+                    'random = 50 same-length windows per hump segment from the same path; p = Monte Carlo TV test'}
     c1['kill'] = {'dead': c1['mc_p_value'] > 0.05, 'rule': 'mix matches random segments (MC p > 0.05)'}
+
+    return {'counts': {'paths_analysed': len(paths), 'hump_paths': len(humps), 'hump_steps': len(steps),
+                       'climbing_steps': sum(1 for r in steps if r['climb']),
+                       'climbing_mult_steps': sum(1 for r in steps if r['climb'] and 2 <= r['move'] <= 5)},
+            'climb_summary': climb_summary, 'rank_summary': ranks, 'kill_verdicts': verdicts,
+            'E1': e1, 'E1_per_path': e1_paths, 'U1': u1, 'C1': c1, 'per_path': per_path,
+            'wall_s': round(time.time() - T0, 1)}
+
+
+def timing_block(rows_all, per_bin=40, seed=11):
+    """6. Python time per state (fresh caches), stratified by raw total 20..69, plus op counts."""
+    rng = random.Random(seed)
+    bins = defaultdict(list)
+    for p in rows_all:
+        for s in p['states']:
+            for c in [s] + [apply_move(s, j) for j in (2, 3, 4, 5)]:
+                L = tot(c)
+                if 20 <= L <= 69:
+                    bins[L // 10 * 10].append(c)
+    out = {}
+    for b in sorted(bins):
+        pool = bins[b]
+        rng.shuffle(pool)
+        res = defaultdict(list)
+        ops = defaultdict(list)
+        for s in pool[:per_bin]:
+            for name, fn in (('P1', lambda: p1(*s)), ('P1m', lambda: p1m(*s)),
+                             ('P2c8', lambda: p2(s[0], s[1], 8)), ('P2c40', lambda: p2(s[0], s[1], 40)),
+                             ('P2nocut', lambda: p2(s[0], s[1], None))):
+                _P1.clear()
+                _P2.clear()
+                c0 = (CNT.pairs, CNT.words, CNT.word_chars, CNT.lcs, CNT.lcs_cells)
+                t = time.perf_counter()
+                fn()
+                res[name].append(time.perf_counter() - t)
+                ops[name].append([y - x for x, y in zip(c0, (CNT.pairs, CNT.words, CNT.word_chars, CNT.lcs, CNT.lcs_cells))])
+        out['%d-%d' % (b, b + 9)] = {
+            name: {'n': len(ts), 'py_ms_median': rnd(1000 * med(ts), 3),
+                   'pairs': med([o[0] for o in ops[name]]), 'words': med([o[1] for o in ops[name]]),
+                   'word_chars': med([o[2] for o in ops[name]]), 'lcs_calls': med([o[3] for o in ops[name]]),
+                   'lcs_cells': med([o[4] for o in ops[name]])} for name, ts in res.items()}
+        print('  timing', b, {k: v['py_ms_median'] for k, v in out['%d-%d' % (b, b + 9)].items()}, flush=True)
+    _P1.clear()
+    _P2.clear()
+    return out
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--sair', default=SAIR_DEFAULT)
+    ap.add_argument('--out', default=OUT_DEFAULT)
+    ap.add_argument('--selftest', action='store_true')
+    ap.add_argument('--hump', type=int, default=6)
+    ap.add_argument('--no-secondary', action='store_true', help='skip the all-verified-rows secondary pass')
+    ap.add_argument('--no-timing', action='store_true')
+    ap.add_argument('--c-bench', help='text output of the C microbenchmark (p2bench.c) to embed')
+    args = ap.parse_args()
+    T0 = time.time()
+    official = load_official(args.sair)
+    man = {c['challenge_id']: c['initial_relators']
+           for c in json.load(open(os.path.join(args.sair, 'competition/tools/verifier/data/manifest.json')))['challenges']}
+    board = {c['challengeId']: c['currentBestLength'] for c in json.load(gzip.open(BOARD))['data']['items']}
+    rows_all, collection, bad = collect_rows(official, man, board)
+    print('collected', collection, flush=True)
+    at_rec = [p for p in rows_all if p['at_record']]
+    st = selftest(at_rec) if args.selftest else None
+    if st:
+        print('selftest', st, flush=True)
+
+    primary = analyse(at_rec, args.hump, True, 'at_record')
+    secondary = None
+    if not args.no_secondary:
+        sec = analyse(rows_all, args.hump, False, 'all_rows', series=False)
+        secondary = {k: sec[k] for k in ('counts', 'climb_summary', 'rank_summary', 'kill_verdicts', 'E1', 'U1', 'C1', 'wall_s')}
+    timing = None if args.no_timing else timing_block(rows_all)
 
     out = {'generated': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'script': os.path.relpath(__file__, REPO),
            'hypothesis': 'B31: multiplications are the only class-changing moves; P2 should stay flat over humps',
            'definitions': __doc__, 'hump_threshold': args.hump, 'collection': collection,
            'replay_failures': bad[:50], 'selftest': st,
-           'counts': {'paths_analysed': len(paths), 'hump_paths': len(humps), 'hump_steps': len(steps),
-                      'climbing_steps': sum(1 for r in steps if r['climb'])},
-           'climb_summary': climb_summary, 'rank_summary': ranks, 'kill_verdicts': verdicts,
-           'timing_python_per_state': timing_out, 'E1': e1, 'E1_per_path': e1_paths, 'U1': u1, 'C1': c1,
-           'per_path': per_path, 'wall_s': round(time.time() - T0, 1)}
+           'primary_at_record': primary, 'secondary_all_verified_rows': secondary,
+           'timing_python_per_state': timing,
+           'timing_c_bench': open(args.c_bench).read().splitlines() if args.c_bench else None,
+           'wall_s': round(time.time() - T0, 1)}
     with open(args.out, 'w') as f:
         json.dump(out, f, indent=1)
-    print(json.dumps({k: out[k] for k in ('counts', 'climb_summary', 'kill_verdicts')}, indent=1))
+    print(json.dumps({'counts': primary['counts'], 'kill': primary['kill_verdicts']}, indent=1))
     print('wrote', args.out, 'wall', out['wall_s'])
 
 
