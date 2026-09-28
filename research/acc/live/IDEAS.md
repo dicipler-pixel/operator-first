@@ -1,3 +1,19 @@
+## 2026-09-28 03:10Z, session 2 (lead): reverse search? No, the humps sit mid-path
+- **Idea** (the lead's "look in the glass"): search from the finish backwards, so the uncapped 9-move ball
+  sits at the start. It would help if record paths climb near the start.
+- **Checked on the 5 exact paths:** the peaks come at 30–52% of the way (03305 step 7 of 23, 01629 12/23,
+  05558 12/24, 07435 12/26, 08201 11/31). A reverse search needs the same cap as the forward one.
+  Closed.
+- **ChatGPT's ac-06095 windows (gap 15–16, empty):** one more local repair coming back empty, which fits
+  "the record paths are different roads". Suggestion for the helpers: stop local repair on near-misses
+  and put helper time on unsolved rows that are close to solved ones, or on the deep 1–2-team rows with a
+  fresh route (not a repair).
+- **Ops:** sweep C finished its 77 rows (no new ties). Sweep B's remaining 261 rows are split: B keeps 130,
+  new sweep D takes 131 (60M budget).
+- **My mistake:** a cleanup `rm -rf cap_ac-0*` also deleted sweep A's live layer files (ac-01104, cap 31
+  → FATAL, recorded as incomplete, so no false bound). Rule: only delete the work dir of the row whose
+  sweep you stopped. Re-run ac-01104 at cap 31 later.
+
 ## 2026-09-28, ChatGPT helper: ac-06095 exact peak-window screen
 - **Target:** reserved helper lane, ac-06095 47 vs record 42 (k=1); matching SAC is 49 vs 44 (k=1). No submission line found.
 - **Input replay:** the candidate route reaches exact (x,y); its maximum total relator length is 31, first at state P[5]. Move set is the pinned ac-r2-v1 moves 0-13.
@@ -5,6 +21,22 @@
 - **Gap 16:** checked windows [0,16] through [5,21] with radii 7+8. All six were empty at caps 31, 40, and 50; largest B-side: 1,326,497, 8,802,044, and 18,151,396 states respectively. At cap 60, windows [0,16], [1,17], [2,18] were empty (largest side 30,320,682 states); the runtime disconnected before I captured the remaining three windows, so cap 60 is incomplete.
 - **Result:** no shorter splice. The path remains 47. This is window-local, not a global optimality result. The table deduplicates 123-bit fingerprints, so record these as completed fingerprint searches rather than collision-free formal certificates.
 - **Audit:** `research/acc/optimality/ac-06095_peak_window_audit_20260928.json`. Next: finish cap 60 on the last three gap-16 windows after compute reconnects, then consider gap 17.
+## 2026-09-28 03:15Z, session 2 (lead): Schur macros and the echo ("take it back")
+- **Schur elimination as macro-moves** (atlas UPG-FEEDBACK). `mine_macros.py` mines up-and-back-down
+  excursions (2–6 moves) from 210 known paths, expanded by the 16 move symmetries: 36,194 distinct.
+  `acc_beam` now takes `BEAM_MACROS=file BEAM_MACW=w`. Each macro is one extra child and carries its
+  true path length. Identical output with no macros. On ac-03305 (exact 23, beam 27), with macros mined
+  leave-one-out: 27 at w = 0.5, 1, 2. A 4-row A/B on near-miss rows is running (old / macros / shadow).
+- **Echo table** (the lead's verse: "the echo from the back is still talking to you"). States on or
+  within r moves of our known routes, each with a known remaining distance, become extra targets for the
+  exact capped search (`acc_capped` `ECHO_FILE=`, `build_echo.py`). A capped BFS state that meets the echo
+  at depth d gives a path d + remaining, and the known tail completes it.
+  - ac-05818 (record 34, ours 35): 7 routes (Codex map + ours), 122,317 echo states (r = 3).
+  - Cap 25, depth 25, 55M states: best echo path 35 (our own route). No 34 exists whose first part stays
+    within total length 25 and then joins a radius-3 neighbourhood of our routes. This complements
+    Codex's corridor result (no 34 inside the radius-6 union).
+- **Takeaway:** local repair of our near-miss paths (windows, corridors, echo, macros) keeps coming back
+  empty. The record paths for these rows are different roads, not repairs of ours.
 
 ## 2026-09-28 02:45Z, session 2 (lead): the team lead's atlas, tested on AC
 Seven ideas were read from the repo (atlas cards, UPG, Kakeya frontier, compound-eye originals). Tested:
