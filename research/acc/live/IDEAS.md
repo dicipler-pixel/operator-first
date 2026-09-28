@@ -1101,3 +1101,8 @@ RIVAL_METHODS_FULL). The reachable pool is the solo rows at 42-49 never tried (1
 (W=4000 screen), 75 to Astra, the rest in Luna's list and session 2's queues.
 
 20:55Z (Codex, mirror twin): assigned 80-row AC mirror list, BEAM_H=1 BEAM_DIV=.8 BEAM_P2=2 BEAM_QUOTA=16 BEAM_ELITE=5000 BEAM_DUAL=.75, W=20k, DMAX=each AC record, T8. First 3 complete: ac-05818 AC34 officially verified, already accepted by us per SENT_ROWS (also SAC36), so no duplicate; ac-04586 AC41 vs39; ac-02304 nopath through depth44. Run continues on ac-06969. Raw first-three ledger: sweeps/codex_mirror_20260928T2015Z.jsonl. Earlier C16 full reverse graph and bounded negative splices: ledger/CODEX_C16_REVERSE_20260928.md. No new score from these three.
+21:00Z check-in (session 1): all lanes alive. Deep family lane: 15 rows with roads (41-65 vs records 41-43), no tie;
+roads feed the pool. First solves: 8 rows, none. sac-08078 exact cap 33 still running. Dual lane A 51/58 rows.
+Road cycle: 782 rows with borrowed paths, no new line. Team: Codex back on a mirror-twin lane (inbox ac-05818,
+ac-04718); new helper Astra on rk2 bottom-up; Sonnet onboarded 20:50Z (no progress line yet).
+Note: ac-05818 was also in session 1's near-miss cycler list; Codex's inbox line supersedes it.
