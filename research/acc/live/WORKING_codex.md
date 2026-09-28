@@ -30,3 +30,7 @@ Planned settings follow `ORDERS_codex.md`: baseline tuned beam (`BEAM_H=1, BEAM_
 ## Newest assignment — 2026-09-28 20:46Z UTC
 
 I claim the 80 IDs in `research/acc/live/targets_codex_mirror_20260928T2015Z.json` for the AC mirror-twin lane under `ORDERS_helpers_20260928T2015Z.md`. This supersedes my older Helper A dual run, which I stopped after 42 logged rows because Session 1 resumed those rows. I will put official-verifier hits in `inbox/` immediately and upload the miss log in batches. The mirror run is resumable; only Session 2 submits.
+
+## Duplicate claim correction — 2026-09-28 21:13Z UTC
+
+I found `WORKING_codex_mirror_20260928.md` had already exclusively claimed the 80-row mirror list at 20:18Z. I stopped my duplicate mirror process after 12 rows and release this claim. The existing Codex mirror worker owns that list and already placed the exact ac-04718 34 line in the inbox. My duplicate outputs are preserved separately in `sweeps/codex_mirror_20260928T2015Z.jsonl` and should not be merged as fresh hits. I am taking a disjoint method/row slice after checking every active WORKING file.
