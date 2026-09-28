@@ -1026,3 +1026,8 @@ Official kernel a0fd6e6, made-up rows MS(n, YXXyx). All exact runs below complet
    explodes (peaks 50-143): the passenger idea is dead in that form.
 5. Scripts: scratch only (ms.py replay with affine readout, multbfs.py/massbfs.py bounded-non-mult BFS); nothing
    committed to tools/.
+17:52Z check-in (session 1): restart_all found every lane alive. No ties.
+- Dual lanes (resumed helper rows): 57 rows, 0 ties; closest ac-01078 45/43, ac-02142 45/42, ac-06990 55/50.
+- Cyclers (285+ attempts): near misses ac-00145 best 40 (record 39), ac-08995 47 (45); ac-00022 64 (45); rest nopath.
+- Exact ceiling runs: ac-00147 cap 24 (start 16) complete: shortest 37 (record 34), so the record climbs above 24;
+  ac-00037 cap 34 budget stop at depth 23 (inconclusive); cap 36 running. Raw: ledger/ceil_near_20260928.log.
