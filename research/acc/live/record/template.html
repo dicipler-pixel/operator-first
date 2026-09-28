@@ -188,7 +188,7 @@ function load(i){
   const L=st.map(s=>s.reduce((t,w)=>t+w.length,0));
   let pk=0; L.forEach((v,j)=>{ if(v>L[pk]) pk=j; });
   cur={p,st,L,pk}; step=0; scrub.max=p.moves.length; stop();
-  const k=document.getElementById('kind'); k.textContent=p.kind; k.style.color = {exact:'var(--ok)',borrowed:'var(--accent)',mirror:'var(--unt)','near miss':'var(--closed)','proof track':'var(--sig)'}[p.kind]||'var(--muted)';
+  const k=document.getElementById('kind'); k.textContent=p.kind; k.style.color = {exact:'var(--ok)',borrowed:'var(--accent)',mirror:'var(--unt)','near miss':'var(--closed)','proof track':'var(--sig)',construction:'var(--run)'}[p.kind]||'var(--muted)';
   document.getElementById('note').textContent=p.note; draw(); show();
 }
 function draw(){
