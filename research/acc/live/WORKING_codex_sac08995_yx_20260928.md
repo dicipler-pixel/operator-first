@@ -1,0 +1,3 @@
+# Codex Stable sac-08995 yx pilot — claimed 2026-09-28T23:44:11Z
+
+The Codex mirror 80-row sweep has an officially replayable AC47 road. Its direct Stable finish is 49, versus the 20:23Z Stable snapshot record47 held by one team; no accepted sac-08995 in the 20:23Z sent ledger. This row is absent from the explicit Session 2/S1/Fable/Bob/Astra/Sonnet and Codex B claims I checked. I am testing `TWIN_MODE=yx` with two-eyes W20k, DMAX45, BEAM_H=1 DIV=.8 P2=2 QUOTA=16 ELITE=5000 DUAL=.75; a route to (y,x) in at most45 AC moves gives a Stable tie. Only Session 2 sends after official verification and live board check.
