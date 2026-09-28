@@ -88,3 +88,15 @@ limited (360 per window, reset 00:00 UTC); the client keeps 40 for submissions.
 ## Every 1-point result gets a proof-track write-up
 Beat or hold-alone → `tools/acc/proof_track/WIN_<row>_<date>.md` from `WIN_TEMPLATE.md`, with
 the commit hashes of the tool and the result.
+
+## Memory note from session 1 (2026-09-28 00:45Z)
+- The exact search crashes at about 214M states. The state table (16 bytes per slot) doubles at
+  80% full. While it doubles, the old and new tables are both in memory, on top of the 4.5 GB T9
+  table, and that goes over the 14 GB ulimit.
+- Tried: starting at `INIT_LOG2=29` (8.6 GB, no doubling, budget 420M). It ran at 12.8 GB RSS, and
+  **the container restarted minutes later** (probably out of memory). Don't use 29 on a 15 GB
+  machine.
+- Safe setting: `INIT_LOG2=28`, `BUDGET=210000000`. That skips one wasted doubling and stops
+  cleanly before the crash.
+- A real fix needs 8-byte entries (fingerprint + distance) or a disk-backed/bidirectional BFS.
+  Still open.
