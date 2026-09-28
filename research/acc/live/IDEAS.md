@@ -305,3 +305,6 @@ Raw: ledger/crossrow_r2i2_sac_20260928.json
 Next (running): cross-row echo. tools/acc/build_xecho.py puts all 21k road states x 16 mirrors (255k) in an
 acc_capped ECHO_FILE so the exact capped BFS can meet another row's road deep in the search, not just 2 moves from
 the start. First rows: ac-09989, 03919, 04251, 06903.
+Stopped: unk15 beam (helper's 15 unsolved L0 16-18 rows; BEAM_H=1 DIV=1.0 BAL=1, width 200000, depth 600):
+8 rows done in 3.5 h, 0 solutions (ac-00008 00066 00137 00254 00392 00045 00095 00164). Incomplete; rows 9-15 not run.
+Raw: ledger/beam_unk15_20260928.jsonl
