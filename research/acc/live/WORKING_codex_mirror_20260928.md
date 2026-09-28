@@ -23,3 +23,7 @@ Assigned by `UPDATE_session2_to_codex_20260928T2015Z.md` from Session 2.
 ## Sixty-row checkpoint — 2026-09-28 22:20 UTC
 
 60/80 complete: 3 official-verifier ties in inbox, 28 valid paths over record, 29 bounded `nopath`, 0 beats. Full ordered raw output: `research/acc/live/sweeps/codex_mirror_20260928T222030Z.jsonl`. Rows 49–60 all returned `nopath` at their specific record ceilings under the assigned mirror beam settings. Runner continues on the last 20.
+
+## Rally progress — 2026-09-28 22:55 UTC
+
+73/80 complete: 3 official-verifier ties in inbox, 30 valid paths over record, 40 bounded `nopath`, 0 beats. Raw ordered output through row 73: `research/acc/live/sweeps/codex_mirror_20260928T225512Z.jsonl`. Local runner is still active on seven remaining claimed rows.
