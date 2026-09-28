@@ -1144,3 +1144,9 @@ Note: ac-05818 was also in session 1's near-miss cycler list; Codex's inbox line
 42-move mirror AC path (cuts 0-40), two-eyes beam W=20000 on the letter-swapped state toward (x,y), DMAX = 41 - i: best
 route to (y,x) = 42 (Stable 44; record 43, k1). Same as the earlier yx / yx2 / yx_window results. Not an exact bound.
 Also 21:30Z: esc2 (gap 1-2, k<=3) got its first hit, sac-04346 26 (k3, yx twin); mirror lane hit ac/sac-06457 30/32 (k4).
+22:05Z check-in (session 1): all lanes alive. Deep family lane: 32 rows with roads, 1 near (ac-00145 40/39, known).
+First solves: 15 rows, none (switch to the opposite approach at 20). Long-row two-eyes lanes (records 61-90):
+5 rows, no path within record+2 yet. sac-08078 exact cap 33 still running.
+Helpers: Sonnet 6/200 (21:55Z line, no hits); Astra setup done 21:55Z, run restarting (0/150). Codex: ac-05378 42 AC
+TIE (k7) in inbox (plan_offline TIE). For Charlie's relay: sac-05378 now one move short (session 2's yx_mid from
+Codex's path: best route to (y,x) 42, Stable 44 vs 43).
