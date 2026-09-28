@@ -14,7 +14,7 @@ sys.path.insert(0, HERE)
 import charlie_run as cr
 BIN = cr.BIN; BALL = os.path.join(HERE, 'runs', 'B36'); UNION = os.path.join(BALL, 'union9.bin'); R_BALL = 9
 WORK = os.path.join(HERE, 'runs', 'ledger'); os.makedirs(WORK, exist_ok=True)
-BOARD = {json.loads(l)['id']: json.loads(l) for l in open(os.environ.get('CHARLIE_BOARD', os.path.abspath(os.path.join(HERE, '../../../research/acc/live/ledger/exact_capped_runs.jsonl')))) if l.strip()}
+BOARD = {json.loads(l)['id']: json.loads(l) for l in open(os.path.join(HERE, 'exact_capped_runs_from_board.jsonl')) if l.strip()}
 OUT = os.path.join(HERE, 'runs', 'charlie_ledger_rows.jsonl')
 
 def one(cid):
@@ -60,5 +60,6 @@ if __name__ == '__main__':
         try:
             one(cid)
         except SystemExit as e:
+            subprocess.run('rm -rf %s/%s*' % (WORK, cid), shell=True)
             print(cid, 'ENGINE FAILED (logged, moving on):', str(e)[:200], flush=True)
             with open(OUT, 'a') as f: f.write(json.dumps({'row': cid, 'verdict': 'ENGINE FAILED', 'detail': str(e)[:300]}) + '\n')

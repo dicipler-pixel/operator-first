@@ -1031,3 +1031,17 @@ Official kernel a0fd6e6, made-up rows MS(n, YXXyx). All exact runs below complet
 - Cyclers (285+ attempts): near misses ac-00145 best 40 (record 39), ac-08995 47 (45); ac-00022 64 (45); rest nopath.
 - Exact ceiling runs: ac-00147 cap 24 (start 16) complete: shortest 37 (record 34), so the record climbs above 24;
   ac-00037 cap 34 budget stop at depth 23 (inconclusive); cap 36 running. Raw: ledger/ceil_near_20260928.log.
+
+## 2026-09-28 19:00Z, session 1: "what did we miss" review
+1. **Stale board in session 1's targeting:** live_all_ac/sac.txt dated from 04:13Z; 856 AC and 867 Stable records
+   have dropped since. No wrong line was sent (plan_offline reads fresh data), but target lists were stale. Fixed:
+   `refresh_live.py` rebuilds both from the newest boards/*.json.gz at the start of every road cycle.
+2. **Stable-AC gap rows:** 9 rows where we tie AC but not Stable AC; on 8 the Stable record is AC + 1, reachable only
+   via the (y,x) finish, which the cyclers never score. Two are one-team (sac-08078 34, sac-02528 36). Split with
+   Charlie (ORDERS_charlie_v2_20260928.md): session 1 low caps in memory, Charlie cap >= start+4 on disk.
+3. **First solves:** 100 unsolved MS rows sit next to a solved n-1 row in the same family, and we hold a path for the
+   solved neighbour on nearly all. New lane `firstsolve.py`: replay the n-1 path on the n row, pick the shortest prefix
+   states, deep beams (depth 250) from there; plain deep beam as the control. Any length is a full point on each board.
+4. Checked and clean: Stable lines from held AC paths (0 new); Charlie's 540 cutchain lines (0 scoring).
+5. Job queue was starved (6 heavy lanes always running); cyc1/cyc2 (user's first list, 400 attempts, nothing within
+   record+2) stopped and removed from restart_all so the gap runs and first-solve lane can start.
