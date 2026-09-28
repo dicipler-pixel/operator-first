@@ -1,3 +1,20 @@
+## 2026-09-28 03:15Z, session 2 (lead): Schur macros and the echo ("take it back")
+- **Schur elimination as macro-moves** (atlas UPG-FEEDBACK). `mine_macros.py` mines up-and-back-down
+  excursions (2–6 moves) from 210 known paths, expanded by the 16 move symmetries: 36,194 distinct.
+  `acc_beam` now takes `BEAM_MACROS=file BEAM_MACW=w`. Each macro is one extra child and carries its
+  true path length. Identical output with no macros. On ac-03305 (exact 23, beam 27), with macros mined
+  leave-one-out: 27 at w = 0.5, 1, 2. A 4-row A/B on near-miss rows is running (old / macros / shadow).
+- **Echo table** (the lead's verse: "the echo from the back is still talking to you"). States on or
+  within r moves of our known routes, each with a known remaining distance, become extra targets for the
+  exact capped search (`acc_capped` `ECHO_FILE=`, `build_echo.py`). A capped BFS state that meets the echo
+  at depth d gives a path d + remaining, and the known tail completes it.
+  - ac-05818 (record 34, ours 35): 7 routes (Codex map + ours), 122,317 echo states (r = 3).
+  - Cap 25, depth 25, 55M states: best echo path 35 (our own route). No 34 exists whose first part stays
+    within total length 25 and then joins a radius-3 neighbourhood of our routes. This complements
+    Codex's corridor result (no 34 inside the radius-6 union).
+- **Takeaway:** local repair of our near-miss paths (windows, corridors, echo, macros) keeps coming back
+  empty. The record paths for these rows are different roads, not repairs of ours.
+
 ## 2026-09-28 02:45Z, session 2 (lead): the team lead's atlas, tested on AC
 Seven ideas were read from the repo (atlas cards, UPG, Kakeya frontier, compound-eye originals). Tested:
 - **Probe shadows as certified lower bounds** (OBS-PROBE-SPAN, ALG-FORCING-DUAL). Map words into

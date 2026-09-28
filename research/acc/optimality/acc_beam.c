@@ -7,7 +7,7 @@
 #define ACC_NO_MAIN
 #include "acc_opt.c"
 #include <math.h>
-typedef struct { uint64_t off; uint32_t par; uint8_t mv; uint32_t len; } Node;
+typedef struct { uint64_t off; uint32_t par; uint8_t mv; uint32_t len; uint16_t td; } Node;  // td = true path length
 static uint8_t*AR; static uint64_t ARn,ARcap;
 static uint64_t store(const St*s){ uint64_t need=4+s->l[0]+s->l[1]; if(ARn+need>ARcap){ ARcap=ARcap?ARcap*2:(1ULL<<26); while(ARn+need>ARcap) ARcap*=2; AR=realloc(AR,ARcap); if(!AR) die("arena"); }
   uint8_t*p=AR+ARn; p[0]=s->l[0]&255; p[1]=s->l[0]>>8; p[2]=s->l[1]&255; p[3]=s->l[1]>>8; memcpy(p+4,s->w[0],s->l[0]); memcpy(p+4+s->l[0],s->w[1],s->l[1]); uint64_t o=ARn; ARn+=need; return o; }
@@ -38,6 +38,16 @@ static void load_probes(const char*fn){ FILE*f=fopen(fn,"rb"); if(!f) die("probe
 static uint32_t shadow(const St*s){ uint32_t tot=0; for(int i=0;i<NPRB;i++){ const Probe*P=&PRB[i]; uint32_t g[2];
     for(int r=0;r<2;r++){ uint32_t x=P->one; for(int j=0;j<s->l[r];j++) x=P->mul[(uint64_t)x*P->n+P->img[s->w[r][j]]]; g[r]=x; }
     tot+=P->dist[(uint64_t)g[0]*P->n+g[1]]; } return tot; }
+// BEAM_MACROS=file ("count: m1 m2 ..." per line), BEAM_MACW=w: Schur elimination of the hump (atlas UPG-FEEDBACK).
+// Each mined up-and-back-down excursion is one extra child per state, so the high interior states never have to
+// survive the beam. Children carry their true path length td; the key adds w x (td - layer) so extra moves cost.
+static int NMAC; static uint8_t MAC[240][8]; static int MACL[240]; static double MACW=1.0;
+static void load_macros(const char*fn){ FILE*f=fopen(fn,"rb"); if(!f) die("macro file"); char line[512];
+  while(NMAC<240&&fgets(line,sizeof line,f)){ char*p=strchr(line,':'); if(!p) continue; p++; int k=0,v,off;
+    while(k<8&&sscanf(p,"%d%n",&v,&off)==1){ if(v<0||v>13) die("macro move"); MAC[NMAC][k++]=(uint8_t)v; p+=off; }
+    if(k>=2){ MACL[NMAC]=k; NMAC++; } } fclose(f); }
+static int apply_macro(const St*s,int mi,St*r){ static St a,b; St*x=&a,*y=&b; *x=*s;
+  for(int j=0;j<MACL[mi];j++){ if(x->l[0]+x->l[1]>2000) return 0; apply(x,MAC[mi][j],y); St*t=x; x=y; y=t; } *r=*x; return 1; }
 static int cmpc(const void*a,const void*b){ uint64_t x=((Cand*)a)->key,y=((Cand*)b)->key; return x<y?-1:x>y; }
 int main(int argc,char**argv){
   const char*tf=argv[1]; uint64_t W=strtoull(argv[2],0,10); int DMAX=atoi(argv[3]); St s0; parse_state(argv,4,&s0);
@@ -45,8 +55,8 @@ int main(int argc,char**argv){
   TT.t=mmap(0,stt.st_size,PROT_READ,MAP_SHARED|MAP_POPULATE,fd,0); if(TT.t==MAP_FAILED) die("mmap"); TT.N=stt.st_size/16;
   Tab V; tab_init(&V,1ULL<<24);
   Node*nodes=malloc(sizeof(Node)*(W*(uint64_t)(DMAX+1)+1)); uint64_t nn=0;
-  uint64_t h1,h2; fp(&s0,&h1,&h2); tab_ins(&V,h1,h2,0,1); nodes[nn++]=(Node){store(&s0),0xFFFFFFFFu,255,(uint32_t)(s0.l[0]+s0.l[1])};
-  uint64_t lo=0,hi=1; int bestAC=1<<30,bestSAC=1<<30; uint32_t acNode=0,sacNode=0; int acT=0,sacT=0; St acSt,sacSt;
+  uint64_t h1,h2; fp(&s0,&h1,&h2); tab_ins(&V,h1,h2,0,1); nodes[nn++]=(Node){store(&s0),0xFFFFFFFFu,255,(uint32_t)(s0.l[0]+s0.l[1]),0};
+  uint64_t lo=0,hi=1; int bestAC=1<<30,bestSAC=1<<30; uint32_t acNode=0,sacNode=0; int acT=0,sacT=0,acMv=-1,sacMv=-1; St acSt,sacSt;
   Cand*C=malloc(sizeof(Cand)*W*14); St*tmpS=malloc(sizeof(St)*1); (void)tmpS;
   static St cur,nx,sw; St*kids=NULL; uint64_t kcap=0;
   // scratch arena for one depth's children; permanent arena (AR) holds kept states only
@@ -54,23 +64,24 @@ int main(int argc,char**argv){
   // BEAM_LOOK=1: two-level key (height = best total length reachable in one more move, tiebreak = own length)
   int LOOK=getenv("BEAM_LOOK")?atoi(getenv("BEAM_LOOK")):0;
   int HP=getenv("BEAM_H")?atoi(getenv("BEAM_H")):0; BAL=getenv("BEAM_BAL")?atof(getenv("BEAM_BAL")):0;
+  if(getenv("BEAM_MACROS")){ load_macros(getenv("BEAM_MACROS")); MACW=getenv("BEAM_MACW")?atof(getenv("BEAM_MACW")):1.0; C=realloc(C,sizeof(Cand)*W*(14+NMAC)); fprintf(stderr,"macros: %d\n",NMAC); }
   SHW=getenv("BEAM_SHADOW")?atof(getenv("BEAM_SHADOW")):0.0; if(SHW>0){ if(!getenv("BEAM_SHADOW_FILE")) die("BEAM_SHADOW_FILE"); load_probes(getenv("BEAM_SHADOW_FILE")); }
   int NOISE=getenv("BEAM_NOISE")?atoi(getenv("BEAM_NOISE")):0; if(HP) NOISE*=16; /* priority is scaled x16 */ uint64_t SEED=getenv("BEAM_SEED")?strtoull(getenv("BEAM_SEED"),0,10)*0xD1B54A32D192ED03ULL:0;
   for(int d=1;d<=DMAX;d++){
     if(d>=bestAC && d+2>=bestSAC) break;
-    Node*tmpN=malloc(sizeof(Node)*(hi-lo)*14+1); uint64_t nt=0; SAn=0; memset(L.t,0,16*L.N); L.n=0;
+    Node*tmpN=malloc(sizeof(Node)*(hi-lo)*(14+NMAC)+1); uint64_t nt=0; SAn=0; memset(L.t,0,16*L.N); L.n=0;
     for(uint64_t i=lo;i<hi;i++){ load(nodes[i].off,&cur);
-      for(int m=0;m<14;m++){ apply(&cur,m,&nx); fp(&nx,&h1,&h2);
+      for(int m=0;m<14+NMAC;m++){ int ctd=nodes[i].td+1; if(m<14) apply(&cur,m,&nx); else { if(!apply_macro(&cur,m-14,&nx)) continue; ctd=nodes[i].td+MACL[m-14]; } fp(&nx,&h1,&h2);
         if(tab_find(&V,h1,h2)>=0) continue; if(tab_ins(&L,h1,h2,1,1)>=0) continue;
-        int t=tab_find(&TT,h1,h2); if(t>=0&&d+t<bestAC){ bestAC=d+t; acNode=(uint32_t)i; acT=t; acSt=nx; }
+        int t=tab_find(&TT,h1,h2); if(t>=0&&ctd+t<bestAC){ bestAC=ctd+t; acNode=(uint32_t)i; acT=t; acSt=nx; acMv=m; }
         swapst(&nx,&sw); uint64_t g1,g2; fp(&sw,&g1,&g2); int u=tab_find(&TT,g1,g2);
-        if(u>=0&&d+u+2<bestSAC){ bestSAC=d+u+2; sacNode=(uint32_t)i; sacT=u; sacSt=nx; }
+        if(u>=0&&ctd+u+2<bestSAC){ bestSAC=ctd+u+2; sacNode=(uint32_t)i; sacT=u; sacSt=nx; sacMv=m; }
         uint32_t len=nx.l[0]+nx.l[1]; uint64_t need=4+len;
         if(SAn+need>SAcap){ SAcap=SAcap?SAcap*2:(1ULL<<26); while(SAn+need>SAcap) SAcap*=2; SA=realloc(SA,SAcap); if(!SA) die("scratch"); }
         uint8_t*q=SA+SAn; q[0]=nx.l[0]&255; q[1]=nx.l[0]>>8; q[2]=nx.l[1]&255; q[3]=nx.l[1]>>8; memcpy(q+4,nx.w[0],nx.l[0]); memcpy(q+4+nx.l[0],nx.w[1],nx.l[1]);
-        tmpN[nt]=(Node){SAn,(uint32_t)i,(uint8_t)m,len}; SAn+=need;
+        tmpN[nt]=(Node){SAn,(uint32_t)i,(uint8_t)m,len,(uint16_t)ctd}; SAn+=need;
         // BEAM_NOISE=n, BEAM_SEED=s: add a seeded pseudo-random 0..n to the length key (route diversity)
-        uint32_t klen=HP?hprio(&nx):len; if(SHW>0) klen+=(uint32_t)(SHW*(HP?16.0:1.0)*shadow(&nx)+0.5); if(NOISE){ uint64_t z=(h1^SEED)*0x9E3779B97F4A7C15ULL; z^=z>>29; klen+=(uint32_t)(z%(uint64_t)(NOISE+1)); }
+        uint32_t klen=HP?hprio(&nx):len; if(SHW>0) klen+=(uint32_t)(SHW*(HP?16.0:1.0)*shadow(&nx)+0.5); if(NMAC) klen+=(uint32_t)(MACW*(HP?16.0:1.0)*(ctd-d)+0.5); if(NOISE){ uint64_t z=(h1^SEED)*0x9E3779B97F4A7C15ULL; z^=z>>29; klen+=(uint32_t)(z%(uint64_t)(NOISE+1)); }
         uint64_t key=((uint64_t)klen<<40)|((h1^SEED)>>24);
         if(LOOK){ uint32_t best=len; St y; for(int m2=0;m2<14;m2++){ apply(&nx,m2,&y); uint32_t l2=y.l[0]+y.l[1]; if(l2<best) best=l2; }
           key=((uint64_t)best<<52)|((uint64_t)(len&4095)<<40)|(h1>>24); }
@@ -99,9 +110,9 @@ int main(int argc,char**argv){
     uint32_t pn=which?sacNode:acNode; St fin=which?sacSt:acSt; int t=which?sacT:acT;
     int pre[4096],np=0; // moves from start to parent node, then the move to fin
     // find the move from parent to fin
-    load(nodes[pn].off,&cur); int mfin=-1; for(int m=0;m<14;m++){ apply(&cur,m,&nx); if(st_eq(&nx,&fin)){ mfin=m; break; } }
+    load(nodes[pn].off,&cur); int mfin=which?sacMv:acMv;
     uint32_t q=pn; while(nodes[q].par!=0xFFFFFFFFu){ pre[np++]=nodes[q].mv; q=nodes[q].par; }
-    int path[8192],L=0; for(int i=np-1;i>=0;i--) path[L++]=pre[i]; path[L++]=mfin;
+    int path[8192],L=0; for(int i=np-1;i>=-1;i--){ int mv=i>=0?pre[i]:mfin; if(mv<14) path[L++]=mv; else for(int j=0;j<MACL[mv-14];j++) path[L++]=MAC[mv-14][j]; }
     St c=fin; if(which) swapst(&fin,&c);
     for(int k=t;k>0;k--){ int ok=0; for(int m=0;m<14;m++){ apply(&c,m,&nx); fp(&nx,&h1,&h2); if(tab_find(&TT,h1,h2)==k-1){ path[L++]=which?PI[m]:m; c=nx; ok=1; break; } } if(!ok){ printf("REBUILD_FAIL\n"); break; } }
     if(which){ path[L++]=15; path[L++]=15; }
