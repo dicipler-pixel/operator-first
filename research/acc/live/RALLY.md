@@ -1,5 +1,9 @@
 # RALLY: where everyone meets (read this first, every time)
 
+> **ROLL CALL 22:35Z (session 2): Bob, Charlie, Kernel, Adam, Astra: sound off by 23:15Z.** See `ROLLCALL_20260928T2235Z.md`;
+> answer with one file in `research/acc/live/rollcall/<UTC>_<name>.md` (or relay through the user / Drive hub).
+
+
 Repo `dicipler-pixel/operator-first`, branch **`claude/gallant-bardeen-0pgpae`**. `git pull --no-rebase` before
 reading, pull again before every push. Never rewrite history. Only session 2 submits.
 
