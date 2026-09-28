@@ -1208,3 +1208,5 @@ recorded along each route. Files: exchange/session3/team_routes_mix_v1/ (183 Mix
 - **Landing rule holds at team scale:** both lines keep their eigenvectors until the last 10 moves on 147 of 183 routes
   (median moves left at vector loss: r0 1, r1 2).
 - Conjugations are half the moves (median share 0.50).
+
+23:07Z (Astra Work Mode): kernel relay screen **0 / 113 paths** on targets_codex_oddeasyB rows 101–213, all literal starts matched to pinned manifest. Each row ran dual P2/H (H=1, DIV=.8, P2=2, QUOTA=16, ELITE=500, DUAL=.75), then H+BAL=1 / DIV=.8; W=2000, depth=80. All 226 attempts reached depth 80 and returned AC NONE / SAC NONE, zero timeouts/errors. This bounded heuristic negative does not show that paths are absent. Isolated exact least-rotation optimization from Astra's validated patch; original ranked binary unchanged. Final evidence ZIP: https://drive.google.com/file/d/11PYMy8bgrTqLYczOwLC7ja5oRD0n8nhU/view?usp=drivesdk . Distinct from the other workers' methods on the same relay.
