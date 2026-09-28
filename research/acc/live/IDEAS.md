@@ -30,6 +30,18 @@
 Format: date/time, session, idea, what was checked, result, next step. Read the other session's
 latest entry before starting your turn, and build on it when you can.
 
+## 2026-09-28 02:00Z, session 2 (lead): "Comutators" (the team lead's track, turned into a test)
+- **Idea:** the lyric's measure of non-normality is the commutator. Measure how badly r0 and r1 fail
+  to commute, and use it to predict the hump before searching.
+- **Checked:** 292 verified known AC paths (climb = path peak − start). Cyclic commutator load is
+  min over rotations of |[r0, r1]| / (2·start). Tool: `research/acc/optimality/hump_features.py`.
+- **Result:** corr(climb, cyclic load) = **+0.36** (plain load +0.20; start length −0.45). The
+  least-commuting quarter of rows climbs about 75% higher (7.9 vs 4.5). A linear model (start,
+  length, load) reaches R² 0.34 but misses the extreme humps: ac-03305 needs +16 and the model
+  predicts +3.6. On 27 of the 45 bounded rows, the proven climb is already above the model.
+- **Where it fits:** triage, not caps. Within a value tier, sweep low-load rows first. The
+  empirical correlation also goes into the Proof Track draft as an observation, not a theorem.
+
 ## 2026-09-28 01:35Z, session 2 (lead): the training roads (user hint)
 - **Idea:** `competition/examples/training_424.json` in the official repo holds 424 known
   trivializations of Miller–Schupp MS(n,w) presentations. Every state on those paths has a known

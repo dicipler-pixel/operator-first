@@ -87,6 +87,21 @@ Top 15 of 45, by climb. The full list is in `research/acc/live/dw_bounds_2026092
 Paths at these records exist (other teams hold them), so each bound says how high those
 unpublished paths must climb.
 
+## 4a. An empirical observation (not a theorem)
+
+Is the size of the hump visible in the start presentation? We measured the **cyclic commutator
+load**: the minimum over cyclic rotations a of r0 and b of r1 of the reduced length of
+a b a⁻¹ b⁻¹, divided by 2 × (start length). It measures how far the two relators are from
+commuting.
+
+Across 292 verified known paths, the correlation between this load and the climb (path peak − start
+length) is +0.36. The quarter of rows whose relators commute least climbs about 75% higher. Start
+length is the stronger signal (−0.45): short starts climb more.
+
+Neither signal predicts the extreme humps of §3–4. ac-03305 climbs +16 with a load of 0.67, while
+ac-07435 climbs +1 with a load of 0.73. A structural invariant that predicts DW_R before searching
+remains open.
+
 ## 5. What remains open
 
 - Exact DW_R for the 45 bounded rows. The searches stop at 70–180M states (15 GB), which limits the
