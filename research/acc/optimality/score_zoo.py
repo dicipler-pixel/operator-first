@@ -661,6 +661,46 @@ def f_p2mir(c, st):
     return min(p2s(A, B, 8), p2s(A.translate(SWAPXY), B.translate(SWAPXY), 8))
 
 
+def _cl(w):
+    return len(cycred_s(free_reduce_s(w)))
+
+
+def _comm(u, v):
+    """cyclically reduced length of the group commutator u v u^-1 v^-1 (strings)"""
+    return _cl(u + v + inv_s(u) + inv_s(v))
+
+
+def f_gen(c, st):
+    """(a) commutator with the generator it should become: |[r0,x]| + |[r1,y]|; 0 exactly at (x^+-1, y^+-1)"""
+    a, b = c.e()
+    return _comm(a, 'a') + _comm(b, 'b')
+
+
+def f_genmin(c, st):
+    """(a') min over the two generator assignments; 0 at (x,y) and (y,x) (and their inversions)"""
+    a, b = c.e()
+    return min(_comm(a, 'a') + _comm(b, 'b'), _comm(a, 'b') + _comm(b, 'a'))
+
+
+def f_mixed(c, st):
+    """(b) min over g in {1,x,X,y,Y} of |[r0, g r1 g^-1]|"""
+    a, b = c.e()
+    return min(_comm(a, free_reduce_s(g + b + inv_s(g))) for g in ('', 'a', 'A', 'b', 'B'))
+
+
+def f_selfrev(c, st):
+    """(c) non-normality of each relator: |[r, rev(r)]|, rev = reversed letter order (not inversion)"""
+    return sum(_comm(w, w[::-1]) for w in c.e())
+
+
+def f_flat(c, st):
+    """(d) local flatness: fraction of the 91 unordered move pairs (a,b) with a(b(s)) == b(a(s))"""
+    s = c.s
+    kids = [P.apply_move(s, j) for j in range(14)]
+    g = [[P.apply_move(k, j) for j in range(14)] for k in kids]
+    return sum(1 for i in range(14) for j in range(i + 1, 14) if g[i][j] == g[j][i]) / 91.0
+
+
 def f_p1m_2side(c, st):
     s = c.s
     return min(P.p1m(*s), P.p1m(P.invert(s[0]), P.invert(s[1])))
@@ -721,6 +761,12 @@ SCORES = [
     # 12/13/14 ladder and frames
     ('P3c8', lambda c, st: p3s(*c.c()), 'class', 'low', 'Plate XII P3', True),
     ('P2wh', f_p2wh, 'class', 'low', 'B83 + B31', False),
+    # commutator census (team lead's physics papers): generator, mixed, self (reversal) and tangent (flatness) commutators
+    ('GEN', f_gen, 'word', 'low', 'census: [r_i, target generator] (projector/invariance)', False),
+    ('GENmin', f_genmin, 'word', 'low', 'census: [r_i, generator], best assignment', False),
+    ('MIXED', f_mixed, 'word', 'low', 'census: [r0, g r1 g^-1] (commutator with a conjugated partner)', False),
+    ('SELF', f_selfrev, 'word', 'low', 'census: [r, rev r] self-commutator (normality)', False),
+    ('FLAT', f_flat, 'word', 'high', 'census: tangent commutator = 0 (flat move graph)', False),
     ('P2mir', f_p2mir, 'class', 'low', 'B81 mirror transport (two-sided P2)', False),
     ('P1m_2side', f_p1m_2side, 'word', 'low', 'B81 mirror (reversal)', False),
     # 15/16/18 rails, branching, growth
@@ -903,7 +949,7 @@ def main():
             vals = {n: [value(n, k, st) for k in kids] for n in names_here}
             steps.append({'row': p['row'], 'pi': pi, 't': t, 'N': len(p['moves']), 'move': m, 'hump': p['hump'],
                           'climb': vals['raw'][m] > tot(s), 'vals': vals})
-        for n in ('L3', 'L2', 'L1', 'real2_d0', 'real2_d1', 'real2_d2', 'real2_d3', 'real1_d2', 'R1', 'R2'):
+        for n in ('L3', 'L2', 'L1', 'real2_d0', 'real2_d1', 'real2_d2', 'real2_d3', 'real1_d2', 'R1', 'R2', 'FLAT'):
             if n in MEMO:
                 MEMO[n].clear()  # word-level memos keyed by state; not reused across paths
         if pi % 20 == 0:
@@ -947,6 +993,11 @@ def main():
         '(L3,P2,P1m,raw)': [('L3', 1), ('P2c8', 1), ('P1m', 1), ('raw', 1)],
         '(P2,cage,P1m,raw)': [('P2c8', 1), ('cage', 1), ('P1m', 1), ('raw', 1)],
     }
+    # commutator census: each X as (P2, X, P1m, H) and (P2, comm_len, X, P1m, H), both signs
+    for cx in ('GEN', 'GENmin', 'MIXED', 'SELF', 'FLAT'):
+        for sg, tg in ((1, 'low'), (-1, 'high')):
+            COMBOS['(P2,%s_%s,P1m,H)' % (cx, tg)] = [('P2c8', 1), (cx, sg), ('P1m', 1), ('H', 1)]
+            COMBOS['(P2,comm_len,%s_%s,P1m,H)' % (cx, tg)] = [('P2c8', 1), ('comm_len', 1), (cx, sg), ('P1m', 1), ('H', 1)]
     # symmetry ranked HIGHER (more symmetric first; sign -1), lead's follow-up after the pass-through result
     for sy in ('stab', 'cage', 'cage_n', 'selfsym'):
         COMBOS['(P2,%s_high,P1m,H)' % sy] = [('P2c8', 1), (sy, -1), ('P1m', 1), ('H', 1)]
