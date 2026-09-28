@@ -1,3 +1,17 @@
+## 2026-09-28 12:45Z, session 2 (lead): why level-by-level chain routes cannot reach the records (row-op argument)
+- **Shadow:** the exponent-sum rows of (r0, r1) form a unimodular 2x2 matrix; a multiplication is a row op, while
+  conjugation and inversion are free. One level (BS, Y^k X y^(k-1) x^a) -> (BS, Y^(k-1) X y^(k-2) x^(2a)) is
+  [[-1,0],[a-1,-1]] -> [[-1,0],[2a-1,-1]]. BFS in SL2(Z) (`optimality/chain_rowops/sl2geo.py`): the minimum is
+  **a row ops**, with a **unique** geodesic (a copies of r1 <- r1*r0^-1), for a = 1..8.
+- **Conjugations are forced:** between conjugations, repeated r1 <- r1*r0^e only appends r0^j (a power: no cancellation
+  inside BS^j), and each extra copy adds 5 letters (`convlen.py`: lengths 5 -> 10 -> 15 ...). So a level needs about a
+  conjugations too: **about 2a per level**. The finish from (BS, Y x^m) needs at least m row ops (the peel).
+- **Consequence:** any route through these level states with BS as the fixed relator costs about sum(2a) + m ~ 3*2^n.
+  Our beams (2a+1 per level, m+6 finish) and session 1's exact n=3 (28) sit on that floor. The leaders' 2^(n+1)+n+~12
+  **must leave this shape**: r0 moves off the BS row mid-route (for example, both relators carry long runs), or
+  y-exponent sums other than +-1 appear. That is the search target for n=4 (record 48): look for routes where r0 is
+  not a BS conjugate at the midpoint. Beams (winner arm, W=20k, depth 50) find no path on ac-01784 (n=4).
+
 ## 2026-09-28 12:20Z, session 2 (lead): YXXyx chain: where the leaders save (level-cost beams; song "a smaller set of moves")
 - Lisitsa's MS_n(w*) archive (16,232 moves, MS(9) = 8,634) is **our YXXyx chain** (Codex 11:52Z). Board records are ~8x shorter
   (n=9: 1,046 vs 8,634), so the archive scores nothing; archived at `research/acc/proof_track/ms_lisitsa_ak3_20260928/`.
