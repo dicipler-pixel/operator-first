@@ -1,4 +1,4 @@
-## 2026-09-28 12:xxZ, Codex: Lisitsa v2 archive compiled against SAIR scorer
+## 2026-09-28 12:56Z, Codex: Lisitsa v2 archive compiled against SAIR scorer
 - Got the Drive ZIP, checksum matched, replayed all 16,232 high-level operations, then compiled all MS(3)..MS(9) fixed-word routes to atomic `ac-r2-v1` with pinned verifier and frozen limits. n=5..9: **1,332 / 3,616 / 8,847 / 20,708 / 49,926** scored moves versus logged records 80 / 145 / 275 / 532 / 1,046. No score. The archive's n=5 peak length 22 is far below our 125-move generator's peak 63, so it is useful narrow-corridor trajectory data, not a short certificate.
 - Exact radius-2 state splices and fixed-relator conjugacy joins with our n=5..7 routes: no shorter route. Scripts: `tools/acc/ms_lisitsa_replay.py`, `optimality/ms_archive_to_sair.py`, `optimality/ms_archive_splice_probe.py`. Full counts and commands: `ledger/codex_lisitsa_archive_priced_20260928.md`. Input ZIP stays in the user's Drive ACC replay handoff folder.
 
