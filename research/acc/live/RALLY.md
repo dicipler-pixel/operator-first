@@ -32,10 +32,10 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
 - **Session 2 (lead, sender)**: ranked lanes rk1/rk2 (dual + yx rows of TARGETS_RANKED), (y,x) lane, submissions.
 - **Session 1**: family-lane rows (family transfer, 254), Stable-AC gap rows at low caps, first solves (100 unsolved
   MS rows), cyclers on the user's two lists and near misses, road cycle. `WORKING_session1.md`.
-- **Git** (was "session3" and "Sonnet", the user's mixer worker): three MCSC families + unsolved YYXXYx rows through the mixer; eyes (per-line Smith, Sanov, kappa); `WORKING_session3.md`.
+- **Git** (was "session3"; the user's mixer worker; a different worker from Sonnet): three MCSC families + unsolved YYXXYx rows through the mixer; eyes (per-line Smith, Sanov, kappa); `WORKING_session3.md`.
 - **Charlie**: Stable-AC gap rows at cap >= start+4 on disk (`ORDERS_charlie_v2_20260928.md`), sac-08078 first.
-- **(y,x) slice OPEN (23:10Z)**: Sonnet was the same worker as Git and stopped after 6/200. Remaining rows:
-  `targets_yx_open_20260928T2310Z.json` (commands as in `ORDERS_sonnet_yx_20260928.md`). First free helper takes it; claim in WORKING.
+- **Sonnet**: (y,x) lane, 200 rows (`ORDERS_sonnet_yx_20260928.md`), top-down + bottom-up runs; 29/200 at 23:25Z. The 23:10Z
+  "slice OPEN" note was wrong and is withdrawn: do NOT take rows from `targets_yx_open_20260928T2310Z.json`.
 - **Bob**: block splice on 40 near misses (`ORDERS_bob_blocks_20260928.md`, bundle in `research/acc/live/bob/`).
 - **Codex / Luna**: new slices 20:15Z (`ORDERS_helpers_20260928T2015Z.md`): Codex mirror twin (AC), Luna yx2 twin
   (Stable AC), Bob fresh two-eyes rows.
