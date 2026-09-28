@@ -1,3 +1,8 @@
+## 2026-09-28, Codex ABC: smaller goal ball for constrained memory
+- Built T8 with `work/acc_opt tball 8 40000000 work/T8.tab work/abc_t8`: 24,587,144 goal states, 640,000,000 bytes, SHA-256 `38f05b56d5e79d9df03cc3cd96cd8433725b051111984a8dad4fbe30d07068f8`. T9 has 214,977,551 states and 4,480,000,000 bytes. The smaller map removes 3.84 GB of table footprint while requiring up to one additional forward move for the same meet length.
+- On a known ac-00236 15-move path at cap 25, the disk-backed capped engine found an officially accepted AC 15 and SAC 17 with both tables. T9 first saw AC 15 at forward depth 6 (2,561 cumulative states); T8 first saw it at depth 7 (7,615 cumulative). Same depth-7 final state count in the benchmark; wall times are confounded by file cache, so no speed claim. Code and raw results: `ledger/codex_abc_ball_split.py` and `ledger/codex_abc_ball_split_20260928.json`.
+- Adam's first 100 unsolved rows, width 2,000/depth 80, yielded no AC or SAC path under either `BEAM_H=1` or `BEAM_H=1 BEAM_BAL=1` with T8; 200 complete bounded rows total. The T9 H pass reached 88 no-path rows and six 45-second timeouts before contention made the remaining six impractical. No inbox line. Stop these 100 rows per the handoff rule. The next useful test is T8 on a specific memory-limited capped row at a fixed budget, measuring whether the extra forward frontier is cheaper than keeping T9 resident.
+
 ## 2026-09-28, Codex helper: reserved high-slack Stable AC beat beam screen (no hits)
 
 - Screened the six rows removed from the main sacbeat list: ac-00520, ac-00718, ac-01566, ac-00074, ac-03887, ac-03104. Target AC ceilings were SAC live record minus 3, so AC + [16,15] would strictly beat the Stable AC record.
