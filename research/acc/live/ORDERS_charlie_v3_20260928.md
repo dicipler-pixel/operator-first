@@ -33,5 +33,7 @@ route (moves 0-13, ends at ((y),(x))): [1, 4, 1, 11, 11, 13, 4, 1, 7, 4, 12, 10,
 | ac-05668 | 25 (8) | 24 (19) | 36 | 23 | [40, 42] |  |
 
 Order: A (08578, 08078, 05378), then ac-02528 caps 33/34 with --lean, then B by team count.
-Hit: send the user ; session 1 verifies and puts it in the inbox. Log every run
+Hit: send the user the line `sac-NNNNN: [route..., 15, 15]`; session 1 verifies and puts it in the inbox. Log every run
 (row, cap, states, complete or not) and send the log with your next zip.
+
+Note for session 2: rows A are from your yxl/p2v/p2b lanes; Charlie works them only with window.py and exact sac_yx at caps >= start+4.
