@@ -1,0 +1,155 @@
+{
+  "source_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "prefixes": [
+    {
+      "n": 3,
+      "nine": "xxxYYXyx",
+      "eighteen": "xxxxxxxY"
+    },
+    {
+      "n": 4,
+      "nine": "xxxYYYXyyx",
+      "eighteen": "xxxxxxxYYXyx"
+    },
+    {
+      "n": 5,
+      "nine": "xxxYYYYXyyyx",
+      "eighteen": "xxxxxxxYYYXyyx"
+    },
+    {
+      "n": 6,
+      "nine": "xxxYYYYYXyyyyx",
+      "eighteen": "xxxxxxxYYYYXyyyx"
+    },
+    {
+      "n": 7,
+      "nine": "xxxYYYYYYXyyyyyx",
+      "eighteen": "xxxxxxxYYYYYXyyyyx"
+    },
+    {
+      "n": 8,
+      "nine": "xxxYYYYYYYXyyyyyyx",
+      "eighteen": "xxxxxxxYYYYYYXyyyyyx"
+    },
+    {
+      "n": 9,
+      "nine": "xxxYYYYYYYYXyyyyyyyx",
+      "eighteen": "xxxxxxxYYYYYYYXyyyyyyx"
+    },
+    {
+      "n": 10,
+      "nine": "xxxYYYYYYYYYXyyyyyyyyx",
+      "eighteen": "xxxxxxxYYYYYYYYXyyyyyyyx"
+    }
+  ],
+  "certificates": [
+    {
+      "n": 3,
+      "moves": [
+        0,
+        4,
+        12,
+        2,
+        5,
+        6,
+        3,
+        8,
+        6,
+        3,
+        7,
+        3,
+        7,
+        3,
+        7,
+        3,
+        8,
+        10,
+        4,
+        1,
+        11,
+        2,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        8
+      ],
+      "verifier": {
+        "ok": true,
+        "length": 29,
+        "peak_total_relator_length": 19,
+        "work": 361,
+        "certificate_hash": "sha256:d497df77f25e9e681e5444881552060c938dfca83c2a1216b80c88122a57a523"
+      }
+    },
+    {
+      "n": 4,
+      "moves": [
+        5,
+        7,
+        12,
+        5,
+        6,
+        5,
+        12,
+        1,
+        4,
+        10,
+        4,
+        10,
+        4,
+        10,
+        1,
+        5,
+        12,
+        10,
+        5,
+        11,
+        5,
+        11,
+        5,
+        11,
+        5,
+        11,
+        5,
+        11,
+        5,
+        11,
+        5,
+        11,
+        5,
+        12,
+        6,
+        2,
+        10,
+        10,
+        5,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        5,
+        11,
+        2
+      ],
+      "verifier": {
+        "ok": true,
+        "length": 55,
+        "peak_total_relator_length": 31,
+        "work": 896,
+        "certificate_hash": "sha256:7011cf0f8cd32e2a719d92c8bc6c3289a4a6bf8218b5185e1fbc3c4e89b5da86"
+      }
+    }
+  ]
+}

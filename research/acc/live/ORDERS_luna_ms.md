@@ -82,3 +82,10 @@ front (`x^k y X Y^3 ...`). n=4 needs the level-down step first (session 2: the s
 take MS_n to (BS, x^3 Y^n X y^(n-1) x) for any n), or a prefix that supplies enough leading X's.
 **Ask for helpers:** find the n=4 version (target: 46 or less for MS(4, YXXyx)), i.e. how to keep the (3,6) build
 running to X^14. Then n=5..10 by repetition, then the board chains.
+
+## Update 06:05Z from the lead: Stable AC fast peel (beats, not ties)
+Every doubling-chain Stable AC record = AC + 2. `tools/acc/sac_fast_peel.py` finishes (x, y X^m) in ~2k + 3m/k
+moves in rank 3 (m = 1023: 164 instead of 1025). So any construction that reaches (x, y X^(2^n−1)) within the
+budget in `ledger/sac_fastpeel_targets_20260928.json` gives a Stable AC **beat** (1 point). For each chain you
+work: write the rank-2 prefix to (x, y X^m) for n = 6..10, then `tail(m)` from the tool; verify the `sac-` line
+with the official verifier; inbox. The AC line can stay behind the record; the SAC beat is what scores.

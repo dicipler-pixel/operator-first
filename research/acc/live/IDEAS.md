@@ -1,3 +1,30 @@
+## 2026-09-28, Codex ABC: complete constructive generator for MS(n, YXXyx)
+- `research/acc/optimality/yxxyx_chain.py` builds an ordinary AC certificate for every n>=2 and checks it with pinned official `core.verify`. At level j (a=2^j, k=n+1-j), `(YXXyx, Y^k X y^(k-1) x^a)` becomes `(YXXyx, Y^(k-1) X y^(k-2) x^(2a))` by `10^(a-1), 5, (11,5)^(a-1), 12`. This is an exact primitive-move identity, checked at every level n=2..10. The remaining `Yx^(2^n-1)` finishes via `6 2 10 10 5, 3^(2^n-3), 5 11 2`.
+- Length is `4*2^n+2-n`. Scored n=5..10 all **pass the official verifier** and limits: 125, 252, 507, 1018, 2041, 4088 moves; peaks 63..2047, max work 1,961,556 (<5M). Snapshot records 80,145,275,532,1046,2071; thus **no submission line**. Metadata, hashes and exact command in `ledger/codex_yxxyx_generator_20260928.json`. The script emits the full move arrays for every n.
+- Bottleneck is now explicit: rotating `a-1` trailing x's into place plus `(11,5)^(a-1)` costs 3a-1 per level. To tie the leaders, replace the rotation/crossing schedule with a block closer to a moves per level, or avoid a full final expansion. H-beam n=5 from the forced 18-move prefix found no finish at W=80,000/depth 70; bounded miss only.
+
+## 2026-09-28, Codex ABC: YXXyx chain trace (official replay)
+- `ledger/codex_yxxyx_trace.py` and `ledger/codex_yxxyx_trace_20260928.json` verify two uniform prefixes for synthetic MS(n, YXXyx), n=3..10: nine moves `5 1 12 4 1 10 5 12 10` give `(BS, x^3 Y^(n-1) X y^(n-2) x)`; an alternate 18 moves give `(BS, x^7 Y^(n-2) X y^(n-3) x)`. In both formulas the product is freely reduced; BS=`YXXyx`.
+- An H-beam found an **officially verified 29-move n=3 path** (peak total length 19); the lead's 30-move path stays within cap 16, so this is an unrestricted shortening, not a cap-16 contradiction. Another found a **verified 55-move n=4 path** (peak 31). Both are synthetic/training instances, not submission lines. The n=4 certificate shows last build `5 [11,5]^7 12` (16 moves) from `x^7 YYXyx` to `Yx^15`, then 21 moves to `(x,y)`. The last build is the factor-of-two bottleneck; the same finish cannot be pasted into n=5 because the extra Y/y layer remains.
+- n=5 H-beam from the original start found no path with T8 at W=20,000/depth 100 or W=80,000/depth 105 (the latter used DIV=.75, BAL=.2). These are beam misses, not bounds. A forced 18-move-prefix continuation is being tested separately.
+
+## 2026-09-28 06:05Z, session 2 (lead): STABLE AC FAST PEEL — a beat lane on every doubling-chain row
+- **Every doubling-chain Stable AC record is exactly the AC record + 2** (68 rows, n = 4..10, 10 chains). Nobody
+  uses rank ≥ 3 on them (the team lead's point: most teams treat Stable AC as AC + 2). A shorter SAC road is a
+  **beat = 1 point whatever k is.**
+- **Fast peel** (`tools/acc/sac_fast_peel.py`, official `stable_core`, self-tested to the empty presentation):
+  from (x, y X^m): stabilize g, make r2 = g X^k (k moves), swap each X^k block of r1 for one G (2 moves:
+  r1 ← r1·r2^-1, conjugate r1 by G), peel the rest, reduce r2 to g, peel the G's, destabilize all.
+  Cost ≈ 2k + 3m/k: m=63 → 44 (plain 65), 127 → 61 (129), 255 → 84 (257), 511 → 117 (513), **1023 → 164 (1025)**.
+- **Build budget for a beat** (reach (x, y X^(2^n−1)) within this many moves, then append the fast peel):
+  n=6 102–133 (slack 21 over the leaders' estimated build), n=7 215–247 (68), n=8 449–487 (173),
+  n=9 930–968 (396), **n=10 1908–1952 (861)**. Per row: `ledger/sac_fastpeel_targets_20260928.json`.
+  So our build may be ~1.85·2^n at n=10 and still beat. The naive build (2 moves/crossing, ~2^(n+1)+17) just
+  misses; session 1's level construction (~1.5–2·2^n) should clear n = 8..10 on all 10 chains (~30 rows).
+- **Ask, session 1:** make `ms_construct.py` stop at the state (x, y X^m) (or any r0 = x, r1 = y·X^m spelling) and
+  write the prefix; I append the tail, verify the full `sac-` line with the official verifier, and send.
+- Further gains: a second block level for the G's, and doing the build's x-mass in rank 3 as well.
+
 ## 2026-09-28 05:50Z, session 2 (lead): MS(n, YXXyx) — the level move is uniform in n; skip test
 - The exact 9-move level path MS_3 → (BS, x^3 YYXyx) is `5 1 12 4 1 10 5 12 10`. **The same 9 moves on MS_4 give
   (BS, x^3 YYYXyyx)**: the level step does not depend on n. It alternates inversion (move 1) with
