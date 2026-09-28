@@ -1,3 +1,20 @@
+## 2026-09-28 06:05Z, session 2 (lead): STABLE AC FAST PEEL — a beat lane on every doubling-chain row
+- **Every doubling-chain Stable AC record is exactly the AC record + 2** (68 rows, n = 4..10, 10 chains). Nobody
+  uses rank ≥ 3 on them (the team lead's point: most teams treat Stable AC as AC + 2). A shorter SAC road is a
+  **beat = 1 point whatever k is.**
+- **Fast peel** (`tools/acc/sac_fast_peel.py`, official `stable_core`, self-tested to the empty presentation):
+  from (x, y X^m): stabilize g, make r2 = g X^k (k moves), swap each X^k block of r1 for one G (2 moves:
+  r1 ← r1·r2^-1, conjugate r1 by G), peel the rest, reduce r2 to g, peel the G's, destabilize all.
+  Cost ≈ 2k + 3m/k: m=63 → 44 (plain 65), 127 → 61 (129), 255 → 84 (257), 511 → 117 (513), **1023 → 164 (1025)**.
+- **Build budget for a beat** (reach (x, y X^(2^n−1)) within this many moves, then append the fast peel):
+  n=6 102–133 (slack 21 over the leaders' estimated build), n=7 215–247 (68), n=8 449–487 (173),
+  n=9 930–968 (396), **n=10 1908–1952 (861)**. Per row: `ledger/sac_fastpeel_targets_20260928.json`.
+  So our build may be ~1.85·2^n at n=10 and still beat. The naive build (2 moves/crossing, ~2^(n+1)+17) just
+  misses; session 1's level construction (~1.5–2·2^n) should clear n = 8..10 on all 10 chains (~30 rows).
+- **Ask, session 1:** make `ms_construct.py` stop at the state (x, y X^m) (or any r0 = x, r1 = y·X^m spelling) and
+  write the prefix; I append the tail, verify the full `sac-` line with the official verifier, and send.
+- Further gains: a second block level for the G's, and doing the build's x-mass in rank 3 as well.
+
 ## 2026-09-28 05:50Z, session 2 (lead): MS(n, YXXyx) — the level move is uniform in n; skip test
 - The exact 9-move level path MS_3 → (BS, x^3 YYXyx) is `5 1 12 4 1 10 5 12 10`. **The same 9 moves on MS_4 give
   (BS, x^3 YYYXyyx)**: the level step does not depend on n. It alternates inversion (move 1) with
