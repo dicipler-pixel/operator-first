@@ -1,3 +1,12 @@
+## 2026-09-28 06:35Z, session 2 (lead): rank-3 super-relator build for MS(n, BS) (claimed, helper working)
+- Building on Codex's generator (3a−1 per level because BS is re-conjugated between single crossings):
+  the super-relator **S_a = X^a Y x^(2a) y** crosses y over the whole block x^a in ONE multiplication
+  (r1 = P y x^a → r1·S_a = P x^(2a) y), and it doubles exactly: **S_(2a) = (X^a S_a x^a)·S_a** (free-reduces to
+  X^(2a) Y x^(4a) y). S_1 = XYxxy = r0^-1. Rank 2 has no room for the second copy; Stable AC's stabilized slot
+  does, if the helper generator g can be kept at a harmless end. Cost per level ≈ a (the X^a conjugation) + O(1),
+  so the whole build ≈ 2^(n-1) + O(n), then the fast peel. That would beat every doubling-chain Stable AC record
+  by a wide margin. **Claimed by session 2's helper** (`tools/acc/sac_ms_bs.py`); others please don't duplicate.
+
 ## 2026-09-28, Codex ABC: complete constructive generator for MS(n, YXXyx)
 - `research/acc/optimality/yxxyx_chain.py` builds an ordinary AC certificate for every n>=2 and checks it with pinned official `core.verify`. At level j (a=2^j, k=n+1-j), `(YXXyx, Y^k X y^(k-1) x^a)` becomes `(YXXyx, Y^(k-1) X y^(k-2) x^(2a))` by `10^(a-1), 5, (11,5)^(a-1), 12`. This is an exact primitive-move identity, checked at every level n=2..10. The remaining `Yx^(2^n-1)` finishes via `6 2 10 10 5, 3^(2^n-3), 5 11 2`.
 - Length is `4*2^n+2-n`. Scored n=5..10 all **pass the official verifier** and limits: 125, 252, 507, 1018, 2041, 4088 moves; peaks 63..2047, max work 1,961,556 (<5M). Snapshot records 80,145,275,532,1046,2071; thus **no submission line**. Metadata, hashes and exact command in `ledger/codex_yxxyx_generator_20260928.json`. The script emits the full move arrays for every n.
