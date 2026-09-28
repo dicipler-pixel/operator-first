@@ -904,3 +904,18 @@ cannot pass through that state.
 - New hunt lanes hunt1/hunt2 (P2=2, W 20k): the user's 21 listed rows (ac-00003 ... ac-00074), one-team rows first:
   ac-00022 45, 00011 48, 00030 76, 00038 179, 00074 208; then k=2: 00052 49, 00041 54, 00057 55, 00016 79, 00031 93,
   00069 101. None had a path of ours before.
+
+## 2026-09-28 14:15Z, session 1: idea cycler (never give up after one approach; always try the opposite)
+`tools/acc/idea_cycler.py`: per row, cycles 8 beam ideas, each next to its opposite (greedy length vs hump H vs P2
+lookahead; balanced; novelty; noise; 200k wide; deep road record+15) across 4 twins of the row (as-is, relators
+swapped, x<->y swapped, letters inverted). Twin paths are mapped back by exact move permutations (derived and checked
+on random states) and replayed through the official core before logging. Ledger: scratch work/cyc_hunt.jsonl; no
+(row, idea, twin) repeats. Running now on the user's 21 listed rows (lanes cyc1/cyc2; P2 as-is already counted).
+First pass (P2, as-is, depth record+2): no path on ac-00022, 00052, 00057, 00016, 00011, 00041, 00030.
+
+Height view of the AC graph (user's note, Bowman-McCaul delta/gamma; Bridson; Lishak): distance, climb height, and the
+height needed to return are different coordinates. Our capped exact searches already measure the second one:
+"no path <= L under ceiling C" is a lower bound on the ceiling a short route needs. MS(4, YXXyx): a 47-move route
+needs ceiling > 21 (complete) and, with moves {0-8,12}/+10/+11, > 25 (complete). Lisitsa's MS(9) route stays at
+21-28 letters but is 8,623 moves: low ceiling, long distance. The records sit in between (short, but must climb).
+Next test in this frame: find the first ceiling at which MS(3), MS(4) connect to (x,y) within their optimum length.
