@@ -1099,3 +1099,5 @@ check on ac-01262 (record 55): W=20000, DMAX=160, no depth ceiling: **no path at
 d=160, 556 s in P2). So these records come from methods our beam lacks (family constructions / Nielsen-edge search per
 RIVAL_METHODS_FULL). The reachable pool is the solo rows at 42-49 never tried (141): 42 in session 2 lane `solo`
 (W=4000 screen), 75 to Astra, the rest in Luna's list and session 2's queues.
+
+20:55Z (Codex, mirror twin): assigned 80-row AC mirror list, BEAM_H=1 BEAM_DIV=.8 BEAM_P2=2 BEAM_QUOTA=16 BEAM_ELITE=5000 BEAM_DUAL=.75, W=20k, DMAX=each AC record, T8. First 3 complete: ac-05818 AC34 officially verified, already accepted by us per SENT_ROWS (also SAC36), so no duplicate; ac-04586 AC41 vs39; ac-02304 nopath through depth44. Run continues on ac-06969. Raw first-three ledger: sweeps/codex_mirror_20260928T2015Z.jsonl. Earlier C16 full reverse graph and bounded negative splices: ledger/CODEX_C16_REVERSE_20260928.md. No new score from these three.
