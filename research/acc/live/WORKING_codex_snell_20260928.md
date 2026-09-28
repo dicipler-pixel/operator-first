@@ -7,3 +7,5 @@ Predeclared comparison on ac-07790: deterministic layered length beam versus pos
 Also compute exact determinant-aware Cayley coordinates, stationary chart steps, length-band drift and all-move alternatives on the archived paths. No SAIR API reads or submissions. Raw outputs, settings and source hashes will be checkpointed in live/ledger/.
 
 Status: inputs recovered; diagnostic starting. Only Session 2 submits.
+
+2026-09-28 21:55 UTC — user explicitly reassigned this session to Astra v2. Snell trial paused before any beam run; no result claimed. Astra setup and active lane are recorded in WORKING_astra.md.
