@@ -1,0 +1,38 @@
+{
+  "chart": {
+    "crossings_at_least_5_above_start": 346,
+    "path_steps": 18115,
+    "sector_count": 16,
+    "sector_crossings": 4415,
+    "sector_visits": {
+      "(0, 4)": 232,
+      "(0, 5)": 436,
+      "(0, 6)": 483,
+      "(0, 7)": 189,
+      "(1, 4)": 882,
+      "(1, 5)": 3589,
+      "(1, 6)": 2730,
+      "(1, 7)": 481,
+      "(2, 4)": 403,
+      "(2, 5)": 4444,
+      "(2, 6)": 1819,
+      "(2, 7)": 766,
+      "(3, 4)": 59,
+      "(3, 5)": 1078,
+      "(3, 6)": 313,
+      "(3, 7)": 1083
+    }
+  },
+  "routes_verified": 436,
+  "snell": {
+    "ambiguous_actual_angle_matches": 75,
+    "eligible_radial_interfaces": 1894,
+    "interpretation": "0.5 is tie-aware chance rank; smaller ranks are better. The test does not prove a law.",
+    "mean_absolute_rigidity_change": 0.0518,
+    "mean_rank_fraction_constant_R": 0.4465,
+    "mean_rank_fraction_varying_R": 0.4629,
+    "route_delta_standard_error": 0.0027,
+    "route_mean_rank_delta_varying_minus_constant": 0.0224,
+    "routes_with_eligible_interfaces": 432
+  }
+}

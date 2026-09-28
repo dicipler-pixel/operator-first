@@ -46,7 +46,11 @@ for t in json.load(open(TGT)):
         sac = list(map(int, m.group(1).split())); rec['sac_beam'] = len(sac)
         core_part = [PI.get(x, x) for x in sac[:-2]]
         if len(sac) <= t['record'] + 8:
-            short, _ = window([SW[x] for x in r0], [SW[x] for x in r1], core_part)
+            sac_gap = len(sac) - t.get('sac_record', t['record'] + 2)
+            sac_timeout = 180 if 4 <= sac_gap <= 6 and t.get('value', 1) <= 0.125 else None
+            short, sac_timed_out = window([SW[x] for x in r0], [SW[x] for x in r1],
+                                          core_part, timeout=sac_timeout)
+            if sac_timed_out: rec['sac_window_timeout_s'] = sac_timeout
             sac2 = [PI.get(x, x) for x in short] + [15, 15]
             if len(sac2) <= len(sac): sac = sac2
         if 'ac' in rec and len(rec['ac']) + 2 < len(sac): sac = rec['ac'] + [16, 15]

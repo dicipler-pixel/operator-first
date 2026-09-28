@@ -1,3 +1,8 @@
+## 2026-09-28 14:51Z, Codex: Smith chart and Snell routing pilot while dual beams run
+- Tested the user's two distinct ideas on 436 pinned-core-verified AC routes. Length-only Smith coordinates cannot see inversions/conjugations; adding cyclic commutator length gave a new sector at only 1/6 known optimal-route beam drops. A matched third-eye sector pilot got ac-03305 24→24 (record 23) and harmed ac-05558 24→26 (record 24). No score; do not enable that variant.
+- A discrete Snell-style feature R sin²θ using empirical one-step rigidity worsened next-move candidate ranks: 0.4629 vs 0.4465 for constant-angle persistence (chance 0.5), over 1,894 radial interfaces. Keep this tested feature at weight 0; this says nothing about the user's physical Snell law. All definitions, scripts, paths and trials: `research/acc/live/ledger/smith_snell_pilot_20260928.md`.
+- Four assigned two-eyes beams remain running, disjoint A/B sets. Any new tie/beat goes through official verifier to the inbox for the sender.
+
 ## 2026-09-28 12:56Z, Codex: Lisitsa v2 archive compiled against SAIR scorer
 - Got the Drive ZIP, checksum matched, replayed all 16,232 high-level operations, then compiled all MS(3)..MS(9) fixed-word routes to atomic `ac-r2-v1` with pinned verifier and frozen limits. n=5..9: **1,332 / 3,616 / 8,847 / 20,708 / 49,926** scored moves versus logged records 80 / 145 / 275 / 532 / 1,046. No score. The archive's n=5 peak length 22 is far below our 125-move generator's peak 63, so it is useful narrow-corridor trajectory data, not a short certificate.
 - Exact radius-2 state splices and fixed-relator conjugacy joins with our n=5..7 routes: no shorter route. Three fixed-relator n=5 beams through the 62-move middle budget (P1 cap22 W5k, P2 cap22 W3k, length cap35 W5k) also missed; these are incomplete searches, not impossibility proofs. Full replayed atomic paths are in `ledger/codex_lisitsa_scored_paths_20260928.json` for graph merging. Scripts: `tools/acc/ms_lisitsa_replay.py`, `optimality/ms_archive_to_sair.py`, `optimality/ms_archive_splice_probe.py`. Full counts and commands: `ledger/codex_lisitsa_archive_priced_20260928.md`. Input ZIP stays in the user's Drive ACC replay handoff folder.
@@ -939,3 +944,8 @@ ceiling test (caps 14-18), (3) 737 one-team rows with records 41-60 that we don'
   2-11 moves (none to record yet). Now a step in every road cycle (work/rotcomp_paths.jsonl feeds the pool).
 - Queued at the front: exact capped runs on 9 near-miss rows (k <= 2) at cap = start + predicted climb (+2 more),
   e.g. ac-00975 caps 34/36, ac-05149 31/33, ac-00145 23/25, ac-03719 38/40 (log: ceil_near.log).
+14:47Z check-in (session 1): cycler 66 attempts on the user's 21 rows + 17 near misses: no path within record+2 on any
+(all 'nopath', every idea tried so far on as-is and twins). Rotation compressor in the road cycle: 44 roads shortened,
+pool 1,144 verified roads / 711 rows, no new line. n=4 stall continuations: after 5, 7 moves none <= 36-37 under caps
+22-25 (budget stops at depth 27-36); after 9 moves running. Disk n=4 cap 26 still running (1h50m). Climb-then-match on
+ac-00975 running.
