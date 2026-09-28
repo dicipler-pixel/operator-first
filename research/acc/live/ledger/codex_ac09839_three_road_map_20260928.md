@@ -6,7 +6,8 @@ Pinned SAIR verifier a0fd6e6. Source AC route is the Codex mirror worker's `inbo
 | --- | ---: | ---: | --- | ---: | ---: | --- |
 | AC mirror | Shared | 27 | (x,y) | 46 with two deletions | 38 (step 4) | Mirror worker's AC inbox |
 | Letter-swap yx | Shared | 27 | (y,x) | 46 | 38 (step 4) | `sweeps/codex_sac09839_yx_W20000_20260928.jsonl` |
-| Restart at step 17 | Shared | 27 | (y,x) | 46 | 38 (step 4) | `sweeps/codex_sac09839_mid_yx_20260928.jsonl` |\n| Restart at step 17 | Shared | 27 | (x,y) | 46 with two deletions | 38 (step 4) | `sweeps/codex_ac09839_mid_xy_20260928.jsonl` |
+| Restart at step 17 | Shared | 27 | (y,x) | 46 | 38 (step 4) | `sweeps/codex_sac09839_mid_yx_20260928.jsonl` |
+| Restart at step 17 | Shared | 27 | (x,y) | 46 with two deletions | 38 (step 4) | `sweeps/codex_ac09839_mid_xy_20260928.jsonl` |
 
 The common state after 17 moves is `(xYXyx, yXXyyxYXYX)`, word lengths (5,10), total 15. This is a natural road junction: a 26-move remainder to (y,x) would give a 45-move Stable beat; a 26-move remainder to (x,y) would give a 43-move AC beat. The first restart used W20k, BEAM_H=1 DIV=.8 P2=2 QUOTA=16 ELITE=5000 DUAL=.75, DMAX26. It found another 27-move yx remainder. The matching xy restart also found a 27-move remainder: another official AC44 tie, no beat. Window11 on both restarted paths and all 0–3 move pairwise bridges between four roads found no cut. A different commutator tie-break at the junction is next.
 
