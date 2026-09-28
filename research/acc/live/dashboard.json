@@ -1,25 +1,25 @@
 {
  "summary": {
-  "updatedAt": "2026-09-28T02:00Z",
-  "leaderboardAt": "2026-09-28T01:20:00Z",
+  "updatedAt": "2026-09-28T03:07Z",
+  "leaderboardAt": "2026-09-28T02:55:00Z",
   "ac": {
    "rank": 18,
    "teams": 45,
-   "score": 0.5222,
+   "score": 0.5691,
    "estimate": 0.5691,
    "ties": 220
   },
   "sac": {
    "rank": 14,
    "teams": 42,
-   "score": 1.8124,
+   "score": 1.8592,
    "estimate": 1.8592,
    "ties": 233
   },
   "sentToday": 1,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-28T01:50Z",
+  "boardAt": "2026-09-28T02:55Z",
   "subsTotal": 91
  },
  "scores": {
@@ -84,6 +84,24 @@
     "acRank": 18,
     "acTeams": 45,
     "sac": 1.8124,
+    "sacRank": 14,
+    "sacTeams": 42
+   },
+   {
+    "at": "2026-09-28T02:25:00Z",
+    "ac": 0.5691,
+    "acRank": 18,
+    "acTeams": 45,
+    "sac": 1.8592,
+    "sacRank": 14,
+    "sacTeams": 42
+   },
+   {
+    "at": "2026-09-28T02:55:00Z",
+    "ac": 0.5691,
+    "acRank": 18,
+    "acTeams": 45,
+    "sac": 1.8592,
     "sacRank": 14,
     "sacTeams": 42
    }
@@ -249,8 +267,8 @@
    {
     "rank": 12,
     "name": "NavierStoked",
-    "score": 5.1106,
-    "rows": 331,
+    "score": 5.1096,
+    "rows": 330,
     "alone": 1,
     "us": false
    },
@@ -265,7 +283,7 @@
    {
     "rank": 14,
     "name": "ACC01-T00128",
-    "score": 3.5372,
+    "score": 3.4747,
     "rows": 311,
     "alone": 1,
     "us": false
@@ -281,7 +299,7 @@
    {
     "rank": 16,
     "name": "relentless",
-    "score": 1.1815,
+    "score": 1.1347,
     "rows": 281,
     "alone": 0,
     "us": false
@@ -319,36 +337,36 @@
     "us": false
    }
   ],
-  "acAt": "2026-09-28T01:50:00Z",
+  "acAt": "2026-09-28T02:55:00Z",
   "sac": [
    {
     "rank": 8,
     "name": "Math vs Vibes",
-    "score": 49.7859,
-    "rows": 936,
+    "score": 49.4187,
+    "rows": 932,
     "alone": 10,
     "us": false
    },
    {
     "rank": 9,
     "name": "ACC01-T00076",
-    "score": 17.5817,
-    "rows": 473,
+    "score": 17.4372,
+    "rows": 470,
     "alone": 7,
     "us": false
    },
    {
     "rank": 10,
     "name": "nahom",
-    "score": 13.9113,
-    "rows": 433,
+    "score": 13.8761,
+    "rows": 431,
     "alone": 5,
     "us": false
    },
    {
     "rank": 11,
     "name": "ACC01-T00128",
-    "score": 6.899,
+    "score": 6.774,
     "rows": 324,
     "alone": 1,
     "us": false
@@ -356,8 +374,8 @@
    {
     "rank": 12,
     "name": "NavierStoked",
-    "score": 6.4643,
-    "rows": 341,
+    "score": 6.4604,
+    "rows": 339,
     "alone": 0,
     "us": false
    },
@@ -380,8 +398,8 @@
    {
     "rank": 15,
     "name": "relentless",
-    "score": 0.955,
-    "rows": 237,
+    "score": 0.7636,
+    "rows": 235,
     "alone": null,
     "us": false
    },
@@ -394,7 +412,7 @@
     "us": false
    }
   ],
-  "sacAt": "2026-09-28T01:55:00Z"
+  "sacAt": "2026-09-28T02:55:00Z"
  },
  "searches": {
   "items": [
@@ -416,17 +434,17 @@
     "k": null,
     "best": null,
     "status": "running",
-    "detail": "Exact capped sweep: 8 of 46 rows done, 1 with a tie or beat (ac-03305)."
+    "detail": "Exact capped sweep: 20 of 46 rows done, 1 with a tie or beat (ac-03305)."
    },
    {
     "key": "midB",
-    "row": "309 rows",
+    "row": "178 rows",
     "goal": "ac-00145 first, then records 33\u201340 held by 1\u20136 teams",
     "record": null,
     "k": null,
     "best": null,
     "status": "running",
-    "detail": "Exact capped sweep: 24 of 309 rows done, 0 with a tie or beat."
+    "detail": "Exact capped sweep: 48 of 178 rows done, 0 with a tie or beat."
    },
    {
     "key": "midC",
@@ -436,7 +454,7 @@
     "k": null,
     "best": null,
     "status": "running",
-    "detail": "Exact capped sweep: 60 of 77 rows done, 4 with a tie or beat (ac-01629, ac-05558, ac-07435, ac-08201)."
+    "detail": "Exact capped sweep: 77 of 77 rows done, 4 with a tie or beat (ac-01629, ac-05558, ac-07435, ac-08201)."
    },
    {
     "key": "easy-beam",

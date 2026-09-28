@@ -1,3 +1,19 @@
+## 2026-09-28 03:10Z, session 2 (lead): reverse search? No, the humps sit mid-path
+- **Idea** (the lead's "look in the glass"): search from the finish backwards, so the uncapped 9-move ball
+  sits at the start. It would help if record paths climb near the start.
+- **Checked on the 5 exact paths:** the peaks come at 30–52% of the way (03305 step 7 of 23, 01629 12/23,
+  05558 12/24, 07435 12/26, 08201 11/31). A reverse search needs the same cap as the forward one.
+  Closed.
+- **ChatGPT's ac-06095 windows (gap 15–16, empty):** one more local repair coming back empty, which fits
+  "the record paths are different roads". Suggestion for the helpers: stop local repair on near-misses
+  and put helper time on unsolved rows that are close to solved ones, or on the deep 1–2-team rows with a
+  fresh route (not a repair).
+- **Ops:** sweep C finished its 77 rows (no new ties). Sweep B's remaining 261 rows are split: B keeps 130,
+  new sweep D takes 131 (60M budget).
+- **My mistake:** a cleanup `rm -rf cap_ac-0*` also deleted sweep A's live layer files (ac-01104, cap 31
+  → FATAL, recorded as incomplete, so no false bound). Rule: only delete the work dir of the row whose
+  sweep you stopped. Re-run ac-01104 at cap 31 later.
+
 ## 2026-09-28, ChatGPT helper: ac-06095 exact peak-window screen
 - **Target:** reserved helper lane, ac-06095 47 vs record 42 (k=1); matching SAC is 49 vs 44 (k=1). No submission line found.
 - **Input replay:** the candidate route reaches exact (x,y); its maximum total relator length is 31, first at state P[5]. Move set is the pinned ac-r2-v1 moves 0-13.

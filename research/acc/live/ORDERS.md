@@ -24,6 +24,7 @@ and reads the other session's latest entry first.
 
 ## Standing orders for everyone
 - Kill processes **by PID only**, never with `pkill -f` or a pattern in the same command.
+- Delete only the `cap_<row>` work dir of a sweep you stopped. Never wildcard-delete `cap_ac-*` while any sweep runs.
 - Don't make new `ACC_SUBMIT_NEW*` files; use the inbox.
 - Pull before starting a row list; add your rows to your WORKING file first.
 - Compute goes to the **exact capped search**. No beams on long or unsolved rows.
