@@ -14,6 +14,7 @@ import argparse, itertools, json, re, sys
 ap = argparse.ArgumentParser(); ap.add_argument('sair'); ap.add_argument('live'); ap.add_argument('out')
 ap.add_argument('files', nargs='+'); ap.add_argument('--radius', type=int, default=2)
 ap.add_argument('--iradius', type=int, default=0, help='also index states this many moves off each known path')
+ap.add_argument('--slive', help='live Stable AC board: sac-NNNNN record k')
 ap.add_argument('--kmax', type=int, default=0, help='only rows held by <= kmax teams (0 = all)')
 ap.add_argument('--train', help='SAIR examples/training_424.json: index its known paths too')
 A = ap.parse_args()
@@ -44,8 +45,8 @@ def inverse(t):
     probe = ((1, 2, -1), (2, 2, 1))
     for u in T:
         if tstate(u, tstate(t, probe)) == probe: return u
-def fixpath(start, depth=8):  # BFS from start to GOAL
-    if start == GOAL: return []
+def fixpath(start, depth=8, goal=((1,), (2,))):  # BFS from start to goal
+    if start == goal: return []
     prev = {start: None}; fr = [start]
     for _ in range(depth):
         nf = []
@@ -54,18 +55,32 @@ def fixpath(start, depth=8):  # BFS from start to GOAL
                 y = core.apply_move(s, m)
                 if y in prev: continue
                 prev[y] = (s, m); nf.append(y)
-                if y == GOAL:
+                if y == goal:
                     out = []; z = y
                     while prev[z]: z, mv = prev[z][0], prev[z][1]; out.append(mv)
                     return out[::-1]
         fr = nf
     return None
 TI = [inverse(t) for t in T]; FIX = [fixpath(tstate(ti, GOAL)) for ti in TI]
+YX = ((2,), (1,))  # Stable AC can also finish from (y,x) with [15,15]
+STAIL = []
+for k, ti in enumerate(TI):
+    fy = fixpath(tstate(ti, GOAL), goal=YX); opts = []
+    if FIX[k] is not None: opts.append(FIX[k] + [16, 15])
+    if fy is not None: opts.append(fy + [15, 15])
+    STAIL.append(min(opts, key=len) if opts else None)
+from verifier import stable_core
+SC = {c['challenge_id']: c for c in man['challenges'] if c['challenge_id'].startswith('sac-')}
 
 # ---- load paths ----
 paths = {}
-def add(i, p):
-    if i in C and isinstance(p, list) and p and (i not in paths or len(p) < len(paths[i])): paths[i] = p
+def add(i, p):  # shortest road per row under its id; other distinct roads kept as extra roads "id#n"
+    if not (i in C and isinstance(p, list) and p): return
+    if i not in paths: paths[i] = p; return
+    if p == paths[i] or any(k.split('#')[0] == i and paths[k] == p for k in extra.get(i, [])): return
+    if len(p) < len(paths[i]): p, paths[i] = paths[i], p
+    k = f"{i}#{len(extra.setdefault(i, [])) + 1}"; extra[i].append(k); paths[k] = p
+extra = {}
 for f in A.files:
     for l in open(f, errors='ignore'):
         l = l.strip()
@@ -80,7 +95,7 @@ for f in A.files:
                 except Exception: pass
 idx = {}
 for i, p in paths.items():
-    s = tuple(map(tuple, C[i]['initial_relators'])); st = [s]
+    s = tuple(map(tuple, C[i.split('#')[0]]['initial_relators'])); st = [s]
     for mv in p: s = core.apply_move(s, mv); st.append(s)
     if st[-1] != GOAL: continue
     for t, x in enumerate(st):
@@ -106,7 +121,8 @@ for _ in range(A.iradius):
 print('paths', len(paths), 'indexed states', len(idx), flush=True)
 
 # ---- lookup ----
-best = {}
+best = {}; bests = {}
+slive = {l.split()[0]: int(l.split()[1]) for l in open(A.slive)} if A.slive else {}
 for j, c in C.items():
     if not j.startswith('ac-'): continue
     if A.kmax and not (0 < kt.get(j, 0) <= A.kmax): continue
@@ -115,8 +131,13 @@ for j, c in C.items():
         for x, pre in front.items():
             for k, t in enumerate(T):
                 hit = idx.get(tstate(t, x))
-                if not hit or FIX[k] is None: continue
+                if not hit: continue
                 i, t0, rem, back = hit
+                sj = 's' + j
+                if STAIL[k] is not None and sj in SC and len(pre) + rem + len(STAIL[k]) < bests.get(sj, (10 ** 9,))[0]:
+                    sc = pre + [tmove(TI[k], m) for m in list(back) + paths[i][t0:]] + STAIL[k]
+                    if stable_core.verify(SC[sj], sc, 'sac-r8-v1', man['limits'])['ok']: bests[sj] = (len(sc), sc, i, k, len(pre))
+                if FIX[k] is None: continue
                 if len(pre) + rem + len(FIX[k]) >= best.get(j, (10 ** 9,))[0]: continue
                 cand = pre + [tmove(TI[k], m) for m in list(back) + paths[i][t0:]] + FIX[k]
                 if core.verify(c, cand, 'ac-r2-v1', man['limits'])['ok']:
@@ -133,7 +154,9 @@ for j, (n, cand, src, k, pre) in best.items():
     own = len(paths[j]) if j in paths else None
     res.append({'id': j, 'len': n, 'live': live.get(j, 0), 'own': own, 'src': src, 'mirror': k, 'pre': pre, 'ac': cand})
 res.sort(key=lambda r: (r['len'] - r['live'] if r['live'] else -999))
-json.dump(res, open(A.out, 'w'))
+sres = [{'id': j, 'len': n, 'live': slive.get(j, 0), 'src': src, 'mirror': k, 'pre': pre, 'sac': cand} for j, (n, cand, src, k, pre) in bests.items()]
+json.dump(res, open(A.out, 'w')); json.dump(sres, open(A.out.replace('.json', '') + '_sac.json', 'w'))
+print('Stable AC: rows with a verified borrowed path:', len(sres), '| at or under the live record:', [(r['id'], r['len'], r['live']) for r in sres if r['live'] and r['len'] <= r['live']])
 better = [r for r in res if r['own'] is None or r['len'] < r['own']]
 print('rows with a verified borrowed path:', len(res), '| shorter than our own path or new:', len(better))
 for r in res[:20]:
