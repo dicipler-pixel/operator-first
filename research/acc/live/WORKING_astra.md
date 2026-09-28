@@ -1,4 +1,7 @@
 # WORKING: Astra
+
+> **PAUSED by user for worker evaluation — 2026-09-28 23:12 UTC. Searches stopped and hourly restart disabled. Do not resume without new user authorization.**
+
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
 
@@ -19,3 +22,5 @@ Hourly lines below (UTC, rows done / 150, hits, near misses).
 2026-09-28 23:07 UTC — relay complete; original ranked lane remains active. 15 / 150 rows done (149 actual entries), 2 hit rows / 4 previously inboxed board lines, near misses within 1: 0. Fresh process check at 23:06:24Z confirms ranked runner host PID 716632 with the exact v2 arguments; no restart. The separate kernel relay screen finished all 113 rows with no paths and its final ZIP is delivered. ac-09219 AC45/SAC47 is two above each snapshot record; official checks are in ledger/astra_rank_checks_20260928T2301Z.json and routes in the sweep, for twin escalation under original orders. No submission.
 
 2026-09-28 23:08 UTC — final checkpoint: 16 / 150 completed (149 actual inputs), 2 hit rows / 4 previously inboxed lines, near misses within 1: 0. ac-08597 finished bounded nopath; ac-08513 is next. All 16 rows are pushed in sweeps/astra_rank_cap.jsonl (6932f56); no new candidate path since the verified ac-09219 +2 miss. Ranked run continues under the unchanged settings; the 113-row relay ZIP is complete and delivered.
+
+2026-09-28 23:12 UTC — 17 / 150 rows done (149 inputs), 2 hit rows / 4 verified snapshot-tie lines, zero misses within one move. One +2 miss: ac-09219. User requested halt for evaluation. Retained session stopped with exit130; fresh process scan confirmed both runner716632 and child746263 absent, no own searches left. ac-08247 was interrupted and is not counted as a completed negative; solo list unstarted. All17 complete rows checkpointed. Full handoff: REPORT_astra_evaluation_20260928T2312Z.md. Kernel113-row relay already complete and delivered. No submissions.
