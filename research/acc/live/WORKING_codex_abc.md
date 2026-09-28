@@ -28,3 +28,9 @@ Status: claims placed before compute. Each run will be marked complete or incomp
 ## Charlie follow-up claim
 
 Reserved `ac-00580` for one capped-search memory test: cap 28, radius-8 goal table, fixed visited table, budget 60M states, maximum depth 30. The earlier ledger marked it incomplete at 48,220,955 states/depth 23 with T9. This row is absent from the current Session 1 and Session 2 claims. Any path must pass the pinned official verifier before inbox handoff. Keep the run's full scope and complete/incomplete status in `ledger/`.
+
+## Final bounded follow-up
+
+- `ac-00580` at cap 28: T8/fixed visited reached exactly the old T9 count of 48,220,955 at finished depth 23, then 60,000,000 states in a partial depth 24 in 95.61 s. No AC/SAC meet, status **incomplete**; raw stdout/stderr and JSON are in `ledger/codex_abc_capped_trial_00580_20260928.*`. This row is released after the bounded test.
+- `ac-00766` at cap 28: stopped after finished depth 7 (426,246 states) when the next layer paged under concurrent load. No route was found, status **incomplete**; `ledger/codex_abc_capped_trial_00766_20260928.*`. The cap expansion is too broad to reach the approximate depth needed for the 33-move record with T8 at this budget. This row is released for a different road strategy.
+- No inbox lines from Codex ABC on this turn.
