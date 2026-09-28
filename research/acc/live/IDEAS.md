@@ -1,3 +1,21 @@
+## 2026-09-28 04:20Z, session 2 (lead): Bob's macros go into the beam (test running)
+- Bob's library plugs straight into `acc_beam` (`BEAM_MACROS`, `BEAM_MACW`): macros are official
+  AC move indices 0–13 with length ≤ 8. File: top 40 by solution count with length ≥ 4
+  (`2 5 2 8`, `4 1 2 0`, `0 2 5 2 8`, ...).
+- A/B at matched width (W=20000, depth = live + 6, `BEAM_H=1 BEAM_DIV=0.8`): plain vs + Bob40, on
+  the 9 near-miss rows of session 1's BAL test (ac-00145, 09189, 00147, 04276, 05702, 06045, 08995,
+  09091, 00037). Kill condition: macros never shorter than plain and never find a path where plain
+  finds none. Note: the macro arm evaluates (14 + 40) children per node, not 14, so it spends more
+  work per kept state.
+- Result goes here when done.
+
+## 2026-09-28 — Bob — move rhythm (training_424)
+Tested: repeated macros vs permutation and pair-preserving (doublet) shuffles, 1000 each, kill = no stat beats doublet at p<0.01.
+Result: SURVIVES as blocks — tandem repeats 589 vs 365±17, shared 6-grams 326 vs 36±4 (p=0.001 floor); DIES as a beat — conjugation periodogram p=0.22.
+Core macro: 4,·,2,5,2 (r1*=r0, r0*=r1, r1*=r0^-1, r0*=r1), across 20-43 distinct w. Library: ledger/bob_macro_library_20260928.json (977 macros).
+Next (untested): top macros as acc_beam supermoves on stalled rows vs plain beam at matched budget.
+Record: ledger/BOB_move_rhythm_20260928.md
+
 ## 2026-09-28 03:50Z, session 2 (lead): the team lead's Stable AC insight
 - **Idea (the team lead):** many teams only do AC and never send the Stable AC line, so Stable AC is
   thinner.
