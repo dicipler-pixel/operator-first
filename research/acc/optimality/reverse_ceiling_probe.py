@@ -39,6 +39,7 @@ def main():
     ap.add_argument('--last', type=int, default=8)
     ap.add_argument('--max-states', type=int, default=500000)
     ap.add_argument('--max-seconds-per-cap', type=float, default=60)
+    ap.add_argument('--unrestricted-depth', type=int, default=5)
     args = ap.parse_args()
     sys.path.insert(0, str(Path(args.verifier_root) / 'competition' / 'tools'))
     from verifier import core
@@ -123,6 +124,39 @@ def main():
         print(json.dumps({k:v for k,v in rec.items() if k != 'depth_histogram'}), flush=True)
         prior_depths = depths
         prior_info = info
+    if args.unrestricted_depth:
+        # At total length two the determinant invariant permits exactly the
+        # eight ordered signed-generator pairs. A complete unconstrained BFS
+        # to radius five finds all eight and therefore computes D_2(2).
+        possible = {((a,), (b,)) for a in (1, -1, 2, -2)
+                    for b in (1, -1, 2, -2) if abs(a) != abs(b)}
+        d = {root: 0}
+        layer = {root}
+        counts = [1]
+        for depth in range(1, args.unrestricted_depth + 1):
+            nxt = {core.apply_move(s, m) for s in layer for m in range(core.NUM_MOVES)} - d.keys()
+            d.update((s, depth) for s in nxt)
+            layer = nxt
+            counts.append(len(nxt))
+        matched = {s: d[s] for s in possible if s in d}
+        landmarks = []
+        for record in output:
+            for key in ('height_witness', 'distance_shortcut_witness'):
+                witness = record.get(key)
+                if witness:
+                    state = tuple(tuple(w) for w in witness['state'])
+                    if state in d:
+                        landmarks.append({'cap_record': record['cap_total_length'],
+                                          'kind': key, 'state': witness['state'],
+                                          'unrestricted_distance': d[state]})
+        extra = {'unrestricted_depth_completed': args.unrestricted_depth,
+                 'depth_layer_sizes': counts, 'length_two_possible': len(possible),
+                 'length_two_found': len(matched),
+                 'D2_of_2_exact_if_all_found': max(matched.values()) if len(matched) == len(possible) else None,
+                 'length_two_distances': [{'state': as_json(s), 'distance': matched[s]}
+                                          for s in sorted(matched)],
+                 'landmark_distances': landmarks}
+        print('UNRESTRICTED_JSON=' + json.dumps(extra), flush=True)
     print('RESULT_JSON=' + json.dumps(output), flush=True)
 
 
