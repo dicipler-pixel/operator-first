@@ -56,7 +56,12 @@ official verifier before `sair_api.py send`.
 | ac-06936 | 25 | AC 26 / SAC 27 | 33 | 180M budget hit at cap 34 |
 | ac-03305 | 24 | AC 23 / SAC 24 | 36 (then SAC found at 37, AC at 40) | solved |
 
-Short rows held by few teams need humps of 10+ letters. Memory (15 GB) caps us near 180M
+Short rows held by few teams need humps of 10+ letters.
+
+**Jump-ahead caps (2026-09-28):** a cap-C search contains every lower cap, so start at
+start + CAP_JUMP (8 / 3 / 5 by budget) instead of climbing from the start (2–3.5× faster). The
+capped search works best at depth ≤ 22 (records ≤ 31). At depth 25+ the budget stops within 1–2
+caps of the start (ac-05818: cap 26). Memory (15 GB) caps us near 180M
 states per run.
 
 ## What has not worked (don't repeat without a new idea)

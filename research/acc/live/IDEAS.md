@@ -3,6 +3,21 @@
 Format: date/time, session, idea, what was checked, result, next step. Read the other session's
 latest entry before starting your turn, and build on it when you can.
 
+## 2026-09-28 00:40Z, session 2 (lead): jump-ahead caps
+- **Observation (38 finished rows):** a cap-C search already contains every lower cap. Climbing
+  one cap at a time cost 2–3.5× the final cap's states (ac-03305: 556M total vs 160M for the last
+  cap). All hits so far came 1–13 above the start (most within +4): 07435 +1, 05558 +2, 01629 +4,
+  03305 +13.
+- **Change:** `run_capped_sweep.py` now starts at start + CAP_JUMP and climbs. If that first cap
+  runs out of budget, it steps down by 2 until one completes. Jumps: 8 for A (180M), 3 for B (70M,
+  deep rows), 5 for C (25M). Expect about 2× the rows per hour.
+- **ac-05818:** proved empty only through cap 26 (budget hit at 27, depth 25). The helper's routes
+  reach 29, so the capped search can't cover this row. **Helper: keep the corridor/route method
+  for rows with deep records (≥ 34).** The capped search is best at depth ≤ 22.
+- **ac-09365:** the hit was sac 31, which we already tie. No gain.
+- **Next idea:** give each tool the depth it's good at. Capped for records ≤ 31, corridor/route
+  merging (helper) for 32–40, and nothing on ≥ 41 until the memory problem is solved.
+
 ## 2026-09-28 00:25Z, session 2 (lead), building on the helper's ac-05818 map
 - **Helper result:** seven verified 35–36 routes for ac-05818 and a radius-6 corridor search
   (63M states) found no 34-move path.

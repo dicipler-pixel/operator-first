@@ -7,6 +7,7 @@ targets.json: [{"id": "ac-NNNNN", "ac_record": R or null, "sac_record": R or nul
 import json, os, re, shutil, subprocess, sys, time
 MAN, BIN, TF, WORK, TGT, OUT = sys.argv[1:7]
 SPAN = int(sys.argv[7]) if len(sys.argv) > 7 else 40
+JUMP = int(os.environ.get('CAP_JUMP', '6'))
 BUDGET = sys.argv[8] if len(sys.argv) > 8 else '180000000'
 C = {c['challenge_id']: c for c in json.load(open(MAN))['challenges']}
 E = {1: 0, -1: 1, 2: 2, -2: 3}
@@ -21,7 +22,21 @@ for t in json.load(open(TGT)):
     rec = {'id': cid, 'start': start, 'ac_record': t.get('ac_record'), 'sac_record': t.get('sac_record'),
            'checked': False, 'caps': []}
     t0 = time.time()
-    for cap in range(start, start + SPAN + 1):
+    # Jump ahead: a cap-C search contains every lower cap, so re-running low caps only costs time
+    # (2-3.5x on our sweeps). Start at start+JUMP and climb; if that first cap runs out of budget,
+    # step down by 2 until one completes.
+    def caps():
+        c = start + JUMP
+        yield c
+        if rec['caps'][-1]['complete']:
+            while c < start + SPAN:
+                c += 1
+                yield c
+        else:
+            while c - 2 >= start:
+                c -= 2
+                yield c
+    for cap in caps():
         wd = os.path.join(WORK, 'cap_' + cid); os.makedirs(wd, exist_ok=True)
         p = subprocess.run([BIN + '/acc_capped', TF, str(cap), BUDGET, wd, 'c', *enc], capture_output=True,
                            text=True, env={**os.environ, 'MAXD': str(maxd), 'INIT_LOG2': '27'})
@@ -46,7 +61,10 @@ for t in json.load(open(TGT)):
         print(json.dumps({'id': cid, **info}), flush=True)
         if ((not ra or len(rec.get('ac', [0] * 999)) <= ra)
                 and (not rs or len(rec.get('sac', [0] * 999)) <= rs)): break
-        if not info['complete']: break           # budget reached: higher caps only get bigger
+        if len(rec['caps']) > 1:
+            going_up = rec['caps'][0]['complete']
+            if going_up and not info['complete']: break      # budget reached: higher caps only get bigger
+            if not going_up and info['complete']: break      # stepped down to the largest cap that fits
     done_caps = [c['cap'] for c in rec['caps'] if c['complete']]
     rec['proved_cap'] = max(done_caps) if done_caps else None   # no record path within this cap
     rec['ac_len'] = len(rec['ac']) if 'ac' in rec else None
