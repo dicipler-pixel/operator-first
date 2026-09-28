@@ -1,3 +1,26 @@
+## 2026-09-28 02:45Z, session 2 (lead): the team lead's atlas, tested on AC
+Seven ideas were read from the repo (atlas cards, UPG, Kakeya frontier, compound-eye originals). Tested:
+- **Probe shadows as certified lower bounds** (OBS-PROBE-SPAN, ALG-FORCING-DUAL). Map words into
+  SL(2,p) and BFS the finite shadow G×G. Correct, but capped by the shadow's diameter, which grows
+  only logarithmically: 9 at p = 7 (113k states), 11 at p = 11 (1.7M). The mean bound/record is 0.11,
+  which is inside T9's exact range, so there's nothing new to prune. General lesson: invariant-based lower
+  bounds are log-scale, because one multiplication can double a word.
+  Code: `research/acc/optimality/shadow_bounds.py`.
+- **Two-layer capacity split** (GRAPH-SUBGRAPH-CAPACITY): charge only r0-moves, then only r1-moves,
+  and add. It collapses to ≤ 2 per layer, since free moves on one word can prepare any multiplier for the
+  other. The layers aren't independent. (The card's own failure mode warns about this.)
+- **Probe shadows as a guide** (exterior probe of the hidden interior). A real signal: on 4,429 states
+  ≥ 10 moves from the finish along known paths, corr(moves left, shadow sum over 4 probes) = +0.31, while
+  word length gives +0.02. On hump states, shadow +0.24 and length −0.24 (length points the wrong
+  way). Built into the beam as `BEAM_SHADOW=w BEAM_SHADOW_FILE=probes.bin` (off by default;
+  identical output at w = 0). The first test, ac-03305 at W = 100k, stayed at 27 for w = 0.5–4 (exact
+  23). Needs a broader A/B.
+  Code: `shadow_probe_export.py`, `acc_beam.c`.
+- **Next, the most promising: Schur elimination of the hump (UPG-FEEDBACK).** Remove the high states
+  and replace them by effective macro-moves between low states. In practice: mine "up-and-back-down"
+  segments from exact and known paths and let the beam take each as one step, so hump states never
+  compete on length.
+
 ## 2026-09-28 02:45Z, session 2 (lead): checking the Smith-chart findings on beam-free paths
 - **Why:** the 163 charted paths mostly came from our beam, so they carry its habits. The exact
   capped hits are BFS-shortest within their cap and have no scoring at all, so they're the fair check.

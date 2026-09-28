@@ -24,6 +24,19 @@ static uint32_t hprio(const St*s){ int L=s->l[0]+s->l[1]; if(!L) return 0; int K
     if(k==0) blk[s->w[r][0]>>1]++; int kr=k/2; K+=kr; if(kr>MK) MK=kr; }
   int th=cnt[0]<=cnt[1]?0:1; double S=blk[th]?(double)cnt[th]/blk[th]:0; double im=fabs((double)(cnt[0]-cnt[1]))/L;
   double P=L+2.53*K+6.418*MK+8.458*S+3.292*im; return (uint32_t)(P*16.0); }
+// BEAM_SHADOW=w with BEAM_SHADOW_FILE=probes.bin: add w x (sum over SL(2,p) probes of the exact shadow distance
+// of (phi(r0), phi(r1)) to (phi(x), phi(y))) to the priority. Shadows ignore word length, so they keep
+// pointing at the target during a hump (corr +0.24 with moves left on hump states, where length is -0.24).
+typedef struct { uint32_t n; uint16_t one,img[4]; uint16_t*mul; uint8_t*dist; } Probe;
+static Probe*PRB; static int NPRB; static double SHW;
+static void load_probes(const char*fn){ FILE*f=fopen(fn,"rb"); if(!f) die("probe file"); char m[4]; uint32_t k;
+  if(fread(m,1,4,f)!=4||memcmp(m,"SHDW",4)||fread(&k,4,1,f)!=1) die("probe header"); PRB=calloc(k,sizeof(Probe)); NPRB=(int)k;
+  for(uint32_t i=0;i<k;i++){ Probe*P=&PRB[i]; if(fread(&P->n,4,1,f)!=1||fread(&P->one,2,1,f)!=1||fread(P->img,2,4,f)!=4) die("probe");
+    uint64_t nn=(uint64_t)P->n*P->n; P->mul=malloc(nn*2); P->dist=malloc(nn);
+    if(fread(P->mul,2,nn,f)!=nn||fread(P->dist,1,nn,f)!=nn) die("probe tables"); } fclose(f); }
+static uint32_t shadow(const St*s){ uint32_t tot=0; for(int i=0;i<NPRB;i++){ const Probe*P=&PRB[i]; uint32_t g[2];
+    for(int r=0;r<2;r++){ uint32_t x=P->one; for(int j=0;j<s->l[r];j++) x=P->mul[(uint64_t)x*P->n+P->img[s->w[r][j]]]; g[r]=x; }
+    tot+=P->dist[(uint64_t)g[0]*P->n+g[1]]; } return tot; }
 static int cmpc(const void*a,const void*b){ uint64_t x=((Cand*)a)->key,y=((Cand*)b)->key; return x<y?-1:x>y; }
 int main(int argc,char**argv){
   const char*tf=argv[1]; uint64_t W=strtoull(argv[2],0,10); int DMAX=atoi(argv[3]); St s0; parse_state(argv,4,&s0);
@@ -40,6 +53,7 @@ int main(int argc,char**argv){
   // BEAM_LOOK=1: two-level key (height = best total length reachable in one more move, tiebreak = own length)
   int LOOK=getenv("BEAM_LOOK")?atoi(getenv("BEAM_LOOK")):0;
   int HP=getenv("BEAM_H")?atoi(getenv("BEAM_H")):0;
+  SHW=getenv("BEAM_SHADOW")?atof(getenv("BEAM_SHADOW")):0.0; if(SHW>0){ if(!getenv("BEAM_SHADOW_FILE")) die("BEAM_SHADOW_FILE"); load_probes(getenv("BEAM_SHADOW_FILE")); }
   int NOISE=getenv("BEAM_NOISE")?atoi(getenv("BEAM_NOISE")):0; if(HP) NOISE*=16; /* priority is scaled x16 */ uint64_t SEED=getenv("BEAM_SEED")?strtoull(getenv("BEAM_SEED"),0,10)*0xD1B54A32D192ED03ULL:0;
   for(int d=1;d<=DMAX;d++){
     if(d>=bestAC && d+2>=bestSAC) break;
@@ -55,7 +69,7 @@ int main(int argc,char**argv){
         uint8_t*q=SA+SAn; q[0]=nx.l[0]&255; q[1]=nx.l[0]>>8; q[2]=nx.l[1]&255; q[3]=nx.l[1]>>8; memcpy(q+4,nx.w[0],nx.l[0]); memcpy(q+4+nx.l[0],nx.w[1],nx.l[1]);
         tmpN[nt]=(Node){SAn,(uint32_t)i,(uint8_t)m,len}; SAn+=need;
         // BEAM_NOISE=n, BEAM_SEED=s: add a seeded pseudo-random 0..n to the length key (route diversity)
-        uint32_t klen=HP?hprio(&nx):len; if(NOISE){ uint64_t z=(h1^SEED)*0x9E3779B97F4A7C15ULL; z^=z>>29; klen+=(uint32_t)(z%(uint64_t)(NOISE+1)); }
+        uint32_t klen=HP?hprio(&nx):len; if(SHW>0) klen+=(uint32_t)(SHW*(HP?16.0:1.0)*shadow(&nx)+0.5); if(NOISE){ uint64_t z=(h1^SEED)*0x9E3779B97F4A7C15ULL; z^=z>>29; klen+=(uint32_t)(z%(uint64_t)(NOISE+1)); }
         uint64_t key=((uint64_t)klen<<40)|((h1^SEED)>>24);
         if(LOOK){ uint32_t best=len; St y; for(int m2=0;m2<14;m2++){ apply(&nx,m2,&y); uint32_t l2=y.l[0]+y.l[1]; if(l2<best) best=l2; }
           key=((uint64_t)best<<52)|((uint64_t)(len&4095)<<40)|(h1>>24); }
