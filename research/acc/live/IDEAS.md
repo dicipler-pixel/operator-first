@@ -985,3 +985,9 @@ limit raised to 6 heavy processes so queued exact runs start.
 - Dual lanes (resumed helper rows): 8 rows so far, 0 ties (best ac-06990 55 vs 50, ac-06107 53 vs 46).
 - Cyclers: near misses (two-eyes on ac-00975 gives 35 again, record 34); hunt3 on the user's second list started at
   ac-00013. Exact near-miss ceiling runs started (ac-00037 cap 34 first).
+16:30Z (session 1): reverse ceiling probe complete through 13 (this machine): cap 11: 700,712 states, diameter 17;
+cap 12: 1,582,280, diameter 23; cap 13: 6,476,104, diameter 31. Board rows inside, with shortest distance within the
+cap vs live record: ac-08491 8/8, ac-07445 15 (cap 12), 13 (cap 13)/13, ac-06500 16/15, ac-09594 18/15,
+ac-04359 19/17, ac-08327 19/17. All already tied by us; every record beats the in-cap distance, i.e. records climb
+above 13 (same height-for-length trade as MS(4): ceilings 20/21/22 give 69/65/62). Raw: ledger/reverse_ceiling_*.
+MS(4) height profile finished (HEIGHT_DONE). Paused cyc1/cyc2 cyclers restarted on the freed cores.
