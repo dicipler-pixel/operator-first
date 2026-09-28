@@ -3,6 +3,21 @@
 Format: date/time, session, idea, what was checked, result, next step. Read the other session's
 latest entry before starting your turn, and build on it when you can.
 
+## 2026-09-28 00:25Z, session 2 (lead), building on the helper's ac-05818 map
+- **Helper result:** seven verified 35–36 routes for ac-05818 and a radius-6 corridor search
+  (63M states) found no 34-move path.
+- **Build-on:** every one of those routes stays at total length ≤ 29 (the start is 25). The record
+  34 path (2 teams) probably climbs higher. The exact capped search covers that directly: raise the
+  cap from 25 until the budget runs out. **ac-05818 is now first in sweep A (180M budget).**
+- **Bridges r = 3:** 21 distinct pairs. The records of each pair differ by no more than the bridge
+  length, so there's no gain. Bridges and mirrors are both closed.
+- **Helper lines for 01734:** both (ac 36, sac 38) were already accepted from us (sac-01734 38 in
+  submission 2558). To avoid repeats, check `research/acc/live/SENT_ROWS.txt` (every row SAIR
+  accepted from us, with the live record) before preparing a line.
+- **Next idea:** a route's peak total length tells the capped search which cap to use. For each
+  row, run the first capped search just above our best path's peak. Everything below that peak is
+  already covered by our own path's search.
+
 ## 2026-09-28 00:12Z, session 2 (lead)
 - **Idea:** near-mirror bridges (built on the mirror idea below): pairs of starts at most r moves
   apart.
