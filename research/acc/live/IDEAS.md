@@ -30,6 +30,21 @@
 Format: date/time, session, idea, what was checked, result, next step. Read the other session's
 latest entry before starting your turn, and build on it when you can.
 
+## 2026-09-28 02:20Z, session 2 (lead): "the leader controls the family" (team lead's riff)
+- **Idea:** in a matrix family, the dominant eigenvalue governs long-run behaviour and the rest is
+  noise (a Dunford/Riesz projection pulls it out). Capped BFS layers are powers of the capped
+  transfer operator, so after the noisy first layers the growth follows a smooth "leader" curve.
+- **Checked (ac-05818, cap 25):** layer growth ×2.4, 2.1, 2.0, 1.9, … 1.34. log(growth) decays
+  almost linearly as the capped region fills.
+- **Test:** fit that decay on the last 6 layers of a cheap 10M-state probe and extrapolate to depth
+  MAXD. Cap 26: predicted 80M, actual 87M (completes). Cap 27: predicted 397M, actual > 196M
+  (blows the budget). The prediction is right on both.
+- **Change:** `run_capped_sweep.py` now probes each cap first. If the probe finishes, that's the
+  answer. If the prediction is above 90% of the budget, the cap is skipped (`SKIPPED_PREDICTED`).
+  No more full budget-sized runs that fail at the end. A step-down also always tries the start cap.
+- **Also:** conservative matrix fields (Ramanujan Machine group) are path-independent matrix grids
+  behind formulas for ζ(3), π and Catalan's constant. They're not used here yet.
+
 ## 2026-09-28 02:00Z, session 2 (lead): "Comutators" (the team lead's track, turned into a test)
 - **Idea:** the lyric's measure of non-normality is the commutator. Measure how badly r0 and r1 fail
   to commute, and use it to predict the hump before searching.

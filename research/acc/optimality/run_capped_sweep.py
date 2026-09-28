@@ -4,12 +4,31 @@ AC path <= AC record or SAC path <= SAC record whose first MAXD states stay with
 Stops a row early once both AC and SAC reach their records. Paths are saved unchecked.
 usage: run_capped_sweep.py MANIFEST BINDIR TFILE WORKDIR targets.json OUT.jsonl [SPAN] [BUDGET]
 targets.json: [{"id": "ac-NNNNN", "ac_record": R or null, "sac_record": R or null}, ...]"""
-import json, os, re, shutil, subprocess, sys, time
+import json, math, os, re, shutil, subprocess, sys, time
 MAN, BIN, TF, WORK, TGT, OUT = sys.argv[1:7]
 SPAN = int(sys.argv[7]) if len(sys.argv) > 7 else 40
 JUMP = int(os.environ.get('CAP_JUMP', '6'))
 BUDGET = sys.argv[8] if len(sys.argv) > 8 else '180000000'
+PROBE = int(os.environ.get('CAP_PROBE', '10000000'))
 C = {c['challenge_id']: c for c in json.load(open(MAN))['challenges']}
+
+
+def predict_total(stderr, maxd, k=6):
+    """'Leader' extrapolation: after the noisy first layers, log(layer growth) decays smoothly as the
+    capped region fills. Fit that decay on the last k layers of a cheap probe and extend it to
+    depth maxd. Checked on ac-05818: cap 26 predicted 80M (actual 87M); cap 27 predicted 397M
+    (actual > 196M)."""
+    L = [int(x) for x in re.findall(r'd=\d+ \+(\d+)', stderr)]
+    if len(L) < k + 2:
+        return None
+    lr = [math.log(L[i] / L[i - 1]) for i in range(1, len(L)) if L[i - 1] > 0 and L[i] > 0]
+    xs = list(range(len(lr) - k, len(lr))); ys = lr[-k:]
+    mx, my = sum(xs) / k, sum(ys) / k
+    b = sum((x - mx) * (y - my) for x, y in zip(xs, ys)) / sum((x - mx) ** 2 for x in xs); a = my - b * mx
+    tot, cur, d = sum(L), L[-1], len(L)
+    while d < maxd:
+        cur *= math.exp(max(0.0, a + b * (len(lr) + d - len(L)))); tot += cur; d += 1
+    return tot
 E = {1: 0, -1: 1, 2: 2, -2: 3}
 done = {json.loads(l)['id'] for l in open(OUT)} if os.path.exists(OUT) else set()
 for t in json.load(open(TGT)):
@@ -36,10 +55,29 @@ for t in json.load(open(TGT)):
             while c - 2 >= start:
                 c -= 2
                 yield c
+            if c > start:
+                yield start
     for cap in caps():
         wd = os.path.join(WORK, 'cap_' + cid); os.makedirs(wd, exist_ok=True)
-        p = subprocess.run([BIN + '/acc_capped', TF, str(cap), BUDGET, wd, 'c', *enc], capture_output=True,
-                           text=True, env={**os.environ, 'MAXD': str(maxd), 'INIT_LOG2': '27'})
+        env = {**os.environ, 'MAXD': str(maxd)}
+        # probe first (small budget): if it finishes, that's the answer; if its extrapolation doesn't
+        # fit the budget, skip this cap instead of burning a whole budget-sized run
+        p = subprocess.run([BIN + '/acc_capped', TF, str(cap), str(PROBE), wd, 'c', *enc], capture_output=True,
+                           text=True, env={**env, 'INIT_LOG2': '24'})
+        shutil.rmtree(wd, ignore_errors=True); os.makedirs(wd, exist_ok=True)
+        st0 = re.search(r'cap=\d+ states=(\d+) depth=(\d+) (\w+)', p.stdout)
+        probe_done = bool(st0) and (st0.group(3) == 'CLOSED' or int(st0.group(2)) > maxd or ' PATH ' in p.stdout)
+        pred = None if probe_done else predict_total(p.stderr, maxd)
+        if not probe_done and pred is not None and pred > 0.9 * int(BUDGET):
+            info = {'cap': cap, 'states': None, 'depth': None, 'end': 'SKIPPED_PREDICTED', 'predicted': int(pred),
+                    'complete': False}
+            rec['caps'].append(info); print(json.dumps({'id': cid, **info}), flush=True)
+            shutil.rmtree(wd, ignore_errors=True)
+            if len(rec['caps']) > 1 and rec['caps'][0]['complete']: break
+            continue
+        if not probe_done:
+            p = subprocess.run([BIN + '/acc_capped', TF, str(cap), BUDGET, wd, 'c', *enc], capture_output=True,
+                               text=True, env={**env, 'INIT_LOG2': '27'})
         shutil.rmtree(wd, ignore_errors=True)
         st = re.search(r'cap=\d+ states=(\d+) depth=(\d+) (\w+)', p.stdout)
         info = {'cap': cap, 'states': int(st.group(1)) if st else None,

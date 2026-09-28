@@ -60,6 +60,11 @@ official verifier before `sair_api.py send`.
 
 Short rows held by few teams need humps of 10+ letters.
 
+**Probe-and-predict caps (2026-09-28):** before a full run, probe the cap with 10M states. Fit the
+decay of log(layer growth) on the last 6 layers and extrapolate the total to depth MAXD. Skip the
+cap if the prediction is above 90% of the budget. Validated on ac-05818: cap 26 predicted 80M,
+actual 87M; cap 27 predicted 397M, actual > 196M.
+
 **Jump-ahead caps (2026-09-28):** a cap-C search contains every lower cap, so start at
 start + CAP_JUMP (8 / 3 / 5 by budget) instead of climbing from the start (2–3.5× faster). The
 capped search works best at depth ≤ 22 (records ≤ 31). At depth 25+ the budget stops within 1–2
