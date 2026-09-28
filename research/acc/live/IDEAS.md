@@ -995,3 +995,34 @@ MS(4) height profile finished (HEIGHT_DONE). Paused cyc1/cyc2 cyclers restarted 
 background lanes except two just-restarted cyclers were lost. Relaunched via new `tools/acc/restart_all.sh` (every
 lane under its own flock; rerunning it does not duplicate). All lanes resume from their ledgers (cycler: per
 (row, idea, twin); dual/beam runner: per row). Nothing in progress was committed as a result, so nothing to redo.
+
+## 2026-09-28 17:30Z, Fable (helper): MS(n, YXXyx) — a counting bound that rules out the literal-run road, and what it forces
+Official kernel a0fd6e6, made-up rows MS(n, YXXyx). All exact runs below complete unless marked.
+1. **Separator fact (proved by cases, all 10 rotations of BS^±1).** A "cell" = one application of the BS relation = a
+   multiplication of the worked relator by the other relator while that one is a BS rotation. Two consecutive cells on
+   the same relator with the other fixed are impossible (the second multiplication is the same or the inverse of the
+   first: BS rotations are cyclically reduced). Cells cannot alternate between r0 and r1 either (both would have to be BS
+   rotations at once). So every cell after the first costs >= 1 extra move (a conjugation, an inversion, or a
+   non-cell multiplication). Build cost >= 2*cells - 1.
+2. **Area fact.** Weighted mass t = sum over x-letters of ±2^h (h = y-height to the left) is invariant under cells;
+   MS_n has one x at height -1 and one X at height -(n+1); any literal-run word in its class needs the x pushed down
+   n levels: 2^n - 1 cells, and the run has 2^n - 1 letters. Peel from (x, y X^(m-1)) is m-1 moves (type-A/B states
+   force |a-b| = 1, checked: (xx,yX^5), (xxx,yX^7), (x^4,yX^7) have no route <= 16).
+3. **Consequence.** Any road that passes through (BS-rotation, literal y = x^(2^n - 1)) or its mates costs
+   >= 2(2^n - 1) - 1 + (2^n - 2) + ~5 = 3*2^n - O(1): n=4: 48, n=5: 96 > record 80. **The leaders' road for n >= 5
+   never contains a literal run of length 2^n next to a BS relator.** Our 55 (x^7 fuel -> x^15 -> peel) and Lisitsa's
+   routes are both literal-run roads; that is the phase to skip. The records 2^(n+1) + 1.5n + 8.5 are consistent with
+   two structures only: (a) area ~2^(n-1) at 2 moves/cell + a 2^n-move finish, or (b) both relators long and pure
+   (x^A Y^k, x^B Y^j) with a fast Euclid finish (unit cost per subtraction; e.g. (15,4),(11,3) finishes in 5). The
+   collapse config (x^m Y x^(m-1) Y, x^(m-1) Y) [y^2 = x^(2m-1), y = x^(m-1)], m = 2^(n-1), has finish m+3 (half peel)
+   and is one multiplication from the level-(n-1) mates. Recursion to test next: MS_n -> level-(n-1) mates in
+   2^n + O(1) moves (records give T(n) - T(n-1) = 2^n + 1 or 2 exactly).
+4. **Negatives (exact, this session).** From the level-step state (BS, x^3 YYYXyyx): no route with <= 4 non-mult
+   moves reaches any (BS-rot, run >= 13) state within 16 moves under cap 22; <= 6 non-mults, cap 24: none within 16
+   (frontier dies at depth 15). From MS_4 with <= 7 non-mults, cap 24: no (BS-rot, |mass| >= 12) state within 30
+   (frontier dies at 17). Exact hops: MS_4 -> (BS, xYYYYXyyyx) = 3 [5 12 10]; -> (BS, xxxYYYXyyx) 7 more
+   [5 11 5 12 10 10 10] under cap 22; (BS, xxxYYYXyyx) -> (BS, x^7 YYXyx): none <= 10 at cap 24; MS_4 -> x^7YYXyx:
+   none <= 13 at caps 22 and 24 (the ledger's 13 must be a different rotation). Naive transfer of path(n-1) to MS_n
+   explodes (peaks 50-143): the passenger idea is dead in that form.
+5. Scripts: scratch only (ms.py replay with affine readout, multbfs.py/massbfs.py bounded-non-mult BFS); nothing
+   committed to tools/.
