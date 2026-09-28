@@ -18,12 +18,13 @@ typedef struct { uint64_t key; uint32_t idx; } Cand;
 // BEAM_H=1: ACSolverX tuned priority (Avi161/ACSolverX HEURISTICS.md), scaled x16:
 // L + 2.53*K + 6.418*MK + 8.458*S + 3.292*|#x-#y|/L. K = sum over relators of cyclic generator-block
 // count (0 for a pure power), MK = max of the two, S = mean block length of the thinner generator.
+static double BAL=0;
 static uint32_t hprio(const St*s){ int L=s->l[0]+s->l[1]; if(!L) return 0; int K=0,MK=0,cnt[2]={0,0},blk[2]={0,0};
   for(int r=0;r<2;r++){ int n=s->l[r]; if(!n) continue; int k=0;
     for(int i=0;i<n;i++){ int g=s->w[r][i]>>1, gp=s->w[r][(i+n-1)%n]>>1; cnt[g]++; if(g!=gp){ k++; blk[g]++; } }
     if(k==0) blk[s->w[r][0]>>1]++; int kr=k/2; K+=kr; if(kr>MK) MK=kr; }
   int th=cnt[0]<=cnt[1]?0:1; double S=blk[th]?(double)cnt[th]/blk[th]:0; double im=fabs((double)(cnt[0]-cnt[1]))/L;
-  double P=L+2.53*K+6.418*MK+8.458*S+3.292*im; return (uint32_t)(P*16.0); }
+  double P=L+2.53*K+6.418*MK+8.458*S+3.292*im+BAL*fabs((double)(s->l[0]-s->l[1])); return (uint32_t)(P*16.0); }
 // BEAM_SHADOW=w with BEAM_SHADOW_FILE=probes.bin: add w x (sum over SL(2,p) probes of the exact shadow distance
 // of (phi(r0), phi(r1)) to (phi(x), phi(y))) to the priority. Shadows ignore word length, so they keep
 // pointing at the target during a hump (corr +0.24 with moves left on hump states, where length is -0.24).
@@ -52,7 +53,7 @@ int main(int argc,char**argv){
   uint8_t*SA=NULL; uint64_t SAn=0,SAcap=0; Tab L; tab_init(&L,1ULL<<23);
   // BEAM_LOOK=1: two-level key (height = best total length reachable in one more move, tiebreak = own length)
   int LOOK=getenv("BEAM_LOOK")?atoi(getenv("BEAM_LOOK")):0;
-  int HP=getenv("BEAM_H")?atoi(getenv("BEAM_H")):0;
+  int HP=getenv("BEAM_H")?atoi(getenv("BEAM_H")):0; BAL=getenv("BEAM_BAL")?atof(getenv("BEAM_BAL")):0;
   SHW=getenv("BEAM_SHADOW")?atof(getenv("BEAM_SHADOW")):0.0; if(SHW>0){ if(!getenv("BEAM_SHADOW_FILE")) die("BEAM_SHADOW_FILE"); load_probes(getenv("BEAM_SHADOW_FILE")); }
   int NOISE=getenv("BEAM_NOISE")?atoi(getenv("BEAM_NOISE")):0; if(HP) NOISE*=16; /* priority is scaled x16 */ uint64_t SEED=getenv("BEAM_SEED")?strtoull(getenv("BEAM_SEED"),0,10)*0xD1B54A32D192ED03ULL:0;
   for(int d=1;d<=DMAX;d++){
