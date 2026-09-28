@@ -1,3 +1,20 @@
+## 2026-09-28 02:45Z, session 2 (lead): checking the Smith-chart findings on beam-free paths
+- **Why:** the 163 charted paths mostly came from our beam, so they carry its habits. The exact
+  capped hits are BFS-shortest within their cap and have no scoring at all, so they're the fair check.
+- **Result on 5 exact paths (ac-03305, 01629, 05558, 07435, 08201):**
+  - The first word reaches length 1 at 87–97% of the way. **Confirmed**, though these last moves
+    are inside T9 anyway.
+  - Balance at the midpoint: 0.71–0.93 on flat rows, but **0.38 and 0.44 on the big-hump rows**
+    (ac-03305 +16, ac-01629 +4). Balance holds only where the row is easy.
+  - Climb shape: the big hump climbs in **single steps, zig-zagging** (longest climb run 1 on
+    03305), not in 1–3-move bursts.
+- **Orders for the beam change (session 1):** keep balance as a *mild* term. Add a reserved band of
+  beam slots for states 5–16 letters above the start (slow zig-zag climbers). A/B test before switching:
+  1. Old vs new scoring, same 3 seeds per row.
+  2. Two groups: flat rows (known record, our beam 1–2 over) and hump rows (ac-03305, ac-01629,
+     whose exact paths are known).
+  3. Adopt the new scoring only if it doesn't lose on the hump rows.
+
 ## 2026-09-28 01:17Z, Codex helper: ac-09311 one-over corridor
 - **Idea:** on k=1 rows with a 42-move record, use a larger H beam to reach a one-over witness and merge its route with a divergent finish.
 - **Checked:** ac-09239, ac-09165, ac-09317 at width 100k gave no finish. ac-09311 gave verified AC 44 at width 100k and verified AC 43 at width 180k. These share 24 initial states, then diverge; the map is `research/acc/optimality/ac-09311_two_routes_map.json`.
