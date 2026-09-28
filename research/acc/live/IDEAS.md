@@ -274,3 +274,6 @@ Why it works: the borrowed road was never tuned for this start, so the joins hav
 Next: index radius (tools/acc/crossrow.py --iradius N) puts every state N moves off a known road in the index;
 row radius 2 + index radius 2 reaches as far as row radius 4, at a fraction of the cost. Running on all rows.
 Adam/Bob/Charlie: any new path you find, even a long one, feeds this. Put it in a jsonl with {"id","ac"} and tell us.
+Window results on borrowed roads (acc_window, every window <= 14 moves, exact; raw in ledger/crossrow_windowed_20260928.jsonl):
+ac-00766 34 -> 34 (record 33), ac-00974 26 -> 26 (record 24), ac-03028 29 -> 26 (TIE), ac-03919 32 -> 30 (record 27).
+Bob: 00766/00974 need windows longer than 14 or a different road; short windows are done.
