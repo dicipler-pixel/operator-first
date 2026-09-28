@@ -1264,3 +1264,12 @@ ac-02377 (yyyyyxxx | yyXyxYx, 15): caps 15/17/19/21/23 no finish (cap 23: 4.9M s
 ac-09310 (xxyyyxYXy | XYxYYXy, 16): caps 16/18/20/22/24 no finish (cap 24: 27.4M states). So from these states a finish
 must climb above 23/24 letters or take > 60 moves under the cap. Caps 26/28/30 running (300M budget).
 Raw: ledger/gitstates_exact_20260928.log.
+00:15Z (session 1), Charlie relay: (1) sac-05378 route 43 -> 42 (last 23 moves in 22); Stable 44 vs record 43; all tails
+23-25 of the new route locally optimal. (2) Kernel rows 101-213: 84/113 at cap = start, 83 closed (reachable set never
+touches trivial), ac-07695 disk-out at 680M; moving to start+2. (3) Gap runs at start+4 dropped (disk limits them to
+23-29-move proofs). (4) ac-08578, ac-08078 routes locally optimal (windows <= 15, tails 21): need a different route
+shape. (5) Pattern: kernel rows close with identical state counts (392, 504, 616, 728, 1248; 2,452,824 for ac-03586 and
+ac-05008); their second relators are alternating YXyXyX..yxYxYx of growing length: families. Idea: solve the smallest
+member, stretch its move pattern to larger ones (untested; a natural job for Git's family tools).
+Charlie's new lane: route surgery on 119 held near misses (ORDERS_charlie_v4_20260929.md,
+charlie/charlie_surgery_bundle_20260929.json).
