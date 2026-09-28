@@ -118,3 +118,20 @@ the commit hashes of the tool and the result.
   reaches length 1 at 84% of the path on average. Idea: add a |len r0 − len r1| penalty to the
   beam priority.
 - **Chart:** `research/acc/optimality/path_chart_163.svg` (word lengths ÷ start length).
+
+## BEAM_BAL test (session 1, 2026-09-28): W=20000, depth cap record+6, 9 near-miss rows
+| row (live) | BAL 0 | 1 | 2 | 4 |
+|---|---|---|---|---|
+| ac-00145 (39) | 40 | 53 | – | – |
+| ac-09189 (30) | 32 | 31 | 31 | 31 |
+| ac-00147 (34) | 48 | 46 | 45 | – |
+| ac-04276 (32) | – | 42 | 43 | 47 |
+| ac-05702 (39) | 49 | 47 | 51 | 53 |
+| ac-06045 (36) | 44 | 44 | 48 | 48 |
+| ac-08995 (45) | 47 | 50 | 50 | 55 |
+| ac-09091 (29) | – | 40 | 40 | 40 |
+| ac-00037 (31) | – | – | – | – |
+
+- Result: BAL=1 is better on 5 rows (shorter, or finds a path where BAL 0 finds none) and worse on
+  2. It ties no record.
+- Use BAL=1 as a second "eye" next to BAL 0 (different paths), not as a replacement.
