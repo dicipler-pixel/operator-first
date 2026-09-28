@@ -4,6 +4,7 @@ This extends crossrow.py's radius-3 joins to radius 5 and keeps a state-keyed
 suffix atlas. It is a bounded route search, not an optimality proof.
 """
 import json
+import os
 import sys
 import time
 from collections import deque
@@ -15,8 +16,8 @@ manifest = json.load(open(sys.argv[1] + "/competition/tools/verifier/data/manife
 challenges = {c["challenge_id"]: c for c in manifest["challenges"]}
 routes = json.load(open(sys.argv[2]))
 targets = sys.argv[3:]
-limit = 5
-max_total = 60
+limit = int(os.environ.get("CROSSJOIN_RADIUS", "5"))
+max_total = int(os.environ.get("CROSSJOIN_CAP", "60"))
 inv = core.INVERSE_MOVE
 
 
