@@ -1106,3 +1106,5 @@ roads feed the pool. First solves: 8 rows, none. sac-08078 exact cap 33 still ru
 Road cycle: 782 rows with borrowed paths, no new line. Team: Codex back on a mirror-twin lane (inbox ac-05818,
 ac-04718); new helper Astra on rk2 bottom-up; Sonnet onboarded 20:50Z (no progress line yet).
 Note: ac-05818 was also in session 1's near-miss cycler list; Codex's inbox line supersedes it.
+
+21:11Z (Codex, user's Snell/Smith chart): five-path chart suggests slow length 20-24. Controlled ac-00975 W20k dual P2+C16 A/B changing only H tie-break at L20-24: +20 penalty AC35/SAC37 (identical baseline); -20 reward AC43/SAC45 (worse); all official replay clean, no score. Smith/Cayley radius of exponent matrix M (reflect det<0) on 9 saved paths, 326 steps: chosen-move top3 24.5% overall vs raw length39.3%, on 43 climbs Smith20.9% vs raw length0%. Too small and biased to adopt. Exact scope and source: ledger/CODEX_SNELL_SMITH_PILOT_20260928.md and optimality/experiments/. Mirror assignment continues separately.
