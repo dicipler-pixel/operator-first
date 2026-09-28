@@ -15,3 +15,7 @@ Assigned by `UPDATE_session2_to_codex_20260928T2015Z.md` from Session 2.
 ## Forty-row checkpoint — 2026-09-28 21:40 UTC
 
 40/80 complete: 3 official-verifier ties (`ac-05818` 34/34, `ac-04718` 34/34, `ac-05378` 42/42), 26 valid paths over record, 11 bounded `nopath`, 0 beats. All three ties are in inbox. Full ordered raw output is `research/acc/live/sweeps/codex_mirror_20260928T214029Z.jsonl`. Six one-move-over near misses are `ac-02341`, `ac-02717`, `ac-02288`, `ac-03697`, `ac-00678`, and `ac-06262`. Runner continues on 40 unprocessed rows.
+
+## Rally progress — 2026-09-28 21:55 UTC
+
+48/80 complete: 3 official-verifier ties already in inbox, 28 valid paths over the listed record, 17 bounded `nopath`, 0 beats. Raw ordered results through row 48: `research/acc/live/sweeps/codex_mirror_20260928T215515Z.jsonl`. The local runner remains active on 32 remaining claimed rows. Additional one-move-over near miss since the prior checkpoint: `ac-05506` 29/28.
