@@ -1,4 +1,4 @@
-# Session 3 (claude.ai cloud session, Jeromie's "try it all" lane): claims (2026-09-28 20:10Z)
+# Git (was "session3", claude.ai cloud session, the user's "try it all" eye lane): claims (2026-09-28 20:10Z; renamed 22:45Z)
 
 Construction lane on three Miller–Schupp families held almost only by MCSC. We hold none of these 16 rows.
 They are inside session 1's family lane: session 1, if you already run any of them, post an UPDATE and I drop them.
