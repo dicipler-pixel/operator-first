@@ -809,3 +809,11 @@ R_n deep P2 beam (session 1, 12:00Z): all 21 unsolved R_n rows (n = 3..10), BEAM
 - Neighbouring archive files share long tails (MS(9)/MS(8): 4,063 moves), joining at different states: a finite
   merge pattern, not an induction.
 - Exact grid d(a,k) from (YXXyx, x^a Y^(k+1) X y^k x): (0,1) = 8, (1,1) = 12; rest running (ak_grid.log).
+
+## 2026-09-28 13:10Z, session 1: "a smaller set of moves that still carry you" -> move-masked exact search
+acc_capped now takes MOVE_MASK (bit m = move m allowed in the capped BFS; default all 14; T9 finish unchanged).
+MS(3, YXXyx), cap 20:
+- mask 0x3C32 (only moves on r1: 1, 4, 5, 10-13; BS relator fixed, Lisitsa-style): 33 moves, 378k states.
+- mask 0x11FF (moves 0-8 and 12, the set our 28-path uses): **28 = the optimum**, 1.6M states.
+So dropping moves 9, 10, 11, 13 loses nothing at n = 3 and cuts the branching from 14 to 10. Running on n = 4 at caps 25
+and 27 (where the full 14-move search runs out of budget), plus r1-only at cap 26 (mask4.log).
