@@ -8,7 +8,9 @@ METHOD_BY_SUB = {"2558": "Beam + exact (NEW15)", "2565": "AC+2 to Stable AC", "2
 METHOD_BY_ROW = {"ac-03060": "P2 lookahead", "sac-03060": "P2 lookahead", "ac-05835": "P2 lookahead",
     "ac-01698": "P2 lookahead", "ac-03789": "P2 lookahead", "sac-01698": "(y,x) shortcut", "sac-05091": "(y,x) shortcut",
     "sac-00487": "Class quota", "ac-00487": "Overlap splice", "ac-03028": "Mirror cross-row", "sac-03028": "Mirror cross-row",
-    "ac-09989": "Mirror cross-row", "sac-09989": "Mirror cross-row"}
+    "ac-09989": "Mirror cross-row", "sac-09989": "Mirror cross-row",
+    "sac-00222": "P2 lookahead", "ac-06094": "Two-eyes beam (DUAL)", "sac-06094": "Two-eyes beam (DUAL)",
+    "sac-05835": "Two-eyes beam (DUAL)"}
 def board(kind, ts):
     fs = sorted(glob.glob(f"research/acc/live/boards/{kind}_2026*.json.gz"))
     best = None
