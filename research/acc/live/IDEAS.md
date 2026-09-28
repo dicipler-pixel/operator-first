@@ -1,3 +1,23 @@
+## 2026-09-28, Codex ABC: borrowed-road joins through radius 7 remained behind
+- Expanded the state-keyed suffix atlas of 478 officially valid AC roads (13,092 suffix states) with fresh prefixes. At radius 6/cap 35: ac-00766 visited 388,785 states, ac-00974 visited 581,530; best 34 and 26. At radius 7/cap 40: 3,035,716 and 4,578,426; best still 34 versus record 33 and 26 versus record 24. This tests joins into this particular atlas, not arbitrary new finish roads or global optimality. Code `ledger/codex_abc_crossjoin.py`; four raw JSON results `ledger/codex_abc_crossjoin_r{6,7}_{00766,00974}_20260928.json`. Do not spend more on the same small-radius atlas without new suffix roads.
+
+## 2026-09-28, Codex ABC: T8/fixed visited passes a real stopped row, but no score
+- On ac-00580 at total-length cap 28, the earlier T9 ledger stopped after depth 23 at 48,220,955 states. The T8/fixed-visited engine reproduced **exactly** that depth-23 count and continued into depth 24, stopping at a 60M-state budget after 95.61 seconds. No AC/SAC meet. This is a repeatable memory/scope improvement, not a complete search or proof. Full command, raw logs, and explicit incomplete status: `ledger/codex_abc_capped_trial.py`, `ledger/codex_abc_capped_trial_00580_20260928.*`.
+- On Bob's ac-00766 near miss, cap 28 already had 426,246 states at depth 7; the next layer paged under shared 8 GB pressure. The run was interrupted and marked incomplete. A radius-8 goal ball plus a 25-step prefix could tie record 33, but this broad BFS is unlikely to reach such depth within our budget. Shift to route-specific joins or a different road, not a higher broad cap. `ledger/codex_abc_capped_trial_00766_20260928.*`.
+
+## 2026-09-28, Codex ABC: smaller goal ball for constrained memory
+- Built T8 with `work/acc_opt tball 8 40000000 work/T8.tab work/abc_t8`: 24,587,144 goal states, 640,000,000 bytes, SHA-256 `38f05b56d5e79d9df03cc3cd96cd8433725b051111984a8dad4fbe30d07068f8`. T9 has 214,977,551 states and 4,480,000,000 bytes. The smaller map removes 3.84 GB of table footprint while requiring up to one additional forward move for the same meet length.
+- On a known ac-00236 15-move path at cap 25, the disk-backed capped engine found an officially accepted AC 15 and SAC 17 with both tables. T9 first saw AC 15 at forward depth 6 (2,561 cumulative states); T8 first saw it at depth 7 (7,615 cumulative). Same depth-7 final state count in the benchmark; wall times are confounded by file cache, so no speed claim. Code and raw results: `ledger/codex_abc_ball_split.py` and `ledger/codex_abc_ball_split_20260928.json`.
+- Adam's first 100 unsolved rows, width 2,000/depth 80, yielded no AC or SAC path under either `BEAM_H=1` or `BEAM_H=1 BEAM_BAL=1` with T8; 200 complete bounded rows total. The T9 H pass reached 88 no-path rows and six 45-second timeouts before contention made the remaining six impractical. No inbox line. Stop these 100 rows per the handoff rule. The next useful test is T8 on a specific memory-limited capped row at a fixed budget, measuring whether the extra forward frontier is cheaper than keeping T9 resident.
+
+## 2026-09-28, Codex helper: reserved high-slack Stable AC beat beam screen (no hits)
+
+- Screened the six rows removed from the main sacbeat list: ac-00520, ac-00718, ac-01566, ac-00074, ac-03887, ac-03104. Target AC ceilings were SAC live record minus 3, so AC + [16,15] would strictly beat the Stable AC record.
+- Baseline: pinned T9 finish table, `BEAM_H=1 BEAM_DIV=1.0 BEAM_BAL=0`, width 20,000, depth through each target ceiling + 2. All six returned `nopath`.
+- Different second pass on the three loosest rows (ac-03104, ac-03887, ac-00074): `BEAM_H=1 BEAM_DIV=0.6 BEAM_BAL=0.75 BEAM_NOV=1 BEAM_NOISE=1 BEAM_SEED=20260928`, width 20,000, same depth policy. All three returned `nopath`.
+- These are bounded beam misses, not proofs. No candidate path or verifier receipt was produced. Exact timings and thresholds: `research/acc/live/ledger/luna_sacbeat_screen_20260928.json`. Official SAIR commit: `a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e`; T9 SHA-256 matches the expected build.
+- Follow-on: resume only after refreshing exclusions and worklists; do not interpret this screen as an exhaustive search.
+
 ## 2026-09-28, Codex ABC ledger correction
 - `ledger/exact_capped_runs.jsonl` has 76 entries, 52 marked incomplete. Their median state count is 48,936,404.5; only one incomplete entry is at least 180M, with max 211,651,126. They stopped at different row budgets or limits. The shorthand “52 stopped at ~210M” is misleading; prioritize by actual budget, cap, and depth before rerunning with the disk-backed pilot.
 
@@ -9,6 +29,26 @@
 - **Bob join idea:** Replay all 478 officially valid borrowed AC paths to form a 13,092-state suffix atlas. Search exact distinct states to radius 5 from ac-00766 and ac-00974 (total relator length cap 60), then join any atlas suffix. Reached 124,740 and 130,399 states; best verified routes remain 34 (record 33) and 26 (record 24). Prior window-14 checks were already negative. Scope is radius 5 plus this atlas, not a global bound. Code/data: `ledger/codex_abc_crossjoin.py`, `ledger/codex_abc_crossjoin_20260928.json`.
 - **Bob rhythm idea:** The 424 official training routes (all Miller–Schupp) have held-out one-step move prediction gain 0.482 bits/move versus within-route shuffle mean -0.0056 (1,000 shuffles, p < 0.002). Conditioning out immediate inverse moves leaves 0.401 versus -0.0052 bits/move. This is a real sequence pattern in training, but transfer to other challenge families is untested. Code/results in `ledger/codex_abc_rhythm.py` and `ledger/codex_abc_rhythm_20260928.json`.
 - **Charlie memory idea:** Built `research/acc/optimality/acc_capped_disk.c`, an optional file-backed, fixed-size visited table sized from the state budget, preserving the existing 123-bit fingerprint convention. The cap-24 radius-7 pilot on ac-00974 matched original at 299,177 states. Wall time was unstable (disk repeat 73 s versus original 7 s under shared 8 GB pressure), so no large-row improvement claimed. Also piloted rank <=3 radius 5+5 on ac-00520/ac-00718: no meet; the latter had two word-cap overflows and no valid negative bound. Details in `ledger/codex_abc_disk_benchmark*.json` and `ledger/codex_abc_rank3_probe_20260928.json`.
+
+## 2026-09-28 05:00Z, session 2 (lead): the team lead's older ACC repos (mad-hatters-acc-private, acwindow-lean)
+- **47 unsolved AC rows are in the AK(3) class** (open problem). List and provenance:
+  `research/acc/live/AK3_CLASS_ROWS.json`. Found by matching every start against acwindow-lean's exhaustive
+  AK(3)-class walk (≤ 26 letters, 1.28M members); rechecked independently by the lead. **Skip them.**
+  Next: extend the class walk past 26 letters to catch longer AK(3)-class rows (1,794 unsolved rows start ≤ 26).
+- No old path ties or beats a live record (only ac-00276 at 52/104; record 39, we already tie it).
+- **Primitive-relator finish** (acwindow-lean `evidence/genus/primitive.py`, Lemma A in `notes/ACWindow_note.md`): a state
+  where one relator is primitive can always be finished, and the proof builds the path, so it is a much
+  larger finish target than T9. Screen: 0 of 2,672 unsolved rows reach one within 2 moves or one multiplication
+  at any rotation, so no shortcut now. It could still be a cheap stop test inside the beam. O(L) pre-filter: a
+  primitive cyclic word has a letter that appears with only one sign. Path builder not written.
+- Cyclic-class walk (`evidence/genus/house_walk_resumable.py`): groups rows into AC classes (solve one, get all). Not a valid
+  relaxation for pruning the capped search. Its 5-minute pickle checkpoints are worth copying.
+- Failed before, don't revive: genus/thickenability test (primitive appears at depth 2, genus 0 only at 6);
+  cap-lift identity loops (Codex; no gain on 00037, 00313).
+- acwindow-lean's Lean proofs: AK(n) → AK(−n−1) fold; a 9-move path for AK(3)'s image in C5*C5; `ACCWell`
+  (the formal shape of our capped proofs, but it needs a move-count version). No new pruning rule.
+- Prior art list worth reading: mad-hatters-acc-private `ACC_PRIOR_ART_CORRIDOR_HANDOFF_2026-09-13.md` (Carreras 2607.23611,
+  Two-Hump, Myasnikov–Myasnikov–Shpilrain).
 
 ## 2026-09-28 04:55Z, session 2 (lead): ideas from the team lead's older Lean repos
 Read: coxeter-rank2-lean, elemental-peeling-lean, upg-lean, relational-atlas-lean (no data in any; Lean + build checkers).

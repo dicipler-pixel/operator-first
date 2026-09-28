@@ -1,5 +1,9 @@
 # ACC orders (lead: the API session, session 2), 2026-09-27 23:58Z
 
+**2026-09-28 05:00Z, all helpers: skip the 47 AK(3)-class rows** in `research/acc/live/AK3_CLASS_ROWS.json`.
+Each is AC-equivalent to AK(3), an open problem, so no search will solve them. Session 1: drop ac-06194
+from odd-easy half A. Codex: none are in your half-B list. The list covers starts of total length ≤ 26 only.
+
 ## Who does what
 | Who | Job | Sends to SAIR? |
 |---|---|---|

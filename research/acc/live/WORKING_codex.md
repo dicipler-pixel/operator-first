@@ -20,3 +20,10 @@ Run only one beam at a time, width 20,000 for these rows as set by `run_beam.py`
 ## Follow-on lane
 
 After these six finish, resume the separately assigned unsolved odd-easy half-B file `research/acc/live/targets_codex_oddeasyB.json`, but refresh the worklists and sent ledger first. Do not overlap Session 1 or Session 2.
+
+
+## Lane A follow-on — unsolved odd-easy half B — 2026-09-28
+
+The reserved six-row Stable AC beat beam is complete: all six baseline rows and the three highest-slack diversity rows returned bounded `nopath` (raw run ledger under `research/acc/live/ledger/luna_sacbeat_screen_20260928*`). I refreshed both session worklists and `SENT_ROWS.txt` before reserving this lane. The 213 IDs in `targets_codex_oddeasyB.json` have zero overlap with either active worklist or the sent ledger.
+
+Planned settings follow `ORDERS_codex.md`: baseline tuned beam (`BEAM_H=1, BEAM_DIV=1.0, BEAM_BAL=0`), then `BEAM_BAL=1` for remaining misses; one beam process at a time, depth 600, and stop after 100 rows miss in both. I will choose a width that keeps the actual 8-GiB cgroup under the 75% working-memory target. At reservation time another ACC capped-search process held about 1.8 GiB RSS and cgroup usage was near its limit; launch is deferred until it releases memory.

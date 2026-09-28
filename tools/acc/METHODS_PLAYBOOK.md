@@ -3,6 +3,9 @@
 Mad Hatters, SAIR Andrews–Curtis Challenge. Keep this file current: every method that wins (or
 clearly fails) gets a line here with its evidence. Newest facts first inside each section.
 
+## Beam flag dependency (checked 2026-09-28)
+`BEAM_BAL` changes only `hprio()`, and `acc_beam.c` calls `hprio()` only when `BEAM_H=1`. Set both `BEAM_H=1 BEAM_BAL=1` for a balanced heuristic pass. `BEAM_BAL=1` alone is the ordinary length beam; interpret older BAL-only logs accordingly.
+
 ## Scoring in one line
 Per row: beat the live record = 1.0; tie with k teams already on it = 2^-k (k=1 → 0.5, k=2 → 0.25,
 k=3 → 0.125). Points last only while we hold a current shortest length. Confirmed against the
@@ -157,5 +160,13 @@ the commit hashes of the tool and the result.
 | Unsolved | 6% | 11% | 19% | 34% | 46% | 63% | 75% | 79% |
 
 - No relator is an exact proper power. The runs sit inside the words (Akbulut–Kirby shape).
-- Action: the 427 unsolved rows with run ≤ 3 are the "odd easy" ones. They are running with
-  BEAM_BAL=1 (`work/oddeasy_targets.json`).
+- Action: the 427 unsolved rows with run ≤ 3 are the "odd easy" ones. The odd-easy list is `work/oddeasy_targets.json`; use
+  `BEAM_H=1 BEAM_BAL=1` for the balanced heuristic, and inspect the actual env in prior runs.
+
+## Smaller goal ball under an 8 GB limit (Codex ABC pilot, 2026-09-28)
+- Rebuild T8 with `acc_opt tball 8 40000000 work/T8.tab work/abc_t8`. It has 24,587,144 states and uses 640 MB; T9 has 214,977,551 states and uses 4.48 GB. T8 may require one more start-side move, so compare both depth and cumulative states before calling it a win.
+- On ac-00236 (cap 25), both tables found official AC 15/SAC 17. T9 first met at depth 6 after 2,561 states; T8 met at depth 7 after 7,615. The wall-time comparison was affected by cache pressure. Reproduce via `research/acc/live/ledger/codex_abc_ball_split.py`; raw output is next to it.
+- Two 100-row unsolved screens at width 2,000/depth 80 with T8 (`BEAM_H=1` and `BEAM_H=1 BEAM_BAL=1`) found zero paths. This does not rule out longer or wider paths. Per-row outputs and status: `research/acc/live/ledger/codex_abc_unsolved_*_t8_20260928.jsonl`.
+- The file-backed fixed visited-table pilot is `research/acc/optimality/acc_capped_disk.c`. It matched the original on a 299,177-state bounded run, but the repeat was much slower under concurrent memory pressure. It keeps the existing fingerprint-collision caveat; do not call it a memory-wall fix yet.
+
+- Real stopped-row test: `ac-00580`, cap 28. Previous T9 run stopped at 48,220,955 states/depth 23; T8 with a fixed visited table reproduced that count and reached 60M states partway into depth 24 in 95.61 s. It found no meet and remains incomplete. Raw scope: `research/acc/live/ledger/codex_abc_capped_trial_00580_20260928.*`. Do not generalize this into a scoring win.

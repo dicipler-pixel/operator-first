@@ -1,0 +1,16 @@
+{
+  "id": "ac-00766",
+  "cap": 28,
+  "budget": 80000000,
+  "maxd": 25,
+  "timeout_s": 600,
+  "tool": "acc_capped_disk with T8, anonymous fixed visited",
+  "official_revision": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "status": "incomplete",
+  "reason": "interrupted after depth 7; next layer was paging under shared 8 GB limit and the necessary meet depth could be much larger",
+  "last_complete_depth": 7,
+  "last_depth": "[ac00766] cap=28 d=7 +296535 total=426246 bestAC=-1 bestSAC=-1",
+  "found": {},
+  "stdout_path": "work/abc_memrow/trial.stdout",
+  "stderr_path": "work/abc_memrow/trial.stderr"
+}
