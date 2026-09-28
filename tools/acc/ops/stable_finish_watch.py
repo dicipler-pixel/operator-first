@@ -76,7 +76,8 @@ for raw in open(args.sweep):
                 best, best_index = candidate, i
         if i < len(path):
             state = core.apply_move(state, path[i])
-    if best is None or len(best) > board[sac_id]["currentBestLength"]:
+    record_length = board[sac_id].get("currentBestLength")
+    if best is None or (record_length is not None and len(best) > record_length):
         continue
     verdict = stable_core.verify(manifest[sac_id], best,
                                   stable_core.MOVE_SPEC_VERSION, limits)
@@ -85,7 +86,7 @@ for raw in open(args.sweep):
     rec = {"id": sac_id, "source_ac_id": ac_id,
            "source_ac_length": len(path), "prefix_index": best_index,
            "sac_len": len(best),
-           "snapshot_record": board[sac_id]["currentBestLength"],
+           "snapshot_record": record_length,
            "snapshot_k": board[sac_id]["kTeams"],
            "certificate_hash": verdict["certificate_hash"],
            "sac": best}
