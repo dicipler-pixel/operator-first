@@ -17,15 +17,17 @@ all at-record paths all steps / climbing steps.  Spearman rho of f(state) with m
 state of every at-record path, and the mean within-path rho over hump paths.
 
 Modes: 'prim' ranks by f alone; 'tb' ranks by (P2c8, f), i.e. f as the tie-break under P2 cut 8 (BEAM_P2=2 puts the
-beam's existing key there); 'tb2' ranks by (P2c8, P1m, f) (f after BEAM_P2=1's key); 'tb3' ranks by (P2c8, f, P1m)
-(f inserted between P2 and P1m).  Every score is also run with
+beam's existing key there); 'tb2' ranks by (P2c8, P1m, f, raw) (f after BEAM_P2=1's key); 'tb3' ranks by
+(P2c8, f, P1m, raw) (f inserted between P2 and P1m); 'combo' = hand-built lexicographic keys, including the ledger's
+K0 = (P2c8, P1m, raw) and the beam's current keys (P2, H) [BEAM_P2=2 BEAM_H=1] and (P2, P1m, H) [BEAM_P2=1 BEAM_H=1].
+Step sets also split climbing steps into conjugation moves (6-13) and multiplication moves (2-5).  Every score is also run with
 the opposite sign ('flip'; post hoc, flagged).  Paired path bootstrap (1000 resamples of hump paths) gives a 95% CI
 for the climbing top-3 difference against the baselines.  Survival rule (the atlas ledger's rule, fixed there before
 its run): tie-break climbing top3 >= (P2c8, P1m) + 0.05 and all-steps top3 >= (P2c8, P1m) - 0.02 on hump paths.
 
 Class-level scores (functions of the unordered pair of cyclic classes up to rotation and inversion: P0cyc, P1, P2,
 P3, WH, ...) give the same value to the parent class, so the 8 conjugation and 2 inversion children always tie; only
-word-level scores (raw, P1m, H, R1, ...) can separate them.
+word-level scores (raw, P1m, H, L1, real2, ...) can separate them.
 
 usage: nice -n 10 python3 score_zoo.py [--out JSON] [--quick N] [--no-expensive]
 """
@@ -467,24 +469,85 @@ def realize(c, which, depth):
     return depth + 1
 
 
-def f_R1(c, st):
-    s = c.s
-    return min(tot(P.apply_move(s, j)) for j in range(14))
+_L1, _L2 = {}, {}
 
 
-_R1 = {}
-
-
-def r1_memo(s):
-    v = _R1.get(s)
+def l1_memo(s):
+    v = _L1.get(s)
     if v is None:
-        v = _R1[s] = min(tot(P.apply_move(s, j)) for j in range(14))
+        v = _L1[s] = min(tot(P.apply_move(s, j)) for j in range(14))
     return v
 
 
-def f_R2(c, st):
-    s = c.s
-    return min(r1_memo(P.apply_move(s, j)) for j in range(14))
+def l2_memo(s):
+    v = _L2.get(s)
+    if v is None:
+        v = _L2[s] = min(l1_memo(P.apply_move(s, j)) for j in range(14))
+    return v
+
+
+def f_L1(c, st):
+    """true one-move lookahead: min total over the 14 children (actual moves, no free rotations)"""
+    return l1_memo(c.s)
+
+
+def f_L2(c, st):
+    """true two-move lookahead: min total over all 14 x 14 continuations"""
+    return l2_memo(c.s)
+
+
+def f_L3(c, st):
+    """true three-move lookahead: min total over all 14^3 continuations (memoised L2 of the children)"""
+    return min(l2_memo(P.apply_move(c.s, j)) for j in range(14))
+
+
+# symmetry / "cage" scores: the 8 signed letter permutations of {x, y}
+LETTER_PERMS = []
+for _sw in (False, True):
+    for _sx in (1, -1):
+        for _sy in (1, -1):
+            _ix = ('b' if _sw else 'a') if _sx == 1 else ('B' if _sw else 'A')
+            _iy = ('a' if _sw else 'b') if _sy == 1 else ('A' if _sw else 'B')
+            LETTER_PERMS.append(str.maketrans({'a': _ix, 'A': _ix.swapcase(), 'b': _iy, 'B': _iy.swapcase()}))
+
+
+def cage_n(c, st):
+    """number of signed letter permutations sigma with sigma(r0) ~ r1^{+-1} up to rotation"""
+    A, B = c.c()
+    cb = canon(B)
+    return sum(1 for t in LETTER_PERMS if canon(A.translate(t)) == cb)
+
+
+def stab(c, st):
+    """number of signed letter permutations that map the unordered pair of classes to itself (>= 1)"""
+    A, B = c.c()
+    k = c.key()
+    n = 0
+    for t in LETTER_PERMS:
+        a, b = canon(A.translate(t)), canon(B.translate(t))
+        if ((a, b) if a <= b else (b, a)) == k:
+            n += 1
+    return n
+
+
+def selfsym(c, st):
+    """sum over relators of the number of non-identity sigma with sigma(r) ~ r^{+-1} up to rotation"""
+    n = 0
+    for w in c.c():
+        cw = canon(w)
+        n += sum(1 for t in LETTER_PERMS if canon(w.translate(t)) == cw) - 1
+    return n
+
+
+def self_inv(c, st):
+    """relators equal to their own inverse up to rotation (a free-group theorem says never, unless empty)"""
+    n = 0
+    for w in c.c():
+        if w:
+            d = w + w
+            if inv_s(w) in d:
+                n += 1
+    return n
 
 
 def f_branch(c, st):
@@ -588,6 +651,16 @@ def f_sn_ct(c, st):
     return sum(pr.mismatch(c.s) for pr in PROBES_SN)
 
 
+SWAPXY = str.maketrans({'a': 'b', 'A': 'B', 'b': 'a', 'B': 'A'})
+
+
+def f_p2mir(c, st):
+    """two-sided P2 (item 14): min of P2c8 of the state and of its x<->y mirror.  P2 without a cut is mirror
+    invariant; P2c8 is not quite, because the level-1 cut breaks total-length ties by canonical string."""
+    A, B = c.c()
+    return min(p2s(A, B, 8), p2s(A.translate(SWAPXY), B.translate(SWAPXY), 8))
+
+
 def f_p1m_2side(c, st):
     s = c.s
     return min(P.p1m(*s), P.p1m(P.invert(s[0]), P.invert(s[1])))
@@ -648,6 +721,7 @@ SCORES = [
     # 12/13/14 ladder and frames
     ('P3c8', lambda c, st: p3s(*c.c()), 'class', 'low', 'Plate XII P3', True),
     ('P2wh', f_p2wh, 'class', 'low', 'B83 + B31', False),
+    ('P2mir', f_p2mir, 'class', 'low', 'B81 mirror transport (two-sided P2)', False),
     ('P1m_2side', f_p1m_2side, 'word', 'low', 'B81 mirror (reversal)', False),
     # 15/16/18 rails, branching, growth
     ('gap', lambda c, st: tot(c.s) - p2s(*c.c(), 8), 'word', 'high', 'B96 gap between rails', False),
@@ -657,8 +731,16 @@ SCORES = [
     # 20 extras from METHOD/DIAGNOSTIC lines
     ('conj_debt', lambda c, st: tot(c.s) - sum(len(w) for w in c.c()), 'word', 'low', 'Plate XIV / B57 zero-length moves', False),
     ('nonred', lambda c, st: sum(1 for w, cw in zip(c.e(), c.c()) if len(w) != len(cw)), 'word', 'low', 'Plate XIV', False),
-    ('R1', f_R1, 'word', 'low', 'B69 / BEAM_LOOK one-move lookahead', False),
-    ('R2', f_R2, 'word', 'low', 'two-move literal lookahead', False),
+    ('L1', f_L1, 'word', 'low', 'true 1-move lookahead (BEAM_LOOK)', False),
+    ('L2', f_L2, 'word', 'low', 'true 2-move lookahead (14^2)', False),
+    ('L3', f_L3, 'word', 'low', 'true 3-move lookahead (14^3)', True),
+    ('real2_d0', lambda c, st: realize(c, 2, 0), 'word', 'low', 'a literal product lands in a P2-promised class now', False),
+    ('real2_d1', lambda c, st: realize(c, 2, 1), 'word', 'low', 'moves to realise the P2 promise (depth 1)', False),
+    ('cage', lambda c, st: 1 if cage_n(c, st) else 0, 'class', 'low', 'lead: symmetric "cage" states (r1 ~ sigma(r0))', False),
+    ('cage_n', cage_n, 'class', 'low', 'lead: cage symmetry count', False),
+    ('stab', stab, 'class', 'low', 'lead: stabiliser of the class pair under the 8 letter mirrors', False),
+    ('selfsym', selfsym, 'class', 'low', 'lead: self-symmetries of each relator', False),
+    ('self_inv', self_inv, 'class', 'low', 'lead: relator ~ own inverse', False),
     ('real2_d2', lambda c, st: realize(c, 2, 2), 'word', 'low', 'B31 + Plate XIV: moves to realise the P2 promise', False),
     ('real2_d3', lambda c, st: realize(c, 2, 3), 'word', 'low', 'B31 + Plate XIV: moves to realise the P2 promise', True),
     ('real1_d2', lambda c, st: realize(c, 1, 2), 'word', 'low', 'moves to realise the P1 (best single product)', False),
@@ -769,7 +851,8 @@ def main():
             kid = P.apply_move(s, rng.randrange(14))
             P._P2.clear()
             P._P1.clear()
-            _R1.clear()
+            _L1.clear()
+            _L2.clear()
             _MK.clear()
             _TG.clear()
             c, st = Ctx(kid), Ctx(s0)
@@ -780,7 +863,8 @@ def main():
                       'ms_p90': rnd(1000 * sorted(ts)[int(0.9 * len(ts))], 3)}
     P._P2.clear()
     P._P1.clear()
-    _R1.clear()
+    _L1.clear()
+    _L2.clear()
     print('timing', {k: v['ms_median'] for k, v in timing.items()}, round(time.time() - T0, 1), flush=True)
 
     # ---- mirror check (item 14): P2 of the x<->y swapped state
@@ -790,9 +874,10 @@ def main():
               tuple(2 * (a // abs(a)) if abs(a) == 1 else a // abs(a) for a in s[1]))
         if p2s(*ctx_of(s).c(), 8) != p2s(*Ctx(sw).c(), 8):
             mir_bad += 1
-    mirror = {'states': min(200, len(pool)), 'P2_differs_under_xy_swap': mir_bad,
-              'note': 'P2 is invariant under the 16 letter mirrors (length and cyclic overlap are); so the two-sided '
-                      'P2 of item 14 equals P2. The reversal mirror is tested on the word-level P1m instead (P1m_2side).'}
+    mirror = {'states': min(200, len(pool)), 'P2c8_differs_under_xy_swap': mir_bad,
+              'note': 'P2 without a cut is invariant under the 16 letter mirrors (length and cyclic overlap are); P2c8 '
+                      'differs only through the cut tie-break by canonical string. Item 14 is scored as P2mir = '
+                      'min(P2c8(s), P2c8(swap s)); the reversal mirror is scored on the word-level P1m (P1m_2side).'}
     print('mirror', mirror, flush=True)
 
     # ---- values on every child of every at-record path step, and on the path states
@@ -800,6 +885,9 @@ def main():
     path_vals = []
     active = [n for n in SC_NAMES if not (n in expensive and args.no_expensive)]
     for pi, p in enumerate(at_rec):
+        _L1.clear()          # path-local lookahead / realisation memos (bounded memory)
+        _L2.clear()
+        _MK.clear()
         st = ctx_of(p['states'][0])
         names_here = active if p['hump'] else [n for n in active if n not in expensive]
         pv = {n: [] for n in names_here}
@@ -807,58 +895,87 @@ def main():
             c = ctx_of(s)
             for n in names_here:
                 pv[n].append(value(n, c, st))
-        path_vals.append({'row': p['row'], 'hump': p['hump'], 'N': len(p['moves']), 'vals': pv})
+        path_vals.append({'row': p['row'], 'hump': p['hump'], 'N': len(p['moves']), 'record': p['record'],
+                          'states': p['states'] if p['hump'] else None, 'vals': pv})
         for t, m in enumerate(p['moves']):
             s = p['states'][t]
             kids = [ctx_of(P.apply_move(s, j)) for j in range(14)]
             vals = {n: [value(n, k, st) for k in kids] for n in names_here}
-            steps.append({'row': p['row'], 'pi': pi, 't': t, 'move': m, 'hump': p['hump'],
+            steps.append({'row': p['row'], 'pi': pi, 't': t, 'N': len(p['moves']), 'move': m, 'hump': p['hump'],
                           'climb': vals['raw'][m] > tot(s), 'vals': vals})
+        for n in ('L3', 'L2', 'L1', 'real2_d0', 'real2_d1', 'real2_d2', 'real2_d3', 'real1_d2', 'R1', 'R2'):
+            if n in MEMO:
+                MEMO[n].clear()  # word-level memos keyed by state; not reused across paths
         if pi % 20 == 0:
             print('  path', pi, p['row'], 'hump' if p['hump'] else '', len(steps), round(time.time() - T0, 1), flush=True)
     print('values done', len(steps), round(time.time() - T0, 1), flush=True)
 
-    # ---- ranks
-    def keyvec(r, mode, n, sg):
+    # ---- ranks.  A config is a lexicographic key: a list of (score, sign) components.
+    def keyvec(r, comps):
         v = r['vals']
-        if n not in v:
+        if any(n not in v for n, _ in comps):
             return None
-        f = [sg * x for x in v[n]]
-        if mode == 'prim':
-            return f
-        if mode == 'tb':
-            return list(zip(v['P2c8'], f))
-        if mode == 'tb3':
-            return list(zip(v['P2c8'], f, v['P1m']))
-        return list(zip(v['P2c8'], v['P1m'], f))
+        cols = [[sg * x for x in v[n]] for n, sg in comps]
+        return list(zip(*cols))
 
-    configs = []
+    configs = {}   # cid -> (comps, meta)
     for n in active:
         for sg, tag in ((1, 'low'), (-1, 'high')):
             flip = tag != SC[n][3]
-            for mode in ('prim', 'tb', 'tb2', 'tb3'):
-                configs.append((n, sg, tag, flip, mode))
+            meta = {'score': n, 'direction': tag, 'flipped_post_hoc': flip}
+            configs['%s|%s|prim' % (n, tag)] = ([(n, sg)], dict(meta, mode='prim', key='f'))
+            configs['%s|%s|tb' % (n, tag)] = ([('P2c8', 1), (n, sg)], dict(meta, mode='tb', key='(P2c8, f)'))
+            configs['%s|%s|tb2' % (n, tag)] = ([('P2c8', 1), ('P1m', 1), (n, sg), ('raw', 1)],
+                                               dict(meta, mode='tb2', key='(P2c8, P1m, f, raw)'))
+            configs['%s|%s|tb3' % (n, tag)] = ([('P2c8', 1), (n, sg), ('P1m', 1), ('raw', 1)],
+                                               dict(meta, mode='tb3', key='(P2c8, f, P1m, raw)'))
+    COMBOS = {
+        'K0 (P2,P1m,raw)': [('P2c8', 1), ('P1m', 1), ('raw', 1)],
+        '(P2,P1m)': [('P2c8', 1), ('P1m', 1)],
+        'beam P2=2 H: (P2,H)': [('P2c8', 1), ('H', 1)],
+        'beam P2=1 H: (P2,P1m,H)': [('P2c8', 1), ('P1m', 1), ('H', 1)],
+        '(P2,real2_d2,P1m,H)': [('P2c8', 1), ('real2_d2', 1), ('P1m', 1), ('H', 1)],
+        '(P2,real2_d1,P1m,H)': [('P2c8', 1), ('real2_d1', 1), ('P1m', 1), ('H', 1)],
+        '(P2,comm_len,P1m,H)': [('P2c8', 1), ('comm_len', 1), ('P1m', 1), ('H', 1)],
+        '(P2,real2_d2,comm_len,P1m,raw)': [('P2c8', 1), ('real2_d2', 1), ('comm_len', 1), ('P1m', 1), ('raw', 1)],
+        '(P2,real2_d1,comm_len,P1m,raw)': [('P2c8', 1), ('real2_d1', 1), ('comm_len', 1), ('P1m', 1), ('raw', 1)],
+        '(P2,real2_d2,L2,P1m,raw)': [('P2c8', 1), ('real2_d2', 1), ('L2', 1), ('P1m', 1), ('raw', 1)],
+        '(P2,real2_d3,comm_len,P1m,raw)': [('P2c8', 1), ('real2_d3', 1), ('comm_len', 1), ('P1m', 1), ('raw', 1)],
+        '(P2,L2,comm_len,P1m,raw)': [('P2c8', 1), ('L2', 1), ('comm_len', 1), ('P1m', 1), ('raw', 1)],
+        '(P2,L3,P1m,raw)': [('P2c8', 1), ('L3', 1), ('P1m', 1), ('raw', 1)],
+        '(L2,P2,P1m,raw)': [('L2', 1), ('P2c8', 1), ('P1m', 1), ('raw', 1)],
+        '(L3,P2,P1m,raw)': [('L3', 1), ('P2c8', 1), ('P1m', 1), ('raw', 1)],
+        '(P2,cage,P1m,raw)': [('P2c8', 1), ('cage', 1), ('P1m', 1), ('raw', 1)],
+    }
+    for nm, comps in COMBOS.items():
+        if all(n in active for n, _ in comps):
+            configs['combo|' + nm] = (comps, {'score': nm, 'direction': 'as listed', 'flipped_post_hoc': False,
+                                              'mode': 'combo', 'key': nm})
+    is_conj = lambda r: r['move'] >= 6
+    is_mult = lambda r: 2 <= r['move'] <= 5
     sets = {'hump_all': lambda r: r['hump'], 'hump_climb': lambda r: r['hump'] and r['climb'],
-            'rec_all': lambda r: True, 'rec_climb': lambda r: r['climb']}
+            'hump_climb_conj': lambda r: r['hump'] and r['climb'] and is_conj(r),
+            'hump_climb_mult': lambda r: r['hump'] and r['climb'] and is_mult(r),
+            'rec_all': lambda r: True, 'rec_climb': lambda r: r['climb'],
+            'rec_climb_conj': lambda r: r['climb'] and is_conj(r), 'rec_climb_mult': lambda r: r['climb'] and is_mult(r)}
+    step_sets = [[k for k, sel in sets.items() if sel(r)] for r in steps]
     res = {}
     perpath = {}   # config -> {pi: [hits_climb, n_climb, hits_all, n_all]} on hump steps
-    for cf in configs:
-        n, sg, tag, flip, mode = cf
+    for cid, (comps, meta) in configs.items():
         acc = {k: [0, 0.0, 0.0, 0.0] for k in sets}
         pp = defaultdict(lambda: [0.0, 0, 0.0, 0])
-        for r in steps:
-            kv = keyvec(r, mode, n, sg)
+        for r, ks in zip(steps, step_sets):
+            kv = keyvec(r, comps)
             if kv is None:
                 continue
             mr, te = mid(kv, r['move'])
             hit = 1.0 if mr <= 3 else 0.0
-            for k, sel in sets.items():
-                if sel(r):
-                    a = acc[k]
-                    a[0] += 1
-                    a[1] += hit
-                    a[2] += te
-                    a[3] += mr
+            for k in ks:
+                a = acc[k]
+                a[0] += 1
+                a[1] += hit
+                a[2] += te
+                a[3] += mr
             if r['hump']:
                 e = pp[r['pi']]
                 e[2] += hit
@@ -866,19 +983,18 @@ def main():
                 if r['climb']:
                     e[0] += hit
                     e[1] += 1
-        cid = '%s|%s|%s' % (n, tag, mode)
-        res[cid] = {'score': n, 'direction': tag, 'flipped_post_hoc': flip, 'mode': mode,
-                    **{k: ({'steps': a[0], 'top3': rnd(a[1] / a[0]), 'top3_exp': rnd(a[2] / a[0]),
-                            'mean_rank': rnd(a[3] / a[0])} if a[0] else None) for k, a in acc.items()}}
+        res[cid] = dict(meta, **{k: ({'steps': a[0], 'top3': rnd(a[1] / a[0]), 'top3_exp': rnd(a[2] / a[0]),
+                                      'mean_rank': rnd(a[3] / a[0])} if a[0] else None) for k, a in acc.items()})
         perpath[cid] = dict(pp)
-    print('ranks done', round(time.time() - T0, 1), flush=True)
+    print('ranks done', len(configs), round(time.time() - T0, 1), flush=True)
 
     # ---- paired path bootstrap vs baselines on hump steps
     hump_pis = sorted({r['pi'] for r in steps if r['hump']})
     brng = random.Random(99)
     boots = [[brng.choice(hump_pis) for _ in hump_pis] for _ in range(args.boot)]
-    base_ids = {'P1m': 'P1m|low|prim', 'P2c8': 'P2c8|low|prim', 'P2c8>P1m': 'P1m|low|tb', 'P2c8>H': 'H|low|tb',
-                'P2c8>P1m>raw': 'raw|low|tb2'}
+    base_ids = {'raw': 'raw|low|prim', 'P1m': 'P1m|low|prim', 'P2c8': 'P2c8|low|prim',
+                'P2c8>P1m': 'combo|(P2,P1m)', 'K0 P2c8>P1m>raw': 'combo|K0 (P2,P1m,raw)',
+                'beam P2=2 H': 'combo|beam P2=2 H: (P2,H)', 'beam P2=1 H': 'combo|beam P2=1 H: (P2,P1m,H)'}
 
     def agg(cid, sample, which):
         pp = perpath[cid]
@@ -898,32 +1014,25 @@ def main():
         ds = sorted(agg(cid, b, which) - agg(bid, b, which) for b in boots)
         return [rnd(ds[int(0.025 * len(ds))]), rnd(ds[int(0.975 * len(ds)) - 1])]
 
+    K0 = res[base_ids['K0 P2c8>P1m>raw']]
     for cid, e in res.items():
         if e['hump_climb'] is None:
             continue
-        cmp = {}
-        for bn, bid in base_ids.items():
-            cmp[bn] = {'d_top3_climb': rnd(e['hump_climb']['top3'] - res[bid]['hump_climb']['top3']),
-                       'd_top3_all': rnd(e['hump_all']['top3'] - res[bid]['hump_all']['top3'])}
-        e['vs'] = cmp
-    # bootstrap only where it matters (anything within reach of the best baseline on climbing steps)
-    thr = min(res['P1m|low|prim']['hump_climb']['top3'], res['P1m|low|tb']['hump_climb']['top3']) - 0.03
+        e['vs'] = {bn: {'d_top3_climb': rnd(e['hump_climb']['top3'] - res[bid]['hump_climb']['top3']),
+                        'd_top3_all': rnd(e['hump_all']['top3'] - res[bid]['hump_all']['top3'])}
+                   for bn, bid in base_ids.items()}
+        e['survives_ledger_rule'] = (e['mode'] != 'prim' and
+                                     e['hump_climb']['top3'] >= K0['hump_climb']['top3'] + 0.05 and
+                                     e['hump_all']['top3'] >= K0['hump_all']['top3'] - 0.02)
+    # bootstrap where it matters: anything within reach of the best baseline on climbing steps, and every combo
+    thr = min(res[base_ids['P1m']]['hump_climb']['top3'], K0['hump_climb']['top3']) - 0.03
     nboot = 0
     for cid, e in res.items():
-        if e['hump_climb'] is None or e['hump_climb']['top3'] < thr:
+        if e['hump_climb'] is None or (e['hump_climb']['top3'] < thr and e['mode'] != 'combo'):
             continue
-        e['boot95_d_top3_climb'] = {bn: boot_delta(cid, bid, 'climb') for bn, bid in
-                                    (('P1m', base_ids['P1m']), ('P2c8>P1m', base_ids['P2c8>P1m']))}
-        e['boot95_d_top3_all'] = {bn: boot_delta(cid, bid, 'all') for bn, bid in
-                                  (('P1m', base_ids['P1m']), ('P2c8>P1m', base_ids['P2c8>P1m']))}
+        e['boot95_d_top3_climb'] = {bn: boot_delta(cid, base_ids[bn], 'climb') for bn in ('P1m', 'K0 P2c8>P1m>raw')}
+        e['boot95_d_top3_all'] = {bn: boot_delta(cid, base_ids[bn], 'all') for bn in ('P1m', 'K0 P2c8>P1m>raw')}
         nboot += 1
-    base_tb = res['P1m|low|tb']
-    for cid, e in res.items():
-        if e['hump_climb'] is None:
-            continue
-        e['survives_ledger_rule'] = (e['mode'] != 'prim' and
-                                     e['hump_climb']['top3'] >= base_tb['hump_climb']['top3'] + 0.05 and
-                                     e['hump_all']['top3'] >= base_tb['hump_all']['top3'] - 0.02)
     print('bootstrap done', nboot, round(time.time() - T0, 1), flush=True)
 
     # ---- Spearman with moves remaining
@@ -947,10 +1056,75 @@ def main():
                     'within_hump_paths': len(within)}
     print('spearman done', round(time.time() - T0, 1), flush=True)
 
+    # ---- symmetric ("cage") states: do record paths pass through them less often than their siblings?
+    passthrough = {}
+    for nm in ('cage', 'stab>1', 'selfsym>0'):
+        src_name = {'cage': 'cage', 'stab>1': 'stab', 'selfsym>0': 'selfsym'}[nm]
+        thr_v = 1 if nm == 'stab>1' else 0
+        if src_name not in active:
+            continue
+        out_s = {}
+        for setname, sel in (('rec_all', lambda r: True), ('hump_all', lambda r: r['hump']),
+                             ('rec_climb', lambda r: r['climb']),
+                             ('rec_far_from_finish', lambda r: r['N'] - r['t'] > 6),
+                             ('hump_far_from_finish', lambda r: r['hump'] and r['N'] - r['t'] > 6)):
+            n_any = rec_sym = 0
+            sib = 0.0
+            n_steps = 0
+            n_states_sym = 0
+            for r in steps:
+                if not sel(r):
+                    continue
+                n_steps += 1
+                flags = [x > thr_v for x in r['vals'][src_name]]
+                if not any(flags):
+                    continue
+                n_any += 1
+                m = r['move']
+                rec_sym += flags[m]
+                sib += sum(f for j, f in enumerate(flags) if j != m) / 13.0
+            out_s[setname] = {'steps': n_steps, 'steps_with_a_symmetric_child': n_any,
+                              'record_child_symmetric_rate': rnd(rec_sym / n_any) if n_any else None,
+                              'sibling_symmetric_rate': rnd(sib / n_any) if n_any else None}
+        sym_states = sum(1 for pv in path_vals for x in pv['vals'][src_name] if x > thr_v)
+        all_states = sum(len(pv['vals'][src_name]) for pv in path_vals)
+        out_s['path_states_symmetric'] = [sym_states, all_states]
+        out_s['note'] = 'rate = share of steps (with >= 1 symmetric child) whose record child is symmetric, vs the mean ' \
+                        'share of symmetric children among the 13 siblings; far = more than 6 moves remain after the step'
+        passthrough[nm] = out_s
+    print('passthrough', json.dumps(passthrough), flush=True)
+
+    # ---- P2 climb along hump paths: slack c such that a P2 <= P2(start) + c capped search contains the path
+    p2climb = {}
+    for label, cut in (('P2c8', 8), ('P2c40', 40)):
+        per = []
+        for pv in path_vals:
+            if not pv['hump']:
+                continue
+            if cut == 8:
+                seq = pv['vals']['P2c8']
+            else:
+                seq = [p2s(*ctx_of(s).c(), cut) for s in pv['states']]
+            per.append({'row': pv['row'], 'len': pv['N'], 'record': pv['record'], 'P2_start': seq[0],
+                        'P2_max': max(seq), 'climb': max(seq) - seq[0],
+                        'raw_climb': max(tot(s) for s in pv['states']) - tot(pv['states'][0]),
+                        'first_argmax_t': seq.index(max(seq))})
+        cs = [e['climb'] for e in per]
+        hist = Counter(cs)
+        p2climb[label] = {'hump_paths': len(per), 'hist': {str(k): hist[k] for k in sorted(hist)},
+                          'median': statistics.median(cs), 'mean': rnd(sum(cs) / len(cs)), 'max': max(cs),
+                          'contained_frac_by_slack_c': {str(c): rnd(sum(1 for x in cs if x <= c) / len(cs))
+                                                        for c in range(0, max(cs) + 1)},
+                          'per_path': per}
+    rec_cl = [max(pv['vals']['P2c8']) - pv['vals']['P2c8'][0] for pv in path_vals]
+    hc = Counter(rec_cl)
+    p2climb['P2c8_all_at_record_paths'] = {'paths': len(rec_cl), 'hist': {str(k): hc[k] for k in sorted(hc)},
+                                           'contained_frac_by_slack_c': {str(c): rnd(sum(1 for x in rec_cl if x <= c) / len(rec_cl))
+                                                                         for c in range(0, max(rec_cl) + 1)}}
+    print('P2 climb', {k: (v['hist'], v.get('contained_frac_by_slack_c')) for k, v in p2climb.items()}, flush=True)
+
     counts = {'at_record_paths': len(at_rec), 'hump_paths': len(humps),
-              'rec_steps': len(steps), 'rec_climb_steps': sum(1 for r in steps if r['climb']),
-              'hump_steps': sum(1 for r in steps if r['hump']),
-              'hump_climb_steps': sum(1 for r in steps if r['hump'] and r['climb'])}
+              **{k + '_steps': sum(1 for r, ks in zip(steps, step_sets) if k in ks) for k in sets}}
     scores_meta = {n: {'level': SC[n][2], 'a_priori_direction': SC[n][3], 'source': SC[n][4],
                        'expensive_hump_only': SC[n][5], 'timing': timing.get(n), 'spearman_moves_remaining': spear.get(n)}
                    for n in active}
@@ -959,25 +1133,27 @@ def main():
            'counts': counts, 'probes': {'SL2': [{'p': pr.p, 'A': pr.A, 'B': pr.B, 'order': pr.n, 'diameter': pr.diameter}
                                                 for pr in PROBES_SL2],
                                         'S7_target_cycle_types': [pr.target for pr in PROBES_SN]},
-           'mirror_check': mirror, 'baseline_ids': base_ids, 'scores': scores_meta, 'results': res,
-           'wall_s': round(time.time() - T0, 1)}
+           'mirror_check': mirror, 'baseline_ids': base_ids, 'combos': {k: v for k, v in COMBOS.items()},
+           'symmetric_passthrough': passthrough, 'P2_climb': p2climb,
+           'scores': scores_meta, 'results': res, 'wall_s': round(time.time() - T0, 1)}
     with open(args.out, 'w') as f:
         json.dump(out, f, indent=1)
 
     # ---- console table
-    b1 = res['P1m|low|prim']['hump_climb']['top3']
-    b2 = res['P1m|low|tb']['hump_climb']['top3']
     print('counts', counts)
-    print('baselines hump climb top3: raw %.3f P1m %.3f P2c8 %.3f (P2,P1m) %.3f (P2,H) %.3f (P2,P1m,raw) %.3f' % (
-        res['raw|low|prim']['hump_climb']['top3'], b1, res['P2c8|low|prim']['hump_climb']['top3'], b2,
-        res['H|low|tb']['hump_climb']['top3'], res['raw|low|tb2']['hump_climb']['top3']))
+    for bn, bid in base_ids.items():
+        e = res[bid]
+        print('BASE %-18s hC %.3f hA %.3f hCconj %.3f hCmult %.3f rC %.3f rA %.3f' % (
+            bn, e['hump_climb']['top3'], e['hump_all']['top3'], e['hump_climb_conj']['top3'],
+            e['hump_climb_mult']['top3'], e['rec_climb']['top3'], e['rec_all']['top3']))
     rows = sorted((e for e in res.values() if e['hump_climb']), key=lambda e: -e['hump_climb']['top3'])
-    print('%-28s %6s %6s %6s %6s %6s %6s' % ('config', 'hClim', 'hAll', 'hExpC', 'rClim', 'rAll', 'mrC'))
-    for e in rows[:60]:
-        print('%-28s %6.3f %6.3f %6.3f %6.3f %6.3f %6.2f%s' % (
+    print('%-40s %6s %6s %6s %6s %6s %6s' % ('config', 'hClim', 'hAll', 'hCconj', 'hCmult', 'rClim', 'rAll'))
+    for e in rows[:70]:
+        print('%-40s %6.3f %6.3f %6.3f %6.3f %6.3f %6.3f%s%s' % (
             e['score'] + '|' + e['direction'] + '|' + e['mode'], e['hump_climb']['top3'], e['hump_all']['top3'],
-            e['hump_climb']['top3_exp'], e['rec_climb']['top3'] if e['rec_climb'] else -1, e['rec_all']['top3'],
-            e['hump_climb']['mean_rank'], ' *flip' if e['flipped_post_hoc'] else ''))
+            e['hump_climb_conj']['top3'], e['hump_climb_mult']['top3'],
+            e['rec_climb']['top3'] if e['rec_climb'] else -1, e['rec_all']['top3'],
+            ' SURV' if e.get('survives_ledger_rule') else '', ' *flip' if e['flipped_post_hoc'] else ''))
     print('wrote', args.out, 'wall', out['wall_s'])
 
 
