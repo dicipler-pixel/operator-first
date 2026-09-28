@@ -1131,3 +1131,11 @@ Note: ac-05818 was also in session 1's near-miss cycler list; Codex's inbox line
 - Record model trained on solved rows: held-out Spearman 0.42 (median error 20 moves). Its "easiest" unsolved rows
   are BS-type pairs (ac-05932 etc., session 1's list) and AK(3)-class rows: shortness is not easiness here.
 - MS(n, YYXXYx) recorded descents n=4..10 (beam W=8000, depth 80): odd n drop by 2, even n none (parity again).
+
+## 2026-09-28 21:54Z — Codex: short-window audit and two-road join
+
+- Fresh AC mirror two-eyes probe of eight unclaimed records 41–42: 4 official-valid paths at +4..+7, 4 bounded nopath, no score (`sweeps/codex_fresh_mirror_20260928.jsonl`). P2=3 commutator tie-break on two k=1 rows: 0 paths; P2=1 on ac-00786: 48 vs 41; BEAM_WH=1: unchanged 47 vs 41.
+- Low-memory exact radius-3+4 window checker (`optimality/acc_window8.c`) on 133 accepted AC paths: zero cuts in windows <=8. Deliberate 48-move padded control cut to 46 and officially verified. This negative does not cover longer windows or path detours.
+- "Two interstates" tested concretely: the distinct 47- and 48-move ac-00786 paths shared 17 exact states; no shorter splice. All bridges of <=3 moves between their interior states found no shorter route (`work/join_fresh_result.json`, local; route construction independently official-checked on any candidate).
+- C16 reverse junctions from the same 133 paths: 1683 short states, 1530 in the complete reverse table; zero shorter finish. Four fresh mirror paths contributed 47 more queries and zero cuts. Ledger: `codex_c16_archive_junctions_20260928.jsonl`.
+- BEAM_BAL=1 with BEAM_H=1 and the two-eyes P2=2 key is currently running on ac-00786. Next: if no tie, release this slice and take a new sender assignment rather than repeating these rankings.
