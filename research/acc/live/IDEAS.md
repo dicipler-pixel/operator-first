@@ -784,3 +784,14 @@ Note: sac_rank3 reads starts from stdin ("tag l0 w.. l1 w.."), not argv.
   endgame trigger (c = 4), not a per-move score. Helper's n=5 generator route: 125 moves (record 80), c rises to 70.
 - Macro beam (session 1): n=4 61 at MACW 0.3 and 1; n=5 none within 100.
 R_n deep P2 beam (session 1, 12:00Z): all 21 unsolved R_n rows (n = 3..10), BEAM_P2=2 H=1 DIV=0.8, W=20,000, depth 152, T9: no path on any row. Raw: ledger/rn_p2_deep_20260928.jsonl
+
+## 2026-09-28 12:50Z, session 1: Lisitsa archive audit (helper) -> what it changes
+- Archived: research/acc/proof_track/ms_lisitsa_ak3_20260928/ (audit note, replay checker, AK(3) P-route replay:
+  PASS here, 53 moves; equivalence only). AK3Audit.lean and the Zenodo zip did not arrive (sandbox links).
+- Lisitsa's MS(n, w*) routes (= our YXXyx chain) keep the BS relator fixed and the working word short (peak 11-28
+  letters even at n = 9), but are long (n=5: 412 incl. finish; n=9: 8,634). So **a long x-run is not required**; it is
+  a choice. The records (~2^(n+1)) sit between our x-run routes (~3*2^n) and Lisitsa's low routes (~2^(n+4)).
+  Exact n=4 facts still hold: nothing <= 49 stays under total length 21; nothing <= 46 under 23 (depth 37).
+- Neighbouring archive files share long tails (MS(9)/MS(8): 4,063 moves), joining at different states: a finite
+  merge pattern, not an induction.
+- Exact grid d(a,k) from (YXXyx, x^a Y^(k+1) X y^k x): (0,1) = 8, (1,1) = 12; rest running (ak_grid.log).
