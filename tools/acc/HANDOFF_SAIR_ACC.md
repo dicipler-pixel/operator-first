@@ -45,6 +45,9 @@ Without `--yes`, it's a dry run.
 - Submission 2606 (04:23Z, batch): 13 Stable AC ties from session 1's mirrored roads (crossrow, (y,x)
   finish) plus ac/sac-03028 (26/28), 15/15 accepted, about +0.02 (best: sac-02902 k6, sac-04278 and
   sac-00974 k8; the rest sit on rows with 12–20 teams).
+- Submission 2607 (04:28Z, batch): 20 AC ties from session 1's unsent roads plus ac/sac-09989, 22/22
+  accepted, about +0.012 (best: ac-02902 k7, ac-01639 k9). Three AC+2 Stable AC lines were dropped as
+  already sent.
 - Board watcher: `changes` every 30 min into `research/acc/live/changes/`. It alerts on
   "LOST OUR TIE" or a newly solved row.
 
