@@ -5,13 +5,20 @@
 // or a Stable AC path d+t+2 (via (y,x)). Kernel/fingerprint/table shared with acc_opt.c.
 // usage: acc_beam TFILE W DMAX l0 w.. l1 w..
 // Options (env): BEAM_H, BEAM_BAL, BEAM_DIV, BEAM_NOV, BEAM_NOISE, BEAM_SEED, BEAM_LOOK, BEAM_SHADOW(+_FILE),
-// BEAM_MACROS(+BEAM_MACW), BEAM_P2 (+BEAM_P2CUT), BEAM_QUOTA (+BEAM_ELITE), BEAM_WH, BEAM_DUAL, BEAM_TRACE_FILE;
+// BEAM_MACROS(+BEAM_MACW), BEAM_P2 (+BEAM_P2CUT), BEAM_QUOTA (+BEAM_ELITE), BEAM_WH, BEAM_DUAL, BEAM_TRACE_FILE, BEAM_C16;
 // see the comments at each.
 // All off by default.
 // build: gcc -O3 -march=native -o acc_beam acc_beam.c -lm
 #define ACC_NO_MAIN
 #include "acc_opt.c"
 #include <math.h>
+#include "c16_table.inc"
+// BEAM_C16=file (ceiling finish table from acc_c16.c; rival idea nahom §2.1): every new child whose total length is <= the
+// table's ceiling is also looked up there. Its distance c (BFS inside the ceiling, an upper bound on the true distance)
+// gives an AC candidate td+c, and the swapped child (x<->y) gives a SAC candidate td+c+2, exactly as T does. T is looked
+// up first and wins ties (strict <). A C16 finish's tail is rebuilt by greedy descent in the table (first move to an
+// in-ceiling neighbour at distance c-1). Unset: the table is not loaded and nothing changes.
+static C16 CT; static int C16on=0,acC16=0,sacC16=0; static uint64_t c16look,c16ac,c16sac;
 typedef struct { uint64_t off; uint32_t par; uint8_t mv; uint32_t len; uint16_t td; uint16_t p2; } Node;  // td = true path length; p2 = P2 (BEAM_P2 only; same 24-byte size)
 static uint8_t*AR; static uint64_t ARn,ARcap;
 static uint64_t store(const St*s){ uint64_t need=4+s->l[0]+s->l[1]; if(ARn+need>ARcap){ ARcap=ARcap?ARcap*2:(1ULL<<26); while(ARn+need>ARcap) ARcap*=2; AR=realloc(AR,ARcap); if(!AR) die("arena"); }
@@ -285,6 +292,8 @@ int main(int argc,char**argv){
   int ATL=QUOTA>0||WHM; uint64_t*NCL=NULL; uint16_t*NWH=NULL;
   if(ATL){ NCL=malloc(8*(W*(uint64_t)(DMAX+1)+1)); NWH=malloc(2*(W*(uint64_t)(DMAX+1)+1)); if(!NCL||!NWH) die("atlas alloc");
     NCL[0]=at_class(&s0); NWH[0]=WHM?wh_of(&s0,NCL[0]):0; fprintf(stderr,"atlas: quota %d wh %d start WH=%u\n",QUOTA,WHM,NWH[0]); }
+  if(getenv("BEAM_C16")){ C16Hdr ch; c16_load(&CT,getenv("BEAM_C16"),&ch); C16on=1;
+    fprintf(stderr,"c16: %s ceiling %d states %llu maxdist %u complete %u\n",getenv("BEAM_C16"),CT.ceil,(unsigned long long)CT.n,ch.maxd,ch.complete); }
   if(getenv("BEAM_TRACE_FILE")){ uint64_t g1,g2; load_trace(getenv("BEAM_TRACE_FILE")); fp(&s0,&g1,&g2); fprintf(stderr,"trace: %d states; start state is index %d\n",NTR,trace_find(g1,g2)); }
   const int KS=LOOK?40:P2M?(((WHM&&P2M==1)||P2M==3)?17:27):(WHM?30:40);   /* key bits below the ranking fields (fingerprint tie-break) */
   static uint32_t trNt[256]; static int trI[256],trT[256]; static uint64_t trKey[256]; int ntrh=0;
@@ -299,9 +308,14 @@ int main(int argc,char**argv){
       for(int m=0;m<14+NMAC;m++){ int ctd=nodes[i].td+1; if(m<14) apply(&cur,m,&nx); else { if(!apply_macro(&cur,m-14,&nx)) continue; ctd=nodes[i].td+MACL[m-14]; } fp(&nx,&h1,&h2);
         if(tab_find(&V,h1,h2)>=0){ if(NTR){ int ti=trace_find(h1,h2); if(ti>=0) fprintf(stderr,"TRACE d=%d i=%d visited\n",d,ti); } continue; }
         if(tab_ins(&L,h1,h2,1,1)>=0) continue;
-        int t=tab_find(&TT,h1,h2); if(t>=0&&ctd+t<bestAC){ bestAC=ctd+t; acNode=(uint32_t)i; acT=t; acSt=nx; acMv=m; }
+        int t=tab_find(&TT,h1,h2); if(t>=0&&ctd+t<bestAC){ bestAC=ctd+t; acNode=(uint32_t)i; acT=t; acSt=nx; acMv=m; acC16=0; }
         swapst(&nx,&sw); uint64_t g1,g2; fp(&sw,&g1,&g2); int u=tab_find(&TT,g1,g2);
-        if(u>=0&&ctd+u+2<bestSAC){ bestSAC=ctd+u+2; sacNode=(uint32_t)i; sacT=u; sacSt=nx; sacMv=m; }
+        if(u>=0&&ctd+u+2<bestSAC){ bestSAC=ctd+u+2; sacNode=(uint32_t)i; sacT=u; sacSt=nx; sacMv=m; sacC16=0; }
+        if(C16on&&nx.l[0]+nx.l[1]<=CT.ceil){ c16look++;   /* BEAM_C16: ceiling finish (T wins ties) */
+          int c=c16_lookup(&CT,&nx); if(c>=0&&ctd+c<bestAC){ bestAC=ctd+c; acNode=(uint32_t)i; acT=c; acSt=nx; acMv=m; acC16=1; c16ac++;
+            fprintf(stderr,"c16: AC %d at d=%d (child length %d, ceiling distance %d)\n",bestAC,d,nx.l[0]+nx.l[1],c); }
+          int c2=c16_lookup(&CT,&sw); if(c2>=0&&ctd+c2+2<bestSAC){ bestSAC=ctd+c2+2; sacNode=(uint32_t)i; sacT=c2; sacSt=nx; sacMv=m; sacC16=1; c16sac++;
+            fprintf(stderr,"c16: SAC %d at d=%d (swapped child length %d, ceiling distance %d)\n",bestSAC,d,nx.l[0]+nx.l[1],c2); } }
         uint32_t len=nx.l[0]+nx.l[1]; uint64_t need=4+len;
         if(SAn+need>SAcap){ SAcap=SAcap?SAcap*2:(1ULL<<26); while(SAn+need>SAcap) SAcap*=2; SA=realloc(SA,SAcap); if(!SA) die("scratch"); }
         uint8_t*q=SA+SAn; q[0]=nx.l[0]&255; q[1]=nx.l[0]>>8; q[2]=nx.l[1]&255; q[3]=nx.l[1]>>8; memcpy(q+4,nx.w[0],nx.l[0]); memcpy(q+4+nx.l[0],nx.w[1],nx.l[1]);
@@ -389,6 +403,8 @@ int main(int argc,char**argv){
   if(WHM) fprintf(stderr,"wh: calls %llu (cache hits %llu, saturated %llu), %.1f s in WH\n",(unsigned long long)WHcalls,(unsigned long long)WHhits,(unsigned long long)WHsat,WHtime);
   if(P2M) fprintf(stderr,"p2: computed %llu (cache hits %llu, saturated %llu) inherited %llu, %.1f s in P2\n",(unsigned long long)P2calls,(unsigned long long)P2hits,(unsigned long long)P2satn,(unsigned long long)P2inh,P2time);
   // rebuild: prefix via parent chain, then exact finish through T_9
+  if(C16on) fprintf(stderr,"c16: %llu lookups, %llu AC and %llu SAC improvements; final AC finish %s, SAC finish %s\n",(unsigned long long)c16look,
+    (unsigned long long)c16ac,(unsigned long long)c16sac,bestAC<(1<<30)?(acC16?"C16":"T"):"none",bestSAC<(1<<30)?(sacC16?"C16":"T"):"none");
   for(int which=0;which<2;which++){ int best=which?bestSAC:bestAC; if(best>=(1<<30)){ printf("%s NONE\n",which?"SAC":"AC"); continue; }
     uint32_t pn=which?sacNode:acNode; St fin=which?sacSt:acSt; int t=which?sacT:acT;
     int pre[4096],np=0; // moves from start to parent node, then the move to fin
@@ -397,7 +413,8 @@ int main(int argc,char**argv){
     uint32_t q=pn; while(nodes[q].par!=0xFFFFFFFFu){ pre[np++]=nodes[q].mv; q=nodes[q].par; }
     int path[8192],L=0; for(int i=np-1;i>=-1;i--){ int mv=i>=0?pre[i]:mfin; if(mv<14) path[L++]=mv; else for(int j=0;j<MACL[mv-14];j++) path[L++]=MAC[mv-14][j]; }
     St c=fin; if(which) swapst(&fin,&c);
-    for(int k=t;k>0;k--){ int ok=0; for(int m=0;m<14;m++){ apply(&c,m,&nx); fp(&nx,&h1,&h2); if(tab_find(&TT,h1,h2)==k-1){ path[L++]=which?PI[m]:m; c=nx; ok=1; break; } } if(!ok){ printf("REBUILD_FAIL\n"); break; } }
+    int useC=which?sacC16:acC16;   /* BEAM_C16: descend in the ceiling table instead of T */
+    for(int k=t;k>0;k--){ int ok=0; for(int m=0;m<14;m++){ apply(&c,m,&nx); int dd; if(useC) dd=c16_lookup(&CT,&nx); else { fp(&nx,&h1,&h2); dd=tab_find(&TT,h1,h2); } if(dd==k-1){ path[L++]=which?PI[m]:m; c=nx; ok=1; break; } } if(!ok){ printf("REBUILD_FAIL\n"); break; } }
     if(which){ path[L++]=15; path[L++]=15; }
     printf("%s %d PATH",which?"SAC":"AC",L); for(int i=0;i<L;i++) printf(" %d",path[i]); printf("\n"); }
   return 0; }
