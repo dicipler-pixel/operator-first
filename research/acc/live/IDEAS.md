@@ -678,3 +678,12 @@ Read: "00_Mad_Hatters_ACC_Combined_War_Room — full preservation 2026-09-16" an
   After 17 moves it sits at (x^6 YYXyxx, yXYxx) (BS relator intact, doubling-ready). Finish from there: H-beam 39
   (P2 none within 45), total 56. After 21 moves: r0 = x^7 YYXyx. So the recipe transfers, but the finish still costs
   ~2^(n+1); the saving has to come from a recursion that avoids the full-size run. Open for the helpers.
+
+## 2026-09-28 11:00Z, session 1: the 10 doubling chains are one construction ("who stays close when names get stripped?")
+Record gap to the YXXyx chain, n = 5..10 (from ledger/ms_families_by_w_20260928.json):
+YXyxx 4 5 6 7 8 9 | YXYXyx 10 12 12 14 14 16 | YXyXyx 11 13 13 15 15 17 | YXyxYx 12 15 16 19 20 23 |
+YXYxyX 16 19 21 23 25 27 | YYXyxYX 22 25 26 29 30 33 | YYxyXYx 25 28 29 32 33 36 | YYxYXyx 25 29 31 35 37 41 |
+YYXYxyX 28 32 35 38 41 44.
+The 2^(n+1) part is identical; each chain adds a setup (4-28 moves) plus 1-3 moves per level. So solving
+MS(n, YXXyx) at the record for every n unlocks all 10 chains via a per-chain setup. Priority stays: n=4/n=5 of
+YXXyx at or near the formula (47 / 80), then the per-chain setups (Luna's lane).
