@@ -239,9 +239,9 @@
 "t": "Cross-row echo in the exact search",
 "who": "session 1",
 "when": "09-28 04:40",
-"st": "nogain",
+"st": "running",
 "test": "255k mirrored road states as meeting targets in acc_capped, 4 near-miss rows, 2-3 caps each.",
-"res": "No meet. All complete except ac-09989 cap 31.",
+"res": "First run invalid: the binary ignored the echo file (built before echo support). Counts only as plain capped search. Rerunning with a rebuilt binary.",
 "next": "Closed for these rows.",
 "raw": "ledger/xecho_20260928.log"
 },

@@ -480,6 +480,7 @@ Raw: ledger/crossrow_roads_{ac,sac}_20260928.json
 - **Also open:** 106 second words where some n is solved and other n are not, e.g. w = YXYxYx: n=2 solved (24),
   n=3..10 all unsolved. A construction that works there is worth 1 point per row.
 - Raw: ledger/ms_families_by_w_20260928.json ({"w|pos": {n: [record, teams, id]}}).
+**CORRECTION 06:40Z: INVALID as an echo test.** My acc_capped binary predated ECHO_FILE support and ignored the echo; these are plain capped searches only (still valid as such). Rerunning with a rebuilt binary.
 Cross-row echo result (session 1): exact capped BFS meeting 255k mirrored road states, 4 near-miss rows, no meet:
 ac-09989 cap 29 complete (35M states), cap 31 incomplete; ac-03919 caps 18/20/22 complete; ac-04251 caps 21/23 complete;
 ac-06903 caps 22/24 complete (52M). Scope: first REC-10 moves under the cap, then a road tail. Raw: ledger/xecho_20260928.log
