@@ -1,0 +1,104 @@
+{
+  "source_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "formula": "4*2^n+2-n",
+  "records_snapshot_20260928": {
+    "5": 80,
+    "6": 145,
+    "7": 275,
+    "8": 532,
+    "9": 1046,
+    "10": 2071
+  },
+  "rows": [
+    {
+      "n": 2,
+      "challenge_id": "synthetic-ms-2",
+      "length": 16,
+      "peak_total_relator_length": 13,
+      "work": 134,
+      "official_ok": true,
+      "certificate_hash": "sha256:ccf91a146bfa7e068073ecdd30220fe90701bfa7595732f7e136cdc96f26de84",
+      "record_at_snapshot": null
+    },
+    {
+      "n": 3,
+      "challenge_id": "synthetic-ms-3",
+      "length": 31,
+      "peak_total_relator_length": 15,
+      "work": 357,
+      "official_ok": true,
+      "certificate_hash": "sha256:d7fd82bf51972d4f3bf4d0f26267829d2301d6187bdcafcc250534e049db05bc",
+      "record_at_snapshot": null
+    },
+    {
+      "n": 4,
+      "challenge_id": "synthetic-ms-4",
+      "length": 62,
+      "peak_total_relator_length": 31,
+      "work": 996,
+      "official_ok": true,
+      "certificate_hash": "sha256:40dfc72c37ffc0cca13cc644e8a420a19489af9e1af23839445fa85130d7878b",
+      "record_at_snapshot": null
+    },
+    {
+      "n": 5,
+      "challenge_id": "ac-01950",
+      "length": 125,
+      "peak_total_relator_length": 63,
+      "work": 2997,
+      "official_ok": true,
+      "certificate_hash": "sha256:7ff01459f25d5f8c3ac14d912eb5a4ebdb245e9ad2142ca760590d5f11634d91",
+      "record_at_snapshot": 80
+    },
+    {
+      "n": 6,
+      "challenge_id": "ac-02033",
+      "length": 252,
+      "peak_total_relator_length": 127,
+      "work": 9836,
+      "official_ok": true,
+      "certificate_hash": "sha256:0b59b2ff550ec88de53312b09cfb44788b7e8f8824cfa9db2cc21ec08f0436a4",
+      "record_at_snapshot": 145
+    },
+    {
+      "n": 7,
+      "challenge_id": "ac-06796",
+      "length": 507,
+      "peak_total_relator_length": 255,
+      "work": 34801,
+      "official_ok": true,
+      "certificate_hash": "sha256:8654e69918e88a7ace0d74470db76a6344569c1fb03df377f6089f3a5282d3c0",
+      "record_at_snapshot": 275
+    },
+    {
+      "n": 8,
+      "challenge_id": "ac-03079",
+      "length": 1018,
+      "peak_total_relator_length": 511,
+      "work": 129812,
+      "official_ok": true,
+      "certificate_hash": "sha256:91efde2ebe690986509c175b54d9d07bb8bf9448cc68f6429c6e4a6f7337a6a7",
+      "record_at_snapshot": 532
+    },
+    {
+      "n": 9,
+      "challenge_id": "ac-06727",
+      "length": 2041,
+      "peak_total_relator_length": 1023,
+      "work": 500085,
+      "official_ok": true,
+      "certificate_hash": "sha256:f4fc75976cbd64497e72121d4c25d712269ce7153989b6855fbccaeeebc0a4b0",
+      "record_at_snapshot": 1046
+    },
+    {
+      "n": 10,
+      "challenge_id": "ac-00106",
+      "length": 4088,
+      "peak_total_relator_length": 2047,
+      "work": 1961556,
+      "official_ok": true,
+      "certificate_hash": "sha256:bb463a254e92fbe9d8580568b00ecb705e93edb5a58334322957ac1ceb692037",
+      "record_at_snapshot": 2071
+    }
+  ]
+}
