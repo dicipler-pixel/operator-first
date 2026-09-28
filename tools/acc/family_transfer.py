@@ -12,7 +12,7 @@ roads={}
 for l in open(S+'/work/all_roads.jsonl'):
     r=json.loads(l)
     if r['id'] not in roads or len(r['ac'])<len(roads[r['id']]): roads[r['id']]=r['ac']
-out=S+'/work/family.jsonl'; done=set()
+XD=int(os.environ.get('FAM_EXTRA','2')); out=S+os.environ.get('FAM_OUT','/work/family.jsonl'); done=set()
 if os.path.exists(out): done={json.loads(l)['id'] for l in open(out)}
 E={1:0,-1:1,2:2,-2:3}
 CFG=[('dual',{'BEAM_H':'1','BEAM_DIV':'0.8','BEAM_P2':'2','BEAM_QUOTA':'16','BEAM_ELITE':'5000','BEAM_DUAL':'0.75'}),('H',{'BEAM_H':'1','BEAM_DIV':'1.0'})]
@@ -45,7 +45,7 @@ for ti,t in enumerate(json.load(open(S+'/work/family_targets.json'))):
     for pre,s in seeds:
         for name,env in CFG:
             if rec-len(pre)<4: continue
-            ac,sac=beam(s,rec+2-len(pre),env)
+            ac,sac=beam(s,rec+XD-len(pre),env)
             for kind,p in (('ac',ac),('sac',sac)):
                 if not p: continue
                 full=pre+p
@@ -57,6 +57,6 @@ for ti,t in enumerate(json.load(open(S+'/work/family_targets.json'))):
             best['tries'].append({'prefix':len(pre),'cfg':name,'ac':len(pre+ac) if ac else None})
         if 'ac' in best and len(best['ac'])<=rec: break
     a=len(best['ac']) if 'ac' in best else None; b=len(best['sac']) if 'sac' in best else None
-    best['verdict']='TIE' if a and a<=rec else ('near' if a and a<=rec+2 else 'miss')
+    best['verdict']='TIE' if a and a<=rec else ('near' if a and a<=rec+2 else ('road' if a else 'miss'))
     with open(out,'a') as f: f.write(json.dumps(best)+'\n')
     print(cid,o,'ac',a,'rec',rec,'sac',b,'srec',srec,best['verdict'],flush=True)

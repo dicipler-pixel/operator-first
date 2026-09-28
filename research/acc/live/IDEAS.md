@@ -1075,3 +1075,7 @@ and split into two shards.
 - Complete candidate scope: all 1,768 ordered, freely reduced relator pairs of total length ≤6 with abelianization determinant ±1; 14 SAIR ac-r2-v1 moves. They exactly equal the capped-length-6 component of (x,y), proving every such endpoint is AC-trivial.
 - Exact **unrestricted** maximum shortest moves for endpoint length ≤2,3,4,5,6: **5,5,6,7,8**. Upper bounds by complete length-6 BFS; lower bounds by disjoint *uncapped* balls around (x,y) and witnesses (y,x), (Y,YYx), (Y,YYYx), (Y,YYYYx), respectively. This is a finite endpoint result, not a general bound.
 - Reproduce: `research/acc/optimality/reverse_small_presentations.py`; full proof scope, counts, paths, hashes, and pinned verifier 24,752-transition cross-check in `research/acc/live/ledger/reverse_small_endpoints_20260928.md`. No challenge rows run or submitted for this result.
+20:40Z (session 1): family transfer (neighbour replay, record+2) on 20 family-lane rows: 3 paths, 0 within +2 of
+record (e.g. ac-01553 49/43, ac-01974 52/42). Opposite approach now: the same lane at depth record+15 (FAM_EXTRA=15,
+work/family_deep.jsonl) so long roads feed the pool, where rotation compression, cross-row borrowing and the window
+queue shorten them. First solves: 6 rows, no path yet. sac-08078 cap 33 still running (in memory).
