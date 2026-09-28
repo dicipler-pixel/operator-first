@@ -58,6 +58,17 @@ experiment: treat c=4 as a camera switch to a Nielsen/endgame solver,
 compare early-hit rate and full verified path length against P2 on
 n=5/6.  Do not infer optimality from this one generator.
 
+## Local camera-switch attempt on n=5
+
+Searched all scored-move detours of radius at most 4 from every prefix
+before the first c=4 event of the 125-move route.  Each detour was
+bounded by total relator length 100 and deduplicated by exact ordered
+state for each prefix.  **1,216,470 neighboring states** were tested;
+none reached c=4 sooner than step 91.  This is only a neighborhood
+result, not a lower bound on all n=5 routes.  Reproduce with
+`python3 research/acc/optimality/codex_commutator_phase_probe.py --sair-root SAIR-AC --detour-radius 4`.
+No record tie or beat resulted.
+
 ## AK(3) attachment and scoring convention
 
 The user's independently replayed Shehper 53 h_i moves reach P ->
