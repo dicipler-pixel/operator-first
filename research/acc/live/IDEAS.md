@@ -991,3 +991,7 @@ cap vs live record: ac-08491 8/8, ac-07445 15 (cap 12), 13 (cap 13)/13, ac-06500
 ac-04359 19/17, ac-08327 19/17. All already tied by us; every record beats the in-cap distance, i.e. records climb
 above 13 (same height-for-length trade as MS(4): ceilings 20/21/22 give 69/65/62). Raw: ledger/reverse_ceiling_*.
 MS(4) height profile finished (HEIGHT_DONE). Paused cyc1/cyc2 cyclers restarted on the freed cores.
+16:50Z (session 1): the container restarted during the user's usage-limit pause (between 16:12Z and 16:34Z); all
+background lanes except two just-restarted cyclers were lost. Relaunched via new `tools/acc/restart_all.sh` (every
+lane under its own flock; rerunning it does not duplicate). All lanes resume from their ledgers (cycler: per
+(row, idea, twin); dual/beam runner: per row). Nothing in progress was committed as a result, so nothing to redo.
