@@ -939,3 +939,8 @@ ceiling test (caps 14-18), (3) 737 one-team rows with records 41-60 that we don'
   2-11 moves (none to record yet). Now a step in every road cycle (work/rotcomp_paths.jsonl feeds the pool).
 - Queued at the front: exact capped runs on 9 near-miss rows (k <= 2) at cap = start + predicted climb (+2 more),
   e.g. ac-00975 caps 34/36, ac-05149 31/33, ac-00145 23/25, ac-03719 38/40 (log: ceil_near.log).
+14:47Z check-in (session 1): cycler 66 attempts on the user's 21 rows + 17 near misses: no path within record+2 on any
+(all 'nopath', every idea tried so far on as-is and twins). Rotation compressor in the road cycle: 44 roads shortened,
+pool 1,144 verified roads / 711 rows, no new line. n=4 stall continuations: after 5, 7 moves none <= 36-37 under caps
+22-25 (budget stops at depth 27-36); after 9 moves running. Disk n=4 cap 26 still running (1h50m). Climb-then-match on
+ac-00975 running.
