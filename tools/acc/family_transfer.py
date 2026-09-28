@@ -15,9 +15,8 @@ for l in open(S+'/work/all_roads.jsonl'):
 out=S+'/work/family.jsonl'; done=set()
 if os.path.exists(out): done={json.loads(l)['id'] for l in open(out)}
 E={1:0,-1:1,2:2,-2:3}
-CFG=[('H',{'BEAM_H':'1','BEAM_DIV':'1.0'}),('P2',{'BEAM_P2':'2','BEAM_H':'1','BEAM_DIV':'0.8'}),
-     ('dual',{'BEAM_H':'1','BEAM_DIV':'0.8','BEAM_P2':'2','BEAM_QUOTA':'16','BEAM_ELITE':'5000','BEAM_DUAL':'0.75'})]
-def beam(s,depth,env,T=240):
+CFG=[('dual',{'BEAM_H':'1','BEAM_DIV':'0.8','BEAM_P2':'2','BEAM_QUOTA':'16','BEAM_ELITE':'5000','BEAM_DUAL':'0.75'}),('H',{'BEAM_H':'1','BEAM_DIV':'1.0'})]
+def beam(s,depth,env,T=150):
     enc=[str(len(s[0]))]+[str(E[x]) for x in s[0]]+[str(len(s[1]))]+[str(E[x]) for x in s[1]]
     try: o=subprocess.run([S+'/dualbin/acc_beam',S+'/work/T9.tab','20000',str(depth)]+enc,capture_output=True,text=True,timeout=T,env={**os.environ,**env}).stdout
     except subprocess.TimeoutExpired: return None,None
@@ -26,19 +25,22 @@ def beam(s,depth,env,T=240):
         if line.startswith('AC ') and 'PATH' in line: ac=[int(x) for x in line.split('PATH')[1].split()]
         if line.startswith('SAC ') and 'PATH' in line: sac=[int(x) for x in line.split('PATH')[1].split()]
     return ac,sac
-for t in json.load(open(S+'/work/family_targets.json')):
+SH=int(sys.argv[1]) if len(sys.argv)>1 else 0; NS=int(sys.argv[2]) if len(sys.argv)>2 else 1
+for ti,t in enumerate(json.load(open(S+'/work/family_targets.json'))):
+    if ti%NS!=SH: continue
     cid=t['id']
     if cid in done or cid not in where: continue
     o,n=where[cid]; st=tuple(tuple(r) for r in C[cid]['initial_relators']); rec=t['ac_record']; srec=t.get('sac_record') or 0
-    seeds=[([],st)]
+    seeds=[([],st)]; used=0
     for nn in (n-1,n+1):
+        if used: break
         nb=fam[o].get(str(nn)); P=roads.get(nb[2]) if nb else None
         if not P: continue
         s=st; pre=[]; cand=[]
         for mv in P:
             s=core.apply_move(s,mv); pre=pre+[mv]; cand.append((len(s[0])+len(s[1]),len(pre),list(pre),s))
             if len(pre)>=rec: break
-        cand.sort(key=lambda c:(c[0]+c[1],)); seeds+=[(c[2],c[3]) for c in cand[:2]]
+        cand.sort(key=lambda c:(c[0]+c[1],)); seeds+=[(c[2],c[3]) for c in cand[:1]]; used=1
     best={'id':cid,'family':o,'n':n,'record':rec,'sac_record':srec,'tries':[]}
     for pre,s in seeds:
         for name,env in CFG:
