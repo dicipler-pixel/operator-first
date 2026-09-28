@@ -1,3 +1,12 @@
+## 2026-09-28 12:50Z, session 2 (lead): unsolved-MS lane p2u (digest lead: "106 second words", first solves = 1.0)
+- 106 MS(n,w) families have some n solved and some unsolved; they hold **373 unsolved non-AK(3) rows** (15 more are
+  AK(3)-class, skipped). Examples: YYYYYxYXX n=5 solved in **15** (ac-04662) but n=4 unsolved (ac-08441); YYxYxYXXX n=2 in
+  22, n=3 unsolved (ac-03989); YYXXYx n=3 in 26, n=4 unsolved (ac-09310). The n=5 solve looks like a coincidence (r0's
+  Y^5 cancels r1's y^5), so neighbours are not automatically easy.
+- Lane **p2u** (winner arm: P2=2 + QUOTA 16 + ELITE 5000, W=20k, depth 120) on the top 40 by nearest-solved distance
+  and record (`tools/acc/ops/unsolved_ms_targets.py`). Any path is a first solve (AC 1.0, plus SAC with [15,15]).
+  Replaces the tail lane p2t (those rows stay in p2a/p2b's lists).
+
 ## 2026-09-28 12:18Z, session 2 (lead): why level-by-level chain routes cannot reach the records (row-op argument)
 - **Shadow:** the exponent-sum rows of (r0, r1) form a unimodular 2x2 matrix; a multiplication is a row op, while
   conjugation and inversion are free. One level (BS, Y^k X y^(k-1) x^a) -> (BS, Y^(k-1) X y^(k-2) x^(2a)) is
