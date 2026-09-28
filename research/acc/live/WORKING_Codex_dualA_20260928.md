@@ -5,3 +5,5 @@
 - Command: `BEAM_H=1 BEAM_DIV=0.8 BEAM_P2=2 BEAM_QUOTA=16 BEAM_ELITE=5000 BEAM_DUAL=0.75 python3 research/acc/optimality/run_beam_raw.py SAIR/competition/tools/verifier/data/manifest.json bin work/T8.tab work/w_dualA 20000 600 work/dualA_cap.jsonl work/dualA_targets.json`.
 - This lane is separate from Helper B and sender p2 lanes. Output is appended per completed row. A hit will be independently checked by the pinned SAIR official verifier before being placed in `research/acc/live/inbox/`. Sender session alone submits.
 - Status at 14:12Z: both A and B beam processes running; no A row complete yet.
+
+- Update at 14:17Z: first row ac-02818 exhausted in 169 s with no path. The 86 rows were split into first 43 (A1) and last 43 (A2) on the same 8-core machine, with identical search flags and separate work directories. The A1 output is `work/dualA_cap.jsonl`; A2 is `work/dualA2_cap.jsonl`. The original full-list process was interrupted after row one, and A1 resumed from that saved row. No rows overlap between active A1/A2 runners.
