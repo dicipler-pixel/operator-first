@@ -697,3 +697,22 @@ YYXYxyX 28 32 35 38 41 44.
 The 2^(n+1) part is identical; each chain adds a setup (4-28 moves) plus 1-3 moves per level. So solving
 MS(n, YXXyx) at the record for every n unlocks all 10 chains via a per-chain setup. Priority stays: n=4/n=5 of
 YXXyx at or near the formula (47 / 80), then the per-chain setups (Luna's lane).
+
+## 2026-09-28 11:40Z, session 1: two more songs ("the name still count", "cross the wall") -> four tests
+User's lines and what each became (all on made-up rows MS(n, YXXyx), official kernel):
+1. "Look close or look far, I'm the same damn walk" (self-similarity) -> **macro beam**: 110 move blocks (2-8 moves)
+   mined from our exact n=1, 2, 3 paths, fed to acc_beam (BEAM_MACROS, H=1, W=50k). n=4: **61** at MACW=0.3
+   (vs our 55). Structure: level step `5 1 12 4 1 10 5 12 10`, then the block `5 12 7 5 6 5 13 11` four times,
+   then a short finish: a clean repeating unit, but a long one. MACW=1 and n=5 running. Macros: scratch ms_macros.txt.
+2. "They put two paths in the dark ... what they saw was the overlap" -> **splice** our two n=4 routes (55 and 56)
+   within radius 2 of any state: best 55. No gain.
+3. "You can measure the kick, you can't measure the name" / "surface can fail, the deeper count still seen" ->
+   the invariant is the count: MS(n, YXXyx) forces y = x^(2^n - 1) whatever the words look like. Proposed (not yet
+   built): a beam key that rewards progress toward that count instead of short words.
+4. "Perfect symmetry is a quiet cage, keeps you rank-one flat ... rotation lifted the floor" -> **go up a rank**:
+   on the chains the Stable AC record is exactly AC + 2 (1 team), so a rank-3 detour that builds the run more cheaply
+   would be a Stable AC beat. Exact check on MS(2, YXXyx): rank 2 has no Stable AC path <= 15 (answer 17; complete,
+   387 cap-hits noted). Rank 3 at radii 8+7 was killed for memory here (257 moves/state). **Helper ask (Charlie's
+   rank-3 lane): run sac_rank3 3 8 8 on "MS2 5 -2 -1 -1 2 1 7 -2 -2 -2 -1 2 2 1" (stdin) on a bigger machine;
+   a meet <= 16 means rank 3 beats AC + 2 on this family.**
+Note: sac_rank3 reads starts from stdin ("tag l0 w.. l1 w.."), not argv.
