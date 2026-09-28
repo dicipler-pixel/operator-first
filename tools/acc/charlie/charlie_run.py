@@ -8,7 +8,7 @@
 #   replayed under the official verifier before it is printed. Nothing unverified is ever printed.
 import json, os, subprocess, sys, time, hashlib
 HERE = os.path.dirname(os.path.abspath(__file__))
-SAIR = os.environ.get('SAIR_TOOLS', os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../SAIR/competition/tools')))
+SAIR = os.environ.get('SAIR_TOOLS', '/home/claude/acc/sair/competition/tools')
 sys.path.insert(0, SAIR)
 from verifier import core
 BIN = os.path.join(HERE, 'acc_disk')

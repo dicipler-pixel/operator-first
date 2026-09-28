@@ -52,17 +52,3 @@ python3 charlie_run.py ac-02842 23 --meet-cap 16 --mem 3000 --work runs --lean 1
 State strings use x X y Y (capital = inverse), relators separated by a comma. `rows.py` turns a challenge id into its state string from the official manifest.
 
 Every run appends one line to `runs/charlie_ledger.jsonl`, with the full per-layer log (size, cumulative, minimum total length, seconds) and the result, including closures.
-
-## Repository handoff (2026-09-28)
-
-The imported Python scripts now use `SAIR_TOOLS` or the repository's `SAIR/competition/tools` path instead of Charlie's home directory. From the repository root:
-
-```
-export SAIR_TOOLS="$(pwd)/SAIR/competition/tools"
-g++ -O2 -march=native -o tools/acc/charlie/acc_disk tools/acc/charlie/acc_disk.cpp
-python3 tools/acc/charlie/xcheck_moves.py
-```
-
-`ledger_run.py` defaults to `research/acc/live/ledger/exact_capped_runs.jsonl`; set `CHARLIE_BOARD` to another JSONL if needed. The large `runs/B36/union9.bin`, its individual layers, and `runs/T16` were not in the ZIP. Build them before a two-sided or cutchain run. Current candidate status and independent replay results are in `research/acc/live/CHARLIE_HANDOFF_CHECKPOINT_20260928.md`.
-
-The C++ source is unchanged from Charlie's ZIP. Its write calls do not inspect I/O errors. Before using a large closed frontier as a publication-level certificate, harden that path and independently check the run's disk output. The accepted move paths have been separately checked by the pinned official verifier.

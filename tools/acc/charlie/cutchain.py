@@ -12,7 +12,6 @@ core = cr.core
 T = os.path.join(HERE, 'runs', 'T16'); U = os.path.join(T, 'union.bin')
 CODE = {1: 0, -1: 1, 2: 2, -2: 3}
 arr = np.memmap(U, dtype=np.uint64, mode='r').reshape(-1, 2)   # little endian: [lo, hi]
-B = os.path.join(HERE, 'runs', 'B36'); barr = np.memmap(os.path.join(B, 'union9.bin'), dtype=np.uint64, mode='r').reshape(-1, 2)
 
 def key(st):
     a, b = st
@@ -22,22 +21,17 @@ def key(st):
     return v << (2 * (58 - len(a) - len(b)))
 
 class View:
-    def __init__(self, a): self.a = a
-    def __len__(self): return self.a.shape[0]
-    def __getitem__(self, i): return (int(self.a[i, 1]) << 64) | int(self.a[i, 0])
-V = View(arr); VB = View(barr)
-def has(view, st):
-    k = key(st); i = bisect.bisect_left(view, k); return i < len(view) and view[i] == k
+    def __len__(self): return arr.shape[0]
+    def __getitem__(self, i): return (int(arr[i, 1]) << 64) | int(arr[i, 0])
+V = View()
 def in_T16(st):
-    if len(st[0]) + len(st[1]) <= 16 and has(V, st): return T
-    if len(st[0]) + len(st[1]) <= 36 and has(VB, st): return B
-    return None
+    if len(st[0]) + len(st[1]) > 16: return False
+    k = key(st); i = bisect.bisect_left(V, k); return i < len(V) and V[i] == k
 
 def chain(s0, maxsteps=12):
     st = s0; prefix = []
     for step in range(maxsteps + 1):
-        d = in_T16(st)
-        if d: return prefix, st, d
+        if in_T16(st): return prefix, st
         cs = cutfirst.cuts(st)
         if not cs or cs[0][0] >= len(st[0]) + len(st[1]): return None
         t, cost, pre, st = cs[0]; prefix = prefix + pre
@@ -51,8 +45,8 @@ if __name__ == '__main__':
     for c in rows[lo:hi]:
         s0 = tuple(map(tuple, c['initial_relators'])); r = chain(s0)
         if not r: continue
-        prefix, st, d = r
-        tail = [cr.INV[m] for m in reversed(cr.moves_to(d, cr.sstr(*st)))]
+        prefix, st = r
+        tail = [cr.INV[m] for m in reversed(cr.moves_to(T, cr.sstr(*st)))]
         path = prefix + tail
         v = core.verify(c, path, 'ac-r2-v1', LIM)
         if v.get('ok'):
