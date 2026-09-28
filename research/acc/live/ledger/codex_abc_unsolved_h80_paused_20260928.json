@@ -1,0 +1,20 @@
+{
+  "id": "ac-08126",
+  "method": "acc_beam",
+  "variant": "BEAM_H=1",
+  "width": 20000,
+  "dmax": 80,
+  "status": "incomplete",
+  "reason": "paused due competing T9 beam and 8 GB cgroup paging; no row result emitted",
+  "completed_before": [
+    [
+      "ac-02089",
+      "nopath"
+    ],
+    [
+      "ac-04376",
+      "nopath"
+    ]
+  ],
+  "official_revision": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+}
