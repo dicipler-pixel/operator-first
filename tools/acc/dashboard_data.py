@@ -246,7 +246,8 @@ def build(work):
              "2648": "ac-01698, ac-03789 (P2 lanes) and sac-01698 via the (y,x) shortcut (+0.2).",
              "2657": "sac-00487 (atlas quota), ac-00487 (overlap splice), sac-05091 ((y,x) shortcut).",
              "2670": "ac/sac-06094 and sac-05835 (two-eyes beam, first send), sac-00222 (P2 lane) (+0.44).",
-             "2687": "sac-08429 k1 tie (+0.5): first hit of the (y,x) lane (beam aimed at (y,x) via the letter-swapped twin); ac-08078, ac-02528 ties."}
+             "2687": "sac-08429 k1 tie (+0.5): first hit of the (y,x) lane (beam aimed at (y,x) via the letter-swapped twin); ac-08078, ac-02528 ties.",
+             "2689": "ac-02275 and sac-02275 k2 ties (+0.5) from the two-eyes high-value lane p2v."}
     for x in subs:
         if x["id"] in notes:
             ok = sum(1 for r in x["results"] if r.get("ok"))

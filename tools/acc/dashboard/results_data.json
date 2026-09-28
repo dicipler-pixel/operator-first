@@ -1,27 +1,27 @@
 {
- "built": "2026-09-28T17:18Z",
+ "built": "2026-09-28T17:58Z",
  "summary": {
-  "updatedAt": "2026-09-28T17:18Z",
-  "leaderboardAt": "2026-09-28T17:15:00Z",
+  "updatedAt": "2026-09-28T17:58Z",
+  "leaderboardAt": "2026-09-28T17:55:00Z",
   "ac": {
    "rank": 16,
    "teams": 45,
-   "score": 1.2581,
-   "estimate": 1.264,
-   "ties": 252
+   "score": 1.264,
+   "estimate": 1.514,
+   "ties": 253
   },
   "sac": {
    "rank": 14,
    "teams": 42,
-   "score": 2.8324,
-   "estimate": 3.3324,
-   "ties": 257
+   "score": 3.3324,
+   "estimate": 3.5824,
+   "ties": 258
   },
-  "sentToday": 9,
+  "sentToday": 10,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-28T17:15Z",
-  "subsTotal": 99
+  "boardAt": "2026-09-28T17:55Z",
+  "subsTotal": 100
  },
  "points": [
   {
@@ -408,6 +408,24 @@
    "acRank": 16,
    "acTeams": 45,
    "sac": 2.8324,
+   "sacRank": 14,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-28T17:35:00Z",
+   "ac": 1.264,
+   "acRank": 16,
+   "acTeams": 45,
+   "sac": 3.3324,
+   "sacRank": 14,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-28T17:55:00Z",
+   "ac": 1.264,
+   "acRank": 16,
+   "acTeams": 45,
+   "sac": 3.3324,
    "sacRank": 14,
    "sacTeams": 42
   }
@@ -1472,9 +1490,9 @@
    "k_then": 8,
    "val_then": 0.00391,
    "rec_now": 35,
-   "k_now": 8,
+   "k_now": 9,
    "holding": true,
-   "val_now": 0.00781,
+   "val_now": 0.00391,
    "method": "User / Charlie line"
   },
   {
@@ -1486,9 +1504,9 @@
    "k_then": 9,
    "val_then": 0.00195,
    "rec_now": 33,
-   "k_now": 9,
+   "k_now": 10,
    "holding": true,
-   "val_now": 0.00391,
+   "val_now": 0.00195,
    "method": "Two-eyes beam (DUAL)"
   },
   {
@@ -1500,24 +1518,52 @@
    "k_then": 1,
    "val_then": 0.5,
    "rec_now": 36,
-   "k_now": 1,
+   "k_now": 2,
    "holding": true,
-   "val_now": 1,
+   "val_now": 0.5,
    "method": "(y,x) lane (letter-swap twin)"
+  },
+  {
+   "sub": "2689",
+   "at": "17:58",
+   "row": "ac-02275",
+   "kind": "AC",
+   "len": 34,
+   "k_then": 2,
+   "val_then": 0.25,
+   "rec_now": 34,
+   "k_now": 2,
+   "holding": true,
+   "val_now": 0.5,
+   "method": "Two-eyes beam (DUAL)"
+  },
+  {
+   "sub": "2689",
+   "at": "17:58",
+   "row": "sac-02275",
+   "kind": "Stable AC",
+   "len": 36,
+   "k_then": 2,
+   "val_then": 0.25,
+   "rec_now": 36,
+   "k_now": 2,
+   "holding": true,
+   "val_now": 0.5,
+   "method": "Two-eyes beam (DUAL)"
   }
  ],
  "byMethod": [
+  {
+   "method": "Two-eyes beam (DUAL)",
+   "lines": 6,
+   "now": 1.3144,
+   "held": 6
+  },
   {
    "method": "P2 lookahead",
    "lines": 6,
    "now": 1.1954,
    "held": 6
-  },
-  {
-   "method": "(y,x) lane (letter-swap twin)",
-   "lines": 1,
-   "now": 1.0,
-   "held": 1
   },
   {
    "method": "Exact capped sweep",
@@ -1526,10 +1572,10 @@
    "held": 10
   },
   {
-   "method": "Two-eyes beam (DUAL)",
-   "lines": 4,
-   "now": 0.3164,
-   "held": 4
+   "method": "(y,x) lane (letter-swap twin)",
+   "lines": 1,
+   "now": 0.5,
+   "held": 1
   },
   {
    "method": "(y,x) shortcut",
@@ -1564,7 +1610,7 @@
   {
    "method": "User / Charlie line",
    "lines": 1,
-   "now": 0.0078,
+   "now": 0.0039,
    "held": 1
   },
   {
