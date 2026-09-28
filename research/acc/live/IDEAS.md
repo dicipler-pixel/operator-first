@@ -1161,3 +1161,13 @@ So a kappa-keyed search can only discriminate conjugations; use kappa as a tie-b
 eyes (per-line Smith / Sanov distances of r0 and r1) for the multiplications. Baselines: ac-07790 record 40 (k1),
 session 3's plain beam 56, no session-1 path; ac-09310 (MS(4,YYXXYx)) and ac-02377 (MS(5,YYXXYx)) unsolved; session 1's
 first-solve lane: ac-09310 no path (replay from solved n=3 + depth-250 beams).
+
+## 2026-09-28 22:25Z, session3: vacuum character and the census commutators as search keys (negative, with a map)
+- Sanov rho (x->[[1,2],[0,1]], y->[[1,0],[2,1]], faithful): vacuum (x,y) is the scale-free point, character
+  (trA,trB,trAB) = (2,2,6), kappa = tr[A,B] = 18 (the matrix shadow of |cyc[r0,r1]| = 4). kappa unchanged by moves 0-5
+  (checked 0 of 557), changed by conjugations (1032 of 1037), same as comm_len.
+- As eyes (18 recordings): per-line log lambda tracks progress +0.48/+0.65 and +0.59/+0.60; log|kappa-18| +0.62/+0.75;
+  every recorded descent of MS(n,YYXXYx), n=4..9, shortens while raising log|kappa-18| (n=8: 18.6 -> 35.8).
+- As primary search keys (W=3000, depth 70, cap 22, each alone): split, kgap, comm, proj, kappa mod 5/7/11 all fail
+  both kill conditions; only length solves ac-07790 (59). On the unsolved n=4 and n=5 starts, no state in the beam
+  lowers the kappa gap below the start: the start is a local pit of the conjugation measure (beam-bounded).
