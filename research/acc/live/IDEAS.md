@@ -1091,3 +1091,11 @@ and split into two shards.
 record (e.g. ac-01553 49/43, ac-01974 52/42). Opposite approach now: the same lane at depth record+15 (FAM_EXTRA=15,
 work/family_deep.jsonl) so long roads feed the pool, where rotation compression, cross-row borrowing and the window
 queue shorten them. First solves: 6 rows, no path yet. sac-08078 cap 33 still running (in memory).
+
+20:45Z (session 2): **solo-held long rows are out of our beam's reach (negative).** Board 20:23Z has ~3,300 rows whose AC
+record (>= 50) is held by one team (1,139 at 50-74, 766 at 75-99, 408 at 100-124, ...); we hold a path on almost none.
+Probe: two-eyes beam, W=2000, DMAX = record + 2, on 12 random such rows (records 55-85): 0/12 found any path. Opposite
+check on ac-01262 (record 55): W=20000, DMAX=160, no depth ceiling: **no path at all** (frontier lengths 21-149 at
+d=160, 556 s in P2). So these records come from methods our beam lacks (family constructions / Nielsen-edge search per
+RIVAL_METHODS_FULL). The reachable pool is the solo rows at 42-49 never tried (141): 42 in session 2 lane `solo`
+(W=4000 screen), 75 to Astra, the rest in Luna's list and session 2's queues.
