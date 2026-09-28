@@ -17,8 +17,17 @@ for t in json.load(open(TGT)):
     if t['id'] in done: continue
     cid = t['id']; sid = 'sac-' + cid[3:]; r0, r1 = CH[cid]['initial_relators']; t0 = time.time()
     w = W if t['record'] <= 100 else os.environ.get('UNSOLVED_W', '20000'); dm = str(min(t['record'] + 2, int(DMAX)))
-    p = subprocess.run([BIN + '/acc_beam', TF, w, dm, *enc(r0, r1)], capture_output=True, text=True)
     rec = {'id': cid, 'record': t['record'], 'k': t['k']}
+    try:
+        p = subprocess.run([BIN + '/acc_beam', TF, w, dm, *enc(r0, r1)],
+                           capture_output=True, text=True,
+                           timeout=int(os.environ.get('UNSOLVED_TIMEOUT', '0')) or None)
+    except subprocess.TimeoutExpired:
+        rec.update({'wall_s': round(time.time() - t0, 1), 'verdict': 'incomplete_timeout',
+                    'width': int(w), 'dmax': int(dm)})
+        print(json.dumps(rec), flush=True)
+        with open(OUT, 'a') as f: f.write(json.dumps(rec) + '\n')
+        continue
     m = re.search(r'^AC \d+ PATH ([\d ]+)', p.stdout, re.M)
     if m:
         ac = list(map(int, m.group(1).split())); assert core.verify(CH[cid], ac, 'ac-r2-v1', man['limits'])['ok']
