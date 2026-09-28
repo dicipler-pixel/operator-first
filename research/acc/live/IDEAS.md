@@ -888,3 +888,9 @@ ledger/ms4_masked_20260928.log.
 4. Deeper exact grid d(a,k) for (2,2), (3,2), (1,3), MAXD 32.
 Also noted: any route through (BS, x^7 YYXyx) costs >= 38 from there (grid, k=1), and our 55 = 17 + 38; the leaders' ~47
 cannot pass through that state.
+13:30Z results (session 1):
+- Move-set sweep n=4 cap 25: +10 (mask 0x15FF) complete, none <= 47; +11 (0x19FF) complete, none <= 47;
+  +9 (0x13FF) budget stop at depth 30 (inconclusive); +13 running.
+- Deeper grid: d(2,2) = 38 (cap 22); d(3,2) > 41 (cap 23, complete to depth 33); d(1,3) > 41 (cap 23, complete).
+  k=2 row: 15, 26, 38 (+11, +12 per x: twice the k=1 rate, as 2^(k+1) predicts). Since MS_4 -> x·MS_3-shape is 3 moves,
+  a 47-move n=4 road cannot go through (1,3) under cap 23. Raw: ledger/ms_ak_grid2_20260928.log.
