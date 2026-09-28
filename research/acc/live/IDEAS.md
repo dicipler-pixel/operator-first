@@ -1,3 +1,11 @@
+## 2026-09-28, Codex helper: reserved high-slack Stable AC beat beam screen (no hits)
+
+- Screened the six rows removed from the main sacbeat list: ac-00520, ac-00718, ac-01566, ac-00074, ac-03887, ac-03104. Target AC ceilings were SAC live record minus 3, so AC + [16,15] would strictly beat the Stable AC record.
+- Baseline: pinned T9 finish table, `BEAM_H=1 BEAM_DIV=1.0 BEAM_BAL=0`, width 20,000, depth through each target ceiling + 2. All six returned `nopath`.
+- Different second pass on the three loosest rows (ac-03104, ac-03887, ac-00074): `BEAM_H=1 BEAM_DIV=0.6 BEAM_BAL=0.75 BEAM_NOV=1 BEAM_NOISE=1 BEAM_SEED=20260928`, width 20,000, same depth policy. All three returned `nopath`.
+- These are bounded beam misses, not proofs. No candidate path or verifier receipt was produced. Exact timings and thresholds: `research/acc/live/ledger/luna_sacbeat_screen_20260928.json`. Official SAIR commit: `a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e`; T9 SHA-256 matches the expected build.
+- Follow-on: resume only after refreshing exclusions and worklists; do not interpret this screen as an exhaustive search.
+
 ## 2026-09-28, Codex ABC ledger correction
 - `ledger/exact_capped_runs.jsonl` has 76 entries, 52 marked incomplete. Their median state count is 48,936,404.5; only one incomplete entry is at least 180M, with max 211,651,126. They stopped at different row budgets or limits. The shorthand “52 stopped at ~210M” is misleading; prioritize by actual budget, cap, and depth before rerunning with the disk-backed pilot.
 
