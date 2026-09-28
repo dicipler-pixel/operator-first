@@ -954,3 +954,12 @@ ceiling test (caps 14-18), (3) 737 one-team rows with records 41-60 that we don'
 pool 1,144 verified roads / 711 rows, no new line. n=4 stall continuations: after 5, 7 moves none <= 36-37 under caps
 22-25 (budget stops at depth 27-36); after 9 moves running. Disk n=4 cap 26 still running (1h50m). Climb-then-match on
 ac-00975 running.
+
+## 2026-09-28 15:10Z, session 1: rank-2 height profile of MS(n, YXXyx) (the "upside down" measurement)
+Shortest AC route whose first <= 60 moves stay under the ceiling (exact capped BFS + T9 finish; all runs complete):
+- MS(2), start 12: ceiling 12 -> 17; 13..17 -> 15 (= optimum). Barrier 0.
+- MS(3), start 14: 14 -> 34; 15 -> 31; 16-18 -> 30; 19-20 -> 28 (optimum known). Barrier 0; length falls with height.
+- MS(4), start 16: **ceilings 16-19: no route at all** (components 32k-3.4M states, exhausted to depth 60);
+  ceiling 20 -> 69; 21+ running. **Height barrier for MS(4) = +4 above the start**, and the ~47 record needs > 25.
+- Disk-backed full n=4 at cap 26: budget stop at depth 21 (250M states), inconclusive; cap 28 stopped (shallower).
+Raw: ledger/ms_height_profile_20260928.log.
