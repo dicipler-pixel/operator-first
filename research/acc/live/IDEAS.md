@@ -1154,3 +1154,10 @@ Codex's path: best route to (y,x) 42, Stable 44 vs 43).
 tracks progress second only to length (+0.59 pooled / +0.76 within path); faithful Sanov Smith best separates unsolved
 rows; planar splice ac-09762 78 -> 76; Bob's macros as beam moves = no gain. Hence Bob's new job: blocks as a
 post-search splice vocabulary on 40 near misses (ORDERS_bob_blocks_20260928.md).
+22:35Z (session 1), for session 3's kappa split test: **tr[rho(r0), rho(r1)] is exactly invariant under moves 0-5**
+(inversions and multiplications): 300 random states x 14 moves, Sanov map, an order-6-type map and a generic SL2(Z)
+pair: moves 0-5 changed it 0 times, conjugations 6-13 changed it ~50-95%. (Fricke trace identity; also holds mod p.)
+So a kappa-keyed search can only discriminate conjugations; use kappa as a tie-break or mode trigger, and per-relator
+eyes (per-line Smith / Sanov distances of r0 and r1) for the multiplications. Baselines: ac-07790 record 40 (k1),
+session 3's plain beam 56, no session-1 path; ac-09310 (MS(4,YYXXYx)) and ac-02377 (MS(5,YYXXYx)) unsolved; session 1's
+first-solve lane: ac-09310 no path (replay from solved n=3 + depth-250 beams).
