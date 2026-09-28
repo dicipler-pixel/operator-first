@@ -773,3 +773,13 @@ Note: sac_rank3 reads starts from stdin ("tag l0 w.. l1 w.."), not argv.
   (K vs A in black hole v2, the commutator in the metric slot, the abelian gauge term) stay with those papers.
 - Record page now has a Family map: 48 second words x n = 1..10, each cell = AC record, coloured by unsolved /
   1 team / 2-3 / 4+, outlined where we tie. Data: record/families.json (rebuilt by tools/acc/build_record.py).
+
+## 2026-09-28 12:30Z, session 1: the helper's commutator and mapping result (ledger/codex_commutator_lisitsa_20260928.md)
+- The published MS family (Shehper et al. Thm 3, Lisitsa 2024) **is the YXXyx chain** (a = x, b = y^-1, invert and
+  rotate). Board rows: ac-01950 n5 (AC 80, SAC 82), ac-02033 n6 (145/147), ac-06796 n7 (275/277), ac-03079 n8
+  (532/534), ac-06727 n9 (1046/1048), ac-00106 n10 (2071/2073); **all k = 1 on both boards: 12 full points** if
+  matched. Our made-up MS(n, YXXyx) test rows are exactly these rows. Lisitsa's n=9 sequence is 8,634 moves, so the
+  leaders' construction is far better than the published one.
+- Commutator length |cyc [r0,r1]| is exactly invariant under moves 0-5; only conjugations change it. Use it as an
+  endgame trigger (c = 4), not a per-move score. Helper's n=5 generator route: 125 moves (record 80), c rises to 70.
+- Macro beam (session 1): n=4 61 at MACW 0.3 and 1; n=5 none within 100.
