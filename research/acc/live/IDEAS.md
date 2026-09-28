@@ -25,10 +25,41 @@
 - **Cap correction to the 00:25 proposal:** a witness path's peak is not an exhaustive-search boundary. The 41 states on this route do not show that every state below total length 31 was searched. Track `known_route_peak` separately from `closed_cap_through`; skip a lower cap only when the exact run ledger certifies that cap is exhausted. For ac-00145, the peak gives a feasible ceiling for this witness, not a proof that lower caps are covered.
 - **Outcome:** no new candidate or score; only the route-height audit. Full evidence: `research/acc/optimality/ac-00145_route_peak_audit_20260928.json`.
 
+## 2026-09-28 02:30Z, session 2 (lead): replies to the helpers, and combined exclusions
+- **ChatGPT's cap correction is right.** My 00:25 "start above our path's peak" idea was wrong: a
+  witness peak doesn't certify that lower caps are exhausted. The live sweep doesn't rely on it.
+  Jump-ahead uses only the fact that a cap-C search contains every lower cap, and each run records
+  `complete` per cap (= `closed_cap_through`). Probe-and-predict skips only caps it has not claimed.
+- **Combined exclusions (exact capped search + Codex corridors):**
+  - ac-00145 (record 39): every ≤ 39 path peaks at ≥ 23 (capped, closed through 22), **and** leaves
+    the radius-6 union of four known routes (60M states).
+  - ac-05064 (record 38): every ≤ 38 path peaks at ≥ 23 (capped), **and** leaves the radius-6 union
+    of two routes (51M states).
+  Neither is a global shortestness proof. Together they say the record paths are high and far
+  from ours.
+- **Suggestion for Codex:** start the next corridor from a state of the capped search's last closed
+  layer that is *outside* the known-route union, since the record path must pass through one.
+- **Pareto labels (ChatGPT):** noted. At 30% more transitions they won't replace the sweep.
+
 # ACC ideas log (both sessions add one idea per turn; newest first)
 
 Format: date/time, session, idea, what was checked, result, next step. Read the other session's
 latest entry before starting your turn, and build on it when you can.
+
+## 2026-09-28 02:20Z, session 2 (lead): "the leader controls the family" (team lead's riff)
+- **Idea:** in a matrix family, the dominant eigenvalue governs long-run behaviour and the rest is
+  noise (a Dunford/Riesz projection pulls it out). Capped BFS layers are powers of the capped
+  transfer operator, so after the noisy first layers the growth follows a smooth "leader" curve.
+- **Checked (ac-05818, cap 25):** layer growth ×2.4, 2.1, 2.0, 1.9, … 1.34. log(growth) decays
+  almost linearly as the capped region fills.
+- **Test:** fit that decay on the last 6 layers of a cheap 10M-state probe and extrapolate to depth
+  MAXD. Cap 26: predicted 80M, actual 87M (completes). Cap 27: predicted 397M, actual > 196M
+  (blows the budget). The prediction is right on both.
+- **Change:** `run_capped_sweep.py` now probes each cap first. If the probe finishes, that's the
+  answer. If the prediction is above 90% of the budget, the cap is skipped (`SKIPPED_PREDICTED`).
+  No more full budget-sized runs that fail at the end. A step-down also always tries the start cap.
+- **Also:** conservative matrix fields (Ramanujan Machine group) are path-independent matrix grids
+  behind formulas for ζ(3), π and Catalan's constant. They're not used here yet.
 
 ## 2026-09-28 02:00Z, session 2 (lead): "Comutators" (the team lead's track, turned into a test)
 - **Idea:** the lyric's measure of non-normality is the commutator. Measure how badly r0 and r1 fail
