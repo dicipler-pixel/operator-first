@@ -1248,3 +1248,7 @@ kappa gap; each class keeps half the beam. W=2000, depth 70, per-relator cap 22.
   states: exchange/session3/classsplit_states.json. Continuing from both states now.
 - Opposite keys, same budget (maximize kappa gap / comm_len / split / projector, Snell slow band, longest-first,
   climb-then-dive): none beats plain. Pure climbing does not work; climbing on the right class of move does.
+23:45Z (session 1), follow-up on Git's class-split states: both routes replayed with the official core
+(ac-02377 -> yyyyyxxx | yyXyxYx, total 15; ac-09310 -> xxyyyxYXy | XYxYYXy, total 16). Session 1 now runs exact capped
+BFS + T9 finish from both states at caps state+0/2/4/6/8 (MAXD 60, 150M states each; work/gitstates.log). A hit here +
+Git's prefix = a first solve on an unsolved row. Git's continuation beams keep running in parallel (no overlap: exact vs beam).
