@@ -20,7 +20,7 @@ for f in glob.glob("research/acc/live/ledger/crossrow_roads_ac_*.json"):
     for r in it:
         if isinstance(r,dict) and 'ac' in r: add(r['id'].split('#')[0], r['ac'])
 S=os.environ.get('ACC_S','')
-for f in glob.glob(S+"/work/*_cap.jsonl")+glob.glob(S+"/p2beam/ab_results.jsonl"):
+for f in glob.glob(S+"/work/*_cap.jsonl")+glob.glob(S+"/p2beam/*.jsonl"):
     for l in open(f):
         try: r=json.loads(l)
         except: continue

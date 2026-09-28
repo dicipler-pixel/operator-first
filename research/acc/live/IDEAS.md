@@ -3,6 +3,18 @@
 - c=cyclic length([r0,r1]) is exactly invariant under scored moves 0–5; on valid n=5 (125 moves) it rises 30→70, then first reaches 4 at move 91 (34 left). This suggests a **phase trigger** to switch to an endgame solver, not greedy minimization. The lead's score zoo has already tested c as a P2 tie-break; this is a different use.
 - The user's 53 h_i path P→AK(3) is exactly **53 scored ac-r2-v1 moves** because inverse-other multiplication is atomic (3/5). Pinned official core verifies synthetic endpoint: peak 25, work 891. It proves P~AK(3), not triviality. Reproducer: `optimality/codex_commutator_phase_probe.py`.
 
+## 2026-09-28 12:05Z, session 2 (lead): atlas beam A/B verdicts — "protect what can be protected, release the rest" wins
+Source: `ledger/atlas_beam_ab_20260928.json` (56 runs, 81 paths, all official-verifier ok; W=20k, depth rec+6, T8).
+- **Winner: P2=2 + QUOTA=16 + ELITE=5000** (top W/4 by the key kept regardless of class; the rest class-capped — the team
+  lead's "protect what can be protected, release the rest"): never worse than P2=2; better on ac-00487 (26/27, both records)
+  and ac-06045 (SAC 41). **Both P2 lanes now run it** (`P2_ELITE=5000 tools/acc/ops/p2_list.sh`, binary acc_beam_x).
+- Dead by the fixed rule: QUOTA=4, WH (B83), P2=3 (comm_len key: the offline gain did not carry into the beam),
+  P2=3+QUOTA=16 (drifts to ~2,100-letter states). QUOTA=16 alone survives only through sac-00487 27.
+- **Beam-loss trace (B20):** P2 arms drop the record road early (index 6–9), never among ties: the road's P2 sits 1–3 above
+  the cut (5 of 6). Two drops are "just short of width" (03305 1.1×, 00061 1.7×), four "ranked wrong" (2.4–11×). Plain H keeps
+  roads longer (index 7–20) and finds 00061 at 26 where P2 finds 29. Next: a two-eyes beam (half P2, half H) — helper building.
+- Overlap splice across all arms' paths: R=2 nothing new; R=3 ac-06045 39 → 38 (record 36).
+
 ## 2026-09-28 11:55Z, session 2 (lead): the team lead's AK(3) audit (Lisitsa / Shehper et al.)
 - Replayed: 53 h_i moves (67 AC moves) take P = (ABaBAbaBBabAb, BAbbABabaBBa) to AK(3) (`tools/acc/ak3_p_to_ak3_replay.py`,
   plus the lead's AK3Audit.lean with forward/reverse checks; a conjugator typo at step 81 of the printed 160-step route).
