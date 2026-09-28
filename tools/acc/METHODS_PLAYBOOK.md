@@ -22,6 +22,11 @@ leaderboard to 4 decimals on 2026-09-27.
    path there (1 of 195 tried). Use only with a new idea.
 
 ## Methods that work (with evidence)
+- **(y,x) lane** (17:05Z; opposite target): beam the letter-swapped twin (TWIN_MODE=yx in `tools/acc/ops/twin_beam.py`), so
+  the search aims at (y,x); SAC line = path + [15,15]. For the 631 rows whose SAC record = AC+1 (the holder reaches (y,x)
+  one move sooner than (x,y)). First hit in 6 rows: sac-08429 36 k1 (+0.5, submission 2687). Two workers on 439 rows (k<=2).
+- Ceiling-16 finish table (BEAM_C16, `optimality/acc_c16.c`; 129M states, verified): A/B 0 of 3 better (ac-00975 35,
+  ac-05149 34 same; ac-06045 39 vs 37 worse), 12 min/row. Stopped; revisit only on rows whose paths pass length <= 16 late.
 - **BEAM_DUAL=0.75 "two eyes"** (13:00Z, adopted on all lanes): 3/4 of the beam by the P2 key with quota 16 / elite 5000,
   1/4 by plain H. Against the previous winner on 10 rows: shorter on 7, never longer, paths on 2 rows the winner missed,
   20–60% faster. f=0.5 is the only arm with ac-00061 at 26 but is longer on ac-06045. `ledger/dual_beam_ab_20260928.json`;
