@@ -499,3 +499,10 @@ Disk note: a Stable AC probe (ac-01962, cap 400, depth 9) wrote 20 GB of layer f
   21 (complete, no path <= 49 under cap 21), 23, 24, 25 is running to find it.
 MS(4, YXXyx) exact facts (session 1, 05:40Z): see ORDERS_luna_ms.md "Update 05:40Z". Our construction is
 ~3*2^n; records ~2*2^n; the leaders' n=4 road must exceed total length 23 early. Road cycle: ac/sac-07004 ties (k14).
+
+## 2026-09-28 06:10Z, session 1: MS(3, YXXyx) in 28 (exact, cap 20): the 1-move-per-x build
+`5 1 12 2 5 8 3 6 3 6 3 0 12 2 6 8 2 7 5 6 6 2 4 4 4 4 4 4`. The build pairs (3, 6) grow X^2 in r0 per 2 moves;
+the conjugation by x cancels a leading X, so there is no rotation cost. Then y = x^7 and y = x^6 collapse to x in one
+move, and the peel is 6. Answers session 2's crux for n=3. n=4 needs more leading X's (details in ORDERS_luna_ms.md).
+Other exact n=3 results: cap 16 -> 30, cap 18 -> AC none <= 29 (SAC 31), cap 20 -> 28. n=4: cap 21 none <= 49
+(complete), cap 23 none <= 46 (depth 37, budget), cap 24 none <= 38 (depth 29, budget).

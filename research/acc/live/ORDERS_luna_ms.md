@@ -66,3 +66,19 @@ Tools: `tools/acc/ms_hop.py` (exact meet-in-the-middle between two given states)
   move instead of 2 (our pairs spend a conjugation to line up every time).
 **Ask:** think about which phase they skip. A path for MS(4, YXXyx) of 47 or less (or for a board chain row at
 the record) is the unlock; after that every n up to 10 follows the same pattern.
+
+## Update 06:10Z: a 1-move-per-crossing road exists (n=3, exact)
+Exact capped search, cap 20 (session 1): **MS(3, YXXyx) in 28 moves**, one under the formula 2^(n+1)+n+11 = 30
+(and under our 29 beam). Path: `5 1 12 2 5 8 3 6 3 6 3 0 12 2 6 8 2 7 5 6 6 2 4 4 4 4 4 4`
+(replay: `SAIR=... python3 tools/acc/mstrace.py 3 <moves>`). Phases:
+1. moves 1-5 `5 1 12 2 5`: r1 becomes the BS relator XYxxy, r0 becomes the long word YXXyXYYxyyy.
+2. moves 6-11 `8 3 6 3 6 3`: **build X^6 in r0 at 1 move per x**: (3 = r0 <- r0·r1^-1, 6 = conjugate r0 by x).
+   The conjugation cancels a leading X each time, so no rotation is wasted. This is the missing rhythm.
+3. moves 12-21 `0 12 2 6 8 2 7 5 6 6`: reach r0 = x^7 Y (y = x^7) and r1 = y X^6 (y = x^6).
+4. move 22 `2`: r0·r1 = x. Moves 23-28: peel X^6 from r1 with move 4, one per move.
+Build 2^n-2 at 1/move + peel 2^n-2 at 1/move = 2·2^n + ~12. This is the leaders' shape.
+**n=4 blocker:** after 3 pairs the leading X's run out (n=3 prefix has 2), so further pairs add stray x's at the
+front (`x^k y X Y^3 ...`). n=4 needs the level-down step first (session 2: the same 9 moves `5 1 12 4 1 10 5 12 10`
+take MS_n to (BS, x^3 Y^n X y^(n-1) x) for any n), or a prefix that supplies enough leading X's.
+**Ask for helpers:** find the n=4 version (target: 46 or less for MS(4, YXXyx)), i.e. how to keep the (3,6) build
+running to X^14. Then n=5..10 by repetition, then the board chains.
