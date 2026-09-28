@@ -31,3 +31,7 @@ Helper A two-eyes assigned list: 32 of the refreshed 82 rows complete when this 
 ## Next search direction
 
 The early ac-00975 states at moves 12, 16, 17 (total relator length 16) are **outside** the cap-16 identity component; at move 24 the path re-enters it. A shorter route must alter the excursion, or use a ceiling above 16. The short internal windows and the six named crossovers are already covered. Use a different bridge, rank/heuristic, or higher ceiling, and record the exact scope; do not claim global optimality from the closed ceiling graph.
+
+## Commutator tie-break follow-up
+
+The offline `SCORE_ZOO.md` identified `comm_len` as a useful word-level tie-break. Matched beam settings on the two sole-holder one-move misses were `BEAM_H=1 BEAM_DIV=0.8 BEAM_P2=3 BEAM_QUOTA=16 BEAM_ELITE=5000 BEAM_DUAL=0.75 BEAM_C16=work/C16.tab`, W20000; only the `BEAM_P2` mode differed from the prior C16 beam (`2`). On ac-00975 it found a distinct official-verified AC35/SAC37, still above 34/36. On ac-05149 it found no path within depth 35, worse than mode 2's AC34. Thus the offline ranking gain did not translate to these two scored rows. Across all three AC35 ac-00975 paths, a directed depth-3 crossover scan of 318538 local states found no route of 34 or less. This is a bounded negative test, not an optimality proof.
