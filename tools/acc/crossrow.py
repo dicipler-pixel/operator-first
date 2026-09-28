@@ -7,12 +7,13 @@ move to another official move exactly. When the mirror moves the finish (e.g. to
 fix path found by BFS is appended. Every candidate is replayed with the official verifier kernel
 (verifier.core.verify) before it is reported.
 
-usage: crossrow.py SAIR LIVE_AC.txt OUT.json PATHFILE... [--radius 2]
+usage: crossrow.py SAIR LIVE_AC.txt OUT.json PATHFILE... [--radius 2] [--train training_424.json]
 PATHFILE: jsonl with {"id","ac"} (or {"id","path"}), or text with "ac-NNNNN: [..]" lines."""
 import argparse, itertools, json, re, sys
 
 ap = argparse.ArgumentParser(); ap.add_argument('sair'); ap.add_argument('live'); ap.add_argument('out')
 ap.add_argument('files', nargs='+'); ap.add_argument('--radius', type=int, default=2)
+ap.add_argument('--train', help='SAIR examples/training_424.json: index its known paths too')
 A = ap.parse_args()
 sys.path.insert(0, A.sair + '/competition/tools'); from verifier import core
 man = json.load(open(A.sair + '/competition/tools/verifier/data/manifest.json'))
@@ -82,6 +83,14 @@ for i, p in paths.items():
     for t, x in enumerate(st):
         rem = len(p) - t
         if x not in idx or idx[x][2] > rem: idx[x] = (i, t, rem)
+if A.train:  # training instances are not scored rows; their states can still carry a finish
+    for t in json.load(open(A.train))['instances']:
+        k = 'T:' + t['training_id']; s = tuple(map(tuple, t['initial_relators'])); st = [s]; p = t['moves']
+        for mv in p: s = core.apply_move(s, mv); st.append(s)
+        if st[-1] != GOAL: continue
+        paths[k] = p
+        for u, x in enumerate(st):
+            if x not in idx or idx[x][2] > len(p) - u: idx[x] = (k, u, len(p) - u)
 print('paths', len(paths), 'indexed states', len(idx), flush=True)
 
 # ---- lookup ----

@@ -234,3 +234,16 @@ latest entry before starting your turn, and build on it when you can.
 - The exact capped search found every tie since 23:30 (sac-03305 +0.5, ac/sac-01629 +0.19,
   ac/sac-05558 +0.06). The beam found none of them.
 - Every AC hit also produces its Stable AC line (AC + [16,15]). It's automatic in the sweep.
+
+## 2026-09-28 session 1: is rank 3 behind the short Stable AC records? (checked)
+At rank 2 the only 2-move Stable AC finishes are from (x,y) and (y,x) (destabilize needs a relator equal to one
+positive generator that appears nowhere else). So an exact rank-2 SAC optimum = min(d(x,y), d(y,x)) + 2.
+Exact check (acc_capped, cap 400, fingerprints) on the 9 shortest rows with SAC record <= AC record + 1:
+00894, 05911, 03448, 04860 so far all match their SAC record at rank 2 through (y,x) + [15,15].
+Result: on short rows the "SAC gap" is the swap finish, not rank 3. Rank 3 is still untested on long rows.
+Log: ledger/sac_rank2_probe_20260928.log
+
+## 2026-09-28 session 1: cross-row lookup, radius 2, 467 own paths + 424 SAIR training paths
+478 rows got a verified borrowed path, 17 new or shorter than ours, 0 ties. Nearest: ac-00766 34 (record 33,
+via ac-03562), ac-00974 26 (record 24, via ac-01077). Exact window shortening on those is running.
+Raw: ledger/crossrow_r2_20260928.json
