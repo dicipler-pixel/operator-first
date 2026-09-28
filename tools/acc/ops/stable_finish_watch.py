@@ -20,7 +20,11 @@ parser.add_argument("--manifest", required=True)
 parser.add_argument("--board", required=True)
 parser.add_argument("--sweep", required=True)
 parser.add_argument("--out", required=True)
+parser.add_argument("--max-gap", type=int, default=0,
+                    help="also report lines this many moves over the snapshot record")
 args = parser.parse_args()
+if args.max_gap < 0:
+    parser.error("--max-gap must be nonnegative")
 sys.path.insert(0, str(Path(args.manifest).resolve().parents[2]))
 from verifier import core, stable_core
 
@@ -77,7 +81,8 @@ for raw in open(args.sweep):
         if i < len(path):
             state = core.apply_move(state, path[i])
     record_length = board[sac_id].get("currentBestLength")
-    if best is None or (record_length is not None and len(best) > record_length):
+    if best is None or (record_length is not None
+                        and len(best) > record_length + args.max_gap):
         continue
     verdict = stable_core.verify(manifest[sac_id], best,
                                   stable_core.MOVE_SPEC_VERSION, limits)
@@ -88,6 +93,8 @@ for raw in open(args.sweep):
            "sac_len": len(best),
            "snapshot_record": record_length,
            "snapshot_k": board[sac_id]["kTeams"],
+           "gap": len(best) - record_length if record_length is not None else None,
+           "scoreable_on_snapshot": record_length is None or len(best) <= record_length,
            "certificate_hash": verdict["certificate_hash"],
            "sac": best}
     if sac_id not in hits or rec["sac_len"] < hits[sac_id]["sac_len"]:
@@ -97,5 +104,8 @@ with open(args.out, "w") as file:
     for key in sorted(hits):
         file.write(json.dumps(hits[key]) + "\n")
 print(json.dumps({"verified_ac_paths": scanned,
-                  "snapshot_scoring_stable_lines": len(hits),
+                  "snapshot_scoring_stable_lines":
+                  sum(r["scoreable_on_snapshot"] for r in hits.values()),
+                  "near_miss_lines":
+                  sum(not r["scoreable_on_snapshot"] for r in hits.values()),
                   "ids": sorted(hits)}))
