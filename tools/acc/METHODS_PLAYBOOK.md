@@ -135,3 +135,13 @@ the commit hashes of the tool and the result.
 - Result: BAL=1 is better on 5 rows (shorter, or finds a path where BAL 0 finds none) and worse on
   2. It ties no record.
 - Use BAL=1 as a second "eye" next to BAL 0 (different paths), not as a replacement.
+
+## Cross-row lookup with mirror twins (session 1, 2026-09-28): `tools/acc/crossrow.py`
+- Index every state on every known path. For each row, look up the states within R moves of its
+  start under 16 mirrors: signed letter permutations × optional word switch. Each mirror maps
+  official moves to official moves exactly, plus a BFS fix when the finish moves. Every path is
+  replayed with the verifier kernel.
+- First run (372 paths, R=1, 14 s): 13 rows new or shorter than our own. Mirrors are real, e.g.
+  ac-00974 27 (own 37) via a mirror of ac-07289, and ac-03028 solved via a mirror of ac-09650.
+  No record ties yet.
+- It scales with memory size (`tools/acc/path_memory.py`) and radius.
