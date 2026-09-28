@@ -1,27 +1,27 @@
 {
- "built": "2026-09-28T18:57Z",
+ "built": "2026-09-28T20:24Z",
  "summary": {
-  "updatedAt": "2026-09-28T18:57Z",
-  "leaderboardAt": "2026-09-28T18:55:00Z",
+  "updatedAt": "2026-09-28T20:24Z",
+  "leaderboardAt": "2026-09-28T20:20:00Z",
   "ac": {
    "rank": 16,
    "teams": 45,
-   "score": 1.5453,
-   "estimate": 1.6117,
-   "ties": 256
+   "score": 1.6117,
+   "estimate": 1.8617,
+   "ties": 257
   },
   "sac": {
    "rank": 14,
    "teams": 42,
-   "score": 4.0824,
-   "estimate": 4.1449,
-   "ties": 260
+   "score": 4.1449,
+   "estimate": 4.3949,
+   "ties": 261
   },
-  "sentToday": 12,
+  "sentToday": 13,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-28T18:55Z",
-  "subsTotal": 102
+  "boardAt": "2026-09-28T20:20Z",
+  "subsTotal": 103
  },
  "points": [
   {
@@ -444,6 +444,15 @@
    "acRank": 16,
    "acTeams": 45,
    "sac": 4.0824,
+   "sacRank": 14,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-28T20:20:00Z",
+   "ac": 1.6117,
+   "acRank": 16,
+   "acTeams": 45,
+   "sac": 4.1449,
    "sacRank": 14,
    "sacTeams": 42
   }
@@ -1606,9 +1615,9 @@
    "k_then": 4,
    "val_then": 0.0625,
    "rec_now": 47,
-   "k_now": 4,
+   "k_now": 5,
    "holding": true,
-   "val_now": 0.125,
+   "val_now": 0.0625,
    "method": "Helper B two-eyes list"
   },
   {
@@ -1620,9 +1629,9 @@
    "k_then": 8,
    "val_then": 0.00391,
    "rec_now": 35,
-   "k_now": 8,
+   "k_now": 9,
    "holding": true,
-   "val_now": 0.00781,
+   "val_now": 0.00391,
    "method": "Two-eyes beam (DUAL)"
   },
   {
@@ -1634,17 +1643,45 @@
    "k_then": 4,
    "val_then": 0.0625,
    "rec_now": 49,
-   "k_now": 4,
+   "k_now": 5,
    "holding": true,
-   "val_now": 0.125,
+   "val_now": 0.0625,
    "method": "Helper B two-eyes list"
+  },
+  {
+   "sub": "2701",
+   "at": "20:23",
+   "row": "ac-05818",
+   "kind": "AC",
+   "len": 34,
+   "k_then": 2,
+   "val_then": 0.25,
+   "rec_now": 34,
+   "k_now": 2,
+   "holding": true,
+   "val_now": 0.5,
+   "method": "Codex mirror twin"
+  },
+  {
+   "sub": "2701",
+   "at": "20:23",
+   "row": "sac-05818",
+   "kind": "Stable AC",
+   "len": 36,
+   "k_then": 2,
+   "val_then": 0.25,
+   "rec_now": 36,
+   "k_now": 2,
+   "holding": true,
+   "val_now": 0.5,
+   "method": "Codex mirror twin"
   }
  ],
  "byMethod": [
   {
    "method": "Two-eyes beam (DUAL)",
    "lines": 9,
-   "now": 1.3535,
+   "now": 1.3496,
    "held": 9
   },
   {
@@ -1652,6 +1689,12 @@
    "lines": 6,
    "now": 1.1954,
    "held": 6
+  },
+  {
+   "method": "Codex mirror twin",
+   "lines": 2,
+   "now": 1.0,
+   "held": 2
   },
   {
    "method": "Exact capped sweep",
@@ -1666,12 +1709,6 @@
    "held": 1
   },
   {
-   "method": "Helper B two-eyes list",
-   "lines": 2,
-   "now": 0.25,
-   "held": 2
-  },
-  {
    "method": "(y,x) shortcut",
    "lines": 2,
    "now": 0.126,
@@ -1682,6 +1719,12 @@
    "lines": 1,
    "now": 0.125,
    "held": 1
+  },
+  {
+   "method": "Helper B two-eyes list",
+   "lines": 2,
+   "now": 0.125,
+   "held": 2
   },
   {
    "method": "Beam + exact (NEW15)",
