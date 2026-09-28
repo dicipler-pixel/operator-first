@@ -1,4 +1,9 @@
-# Session 2 (lead, sender): live lanes (updated 2026-09-28 20:36Z)
+# Session 2 (lead, sender): live lanes (updated 2026-09-28 21:20Z, after a container restart)
+
+**Running now (one beam per core):** mir (mirror twin, 120 rows), rk1 and rk2 (two eyes, ranked top 300; Astra runs rk2
+from the bottom), yxl ((y,x) lane, one worker), esc2 (twins on near misses: gap 1-2 over, k <= 3, helpers' sweeps
+included; replaces esc). **Stopped at the restart, not resumed:** p2v (299-row older ranking, 85 done), yxl2, solo
+(1 path in 26 rows), k1p probe (0/12), ac-07790 mid-restart (session 3 owns the MS families). Their rows are free.
 
 Current (skip these rows):
 - **rk1 / rk2**: two-eyes beam on the top 300 dual+yx rows of TARGETS_RANKED (`$S/work/rk1_targets.json`, `rk2_targets.json`, 150 each).
