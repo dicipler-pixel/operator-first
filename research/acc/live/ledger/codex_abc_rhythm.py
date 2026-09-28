@@ -12,6 +12,7 @@ import sys
 
 SEED = 20260928
 REPS = 1000
+INV = (0, 1, 3, 2, 5, 4, 7, 6, 9, 8, 11, 10, 13, 12)
 
 
 def category(move):
@@ -62,6 +63,32 @@ def heldout_gain(routes, mapper, width):
     return log_gain / count
 
 
+def nonundo_gain(routes):
+    """Held-out raw-move gain after conditioning out immediate undo moves."""
+    rng = random.Random(SEED)
+    order = list(range(len(routes)))
+    rng.shuffle(order)
+    train_ids = set(order[:int(len(order) * .8)])
+    train = [r for i, r in enumerate(routes) if i in train_ids]
+    test = [r for i, r in enumerate(routes) if i not in train_ids]
+    counts = collections.Counter((a, b) for r in train
+                                 for a, b in zip(r, r[1:]) if b != INV[a])
+    unigrams = collections.Counter(m for r in train for m in r)
+    total = sum(unigrams.values())
+    log_gain = 0.0
+    n = 0
+    for r in test:
+        for a, b in zip(r, r[1:]):
+            if b == INV[a]:
+                continue
+            allowed = sum(counts[a, c] for c in range(14) if c != INV[a])
+            p1 = (counts[a, b] + 1) / (allowed + 13)
+            p0 = (unigrams[b] + 1) / (total - unigrams[INV[a]] + 13)
+            log_gain += math.log2(p1 / p0)
+            n += 1
+    return log_gain / n
+
+
 def main(path):
     data = json.load(open(path))
     routes = [item["moves"] for item in data["instances"]]
@@ -97,6 +124,17 @@ def main(path):
                 "null_95_interval": [vals[24], vals[974]],
                 "p_two_sided": min(1.0, 2 * min(low + 1, high + 1) / (REPS + 1))}
         result["metrics"][name] = summary
+    obs_nonundo = nonundo_gain(routes)
+    rng = random.Random(SEED + 1)
+    null_nonundo = sorted(nonundo_gain([rng.sample(r, len(r)) for r in routes])
+                          for _ in range(REPS))
+    low = sum(x <= obs_nonundo for x in null_nonundo)
+    high = sum(x >= obs_nonundo for x in null_nonundo)
+    result["nonundo_heldout_gain_bits_per_move"] = {
+        "observed": obs_nonundo,
+        "null_mean": sum(null_nonundo) / REPS,
+        "null_95_interval": [null_nonundo[24], null_nonundo[974]],
+        "p_two_sided": min(1.0, 2 * min(low + 1, high + 1) / (REPS + 1))}
     print(json.dumps(result, indent=2))
 
 

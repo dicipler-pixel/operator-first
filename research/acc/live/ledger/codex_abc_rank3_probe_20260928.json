@@ -1,0 +1,15 @@
+{
+  "ids": [
+    "ac-00520",
+    "ac-00718"
+  ],
+  "rank_cap": 3,
+  "forward_radius": 5,
+  "backward_radius": 5,
+  "state_key": "128-bit fingerprint",
+  "returncode": 0,
+  "wall_s": 0.83,
+  "stdout": "ac-00520 F_stored=29695 streamed=615305 NO_MEET rank<=3 dist>10\nac-00718 F_stored=29695 streamed=615305 WARNING_CAP_HIT=2(not_exact) NO_MEET rank<=3 dist>10\n",
+  "stderr": "B layer 1: total 2\nB layer 2: total 5\nB layer 3: total 31\nB layer 4: total 347\nB layer 5: total 4689\n",
+  "scope": "pilot only; no long-row record claim"
+}
