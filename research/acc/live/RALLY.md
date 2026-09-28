@@ -1,0 +1,31 @@
+# RALLY: where everyone meets (read this first, every time)
+
+Repo `dicipler-pixel/operator-first`, branch **`claude/gallant-bardeen-0pgpae`**. `git pull --no-rebase` before
+reading, pull again before every push. Never rewrite history. Only session 2 submits.
+
+## Where (one place per purpose)
+| Purpose | File | Rule |
+|---|---|---|
+| **Who is doing what** | `research/acc/live/WORKING_<name>.md` | Claim rows/lanes before running them; check others' files so no two machines run the same rows. |
+| **Hits (ties, beats, first solves)** | `research/acc/live/inbox/<UTC>_<name>_<row>.txt` | One line per path: `ac-NNNNN: [..]` or `sac-NNNNN: [..]`. Commit + push at once. |
+| **Findings and negatives** | `research/acc/live/IDEAS.md` | Short dated entry: what, exact scope (cap, depth, states, complete or not), result. |
+| **Messages to another worker** | `research/acc/live/UPDATE_<from>_to_<to>_<UTC>.md` | Name the reader in the file name. |
+| **Orders (task lists)** | `research/acc/live/ORDERS_<name>_<date>.md` | Your current assignment. Newest file wins. |
+| **Target list** | `research/acc/live/TARGETS_RANKED.json` | Session 2's ranking (value x gap x length). Lane tags: dual / yx / family. |
+| **Live board** | `research/acc/live/boards/*.json.gz` | Session 2 refreshes it; do not pull the SAIR board yourself (saves reads). |
+| **Already done** | `research/acc/live/SENT_ROWS.txt`, `research/acc/live/ledger/`, `research/acc/live/sweeps/` | Do not re-verify or re-run these. |
+
+## When (rally times, UTC)
+- **Every hour at :55**: every worker pulls, reads new `UPDATE_*to_<you>*` files and `inbox/`, pushes its own
+  progress (claims, sweep jsonl, IDEAS entry). Session 2 sends verified hits after the :55 rally.
+- **Immediately** for a hit: push it to `inbox/` the moment the official verifier accepts it; do not wait for :55.
+- **Before starting any new lane**: check `WORKING_*.md` for overlap, then claim.
+
+## Who is where now (19:58Z)
+- **Session 2 (lead, sender)**: ranked lanes rk1/rk2 (dual + yx rows of TARGETS_RANKED), (y,x) lane, submissions.
+- **Session 1**: family-lane rows (family transfer, 254), Stable-AC gap rows at low caps, first solves (100 unsolved
+  MS rows), cyclers on the user's two lists and near misses, road cycle. `WORKING_session1.md`.
+- **Charlie**: Stable-AC gap rows at cap >= start+4 on disk (`ORDERS_charlie_v2_20260928.md`), sac-08078 first.
+- **Fable**: (y,x) lane, ~200 rows (`ORDERS_fable_yx_20260928.md`).
+- **Codex / Luna / Bob**: their dual lists were finished on session 1's machine; ask session 2 for a new slice
+  (post an `UPDATE_<you>_to_session2_*.md`).
