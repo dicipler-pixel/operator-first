@@ -100,3 +100,16 @@ the commit hashes of the tool and the result.
   cleanly before the crash.
 - A real fix needs 8-byte entries (fingerprint + distance) or a disk-backed/bidirectional BFS.
   Still open.
+
+## Path shape findings (session 1, 2026-09-28, 163 record-length AC paths)
+- **Flat rail:** 35% of shortest paths never go above their start length. Exact search capped at
+  the start length (cheap, seconds) covers those rows completely. Running on 563 valuable rows
+  (`flat.log`).
+- **Push, not oscillation:** about half of all moves keep the length the same. Rises come in
+  bursts of 1–3 (+2/+3 each). Falls are larger (down to −10 and below). Push-versus-oscillation
+  score +0.34. The length-weighted H-beam prunes exactly these bursts. Idea: allow up to 3
+  consecutive rises without penalty.
+- **Balance:** both words shrink together. Mid-path lopsidedness averages 0.27, and one word only
+  reaches length 1 at 84% of the path on average. Idea: add a |len r0 − len r1| penalty to the
+  beam priority.
+- **Chart:** `research/acc/optimality/path_chart_163.svg` (word lengths ÷ start length).
