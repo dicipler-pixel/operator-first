@@ -118,3 +118,30 @@ the commit hashes of the tool and the result.
   reaches length 1 at 84% of the path on average. Idea: add a |len r0 − len r1| penalty to the
   beam priority.
 - **Chart:** `research/acc/optimality/path_chart_163.svg` (word lengths ÷ start length).
+
+## BEAM_BAL test (session 1, 2026-09-28): W=20000, depth cap record+6, 9 near-miss rows
+| row (live) | BAL 0 | 1 | 2 | 4 |
+|---|---|---|---|---|
+| ac-00145 (39) | 40 | 53 | – | – |
+| ac-09189 (30) | 32 | 31 | 31 | 31 |
+| ac-00147 (34) | 48 | 46 | 45 | – |
+| ac-04276 (32) | – | 42 | 43 | 47 |
+| ac-05702 (39) | 49 | 47 | 51 | 53 |
+| ac-06045 (36) | 44 | 44 | 48 | 48 |
+| ac-08995 (45) | 47 | 50 | 50 | 55 |
+| ac-09091 (29) | – | 40 | 40 | 40 |
+| ac-00037 (31) | – | – | – | – |
+
+- Result: BAL=1 is better on 5 rows (shorter, or finds a path where BAL 0 finds none) and worse on
+  2. It ties no record.
+- Use BAL=1 as a second "eye" next to BAL 0 (different paths), not as a replacement.
+
+## Cross-row lookup with mirror twins (session 1, 2026-09-28): `tools/acc/crossrow.py`
+- Index every state on every known path. For each row, look up the states within R moves of its
+  start under 16 mirrors: signed letter permutations × optional word switch. Each mirror maps
+  official moves to official moves exactly, plus a BFS fix when the finish moves. Every path is
+  replayed with the verifier kernel.
+- First run (372 paths, R=1, 14 s): 13 rows new or shorter than our own. Mirrors are real, e.g.
+  ac-00974 27 (own 37) via a mirror of ac-07289, and ac-03028 solved via a mirror of ac-09650.
+  No record ties yet.
+- It scales with memory size (`tools/acc/path_memory.py`) and radius.
