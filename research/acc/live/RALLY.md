@@ -26,7 +26,7 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
 - **Session 1**: family-lane rows (family transfer, 254), Stable-AC gap rows at low caps, first solves (100 unsolved
   MS rows), cyclers on the user's two lists and near misses, road cycle. `WORKING_session1.md`.
 - **Charlie**: Stable-AC gap rows at cap >= start+4 on disk (`ORDERS_charlie_v2_20260928.md`), sac-08078 first.
-- **Fable**: (y,x) lane, ~200 rows (`ORDERS_fable_yx_20260928.md`).
+- **Sonnet** (replaces Fable, 20:50Z): (y,x) lane, 200 rows (`ORDERS_sonnet_yx_20260928.md`).
 - **Codex / Luna / Bob**: new slices 20:15Z (`ORDERS_helpers_20260928T2015Z.md`): Codex mirror twin (AC), Luna yx2 twin
   (Stable AC), Bob fresh two-eyes rows.
 - **Astra** (new, 20:45Z): `ORDERS_astra_20260928T2045Z.md`: two-eyes beam on session 2's rk2 ranked list bottom up (150),
