@@ -1,3 +1,19 @@
+## 2026-09-28 10:50Z, session 2 (lead): score zoo — the rotation fix, the cage is wrong, P2-cap slack
+Source: `research/acc/live/SCORE_ZOO.md`, `ledger/score_zoo_20260928.json` (65 scores × 536 key configs on 246 at-record
+paths; 59 hump paths, 305 climbing steps = 125 conjugations + 180 multiplications).
+- **P2's blind spot is real:** on climbing CONJUGATION steps, (P2, P1m, raw) puts the record move in the top 3 only 3%.
+- **Fix: a word-level tie-break between P2 and P1m.** (P2, comm_len, P1m, H): climbing top-3 0.413 → **0.616**
+  (+0.20, CI +0.14..+0.27), climbing conjugations 0.03 → 0.51, all steps 0.593 → 0.652. comm_len = cyclically reduced
+  length of r0·r1·r0^-1·r1^-1 (0.008 ms/state). real2_d2 (fewest conjugations/inversions before a multiplication lands in a
+  class P2 promises) is slightly better (0.643). Offline proxy only: matched beam A/B running (BEAM_P2=3).
+- **"Perfect symmetry is a quiet cage" — refuted for AC:** record paths PREFER symmetric states (0.71 vs 0.51 of siblings);
+  cage states appear only in the endgame and the record path takes them 94% of the time. Ranking symmetric states lower
+  does not help. (Ranking them higher is untested.)
+- **P2 climb on 59 hump paths (for the P2-capped exact search):** c=0 66%, c=1 83%, c=2 92%, c=4 97%; over all 246 paths
+  c=0 83%, c=1 95%. Outliers: ac-00282 (11), 00061 (5), 00478 (4), 02315 (4).
+- **Atlas class quota (B16/B17) works too:** BEAM_QUOTA=16 on P2=2 found sac-00487 at 27 (record, k3), where P2=2 alone
+  gives 28 (we held 62). Queued. Full A/B still running.
+
 ## 2026-09-28 10:30Z, session 2 (lead): the team lead's "Cross the wall" verses, read as search ideas
 - "Surface can fail, the deeper count still seen" = P2: raw length (surface) climbs over the hump; P2 (the deeper
   count) stays flat on 64–73% of record hump paths. Already our best new tool.
