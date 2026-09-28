@@ -6,6 +6,6 @@ Targets: `research/acc/live/targets_dual_helperB_20260928.json` (86 rows). No ov
 
 Setup: public SAIR checkout at a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e; compiled `acc_beam`, `acc_window`, `acc_opt`; official verifier golden vectors 63/63 passed.
 
-Search: pending shared T8 table and memory coordination with Helper A. Commands and settings are in `ORDERS_dual_20260928.md`.
+Search: running since approximately 2026-09-28 09:11 UTC. Settings: `BEAM_H=1 BEAM_DIV=0.8 BEAM_P2=2 BEAM_QUOTA=16 BEAM_ELITE=5000 BEAM_DUAL=0.75`; width 20000, depth cap 600. Shared T8 SHA-256 matches orders; B lane runs concurrently with A within 8 GiB cgroup. Raw output: `helperB/work/dualB_cap.jsonl` (local scratch); console log: `helperB/work/dualB_run.log`. Checkpoints and verified hits will be copied into `research/acc/live/sweeps/` and `research/acc/live/inbox/` respectively.
 
 Hit handoff: official verifier before writing inbox; sender session alone submits.
