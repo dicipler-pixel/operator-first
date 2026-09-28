@@ -6,6 +6,9 @@
 - **Conjugations are forced:** between conjugations, repeated r1 <- r1*r0^e only appends r0^j (a power: no cancellation
   inside BS^j), and each extra copy adds 5 letters (`convlen.py`: lengths 5 -> 10 -> 15 ...). So a level needs about a
   conjugations too: **about 2a per level**. The finish from (BS, Y x^m) needs at least m row ops (the peel).
+- **Exact checks (12:30Z, `acc_capped` rebuilt with MOVE_MASK, T8):** last level + finish (BS, YYXy x^4) under cap 21:
+  best **22** (= beam; 46M states, complete to depth 21, so optimal among cap-21 routes). Finish (BS, Y x^15) under cap 23:
+  best 25 (the beam's 21 climbs above 23), so no sub-linear finish inside cap 23.
 - **Consequence:** any route through these level states with BS as the fixed relator costs about sum(2a) + m ~ 3*2^n.
   Our beams (2a+1 per level, m+6 finish) and session 1's exact n=3 (28) sit on that floor. The leaders' 2^(n+1)+n+~12
   **must leave this shape**: r0 moves off the BS row mid-route (for example, both relators carry long runs), or
