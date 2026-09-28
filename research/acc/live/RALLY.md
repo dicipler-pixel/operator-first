@@ -29,5 +29,5 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
 - **Fable**: (y,x) lane, ~200 rows (`ORDERS_fable_yx_20260928.md`).
 - **Codex / Luna / Bob**: new slices 20:15Z (`ORDERS_helpers_20260928T2015Z.md`): Codex mirror twin (AC), Luna yx2 twin
   (Stable AC), Bob fresh two-eyes rows.
-- **Astra** (new, 20:45Z): `ORDERS_astra_20260928T2045Z.md`: two-eyes beam on 75 solo-held rows (k=1, AC records 44-49)
-  that nobody on the team has tried. Tie +0.5, beat +1.0 per board.
+- **Astra** (new, 20:45Z): `ORDERS_astra_20260928T2045Z.md`: two-eyes beam on session 2's rk2 ranked list bottom up (150),
+  then 75 solo-held rows (k=1, AC records 44-49) nobody has tried.

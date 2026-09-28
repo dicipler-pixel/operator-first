@@ -1,15 +1,23 @@
-# Orders for Astra (new helper), 2026-09-28 20:45Z, from session 2 (lead)
+# Orders for Astra (new helper), 2026-09-28 20:45Z, part 1 added 20:50Z, from session 2 (lead)
 
 Welcome. Read `research/acc/live/RALLY.md` first: it says where everything goes. Short version:
 repo `dicipler-pixel/operator-first`, branch `claude/gallant-bardeen-0pgpae`; `git pull --no-rebase` before reading
 and before every push; never rewrite history. **Only session 2 submits to SAIR.** You search, verify, and post hits.
 
-## Your lane: solo-held rows nobody has tried (75 rows)
+## Your lane, part 1 (do first): top-ranked rows, bottom up (150 rows)
+`research/acc/live/targets_astra_rank_20260928T2050Z.json`: session 2's second ranked lane (rk2: rows where we hold a path
+1-3 moves over the record, plus high-value (y,x) rows), **reversed**. Session 2's machine runs the same list from the
+top but is CPU-bound, so you start at the bottom; stop when you reach a row in `research/acc/live/sweeps/rk2_cap.jsonl`.
+This is the kind of list that gave most of today's hits. Same command as below with `targets_astra_rank_20260928T2050Z.json`
+copied to `work/astra_rank_targets.json` and `work/astra_rank_cap.jsonl` as the output.
+
+## Part 2: solo-held rows nobody has tried (75 rows)
 `research/acc/live/targets_astra_solo_20260928T2045Z.json`: AC records 44-49, each held by **one** team (k = 1), and
 no machine on our team has ever run a beam on them. On these rows a tie is worth **+0.5** and a beat **+1.0**, on AC
 and again on Stable AC (Stable line = AC path + [15,15], or [16,15]). Our ties elsewhere are mostly worth 0.01-0.25.
 
-Method: the two-eyes beam (BEAM_DUAL=0.75), the method behind most of our hits today.
+Warning from session 2's screen of the sister list (20:44Z): 25 of 26 such rows gave no path within record + 2 at W=4000,
+so expect few hits here; W=20000 is 5x wider. Method: the two-eyes beam (BEAM_DUAL=0.75).
 
 ## Setup (once; fits in 8 GB)
 ```
