@@ -16,3 +16,9 @@ Exact-state splices and every 0–3 move bridge between each pair of roads found
 Next useful attack: change the ranker at the shared state or allow a longer relator-length climb. Keep the junction state and target endpoint explicit; the late roads differ while the first 17 moves are identical. The opposite orientation showed a new 46-move path, and the initial SAC46 inbox line remains valid.
 
 Reproduce the junction with `tools/acc/ops/mid_route.py`: supply the pinned manifest, the mirror worker's 44-move AC path as a JSON array, `--row ac-09839 --cutoff 17 --mode yx --width 20000 --depth 26`, plus the beam binary and T8 table. The generic script replays both the source AC path and returned route using the pinned verifier.
+
+## Height versus distance at the common junction
+
+The local C16 reverse table is complete for ordered freely reduced states with total relator length at most 16 (129,247,304 reachable states, SHA-256 `3a396a42ecf63390275b2c0110bc816fae6767e2dd1a67945969c609565f2df4`). The junction has total length 15. The table gives exact **within-cap-16** remaining distances: 35 moves to (x,y), 33 to (y,x). Both returned tails were officially replayed; with the 17-move common prefix and two Stable deletions they give 54 and 52 moves. By comparison, the found faster tails to either endpoint use 27 moves but climb to total length 31 (xy) or 28 (yx) after the junction. Thus height <=16 forces at least 6 more moves to (y,x) than this known higher road. It does not prove 27 is unrestricted shortest.
+
+Directly joining the two cap-16 roads to five high roads through exact shared states or one-to-three move bridges did not beat Stable46; a two-sided exact search with radius three around each state on the lower road and two high roads found no bridge of at most six moves that would save a move. This is a concrete highway/low-road tradeoff at one state, not an assumption that relator length predicts global distance.
