@@ -1,26 +1,26 @@
 {
  "summary": {
-  "updatedAt": "2026-09-28T18:30Z",
-  "leaderboardAt": "2026-09-28T18:25:00Z",
+  "updatedAt": "2026-09-28T18:57Z",
+  "leaderboardAt": "2026-09-28T18:55:00Z",
   "ac": {
    "rank": 16,
    "teams": 45,
-   "score": 1.514,
-   "estimate": 1.5453,
-   "ties": 254
+   "score": 1.5453,
+   "estimate": 1.6117,
+   "ties": 256
   },
   "sac": {
    "rank": 14,
    "teams": 42,
-   "score": 3.5824,
-   "estimate": 4.0824,
-   "ties": 259
+   "score": 4.0824,
+   "estimate": 4.1449,
+   "ties": 260
   },
-  "sentToday": 11,
+  "sentToday": 12,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-28T18:25Z",
-  "subsTotal": 101
+  "boardAt": "2026-09-28T18:55Z",
+  "subsTotal": 102
  },
  "scores": {
   "points": [
@@ -437,6 +437,15 @@
     "sac": 3.5824,
     "sacRank": 14,
     "sacTeams": 42
+   },
+   {
+    "at": "2026-09-28T18:55:00Z",
+    "ac": 1.5453,
+    "acRank": 16,
+    "acTeams": 45,
+    "sac": 4.0824,
+    "sacRank": 14,
+    "sacTeams": 42
    }
   ]
  },
@@ -528,31 +537,31 @@
    },
    {
     "d": "2026-09-28",
-    "subs": 11,
-    "ac": 36,
-    "sac": 28
+    "subs": 12,
+    "ac": 38,
+    "sac": 29
    }
   ]
  },
  "standing": {
   "gaps": {
    "ac": {
-    "0": 254,
+    "0": 256,
     "1": 4,
     "2": 4,
     "3": 4,
     "4-5": 14,
     "6-10": 24,
-    "11+": 208
+    "11+": 207
    },
    "sac": {
-    "0": 259,
+    "0": 260,
     "1": 6,
     "2": 5,
     "3": 3,
     "4-5": 13,
     "6-10": 26,
-    "11+": 203
+    "11+": 202
    }
   },
   "buckets": [
@@ -570,11 +579,11 @@
     "2": 1,
     "3": 1,
     "4": 1,
-    "5": 4,
+    "5": 5,
     "6": 5,
     "7": 6,
     "8": 7,
-    "9": 13,
+    "9": 14,
     "10": 18,
     "11": 16,
     "12": 182
@@ -584,7 +593,7 @@
     "2": 4,
     "3": 1,
     "4": 5,
-    "5": 6,
+    "5": 7,
     "6": 14,
     "7": 12,
     "8": 13,
@@ -648,8 +657,8 @@
    {
     "rank": 16,
     "name": "Mad Hatters",
-    "score": 1.514,
-    "rows": 253,
+    "score": 1.5453,
+    "rows": 254,
     "alone": 0,
     "us": true
    },
@@ -670,7 +679,7 @@
     "us": false
    }
   ],
-  "acAt": "2026-09-28T18:25:00Z",
+  "acAt": "2026-09-28T18:55:00Z",
   "sac": [
    {
     "rank": 8,
@@ -723,8 +732,8 @@
    {
     "rank": 14,
     "name": "Mad Hatters",
-    "score": 3.5824,
-    "rows": 258,
+    "score": 4.0824,
+    "rows": 259,
     "alone": 0,
     "us": true
    },
@@ -745,7 +754,7 @@
     "us": false
    }
   ],
-  "sacAt": "2026-09-28T18:25:00Z"
+  "sacAt": "2026-09-28T18:55:00Z"
  },
  "searches": {
   "items": [
@@ -787,7 +796,7 @@
     "k": null,
     "best": null,
     "status": "running",
-    "detail": "P2 lane B, two-eyes beam (BEAM_DUAL): 227 of 307 rows done, 44 with a path, 3 at or under the record (ac-03789, ac-00222, ac-06094)."
+    "detail": "P2 lane B, two-eyes beam (BEAM_DUAL): 234 of 307 rows done, 45 with a path, 3 at or under the record (ac-03789, ac-00222, ac-06094)."
    },
    {
     "key": "p2u",
@@ -1040,6 +1049,11 @@
     "at": "2026-09-28T18:29Z",
     "kind": "submit",
     "text": "Submission 2692: 2/2 accepted. sac-03771 k1 tie (+0.5, lane p2v via a (y,x) finish) and ac-08429 (k5)."
+   },
+   {
+    "at": "2026-09-28T18:56Z",
+    "kind": "submit",
+    "text": "Submission 2694: 3/3 accepted. ac/sac-04191 k4 ties (helper B on the two-eyes orders, first helper hit) and ac-08578 (k8)."
    }
   ]
  }
