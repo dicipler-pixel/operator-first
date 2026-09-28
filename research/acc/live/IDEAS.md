@@ -1184,3 +1184,8 @@ first-solve lane: ac-09310 no path (replay from solved n=3 + depth-250 beams).
 On eight short Stable rows not in active workers' lists, the relator-swap twin (yx2) produced one **one-move miss**, sac-02257 48 vs record 47; other seven did not tie. The letter-swap twin (yx), with identical BEAM_H=1 DIV=.8 P2=2 QUOTA=16 ELITE=5000 DUAL=.75, W20k and DMAX45, yielded **47**. Pinned `stable_core.verify` accepted the 47-move route (certificate sha256:1e002f3ebf92539c4a0e634aebba2a97b2aa70c896729ba431708d6e018f3d99). The exact line is in `inbox/20260928T2227Z_codex_sac-02257.txt`, for Session 2 to refresh live board and submit. Snapshot k=2, no previous sent line.
 
 The routes coincide at state 9 and again at old/new indices 35/34: a 26-move section became 25. The original window tool checks spans <=14, so this long junction explains why local exact windows and C16 short-tail checks did not cut the 48. Exact shared states and segments: `ledger/codex_sac02257_two_road_analysis_20260928.md`. This is direct evidence for retaining two long roads and switching at a state they both visit. It does not prove 47 optimal. A seven-row letter-swap follow-on is running; completed misses go to the sweeps ledger.
+
+23:05Z (session 2): **first hit for `yx_mid.py`**: sac-06872 27 (record 27, k4). The mirror lane gave an AC 26 tie (k12);
+from that path's states, the (y,x)-aimed beam found a route of 25 at a middle cut -> Stable 27. Plain AC + [15,15] would
+be 28. Pattern: when the Stable record is AC + 1, run yx_mid on every fresh AC tie path (cheap on short rows: 25 cuts,
+~30 s each).
