@@ -1,0 +1,141 @@
+{
+  "id": "ac-00236",
+  "cap": 25,
+  "budget": 3000000,
+  "maxd": 7,
+  "tool": "acc_capped_disk",
+  "status": "benchmark only",
+  "official_revision": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "t9": {
+    "returncode": 0,
+    "wall_s": 2.92,
+    "summary": "[t9] cap=25 states=7615 depth=8 STOPPED",
+    "paths": {
+      "AC": {
+        "path": [
+          0,
+          7,
+          5,
+          6,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          4,
+          1,
+          3,
+          3,
+          3
+        ],
+        "verifier": {
+          "ok": true,
+          "length": 15,
+          "peak_total_relator_length": 25,
+          "work": 220,
+          "certificate_hash": "sha256:da357d81b39cd1eb54e45666cab3f4565479f0a647932e1bde36c50a6f001efd"
+        }
+      },
+      "SAC": {
+        "path": [
+          7,
+          4,
+          1,
+          6,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          2,
+          5,
+          5,
+          5,
+          5,
+          15,
+          15
+        ],
+        "verifier": {
+          "ok": true,
+          "length": 17,
+          "peak_total_relator_length": 25,
+          "work": 218,
+          "certificate_hash": "sha256:11280736752cfa693dba9e4958a7de0fadb96e1846a4918b89c8464b41a97da0"
+        }
+      }
+    },
+    "stderr_tail": [
+      "[t9] cap=25 d=5 +594 total=878 bestAC=-1 bestSAC=-1",
+      "[t9] cap=25 d=6 +1683 total=2561 bestAC=15 bestSAC=17",
+      "[t9] cap=25 d=7 +5054 total=7615 bestAC=15 bestSAC=17"
+    ]
+  },
+  "t8": {
+    "returncode": 0,
+    "wall_s": 0.06,
+    "summary": "[t8] cap=25 states=7615 depth=8 STOPPED",
+    "paths": {
+      "AC": {
+        "path": [
+          0,
+          7,
+          5,
+          6,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          4,
+          1,
+          3,
+          3,
+          3
+        ],
+        "verifier": {
+          "ok": true,
+          "length": 15,
+          "peak_total_relator_length": 25,
+          "work": 220,
+          "certificate_hash": "sha256:da357d81b39cd1eb54e45666cab3f4565479f0a647932e1bde36c50a6f001efd"
+        }
+      },
+      "SAC": {
+        "path": [
+          7,
+          4,
+          1,
+          6,
+          12,
+          12,
+          12,
+          12,
+          12,
+          12,
+          2,
+          5,
+          5,
+          5,
+          5,
+          15,
+          15
+        ],
+        "verifier": {
+          "ok": true,
+          "length": 17,
+          "peak_total_relator_length": 25,
+          "work": 218,
+          "certificate_hash": "sha256:11280736752cfa693dba9e4958a7de0fadb96e1846a4918b89c8464b41a97da0"
+        }
+      }
+    },
+    "stderr_tail": [
+      "[t8] cap=25 d=5 +594 total=878 bestAC=-1 bestSAC=-1",
+      "[t8] cap=25 d=6 +1683 total=2561 bestAC=-1 bestSAC=-1",
+      "[t8] cap=25 d=7 +5054 total=7615 bestAC=15 bestSAC=17"
+    ]
+  }
+}
