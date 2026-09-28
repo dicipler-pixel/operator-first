@@ -12,8 +12,9 @@ An experimental structural impedance used Z=L+iC, Z0=L_start, where L=|r0|+|r1| 
 | --- | --- | --- | --- | --- |
 | ac-03305 | 23/24 | 24/24 | 24/24 | 81.72 s |
 | ac-05558 | 24/26 | 24/26 | 26/28 | 62.77 s |
+| ac-04882 | 51/53 | 54/56 | 54/56 | target-specific pilot |
 
-Both baseline and Smith AC paths replayed successfully through the pinned official AC core. The new diversity eye did not score and harmed ac-05558. Do not add `BEAM_SMITH=0.5` to the production beam on these data. Raw paths/settings are in `smith_chart_trial_20260928.json`.
+Both baseline and Smith AC paths replayed successfully through the pinned official AC core. The new diversity eye did not score, harmed ac-05558, and matched the above-record baseline on ac-04882. Do not add `BEAM_SMITH=0.5` to the production beam on these data. Raw paths/settings are in `smith_chart_trial_20260928.json`.
 
 ## Snell-style empirical channel
 
