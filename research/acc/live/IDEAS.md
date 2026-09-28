@@ -16,6 +16,9 @@ paths; 59 hump paths, 305 climbing steps = 125 conjugations + 180 multiplication
   (+0.20, CI +0.14..+0.27), climbing conjugations 0.03 → 0.51, all steps 0.593 → 0.652. comm_len = cyclically reduced
   length of r0·r1·r0^-1·r1^-1 (0.008 ms/state). real2_d2 (fewest conjugations/inversions before a multiplication lands in a
   class P2 promises) is slightly better (0.643). Offline proxy only: matched beam A/B running (BEAM_P2=3).
+- **Symmetry ranked HIGHER (the cage flipped):** (P2, comm_len, cage_high, P1m, H) all-steps top-3 0.652 → 0.686, climbing
+  unchanged (0.62), conjugation steps unchanged (symmetry is conjugation-invariant). Gain sits in the endgame, which the
+  T8/T9 finish tables already cover, so low priority for the beam.
 - **"Perfect symmetry is a quiet cage" — refuted for AC:** record paths PREFER symmetric states (0.71 vs 0.51 of siblings);
   cage states appear only in the endgame and the record path takes them 94% of the time. Ranking symmetric states lower
   does not help. (Ranking them higher is untested.)
