@@ -1,4 +1,4 @@
-# Session 2 (lead, sender): live lanes (updated 2026-09-28 20:20Z)
+# Session 2 (lead, sender): live lanes (updated 2026-09-28 20:36Z)
 
 Current (skip these rows):
 - **rk1 / rk2**: two-eyes beam on the top 300 dual+yx rows of TARGETS_RANKED (`$S/work/rk1_targets.json`, `rk2_targets.json`, 150 each).
@@ -6,6 +6,9 @@ Current (skip these rows):
 - **(y,x) lane**: yxl (178 rows) + yxl2; long rows (SAC > 90) parked. Fable holds `targets_yx_fable_20260928.json`.
 - **near_escalate**: every row 1 over a record with k <= 2 gets mirror twin (AC) and yx/yx2 twins (SAC).
 - **ac-07790** (MCSC family, record 40): iterative mid-restart from our 45 path.
+- **mir** (20:25Z): mirror twin (AC), 120 rows we are above, not in Codex's 80: ac-07601 ac-09141 ac-08221 ac-06540 ac-08923 ac-01304 ac-02404 ac-04067 ac-04735 ac-06016 ac-07521 ac-08210 ac-09400 ac-09464 ac-02893 ac-07404 ac-01521 ac-02561 ac-04094 ac-06457 ac-07789 ac-00348 ac-00712 ac-04469 ac-06239 ac-09317 ac-10040 ac-05134 ac-04428 ac-01626 ac-02026 ac-02491 ac-04316 ac-06790 ac-07287 ac-08141 ac-08793 ac-03364 ac-05545 ac-06207 ac-02353 ac-01562 ac-01971 ac-02514 ac-03186 ac-03977 ac-05125 ac-05467 ac-06058 ac-06552 ac-07439 ac-07674 ac-07792 ac-09067 ac-09254 ac-09631 ac-01850 ac-00587 ac-02827 ac-03975 ac-06095 ac-07233 ac-08274 ac-06695 ac-06872 ac-05441 ac-09365 ac-00126 ac-02381 ac-03564 ac-04081 ac-06208 ac-06768 ac-07046 ac-07137 ac-07467 ac-09116 ac-09562 ac-09628 ac-01472 ac-05526 ac-00989 ac-01056 ac-01106 ac-01349 ac-03310 ac-03925 ac-06814 ac-09944 ac-01847 ac-04198 ac-04981 ac-06250 ac-07486 ac-07667 ac-08586 ac-09873 ac-04431 ac-00317 ac-01430 ac-05124 ac-00261 ac-04404 ac-02453 ac-02456 ac-02518 ac-02685 ac-03172 ac-03885 ac-03923 ac-04389 ac-05321 ac-05348 ac-05964 ac-06087 ac-06189 ac-06306 ac-06578 ac-08903 ac-08956
+- **solo** (20:35Z): two-eyes screen W=4000 on 42 solo-held (k=1) rows, record 42-49, never tried anywhere: ac-02072 ac-03913 ac-03967 ac-02603 ac-05146 ac-07481 ac-09608 ac-09609 ac-02171 ac-06793 ac-07675 ac-08601 ac-00087 ac-00334 ac-00831 ac-01533 ac-01591 ac-01686 ac-02195 ac-02908 ac-03038 ac-03556 ac-03664 ac-03848 ac-03966 ac-04365 ac-04871 ac-05206 ac-05310 ac-06227 ac-06268 ac-06424 ac-06543 ac-06553 ac-06765 ac-07380 ac-08012 ac-08591 ac-08599 ac-09047 ac-09561 ac-10080
+- **k1p** (20:30Z): probe, 12 solo-held rows record 55-85 (W=2000): ac-01262 ac-08381 ac-06740 ac-03150 ac-05194 ac-02380 ac-04267 ac-08422 ac-05782 ac-03026 ac-01326 ac-07464
 - Helpers' new slices (20:15Z): `ORDERS_helpers_20260928T2015Z.md` (Codex mirror, Luna yx2, Bob fresh dual).
 
 ---
