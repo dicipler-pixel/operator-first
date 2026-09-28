@@ -1,3 +1,12 @@
+## 2026-09-28 11:35Z, session 2 (lead): the team lead's commutator census, mapped to AC and screened
+- Census kinds → AC scores: group commutator [r0,r1] (= comm_len, the winner), projector/invariance |[r0,x]|+|[r1,y]|
+  (zero at the finish), mixed min_g |[r0, g r1 g^-1]|, self |[r, rev(r)]|, tangent/flatness (share of commuting move pairs).
+- Zoo, hump paths, as tie-breaks after (P2, comm_len): none beats comm_len on climbing steps (0.616). GEN, GENmin, SELF act
+  like distance-to-finish (−9 to −11 on climbing, +3 to +4 on all steps); MIXED ≈ comm_len; FLAT = the cage bit's endgame
+  gain at 40× the cost. As primary keys all fail on climbing (0.00–0.28). Beam key stays P2 | comm_len | P1m | H.
+- The census algebra checks out: for H = S + εE (S symmetric, E skew), [H, Hᵀ] = −2ε[S, E]; a commutator in a metric slot
+  has g_aa = 0; Σ_a [q^a_i, q^a_j]^2 = 0 for scalar components (use the Lie bracket f^abc q^b_i q^c_j).
+
 ## 2026-09-28 11:10Z, session 2 (lead): the team lead's "can't bury the count" verses — overlap splice works
 - "They put two paths in the dark ... what they saw was the overlap ... what they think they erased, a quiet hand can
   retrieve" → **overlap splice** (`tools/acc/overlap_splice.py`): for a row with ≥ 2 different paths, splice prefix(A) +
