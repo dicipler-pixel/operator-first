@@ -10,6 +10,31 @@
 - **Bob rhythm idea:** The 424 official training routes (all Miller–Schupp) have held-out one-step move prediction gain 0.482 bits/move versus within-route shuffle mean -0.0056 (1,000 shuffles, p < 0.002). Conditioning out immediate inverse moves leaves 0.401 versus -0.0052 bits/move. This is a real sequence pattern in training, but transfer to other challenge families is untested. Code/results in `ledger/codex_abc_rhythm.py` and `ledger/codex_abc_rhythm_20260928.json`.
 - **Charlie memory idea:** Built `research/acc/optimality/acc_capped_disk.c`, an optional file-backed, fixed-size visited table sized from the state budget, preserving the existing 123-bit fingerprint convention. The cap-24 radius-7 pilot on ac-00974 matched original at 299,177 states. Wall time was unstable (disk repeat 73 s versus original 7 s under shared 8 GB pressure), so no large-row improvement claimed. Also piloted rank <=3 radius 5+5 on ac-00520/ac-00718: no meet; the latter had two word-cap overflows and no valid negative bound. Details in `ledger/codex_abc_disk_benchmark*.json` and `ledger/codex_abc_rank3_probe_20260928.json`.
 
+## 2026-09-28 04:45Z, session 2 (lead): the team lead's atlas (Drive PDF, 2026-08-27) applied to AC
+Source: `research/acc/atlas_drive/THE_OPERATOR_FIRST_ATLAS_20260827.txt` (Plates I–XXI, bridges B1–B84, full text).
+Quick checks on 7 known paths (exact: 03305, 01629, 05558, 07435, 08201; ours: 00145, 05064):
+- **Dead first:** humps are not conjugation padding. The cyclically reduced total climbs as much as the raw
+  total (03305 +16/+16, 05064 +14/+14). Ranking by cyclic length alone is out.
+- **1. P2 lookahead (B31 + Plates XII, XIV).** Conjugations stay inside a conjugacy class; only
+  multiplications change class. P_k = best total after k multiplications with free cyclic rotations.
+  On 03305's exact path: raw climbs +16, P1 +10, **P2 climbs 0**; the two climbing moves rank 11th/10th of
+  14 by raw length but tied-best by P2. Caveat: P2 is flat (ties 9–13 of 13 siblings), so use P2 first,
+  length second. **Being validated on every known hump path now** (`optimality/p2_hump_test.py`).
+  Kill: P2 median climb ≥ half the raw climb, or climbing moves not ranked better than by length.
+- **2. Per-class beam quota (B16, B17, L4):** overflow piles into a few classes; give each class its own
+  slots. Class = pair of cyclic conjugacy classes (finer than `BEAM_NOV`). Kill: the record path's class
+  is still in the plain beam when the path is lost, or no gain at matched width.
+- **3. Macro rate extrapolation (B69, Plate XV):** apply a macro once and twice, extrapolate, expand
+  (macro, best repeat count) as one child. Pairs with Bob's library.
+- **4. Whitehead-minimal frame (B83, Plate XVIII):** climbs +12 on 03305 (weaker than P2), 0 on the other
+  four exact paths. It reaches a basis pair 8 moves before the end on 03305, so an exact Nielsen finish
+  could reach past the 9-move table.
+- **5. Where the beam loses the path (B20, Plate XI):** at each depth, the record-path state's rank and tie
+  count in the beam at W and 2W. Lost among ties → add an axis (1 or 4); rank ≫ W → wrong score; saved by
+  2W → only width.
+- Knots, volumes, geometric tensors: invariants only, and invariant bounds are already ruled out.
+- The 2026-09-12 bundle (atlas book) exists on Drive only as a 3.5 MB zip; needs a manual upload to read.
+
 ## 2026-09-28 04:20Z, session 2 (lead): Bob's macros go into the beam (test running)
 - Bob's library plugs straight into `acc_beam` (`BEAM_MACROS`, `BEAM_MACW`): macros are official
   AC move indices 0–13 with length ≤ 8. File: top 40 by solution count with length ≥ 4
