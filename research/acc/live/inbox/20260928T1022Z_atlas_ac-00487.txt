@@ -1,0 +1,6 @@
+# Atlas B16/B17 BEAM_QUOTA=16 on top of BEAM_P2=2 (P2 cut 8 > hprio), W=20000, depth 32 (AC record 26 + 6), BEAM_H=1 BEAM_DIV=0.8,
+# T8 finish table, binary acc_beam_x (acc_beam.c sha256 9a378d65...). The matched P2=2 arm gives Stable AC 28 on this row.
+# Official verifier: ok, length 27, work 490, certificate sha256:796bca4244bc09f1abfe851a526265729407976bf768c19e6b4fb5a6b845fa01.
+# Ties the live Stable AC record 27 (3 teams, board 10:07Z); SENT_ROWS lists sac-00487 62 27 behind. NOT submitted.
+# Ledger: ledger/atlas_beam_ab_20260928.json
+sac-00487: [5,12,12,10,13,10,13,2,8,0,3,7,5,8,7,7,4,11,12,2,4,4,8,2,2,15,15]
