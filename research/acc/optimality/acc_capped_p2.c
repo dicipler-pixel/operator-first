@@ -16,6 +16,8 @@
 //   P2_CACHE_LOG2=n   cache slots 2^n (24 bytes each), default 22
 //   HARD_BUDGET=n     stop mid-layer once n states are stored (the layer-end BUDGET check can overshoot a layer)
 //   STOP_AC=n, STOP_SAC=n  stop after the first layer at which every given target is reached (bestAC <= n, ...)
+//   CAP_PAD=p         also require pad(state) <= p, pad = sum over relators of (length - cyclic core length), i.e. the
+//                     letters of uncancelled conjugation (checked on every child; rejected children as for P2)
 // usage: acc_capped_p2 TFILE CAP BUDGET WORKDIR TAG l0 w.. l1 w..
 // build: gcc -O3 -march=native -o acc_capped_p2 acc_capped_p2.c -lm
 #define ACC_NO_MAIN
@@ -160,6 +162,7 @@ static void echo_load(const char*fn){ FILE*f=fopen(fn,"r"); if(!f) die("echo fil
   fclose(f); fprintf(stderr,"echo states loaded: %llu\n",(unsigned long long)cnt); }
 static int echo_find(uint64_t a,uint64_t b,uint32_t*id){ if(!EN) return -1; uint64_t k=a&(EN-1);
   while(EH1[k]||EH2[k]){ if(EH1[k]==a&&EH2[k]==b){ *id=EI[k]; return ED[k]; } k=(k+1)&(EN-1); } return -1; }
+static int padlen(const St*s){ int p=0; for(int r=0;r<2;r++){ const uint8_t*w=s->w[r]; int i=0,j=s->l[r]; while(j-i>1&&w[i]==(w[j-1]^1)){ i++; j--; } p+=s->l[r]-(j-i); } return p; }
 int main(int argc,char**argv){
   const char*tf=argv[1]; int CAP=atoi(argv[2]); uint64_t BUD=strtoull(argv[3],0,10); const char*dir=argv[4],*tag=argv[5]; St s0; parse_state(argv,6,&s0);
   struct stat stt; int fd=open(tf,O_RDONLY); if(fd<0||fstat(fd,&stt)) die("tfile");
@@ -169,9 +172,11 @@ int main(int argc,char**argv){
   int P2C_SLACK=getenv("CAP_P2")?atoi(getenv("CAP_P2")):-1, LOOKREJ=getenv("P2_LOOKREJ")?atoi(getenv("P2_LOOKREJ")):1;
   if(getenv("P2CUT")) P2CUT=atoi(getenv("P2CUT")); if(getenv("P2_CACHE_LOG2")) P2CB=atoi(getenv("P2_CACHE_LOG2"));
   uint64_t HB=getenv("HARD_BUDGET")?strtoull(getenv("HARD_BUDGET"),0,10):0; int STOPAC=getenv("STOP_AC")?atoi(getenv("STOP_AC")):-1, STOPSAC=getenv("STOP_SAC")?atoi(getenv("STOP_SAC")):-1;
+  int PADC=getenv("CAP_PAD")?atoi(getenv("CAP_PAD")):-1;
   int P2S=0,P2B=1<<30; uint64_t rejL=0,rejT=0,rejHitL=0,p2evL=0; double tstart=now();
   if(P2C_SLACK>=0){ if(P2CB<10||P2CB>30) die("P2_CACHE_LOG2 out of range"); P2S=p2_of(&s0); if(P2S>=P2SAT) die("start P2 saturated"); P2B=P2S+P2C_SLACK;
-    fprintf(stderr,"[%s] p2: cut %d start P2=%d slack %d bound %d cap %d lookrej %d cache 2^%d\n",tag,P2CUT,P2S,P2C_SLACK,P2B,CAP,LOOKREJ,P2CB); }
+    fprintf(stderr,"[%s] p2: cut %d start P2=%d slack %d bound %d cap %d lookrej %d cache 2^%d pad %d\n",tag,P2CUT,P2S,P2C_SLACK,P2B,CAP,LOOKREJ,P2CB,PADC); }
+  if(P2C_SLACK<0&&PADC>=0) die("CAP_PAD needs CAP_P2");
   int bestAC=1<<30,bestSAC=1<<30,dAC=0,dSAC=0,tAC=0,tSAC=0; St mAC,mSAC;
   int bestE=1<<30,dE=0; uint32_t idE=0; St mE; if(getenv("ECHO_FILE")) echo_load(getenv("ECHO_FILE"));
   { int t=tab_find(&TT,h1,h2); if(t>=0){ bestAC=t; mAC=s0; dAC=0; tAC=t; } }
@@ -181,8 +186,8 @@ int main(int argc,char**argv){
   for(d=1;;d++){ if(d>=bestAC && d+2>=bestSAC) break; if(d>MAXD) break;
     FILE*in=openf(dir,tag,d-1,"rb"); FILE*out=openf(dir,tag,d,"wb"); uint64_t c=0; rejL=0; rejHitL=0; uint64_t pc0=P2calls,ph0=P2hits;
     while(!midstop&&rd_state(in,&cc)) for(int m=0;m<14;m++){ apply(&cc,m,&nn2); if(nn2.l[0]+nn2.l[1]>CAP) continue; fp(&nn2,&h1,&h2);
-        if(P2C_SLACK>=0&&m>=2&&m<=5){ if(tab_find(&SS,h1,h2)>=0) continue;          // visited: no P2 needed
-          if((int)p2_of(&nn2)>P2B){ rejL++;                                         // outside the P2 region: never stored
+        if(P2C_SLACK>=0&&((m>=2&&m<=5)||PADC>=0)){ if(tab_find(&SS,h1,h2)>=0) continue;   // visited: no check needed
+          if((PADC>=0&&padlen(&nn2)>PADC)||(m>=2&&m<=5&&(int)p2_of(&nn2)>P2B)){ rejL++;  // outside the region: never stored
             if(LOOKREJ){ int t=tab_find(&TT,h1,h2); if(t>=0&&d+t<bestAC){ bestAC=d+t; mAC=nn2; dAC=d; tAC=t; rejHitL++; }
               swapst(&nn2,&sw2); uint64_t g1,g2; fp(&sw2,&g1,&g2); int u=tab_find(&TT,g1,g2); if(u>=0&&d+u+2<bestSAC){ bestSAC=d+u+2; mSAC=nn2; dSAC=d; tSAC=u; rejHitL++; } }
             continue; } }
@@ -199,7 +204,7 @@ int main(int argc,char**argv){
     if(c==0){ closed=1; break; } if(SS.n>BUD){ break; }
     if((STOPAC>=0||STOPSAC>=0)&&(STOPAC<0||bestAC<=STOPAC)&&(STOPSAC<0||bestSAC<=STOPSAC)){ d++; break; } }
   printf("[%s] cap=%d states=%llu depth=%d %s\n",tag,CAP,(unsigned long long)SS.n,d,closed?"CLOSED":"STOPPED");
-  if(P2C_SLACK>=0) printf("[%s] p2: start=%d slack=%d bound=%d rejected_children=%llu p2_calls=%llu cache_hits=%llu saturated=%llu p2_time=%.1fs wall=%.1fs%s\n",tag,P2S,P2C_SLACK,P2B,
+  if(P2C_SLACK>=0) printf("[%s] p2: pad=%d start=%d slack=%d bound=%d rejected_children=%llu p2_calls=%llu cache_hits=%llu saturated=%llu p2_time=%.1fs wall=%.1fs%s\n",tag,PADC,P2S,P2C_SLACK,P2B,
       (unsigned long long)rejT,(unsigned long long)P2calls,(unsigned long long)P2hits,(unsigned long long)P2satn,P2time,now()-tstart,midstop?" midlayer_stop":"");
   // rebuild prefixes: walk back through layer files by recomputing (search layer d-1 for a parent)
   for(int which=0;which<2;which++){ int best=which?bestSAC:bestAC; if(best>=(1<<30)){ printf("[%s] %s NONE\n",tag,which?"SAC":"AC"); continue; }
