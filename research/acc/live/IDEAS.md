@@ -457,3 +457,15 @@ ac-09989 cap 29 complete (35M states), cap 31 incomplete; ac-03919 caps 18/20/22
 ac-06903 caps 22/24 complete (52M). Scope: first REC-10 moves under the cap, then a road tail. Raw: ledger/xecho_20260928.log
 Disk note: a Stable AC probe (ac-01962, cap 400, depth 9) wrote 20 GB of layer files and filled the disk; it was stopped
 (incomplete) and the window queue and MS-chain beam died with ENOSPC. Keep a length cap on exact runs.
+
+## 2026-09-28 session 1: what the unsolved rows are
+- 2,672 unsolved rows. About 2,190 contain a Miller–Schupp relator (any spelling). The other 481 also repeat a few
+  relators: (y^-1 x^-1)^m (yx)^(m-1) shapes appear in 38-50 rows each (m = 4..8), plus short words like YYYXyxyyx.
+  These look like Akbulut–Kirby-type presentations (the AK(3) kind from the proof track), i.e. famous open cases.
+- Consequence: blind beams on unsolved rows (Adam's lane, my half A: 118 rows, 0 solves) are unlikely to pay.
+  The paying lane is the doubling chains, where the leaders have a construction and we can match it.
+- Doubling engine arithmetic (MS(n, YXXyx)): in phase B, r1 = x^a Y^2 x^b y and each pair (5,11) maps (a,b) to
+  (a-1, b+2), so 2a+b is fixed at 2^n - 1. Phase B only converts; the mass 2^n - 1 is created in phase A.
+  Our n=4 path pays for the mass twice (A builds x^7 at ~1 move per x, B spends 2 moves per x converting).
+  The leaders' ~2^(n+1) + 1.5n + 8.5 suggests they create the right-hand run directly. Exact n=4 search at caps
+  21 (complete, no path <= 49 under cap 21), 23, 24, 25 is running to find it.
