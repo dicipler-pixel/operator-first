@@ -17,3 +17,9 @@ Optimization budget change at approximately 14:43 UTC: B2 restarted with `resear
 B2 optimization update at approximately 14:50 UTC: same 180-second cap now also applies to SAC windows when the raw SAC length is +4 to +6 over its SAC record and value ≤0.125. `sac_window_timeout_s: 180` identifies this case. Raw paths survive timeouts. Source: `research/acc/optimality/run_beam_raw_dualB_timeout.py` at commit a13b10f. B2 resumed from seven completed rows; B1 unchanged.
 
 20-row checkpoint at approximately 14:51 UTC: 17 nopath, 3 above record (ac-06927 AC60 vs50; ac-03404 51/52 vs45/47; ac-08652 51/52 vs45/47). Zero tie/beat, zero verifier-clean inbox lines. `research/acc/live/sweeps/dualB_codex_20260928.jsonl` updated at commit 3193ac8. B1/B2 continue.
+
+## Stopped checkpoint (2026-09-28 14:59:56 UTC)
+
+Both B1/B2 runners stopped cleanly on parent/user stop request (Ctrl-C, exit code 130); no B runner remains. Completed **24 of 86** rows: 21 `nopath`, 3 above record, 0 ties/beats and 0 inbox lines. Official verifier hit scan found no qualifying line. Final completed-row ledger: `research/acc/live/sweeps/dualB_codex_20260928.jsonl` at ef220fe.
+
+Interrupted rows (not counted complete): B1 `ac-06990` during exact window; raw beam path of 55 vs AC record 50 passed official verifier, but window result was not completed. B2 `ac-09746` during beam; no path recovered. Both are in `research/acc/live/sweeps/dualB_codex_interrupted_20260928.jsonl` at 5c31d66. To resume, run the same B1/B2 targets with the existing JSONL outputs; the runner skips the 24 completed IDs and redoes interrupted rows. B1 uses full windows, B2 uses the bounded AC/SAC windows recorded above. Memory events max=0, oom=0 throughout.
