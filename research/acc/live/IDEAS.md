@@ -566,3 +566,9 @@ Echo reruns with the rebuilt binary (valid, 06:55Z):
 - MS(4, YXXyx) build search against our own finish (8,665 echo states from moves 20-55 and radius 3 around 28-36):
   best 55 at caps 21 and 23, complete to depth 31. So no route whose first 30 moves stay <= 23 joins our finish
   region sooner. The leaders' n=4 road differs in the finish too, or climbs above 23 early.
+
+## 2026-09-28 08:55Z, session 1: P2=2 beam on AC records 46-60 (k 1-3): no signal
+104 rows (lanes p2c1/p2c2, W=20,000, depth record+2, T9 finish): 0 ties, 1 path (ac-08410 55 vs 46), 103 nopath.
+P2's gain looks confined to short hump rows (session 2's <= 45 list). Switched both lanes to depth record+15 so
+they produce roads for the cross-row pool (road cycle), not direct ties. Raw: scratch work/p2c*_cap.jsonl.
+Also: P2 on made-up MS(4, YXXyx): none within 60 moves (W 20k and 100k); n=3 gives 29 (exact cap-20 path is 28).
