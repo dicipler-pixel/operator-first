@@ -56,3 +56,30 @@ python3 research/acc/optimality/ms_archive_splice_probe.py MS_supplement_v2.zip 
 ```
 
 `ms_paths.json` contains the verified atomic sequences for graph merging; it is not a scoring inbox file.
+The exact generated moves are also committed as `ledger/codex_lisitsa_scored_paths_20260928.json` (331,919 bytes, SHA-256 `6896c85ea818fffa54079b17190e5c5595e96860238bad4a40ada7b03c7b83e3`) for other workers to merge with their graph maps. They are all non-scoring paths.
+
+## Fixed-relator search toward the conjectured archive endpoint
+
+To tie the logged n=5 record 80 via the archive's fixed-relator
+`aBAAA` gate, after prelude 3 and compiled finish 15 the middle must
+reach that gate in **at most 62 scored moves**. A deterministic beam
+(`ms_fixed_beam_probe.py`, seed 7) used only the seven atomic moves
+that keep the other relator fixed: `1,4,5,10,11,12,13`.
+Three runs explored:
+
+| key | total relator cap | beam width | maximum depth | unique states seen | result |
+|---|---:|---:|---:|---:|---|
+| P1 (best literal product length) | 22 | 5,000 | 62 | 247,127 | no gate |
+| P2 (P1 after one move) | 22 | 3,000 | 62 | 163,698 | no gate |
+| raw changing-relator length | 35 | 5,000 | 62 | 1,416,155 | no gate |
+
+The beam drops states at each depth, so **these are search failures,
+not proofs that the gate needs >62 moves**. The cap 22 is the archive's
+own n=5 peak; cap 35 permits a substantial detour. No tie/beat found.
+
+```sh
+python3 research/acc/optimality/ms_fixed_beam_probe.py --sair-root SAIR-AC --width 5000 --depth 62 --total-cap 22 --key p1
+python3 research/acc/optimality/ms_fixed_beam_probe.py --sair-root SAIR-AC --width 3000 --depth 62 --total-cap 22 --key p2
+python3 research/acc/optimality/ms_fixed_beam_probe.py --sair-root SAIR-AC --width 5000 --depth 62 --total-cap 35 --key length
+```
+

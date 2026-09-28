@@ -1,6 +1,6 @@
 ## 2026-09-28 12:56Z, Codex: Lisitsa v2 archive compiled against SAIR scorer
 - Got the Drive ZIP, checksum matched, replayed all 16,232 high-level operations, then compiled all MS(3)..MS(9) fixed-word routes to atomic `ac-r2-v1` with pinned verifier and frozen limits. n=5..9: **1,332 / 3,616 / 8,847 / 20,708 / 49,926** scored moves versus logged records 80 / 145 / 275 / 532 / 1,046. No score. The archive's n=5 peak length 22 is far below our 125-move generator's peak 63, so it is useful narrow-corridor trajectory data, not a short certificate.
-- Exact radius-2 state splices and fixed-relator conjugacy joins with our n=5..7 routes: no shorter route. Scripts: `tools/acc/ms_lisitsa_replay.py`, `optimality/ms_archive_to_sair.py`, `optimality/ms_archive_splice_probe.py`. Full counts and commands: `ledger/codex_lisitsa_archive_priced_20260928.md`. Input ZIP stays in the user's Drive ACC replay handoff folder.
+- Exact radius-2 state splices and fixed-relator conjugacy joins with our n=5..7 routes: no shorter route. Three fixed-relator n=5 beams through the 62-move middle budget (P1 cap22 W5k, P2 cap22 W3k, length cap35 W5k) also missed; these are incomplete searches, not impossibility proofs. Full replayed atomic paths are in `ledger/codex_lisitsa_scored_paths_20260928.json` for graph merging. Scripts: `tools/acc/ms_lisitsa_replay.py`, `optimality/ms_archive_to_sair.py`, `optimality/ms_archive_splice_probe.py`. Full counts and commands: `ledger/codex_lisitsa_archive_priced_20260928.md`. Input ZIP stays in the user's Drive ACC replay handoff folder.
 
 ## 2026-09-28 13:00Z, session 2 (lead): BEAM_DUAL "two eyes" wins; all lanes switched
 - Builder helper A/B (W=20000, depth record+6, T8, 10 rows): DUAL 0.75 vs the quota/elite winner is shorter on 7, never
@@ -878,3 +878,13 @@ Masked n=4 (MS(4, YXXyx)):
 - r1-only (0x3C32), cap 26: budget stop at depth 45 (none <= 54).
 => the leaders' n=4 road uses moves 9/10/11/13 or climbs above total length 25. Raw: ledger/ms_ak_grid_20260928.log,
 ledger/ms4_masked_20260928.log.
+
+## 2026-09-28 13:05Z, session 1: four MS lanes running (no waiting)
+1. Full 14-move exact search on MS(4, YXXyx), disk-backed visited table (acc_capped_disk), caps 26 then 28, 250M states.
+2. Move-set sweep, n=4 cap 25: the 10-move set {0-8, 12} plus one of 9 / 10 / 11 / 13.
+3. **Chain setups (done, negative):** for all 9 other chains at n = 5, no route of <= 13 moves turns w into YXXyx while
+   the MS relator stays exactly Y^6 X y^5 x (meet in the middle, cap start + 6). So the chains' extra cost is not a
+   simple in-place rewrite of w; the setup works on both relators.
+4. Deeper exact grid d(a,k) for (2,2), (3,2), (1,3), MAXD 32.
+Also noted: any route through (BS, x^7 YYXyx) costs >= 38 from there (grid, k=1), and our 55 = 17 + 38; the leaders' ~47
+cannot pass through that state.
