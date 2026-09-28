@@ -894,3 +894,13 @@ cannot pass through that state.
 - Deeper grid: d(2,2) = 38 (cap 22); d(3,2) > 41 (cap 23, complete to depth 33); d(1,3) > 41 (cap 23, complete).
   k=2 row: 15, 26, 38 (+11, +12 per x: twice the k=1 rate, as 2^(k+1) predicts). Since MS_4 -> x·MS_3-shape is 3 moves,
   a 47-move n=4 road cannot go through (1,3) under cap 23. Raw: ledger/ms_ak_grid2_20260928.log.
+
+## 2026-09-28 13:55Z, session 1
+- Helper priced Lisitsa's archive in SAIR moves (ledger/codex_lisitsa_scored_paths_20260928.json, ..._priced_...md):
+  valid but far above records: MS(5) 1,332 vs 80; MS(9) 49,926 vs 1,046. Splices with our n=5-7 routes: no gain.
+- Move-set sweep n=4 cap 25, +13 (0x31FF): budget stop at depth 37 (none <= 46); inconclusive.
+- New lane "cont": exact continuations from the n=4 states where the n=3 recipe stalls (after 5/7/9/11 moves), caps
+  +4/+6, depth 36. Target: <= 36 from move 11 (total <= 47).
+- New hunt lanes hunt1/hunt2 (P2=2, W 20k): the user's 21 listed rows (ac-00003 ... ac-00074), one-team rows first:
+  ac-00022 45, 00011 48, 00030 76, 00038 179, 00074 208; then k=2: 00052 49, 00041 54, 00057 55, 00016 79, 00031 93,
+  00069 101. None had a path of ours before.
