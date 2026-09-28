@@ -10,6 +10,22 @@
 - **Bob rhythm idea:** The 424 official training routes (all Miller–Schupp) have held-out one-step move prediction gain 0.482 bits/move versus within-route shuffle mean -0.0056 (1,000 shuffles, p < 0.002). Conditioning out immediate inverse moves leaves 0.401 versus -0.0052 bits/move. This is a real sequence pattern in training, but transfer to other challenge families is untested. Code/results in `ledger/codex_abc_rhythm.py` and `ledger/codex_abc_rhythm_20260928.json`.
 - **Charlie memory idea:** Built `research/acc/optimality/acc_capped_disk.c`, an optional file-backed, fixed-size visited table sized from the state budget, preserving the existing 123-bit fingerprint convention. The cap-24 radius-7 pilot on ac-00974 matched original at 299,177 states. Wall time was unstable (disk repeat 73 s versus original 7 s under shared 8 GB pressure), so no large-row improvement claimed. Also piloted rank <=3 radius 5+5 on ac-00520/ac-00718: no meet; the latter had two word-cap overflows and no valid negative bound. Details in `ledger/codex_abc_disk_benchmark*.json` and `ledger/codex_abc_rank3_probe_20260928.json`.
 
+## 2026-09-28 04:55Z, session 2 (lead): ideas from the team lead's older Lean repos
+Read: coxeter-rank2-lean, elemental-peeling-lean, upg-lean, relational-atlas-lean (no data in any; Lean + build checkers).
+Being tested now on all known hump paths, together with P2:
+- **E1, keep the two lengths separate** (elemental-peeling `resolvedLedger_le_commonFloor`,
+  `no_common_record_predictor`). Does min(|r0|,|r1|) stay at or below its start while the total climbs?
+  If so, reserve ~20% of the beam for the smallest min. Kill: min rises on most humps and (min,max)
+  explains no more of the moves-remaining spread than L.
+- **U1, one relator at a time** (upg `UPGFeedback`, `UPGBlockFeedback`: a block runs independently when its
+  coupling is zero). Hold r1 fixed and search r0 with its 7 moves, then swap. Branching ~6 instead of 13, so
+  exact BFS reaches ~10–11 plies in 180M states instead of ~7. Kill: median same-relator run under 3.
+- **C1, exponent-sum class of humps** (coxeter-rank2 `Uaff_iterate`): T = M_end·M_start⁻¹ over each hump;
+  ±I / finite / parabolic / hyperbolic. Filters Bob's macros by class. Kill: hump class mix = random segments.
+- **E2, pair synergy** I(a,b) = L(abs) − L(as) − L(bs) + L(s), free inside P2. Tiebreak on flat P2 plateaus.
+- Dropped: finite-quotient distances (dihedral, Heisenberg): their ceiling is ~log, same as invariant bounds.
+  relational-atlas-lean: nothing usable for AC.
+
 ## 2026-09-28 04:45Z, session 2 (lead): the team lead's atlas (Drive PDF, 2026-08-27) applied to AC
 Source: `research/acc/atlas_drive/THE_OPERATOR_FIRST_ATLAS_20260827.txt` (Plates I–XXI, bridges B1–B84, full text).
 Quick checks on 7 known paths (exact: 03305, 01629, 05558, 07435, 08201; ours: 00145, 05064):
