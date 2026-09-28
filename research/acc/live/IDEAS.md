@@ -1054,3 +1054,18 @@ sent in 2694), 12 above, rest nopath. First solves: ac-02842, ac-03989 no path (
 sac-08078 exact cap 33 still running. Road cycle: 782 rows with a verified borrowed path, 0 new lines.
 Family transfer (254 family-lane rows) retuned to ~10 min/row (two-eyes + H, start + best transfer seed, 150 s beams)
 and split into two shards.
+
+## 2026-09-28 20:10Z, session3: MCSC families YYXYYXyyx / YYXYYxyyX, pulse opening and first paths
+- **Pulse opening, MS(n, YYXYYXyyx):** `6 10 12` + `9`×(n−3) + `3 9 7 3 6 12 4` (n+9 moves) sends every n to
+  r0 = Y^(n−2) x y^(n−1) XYX, **r1 = yyxYYXYX (fixed for all n)**. Checked by replay n = 5..10 (peak 4n+6).
+  Found by comparing beam paths for n=5 and n=6: they differ by one extra move 9. All n-dependence then sits in r0.
+- Verified paths (official core, not at record): ac-07790 59 (rec 40), ac-09762 78 (rec 44), ac-06005 67 (rec 41).
+  Moves in exchange/session3/mcsc_family_paths_20260928.json. Found by layered beam (W=20000, per-relator cap 22,
+  best W states per move number) + exact (x,y) finish.
+- Other opening: `8 8 12 12` + `5 12 12` rounds shrinks r1 of YYXYYXyyx one letter per round; clean at odd n, leaves
+  xYX at even n (parity again). Does nothing on YYXYYxyyX or YYXyyXyyx.
+- Negatives (exact scope): (1) greedy best-first (gsc, per-relator cap 14–22) always returns 132 at n=5: short routes
+  climb (session 1's 52-path peaks at total 31). (2) Tube shortening of the 132 path, radius ≤ 4, per-relator cap
+  ≤ 18: stalls at 97 (different valley). (3) No step of ≤ 14 moves between exact level shapes k=4 → k=3 of the
+  pulse family (two-sided BFS depth 7+7, per-relator cap 26, complete within those bounds). (4) A bridge from the
+  n=6 opening into a radius-3 tube of the n=5 path exists (repeating block `7 9 2 0` ×5) but totals 86 > 78.
