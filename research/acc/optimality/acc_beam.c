@@ -55,6 +55,9 @@ static int apply_macro(const St*s,int mi,St*r){ static St a,b; St*x=&a,*y=&b; *x
 // ---- P2 begin ----
 // BEAM_P2=1: rank children by P2 (level-1 cut BEAM_P2CUT, default 8; 0 = no cut), then P1m, then the existing key
 // (hprio when BEAM_H=1, else length, with the SHADOW/MACROS/NOISE terms). BEAM_P2=2: P2, then the existing key.
+// BEAM_P2=3 (score zoo, research/acc/live/SCORE_ZOO.md): P2, then comm_len, then P1m, then the existing key, where
+// comm_len = cyclically reduced length of r0 r1 r0^-1 r1^-1 on the stored words (O(L), computed for every child: it is
+// the word-level tie-break that separates the conjugation children P2 ties).
 // Definitions and tie-breaks are those of p2_hump_test.py (this is a port of the scratch p2bench.c, which matched the
 // Python on 200/200 states). Words over aAbB (a=x A=x^-1 b=y B=y^-1, inverse = case flip), handled by cyclic cores:
 //   P2  = best total cyclically reduced length after exactly two multiplications r_i <- rot(r_i)*rot(r_j)^{+-1},
@@ -174,6 +177,10 @@ static uint16_t p2_of(const St*s){ static char r0[MAXW+1],r1[MAXW+1],A[MAXW+1],B
   e->a=ha; e->b=hb; e->v=(uint32_t)v; P2time+=now()-t0; return (uint16_t)v; }
 static uint32_t p1m_of(const St*s){ static char r0[MAXW+1],r1[MAXW+1]; p2_enc(s->w[0],s->l[0],r0); p2_enc(s->w[1],s->l[1],r1);
   int v=p2_p1m(r0,s->l[0],r1,s->l[1]); return v>1023?1023:(uint32_t)v; }
+static uint32_t comm_len(const St*s){ static uint8_t o[4*MAXW+8]; int n=0;   /* |cycred(r0 r1 r0^-1 r1^-1)|, saturated at 1023 */
+  for(int i=0;i<s->l[0];i++) n=push_red(o,n,s->w[0][i]); for(int i=0;i<s->l[1];i++) n=push_red(o,n,s->w[1][i]);
+  for(int i=s->l[0]-1;i>=0;i--) n=push_red(o,n,s->w[0][i]^1); for(int i=s->l[1]-1;i>=0;i--) n=push_red(o,n,s->w[1][i]^1);
+  int i=0,j=n; while(j-i>1&&o[i]==(o[j-1]^1)){ i++; j--; } return (uint32_t)(j-i>1023?1023:j-i); }
 // ---- P2 end ----
 // ---- atlas begin ----
 // BEAM_QUOTA=q (atlas B16/B17, "overflow builds its own wall"): at most q survivors per class, class = the unordered
@@ -252,16 +259,16 @@ int main(int argc,char**argv){
   int HP=getenv("BEAM_H")?atoi(getenv("BEAM_H")):0; BAL=getenv("BEAM_BAL")?atof(getenv("BEAM_BAL")):0;
   if(getenv("BEAM_MACROS")){ load_macros(getenv("BEAM_MACROS")); MACW=getenv("BEAM_MACW")?atof(getenv("BEAM_MACW")):1.0; C=realloc(C,sizeof(Cand)*W*(14+NMAC)); fprintf(stderr,"macros: %d\n",NMAC); }
   SHW=getenv("BEAM_SHADOW")?atof(getenv("BEAM_SHADOW")):0.0; if(SHW>0){ if(!getenv("BEAM_SHADOW_FILE")) die("BEAM_SHADOW_FILE"); load_probes(getenv("BEAM_SHADOW_FILE")); }
-  P2M=getenv("BEAM_P2")?atoi(getenv("BEAM_P2")):0; if(P2M&&P2M!=1&&P2M!=2) die("BEAM_P2 must be 1 or 2"); if(getenv("BEAM_P2CUT")) P2CUT=atoi(getenv("BEAM_P2CUT"));
+  P2M=getenv("BEAM_P2")?atoi(getenv("BEAM_P2")):0; if(P2M&&P2M!=1&&P2M!=2&&P2M!=3) die("BEAM_P2 must be 1, 2 or 3"); if(getenv("BEAM_P2CUT")) P2CUT=atoi(getenv("BEAM_P2CUT"));
   if(P2M){ nodes[0].p2=p2_of(&s0); fprintf(stderr,"p2: mode %d cut %d start P2=%u P1m=%u\n",P2M,P2CUT,nodes[0].p2,p1m_of(&s0)); }
   QUOTA=getenv("BEAM_QUOTA")?atoi(getenv("BEAM_QUOTA")):0; WHM=getenv("BEAM_WH")?atoi(getenv("BEAM_WH")):0;
   if(QUOTA<0||(WHM!=0&&WHM!=1)) die("BEAM_QUOTA must be >= 0 and BEAM_WH 0 or 1");
-  if(QUOTA>0&&getenv("BEAM_NOV")&&atoi(getenv("BEAM_NOV"))>0) die("BEAM_QUOTA and BEAM_NOV together"); if(WHM&&LOOK) die("BEAM_WH and BEAM_LOOK together");
+  if(QUOTA>0&&getenv("BEAM_NOV")&&atoi(getenv("BEAM_NOV"))>0) die("BEAM_QUOTA and BEAM_NOV together"); if(WHM&&LOOK) die("BEAM_WH and BEAM_LOOK together"); if(WHM&&P2M==3) die("BEAM_WH and BEAM_P2=3 together");
   int ATL=QUOTA>0||WHM; uint64_t*NCL=NULL; uint16_t*NWH=NULL;
   if(ATL){ NCL=malloc(8*(W*(uint64_t)(DMAX+1)+1)); NWH=malloc(2*(W*(uint64_t)(DMAX+1)+1)); if(!NCL||!NWH) die("atlas alloc");
     NCL[0]=at_class(&s0); NWH[0]=WHM?wh_of(&s0,NCL[0]):0; fprintf(stderr,"atlas: quota %d wh %d start WH=%u\n",QUOTA,WHM,NWH[0]); }
   if(getenv("BEAM_TRACE_FILE")){ uint64_t g1,g2; load_trace(getenv("BEAM_TRACE_FILE")); fp(&s0,&g1,&g2); fprintf(stderr,"trace: %d states; start state is index %d\n",NTR,trace_find(g1,g2)); }
-  const int KS=LOOK?40:P2M?((WHM&&P2M==1)?17:27):(WHM?30:40);   /* key bits below the ranking fields (fingerprint tie-break) */
+  const int KS=LOOK?40:P2M?(((WHM&&P2M==1)||P2M==3)?17:27):(WHM?30:40);   /* key bits below the ranking fields (fingerprint tie-break) */
   static uint32_t trNt[256]; static int trI[256],trT[256]; static uint64_t trKey[256]; int ntrh=0;
   int NOISE=getenv("BEAM_NOISE")?atoi(getenv("BEAM_NOISE")):0; if(HP) NOISE*=16; /* priority is scaled x16 */ uint64_t SEED=getenv("BEAM_SEED")?strtoull(getenv("BEAM_SEED"),0,10)*0xD1B54A32D192ED03ULL:0;
   for(int d=1;d<=DMAX;d++){
@@ -294,8 +301,9 @@ int main(int argc,char**argv){
         uint64_t key=((uint64_t)klen<<40)|((h1^SEED)>>24);
         if(WHM) key=((uint64_t)klen<<40)|((uint64_t)tWH[nt]<<30)|((h1^SEED)>>34);   /* BEAM_WH: klen | WH (10 bits) | 30 fp bits */
         // BEAM_P2: P2 (9 bits) | P1m (10 bits, mode 1 only) | existing klen (18 bits, saturated) | 27 fingerprint bits
-        if(P2M){ uint64_t kl=klen>0x3FFFFu?0x3FFFFu:klen, pm=P2M==1?p1m_of(&nx):0;
+        if(P2M){ uint64_t kl=klen>0x3FFFFu?0x3FFFFu:klen, pm=P2M!=2?p1m_of(&nx):0;
           key=((uint64_t)cp2<<55)|(pm<<45)|(kl<<27)|((h1^SEED)>>37);
+          if(P2M==3) key=((uint64_t)cp2<<55)|((uint64_t)comm_len(&nx)<<45)|(pm<<35)|(kl<<17)|((h1^SEED)>>47);  /* P2 | comm_len | P1m | klen | 17 fp */
           if(WHM){ uint64_t wv=tWH[nt]; key=P2M==2?(((uint64_t)cp2<<55)|(wv<<45)|(kl<<27)|((h1^SEED)>>37))      /* P2 | WH | klen | 27 fp */
                                                 :(((uint64_t)cp2<<55)|(wv<<45)|(pm<<35)|(kl<<17)|((h1^SEED)>>47)); } }  /* P2 | WH | P1m | klen | 17 fp */
         if(LOOK){ uint32_t best=len; St y; for(int m2=0;m2<14;m2++){ apply(&nx,m2,&y); uint32_t l2=y.l[0]+y.l[1]; if(l2<best) best=l2; }

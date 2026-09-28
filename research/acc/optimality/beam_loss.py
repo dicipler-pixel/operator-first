@@ -14,7 +14,7 @@ whether it survived the selection. From those lines this script reports, per arm
       width    - rank < 2*k1: a beam about twice as wide would have kept it deterministically;
       ranked   - rank >= 2*k1: the key ranks it far down (factor rank/k1 reported);
       quota    - (BEAM_QUOTA arms) its class was already full; for admitted states width/ranked use the admitted position.
-  decided_by names the first key field (P2, WH, P1m, klen/hprio, else the fingerprint) where it differs from the cut.
+  decided_by names the first key field (P2, WH, comm_len, P1m, klen/hprio, else the fingerprint) where it differs from the cut.
 Paths come from research/acc/live/queue/sent/*.txt, ACC_SUBMIT_API_*.txt (repo root) and
 research/acc/live/ledger/crossrow_roads_ac_20260928.json (shortest path that replays to the target), or --path.
 
@@ -29,7 +29,7 @@ SCR = os.environ.get('ACC_SCRATCH', '/tmp/claude-0/-home-user-operator-first/3cb
 E = {1: 0, -1: 1, 2: 2, -2: 3}
 ARMS = {'H': {}, 'P2=2': {'BEAM_P2': '2'}, 'P2=1': {'BEAM_P2': '1'},
         'P2=2+Q4': {'BEAM_P2': '2', 'BEAM_QUOTA': '4'}, 'P2=2+Q16': {'BEAM_P2': '2', 'BEAM_QUOTA': '16'},
-        'P2=2+WH': {'BEAM_P2': '2', 'BEAM_WH': '1'}}
+        'P2=2+WH': {'BEAM_P2': '2', 'BEAM_WH': '1'}, 'P2=3': {'BEAM_P2': '3'}, 'P2=3+Q16': {'BEAM_P2': '3', 'BEAM_QUOTA': '16'}}
 BASE = {'BEAM_H': '1', 'BEAM_DIV': '0.8'}
 M64 = (1 << 64) - 1
 
@@ -144,6 +144,8 @@ def decode(key, env):
     elif p2 == 2:
         d = {'p2': key >> 55, 'klen': (key >> 27) & 0x3FFFF}
         if wh: d['wh'] = (key >> 45) & 1023
+    elif p2 == 3:
+        d = {'p2': key >> 55, 'comm': (key >> 45) & 1023, 'p1m': (key >> 35) & 1023, 'klen': (key >> 17) & 0x3FFFF}
     else:
         d = {'p2': key >> 55}
         if wh: d.update(wh=(key >> 45) & 1023, p1m=(key >> 35) & 1023, klen=(key >> 17) & 0x3FFFF)
@@ -206,7 +208,7 @@ def analyse(N, radius, recs, visited, env, W):
     drop['rank_over_k1'] = round(pos / k1, 2) if k1 and pos >= 0 else None
     # first ranking field (in key order) where the state differs from the deterministic cut: what decided the drop
     f, c = drop['fields'], drop['cut_k1_fields']
-    order = [k for k in ('p2', 'wh', 'p1m', 'klen') if k in f]
+    order = [k for k in ('p2', 'wh', 'comm', 'p1m', 'klen') if k in f]
     if 'wh' in f and 'p2' not in f: order = ['klen', 'wh']
     drop['decided_by'] = next((k for k in order if f[k] != c[k]), 'fingerprint')
     drop['other_depths'] = [{'d': c['d'], 'rank': c['rank'], 'kept': c['kept']} for c in cands if c is not r][:10]
