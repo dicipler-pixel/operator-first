@@ -1228,3 +1228,9 @@ kappa-gap peak (the climb) and peak -> end (the dive). The kappa peak sits at a 
 - Scale-free ratio abs(trAB)/(abs(trA) abs(trB)): median 1.0 at the start, 0.84 at the kappa peak; the vacuum's is 6/4 = 1.5.
 - Consequence for MS(n, YYXXYx): the n=5 descent's r0 getting worse (Sanov 10.3 -> 13.0) while r1 closed may be the start
   of a correct climb, not a failure. The climb-then-dive test will let r0 and the commutator rise while holding r1.
+
+## 2026-09-28 Codex: completed mirror-twin two-eyes AC sweep
+
+- **Exact scope/settings:** all 80 IDs, each once in order, from `research/acc/live/targets_codex_mirror_20260928T2015Z.json`; mirror transform swaps x↔y and relator order and maps each path back; pinned SAIR `a0fd6e6`, `BEAM_H=1 BEAM_DIV=0.8 BEAM_P2=2 BEAM_QUOTA=16 BEAM_ELITE=5000 BEAM_DUAL=0.75`, width 20,000, `DMAX=ac_record` for each row; T8 SHA-256 `38f05b56d5e79d9df03cc3cd96cd8433725b051111984a8dad4fbe30d07068f8`. Full ordered raw result `research/acc/live/sweeps/codex_mirror_20260928T230855Z.jsonl` (80 JSON lines). No runner errors.
+- **Results:** four official-verifier AC ties, zero beats: `ac-05818` 34/34, `ac-04718` 34/34, `ac-05378` 42/42, `ac-09839` 44/44. All four went to inbox immediately; only Session 2 submits. Remaining 76: 32 valid paths above listed record; 44 bounded `nopath`. A `nopath` is only a failure of this beam at this record ceiling, not a proof of optimality or AC hardness.
+- **Near misses exactly one move above listed record:** `ac-02341` 30/29, `ac-02717` 38/37, `ac-02288` 38/37, `ac-03697` 45/44, `ac-00678` 42/41, `ac-06262` 36/35, `ac-05506` 29/28. Candidate for targeted path shortening after deconfliction; none is an inbox hit as-is. Check live board/ledger before reuse.
