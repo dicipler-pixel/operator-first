@@ -243,7 +243,11 @@ def changes(args):
     and team score/row-count deltas. Rows we sent in that window are marked (ours)."""
     if not args.no_pull:
         pull_boards(args.board)
-    mine = our_best(fetch_mine()) if not args.no_pull else {}
+    # our rows from saved history + local send log (no API reads)
+    files = sorted(glob.glob(str(LIVE / "mine_*.json")))
+    mine = our_best(json.load(open(files[-1]))) if files else {}
+    for cid, ln in our_best(local_history()).items():
+        mine[cid] = min(ln, mine.get(cid, ln))
     for problem in ("ac", "stable_ac"):
         pulls = board_pulls(args.board, problem)
         if len(pulls) < 2:
@@ -259,7 +263,8 @@ def changes(args):
             if (r0, k0) == (r1, k1):
                 continue
             what = ("SOLVED" if r0 is None else "BEAT" if r1 < r0 else "TIE" if k1 > k0 else "k down" if k1 < k0 else "?")
-            ours = " (ours)" if mine.get(cid) == r1 else ""
+            ours = (" (ours)" if mine.get(cid) == r1 else
+                    f" LOST OUR TIE (we have {mine[cid]})" if cid in mine and r0 is not None and mine[cid] == r0 and r1 < r0 else "")
             rows.append((what, cid, r0, k0, r1, k1, ours))
         print(f"\n{problem}: {g0} -> {g1}: {len(rows)} row(s) changed")
         order = {"SOLVED": 0, "BEAT": 1, "TIE": 2}
