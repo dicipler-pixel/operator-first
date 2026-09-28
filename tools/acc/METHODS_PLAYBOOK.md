@@ -145,3 +145,17 @@ the commit hashes of the tool and the result.
   ac-00974 27 (own 37) via a mirror of ac-07289, and ac-03028 solved via a mirror of ac-09650.
   No record ties yet.
 - It scales with memory size (`tools/acc/path_memory.py`) and radius.
+
+## Periodicity eye (Bob's idea 1, tested 2026-09-28): SURVIVES
+- Score = best cyclic self-match of a relator. At matched start length, unsolved rows are much
+  more periodic than solved ones: +0.15 overall, +0.28 at length ≥ 30. Permutation p = 0.003.
+  Kill condition not met.
+- The driver is **long runs of one letter**. By the longest single-letter run in the row:
+
+| Longest run | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 11+ |
+|---|---|---|---|---|---|---|---|---|
+| Unsolved | 6% | 11% | 19% | 34% | 46% | 63% | 75% | 79% |
+
+- No relator is an exact proper power. The runs sit inside the words (Akbulut–Kirby shape).
+- Action: the 427 unsolved rows with run ≤ 3 are the "odd easy" ones. They are running with
+  BEAM_BAL=1 (`work/oddeasy_targets.json`).
