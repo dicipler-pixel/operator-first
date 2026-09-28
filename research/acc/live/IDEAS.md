@@ -1189,3 +1189,8 @@ The routes coincide at state 9 and again at old/new indices 35/34: a 26-move sec
 from that path's states, the (y,x)-aimed beam found a route of 25 at a middle cut -> Stable 27. Plain AC + [15,15] would
 be 28. Pattern: when the Stable record is AC + 1, run yx_mid on every fresh AC tie path (cheap on short rows: 25 cuts,
 ~30 s each).
+23:05Z check-in (session 1): lanes alive. Long rows: 17 done (1 path, ac-09221 75/69). Deep family 94/254 (roads to the
+pool; ac-07790 53 posted for Git). First solves 18/100, none: auto-switch at 20 to the opposite approach
+(tools/acc/firstsolve_twins.py: deep two-eyes beams from the three twins, mapped back, official replay).
+sac-08078 cap 33 still running. Helpers: Astra 11/150, 2 hit rows (22:55Z line); Sonnet last line 21:55Z (6/200),
+missed the 22:55Z rally; Bob no line yet (orders 22:19Z).
