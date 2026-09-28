@@ -48,6 +48,8 @@ Without `--yes`, it's a dry run.
 - Submission 2607 (04:28Z, batch): 20 AC ties from session 1's unsent roads plus ac/sac-09989, 22/22
   accepted, about +0.012 (best: ac-02902 k7, ac-01639 k9). Three AC+2 Stable AC lines were dropped as
   already sent.
+- Submission 2632 (07:07Z, batch): ac/sac-07004 (43/45) and ac-04278 (35), k14 ties from session 1's road
+  cycle, 3/3 accepted (tiny value).
 - Board watcher: `changes` every 30 min into `research/acc/live/changes/`. It alerts on
   "LOST OUR TIE" or a newly solved row.
 
