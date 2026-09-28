@@ -43,3 +43,8 @@ Half B belongs to Codex: research/acc/live/targets_codex_oddeasyB.json
 
 ## 2026-09-28 07:45Z: P2=2 beam lane "p2c": AC records 46-60, k 1-3, not tied by us, not in any sweeps/*_targets.json
 (session 2 has records <= 45). List: sweeps/p2c_targets.json. Unsolved half-A beam stopped (44 rows, 0 solves).
+
+## 2026-09-28 15:30Z: session 1 resumes the helpers' stopped two-eyes lanes
+Helpers stopped at 49/172 (15:04Z). Session 1 runs the rest on its machine: lanes dualAr (58 rows) and dualBr (58 rows)
+= targets_dual_helper{A,B} minus sweeps/dual{A,B}_codex_20260928.jsonl. Same flags (BEAM_DUAL=0.75 etc.), T9 finish.
+Hits go to research/acc/live/inbox/. Also resumes the reverse-ceiling probe at ceiling 11 (6M-state limit).

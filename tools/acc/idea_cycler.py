@@ -17,6 +17,8 @@ IDEAS = [  # (name, env, width, extra depth)  opposites sit next to each other
     ("novelty",      {"BEAM_NOV": "1", "BEAM_H": "1"},                         50000, 2),
     ("noise-seed7",  {"BEAM_H": "1", "BEAM_NOISE": "3", "BEAM_SEED": "7"},     50000, 2),
     ("wide-200k",    {"BEAM_H": "1", "BEAM_DIV": "1.0"},                      200000, 2),
+    ("two-eyes",     {"BEAM_H": "1", "BEAM_DIV": "0.8", "BEAM_P2": "2", "BEAM_QUOTA": "16", "BEAM_ELITE": "5000",
+                      "BEAM_DUAL": "0.75"},                                     20000, 2),
     ("deep-road",    {"BEAM_H": "1", "BEAM_DIV": "1.0"},                       50000, 15),
 ]
 VARIANTS = ["as-is", "swap-relators", "swap-xy", "invert-letters"]

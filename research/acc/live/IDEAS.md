@@ -963,3 +963,6 @@ Shortest AC route whose first <= 60 moves stay under the ceiling (exact capped B
   ceiling 20 -> 69; 21+ running. **Height barrier for MS(4) = +4 above the start**, and the ~47 record needs > 25.
 - Disk-backed full n=4 at cap 26: budget stop at depth 21 (250M states), inconclusive; cap 28 stopped (shallower).
 Raw: ledger/ms_height_profile_20260928.log.
+15:30Z (session 1): climb-then-match on ac-00975 (756 climbing openings, top 30 seeds x 2 beams): no path <= 34.
+Idea cycler gains a 9th idea "two-eyes" (BEAM_DUAL=0.75 set); acc_beam rebuilt from current source.
+Helpers' dual lanes resumed here (58 + 58 rows). Reverse-ceiling probe resumed at ceiling 11 with a 6M limit.
