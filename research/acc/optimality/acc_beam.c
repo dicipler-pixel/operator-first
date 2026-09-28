@@ -5,7 +5,8 @@
 // or a Stable AC path d+t+2 (via (y,x)). Kernel/fingerprint/table shared with acc_opt.c.
 // usage: acc_beam TFILE W DMAX l0 w.. l1 w..
 // Options (env): BEAM_H, BEAM_BAL, BEAM_DIV, BEAM_NOV, BEAM_NOISE, BEAM_SEED, BEAM_LOOK, BEAM_SHADOW(+_FILE),
-// BEAM_MACROS(+BEAM_MACW), BEAM_P2 (+BEAM_P2CUT), BEAM_QUOTA, BEAM_WH, BEAM_TRACE_FILE; see the comments at each.
+// BEAM_MACROS(+BEAM_MACW), BEAM_P2 (+BEAM_P2CUT), BEAM_QUOTA (+BEAM_ELITE), BEAM_WH, BEAM_DUAL, BEAM_TRACE_FILE;
+// see the comments at each.
 // All off by default.
 // build: gcc -O3 -march=native -o acc_beam acc_beam.c -lm
 #define ACC_NO_MAIN
@@ -200,7 +201,14 @@ static uint32_t comm_len(const St*s){ static uint8_t o[4*MAXW+8]; int n=0;   /* 
 // (index on a known path, hex fingerprints of that state as fp() gives them). Each depth prints to stderr, for every
 // traced state that becomes a candidate: its rank in the sorted candidate list, the tie block [lo,hi) of its key
 // without the fingerprint bits, the cut keys at k1 = W*DIV and W, and whether it survived. Observation only.
-static int QUOTA=0,WHM=0; static uint64_t ELITE=0; static uint64_t WHcalls,WHhits,WHsat; static double WHtime;
+static int QUOTA=0,WHM=0; static uint64_t ELITE=0; static double DUALF=0;
+// BEAM_DUAL=f (0<f<1; "two eyes", from the beam-loss diagnostic: P2 drops roads at single-step P2 rises that the plain
+// H key keeps): the first f*W survivors are chosen by the main key exactly as without BEAM_DUAL (QUOTA/ELITE/DIV/NOV
+// as set, with f*W in place of W); the other (1-f)*W are the best by the plain key (klen: hprio when BEAM_H=1, else
+// length, plus SHADOW/MACROS/NOISE terms; fingerprint tie-break) among the candidates the first eye left, with the
+// same BEAM_DIV split (best DIV fraction, the rest sampled evenly from that eye's tail). Candidates are unique by
+// fingerprint within a depth, so the eyes never share a state.
+static uint64_t WHcalls,WHhits,WHsat; static double WHtime;
 static int at_least_rot(const uint8_t*s,int n){ int i=0,j=1,k=0;   /* s holds the word twice */
   while(i<n&&j<n&&k<n){ uint8_t a=s[i+k],b=s[j+k]; if(a==b){ k++; continue; } if(a>b) i+=k+1; else j+=k+1; if(i==j) j++; k=0; }
   return i<j?i:j; }
@@ -265,6 +273,8 @@ int main(int argc,char**argv){
   if(P2M){ nodes[0].p2=p2_of(&s0); fprintf(stderr,"p2: mode %d cut %d start P2=%u P1m=%u\n",P2M,P2CUT,nodes[0].p2,p1m_of(&s0)); }
   QUOTA=getenv("BEAM_QUOTA")?atoi(getenv("BEAM_QUOTA")):0; WHM=getenv("BEAM_WH")?atoi(getenv("BEAM_WH")):0;
   ELITE=getenv("BEAM_ELITE")?strtoull(getenv("BEAM_ELITE"),0,10):0; if(ELITE&&QUOTA<=0) die("BEAM_ELITE needs BEAM_QUOTA");
+  DUALF=getenv("BEAM_DUAL")?atof(getenv("BEAM_DUAL")):0; if(DUALF<0||DUALF>=1||(DUALF>0&&LOOK)) die("BEAM_DUAL must be in (0,1), not with BEAM_LOOK");
+  if(DUALF>0) fprintf(stderr,"dual: first eye %.3f of W by the main key, the rest by the plain key\n",DUALF);
   if(QUOTA<0||(WHM!=0&&WHM!=1)) die("BEAM_QUOTA must be >= 0 and BEAM_WH 0 or 1");
   if(QUOTA>0&&getenv("BEAM_NOV")&&atoi(getenv("BEAM_NOV"))>0) die("BEAM_QUOTA and BEAM_NOV together"); if(WHM&&LOOK) die("BEAM_WH and BEAM_LOOK together"); if(WHM&&P2M==3) die("BEAM_WH and BEAM_P2=3 together");
   int ATL=QUOTA>0||WHM; uint64_t*NCL=NULL; uint16_t*NWH=NULL;
@@ -279,6 +289,7 @@ int main(int argc,char**argv){
     Node*tmpN=malloc(sizeof(Node)*(hi-lo)*(14+NMAC)+1); uint64_t nt=0; SAn=0; memset(L.t,0,16*L.N); L.n=0;
     uint64_t*tCL=ATL?malloc(8*((hi-lo)*(14+NMAC)+1)):NULL; uint16_t*tWH=ATL?malloc(2*((hi-lo)*(14+NMAC)+1)):NULL; ntrh=0;
     if(ATL&&(!tCL||!tWH)) die("atlas alloc");
+    uint64_t*tK2=DUALF>0?malloc(8*((hi-lo)*(14+NMAC)+1)):NULL; if(DUALF>0&&!tK2) die("dual alloc");
     for(uint64_t i=lo;i<hi;i++){ load(nodes[i].off,&cur);
       for(int m=0;m<14+NMAC;m++){ int ctd=nodes[i].td+1; if(m<14) apply(&cur,m,&nx); else { if(!apply_macro(&cur,m-14,&nx)) continue; ctd=nodes[i].td+MACL[m-14]; } fp(&nx,&h1,&h2);
         if(tab_find(&V,h1,h2)>=0){ if(NTR){ int ti=trace_find(h1,h2); if(ti>=0) fprintf(stderr,"TRACE d=%d i=%d visited\n",d,ti); } continue; }
@@ -301,7 +312,7 @@ int main(int argc,char**argv){
         tmpN[nt]=(Node){SAn,(uint32_t)i,(uint8_t)m,len,(uint16_t)ctd,cp2}; SAn+=need;
         // BEAM_NOISE=n, BEAM_SEED=s: add a seeded pseudo-random 0..n to the length key (route diversity)
         uint32_t klen=HP?hprio(&nx):len; if(SHW>0) klen+=(uint32_t)(SHW*(HP?16.0:1.0)*shadow(&nx)+0.5); if(NMAC) klen+=(uint32_t)(MACW*(HP?16.0:1.0)*(ctd-d)+0.5); if(NOISE){ uint64_t z=(h1^SEED)*0x9E3779B97F4A7C15ULL; z^=z>>29; klen+=(uint32_t)(z%(uint64_t)(NOISE+1)); }
-        uint64_t key=((uint64_t)klen<<40)|((h1^SEED)>>24);
+        uint64_t key=((uint64_t)klen<<40)|((h1^SEED)>>24); if(tK2) tK2[nt]=key;   /* BEAM_DUAL: the plain key of the second eye */
         if(WHM) key=((uint64_t)klen<<40)|((uint64_t)tWH[nt]<<30)|((h1^SEED)>>34);   /* BEAM_WH: klen | WH (10 bits) | 30 fp bits */
         // BEAM_P2: P2 (9 bits) | P1m (10 bits, mode 1 only) | existing klen (18 bits, saturated) | 27 fingerprint bits
         if(P2M){ uint64_t kl=klen>0x3FFFFu?0x3FFFFu:klen, pm=P2M!=2?p1m_of(&nx):0;
@@ -319,8 +330,9 @@ int main(int argc,char**argv){
       if(ntrh){ double DV=getenv("BEAM_DIV")?atof(getenv("BEAM_DIV")):1.0; k1tr=(uint64_t)(W*DV); if(k1tr>W) k1tr=W; cutK1=C[k1tr?k1tr-1:0].key; cutW=C[W-1].key;
         for(int j=0;j<ntrh;j++){ uint64_t p=0; while(p<nt&&C[p].idx!=trNt[j]) p++; trRank[j]=(int64_t)p; uint64_t hk=C[p].key>>KS,a=p,b=p+1;
           while(a>0&&(C[a-1].key>>KS)==hk) a--; while(b<nt&&(C[b].key>>KS)==hk) b++; trLo[j]=(int64_t)a; trHi[j]=(int64_t)b; } }
+      uint64_t WS=DUALF>0?(uint64_t)(DUALF*W):W;   /* BEAM_DUAL: the first eye fills WS slots; WS == W otherwise */
       if(QUOTA>0){ // BEAM_QUOTA: admit in key order while the class has < q survivors; DIV samples its tail from the admitted list
-        double DIV=getenv("BEAM_DIV")?atof(getenv("BEAM_DIV")):1.0; uint64_t k1=(uint64_t)(W*DIV); if(k1>W) k1=W;
+        double DIV=getenv("BEAM_DIV")?atof(getenv("BEAM_DIV")):1.0; uint64_t k1=(uint64_t)(WS*DIV); if(k1>WS) k1=WS;
         static uint64_t*qk; static uint32_t*qc; static uint64_t qcap; uint64_t hs=1; while(hs<2*nt) hs<<=1;
         if(hs>qcap){ qk=realloc(qk,8*hs); qc=realloc(qc,4*hs); if(!qk||!qc) die("quota alloc"); qcap=hs; } memset(qk,0,8*hs);
         uint32_t*A=malloc(4*nt),*R=malloc(4*nt); uint64_t nA=0,nR=0,ncls=0; if(!A||!R) die("quota alloc");
@@ -328,24 +340,35 @@ int main(int argc,char**argv){
           if(!qk[sl]){ qk[sl]=c; qc[sl]=0; ncls++; } if(qc[sl]<(uint32_t)QUOTA){ qc[sl]++; A[nA++]=(uint32_t)q; } else R[nR++]=(uint32_t)q; }
         for(int j=0;j<ntrh;j++){ for(uint64_t q=0;q<nA;q++) if(A[q]==(uint32_t)trRank[j]){ trAdm[j]=1; trQ[j]=(int64_t)q; break; }
           if(trAdm[j]<0) for(uint64_t q=0;q<nR;q++) if(R[q]==(uint32_t)trRank[j]){ trAdm[j]=0; trQ[j]=(int64_t)q; break; } }
-        Cand*K=malloc(sizeof(Cand)*W); uint64_t kk=0; if(!K) die("quota alloc");
-        if(nA>=W){ for(uint64_t q=0;q<k1;q++) K[kk++]=C[A[q]];
-          if(k1<W){ uint64_t rest=nA-k1,need=W-k1; for(uint64_t q=0;q<need;q++) K[kk++]=C[A[k1+(uint64_t)((double)q*rest/need)]]; } }
-        else { for(uint64_t q=0;q<nA;q++) K[kk++]=C[A[q]]; for(uint64_t q=0;q<nR&&kk<W;q++) K[kk++]=C[R[q]]; }
+        Cand*K=malloc(sizeof(Cand)*WS); uint64_t kk=0; if(!K) die("quota alloc");
+        if(nA>=WS){ for(uint64_t q=0;q<k1;q++) K[kk++]=C[A[q]];
+          if(k1<WS){ uint64_t rest=nA-k1,need=WS-k1; for(uint64_t q=0;q<need;q++) K[kk++]=C[A[k1+(uint64_t)((double)q*rest/need)]]; } }
+        else { for(uint64_t q=0;q<nA;q++) K[kk++]=C[A[q]]; for(uint64_t q=0;q<nR&&kk<WS;q++) K[kk++]=C[R[q]]; }
         memcpy(C,K,sizeof(Cand)*kk); free(K); free(A); free(R);
         if(d%10==0) fprintf(stderr,"quota d=%d classes=%llu admitted=%llu\n",d,(unsigned long long)ncls,(unsigned long long)nA); } else {
       // diversity ("zag"): keep the best DIV fraction by length, fill the rest evenly from the longer remainder
-      double DIV=getenv("BEAM_DIV")?atof(getenv("BEAM_DIV")):1.0; uint64_t k1=(uint64_t)(W*DIV); if(k1>W) k1=W;
-      if(k1<W){ uint64_t rest=nt-k1, need=W-k1; for(uint64_t q=0;q<need;q++){ uint64_t src=k1+(uint64_t)((double)q*rest/need); C[k1+q]=C[src]; } }
+      double DIV=getenv("BEAM_DIV")?atof(getenv("BEAM_DIV")):1.0; uint64_t k1=(uint64_t)(WS*DIV); if(k1>WS) k1=WS;
+      if(k1<WS){ uint64_t rest=nt-k1, need=WS-k1; for(uint64_t q=0;q<need;q++){ uint64_t src=k1+(uint64_t)((double)q*rest/need); C[k1+q]=C[src]; } }
       // novelty quota: at most NOV states per shape bucket (lengths + exponent sums), rest filled in length order
       int NOV=getenv("BEAM_NOV")?atoi(getenv("BEAM_NOV")):0;
-      if(NOV>0){ static uint16_t cnt[1<<20]; memset(cnt,0,sizeof cnt); Cand*K=malloc(sizeof(Cand)*W); uint8_t*used=calloc(nt,1); uint64_t kk=0;
-        for(uint64_t q=0;q<nt&&kk<W;q++){ Node x=tmpN[C[q].idx]; uint8_t*z=SA+x.off; int l0=z[0]|(z[1]<<8), l1=z[2]|(z[3]<<8); int e[4]={0,0,0,0};
+      if(NOV>0){ static uint16_t cnt[1<<20]; memset(cnt,0,sizeof cnt); Cand*K=malloc(sizeof(Cand)*WS); uint8_t*used=calloc(nt,1); uint64_t kk=0;
+        for(uint64_t q=0;q<nt&&kk<WS;q++){ Node x=tmpN[C[q].idx]; uint8_t*z=SA+x.off; int l0=z[0]|(z[1]<<8), l1=z[2]|(z[3]<<8); int e[4]={0,0,0,0};
           for(int t=0;t<l0;t++){ uint8_t c=z[4+t]; e[(c>>1)]+=(c&1)?-1:1; } for(int t=0;t<l1;t++){ uint8_t c=z[4+l0+t]; e[2+(c>>1)]+=(c&1)?-1:1; }
           uint64_t b=((uint64_t)l0*1315423911ULL)^((uint64_t)l1*2654435761ULL)^((uint64_t)(e[0]+64)<<8)^((uint64_t)(e[1]+64)<<16)^((uint64_t)(e[2]+64)<<24)^((uint64_t)(e[3]+64)<<32);
           b=(b*0x9E3779B97F4A7C15ULL)>>44; if(cnt[b]<NOV){ cnt[b]++; K[kk++]=C[q]; used[q]=1; } }
-        for(uint64_t q=0;q<nt&&kk<W;q++) if(!used[q]) K[kk++]=C[q];
-        memcpy(C,K,sizeof(Cand)*kk); free(K); free(used); } } }
+        for(uint64_t q=0;q<nt&&kk<WS;q++) if(!used[q]) K[kk++]=C[q];
+        memcpy(C,K,sizeof(Cand)*kk); free(K); free(used); } }
+      if(DUALF>0){ // BEAM_DUAL second eye: best W-WS by the plain key among the candidates the first eye did not take
+        uint8_t*taken=calloc(nt,1); if(!taken) die("dual alloc"); for(uint64_t k=0;k<WS;k++) taken[C[k].idx]=1;
+        Cand*H=malloc(sizeof(Cand)*nt); uint64_t nh=0; if(!H) die("dual alloc");
+        for(uint64_t t=0;t<nt;t++) if(!taken[t]) H[nh++]=(Cand){tK2[t],(uint32_t)t};
+        qsort(H,nh,sizeof(Cand),cmpc); uint64_t W2=W-WS; double DIV=getenv("BEAM_DIV")?atof(getenv("BEAM_DIV")):1.0;
+        uint64_t k2=(uint64_t)(W2*DIV); if(k2>W2) k2=W2; if(k2>nh) k2=nh;
+        for(uint64_t q=0;q<k2;q++) C[WS+q]=H[q];
+        if(k2<W2&&nh>k2){ uint64_t rest=nh-k2,need=W2-k2; if(need>rest) need=rest; for(uint64_t q=0;q<need;q++) C[WS+k2+q]=H[k2+(uint64_t)((double)q*rest/need)]; keep=WS+k2+need; }
+        else keep=WS+k2;
+        if(d%10==0) fprintf(stderr,"dual d=%d first=%llu second=%llu of %llu left\n",d,(unsigned long long)WS,(unsigned long long)(keep-WS),(unsigned long long)nh);
+        free(H); free(taken); } }
     for(int j=0;j<ntrh;j++){ int64_t pos=-1; for(uint64_t k=0;k<keep;k++) if(C[k].idx==trNt[j]){ pos=(int64_t)k; break; }
       uint16_t tw=ATL?tWH[trNt[j]]:0;
       fprintf(stderr,"TRACE d=%d i=%d t=%d kept=%d pos=%lld rank=%lld nt=%llu W=%llu k1=%llu tie_lo=%lld tie_hi=%lld key=%016llx cutk1=%016llx cutW=%016llx ks=%d adm=%d qpos=%lld p2=%u wh=%u len=%u\n",
@@ -353,7 +376,7 @@ int main(int argc,char**argv){
         (unsigned long long)trKey[j],(unsigned long long)cutK1,(unsigned long long)cutW,KS,trAdm[j],(long long)trQ[j],tmpN[trNt[j]].p2,tw,tmpN[trNt[j]].len); }
     lo=nn; for(uint64_t k=0;k<keep;k++){ Node x=tmpN[C[k].idx]; uint8_t*q=SA+x.off; St t2; t2.l[0]=q[0]|(q[1]<<8); t2.l[1]=q[2]|(q[3]<<8);
         memcpy(t2.w[0],q+4,t2.l[0]); memcpy(t2.w[1],q+4+t2.l[0],t2.l[1]); x.off=store(&t2); fp(&t2,&h1,&h2); tab_ins(&V,h1,h2,(d>15?15:d),1); if(ATL){ NCL[nn]=tCL[C[k].idx]; NWH[nn]=tWH[C[k].idx]; } nodes[nn++]=x; }
-    hi=nn; free(tmpN); free(tCL); free(tWH);
+    hi=nn; free(tmpN); free(tCL); free(tWH); free(tK2);
     uint32_t mn=~0u,mx=0; for(uint64_t i=lo;i<hi;i++){ if(nodes[i].len<mn) mn=nodes[i].len; if(nodes[i].len>mx) mx=nodes[i].len; }
     if(d%10==0||bestAC<(1<<30)) fprintf(stderr,"d=%d gen=%llu kept=%llu len[%u..%u] bestAC=%d bestSAC=%d arena=%lluMB\n",d,(unsigned long long)nt,(unsigned long long)keep,mn,mx,bestAC<(1<<30)?bestAC:-1,bestSAC<(1<<30)?bestSAC:-1,(unsigned long long)(ARn>>20));
     if(hi==lo) break; }
