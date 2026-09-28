@@ -1,3 +1,8 @@
+## 2026-09-28, Codex ABC: YXXyx chain trace (official replay)
+- `ledger/codex_yxxyx_trace.py` and `ledger/codex_yxxyx_trace_20260928.json` verify two uniform prefixes for synthetic MS(n, YXXyx), n=3..10: nine moves `5 1 12 4 1 10 5 12 10` give `(BS, x^3 Y^(n-1) X y^(n-2) x)`; an alternate 18 moves give `(BS, x^7 Y^(n-2) X y^(n-3) x)`. In both formulas the product is freely reduced; BS=`YXXyx`.
+- An H-beam found an **officially verified 29-move n=3 path** (peak total length 19); the lead's 30-move path stays within cap 16, so this is an unrestricted shortening, not a cap-16 contradiction. Another found a **verified 55-move n=4 path** (peak 31). Both are synthetic/training instances, not submission lines. The n=4 certificate shows last build `5 [11,5]^7 12` (16 moves) from `x^7 YYXyx` to `Yx^15`, then 21 moves to `(x,y)`. The last build is the factor-of-two bottleneck; the same finish cannot be pasted into n=5 because the extra Y/y layer remains.
+- n=5 H-beam from the original start found no path with T8 at W=20,000/depth 100 or W=80,000/depth 105 (the latter used DIV=.75, BAL=.2). These are beam misses, not bounds. A forced 18-move-prefix continuation is being tested separately.
+
 ## 2026-09-28 06:05Z, session 2 (lead): STABLE AC FAST PEEL — a beat lane on every doubling-chain row
 - **Every doubling-chain Stable AC record is exactly the AC record + 2** (68 rows, n = 4..10, 10 chains). Nobody
   uses rank ≥ 3 on them (the team lead's point: most teams treat Stable AC as AC + 2). A shorter SAC road is a
