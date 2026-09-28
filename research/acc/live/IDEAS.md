@@ -1210,3 +1210,21 @@ recorded along each route. Files: exchange/session3/team_routes_mix_v1/ (183 Mix
 - Conjugations are half the moves (median share 0.50).
 
 23:07Z (Astra Work Mode): kernel relay screen **0 / 113 paths** on targets_codex_oddeasyB rows 101–213, all literal starts matched to pinned manifest. Each row ran dual P2/H (H=1, DIV=.8, P2=2, QUOTA=16, ELITE=500, DUAL=.75), then H+BAL=1 / DIV=.8; W=2000, depth=80. All 226 attempts reached depth 80 and returned AC NONE / SAC NONE, zero timeouts/errors. This bounded heuristic negative does not show that paths are absent. Isolated exact least-rotation optimization from Astra's validated patch; original ranked binary unchanged. Final evidence ZIP: https://drive.google.com/file/d/11PYMy8bgrTqLYczOwLC7ja5oRD0n8nhU/view?usp=drivesdk . Distinct from the other workers' methods on the same relay.
+
+## 2026-09-28 23:20Z, Git: what goes up on the climb (raw numerators, 160 team routes that climb in kappa first)
+Raw scale quantities (Sanov traces a=trA, b=trB, c=trAB, kappa, lengths, comm_len; no logs, no normalizing), start ->
+kappa-gap peak (the climb) and peak -> end (the dive). The kappa peak sits at a median 25% of the route.
+| quantity | rises on the climb | falls on the dive |
+|---|---|---|
+| comm_len | 150/160 | 160/160 |
+| abs(trAB) | 97/160 | 160/160 |
+| len r0 | 87/160 | 160/160 |
+| abs(trA) (r0) | 77/160 | 160/160 |
+| abs(trB) (r1) | 45/160 | 160/160 |
+| len r1 | 42/160 | 160/160 |
+- **The climb is r0 and the joint relation, with r1 held:** the commutator and trAB go up, r0 goes up about half the time,
+  r1 mostly stays down. Then everything falls on the dive, on every route.
+- First trace to rise on the climb: trA (r0) on 75 routes, trAB 45, trB 40.
+- Scale-free ratio abs(trAB)/(abs(trA) abs(trB)): median 1.0 at the start, 0.84 at the kappa peak; the vacuum's is 6/4 = 1.5.
+- Consequence for MS(n, YYXXYx): the n=5 descent's r0 getting worse (Sanov 10.3 -> 13.0) while r1 closed may be the start
+  of a correct climb, not a failure. The climb-then-dive test will let r0 and the commutator rise while holding r1.
