@@ -1,0 +1,212 @@
+{
+  "schema": "acc-window-replacement-audit-v1",
+  "date_utc": "2026-09-28",
+  "target": "ac-06095",
+  "source_path": "ACC_CANDIDATE_06095_20260926.txt",
+  "source_moves": 47,
+  "source_status": "Previously replayed successfully by the pinned SAIR verifier; exact endpoint (x,y).",
+  "source_route_peak_total_relator_length": 31,
+  "peak_state_index": 5,
+  "search_move_set": "ac-r2-v1, moves 0-13",
+  "search_kernel": "acc_opt.c / acc_window.c lineage, SAIR verifier commit a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "fingerprint_note": "Deduplication uses two 64-bit hashes with four distance bits packed into the second word (123 fingerprint bits). Negative results are exhausted searches in this implementation, not collision-free formal certificates.",
+  "window_indexing": "P[i] is the state after i moves; window [i,j] contains moves i through j-1.",
+  "gap15": {
+    "question": "For each listed endpoint pair, is there a replacement of length <=14?",
+    "windows": [
+      [
+        0,
+        15
+      ],
+      [
+        1,
+        16
+      ],
+      [
+        2,
+        17
+      ],
+      [
+        3,
+        18
+      ],
+      [
+        4,
+        19
+      ],
+      [
+        5,
+        20
+      ]
+    ],
+    "radii": [
+      7,
+      7
+    ],
+    "caps_completed": [
+      31,
+      33,
+      35,
+      37,
+      40,
+      43,
+      46,
+      50,
+      60,
+      70,
+      80,
+      90,
+      4096
+    ],
+    "result_all_completed_caps": "No intersections in any of the six windows.",
+    "last_cap_is_effectively_uncapped": "All endpoints have total length <=31; each move has L_next<=2L, so every radius-7 state has total length <=31*2^7=3968. Cap 4096 therefore includes the full radius-7 balls.",
+    "max_states_per_side_by_cap": [
+      {
+        "cap": 31,
+        "A": 408729,
+        "B": 437997
+      },
+      {
+        "cap": 33,
+        "A": 678091,
+        "B": 739077
+      },
+      {
+        "cap": 35,
+        "A": 979017,
+        "B": 1055856
+      },
+      {
+        "cap": 37,
+        "A": 1304019,
+        "B": 1390636
+      },
+      {
+        "cap": 40,
+        "A": 1701151,
+        "B": 1791937
+      },
+      {
+        "cap": 43,
+        "A": 2195847,
+        "B": 2303380
+      },
+      {
+        "cap": 46,
+        "A": 2506504,
+        "B": 2627150
+      },
+      {
+        "cap": 50,
+        "A": 3122098,
+        "B": 3278327
+      },
+      {
+        "cap": 60,
+        "A": 5048966,
+        "B": 5296069
+      },
+      {
+        "cap": 70,
+        "A": 6688643,
+        "B": 6932741
+      },
+      {
+        "cap": 80,
+        "A": 7927647,
+        "B": 8147787
+      },
+      {
+        "cap": 90,
+        "A": 8963569,
+        "B": 9106557
+      },
+      {
+        "cap": 4096,
+        "A": 10885023,
+        "B": 10842301
+      }
+    ],
+    "conclusion": "No <=14-move replacement was found in these six peak-crossing windows, even with unrestricted radius-7 exploration."
+  },
+  "gap16": {
+    "question": "For each listed endpoint pair, is there a replacement of length <=15?",
+    "windows": [
+      [
+        0,
+        16
+      ],
+      [
+        1,
+        17
+      ],
+      [
+        2,
+        18
+      ],
+      [
+        3,
+        19
+      ],
+      [
+        4,
+        20
+      ],
+      [
+        5,
+        21
+      ]
+    ],
+    "radii": [
+      7,
+      8
+    ],
+    "caps_completed_all_six": [
+      31,
+      40,
+      50
+    ],
+    "result_all_completed_caps": "No intersections in any of the six windows.",
+    "max_states_per_side_by_cap": [
+      {
+        "cap": 31,
+        "A": 408729,
+        "B": 1326497
+      },
+      {
+        "cap": 40,
+        "A": 1701151,
+        "B": 8802044
+      },
+      {
+        "cap": 50,
+        "A": 3122098,
+        "B": 18151396
+      }
+    ],
+    "cap60_partial": {
+      "completed_windows": [
+        [
+          0,
+          16
+        ],
+        [
+          1,
+          17
+        ],
+        [
+          2,
+          18
+        ]
+      ],
+      "result": "No intersections in these three windows.",
+      "max_states_per_side": {
+        "A": 3872904,
+        "B": 30320682
+      },
+      "status": "The execution environment disconnected before the remaining three window outputs were captured; no cap-60 conclusion is recorded for them."
+    }
+  },
+  "outputs": "No replacement path was found; source path remains 47 moves.",
+  "next": "Complete gap-16 cap-60 for windows [3,19],[4,20],[5,21] after the compute environment reconnects, then test gap-17 windows if budget permits."
+}
