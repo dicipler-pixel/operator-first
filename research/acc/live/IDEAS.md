@@ -1045,3 +1045,7 @@ Official kernel a0fd6e6, made-up rows MS(n, YXXyx). All exact runs below complet
 4. Checked and clean: Stable lines from held AC paths (0 new); Charlie's 540 cutchain lines (0 scoring).
 5. Job queue was starved (6 heavy lanes always running); cyc1/cyc2 (user's first list, 400 attempts, nothing within
    record+2) stopped and removed from restart_all so the gap runs and first-solve lane can start.
+18:55Z check-in (session 1): **ac-04191 47 and sac-04191 49 TIE (k4 each)** from the resumed helper dual lane B
+(two-eyes beam, T9 finish); official verifier accepted, plan_offline TIE on both; our old lines were 115 / 119.
+Inboxed. Dual lanes: A 38 rows (0 ties), B 39 rows (1 tie). sac-02528 cap 31 (started before the dequeue): budget
+stop at depth 24, no Stable path <= 36. sac-08078 cap 33 running. restart_all: all 6 lanes alive.
