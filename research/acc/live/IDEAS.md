@@ -1139,3 +1139,8 @@ Note: ac-05818 was also in session 1's near-miss cycler list; Codex's inbox line
 - "Two interstates" tested concretely: the distinct 47- and 48-move ac-00786 paths shared 17 exact states; no shorter splice. All bridges of <=3 moves between their interior states found no shorter route (`work/join_fresh_result.json`, local; route construction independently official-checked on any candidate).
 - C16 reverse junctions from the same 133 paths: 1683 short states, 1530 in the complete reverse table; zero shorter finish. Four fresh mirror paths contributed 47 more queries and zero cuts. Ledger: `codex_c16_archive_junctions_20260928.jsonl`.
 - BEAM_BAL=1 with BEAM_H=1 and the two-eyes P2=2 key is currently running on ac-00786. Next: if no tie, release this slice and take a new sender assignment rather than repeating these rankings.
+
+22:05Z (session 2): **(y,x) mid-restart (new `tools/acc/ops/yx_mid.py`) on sac-05378, negative.** From every state of Codex's
+42-move mirror AC path (cuts 0-40), two-eyes beam W=20000 on the letter-swapped state toward (x,y), DMAX = 41 - i: best
+route to (y,x) = 42 (Stable 44; record 43, k1). Same as the earlier yx / yx2 / yx_window results. Not an exact bound.
+Also 21:30Z: esc2 (gap 1-2, k<=3) got its first hit, sac-04346 26 (k3, yx twin); mirror lane hit ac/sac-06457 30/32 (k4).
