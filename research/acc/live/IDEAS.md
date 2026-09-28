@@ -5,6 +5,22 @@
 - On ac-00580 at total-length cap 28, the earlier T9 ledger stopped after depth 23 at 48,220,955 states. The T8/fixed-visited engine reproduced **exactly** that depth-23 count and continued into depth 24, stopping at a 60M-state budget after 95.61 seconds. No AC/SAC meet. This is a repeatable memory/scope improvement, not a complete search or proof. Full command, raw logs, and explicit incomplete status: `ledger/codex_abc_capped_trial.py`, `ledger/codex_abc_capped_trial_00580_20260928.*`.
 - On Bob's ac-00766 near miss, cap 28 already had 426,246 states at depth 7; the next layer paged under shared 8 GB pressure. The run was interrupted and marked incomplete. A radius-8 goal ball plus a 25-step prefix could tie record 33, but this broad BFS is unlikely to reach such depth within our budget. Shift to route-specific joins or a different road, not a higher broad cap. `ledger/codex_abc_capped_trial_00766_20260928.*`.
 
+## 2026-09-28 05:45Z, session 2 (lead): Miller–Schupp families — scale, the clean BS case, and the crux
+- **650 rows in the MS families are held by 1–2 teams** (by n: n=5 115, n=6 105, n=8 77, n=7 71, n=4 67, n=1 65,
+  n=3 56, n=9 52, n=10 36). Source: `ledger/ms_families_by_w_20260928.json`.
+- **Cleanest case: first relator already BS.** 80 rows have r0 = YXXyx (y^-1 x^-2 y x, i.e. y x y^-1 = x^2);
+  about 40 are held by one team. For w = YXXyx, r1 = Y^(n+1) X y^n x: BS gives y^n x = x^(2^n) y^n, so r1 is
+  equivalent to **y = x^(2^n − 1)**. Path = push x left through y^n (2^n − 1 crossings "y x → x x y", each one
+  multiplication by r0^-1 = XYxxy at the END of r1) → setup → peel 2^n − 2 (one x per move with r0 ≡ x).
+  Records n=5..10: 80, 145, 275, 532, 1046, 2071 = 2^(n+1) + n + ~11, all k=1.
+- **The crux:** a crossing only acts at the end of r1, and after one the word ends "…x x y", so the next x
+  must be rotated in (1 conjugation): 2 moves per crossing → ~3·2^n total. The records need ~1 move per
+  crossing. Whoever finds how to chain crossings without a rotation unlocks the whole family set.
+- Running: exact capped search on the n=2 BS case (y = x^3) to see the optimal crossing pattern; H-beam
+  from the n=4 BS stage of w = YXyXyx (record 56).
+- Also worth a look: w = YYXYYxyyX has slowly growing records 42, 43, 76, 81, 134, 159 (n=5..10, all k=1):
+  a different, non-doubling mechanism, and short enough for our beam.
+
 ## 2026-09-28 05:30Z, session 2 (lead): P2 SURVIVES; Miller–Schupp doubling chain, first phase is general
 **P2 test** (`optimality/p2_hump_test.py`, `ledger/p2_hump_test_20260928.json`): 609 verified paths on 526 rows,
 240 at the live record, 56 of them hump paths.
