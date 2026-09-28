@@ -109,6 +109,8 @@ states per run.
   DEAD in this form (greedy first-visit, no layer width); the layered beam is far stronger. 1.0 targets (ac-00975 35/34,
   ac-05149 34/33, ac-06045 37/36): mirror, seeds, noise, W=100k, P2=1/P2=2/DUAL 0.5/plain H configs, exact echo from the
   start (cap 32, depth 19) and from mid states (cap 24/27): no gain. Beam restarts from mid states running.
+- (y,x) lane on rows whose SAC record <= AC record (rival report's top new test, 18:10Z): 0 paths in 36 rows at
+  DMAX = SAC record - 2. Those records need real stabilization (rank 3) moves; stopped 19:40Z.
 - (y,x) shortcut on SAC near-misses (2026-09-28 12:20Z): 0 of 6 (sac-02717, 04586, 03871, 04211, 03719, 08031).
 - YXXyx chain rows (MS_n(w*), Lisitsa's family) with the winner beam: nopath at n>=4 (ac-01784, ac-04042; depth record+2).
   Level-by-level routes cost ~3*2^n (row-op argument, `optimality/chain_rowops/`); records are ~2^(n+1).
