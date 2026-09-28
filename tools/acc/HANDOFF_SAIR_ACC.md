@@ -16,6 +16,9 @@ Before **every** submission:
 5. The user's rule (2026-09-27 22:4xZ): **ties, beats and unsolved rows may be sent without
    asking first**, but the live check must be **at most 5 minutes old** when the POST goes out.
    Report the row, length, live record and k after sending.
+   **Batches (user rule, 2026-09-28):** queue verified lines in `research/acc/live/queue/`, then
+   send with `sair_api.py send-queue --yes` once 3 or more lines wait. A line worth ≥ 0.25 waits
+   at most 30 minutes (`--force`).
 6. The session with SAIR network access sends. The search session produces and verifies lines.
 
 **Tool:** `python3 tools/acc/sair_api.py send FILE... --yes` does steps 1–3 and 5 in one go. It

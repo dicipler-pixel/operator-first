@@ -10,9 +10,17 @@
 ## Inbox (session 1 → session 2)
 1. Every hit: run the official verifier, then write **one file per hit** to
    `research/acc/live/inbox/<UTC time>_<rows>.txt` with clean lines only, and push.
-2. Don't send. Session 2 checks the inbox every few minutes. It re-verifies, runs the live check
-   and sends under the 5-minute rule, then moves the file to `inbox/sent/` with the submission id.
-3. Add the win to `tools/acc/METHODS_PLAYBOOK.md` (row, cap, states, wall time).
+2. Don't send. Session 2 checks the inbox every few minutes. It re-verifies each file and moves
+   it to `research/acc/live/queue/`.
+3. **Batching (user rule, 2026-09-28):** no single-line sends. `sair_api.py send-queue --yes` sends
+   the queue once **3 or more lines** are waiting. The 5-minute live check runs right before each
+   send. Exception: a line worth ≥ 0.25 (a row held by 1–2 teams) waits at most 30 minutes, then
+   goes out with whatever else is queued (`--force`).
+4. Add the win to `tools/acc/METHODS_PLAYBOOK.md` (row, cap, states, wall time).
+
+## Ideas
+Each turn, each session adds one idea (checked, with the result) to `research/acc/live/IDEAS.md`
+and reads the other session's latest entry first.
 
 ## Standing orders for everyone
 - Kill processes **by PID only**, never with `pkill -f` or a pattern in the same command.

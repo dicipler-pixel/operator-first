@@ -17,6 +17,7 @@ Read budget: 360 GETs per window (reset 00:00 UTC seen); non-send reads stop at 
         and write one file with only the lines that score (unsolved, beat, tie), best first
   python3 tools/acc/sair_api.py send FILE... [--yes]    THE way to submit: fresh boards + history, keep only
         unsolved/beat/tie lines not already sent, POST within 5 minutes of the pull (dry run without --yes)
+  python3 tools/acc/sair_api.py send-queue [--yes]      batch rule: send research/acc/live/queue/*.txt once >= 3 lines wait
   python3 tools/acc/sair_api.py submit FILE             dry run of the raw POST (live sends go through `send`)
   python3 tools/acc/sair_api.py status SUBMISSION_ID    wait for one submission to finish
   python3 tools/acc/sair_api.py download ID...          original TXT of our past submissions (cached)
@@ -508,6 +509,27 @@ def send(args):
     submit(argparse.Namespace(file=str(out), yes=args.yes), fresh_t0=t0)
 
 
+def send_queue(args):
+    """User rule (2026-09-28): batch sends. Verified lines wait in research/acc/live/queue/*.txt;
+    send only when at least --min-lines lines are queued (or --force), through `send`."""
+    qdir = LIVE / "queue"
+    qdir.mkdir(parents=True, exist_ok=True)
+    files = sorted(p for p in qdir.glob("*.txt"))
+    lines = parse_lines([str(p) for p in files]) if files else {}
+    print(f"queue: {len(lines)} line(s) in {len(files)} file(s): {', '.join(sorted(lines)) or '-'}")
+    if len(lines) < args.min_lines and not args.force:
+        print(f"waiting: fewer than {args.min_lines} lines queued (use --force for an urgent line)")
+        return
+    merged = REPO / f"ACC_QUEUE_{stamp()}.txt"
+    merged.write_text("".join(f"{c}: [{','.join(map(str, lines[c]))}]\n" for c in sorted(lines)), encoding="utf-8")
+    send(argparse.Namespace(files=[str(merged)], yes=args.yes))
+    if args.yes:
+        done = qdir / "sent"
+        done.mkdir(exist_ok=True)
+        for p in files:
+            p.rename(done / f"{stamp()}_{p.name}")
+
+
 def submit(args, fresh_t0=None):
     text = pathlib.Path(args.file).read_text(encoding="utf-8")
     body_lines = [l for l in text.splitlines() if l.strip() and not l.lstrip().startswith("#")]
@@ -613,6 +635,10 @@ def main():
     sd.add_argument("--yes", action="store_true")
     dl = sub.add_parser("download")
     dl.add_argument("sids", nargs="+")
+    sq = sub.add_parser("send-queue")
+    sq.add_argument("--min-lines", type=int, default=3)
+    sq.add_argument("--force", action="store_true")
+    sq.add_argument("--yes", action="store_true")
     st = sub.add_parser("status")
     st.add_argument("sid")
     args = ap.parse_args()
@@ -642,6 +668,8 @@ def main():
         teams_cmd(args)
     elif args.cmd == "changes":
         changes(args)
+    elif args.cmd == "send-queue":
+        send_queue(args)
     elif args.cmd == "send":
         send(args)
     elif args.cmd == "submit":
