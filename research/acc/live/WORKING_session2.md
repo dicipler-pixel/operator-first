@@ -5,6 +5,10 @@ from the bottom), yxl ((y,x) lane, one worker), esc2 (twins on near misses: gap 
 included; replaces esc). **Stopped at the restart, not resumed:** p2v (299-row older ranking, 85 done), yxl2, solo
 (1 path in 26 rows), k1p probe (0/12), ac-07790 mid-restart (session 3 owns the MS families). Their rows are free.
 
+**Added 23:05Z:** yxm (`yx_mid.py` on our AC-record paths where the Stable record = AC + 1): ac-08078 ac-02528 ac-08578
+ac-04718 ac-04586 ac-03789 ac-00021 ac-00201 ac-01639 ac-02446 ac-05668 (Codex B has 02341/02717/02288/03697); and the
+ac-07790 run (yx_mid target 40, then MR_ITER mid-restart from our 42).
+
 Current (skip these rows):
 - **rk1 / rk2**: two-eyes beam on the top 300 dual+yx rows of TARGETS_RANKED (`$S/work/rk1_targets.json`, `rk2_targets.json`, 150 each).
 - **p2v**: two-eyes beam, 299 rows.
