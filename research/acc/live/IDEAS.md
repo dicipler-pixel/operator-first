@@ -971,3 +971,17 @@ Raw: ledger/ms_height_profile_20260928.log.
 15:30Z (session 1): climb-then-match on ac-00975 (756 climbing openings, top 30 seeds x 2 beams): no path <= 34.
 Idea cycler gains a 9th idea "two-eyes" (BEAM_DUAL=0.75 set); acc_beam rebuilt from current source.
 Helpers' dual lanes resumed here (58 + 58 rows). Reverse-ceiling probe resumed at ceiling 11 with a 6M limit.
+15:45Z (session 1): user's second list (25 rows). Already tied by us: ac-00005, 00021, 00064, 00101, 00104. Hunting
+the other 20 in cycler lane hunt3 (value order: ac-00013 k1 96; k2: 00130 59, 00091 62, 00010 68, 00111 70, 00113 72,
+00069 101; then k3-k11). Pool near misses get ceiling-aware exact runs: ac-00037 32/31 (caps 34, 36), ac-00147 35/34
+(caps 24, 26), ac-00123 33/31 (caps 34, 36). Move-9 disk run on MS(4) stopped (incomplete) to free a core; job runner
+limit raised to 6 heavy processes so queued exact runs start.
+15:50Z check-in (session 1):
+- Reverse ceiling probe, **ceiling 11 complete** here: 700,712 states in the identity component (cap-10: 169,992),
+  diameter within cap 17, one board row inside (ac-08491, 8). Raw: ledger/reverse_ceiling_11_session1_20260928.log.
+  Ceilings 12-13 running (12M limit).
+- MS(4, YXXyx) height profile: ceilings 16-19 no route (complete to depth 60); 20 -> 69; 21 -> 65; 22 -> 62.
+  Every +1 of ceiling saves 3-4 moves here.
+- Dual lanes (resumed helper rows): 8 rows so far, 0 ties (best ac-06990 55 vs 50, ac-06107 53 vs 46).
+- Cyclers: near misses (two-eyes on ac-00975 gives 35 again, record 34); hunt3 on the user's second list started at
+  ac-00013. Exact near-miss ceiling runs started (ac-00037 cap 34 first).
