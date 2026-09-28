@@ -1,3 +1,20 @@
+## 2026-09-28 09:25Z, session 2 (lead): Bob's training macros as beam supermoves — DEAD (valid rerun)
+- Matched A/B, T8, W=20k, depth live+6, BEAM_H=1 DIV=0.8, top-40 macros (len ≥ 4) from `ledger/bob_macro_library_20260928.json`,
+  on the macro-capable binary (checked "macros: 40"):
+| row (live) | plain | + Bob40 |
+|---|---|---|
+| ac-00145 (39) | 40 | 51 |
+| ac-09189 (30) | 31 | 31 |
+| ac-05702 (39) | 47 | 52 |
+| ac-06045 (36) | 39 | 49 |
+| ac-08995 (45) | 47 | 65 |
+| ac-00147, 04276, 09091, 00037 | none | none |
+- Macros better on 0 rows, worse on 4, same on 5. Kill condition met: the training rhythm (real in the 424 training
+  routes, p = 0.001) does not transfer as supermoves at MACW=1; it crowds the beam. Matches Codex's transfer test
+  (AUC 0.588, p = 0.567). A lower MACW or a few macros only is the one variant left untried.
+- Also: the sacbeat beam (long Stable AC beat rows, T9) is stopped for good; P2 shows no signal above record ~45
+  (session 1), and T9 thrashing slowed the P2 lanes. New P2 lane `p2ms`: the 18 doubling-chain rows with n = 4, 5.
+
 ## 2026-09-28 08:30Z, session 2 (lead): Bob's macro A/B was invalid until now — rerunning
 - The scratch `acc_beam` binary (rebuilt from the repo after the container restart) has **no BEAM_MACROS code**, so
   the "macro" arm silently ran the plain beam (identical lengths and times on 5 rows). Any macro result from that

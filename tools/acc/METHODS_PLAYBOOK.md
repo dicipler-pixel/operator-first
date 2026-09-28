@@ -79,6 +79,8 @@ caps of the start (ac-05818: cap 26). Memory (15 GB) caps us near 180M
 states per run.
 
 ## What has not worked (don't repeat without a new idea)
+- Training-set macros (Bob's library, top 40) as beam supermoves: 0 better / 4 worse / 5 same on 9 near-miss rows (2026-09-28).
+- Exact capped sweeps on mid rows (records 34–40): 0 new ties in ~6 h of 3 cores; P2 beam found 4 in 2 h.
 - k=2 rows with records 44–70: 0 of 34 reached with H-beam.
 - SAC k=1 rows: 0 of 17. Unsolved rows: 0 of 126 (beam). Beat-by-one on scoring rows: 0.
 - Long rows (record ≥ 70): path found on 1 of 195 (5–80 min each).
