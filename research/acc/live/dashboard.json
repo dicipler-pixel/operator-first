@@ -1,26 +1,26 @@
 {
  "summary": {
-  "updatedAt": "2026-09-28T07:27Z",
-  "leaderboardAt": "2026-09-28T07:10:00Z",
+  "updatedAt": "2026-09-28T08:25Z",
+  "leaderboardAt": "2026-09-28T08:15:00Z",
   "ac": {
-   "rank": 18,
+   "rank": 17,
    "teams": 45,
    "score": 0.5741,
-   "estimate": 0.5741,
-   "ties": 244
+   "estimate": 1.0742,
+   "ties": 246
   },
   "sac": {
    "rank": 14,
    "teams": 42,
    "score": 1.7725,
-   "estimate": 1.7725,
-   "ties": 249
+   "estimate": 2.2725,
+   "ties": 250
   },
-  "sentToday": 4,
+  "sentToday": 5,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-28T07:10Z",
-  "subsTotal": 94
+  "boardAt": "2026-09-28T08:15Z",
+  "subsTotal": 95
  },
  "scores": {
   "points": [
@@ -203,6 +203,33 @@
     "sac": 1.7725,
     "sacRank": 14,
     "sacTeams": 42
+   },
+   {
+    "at": "2026-09-28T07:40:00Z",
+    "ac": 0.5741,
+    "acRank": 18,
+    "acTeams": 45,
+    "sac": 1.7725,
+    "sacRank": 14,
+    "sacTeams": 42
+   },
+   {
+    "at": "2026-09-28T08:10:00Z",
+    "ac": 0.5741,
+    "acRank": 17,
+    "acTeams": 45,
+    "sac": 1.7725,
+    "sacRank": 14,
+    "sacTeams": 42
+   },
+   {
+    "at": "2026-09-28T08:15:00Z",
+    "ac": 0.5741,
+    "acRank": 17,
+    "acTeams": 45,
+    "sac": 1.7725,
+    "sacRank": 14,
+    "sacTeams": 42
    }
   ]
  },
@@ -294,16 +321,16 @@
    },
    {
     "d": "2026-09-28",
-    "subs": 4,
-    "ac": 26,
-    "sac": 18
+    "subs": 5,
+    "ac": 28,
+    "sac": 19
    }
   ]
  },
  "standing": {
   "gaps": {
    "ac": {
-    "0": 244,
+    "0": 246,
     "1": 4,
     "2": 4,
     "3": 4,
@@ -312,7 +339,7 @@
     "11+": 209
    },
    "sac": {
-    "0": 249,
+    "0": 250,
     "1": 6,
     "2": 6,
     "3": 3,
@@ -333,7 +360,7 @@
   "ties": {
    "ac": {
     "1": 0,
-    "2": 0,
+    "2": 1,
     "3": 0,
     "4": 0,
     "5": 3,
@@ -343,11 +370,11 @@
     "9": 13,
     "10": 17,
     "11": 16,
-    "12": 179
+    "12": 180
    },
    "sac": {
     "1": 0,
-    "2": 1,
+    "2": 2,
     "3": 0,
     "4": 1,
     "5": 5,
@@ -364,9 +391,17 @@
  "rivals": {
   "ac": [
    {
+    "rank": 11,
+    "name": "nahom",
+    "score": 13.0257,
+    "rows": 494,
+    "alone": null,
+    "us": false
+   },
+   {
     "rank": 12,
     "name": "MCSC",
-    "score": 4.8567,
+    "score": 4.8548,
     "rows": 335,
     "alone": 4,
     "us": false
@@ -374,7 +409,7 @@
    {
     "rank": 13,
     "name": "NavierStoked",
-    "score": 4.5838,
+    "score": 4.5057,
     "rows": 330,
     "alone": 1,
     "us": false
@@ -382,7 +417,7 @@
    {
     "rank": 14,
     "name": "ACC01-T00128",
-    "score": 4.1104,
+    "score": 4.1084,
     "rows": 317,
     "alone": 1,
     "us": false
@@ -405,19 +440,19 @@
    },
    {
     "rank": 17,
-    "name": "Ryan",
-    "score": 0.6434,
-    "rows": 20,
-    "alone": 0,
-    "us": false
-   },
-   {
-    "rank": 18,
     "name": "Mad Hatters",
     "score": 0.5741,
     "rows": 244,
     "alone": 0,
     "us": true
+   },
+   {
+    "rank": 18,
+    "name": "Ryan",
+    "score": 0.3934,
+    "rows": 20,
+    "alone": 0,
+    "us": false
    },
    {
     "rank": 19,
@@ -426,22 +461,14 @@
     "rows": 44,
     "alone": null,
     "us": false
-   },
-   {
-    "rank": 20,
-    "name": "JDD",
-    "score": 0.052,
-    "rows": 134,
-    "alone": null,
-    "us": false
    }
   ],
-  "acAt": "2026-09-28T07:10:00Z",
+  "acAt": "2026-09-28T08:15:00Z",
   "sac": [
    {
     "rank": 8,
     "name": "jr",
-    "score": 264.6756,
+    "score": 263.8631,
     "rows": 1581,
     "alone": null,
     "us": false
@@ -449,7 +476,7 @@
    {
     "rank": 9,
     "name": "ACC01-T00076",
-    "score": 15.8977,
+    "score": 15.8937,
     "rows": 468,
     "alone": 7,
     "us": false
@@ -457,15 +484,15 @@
    {
     "rank": 10,
     "name": "nahom",
-    "score": 14.705,
-    "rows": 454,
+    "score": 14.7714,
+    "rows": 456,
     "alone": 5,
     "us": false
    },
    {
     "rank": 11,
     "name": "ACC01-T00128",
-    "score": 8.1492,
+    "score": 8.1453,
     "rows": 334,
     "alone": 1,
     "us": false
@@ -481,7 +508,7 @@
    {
     "rank": 13,
     "name": "MCSC",
-    "score": 4.8431,
+    "score": 4.8392,
     "rows": 285,
     "alone": 4,
     "us": false
@@ -511,7 +538,7 @@
     "us": false
    }
   ],
-  "sacAt": "2026-09-28T07:10:00Z"
+  "sacAt": "2026-09-28T08:15:00Z"
  },
  "searches": {
   "items": [
@@ -701,6 +728,11 @@
     "at": "2026-09-28T07:07Z",
     "kind": "submit",
     "text": "Submission 2632: 3/3 accepted. Batch: ac/sac-07004 and ac-04278 k14 ties (tiny)."
+   },
+   {
+    "at": "2026-09-28T08:19Z",
+    "kind": "submit",
+    "text": "Submission 2638: 3/3 accepted. ac/sac-03060 k1 ties (+1.0): first win from the P2 beam (atlas B31). Plus ac-05835."
    }
   ]
  }

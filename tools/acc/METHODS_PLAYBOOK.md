@@ -40,6 +40,9 @@ every board pull: SAC records move, and a row can become a tie without any new s
 official verifier before `sair_api.py send`.
 
 ### Win log
+- **2026-09-28 08:19Z, ac-03060 28 and sac-03060 30: ties on rows held by one team (+1.0), submission 2638.**
+  Found by the P2 beam (`BEAM_P2=2`, W=20k, T8 table) in the 615-row lane `p2a`. The idea is atlas bridge B31
+  (the team lead's atlas): rank by the best length after two multiplications, so humps don't prune the path.
 - **2026-09-27 23:36Z, sac-03305: tie at 24 on a row held by one team (about +0.5), plus
   ac-03305 at 23 (tie, k 6→7). Submission 2566.** Found by the adaptive exact capped sweep
   (`run_capped_sweep.py`: start total length 24, raise the cap until the state budget runs out).
