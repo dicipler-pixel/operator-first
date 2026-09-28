@@ -48,3 +48,9 @@ Half B belongs to Codex: research/acc/live/targets_codex_oddeasyB.json
 Helpers stopped at 49/172 (15:04Z). Session 1 runs the rest on its machine: lanes dualAr (58 rows) and dualBr (58 rows)
 = targets_dual_helper{A,B} minus sweeps/dual{A,B}_codex_20260928.jsonl. Same flags (BEAM_DUAL=0.75 etc.), T9 finish.
 Hits go to research/acc/live/inbox/. Also resumes the reverse-ceiling probe at ceiling 11 (6M-state limit).
+
+## 2026-09-28 19:45Z claims
+- family-lane rows of TARGETS_RANKED.json (254): family transfer (tools/acc/family_transfer.py), work/family.jsonl
+- Stable-AC gap rows (see ORDERS_charlie_v2): low caps here; Charlie high caps
+- first solves: 100 unsolved MS rows (tools/acc/firstsolve.py)
+- dualAr/dualBr (resumed helper rows) finishing; cyclers q_near and hunt3 continue
