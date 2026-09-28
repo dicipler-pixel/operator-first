@@ -1108,3 +1108,16 @@ ac-04718); new helper Astra on rk2 bottom-up; Sonnet onboarded 20:50Z (no progre
 Note: ac-05818 was also in session 1's near-miss cycler list; Codex's inbox line supersedes it.
 
 21:11Z (Codex, user's Snell/Smith chart): five-path chart suggests slow length 20-24. Controlled ac-00975 W20k dual P2+C16 A/B changing only H tie-break at L20-24: +20 penalty AC35/SAC37 (identical baseline); -20 reward AC43/SAC45 (worse); all official replay clean, no score. Smith/Cayley radius of exponent matrix M (reflect det<0) on 9 saved paths, 326 steps: chosen-move top3 24.5% overall vs raw length39.3%, on 43 climbs Smith20.9% vs raw length0%. Too small and biased to adopt. Exact scope and source: ledger/CODEX_SNELL_SMITH_PILOT_20260928.md and optimality/experiments/. Mirror assignment continues separately.
+
+## 2026-09-28 21:25Z, session3: three eyes alone, then mixed in Mixer 5.2 beside the known eyes
+- New eyes, each built alone and scalable (pooled, re-learned from all recordings): SNELL (medium speed at the
+  current total length), PLANAR (pooled height = fewest known moves to trivial, radius-2 lookup; Mazur X), SMITH
+  abelian (ledger on the Poincare disk), SMITH per line (rho: x->[[0,-1],[1,1]], y->XZ into SL2(Z); hyperbolic
+  distance of r0 from x and r1 from y; sees word order). 12 recordings x 20 channels, Mixer 5.2 import checked.
+  Files: exchange/session3/master_mixer_studies_v1/.
+- Tracking true progress (Spearman vs pooled height, pooled / median within path): length +0.72/+0.90, SMITH per line
+  +0.59/+0.76 and +0.55/+0.74, image distance +0.46/+0.56, Snell +0.29/+0.41, SMITH abelian +0.07 (blind).
+- Planar splice (jump onto the lowest known route within radius 2): ac-09762 78 -> 76 (official ok; record 44).
+- Negatives: Snell-keyed beam (lam 1: 57, lam 2: none) and Bob's 30 macros (58 = plain 58, W=8000) do not beat the
+  plain layered beam (56) on ac-07790. Cross-row progress regression fails (held-out error ~33 moves).
+- MS(5, YYXXYx) unsolved descent 19 -> 15: per-line Smith shows r1 closing 7.2 -> 1.8 while r0 stays 1.8 -> 1.9.
