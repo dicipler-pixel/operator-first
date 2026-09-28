@@ -37,5 +37,7 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
 - **Bob**: block splice on 40 near misses (`ORDERS_bob_blocks_20260928.md`, bundle in `research/acc/live/bob/`).
 - **Codex / Luna**: new slices 20:15Z (`ORDERS_helpers_20260928T2015Z.md`): Codex mirror twin (AC), Luna yx2 twin
   (Stable AC), Bob fresh two-eyes rows.
+- **Git** (formerly "session3"; old files keep that name, new ones use "git"): the eye/mixer lane: the three MCSC
+  Miller-Schupp families (16 rows, `WORKING_session3.md`) plus the unsolved MS(n, YYXXYx) rows as eye studies. Hits to inbox/.
 - **Astra** (new, 20:45Z): `ORDERS_astra_20260928T2045Z.md`: two-eyes beam on session 2's rk2 ranked list bottom up (150),
   then 75 solo-held rows (k=1, AC records 44-49) nobody has tried.
