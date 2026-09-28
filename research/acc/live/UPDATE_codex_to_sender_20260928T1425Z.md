@@ -10,3 +10,9 @@
 ## Follow-up 14:52 UTC
 
 A 21/86, B 20/86; neither has a tie or beat. Raw checkpoints are `sweeps/dualA_codex_20260928.jsonl` and `sweeps/dualB_codex_20260928.jsonl`. Four lanes continue. We capped only low-value (+4..+6) post-beam windows to 180 s; raw paths are retained and timeouts marked. Smith chart and Snell-style routing pilots are logged in `ledger/smith_snell_pilot_20260928.md`: the tested Smith third eye tied one baseline and worsened another; the tested empirical Snell term weakened move ranking. Production dual beams were not changed.
+
+## Final stop checkpoint 15:04 UTC (user request)
+
+- All four Codex helper beam processes are stopped; A completed **25/86**, B **24/86**, combined **49/172**. A: 20 no-path, 5 above record. B: 21 no-path, 3 above record. **Zero ties/beats; no inbox lines and no SAIR submissions.** A's next incomplete rows are ac-01452 (A1) and ac-06134 (A2); B's interrupted rows and partial ac-06990 raw path are logged in `sweeps/dualB_codex_interrupted_20260928.jsonl`. Completed output persists in `sweeps/dualA_codex_20260928.jsonl` and `sweeps/dualB_codex_20260928.jsonl`, so both lists can resume without repeating complete rows.
+- Tested the user's upside-down map: complete exact reverse BFS at total-length caps 2–10. The cap-10 identity component has 169,992 literal ordered states; cap 11 was **incomplete** at 500,001 seen. A length-7 pair's shortest confined route needs 7 moves at peak 7, while its globally shortest 4-move route peaks at 8; `D₂(2)=5` under the exact 14-move ordered convention. Pinned-core paths and all counts are in `ledger/reverse_ceiling_pilot_20260928.md` and `ledger/reverse_ceiling_profile_20260928.json`. These are synthetic states, not qualifying challenge submissions.
+- Smith/Snell feature pilot remains a negative result on the tested arms. An additional matched ac-04882 Smith third-eye run tied the baseline at 54/56, above the 51/53 record; no production change.

@@ -1,3 +1,8 @@
+## 2026-09-28 15:04Z, Codex: upside-down reverse graph under exact total-length ceilings
+- Complete literal ordered-state reverse BFS from identity under all 14 official moves: caps 2..10 exhaustively processed (169,992 states at cap 10); cap 11 incomplete at 500,001 seen states. This is total relator length, with no cyclic quotient.
+- A size-7 presentation has a 7-move route confined to cap 7 and an unrestricted shortest route of 4 moves requiring cap 8. Thus shortest distance and minimum-height route really are different search coordinates. At size 2, the exact longest shortest distance is D₂(2)=5; one length-2 pair requires height 3 to connect.
+- Reproducer, replays, profiles and caveats: `research/acc/live/ledger/reverse_ceiling_pilot_20260928.md`, `reverse_ceiling_profile_20260928.json`, `research/acc/optimality/reverse_ceiling_probe.py`. No challenge line from this synthetic small map. Per user's request, all Codex A/B helper beam lanes were stopped at 49/172 finished rows, zero qualifying paths, raw checkpoints saved.
+
 ## 2026-09-28 14:51Z, Codex: Smith chart and Snell routing pilot while dual beams run
 - Tested the user's two distinct ideas on 436 pinned-core-verified AC routes. Length-only Smith coordinates cannot see inversions/conjugations; adding cyclic commutator length gave a new sector at only 1/6 known optimal-route beam drops. A matched third-eye sector pilot got ac-03305 24→24 (record 23) and harmed ac-05558 24→26 (record 24). No score; do not enable that variant.
 - A discrete Snell-style feature R sin²θ using empirical one-step rigidity worsened next-move candidate ranks: 0.4629 vs 0.4465 for constant-angle persistence (chance 0.5), over 1,894 radial interfaces. Keep this tested feature at weight 0; this says nothing about the user's physical Snell law. All definitions, scripts, paths and trials: `research/acc/live/ledger/smith_snell_pilot_20260928.md`.
@@ -949,3 +954,12 @@ ceiling test (caps 14-18), (3) 737 one-team rows with records 41-60 that we don'
 pool 1,144 verified roads / 711 rows, no new line. n=4 stall continuations: after 5, 7 moves none <= 36-37 under caps
 22-25 (budget stops at depth 27-36); after 9 moves running. Disk n=4 cap 26 still running (1h50m). Climb-then-match on
 ac-00975 running.
+
+## 2026-09-28 15:10Z, session 1: rank-2 height profile of MS(n, YXXyx) (the "upside down" measurement)
+Shortest AC route whose first <= 60 moves stay under the ceiling (exact capped BFS + T9 finish; all runs complete):
+- MS(2), start 12: ceiling 12 -> 17; 13..17 -> 15 (= optimum). Barrier 0.
+- MS(3), start 14: 14 -> 34; 15 -> 31; 16-18 -> 30; 19-20 -> 28 (optimum known). Barrier 0; length falls with height.
+- MS(4), start 16: **ceilings 16-19: no route at all** (components 32k-3.4M states, exhausted to depth 60);
+  ceiling 20 -> 69; 21+ running. **Height barrier for MS(4) = +4 above the start**, and the ~47 record needs > 25.
+- Disk-backed full n=4 at cap 26: budget stop at depth 21 (250M states), inconclusive; cap 28 stopped (shallower).
+Raw: ledger/ms_height_profile_20260928.log.
