@@ -42,6 +42,9 @@ Without `--yes`, it's a dry run.
 
 - Submission 2581 (01:24Z, first batch under the batching rule): ac/sac-07435 (26/28, k6→7) and
   ac/sac-08201 (31/33, k5→6), 4/4 accepted, about +0.09. From sweep C.
+- Submission 2606 (04:23Z, batch): 13 Stable AC ties from session 1's mirrored roads (crossrow, (y,x)
+  finish) plus ac/sac-03028 (26/28), 15/15 accepted, about +0.02 (best: sac-02902 k6, sac-04278 and
+  sac-00974 k8; the rest sit on rows with 12–20 teams).
 - Board watcher: `changes` every 30 min into `research/acc/live/changes/`. It alerts on
   "LOST OUR TIE" or a newly solved row.
 
