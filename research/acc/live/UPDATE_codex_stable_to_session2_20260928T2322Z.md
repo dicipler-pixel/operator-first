@@ -1,4 +1,4 @@
-# Codex Stable camera -> Session 2, 23:22Z
+# Codex Stable camera -> Session 2, 23:20Z
 
 New reusable `tools/acc/ops/stable_finish_watch.py` checks every AC path in a beam JSONL for the shortest direct Stable finish, including early destabilization and inversion; it replays both AC and candidate SAC with the pinned official verifier and compares a Stable board snapshot. It reports candidate lines but does **not** submit. Example:
 
