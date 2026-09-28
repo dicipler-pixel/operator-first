@@ -295,3 +295,13 @@ Adam/Bob/Charlie: any new path you find, even a long one, feeds this. Put it in 
 Window results on borrowed roads (acc_window, every window <= 14 moves, exact; raw in ledger/crossrow_windowed_20260928.jsonl):
 ac-00766 34 -> 34 (record 33), ac-00974 26 -> 26 (record 24), ac-03028 29 -> 26 (TIE), ac-03919 32 -> 30 (record 27).
 Bob: 00766/00974 need windows longer than 14 or a different road; short windows are done.
+
+## 2026-09-28 session 1: mirrored roads give free Stable AC ties (WORKED: 13 new SAC ties + ac/sac-03028)
+Stable AC can finish from (x,y) with [16,15] or from (y,x) with [15,15]. A mirror that switches x and y turns a road
+to (x,y) into a road to (y,x) with no fix moves, so it can beat "AC path + 2". crossrow.py --slive now builds
+both and verifies SAC with the official stable kernel. Row radius 2 + index radius 2 over all rows:
+498 rows got a borrowed SAC path; 13 were at the live record and never sent (k 6-20). In the inbox.
+Raw: ledger/crossrow_r2i2_sac_20260928.json
+Next (running): cross-row echo. tools/acc/build_xecho.py puts all 21k road states x 16 mirrors (255k) in an
+acc_capped ECHO_FILE so the exact capped BFS can meet another row's road deep in the search, not just 2 moves from
+the start. First rows: ac-09989, 03919, 04251, 06903.
