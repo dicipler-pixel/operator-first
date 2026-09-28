@@ -1,0 +1,77 @@
+{
+  "dataset": "SAIR-AC/competition/examples/training_424.json",
+  "routes": 424,
+  "moves": 14257,
+  "null": "shuffle within each route",
+  "seed": 20260928,
+  "repetitions": 1000,
+  "metrics": {
+    "move_id": {
+      "mutual_information_bits": {
+        "observed": 0.49765729972553746,
+        "null_mean": 0.013911614899956348,
+        "null_95_interval": [
+          0.011338845804837735,
+          0.016417077520605273
+        ],
+        "p_two_sided": 0.001998001998001998
+      },
+      "same_fraction": {
+        "observed": 0.07402588014169016,
+        "null_mean": 0.10230600737367165,
+        "null_95_interval": [
+          0.09780958577315116,
+          0.1071351116894383
+        ],
+        "p_two_sided": 0.001998001998001998
+      },
+      "undo_fraction": {
+        "observed": 0.0005783271886069544,
+        "null_mean": 0.05784255042290176,
+        "null_95_interval": [
+          0.054001301236174366,
+          0.061664136485216514
+        ],
+        "p_two_sided": 0.001998001998001998
+      },
+      "heldout_markov_gain_bits_per_move": {
+        "observed": 0.4819529356255008,
+        "null_mean": -0.005630717061516207,
+        "null_95_interval": [
+          -0.013578717091181691,
+          0.0018583994186945835
+        ],
+        "p_two_sided": 0.001998001998001998
+      }
+    },
+    "move_category": {
+      "mutual_information_bits": {
+        "observed": 0.15615038019801245,
+        "null_mean": 0.001245336077377607,
+        "null_95_interval": [
+          0.0004844667828974606,
+          0.002226158458744169
+        ],
+        "p_two_sided": 0.001998001998001998
+      },
+      "same_fraction": {
+        "observed": 0.23082483915275068,
+        "null_mean": 0.2644780597122822,
+        "null_95_interval": [
+          0.25750018072724645,
+          0.27109086965950985
+        ],
+        "p_two_sided": 0.001998001998001998
+      },
+      "heldout_markov_gain_bits_per_move": {
+        "observed": 0.152138220422272,
+        "null_mean": -0.0002311501670886008,
+        "null_95_interval": [
+          -0.0026660511812073955,
+          0.00193067114952368
+        ],
+        "p_two_sided": 0.001998001998001998
+      }
+    }
+  }
+}
