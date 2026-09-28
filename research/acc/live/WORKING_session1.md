@@ -54,3 +54,8 @@ Hits go to research/acc/live/inbox/. Also resumes the reverse-ceiling probe at c
 - Stable-AC gap rows (see ORDERS_charlie_v2): low caps here; Charlie high caps
 - first solves: 100 unsolved MS rows (tools/acc/firstsolve.py)
 - dualAr/dualBr (resumed helper rows) finishing; cyclers q_near and hunt3 continue
+
+## 2026-09-28 21:45Z claim: long rows nobody runs
+1,126 AC rows with records 61-90, held by 1-2 teams, not tied by us, not on TARGETS_RANKED or any targets/sweeps list
+(board 20:50Z). List: sweeps/long_session1_targets.json. Two-eyes beam (dual flags, W 20k, record+2, window shortener),
+lanes longA/longB, one-team rows first. Hits -> inbox.
