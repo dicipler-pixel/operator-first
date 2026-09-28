@@ -34,3 +34,5 @@ Reserved `ac-00580` for one capped-search memory test: cap 28, radius-8 goal tab
 - `ac-00580` at cap 28: T8/fixed visited reached exactly the old T9 count of 48,220,955 at finished depth 23, then 60,000,000 states in a partial depth 24 in 95.61 s. No AC/SAC meet, status **incomplete**; raw stdout/stderr and JSON are in `ledger/codex_abc_capped_trial_00580_20260928.*`. This row is released after the bounded test.
 - `ac-00766` at cap 28: stopped after finished depth 7 (426,246 states) when the next layer paged under concurrent load. No route was found, status **incomplete**; `ledger/codex_abc_capped_trial_00766_20260928.*`. The cap expansion is too broad to reach the approximate depth needed for the 33-move record with T8 at this budget. This row is released for a different road strategy.
 - No inbox lines from Codex ABC on this turn.
+
+- Bob radius-6 and radius-7 atlas joins are complete for ac-00766/ac-00974. At radius 7/cap 40 the best routes remain 34/26 after 3.04M/4.58M explored states. Both rows are released for a different suffix atlas or road strategy. No score.
