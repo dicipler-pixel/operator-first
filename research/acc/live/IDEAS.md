@@ -485,3 +485,5 @@ Disk note: a Stable AC probe (ac-01962, cap 400, depth 9) wrote 20 GB of layer f
   Our n=4 path pays for the mass twice (A builds x^7 at ~1 move per x, B spends 2 moves per x converting).
   The leaders' ~2^(n+1) + 1.5n + 8.5 suggests they create the right-hand run directly. Exact n=4 search at caps
   21 (complete, no path <= 49 under cap 21), 23, 24, 25 is running to find it.
+MS(4, YXXyx) exact facts (session 1, 05:40Z): see ORDERS_luna_ms.md "Update 05:40Z". Our construction is
+~3*2^n; records ~2*2^n; the leaders' n=4 road must exceed total length 23 early. Road cycle: ac/sac-07004 ties (k14).

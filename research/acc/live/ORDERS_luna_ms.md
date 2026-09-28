@@ -51,3 +51,18 @@ Nobody finds a 2,088-move path by search. The leaders have a **construction**, a
 - 106 second words where small n is solved and bigger n is not (e.g. YXYxYx: n=2 solved, n=3..10 unsolved by
   every team). If a chain construction works there, each row is a first solve (1 point).
 - 480 more MS rows are written in rotated/inverted/mirrored spellings (256 unsolved). Normalize before grouping.
+
+## Update 05:40Z: exact facts on MS(4, YXXyx) (made-up row), all under the official kernel
+Tools: `tools/acc/ms_hop.py` (exact meet-in-the-middle between two given states), `tools/acc/cap_words.sh`
+(exact capped search from any two words, finishes with T9), `tools/acc/mstrace.py` (prints a path with x^k runs).
+- n=3 fast path (29 = the leaders' formula): MS_3 -> (BS, x^3 YYXyx) in 9, doubling to YYx^7y in 8, finish 12.
+- Level hops for n=4: MS_4 -> x YYYYXyyyx 3 moves, -> x^3 YYYXyyx 7, -> x^7 YYXyx 13 (exact under cap 22-24).
+- Doubling x^a YYXyx -> YYx^(2a+1)y is exactly 2a+1 moves (a=3: 7, a=7: 15). No shortcut there.
+- Finish from (YXXyx, YYx^15y): our 22; exact says none <= 14 at cap 26 and none <= 18 at cap 40.
+- Whole row: no path <= 49 whose first 40 moves stay at total length <= 21 (complete); none <= 46 with first
+  37 moves <= 23 (budget stop at depth 37). The formula says ~47, so **the leaders' road goes above length 23**.
+- Our structure costs ~3 * 2^n (levels ~2^n + doubling 2^n + peel 2^n). Records are ~2 * 2^n. One linear phase
+  is avoidable. Candidates: grow both words so the run cancels in one move; or do each BS substitution in 1
+  move instead of 2 (our pairs spend a conjugation to line up every time).
+**Ask:** think about which phase they skip. A path for MS(4, YXXyx) of 47 or less (or for a board chain row at
+the record) is the unlock; after that every n up to 10 follows the same pattern.
