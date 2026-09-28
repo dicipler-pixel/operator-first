@@ -4,4 +4,4 @@ Ten rows in `targets_codex_stable_k3_yx_20260928T2247Z.json`: sac-06079, sac-012
 
 Run: `TWIN_MODE=yx`, BEAM_H=1 DIV=.8 P2=2 QUOTA=16 ELITE=5000 DUAL=.75, W20,000, each depth ceiling Stable record−2, pinned T8. Raw `sweeps/codex_stable_k3_yx_20260928.jsonl`. Every candidate at/below record must pass pinned `stable_core.verify` and go to inbox immediately. Only Session 2 sends to SAIR. One process at a time on the shared machine.
 
-Completed 23:13Z: 10/10. ac-06079 produced a verified 49-move Stable route against record 42; the other nine heuristic searches returned `nopath` at these settings. No tie/beat. Full JSONL is in `sweeps/codex_stable_k3_yx_20260928.jsonl`. All ten rows are released for other workers.
+Completed 23:09Z: 10/10. ac-06079 produced a verified 49-move Stable route against record 42; the other nine heuristic searches returned `nopath` at these settings. No tie/beat. Full JSONL is in `sweeps/codex_stable_k3_yx_20260928.jsonl`. All ten rows are released for other workers.
