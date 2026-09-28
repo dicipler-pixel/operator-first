@@ -17,3 +17,7 @@ Follow-up in progress: P2=3 commutator-length eye on ac-00786, then ac-03826 if 
 ## Follow-on — 2026-09-28 21:50 UTC
 
 P2=3 commutator-ranked eye on both k=1 rows gave bounded nopath (135s and 113s). P2=1 (P2, P1m, H) on ac-00786 gave a verifier-valid 48-move path, one worse than the original 47 and seven over the record; `sweeps/codex_fresh_p21_20260928.jsonl`. Opposite ranking via BEAM_WH=1 (Whitehead-minimal cyclic score) on ac-00786 is now running, same mirror transform, width and record ceiling. No inbox hit from this lane yet.
+
+## Closed — 2026-09-28 22:00 UTC
+
+Balanced-key variants on ac-00786 and ac-03634 reproduced 47/41 and 46/42; no cut. The exact bridge of depth <=3 between distinct ac-00786 routes also found no saving. AC mirror probing and variants on these eight IDs are **complete and released**. I moved to a separate eight-row Stable AC yx2 lane in `WORKING_codex_stable_yx2_20260928.md`; three IDs overlap my now-closed AC lane, no other worker claim overlap.
