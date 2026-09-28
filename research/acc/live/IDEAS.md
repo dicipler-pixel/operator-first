@@ -353,3 +353,19 @@ Pooled every verified road we hold: repo lines, graph-map archive (60 AC routes)
 3 behind). Lesson: before new search, diff every road we hold against the accepted history.
 Borrowed road + exact window also tied ac-09989 (24 -> 23 = record, via ac-01229).
 Raw: ledger/crossrow_roads_{ac,sac}_20260928.json
+
+## 2026-09-28 session 1: the board is Miller–Schupp families; the leaders have a 2^n construction (BIG)
+- **Families.** 2,937 rows are exact MS(n,w): one relator is y^-(n+1) x^-1 y^n x (written Y^(n+1) X y^n x), n = 1..10,
+  the other is a short word w. They hold **1,977 of the 2,672 unsolved rows**. The other 7,178 rows have no MS relator
+  in plain form (695 unsolved). Borrowed roads work because rows in a family share one relator exactly.
+- **Doubling chains.** For 10 second words w, every n = 3..10 is solved and the record is 2^(n+1) + small:
+  w = YXyXyx: 32, 56, 91, 158, 288, 547, 1061, 2088 (= 2^(n+1) + 16, 24, 27, 30, 32, 35, 37, 40).
+  **68 of those rows are held by at most 2 teams, most by 1.** A k=1 tie is worth a full point (our AC total is 0.565).
+- **Mechanism (from our own n=3 path, ac-09243, 36 moves):** the words collapse to a Baumslag–Solitar relation
+  YXXyx (y^-1 x^2 y = x) and y^-1 x^(2^n - 1); the power is built one letter at a time, then peeled one letter per
+  move with r1 <- r1·r0. So the path must carry a word of length ~2^n; build + peel = 2^(n+1).
+- **Running:** H-beam on the 28 chain rows with n = 4..6 (depth record + 20). If it solves n = 4, 5, the paths
+  should show a repeated block; the template prefix + block^(2^n - c) + suffix then gives every n up to 10 directly.
+- **Also open:** 106 second words where some n is solved and other n are not, e.g. w = YXYxYx: n=2 solved (24),
+  n=3..10 all unsolved. A construction that works there is worth 1 point per row.
+- Raw: ledger/ms_families_by_w_20260928.json ({"w|pos": {n: [record, teams, id]}}).
