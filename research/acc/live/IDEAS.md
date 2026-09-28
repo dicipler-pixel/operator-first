@@ -1084,3 +1084,8 @@ and split into two shards.
   2^18 slots, 75% with 2^22; identical output, 4% faster. Misses are first-time pairs; P2 eval is ~70% of beam time.
 - **Mirror twin pays on long rows.** Codex's first mirror-twin row, ac-05818: 52 -> 34 (tie, k2, + SAC 36): submission 2701.
   Session 2 started lane `mir` (120 top-ranked rows we are above, not in Codex's 80).
+
+20:40Z (session 1): family transfer (neighbour replay, record+2) on 20 family-lane rows: 3 paths, 0 within +2 of
+record (e.g. ac-01553 49/43, ac-01974 52/42). Opposite approach now: the same lane at depth record+15 (FAM_EXTRA=15,
+work/family_deep.jsonl) so long roads feed the pool, where rotation compression, cross-row borrowing and the window
+queue shorten them. First solves: 6 rows, no path yet. sac-08078 cap 33 still running (in memory).
