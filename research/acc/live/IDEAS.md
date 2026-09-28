@@ -6,6 +6,11 @@
 - Lane **p2u** (winner arm: P2=2 + QUOTA 16 + ELITE 5000, W=20k, depth 120) on the top 40 by nearest-solved distance
   and record (`tools/acc/ops/unsolved_ms_targets.py`). Any path is a first solve (AC 1.0, plus SAC with [15,15]).
   Replaces the tail lane p2t (those rows stay in p2a/p2b's lists).
+- 13:00Z: the 40 rows were only 27 symmetry classes. The builder now takes **one row per class** (373 rows = 240 classes);
+  p2u restarted on 40 classes covering 61 rows. A hit on one member goes to its class-mates via `crossrow.py`.
+- Drive helper (`DRIVE_UNREAD_20260928.md`): the 148 cascade paths all replay but none ties or beats anything new;
+  85 more unsolved rows map onto the R_n family (skip candidates after replaying their transports); exact empty caps
+  for unsolved ac-02923 (24), ac-02217 (23), ac-01657/06572/00719/03471 (15).
 
 ## 2026-09-28 12:18Z, session 2 (lead): why level-by-level chain routes cannot reach the records (row-op argument)
 - **Shadow:** the exponent-sum rows of (r0, r1) form a unimodular 2x2 matrix; a multiplication is a row op, while

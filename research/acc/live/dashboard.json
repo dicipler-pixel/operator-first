@@ -1,7 +1,7 @@
 {
  "summary": {
-  "updatedAt": "2026-09-28T11:56Z",
-  "leaderboardAt": "2026-09-28T11:40:00Z",
+  "updatedAt": "2026-09-28T12:45Z",
+  "leaderboardAt": "2026-09-28T12:40:00Z",
   "ac": {
    "rank": 16,
    "teams": 45,
@@ -19,7 +19,7 @@
   "sentToday": 7,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-28T11:40Z",
+  "boardAt": "2026-09-28T12:40Z",
   "subsTotal": 97
  },
  "scores": {
@@ -311,6 +311,24 @@
     "sac": 2.5205,
     "sacRank": 14,
     "sacTeams": 42
+   },
+   {
+    "at": "2026-09-28T12:10:00Z",
+    "ac": 1.1421,
+    "acRank": 16,
+    "acTeams": 45,
+    "sac": 2.5205,
+    "sacRank": 14,
+    "sacTeams": 42
+   },
+   {
+    "at": "2026-09-28T12:40:00Z",
+    "ac": 1.1421,
+    "acRank": 16,
+    "acTeams": 45,
+    "sac": 2.5205,
+    "sacRank": 14,
+    "sacTeams": 42
    }
   ]
  },
@@ -474,7 +492,7 @@
    {
     "rank": 10,
     "name": "ACC01-T00076",
-    "score": 13.1361,
+    "score": 13.0111,
     "rows": 464,
     "alone": null,
     "us": false
@@ -489,6 +507,14 @@
    },
    {
     "rank": 12,
+    "name": "ACC01-T00128",
+    "score": 5.4832,
+    "rows": 320,
+    "alone": 1,
+    "us": false
+   },
+   {
+    "rank": 13,
     "name": "MCSC",
     "score": 4.8526,
     "rows": 335,
@@ -496,17 +522,9 @@
     "us": false
    },
    {
-    "rank": 13,
-    "name": "ACC01-T00128",
-    "score": 4.6082,
-    "rows": 319,
-    "alone": 1,
-    "us": false
-   },
-   {
     "rank": 14,
     "name": "NavierStoked",
-    "score": 4.2531,
+    "score": 4.2063,
     "rows": 330,
     "alone": 1,
     "us": false
@@ -544,20 +562,20 @@
     "us": false
    }
   ],
-  "acAt": "2026-09-28T11:40:00Z",
+  "acAt": "2026-09-28T12:40:00Z",
   "sac": [
    {
     "rank": 8,
     "name": "jr",
-    "score": 258.2381,
-    "rows": 1579,
+    "score": 257.4256,
+    "rows": 1578,
     "alone": null,
     "us": false
    },
    {
     "rank": 9,
     "name": "ACC01-T00076",
-    "score": 15.0012,
+    "score": 14.8762,
     "rows": 467,
     "alone": 7,
     "us": false
@@ -573,15 +591,15 @@
    {
     "rank": 11,
     "name": "ACC01-T00128",
-    "score": 9.1443,
-    "rows": 337,
+    "score": 10.0193,
+    "rows": 338,
     "alone": 1,
     "us": false
    },
    {
     "rank": 12,
     "name": "NavierStoked",
-    "score": 6.1011,
+    "score": 6.0542,
     "rows": 339,
     "alone": 0,
     "us": false
@@ -619,7 +637,7 @@
     "us": false
    }
   ],
-  "sacAt": "2026-09-28T11:40:00Z"
+  "sacAt": "2026-09-28T12:40:00Z"
  },
  "searches": {
   "items": [
@@ -634,44 +652,54 @@
     "detail": "Exact: no path of 38 or fewer stays within total length 32 for its first 29 moves (caps 27\u201332 proved). Beam restarts: 0 runs, best None. Paused: caps 33+ need more memory than we have; posted to helpers."
    },
    {
-    "key": "easy-exact",
-    "row": "0 easy rows",
-    "goal": "Rows held by 1\u20132 teams, record \u2264 36",
-    "record": null,
-    "k": null,
-    "best": null,
-    "status": "running",
-    "detail": "Exact capped sweep: 3 of 0 rows done, 0 with a tie or beat."
-   },
-   {
     "key": "midB",
     "row": "129 rows",
     "goal": "ac-00145 first, then records 33\u201340 held by 1\u20136 teams",
     "record": null,
     "k": null,
     "best": null,
-    "status": "running",
-    "detail": "Exact capped sweep: 17 of 129 rows done, 0 with a tie or beat."
-   },
-   {
-    "key": "midC",
-    "row": "0 rows",
-    "goal": "Records 25\u201332 held by 1\u20136 teams (cheapest first)",
-    "record": null,
-    "k": null,
-    "best": null,
-    "status": "running",
-    "detail": "Exact capped sweep: 0 of 0 rows done, 0 with a tie or beat."
-   },
-   {
-    "key": "easy-beam",
-    "row": "0 easy rows",
-    "goal": "Same rows, H-beam",
-    "record": null,
-    "k": null,
-    "best": null,
     "status": "stopped",
-    "detail": "H-beam sweep: 0 of 0 rows done, 0 ties or beats. Stopped: the exact search finds more."
+    "detail": "Exact capped sweep (stopped for the P2 lanes): 17 of 129 rows done, 0 with a tie or beat."
+   },
+   {
+    "key": "p2a",
+    "row": "308 rows",
+    "goal": "Hump rows \u2264 45: ties and beats",
+    "record": null,
+    "k": null,
+    "best": null,
+    "status": "running",
+    "detail": "P2 lane A, P2 beam (winner arm): 149 of 308 rows done, 22 with a path, 3 at or under the record (ac-03060, ac-05835, ac-01698)."
+   },
+   {
+    "key": "p2b",
+    "row": "307 rows",
+    "goal": "Hump rows \u2264 45: ties and beats",
+    "record": null,
+    "k": null,
+    "best": null,
+    "status": "running",
+    "detail": "P2 lane B, P2 beam (winner arm): 140 of 307 rows done, 20 with a path, 2 at or under the record (ac-03789, ac-00222)."
+   },
+   {
+    "key": "p2u",
+    "row": "40 rows",
+    "goal": "First solves (1.0 each): unsolved rows in Miller\u2013Schupp families with a solved neighbour",
+    "record": null,
+    "k": null,
+    "best": null,
+    "status": "running",
+    "detail": "Unsolved MS rows, P2 beam (winner arm): 1 of 40 rows done, 0 with a path, 0 at or under the record."
+   },
+   {
+    "key": "queue",
+    "row": "1 line(s)",
+    "goal": "Batch rule: send at 3+ lines (\u22650.25 waits \u226430 min)",
+    "record": null,
+    "k": null,
+    "best": null,
+    "status": "waiting",
+    "detail": "Verified and queued: sac-00222."
    }
   ]
  },
@@ -729,7 +757,37 @@
     "name": "Beam on unsolved rows",
     "use": "",
     "state": "not yet",
-    "evidence": "0 of 126."
+    "evidence": "0 of 126 (H-beam). P2 lane on 40 unsolved MS rows running."
+   },
+   {
+    "name": "P2 lookahead beam (atlas B31)",
+    "use": "Hump rows \u2264 45",
+    "state": "works",
+    "evidence": "ac/sac-03060 k1 (+1.0), ac-01698, ac-03789, ac-05835, sac-00222 (queued)."
+   },
+   {
+    "name": "Class quota + elite (\u201cprotect what can be protected\u201d)",
+    "use": "Beam diversity",
+    "state": "works",
+    "evidence": "Winner of the atlas A/B; sac-00487. Both P2 lanes run it."
+   },
+   {
+    "name": "(y,x) shortcut / overlap splice",
+    "use": "SAC = AC+1 rows; paths through shared states",
+    "state": "works",
+    "evidence": "sac-01698, sac-05091 (y,x); ac-00487 splice. 0 of 6 SAC near-misses at 12:20Z."
+   },
+   {
+    "name": "Macros, P2 as exact bound, Whitehead key",
+    "use": "",
+    "state": "dead",
+    "evidence": "Bob's macros 0/9 better; P2 region bound saves 8\u201326% only; WH and comm_len keys lost."
+   },
+   {
+    "name": "YXXyx chain (Lisitsa's MS family)",
+    "use": "68 chain rows, mostly one team",
+    "state": "not yet",
+    "evidence": "Level-by-level routes cost ~3\u00b72^n (row-op proof); records ~2^(n+1). The leaders use a different route shape."
    }
   ]
  },
@@ -824,6 +882,26 @@
     "at": "2026-09-28T11:07Z",
     "kind": "submit",
     "text": "Submission 2657: 3/3 accepted. sac-00487 (atlas quota), ac-00487 (overlap splice), sac-05091 ((y,x) shortcut)."
+   },
+   {
+    "at": "2026-09-28T12:10Z",
+    "kind": "submit",
+    "text": "sac-00222 42 tie (k3, ~0.125) verified and queued from P2 lane B; waits for a batch of 3."
+   },
+   {
+    "at": "2026-09-28T12:18Z",
+    "kind": "proof",
+    "text": "Chain row-op argument: a level needs a multiplications (unique geodesic in SL2(Z)) plus ~a conjugations, so level-by-level routes cost ~3\u00b72^n; records are ~2^(n+1)."
+   },
+   {
+    "at": "2026-09-28T12:40Z",
+    "kind": "tool",
+    "text": "Session digest: 3-pass review of the whole chat (rules, submissions, methods, open threads) committed."
+   },
+   {
+    "at": "2026-09-28T12:50Z",
+    "kind": "tool",
+    "text": "New lane p2u: 40 of 373 unsolved Miller\u2013Schupp rows with a solved neighbour; any path is a first solve (1.0)."
    }
   ]
  }

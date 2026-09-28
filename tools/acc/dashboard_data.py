@@ -6,7 +6,7 @@
 Docs: summary, scores, days, standing, rivals, searches, methods, log. The published tracker page
 reads them from its database (collection `dash`); push with ArtifactData batch `set dash/<name>`.
 """
-import argparse, collections, glob, gzip, json, os, pathlib, sys, datetime as dt
+import argparse, collections, glob, gzip, json, os, pathlib, re, sys, datetime as dt
 
 REPO = pathlib.Path(__file__).resolve().parents[2]
 LIVE = REPO / "research" / "acc" / "live"
@@ -152,8 +152,8 @@ def build(work):
     hits = [r["id"] for r in ec if T.get(r["id"]) and ((r.get("ac_len") or 999) <= (T[r["id"]]["ac_record"] or 0)
                                                      or (r.get("sac_len") or 999) <= (T[r["id"]]["sac_record"] or 0))]
     searches.append({"key": "easy-exact", "row": f"{len(T)} easy rows", "goal": "Rows held by 1–2 teams, record ≤ 36",
-                     "record": None, "k": None, "best": None, "status": "running",
-                     "detail": f"Exact capped sweep: {len(ec)} of {len(T)} rows done, {len(hits)} with a tie or beat"
+                     "record": None, "k": None, "best": None, "status": "stopped",
+                     "detail": f"Exact capped sweep (stopped 05:34 for the P2 lanes): {len(ec)} of {len(T)} rows done, {len(hits)} with a tie or beat"
                                + (f" ({', '.join(hits)})" if hits else "") + "."})
     for name, label, goal in (("midB", "Mid rows 33–40", "ac-00145 first, then records 33–40 held by 1–6 teams"),
                               ("midC", "Mid rows 25–32", "Records 25–32 held by 1–6 teams (cheapest first)")):
@@ -162,13 +162,35 @@ def build(work):
         hh = [r["id"] for r in res if TT.get(r["id"]) and ((TT[r["id"]].get("ac_record") and (r.get("ac_len") or 999) <= TT[r["id"]]["ac_record"])
                                                           or (TT[r["id"]].get("sac_record") and (r.get("sac_len") or 999) <= TT[r["id"]]["sac_record"]))]
         searches.append({"key": name, "row": f"{len(TT)} rows", "goal": goal, "record": None, "k": None, "best": None,
-                         "status": "running", "detail": f"Exact capped sweep: {len(res)} of {len(TT)} rows done, "
+                         "status": "stopped", "detail": f"Exact capped sweep (stopped for the P2 lanes): {len(res)} of {len(TT)} rows done, "
                                                         f"{len(hh)} with a tie or beat" + (f" ({', '.join(hh)})" if hh else "") + "."})
     bh = [r["id"] for r in eb if r.get("verdict") in ("TIE", "BEAT")]
     searches.append({"key": "easy-beam", "row": f"{len(T)} easy rows", "goal": "Same rows, H-beam",
                      "record": None, "k": None, "best": None, "status": "stopped",
                      "detail": f"H-beam sweep: {len(eb)} of {len(T)} rows done, {len(bh)} ties or beats. "
                                "Stopped: the exact search finds more."})
+
+    # live P2 lanes (winner arm: P2=2 + class quota 16 + elite 5000) and the send queue
+    for name, label, goal in (("p2a", "P2 lane A", "Hump rows ≤ 45: ties and beats"),
+                              ("p2b", "P2 lane B", "Hump rows ≤ 45: ties and beats"),
+                              ("p2u", "Unsolved MS rows", "First solves (1.0 each): unsolved rows in Miller–Schupp families with a solved neighbour")):
+        res = jl(f"{work}/{name}_cap.jsonl")
+        TT = {t["id"]: t for t in json.load(open(f"{work}/{name}_targets.json"))} if os.path.exists(f"{work}/{name}_targets.json") else {}
+        if not TT:
+            continue
+        hh = [r["id"] for r in res if TT.get(r["id"]) and ((TT[r["id"]].get("ac_record") and (r.get("ac_len") or 999) <= TT[r["id"]]["ac_record"])
+                                                          or (TT[r["id"]].get("sac_record") and (r.get("sac_len") or 999) <= TT[r["id"]]["sac_record"]))]
+        paths = sum(1 for r in res if r.get("ac_len"))
+        searches.append({"key": name, "row": f"{len(TT)} rows", "goal": goal, "record": None, "k": None, "best": None,
+                         "status": "running", "detail": f"{label}, P2 beam (winner arm): {len(res)} of {len(TT)} rows done, "
+                                                        f"{paths} with a path, {len(hh)} at or under the record"
+                                                        + (f" ({', '.join(hh[:8])})" if hh else "") + "."})
+    searches = [x for x in searches if x["row"] not in ("0 rows", "0 easy rows")]  # scratch lists gone after restarts
+    q = sorted(glob.glob(str(LIVE / "queue" / "*.txt")))
+    qlines = [l.split(":")[0] for f in q for l in open(f) if re.match(r"\s*s?ac-\d+", l)]
+    searches.append({"key": "queue", "row": f"{len(qlines)} line(s)", "goal": "Batch rule: send at 3+ lines (≥0.25 waits ≤30 min)",
+                     "record": None, "k": None, "best": None, "status": "waiting" if qlines else "empty",
+                     "detail": ("Verified and queued: " + ", ".join(qlines) + ".") if qlines else "Nothing queued."})
 
     methods = [
         {"name": "Adaptive exact capped search", "use": "Short rows held by 1–2 teams", "state": "works",
@@ -186,7 +208,17 @@ def build(work):
         {"name": "Beam on mid rows (k=2, 44–70)", "use": "", "state": "not yet",
          "evidence": "0 of 34. Record paths climb above what the beam keeps."},
         {"name": "Beam on long rows (≥ 70)", "use": "", "state": "not yet", "evidence": "Path found on 1 of 195."},
-        {"name": "Beam on unsolved rows", "use": "", "state": "not yet", "evidence": "0 of 126."},
+        {"name": "Beam on unsolved rows", "use": "", "state": "not yet", "evidence": "0 of 126 (H-beam). P2 lane on 40 unsolved MS rows running."},
+        {"name": "P2 lookahead beam (atlas B31)", "use": "Hump rows ≤ 45", "state": "works",
+         "evidence": "ac/sac-03060 k1 (+1.0), ac-01698, ac-03789, ac-05835, sac-00222 (queued)."},
+        {"name": "Class quota + elite (“protect what can be protected”)", "use": "Beam diversity", "state": "works",
+         "evidence": "Winner of the atlas A/B; sac-00487. Both P2 lanes run it."},
+        {"name": "(y,x) shortcut / overlap splice", "use": "SAC = AC+1 rows; paths through shared states", "state": "works",
+         "evidence": "sac-01698, sac-05091 (y,x); ac-00487 splice. 0 of 6 SAC near-misses at 12:20Z."},
+        {"name": "Macros, P2 as exact bound, Whitehead key", "use": "", "state": "dead",
+         "evidence": "Bob's macros 0/9 better; P2 region bound saves 8–26% only; WH and comm_len keys lost."},
+        {"name": "YXXyx chain (Lisitsa's MS family)", "use": "68 chain rows, mostly one team", "state": "not yet",
+         "evidence": "Level-by-level routes cost ~3·2^n (row-op proof); records ~2^(n+1). The leaders use a different route shape."},
     ]
 
     log = [
@@ -196,6 +228,10 @@ def build(work):
         {"at": "2026-09-25", "kind": "proof", "text": "Capped proofs: record paths must first grow the relators (ac-00037, ac-00313)."},
         {"at": "2026-09-26", "kind": "proof", "text": "Proof-track write-up: 53 exact optima, board-wide lower bounds, forced humps."},
         {"at": "2026-09-27T22:35Z", "kind": "tool", "text": "SAIR API live from the cloud session: boards, history, team pages."},
+        {"at": "2026-09-28T12:10Z", "kind": "submit", "text": "sac-00222 42 tie (k3, ~0.125) verified and queued from P2 lane B; waits for a batch of 3."},
+        {"at": "2026-09-28T12:18Z", "kind": "proof", "text": "Chain row-op argument: a level needs a multiplications (unique geodesic in SL2(Z)) plus ~a conjugations, so level-by-level routes cost ~3·2^n; records are ~2^(n+1)."},
+        {"at": "2026-09-28T12:40Z", "kind": "tool", "text": "Session digest: 3-pass review of the whole chat (rules, submissions, methods, open threads) committed."},
+        {"at": "2026-09-28T12:50Z", "kind": "tool", "text": "New lane p2u: 40 of 373 unsolved Miller–Schupp rows with a solved neighbour; any path is a first solve (1.0)."},
     ]
     notes = {"2558": "6 ties (NEW15).", "2565": "6 Stable AC ties from our AC paths + [16,15].",
              "2566": "sac-03305 tie on a row held by one team (+0.5) and ac-03305.",
