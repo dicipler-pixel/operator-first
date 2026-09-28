@@ -923,3 +923,19 @@ Next test in this frame: find the first ceiling at which MS(3), MS(4) connect to
 heavy search processes run and disk > 5 GB. Queue: (1) near misses through the cycler (17 rows at record +1/+2, k <= 3,
 led by ac-00975 35/34 k1, ac-05149 34/33 k1, ac-00145 40/39 k1, ac-08995 46/45 k1; started now), (2) MS(3) first-
 ceiling test (caps 14-18), (3) 737 one-team rows with records 41-60 that we don't tie, through the cycler.
+
+## 2026-09-28 15:00Z, session 1: Smith-chart reading of paths (rotate = phase, cut = stub), learned from ac-03719
+- Charlie's ac-03719 37 is **not a tie**: live record 35 (k1, T00096), SAC 36 (k2). Official verifier accepts both
+  paths (37 / 39); plan_offline: +2 / +3. Not inboxed. Charlie's other certified rows match live records.
+- Move classes (tools/acc/smith_read.py): ROT = length-preserving conjugation (turn a word in place), CUT = length
+  down, CLIMB = length up. ac-03719 37: 19 ROT, 11 CUT, 5 CLIMB, 2 INV; max length never above start (35). Charlie's
+  exact run proves nothing <= 36 under cap 35, so the 35 record must climb above the start.
+- **Pool profile (716 held paths, 249 at record):** median rotation share 0.29 at record vs 0.38 above record.
+  Climb above start at record, by record/start ratio: < 0.9: 14/97 climb (median 0); 0.9-1.1: 28/39 (median 2);
+  1.1-1.5: 54/73 (median 2); >= 1.5: 40/40 (median 7, max 16). => exact searches must set cap by this table,
+  not at the start length.
+- **Rotation compressor** (tools/acc/rotcomp.py): replace each run of pure rotations of r_i between moves that read
+  or change r_i by the shortest arc; replayed with the official core. Shortens 29 of 467 above-record held paths by
+  2-11 moves (none to record yet). Now a step in every road cycle (work/rotcomp_paths.jsonl feeds the pool).
+- Queued at the front: exact capped runs on 9 near-miss rows (k <= 2) at cap = start + predicted climb (+2 more),
+  e.g. ac-00975 caps 34/36, ac-05149 31/33, ac-00145 23/25, ac-03719 38/40 (log: ceil_near.log).
