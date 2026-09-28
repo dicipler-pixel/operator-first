@@ -1194,3 +1194,17 @@ pool; ac-07790 53 posted for Git). First solves 18/100, none: auto-switch at 20 
 (tools/acc/firstsolve_twins.py: deep two-eyes beams from the three twins, mapped back, official replay).
 sac-08078 cap 33 still running. Helpers: Astra 11/150, 2 hit rows (22:55Z line); Sonnet last line 21:55Z (6/200),
 missed the 22:55Z rally; Bob no line yet (orders 22:19Z).
+
+## 2026-09-28 23:10Z, Git: the team's own 183 routes, mixed (every eye along every verified path)
+All 183 AC paths in ACC_SUBMIT_* and inbox/ (shortest per row) replayed clean on the official core, then every eye was
+recorded along each route. Files: exchange/session3/team_routes_mix_v1/ (183 Mixer 5.2 studies + team_mix.py).
+- **Within a route, the new eyes track progress better than length:** Sanov Smith r1 +0.87, Dunford stretch r1 +0.86,
+  kappa gap +0.82, comm_len +0.73, length +0.67 (median Spearman with moves-left; pooled: 0.61-0.64 vs length 0.60).
+- **Commutators lead the breaks:** in the 3 moves before a length break, comm_len falls by 2.56 and log|kappa-18| by 1.58
+  more than elsewhere (length itself: 0.53). A falling commutator is the best early sign of a break we have measured.
+- **Climbing the kappa pit is normal:** on 160 of 183 solved routes the kappa gap rises above its start first (median
+  climb 5.4 log units, about x220). This is why kappa-first keys (which never climb) failed; do not use kappa as a
+  one-way target.
+- **Landing rule holds at team scale:** both lines keep their eigenvectors until the last 10 moves on 147 of 183 routes
+  (median moves left at vector loss: r0 1, r1 2).
+- Conjugations are half the moves (median share 0.50).
