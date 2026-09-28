@@ -1,3 +1,15 @@
+## 2026-09-28 05:50Z, session 2 (lead): MS(n, YXXyx) — the level move is uniform in n; skip test
+- The exact 9-move level path MS_3 → (BS, x^3 YYXyx) is `5 1 12 4 1 10 5 12 10`. **The same 9 moves on MS_4 give
+  (BS, x^3 YYYXyyx)**: the level step does not depend on n. It alternates inversion (move 1) with
+  multiplications, so one relator is worked from both ends without paying a conjugation per crossing. Move 4
+  is the BS substitution y → x^-2 y x on the trailing y. Hypothesis: the leaders' ~1 move per x comes from this
+  invert-and-multiply rhythm, applied at every level including the last (where our doubling pays 2 per x).
+- **Skip test** (can we finish from (BS, x^a YYXyx) without doubling to YY x^(2a+1) y?): exact, a=1 (cap 13,
+  complete): 12 moves, and the optimum *does* double first (5 11 5 12 → Yxxx, then an 8-move finish). a=3 running.
+- Exact n=3 of MS(n, YXXyx) under cap 16: 30 moves (`5 1 12 4 1 10 5 12 7 5 6 5 11 5 11 5 1 6 12 3 10 4 2 2 2 2 2 4 1 2`),
+  = the leaders' formula 2^(n+1)+n+11. Its finish gets r1 = X (x = 1) and peels r0 = xYx^5 with move 2.
+- Exact n=2: 15 (`5 7 12 5 6 5 12 11 2 5 12 5 8 2 4`), finish steps down y=x^3 → y=x^2 → y=x (descent, not a peel).
+
 ## 2026-09-28, Codex ABC: borrowed-road joins through radius 7 remained behind
 - Expanded the state-keyed suffix atlas of 478 officially valid AC roads (13,092 suffix states) with fresh prefixes. At radius 6/cap 35: ac-00766 visited 388,785 states, ac-00974 visited 581,530; best 34 and 26. At radius 7/cap 40: 3,035,716 and 4,578,426; best still 34 versus record 33 and 26 versus record 24. This tests joins into this particular atlas, not arbitrary new finish roads or global optimality. Code `ledger/codex_abc_crossjoin.py`; four raw JSON results `ledger/codex_abc_crossjoin_r{6,7}_{00766,00974}_20260928.json`. Do not spend more on the same small-radius atlas without new suffix roads.
 
