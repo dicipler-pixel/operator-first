@@ -62,9 +62,47 @@ def probe(start, moves, apply_move, free_reduce, invert):
             "endpoint": [Y.word(w) for w in state]}
 
 
+def local_early_four(start, moves, apply_move, free_reduce, invert,
+                     radius, cap=100):
+    """Search detours near a given route, without asserting global optimality."""
+    prefixes = [start]
+    for m in moves:
+        prefixes.append(apply_move(prefixes[-1], m))
+    first = next(i for i, s in enumerate(prefixes)
+                 if comm_len(s, free_reduce, invert) == 4)
+    best = first
+    winner = None
+    visited = 0
+    for i, origin in enumerate(prefixes[:first]):
+        seen = {origin}
+        layer = [(origin, ())]
+        for depth in range(1, min(radius, best - i - 1) + 1):
+            next_layer = []
+            for state, sequence in layer:
+                for move in range(14):
+                    child = apply_move(state, move)
+                    if child in seen or sum(map(len, child)) > cap:
+                        continue
+                    seen.add(child)
+                    visited += 1
+                    trial = sequence + (move,)
+                    if comm_len(child, free_reduce, invert) == 4:
+                        if i + depth < best:
+                            best, winner = i + depth, {
+                                "prefix": i, "detour": list(trial)}
+                    if depth < radius:
+                        next_layer.append((child, trial))
+            layer = next_layer
+    return {"radius": radius, "max_total_length": cap,
+            "neighbor_states_checked": visited, "original_first": first,
+            "best_first": best, "improving_detour": winner}
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--sair-root", required=True)
+    parser.add_argument("--detour-radius", type=int, default=0,
+                        help="check first c=4 in local n=5 neighborhoods")
     args = parser.parse_args()
     sys.path.insert(0, str(Path(args.sair_root) / "competition/tools"))
     from verifier.core import apply_move, free_reduce, invert, verify
@@ -89,6 +127,10 @@ def main():
         assert result["ok"], result
         out["routes"][f"YXXyx_n{n}"] = probe(
             start, path, apply_move, free_reduce, invert)
+        if n == 5 and args.detour_radius:
+            out["n5_local_detours"] = local_early_four(
+                start, path, apply_move, free_reduce, invert,
+                args.detour_radius)
 
     start = tuple(as_word(w) for w in A.P)
     target = tuple(as_word(w) for w in A.AK3)
