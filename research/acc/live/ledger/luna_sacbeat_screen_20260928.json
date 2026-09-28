@@ -1,0 +1,102 @@
+{
+  "run_date_utc": "2026-09-28",
+  "task": "Reserved long high-slack Stable AC beat screen; search for an AC route <= SAC_live - 3, then AC+[16,15] strictly beats SAC.",
+  "official_sair_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "finish_table_sha256": "48a81fea88f49c5c9499bde3738b813792c405bedff41b8ddc229f9aee7bb053",
+  "runner": "research/acc/optimality/run_beam.py; official verifier assertions enabled for any AC/SAC candidate",
+  "baseline": {
+    "width": 20000,
+    "depth": "target AC ceiling + 2",
+    "BEAM_H": 1,
+    "BEAM_DIV": 1,
+    "BEAM_BAL": 0
+  },
+  "diverse": {
+    "rows": [
+      "ac-03104",
+      "ac-03887",
+      "ac-00074"
+    ],
+    "width": 20000,
+    "depth": "target AC ceiling + 2",
+    "BEAM_H": 1,
+    "BEAM_DIV": 0.6,
+    "BEAM_BAL": 0.75,
+    "BEAM_NOV": 1,
+    "BEAM_NOISE": 1,
+    "BEAM_SEED": 20260928
+  },
+  "rows": [
+    {
+      "id": "ac-00520",
+      "ac_live": 101,
+      "target_ac_ceiling": 108,
+      "sac_live": 111,
+      "slack": 7,
+      "baseline_seconds": 34.9,
+      "baseline": "nopath"
+    },
+    {
+      "id": "ac-00718",
+      "ac_live": 123,
+      "target_ac_ceiling": 128,
+      "sac_live": 131,
+      "slack": 5,
+      "baseline_seconds": 167.5,
+      "baseline": "nopath"
+    },
+    {
+      "id": "ac-01566",
+      "ac_live": 138,
+      "target_ac_ceiling": 145,
+      "sac_live": 148,
+      "slack": 7,
+      "baseline_seconds": 409.1,
+      "baseline": "nopath"
+    },
+    {
+      "id": "ac-00074",
+      "ac_live": 208,
+      "target_ac_ceiling": 216,
+      "sac_live": 219,
+      "slack": 8,
+      "baseline_seconds": 338.4,
+      "baseline": "nopath",
+      "diverse_seconds": 96.1,
+      "diverse": "nopath"
+    },
+    {
+      "id": "ac-03887",
+      "ac_live": 298,
+      "target_ac_ceiling": 307,
+      "sac_live": 310,
+      "slack": 9,
+      "baseline_seconds": 90.5,
+      "baseline": "nopath",
+      "diverse_seconds": 134.3,
+      "diverse": "nopath"
+    },
+    {
+      "id": "ac-03104",
+      "ac_live": 312,
+      "target_ac_ceiling": 325,
+      "sac_live": 328,
+      "slack": 13,
+      "baseline_seconds": 185.8,
+      "baseline": "nopath",
+      "diverse_seconds": 627.6,
+      "diverse": "nopath"
+    }
+  ],
+  "result": "No candidate found in any of the nine row/configuration runs. 'nopath' is a bounded beam miss, not an exhaustive search result or proof of nonexistence.",
+  "accounting": {
+    "baseline_wall_seconds": 1226.2,
+    "diverse_wall_seconds": 858,
+    "state_counts": "Not recorded by run_beam.py summary output."
+  },
+  "raw_outputs": [
+    "research/acc/live/results_luna_sacbeat_codex.jsonl",
+    "research/acc/live/results_luna_sacbeat_codex_div.jsonl"
+  ],
+  "target_manifest": "research/acc/live/targets_luna_sacbeat_codex.json"
+}
