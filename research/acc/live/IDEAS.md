@@ -1,3 +1,11 @@
+## 2026-09-28, ChatGPT helper: ac-06095 exact peak-window screen
+- **Target:** reserved helper lane, ac-06095 47 vs record 42 (k=1); matching SAC is 49 vs 44 (k=1). No submission line found.
+- **Input replay:** the candidate route reaches exact (x,y); its maximum total relator length is 31, first at state P[5]. Move set is the pinned ac-r2-v1 moves 0-13.
+- **Gap 15:** checked windows [0,15] through [5,20], using radius 7 from each endpoint. Caps 31, 33, 35, 37, 40, 43, 46, 50, 60, 70, 80, 90 all had zero intersections. Cap 4096 was also empty and is effectively uncapped for these radius-7 balls: each endpoint has L<=31 and one move has L_next<=2L, so L<=3968 through depth 7. At cap 4096 the largest sides had 10,885,023 and 10,842,301 states.
+- **Gap 16:** checked windows [0,16] through [5,21] with radii 7+8. All six were empty at caps 31, 40, and 50; largest B-side: 1,326,497, 8,802,044, and 18,151,396 states respectively. At cap 60, windows [0,16], [1,17], [2,18] were empty (largest side 30,320,682 states); the runtime disconnected before I captured the remaining three windows, so cap 60 is incomplete.
+- **Result:** no shorter splice. The path remains 47. This is window-local, not a global optimality result. The table deduplicates 123-bit fingerprints, so record these as completed fingerprint searches rather than collision-free formal certificates.
+- **Audit:** `research/acc/optimality/ac-06095_peak_window_audit_20260928.json`. Next: finish cap 60 on the last three gap-16 windows after compute reconnects, then consider gap 17.
+
 ## 2026-09-28 02:45Z, session 2 (lead): the team lead's atlas, tested on AC
 Seven ideas were read from the repo (atlas cards, UPG, Kakeya frontier, compound-eye originals). Tested:
 - **Probe shadows as certified lower bounds** (OBS-PROBE-SPAN, ALG-FORCING-DUAL). Map words into
