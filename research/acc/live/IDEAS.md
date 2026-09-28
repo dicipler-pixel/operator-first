@@ -1,3 +1,12 @@
+## 2026-09-28 12:50Z, session 2 (lead): unsolved-MS lane p2u (digest lead: "106 second words", first solves = 1.0)
+- 106 MS(n,w) families have some n solved and some unsolved; they hold **373 unsolved non-AK(3) rows** (15 more are
+  AK(3)-class, skipped). Examples: YYYYYxYXX n=5 solved in **15** (ac-04662) but n=4 unsolved (ac-08441); YYxYxYXXX n=2 in
+  22, n=3 unsolved (ac-03989); YYXXYx n=3 in 26, n=4 unsolved (ac-09310). The n=5 solve looks like a coincidence (r0's
+  Y^5 cancels r1's y^5), so neighbours are not automatically easy.
+- Lane **p2u** (winner arm: P2=2 + QUOTA 16 + ELITE 5000, W=20k, depth 120) on the top 40 by nearest-solved distance
+  and record (`tools/acc/ops/unsolved_ms_targets.py`). Any path is a first solve (AC 1.0, plus SAC with [15,15]).
+  Replaces the tail lane p2t (those rows stay in p2a/p2b's lists).
+
 ## 2026-09-28 12:18Z, session 2 (lead): why level-by-level chain routes cannot reach the records (row-op argument)
 - **Shadow:** the exponent-sum rows of (r0, r1) form a unimodular 2x2 matrix; a multiplication is a row op, while
   conjugation and inversion are free. One level (BS, Y^k X y^(k-1) x^a) -> (BS, Y^(k-1) X y^(k-2) x^(2a)) is
@@ -9,6 +18,9 @@
 - **Exact checks (12:30Z, `acc_capped` rebuilt with MOVE_MASK, T8):** last level + finish (BS, YYXy x^4) under cap 21:
   best **22** (= beam; 46M states, complete to depth 21, so optimal among cap-21 routes). Finish (BS, Y x^15) under cap 23:
   best 25 (the beam's 21 climbs above 23), so no sub-linear finish inside cap 23.
+- Remaining level beams (`optimality/chain_rowops/level_beams_20260928.out`): last level a=8 and a=16 **no path** (W=20k,
+  DMAX 90; the beam dies on long x-runs); two levels (BS, YYYXyy x^a): a=1 **15**, a=2 **27**. a=4, a=8 and the m=31 finish
+  were stopped at 12:21 to free a core.
 - **Consequence:** any route through these level states with BS as the fixed relator costs about sum(2a) + m ~ 3*2^n.
   Our beams (2a+1 per level, m+6 finish) and session 1's exact n=3 (28) sit on that floor. The leaders' 2^(n+1)+n+~12
   **must leave this shape**: r0 moves off the BS row mid-route (for example, both relators carry long runs), or
@@ -223,7 +235,9 @@ paths; 59 hump paths, 305 climbing steps = 125 conjugations + 180 multiplication
   is the BS substitution y → x^-2 y x on the trailing y. Hypothesis: the leaders' ~1 move per x comes from this
   invert-and-multiply rhythm, applied at every level including the last (where our doubling pays 2 per x).
 - **Skip test** (can we finish from (BS, x^a YYXyx) without doubling to YY x^(2a+1) y?): exact, a=1 (cap 13,
-  complete): 12 moves, and the optimum *does* double first (5 11 5 12 → Yxxx, then an 8-move finish). a=3 running.
+  complete): 12 moves, and the optimum *does* double first (5 11 5 12 → Yxxx, then an 8-move finish). a=3 (added 12:40Z
+  from the transcript digest): cap 17 → 21 and cap 21 → 21 (51M states, 5,158 s, complete), path
+  `0 4 11 4 11 4 11 4 1 12 3 6 2 4 4 4 4 4 4 4 8`: it also doubles first; no skip.
 - Exact n=3 of MS(n, YXXyx) under cap 16: 30 moves (`5 1 12 4 1 10 5 12 7 5 6 5 11 5 11 5 1 6 12 3 10 4 2 2 2 2 2 4 1 2`),
   = the leaders' formula 2^(n+1)+n+11. Its finish gets r1 = X (x = 1) and peels r0 = xYx^5 with move 2.
 - Exact n=2: 15 (`5 7 12 5 6 5 12 11 2 5 12 5 8 2 4`), finish steps down y=x^3 → y=x^2 → y=x (descent, not a peel).
@@ -276,7 +290,8 @@ paths; 59 hump paths, 305 climbing steps = 125 conjugations + 180 multiplication
 - In the group, the target is r0 = Y x^(2^n − 1) (n=4: Y x^15), then the peel.
 - **The crux is the build:** our build costs ~2 moves per new x (1 multiplication + 1 conjugation to rotate).
   The records (2^(n+1) + 16..40) imply ~1 move per x in build and peel. 2 per x gives ~3·2^n (n=10: ~3,100 vs 2,088).
-- Running: H-beam from the n=4 BS-stage state (10 moves in), W=50k, depth 46 (record 56).
+- H-beam from the n=4 BS-stage state (10 moves in), W=50k, depth 46: AC 54 from the state = **64 total** vs record 56
+  (result added 12:40Z from the digest; path in scratch `work/ms_n4_path.txt`). No gain.
 
 ## 2026-09-28, Codex ABC: smaller goal ball for constrained memory
 - Built T8 with `work/acc_opt tball 8 40000000 work/T8.tab work/abc_t8`: 24,587,144 goal states, 640,000,000 bytes, SHA-256 `38f05b56d5e79d9df03cc3cd96cd8433725b051111984a8dad4fbe30d07068f8`. T9 has 214,977,551 states and 4,480,000,000 bytes. The smaller map removes 3.84 GB of table footprint while requiring up to one additional forward move for the same meet length.

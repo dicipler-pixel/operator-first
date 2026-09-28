@@ -1,9 +1,9 @@
-# Session 2 (lead) digest, 2026-09-27 22:06Z to 2026-09-28 ~12:20Z
+# Session 2 (lead) digest, 2026-09-27 22:06Z to 2026-09-28 ~12:29Z
 
 Recovered from the full lead-session transcript (5,400+ JSONL lines, two compactions at 03:59Z and 11:59Z).
 The transcript was read in three passes: (1) a chronological sweep, (2) a cross-check of numbers, promises and
 ideas, and (3) a check of every named file against `ls` and `git log` on `claude/gallant-bardeen-0pgpae`.
-The lead kept working while this was written, so events after about 12:20Z are not covered.
+The lead kept working while this was written, so events after about 12:29Z are not covered.
 No keys, tokens or Bearer strings appear here; the SAIR key lives only in the environment and proxy.
 
 Team: **Mad Hatters**, `ACC01-T00051`, team id `teamv2_8be23d60b3ea4dac81bbdbc3bb316917`, member dicipler
@@ -98,7 +98,7 @@ Status: **DONE**, **PARTIAL** or **OPEN**. Times are UTC.
 | 11:46 | "i redid the paper in lean i said get that if you need to" | OPEN. **AK3Audit.lean never arrived** (only a ChatGPT sandbox link). Not found in the repos or Drive. |
 | 11:57 | MS_Lisitsa_audit.md + ms_lisitsa_replay.py + ak3 replay v2 | DONE. Archived (3cbd3ef). The Lisitsa family is our YXXyx chain; its routes are ~8x the records. |
 | 12:01 | "Every step you take is a choice multiplied" song (audit re-upload, identical) | DONE. Mapped to "smaller move set / keep BS fixed". |
-| 12:05 | "keep your idea going and do this as well" + session 1's MOVE_MASK text | PARTIAL. Session 1 committed MOVE_MASK (bf8e653). The lead ran level-cost beams and the row-op argument (3eae42a). The masked n=4 runs at caps 25/27 had not reported. |
+| 12:05 | "keep your idea going and do this as well" + session 1's MOVE_MASK text | PARTIAL. Session 1 committed MOVE_MASK (bf8e653). The lead ran level-cost beams, the row-op argument (3eae42a) and exact capped checks (477d357). The masked n=4 runs at caps 25/27 had not reported. |
 | 12:07 | "pull all of our work from the transript go over it 2 or 3 times" | This digest. |
 
 ---
@@ -124,7 +124,7 @@ All 12 submissions this session were accepted in full: **71 lines**. At 11:31 al
 | 2657 | 11:07 | 3/3 | sac-00487 27 (k3), ac-00487 26 (k14), sac-05091 26 (k10) | class quota; overlap splice; (y,x) | ~+0.13 |
 
 **Queued, not sent:** `research/acc/live/queue/20260928T1210Z_sac00222_p2b.txt`, a sac-00222 42 tie (k3, ~0.125).
-It passed the official verifier at 12:10 and was committed (2aa99ee). It is waiting for 2 more lines (R4).
+It passed the official verifier at 12:10 and was committed (2aa99ee). It was still waiting for 2 more lines (R4) at 12:28.
 ac-00222 is at 42 against a record of 41, and the (y,x) shortcut found nothing within 32.
 
 **Score snapshots** (AC score and rank; SAC score and rank):
@@ -300,14 +300,19 @@ Snapshot: `live/teams/T00096_ac_20260928T1140Z.json`.
   - Finish (BS, Y x^m): m=3 → 8, m=7 → 13, m=15 → 21.
   - Last level + finish (BS, YYXy x^a): a=1 → 8, a=2 → 13, a=4 → 22 (`1 4 10 4 10 4 10 2 5 8 7 12 4 6 3 0 4^6`),
     a=8 → none (235 s), a=15 → none (331 s).
-  - Two levels (BS, YYYXyy x^a): a=1 → 15, a=2 → 27. a=4, a=8 and Y x^31 were still running (pid 27503).
-- **Row-op argument** (IDEAS 12:45Z, 3eae42a; `chain_rowops/sl2geo.py`, `convlen.py`):
+  - Two levels (BS, YYYXyy x^a): a=1 → 15, a=2 → 27. The a=4, a=8 and Y x^31 runs were **stopped by PID at 12:21**
+    (low value) and never finished.
+  - **Exact capped checks** (12:30Z, IDEAS, 477d357; acc_capped rebuilt with MOVE_MASK, T8): last level + finish
+    (BS, YYXy x^4) under cap 21 → **22**, optimal among cap-21 routes (46M states, complete to depth 21). Finish
+    (BS, Y x^15) under cap 23 → 25 (the beam's 21 climbs above 23), so there is no sub-linear finish inside cap 23.
+- **Row-op argument** (IDEAS entry retimed to 12:18Z in 25e7fac, first committed 3eae42a; `chain_rowops/sl2geo.py`, `convlen.py`):
   - One level is [[−1,0],[a−1,−1]] → [[−1,0],[2a−1,−1]] in SL2(Z), with a unique geodesic of **a row ops**.
   - Repeated multiplication without conjugation only appends BS^j (5 letters each), so about a conjugations are also
     forced: ~2a per level.
   - So any route through level states with BS fixed costs ~3·2^n. **The leaders must leave the level shape**, for
     example r0 not a BS conjugate mid-route, or both relators carrying long runs.
   - Search target for n=4 (record 48).
+- The level-cost entry in IDEAS is retimed to 12:10Z (it was first written as 12:20Z).
 - **Stable AC on chains:** fast peel (§4) and super-relator negative. The beat lane needs a cheaper build.
 - **n=4 board rows:** ac-01784 and ac-04042 (record 48/50, k3) were never swept before 12:14. Winner beam W=20k,
   depth 50: **no path on either** (12:18).
@@ -316,7 +321,7 @@ Snapshot: `live/teams/T00096_ac_20260928T1140Z.json`.
 
 ## 6. Helpers
 
-| Helper | Role / files | State at ~12:20Z |
+| Helper | Role / files | State at ~12:29Z |
 |---|---|---|
 | Session 1 (other Claude session) | WORKING_session1.md. SAC-direct 146 rows, crossrow mirror ties, unsent roads, MS families, masked exact search (MOVE_MASK), macro beam on MS(4), P2 lanes p2c1/p2c2 (records 46–60, 0 ties), R_n, "the name still count" songs. | Masked n=4 at caps 25/27 and macro n=5 / MACW=1 running; results unknown. |
 | Codex | ORDERS_codex.md, WORKING_codex.md, targets_codex_oddeasyB.json (213 rows excluded from our sweeps). Two-interstate maps, ac-09311 corridor, YXXyx generator and trace, Lisitsa mapping correction, commutator phase probe (`codex_commutator_phase_probe.py`, 1.2M-state local test). Took Luna's SAC-beat rows. | Commits under the user's account. |
@@ -325,7 +330,7 @@ Snapshot: `live/teams/T00096_ac_20260928T1140Z.json`.
 | Luna | LUNA_ORDERS_20260928.md: 5 SAC-beat rows (ac-00520 ≤108, 00718 ≤128, 01566 ≤145, 00074 ≤216, 03104 ≤325; 03887 closed at 04:10). | Codex + Luna screen at W=20k: no path (`ledger/luna_sacbeat_screen_20260928*.json*`). Overlap not formally resolved. |
 | ChatGPT (the user's "best AI") | IDEAS 01:15Z (detour height, Pareto pilot); corrected the lead's 00:25 idea (a witness peak does not certify lower caps exhausted); AK(3) audit, AK3Audit.lean (not received), Lisitsa MS audit + replay. | — |
 | Grok | Prepared P000009 (our earlier proof-track note). | — |
-| Lead's subagents | GitHub ideas; Drive atlas; P2 validation; ACC repo mining (AK(3) list); Lean repo mining (C1/C2/E1/E2/U1/U2); BEAM_P2 builder; super-relator (negative); atlas ledger; score zoo; P2-capped exact (finished 12:19, dead as region bound); **builder: quota/WH/loss/ELITE → BEAM_DUAL (still running; binary scratch acc_beam_y; WIP diff in acc_beam.c uncommitted)**; this digest. | — |
+| Lead's subagents | GitHub ideas; Drive atlas; P2 validation; ACC repo mining (AK(3) list); Lean repo mining (C1/C2/E1/E2/U1/U2); BEAM_P2 builder; super-relator (negative); atlas ledger; score zoo; P2-capped exact (finished 12:19, dead as region bound); **builder: quota/WH/loss/ELITE → BEAM_DUAL (still running; binary scratch acc_beam_y; WIP in acc_beam.c committed unverified in 39cda03)**; this digest. | — |
 | "Old chats" | ~40 commits/hour from other chats dropping tips. | — |
 
 ---
@@ -340,7 +345,8 @@ All files below **exist and are tracked** on `claude/gallant-bardeen-0pgpae`. Th
 - `dashboard_data.py` (38a5f3b).
 - `dashboard/`: acc_tracker_template.html (d7c37dc), idea_map.html, results_map.html, results_data.json (4d47557),
   build_results.py, build_results_map.sh (2ba0431).
-- `METHODS_PLAYBOOK.md`, `HANDOFF_SAIR_ACC.md` (38a5f3b); `HELP_WANTED.md` (244e4d6).
+- `METHODS_PLAYBOOK.md` (25e7fac; "not worked" section updated 1fb6534 with the P2 region bound, (y,x) 0/6 and chain
+  beams), `HANDOFF_SAIR_ACC.md` (38a5f3b); `HELP_WANTED.md` (244e4d6).
 - `proof_track/`: WIN_TEMPLATE.md (244e4d6); DETOUR_WIDTH_ON_BENCHMARK_ROWS_DRAFT.md (e87e5e2; line 150 has the
   **[NAME OF THE TEAM'S MAIN AI ASSISTANT]** placeholder); PROOF_TRACK_SUBMISSION.md (68ad396, pre-session);
   capped_sweep_summary.json.
@@ -353,8 +359,10 @@ All files below **exist and are tracked** on `claude/gallant-bardeen-0pgpae`. Th
 
 **research/acc/optimality**
 - `run_beam_raw.py` (69adf1b), `run_capped_sweep.py` (4902aad).
-- `acc_beam.c` (2c8f330 committed; **working-tree diff +38/−15 = builder's BEAM_DUAL WIP, uncommitted**).
-- `acc_capped.c` (bf8e653, MOVE_MASK), `acc_capped_p2.c` (d6e2d47).
+- `acc_beam.c` (BEAM_DUAL WIP, +38/−15, committed with the snapshot in 39cda03 before the builder reported;
+  previous clean state 2c8f330).
+- `acc_capped.c` (bf8e653, MOVE_MASK), `acc_capped_p2.c` (d6e2d47). Also present: acc_batch.c, acc_capped_disk.c (Charlie),
+  acc_opt.c, acc_window.c, sac_rank3.c.
 - `find_bridges.py`, `road_bridges.py`, `hump_features.py`, `shadow_bounds.py`, `shadow_probe_export.py`,
   `mine_macros.py`, `build_echo.py`, `p2_hump_test.py`, `score_zoo.py`, `beam_loss.py`, `yxxyx_chain.py`,
   `codex_commutator_phase_probe.py`.
@@ -362,7 +370,7 @@ All files below **exist and are tracked** on `claude/gallant-bardeen-0pgpae`. Th
 - `chain_rowops/` (3eae42a): sl2geo.py, convlen.py, level_beam.py.
 
 **research/acc/live**
-- ORDERS.md, ORDERS_codex.md, ORDERS_luna_ms.md, IDEAS.md (newest 12:45Z), WORKING_session1/2.md,
+- ORDERS.md, ORDERS_codex.md, ORDERS_luna_ms.md, IDEAS.md (newest entries 12:18Z / 12:30Z), WORKING_session1/2.md,
   WORKING_codex.md, WORKING_codex_abc.md, LUNA_ORDERS_20260928.md, POST_adam_bob_charlie.md.
 - SENT_ROWS.txt (1,017 lines), AK3_CLASS_ROWS.json, ATLAS_AC_LEDGER.md, SCORE_ZOO.md, dw_bounds_20260928.json,
   dashboard.json, submit_log.jsonl, targets_codex_oddeasyB.json, CODEX_TRANSCRIPT_AUDIT_20260928.md.
@@ -391,22 +399,24 @@ All files below **exist and are tracked** on `claude/gallant-bardeen-0pgpae`. Th
 | p2a | 144/308 (scratch) | running (winner arm) |
 | p2b | 134/307 (scratch) | running (winner arm) |
 | p2n4 | 2/2 (scratch only) | done, no path |
+| p2c (lead, new 12:22) | 0/169 (scratch only) | running: tails of p2a/p2b, reversed and interleaved |
 
-Also: p2c_targets (1,506, session 1), p2sweep_targets (615), near1_targets (16), luna_targets (5).
+Also in the repo: p2c_targets.json (**1,506 rows, session 1's lane, 754db2f**), p2sweep_targets (615),
+near1_targets (16), luna_targets (5). See the name clash in §8g.
 
 **Artifacts:**
 - Tracker https://claude.ai/artifact/PesMNAWMhazVqhNx5DpP5u (db collection `dash`, 8 docs, v13).
 - Results Map https://claude.ai/artifact/4TTVZS1uHDZJ9qLzNAQzmB (v3).
 
-**Background at ~12:20Z:**
+**Background at ~12:29Z:**
 - Sweep watcher restarted 12:11 after marking ac-00222 handled.
 - Inbox watcher running.
 - Board watcher started 11:43 with an 8-hour limit (ends ~19:43Z).
 - Lanes p2a/p2b running.
-- Level beams (pid 27503) running.
+- Lane p2c started 12:22 (169 rows). Level beams stopped by PID at 12:21.
 - Builder helper (BEAM_DUAL) running.
-- Last hourly check-in routine `trig_01Fuaebji8ytWZZG32nYhpNn` fired at 12:14; **no re-arm was seen in the
-  transcript through ~12:20**.
+- Hourly check-in `trig_01Fuaebji8ytWZZG32nYhpNn` fired at 12:14. It was re-armed at 12:22 as
+  `trig_01N9wMs83L5Awb49JGVHpX2A` (fires 13:23Z); that prompt tells the lead to read and commit this digest.
 
 ---
 
@@ -487,15 +497,17 @@ Also: p2c_targets (1,506, session 1), p2sweep_targets (615), near1_targets (16),
 - **ac-06969 caps 33+** and **ac-00145** need memory beyond ~180M states.
 - Lost in the restart and never rebuilt: the ~150 finished sweep rows. The ac-01104 rerun was later covered by k2ac.
 
-### 8e. Pending results (running or unreported at ~12:20Z)
+### 8e. Pending results (running or unreported at ~12:29Z)
 - **BEAM_DUAL** A/B (builder helper). 14 interim runs in scratch `dual/`; it will write
-  `ledger/dual_beam_ab_20260928.json`. The acc_beam.c WIP diff is uncommitted. Adopt it if it wins (DUAL0.75 found
+  `ledger/dual_beam_ab_20260928.json`. The acc_beam.c WIP is on the branch (39cda03) but unverified. Adopt it if it wins (DUAL0.75 found
   05558 24/26 and 07435 26).
-- **Level-cost beams:** two-level a=4, a=8 and finish m=31 (pid 27503, `scratch/chainfin/levels.out`).
+- Level-cost beams: two-level a=4, a=8 and finish m=31 were stopped at 12:21, unfinished. They could be rerun if
+  the row-op argument needs more data.
 - **Session 1:** masked exact n=4 at caps 25/27 with the 10-move set (a result ≤47 would give the leaders' n=4 shape);
   n=4 r1-only comparison; macro beam n=5 and MACW=1.
-- Lanes p2a/p2b (144/308, 134/307) on the winner arm.
-- Hourly check-in: re-arm after the 12:14 fire (not seen).
+- Lanes p2a/p2b (144/308, 134/307) and the lead's tail lane p2t (169 tail rows; renamed from p2c) on the winner arm. When p2c meets p2a/p2b's
+  progress, stop the duplicate lane by PID (check-in prompt).
+- Next check-in 13:23Z (`trig_01N9wMs83L5Awb49JGVHpX2A`).
 
 ### 8f. Untested or unbuilt ideas (exhaustive)
 From the atlas ledger's top 8:
@@ -554,13 +566,18 @@ Other:
 ### 8g. Coordination and housekeeping
 - **Luna vs Codex** on the SAC-beat rows: both screened; the lead told the user "Let Luna or Codex take them, not both".
   This was never formally settled; nothing was found at W=20k.
-- **Inbox housekeeping:** 9 handled files are still in `live/inbox/` (03028, sac_mirror_ties_13, 09989,
+- **Inbox housekeeping, DONE 12:40Z (moved to `inbox/sent/`):** 9 handled files were still in `live/inbox/` (03028, sac_mirror_ties_13, 09989,
   ac_roads_ties_20, 07004, p2_01629, p2_03305, 04278, atlas_00487). Only 2572 was moved to `inbox/sent/`. The watcher
   relies on inbox_seen.txt in scratch.
-- **Uncommitted in the repo at ~12:20Z:**
-  - `research/acc/optimality/acc_beam.c` (BEAM_DUAL WIP)
-  - `live/sweeps/p2a_cap.jsonl`, `p2b_cap.jsonl` (lane backups)
-  - untracked `live/boards/ac_20260928T1213Z.json.gz`
+- **Name clash, RESOLVED 12:33Z** (lane stopped by PID, renamed **p2t**, restarted; session 1's 1,506-row `sweeps/p2c_targets.json` verified intact; never name a lane p2c): the lead's new scratch lane `work/p2c_targets.json` (169 rows) has the same name
+  as session 1's committed `research/acc/live/sweeps/p2c_targets.json` (1,506 rows, AC records 46–60, 754db2f).
+  `tools/acc/ops/watch_board.sh` copies `$S/work/*_targets.json` and `*_cap.jsonl` into `live/sweeps/` every 30
+  minutes, so the next backup will **overwrite session 1's p2c targets** with the 169-row list (and create a p2c
+  cap file that mixes the two meanings). Rename the lead's lane (for example p2t) or restore 754db2f's version
+  before committing sweeps/.
+- **Commit state:** at ~12:29Z the BEAM_DUAL WIP in `acc_beam.c`, the p2a/p2b lane backups, the 12:13Z
+  board/leaderboard/changes snapshots and a draft of this digest were committed together by the lead in 39cda03.
+  The BEAM_DUAL code on the branch is therefore **unverified work in progress** until the builder reports.
 - Competitor repos cloned at the start into scratch `ref/` (nahomar/andrews-curtis-solver,
   Amey-Thakur/SAIR-ANDREWS-CURTIS-CHALLENGE) are out of scope; do not use them.
 - Auto-mode classifier "no verdict" at 07:28, 08:02 and 09:04–09:05 blocked sends and bash. Retry at the next wake;
@@ -602,7 +619,9 @@ the 03:39 restart rolled it back.
 - The lead's n=4 H-beam from the phase-A state: AC 54 from the state + 10 = **64 total** vs record 56
   (`scratch/work/ms_n4_path.txt`). IDEAS still says "Running".
 - Level-cost beams: a=8 none (235 s), a=15 none (331 s), two-level a=1 15, a=2 27 (`scratch/chainfin/levels.out`).
-  IDEAS 12:20Z has only the first rows.
+  The IDEAS 12:10Z entry has only the m=3/7/15 and a=1/2/4 rows. The 12:30Z exact checks are logged; their paths
+  are in scratch `lvlx4/` and `fin15/` (a=4 cap 21: AC 22 `1 4 10 4 10 4 8 10 12 2 5 7 4 6 3 0 4 4 4 4 4 4`;
+  Y x^15 cap 23: AC 25 `1 6 5 6 5 6 5 11 5 6 3 7 4 2 2 2 2 2 2 2 4 1 2 4 4`).
 - `lisitsa_find.py` (symmetry matcher; 28 hits) and the Lisitsa-vs-board comparison table (§5): scratch only.
 - BEAM_DUAL interim table (`scratch/dual/ab.log`, `ab_results.jsonl`).
 - P2-capped raw runs (`scratch/p2cap/grid.jsonl`, logs); the summary is in the ledger.
@@ -612,6 +631,7 @@ the 03:39 restart rolled it back.
 - Near-miss list and (y,x) failures of 12:19 (`scratch/yx_batch.txt`); now in §8c.
 
 **Scratch-only code (useful, not in the repo)**
+- (12:40Z: `acmoves.py`, `value.py`, `lisitsa_find.py` now also in `tools/acc/scratch_utils/`.)
 - `acmoves.py`: Python ac-r2-v1 moves, `run(R, path, show)`. Used constantly.
 - `value.py`: values lines vs the latest board.
 - `block_search.py`: ledger #2 test.
@@ -626,7 +646,7 @@ the 03:39 restart rolled it back.
 
 **Scratch-only binaries and tables** (rebuild from repo sources)
 - `acc_beam_x`: winner, from acc_beam.c at 07e483f+.
-- `acc_beam_y`: DUAL, from the uncommitted diff.
+- `acc_beam_y`: DUAL, from the WIP in 39cda03.
 - `acc_beam_p2`, `acc_capped`, `acc_capped_p2`, `acc_window`, `acc_opt`.
 - `p2bin/`, `p2xbin/` symlink dirs.
 - `p2beam/T8.tab` (640 MB, SHA 38f05b56…). Rebuild with `work/acc_opt tball 8 40000000 …` per WORKING_codex_abc.
