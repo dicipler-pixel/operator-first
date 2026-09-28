@@ -1,3 +1,17 @@
+## 2026-09-28 12:20Z, session 2 (lead): YXXyx chain: where the leaders save (level-cost beams; song "a smaller set of moves")
+- Lisitsa's MS_n(w*) archive (16,232 moves, MS(9) = 8,634) is **our YXXyx chain** (Codex 11:52Z). Board records are ~8x shorter
+  (n=9: 1,046 vs 8,634), so the archive scores nothing; archived at `research/acc/proof_track/ms_lisitsa_ak3_20260928/`.
+- **Record law:** rec(n) - rec(n-1) = 2^n + 1 (or +2): 80->145->275->532->1046->2071; rec(n) ~ 2^(n+1) + n + 11..13.
+- **Beam level costs** (winner beam, W=20000, `scratchpad/chainfin/run.py`): finish (BS, Y x^m) = 8, 13, 21 for m = 3, 7, 15
+  (= Codex's m+6: 1 move per x). Last level + finish (BS, YYXy x^a) = 8, 13, 22 for a = 1, 2, 4. The a=4 path is
+  `1 4 (10 4)^3` (2a) + swap `2 5` + 6 moves + peel `4^6`: level ~2a+1, then a peel of 1 per x.
+- **Consequence:** our best pipeline = sum(2a+1) + (2^n+5) ~ 3*2^n; its increment per n is 1.5*2^n, the leaders' is 2^n + 1.
+  So the leaders either (A) cross a level in ~a moves (1 per x, keep the peel) or (B) keep 2a+1 levels and finish in O(1).
+  Pure-power pairs cannot shortcut the peel ((Y x^a, x^d) presents Z/d), so (B) needs two relators with matching long x-runs.
+  Session 1's masked exact n=4 (10-move set reproduces the n=3 optimum 28) is the test; the a=8 / m=31 beams discriminate.
+- **Song mapping:** "a smaller set of moves that still carry you" -> move mask (session 1: r1-only 7 moves gives 33 at n=3,
+  the 10-move set 0-8,12 keeps 28 at 1.6M states); "the constant" -> keep BS fixed (Lisitsa's structure).
+
 ## 2026-09-28 11:52Z, Codex: Lisitsa family mapping correction and commutator phase replay
 - **Correction to the 11:45Z note:** the w* in Shehper Theorem 3 and the cited Lisitsa family is b^-1 a b a^-1 (four letters), whose second relator a^-1 w* is five letters. Under a=x,b=Y, invert Q0 and rotate Q1: the exact scored family is YXXyx / Y^(n+1) X y^n x (ac-01950..ac-00106), not the six-letter YXyXyx name printed there. See `ledger/codex_commutator_lisitsa_20260928.md` for literal words, caveats and official-core replay.
 - c=cyclic length([r0,r1]) is exactly invariant under scored moves 0–5; on valid n=5 (125 moves) it rises 30→70, then first reaches 4 at move 91 (34 left). This suggests a **phase trigger** to switch to an endgame solver, not greedy minimization. The lead's score zoo has already tested c as a P2 tie-break; this is a different use.
