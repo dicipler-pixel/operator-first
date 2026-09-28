@@ -99,6 +99,11 @@ states per run.
   `tools/acc/ops/twin_beam.py`): same length on ac-00975/03871/04211, worse on 03719/08031, but new distinct paths for
   splicing. Climb-first beam (BEAM_CLIMB=c, inverted length key for depths 1..c): ac-03305 c=0,3 -> 24, c=5 -> 27,
   c=7 -> 33: DEAD as a pure inversion. Fast stable peel on our record paths: longest final peel is 18 (<30), no gain.
+- Cap-free best-first (`optimality/acc_bestfirst.c`, f = 4L or 4*P2 + W4*depth, T8 finish; idea from a rival's
+  public note): ac-00487 (26) and ac-03305 (23), weights 0.5/1/2, 20M nodes: length key finds 29 once, P2 key nothing.
+  DEAD in this form (greedy first-visit, no layer width); the layered beam is far stronger. 1.0 targets (ac-00975 35/34,
+  ac-05149 34/33, ac-06045 37/36): mirror, seeds, noise, W=100k, P2=1/P2=2/DUAL 0.5/plain H configs, exact echo from the
+  start (cap 32, depth 19) and from mid states (cap 24/27): no gain. Beam restarts from mid states running.
 - (y,x) shortcut on SAC near-misses (2026-09-28 12:20Z): 0 of 6 (sac-02717, 04586, 03871, 04211, 03719, 08031).
 - YXXyx chain rows (MS_n(w*), Lisitsa's family) with the winner beam: nopath at n>=4 (ac-01784, ac-04042; depth record+2).
   Level-by-level routes cost ~3*2^n (row-op argument, `optimality/chain_rowops/`); records are ~2^(n+1).
