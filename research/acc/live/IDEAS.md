@@ -1082,8 +1082,10 @@ and split into two shards.
   So stabilization moves (ids 14-256) are not where Stable-AC points are; the +1 rows are, and the yx lanes cover them.
 - **P2 cache size is not the bottleneck.** acc_beam two-eyes at W=20000 on ac-06262: 2.34M P2 calls, 72% cache hits with
   2^18 slots, 75% with 2^22; identical output, 4% faster. Misses are first-time pairs; P2 eval is ~70% of beam time.
-- **Mirror twin pays on long rows.** Codex's first mirror-twin row, ac-05818: 52 -> 34 (tie, k2, + SAC 36): submission 2701.
-  Session 2 started lane `mir` (120 top-ranked rows we are above, not in Codex's 80).
+- **Mirror twin + two eyes hit on the first row.** Codex's first mirror-twin row, ac-05818: 34 (tie, k2, + SAC 36), submission 2701.
+  Our best stored path was 36 (plain P2 beam, p2b; 52 was only our last *sent* line), and this row had no two-eyes run, so
+  the 36 -> 34 gain is mirror and DUAL together, not the mirror alone. Session 2 started lane `mir` (120 top-ranked rows we
+  are above, not in Codex's 80) and will compare mirror vs plain two-eyes on rows both lanes run.
 
 20:40Z (session 1): family transfer (neighbour replay, record+2) on 20 family-lane rows: 3 paths, 0 within +2 of
 record (e.g. ac-01553 49/43, ac-01974 52/42). Opposite approach now: the same lane at depth record+15 (FAM_EXTRA=15,
