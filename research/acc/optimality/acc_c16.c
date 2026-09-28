@@ -91,8 +91,30 @@ static int lookup(int argc,char**argv){ (void)argc; C16 T; c16_load(&T,argv[2],N
   int d=c16_lookup(&T,&s); printf("C16 distance %d\n",d); if(d>0){ int path[256]; int r=c16_descend(&T,&s,d,path);
     printf("C16 descent rc=%d PATH",r); for(int i=0;i<d;i++) printf(" %d",path[i]); printf("\n"); } return 0; }
 
+// Batch queries keep the table resident. Input lines are "l0 w.. l1 w..";
+// output lines are "distance | descent moves", in the same order.
+static int batch(int argc,char**argv){ (void)argc; C16 T; c16_load(&T,argv[2],NULL);
+  FILE *in=fopen(argv[3],"r"), *out=fopen(argv[4],"w");
+  if(!in||!out) die("batch file");
+  char line[8192]; static St s; int path[256], count=0;
+  while(fgets(line,sizeof line,in)){
+    char *p=line; int a[2*C16_MAXCEIL+2], n=0;
+    while(*p){ int z, consumed; if(sscanf(p,"%d%n",&z,&consumed)!=1) break;
+      if(n>=(int)(sizeof(a)/sizeof(a[0]))) die("batch line too long");
+      a[n++]=z; p+=consumed; }
+    if(n<2||a[0]<1||a[0]>C16_MAXCEIL||n<=a[0]+1||a[a[0]+1]<1||a[0]+a[a[0]+1]+2!=n) die("batch state");
+    s.l[0]=a[0]; s.l[1]=a[a[0]+1];
+    for(int i=0;i<s.l[0];i++) s.w[0][i]=a[i+1];
+    for(int i=0;i<s.l[1];i++) s.w[1][i]=a[a[0]+2+i];
+    int d=c16_lookup(&T,&s); fprintf(out,"%d |",d);
+    if(d>0){ if(c16_descend(&T,&s,d,path)) die("batch descend");
+      for(int i=0;i<d;i++) fprintf(out," %d",path[i]); }
+    fputc('\n',out); count++; }
+  fclose(in); fclose(out); printf("C16 BATCH %d queries\n",count); return 0; }
+
 int main(int argc,char**argv){
   if(argc>=3&&!strcmp(argv[1],"build")) return build(argc,argv);
   if(argc>=6&&!strcmp(argv[1],"sample")) return sample(argc,argv);
   if(argc>=5&&!strcmp(argv[1],"lookup")) return lookup(argc,argv);
+  if(argc>=5&&!strcmp(argv[1],"batch")) return batch(argc,argv);
   fprintf(stderr,"usage: acc_c16 build OUT [CEIL] [NSLOTS] [BUDGET] | sample TFILE COUNT SEED OUT | lookup TFILE l0 w.. l1 w..\n"); return 2; }
