@@ -1,0 +1,324 @@
+<title>Mad Hatters Results Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@87.5,600;87.5,800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#F2F5F4; --surface:#FFFFFF; --ink:#16232A; --muted:#566A72; --line:#D3DDDD; --accent:#0B6E6A; --accent-soft:#D6ECEA;
+  --works:#2E7D4F; --partial:#A86B12; --running:#2A62A8; --dead:#9A4B55; --source:#3D4F58;
+  --works-bg:#DDF0E4; --partial-bg:#F6E7CF; --running-bg:#DCE7F6; --dead-bg:#F1DEE1;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif; --body:"Atkinson Hyperlegible",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0E1517; --surface:#152023; --ink:#E3EEEE; --muted:#93A8AE; --line:#27373B; --accent:#5CC8C1; --accent-soft:#17383A;
+    --works:#6CCB8F; --partial:#E0A74A; --running:#79A8E8; --dead:#D88C97; --source:#A9BCC2;
+    --works-bg:#173325; --partial-bg:#3A2B12; --running-bg:#172A42; --dead-bg:#3A1F24;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0E1517; --surface:#152023; --ink:#E3EEEE; --muted:#93A8AE; --line:#27373B; --accent:#5CC8C1; --accent-soft:#17383A;
+  --works:#6CCB8F; --partial:#E0A74A; --running:#79A8E8; --dead:#D88C97; --source:#A9BCC2;
+  --works-bg:#173325; --partial-bg:#3A2B12; --running-bg:#172A42; --dead-bg:#3A1F24;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;padding-inline:16px;padding-block:24px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:28px}
+header{display:grid;gap:10px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--display);font-weight:800;font-stretch:87.5%;font-size:clamp(28px,4.2vw,44px);line-height:1.05;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:600;font-stretch:87.5%;font-size:22px;margin:0 0 4px;text-wrap:balance}
+.lede{max-width:68ch;color:var(--muted);margin:0}
+.lede b{color:var(--ink)}
+.stats{display:flex;flex-wrap:wrap;gap:10px 28px;font-variant-numeric:tabular-nums}
+.stat{display:grid;gap:2px}
+.stat .v{font-family:var(--display);font-weight:800;font-size:26px}
+.stat .k{font-size:12.5px;color:var(--muted)}
+.stat .v small{font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{font:600 13px var(--body);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer;display:inline-flex;gap:7px;align-items:center}
+.chip:focus-visible,.node:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chip[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.graphbox{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+svg{display:block}
+.collabel{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;fill:var(--muted)}
+.node rect{stroke-width:1.2}
+.node text{font:13px var(--body);fill:var(--ink)}
+.node .sub{font:11px var(--mono);fill:var(--muted)}
+.node{cursor:pointer}
+.link{fill:none;stroke-width:1.6;opacity:.55;transition:opacity .15s}
+.dim .link{opacity:.08}.dim .node{opacity:.28}
+.dim .link.on{opacity:.9}.dim .node.on{opacity:1}
+.detail{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;gap:6px;min-height:92px}
+.detail h3{font-family:var(--display);font-weight:600;font-stretch:87.5%;font-size:19px;margin:0}
+.detail p{margin:0;max-width:78ch}
+.detail .meta{font:12.5px var(--mono);color:var(--muted)}
+.pill{font:600 11.5px var(--body);border-radius:999px;padding:2px 9px;display:inline-block}
+.p-works{background:var(--works-bg);color:var(--works)}.p-partial{background:var(--partial-bg);color:var(--partial)}
+.p-running{background:var(--running-bg);color:var(--running)}.p-dead{background:var(--dead-bg);color:var(--dead)}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.group{display:grid;gap:10px;align-content:start}
+.group h2{display:flex;gap:10px;align-items:center}
+.item{border-top:1px solid var(--line);padding-top:10px;display:grid;gap:4px}
+.item .t{font-weight:700}
+.item .s{font-size:13px;color:var(--muted)}
+.item .r{font-size:13.5px}
+code,.mono{font-family:var(--mono);font-size:12.5px}
+.moves{font-family:var(--mono);font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+.subs{overflow-x:auto}
+table{border-collapse:collapse;font-variant-numeric:tabular-nums;min-width:560px;width:100%}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);font-size:13.5px;vertical-align:top}
+th{font:600 11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+.rescol{display:grid;gap:8px;align-content:start}
+.note{margin:0;color:var(--muted);font-size:13px;max-width:70ch}
+.chartbox{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 6px 4px}
+.chartbox svg{width:100%;height:auto}
+.axis{font:11px var(--mono);fill:var(--muted)}.grid{stroke:var(--line);stroke-width:1}
+.ln-ac{fill:none;stroke:var(--accent);stroke-width:2.2}.ln-sac{fill:none;stroke:var(--partial);stroke-width:2.2}
+.area-ac{fill:var(--accent-soft);opacity:.6}
+.lbl{font:600 12px var(--body)}
+.bars{display:grid;gap:9px}
+.bar{display:grid;grid-template-columns:minmax(120px,170px) 1fr auto;gap:10px;align-items:center;font-size:13.5px}
+.bar .track{height:12px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar .fill{display:block;height:100%;background:var(--accent);border-radius:6px}
+.bar .num{font:12.5px var(--mono);color:var(--muted);white-space:nowrap;text-align:right}
+.maphead{margin-top:6px;font-size:26px}
+td.num{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:12.5px}
+.hold{color:var(--works);font-weight:700}.lost{color:var(--dead);font-weight:700}
+footer{font-size:12.5px;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){.link{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">SAIR Andrews–Curtis Challenge · Mad Hatters · 28 Sep 2026</div>
+    <h1>What the night won, and where it came from</h1>
+    <p class="lede">Every line SAIR accepted since the session started, what each row is worth on the board now, the score across the night, and the method behind each point. The idea map below traces each method back to its source: an <b>atlas card</b>, a <b>verse</b>, an older <b>repo</b>, or a helper's find.</p>
+    <div class="stats" id="stats"></div>
+  </header>
+
+  <section class="res" aria-label="Results">
+    <div class="rescol">
+      <h2>Score across the night</h2>
+      <p class="note">SAIR leaderboard sums: 2<sup>1−k</sup> per row tied by k teams including us, 1 per beat.</p>
+      <div class="chartbox"><svg id="scorechart" role="img" aria-label="AC and Stable AC score over time"></svg></div>
+    </div>
+    <div class="rescol">
+      <h2>Points now, by method</h2>
+      <p class="note">Value today of the lines each method put on the board tonight.</p>
+      <div id="bymethod" class="bars"></div>
+    </div>
+  </section>
+  <section aria-label="Every accepted line">
+    <h2>Every accepted line</h2>
+    <p class="note" id="linesnote"></p>
+    <div class="filters" id="mfilters" role="group" aria-label="Filter lines by method"></div>
+    <div class="subs"><table>
+      <thead><tr><th>Row</th><th>Board</th><th>Moves</th><th>Teams now</th><th>Points now</th><th>Status</th><th>Method</th><th>Sub</th><th>UTC</th></tr></thead>
+      <tbody id="lines"></tbody>
+    </table></div>
+  </section>
+  <h2 class="maphead">Idea map</h2>
+  <p class="lede">Sources on the left; each became a method, got a test with a kill rule fixed in advance, and landed as works, partial, running or dead. Click any box to trace it.</p>
+  <div class="filters" role="group" aria-label="Filter by verdict" id="filters"></div>
+
+  <div class="graphbox"><svg id="graph" role="img" aria-label="Flow from idea sources to methods, verdicts and results"></svg></div>
+
+  <div class="detail" id="detail" aria-live="polite">
+    <h3>Pick a box in the map</h3>
+    <p class="meta">Sources connect to methods; methods connect to their verdict and to the rows they won.</p>
+  </div>
+
+  <section class="groups" id="groups" aria-label="All methods by verdict"></section>
+
+  <section>
+    <h2>Submissions tonight</h2>
+    <div class="subs"><table>
+      <thead><tr><th>ID</th><th>UTC</th><th>Lines</th><th>What went in</th><th>Found by</th></tr></thead>
+      <tbody id="subs"></tbody>
+    </table></div>
+  </section>
+
+  <footer>Built from <span class="mono">research/acc/live/IDEAS.md</span>, <span class="mono">ATLAS_AC_LEDGER.md</span>, <span class="mono">SCORE_ZOO.md</span> and the submit log. Scores are the SAIR leaderboard sum of 2^−k per tied row and 1 per beat.</footer>
+</div>
+
+<script>
+const V={works:"Works",partial:"Partial",running:"Running",dead:"Dead"};
+const SRC=[
+ {id:"atlas",label:"Atlas cards",sub:"B1–B96, 21 plates"},
+ {id:"verses",label:"Team lead's verses",sub:"3 songs tonight"},
+ {id:"repos",label:"Older repos",sub:"acwindow, coxeter, upg, peeling"},
+ {id:"census",label:"Commutator census",sub:"8 papers, 6 kinds"},
+ {id:"insight",label:"Team insight",sub:"Stable AC is separate"},
+ {id:"helpers",label:"Helpers & sessions",sub:"session 1, Codex, Bob, Luna"}
+];
+const M=[
+ {id:"p2",label:"P2 lookahead",src:["atlas","verses"],v:"works",card:"B31 · \"surface can fail, the deeper count still seen\"",
+  what:"Rank a state by the best total length after two multiplications, rotations free. Length is the surface; P2 is the count that stays flat over a hump.",
+  test:"56 record hump paths: raw length climbs a median 9, P2 climbs 0. Beam A/B at width 20k: 03305 29→24/24, 01629 26→23, 05558 30→26.",
+  won:["ac/sac-03060 28/30 · k1 · +1.0","ac-05835 33","ac-03789 34","ac-01698 36"]},
+ {id:"quota",label:"Class quota",src:["atlas","verses"],v:"works",card:"B16/B17 · \"one heading, one width\"",
+  what:"Cap how many beam slots one pair of conjugacy classes may hold, so the crowd cannot push out the one class the record path needs.",
+  test:"BEAM_QUOTA=16 under P2: sac-00487 27 where P2 alone gives 28 (we held 62). Full A/B still running.",won:["sac-00487 27 · k3"]},
+ {id:"splice",label:"Overlap splice",src:["verses"],v:"works",card:"\"two paths in the dark ... the overlap\"",
+  what:"For a row with two different paths, splice the start of one to the end of the other through states at most 2 moves apart.",
+  test:"22 rows had 2+ paths; ac-00487 went 27 → 26, the record.",won:["ac-00487 26"]},
+ {id:"yx",label:"(y,x) shortcut",src:["insight"],v:"works",card:"Stable AC finishes from (y,x) in 2 moves",
+  what:"When the Stable AC record is our AC length + 1, search the last states of our AC path exactly for a route to (y,x).",
+  test:"Hit on 2 of 8 eligible rows.",won:["sac-01698 37 · k3","sac-05091 26"]},
+ {id:"cross",label:"Mirror cross-row",src:["atlas","helpers"],v:"works",card:"B81 · mirror transport",
+  what:"Borrow roads from other rows under the 16 signed letter mirrors, then shorten with exact windows.",
+  test:"Session 1's road pool: 677 roads on 496 rows.",won:["13 Stable AC ties (2606)","20 AC ties (2607)"]},
+ {id:"comm",label:"Commutator tie-break",src:["verses","census"],v:"running",card:"\"rotation lifted the floor\" · group commutator",
+  what:"Break P2 ties by the length of r0·r1·r0⁻¹·r1⁻¹. P2 cannot tell rotations apart; this can.",
+  test:"Offline on 59 hump paths: record move in top 3 on climbing steps 0.41 → 0.62, on climbing rotations 0.03 → 0.51. Live beam A/B running.",won:[]},
+ {id:"p2cap",label:"P2-capped exact search",src:["verses"],v:"running",card:"\"cross the wall, keep the record clean\"",
+  what:"Exact search that caps P2 instead of length, so length can cross the wall while the count stays clean.",
+  test:"P2 ≤ start + 1 contains 83% of hump record paths; + 2 contains 92%. Prototype running on 03305, 01629, 05558, 07435, 08201.",won:[]},
+ {id:"censusz",label:"Census scores",src:["census"],v:"running",card:"projector, mixed, self, tangent commutators",
+  what:"|[r0,x]|+|[r1,y]| (zero at the finish), commutator with a conjugated partner, relator vs its reversal, local flatness of the move graph.",
+  test:"In the score zoo now.",won:[]},
+ {id:"wh",label:"Whitehead frame",src:["atlas"],v:"running",card:"B83 · measure in a matched frame",
+  what:"Secondary key: Whitehead-minimal cyclic length of both relators.",test:"Beam A/B running.",won:[]},
+ {id:"loss",label:"Beam-loss trace",src:["atlas"],v:"running",card:"B20 · Plate XI",
+  what:"Where does the beam drop the record path: lost among ties, ranked wrong, or short of width?",test:"Trace tool built; runs on 05558, 07435.",won:[]},
+ {id:"peel",label:"Stable AC fast peel",src:["insight"],v:"partial",card:"rank 3, extra generator",
+  what:"Swap blocks of x^k for one new generator: about 2k + 3m/k moves instead of m. At m = 1023: 164 instead of 1025.",
+  test:"Official stable verifier, every step. A beat needs a build within about 1.85·2^n; ours is still about 3·2^n.",won:[]},
+ {id:"chain",label:"Doubling-chain builder",src:["helpers","verses"],v:"partial",card:"Miller–Schupp families · \"same walk every distance\"",
+  what:"Construct paths for MS(n, YXXyx) for any n: uniform prefix, doubling levels, peel.",
+  test:"Codex's generator is valid for n = 2..10 but costs 4·2^n; records are about 2·2^n. The leaders' 1-move crossing is still unknown.",won:[]},
+ {id:"cage",label:"Symmetry flipped",src:["verses"],v:"partial",card:"\"perfect symmetry is a quiet cage\"",
+  what:"Record paths prefer symmetric states (0.71 vs 0.51). Ranking them higher adds 0.03 on all steps, mostly in the endgame.",
+  test:"Refuted as a trap; small gain when flipped.",won:[]},
+ {id:"e1",label:"Shorter relator (E1)",src:["repos"],v:"partial",card:"elemental-peeling",
+  what:"Track min(|r0|,|r1|) separately from the total.",test:"Weak survive; (min, max, P2) predicts moves left best.",won:[]},
+ {id:"c1",label:"Hump class (C1)",src:["repos"],v:"partial",card:"coxeter-rank2",
+  what:"Classify each hump by its exponent-sum transfer matrix.",test:"Humps: fewer hyperbolic, more finite-order (p = 0.005). Useful as a diagnostic, not a key.",won:[]},
+ {id:"ak3",label:"AK(3) skip list",src:["repos"],v:"works",card:"acwindow-lean class walk",
+  what:"47 unsolved rows lie in the AK(3) class, an open problem. Every helper skips them.",test:"Matched twice independently; AK(3) itself is in the set.",won:["compute saved on 47 rows"]},
+ {id:"macros",label:"Training macros",src:["helpers"],v:"dead",card:"Bob's move rhythm",
+  what:"Top 40 blocks from the 424 training paths as beam supermoves.",test:"0 better, 4 worse, 5 same on 9 near-miss rows.",won:[]},
+ {id:"super",label:"Super-relator doubling",src:["helpers"],v:"dead",card:"rank-3 idea",
+  what:"Carry S_a = X^a Y x^2a y in a spare slot and double it each level.",
+  test:"The exponent-sum matrix must stay unimodular, so S_a needs a tag generator, and the tag always blocks a crossing.",won:[]},
+ {id:"u1",label:"One relator at a time",src:["repos"],v:"dead",card:"upg block feedback",
+  what:"Search r0 with r1 frozen, then swap.",test:"Median run of moves on one relator is 2; kill rule was 3.",won:[]},
+ {id:"ledgerdead",label:"Five atlas tie-breaks",src:["atlas"],v:"dead",card:"B6, B12, B22, B38, B48",
+  what:"Exit counts, learned descent, and three more card-level scores.",test:"Each fell short of its pre-set rule in the ledger tests.",won:[]},
+ {id:"exact",label:"Exact capped sweeps",src:["helpers"],v:"dead",card:"length-capped BFS",
+  what:"The old workhorse on mid-length rows.",test:"0 new ties in 6 hours on 3 cores; P2 found 4 in 2 hours. Paused.",won:[]}
+];
+const SUBS=[
+ ["2558","22:45","6/6","6 ties from the first live batch (NEW15)","Beam + exact"],
+ ["2565","23:29","6/6","6 Stable AC ties from our AC paths + [16,15]","AC+2 to Stable AC"],
+ ["2566","23:36","2/2","sac-03305 (one team) + ac-03305","Exact capped sweep"],
+ ["2569","23:50","2/2","ac/sac-01629","Exact capped sweep"],
+ ["2572","23:56","2/2","ac/sac-05558","Exact capped sweep"],
+ ["2581","01:24","4/4","ac/sac-07435, ac/sac-08201","Exact capped sweep"],
+ ["2606","04:23","15/15","13 Stable AC mirror ties + ac/sac-03028","Mirror cross-row"],
+ ["2607","04:28","22/22","20 AC road ties + ac/sac-09989","Mirror cross-row"],
+ ["2632","07:07","3/3","ac/sac-07004, ac-04278","Road cycle (session 1)"],
+ ["2638","08:19","3/3","ac/sac-03060 k1 ties (+1.0), ac-05835","P2 lookahead"],
+ ["2648","10:07","3/3","ac-01698, ac-03789, sac-01698","P2 + (y,x) shortcut"],
+ ["2657","11:07","3/3","sac-00487, ac-00487, sac-05091","Quota + overlap splice + (y,x)"]
+];
+const STATS=[];
+
+const RES={"built":"2026-09-28T11:27Z","summary":{"updatedAt":"2026-09-28T11:27Z","leaderboardAt":"2026-09-28T11:10:00Z","ac":{"rank":16,"teams":45,"score":1.1426,"estimate":1.1426,"ties":249},"sac":{"rank":14,"teams":42,"score":2.5215,"estimate":2.5215,"ties":253},"sentToday":7,"quota":40,"alone":0,"boardAt":"2026-09-28T11:10Z","subsTotal":97},"points":[{"at":"2026-09-27T22:45:00Z","ac":0.4727,"acRank":18,"acTeams":44,"sac":1.0364,"sacRank":15,"sacTeams":41},{"at":"2026-09-27T23:25:00Z","ac":0.4151,"acRank":18,"acTeams":44,"sac":1.133,"sacRank":14,"sacTeams":41},{"at":"2026-09-27T23:35:00Z","ac":0.4151,"acRank":18,"acTeams":44,"sac":1.1565,"sacRank":14,"sacTeams":41},{"at":"2026-09-27T23:50:00Z","ac":0.4307,"acRank":18,"acTeams":45,"sac":1.6565,"sacRank":14,"sacTeams":42},{"at":"2026-09-27T23:55:00Z","ac":0.4909,"acRank":18,"acTeams":45,"sac":1.7811,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T00:50:00Z","ac":0.5222,"acRank":18,"acTeams":45,"sac":1.8124,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T01:20:00Z","ac":0.5222,"acRank":18,"acTeams":45,"sac":1.8124,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T02:25:00Z","ac":0.5691,"acRank":18,"acTeams":45,"sac":1.8592,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T02:55:00Z","ac":0.5691,"acRank":18,"acTeams":45,"sac":1.8592,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T03:40:00Z","ac":0.5691,"acRank":18,"acTeams":45,"sac":1.8592,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T04:10:00Z","ac":0.5652,"acRank":18,"acTeams":45,"sac":1.8544,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T04:20:00Z","ac":0.5649,"acRank":18,"acTeams":45,"sac":1.7894,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T04:25:00Z","ac":0.565,"acRank":18,"acTeams":45,"sac":1.8136,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T04:40:00Z","ac":0.5771,"acRank":18,"acTeams":45,"sac":1.7824,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T05:10:00Z","ac":0.5771,"acRank":18,"acTeams":45,"sac":1.7824,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T05:40:00Z","ac":0.5771,"acRank":18,"acTeams":45,"sac":1.7824,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T06:10:00Z","ac":0.5761,"acRank":18,"acTeams":45,"sac":1.7805,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T06:40:00Z","ac":0.5739,"acRank":18,"acTeams":45,"sac":1.7724,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T07:05:00Z","ac":0.5739,"acRank":18,"acTeams":45,"sac":1.7724,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T07:10:00Z","ac":0.5741,"acRank":18,"acTeams":45,"sac":1.7725,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T07:40:00Z","ac":0.5741,"acRank":18,"acTeams":45,"sac":1.7725,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T08:10:00Z","ac":0.5741,"acRank":17,"acTeams":45,"sac":1.7725,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T08:15:00Z","ac":0.5741,"acRank":17,"acTeams":45,"sac":1.7725,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T08:40:00Z","ac":1.0742,"acRank":17,"acTeams":45,"sac":2.2725,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T09:10:00Z","ac":1.0742,"acRank":17,"acTeams":45,"sac":2.2725,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T09:40:00Z","ac":1.0722,"acRank":17,"acTeams":45,"sac":2.2705,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T10:05:00Z","ac":1.0722,"acRank":17,"acTeams":45,"sac":2.2705,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T10:10:00Z","ac":1.1425,"acRank":16,"acTeams":45,"sac":2.3955,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T10:40:00Z","ac":1.1425,"acRank":16,"acTeams":45,"sac":2.3955,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T11:05:00Z","ac":1.1425,"acRank":16,"acTeams":45,"sac":2.3955,"sacRank":14,"sacTeams":42},{"at":"2026-09-28T11:10:00Z","ac":1.1426,"acRank":16,"acTeams":45,"sac":2.5215,"sacRank":14,"sacTeams":42}],"lines":[{"sub":"2558","at":"22:45","row":"ac-05578","kind":"AC","len":34,"k_then":10,"val_then":0.00098,"rec_now":34,"k_now":11,"holding":true,"val_now":0.00098,"method":"Beam + exact (NEW15)"},{"sub":"2558","at":"22:45","row":"ac-07642","kind":"AC","len":30,"k_then":8,"val_then":0.00391,"rec_now":30,"k_now":10,"holding":true,"val_now":0.00195,"method":"Beam + exact (NEW15)"},{"sub":"2558","at":"22:45","row":"sac-01734","kind":"Stable AC","len":38,"k_then":4,"val_then":0.0625,"rec_now":38,"k_now":5,"holding":true,"val_now":0.0625,"method":"Beam + exact (NEW15)"},{"sub":"2558","at":"22:45","row":"sac-07158","kind":"Stable AC","len":41,"k_then":5,"val_then":0.03125,"rec_now":41,"k_now":6,"holding":true,"val_now":0.03125,"method":"Beam + exact (NEW15)"},{"sub":"2558","at":"22:45","row":"sac-07642","kind":"Stable AC","len":32,"k_then":9,"val_then":0.00195,"rec_now":32,"k_now":11,"holding":true,"val_now":0.00098,"method":"Beam + exact (NEW15)"},{"sub":"2558","at":"22:45","row":"sac-09189","kind":"Stable AC","len":32,"k_then":10,"val_then":0.00098,"rec_now":32,"k_now":11,"holding":true,"val_now":0.00098,"method":"Beam + exact (NEW15)"},{"sub":"2565","at":"23:29","row":"sac-00276","kind":"Stable AC","len":41,"k_then":10,"val_then":0.00098,"rec_now":41,"k_now":11,"holding":true,"val_now":0.00098,"method":"AC+2 to Stable AC"},{"sub":"2565","at":"23:29","row":"sac-02114","kind":"Stable AC","len":32,"k_then":10,"val_then":0.00098,"rec_now":32,"k_now":11,"holding":true,"val_now":0.00098,"method":"AC+2 to Stable AC"},{"sub":"2565","at":"23:29","row":"sac-06754","kind":"Stable AC","len":36,"k_then":8,"val_then":0.00391,"rec_now":36,"k_now":9,"holding":true,"val_now":0.00391,"method":"AC+2 to Stable AC"},{"sub":"2565","at":"23:29","row":"sac-08130","kind":"Stable AC","len":32,"k_then":9,"val_then":0.00195,"rec_now":32,"k_now":10,"holding":true,"val_now":0.00195,"method":"AC+2 to Stable AC"},{"sub":"2565","at":"23:29","row":"sac-08702","kind":"Stable AC","len":28,"k_then":16,"val_then":2e-05,"rec_now":28,"k_now":17,"holding":true,"val_now":2e-05,"method":"AC+2 to Stable AC"},{"sub":"2565","at":"23:29","row":"sac-09757","kind":"Stable AC","len":42,"k_then":6,"val_then":0.01562,"rec_now":42,"k_now":7,"holding":true,"val_now":0.01562,"method":"AC+2 to Stable AC"},{"sub":"2566","at":"23:36","row":"ac-03305","kind":"AC","len":23,"k_then":6,"val_then":0.01562,"rec_now":23,"k_now":7,"holding":true,"val_now":0.01562,"method":"Exact capped sweep"},{"sub":"2566","at":"23:36","row":"sac-03305","kind":"Stable AC","len":24,"k_then":1,"val_then":0.5,"rec_now":24,"k_now":2,"holding":true,"val_now":0.5,"method":"Exact capped sweep"},{"sub":"2569","at":"23:50","row":"ac-01629","kind":"AC","len":23,"k_then":4,"val_then":0.0625,"rec_now":23,"k_now":5,"holding":true,"val_now":0.0625,"method":"Exact capped sweep"},{"sub":"2569","at":"23:50","row":"sac-01629","kind":"Stable AC","len":25,"k_then":3,"val_then":0.125,"rec_now":25,"k_now":4,"holding":true,"val_now":0.125,"method":"Exact capped sweep"},{"sub":"2572","at":"23:56","row":"ac-05558","kind":"AC","len":24,"k_then":5,"val_then":0.03125,"rec_now":24,"k_now":6,"holding":true,"val_now":0.03125,"method":"Exact capped sweep"},{"sub":"2572","at":"23:56","row":"sac-05558","kind":"Stable AC","len":26,"k_then":5,"val_then":0.03125,"rec_now":26,"k_now":6,"holding":true,"val_now":0.03125,"method":"Exact capped sweep"},{"sub":"2581","at":"01:24","row":"ac-07435","kind":"AC","len":26,"k_then":6,"val_then":0.01562,"rec_now":26,"k_now":7,"holding":true,"val_now":0.01562,"method":"Exact capped sweep"},{"sub":"2581","at":"01:24","row":"ac-08201","kind":"AC","len":31,"k_then":5,"val_then":0.03125,"rec_now":31,"k_now":6,"holding":true,"val_now":0.03125,"method":"Exact capped sweep"},{"sub":"2581","at":"01:24","row":"sac-07435","kind":"Stable AC","len":28,"k_then":6,"val_then":0.01562,"rec_now":28,"k_now":7,"holding":true,"val_now":0.01562,"method":"Exact capped sweep"},{"sub":"2581","at":"01:24","row":"sac-08201","kind":"Stable AC","len":33,"k_then":5,"val_then":0.03125,"rec_now":33,"k_now":6,"holding":true,"val_now":0.03125,"method":"Exact capped sweep"},{"sub":"2606","at":"04:23","row":"ac-03028","kind":"AC","len":26,"k_then":13,"val_then":0.00012,"rec_now":26,"k_now":14,"holding":true,"val_now":0.00012,"method":"Mirror cross-row"},{"sub":"2606","at":"04:23","row":"sac-00521","kind":"Stable AC","len":22,"k_then":18,"val_then":0.0,"rec_now":22,"k_now":19,"holding":true,"val_now":0.0,"method":"Mirror cross-row"},{"sub":"2606","at":"04:23","row":"sac-00974","kind":"Stable AC","len":24,"k_then":8,"val_then":0.00391,"rec_now":24,"k_now":9,"holding":true,"val_now":0.00391,"method":"Mirror cross-row"},{"sub":"2606","at":"04:23","row":"sac-02061","kind":"Stable AC","len":35,"k_then":17,"val_then":1e-05,"rec_now":35,"k_now":18,"holding":true,"val_now":1e-05,"method":"Mirror cross-row"},{"sub":"2606","at":"04:23","row":"sac-02673","kind":"Stable AC","len":24,"k_then":19,"val_then":0.0,"rec_now":24,"k_now":20,"holding":true,"val_now":0.0,"method":"Mirror cross-row"},{"sub":"2606","at":"04:23","row":"sac-02902","kind":"Stable AC","len":33,"k_then":6,"val_then":0.01562,"rec_now":33,"k_now":7,"holding":true,"val_now":0.01562,"method":"Mirror cross-row"},{"sub":"2606","at":"04:23","row":"sac-03028","kind":"Stable AC","len":28,"k_then":12,"val_then":0.00024,"rec_now":28,"k_now":13,"holding":true,"val_now":0.00024,"method":"Mirror cross-row"},{"sub":"2606","at":"04:23","row":"sac-03250","kind":"Stable AC","len":28,"k_then":15,"val_then":3e-05,"rec_now":28,"k_now":16,"holding":true,"val_now":3e-05,"method":"Mirror cross-row"},{"sub":"2606","at":"04:23","row":"sac-03446","kind":"Stable AC","len":24,"k_then":20,"val_then":0.0,"rec_now":24,"k_now":21,"holding":true,"val_now":0.0,"method":"Mirror cross-row"},{"sub":"2606","at":"04:23","row":"sac-04278","kind":"Stable AC","len":36,"k_then":8,"val_then":0.00391,"rec_now":36,"k_now":9,"holding":true,"val_now":0.00391,"method":"Mirror cross-row"},{"sub":"2606","at":"04:23","row":"sac-05466","kind":"Stable AC","len":35,"k_then":15,"val_then":3e-05,"rec_now":35,"k_now":16,"holding":true,"val_now":3e-05,"method":"Mirror cross-row"},{"sub":"2606","at":"04:23","row":"sac-06048","kind":"Stable AC","len":38,"k_then":12,"val_then":0.00024,"rec_now":38,"k_now":13,"holding":true,"val_now":0.00024,"method":"Mirror cross-row"},{"sub":"2606","at":"04:23","row":"sac-08363","kind":"Stable AC","len":31,"k_then":14,"val_then":6e-05,"rec_now":31,"k_now":15,"holding":true,"val_now":6e-05,"method":"Mirror cross-row"},{"sub":"2606","at":"04:23","row":"sac-08394","kind":"Stable AC","len":37,"k_then":15,"val_then":3e-05,"rec_now":37,"k_now":16,"holding":true,"val_now":3e-05,"method":"Mirror cross-row"},{"sub":"2606","at":"04:23","row":"sac-08920","kind":"Stable AC","len":38,"k_then":13,"val_then":0.00012,"rec_now":38,"k_now":14,"holding":true,"val_now":0.00012,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-00201","kind":"AC","len":41,"k_then":11,"val_then":0.00049,"rec_now":41,"k_now":12,"holding":true,"val_now":0.00049,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-00337","kind":"AC","len":22,"k_then":23,"val_then":0.0,"rec_now":22,"k_now":24,"holding":true,"val_now":0.0,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-00521","kind":"AC","len":20,"k_then":18,"val_then":0.0,"rec_now":20,"k_now":19,"holding":true,"val_now":0.0,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-01639","kind":"AC","len":31,"k_then":9,"val_then":0.00195,"rec_now":31,"k_now":10,"holding":true,"val_now":0.00195,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-01962","kind":"AC","len":20,"k_then":17,"val_then":1e-05,"rec_now":20,"k_now":18,"holding":true,"val_now":1e-05,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-02061","kind":"AC","len":33,"k_then":17,"val_then":1e-05,"rec_now":33,"k_now":18,"holding":true,"val_now":1e-05,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-02446","kind":"AC","len":31,"k_then":11,"val_then":0.00049,"rec_now":31,"k_now":12,"holding":true,"val_now":0.00049,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-02673","kind":"AC","len":22,"k_then":19,"val_then":0.0,"rec_now":22,"k_now":20,"holding":true,"val_now":0.0,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-02902","kind":"AC","len":31,"k_then":7,"val_then":0.00781,"rec_now":31,"k_now":8,"holding":true,"val_now":0.00781,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-02989","kind":"AC","len":24,"k_then":14,"val_then":6e-05,"rec_now":24,"k_now":15,"holding":true,"val_now":6e-05,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-03250","kind":"AC","len":26,"k_then":15,"val_then":3e-05,"rec_now":26,"k_now":16,"holding":true,"val_now":3e-05,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-03446","kind":"AC","len":22,"k_then":21,"val_then":0.0,"rec_now":22,"k_now":22,"holding":true,"val_now":0.0,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-05091","kind":"AC","len":25,"k_then":18,"val_then":0.0,"rec_now":25,"k_now":19,"holding":true,"val_now":0.0,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-05466","kind":"AC","len":33,"k_then":15,"val_then":3e-05,"rec_now":33,"k_now":16,"holding":true,"val_now":3e-05,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-05668","kind":"AC","len":24,"k_then":18,"val_then":0.0,"rec_now":24,"k_now":19,"holding":true,"val_now":0.0,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-06048","kind":"AC","len":36,"k_then":10,"val_then":0.00098,"rec_now":36,"k_now":11,"holding":true,"val_now":0.00098,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-08363","kind":"AC","len":29,"k_then":14,"val_then":6e-05,"rec_now":29,"k_now":15,"holding":true,"val_now":6e-05,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-08394","kind":"AC","len":35,"k_then":15,"val_then":3e-05,"rec_now":35,"k_now":16,"holding":true,"val_now":3e-05,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-08920","kind":"AC","len":36,"k_then":14,"val_then":6e-05,"rec_now":36,"k_now":15,"holding":true,"val_now":6e-05,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-09058","kind":"AC","len":19,"k_then":20,"val_then":0.0,"rec_now":19,"k_now":21,"holding":true,"val_now":0.0,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"ac-09989","kind":"AC","len":23,"k_then":14,"val_then":6e-05,"rec_now":23,"k_now":15,"holding":true,"val_now":6e-05,"method":"Mirror cross-row"},{"sub":"2607","at":"04:28","row":"sac-09989","kind":"Stable AC","len":25,"k_then":14,"val_then":6e-05,"rec_now":25,"k_now":15,"holding":true,"val_now":6e-05,"method":"Mirror cross-row"},{"sub":"2632","at":"07:07","row":"ac-04278","kind":"AC","len":35,"k_then":14,"val_then":6e-05,"rec_now":35,"k_now":15,"holding":true,"val_now":6e-05,"method":"Road cycle (session 1)"},{"sub":"2632","at":"07:07","row":"ac-07004","kind":"AC","len":43,"k_then":14,"val_then":6e-05,"rec_now":43,"k_now":15,"holding":true,"val_now":6e-05,"method":"Road cycle (session 1)"},{"sub":"2632","at":"07:07","row":"sac-07004","kind":"Stable AC","len":45,"k_then":14,"val_then":6e-05,"rec_now":45,"k_now":15,"holding":true,"val_now":6e-05,"method":"Road cycle (session 1)"},{"sub":"2638","at":"08:19","row":"ac-03060","kind":"AC","len":28,"k_then":1,"val_then":0.5,"rec_now":28,"k_now":2,"holding":true,"val_now":0.5,"method":"P2 lookahead"},{"sub":"2638","at":"08:19","row":"ac-05835","kind":"AC","len":33,"k_then":13,"val_then":0.00012,"rec_now":33,"k_now":14,"holding":true,"val_now":0.00012,"method":"P2 lookahead"},{"sub":"2638","at":"08:19","row":"sac-03060","kind":"Stable AC","len":30,"k_then":1,"val_then":0.5,"rec_now":30,"k_now":2,"holding":true,"val_now":0.5,"method":"P2 lookahead"},{"sub":"2648","at":"10:07","row":"ac-01698","kind":"AC","len":36,"k_then":4,"val_then":0.0625,"rec_now":36,"k_now":5,"holding":true,"val_now":0.0625,"method":"P2 lookahead"},{"sub":"2648","at":"10:07","row":"ac-03789","kind":"AC","len":34,"k_then":7,"val_then":0.00781,"rec_now":34,"k_now":8,"holding":true,"val_now":0.00781,"method":"P2 lookahead"},{"sub":"2648","at":"10:07","row":"sac-01698","kind":"Stable AC","len":37,"k_then":3,"val_then":0.125,"rec_now":37,"k_now":4,"holding":true,"val_now":0.125,"method":"(y,x) shortcut"},{"sub":"2657","at":"11:07","row":"ac-00487","kind":"AC","len":26,"k_then":14,"val_then":6e-05,"rec_now":26,"k_now":15,"holding":true,"val_now":6e-05,"method":"Overlap splice"},{"sub":"2657","at":"11:07","row":"sac-00487","kind":"Stable AC","len":27,"k_then":3,"val_then":0.125,"rec_now":27,"k_now":4,"holding":true,"val_now":0.125,"method":"Class quota"},{"sub":"2657","at":"11:07","row":"sac-05091","kind":"Stable AC","len":26,"k_then":10,"val_then":0.00098,"rec_now":26,"k_now":11,"holding":true,"val_now":0.00098,"method":"(y,x) shortcut"}],"byMethod":[{"method":"P2 lookahead","lines":5,"now":1.0704,"held":5},{"method":"Exact capped sweep","lines":10,"now":0.8594,"held":10},{"method":"(y,x) shortcut","lines":2,"now":0.126,"held":2},{"method":"Class quota","lines":1,"now":0.125,"held":1},{"method":"Beam + exact (NEW15)","lines":6,"now":0.0986,"held":6},{"method":"Mirror cross-row","lines":37,"now":0.0364,"held":37},{"method":"AC+2 to Stable AC","lines":6,"now":0.0235,"held":6},{"method":"Road cycle (session 1)","lines":3,"now":0.0002,"held":3},{"method":"Overlap splice","lines":1,"now":0.0001,"held":1}]};
+const fmtP=v=>v>=0.1?v.toFixed(2):v>=0.001?v.toFixed(3):v>0?v.toExponential(1):"0";
+(function(){
+  const S=RES.summary,P=RES.points,L=RES.lines,first=P[0],last=P[P.length-1];
+  const held=L.filter(x=>x.holding).length,pts=L.reduce((a,x)=>a+x.val_now,0);
+  STATS.length=0;
+  STATS.push([last.ac.toFixed(2),"AC score",`<small>from ${first.ac.toFixed(2)} · rank ${first.acRank} → ${last.acRank} of ${last.acTeams}</small>`],
+             [last.sac.toFixed(2),"Stable AC score",`<small>from ${first.sac.toFixed(2)} · rank ${first.sacRank} → ${last.sacRank} of ${last.sacTeams}</small>`],
+             [String(L.length),"lines accepted",`<small>${held} still at the record</small>`],
+             [pts.toFixed(2),"points from these lines now",""]);
+  // score chart
+  const W=560,H=250,pl=40,pr=112,pt=14,pb=30,t0=Date.parse(first.at),t1=Date.parse(last.at);
+  const ymax=Math.ceil(Math.max(...P.map(p=>p.sac))*2)/2;
+  const xs=t=>pl+(Date.parse(t)-t0)/(t1-t0)*(W-pl-pr),ys=v=>pt+(1-v/ymax)*(H-pt-pb);
+  let g="";for(let v=0;v<=ymax+1e-9;v+=0.5){g+=`<line class="grid" x1="${pl}" x2="${W-pr}" y1="${ys(v)}" y2="${ys(v)}"/><text class="axis" x="${pl-6}" y="${ys(v)+4}" text-anchor="end">${v.toFixed(1)}</text>`;}
+  for(let h=0;h<=13;h+=2){const t=new Date(t0);t.setUTCMinutes(0,0,0);t.setUTCHours(t.getUTCHours()+h+1);const tt=t.getTime();if(tt>t1)break;const x=pl+(tt-t0)/(t1-t0)*(W-pl-pr);
+    g+=`<text class="axis" x="${x}" y="${H-10}" text-anchor="middle">${String(t.getUTCHours()).padStart(2,"0")}:00</text>`;}
+  const path=k=>P.map((p,i)=>`${i?"L":"M"}${xs(p.at).toFixed(1)},${ys(p[k]).toFixed(1)}`).join(" ");
+  const area=`${path("ac")} L${xs(last.at)},${ys(0)} L${xs(first.at)},${ys(0)} Z`;
+  g+=`<path class="area-ac" d="${area}"/><path class="ln-ac" d="${path("ac")}"/><path class="ln-sac" d="${path("sac")}"/>`;
+  g+=`<circle cx="${xs(last.at)}" cy="${ys(last.ac)}" r="4" fill="var(--accent)"/><circle cx="${xs(last.at)}" cy="${ys(last.sac)}" r="4" fill="var(--partial)"/>`;
+  g+=`<text class="lbl" x="${xs(last.at)+8}" y="${ys(last.sac)+4}" fill="var(--partial)">Stable AC ${last.sac.toFixed(2)}</text><text class="lbl" x="${xs(last.at)+8}" y="${ys(last.ac)+4}" fill="var(--accent)">AC ${last.ac.toFixed(2)}</text>`;
+  const sc=document.getElementById("scorechart");sc.setAttribute("viewBox",`0 0 ${W} ${H}`);sc.innerHTML=g;
+  // by method
+  const B=RES.byMethod,mx=Math.max(...B.map(b=>b.now));
+  document.getElementById("bymethod").innerHTML=B.map(b=>`<div class="bar"><span>${b.method}</span><span class="track"><span class="fill" style="width:${Math.max(1.5,b.now/mx*100)}%"></span></span><span class="num">${b.now.toFixed(3)} · ${b.lines} line${b.lines>1?"s":""}</span></div>`).join("");
+  // lines table
+  const methods=[...new Set(L.map(x=>x.method))];const on=new Set(methods);
+  const MF=document.getElementById("mfilters");
+  MF.innerHTML=methods.map((m,i)=>`<button class="chip" id="mf-${i}" aria-pressed="true" data-m="${m}">${m} <span class="mono">${L.filter(x=>x.method===m).length}</span></button>`).join("");
+  const render=()=>{const rows=L.filter(x=>on.has(x.method)).sort((a,b)=>b.val_now-a.val_now||a.row.localeCompare(b.row));
+    document.getElementById("lines").innerHTML=rows.map(x=>`<tr><td class="mono">${x.row}</td><td>${x.kind}</td><td class="num">${x.len}</td><td class="num">${x.k_now}</td><td class="num">${fmtP(x.val_now)}</td><td class="${x.holding?"hold":"lost"}">${x.holding?"At record":"Undercut"}</td><td>${x.method}</td><td class="num">${x.sub}</td><td class="num">${x.at}</td></tr>`).join("");
+    document.getElementById("linesnote").textContent=`${rows.length} of ${L.length} lines shown, highest value first. Board as of ${last.at.slice(11,16)} UTC.`;};
+  MF.addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;const m=b.dataset.m;if(on.has(m)&&on.size>1)on.delete(m);else on.add(m);b.setAttribute("aria-pressed",on.has(m));render();});
+  render();
+})();
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+document.getElementById("stats").innerHTML=STATS.map(s=>`<div class="stat"><span class="v">${s[0]} ${s[2]}</span><span class="k">${s[1]}</span></div>`).join("");
+
+const state={filter:new Set(Object.keys(V)),sel:null};
+const F=document.getElementById("filters");
+F.innerHTML=Object.entries(V).map(([k,l])=>`<button class="chip" id="f-${k}" aria-pressed="true" data-v="${k}"><span class="dot" style="background:var(--${k})"></span>${l} <span class="mono">${M.filter(m=>m.v===k).length}</span></button>`).join("");
+F.addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;const k=b.dataset.v;
+  if(state.filter.has(k)&&state.filter.size>1)state.filter.delete(k);else state.filter.add(k);
+  F.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",state.filter.has(c.dataset.v)));draw();});
+
+function draw(){
+  const ms=M.filter(m=>state.filter.has(m.v));
+  const results=[];ms.forEach(m=>m.won.forEach(w=>results.push({id:m.id+"|"+w,label:w,m:m.id,v:m.v})));
+  const verds=Object.keys(V).filter(k=>state.filter.has(k));
+  const W=1120,rowH=34,top=48;
+  const H=Math.max(SRC.length,ms.length,results.length,verds.length)*rowH+top+24;
+  const X=[18,280,560,790],NW=[206,232,150,300];
+  const svg=document.getElementById("graph");svg.setAttribute("viewBox",`0 0 ${W} ${H}`);svg.setAttribute("width",W);svg.setAttribute("height",H);
+  const pos={};
+  const place=(arr,col)=>{const span=(H-top-24)/arr.length;arr.forEach((n,i)=>pos[n.id]={x:X[col],y:top+span*i+(span-26)/2,w:NW[col]});};
+  place(SRC,0);place(ms,1);place(verds.map(k=>({id:"v:"+k})),2);place(results,3);
+  let out=`<text class="collabel" x="${X[0]}" y="26">Source</text><text class="collabel" x="${X[1]}" y="26">Method</text><text class="collabel" x="${X[2]}" y="26">Verdict</text><text class="collabel" x="${X[3]}" y="26">Rows won</text>`;
+  const link=(a,b,v,cls)=>{const p=pos[a],q=pos[b];if(!p||!q)return"";const x1=p.x+p.w,y1=p.y+13,x2=q.x,y2=q.y+13,mx=(x1+x2)/2;
+    return `<path class="link ${cls}" d="M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}" stroke="var(--${v})"/>`;};
+  ms.forEach(m=>{m.src.forEach(s=>out+=link(s,m.id,m.v,`L-${s} L-${m.id}`));out+=link(m.id,"v:"+m.v,m.v,`L-${m.id} L-v${m.v}`);});
+  results.forEach(r=>out+=link("v:"+r.v,r.id,r.v,`L-${r.m} L-v${r.v}`));
+  const box=(id,label,sub,stroke,fill,extra)=>{const p=pos[id];return `<g class="node ${extra}" tabindex="0" role="button" data-id="${id}" transform="translate(${p.x},${p.y})"><rect width="${p.w}" height="26" rx="5" fill="${fill}" stroke="${stroke}"/><text x="9" y="17">${label}</text>${sub?`<text class="sub" x="${p.w-8}" y="17" text-anchor="end">${sub}</text>`:""}</g>`;};
+  SRC.forEach(s=>out+=box(s.id,s.label,"","var(--line)","var(--surface)",`N-${s.id}`));
+  ms.forEach(m=>out+=box(m.id,m.label,m.won.length?"+"+m.won.length:"",`var(--${m.v})`,"var(--surface)",`N-${m.id}`));
+  verds.forEach(k=>out+=box("v:"+k,V[k],ms.filter(m=>m.v===k).length,`var(--${k})`,`var(--${k}-bg)`,`N-v${k}`));
+  results.forEach(r=>out+=box(r.id,r.label.length>40?r.label.slice(0,39)+"…":r.label,"","var(--line)","var(--surface)",`N-${r.m}`));
+  svg.innerHTML=out;
+  if(state.sel)highlight(state.sel);
+}
+function highlight(id){
+  const svg=document.getElementById("graph");svg.classList.add("dim");svg.querySelectorAll(".on").forEach(e=>e.classList.remove("on"));
+  const m=M.find(x=>x.id===id),s=SRC.find(x=>x.id===id),vk=id.startsWith("v:")?id.slice(2):null;
+  let ids=[];
+  if(m)ids=[m.id,...m.src,"v"+m.v];
+  else if(s)ids=[s.id,...M.filter(x=>x.src.includes(s.id)).map(x=>x.id)];
+  else if(vk)ids=["v"+vk,...M.filter(x=>x.v===vk).map(x=>x.id)];
+  ids.forEach(i=>{svg.querySelectorAll(`.L-${CSS.escape(i)}`).forEach(e=>{if(!m||e.classList.contains("L-"+m.id)||e.classList.contains("L-v"+m.v)&&e.classList.contains("L-"+m.id))e.classList.add("on");});
+    svg.querySelectorAll(`.N-${CSS.escape(i)}`).forEach(e=>e.classList.add("on"));});
+  if(m){svg.querySelectorAll(`.L-${CSS.escape(m.id)}`).forEach(e=>e.classList.add("on"));}
+  const D=document.getElementById("detail");
+  if(m)D.innerHTML=`<h3>${m.label} <span class="pill p-${m.v}">${V[m.v]}</span></h3><p class="meta">${m.card}</p><p>${m.what}</p><p><b>Test.</b> ${m.test}</p>${m.won.length?`<p><b>Won.</b> ${m.won.join(" · ")}</p>`:""}`;
+  else if(s){const k=M.filter(x=>x.src.includes(s.id));D.innerHTML=`<h3>${s.label}</h3><p class="meta">${s.sub}</p><p>${k.length} methods came from here: ${k.map(x=>`${x.label} (${V[x.v].toLowerCase()})`).join(", ")}.</p>`;}
+  else if(vk){const k=M.filter(x=>x.v===vk);D.innerHTML=`<h3>${V[vk]} <span class="pill p-${vk}">${k.length}</span></h3><p>${k.map(x=>x.label).join(" · ")}</p>`;}
+}
+document.getElementById("graph").addEventListener("click",e=>{const g=e.target.closest(".node");if(!g)return;let id=g.dataset.id;if(id.includes("|"))id=id.split("|")[0];state.sel=id;highlight(id);});
+document.getElementById("graph").addEventListener("keydown",e=>{if(e.key!=="Enter"&&e.key!==" ")return;const g=e.target.closest(".node");if(!g)return;e.preventDefault();let id=g.dataset.id;if(id.includes("|"))id=id.split("|")[0];state.sel=id;highlight(id);});
+
+document.getElementById("groups").innerHTML=Object.entries(V).map(([k,l])=>{const ms=M.filter(m=>m.v===k);
+  return `<div class="group"><h2><span class="dot" style="background:var(--${k})"></span>${l}<span class="mono" style="color:var(--muted);font-size:13px">${ms.length}</span></h2>${ms.map(m=>`<div class="item"><span class="t">${m.label}</span><span class="s">${m.card}</span><span class="r">${m.test}</span>${m.won.length?`<span class="r"><b>Won:</b> ${m.won.join(" · ")}</span>`:""}</div>`).join("")}</div>`;}).join("");
+document.getElementById("subs").innerHTML=SUBS.map(s=>`<tr><td class="mono">${s[0]}</td><td class="mono">${s[1]}</td><td class="mono">${s[2]}</td><td>${s[3]}</td><td>${s[4]}</td></tr>`).join("");
+draw();
+</script>
