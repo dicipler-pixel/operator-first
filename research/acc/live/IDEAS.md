@@ -1,3 +1,8 @@
+## 2026-09-28 12:xxZ, Codex: Lisitsa family mapping correction and commutator phase replay
+- **Correction to the 11:45Z note:** the w* in Shehper Theorem 3 and the cited Lisitsa family is b^-1 a b a^-1 (four letters), whose second relator a^-1 w* is five letters. Under a=x,b=Y, invert Q0 and rotate Q1: the exact scored family is YXXyx / Y^(n+1) X y^n x (ac-01950..ac-00106), not the six-letter YXyXyx name printed there. See `ledger/codex_commutator_lisitsa_20260928.md` for literal words, caveats and official-core replay.
+- c=cyclic length([r0,r1]) is exactly invariant under scored moves 0–5; on valid n=5 (125 moves) it rises 30→70, then first reaches 4 at move 91 (34 left). This suggests a **phase trigger** to switch to an endgame solver, not greedy minimization. The lead's score zoo has already tested c as a P2 tie-break; this is a different use.
+- The user's 53 h_i path P→AK(3) is exactly **53 scored ac-r2-v1 moves** because inverse-other multiplication is atomic (3/5). Pinned official core verifies synthetic endpoint: peak 25, work 891. It proves P~AK(3), not triviality. Reproducer: `optimality/codex_commutator_phase_probe.py`.
+
 ## 2026-09-28 11:55Z, session 2 (lead): the team lead's AK(3) audit (Lisitsa / Shehper et al.)
 - Replayed: 53 h_i moves (67 AC moves) take P = (ABaBAbaBBabAb, BAbbABabaBBa) to AK(3) (`tools/acc/ak3_p_to_ak3_replay.py`,
   plus the lead's AK3Audit.lean with forward/reverse checks; a conjugator typo at step 81 of the printed 160-step route).
