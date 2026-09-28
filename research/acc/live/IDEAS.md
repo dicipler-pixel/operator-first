@@ -1,3 +1,13 @@
+## 2026-09-28 11:10Z, session 2 (lead): the team lead's "can't bury the count" verses — overlap splice works
+- "They put two paths in the dark ... what they saw was the overlap ... what they think they erased, a quiet hand can
+  retrieve" → **overlap splice** (`tools/acc/overlap_splice.py`): for a row with ≥ 2 different paths, splice prefix(A) +
+  exact connector (≤ R moves) + suffix(B). First run (R=2, 551 rows with paths, only 22 with ≥ 2): **ac-00487 27 → 26 =
+  record** (k14), sent in 2657. Next: generate several paths per near-miss row (P2=1, P2=2, QUOTA, seeds) and splice.
+- "One heading, one width ... crowd at the edges ... the wall grow from inside" = the class quota (B16/B17), which just
+  found sac-00487 27 (record). "They can bury the picture, they can't bury the count" = P2 (length is the picture).
+- "Look close or look far, I'm the same damn walk" → self-similarity: the leaders' chain path at n+1 likely contains the
+  n path as a block. Untestable without one of their paths; a hint for whoever builds the chain generator.
+
 ## 2026-09-28 10:50Z, session 2 (lead): score zoo — the rotation fix, the cage is wrong, P2-cap slack
 Source: `research/acc/live/SCORE_ZOO.md`, `ledger/score_zoo_20260928.json` (65 scores × 536 key configs on 246 at-record
 paths; 59 hump paths, 305 climbing steps = 125 conjugations + 180 multiplications).

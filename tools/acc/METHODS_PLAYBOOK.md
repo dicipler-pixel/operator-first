@@ -34,6 +34,8 @@ leaderboard to 4 decimals on 2026-09-27.
 
 | **P2 beam** (`acc_beam` with `BEAM_P2=2`: P2 lookahead first, H priority second; atlas B31) | hump rows the plain beam misses | W=20k vs plain: ac-03305 AC 24/SAC **24 (record)** vs 29/31; ac-01629 **23 (record)** vs 26; 05558 26 vs 30; 07435 28 vs 29; 06045 39 vs 44 | `tools/acc/ops/p2_list.sh NAME 20000` (T8 table) |
 | **(y,x) shortcut for Stable AC** (`tools/acc/yx_shortcut.py`) | SAC record = our AC length + 1 | sac-01698 37 (k3) from our 36-move AC path: prefix 31 + 4-move exact route to (y,x) + [15,15] | `SAIR=... python3 tools/acc/yx_shortcut.py ac-ID '[path]' SAC_RECORD` (exact meet in the middle from the last 10 path states) |
+| **Overlap splice** (`tools/acc/overlap_splice.py R`; the team lead's "two paths in the dark ... the overlap") | rows where we hold ≥ 2 different paths | ac-00487 27 → 26 (record) by splicing two of our paths through states ≤ 2 moves apart | run after any multi-arm beam; more arms/seeds per row = more overlaps |
+| **Class quota under P2** (`BEAM_P2=2 BEAM_QUOTA=16`; atlas B16/B17 "one heading, one width") | hump rows where P2 is 1 off | sac-00487 27 (record, k3); P2=2 alone 28, we held 62 | A/B still running |
 | **SAC = our accepted AC + `[16,15]`** | free SAC ties when the SAC record = our AC length + 2 | 6 found on 2026-09-27 (`ACC_SUBMIT_SACPLUS2_20260927.txt`) | offline check vs board; moves from `sair_api.py download ID` |
 
 Always: keep the shorter of searched SAC and AC + 2 (`emitcap.sh`). Re-run the AC+2 check after

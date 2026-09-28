@@ -54,6 +54,8 @@ Without `--yes`, it's a dry run.
   lookahead), plus ac-05835 33 (k13). 3/3 accepted.
 - Submission 2648 (10:07Z): ac-01698 36 (k4), ac-03789 34 (k7) from the P2 lanes, and sac-01698 37 (k3) from the
   (y,x) shortcut on our P2 path (`tools/acc/yx_shortcut.py`). 3/3 accepted, about +0.2.
+- Submission 2657 (11:07Z): sac-00487 27 (k3, atlas class quota B16/B17), ac-00487 26 (k14, overlap splice of two
+  of our paths), sac-05091 26 (k10, (y,x) shortcut). 3/3 accepted, about +0.13.
 - Board watcher: `changes` every 30 min into `research/acc/live/changes/`. It alerts on
   "LOST OUR TIE" or a newly solved row.
 
