@@ -1,3 +1,18 @@
+## 2026-09-28 10:05Z, session 2 (lead): the whole atlas thrown at AC — ledger, score zoo, beam ideas
+- **Full atlas ledger:** `research/acc/live/ATLAS_AC_LEDGER.md` — every plate and card (21 plates, 93 cards B1–B96,
+  18 repo cards; 132 lines): 23 METHOD, 20 DIAGNOSTIC, 18 PROCESS, 71 NONE. Working methods so far: B31/Plate IV (P2),
+  B81 (mirror transport in cross-row). Dead: B6, B12, B22, B38, B48 and three repo cards. Two quick tie-break tests
+  under P2 (exit counts; learned descent) are dead (ledger appendix).
+- **R_n caution:** R_n = (x^2 y X y, x y^n X Y^(n+1)) is the classic Miller–Schupp potential-counterexample family.
+  Two of its rows (ac-02842, ac-06556) are on our AK(3)-class list, so R_3 is AK(3)-equivalent (open). Treat the
+  21 unsolved R_n rows as open problems, not targets.
+- **Ledger #2 as written is ill-posed:** counting x letters rewards pasting relator copies (move 2 "gains" 9 x per move
+  with no progress). Needs a group-aware mass (e.g. the level index (k, a) of the chain form), not letter counts.
+- **Running (discovery mode, per the team lead):** score zoo (`optimality/score_zoo.py`): 20+ atlas-derived state
+  scores screened on the 609 record paths by how well they rank the record move, especially on hump steps, alone and
+  as tie-breaks under P2. Winners go into the beam like P2 did. Separately: BEAM_QUOTA (B16/B17), BEAM_WH (B83), and
+  the B20 beam-loss trace, A/B against P2=2.
+
 ## 2026-09-28 09:25Z, session 2 (lead): Bob's training macros as beam supermoves — DEAD (valid rerun)
 - Matched A/B, T8, W=20k, depth live+6, BEAM_H=1 DIV=0.8, top-40 macros (len ≥ 4) from `ledger/bob_macro_library_20260928.json`,
   on the macro-capable binary (checked "macros: 40"):
