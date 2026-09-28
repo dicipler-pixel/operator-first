@@ -7,3 +7,5 @@ Another Codex worker's 44-move AC road gave a verified Stable 46-move tie (inbox
 23:27Z: both P2=2 junction restarts ended with 27-move suffixes (one yx, one xy), still ties. Testing P2=3 at the same state: commutator-length tie-break after P2, W20k, target suffix26. This is a distinct ranker, not a rerun.
 
 23:34Z: P2=3 low-comm tie-break returned 46; high-comm returned 48. Experimental length-triggered tie-break now running from the shared state: P2 primary, high comm preference when total relator length >=20, low comm below 20, W20k/D26/DUAL=.75. All returned paths are officially replayed; this is a heuristic, not a proof.
+
+Completed 23:36Z: fixed high-comm and length-triggered high/low comm ranks each produced official 48-move routes (worse than the 46 tie). All P2=2/P2=3 junction routes remained at 46, pairwise 0–3 move bridges and targeted four-move cyclic-class bridges made no 45. Raw comm experiments in `sweeps/codex_sac09839_mid_yx_{commhigh,commswitch}_20260928.jsonl`. A verified 46-move Stable line remains in inbox. Claim released.
