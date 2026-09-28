@@ -24,6 +24,7 @@ static const uint8_t PI[14]={0,1,2,3,4,5,8,9,6,7,12,13,10,11};
 // ECHO_FILE ("id dist l0 w.. l1 w.." per line): states on or near our known routes, each with a known remaining
 // distance to (x,y) (an upper bound). A BFS state that meets the echo at depth d gives a path d + dist; the
 // Python side appends the known tail for that id. ("the echo from the back is still talking to you")
+static unsigned MMASK=0x3FFFu;
 static uint64_t*EH1,*EH2; static uint16_t*ED; static uint32_t*EI; static uint64_t EN;
 static void echo_load(const char*fn){ FILE*f=fopen(fn,"r"); if(!f) die("echo file"); uint64_t cnt=0; char line[65536];
   while(fgets(line,sizeof line,f)) cnt++; rewind(f); EN=1; while(EN<cnt*2+16) EN<<=1;
@@ -50,9 +51,11 @@ int main(int argc,char**argv){
   FILE*o=openf(dir,tag,0,"wb"); wr_state(o,&s0); fclose(o); int d; int closed=0, budget_hit=0;
   // depth labels only go to 15 in 4 bits, so store the BFS depth mod 16 and keep parents implicit via layer files
   int MAXD=getenv("MAXD")?atoi(getenv("MAXD")):1<<30;
+  // MOVE_MASK (optional): bit m = move m allowed in the capped BFS; default all 14
+  MMASK=getenv("MOVE_MASK")?(unsigned)strtoul(getenv("MOVE_MASK"),0,0):0x3FFFu;
   for(d=1;;d++){ if(d>=bestAC && d+2>=bestSAC) break; if(d>MAXD) break;
     FILE*in=openf(dir,tag,d-1,"rb"); FILE*out=openf(dir,tag,d,"wb"); uint64_t c=0;
-    while(!budget_hit&&rd_state(in,&cc)) for(int m=0;m<14;m++){ if(SS.n>=BUD){ budget_hit=1; break; } apply(&cc,m,&nn2); if(nn2.l[0]+nn2.l[1]>CAP) continue; fp(&nn2,&h1,&h2);
+    while(!budget_hit&&rd_state(in,&cc)) for(int m=0;m<14;m++){ if(!((MMASK>>m)&1)) continue; if(SS.n>=BUD){ budget_hit=1; break; } apply(&cc,m,&nn2); if(nn2.l[0]+nn2.l[1]>CAP) continue; fp(&nn2,&h1,&h2);
         if(tab_ins(&SS,h1,h2,d&15,0)>=0) continue; c++; wr_state(out,&nn2);
         int t=tab_find(&TT,h1,h2); if(t>=0&&d+t<bestAC){ bestAC=d+t; mAC=nn2; dAC=d; tAC=t; }
         swapst(&nn2,&sw2); uint64_t g1,g2; fp(&sw2,&g1,&g2); int u=tab_find(&TT,g1,g2); if(u>=0&&d+u+2<bestSAC){ bestSAC=d+u+2; mSAC=nn2; dSAC=d; tSAC=u; }
