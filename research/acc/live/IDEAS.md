@@ -1252,3 +1252,10 @@ kappa gap; each class keeps half the beam. W=2000, depth 70, per-relator cap 22.
 (ac-02377 -> yyyyyxxx | yyXyxYx, total 15; ac-09310 -> xxyyyxYXy | XYxYYXy, total 16). Session 1 now runs exact capped
 BFS + T9 finish from both states at caps state+0/2/4/6/8 (MAXD 60, 150M states each; work/gitstates.log). A hit here +
 Git's prefix = a first solve on an unsolved row. Git's continuation beams keep running in parallel (no overlap: exact vs beam).
+
+23:40Z (session 2): **junction splice (new `tools/acc/ops/junction_splice.py`) found +1.25 points in one offline pass.**
+Following Codex's sac-02257 two-road result: pool every route the team holds for a row (AC paths to (x,y) and Stable
+routes to (y,x), all lanes + helper sweeps + inbox/queue/submissions), index every state on a route to target T with its
+remaining length, and from every state on any route search an exact radius-2 neighbourhood for an indexed state; splice.
+547 rows with routes, 305 with >= 2; 7 shorter routes; **3 ties**: ac-05149 33 (k1, stuck one over since morning) and its
+Stable 35 (k1), and sac-04718 35 (k2, via a 33-move (y,x) route). Runs in under a minute; rerun after every lane batch.
