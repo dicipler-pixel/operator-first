@@ -2,8 +2,8 @@
 // Copy of acc_capped.c (left unchanged, in use) with one extra admission rule. With CAP_P2=c a state is expanded and
 // stored only if total relator length <= CAP (loose safety net, e.g. start+24) AND P2(state) <= P2(start) + c.
 // P2 = best total cyclic length after exactly two multiplications with free rotations, level-1 cut 8 (BEAM_P2CUT
-// semantics of acc_beam.c; the P2 block below is copied verbatim from acc_beam.c "P2 begin/end", only the cache size
-// became a runtime value). P2 is a class function (unordered pair of cyclic classes up to rotation and inversion), so
+// semantics of acc_beam.c; the P2 block below is copied verbatim from acc_beam.c "P2 begin/end" at commit 07e483f, only
+// the cache size became a runtime value). P2 is a class function (unordered pair of cyclic classes up to rotation and inversion), so
 // conjugation (6-13) and inversion (0-1) children of an admitted state are admitted without evaluation; only
 // multiplication children (2-5) are evaluated, through a class-keyed direct-mapped cache (P2_CACHE_LOG2, default 22).
 // Everything else is acc_capped: T-table finish lookups (T9 or T8 file), layer files, BUDGET, MAXD, ECHO_FILE and the
@@ -18,6 +18,10 @@
 //   STOP_AC=n, STOP_SAC=n  stop after the first layer at which every given target is reached (bestAC <= n, ...)
 //   CAP_PAD=p         also require pad(state) <= p, pad = sum over relators of (length - cyclic core length), i.e. the
 //                     letters of uncancelled conjugation (checked on every child; rejected children as for P2)
+// Result (2026-09-28, ledger research/acc/live/ledger/p2cap_exact_20260928.json): CAP_P2 alone with a loose cap explodes
+// (conjugations always pass; P2 <= start holds for 74-92% of a length-capped region), so it never reached a record.
+// CAP_P2=0 with CAP_PAD=2 found ac-03305 AC 23 in 36.3M states (length cap 40: >71.5M to depth 13 of 15) but missed
+// the four low-hump test rows, whose record paths carry pad 4-8. Use it as an extra filter, not a replacement.
 // usage: acc_capped_p2 TFILE CAP BUDGET WORKDIR TAG l0 w.. l1 w..
 // build: gcc -O3 -march=native -o acc_capped_p2 acc_capped_p2.c -lm
 #define ACC_NO_MAIN
