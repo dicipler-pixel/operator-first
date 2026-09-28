@@ -1049,3 +1049,8 @@ Official kernel a0fd6e6, made-up rows MS(n, YXXyx). All exact runs below complet
 (two-eyes beam, T9 finish); official verifier accepted, plan_offline TIE on both; our old lines were 115 / 119.
 Inboxed. Dual lanes: A 38 rows (0 ties), B 39 rows (1 tie). sac-02528 cap 31 (started before the dequeue): budget
 stop at depth 24, no Stable path <= 36. sac-08078 cap 33 running. restart_all: all 6 lanes alive.
+19:58Z check-in (session 1): all lanes alive. Dual lanes (resumed helper rows) 49/50 rows done: 1 tie (ac/sac-04191,
+sent in 2694), 12 above, rest nopath. First solves: ac-02842, ac-03989 no path (replay + depth-250 beams).
+sac-08078 exact cap 33 still running. Road cycle: 782 rows with a verified borrowed path, 0 new lines.
+Family transfer (254 family-lane rows) retuned to ~10 min/row (two-eyes + H, start + best transfer seed, 150 s beams)
+and split into two shards.
