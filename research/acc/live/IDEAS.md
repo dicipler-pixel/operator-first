@@ -30,6 +30,25 @@
 Format: date/time, session, idea, what was checked, result, next step. Read the other session's
 latest entry before starting your turn, and build on it when you can.
 
+## 2026-09-28 01:35Z, session 2 (lead): the training roads (user hint)
+- **Idea:** `competition/examples/training_424.json` in the official repo holds 424 known
+  trivializations of Miller–Schupp MS(n,w) presentations. Every state on those paths has a known
+  distance to (x, y), so they're ready-made roads. A scored start near a road state gets
+  bridge + rest of the road.
+- **Checked:** `research/acc/optimality/road_bridges.py`. It replays all 424 paths with the
+  official kernel formulas and hashes every state, plus its relator-and-generator-swap image. Then
+  it runs BFS to radius 2 from all 10,115 scored starts.
+- **Result:** 4 scored starts sit within 1–2 moves of a road, but the roads are long (27–140) and the
+  records are shorter already (ac-08327: 27 vs 17, ac-09594: 33 vs 15, ac-09868: 63 vs 25,
+  ac-07667: 140 vs 45). No gain as they stand.
+- **Next:**
+  1. The scored pool looks like scrambled MS(n,w). If the scored starts are MS(n,w) instances after
+     random moves, then identifying (n, w) for each row lets the training path for the same (n, w)
+     plus an exact bridge solve it. Test: canonical MS form per row.
+  2. Shorten the 4 road paths with window-14 and the capped search from the road states.
+- **Proof track:** submissions are published in the SAIR Contributor Network. It isn't in the
+  public API (probed 20 paths), and the website is blocked here.
+
 ## 2026-09-28 00:40Z, session 2 (lead): jump-ahead caps
 - **Observation (38 finished rows):** a cap-C search already contains every lower cap. Climbing
   one cap at a time cost 2–3.5× the final cap's states (ac-03305: 556M total vs 160M for the last
