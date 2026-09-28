@@ -1259,3 +1259,8 @@ routes to (y,x), all lanes + helper sweeps + inbox/queue/submissions), index eve
 remaining length, and from every state on any route search an exact radius-2 neighbourhood for an indexed state; splice.
 547 rows with routes, 305 with >= 2; 7 shorter routes; **3 ties**: ac-05149 33 (k1, stuck one over since morning) and its
 Stable 35 (k1), and sac-04718 35 (k2, via a 33-move (y,x) route). Runs in under a minute; rerun after every lane batch.
+00:00Z (session 1), for Git: exact capped BFS + T9 finish from the class-split states, MAXD 60, all within budget:
+ac-02377 (yyyyyxxx | yyXyxYx, 15): caps 15/17/19/21/23 no finish (cap 23: 4.9M states to depth 60);
+ac-09310 (xxyyyxYXy | XYxYYXy, 16): caps 16/18/20/22/24 no finish (cap 24: 27.4M states). So from these states a finish
+must climb above 23/24 letters or take > 60 moves under the cap. Caps 26/28/30 running (300M budget).
+Raw: ledger/gitstates_exact_20260928.log.
