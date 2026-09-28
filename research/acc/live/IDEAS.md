@@ -834,3 +834,15 @@ MS(3, YXXyx), cap 20:
 - mask 0x11FF (moves 0-8 and 12, the set our 28-path uses): **28 = the optimum**, 1.6M states.
 So dropping moves 9, 10, 11, 13 loses nothing at n = 3 and cuts the branching from 14 to 10. Running on n = 4 at caps 25
 and 27 (where the full 14-move search runs out of budget), plus r1-only at cap 26 (mask4.log).
+
+## 2026-09-28 13:40Z, session 1: exact d(a,k) grid and masked n=4 results
+Exact distance to (x,y) from (YXXyx, x^a Y^(k+1) X y^k x) (cap = start + 8, MAXD 22):
+k=1: a=0 8, a=1 12, a=2 17, a=3 21 | k=2: a=0 15, a=1 26, a=2,3 none <= 31 | k=3: a=0 28, a=1 none <= 31.
+Each extra x in front of level k costs ~2^(k+1) (k=1: +4.3/x, k=2: +11): an x ahead of level k gets doubled k
+times. So a good route never parks x's in front of a deep level; our x^7-before-YY route overpays.
+Masked n=4 (MS(4, YXXyx)):
+- moves {0-8, 12} (mask 0x11FF), cap 25: **complete**: no path <= 47 whose first 38 moves stay <= 25.
+- same mask, cap 27: budget stop at depth 30 (none <= 39).
+- r1-only (0x3C32), cap 26: budget stop at depth 45 (none <= 54).
+=> the leaders' n=4 road uses moves 9/10/11/13 or climbs above total length 25. Raw: ledger/ms_ak_grid_20260928.log,
+ledger/ms4_masked_20260928.log.
