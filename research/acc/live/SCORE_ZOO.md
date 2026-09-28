@@ -113,3 +113,47 @@ Behind comm_len, `cage_high` or `stab_high` adds **+0.03 to +0.04 on all steps**
 The gain is mostly endgame (cage states occur only in the last 6 moves). Without comm_len it is no better than P2=1 H.
 `selfsym_high` hurts. **Beam:** P2 | comm_len | cage flag (1 bit, preferred) | P1m | klen. The cage bit is cheap: canonical
 forms of σ(r0) for 8 σ, compared with r1's class, only on multiplication children (the others inherit it).
+
+## Follow-up: commutator census (team lead's six commutators, AC analogues)
+
+These are word-level scores on the stored words; |w| is the cyclically reduced length.
+- GEN = |[r0,x]| + |[r1,y]|, and GENmin = the smaller of GEN and the swapped assignment. Both are 0 only at (x,y) and (y,x).
+- MIXED = min over g ∈ {1,x,X,y,Y} of |[r0, g·r1·g⁻¹]|.
+- SELF = |[r0,rev r0]| + |[r1,rev r1]|, where rev reverses the letter order.
+- FLAT = the fraction of the 91 move pairs with a∘b(s) = b∘a(s), 0.33 ms per state.
+
+This is the same harness in one niced run. The hump numbers are 59 paths; Δ is against (P2, comm_len, P1m, H), with a 95% path bootstrap.
+
+| key | climbing | climbing conj | all steps | Δ climbing | Δ all |
+|---|---|---|---|---|---|
+| (P2, comm_len, P1m, H) | 0.616 | 0.512 | 0.652 | 0 | 0 |
+| (P2, comm_len, cage_high, P1m, H), previous section | 0.620 | 0.512 | 0.686 | [0.00, +0.01] | [+0.03, +0.04] |
+| (P2, comm_len, FLAT_high, P1m, H) | 0.616 | 0.512 | 0.685 | [0, 0] | [+0.03, +0.04] |
+| (P2, comm_len, MIXED_low, P1m, H) | 0.616 | 0.528 | 0.659 | [−0.02, +0.02] | [0.00, +0.01] |
+| (P2, comm_len, MIXED_high, P1m, H), flip | 0.626 | 0.528 | 0.628 | [−0.01, +0.03] | [−0.03, −0.02] |
+| (P2, comm_len, GEN_low, P1m, H) | 0.525 | 0.512 | 0.686 | [−0.12, −0.06] | [+0.02, +0.05] |
+| (P2, comm_len, GENmin_low, P1m, H) | 0.511 | 0.496 | 0.690 | [−0.14, −0.08] | [+0.03, +0.05] |
+| (P2, comm_len, SELF_low, P1m, H) | 0.505 | 0.496 | 0.685 | [−0.15, −0.08] | [+0.02, +0.04] |
+| (P2, MIXED_low, P1m, H) | 0.554 | 0.456 | 0.649 | [−0.10, −0.02] | [−0.03, +0.02] |
+| (P2, GEN_low, P1m, H) | 0.282 | 0.072 | 0.648 | [−0.40, −0.27] | [−0.03, +0.02] |
+| (P2, SELF_low, P1m, H) | 0.239 | 0.000 | 0.637 | [−0.45, −0.31] | [−0.04, +0.01] |
+| (P2, FLAT_high, P1m, H) | 0.436 | 0.072 | 0.629 | [−0.25, −0.11] | [−0.05, +0.01] |
+
+As primary keys, every census score fails on climbing steps:
+
+| score (primary, a-priori direction) | climbing | climbing conj | all steps |
+|---|---|---|---|
+| GEN | 0.043 | 0.000 | 0.413 |
+| GENmin | 0.013 | 0.000 | 0.349 |
+| MIXED | 0.279 | 0.520 | 0.330 |
+| SELF | 0.003 | 0.000 | 0.532 |
+| FLAT (high) | 0.000 | 0.000 | 0.071 |
+| comm_len, for reference | 0.226 | 0.552 | 0.218 |
+
+The flipped signs (prefer larger GEN or SELF, or less flat) do better on climbing steps but collapse on all steps (≤ 0.34), which is the climb-lover pattern.
+
+**Reading.** None of the census commutators beats comm_len on climbing steps.
+- GEN, GENmin and SELF are "distance to the finish" measures, like raw length. They point downhill, so they cost 6 to 15 points on climbing steps and gain 2 to 5 on all steps.
+- MIXED is mostly redundant with comm_len (Spearman with moves left 0.81, comm_len 0.75).
+- FLAT after comm_len repeats the symmetry result: +0.03 to +0.04 on all steps with no climbing change. It probably marks the same endgame states (Spearman −0.63; flat states are short), and it costs 40 times more than the cage bit.
+- **The beam recommendation is unchanged:** P2 | comm_len | cage bit | P1m | klen.

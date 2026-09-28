@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-28T11:19:32Z",
+ "generated": "2026-09-28T11:30:08Z",
  "script": "research/acc/optimality/score_zoo.py",
  "doc": "Score zoo: a fast screen of cheap state scores against record-length AC paths, 2026-09-28.\n\nDiscovery, not proof.  Each candidate score f (lower = better unless the a-priori direction says \"high\") is judged by\nwhere it ranks the move that a record-length path actually took among the 14 children of each path state.\n\nData: the paths that `p2_hump_test.py` collects and replays with the official verifier core (one shortest verified\npath per row); \"at record\" = the path length equals the live board record (board snapshot in p2_hump_test.BOARD);\n\"hump\" = at-record paths whose raw total climbs >= 6 above the start (the P2 test's set).\n\nPer step: f on each of the 14 children; mid-rank of the record child (ties -> average rank).  Reported:\n  top3        fraction of steps with mid-rank <= 3 (as in p2_hump_test; comparable to its 0.407 for (P2c8, P1m, raw))\n  top3_exp    expected top-3 rate under a random tie-break (what a fingerprint tie-break does in the beam)\n  mean_rank   mean mid-rank\non four step sets: hump paths all steps / climbing steps (raw total of the record child > current total), and\nall at-record paths all steps / climbing steps.  Spearman rho of f(state) with moves remaining: pooled over every\nstate of every at-record path, and the mean within-path rho over hump paths.\n\nModes: 'prim' ranks by f alone; 'tb' ranks by (P2c8, f), i.e. f as the tie-break under P2 cut 8 (BEAM_P2=2 puts the\nbeam's existing key there); 'tb2' ranks by (P2c8, P1m, f, raw) (f after BEAM_P2=1's key); 'tb3' ranks by\n(P2c8, f, P1m, raw) (f inserted between P2 and P1m); 'combo' = hand-built lexicographic keys, including the ledger's\nK0 = (P2c8, P1m, raw) and the beam's current keys (P2, H) [BEAM_P2=2 BEAM_H=1] and (P2, P1m, H) [BEAM_P2=1 BEAM_H=1].\nStep sets also split climbing steps into conjugation moves (6-13) and multiplication moves (2-5).  Every score is also run with\nthe opposite sign ('flip'; post hoc, flagged).  Paired path bootstrap (1000 resamples of hump paths) gives a 95% CI\nfor the climbing top-3 difference against the baselines.  Survival rule (the atlas ledger's rule, fixed there before\nits run): tie-break climbing top3 >= (P2c8, P1m) + 0.05 and all-steps top3 >= (P2c8, P1m) - 0.02 on hump paths.\n\nClass-level scores (functions of the unordered pair of cyclic classes up to rotation and inversion: P0cyc, P1, P2,\nP3, WH, ...) give the same value to the parent class, so the 8 conjugation and 2 inversion children always tie; only\nword-level scores (raw, P1m, H, L1, real2, ...) can separate them.\n\nusage: nice -n 10 python3 score_zoo.py [--out JSON] [--quick N] [--no-expensive]\n",
  "board_snapshot": "research/acc/live/boards/ac_20260928T0428Z.json.gz",
@@ -461,6 +461,406 @@
    ],
    [
     "raw",
+    1
+   ]
+  ],
+  "(P2,GEN_low,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "GEN",
+    1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,comm_len,GEN_low,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "comm_len",
+    1
+   ],
+   [
+    "GEN",
+    1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,GEN_high,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "GEN",
+    -1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,comm_len,GEN_high,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "comm_len",
+    1
+   ],
+   [
+    "GEN",
+    -1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,GENmin_low,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "GENmin",
+    1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,comm_len,GENmin_low,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "comm_len",
+    1
+   ],
+   [
+    "GENmin",
+    1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,GENmin_high,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "GENmin",
+    -1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,comm_len,GENmin_high,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "comm_len",
+    1
+   ],
+   [
+    "GENmin",
+    -1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,MIXED_low,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "MIXED",
+    1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,comm_len,MIXED_low,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "comm_len",
+    1
+   ],
+   [
+    "MIXED",
+    1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,MIXED_high,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "MIXED",
+    -1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,comm_len,MIXED_high,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "comm_len",
+    1
+   ],
+   [
+    "MIXED",
+    -1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,SELF_low,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "SELF",
+    1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,comm_len,SELF_low,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "comm_len",
+    1
+   ],
+   [
+    "SELF",
+    1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,SELF_high,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "SELF",
+    -1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,comm_len,SELF_high,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "comm_len",
+    1
+   ],
+   [
+    "SELF",
+    -1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,FLAT_low,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "FLAT",
+    1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,comm_len,FLAT_low,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "comm_len",
+    1
+   ],
+   [
+    "FLAT",
+    1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,FLAT_high,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "FLAT",
+    -1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
+    1
+   ]
+  ],
+  "(P2,comm_len,FLAT_high,P1m,H)": [
+   [
+    "P2c8",
+    1
+   ],
+   [
+    "comm_len",
+    1
+   ],
+   [
+    "FLAT",
+    -1
+   ],
+   [
+    "P1m",
+    1
+   ],
+   [
+    "H",
     1
    ]
   ],
@@ -2138,8 +2538,8 @@
    "expensive_hump_only": false,
    "timing": {
     "ms_median": 0.016,
-    "ms_mean": 0.019,
-    "ms_p90": 0.03
+    "ms_mean": 0.018,
+    "ms_p90": 0.028
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.85,
@@ -2155,8 +2555,8 @@
    "expensive_hump_only": false,
    "timing": {
     "ms_median": 0.014,
-    "ms_mean": 0.015,
-    "ms_p90": 0.024
+    "ms_mean": 0.017,
+    "ms_p90": 0.027
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.859,
@@ -2171,9 +2571,9 @@
    "source": "B31 baseline",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.381,
-    "ms_mean": 0.462,
-    "ms_p90": 0.727
+    "ms_median": 0.464,
+    "ms_mean": 0.502,
+    "ms_p90": 0.912
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.9,
@@ -2188,9 +2588,9 @@
    "source": "beam BEAM_H=1 key (P2=2 second key)",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.003,
-    "ms_mean": 0.004,
-    "ms_p90": 0.004
+    "ms_median": 0.005,
+    "ms_mean": 0.005,
+    "ms_p90": 0.007
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.773,
@@ -2205,9 +2605,9 @@
    "source": "E1",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.0,
-    "ms_mean": 0.0,
-    "ms_p90": 0.0
+    "ms_median": 0.001,
+    "ms_mean": 0.001,
+    "ms_p90": 0.001
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.634,
@@ -2222,9 +2622,9 @@
    "source": "E1",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.0,
-    "ms_mean": 0.0,
-    "ms_p90": 0.0
+    "ms_median": 0.001,
+    "ms_mean": 0.001,
+    "ms_p90": 0.001
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.744,
@@ -2273,7 +2673,7 @@
    "source": "E1",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.004,
+    "ms_median": 0.003,
     "ms_mean": 0.004,
     "ms_p90": 0.006
    },
@@ -2290,7 +2690,7 @@
    "source": "E1",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.003,
+    "ms_median": 0.004,
     "ms_mean": 0.004,
     "ms_p90": 0.005
    },
@@ -2308,8 +2708,8 @@
    "expensive_hump_only": false,
    "timing": {
     "ms_median": 0.003,
-    "ms_mean": 0.003,
-    "ms_p90": 0.005
+    "ms_mean": 0.004,
+    "ms_p90": 0.006
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.43,
@@ -2324,9 +2724,9 @@
    "source": "B83 matched frame",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.133,
-    "ms_mean": 0.182,
-    "ms_p90": 0.304
+    "ms_median": 0.161,
+    "ms_mean": 0.195,
+    "ms_p90": 0.383
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.861,
@@ -2341,9 +2741,9 @@
    "source": "GEO-OVERLAP",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.013,
-    "ms_mean": 0.014,
-    "ms_p90": 0.023
+    "ms_median": 0.021,
+    "ms_mean": 0.022,
+    "ms_p90": 0.033
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.526,
@@ -2358,9 +2758,9 @@
    "source": "B20/B19 ratio",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.014,
-    "ms_mean": 0.014,
-    "ms_p90": 0.023
+    "ms_median": 0.019,
+    "ms_mean": 0.024,
+    "ms_p90": 0.033
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": -0.388,
@@ -2375,9 +2775,9 @@
    "source": "transport/overlap",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.016,
-    "ms_mean": 0.017,
-    "ms_p90": 0.028
+    "ms_median": 0.017,
+    "ms_mean": 0.019,
+    "ms_p90": 0.033
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.791,
@@ -2394,7 +2794,7 @@
    "timing": {
     "ms_median": 0.007,
     "ms_mean": 0.008,
-    "ms_p90": 0.012
+    "ms_p90": 0.011
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.73,
@@ -2410,8 +2810,8 @@
    "expensive_hump_only": false,
    "timing": {
     "ms_median": 0.004,
-    "ms_mean": 0.004,
-    "ms_p90": 0.005
+    "ms_mean": 0.005,
+    "ms_p90": 0.006
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.029,
@@ -2460,9 +2860,9 @@
    "source": "UPG-GAP-RANK",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.008,
-    "ms_mean": 0.009,
-    "ms_p90": 0.013
+    "ms_median": 0.009,
+    "ms_mean": 0.01,
+    "ms_p90": 0.014
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.221,
@@ -2477,8 +2877,8 @@
    "source": "B13/C1 transfer class vs start",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.009,
-    "ms_mean": 0.01,
+    "ms_median": 0.01,
+    "ms_mean": 0.011,
     "ms_p90": 0.012
    },
    "spearman_moves_remaining": {
@@ -2511,9 +2911,9 @@
    "source": "periodicity eye",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.011,
-    "ms_mean": 0.011,
-    "ms_p90": 0.016
+    "ms_median": 0.012,
+    "ms_mean": 0.013,
+    "ms_p90": 0.02
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.308,
@@ -2528,9 +2928,9 @@
    "source": "periodicity eye",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.011,
-    "ms_mean": 0.011,
-    "ms_p90": 0.016
+    "ms_median": 0.012,
+    "ms_mean": 0.014,
+    "ms_p90": 0.02
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.73,
@@ -2545,9 +2945,9 @@
    "source": "hump_features / B2",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.01,
-    "ms_mean": 0.01,
-    "ms_p90": 0.015
+    "ms_median": 0.011,
+    "ms_mean": 0.012,
+    "ms_p90": 0.016
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.533,
@@ -2581,7 +2981,7 @@
    "timing": {
     "ms_median": 0.019,
     "ms_mean": 0.022,
-    "ms_p90": 0.033
+    "ms_p90": 0.037
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.763,
@@ -2597,7 +2997,7 @@
    "expensive_hump_only": false,
    "timing": {
     "ms_median": 0.02,
-    "ms_mean": 0.019,
+    "ms_mean": 0.021,
     "ms_p90": 0.027
    },
    "spearman_moves_remaining": {
@@ -2631,7 +3031,7 @@
    "expensive_hump_only": false,
    "timing": {
     "ms_median": 0.004,
-    "ms_mean": 0.004,
+    "ms_mean": 0.005,
     "ms_p90": 0.006
    },
    "spearman_moves_remaining": {
@@ -2647,9 +3047,9 @@
    "source": "Plate XVIII primitive finish",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.143,
-    "ms_mean": 0.166,
-    "ms_p90": 0.288
+    "ms_median": 0.141,
+    "ms_mean": 0.159,
+    "ms_p90": 0.306
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": -0.868,
@@ -2664,9 +3064,9 @@
    "source": "Plate XVIII / B83",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.135,
-    "ms_mean": 0.165,
-    "ms_p90": 0.282
+    "ms_median": 0.132,
+    "ms_mean": 0.161,
+    "ms_p90": 0.307
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.792,
@@ -2681,9 +3081,9 @@
    "source": "OBS-PROBE-SPAN (exact shadow distance)",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.01,
-    "ms_mean": 0.011,
-    "ms_p90": 0.017
+    "ms_median": 0.013,
+    "ms_mean": 0.016,
+    "ms_p90": 0.029
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.712,
@@ -2698,9 +3098,9 @@
    "source": "OBS-PROBE-SPAN (|img - I|_F)",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.009,
-    "ms_mean": 0.01,
-    "ms_p90": 0.016
+    "ms_median": 0.011,
+    "ms_mean": 0.014,
+    "ms_p90": 0.019
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": -0.114,
@@ -2715,9 +3115,9 @@
    "source": "OBS-PROBE-SPAN (element orders)",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.01,
-    "ms_mean": 0.011,
-    "ms_p90": 0.018
+    "ms_median": 0.011,
+    "ms_mean": 0.013,
+    "ms_p90": 0.02
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": -0.331,
@@ -2732,9 +3132,9 @@
    "source": "B95 S7 cycle types",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.012,
-    "ms_mean": 0.014,
-    "ms_p90": 0.022
+    "ms_median": 0.013,
+    "ms_mean": 0.015,
+    "ms_p90": 0.028
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.385,
@@ -2749,9 +3149,9 @@
    "source": "Plate XII P3",
    "expensive_hump_only": true,
    "timing": {
-    "ms_median": 2.982,
-    "ms_mean": 3.121,
-    "ms_p90": 5.166
+    "ms_median": 3.277,
+    "ms_mean": 3.326,
+    "ms_p90": 5.323
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.901,
@@ -2766,9 +3166,9 @@
    "source": "B83 + B31",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.405,
-    "ms_mean": 0.42,
-    "ms_p90": 0.654
+    "ms_median": 0.45,
+    "ms_mean": 0.456,
+    "ms_p90": 0.708
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.877,
@@ -2777,15 +3177,100 @@
     "within_hump_paths": 57
    }
   },
+  "GEN": {
+   "level": "word",
+   "a_priori_direction": "low",
+   "source": "census: [r_i, target generator] (projector/invariance)",
+   "expensive_hump_only": false,
+   "timing": {
+    "ms_median": 0.01,
+    "ms_mean": 0.011,
+    "ms_p90": 0.015
+   },
+   "spearman_moves_remaining": {
+    "pooled_rec_states": 0.749,
+    "n_states": 6219,
+    "within_hump_path_mean": 0.643,
+    "within_hump_paths": 59
+   }
+  },
+  "GENmin": {
+   "level": "word",
+   "a_priori_direction": "low",
+   "source": "census: [r_i, generator], best assignment",
+   "expensive_hump_only": false,
+   "timing": {
+    "ms_median": 0.017,
+    "ms_mean": 0.018,
+    "ms_p90": 0.025
+   },
+   "spearman_moves_remaining": {
+    "pooled_rec_states": 0.745,
+    "n_states": 6219,
+    "within_hump_path_mean": 0.63,
+    "within_hump_paths": 59
+   }
+  },
+  "MIXED": {
+   "level": "word",
+   "a_priori_direction": "low",
+   "source": "census: [r0, g r1 g^-1] (commutator with a conjugated partner)",
+   "expensive_hump_only": false,
+   "timing": {
+    "ms_median": 0.037,
+    "ms_mean": 0.04,
+    "ms_p90": 0.061
+   },
+   "spearman_moves_remaining": {
+    "pooled_rec_states": 0.805,
+    "n_states": 6219,
+    "within_hump_path_mean": 0.74,
+    "within_hump_paths": 59
+   }
+  },
+  "SELF": {
+   "level": "word",
+   "a_priori_direction": "low",
+   "source": "census: [r, rev r] self-commutator (normality)",
+   "expensive_hump_only": false,
+   "timing": {
+    "ms_median": 0.013,
+    "ms_mean": 0.014,
+    "ms_p90": 0.021
+   },
+   "spearman_moves_remaining": {
+    "pooled_rec_states": 0.749,
+    "n_states": 6219,
+    "within_hump_path_mean": 0.66,
+    "within_hump_paths": 59
+   }
+  },
+  "FLAT": {
+   "level": "word",
+   "a_priori_direction": "high",
+   "source": "census: tangent commutator = 0 (flat move graph)",
+   "expensive_hump_only": false,
+   "timing": {
+    "ms_median": 0.327,
+    "ms_mean": 0.34,
+    "ms_p90": 0.481
+   },
+   "spearman_moves_remaining": {
+    "pooled_rec_states": -0.628,
+    "n_states": 6219,
+    "within_hump_path_mean": -0.585,
+    "within_hump_paths": 59
+   }
+  },
   "P2mir": {
    "level": "class",
    "a_priori_direction": "low",
    "source": "B81 mirror transport (two-sided P2)",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.71,
-    "ms_mean": 0.804,
-    "ms_p90": 1.447
+    "ms_median": 0.765,
+    "ms_mean": 0.838,
+    "ms_p90": 1.426
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.901,
@@ -2801,8 +3286,8 @@
    "expensive_hump_only": false,
    "timing": {
     "ms_median": 0.032,
-    "ms_mean": 0.033,
-    "ms_p90": 0.047
+    "ms_mean": 0.034,
+    "ms_p90": 0.051
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.865,
@@ -2817,9 +3302,9 @@
    "source": "B96 gap between rails",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.358,
-    "ms_mean": 0.402,
-    "ms_p90": 0.694
+    "ms_median": 0.37,
+    "ms_mean": 0.407,
+    "ms_p90": 0.658
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.237,
@@ -2834,9 +3319,9 @@
    "source": "Plate XII rung gain",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.367,
-    "ms_mean": 0.405,
-    "ms_p90": 0.685
+    "ms_median": 0.393,
+    "ms_mean": 0.463,
+    "ms_p90": 0.747
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.035,
@@ -2851,8 +3336,8 @@
    "source": "B17 overflow",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.019,
-    "ms_mean": 0.02,
+    "ms_median": 0.02,
+    "ms_mean": 0.023,
     "ms_p90": 0.03
    },
    "spearman_moves_remaining": {
@@ -2869,7 +3354,7 @@
    "expensive_hump_only": false,
    "timing": {
     "ms_median": 0.0,
-    "ms_mean": 0.0,
+    "ms_mean": 0.001,
     "ms_p90": 0.001
    },
    "spearman_moves_remaining": {
@@ -2887,7 +3372,7 @@
    "timing": {
     "ms_median": 0.004,
     "ms_mean": 0.004,
-    "ms_p90": 0.006
+    "ms_p90": 0.007
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.17,
@@ -2904,7 +3389,7 @@
    "timing": {
     "ms_median": 0.004,
     "ms_mean": 0.004,
-    "ms_p90": 0.006
+    "ms_p90": 0.005
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.173,
@@ -2919,9 +3404,9 @@
    "source": "true 1-move lookahead (BEAM_LOOK)",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.02,
-    "ms_mean": 0.021,
-    "ms_p90": 0.028
+    "ms_median": 0.021,
+    "ms_mean": 0.023,
+    "ms_p90": 0.033
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.789,
@@ -2936,9 +3421,9 @@
    "source": "true 2-move lookahead (14^2)",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.313,
-    "ms_mean": 0.315,
-    "ms_p90": 0.436
+    "ms_median": 0.346,
+    "ms_mean": 0.427,
+    "ms_p90": 0.472
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.841,
@@ -2953,9 +3438,9 @@
    "source": "true 3-move lookahead (14^3)",
    "expensive_hump_only": true,
    "timing": {
-    "ms_median": 4.0,
-    "ms_mean": 4.728,
-    "ms_p90": 8.506
+    "ms_median": 4.37,
+    "ms_mean": 5.011,
+    "ms_p90": 8.52
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.805,
@@ -2971,8 +3456,8 @@
    "expensive_hump_only": false,
    "timing": {
     "ms_median": 0.47,
-    "ms_mean": 0.759,
-    "ms_p90": 1.101
+    "ms_mean": 0.504,
+    "ms_p90": 0.806
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.395,
@@ -2987,9 +3472,9 @@
    "source": "moves to realise the P2 promise (depth 1)",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.693,
-    "ms_mean": 0.761,
-    "ms_p90": 1.327
+    "ms_median": 0.789,
+    "ms_mean": 0.885,
+    "ms_p90": 1.653
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.396,
@@ -3004,9 +3489,9 @@
    "source": "lead: symmetric \"cage\" states (r1 ~ sigma(r0))",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.053,
-    "ms_mean": 0.055,
-    "ms_p90": 0.084
+    "ms_median": 0.034,
+    "ms_mean": 0.036,
+    "ms_p90": 0.055
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": -0.362,
@@ -3021,7 +3506,7 @@
    "source": "lead: cage symmetry count",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.032,
+    "ms_median": 0.034,
     "ms_mean": 0.036,
     "ms_p90": 0.053
    },
@@ -3039,8 +3524,8 @@
    "expensive_hump_only": false,
    "timing": {
     "ms_median": 0.063,
-    "ms_mean": 0.063,
-    "ms_p90": 0.091
+    "ms_mean": 0.065,
+    "ms_p90": 0.089
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": -0.782,
@@ -3055,9 +3540,9 @@
    "source": "lead: self-symmetries of each relator",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.062,
-    "ms_mean": 0.066,
-    "ms_p90": 0.095
+    "ms_median": 0.061,
+    "ms_mean": 0.063,
+    "ms_p90": 0.088
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": -0.779,
@@ -3072,8 +3557,8 @@
    "source": "lead: relator ~ own inverse",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.005,
-    "ms_mean": 0.006,
+    "ms_median": 0.004,
+    "ms_mean": 0.005,
     "ms_p90": 0.008
    },
    "spearman_moves_remaining": {
@@ -3089,9 +3574,9 @@
    "source": "B31 + Plate XIV: moves to realise the P2 promise",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.658,
-    "ms_mean": 1.86,
-    "ms_p90": 5.457
+    "ms_median": 0.737,
+    "ms_mean": 1.824,
+    "ms_p90": 5.513
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.394,
@@ -3106,9 +3591,9 @@
    "source": "B31 + Plate XIV: moves to realise the P2 promise",
    "expensive_hump_only": true,
    "timing": {
-    "ms_median": 0.697,
-    "ms_mean": 4.054,
-    "ms_p90": 18.728
+    "ms_median": 0.668,
+    "ms_mean": 4.78,
+    "ms_p90": 22.836
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.374,
@@ -3123,9 +3608,9 @@
    "source": "moves to realise the P1 (best single product)",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.621,
-    "ms_mean": 1.429,
-    "ms_p90": 4.331
+    "ms_median": 0.52,
+    "ms_mean": 1.299,
+    "ms_p90": 4.299
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.463,
@@ -3140,7 +3625,7 @@
    "source": "B20 cancellation available now",
    "expensive_hump_only": false,
    "timing": {
-    "ms_median": 0.009,
+    "ms_median": 0.008,
     "ms_mean": 0.009,
     "ms_p90": 0.012
    },
@@ -3175,8 +3660,8 @@
    "expensive_hump_only": false,
    "timing": {
     "ms_median": 0.006,
-    "ms_mean": 0.007,
-    "ms_p90": 0.009
+    "ms_mean": 0.008,
+    "ms_p90": 0.01
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.568,
@@ -3193,7 +3678,7 @@
    "timing": {
     "ms_median": 0.006,
     "ms_mean": 0.006,
-    "ms_p90": 0.009
+    "ms_p90": 0.008
    },
    "spearman_moves_remaining": {
     "pooled_rec_states": 0.824,
@@ -36664,6 +37149,4066 @@
     ]
    }
   },
+  "GEN|low|prim": {
+   "score": "GEN",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "prim",
+   "key": "f",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.413,
+    "top3_exp": 0.553,
+    "mean_rank": 4.096
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.043,
+    "top3_exp": 0.125,
+    "mean_rank": 8.359
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.166,
+    "mean_rank": 6.736
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.072,
+    "top3_exp": 0.097,
+    "mean_rank": 9.486
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.433,
+    "top3_exp": 0.586,
+    "mean_rank": 3.776
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.053,
+    "top3_exp": 0.131,
+    "mean_rank": 8.31
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.0,
+    "top3_exp": 0.161,
+    "mean_rank": 6.917
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.085,
+    "top3_exp": 0.112,
+    "mean_rank": 9.165
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.043,
+     "d_top3_all": -0.023
+    },
+    "P1m": {
+     "d_top3_climb": -0.249,
+     "d_top3_all": 0.052
+    },
+    "P2c8": {
+     "d_top3_climb": -0.187,
+     "d_top3_all": 0.165
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.344,
+     "d_top3_all": 0.002
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.37,
+     "d_top3_all": -0.18
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": -0.196,
+     "d_top3_all": -0.058
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.393,
+     "d_top3_all": -0.183
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.573,
+     "d_top3_all": -0.239
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "GEN|low|tb": {
+   "score": "GEN",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "tb",
+   "key": "(P2c8, f)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.455,
+    "top3_exp": 0.583,
+    "mean_rank": 3.883
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.239,
+    "top3_exp": 0.314,
+    "mean_rank": 6.73
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.164,
+    "mean_rank": 6.812
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.406,
+    "top3_exp": 0.419,
+    "mean_rank": 6.672
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.474,
+    "top3_exp": 0.615,
+    "mean_rank": 3.573
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.322,
+    "top3_exp": 0.386,
+    "mean_rank": 6.107
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.0,
+    "top3_exp": 0.155,
+    "mean_rank": 7.031
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.519,
+    "top3_exp": 0.527,
+    "mean_rank": 5.54
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.239,
+     "d_top3_all": 0.019
+    },
+    "P1m": {
+     "d_top3_climb": -0.053,
+     "d_top3_all": 0.094
+    },
+    "P2c8": {
+     "d_top3_climb": 0.009,
+     "d_top3_all": 0.207
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.148,
+     "d_top3_all": 0.044
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.174,
+     "d_top3_all": -0.138
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": -0.016
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.197,
+     "d_top3_all": -0.141
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.377,
+     "d_top3_all": -0.197
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "GEN|low|tb2": {
+   "score": "GEN",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "tb2",
+   "key": "(P2c8, P1m, f, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.59,
+    "top3_exp": 0.6,
+    "mean_rank": 3.714
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.416,
+    "top3_exp": 0.428,
+    "mean_rank": 5.123
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.032,
+    "top3_exp": 0.06,
+    "mean_rank": 6.468
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.683,
+    "top3_exp": 0.683,
+    "mean_rank": 4.189
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.666,
+    "top3_exp": 0.67,
+    "mean_rank": 3.309
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.456,
+    "top3_exp": 0.469,
+    "mean_rank": 4.879
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.02,
+    "top3_exp": 0.054,
+    "mean_rank": 6.696
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.724,
+    "top3_exp": 0.724,
+    "mean_rank": 3.763
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.416,
+     "d_top3_all": 0.154
+    },
+    "P1m": {
+     "d_top3_climb": 0.124,
+     "d_top3_all": 0.229
+    },
+    "P2c8": {
+     "d_top3_climb": 0.186,
+     "d_top3_all": 0.342
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.029,
+     "d_top3_all": 0.179
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.003,
+     "d_top3_all": -0.003
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.177,
+     "d_top3_all": 0.119
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.02,
+     "d_top3_all": -0.006
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.2,
+     "d_top3_all": -0.062
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.083,
+     0.173
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.0,
+     0.011
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.203,
+     0.256
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.012,
+     0.008
+    ]
+   }
+  },
+  "GEN|low|tb3": {
+   "score": "GEN",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "tb3",
+   "key": "(P2c8, f, P1m, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.645,
+    "top3_exp": 0.66,
+    "mean_rank": 3.504
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.266,
+    "top3_exp": 0.279,
+    "mean_rank": 6.782
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.032,
+    "top3_exp": 0.064,
+    "mean_rank": 7.124
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.428,
+    "top3_exp": 0.428,
+    "mean_rank": 6.544
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.712,
+    "top3_exp": 0.72,
+    "mean_rank": 3.064
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.339,
+    "top3_exp": 0.35,
+    "mean_rank": 6.195
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.02,
+    "top3_exp": 0.048,
+    "mean_rank": 7.399
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.535,
+    "top3_exp": 0.535,
+    "mean_rank": 5.454
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.266,
+     "d_top3_all": 0.209
+    },
+    "P1m": {
+     "d_top3_climb": -0.026,
+     "d_top3_all": 0.284
+    },
+    "P2c8": {
+     "d_top3_climb": 0.036,
+     "d_top3_all": 0.397
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.121,
+     "d_top3_all": 0.234
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.147,
+     "d_top3_all": 0.052
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.027,
+     "d_top3_all": 0.174
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.17,
+     "d_top3_all": 0.049
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.35,
+     "d_top3_all": -0.007
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     -0.069,
+     0.021
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.193,
+     -0.105
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.256,
+     0.313
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.029,
+     0.082
+    ]
+   }
+  },
+  "GEN|high|prim": {
+   "score": "GEN",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "prim",
+   "key": "f",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.031,
+    "top3_exp": 0.033,
+    "mean_rank": 10.904
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.17,
+    "top3_exp": 0.183,
+    "mean_rank": 6.641
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.002,
+    "mean_rank": 8.264
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.289,
+    "top3_exp": 0.308,
+    "mean_rank": 5.514
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.02,
+    "top3_exp": 0.022,
+    "mean_rank": 11.224
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.147,
+    "top3_exp": 0.164,
+    "mean_rank": 6.69
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.013,
+    "top3_exp": 0.018,
+    "mean_rank": 8.083
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.229,
+    "top3_exp": 0.253,
+    "mean_rank": 5.835
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.17,
+     "d_top3_all": -0.405
+    },
+    "P1m": {
+     "d_top3_climb": -0.122,
+     "d_top3_all": -0.33
+    },
+    "P2c8": {
+     "d_top3_climb": -0.06,
+     "d_top3_all": -0.217
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.217,
+     "d_top3_all": -0.38
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.243,
+     "d_top3_all": -0.562
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": -0.069,
+     "d_top3_all": -0.44
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.266,
+     "d_top3_all": -0.565
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.446,
+     "d_top3_all": -0.621
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "GEN|high|tb": {
+   "score": "GEN",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "tb",
+   "key": "(P2c8, f)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.302,
+    "top3_exp": 0.315,
+    "mean_rank": 6.796
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.413,
+    "top3_exp": 0.444,
+    "mean_rank": 5.185
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.256,
+    "top3_exp": 0.323,
+    "mean_rank": 5.508
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.522,
+    "top3_exp": 0.528,
+    "mean_rank": 4.961
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.299,
+    "top3_exp": 0.312,
+    "mean_rank": 6.789
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.462,
+    "top3_exp": 0.486,
+    "mean_rank": 4.692
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.261,
+    "top3_exp": 0.316,
+    "mean_rank": 5.487
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.586,
+    "top3_exp": 0.59,
+    "mean_rank": 4.203
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.413,
+     "d_top3_all": -0.134
+    },
+    "P1m": {
+     "d_top3_climb": 0.121,
+     "d_top3_all": -0.059
+    },
+    "P2c8": {
+     "d_top3_climb": 0.183,
+     "d_top3_all": 0.054
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.026,
+     "d_top3_all": -0.109
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": -0.291
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.174,
+     "d_top3_all": -0.169
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.023,
+     "d_top3_all": -0.294
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.203,
+     "d_top3_all": -0.35
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.056,
+     0.192
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.069,
+     0.064
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     -0.078,
+     -0.041
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.32,
+     -0.263
+    ]
+   }
+  },
+  "GEN|high|tb2": {
+   "score": "GEN",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "tb2",
+   "key": "(P2c8, P1m, f, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.461,
+    "top3_exp": 0.476,
+    "mean_rank": 4.783
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.459,
+    "top3_exp": 0.472,
+    "mean_rank": 4.815
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.312,
+    "top3_exp": 0.339,
+    "mean_rank": 5.1
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.561,
+    "top3_exp": 0.564,
+    "mean_rank": 4.617
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.483,
+    "top3_exp": 0.499,
+    "mean_rank": 4.507
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.514,
+    "top3_exp": 0.521,
+    "mean_rank": 4.5
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.31,
+    "top3_exp": 0.323,
+    "mean_rank": 5.284
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.639,
+    "top3_exp": 0.642,
+    "mean_rank": 4.018
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.459,
+     "d_top3_all": 0.025
+    },
+    "P1m": {
+     "d_top3_climb": 0.167,
+     "d_top3_all": 0.1
+    },
+    "P2c8": {
+     "d_top3_climb": 0.229,
+     "d_top3_all": 0.213
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.072,
+     "d_top3_all": 0.05
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.046,
+     "d_top3_all": -0.132
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.22,
+     "d_top3_all": -0.01
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.023,
+     "d_top3_all": -0.135
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.157,
+     "d_top3_all": -0.191
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.097,
+     0.235
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.03,
+     0.117
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.081,
+     0.119
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.156,
+     -0.105
+    ]
+   }
+  },
+  "GEN|high|tb3": {
+   "score": "GEN",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "tb3",
+   "key": "(P2c8, f, P1m, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.317,
+    "top3_exp": 0.323,
+    "mean_rank": 6.417
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.423,
+    "top3_exp": 0.428,
+    "mean_rank": 5.238
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.272,
+    "top3_exp": 0.28,
+    "mean_rank": 5.82
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.528,
+    "top3_exp": 0.531,
+    "mean_rank": 4.833
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.315,
+    "top3_exp": 0.323,
+    "mean_rank": 6.279
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.467,
+    "top3_exp": 0.473,
+    "mean_rank": 4.779
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.277,
+    "top3_exp": 0.287,
+    "mean_rank": 5.855
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.584,
+    "top3_exp": 0.587,
+    "mean_rank": 4.118
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.423,
+     "d_top3_all": -0.119
+    },
+    "P1m": {
+     "d_top3_climb": 0.131,
+     "d_top3_all": -0.044
+    },
+    "P2c8": {
+     "d_top3_climb": 0.193,
+     "d_top3_all": 0.069
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.036,
+     "d_top3_all": -0.094
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.01,
+     "d_top3_all": -0.276
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.184,
+     "d_top3_all": -0.154
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.013,
+     "d_top3_all": -0.279
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.193,
+     "d_top3_all": -0.335
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.067,
+     0.201
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.059,
+     0.076
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     -0.066,
+     -0.025
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.304,
+     -0.249
+    ]
+   }
+  },
+  "GENmin|low|prim": {
+   "score": "GENmin",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "prim",
+   "key": "f",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.349,
+    "top3_exp": 0.513,
+    "mean_rank": 4.405
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.013,
+    "top3_exp": 0.069,
+    "mean_rank": 9.172
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.095,
+    "mean_rank": 7.752
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.022,
+    "top3_exp": 0.051,
+    "mean_rank": 10.158
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.375,
+    "top3_exp": 0.547,
+    "mean_rank": 4.071
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.029,
+    "top3_exp": 0.083,
+    "mean_rank": 9.034
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.0,
+    "top3_exp": 0.096,
+    "mean_rank": 7.827
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.047,
+    "top3_exp": 0.076,
+    "mean_rank": 9.776
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.013,
+     "d_top3_all": -0.087
+    },
+    "P1m": {
+     "d_top3_climb": -0.279,
+     "d_top3_all": -0.012
+    },
+    "P2c8": {
+     "d_top3_climb": -0.217,
+     "d_top3_all": 0.101
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.374,
+     "d_top3_all": -0.062
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.4,
+     "d_top3_all": -0.244
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": -0.226,
+     "d_top3_all": -0.122
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.423,
+     "d_top3_all": -0.247
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.603,
+     "d_top3_all": -0.303
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "GENmin|low|tb": {
+   "score": "GENmin",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "tb",
+   "key": "(P2c8, f)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.432,
+    "top3_exp": 0.573,
+    "mean_rank": 3.982
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.236,
+    "top3_exp": 0.28,
+    "mean_rank": 7.262
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.088,
+    "mean_rank": 7.864
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.4,
+    "top3_exp": 0.412,
+    "mean_rank": 6.844
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.462,
+    "top3_exp": 0.61,
+    "mean_rank": 3.642
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.318,
+    "top3_exp": 0.356,
+    "mean_rank": 6.59
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.0,
+    "top3_exp": 0.084,
+    "mean_rank": 7.995
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.513,
+    "top3_exp": 0.523,
+    "mean_rank": 5.727
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.236,
+     "d_top3_all": -0.004
+    },
+    "P1m": {
+     "d_top3_climb": -0.056,
+     "d_top3_all": 0.071
+    },
+    "P2c8": {
+     "d_top3_climb": 0.006,
+     "d_top3_all": 0.184
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.151,
+     "d_top3_all": 0.021
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.177,
+     "d_top3_all": -0.161
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": -0.003,
+     "d_top3_all": -0.039
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.2,
+     "d_top3_all": -0.164
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.38,
+     "d_top3_all": -0.22
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "GENmin|low|tb2": {
+   "score": "GENmin",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "tb2",
+   "key": "(P2c8, P1m, f, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.602,
+    "top3_exp": 0.611,
+    "mean_rank": 3.694
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.42,
+    "top3_exp": 0.431,
+    "mean_rank": 5.226
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.032,
+    "top3_exp": 0.06,
+    "mean_rank": 6.752
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.689,
+    "top3_exp": 0.689,
+    "mean_rank": 4.167
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.667,
+    "top3_exp": 0.671,
+    "mean_rank": 3.315
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.456,
+    "top3_exp": 0.464,
+    "mean_rank": 4.992
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.02,
+    "top3_exp": 0.038,
+    "mean_rank": 7.007
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.724,
+    "top3_exp": 0.725,
+    "mean_rank": 3.755
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.42,
+     "d_top3_all": 0.166
+    },
+    "P1m": {
+     "d_top3_climb": 0.128,
+     "d_top3_all": 0.241
+    },
+    "P2c8": {
+     "d_top3_climb": 0.19,
+     "d_top3_all": 0.354
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.033,
+     "d_top3_all": 0.191
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.007,
+     "d_top3_all": 0.009
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.181,
+     "d_top3_all": 0.131
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.016,
+     "d_top3_all": 0.006
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.196,
+     "d_top3_all": -0.05
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.087,
+     0.174
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.0,
+     0.017
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.213,
+     0.268
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.0,
+     0.019
+    ]
+   }
+  },
+  "GENmin|low|tb3": {
+   "score": "GENmin",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "tb3",
+   "key": "(P2c8, f, P1m, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.649,
+    "top3_exp": 0.661,
+    "mean_rank": 3.472
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.249,
+    "top3_exp": 0.259,
+    "mean_rank": 7.131
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.024,
+    "mean_rank": 7.848
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.422,
+    "top3_exp": 0.422,
+    "mean_rank": 6.633
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.713,
+    "top3_exp": 0.721,
+    "mean_rank": 3.05
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.332,
+    "top3_exp": 0.337,
+    "mean_rank": 6.525
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.003,
+    "top3_exp": 0.017,
+    "mean_rank": 8.106
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.533,
+    "top3_exp": 0.533,
+    "mean_rank": 5.554
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.249,
+     "d_top3_all": 0.213
+    },
+    "P1m": {
+     "d_top3_climb": -0.043,
+     "d_top3_all": 0.288
+    },
+    "P2c8": {
+     "d_top3_climb": 0.019,
+     "d_top3_all": 0.401
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.138,
+     "d_top3_all": 0.238
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.164,
+     "d_top3_all": 0.056
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.01,
+     "d_top3_all": 0.178
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.187,
+     "d_top3_all": 0.053
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.367,
+     "d_top3_all": -0.003
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "GENmin|high|prim": {
+   "score": "GENmin",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "prim",
+   "key": "f",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.035,
+    "top3_exp": 0.04,
+    "mean_rank": 10.595
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.193,
+    "top3_exp": 0.213,
+    "mean_rank": 5.828
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.001,
+    "mean_rank": 7.248
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.328,
+    "top3_exp": 0.361,
+    "mean_rank": 4.842
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.023,
+    "top3_exp": 0.028,
+    "mean_rank": 10.929
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.17,
+    "top3_exp": 0.199,
+    "mean_rank": 5.966
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.0,
+    "top3_exp": 0.012,
+    "mean_rank": 7.173
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.274,
+    "top3_exp": 0.315,
+    "mean_rank": 5.224
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.193,
+     "d_top3_all": -0.401
+    },
+    "P1m": {
+     "d_top3_climb": -0.099,
+     "d_top3_all": -0.326
+    },
+    "P2c8": {
+     "d_top3_climb": -0.037,
+     "d_top3_all": -0.213
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.194,
+     "d_top3_all": -0.376
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.22,
+     "d_top3_all": -0.558
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": -0.046,
+     "d_top3_all": -0.436
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.243,
+     "d_top3_all": -0.561
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.423,
+     "d_top3_all": -0.617
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "GENmin|high|tb": {
+   "score": "GENmin",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "tb",
+   "key": "(P2c8, f)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.305,
+    "top3_exp": 0.326,
+    "mean_rank": 6.697
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.482,
+    "top3_exp": 0.515,
+    "mean_rank": 4.652
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.424,
+    "top3_exp": 0.482,
+    "mean_rank": 4.456
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.522,
+    "top3_exp": 0.538,
+    "mean_rank": 4.789
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.306,
+    "top3_exp": 0.324,
+    "mean_rank": 6.719
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.548,
+    "top3_exp": 0.577,
+    "mean_rank": 4.209
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.449,
+    "top3_exp": 0.493,
+    "mean_rank": 4.523
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.609,
+    "top3_exp": 0.628,
+    "mean_rank": 4.015
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.482,
+     "d_top3_all": -0.131
+    },
+    "P1m": {
+     "d_top3_climb": 0.19,
+     "d_top3_all": -0.056
+    },
+    "P2c8": {
+     "d_top3_climb": 0.252,
+     "d_top3_all": 0.057
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.095,
+     "d_top3_all": -0.106
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.069,
+     "d_top3_all": -0.288
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.243,
+     "d_top3_all": -0.166
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.046,
+     "d_top3_all": -0.291
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.134,
+     "d_top3_all": -0.347
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.103,
+     0.267
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.024,
+     0.152
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     -0.079,
+     -0.032
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.319,
+     -0.254
+    ]
+   }
+  },
+  "GENmin|high|tb2": {
+   "score": "GENmin",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "tb2",
+   "key": "(P2c8, P1m, f, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.464,
+    "top3_exp": 0.478,
+    "mean_rank": 4.679
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.482,
+    "top3_exp": 0.507,
+    "mean_rank": 4.557
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.392,
+    "top3_exp": 0.449,
+    "mean_rank": 4.448
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.544,
+    "top3_exp": 0.547,
+    "mean_rank": 4.633
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.488,
+    "top3_exp": 0.506,
+    "mean_rank": 4.44
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.544,
+    "top3_exp": 0.563,
+    "mean_rank": 4.219
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.406,
+    "top3_exp": 0.448,
+    "mean_rank": 4.614
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.629,
+    "top3_exp": 0.634,
+    "mean_rank": 3.976
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.482,
+     "d_top3_all": 0.028
+    },
+    "P1m": {
+     "d_top3_climb": 0.19,
+     "d_top3_all": 0.103
+    },
+    "P2c8": {
+     "d_top3_climb": 0.252,
+     "d_top3_all": 0.216
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.095,
+     "d_top3_all": 0.053
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.069,
+     "d_top3_all": -0.129
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.243,
+     "d_top3_all": -0.007
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.046,
+     "d_top3_all": -0.132
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.134,
+     "d_top3_all": -0.188
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.112,
+     0.259
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.014,
+     0.145
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.08,
+     0.125
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.156,
+     -0.1
+    ]
+   }
+  },
+  "GENmin|high|tb3": {
+   "score": "GENmin",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "tb3",
+   "key": "(P2c8, f, P1m, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.336,
+    "top3_exp": 0.344,
+    "mean_rank": 6.187
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.485,
+    "top3_exp": 0.508,
+    "mean_rank": 4.521
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.392,
+    "top3_exp": 0.443,
+    "mean_rank": 4.44
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.55,
+    "top3_exp": 0.553,
+    "mean_rank": 4.578
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.341,
+    "top3_exp": 0.346,
+    "mean_rank": 6.127
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.569,
+    "top3_exp": 0.583,
+    "mean_rank": 4.143
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.446,
+    "top3_exp": 0.472,
+    "mean_rank": 4.634
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.645,
+    "top3_exp": 0.651,
+    "mean_rank": 3.842
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.485,
+     "d_top3_all": -0.1
+    },
+    "P1m": {
+     "d_top3_climb": 0.193,
+     "d_top3_all": -0.025
+    },
+    "P2c8": {
+     "d_top3_climb": 0.255,
+     "d_top3_all": 0.088
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.098,
+     "d_top3_all": -0.075
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.072,
+     "d_top3_all": -0.257
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.246,
+     "d_top3_all": -0.135
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.049,
+     "d_top3_all": -0.26
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.131,
+     "d_top3_all": -0.316
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.106,
+     0.27
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.016,
+     0.15
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     -0.05,
+     0.001
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.288,
+     -0.226
+    ]
+   }
+  },
+  "MIXED|low|prim": {
+   "score": "MIXED",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "prim",
+   "key": "f",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.33,
+    "top3_exp": 0.419,
+    "mean_rank": 5.52
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.279,
+    "top3_exp": 0.351,
+    "mean_rank": 6.203
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.52,
+    "top3_exp": 0.546,
+    "mean_rank": 4.024
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.111,
+    "top3_exp": 0.215,
+    "mean_rank": 7.717
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.36,
+    "top3_exp": 0.452,
+    "mean_rank": 5.295
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.256,
+    "top3_exp": 0.344,
+    "mean_rank": 6.262
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.512,
+    "top3_exp": 0.542,
+    "mean_rank": 4.102
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.099,
+    "top3_exp": 0.222,
+    "mean_rank": 7.589
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.279,
+     "d_top3_all": -0.106
+    },
+    "P1m": {
+     "d_top3_climb": -0.013,
+     "d_top3_all": -0.031
+    },
+    "P2c8": {
+     "d_top3_climb": 0.049,
+     "d_top3_all": 0.082
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.108,
+     "d_top3_all": -0.081
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.134,
+     "d_top3_all": -0.263
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.04,
+     "d_top3_all": -0.141
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.157,
+     "d_top3_all": -0.266
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.337,
+     "d_top3_all": -0.322
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     -0.11,
+     0.073
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.252,
+     -0.03
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     -0.07,
+     0.008
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.303,
+     -0.223
+    ]
+   }
+  },
+  "MIXED|low|tb": {
+   "score": "MIXED",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "tb",
+   "key": "(P2c8, f)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.486,
+    "top3_exp": 0.551,
+    "mean_rank": 4.273
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.439,
+    "top3_exp": 0.486,
+    "mean_rank": 5.159
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.48,
+    "top3_exp": 0.522,
+    "mean_rank": 3.964
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.411,
+    "top3_exp": 0.461,
+    "mean_rank": 5.989
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.528,
+    "top3_exp": 0.591,
+    "mean_rank": 3.976
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.492,
+    "top3_exp": 0.538,
+    "mean_rank": 4.686
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.459,
+    "top3_exp": 0.509,
+    "mean_rank": 4.116
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.513,
+    "top3_exp": 0.556,
+    "mean_rank": 5.037
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.439,
+     "d_top3_all": 0.05
+    },
+    "P1m": {
+     "d_top3_climb": 0.147,
+     "d_top3_all": 0.125
+    },
+    "P2c8": {
+     "d_top3_climb": 0.209,
+     "d_top3_all": 0.238
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.052,
+     "d_top3_all": 0.075
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.026,
+     "d_top3_all": -0.107
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.2,
+     "d_top3_all": 0.015
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.003,
+     "d_top3_all": -0.11
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.177,
+     "d_top3_all": -0.166
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.079,
+     0.213
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.053,
+     0.104
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.097,
+     0.152
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.139,
+     -0.075
+    ]
+   }
+  },
+  "MIXED|low|tb2": {
+   "score": "MIXED",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "tb2",
+   "key": "(P2c8, P1m, f, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.621,
+    "top3_exp": 0.631,
+    "mean_rank": 3.54
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.544,
+    "top3_exp": 0.552,
+    "mean_rank": 4.511
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.352,
+    "top3_exp": 0.362,
+    "mean_rank": 4.984
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.678,
+    "top3_exp": 0.683,
+    "mean_rank": 4.183
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.676,
+    "top3_exp": 0.689,
+    "mean_rank": 3.168
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.577,
+    "top3_exp": 0.584,
+    "mean_rank": 4.301
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.347,
+    "top3_exp": 0.361,
+    "mean_rank": 5.216
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.718,
+    "top3_exp": 0.721,
+    "mean_rank": 3.738
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.544,
+     "d_top3_all": 0.185
+    },
+    "P1m": {
+     "d_top3_climb": 0.252,
+     "d_top3_all": 0.26
+    },
+    "P2c8": {
+     "d_top3_climb": 0.314,
+     "d_top3_all": 0.373
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.157,
+     "d_top3_all": 0.21
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.131,
+     "d_top3_all": 0.028
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.305,
+     "d_top3_all": 0.15
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.108,
+     "d_top3_all": 0.025
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.072,
+     "d_top3_all": -0.031
+    }
+   },
+   "survives_ledger_rule": true,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.201,
+     0.303
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.087,
+     0.175
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.233,
+     0.286
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.017,
+     0.041
+    ]
+   }
+  },
+  "MIXED|low|tb3": {
+   "score": "MIXED",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "tb3",
+   "key": "(P2c8, f, P1m, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.65,
+    "top3_exp": 0.659,
+    "mean_rank": 3.345
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.551,
+    "top3_exp": 0.557,
+    "mean_rank": 4.548
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.448,
+    "top3_exp": 0.464,
+    "mean_rank": 4.552
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.622,
+    "top3_exp": 0.622,
+    "mean_rank": 4.544
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.695,
+    "top3_exp": 0.708,
+    "mean_rank": 3.004
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.574,
+    "top3_exp": 0.58,
+    "mean_rank": 4.335
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.413,
+    "top3_exp": 0.427,
+    "mean_rank": 4.847
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.673,
+    "top3_exp": 0.673,
+    "mean_rank": 4.02
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.551,
+     "d_top3_all": 0.214
+    },
+    "P1m": {
+     "d_top3_climb": 0.259,
+     "d_top3_all": 0.289
+    },
+    "P2c8": {
+     "d_top3_climb": 0.321,
+     "d_top3_all": 0.402
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.164,
+     "d_top3_all": 0.239
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.138,
+     "d_top3_all": 0.057
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.312,
+     "d_top3_all": 0.179
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.115,
+     "d_top3_all": 0.054
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.065,
+     "d_top3_all": -0.002
+    }
+   },
+   "survives_ledger_rule": true,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.207,
+     0.315
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.076,
+     0.197
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.26,
+     0.317
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.035,
+     0.08
+    ]
+   }
+  },
+  "MIXED|high|prim": {
+   "score": "MIXED",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "prim",
+   "key": "f",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.002,
+    "top3_exp": 0.129,
+    "mean_rank": 9.48
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.01,
+    "top3_exp": 0.16,
+    "mean_rank": 8.797
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.047,
+    "mean_rank": 10.976
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.017,
+    "top3_exp": 0.239,
+    "mean_rank": 7.283
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.001,
+    "top3_exp": 0.122,
+    "mean_rank": 9.705
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.009,
+    "top3_exp": 0.163,
+    "mean_rank": 8.738
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.0,
+    "top3_exp": 0.054,
+    "mean_rank": 10.898
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.014,
+    "top3_exp": 0.23,
+    "mean_rank": 7.411
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.01,
+     "d_top3_all": -0.434
+    },
+    "P1m": {
+     "d_top3_climb": -0.282,
+     "d_top3_all": -0.359
+    },
+    "P2c8": {
+     "d_top3_climb": -0.22,
+     "d_top3_all": -0.246
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.377,
+     "d_top3_all": -0.409
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.403,
+     "d_top3_all": -0.591
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": -0.229,
+     "d_top3_all": -0.469
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.426,
+     "d_top3_all": -0.594
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.606,
+     "d_top3_all": -0.65
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "MIXED|high|tb": {
+   "score": "MIXED",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "tb",
+   "key": "(P2c8, f)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.252,
+    "top3_exp": 0.334,
+    "mean_rank": 6.406
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.233,
+    "top3_exp": 0.306,
+    "mean_rank": 6.756
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.016,
+    "top3_exp": 0.057,
+    "mean_rank": 8.356
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.383,
+    "top3_exp": 0.479,
+    "mean_rank": 5.644
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.27,
+    "top3_exp": 0.343,
+    "mean_rank": 6.385
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.318,
+    "top3_exp": 0.384,
+    "mean_rank": 6.113
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.017,
+    "top3_exp": 0.064,
+    "mean_rank": 8.403
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.503,
+    "top3_exp": 0.58,
+    "mean_rank": 4.706
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.233,
+     "d_top3_all": -0.184
+    },
+    "P1m": {
+     "d_top3_climb": -0.059,
+     "d_top3_all": -0.109
+    },
+    "P2c8": {
+     "d_top3_climb": 0.003,
+     "d_top3_all": 0.004
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.154,
+     "d_top3_all": -0.159
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.18,
+     "d_top3_all": -0.341
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": -0.006,
+     "d_top3_all": -0.219
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.203,
+     "d_top3_all": -0.344
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.383,
+     "d_top3_all": -0.4
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "MIXED|high|tb2": {
+   "score": "MIXED",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "tb2",
+   "key": "(P2c8, P1m, f, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.499,
+    "top3_exp": 0.508,
+    "mean_rank": 4.314
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.423,
+    "top3_exp": 0.424,
+    "mean_rank": 5.374
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.056,
+    "top3_exp": 0.051,
+    "mean_rank": 7.056
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.678,
+    "top3_exp": 0.683,
+    "mean_rank": 4.206
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.512,
+    "top3_exp": 0.524,
+    "mean_rank": 4.123
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.464,
+    "top3_exp": 0.465,
+    "mean_rank": 5.094
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.046,
+    "top3_exp": 0.044,
+    "mean_rank": 7.325
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.72,
+    "top3_exp": 0.723,
+    "mean_rank": 3.722
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.423,
+     "d_top3_all": 0.063
+    },
+    "P1m": {
+     "d_top3_climb": 0.131,
+     "d_top3_all": 0.138
+    },
+    "P2c8": {
+     "d_top3_climb": 0.193,
+     "d_top3_all": 0.251
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.036,
+     "d_top3_all": 0.088
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.01,
+     "d_top3_all": -0.094
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.184,
+     "d_top3_all": 0.028
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.013,
+     "d_top3_all": -0.097
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.193,
+     "d_top3_all": -0.153
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.089,
+     0.178
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.003,
+     0.024
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.117,
+     0.158
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.111,
+     -0.075
+    ]
+   }
+  },
+  "MIXED|high|tb3": {
+   "score": "MIXED",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "tb3",
+   "key": "(P2c8, f, P1m, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.416,
+    "top3_exp": 0.421,
+    "mean_rank": 5.477
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.397,
+    "top3_exp": 0.402,
+    "mean_rank": 6.144
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.016,
+    "top3_exp": 0.014,
+    "mean_rank": 8.944
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.661,
+    "top3_exp": 0.672,
+    "mean_rank": 4.2
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.425,
+    "top3_exp": 0.433,
+    "mean_rank": 5.413
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.454,
+    "top3_exp": 0.456,
+    "mean_rank": 5.762
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.023,
+    "top3_exp": 0.024,
+    "mean_rank": 9.134
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.718,
+    "top3_exp": 0.722,
+    "mean_rank": 3.69
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.397,
+     "d_top3_all": -0.02
+    },
+    "P1m": {
+     "d_top3_climb": 0.105,
+     "d_top3_all": 0.055
+    },
+    "P2c8": {
+     "d_top3_climb": 0.167,
+     "d_top3_all": 0.168
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.01,
+     "d_top3_all": 0.005
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.016,
+     "d_top3_all": -0.177
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.158,
+     "d_top3_all": -0.055
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.039,
+     "d_top3_all": -0.18
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.219,
+     "d_top3_all": -0.236
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.053,
+     0.163
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.04,
+     0.01
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.033,
+     0.076
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.201,
+     -0.152
+    ]
+   }
+  },
+  "SELF|low|prim": {
+   "score": "SELF",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "prim",
+   "key": "f",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.532,
+    "top3_exp": 0.594,
+    "mean_rank": 3.927
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.003,
+    "top3_exp": 0.009,
+    "mean_rank": 9.495
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.0,
+    "mean_rank": 8.368
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.006,
+    "top3_exp": 0.015,
+    "mean_rank": 10.278
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.577,
+    "top3_exp": 0.635,
+    "mean_rank": 3.525
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.021,
+    "top3_exp": 0.025,
+    "mean_rank": 9.246
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.0,
+    "top3_exp": 0.0,
+    "mean_rank": 8.508
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.034,
+    "top3_exp": 0.04,
+    "mean_rank": 9.699
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.003,
+     "d_top3_all": 0.096
+    },
+    "P1m": {
+     "d_top3_climb": -0.289,
+     "d_top3_all": 0.171
+    },
+    "P2c8": {
+     "d_top3_climb": -0.227,
+     "d_top3_all": 0.284
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.384,
+     "d_top3_all": 0.121
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.41,
+     "d_top3_all": -0.061
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": -0.236,
+     "d_top3_all": 0.061
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.433,
+     "d_top3_all": -0.064
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.613,
+     "d_top3_all": -0.12
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "SELF|low|tb": {
+   "score": "SELF",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "tb",
+   "key": "(P2c8, f)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.569,
+    "top3_exp": 0.626,
+    "mean_rank": 3.604
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.23,
+    "top3_exp": 0.233,
+    "mean_rank": 7.541
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.0,
+    "mean_rank": 8.396
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.389,
+    "top3_exp": 0.395,
+    "mean_rank": 6.947
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.607,
+    "top3_exp": 0.663,
+    "mean_rank": 3.256
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.313,
+    "top3_exp": 0.316,
+    "mean_rank": 6.79
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.0,
+    "top3_exp": 0.0,
+    "mean_rank": 8.573
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.505,
+    "top3_exp": 0.51,
+    "mean_rank": 5.694
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.23,
+     "d_top3_all": 0.133
+    },
+    "P1m": {
+     "d_top3_climb": -0.062,
+     "d_top3_all": 0.208
+    },
+    "P2c8": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": 0.321
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.157,
+     "d_top3_all": 0.158
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.183,
+     "d_top3_all": -0.024
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": -0.009,
+     "d_top3_all": 0.098
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.206,
+     "d_top3_all": -0.027
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.386,
+     "d_top3_all": -0.083
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "SELF|low|tb2": {
+   "score": "SELF",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "tb2",
+   "key": "(P2c8, P1m, f, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.58,
+    "top3_exp": 0.596,
+    "mean_rank": 3.718
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.413,
+    "top3_exp": 0.422,
+    "mean_rank": 5.156
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.04,
+    "top3_exp": 0.054,
+    "mean_rank": 6.508
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.672,
+    "top3_exp": 0.678,
+    "mean_rank": 4.217
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.637,
+    "top3_exp": 0.657,
+    "mean_rank": 3.358
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.467,
+    "top3_exp": 0.473,
+    "mean_rank": 4.895
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.056,
+    "top3_exp": 0.066,
+    "mean_rank": 6.761
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.72,
+    "top3_exp": 0.723,
+    "mean_rank": 3.748
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.413,
+     "d_top3_all": 0.144
+    },
+    "P1m": {
+     "d_top3_climb": 0.121,
+     "d_top3_all": 0.219
+    },
+    "P2c8": {
+     "d_top3_climb": 0.183,
+     "d_top3_all": 0.332
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.026,
+     "d_top3_all": 0.169
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": -0.013
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.174,
+     "d_top3_all": 0.109
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.023,
+     "d_top3_all": -0.016
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.203,
+     "d_top3_all": -0.072
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.081,
+     0.163
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.009,
+     0.009
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.193,
+     0.242
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.023,
+     -0.002
+    ]
+   }
+  },
+  "SELF|low|tb3": {
+   "score": "SELF",
+   "direction": "low",
+   "flipped_post_hoc": false,
+   "mode": "tb3",
+   "key": "(P2c8, f, P1m, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.637,
+    "top3_exp": 0.654,
+    "mean_rank": 3.455
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.239,
+    "top3_exp": 0.239,
+    "mean_rank": 7.284
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.0,
+    "mean_rank": 7.924
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.406,
+    "top3_exp": 0.406,
+    "mean_rank": 6.839
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.672,
+    "top3_exp": 0.696,
+    "mean_rank": 3.088
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.318,
+    "top3_exp": 0.318,
+    "mean_rank": 6.557
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.0,
+    "top3_exp": 0.0,
+    "mean_rank": 8.107
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.513,
+    "top3_exp": 0.513,
+    "mean_rank": 5.604
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.239,
+     "d_top3_all": 0.201
+    },
+    "P1m": {
+     "d_top3_climb": -0.053,
+     "d_top3_all": 0.276
+    },
+    "P2c8": {
+     "d_top3_climb": 0.009,
+     "d_top3_all": 0.389
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.148,
+     "d_top3_all": 0.226
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.174,
+     "d_top3_all": 0.044
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": 0.166
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.197,
+     "d_top3_all": 0.041
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.377,
+     "d_top3_all": -0.015
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "SELF|high|prim": {
+   "score": "SELF",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "prim",
+   "key": "f",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.04,
+    "top3_exp": 0.044,
+    "mean_rank": 11.073
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.22,
+    "top3_exp": 0.242,
+    "mean_rank": 5.505
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.014,
+    "mean_rank": 6.632
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.372,
+    "top3_exp": 0.401,
+    "mean_rank": 4.722
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.024,
+    "top3_exp": 0.027,
+    "mean_rank": 11.475
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.182,
+    "top3_exp": 0.206,
+    "mean_rank": 5.754
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.003,
+    "top3_exp": 0.023,
+    "mean_rank": 6.492
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.292,
+    "top3_exp": 0.318,
+    "mean_rank": 5.301
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.22,
+     "d_top3_all": -0.396
+    },
+    "P1m": {
+     "d_top3_climb": -0.072,
+     "d_top3_all": -0.321
+    },
+    "P2c8": {
+     "d_top3_climb": -0.01,
+     "d_top3_all": -0.208
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.167,
+     "d_top3_all": -0.371
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.193,
+     "d_top3_all": -0.553
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": -0.019,
+     "d_top3_all": -0.431
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.216,
+     "d_top3_all": -0.556
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.396,
+     "d_top3_all": -0.612
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "SELF|high|tb": {
+   "score": "SELF",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "tb",
+   "key": "(P2c8, f)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.298,
+    "top3_exp": 0.304,
+    "mean_rank": 7.075
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.515,
+    "top3_exp": 0.508,
+    "mean_rank": 4.374
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.472,
+    "top3_exp": 0.448,
+    "mean_rank": 3.924
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.544,
+    "top3_exp": 0.551,
+    "mean_rank": 4.686
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.293,
+    "top3_exp": 0.3,
+    "mean_rank": 7.106
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.554,
+    "top3_exp": 0.55,
+    "mean_rank": 4.009
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.472,
+    "top3_exp": 0.444,
+    "mean_rank": 3.946
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.604,
+    "top3_exp": 0.615,
+    "mean_rank": 4.049
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.515,
+     "d_top3_all": -0.138
+    },
+    "P1m": {
+     "d_top3_climb": 0.223,
+     "d_top3_all": -0.063
+    },
+    "P2c8": {
+     "d_top3_climb": 0.285,
+     "d_top3_all": 0.05
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.128,
+     "d_top3_all": -0.113
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.102,
+     "d_top3_all": -0.295
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.276,
+     "d_top3_all": -0.173
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.079,
+     "d_top3_all": -0.298
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.101,
+     "d_top3_all": -0.354
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.139,
+     0.307
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.004,
+     0.195
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     -0.088,
+     -0.039
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.329,
+     -0.26
+    ]
+   }
+  },
+  "SELF|high|tb2": {
+   "score": "SELF",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "tb2",
+   "key": "(P2c8, P1m, f, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.442,
+    "top3_exp": 0.449,
+    "mean_rank": 5.005
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.574,
+    "top3_exp": 0.56,
+    "mean_rank": 4.287
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.608,
+    "top3_exp": 0.567,
+    "mean_rank": 3.868
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.55,
+    "top3_exp": 0.556,
+    "mean_rank": 4.578
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.458,
+    "top3_exp": 0.472,
+    "mean_rank": 4.788
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.595,
+    "top3_exp": 0.592,
+    "mean_rank": 4.023
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.535,
+    "top3_exp": 0.521,
+    "mean_rank": 4.005
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.633,
+    "top3_exp": 0.636,
+    "mean_rank": 4.034
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.574,
+     "d_top3_all": 0.006
+    },
+    "P1m": {
+     "d_top3_climb": 0.282,
+     "d_top3_all": 0.081
+    },
+    "P2c8": {
+     "d_top3_climb": 0.344,
+     "d_top3_all": 0.194
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.187,
+     "d_top3_all": 0.031
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.161,
+     "d_top3_all": -0.151
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.335,
+     "d_top3_all": -0.029
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.138,
+     "d_top3_all": -0.154
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.042,
+     "d_top3_all": -0.21
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.191,
+     0.364
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.055,
+     0.259
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.057,
+     0.104
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.183,
+     -0.118
+    ]
+   }
+  },
+  "SELF|high|tb3": {
+   "score": "SELF",
+   "direction": "high",
+   "flipped_post_hoc": true,
+   "mode": "tb3",
+   "key": "(P2c8, f, P1m, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.311,
+    "top3_exp": 0.317,
+    "mean_rank": 6.926
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.577,
+    "top3_exp": 0.574,
+    "mean_rank": 4.116
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.632,
+    "top3_exp": 0.612,
+    "mean_rank": 3.452
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.539,
+    "top3_exp": 0.547,
+    "mean_rank": 4.578
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.302,
+    "top3_exp": 0.308,
+    "mean_rank": 6.938
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.594,
+    "top3_exp": 0.603,
+    "mean_rank": 3.777
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.561,
+    "top3_exp": 0.576,
+    "mean_rank": 3.48
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.615,
+    "top3_exp": 0.62,
+    "mean_rank": 3.959
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.577,
+     "d_top3_all": -0.125
+    },
+    "P1m": {
+     "d_top3_climb": 0.285,
+     "d_top3_all": -0.05
+    },
+    "P2c8": {
+     "d_top3_climb": 0.347,
+     "d_top3_all": 0.063
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.19,
+     "d_top3_all": -0.1
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.164,
+     "d_top3_all": -0.282
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.338,
+     "d_top3_all": -0.16
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.141,
+     "d_top3_all": -0.285
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.039,
+     "d_top3_all": -0.341
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.195,
+     0.372
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.06,
+     0.26
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     -0.077,
+     -0.023
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.316,
+     -0.246
+    ]
+   }
+  },
+  "FLAT|low|prim": {
+   "score": "FLAT",
+   "direction": "low",
+   "flipped_post_hoc": true,
+   "mode": "prim",
+   "key": "f",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.001,
+    "top3_exp": 0.182,
+    "mean_rank": 8.119
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.003,
+    "top3_exp": 0.215,
+    "mean_rank": 7.489
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.214,
+    "mean_rank": 7.5
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.006,
+    "top3_exp": 0.216,
+    "mean_rank": 7.481
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.001,
+    "top3_exp": 0.172,
+    "mean_rank": 8.257
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.005,
+    "top3_exp": 0.214,
+    "mean_rank": 7.498
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.0,
+    "top3_exp": 0.214,
+    "mean_rank": 7.5
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.008,
+    "top3_exp": 0.214,
+    "mean_rank": 7.497
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.003,
+     "d_top3_all": -0.435
+    },
+    "P1m": {
+     "d_top3_climb": -0.289,
+     "d_top3_all": -0.36
+    },
+    "P2c8": {
+     "d_top3_climb": -0.227,
+     "d_top3_all": -0.247
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.384,
+     "d_top3_all": -0.41
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.41,
+     "d_top3_all": -0.592
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": -0.236,
+     "d_top3_all": -0.47
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.433,
+     "d_top3_all": -0.595
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.613,
+     "d_top3_all": -0.651
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "FLAT|low|tb": {
+   "score": "FLAT",
+   "direction": "low",
+   "flipped_post_hoc": true,
+   "mode": "tb",
+   "key": "(P2c8, f)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.248,
+    "top3_exp": 0.404,
+    "mean_rank": 5.724
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.233,
+    "top3_exp": 0.388,
+    "mean_rank": 5.949
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.261,
+    "mean_rank": 6.16
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.394,
+    "top3_exp": 0.476,
+    "mean_rank": 5.803
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.266,
+    "top3_exp": 0.414,
+    "mean_rank": 5.635
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.314,
+    "top3_exp": 0.449,
+    "mean_rank": 5.403
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.0,
+    "top3_exp": 0.253,
+    "mean_rank": 6.259
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.507,
+    "top3_exp": 0.569,
+    "mean_rank": 4.876
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.233,
+     "d_top3_all": -0.188
+    },
+    "P1m": {
+     "d_top3_climb": -0.059,
+     "d_top3_all": -0.113
+    },
+    "P2c8": {
+     "d_top3_climb": 0.003,
+     "d_top3_all": 0.0
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.154,
+     "d_top3_all": -0.163
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.18,
+     "d_top3_all": -0.345
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": -0.006,
+     "d_top3_all": -0.223
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.203,
+     "d_top3_all": -0.348
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.383,
+     "d_top3_all": -0.404
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "FLAT|low|tb2": {
+   "score": "FLAT",
+   "direction": "low",
+   "flipped_post_hoc": true,
+   "mode": "tb2",
+   "key": "(P2c8, P1m, f, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.58,
+    "top3_exp": 0.595,
+    "mean_rank": 4.02
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.413,
+    "top3_exp": 0.422,
+    "mean_rank": 5.187
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.032,
+    "top3_exp": 0.046,
+    "mean_rank": 6.656
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.678,
+    "top3_exp": 0.683,
+    "mean_rank": 4.167
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.634,
+    "top3_exp": 0.65,
+    "mean_rank": 3.711
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.454,
+    "top3_exp": 0.459,
+    "mean_rank": 4.942
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.02,
+    "top3_exp": 0.03,
+    "mean_rank": 6.909
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.72,
+    "top3_exp": 0.722,
+    "mean_rank": 3.732
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.413,
+     "d_top3_all": 0.144
+    },
+    "P1m": {
+     "d_top3_climb": 0.121,
+     "d_top3_all": 0.219
+    },
+    "P2c8": {
+     "d_top3_climb": 0.183,
+     "d_top3_all": 0.332
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.026,
+     "d_top3_all": 0.169
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": -0.013
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.174,
+     "d_top3_all": 0.109
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.023,
+     "d_top3_all": -0.016
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.203,
+     "d_top3_all": -0.072
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.081,
+     0.167
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.0,
+     0.0
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.189,
+     0.246
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.019,
+     -0.007
+    ]
+   }
+  },
+  "FLAT|low|tb3": {
+   "score": "FLAT",
+   "direction": "low",
+   "flipped_post_hoc": true,
+   "mode": "tb3",
+   "key": "(P2c8, f, P1m, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.546,
+    "top3_exp": 0.561,
+    "mean_rank": 4.261
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.413,
+    "top3_exp": 0.422,
+    "mean_rank": 5.19
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.032,
+    "top3_exp": 0.046,
+    "mean_rank": 6.656
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.678,
+    "top3_exp": 0.683,
+    "mean_rank": 4.172
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.595,
+    "top3_exp": 0.609,
+    "mean_rank": 3.975
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.454,
+    "top3_exp": 0.459,
+    "mean_rank": 4.955
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.02,
+    "top3_exp": 0.03,
+    "mean_rank": 6.909
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.72,
+    "top3_exp": 0.722,
+    "mean_rank": 3.755
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.413,
+     "d_top3_all": 0.11
+    },
+    "P1m": {
+     "d_top3_climb": 0.121,
+     "d_top3_all": 0.185
+    },
+    "P2c8": {
+     "d_top3_climb": 0.183,
+     "d_top3_all": 0.298
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.026,
+     "d_top3_all": 0.135
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": -0.047
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.174,
+     "d_top3_all": 0.075
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.023,
+     "d_top3_all": -0.05
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.203,
+     "d_top3_all": -0.106
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.081,
+     0.167
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.0,
+     0.0
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.156,
+     0.213
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.054,
+     -0.041
+    ]
+   }
+  },
+  "FLAT|high|prim": {
+   "score": "FLAT",
+   "direction": "high",
+   "flipped_post_hoc": false,
+   "mode": "prim",
+   "key": "f",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.071,
+    "top3_exp": 0.277,
+    "mean_rank": 6.881
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.0,
+    "top3_exp": 0.214,
+    "mean_rank": 7.511
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.214,
+    "mean_rank": 7.5
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.0,
+    "top3_exp": 0.213,
+    "mean_rank": 7.519
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.083,
+    "top3_exp": 0.29,
+    "mean_rank": 6.743
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.0,
+    "top3_exp": 0.214,
+    "mean_rank": 7.502
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.0,
+    "top3_exp": 0.214,
+    "mean_rank": 7.5
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.0,
+    "top3_exp": 0.214,
+    "mean_rank": 7.503
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": -0.365
+    },
+    "P1m": {
+     "d_top3_climb": -0.292,
+     "d_top3_all": -0.29
+    },
+    "P2c8": {
+     "d_top3_climb": -0.23,
+     "d_top3_all": -0.177
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.387,
+     "d_top3_all": -0.34
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.413,
+     "d_top3_all": -0.522
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": -0.239,
+     "d_top3_all": -0.4
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.436,
+     "d_top3_all": -0.525
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.616,
+     "d_top3_all": -0.581
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "FLAT|high|tb": {
+   "score": "FLAT",
+   "direction": "high",
+   "flipped_post_hoc": false,
+   "mode": "tb",
+   "key": "(P2c8, f)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.302,
+    "top3_exp": 0.469,
+    "mean_rank": 4.956
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.23,
+    "top3_exp": 0.386,
+    "mean_rank": 5.966
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.261,
+    "mean_rank": 6.16
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.389,
+    "top3_exp": 0.474,
+    "mean_rank": 5.831
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.328,
+    "top3_exp": 0.49,
+    "mean_rank": 4.727
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.309,
+    "top3_exp": 0.449,
+    "mean_rank": 5.396
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.0,
+    "top3_exp": 0.253,
+    "mean_rank": 6.259
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.499,
+    "top3_exp": 0.57,
+    "mean_rank": 4.866
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.23,
+     "d_top3_all": -0.134
+    },
+    "P1m": {
+     "d_top3_climb": -0.062,
+     "d_top3_all": -0.059
+    },
+    "P2c8": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": 0.054
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.157,
+     "d_top3_all": -0.109
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.183,
+     "d_top3_all": -0.291
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": -0.009,
+     "d_top3_all": -0.169
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.206,
+     "d_top3_all": -0.294
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.386,
+     "d_top3_all": -0.35
+    }
+   },
+   "survives_ledger_rule": false
+  },
+  "FLAT|high|tb2": {
+   "score": "FLAT",
+   "direction": "high",
+   "flipped_post_hoc": false,
+   "mode": "tb2",
+   "key": "(P2c8, P1m, f, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.593,
+    "top3_exp": 0.607,
+    "mean_rank": 3.673
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.413,
+    "top3_exp": 0.422,
+    "mean_rank": 5.2
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.032,
+    "top3_exp": 0.046,
+    "mean_rank": 6.656
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.678,
+    "top3_exp": 0.683,
+    "mean_rank": 4.189
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.651,
+    "top3_exp": 0.666,
+    "mean_rank": 3.296
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.452,
+    "top3_exp": 0.458,
+    "mean_rank": 4.944
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.02,
+    "top3_exp": 0.03,
+    "mean_rank": 6.909
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.718,
+    "top3_exp": 0.721,
+    "mean_rank": 3.736
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.413,
+     "d_top3_all": 0.157
+    },
+    "P1m": {
+     "d_top3_climb": 0.121,
+     "d_top3_all": 0.232
+    },
+    "P2c8": {
+     "d_top3_climb": 0.183,
+     "d_top3_all": 0.345
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.026,
+     "d_top3_all": 0.182
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": 0.0
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.174,
+     "d_top3_all": 0.122
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.023,
+     "d_top3_all": -0.003
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.203,
+     "d_top3_all": -0.059
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.081,
+     0.167
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.0,
+     0.0
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.203,
+     0.259
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.0,
+     0.0
+    ]
+   }
+  },
+  "FLAT|high|tb3": {
+   "score": "FLAT",
+   "direction": "high",
+   "flipped_post_hoc": false,
+   "mode": "tb3",
+   "key": "(P2c8, f, P1m, raw)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.626,
+    "top3_exp": 0.643,
+    "mean_rank": 3.493
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.413,
+    "top3_exp": 0.422,
+    "mean_rank": 5.207
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.032,
+    "top3_exp": 0.046,
+    "mean_rank": 6.656
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.678,
+    "top3_exp": 0.683,
+    "mean_rank": 4.2
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.693,
+    "top3_exp": 0.709,
+    "mean_rank": 3.067
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.452,
+    "top3_exp": 0.458,
+    "mean_rank": 4.949
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.02,
+    "top3_exp": 0.03,
+    "mean_rank": 6.909
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.718,
+    "top3_exp": 0.721,
+    "mean_rank": 3.744
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.413,
+     "d_top3_all": 0.19
+    },
+    "P1m": {
+     "d_top3_climb": 0.121,
+     "d_top3_all": 0.265
+    },
+    "P2c8": {
+     "d_top3_climb": 0.183,
+     "d_top3_all": 0.378
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.026,
+     "d_top3_all": 0.215
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": 0.033
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.174,
+     "d_top3_all": 0.155
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.023,
+     "d_top3_all": 0.03
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.203,
+     "d_top3_all": -0.026
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.081,
+     0.167
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.0,
+     0.0
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.238,
+     0.292
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.031,
+     0.037
+    ]
+   }
+  },
   "P2mir|low|prim": {
    "score": "P2mir",
    "direction": "low",
@@ -59152,6 +63697,2366 @@
     ]
    }
   },
+  "combo|(P2,GEN_low,P1m,H)": {
+   "score": "(P2,GEN_low,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,GEN_low,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.648,
+    "top3_exp": 0.66,
+    "mean_rank": 3.498
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.282,
+    "top3_exp": 0.284,
+    "mean_rank": 6.746
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.072,
+    "top3_exp": 0.076,
+    "mean_rank": 7.036
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.428,
+    "top3_exp": 0.428,
+    "mean_rank": 6.544
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.713,
+    "top3_exp": 0.72,
+    "mean_rank": 3.063
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.351,
+    "top3_exp": 0.352,
+    "mean_rank": 6.175
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.05,
+    "top3_exp": 0.054,
+    "mean_rank": 7.347
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.535,
+    "top3_exp": 0.535,
+    "mean_rank": 5.454
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.282,
+     "d_top3_all": 0.212
+    },
+    "P1m": {
+     "d_top3_climb": -0.01,
+     "d_top3_all": 0.287
+    },
+    "P2c8": {
+     "d_top3_climb": 0.052,
+     "d_top3_all": 0.4
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.105,
+     "d_top3_all": 0.237
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.131,
+     "d_top3_all": 0.055
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.043,
+     "d_top3_all": 0.177
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.154,
+     "d_top3_all": 0.052
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.334,
+     "d_top3_all": -0.004
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     -0.06,
+     0.044
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.186,
+     -0.077
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.398,
+     -0.269
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.258,
+     0.315
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.03,
+     0.085
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.031,
+     0.023
+    ]
+   }
+  },
+  "combo|(P2,comm_len,GEN_low,P1m,H)": {
+   "score": "(P2,comm_len,GEN_low,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,comm_len,GEN_low,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.686,
+    "top3_exp": 0.693,
+    "mean_rank": 3.148
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.525,
+    "top3_exp": 0.525,
+    "mean_rank": 4.662
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.512,
+    "top3_exp": 0.512,
+    "mean_rank": 4.704
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.533,
+    "top3_exp": 0.533,
+    "mean_rank": 4.633
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.74,
+    "top3_exp": 0.746,
+    "mean_rank": 2.792
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.574,
+    "top3_exp": 0.575,
+    "mean_rank": 4.192
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.502,
+    "top3_exp": 0.505,
+    "mean_rank": 4.657
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.619,
+    "top3_exp": 0.619,
+    "mean_rank": 3.907
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.525,
+     "d_top3_all": 0.25
+    },
+    "P1m": {
+     "d_top3_climb": 0.233,
+     "d_top3_all": 0.325
+    },
+    "P2c8": {
+     "d_top3_climb": 0.295,
+     "d_top3_all": 0.438
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.138,
+     "d_top3_all": 0.275
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.112,
+     "d_top3_all": 0.093
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.286,
+     "d_top3_all": 0.215
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.089,
+     "d_top3_all": 0.09
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.091,
+     "d_top3_all": 0.034
+    }
+   },
+   "survives_ledger_rule": true,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.165,
+     0.295
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.037,
+     0.183
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.124,
+     -0.062
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.3,
+     0.353
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.06,
+     0.13
+    ],
+    "P2>comm_len>P1m>H": [
+     0.023,
+     0.047
+    ]
+   }
+  },
+  "combo|(P2,GEN_high,P1m,H)": {
+   "score": "(P2,GEN_high,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,GEN_high,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.318,
+    "top3_exp": 0.324,
+    "mean_rank": 6.411
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.43,
+    "top3_exp": 0.431,
+    "mean_rank": 5.202
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.288,
+    "top3_exp": 0.288,
+    "mean_rank": 5.732
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.528,
+    "top3_exp": 0.531,
+    "mean_rank": 4.833
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.316,
+    "top3_exp": 0.323,
+    "mean_rank": 6.279
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.471,
+    "top3_exp": 0.475,
+    "mean_rank": 4.759
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.287,
+    "top3_exp": 0.292,
+    "mean_rank": 5.802
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.584,
+    "top3_exp": 0.587,
+    "mean_rank": 4.118
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.43,
+     "d_top3_all": -0.118
+    },
+    "P1m": {
+     "d_top3_climb": 0.138,
+     "d_top3_all": -0.043
+    },
+    "P2c8": {
+     "d_top3_climb": 0.2,
+     "d_top3_all": 0.07
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.043,
+     "d_top3_all": -0.093
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.017,
+     "d_top3_all": -0.275
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.191,
+     "d_top3_all": -0.153
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.006,
+     "d_top3_all": -0.278
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.186,
+     "d_top3_all": -0.334
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.071,
+     0.208
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.057,
+     0.084
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.257,
+     -0.115
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     -0.064,
+     -0.023
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.303,
+     -0.247
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.357,
+     -0.312
+    ]
+   }
+  },
+  "combo|(P2,comm_len,GEN_high,P1m,H)": {
+   "score": "(P2,comm_len,GEN_high,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,comm_len,GEN_high,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.522,
+    "top3_exp": 0.529,
+    "mean_rank": 4.257
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.567,
+    "top3_exp": 0.567,
+    "mean_rank": 4.252
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.592,
+    "top3_exp": 0.592,
+    "mean_rank": 3.872
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.55,
+    "top3_exp": 0.55,
+    "mean_rank": 4.517
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.549,
+    "top3_exp": 0.555,
+    "mean_rank": 4.139
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.614,
+    "top3_exp": 0.614,
+    "mean_rank": 3.872
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.578,
+    "top3_exp": 0.578,
+    "mean_rank": 4.033
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.637,
+    "top3_exp": 0.637,
+    "mean_rank": 3.773
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.567,
+     "d_top3_all": 0.086
+    },
+    "P1m": {
+     "d_top3_climb": 0.275,
+     "d_top3_all": 0.161
+    },
+    "P2c8": {
+     "d_top3_climb": 0.337,
+     "d_top3_all": 0.274
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.18,
+     "d_top3_all": 0.111
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.154,
+     "d_top3_all": -0.071
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.328,
+     "d_top3_all": 0.051
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.131,
+     "d_top3_all": -0.074
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.049,
+     "d_top3_all": -0.13
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.189,
+     0.355
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.055,
+     0.243
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.105,
+     0.0
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.136,
+     0.186
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.103,
+     -0.037
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.148,
+     -0.114
+    ]
+   }
+  },
+  "combo|(P2,GENmin_low,P1m,H)": {
+   "score": "(P2,GENmin_low,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,GENmin_low,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.652,
+    "top3_exp": 0.663,
+    "mean_rank": 3.462
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.266,
+    "top3_exp": 0.267,
+    "mean_rank": 7.082
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.04,
+    "top3_exp": 0.044,
+    "mean_rank": 7.736
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.422,
+    "top3_exp": 0.422,
+    "mean_rank": 6.628
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.713,
+    "top3_exp": 0.721,
+    "mean_rank": 3.047
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.339,
+    "top3_exp": 0.34,
+    "mean_rank": 6.492
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.02,
+    "top3_exp": 0.023,
+    "mean_rank": 8.033
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.535,
+    "top3_exp": 0.535,
+    "mean_rank": 5.545
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.266,
+     "d_top3_all": 0.216
+    },
+    "P1m": {
+     "d_top3_climb": -0.026,
+     "d_top3_all": 0.291
+    },
+    "P2c8": {
+     "d_top3_climb": 0.036,
+     "d_top3_all": 0.404
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.121,
+     "d_top3_all": 0.241
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.147,
+     "d_top3_all": 0.059
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.027,
+     "d_top3_all": 0.181
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.17,
+     "d_top3_all": 0.056
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.35,
+     "d_top3_all": 0.0
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     -0.081,
+     0.031
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.196,
+     -0.1
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.422,
+     -0.279
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.266,
+     0.315
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.041,
+     0.078
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.031,
+     0.027
+    ]
+   }
+  },
+  "combo|(P2,comm_len,GENmin_low,P1m,H)": {
+   "score": "(P2,comm_len,GENmin_low,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,comm_len,GENmin_low,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.69,
+    "top3_exp": 0.698,
+    "mean_rank": 3.11
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.511,
+    "top3_exp": 0.511,
+    "mean_rank": 4.648
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.496,
+    "top3_exp": 0.496,
+    "mean_rank": 4.7
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.522,
+    "top3_exp": 0.522,
+    "mean_rank": 4.611
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.737,
+    "top3_exp": 0.746,
+    "mean_rank": 2.782
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.562,
+    "top3_exp": 0.563,
+    "mean_rank": 4.222
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.485,
+    "top3_exp": 0.488,
+    "mean_rank": 4.759
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.609,
+    "top3_exp": 0.61,
+    "mean_rank": 3.891
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.511,
+     "d_top3_all": 0.254
+    },
+    "P1m": {
+     "d_top3_climb": 0.219,
+     "d_top3_all": 0.329
+    },
+    "P2c8": {
+     "d_top3_climb": 0.281,
+     "d_top3_all": 0.442
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.124,
+     "d_top3_all": 0.279
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.098,
+     "d_top3_all": 0.097
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.272,
+     "d_top3_all": 0.219
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.075,
+     "d_top3_all": 0.094
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.105,
+     "d_top3_all": 0.038
+    }
+   },
+   "survives_ledger_rule": true,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.152,
+     0.283
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.023,
+     0.174
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.136,
+     -0.075
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.302,
+     0.356
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.063,
+     0.133
+    ],
+    "P2>comm_len>P1m>H": [
+     0.027,
+     0.049
+    ]
+   }
+  },
+  "combo|(P2,GENmin_high,P1m,H)": {
+   "score": "(P2,GENmin_high,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,GENmin_high,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.339,
+    "top3_exp": 0.345,
+    "mean_rank": 6.177
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.502,
+    "top3_exp": 0.511,
+    "mean_rank": 4.472
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.432,
+    "top3_exp": 0.452,
+    "mean_rank": 4.328
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.55,
+    "top3_exp": 0.553,
+    "mean_rank": 4.572
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.343,
+    "top3_exp": 0.347,
+    "mean_rank": 6.124
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.582,
+    "top3_exp": 0.591,
+    "mean_rank": 4.11
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.475,
+    "top3_exp": 0.489,
+    "mean_rank": 4.561
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.647,
+    "top3_exp": 0.653,
+    "mean_rank": 3.833
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.502,
+     "d_top3_all": -0.097
+    },
+    "P1m": {
+     "d_top3_climb": 0.21,
+     "d_top3_all": -0.022
+    },
+    "P2c8": {
+     "d_top3_climb": 0.272,
+     "d_top3_all": 0.091
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.115,
+     "d_top3_all": -0.072
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.089,
+     "d_top3_all": -0.254
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.263,
+     "d_top3_all": -0.132
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.066,
+     "d_top3_all": -0.257
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.114,
+     "d_top3_all": -0.313
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.128,
+     0.283
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.003,
+     0.161
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.179,
+     -0.054
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     -0.047,
+     0.002
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.284,
+     -0.223
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.337,
+     -0.289
+    ]
+   }
+  },
+  "combo|(P2,comm_len,GENmin_high,P1m,H)": {
+   "score": "(P2,comm_len,GENmin_high,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,comm_len,GENmin_high,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.516,
+    "top3_exp": 0.523,
+    "mean_rank": 4.258
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.587,
+    "top3_exp": 0.587,
+    "mean_rank": 4.179
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.648,
+    "top3_exp": 0.648,
+    "mean_rank": 3.772
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.544,
+    "top3_exp": 0.544,
+    "mean_rank": 4.461
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.549,
+    "top3_exp": 0.557,
+    "mean_rank": 4.131
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.642,
+    "top3_exp": 0.643,
+    "mean_rank": 3.773
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.63,
+    "top3_exp": 0.63,
+    "mean_rank": 3.894
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.649,
+    "top3_exp": 0.651,
+    "mean_rank": 3.699
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.587,
+     "d_top3_all": 0.08
+    },
+    "P1m": {
+     "d_top3_climb": 0.295,
+     "d_top3_all": 0.155
+    },
+    "P2c8": {
+     "d_top3_climb": 0.357,
+     "d_top3_all": 0.268
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.2,
+     "d_top3_all": 0.105
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.174,
+     "d_top3_all": -0.077
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.348,
+     "d_top3_all": 0.045
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.151,
+     "d_top3_all": -0.08
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.029,
+     "d_top3_all": -0.136
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.199,
+     0.378
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.065,
+     0.265
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.092,
+     0.027
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.128,
+     0.181
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.109,
+     -0.041
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.154,
+     -0.119
+    ]
+   }
+  },
+  "combo|(P2,MIXED_low,P1m,H)": {
+   "score": "(P2,MIXED_low,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,MIXED_low,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.649,
+    "top3_exp": 0.658,
+    "mean_rank": 3.336
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.554,
+    "top3_exp": 0.556,
+    "mean_rank": 4.487
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.456,
+    "top3_exp": 0.46,
+    "mean_rank": 4.488
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.622,
+    "top3_exp": 0.622,
+    "mean_rank": 4.486
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.696,
+    "top3_exp": 0.707,
+    "mean_rank": 3.0
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.579,
+    "top3_exp": 0.581,
+    "mean_rank": 4.283
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.422,
+    "top3_exp": 0.427,
+    "mean_rank": 4.794
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.675,
+    "top3_exp": 0.675,
+    "mean_rank": 3.97
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.554,
+     "d_top3_all": 0.213
+    },
+    "P1m": {
+     "d_top3_climb": 0.262,
+     "d_top3_all": 0.288
+    },
+    "P2c8": {
+     "d_top3_climb": 0.324,
+     "d_top3_all": 0.401
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.167,
+     "d_top3_all": 0.238
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.141,
+     "d_top3_all": 0.056
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.315,
+     "d_top3_all": 0.178
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.118,
+     "d_top3_all": 0.053
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.062,
+     "d_top3_all": -0.003
+    }
+   },
+   "survives_ledger_rule": true,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.21,
+     0.317
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.08,
+     0.199
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.101,
+     -0.024
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.259,
+     0.317
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.035,
+     0.08
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.025,
+     0.019
+    ]
+   }
+  },
+  "combo|(P2,comm_len,MIXED_low,P1m,H)": {
+   "score": "(P2,comm_len,MIXED_low,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,comm_len,MIXED_low,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.659,
+    "top3_exp": 0.663,
+    "mean_rank": 3.228
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.616,
+    "top3_exp": 0.616,
+    "mean_rank": 4.128
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.528,
+    "top3_exp": 0.528,
+    "mean_rank": 4.348
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.678,
+    "top3_exp": 0.678,
+    "mean_rank": 3.975
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.697,
+    "top3_exp": 0.705,
+    "mean_rank": 2.934
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.648,
+    "top3_exp": 0.649,
+    "mean_rank": 3.854
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.525,
+    "top3_exp": 0.526,
+    "mean_rank": 4.487
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.724,
+    "top3_exp": 0.724,
+    "mean_rank": 3.465
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.616,
+     "d_top3_all": 0.223
+    },
+    "P1m": {
+     "d_top3_climb": 0.324,
+     "d_top3_all": 0.298
+    },
+    "P2c8": {
+     "d_top3_climb": 0.386,
+     "d_top3_all": 0.411
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.229,
+     "d_top3_all": 0.248
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.203,
+     "d_top3_all": 0.066
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.377,
+     "d_top3_all": 0.188
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.18,
+     "d_top3_all": 0.063
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": 0.007
+    }
+   },
+   "survives_ledger_rule": true,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.258,
+     0.386
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.137,
+     0.271
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.017,
+     0.016
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.273,
+     0.324
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.038,
+     0.098
+    ],
+    "P2>comm_len>P1m>H": [
+     0.0,
+     0.014
+    ]
+   }
+  },
+  "combo|(P2,MIXED_high,P1m,H)": {
+   "score": "(P2,MIXED_high,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,MIXED_high,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.417,
+    "top3_exp": 0.421,
+    "mean_rank": 5.469
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.407,
+    "top3_exp": 0.407,
+    "mean_rank": 6.084
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.016,
+    "top3_exp": 0.016,
+    "mean_rank": 8.88
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.678,
+    "top3_exp": 0.678,
+    "mean_rank": 4.142
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.426,
+    "top3_exp": 0.432,
+    "mean_rank": 5.409
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.46,
+    "top3_exp": 0.46,
+    "mean_rank": 5.71
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.026,
+    "top3_exp": 0.026,
+    "mean_rank": 9.081
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.726,
+    "top3_exp": 0.726,
+    "mean_rank": 3.639
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.407,
+     "d_top3_all": -0.019
+    },
+    "P1m": {
+     "d_top3_climb": 0.115,
+     "d_top3_all": 0.056
+    },
+    "P2c8": {
+     "d_top3_climb": 0.177,
+     "d_top3_all": 0.169
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.02,
+     "d_top3_all": 0.006
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.006,
+     "d_top3_all": -0.176
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.168,
+     "d_top3_all": -0.054
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.029,
+     "d_top3_all": -0.179
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.209,
+     "d_top3_all": -0.235
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.064,
+     0.175
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.03,
+     0.019
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.289,
+     -0.136
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.035,
+     0.078
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.199,
+     -0.15
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.265,
+     -0.208
+    ]
+   }
+  },
+  "combo|(P2,comm_len,MIXED_high,P1m,H)": {
+   "score": "(P2,comm_len,MIXED_high,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,comm_len,MIXED_high,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.628,
+    "top3_exp": 0.632,
+    "mean_rank": 3.425
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.626,
+    "top3_exp": 0.628,
+    "mean_rank": 4.154
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.528,
+    "top3_exp": 0.528,
+    "mean_rank": 4.564
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.694,
+    "top3_exp": 0.697,
+    "mean_rank": 3.869
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.654,
+    "top3_exp": 0.66,
+    "mean_rank": 3.19
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.661,
+    "top3_exp": 0.663,
+    "mean_rank": 3.865
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.512,
+    "top3_exp": 0.513,
+    "mean_rank": 4.708
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.753,
+    "top3_exp": 0.755,
+    "mean_rank": 3.347
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.626,
+     "d_top3_all": 0.192
+    },
+    "P1m": {
+     "d_top3_climb": 0.334,
+     "d_top3_all": 0.267
+    },
+    "P2c8": {
+     "d_top3_climb": 0.396,
+     "d_top3_all": 0.38
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.239,
+     "d_top3_all": 0.217
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.213,
+     "d_top3_all": 0.035
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.387,
+     "d_top3_all": 0.157
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.19,
+     "d_top3_all": 0.032
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": 0.01,
+     "d_top3_all": -0.024
+    }
+   },
+   "survives_ledger_rule": true,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.269,
+     0.403
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.138,
+     0.286
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.011,
+     0.032
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.242,
+     0.291
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.004,
+     0.068
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.033,
+     -0.017
+    ]
+   }
+  },
+  "combo|(P2,SELF_low,P1m,H)": {
+   "score": "(P2,SELF_low,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,SELF_low,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.637,
+    "top3_exp": 0.654,
+    "mean_rank": 3.451
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.239,
+    "top3_exp": 0.239,
+    "mean_rank": 7.257
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.0,
+    "top3_exp": 0.0,
+    "mean_rank": 7.9
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.406,
+    "top3_exp": 0.406,
+    "mean_rank": 6.811
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.673,
+    "top3_exp": 0.696,
+    "mean_rank": 3.087
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.318,
+    "top3_exp": 0.318,
+    "mean_rank": 6.54
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.0,
+    "top3_exp": 0.0,
+    "mean_rank": 8.084
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.513,
+    "top3_exp": 0.513,
+    "mean_rank": 5.591
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.239,
+     "d_top3_all": 0.201
+    },
+    "P1m": {
+     "d_top3_climb": -0.053,
+     "d_top3_all": 0.276
+    },
+    "P2c8": {
+     "d_top3_climb": 0.009,
+     "d_top3_all": 0.389
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": -0.148,
+     "d_top3_all": 0.226
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": -0.174,
+     "d_top3_all": 0.044
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": 0.166
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": -0.197,
+     "d_top3_all": 0.041
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.377,
+     "d_top3_all": -0.015
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     -0.096,
+     -0.004
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.212,
+     -0.135
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.445,
+     -0.312
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.252,
+     0.301
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.02,
+     0.074
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.038,
+     0.008
+    ]
+   }
+  },
+  "combo|(P2,comm_len,SELF_low,P1m,H)": {
+   "score": "(P2,comm_len,SELF_low,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,comm_len,SELF_low,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.685,
+    "top3_exp": 0.692,
+    "mean_rank": 3.163
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.505,
+    "top3_exp": 0.505,
+    "mean_rank": 4.744
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.496,
+    "top3_exp": 0.496,
+    "mean_rank": 4.76
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.511,
+    "top3_exp": 0.511,
+    "mean_rank": 4.733
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.727,
+    "top3_exp": 0.738,
+    "mean_rank": 2.823
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.554,
+    "top3_exp": 0.555,
+    "mean_rank": 4.305
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.482,
+    "top3_exp": 0.483,
+    "mean_rank": 4.812
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.598,
+    "top3_exp": 0.598,
+    "mean_rank": 3.993
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.505,
+     "d_top3_all": 0.249
+    },
+    "P1m": {
+     "d_top3_climb": 0.213,
+     "d_top3_all": 0.324
+    },
+    "P2c8": {
+     "d_top3_climb": 0.275,
+     "d_top3_all": 0.437
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.118,
+     "d_top3_all": 0.274
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.092,
+     "d_top3_all": 0.092
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.266,
+     "d_top3_all": 0.214
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.069,
+     "d_top3_all": 0.089
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.111,
+     "d_top3_all": 0.033
+    }
+   },
+   "survives_ledger_rule": true,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.147,
+     0.273
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.016,
+     0.165
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.15,
+     -0.078
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.294,
+     0.351
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.057,
+     0.127
+    ],
+    "P2>comm_len>P1m>H": [
+     0.022,
+     0.043
+    ]
+   }
+  },
+  "combo|(P2,SELF_high,P1m,H)": {
+   "score": "(P2,SELF_high,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,SELF_high,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.307,
+    "top3_exp": 0.317,
+    "mean_rank": 6.922
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.554,
+    "top3_exp": 0.575,
+    "mean_rank": 4.09
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.568,
+    "top3_exp": 0.611,
+    "mean_rank": 3.428
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.544,
+    "top3_exp": 0.55,
+    "mean_rank": 4.55
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.301,
+    "top3_exp": 0.308,
+    "mean_rank": 6.937
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.588,
+    "top3_exp": 0.606,
+    "mean_rank": 3.76
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.541,
+    "top3_exp": 0.58,
+    "mean_rank": 3.457
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.617,
+    "top3_exp": 0.622,
+    "mean_rank": 3.946
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.554,
+     "d_top3_all": -0.129
+    },
+    "P1m": {
+     "d_top3_climb": 0.262,
+     "d_top3_all": -0.054
+    },
+    "P2c8": {
+     "d_top3_climb": 0.324,
+     "d_top3_all": 0.059
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.167,
+     "d_top3_all": -0.104
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.141,
+     "d_top3_all": -0.286
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.315,
+     "d_top3_all": -0.164
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.118,
+     "d_top3_all": -0.289
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.062,
+     "d_top3_all": -0.345
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.183,
+     0.337
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.057,
+     0.223
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.131,
+     0.003
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     -0.077,
+     -0.032
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.319,
+     -0.252
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.366,
+     -0.325
+    ]
+   }
+  },
+  "combo|(P2,comm_len,SELF_high,P1m,H)": {
+   "score": "(P2,comm_len,SELF_high,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,comm_len,SELF_high,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.526,
+    "top3_exp": 0.532,
+    "mean_rank": 4.248
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.613,
+    "top3_exp": 0.613,
+    "mean_rank": 3.993
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.672,
+    "top3_exp": 0.672,
+    "mean_rank": 3.448
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.572,
+    "top3_exp": 0.572,
+    "mean_rank": 4.372
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.551,
+    "top3_exp": 0.556,
+    "mean_rank": 4.122
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.662,
+    "top3_exp": 0.663,
+    "mean_rank": 3.624
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.657,
+    "top3_exp": 0.658,
+    "mean_rank": 3.538
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.665,
+    "top3_exp": 0.665,
+    "mean_rank": 3.676
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.613,
+     "d_top3_all": 0.09
+    },
+    "P1m": {
+     "d_top3_climb": 0.321,
+     "d_top3_all": 0.165
+    },
+    "P2c8": {
+     "d_top3_climb": 0.383,
+     "d_top3_all": 0.278
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.226,
+     "d_top3_all": 0.115
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.2,
+     "d_top3_all": -0.067
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.374,
+     "d_top3_all": 0.055
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.177,
+     "d_top3_all": -0.07
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.003,
+     "d_top3_all": -0.126
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.233,
+     0.399
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.096,
+     0.287
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.062,
+     0.052
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.139,
+     0.19
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.099,
+     -0.031
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.144,
+     -0.109
+    ]
+   }
+  },
+  "combo|(P2,FLAT_low,P1m,H)": {
+   "score": "(P2,FLAT_low,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,FLAT_low,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.549,
+    "top3_exp": 0.563,
+    "mean_rank": 4.251
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.439,
+    "top3_exp": 0.439,
+    "mean_rank": 5.125
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.072,
+    "top3_exp": 0.072,
+    "mean_rank": 6.58
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.694,
+    "top3_exp": 0.694,
+    "mean_rank": 4.114
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.596,
+    "top3_exp": 0.61,
+    "mean_rank": 3.974
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.47,
+    "top3_exp": 0.47,
+    "mean_rank": 4.91
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.043,
+    "top3_exp": 0.043,
+    "mean_rank": 6.866
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.732,
+    "top3_exp": 0.733,
+    "mean_rank": 3.708
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.439,
+     "d_top3_all": 0.113
+    },
+    "P1m": {
+     "d_top3_climb": 0.147,
+     "d_top3_all": 0.188
+    },
+    "P2c8": {
+     "d_top3_climb": 0.209,
+     "d_top3_all": 0.301
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.052,
+     "d_top3_all": 0.138
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.026,
+     "d_top3_all": -0.044
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.2,
+     "d_top3_all": 0.078
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.003,
+     "d_top3_all": -0.047
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.177,
+     "d_top3_all": -0.103
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.1,
+     0.199
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.003,
+     0.06
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.246,
+     -0.108
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.159,
+     0.215
+    ],
+    "K0 P2c8>P1m>raw": [
+     -0.051,
+     -0.036
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.136,
+     -0.073
+    ]
+   }
+  },
+  "combo|(P2,comm_len,FLAT_low,P1m,H)": {
+   "score": "(P2,comm_len,FLAT_low,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,comm_len,FLAT_low,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.628,
+    "top3_exp": 0.639,
+    "mean_rank": 3.659
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.62,
+    "top3_exp": 0.62,
+    "mean_rank": 4.087
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.512,
+    "top3_exp": 0.512,
+    "mean_rank": 4.512
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.694,
+    "top3_exp": 0.694,
+    "mean_rank": 3.792
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.665,
+    "top3_exp": 0.676,
+    "mean_rank": 3.441
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.656,
+    "top3_exp": 0.656,
+    "mean_rank": 3.832
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.505,
+    "top3_exp": 0.507,
+    "mean_rank": 4.642
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.748,
+    "top3_exp": 0.748,
+    "mean_rank": 3.335
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.62,
+     "d_top3_all": 0.192
+    },
+    "P1m": {
+     "d_top3_climb": 0.328,
+     "d_top3_all": 0.267
+    },
+    "P2c8": {
+     "d_top3_climb": 0.39,
+     "d_top3_all": 0.38
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.233,
+     "d_top3_all": 0.217
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.207,
+     "d_top3_all": 0.035
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.381,
+     "d_top3_all": 0.157
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.184,
+     "d_top3_all": 0.032
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": 0.004,
+     "d_top3_all": -0.024
+    }
+   },
+   "survives_ledger_rule": true,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.266,
+     0.388
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.142,
+     0.272
+    ],
+    "P2>comm_len>P1m>H": [
+     0.0,
+     0.01
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.242,
+     0.292
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.007,
+     0.068
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.03,
+     -0.019
+    ]
+   }
+  },
+  "combo|(P2,FLAT_high,P1m,H)": {
+   "score": "(P2,FLAT_high,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,FLAT_high,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.629,
+    "top3_exp": 0.644,
+    "mean_rank": 3.483
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.436,
+    "top3_exp": 0.436,
+    "mean_rank": 5.141
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.072,
+    "top3_exp": 0.072,
+    "mean_rank": 6.58
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.689,
+    "top3_exp": 0.689,
+    "mean_rank": 4.142
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.694,
+    "top3_exp": 0.709,
+    "mean_rank": 3.066
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.466,
+    "top3_exp": 0.467,
+    "mean_rank": 4.904
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.043,
+    "top3_exp": 0.043,
+    "mean_rank": 6.866
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.726,
+    "top3_exp": 0.727,
+    "mean_rank": 3.698
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.436,
+     "d_top3_all": 0.193
+    },
+    "P1m": {
+     "d_top3_climb": 0.144,
+     "d_top3_all": 0.268
+    },
+    "P2c8": {
+     "d_top3_climb": 0.206,
+     "d_top3_all": 0.381
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.049,
+     "d_top3_all": 0.218
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.023,
+     "d_top3_all": 0.036
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.197,
+     "d_top3_all": 0.158
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": 0.033
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": -0.18,
+     "d_top3_all": -0.023
+    }
+   },
+   "survives_ledger_rule": false,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.099,
+     0.194
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.003,
+     0.052
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.248,
+     -0.112
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.241,
+     0.293
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.032,
+     0.043
+    ],
+    "P2>comm_len>P1m>H": [
+     -0.053,
+     0.006
+    ]
+   }
+  },
+  "combo|(P2,comm_len,FLAT_high,P1m,H)": {
+   "score": "(P2,comm_len,FLAT_high,P1m,H)",
+   "direction": "as listed",
+   "flipped_post_hoc": false,
+   "mode": "combo",
+   "key": "(P2,comm_len,FLAT_high,P1m,H)",
+   "hump_all": {
+    "steps": 1684,
+    "top3": 0.685,
+    "top3_exp": 0.697,
+    "mean_rank": 3.106
+   },
+   "hump_climb": {
+    "steps": 305,
+    "top3": 0.616,
+    "top3_exp": 0.616,
+    "mean_rank": 4.1
+   },
+   "hump_climb_conj": {
+    "steps": 125,
+    "top3": 0.512,
+    "top3_exp": 0.512,
+    "mean_rank": 4.512
+   },
+   "hump_climb_mult": {
+    "steps": 180,
+    "top3": 0.689,
+    "top3_exp": 0.689,
+    "mean_rank": 3.814
+   },
+   "rec_all": {
+    "steps": 5972,
+    "top3": 0.732,
+    "top3_exp": 0.744,
+    "mean_rank": 2.786
+   },
+   "rec_climb": {
+    "steps": 796,
+    "top3": 0.651,
+    "top3_exp": 0.651,
+    "mean_rank": 3.83
+   },
+   "rec_climb_conj": {
+    "steps": 303,
+    "top3": 0.505,
+    "top3_exp": 0.507,
+    "mean_rank": 4.642
+   },
+   "rec_climb_mult": {
+    "steps": 493,
+    "top3": 0.74,
+    "top3_exp": 0.74,
+    "mean_rank": 3.331
+   },
+   "vs": {
+    "raw": {
+     "d_top3_climb": 0.616,
+     "d_top3_all": 0.249
+    },
+    "P1m": {
+     "d_top3_climb": 0.324,
+     "d_top3_all": 0.324
+    },
+    "P2c8": {
+     "d_top3_climb": 0.386,
+     "d_top3_all": 0.437
+    },
+    "P2c8>P1m": {
+     "d_top3_climb": 0.229,
+     "d_top3_all": 0.274
+    },
+    "K0 P2c8>P1m>raw": {
+     "d_top3_climb": 0.203,
+     "d_top3_all": 0.092
+    },
+    "beam P2=2 H": {
+     "d_top3_climb": 0.377,
+     "d_top3_all": 0.214
+    },
+    "beam P2=1 H": {
+     "d_top3_climb": 0.18,
+     "d_top3_all": 0.089
+    },
+    "P2>comm_len>P1m>H": {
+     "d_top3_climb": 0.0,
+     "d_top3_all": 0.033
+    }
+   },
+   "survives_ledger_rule": true,
+   "boot95_d_top3_climb": {
+    "P1m": [
+     0.261,
+     0.386
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.14,
+     0.269
+    ],
+    "P2>comm_len>P1m>H": [
+     0.0,
+     0.0
+    ]
+   },
+   "boot95_d_top3_all": {
+    "P1m": [
+     0.298,
+     0.35
+    ],
+    "K0 P2c8>P1m>raw": [
+     0.061,
+     0.125
+    ],
+    "P2>comm_len>P1m>H": [
+     0.03,
+     0.036
+    ]
+   }
+  },
   "combo|(P2,stab_high,P1m,H)": {
    "score": "(P2,stab_high,P1m,H)",
    "direction": "as listed",
@@ -60569,5 +67474,5 @@
    }
   }
  },
- "wall_s": 357.9
+ "wall_s": 406.0
 }
