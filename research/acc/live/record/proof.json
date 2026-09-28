@@ -1,0 +1,68 @@
+[
+ {
+  "lane": "Fold and window",
+  "claim": "AK(n) trivial iff AK(-n-1) trivial. Known-trivial window n = -3..2, so AK(3) and AK(-4) sit just outside it. A uniform shift 1 <= k <= 6 would trivialize the whole AK line.",
+  "scope": "Fold and finite window check formalized in ACWindow.lean (core Lean 4.29.1, no mathlib).",
+  "st": "formal"
+ },
+ {
+  "lane": "Finite-quotient resonance",
+  "claim": "If p divides one of n-2 .. n+3, AK(n) and (x,y) are AC-equivalent in C_p*C_p. For AK(3): p = 2..6 covered, p = 7 is the first uncovered size.",
+  "scope": "C_p*C_p control formalized in Lean.",
+  "st": "formal"
+ },
+ {
+  "lane": "C5*C5 nine-move certificate",
+  "claim": "[1,13,5,11,4,6,3,5,0] reaches (x,y) in C5*C5; radius-4 balls of 13,689 and 4,929 states are disjoint, so 8 moves do not suffice there. In the free group the same moves end at lengths 23 and 35.",
+  "scope": "Certificate formalized in Lean; ball sizes reproduced by cp5_radius4.py (reported); free-group lengths re-checked in this session.",
+  "st": "checked"
+ },
+ {
+  "lane": "Spectral gap of the move graph",
+  "claim": "P = (1/14) sum of the 14 moves; cI <= I-P <= (2-c)I with c = (2-sqrt3)/28 = 0.00957, via squared product moves, a free F2 action on exponent matrices, the 4-regular tree and Kesten's bound.",
+  "scope": "Written argument; not Lean-formalized.",
+  "st": "written"
+ },
+ {
+  "lane": "Loop detector",
+  "claim": "With g_R = (I-P)^-1 delta_R and loop-weight M: R is AC-trivial iff <g_R, M g_R> > 0.",
+  "scope": "A reformulation, not an algorithm. The same gap holds on every normally generating class, so the gap alone cannot single out AK(3).",
+  "st": "written"
+ },
+ {
+  "lane": "Blind detectors (negative)",
+  "claim": "Hessian / unitary-relator potential, compact Lie group degree and solution counts, Fox matrices in the wrong quotient rings, and the one-relator quotient / spare-slot route all fail to distinguish.",
+  "scope": "Recorded as eliminations, not evidence either way.",
+  "st": "negative"
+ },
+ {
+  "lane": "Thickenability and genus",
+  "claim": "Least genus h by exact branch and bound, with controls and census receipts: h(AK(3)) = 2. h is not an AC-class invariant, and positive genus is not evidence of nontriviality.",
+  "scope": "Computational evidence (commit 85b2952 in acwindow-lean, reported). fasthouse2_check: 623 cases, 0 disagreements (reported).",
+  "st": "computed"
+ },
+ {
+  "lane": "Genus search on the AK(3) class",
+  "claim": "All 1,284,411 members through total length 26 read genus 1 or 2; 74,114 genus-1 members followed to length 27, no genus 0.",
+  "scope": "The note says this negative walk carries no evidential weight either way.",
+  "st": "negative"
+ },
+ {
+  "lane": "Prior art",
+  "claim": "SauersML/group-approximation has nearby independent work: thicken.py, thick2.c, and thick2g.c (bounded-genus rotation-system search).",
+  "scope": "Cite narrowly as nearby work; our census and h results are not attributed to it.",
+  "st": "note"
+ },
+ {
+  "lane": "Scope fence",
+  "claim": "The note does not prove AC, does not resolve AK(3), proves no presentation nontrivial, establishes nothing about Stable AC, and makes no leaderboard claim.",
+  "scope": "Open targets: a genus-0 member of the AK(3) class, or a uniform shift k <= 6 (positive side); an unbounded family of quotient distances, a non-semisimple state sum, or a direct move-graph argument (other side).",
+  "st": "note"
+ },
+ {
+  "lane": "Repository state",
+  "claim": "acwindow-lean main was at 78849f5 (workflows build the Lean files only, not the Python evidence), then 85b2952 'Add computational evidence for the ACWindow note'. Adding notes/ACWindow_note.md failed on the first write and was not claimed as committed.",
+  "scope": "Reported from the other chat; not re-checked here.",
+  "st": "note"
+ }
+]

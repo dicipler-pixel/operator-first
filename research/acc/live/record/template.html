@@ -1,0 +1,254 @@
+<title>ACC Field Record</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#EDF0F3; --panel:#F8FAFB; --ink:#15202B; --muted:#5A6774; --line:#CDD5DD;
+  --accent:#0E6E6D; --x:#0E6E6D; --X:#86C9C4; --y:#B8420F; --Y:#F0A26E;
+  --ok:#1A7F37; --sig:#9A6700; --no:#66727E; --run:#2A5DB0; --unt:#7A4FC2; --closed:#8B4A3C;
+  --grid:#DCE2E8; --plot:#0E6E6D; --cursor:#B8420F;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10161C; --panel:#18212A; --ink:#E4EAF0; --muted:#95A3B0; --line:#2C3945;
+  --accent:#5EC2BD; --x:#4FB9B3; --X:#1F5E5B; --y:#F08A4B; --Y:#7A3A14;
+  --ok:#4AC26B; --sig:#D9A53A; --no:#8C98A4; --run:#6E9BE8; --unt:#B08BEF; --closed:#D98A78;
+  --grid:#24303B; --plot:#5EC2BD; --cursor:#F08A4B; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#10161C; --panel:#18212A; --ink:#E4EAF0; --muted:#95A3B0; --line:#2C3945;
+  --accent:#5EC2BD; --x:#4FB9B3; --X:#1F5E5B; --y:#F08A4B; --Y:#7A3A14;
+  --ok:#4AC26B; --sig:#D9A53A; --no:#8C98A4; --run:#6E9BE8; --unt:#B08BEF; --closed:#D98A78;
+  --grid:#24303B; --plot:#5EC2BD; --cursor:#F08A4B; color-scheme:dark;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--body);padding-inline:16px;padding-block:24px 48px}
+.wrap{max-width:1080px;margin:0 auto;display:grid;gap:36px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(28px,5vw,40px);font-weight:800}
+h2{font-size:22px;font-weight:700}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+p{margin:0;max-width:68ch}
+.muted{color:var(--muted)}
+header{display:grid;gap:10px}
+.standing{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.st{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:grid;gap:6px}
+.st b{font:700 26px/1 var(--display);font-variant-numeric:tabular-nums}
+.st .row{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.lessons{display:grid;gap:8px;padding-left:18px;margin:0}
+section{display:grid;gap:14px}
+/* player */
+.player{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;display:grid;gap:14px}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+select,button,input[type=range]{font:inherit}
+select,button{background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:5px;padding:6px 10px;cursor:pointer}
+button:hover,select:hover{border-color:var(--accent)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.primary{background:var(--accent);color:var(--panel);border-color:var(--accent);min-width:72px}
+input[type=range]{flex:1;min-width:140px;accent-color:var(--accent)}
+.kind{font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border-radius:3px;border:1px solid currentColor}
+.note{font-size:14px}
+.chartbox{overflow-x:auto}
+svg text{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+.words{display:grid;gap:8px}
+.wline{display:grid;grid-template-columns:44px 1fr;gap:8px;align-items:start}
+.wlab{font:500 12px/22px var(--mono);color:var(--muted)}
+.beads{display:flex;flex-wrap:wrap;gap:2px}
+.bd{width:18px;height:22px;border-radius:3px;font:500 11px/22px var(--mono);text-align:center;color:#fff}
+.bd.x{background:var(--x)} .bd.X{background:var(--X);color:var(--ink)} .bd.y{background:var(--y)} .bd.Y{background:var(--Y);color:var(--ink)}
+.bd.z{background:var(--line);color:var(--muted);width:auto;padding:0 6px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;font-size:13px}
+.facts div{display:grid;gap:2px} .facts span{color:var(--muted);font-size:12px} .facts b{font:500 15px var(--mono);font-variant-numeric:tabular-nums}
+.movetxt{font:500 14px var(--mono)}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted)} .legend i{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:-2px;margin-right:4px}
+/* ideas */
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filters button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ideas{display:grid;gap:10px}
+.idea{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:4px 6px 6px 4px;padding:12px 14px;display:grid;gap:6px}
+.idea .top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.idea h3{font-size:16px;font-weight:700}
+.chip{font:500 11px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--c);white-space:nowrap}
+.idea dl{display:grid;grid-template-columns:62px 1fr;gap:3px 10px;margin:0;font-size:14px}
+.idea dt{color:var(--muted);font-size:12px;padding-top:2px}
+.idea dd{margin:0}
+.q{font-size:13px;border-top:1px dashed var(--line);padding-top:6px;color:var(--muted)} .q b{color:var(--ink);font-weight:600}
+code,.raw{font:12px var(--mono);color:var(--muted);overflow-wrap:anywhere}
+@media (max-width:520px){.idea dl{grid-template-columns:1fr}.idea dt{padding-top:6px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Mad Hatters · SAIR Andrews–Curtis Challenge · updated __UPDATED__</div>
+  <h1>ACC Field Record</h1>
+  <p class="muted">Every idea we tested, what it found, and the paths we don't fully understand yet. Play any path move by move. Failed tests stay in the record.</p>
+</header>
+
+<section aria-labelledby="h-standing">
+  <h2 id="h-standing">How we're doing</h2>
+  <div class="standing" id="standing"></div>
+  <ul class="lessons">
+    <li><b>Ties pay little, new ground pays a lot.</b> A tie is worth 2<sup>1−k</sup> (k = teams on the record). A beat or a first solve of an unsolved row is worth a full point. Almost all our points are ties on crowded rows; the teams far ahead of us have beats and unsolved solves.</li>
+    <li><b>What has paid:</b> exact capped search, borrowed roads plus exact windows, mirrored Stable AC finishes, and sending roads we already held.</li>
+    <li><b>What hasn't:</b> repairing our own near misses. The record paths on those rows are different roads.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="h-player">
+  <h2 id="h-player">Path player</h2>
+  <p class="muted">Pick a path. The chart is the total relator length after each move; the beads are the two words. x and y are the generators, X and Y their inverses.</p>
+  <div class="player">
+    <div class="ctl">
+      <label for="pick" class="eyebrow">Path</label>
+      <select id="pick"></select>
+      <span id="kind" class="kind"></span>
+    </div>
+    <p id="note" class="note"></p>
+    <div class="chartbox"><svg id="chart" viewBox="0 0 900 220" width="100%" role="img" aria-label="Total relator length per move"></svg></div>
+    <div class="ctl">
+      <button id="first" aria-label="First move">|◀</button>
+      <button id="prev" aria-label="Previous move">◀</button>
+      <button id="play" class="primary">Play</button>
+      <button id="next" aria-label="Next move">▶</button>
+      <button id="last" aria-label="Last move">▶|</button>
+      <input id="scrub" type="range" min="0" max="1" value="0" aria-label="Move number">
+      <select id="speed" aria-label="Speed"><option value="900">slow</option><option value="450" selected>normal</option><option value="150">fast</option></select>
+    </div>
+    <div class="movetxt" id="movetxt"></div>
+    <div class="words">
+      <div class="wline"><div class="wlab">r0</div><div class="beads" id="r0"></div></div>
+      <div class="wline"><div class="wlab">r1</div><div class="beads" id="r1"></div></div>
+    </div>
+    <div class="facts" id="facts"></div>
+    <div class="legend"><span><i style="background:var(--x)"></i>x</span><span><i style="background:var(--X)"></i>X = x⁻¹</span><span><i style="background:var(--y)"></i>y</span><span><i style="background:var(--Y)"></i>Y = y⁻¹</span><span>Moves use the official ac-r2-v1 kernel (ids 0–13); 15/16 delete a relator (Stable AC).</span></div>
+  </div>
+</section>
+
+<section aria-labelledby="h-proof">
+  <h2 id="h-proof">Proof track: AK(3) and the ACWindow note</h2>
+  <p class="muted">From the proof-track chat (repo dicipler-pixel/acwindow-lean). This lane is about whether AK(3) is AC-trivial, not about leaderboard paths. “Reported” means stated in that chat and not re-run here.</p>
+  <div class="ideas" id="proof"></div>
+</section>
+
+<section aria-labelledby="h-ideas">
+  <h2 id="h-ideas">Idea ledger</h2>
+  <div class="filters" id="filters"></div>
+  <div class="ideas" id="ideas"></div>
+  <p class="muted">Raw files are under <code>research/acc/live/</code> on branch <code>claude/gallant-bardeen-0pgpae</code> unless the path says otherwise. A “complete” exact result is bounded by its cap and uses 123-bit state fingerprints; none is a global shortest-path proof.</p>
+</section>
+</div>
+
+<script>
+const PATHS = __PATHS__;
+const IDEAS = __IDEAS__;
+const SCORES = __SCORES__;
+const PROOF = __PROOF__;
+
+/* ---- standing ---- */
+(function(){
+  const last = SCORES[SCORES.length-1], first = SCORES[0];
+  const el = document.getElementById('standing');
+  const card = (name, sc, rank, teams, s0) => `<div class="st"><span class="eyebrow">${name}</span><b>${sc.toFixed(3)}</b>
+    <div class="row"><span>rank ${rank} of ${teams}</span><span>+${(sc-s0).toFixed(3)} since ${first.at.slice(5,16).replace('T',' ')}</span></div></div>`;
+  el.innerHTML = card('AC score', last.ac, last.acRank, last.acTeams, first.ac) + card('Stable AC score', last.sac, last.sacRank, last.sacTeams, first.sac)
+    + `<div class="st"><span class="eyebrow">Sent from this record</span><b>37</b><div class="row"><span>ties in submissions 2606–2607</span><span>all verifier clean</span></div></div>`;
+})();
+
+/* ---- kernel (official ac-r2-v1, plus rank-2 deletions 15/16) ---- */
+const GENS=[1,-1,2,-2];
+const inv = w => w.slice().reverse().map(a=>-a);
+const red = w => { const o=[]; for(const a of w){ if(o.length && o[o.length-1]===-a) o.pop(); else o.push(a);} return o; };
+const MOVENAME = ['r0 ← r0⁻¹','r1 ← r1⁻¹','r0 ← r0·r1','r0 ← r0·r1⁻¹','r1 ← r1·r0','r1 ← r1·r0⁻¹',
+ 'r0 ← x·r0·x⁻¹','r0 ← x⁻¹·r0·x','r0 ← y·r0·y⁻¹','r0 ← y⁻¹·r0·y','r1 ← x·r1·x⁻¹','r1 ← x⁻¹·r1·x','r1 ← y·r1·y⁻¹','r1 ← y⁻¹·r1·y'];
+function apply(s,m){
+  if(m===15||m===16){ // destabilize relator i: a single positive generator used nowhere else
+    const i=m-15, w=s[i], g=w[0]; const rest=s.filter((_,j)=>j!==i);
+    return rest.map(v=>v.map(t=> t>g? t-1 : (t< -g? t+1 : t)));
+  }
+  const [a,b]=s;
+  switch(m){
+    case 0: return [inv(a),b]; case 1: return [a,inv(b)];
+    case 2: return [red(a.concat(b)),b]; case 3: return [red(a.concat(inv(b))),b];
+    case 4: return [a,red(b.concat(a))]; case 5: return [a,red(b.concat(inv(a)))];
+  }
+  if(m>=6&&m<=9){const g=GENS[m-6]; return [red([g].concat(a,[-g])),b];}
+  if(m>=10&&m<=13){const g=GENS[m-10]; return [a,red([g].concat(b,[-g]))];}
+  return s;
+}
+function mname(m){ return m<14? MOVENAME[m] : (m===15?'delete relator r0 (it is one generator)':'delete relator r1 (it is one generator)'); }
+
+/* ---- player ---- */
+const pick=document.getElementById('pick'), scrub=document.getElementById('scrub'), playB=document.getElementById('play');
+let cur=null, step=0, timer=null;
+PATHS.forEach((p,i)=>{ const o=document.createElement('option'); o.value=i; o.textContent=`${p.id} · ${p.moves.length} moves · `+(typeof p.record==='number'?`record ${p.record}`:'open problem'); pick.appendChild(o); });
+function load(i){
+  const p=PATHS[i]; const st=[p.start.map(w=>w.slice())];
+  p.moves.forEach(m=>st.push(apply(st[st.length-1],m)));
+  const L=st.map(s=>s.reduce((t,w)=>t+w.length,0));
+  let pk=0; L.forEach((v,j)=>{ if(v>L[pk]) pk=j; });
+  cur={p,st,L,pk}; step=0; scrub.max=p.moves.length; stop();
+  const k=document.getElementById('kind'); k.textContent=p.kind; k.style.color = {exact:'var(--ok)',borrowed:'var(--accent)',mirror:'var(--unt)','near miss':'var(--closed)','proof track':'var(--sig)'}[p.kind]||'var(--muted)';
+  document.getElementById('note').textContent=p.note; draw(); show();
+}
+function draw(){
+  const {L,pk,p}=cur, W=900,H=220,l=40,r=12,t=14,b=28, n=L.length-1;
+  const ymax=Math.max(...L), ymin=0; const X=j=>l+(W-l-r)*j/Math.max(1,n), Y=v=>t+(H-t-b)*(1-(v-ymin)/(ymax-ymin||1));
+  let g=''; const ticks=5; for(let k=0;k<=ticks;k++){ const v=Math.round(ymin+(ymax-ymin)*k/ticks); g+=`<line x1="${l}" x2="${W-r}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--grid)"/><text x="${l-6}" y="${Y(v)+3}" text-anchor="end">${v}</text>`; }
+  const xs=Math.max(1,Math.ceil(n/12)); for(let j=0;j<=n;j+=xs) g+=`<text x="${X(j)}" y="${H-10}" text-anchor="middle">${j}</text>`;
+  g+=`<line x1="${l}" x2="${W-r}" y1="${Y(L[0])}" y2="${Y(L[0])}" stroke="var(--muted)" stroke-dasharray="3 4"/><text x="${W-r}" y="${Y(L[0])-4}" text-anchor="end">start ${L[0]}</text>`;
+  const pts=L.map((v,j)=>`${X(j)},${Y(v)}`).join(' ');
+  g+=`<polygon points="${X(0)},${Y(0)} ${pts} ${X(n)},${Y(0)}" fill="var(--plot)" fill-opacity=".10"/>`;
+  g+=`<polyline points="${pts}" fill="none" stroke="var(--plot)" stroke-width="2"/>`;
+  g+=`<circle cx="${X(pk)}" cy="${Y(L[pk])}" r="4" fill="var(--plot)"/><text x="${X(pk)}" y="${Y(L[pk])-8}" text-anchor="middle">peak ${L[pk]} (+${L[pk]-L[0]})</text>`;
+  g+=`<g id="cursor"><line id="cl" y1="${t}" y2="${H-b}" stroke="var(--cursor)" stroke-width="1.5"/><circle id="cc" r="5" fill="var(--cursor)"/></g>`;
+  const svg=document.getElementById('chart'); svg.innerHTML=g; svg._X=X; svg._Y=Y;
+}
+function beads(w){ if(!w) return '<span class="bd z">gone</span>'; if(!w.length) return '<span class="bd z">1</span>';
+  return w.map(a=>{const c={1:'x','-1':'X',2:'y','-2':'Y'}[a]||'z'; const txt=a>2||a<-2?'g':c; return `<span class="bd ${c}">${txt}</span>`}).join(''); }
+function show(){
+  const {st,L,p,pk}=cur, s=st[step], svg=document.getElementById('chart');
+  document.getElementById('cl').setAttribute('x1',svg._X(step)); document.getElementById('cl').setAttribute('x2',svg._X(step));
+  document.getElementById('cc').setAttribute('cx',svg._X(step)); document.getElementById('cc').setAttribute('cy',svg._Y(L[step]));
+  document.getElementById('r0').innerHTML=beads(s[0]); document.getElementById('r1').innerHTML=beads(s[1]);
+  const m = step>0? p.moves[step-1] : null;
+  document.getElementById('movetxt').textContent = step===0? 'Start' : `Move ${step}: id ${m} · ${mname(m)}`;
+  const d=L[step]-L[step-1||0];
+  document.getElementById('facts').innerHTML = [
+    ['move',`${step} / ${p.moves.length}`],['total letters',L[step]],['vs start',(L[step]-L[0]>=0?'+':'')+(L[step]-L[0])],
+    ['this move',step?((d>=0?'+':'')+d):'–'],['record',typeof p.record==='number'?`${p.record} (${p.teams} team${p.teams==1?'':'s'})`:p.record],['phase',step<pk?'climbing':(step===pk?'at the peak':'coming down')]
+  ].map(([a,b])=>`<div><span>${a}</span><b>${b}</b></div>`).join('');
+  scrub.value=step;
+}
+function go(k){ step=Math.max(0,Math.min(cur.p.moves.length,k)); show(); }
+function stop(){ clearInterval(timer); timer=null; playB.textContent='Play'; }
+playB.onclick=()=>{ if(timer){stop();return;} if(step>=cur.p.moves.length) step=0; playB.textContent='Pause';
+  timer=setInterval(()=>{ if(step>=cur.p.moves.length){stop();return;} go(step+1); }, +document.getElementById('speed').value); };
+document.getElementById('speed').onchange=()=>{ if(timer){stop(); playB.click();} };
+document.getElementById('first').onclick=()=>{stop();go(0)}; document.getElementById('last').onclick=()=>{stop();go(1e9)};
+document.getElementById('prev').onclick=()=>{stop();go(step-1)}; document.getElementById('next').onclick=()=>{stop();go(step+1)};
+scrub.oninput=()=>{stop();go(+scrub.value)}; pick.onchange=()=>load(+pick.value);
+document.addEventListener('keydown',e=>{ if(e.target.tagName==='SELECT'||e.target.tagName==='INPUT') return; if(e.key==='ArrowRight'){stop();go(step+1)} if(e.key==='ArrowLeft'){stop();go(step-1)} });
+load(0);
+
+/* ---- ideas ---- */
+const ST={worked:['Worked','var(--ok)'],signal:['Real signal','var(--sig)'],running:['Running','var(--run)'],untested:['Untested','var(--unt)'],nogain:['Tested, no gain','var(--no)'],closed:['Closed','var(--closed)']};
+const order=['worked','signal','running','untested','nogain','closed'];
+const fl=document.getElementById('filters'); let filt='all';
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function renderIdeas(){
+  const list=IDEAS.filter(i=>filt==='all'||i.st===filt).sort((a,b)=>order.indexOf(a.st)-order.indexOf(b.st));
+  document.getElementById('ideas').innerHTML=list.map(i=>`<article class="idea" style="--c:${ST[i.st][1]}">
+    <div class="top"><h3>${esc(i.t)}</h3><span class="chip">${ST[i.st][0]}</span></div>
+    <div class="muted" style="font-size:12px">${esc(i.who)} · ${esc(i.when)}</div>
+    <dl><dt>Tested</dt><dd>${esc(i.test)}</dd><dt>Result</dt><dd>${esc(i.res)}</dd><dt>Next</dt><dd>${esc(i.next)}</dd><dt>Raw</dt><dd class="raw">${esc(i.raw)}</dd></dl>
+    ${i.q?`<div class="q"><b>Open question:</b> ${esc(i.q)}</div>`:''}</article>`).join('');
+}
+['all',...order].forEach(k=>{ const b=document.createElement('button'); const n=k==='all'?IDEAS.length:IDEAS.filter(i=>i.st===k).length;
+  b.textContent=(k==='all'?'All':ST[k][0])+` (${n})`; b.setAttribute('aria-pressed',k==='all'); b.onclick=()=>{filt=k; fl.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b)); renderIdeas();}; fl.appendChild(b); });
+renderIdeas();
+const PS={formal:['Lean-formalized','var(--ok)'],checked:['Re-checked here','var(--ok)'],written:['Written argument','var(--sig)'],computed:['Computed (reported)','var(--run)'],negative:['Negative result','var(--no)'],note:['Scope / note','var(--unt)']};
+document.getElementById('proof').innerHTML=PROOF.map(i=>`<article class="idea" style="--c:${PS[i.st][1]}">
+  <div class="top"><h3>${esc(i.lane)}</h3><span class="chip">${PS[i.st][0]}</span></div>
+  <dl><dt>Claim</dt><dd>${esc(i.claim)}</dd><dt>Scope</dt><dd>${esc(i.scope)}</dd></dl></article>`).join('');
+</script>
