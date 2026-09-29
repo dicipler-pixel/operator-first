@@ -1,27 +1,27 @@
 {
- "built": "2026-09-29T11:03Z",
+ "built": "2026-09-29T11:26Z",
  "summary": {
-  "updatedAt": "2026-09-29T11:03Z",
-  "leaderboardAt": "2026-09-29T11:00:00Z",
+  "updatedAt": "2026-09-29T11:26Z",
+  "leaderboardAt": "2026-09-29T11:25:00Z",
   "ac": {
-   "rank": 14,
+   "rank": 13,
    "teams": 45,
-   "score": 3.1153,
-   "estimate": 2.209,
-   "ties": 339
+   "score": 3.1234,
+   "estimate": 2.2249,
+   "ties": 342
   },
   "sac": {
    "rank": 12,
    "teams": 42,
-   "score": 6.2457,
-   "estimate": 4.5508,
-   "ties": 349
+   "score": 6.3868,
+   "estimate": 4.692,
+   "ties": 353
   },
-  "sentToday": 24,
+  "sentToday": 26,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-29T11:00Z",
-  "subsTotal": 127
+  "boardAt": "2026-09-29T11:25Z",
+  "subsTotal": 129
  },
  "points": [
   {
@@ -669,6 +669,24 @@
    "acRank": 14,
    "acTeams": 45,
    "sac": 6.2457,
+   "sacRank": 12,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-29T11:15:00Z",
+   "ac": 3.1155,
+   "acRank": 14,
+   "acTeams": 45,
+   "sac": 6.254,
+   "sacRank": 12,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-29T11:25:00Z",
+   "ac": 3.1234,
+   "acRank": 13,
+   "acTeams": 45,
+   "sac": 6.3868,
    "sacRank": 12,
    "sacTeams": 42
   }
@@ -4239,9 +4257,9 @@
    "k_then": 12,
    "val_then": 0.00024,
    "rec_now": 37,
-   "k_now": 12,
+   "k_now": 13,
    "holding": true,
-   "val_now": 0.00049,
+   "val_now": 0.00024,
    "method": "Astra easy pool"
   },
   {
@@ -4253,9 +4271,9 @@
    "k_then": 7,
    "val_then": 0.00781,
    "rec_now": 33,
-   "k_now": 7,
+   "k_now": 8,
    "holding": true,
-   "val_now": 0.01562,
+   "val_now": 0.00781,
    "method": "two-eyes beam (fresh easy)"
   },
   {
@@ -4267,10 +4285,108 @@
    "k_then": 11,
    "val_then": 0.00049,
    "rec_now": 39,
+   "k_now": 12,
+   "holding": true,
+   "val_now": 0.00049,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2793",
+   "at": "11:18",
+   "row": "ac-02242",
+   "kind": "AC",
+   "len": 33,
+   "k_then": 7,
+   "val_then": 0.00781,
+   "rec_now": 33,
+   "k_now": 8,
+   "holding": true,
+   "val_now": 0.00781,
+   "method": "two-eyes beam (fresh easy)"
+  },
+  {
+   "sub": "2793",
+   "at": "11:18",
+   "row": "sac-02242",
+   "kind": "Stable AC",
+   "len": 35,
+   "k_then": 7,
+   "val_then": 0.00781,
+   "rec_now": 35,
+   "k_now": 8,
+   "holding": true,
+   "val_now": 0.00781,
+   "method": "two-eyes beam (fresh easy)"
+  },
+  {
+   "sub": "2793",
+   "at": "11:18",
+   "row": "sac-03789",
+   "kind": "Stable AC",
+   "len": 35,
+   "k_then": 3,
+   "val_then": 0.125,
+   "rec_now": 35,
+   "k_now": 4,
+   "holding": true,
+   "val_now": 0.125,
+   "method": "yx_mid (y,x) mid-restart"
+  },
+  {
+   "sub": "2794",
+   "at": "11:26",
+   "row": "ac-04953",
+   "kind": "AC",
+   "len": 37,
+   "k_then": 12,
+   "val_then": 0.00024,
+   "rec_now": 37,
+   "k_now": 12,
+   "holding": true,
+   "val_now": 0.00049,
+   "method": "Astra beam + lead acc_window re-run"
+  },
+  {
+   "sub": "2794",
+   "at": "11:26",
+   "row": "ac-08035",
+   "kind": "AC",
+   "len": 33,
+   "k_then": 7,
+   "val_then": 0.00781,
+   "rec_now": 33,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "two-eyes beam (fresh easy)"
+  },
+  {
+   "sub": "2794",
+   "at": "11:26",
+   "row": "sac-04953",
+   "kind": "Stable AC",
+   "len": 39,
+   "k_then": 11,
+   "val_then": 0.00049,
+   "rec_now": 39,
    "k_now": 11,
    "holding": true,
    "val_now": 0.00098,
-   "method": "Astra easy pool"
+   "method": "Astra beam + lead acc_window re-run"
+  },
+  {
+   "sub": "2794",
+   "at": "11:26",
+   "row": "sac-08035",
+   "kind": "Stable AC",
+   "len": 35,
+   "k_then": 7,
+   "val_then": 0.00781,
+   "rec_now": 35,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "two-eyes beam (fresh easy)"
   }
  ],
  "byMethod": [
@@ -4317,16 +4433,16 @@
    "held": 6
   },
   {
+   "method": "two-eyes beam (fresh easy)",
+   "lines": 20,
+   "now": 0.1959,
+   "held": 20
+  },
+  {
    "method": "Easy-rows lane fe",
    "lines": 15,
    "now": 0.164,
    "held": 15
-  },
-  {
-   "method": "two-eyes beam (fresh easy)",
-   "lines": 16,
-   "now": 0.1569,
-   "held": 16
   },
   {
    "method": "Session 1 road11",
@@ -4351,6 +4467,12 @@
    "lines": 2,
    "now": 0.125,
    "held": 2
+  },
+  {
+   "method": "yx_mid (y,x) mid-restart",
+   "lines": 1,
+   "now": 0.125,
+   "held": 1
   },
   {
    "method": "Two-eyes ranked lane rk2",
@@ -4403,7 +4525,7 @@
   {
    "method": "Astra easy pool",
    "lines": 103,
-   "now": 0.0124,
+   "now": 0.0117,
    "held": 103
   },
   {
@@ -4429,6 +4551,12 @@
    "lines": 4,
    "now": 0.0016,
    "held": 4
+  },
+  {
+   "method": "Astra beam + lead acc_window re-run",
+   "lines": 2,
+   "now": 0.0015,
+   "held": 2
   },
   {
    "method": "Road cycle (session 1)",

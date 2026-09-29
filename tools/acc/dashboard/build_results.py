@@ -40,7 +40,9 @@ METHOD_BY_ROW = {"ac-03060": "P2 lookahead", "sac-03060": "P2 lookahead", "ac-05
     "ac-07550": "two-eyes beam (fresh easy)", "sac-07550": "two-eyes beam (fresh easy)",
     "ac-09703": "two-eyes beam (fresh easy)", "sac-09703": "two-eyes beam (fresh easy)", "ac-01918": "two-eyes beam (fresh easy)", "sac-01918": "two-eyes beam (fresh easy)",
     "ac-08900": "Charlie easy exact", "sac-08900": "Charlie easy exact", "ac-06913": "Charlie easy exact", "sac-06913": "Charlie easy exact", "ac-07977": "Charlie easy exact", "sac-07977": "Charlie easy exact", "ac-08934": "two-eyes beam (fresh value, bottom half)", "sac-08934": "two-eyes beam (fresh value, bottom half)",
-    "ac-04508": "Astra easy pool", "sac-04508": "Astra easy pool", "sac-01762": "two-eyes beam (fresh easy)"}
+    "ac-04508": "Astra easy pool", "sac-04508": "Astra easy pool", "sac-01762": "two-eyes beam (fresh easy)",
+    "ac-02242": "two-eyes beam (fresh easy)", "sac-02242": "two-eyes beam (fresh easy)", "sac-03789": "yx_mid (y,x) mid-restart",
+    "ac-04953": "Astra beam + lead acc_window re-run", "sac-04953": "Astra beam + lead acc_window re-run", "ac-08035": "two-eyes beam (fresh easy)", "sac-08035": "two-eyes beam (fresh easy)"}
 def board(kind, ts):
     fs = sorted(glob.glob(f"research/acc/live/boards/{kind}_2026*.json.gz"))
     best = None
