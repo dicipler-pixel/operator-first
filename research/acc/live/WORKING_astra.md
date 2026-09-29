@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **MID-ROUTE RESTARTS ACTIVE — 2026-09-29 17:23 UTC. Wide pilot3/18 no gain;04316 cuts28/24/20 complete AC45/SAC47, cut16 running W200000/DMAX27.0 new hits.**
+> **MID-ROUTE RESTARTS — 2026-09-29 17:40 UTC.04316 cuts28/24/20/16 all AC45/SAC47; claiming07194 cut28 W200000/DMAX16.0 new hits.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -166,3 +166,6 @@ Claiming next bounded restart on the same assigned row:04316 cut24 of the origin
 
 
 2026-09-29 17:23 UTC — Actual cut16 identities: driver935721/start5791771, beam935742/start5791847, retained session72991; exact W200000/DMAX27 command and assigned launch cwd verified. One beam; driver preflight passed pinned core, full table hash, controlled binaries, and no concurrent search. Output work/astra_midroute/ac-04316_cut16_8108a258c932/result.json. No submissions.
+
+
+2026-09-29 17:40 UTC —04316 cut16 COMPLETE at17:39:42Z: beam exit0, both windows exit0, official AC45/SAC47 remain+2/+2. Receipt/checks preserved in ledger/astra_midroute_04316_cut16_20260929T1740Z.json and sweep checkpoint. The four tested cuts28/24/20/16 all found AC45/SAC47; this is a bounded four-restart negative, not an optimality proof. To cover more assigned value, stop this row's restart ladder and claim next pilot row07194 cut28: official AC47 source SHA25626f091aeacf85ccfa94d8a1865e23b44c5e438953b9cca70ea49a66750d8d0f3, old suffix19 official-replays, DMAX=44-28=16, W200000, exact unchanged one-beam two-eyes/audit flags. --prepare passes; no prior result. No SAIR API reads/submissions.
