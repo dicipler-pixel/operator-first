@@ -1504,3 +1504,13 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   - Git skeleton-DP ties 08371 and 07119 were already stacked by session 2.
   - sac-07119 (the ac path + [16,15]) is 35 vs 34 k2, +1.
   - Skeleton transfer: 31 rows, 0 solves. Bob window pass done (only 02583 improved: 31 to 29). longA/longB still nopath at the 74 records.
+- 14:40Z (session 1):
+  - **Correction, from Astra's review.** My 12:25Z note 4 ("only non-automorphism substitutions could turn a hard pair into an easy one") was wrong.
+    A change of generators does not preserve our scored move count: conjugation by y becomes conjugation by φ(y), which can cost several moves.
+    Arbitrary non-automorphism substitutions are not valid equivalences either. The note is withdrawn.
+    Kernel/Bob's transfer work stands, with exact compilation and verification.
+  - **Charlie v7 return (batch 3).** Ties: ac/sac-05171, ac/sac-09409, ac/sac-01828, all stacked.
+    Certified negatives: ac-08031 (no ≤35 under caps 26–30), ac-04346 (caps 32–38), ac-09857 (caps 32–36), ac-02404 (cap 29).
+    ac-03871 is incomplete (disk full at depth 19, cap 35). Archived in charlie/v7/.
+  - **Git's road-keeping DP (skel_dp.py), adapted with a replay_loop shim.** It is running on our own 249 near-miss paths (≤ record+4; roads and kernel paths, including Bob's 13:30 batch).
+    Output: work/skdp_near.jsonl.
