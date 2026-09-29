@@ -1,27 +1,27 @@
 {
- "built": "2026-09-29T04:28Z",
+ "built": "2026-09-29T04:37Z",
  "summary": {
-  "updatedAt": "2026-09-29T04:28Z",
-  "leaderboardAt": "2026-09-29T04:25:00Z",
+  "updatedAt": "2026-09-29T04:37Z",
+  "leaderboardAt": "2026-09-29T04:35:00Z",
   "ac": {
    "rank": 14,
    "teams": 45,
-   "score": 2.7871,
-   "estimate": 1.952,
-   "ties": 264
+   "score": 2.8585,
+   "estimate": 1.9598,
+   "ties": 265
   },
   "sac": {
    "rank": 12,
    "teams": 42,
-   "score": 5.6864,
-   "estimate": 4.0635,
-   "ties": 269
+   "score": 5.7667,
+   "estimate": 4.0948,
+   "ties": 271
   },
-  "sentToday": 3,
+  "sentToday": 4,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-29T04:25Z",
-  "subsTotal": 106
+  "boardAt": "2026-09-29T04:35Z",
+  "subsTotal": 107
  },
  "points": [
   {
@@ -489,6 +489,15 @@
    "acRank": 14,
    "acTeams": 45,
    "sac": 5.6864,
+   "sacRank": 12,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-29T04:35:00Z",
+   "ac": 2.8585,
+   "acRank": 14,
+   "acTeams": 45,
+   "sac": 5.7667,
    "sacRank": 12,
    "sacTeams": 42
   }
@@ -1819,9 +1828,9 @@
    "k_then": 13,
    "val_then": 0.00012,
    "rec_now": 20,
-   "k_now": 13,
+   "k_now": 14,
    "holding": true,
-   "val_now": 0.00024,
+   "val_now": 0.00012,
    "method": "Session 1 road11"
   },
   {
@@ -1833,9 +1842,9 @@
    "k_then": 4,
    "val_then": 0.0625,
    "rec_now": 51,
-   "k_now": 4,
+   "k_now": 5,
    "holding": true,
-   "val_now": 0.125,
+   "val_now": 0.0625,
    "method": "Session 1 road11"
   },
   {
@@ -1847,9 +1856,9 @@
    "k_then": 10,
    "val_then": 0.00098,
    "rec_now": 21,
-   "k_now": 10,
+   "k_now": 11,
    "holding": true,
-   "val_now": 0.00195,
+   "val_now": 0.00098,
    "method": "Session 1 road11"
   },
   {
@@ -1861,9 +1870,9 @@
    "k_then": 7,
    "val_then": 0.00781,
    "rec_now": 31,
-   "k_now": 7,
+   "k_now": 8,
    "holding": true,
-   "val_now": 0.01562,
+   "val_now": 0.00781,
    "method": "Easy-rows lane fe"
   },
   {
@@ -1875,9 +1884,9 @@
    "k_then": 12,
    "val_then": 0.00024,
    "rec_now": 22,
-   "k_now": 12,
+   "k_now": 13,
    "holding": true,
-   "val_now": 0.00049,
+   "val_now": 0.00024,
    "method": "Session 1 road11"
   },
   {
@@ -1889,9 +1898,9 @@
    "k_then": 4,
    "val_then": 0.0625,
    "rec_now": 53,
-   "k_now": 4,
+   "k_now": 5,
    "holding": true,
-   "val_now": 0.125,
+   "val_now": 0.0625,
    "method": "Session 1 road11"
   },
   {
@@ -1903,9 +1912,9 @@
    "k_then": 9,
    "val_then": 0.00195,
    "rec_now": 23,
-   "k_now": 9,
+   "k_now": 10,
    "holding": true,
-   "val_now": 0.00391,
+   "val_now": 0.00195,
    "method": "Session 1 road11"
   },
   {
@@ -1917,6 +1926,48 @@
    "k_then": 6,
    "val_then": 0.01562,
    "rec_now": 33,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "Easy-rows lane fe"
+  },
+  {
+   "sub": "2766",
+   "at": "04:37",
+   "row": "ac-02007",
+   "kind": "AC",
+   "len": 32,
+   "k_then": 7,
+   "val_then": 0.00781,
+   "rec_now": 32,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "Easy-rows lane fe"
+  },
+  {
+   "sub": "2766",
+   "at": "04:37",
+   "row": "sac-00797",
+   "kind": "Stable AC",
+   "len": 34,
+   "k_then": 6,
+   "val_then": 0.01562,
+   "rec_now": 34,
+   "k_now": 6,
+   "holding": true,
+   "val_now": 0.03125,
+   "method": "Easy-rows lane fe ((y,x) finish)"
+  },
+  {
+   "sub": "2766",
+   "at": "04:37",
+   "row": "sac-02007",
+   "kind": "Stable AC",
+   "len": 34,
+   "k_then": 6,
+   "val_then": 0.01562,
+   "rec_now": 34,
    "k_now": 6,
    "holding": true,
    "val_now": 0.03125,
@@ -1949,16 +2000,16 @@
    "held": 2
   },
   {
-   "method": "Session 1 road11",
-   "lines": 6,
-   "now": 0.2566,
-   "held": 6
-  },
-  {
    "method": "(y,x) lane (letter-swap twin)",
    "lines": 1,
    "now": 0.25,
    "held": 1
+  },
+  {
+   "method": "Session 1 road11",
+   "lines": 6,
+   "now": 0.1283,
+   "held": 6
   },
   {
    "method": "(y,x) shortcut",
@@ -1985,15 +2036,15 @@
    "held": 1
   },
   {
+   "method": "Easy-rows lane fe",
+   "lines": 8,
+   "now": 0.1172,
+   "held": 8
+  },
+  {
    "method": "Beam + exact (NEW15)",
    "lines": 6,
    "now": 0.0986,
-   "held": 6
-  },
-  {
-   "method": "Easy-rows lane fe",
-   "lines": 6,
-   "now": 0.0937,
    "held": 6
   },
   {
@@ -2007,6 +2058,12 @@
    "lines": 37,
    "now": 0.0364,
    "held": 37
+  },
+  {
+   "method": "Easy-rows lane fe ((y,x) finish)",
+   "lines": 1,
+   "now": 0.0312,
+   "held": 1
   },
   {
    "method": "AC+2 to Stable AC",
