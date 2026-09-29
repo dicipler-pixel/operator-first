@@ -1299,3 +1299,4 @@ block or 1-2 moves) meeting one backward step anywhere later; library rebuilt = 
 training paths saves 150 moves over 30 paths. Result: 0 rows shortened by even one move. Bob now runs reach 3 (two forward
 steps + one backward, ~3.3M bridges per position), k=1 rows first. Session 2's (y,x) lane yxl finished all 178 rows;
 its core now runs lane fv (293 never-tried fresh-value rows, records 41-49).
+03:25Z (session 1): check-in. No ties. ac-02377 from Git's state, cap 26: no finish within 60 moves (127M states, depth 60). Long rows 26+36 real rows after purge; family 140/254; twins 6/100; sac-08078 cap 35 and gap runs continuing.
