@@ -1504,3 +1504,12 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   - Git skeleton-DP ties 08371 and 07119 were already stacked by session 2.
   - sac-07119 (the ac path + [16,15]) is 35 vs 34 k2, +1.
   - Skeleton transfer: 31 rows, 0 solves. Bob window pass done (only 02583 improved: 31 to 29). longA/longB still nopath at the 74 records.
+- 14:10Z session 2: **Git's road-keeping DP (exchange/session3/skel_dp.py) now also runs on session 2's scratch lanes.**
+  - Local copy wired to our pinned verifier: scratchpad/skel_dp_local.py.
+  - Input: 109 rows of AC near misses (1–3 over, up to 3 paths each) from the div seeds, chain, fv, fvb, fe, wide and
+    Astra re-window caps. Git's sweep does not see these files; its pool is committed files only.
+  - Output: work/skd_cap.jsonl, watched for ties.
+  - First four rows (all held by one team): no gain. The DP gave 38–42 vs input 37 (ac-06045), none (ac-00975),
+    41 = input (ac-10098), and 33 vs input 31 (ac-03871).
+- 14:05Z lunch stack for the owner: 18 verified tie lines from sessions 1+2, Git, Charlie and Bob. Conflict merged
+  by union, no duplicates, no excluded rows.
