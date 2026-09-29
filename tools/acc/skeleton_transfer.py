@@ -44,7 +44,7 @@ for sk, v in fam.items():
         pairs.append((d, x['id'], sx))
 pairs.sort()
 E = {1: 0, -1: 1, 2: 2, -2: 3}
-def beam(s, env, W_='20000', depth=250, T=120):
+def beam(s, env, W_='20000', depth=250, T=int(os.environ.get('SKEL_BEAMT', '60'))):
     enc = [str(len(s[0]))] + [str(E[g]) for g in s[0]] + [str(len(s[1]))] + [str(E[g]) for g in s[1]]
     try: o = subprocess.run([S + '/dualbin/acc_beam', S + '/work/T9.tab', W_, str(depth)] + enc, capture_output=True, text=True, timeout=T, env={**os.environ, **env}).stdout
     except subprocess.TimeoutExpired: return None
@@ -60,11 +60,11 @@ for d, tid, sid in pairs:
     for mv in roads[sid]:
         s = core.apply_move(s, mv); pre = pre + [mv]; cand.append((ss.clen(s), len(pre), list(pre), s))
     cand.sort(key=lambda c: (c[0], -c[1]))
-    seeds = [(c[2], c[3]) for c in cand[:2]]
+    seeds = [(c[2], c[3]) for c in cand[:int(os.environ.get('SKEL_SEEDS', '1'))]]
     rec = {'id': tid, 'from': sid, 'd': d, 'seed_len': [ss.clen(z) for _, z in seeds], 'ok': False}
     for pre, s in seeds:
         path = None
-        nd, info = ss.solve(s, 150, 100, 8, 60)
+        nd, info = ss.solve(s, 150, 100, 8, int(os.environ.get('SKEL_SUBT', '30')))
         if nd is not None:
             fin = ss.finish(ss.Node(nd.s, []))
             if fin is not None: path = pre + nd.mv + fin
