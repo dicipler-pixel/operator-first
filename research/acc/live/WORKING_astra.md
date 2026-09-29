@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **RUNNING — 2026-09-29 04:10 UTC. One ranked beam; 35 rows checkpointed. Guarded restart after an optional-window reconstruction error; verifier watcher active.**
+> **RUNNING — 2026-09-29 04:12 UTC. One ranked beam; 36 rows checkpointed. Verifier watcher active; known optional-window errors retain only independently verified input paths.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -50,3 +50,5 @@ The guard caught a real exit3 from ac-03068's AC window at03:56:44Z and stopped 
 Safely resumed at04:07:42Z without rerunning completed beams. Retained session46133; actual runner host PID146283 and one W20000 beam confirmed in /proc. Current row ac-02372; ac-02663 finished after restart. Watcher PID127857/session78667 remains active and independently verified the recovered row. Full T8 hash rechecked and matches; original beam settings, row order, binaries and runner remain unchanged.
 
 Resume environment now also includes ASTRA_VERIFIED_WINDOW_FALLBACK=1, alongside the earlier PYTHONPATH and ASTRA_SUBPROCESS_AUDIT_DIR. The opt-in hook handles only exit3 with the exact walk-reconstruction error, no FINALPATH, and an input path that passes pinned official literal-state replay under manifest limits. It retains the original input via the unchanged runner's existing fallback and preserves the actual nonzero exit in the audit; final board routes still require actual-manifest verification before inboxing. All beam failures, invalid inputs and other window errors still stop. Original four guard checks plus five targeted recovery checks passed. Guard change5ed58ee, documentatione2c43cb, receiptcbf3138. No SAIR API reads or submissions.
+
+2026-09-29 04:12 UTC — 36 / 150 completed (149 actual inputs), all36 checkpointed. No new hit; totals remain2 earlier hit rows /4 previously handed-off lines, zero one-move misses. ac-02372 produced no AC path but did produce SAC59 against snapshot49; the Stable route passes official verification and is retained in the sweep. The raw runner's verdict field says nopath when AC is absent; here that does not mean no Stable path. New verification receipt: ledger/astra_rank_checks_20260929T0411Z.jsonl (4522d2e). Actual runner146283 and watcher127857 still present; current row ac-02252. No restart beyond the documented04:07 recovery. Automation remains enabled because ranked and solo assignments are unfinished.
