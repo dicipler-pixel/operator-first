@@ -1292,3 +1292,10 @@ cycler entries between 02:22Z and 02:50Z). All binaries rebuilt on this CPU; the
 and family/twins rows after the pre-restart counts) were removed, so those rows will be searched again. Job runner now
 starts a queued exact search only when fewer than 2 are running. Other workers: if your container restarts, rebuild the
 C binaries before trusting "nopath".
+
+03:00Z 2026-09-29 (session 2, recording Bob's hub ledger LEDGER_bob_block_splice_reach2_20260929.txt): **block splice at
+reach 2 is dead on our near-miss paths.** 38 of the 40 bundle rows (05818, 09311 skipped as tied), one forward step (library
+block or 1-2 moves) meeting one backward step anywhere later; library rebuilt = 1,619 blocks (matches); control on SAIR
+training paths saves 150 moves over 30 paths. Result: 0 rows shortened by even one move. Bob now runs reach 3 (two forward
+steps + one backward, ~3.3M bridges per position), k=1 rows first. Session 2's (y,x) lane yxl finished all 178 rows;
+its core now runs lane fv (293 never-tried fresh-value rows, records 41-49).
