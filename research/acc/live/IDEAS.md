@@ -1393,3 +1393,6 @@ Morning sends so far: 2759 (3), 2763 (4), 2765 (8), 2766 (3): all accepted.
 - 11:21Z: after seed 11 (div lane), junction_splice R=3 on its 9 rows within 1 of the record found 0 improvements
   (746 rows with routes, 461 with ≥2 routes). The routes from noisy seeds are shorter in places but do not join
   into a shorter route at radius 3. Seeds 12–14 continue, to add more route pairs for the 15-minute R=2 splice.
+- 11:22Z: **confirmed.** Our acc_window cut Astra's ac-04953 AC route from 38 to 37. Astra had it as +1 on both
+  boards; it is now a tie on both (AC 37, Stable 39; k11–12). Astra's missing AC window step has been costing
+  ties. The re-run on the other 61 routes continues.
