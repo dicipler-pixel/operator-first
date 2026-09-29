@@ -27,7 +27,8 @@ METHOD_BY_ROW = {"ac-03060": "P2 lookahead", "sac-03060": "P2 lookahead", "ac-05
     "ac-08883": "Easy-rows lane fe", "sac-08883": "Easy-rows lane fe", "ac-01542": "Astra easy pool", "sac-01542": "Astra easy pool",
     "ac-09729": "Fresh-value lane fvb", "sac-09729": "Fresh-value lane fvb", "ac-08638": "Astra easy pool", "sac-08638": "Astra easy pool",
     "ac-06591": "Astra easy pool", "sac-06591": "Astra easy pool", "ac-05229": "Astra easy pool", "ac-02649": "Astra easy pool", "sac-02649": "Astra easy pool",
-    "ac-06015": "Astra easy pool", "sac-06015": "Astra easy pool", "ac-01738": "Astra easy pool", "sac-01738": "Astra easy pool"}
+    "ac-06015": "Astra easy pool", "sac-06015": "Astra easy pool", "ac-01738": "Astra easy pool", "sac-01738": "Astra easy pool",
+    "ac-01561": "Session 1 family lane", "sac-01561": "Session 1 family lane", "ac-04062": "Fresh-value lane fvb", "sac-04062": "Fresh-value lane fvb"}
 def board(kind, ts):
     fs = sorted(glob.glob(f"research/acc/live/boards/{kind}_2026*.json.gz"))
     best = None
