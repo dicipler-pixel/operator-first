@@ -43,7 +43,8 @@ METHOD_BY_ROW = {"ac-03060": "P2 lookahead", "sac-03060": "P2 lookahead", "ac-05
     "ac-04508": "Astra easy pool", "sac-04508": "Astra easy pool", "sac-01762": "two-eyes beam (fresh easy)",
     "ac-02242": "two-eyes beam (fresh easy)", "sac-02242": "two-eyes beam (fresh easy)", "sac-03789": "yx_mid (y,x) mid-restart",
     "ac-04953": "Astra beam + lead acc_window re-run", "sac-04953": "Astra beam + lead acc_window re-run", "ac-08035": "two-eyes beam (fresh easy)", "sac-08035": "two-eyes beam (fresh easy)",
-    "ac-01618": "relay (session 01B1kuzz)", "sac-01618": "relay (session 01B1kuzz)", "ac-01755": "Astra beam + lead acc_window re-run", "sac-01755": "Astra beam + lead acc_window re-run", "sac-06403": "Astra rank lane", "sac-04718": "relay (session 01B1kuzz)", "sac-08748": "two-eyes beam (fresh easy)"}
+    "ac-01618": "relay (session 01B1kuzz)", "sac-01618": "relay (session 01B1kuzz)", "ac-01755": "Astra beam + lead acc_window re-run", "sac-01755": "Astra beam + lead acc_window re-run", "sac-06403": "Astra rank lane", "sac-04718": "relay (session 01B1kuzz)", "sac-08748": "two-eyes beam (fresh easy)",
+    "ac-06653": "Astra beam + lead acc_window re-run", "sac-06653": "Astra beam + lead acc_window re-run", "ac-05755": "two-eyes beam (fresh easy)", "sac-05755": "two-eyes beam (fresh easy)", "ac-00559": "Charlie easy exact", "sac-00559": "Charlie easy exact"}
 def board(kind, ts):
     fs = sorted(glob.glob(f"research/acc/live/boards/{kind}_2026*.json.gz"))
     best = None

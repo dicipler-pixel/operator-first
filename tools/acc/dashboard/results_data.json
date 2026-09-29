@@ -1,27 +1,27 @@
 {
- "built": "2026-09-29T11:52Z",
+ "built": "2026-09-29T12:54Z",
  "summary": {
-  "updatedAt": "2026-09-29T11:52Z",
+  "updatedAt": "2026-09-29T12:54Z",
   "leaderboardAt": "2026-09-29T11:25:00Z",
   "ac": {
    "rank": 13,
    "teams": 45,
    "score": 3.1234,
-   "estimate": 2.233,
-   "ties": 344
+   "estimate": 2.2374,
+   "ties": 347
   },
   "sac": {
    "rank": 12,
    "teams": 42,
    "score": 6.3868,
-   "estimate": 4.857,
-   "ties": 358
+   "estimate": 4.8659,
+   "ties": 361
   },
-  "sentToday": 27,
+  "sentToday": 28,
   "quota": 40,
   "alone": 0,
   "boardAt": "2026-09-29T11:45Z",
-  "subsTotal": 130
+  "subsTotal": 131
  },
  "points": [
   {
@@ -4485,6 +4485,90 @@
    "holding": true,
    "val_now": 0.01562,
    "method": "two-eyes beam (fresh easy)"
+  },
+  {
+   "sub": "owner-20260929T1255Z",
+   "at": "12:55",
+   "row": "ac-06653",
+   "kind": "AC",
+   "len": 38,
+   "k_then": 14,
+   "val_then": 6e-05,
+   "rec_now": 38,
+   "k_now": 14,
+   "holding": true,
+   "val_now": 0.00012,
+   "method": "Astra beam + lead acc_window re-run"
+  },
+  {
+   "sub": "owner-20260929T1255Z",
+   "at": "12:55",
+   "row": "sac-06653",
+   "kind": "Stable AC",
+   "len": 40,
+   "k_then": 13,
+   "val_then": 0.00012,
+   "rec_now": 40,
+   "k_now": 13,
+   "holding": true,
+   "val_now": 0.00024,
+   "method": "Astra beam + lead acc_window re-run"
+  },
+  {
+   "sub": "owner-20260929T1255Z",
+   "at": "12:55",
+   "row": "ac-05755",
+   "kind": "AC",
+   "len": 36,
+   "k_then": 8,
+   "val_then": 0.00391,
+   "rec_now": 36,
+   "k_now": 8,
+   "holding": true,
+   "val_now": 0.00781,
+   "method": "two-eyes beam (fresh easy)"
+  },
+  {
+   "sub": "owner-20260929T1255Z",
+   "at": "12:55",
+   "row": "sac-05755",
+   "kind": "Stable AC",
+   "len": 38,
+   "k_then": 7,
+   "val_then": 0.00781,
+   "rec_now": 38,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "two-eyes beam (fresh easy)"
+  },
+  {
+   "sub": "owner-20260929T1255Z",
+   "at": "12:55",
+   "row": "sac-00559",
+   "kind": "Stable AC",
+   "len": 29,
+   "k_then": 10,
+   "val_then": 0.00098,
+   "rec_now": 29,
+   "k_now": 10,
+   "holding": true,
+   "val_now": 0.00195,
+   "method": "Charlie easy exact"
+  },
+  {
+   "sub": "owner-20260929T1255Z",
+   "at": "12:55",
+   "row": "ac-00559",
+   "kind": "AC",
+   "len": 27,
+   "k_then": 11,
+   "val_then": 0.00049,
+   "rec_now": 27,
+   "k_now": 11,
+   "holding": true,
+   "val_now": 0.00098,
+   "method": "Charlie easy exact"
   }
  ],
  "byMethod": [
@@ -4525,22 +4609,22 @@
    "held": 1
   },
   {
+   "method": "two-eyes beam (fresh easy)",
+   "lines": 23,
+   "now": 0.2272,
+   "held": 23
+  },
+  {
    "method": "yx_mid (Stable = AC+1)",
    "lines": 4,
    "now": 0.2227,
    "held": 4
   },
   {
-   "method": "two-eyes beam (fresh easy)",
-   "lines": 21,
-   "now": 0.2037,
-   "held": 21
-  },
-  {
    "method": "Charlie easy exact",
-   "lines": 6,
-   "now": 0.2031,
-   "held": 6
+   "lines": 8,
+   "now": 0.206,
+   "held": 8
   },
   {
    "method": "Easy-rows lane fe",
@@ -4658,9 +4742,9 @@
   },
   {
    "method": "Astra beam + lead acc_window re-run",
-   "lines": 4,
-   "now": 0.0027,
-   "held": 4
+   "lines": 6,
+   "now": 0.003,
+   "held": 6
   },
   {
    "method": "Fresh-value lane fvb",

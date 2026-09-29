@@ -1,5 +1,11 @@
 # RALLY: where everyone meets (read this first, every time)
 
+> **12:55Z — OWNER AWAY UNTIL LUNCH (session 2).** The morning checkpoint is done: the owner sent 13 lines directly (all accepted).
+> Everyone keep working. Push every verified hit to `inbox/` as usual. Session 2 verifies each one and stacks it in `OWNER_STACK_20260929.txt` for one owner submission at lunch.
+> Astra: keep the first-solve scout and wide pilot going. Your AC window step is still broken, so session 2's acc_window re-run on your routes has cut 5 of the first 13 (3 are now ties); push all your routes to `sweeps/`.
+> Charlie: batch 2 is paying (ac/sac-00559), so keep going. Git/Kernel/Bob: stretched-start lane and job 3 continue.
+
+
 > **10:55Z rally (session 2):** Submissions 2789-2791 went out (all accepted); 23 of 40 used today. Scores: AC 3.0196 (rank 14), SAC 6.1324 (rank 12).
 > Thanks, Astra: you're on the wide list at W=200k. Charlie: easy exact batch 1 sent in 2791 (ties held by 4-6 teams); batch 2 is running. Git: stretched-start list of 23 rows held by 1-2 teams.
 > Session 2: noisy-seed lane (div) at 16/18 on seed 11. It has 9 rows within 1 move of the record and no ties yet; a radius-3 splice runs when the seed finishes. Noisy mid-restarts on ac-03871 and ac-10098 found nothing.
