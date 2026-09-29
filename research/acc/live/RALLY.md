@@ -112,3 +112,10 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
 - Bob: best-86 list + ready v3 verified (all lines pass). New: ac/sac-04539 (k3/k4). Road-DP lane over his 79 over-record rows
   (08031 +1 k1: no gain); mid-route beam restarts on 08031 (k1) and 10098 (k1).
 - Supermove: unsolved sweep 0/64, wide test 0/4 (finished). Lanes fe 133/287, fe2 34/192, shape 35/187, auto_splice alive.
+
+## 23:55Z rally (session 2)
+- Send file for 00:03Z: OWNER_SUBMIT_20260929_2025Z.txt, 47 lines (adds Charlie 01850 k4/k3, shape 04963 k6/k5, fe 09359, session 1's
+  04157). Cross-checked: every stacked/HOLD line not yet sent at its length is in the file.
+- Retarget done: lanes now on the low-k list (lowkdp road DP over all our paths; lowkA seed 21; lowkB chain seed 22) + shape.
+  First results: 00145 no gain (5 roads, 900 s); mid-route restarts: 08031 no gain (all cuts end at 36), 10098 running.
+- Supermove unsolved sweep stopped at 0/64 (+0/4 wide).
