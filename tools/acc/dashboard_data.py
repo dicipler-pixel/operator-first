@@ -276,7 +276,8 @@ def build(work):
              "2791": "Charlie easy exact: ac/sac-08900 (k4), 06913 (k6), 07977 (k5-6); session 2 fvb: ac/sac-08934 (k8-9).",
              "2792": "Astra easy ac/sac-04508 (k11-12); session 2 fresh-easy sac-01762 (k7).",
              "2793": "Resume after hold: ac/sac-02242 (fresh easy, k7), sac-03789 (yx_mid, k3). Live check dropped 7 lines the owner had already sent (ac/sac-05149, ac/sac-06457, ac-06872, sac-04346, sac-07792).",
-             "2794": "ac/sac-04953: Astra route 38 shortened to 37 by the lead's acc_window (Astra's AC window step was failing), k11-12; ac/sac-08035 (fresh easy, k7)."}
+             "2794": "ac/sac-04953: Astra route 38 shortened to 37 by the lead's acc_window (Astra's AC window step was failing), k11-12; ac/sac-08035 (fresh easy, k7).",
+             "owner-20260929T1155Z": "Owner direct submission (session 2 read budget out): ac/sac-01618 (relay), ac/sac-01755 (Astra route re-windowed 40->38), sac-06403, sac-04718 (k3), sac-08748. All accepted."}
     for x in subs:
         if x["id"] in notes:
             ok = sum(1 for r in x["results"] if r.get("ok"))

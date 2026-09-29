@@ -1,27 +1,27 @@
 {
- "built": "2026-09-29T11:26Z",
+ "built": "2026-09-29T11:52Z",
  "summary": {
-  "updatedAt": "2026-09-29T11:26Z",
+  "updatedAt": "2026-09-29T11:52Z",
   "leaderboardAt": "2026-09-29T11:25:00Z",
   "ac": {
    "rank": 13,
    "teams": 45,
    "score": 3.1234,
-   "estimate": 2.2249,
-   "ties": 342
+   "estimate": 2.233,
+   "ties": 344
   },
   "sac": {
    "rank": 12,
    "teams": 42,
    "score": 6.3868,
-   "estimate": 4.692,
-   "ties": 353
+   "estimate": 4.857,
+   "ties": 358
   },
-  "sentToday": 26,
+  "sentToday": 27,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-29T11:25Z",
-  "subsTotal": 129
+  "boardAt": "2026-09-29T11:45Z",
+  "subsTotal": 130
  },
  "points": [
   {
@@ -4341,9 +4341,9 @@
    "k_then": 12,
    "val_then": 0.00024,
    "rec_now": 37,
-   "k_now": 12,
+   "k_now": 13,
    "holding": true,
-   "val_now": 0.00049,
+   "val_now": 0.00024,
    "method": "Astra beam + lead acc_window re-run"
   },
   {
@@ -4355,9 +4355,9 @@
    "k_then": 7,
    "val_then": 0.00781,
    "rec_now": 33,
-   "k_now": 7,
+   "k_now": 8,
    "holding": true,
-   "val_now": 0.01562,
+   "val_now": 0.00781,
    "method": "two-eyes beam (fresh easy)"
   },
   {
@@ -4383,6 +4383,104 @@
    "k_then": 7,
    "val_then": 0.00781,
    "rec_now": 35,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "two-eyes beam (fresh easy)"
+  },
+  {
+   "sub": "owner-20260929T1155Z",
+   "at": "11:55",
+   "row": "ac-01618",
+   "kind": "AC",
+   "len": 41,
+   "k_then": 7,
+   "val_then": 0.00781,
+   "rec_now": 41,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "relay (session 01B1kuzz)"
+  },
+  {
+   "sub": "owner-20260929T1155Z",
+   "at": "11:55",
+   "row": "sac-01618",
+   "kind": "Stable AC",
+   "len": 43,
+   "k_then": 6,
+   "val_then": 0.01562,
+   "rec_now": 43,
+   "k_now": 6,
+   "holding": true,
+   "val_now": 0.03125,
+   "method": "relay (session 01B1kuzz)"
+  },
+  {
+   "sub": "owner-20260929T1155Z",
+   "at": "11:55",
+   "row": "ac-01755",
+   "kind": "AC",
+   "len": 38,
+   "k_then": 12,
+   "val_then": 0.00024,
+   "rec_now": 38,
+   "k_now": 12,
+   "holding": true,
+   "val_now": 0.00049,
+   "method": "Astra beam + lead acc_window re-run"
+  },
+  {
+   "sub": "owner-20260929T1155Z",
+   "at": "11:55",
+   "row": "sac-01755",
+   "kind": "Stable AC",
+   "len": 40,
+   "k_then": 11,
+   "val_then": 0.00049,
+   "rec_now": 40,
+   "k_now": 11,
+   "holding": true,
+   "val_now": 0.00098,
+   "method": "Astra beam + lead acc_window re-run"
+  },
+  {
+   "sub": "owner-20260929T1155Z",
+   "at": "11:55",
+   "row": "sac-06403",
+   "kind": "Stable AC",
+   "len": 24,
+   "k_then": 7,
+   "val_then": 0.00781,
+   "rec_now": 24,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "Astra rank lane"
+  },
+  {
+   "sub": "owner-20260929T1155Z",
+   "at": "11:55",
+   "row": "sac-04718",
+   "kind": "Stable AC",
+   "len": 35,
+   "k_then": 3,
+   "val_then": 0.125,
+   "rec_now": 35,
+   "k_now": 3,
+   "holding": true,
+   "val_now": 0.25,
+   "method": "relay (session 01B1kuzz)"
+  },
+  {
+   "sub": "owner-20260929T1155Z",
+   "at": "11:55",
+   "row": "sac-08748",
+   "kind": "Stable AC",
+   "len": 37,
+   "k_then": 7,
+   "val_then": 0.00781,
+   "rec_now": 37,
    "k_now": 7,
    "holding": true,
    "val_now": 0.01562,
@@ -4415,6 +4513,12 @@
    "held": 2
   },
   {
+   "method": "relay (session 01B1kuzz)",
+   "lines": 3,
+   "now": 0.2969,
+   "held": 3
+  },
+  {
    "method": "(y,x) lane (letter-swap twin)",
    "lines": 1,
    "now": 0.25,
@@ -4427,16 +4531,16 @@
    "held": 4
   },
   {
+   "method": "two-eyes beam (fresh easy)",
+   "lines": 21,
+   "now": 0.2037,
+   "held": 21
+  },
+  {
    "method": "Charlie easy exact",
    "lines": 6,
    "now": 0.2031,
    "held": 6
-  },
-  {
-   "method": "two-eyes beam (fresh easy)",
-   "lines": 20,
-   "now": 0.1959,
-   "held": 20
   },
   {
    "method": "Easy-rows lane fe",
@@ -4523,6 +4627,12 @@
    "held": 1
   },
   {
+   "method": "Astra rank lane",
+   "lines": 1,
+   "now": 0.0156,
+   "held": 1
+  },
+  {
    "method": "Astra easy pool",
    "lines": 103,
    "now": 0.0117,
@@ -4547,16 +4657,16 @@
    "held": 1
   },
   {
+   "method": "Astra beam + lead acc_window re-run",
+   "lines": 4,
+   "now": 0.0027,
+   "held": 4
+  },
+  {
    "method": "Fresh-value lane fvb",
    "lines": 4,
    "now": 0.0016,
    "held": 4
-  },
-  {
-   "method": "Astra beam + lead acc_window re-run",
-   "lines": 2,
-   "now": 0.0015,
-   "held": 2
   },
   {
    "method": "Road cycle (session 1)",
