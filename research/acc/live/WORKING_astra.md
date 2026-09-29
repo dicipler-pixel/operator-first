@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **MID-ROUTE RESTART ACTIVE — 2026-09-29 18:07 UTC.07194 cut24 safely restarted W200000/DMAX20 after prior no-receipt loss.0 new hits.**
+> **MID-ROUTE RESTARTS — 2026-09-29 18:25 UTC.07194 cut24 improved Stable49→48 (record46); claiming cut20 W200000/DMAX24.0 hits.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -184,3 +184,6 @@ Claiming next bounded restart on the same assigned row:04316 cut24 of the origin
 
 
 2026-09-29 18:07 UTC — Actual recovered07194 cut24 identities at2026-09-29T18:07:15Z: driver978482/start6051008, beam978502/start6051077, retained session32842; exact W200000/DMAX20 command and assigned launch cwd verified. One beam, unchanged flags; guarded preflight passed. Output work/astra_midroute/ac-07194_cut24_26f091aeacf8/result.json. No submissions.
+
+
+2026-09-29 18:25 UTC —07194 cut24 COMPLETE at18:24:06Z. Beam returned AC47/SAC48; AC window exit0, swapped window exit3 retained its officially verified46-move core, yielding verified SAC48 after [15,15]. This improves our Stable route49→48 but remains+2 versus record46, so no inbox hit/within-one miss. Promoted conflict-safely in sweeps/astra_wide_20260929.jsonl (abee7b5), prior49 retained as alternate; full receipts/checks ledger/astra_midroute_07194_cut24_20260929T1824Z.json. Lead update UPDATE_astra_to_session2_20260929T1825Z.md pushed. Claiming07194 cut20 next: official source prefix20, old suffix27 official-replays, DMAX24, W200000, unchanged one-beam settings; --prepare passed. Aggregate6 completed mid-route cuts,1 route improvement,0 hits,0 within-one. No submissions/API calls.
