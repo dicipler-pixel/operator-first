@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **MID-ROUTE RESTARTS — 2026-09-29 16:29 UTC. Wide pilot stopped at3/18 with no gain;04316 cut28 complete AC45/SAC47, claiming cut24 next.0 new hits.**
+> **MID-ROUTE RESTARTS ACTIVE — 2026-09-29 16:30 UTC. Wide pilot stopped at3/18 with no gain;04316 cut28 complete AC45/SAC47, cut24 running W200000/DMAX19.0 new hits.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -148,3 +148,6 @@ Offline window diagnostic is COMPLETE: same04953 control under -O1 with ASan/UBS
 2026-09-29 16:29 UTC —04316 cut28 restart COMPLETE at16:28:13Z: W200000/DMAX15 returned full AC45/SAC48; both span14 windows exited0 without improvement. Official AC45+[16,15] supplies SAC47. Final AC45/SAC47 remain+2/+2, no hit or within-one miss. Preserved all raw paths/checks/receipts in ledger/astra_midroute_04316_cut28_20260929T1628Z.json (615dcd1); equal-best alternates added conflict-safely to sweeps/astra_wide_20260929.jsonl (3e238b2), originals retained. Driver870126 has exited normally, retained session11487 exit0. No API calls or submissions.
 
 Claiming next bounded restart on the same assigned row:04316 cut24 of the original official AC45 source (SHA2568108a258c932adad8495dd15babef353080bb014045858b1ced7d5a6e45f1d8e); DMAX=43-24=19, W200000, unchanged two-eyes flags, one beam. The old suffix21 is outside span14. Guarded driver rechecks clean pinned core, full T8 hash, controlled native binaries and no concurrent beam/window before launch; completed cut28 will not repeat. Wide pilot remains3/18;1 mid-route cut completed,0 hits,0 near misses within1. This is a claim before launch; actual process evidence follows.
+
+
+2026-09-29 16:30 UTC — Fresh16:29:48Z process check confirms next04316 cut24 restart active: driver882337/start5466069, beam882357/start5466144 atW200000/DMAX19, retained session10991. One beam, same boot, guarded preflight passed clean SAIR pin/full T8 hash/native binary hashes before child launch. Exact commands, launch cwd and denied direct cwd read are recorded in ledger/astra_midroute_cut24_identity_20260929T1630Z.json. Output work/astra_midroute/ac-04316_cut24_8108a258c932/result.json; log work/astra_midroute.log. At next rally inspect these identities/output and audited receipts before any resume; do not repeat finished cut28 or resume the stopped wide row4. Wide3/18 complete, mid-route1 cut complete and1 active, new hits0, within-one near misses0. No SAIR API reads or submissions.
