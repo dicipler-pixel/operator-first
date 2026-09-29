@@ -1444,3 +1444,14 @@ Fresh gcc -O3 rebuild of current acc_window still exits3 on04953 after printing 
   now ties (k11-14). Chain A/B (BEAM_CHAIN=1, W=20000): on ac-03871, the only row with a matched production baseline so far, chain
   gave 31/33 vs production 32/34 (same as noisy seed 11). One row; 15 more to come.
 - 12:20Z (session 1): the two S^6 papers the user shared (2609.33785 Viaclovsky, 2603.05790 Pham) are complex geometry with no AC content; their simply-connected proof only kills an abelian lattice. The transferable idea is the family generalisation method. Applied to the BS class: 103 second relators are shared across n=2/3/4; 11 are solved at one n and unsolved at another (13 unsolved rows). Lane `tools/acc/bs_family_transfer.py` replays our partner path, then runs subst + beams from the shortest prefix states. Output: work/bs_transfer.jsonl.
+- 12:25Z (session 1): **both papers read in full.** Five ideas that could carry over, ranked:
+  1. **Viaclovsky §6.3, deformation with fixed combinatorial type.** He varies μ in y² = x³ + tx + μt + 1 and the fiber types stay the same. The analog is a *syllable-skeleton family*: rows with the same letter pattern and different exponents.
+     - 6,070 skeletons; 37 families hold a row we have a path for plus unsolved siblings.
+     - Those families cover 2,116 of the 2,672 unsolved rows.
+     - Lane `tools/acc/skeleton_transfer.py`: nearest solved sibling (L1 distance of aligned exponents), replay its path, then substitution solver and beams from the two shortest prefix states.
+     - Pair distances: 126 at d=1, 207 at d=2, 257 at d=3, … Nearest pairs run first.
+  2. **§4.1, gauge-fix and one invariant.** The winding data (a, b, c) reduce to d = a − c. Hurwitz equivalence to one normal form is the braid action on tuples with a fixed product. The analog is normal forms under length-preserving relabelings (the twins lane already does this).
+  3. **§3.2–3.3, cover then quotient.** The analog is solving in a stabilised space (SAC) and descending.
+  4. **Pham, a twist is not a symmetry.** Diffeomorphisms preserve integrability; bundle twists can change it. For us: Aut(F2) changes of generators preserve difficulty (Kernel's cross-class transfer). Only non-automorphism substitutions could turn a hard pair into an easy one.
+  5. **Pham Thm 4.7, full solution on a special class (Codazzi maps).** The analog is a closed-form Britton rewriter for the BS class.
+- Stopped the plain subst lane (0 of 93 unsolved rows) and bs_family_transfer (subsumed by the skeleton lane). The load was 10 on 4 cores.
