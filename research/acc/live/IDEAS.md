@@ -1573,3 +1573,38 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
 - 20:00Z hourly (session 1): the ready file holds 36 lines (added 01945, 07456, 08322 from session 2). Disk 10 GB.
 - 20:10Z (session 1): **the loose DP pass tied ac/sac-07337, 41/43 with k2 on both boards** (from our 42 path). The loose caps paid off where the defaults did not. Stacked and added to the ready file (38 lines).
 - 20:15Z (session 1): shapeG lane stopped: 1 row in ~80 min at load 8 (beam + window per row). Git list 1 is released for other lanes. A third DP pass (GROW 3, MAXC 20, SLACK 4) runs on the 212 paths 3–4 over the record: work/skdp_loose34.jsonl.
+
+## 2026-09-29 20:20Z session 2: ZOOM OUT: where the points are and what we have been missing
+- **Scoring (rules/discovery.md):** the k tied teams each earn 2^(1-k).
+  - Our tie on a k-team record earns 2^(-k); a beat or a first solve earns 1.0.
+  - Our dashboard estimate now matches the board (3.12 AC).
+- **Leaderboard:**
+
+  | Team | AC points (rows at record) | Stable points |
+  |---|---|---|
+  | AC-Solver =D | 2,981 (5,928) | 2,815 |
+  | 冰冻野鸡大学 | 1,073 (3,499) | 1,088 |
+  | Math vs Vibes | 368 | 342 |
+  | Mad Hatters (us) | 3.1 | 6.4 |
+
+  Their points are rows where one team holds the record alone.
+- **The gap, measured:**
+  - 3,248 single-team AC rows are not held by us; a tie on each is worth 0.5 (~1,600 points).
+  - **We have no route at all on 3,074 of them.** Only 174 have any route, and 16 of those are within 5.
+  - Rows with no route, by record band: 40s 114, 50s 310, 60s 415, 70s 373, 80s 310, 90s 241, 100+ ~1,300.
+  - Two-team rows: 1,412 not held, 139 with any route, 26 within 5.
+- **What we have been missing:**
+  - Every lane today (beams at DMAX = record+2, window, DP, splice, restarts) shortens routes we already have.
+    run_beam_raw caps depth at record+2, so a row whose only routes climb or run long comes back "nopath"
+    even when a route exists. We never ran solve-first: find any route, even 2-4× the record, then shorten.
+  - The ties we banked today are mostly k6-14 (about 0.001-0.03 each).
+- **Unsolved rows (2,672):**
+  - All have |det|=1.
+  - They are SHORT: total relator length 15-25, vs 25-35 for solved rows.
+  - They include all 550 open Miller-Schupp instances. That is the signature of the classic hard families,
+    so first solves there are low odds.
+- **Pilot started (lane sf):** 10 single-team rows with records 42-55 and no route anywhere. Per row:
+  cap-free best-first (acc_bestfirst, 60M nodes, LMAX 80), then an uncapped two-eyes beam (W=20000, DMAX=min(4×record, 220)).
+  Any route is window-shortened. First test (ac-09317, 5M nodes): no route. Results: work/sf_cap.jsonl.
+  - If routes appear: scale up, then shorten with the DP/splice/window stack.
+  - If not: the gap is a different search (AC-Solver's published greedy/PPO), and we should read their method.
