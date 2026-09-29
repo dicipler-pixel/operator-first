@@ -1564,3 +1564,7 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
 - 17:00Z new lanes: fe2 (the fe list from the bottom, BEAM_CHAIN=1) and cn (chain + noise seed 21 on the 18 near-miss rows).
 - 17:06Z: fe and fe2 target lists had 57 rows already held on both boards, left over from the owner's direct submissions. Filtered them out and restarted both lanes (fe 344->287 rows; fe2 249->192). Old PIDs 458/5653 and 5363/5679 were stopped by exact PID.
 - 18:00Z hourly (session 1): nothing new to stack. The owner submitted #2809 (36) and #2810 (8). ac/sac-03779 are still pending. The road cycle is running again (the 16:06 cycle most likely died while the disk was full). Disk: 13 GB, with the guard active.
+- 18:35Z (session 1), user asked for maximum effort:
+  - (a) The road-keeping DP runs again on the new pool paths (default caps). A second pass with loose caps (GROW 2, MAXC 16, SLACK 4) runs on the 188 paths within 2 of the record (work/skdp_loose.jsonl).
+  - (b) 228 rows where we hold AC but not the Stable tie (Stable record ≤ 34). Exact searches (caps start+8, +10) are queued for the top 10 by value, led by ac-08078 (Stable 34, k1), 07476 (k2) and 07119 (k2). Output: work/ceil_sac.log.
+  - (c) The owner submitted ac/sac-03779. Pending: 04739, 02092, 09850 (AC+SAC).
