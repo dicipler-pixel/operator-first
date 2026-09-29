@@ -1,7 +1,7 @@
 # Bob, job 3 (11:05Z): cross-class transfer on the whole pool
 Your cross-class run on 290 paths gave verified paths on 44 new rows (and shorter replacements, e.g. ac-00286 30 vs our
 109). Block splice is closed (dead at reach 2 and 3). Same method, bigger input:
-`bob/bob_crossclass_bundle2_20260929.json`: the best verified AC path we hold on every row (about 1,150 rows).
+`bob/bob_crossclass_bundle2_20260929.json`: the best verified AC path we hold on every row (946 rows).
 For each path: carry it through your changes of generators (y->xy, y->Xy, x->xxy, ...), shorten, verify with the official
 core. Report:
 1. any transferred path at or under that row's record (board 00:03Z is in the bundle: record, teams) -> send the line;
