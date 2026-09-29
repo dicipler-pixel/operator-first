@@ -1,27 +1,27 @@
 {
- "built": "2026-09-29T03:59Z",
+ "built": "2026-09-29T04:15Z",
  "summary": {
-  "updatedAt": "2026-09-29T03:59Z",
-  "leaderboardAt": "2026-09-29T03:55:00Z",
+  "updatedAt": "2026-09-29T04:15Z",
+  "leaderboardAt": "2026-09-29T04:15:00Z",
   "ac": {
    "rank": 14,
    "teams": 45,
-   "score": 2.6934,
-   "estimate": 1.8494,
-   "ties": 258
+   "score": 2.7559,
+   "estimate": 1.9119,
+   "ties": 260
   },
   "sac": {
    "rank": 12,
    "teams": 42,
-   "score": 5.5301,
-   "estimate": 3.9676,
-   "ties": 263
+   "score": 5.6707,
+   "estimate": 3.9989,
+   "ties": 265
   },
-  "sentToday": 1,
+  "sentToday": 2,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-29T03:55Z",
-  "subsTotal": 104
+  "boardAt": "2026-09-29T04:15Z",
+  "subsTotal": 105
  },
  "points": [
   {
@@ -471,6 +471,15 @@
    "acRank": 14,
    "acTeams": 45,
    "sac": 5.5301,
+   "sacRank": 12,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-29T04:15:00Z",
+   "ac": 2.7559,
+   "acRank": 14,
+   "acTeams": 45,
+   "sac": 5.6707,
    "sacRank": 12,
    "sacTeams": 42
   }
@@ -1703,9 +1712,9 @@
    "k_then": 4,
    "val_then": 0.0625,
    "rec_now": 29,
-   "k_now": 4,
+   "k_now": 5,
    "holding": true,
-   "val_now": 0.125,
+   "val_now": 0.0625,
    "method": "Two-eyes ranked lane rk2"
   },
   {
@@ -1717,9 +1726,9 @@
    "k_then": 3,
    "val_then": 0.125,
    "rec_now": 41,
-   "k_now": 3,
+   "k_now": 4,
    "holding": true,
-   "val_now": 0.25,
+   "val_now": 0.125,
    "method": "yx_mid (Stable = AC+1)"
   },
   {
@@ -1731,10 +1740,66 @@
    "k_then": 6,
    "val_then": 0.01562,
    "rec_now": 29,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "Two-eyes ranked lane rk2 (y,x) finish"
+  },
+  {
+   "sub": "2763",
+   "at": "04:15",
+   "row": "ac-04612",
+   "kind": "AC",
+   "len": 29,
+   "k_then": 6,
+   "val_then": 0.01562,
+   "rec_now": 29,
    "k_now": 6,
    "holding": true,
    "val_now": 0.03125,
-   "method": "Two-eyes ranked lane rk2 (y,x) finish"
+   "method": "Easy-rows lane fe"
+  },
+  {
+   "sub": "2763",
+   "at": "04:15",
+   "row": "ac-09507",
+   "kind": "AC",
+   "len": 30,
+   "k_then": 6,
+   "val_then": 0.01562,
+   "rec_now": 30,
+   "k_now": 6,
+   "holding": true,
+   "val_now": 0.03125,
+   "method": "Easy-rows lane fe"
+  },
+  {
+   "sub": "2763",
+   "at": "04:15",
+   "row": "sac-04612",
+   "kind": "Stable AC",
+   "len": 31,
+   "k_then": 7,
+   "val_then": 0.00781,
+   "rec_now": 31,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "Easy-rows lane fe"
+  },
+  {
+   "sub": "2763",
+   "at": "04:15",
+   "row": "sac-09507",
+   "kind": "Stable AC",
+   "len": 32,
+   "k_then": 7,
+   "val_then": 0.00781,
+   "rec_now": 32,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "Easy-rows lane fe"
   }
  ],
  "byMethod": [
@@ -1769,12 +1834,6 @@
    "held": 1
   },
   {
-   "method": "yx_mid (Stable = AC+1)",
-   "lines": 1,
-   "now": 0.25,
-   "held": 1
-  },
-  {
    "method": "(y,x) shortcut",
    "lines": 2,
    "now": 0.126,
@@ -1793,7 +1852,7 @@
    "held": 2
   },
   {
-   "method": "Two-eyes ranked lane rk2",
+   "method": "yx_mid (Stable = AC+1)",
    "lines": 1,
    "now": 0.125,
    "held": 1
@@ -1805,22 +1864,34 @@
    "held": 6
   },
   {
+   "method": "Easy-rows lane fe",
+   "lines": 4,
+   "now": 0.0937,
+   "held": 4
+  },
+  {
+   "method": "Two-eyes ranked lane rk2",
+   "lines": 1,
+   "now": 0.0625,
+   "held": 1
+  },
+  {
    "method": "Mirror cross-row",
    "lines": 37,
    "now": 0.0364,
    "held": 37
   },
   {
-   "method": "Two-eyes ranked lane rk2 (y,x) finish",
-   "lines": 1,
-   "now": 0.0312,
-   "held": 1
-  },
-  {
    "method": "AC+2 to Stable AC",
    "lines": 6,
    "now": 0.0235,
    "held": 6
+  },
+  {
+   "method": "Two-eyes ranked lane rk2 (y,x) finish",
+   "lines": 1,
+   "now": 0.0156,
+   "held": 1
   },
   {
    "method": "User / Charlie line",
