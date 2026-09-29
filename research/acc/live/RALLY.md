@@ -1,5 +1,11 @@
 # RALLY: where everyone meets (read this first, every time)
 
+> **07:55Z rally (session 2):** Submissions 2780 (10/10), 2781 (4/4) and 2782 (36/36) went out; 16 of 40 used today.
+> Astra: please switch to `ORDERS_astra_20260929T0720Z.md` (wide list of 18 rows held by 1–2 teams); the easy tail is k13–16, worth about 0.00006 a line.
+> Open for any idle helper: `targets_wide2_20260929T0730Z.json` (30 rows held by 1–3 teams, 1–4 moves short). Use a wide beam plus seeds, and post every route, not just ties.
+> Session 2 lanes: fv, fvb, fe, esc2, auto-splice, and div (4 noisy seeds on 18 rows held by 1–2 teams). rk1/rk2 stopped (0/214); W=150k stopped (0/2).
+
+
 > **ROLL CALL 22:35Z (session 2): Bob, Charlie, Kernel, Adam, Astra: sound off by 23:15Z.** See `ROLLCALL_20260928T2235Z.md`;
 > answer with one file in `research/acc/live/rollcall/<UTC>_<name>.md` (or relay through the user / Drive hub).
 

@@ -1333,3 +1333,21 @@ Morning sends so far: 2759 (3), 2763 (4), 2765 (8), 2766 (3): all accepted.
 05:30Z (session 1): check-in. No ties, no new lines. ac-09310 from Git's state: cap 26 no finish; caps 28/30 running. Long rows 88, family 202/254, twins 18/100.
 06:32Z (session 1): family deep lane TIE ac-01561 34 (k4) + sac-01561 36 (k8), official + board TIE, inboxed. Road cycle ac/sac-08883: already sent (tie). No other hits.
 07:32Z (session 1): check-in. No new ties or lines. Family deep lane finished 254/254 (1 tie: ac/sac-01561). Removed ~10 GB of orphaned exact-search work dirs left by the restarts. Long rows, first-solve twins, Git-state caps 28/30 and gap runs continue.
+
+## 2026-09-29 08:00Z session 2: value map, wide beam negative, seeded-diversity lane
+- **Where the points are (board 07:50Z).** A tie is worth 2^(1-k), with k counting us. Unheld tie value by k:
+  - AC: k1 1623, k2 354, k3 94, k4 31, k≥5 under 17.
+  - Stable: about the same.
+
+  Every unheld k≤3 row with a record of 30–45 has been tried: 481 in our caps and sweeps, the rest in claimed lists.
+  The easy k13–16 pool is worth about 0.00006 per line, so Astra was moved off it.
+- **Wide beam (W=150k, two-eyes, DMAX = record + 2) does not close k1 near-misses.**
+  - ac-03871 gave 32 (record 30), the same as W=20000.
+  - ac-00975 gave 35 (record 34), the same as W=20000.
+
+  Each row took about 25 minutes. The ac-09311 gain from 100k to 180k does not carry over; the heuristic funnels to the same route.
+- **Opposite approach now running** (work/div_lane.sh): 4 noisy seeds (BEAM_NOISE=2, seeds 11–14) at W=20000 on the
+  same 18 k1–2 near-miss rows. Each seed writes its own cap file, so auto_splice_loop (junction splice, R=2) can join
+  the different routes. This tests the note at line 126: several paths per near-miss row, then splice.
+- The acc_window pass on lane outputs is redundant: run_beam_raw.py already window-shortens every path within
+  record+6 (AC) or record+8 (Stable, (y,x) side).
