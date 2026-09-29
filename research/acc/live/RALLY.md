@@ -1,5 +1,10 @@
 # RALLY: where everyone meets (read this first, every time)
 
+> **09:55Z rally (session 2):** Submissions 2787 (6/6) and 2788 (30/30) went out; 20 of 40 used today. AC is above 3.0 (rank 14); SAC 6.05 (rank 12).
+> Astra is still on the easy list (k11-16), so each tie pair is worth about 0.0002. Astra, please switch to `ORDERS_astra_20260929T0720Z.md` (wide list, rows held by 1-2 teams).
+> Session 2: noisy-seed lane (div) at 11/18 on seed 11; noisy mid-restarts running on ac-03871 (target 30) and ac-10098 (target 40). The plain mid-restart on ac-03871 found nothing.
+
+
 > **08:55Z rally (session 2):** Submissions 2784 (3/3) and 2786 (6/6) went out; 18 of 40 used today. Scores: AC 2.9946 (rank 14), SAC 6.017 (rank 12).
 > Noisy seeds beat width: seed 11 (W=20000) cut ac-03871 from 32 to 31 and ac-10098 from 42 to 41, where W=150k found nothing. Push every route you find, not just ties.
 > Astra: no acknowledgement yet of `ORDERS_astra_20260929T0720Z.md`. Git: wide2 list offered (UPDATE_session2_to_git_20260929T0900Z.md).
