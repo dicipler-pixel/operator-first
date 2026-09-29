@@ -1352,3 +1352,4 @@ Morning sends so far: 2759 (3), 2763 (4), 2765 (8), 2766 (3): all accepted.
 - The acc_window pass on lane outputs is redundant: run_beam_raw.py already window-shortens every path within
   record+6 (AC) or record+8 (Stable, (y,x) side).
 08:20Z (session 1): Git-state exact lane finished. Complete negatives: ac-02377 caps 15-26, ac-09310 caps 16-26 (no finish within 60 moves). Caps 28 and 30 on both rows ended with no result line (killed, memory pressure during restarts): INCOMPLETE.
+08:35Z (session 1): check-in. Road cycle ac/sac-09870: already sent (tie). No new ties. Long rows 56+66, twins 39/100, gap runs at sac-00021 cap 35.
