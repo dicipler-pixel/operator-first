@@ -1631,3 +1631,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   - Unsolved sweep (90 s/row, W 2000, LCAP 80): 0/11 so far. Testing W 6000, LCAP 120, 600 s on Git's top 4.
   - fe lane: ac/sac-07084 ties (k17/k7), stacked.
 - 22:00Z hourly (session 1): added ac/sac-07084 (session 2 stack) to READY_FOR_USER_20260929T2100Z, which now holds 6 lines. Disk 17 GB.
+- 22:40Z (session 1): **the owner is blocked from submitting (daily limit reached).** 13 verified lines are held in HOLD_FOR_NEXT_WINDOW_20260929.txt. New finds are added there until the quota resets.
