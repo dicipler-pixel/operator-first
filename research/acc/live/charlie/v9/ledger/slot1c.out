@@ -1,0 +1,42 @@
+ac-01770 cap 26 CERTIFIED: no path of length <= 31 under cap 26  states 78935304 (169s)
+ac-01770 cap 28 CERTIFIED: no path of length <= 31 under cap 28  states 365838621 (457s)
+ac-09507 cap 26 CERTIFIED: no path of length <= 30 under cap 26  states 1088372 (11s)
+ac-09507 cap 28 CERTIFIED: no path of length <= 30 under cap 28  states 6016903 (20s)
+ac-09507 cap 30 CERTIFIED: no path of length <= 30 under cap 30  states 30948792 (47s)
+ac-09507 cap 32 TIE 30 states 156721822 (251s)
+ac-09507: [12, 10, 5, 12, 4, 7, 8, 6, 3, 7, 9, 6, 8, 2, 8, 8, 6, 5, 13, 4, 11, 12, 10, 5, 8, 2, 0, 5, 3, 3]
+sac-09507: [12, 10, 5, 12, 4, 7, 8, 6, 3, 7, 9, 6, 8, 2, 8, 8, 6, 5, 13, 4, 11, 12, 10, 5, 8, 2, 0, 5, 3, 3, 16, 15]
+ac-08221 cap 22 CERTIFIED: no path of length <= 32 under cap 22  states 152987 (14s)
+ac-08221 cap 24 CERTIFIED: no path of length <= 32 under cap 24  states 1011285 (17s)
+ac-08221 cap 26 CERTIFIED: no path of length <= 32 under cap 26  states 5878733 (27s)
+ac-08221 cap 28 CERTIFIED: no path of length <= 32 under cap 28  states 28465808 (54s)
+ac-08221 cap 30 CERTIFIED: no path of length <= 32 under cap 30  states 124845636 (168s)
+ac-08221 cap 32 CERTIFIED: no path of length <= 32 under cap 32  states 515625315 (710s)
+ac-06913 cap 23 CERTIFIED: no path of length <= 33 under cap 23  states 273710 (25s)
+ac-06913 cap 25 CERTIFIED: no path of length <= 33 under cap 25  states 2645563 (36s)
+ac-06913 cap 27 CERTIFIED: no path of length <= 33 under cap 27  states 16891868 (61s)
+ac-06913 cap 29 CERTIFIED: no path of length <= 33 under cap 29  states 91118390 (192s)
+ac-06913 cap 31 TIE 33 states 446562435 (686s)
+ac-06913: [10, 1, 5, 12, 11, 13, 10, 5, 10, 5, 12, 10, 8, 5, 10, 13, 10, 4, 3, 13, 11, 12, 7, 4, 6, 3, 3, 3, 0, 4, 4, 4, 4]
+sac-06913: [10, 1, 5, 12, 11, 13, 10, 5, 10, 5, 12, 10, 8, 5, 10, 13, 10, 4, 3, 13, 11, 12, 7, 4, 6, 3, 3, 3, 0, 4, 4, 4, 4, 16, 15]
+ac-07977 cap 25 CERTIFIED: no path of length <= 33 under cap 25  states 3814738 (20s)
+ac-07977 cap 27 CERTIFIED: no path of length <= 33 under cap 27  states 19230349 (34s)
+ac-07977 cap 29 TIE 33 states 68199718 (82s)
+ac-07977: [12, 6, 9, 7, 2, 12, 10, 12, 10, 9, 7, 3, 12, 4, 12, 10, 2, 5, 13, 11, 4, 13, 11, 3, 5, 5, 5, 5, 1, 4, 4, 2, 0]
+sac-07977: [12, 6, 9, 7, 2, 12, 10, 12, 10, 9, 7, 3, 12, 4, 12, 10, 2, 5, 13, 11, 4, 13, 11, 3, 5, 5, 5, 5, 1, 4, 4, 2, 0, 16, 15]
+== LADDER DONE 05:49Z
+ac-03697 Stable y,x have 45 target 43 k 3 peak 31
+  => LOCALLY OPTIMAL final 45 (target 43) windows<=11 tails<=24 heads<=24 verifier True (786s)
+ac-05506 AC x,y have 29 target 28 k 4 peak 36
+  => LOCALLY OPTIMAL final 29 (target 28) windows<=11 tails<=29 heads<=21 verifier True (494s)
+ac-05506 Stable (same route as the AC line) => LOCALLY OPTIMAL final 29 target 28 verifier True
+ac-01850 AC x,y have 30 target 29 k 4 peak 47
+  => LOCALLY OPTIMAL final 30 (target 29) windows<=11 tails<=19 heads<=20 verifier True (242s)
+ac-09365 AC x,y have 30 target 29 k 4 peak 25
+  => LOCALLY OPTIMAL final 30 (target 29) windows<=11 tails<=30 heads<=22 verifier True (491s)
+ac-07789 AC x,y have 30 target 29 k 4 peak 33
+  => LOCALLY OPTIMAL final 30 (target 29) windows<=11 tails<=22 heads<=20 verifier True (371s)
+ac-07789 Stable (same route as the AC line) => LOCALLY OPTIMAL final 30 target 29 verifier True
+ac-04211 Stable y,x have 33 target 32 k 4 peak 32
+  => LOCALLY OPTIMAL final 33 (target 32) windows<=11 tails<=20 heads<=20 verifier True (354s)
+ac-00201 Stable x,y have 41 target 40 k 4 peak 25
