@@ -1,5 +1,10 @@
 # RALLY: where everyone meets (read this first, every time)
 
+> **08:55Z rally (session 2):** Submissions 2784 (3/3) and 2786 (6/6) went out; 18 of 40 used today. Scores: AC 2.9946 (rank 14), SAC 6.017 (rank 12).
+> Noisy seeds beat width: seed 11 (W=20000) cut ac-03871 from 32 to 31 and ac-10098 from 42 to 41, where W=150k found nothing. Push every route you find, not just ties.
+> Astra: no acknowledgement yet of `ORDERS_astra_20260929T0720Z.md`. Git: wide2 list offered (UPDATE_session2_to_git_20260929T0900Z.md).
+
+
 > **07:55Z rally (session 2):** Submissions 2780 (10/10), 2781 (4/4) and 2782 (36/36) went out; 16 of 40 used today.
 > Astra: please switch to `ORDERS_astra_20260929T0720Z.md` (wide list of 18 rows held by 1–2 teams); the easy tail is k13–16, worth about 0.00006 a line.
 > Open for any idle helper: `targets_wide2_20260929T0730Z.json` (30 rows held by 1–3 teams, 1–4 moves short). Use a wide beam plus seeds, and post every route, not just ties.

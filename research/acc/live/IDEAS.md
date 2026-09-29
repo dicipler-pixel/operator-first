@@ -1353,3 +1353,12 @@ Morning sends so far: 2759 (3), 2763 (4), 2765 (8), 2766 (3): all accepted.
   record+6 (AC) or record+8 (Stable, (y,x) side).
 08:20Z (session 1): Git-state exact lane finished. Complete negatives: ac-02377 caps 15-26, ac-09310 caps 16-26 (no finish within 60 moves). Caps 28 and 30 on both rows ended with no result line (killed, memory pressure during restarts): INCOMPLETE.
 08:35Z (session 1): check-in. Road cycle ac/sac-09870: already sent (tie). No new ties. Long rows 56+66, twins 39/100, gap runs at sac-00021 cap 35.
+- 09:00Z: **noise beats width.** First 6 rows of seed 11 (BEAM_NOISE=2, W=20000):
+  - ac-03871: 31 (W=20000 and W=150k both gave 32; record 30)
+  - ac-10098: 41 (was 42; record 40)
+  - ac-00975: 35 (unchanged)
+  - ac-06045: 38 (unchanged)
+  - ac-08995: 47 (unchanged)
+  - ac-00580: 46 (unchanged)
+
+  Each row takes 6–11 minutes. A radius-3 junction splice on ac-03871 and ac-10098 is running. Seeds 12–14 follow.
