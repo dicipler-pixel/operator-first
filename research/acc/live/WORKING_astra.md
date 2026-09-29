@@ -220,3 +220,6 @@ Claiming next bounded restart on the same assigned row:04316 cut24 of the origin
 
 
 2026-09-29 19:57 UTC — Fresh :55 lead read unchanged (RALLY14:10Z; latest Astra update11:15Z), so current mid-route assignment continues. Claiming ac-05423 cut12: official prefix12, old suffix25 official-replays, DMAX21=record33-cut12, W200000, unchanged one-beam/two-eyes/audit flags. --prepare passed; no prior cut12 result. No beam was active at claim. No API reads/submissions.
+
+
+2026-09-29 19:58 UTC — ac-05423 cut12 active in retained attached session33678: driver1086110/start6702066, beam1086131/start6702142, launch from assigned workspace. Exact W200000/DMAX21 command verified; one beam, unchanged flags, no chain. Guarded preflight passed. Output work/astra_midroute/ac-05423_cut12_88acefd7e90f/result.json. No submissions/API reads.
