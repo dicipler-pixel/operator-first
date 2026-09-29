@@ -1464,3 +1464,4 @@ Fresh gcc -O3 rebuild of current acc_window still exits3 on04953 after printing 
   - All 16 of Bob's paths within 6 of the record are in acc_window exact shortening (work/bob_win_out.jsonl), +1 rows first. Bob's paths are added to the pool (kernel_paths.jsonl).
 - 13:23Z: auto junction splice (R=2) made **sac-08031 37 = record (k4)**. That row sits on the div/chain near-miss list,
   so the extra routes from the noisy seeds and the chain lane are giving the splicer new junctions.
+- 13:50Z (session 1): single lunch stack = `OWNER_STACK_20260929.txt` (session 2). My STACK_FOR_USER file is removed; it only held ac/sac-04416, which are already there. The user-submitted 17 lines from READY_FOR_USER_20260929T1150Z are now logged in submit_log.jsonl as owner-20260929T1215Z, so SENT_ROWS refreshes keep them. Sweep of every path source at 13:50Z: no scoring line left that is not submitted or stacked.
