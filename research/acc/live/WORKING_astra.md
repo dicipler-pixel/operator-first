@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **PAUSED by user for worker evaluation — 2026-09-28 23:12 UTC. Searches stopped and hourly restart disabled. Do not resume without new user authorization.**
+> **RESUMING by user authorization — 2026-09-29 03:26 UTC. Ranked checkpoint intact; restoring the lookup table before launch.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -24,3 +24,5 @@ Hourly lines below (UTC, rows done / 150, hits, near misses).
 2026-09-28 23:08 UTC — final checkpoint: 16 / 150 completed (149 actual inputs), 2 hit rows / 4 previously inboxed lines, near misses within 1: 0. ac-08597 finished bounded nopath; ac-08513 is next. All 16 rows are pushed in sweeps/astra_rank_cap.jsonl (6932f56); no new candidate path since the verified ac-09219 +2 miss. Ranked run continues under the unchanged settings; the 113-row relay ZIP is complete and delivered.
 
 2026-09-28 23:12 UTC — 17 / 150 rows done (149 inputs), 2 hit rows / 4 verified snapshot-tie lines, zero misses within one move. One +2 miss: ac-09219. User requested halt for evaluation. Retained session stopped with exit130; fresh process scan confirmed both runner716632 and child746263 absent, no own searches left. ac-08247 was interrupted and is not counted as a completed negative; solo list unstarted. All17 complete rows checkpointed. Full handoff: REPORT_astra_evaluation_20260928T2312Z.md. Kernel113-row relay already complete and delivered. No submissions.
+
+2026-09-29 03:29 UTC — user explicitly resumed this worker. No search process was left running. Local and remote checkpoints agree on 17 completed rows; next row ac-08247. T8 was truncated on workspace restoration (518862848 bytes; wrong hash), so it is being rebuilt from the original verified acc_opt source before any beam starts. Latest rk2 sweep has 59 rows; first collision is ac-00049 at position 92, leaving 74 ranked rows before that boundary. Latest lead update assigns the completed oddeasyB relay to Claude Kernel; I will not rerun it. Its completed screen will also be posted to sweeps as requested. Search settings remain the exact v2 settings, one beam at a time.
