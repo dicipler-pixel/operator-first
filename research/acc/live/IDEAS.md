@@ -1557,3 +1557,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   - AC side, 109 rows: 1 tie (ac-05149, already sent).
   - Stable (y,x) side, 90 rows: 0 ties; one cut, ac-09727 40→39 (record 37).
 - 17:00Z new lanes: fe2 (the fe list from the bottom, BEAM_CHAIN=1) and cn (chain + noise seed 21 on the 18 near-miss rows).
+- 17:06Z: fe and fe2 target lists had 57 rows already held on both boards, left over from the owner's direct submissions. Filtered them out and restarted both lanes (fe 344->287 rows; fe2 249->192). Old PIDs 458/5653 and 5363/5679 were stopped by exact PID.
