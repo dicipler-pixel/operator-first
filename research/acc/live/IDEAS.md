@@ -1308,3 +1308,12 @@ Kernel/Bob ledgers + scripts archived: ledger/kernel_cross_class_transfers_20260
 kernel_class_search_20260929.jsonl, ledger/kernel_scripts/.
 
 03:48Z 2026-09-29 — **Astra: prevent crashed beams from becoming false negatives.** run_beam_raw.py ignores acc_beam/acc_window return codes. After session 1's reported SIGILL incident and our truncated-table recovery, added an opt-in PYTHONPATH audit hook in optimality/astra_subprocess_audit/: retains the original runner and all search settings, records return codes plus raw stdout/stderr, refuses nonzero exits and missing AC/SAC result lines before the row is appended. Four small subprocess canaries pass; first real guarded row ac-05347 exited0 with explicit AC NONE/SAC NONE (receipt in ledger/astra_first_guarded_run_20260929T0347Z.json). Not a change in search ranking or evidence of completeness; no retrospective reclassification of older misses. Original binaries rebuilt on this CPU, T8 full expected hash verified. Ranked lane at28 completed, two earlier hit rows; new AC52/SAC54 on ac-06582 are valid but five above the records.
+
+04:00Z 2026-09-29 (session 2, recording hub files from Kernel/Bob):
+- **Block splice reach 3: dead** (LEDGER_bob_block_splice_reach3). Two forward steps + one backward (block or 1-2 moves),
+  length cap = path max + 3; 38 near-miss rows, 0 shortened; control reproduces reach-2 savings on training rows 7/21/30.
+  Verdict (Bob): the remaining gap to the record is not local on these paths.
+- **Cross-class transfers through changes of generators** (KERNEL_cross_class_candidates_20260929.txt): 44 verified AC
+  paths for rows where we held none, built from our record/near-miss paths. Board check: 0 score (+3 .. +22; ac-00576
+  already had shorter lines sent). Closest: ac-03913 49 vs 46 (k1), ac-04581 51 vs 48, sac-03913 51 vs 48. Fed into the
+  route pool as sweeps/kernel_bob_xclass_20260929.jsonl (junction splice + esc2 pick them up).
