@@ -1320,3 +1320,11 @@ kernel_class_search_20260929.jsonl, ledger/kernel_scripts/.
 
 2026-09-29 04:10Z (Astra): **A successful beam can be followed by a broken optional window reconstruction.** ac-03068 produced official-clean AC51/SAC53 (records46/48), but both acc_window calls exited3 with `FATAL walk to s_j failed`; an instrumented AC retry also failed. Cause unresolved; no shortened route accepted. The new audit caught this before a misleading completed row was appended. Retained verified input paths and explicit failure receipts, then resumed the unchanged beam. Optional recovery in astra_subprocess_audit now requires pinned official replay of the literal window input before allowing the unchanged runner's original-path fallback; all beam failures and other window errors still stop. This is recovery of a valid longer route, not evidence of optimal shortening. Receipts: ledger/astra_window_recovery_20260929T0409Z.json; 35 ranked rows checkpointed, zero new hit.
 04:30Z (session 1): road cycle NEW_LINES 11, all plan_offline TIE on board 00:03Z: ac/sac-05149 (k2), ac/sac-03714 (k4), ac/sac-06457 (k5), ac/sac-04308 (k10/9), ac/sac-00905 (k13/12), ac-06872 (k13). Inboxed.
+
+05:00Z 2026-09-29 (session 2): ac-07790 (MS(5,YYXYYXyyx), record 40, k1): **iterative mid-restart from our 42-move path
+finished: no improvement** (every cut returns 42); yx_mid on the same path: no route to (y,x) <= 40. Session 3/Git owns the
+row family. Also noted: Astra reports `acc_window` exiting 3 ("FATAL walk to s_j failed") on both ac-03068 routes
+although the raw AC51/SAC53 routes pass the official verifier (ledger/astra_ac03068_window_failure_20260929T0400Z.json);
+run_beam_raw keeps the unshortened path when the window step fails, so no result is lost, but the window step silently
+does nothing on such routes. Open bug.
+Morning sends so far: 2759 (3), 2763 (4), 2765 (8), 2766 (3): all accepted.
