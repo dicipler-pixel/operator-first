@@ -278,7 +278,8 @@ def build(work):
              "2793": "Resume after hold: ac/sac-02242 (fresh easy, k7), sac-03789 (yx_mid, k3). Live check dropped 7 lines the owner had already sent (ac/sac-05149, ac/sac-06457, ac-06872, sac-04346, sac-07792).",
              "2794": "ac/sac-04953: Astra route 38 shortened to 37 by the lead's acc_window (Astra's AC window step was failing), k11-12; ac/sac-08035 (fresh easy, k7).",
              "owner-20260929T1155Z": "Owner direct submission (session 2 read budget out): ac/sac-01618 (relay), ac/sac-01755 (Astra route re-windowed 40->38), sac-06403, sac-04718 (k3), sac-08748. All accepted.",
-             "owner-20260929T1255Z": "Owner direct submission (morning checkpoint): ac/sac-06653 (Astra route re-windowed 40->38), ac/sac-05755 (fresh easy), ac/sac-00559 (Charlie easy exact batch 2). All accepted."}
+             "owner-20260929T1255Z": "Owner direct submission (morning checkpoint): ac/sac-06653 (Astra route re-windowed 40->38), ac/sac-05755 (fresh easy), ac/sac-00559 (Charlie easy exact batch 2). All accepted.",
+             "owner-20260929T2010Z": "Owner direct submission (evening): 39 tie lines incl. ac/sac-07337 (k2, session 1 DP), shape-list ties 02822/05731, fe2 chain ties 01768/03454/04538/..."}
     for x in subs:
         if x["id"] in notes:
             ok = sum(1 for r in x["results"] if r.get("ok"))
