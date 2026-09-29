@@ -97,3 +97,10 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
 - Supermove verdict so far: routes where beams fail on held rows (7/10 pilot), but 1.4–3× the record; long-record rows are hard,
   not loose (no beats); unsolved rows 0/23 at 90 s. The sweep continues on Git's 560 shortenable rows.
 - Inbox/UPDATE: nothing new since 09758 (21:25Z).
+
+## 22:55Z rally (session 2)
+- Quota: 40 uploads/day are per TEAM (owner locked out today). One merged send at 00:03Z (trigger trig_01Bak4w6SMmjXhjuhqVGrTDX):
+  OWNER_SUBMIT_20260929_2025Z.txt, 31 lines / 16 rows, all verified ties (session 1's HOLD file is a subset).
+- Bob: best-86 list + ready v3 verified (all lines pass). New: ac/sac-04539 (k3/k4). Road-DP lane over his 79 over-record rows
+  (08031 +1 k1: no gain); mid-route beam restarts on 08031 (k1) and 10098 (k1).
+- Supermove: unsolved sweep 0/64, wide test 0/4 (finished). Lanes fe 133/287, fe2 34/192, shape 35/187, auto_splice alive.
