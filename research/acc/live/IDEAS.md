@@ -1362,3 +1362,7 @@ Morning sends so far: 2759 (3), 2763 (4), 2765 (8), 2766 (3): all accepted.
   - ac-00580: 46 (unchanged)
 
   Each row takes 6–11 minutes. A radius-3 junction splice on ac-03871 and ac-10098 is running. Seeds 12–14 follow.
+- 09:21Z: mid_restart (MR_ITER=1, W=20000, no noise) on ac-03871 from the new 31-move route: no cut beat 31.
+  - Many cuts have state length 23, so the route crosses a long plateau.
+  - Now running noisy mid-restarts (BEAM_NOISE=2, seeds 21–24) on ac-03871 (target 30) and ac-10098 (target 40).
+    Any improvement lands in work/mr_cap.jsonl, which the sweep watcher now covers via mr_targets.json.
