@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **RUNNING after explicit user authorization — 2026-09-29 03:31 UTC. One ranked beam; 17-row checkpoint restored.**
+> **RUNNING — 2026-09-29 03:46 UTC. One ranked beam, 27 rows checkpointed, subprocess failure guard enabled.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -32,3 +32,9 @@ Hourly lines below (UTC, rows done / 150, hits, near misses).
 Resume safeguard: after any workspace restoration, verify T8 size and full SHA-256 BEFORE launching run_beam_raw.py; this runner does not check a failed beam exit code and could otherwise mislabel a corrupt-table failure as nopath. Rebuild the original table if its checksum differs; the table builder's final output-directory argument must exist. This restart checked the table before any new row ran. Keep raw checkpoints and do not requeue the earlier hits already handled in the user's 00:00Z batch.
 
 2026-09-29T03:33:01+00:00 — first resumed row ac-08247 finished: logged nopath, 79.4 s at W=20000 / depth49. Now 19 / 150 completed (149 actual entries), 2 earlier hit rows / 4 board lines, zero new hits, zero near misses within1. First resumed checkpoint pushed; current row ac-07354. Fresh process check confirms the ranked runner and one beam active; cgroup OOM counters are zero. No submission.
+
+2026-09-29T03:47:20+00:00 — 27 / 150 rows complete (149 actual entries), 2 earlier hit rows / 4 previously handed-off lines, zero new scoring hits and zero one-move misses. Ten rows completed since user resumed: nine bounded misses plus ac-06582 AC52/SAC54 versus47/49, both official-verifier clean (checks in ledger/astra_resume_checks_20260929T0343Z.jsonl). All27 rows pushed. The user asked for continuous active work, so this batch was actively watched and candidates verified as they appeared.
+
+At 03:46Z, enabled the tested opt-in subprocess audit after preserving the27-row checkpoint. Original runner host PID108878 and its child were stopped by retained session96994 and confirmed absent. The incomplete ac-05347 attempt was discarded, never recorded as a miss; it is now restarted. New retained session45748; fresh runner host PID124644. Original run_beam_raw.py and BEAM flags/arguments are unchanged. The original C sources were rebuilt for the current CPU; table full checksum was checked again before launch.
+
+For future resumes, use the v2 command with these additional audit variables exported in its shell: PYTHONPATH="$PWD/research/acc/optimality/astra_subprocess_audit\${PYTHONPATH:+:$PYTHONPATH}" and ASTRA_SUBPROCESS_AUDIT_DIR="$PWD/work/astra_resume_20260929T0328/subprocess_audit". Verify the hook imports before launch. The guard records raw beam/window stdout/stderr and return codes in that directory and refuses nonzero exits or missing beam result lines before a false nopath can enter the sweep. Four non-search failure/success canaries pass. This protection applies prospectively; it does not retroactively add exit-code evidence to older rows. The known rk2 boundary is unchanged:59 completed, first shared target ac-00049 at our position92; work target prefix91 remains in effect.
