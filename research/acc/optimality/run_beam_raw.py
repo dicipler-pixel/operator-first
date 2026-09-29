@@ -17,6 +17,9 @@ def enc(r0, r1): return [str(len(r0)), *[str(E[t]) for t in r0], str(len(r1)), *
 def window(r0, r1, path):
     p = subprocess.run([BIN + '/acc_window', WORK, *enc(r0, r1), str(len(path)), *map(str, path)],
                        capture_output=True, text=True)
+    recovered = getattr(p, 'astra_verified_window_path', None)
+    if recovered is not None:
+        return recovered
     m = re.search(r'FINALPATH ?([\d ]*)', p.stdout)
     return list(map(int, m.group(1).split())) if m else path
 

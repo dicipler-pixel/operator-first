@@ -1,8 +1,10 @@
-"""Opt-in subprocess audit for the unchanged run_beam_raw.py runner.
+"""Opt-in subprocess audit for run_beam_raw.py.
 
 Enable only for that runner by adding this directory to PYTHONPATH and setting
 ASTRA_SUBPROCESS_AUDIT_DIR. Search decisions, arguments and BEAM settings are not
-modified. A failed executable stops the runner before it can append 'nopath'.
+modified. Unexpected failed executables stop before a 'nopath' can be appended.
+Known window reconstruction failures retain the best officially verified full
+path printed so far, or the verified input. They remain failures in the audit.
 """
 import datetime
 import json
@@ -53,8 +55,22 @@ def _verified_window_fallback(command, result):
     check = core.verify(challenge, moves, 'ac-r2-v1', manifest['limits'])
     if not check['ok']:
         raise RuntimeError('Failed window input also fails official replay: '+repr(check))
-    return dict(reason='Known reconstruction error; retain original verified input, no shortening claimed',
-                sair_commit=pin, literal_input_check=check, board_submission_verified=False)
+    selected = moves
+    selected_check = check
+    candidate_checks = []
+    for match in re.finditer(r'^PATH(?: ([\d ]+))?\s*$', output, re.M):
+        candidate = list(map(int, (match.group(1) or '').split()))
+        candidate_check = core.verify(challenge, candidate, 'ac-r2-v1', manifest['limits'])
+        candidate_checks.append(dict(length=len(candidate), verifier=candidate_check))
+        if candidate_check['ok'] and len(candidate) < len(selected):
+            selected = candidate
+            selected_check = candidate_check
+    recovered = len(selected) < len(moves)
+    return dict(reason=('Window failed after an officially verified intermediate shortening; preserve that path'
+                        if recovered else 'Known reconstruction error; retain original verified input, no shortening claimed'),
+                sair_commit=pin, literal_input_check=check, candidate_checks=candidate_checks,
+                selected_path=selected, selected_check=selected_check,
+                recovered_intermediate=recovered, window_completed=False, board_submission_verified=False)
 
 def _audited_run(*args, **kwargs):
     result = _original_run(*args, **kwargs)
@@ -81,6 +97,9 @@ def _audited_run(*args, **kwargs):
         fallback = _verified_window_fallback(command, result)
         if fallback:
             receipt['verified_input_fallback'] = fallback
+            # A separate attribute leaves the real stdout and nonzero status intact.
+            # The guarded runner consumes this only after official literal replay.
+            result.astra_verified_window_path = fallback['selected_path']
     with (destination / 'executions.jsonl').open('a') as handle:
         handle.write(json.dumps(receipt) + '\n')
         handle.flush()

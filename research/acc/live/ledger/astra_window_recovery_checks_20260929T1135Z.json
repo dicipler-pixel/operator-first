@@ -1,0 +1,242 @@
+[
+  {
+    "source": "1790675626809515168_acc_window.stdout",
+    "expected": 37,
+    "result": {
+      "reason": "Window failed after an officially verified intermediate shortening; preserve that path",
+      "sair_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+      "literal_input_check": {
+        "ok": true,
+        "length": 38,
+        "peak_total_relator_length": 29,
+        "work": 738,
+        "certificate_hash": "sha256:bf526725089db717de1f8c3947cd9f3a0b40d6faea3f8935c20f3b712a15472a"
+      },
+      "candidate_checks": [
+        {
+          "length": 37,
+          "verifier": {
+            "ok": true,
+            "length": 37,
+            "peak_total_relator_length": 29,
+            "work": 719,
+            "certificate_hash": "sha256:2c0ab1893d42532c01e2e240cd885cf2a32914093d1dde000ad30b4c056781b2"
+          }
+        }
+      ],
+      "selected_path": [
+        6,
+        4,
+        7,
+        10,
+        13,
+        10,
+        12,
+        4,
+        13,
+        11,
+        13,
+        4,
+        4,
+        7,
+        10,
+        5,
+        6,
+        13,
+        4,
+        10,
+        5,
+        11,
+        13,
+        4,
+        6,
+        3,
+        10,
+        8,
+        13,
+        2,
+        9,
+        5,
+        5,
+        5,
+        1,
+        2,
+        2
+      ],
+      "selected_check": {
+        "ok": true,
+        "length": 37,
+        "peak_total_relator_length": 29,
+        "work": 719,
+        "certificate_hash": "sha256:2c0ab1893d42532c01e2e240cd885cf2a32914093d1dde000ad30b4c056781b2"
+      },
+      "recovered_intermediate": true,
+      "window_completed": false,
+      "board_submission_verified": false
+    }
+  },
+  {
+    "source": "1790669178047490233_acc_window.stdout",
+    "expected": 38,
+    "result": {
+      "reason": "Window failed after an officially verified intermediate shortening; preserve that path",
+      "sair_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+      "literal_input_check": {
+        "ok": true,
+        "length": 41,
+        "peak_total_relator_length": 33,
+        "work": 805,
+        "certificate_hash": "sha256:3c3c344f9129d8437dd537dd1e8d1c78e8839ac266d2e68966c5d1b1dd7bbdb7"
+      },
+      "candidate_checks": [
+        {
+          "length": 38,
+          "verifier": {
+            "ok": true,
+            "length": 38,
+            "peak_total_relator_length": 33,
+            "work": 730,
+            "certificate_hash": "sha256:66cb8130723482ddfb402392e9ce16bf3875af338fc0185448a8485e2b9e2047"
+          }
+        }
+      ],
+      "selected_path": [
+        1,
+        4,
+        2,
+        11,
+        12,
+        11,
+        3,
+        6,
+        12,
+        5,
+        7,
+        0,
+        1,
+        8,
+        13,
+        10,
+        13,
+        2,
+        0,
+        9,
+        9,
+        6,
+        4,
+        0,
+        11,
+        12,
+        9,
+        2,
+        6,
+        9,
+        12,
+        5,
+        8,
+        2,
+        2,
+        2,
+        4,
+        2
+      ],
+      "selected_check": {
+        "ok": true,
+        "length": 38,
+        "peak_total_relator_length": 33,
+        "work": 730,
+        "certificate_hash": "sha256:66cb8130723482ddfb402392e9ce16bf3875af338fc0185448a8485e2b9e2047"
+      },
+      "recovered_intermediate": true,
+      "window_completed": false,
+      "board_submission_verified": false
+    }
+  },
+  {
+    "source": "1790654204717195073_acc_window.stdout",
+    "expected": 51,
+    "result": {
+      "reason": "Known reconstruction error; retain original verified input, no shortening claimed",
+      "sair_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+      "literal_input_check": {
+        "ok": true,
+        "length": 51,
+        "peak_total_relator_length": 31,
+        "work": 950,
+        "certificate_hash": "sha256:82a818b4d7bc09f3f5be501577d1bbae18a070e7dd47a090d23641cf22385447"
+      },
+      "candidate_checks": [],
+      "selected_path": [
+        5,
+        1,
+        4,
+        3,
+        8,
+        8,
+        7,
+        5,
+        11,
+        5,
+        12,
+        10,
+        6,
+        13,
+        4,
+        12,
+        11,
+        0,
+        3,
+        9,
+        6,
+        8,
+        11,
+        13,
+        5,
+        13,
+        2,
+        11,
+        4,
+        11,
+        4,
+        11,
+        13,
+        11,
+        5,
+        13,
+        11,
+        4,
+        11,
+        13,
+        11,
+        3,
+        9,
+        7,
+        4,
+        2,
+        4,
+        3,
+        11,
+        3,
+        5
+      ],
+      "selected_check": {
+        "ok": true,
+        "length": 51,
+        "peak_total_relator_length": 31,
+        "work": 950,
+        "certificate_hash": "sha256:82a818b4d7bc09f3f5be501577d1bbae18a070e7dd47a090d23641cf22385447"
+      },
+      "recovered_intermediate": false,
+      "window_completed": false,
+      "board_submission_verified": false
+    }
+  },
+  {
+    "control": "invalid PATH 0 rejected on each of the three real inputs",
+    "ok": true
+  },
+  {
+    "control": "unexpected exit 2 receives no fallback",
+    "ok": true
+  }
+]
