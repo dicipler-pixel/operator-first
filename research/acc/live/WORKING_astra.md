@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **SOLO RUNNING — 2026-09-29 05:18 UTC. Ranked closed at58; solo0/75 completed, first row ac-01759 in window shortening.**
+> **SOLO RUNNING — 2026-09-29 05:19 UTC. Ranked closed at58; solo1/75 complete and checkpointed, current row ac-04769.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -68,3 +68,5 @@ Part2 is now claimed for execution: all75 original rows in targets_astra_solo_20
 2026-09-29 05:18 UTC — Solo execution confirmed: runner host PID212652, retained session94726; verifier watcher PID212679/session74098. There is no ranked runner left. Solo0/75 completed; first row ac-01759 returned official-clean raw AC50/SAC51 versus44/46 and is being shortened, so it is not yet a completed sweep row or a hit. Both raw checks and beam exit0 receipt are saved in ledger/astra_solo_ac01759_raw_checks_20260929T0517Z.json. If interrupted, inspect saved subprocess output before repeating a finished beam. The pending output file work/astra_cap.jsonl is created only when the first row finishes. Ranked remains58/150 (149 input entries), 3 hit rows/5 board lines, one within-one miss; late rk2 overlap is documented above. No submissions.
 
 For later resumes, use the solo output and target paths above and preserve all original beam flags plus audit variables. The watcher source is now also durable at research/acc/optimality/astra_subprocess_audit/watch_batch.py (b66fd7f), with the same environment overrides. Full ranked closing verification/audit: ledger/astra_rank_close_20260929T0515Z.json (a52e4b4). Transition and duplicate-credit notice to session2: UPDATE_astra_to_session2_20260929T0515Z.md (1a1edbf). The already-pushed05612 inbox is 20260929T050643Z_astra_ac-05612.txt; the watcher later made an identical local copy which was removed after byte-for-byte comparison, not re-uploaded. Keep only one submission for the matching Astra/rk2 route.
+
+2026-09-29 05:19 UTC — First solo row completed at05:18:33Z: ac-01759 AC50/SAC51 versus44/46, both officially verified, no qualifying line or within-one miss. Solo1/75 complete, checkpoint sweeps/astra_cap_20260928.jsonl (9e96279); final first-row checks ledger/astra_solo_first_row_checks_20260929T0519Z.jsonl (ec0b550). Runner212652/session94726 and watcher212679/session74098 continue; current row ac-04769. Ranked58/150 remains closed, five late overlaps disclosed, three hit rows/five board lines total and one within-one near miss. Keep this automation enabled for the remaining74 solo rows; only disable when they are completed or released. No SAIR reads/submissions.
