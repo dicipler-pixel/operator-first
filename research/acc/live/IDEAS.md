@@ -1632,3 +1632,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   - fe lane: ac/sac-07084 ties (k17/k7), stacked.
 - 22:00Z hourly (session 1): added ac/sac-07084 (session 2 stack) to READY_FOR_USER_20260929T2100Z, which now holds 6 lines. Disk 17 GB.
 - 22:40Z (session 1): **the owner is blocked from submitting (daily limit reached).** 13 verified lines are held in HOLD_FOR_NEXT_WINDOW_20260929.txt. New finds are added there until the quota resets.
+- 23:05Z (session 1): **the loose DP on the gap 3–4 paths tied ac/sac-00345, 35/37 k3** (from our 38, a 3-move cut). Charlie had certified no ≤35 under caps up to 31, so the tie path peaks above 31. Held in HOLD_FOR_NEXT_WINDOW (15 lines).
