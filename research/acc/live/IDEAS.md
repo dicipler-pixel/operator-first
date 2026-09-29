@@ -1608,3 +1608,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   Any route is window-shortened. First test (ac-09317, 5M nodes): no route. Results: work/sf_cap.jsonl.
   - If routes appear: scale up, then shorten with the DP/splice/window stack.
   - If not: the gap is a different search (AC-Solver's published greedy/PPO), and we should read their method.
+- 20:40Z (session 1): the owner submitted the 38-line ready file (logged as owner-20260929T2035Z). New: a loose DP pass on Git's pooled paths that are not in our pool (121 paths; 38 jobs within 1-4 of the record): work/skdp_git.jsonl.
