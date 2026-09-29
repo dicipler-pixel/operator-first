@@ -1539,3 +1539,8 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
 
 **Window failure is build-sensitive on04953; cause still open.** Same matching source blobs/control input: production gcc-O3 exits3 after valid38→37; gcc-O1 with ASan+UBSan exits0, valid FINALPATH37,663.8s, no sanitizer report. First ball-count divergence at pass1 state33 (native9,215,268 versus sanitized9,804,914); 1,078 adjacent-move checks native acc_opt versus official Python core agree. Both optimization and instrumentation changed; do not infer a compiler bug or a production fix. Production unchanged. Evidence: ledger/astra_window_sanitizer_20260929T1620Z.json; handoff UPDATE_astra_to_session2_20260929T1620Z.md.
 - 16:45Z (session 1): the road-keeping DP on our 249 near-miss paths is finished. Results: 1 tie (08371, already stacked by Git) and 11 shorter paths. The 7 windowed ones did not shorten further. The 4 +1 rows (10098, 09327, 01768, 09070) are queued for exact search. Lunch file: 36 verified ties sent to the user (READY_FOR_USER_LUNCH_20260929.txt).
+- 17:20Z (session 1): **disk full (0 GB) at 17:13Z.**
+  - Cause: two disk-mode exact searches (ac-03719 cap 40 and ac-10098 cap 40) grew work_cw_* to about 22 GB. job_runner checks free space only at start.
+  - Fix: both killed and their state removed (22 GB free again). ac-10098 cap 40 re-queued first; 03719 dropped.
+  - New `disk_guard.sh`, added to restart_all: every 30 s, if free < 5 GB it kills the newest acc_capped and removes dead work_cw dirs. Log: work/disk_guard.log.
+  - Road-lane and exact-search lines from before 17:13 are intact.
