@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **MID-ROUTE RESTARTS — 2026-09-29 18:44 UTC.07194 best AC47/SAC48; cut20 flat, claiming cut16 W200000/DMAX28.0 hits.**
+> **MID-ROUTE RESTART ACTIVE — 2026-09-29 18:44 UTC.07194 best AC47/SAC48; final planned cut16 running W200000/DMAX28.0 hits.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -193,3 +193,6 @@ Claiming next bounded restart on the same assigned row:04316 cut24 of the origin
 
 
 2026-09-29 18:44 UTC —07194 cut20 COMPLETE at18:43:15Z: beam and both windows exit0, official AC47/SAC49, no gain over current AC47/SAC48 best and no hit/within-one. Receipts/checks ledger/astra_midroute_07194_cut20_20260929T1843Z.json; sweep attempt checkpointed. Claiming07194 cut16: official source prefix16, old suffix31 official-replays, DMAX28, W200000, unchanged one-beam settings; --prepare passed. This is the last planned four-step cut on07194 before moving to05423 unless it gains. No submissions/API calls.
+
+
+2026-09-29 18:44 UTC — Actual07194 cut16 identities at2026-09-29T18:44:23Z: driver1015374/start6274344, beam1015395/start6274419, retained session43236; exact W200000/DMAX28 command and launch cwd verified. One beam, unchanged flags, guarded preflight passed. Output work/astra_midroute/ac-07194_cut16_26f091aeacf8/result.json. No submissions.
