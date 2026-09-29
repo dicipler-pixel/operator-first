@@ -223,3 +223,6 @@ Claiming next bounded restart on the same assigned row:04316 cut24 of the origin
 
 
 2026-09-29 19:58 UTC — ac-05423 cut12 active in retained attached session33678: driver1086110/start6702066, beam1086131/start6702142, launch from assigned workspace. Exact W200000/DMAX21 command verified; one beam, unchanged flags, no chain. Guarded preflight passed. Output work/astra_midroute/ac-05423_cut12_88acefd7e90f/result.json. No submissions/API reads.
+
+
+2026-09-29 20:12 UTC — ac-05423 cut12 COMPLETE at20:10:58Z: beam and both windows exit0; official AC37/SAC38 unchanged (+4/+3), no gain/hit/within-one. Ledger/astra_midroute_05423_cut12_20260929T2011Z.json and sweep checkpoint pushed. Claiming fourth/final planned row restart cut8: official prefix8, old suffix29 official-replays, DMAX25=33-8, W200000, unchanged one-beam settings. --prepare passed; no prior result. No API reads/submissions.
