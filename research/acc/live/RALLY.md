@@ -80,3 +80,12 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
 ## Fresh lists (03:10Z, board 00:03Z)
 - `targets_fresh_value_20260929T0310Z.json`: AC records 41-60, held by 1-4 teams, not tied by us, on no one's list. First free beam helper takes it (two-eyes beam), claims it in WORKING.
 - Charlie: `ORDERS_charlie_v5_20260929.md` (10 easy exact rows).
+
+## 21:30Z rally (session 2; the 20:55Z trigger arrived late after a container restart at ~21:15Z)
+- Restart: fe, fe2 (chain), shape (seed 12 + chain), auto_splice and both watchers restarted. fv/fvb were not restarted; their core
+  now runs the supermove lanes.
+- New ties: ac/sac-09758 (session 1 loose DP, k4), verified and added to OWNER_SUBMIT_20260929_2025Z.txt (with 04323).
+- **New direction: supermove solve-first** (research/acc/optimality/supermove/). Two lanes:
+  1. **Unsolved rows (2,672, first solve = 1 AC + 1 Stable pt)**, Git's 560 shortenable rows first.
+  2. **Long-record rows (1,475 with record >= 100; 1,317 single-team)**: supermove route + road DP can BEAT loose long records.
+- Drive hub: nothing new since 03:40Z.
