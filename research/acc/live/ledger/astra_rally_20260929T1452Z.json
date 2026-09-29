@@ -1,0 +1,170 @@
+{
+  "processes": [
+    {
+      "pid": 786611,
+      "command": [
+        "python3",
+        "research/acc/optimality/run_beam_raw.py",
+        "SAIR/competition/tools/verifier/data/manifest.json",
+        "bin",
+        "work/T8.tab",
+        "work/w_astra_wide",
+        "200000",
+        "200",
+        "work/astra_wide_cap.jsonl",
+        "work/astra_wide_first3.json"
+      ],
+      "cwd": "PermissionError",
+      "start_ticks": "4878009",
+      "state": "S",
+      "cpu_ticks": 11
+    },
+    {
+      "pid": 786628,
+      "command": [
+        "bin/acc_beam",
+        "work/T8.tab",
+        "200000",
+        "35",
+        "8",
+        "3",
+        "1",
+        "3",
+        "1",
+        "3",
+        "1",
+        "1",
+        "1",
+        "17",
+        "3",
+        "1",
+        "3",
+        "1",
+        "2",
+        "0",
+        "2",
+        "0",
+        "3",
+        "1",
+        "3",
+        "0",
+        "2",
+        "1",
+        "3",
+        "1",
+        "1"
+      ],
+      "cwd": "PermissionError",
+      "start_ticks": "4878020",
+      "state": "R",
+      "cpu_ticks": 5594
+    },
+    {
+      "pid": 786656,
+      "command": [
+        "python3",
+        "research/acc/optimality/astra_subprocess_audit/watch_batch.py",
+        "2",
+        "3"
+      ],
+      "cwd": "PermissionError",
+      "start_ticks": "4878174",
+      "state": "S",
+      "cpu_ticks": 12
+    }
+  ],
+  "audit_receipts": 234,
+  "finished_07194": [
+    {
+      "utc": "2026-09-29T13:40:42+00:00",
+      "command": [
+        "bin/acc_beam",
+        "work/T8.tab",
+        "200000",
+        "46",
+        "9",
+        "3",
+        "3",
+        "0",
+        "2",
+        "0",
+        "3",
+        "0",
+        "2",
+        "0",
+        "17",
+        "3",
+        "3",
+        "1",
+        "3",
+        "1",
+        "2",
+        "1",
+        "3",
+        "1",
+        "2",
+        "0",
+        "0",
+        "2",
+        "1",
+        "2",
+        "0",
+        "0"
+      ],
+      "returncode": 0,
+      "stdout_file": "1790689242864254695_acc_beam.stdout",
+      "stderr_file": "1790689242864254695_acc_beam.stderr"
+    }
+  ],
+  "completed_wide": [
+    "ac-04316",
+    "ac-07194"
+  ],
+  "utc": "2026-09-29T14:52:21.548656+00:00",
+  "launch_cwd": "/workspace/scratch/42a779575dd0/operator-first",
+  "boot_id": "04117895-9019-4a84-848d-1e44a113f838",
+  "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "sessions": {
+    "runner": 67370,
+    "watcher": 1577
+  },
+  "preflight": "Clean pinned SAIR, full T8 size/hash, controlled native binary hashes and no completed05423 receipt passed prelaunch.py before restart",
+  "restart": "Earlier runner/watchers absent; only unfinished05423 resumed; no signal sent",
+  "input": "work/astra_wide_first3.json",
+  "stop_before_row4": true,
+  "watcher_events": [
+    {
+      "event": "WATCH_STARTED",
+      "from_completed": 1,
+      "stop_after": 3
+    },
+    {
+      "event": "ROW_COMPLETE",
+      "utc": "2026-09-29T14:17:36+00:00",
+      "completed": 2,
+      "id": "ac-07194",
+      "verdict": "above",
+      "wall_s": null,
+      "verified": [
+        {
+          "id": "ac-07194",
+          "length": 47,
+          "record": 44
+        },
+        {
+          "id": "sac-07194",
+          "length": 49,
+          "record": 46
+        }
+      ],
+      "qualifying_lines": 0,
+      "inbox": null
+    },
+    {
+      "event": "WATCH_STARTED",
+      "from_completed": 2,
+      "stop_after": 3
+    }
+  ],
+  "recovered07194_finished": "2026-09-29T14:17:35.102925+00:00"
+}

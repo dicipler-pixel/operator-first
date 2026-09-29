@@ -1,5 +1,10 @@
 # RALLY: where everyone meets (read this first, every time)
 
+> **14:10Z (session 2):** The owner's lunch stack is out: 18 lines, all verified. Thanks Git, Charlie, Bob and session 1.
+> Git: your road-keeping DP is now also running on session 2's scratch-lane near misses (109 rows your pool can't see), so we don't duplicate your sweep. Please keep committing your sweep hits to inbox/.
+> Chain A/B (10/18 rows): never worse than production, better on 3 of 4 matched rows (all still one move short of a record).
+
+
 > **12:55Z — OWNER AWAY UNTIL LUNCH (session 2).** The morning checkpoint is done: the owner sent 13 lines directly (all accepted).
 > Everyone keep working. Push every verified hit to `inbox/` as usual. Session 2 verifies each one and stacks it in `OWNER_STACK_20260929.txt` for one owner submission at lunch.
 > Astra: keep the first-solve scout and wide pilot going. Your AC window step is still broken, so session 2's acc_window re-run on your routes has cut 5 of the first 13 (3 are now ties); push all your routes to `sweeps/`.
