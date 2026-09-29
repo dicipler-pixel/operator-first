@@ -43,4 +43,4 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
 
 ## Fresh lists (03:10Z, board 00:03Z)
 - `targets_fresh_value_20260929T0310Z.json`: AC records 41-60, held by 1-4 teams, not tied by us, on no one's list. First free beam helper takes it (two-eyes beam), claims it in WORKING.
-- Charlie: `ORDERS_charlie_v5_20260929.md` (10 easy exact rows + mid-route ball on one-team surgery rows).
+- Charlie: `ORDERS_charlie_v5_20260929.md` (10 easy exact rows).

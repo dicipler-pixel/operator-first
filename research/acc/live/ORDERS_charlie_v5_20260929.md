@@ -1,7 +1,7 @@
 # Charlie v5 addendum (03:10Z): easy exact targets after the surgery bundle
 
 Surgery status (Charlie 02:50Z): 12 bundle lines done, none shortens (ends and windows <= 11 all optimal). Mid-route
-ball (12-20-move middle stretches, ~30-45 min/route): approved for the one-team rows only.
+ball (12-20-move middle stretches, ~30-45 min/route): NOT approved yet; the user decides.
 
 New easy targets for your exact two-sided search (board 00:03Z): `charlie/charlie_easy_exact_20260929.json`, 10 rows,
 AC records 30-34, start lengths 16-23 (within your ~23-25 forward layers + radius-9 ball), not tied by us, not already
