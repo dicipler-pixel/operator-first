@@ -1396,3 +1396,41 @@ Morning sends so far: 2759 (3), 2763 (4), 2765 (8), 2766 (3): all accepted.
 - 11:22Z: **confirmed.** Our acc_window cut Astra's ac-04953 AC route from 38 to 37. Astra had it as +1 on both
   boards; it is now a tie on both (AC 37, Stable 39; k11–12). Astra's missing AC window step has been costing
   ties. The re-run on the other 61 routes continues.
+
+## 2026-09-29 11:55Z, session 1: structure scan of all 10,115 AC rows, plus a new relator-substitution solver
+- **Status mix (board 00:03Z, our best paths):**
+  - Unsolved: 2,672 rows, start-length median 24.
+  - We tie: 346 (median 26). We have a gap: 607. We have no path: 6,490 (median 29).
+  - So the unsolved rows are *shorter* than the solved ones. Start length is not what makes a row hard.
+- **Pattern 1: the max power predicts unsolved.**
+
+  | Max power | Unsolved share |
+  |---|---|
+  | 2 | 6% |
+  | 3 | 11% |
+  | 4 | 19% |
+  | 5 | 34% |
+  | 6 | 46% |
+  | 7 | 63% |
+  | 8 | 75% |
+  | 11 | 79% |
+
+  The short-relator min length 8 is 51% unsolved; min lengths 5, 12 and 13 are about 1–3%.
+- **Pattern 2: Baumslag–Solitar short relators dominate the unsolved rows.** The class x^-1 y^n x = y^(n+1) holds 342 unsolved rows (share unsolved in brackets):
+  - YYYXyyx (n=2): 166 of 237 (70%)
+  - YYYYXyyyx (n=3): 131 of 183 (72%)
+  - YYYYYXyyyyx (n=4): 45 of 60 (75%)
+
+  Inside a class, the other relator decides it:
+  - y-heavy other relators (y-exponent −4 to −6, e.g. YYYYxYxYXXX) are mostly solved (n=2: y-exp −6 is 8 solved, 2 unsolved).
+  - x-heavy others (X^3, X^4 blocks; y-exp 0, −1, −2) are almost all unsolved (y-exp 0: 21 unsolved, 1 solved).
+
+  Reading: conjugation by x^k scales y^(n^k) to y^((n+1)^k). An x-power in the other relator forces exponentially long rewrites (BS distortion). Fixed-depth beams can't reach those paths, but the 100,000-move and relator-length-10,000 limits allow them, and a first solve at any length is a full point.
+- **New tool: `tools/acc/subst_solver.py`**
+  - Macro search over whole-relator substitutions: rotate r_i, then r_i ← r_i · (u r_j^±1 u^-1) with some cancellation.
+  - Each macro compiles to official moves (conjugations, one multiplication, inverse conjugations) on the exact core state. The finished path is checked against the target.
+  - Controls: ac-00147 and ac-00217 solve in about 4 s (101 and 52 moves).
+  - Unsolved BS rows, length score, W 150: 0 of 12 (stuck at length 15–22).
+  - The opposite score, x-letter count with big slack (Britton direction): 0 of 1 in 600 s, too slow.
+  - Lane `lane_subst.sh` is running: length score on all 2,330 non-BS unsolved rows (90 s each), then x-score on the 342 BS rows.
+- Next idea to try if both come back empty: build the BS rewrite explicitly. Use Britton pinches x^-1 y^(nk) x → y^((n+1)k) on the other relator until it is x·y^m, then do the endgame. This only works when the pinch sequence terminates.
