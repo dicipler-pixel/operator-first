@@ -1570,3 +1570,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   - (c) The owner submitted ac/sac-03779. Pending: 04739, 02092, 09850 (AC+SAC).
 - 18:50Z (session 1): took Git shape list 1 with one noise seed (11), lane shapeG.
 - 19:00Z hourly (session 1): ready file READY_FOR_USER_20260929T1855Z now holds 18 lines: 04739, 02092, 09850, 03454, 04538, 01768, 06241, 08469, 09497 (AC+SAC each), all verified ties. The shapeG lane is running Git list 1. Disk 16 GB.
+- 20:00Z hourly (session 1): the ready file holds 36 lines (added 01945, 07456, 08322 from session 2). Disk 10 GB.
