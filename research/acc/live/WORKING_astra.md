@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **MID-ROUTE RESTARTS ACTIVE — 2026-09-29 17:56 UTC.04316 four cuts and07194 cut28 complete without gain;07194 cut24 running W200000/DMAX20.0 new hits.**
+> **MID-ROUTE RESTART RECOVERY — 2026-09-29 18:07 UTC.07194 cut24 vanished without receipt; hashes clean, safely restarting only that cut.0 new hits.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -178,3 +178,6 @@ Claiming next bounded restart on the same assigned row:04316 cut24 of the origin
 
 
 2026-09-29 17:56 UTC — Actual07194 cut24 identities at2026-09-29T17:56:12Z: driver967891/start5985335, beam967912/start5985411, retained session3662; exact W200000/DMAX20 command and launch cwd verified. One beam, unchanged flags, guarded preflight passed. Output work/astra_midroute/ac-07194_cut24_26f091aeacf8/result.json. No submissions.
+
+
+2026-09-29 18:07 UTC — Fresh lead inventory unchanged (RALLY14:10Z, latest Astra update1115Z). At18:06:21Z the recorded07194 cut24 driver967891/beam967912 were absent, job directory empty, and exact audited beam command had no receipt. Same boot and zero cgroup OOM counters; cause unestablished. Clean SAIR pin, full T8 size/hash, and controlled binary hashes rechecked. Restarting only unfinished07194 cut24 W200000/DMAX20; completed rows/cuts are not repeated. Keeping this attempt attached until receipt. No SAIR API reads/submissions.
