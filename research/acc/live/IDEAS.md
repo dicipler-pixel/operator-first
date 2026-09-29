@@ -1299,3 +1299,10 @@ block or 1-2 moves) meeting one backward step anywhere later; library rebuilt = 
 training paths saves 150 moves over 30 paths. Result: 0 rows shortened by even one move. Bob now runs reach 3 (two forward
 steps + one backward, ~3.3M bridges per position), k=1 rows first. Session 2's (y,x) lane yxl finished all 178 rows;
 its core now runs lane fv (293 never-tried fresh-value rows, records 41-49).
+03:25Z (session 1): check-in. No ties. ac-02377 from Git's state, cap 26: no finish within 60 moves (127M states, depth 60). Long rows 26+36 real rows after purge; family 140/254; twins 6/100; sac-08078 cap 35 and gap runs continuing.
+03:50Z (session 1): board check of Kernel/Bob's return (ZIP sha256 29b6512d...): 44 cross-class paths, all official-ok,
+**0 scoring** (board 00:03Z). +1 over record: ac-05598 40/39 (k1), ac-04139 37/36, ac-04416 30/29, ac-07119 34/33;
++2: ac-01260, 01618, 04015, 05406, 09070. All 44 added to session 1's road pool (work/kernel_paths.jsonl) for window
+shortening and cross-row borrowing. Bob's block splice: 0/38 shortened at reach 2 and reach 3 (ledgers archived here).
+Kernel/Bob ledgers + scripts archived: ledger/kernel_cross_class_transfers_20260929.jsonl, bob_block_splice_reach{2,3}_20260929.jsonl,
+kernel_class_search_20260929.jsonl, ledger/kernel_scripts/.
