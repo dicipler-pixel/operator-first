@@ -1527,3 +1527,8 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
 - 14:11Z: yx_mid on Git's new ac-07119 33-move path (target: a (y,x) route of ≤32 for sac 34, k2): best (y,x) route 36. No Stable tie.
 - 15:00Z: the container restarted at 14:59Z and every process was lost. Scratch state survived. Restarted fe, fv, fvb, chain (6 rows left), astra-window (25 left), skd DP (80 left), auto_splice_loop and the watchers. div seeds and esc2 are paused for CPU. The skd DP so far: ac-05149 34->33 = record (k2), but the owner had already sent it.
 - 15:45Z (session 1): skeleton transfer paused after 47 unsolved rows with 0 first solves (nearest pairs d=1–2 first). It stays resumable (work/skel_transfer.jsonl). CPU goes to the road-keeping DP (101 of 249 done) and the exact queue.
+- 15:56Z session 2: **road-keeping DP, Stable side (new).** work/skd_yx.py runs Git's DP on the (y,x) routes of
+  Stable near misses (1–3 over, 90 rows, lowest k first). It works on the letter-swapped presentation toward (x,y),
+  maps the moves back, and checks with acmoves.run == (y,x); the Stable line is the route + [15,15].
+  Output: work/skdyx_cap.jsonl, which is watched. The AC-side skd lane is at 107/109; its one tie so far
+  (ac-05149 34->33) had already been sent by the owner.
