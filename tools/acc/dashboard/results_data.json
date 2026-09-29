@@ -1,27 +1,27 @@
 {
- "built": "2026-09-29T10:27Z",
+ "built": "2026-09-29T10:32Z",
  "summary": {
-  "updatedAt": "2026-09-29T10:27Z",
-  "leaderboardAt": "2026-09-29T10:25:00Z",
+  "updatedAt": "2026-09-29T10:32Z",
+  "leaderboardAt": "2026-09-29T10:30:00Z",
   "ac": {
    "rank": 14,
    "teams": 45,
-   "score": 3.0194,
-   "estimate": 2.1131,
-   "ties": 334
+   "score": 3.0196,
+   "estimate": 2.2088,
+   "ties": 338
   },
   "sac": {
    "rank": 12,
    "teams": 42,
-   "score": 6.1011,
-   "estimate": 4.4293,
-   "ties": 343
+   "score": 6.1324,
+   "estimate": 4.5425,
+   "ties": 347
   },
-  "sentToday": 22,
+  "sentToday": 23,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-29T10:25Z",
-  "subsTotal": 125
+  "boardAt": "2026-09-29T10:30Z",
+  "subsTotal": 126
  },
  "points": [
   {
@@ -651,6 +651,15 @@
    "acRank": 14,
    "acTeams": 45,
    "sac": 6.1011,
+   "sacRank": 12,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-29T10:30:00Z",
+   "ac": 3.0196,
+   "acRank": 14,
+   "acTeams": 45,
+   "sac": 6.1324,
    "sacRank": 12,
    "sacTeams": 42
   }
@@ -4053,9 +4062,9 @@
    "k_then": 14,
    "val_then": 6e-05,
    "rec_now": 31,
-   "k_now": 14,
+   "k_now": 15,
    "holding": true,
-   "val_now": 0.00012,
+   "val_now": 6e-05,
    "method": "two-eyes beam (fresh easy)"
   },
   {
@@ -4067,9 +4076,9 @@
    "k_then": 13,
    "val_then": 0.00012,
    "rec_now": 28,
-   "k_now": 13,
+   "k_now": 14,
    "holding": true,
-   "val_now": 0.00024,
+   "val_now": 0.00012,
    "method": "two-eyes beam (fresh easy)"
   },
   {
@@ -4081,9 +4090,9 @@
    "k_then": 6,
    "val_then": 0.01562,
    "rec_now": 32,
-   "k_now": 6,
+   "k_now": 7,
    "holding": true,
-   "val_now": 0.03125,
+   "val_now": 0.01562,
    "method": "two-eyes beam (fresh easy)"
   },
   {
@@ -4095,10 +4104,122 @@
    "k_then": 6,
    "val_then": 0.01562,
    "rec_now": 29,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "two-eyes beam (fresh easy)"
+  },
+  {
+   "sub": "2791",
+   "at": "10:32",
+   "row": "ac-06913",
+   "kind": "AC",
+   "len": 33,
+   "k_then": 6,
+   "val_then": 0.01562,
+   "rec_now": 33,
    "k_now": 6,
    "holding": true,
    "val_now": 0.03125,
-   "method": "two-eyes beam (fresh easy)"
+   "method": "Charlie easy exact"
+  },
+  {
+   "sub": "2791",
+   "at": "10:32",
+   "row": "ac-07977",
+   "kind": "AC",
+   "len": 33,
+   "k_then": 6,
+   "val_then": 0.01562,
+   "rec_now": 33,
+   "k_now": 6,
+   "holding": true,
+   "val_now": 0.03125,
+   "method": "Charlie easy exact"
+  },
+  {
+   "sub": "2791",
+   "at": "10:32",
+   "row": "ac-08900",
+   "kind": "AC",
+   "len": 33,
+   "k_then": 4,
+   "val_then": 0.0625,
+   "rec_now": 33,
+   "k_now": 4,
+   "holding": true,
+   "val_now": 0.125,
+   "method": "Charlie easy exact"
+  },
+  {
+   "sub": "2791",
+   "at": "10:32",
+   "row": "ac-08934",
+   "kind": "AC",
+   "len": 42,
+   "k_then": 9,
+   "val_then": 0.00195,
+   "rec_now": 42,
+   "k_now": 9,
+   "holding": true,
+   "val_now": 0.00391,
+   "method": "two-eyes beam (fresh value, bottom half)"
+  },
+  {
+   "sub": "2791",
+   "at": "10:32",
+   "row": "sac-06913",
+   "kind": "Stable AC",
+   "len": 35,
+   "k_then": 6,
+   "val_then": 0.01562,
+   "rec_now": 35,
+   "k_now": 6,
+   "holding": true,
+   "val_now": 0.03125,
+   "method": "Charlie easy exact"
+  },
+  {
+   "sub": "2791",
+   "at": "10:32",
+   "row": "sac-07977",
+   "kind": "Stable AC",
+   "len": 35,
+   "k_then": 5,
+   "val_then": 0.03125,
+   "rec_now": 35,
+   "k_now": 5,
+   "holding": true,
+   "val_now": 0.0625,
+   "method": "Charlie easy exact"
+  },
+  {
+   "sub": "2791",
+   "at": "10:32",
+   "row": "sac-08900",
+   "kind": "Stable AC",
+   "len": 35,
+   "k_then": 4,
+   "val_then": 0.0625,
+   "rec_now": 35,
+   "k_now": 4,
+   "holding": true,
+   "val_now": 0.125,
+   "method": "Charlie easy exact"
+  },
+  {
+   "sub": "2791",
+   "at": "10:32",
+   "row": "sac-08934",
+   "kind": "Stable AC",
+   "len": 44,
+   "k_then": 8,
+   "val_then": 0.00391,
+   "rec_now": 44,
+   "k_now": 8,
+   "holding": true,
+   "val_now": 0.00781,
+   "method": "two-eyes beam (fresh value, bottom half)"
   }
  ],
  "byMethod": [
@@ -4127,6 +4248,12 @@
    "held": 2
   },
   {
+   "method": "Charlie easy exact",
+   "lines": 6,
+   "now": 0.4062,
+   "held": 6
+  },
+  {
    "method": "(y,x) lane (letter-swap twin)",
    "lines": 1,
    "now": 0.25,
@@ -4139,15 +4266,15 @@
    "held": 4
   },
   {
-   "method": "two-eyes beam (fresh easy)",
-   "lines": 15,
-   "now": 0.1727,
-   "held": 15
-  },
-  {
    "method": "Easy-rows lane fe",
    "lines": 15,
    "now": 0.164,
+   "held": 15
+  },
+  {
+   "method": "two-eyes beam (fresh easy)",
+   "lines": 15,
+   "now": 0.1412,
    "held": 15
   },
   {
@@ -4211,6 +4338,12 @@
    "held": 6
   },
   {
+   "method": "two-eyes beam (fresh value, bottom half)",
+   "lines": 6,
+   "now": 0.0176,
+   "held": 6
+  },
+  {
    "method": "Two-eyes ranked lane rk2 (y,x) finish",
    "lines": 1,
    "now": 0.0156,
@@ -4233,12 +4366,6 @@
    "lines": 1,
    "now": 0.0078,
    "held": 1
-  },
-  {
-   "method": "two-eyes beam (fresh value, bottom half)",
-   "lines": 4,
-   "now": 0.0059,
-   "held": 4
   },
   {
    "method": "User / Charlie line",

@@ -272,7 +272,8 @@ def build(work):
              "2787": "ac/sac-08398 (fresh value lane, k5-6); Astra easy ac/sac-05871, 09663 (k12-14).",
              "2788": "Astra easy pool rows 43-57: 15 tie pairs, ac/sac-00253, 00654, 01081, 01815, 02062, 02174, 04296, 04838, 06405, 06511, 06513, 07358, 07678, 07701, 07950 (k11-16).",
              "2789": "Session 2 fresh-easy lane: ac/sac-07550 (k11/k6); sac-09189 dropped by the live check (already sent).",
-             "2790": "Session 2 fresh-easy lane: ac/sac-09703, ac/sac-01918 (k6-14)."}
+             "2790": "Session 2 fresh-easy lane: ac/sac-09703, ac/sac-01918 (k6-14).",
+             "2791": "Charlie easy exact: ac/sac-08900 (k4), 06913 (k6), 07977 (k5-6); session 2 fvb: ac/sac-08934 (k8-9)."}
     for x in subs:
         if x["id"] in notes:
             ok = sum(1 for r in x["results"] if r.get("ok"))
