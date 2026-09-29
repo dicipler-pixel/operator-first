@@ -1434,3 +1434,4 @@ Morning sends so far: 2759 (3), 2763 (4), 2765 (8), 2766 (3): all accepted.
   - The opposite score, x-letter count with big slack (Britton direction): 0 of 1 in 600 s, too slow.
   - Lane `lane_subst.sh` is running: length score on all 2,330 non-BS unsolved rows (90 s each), then x-score on the 342 BS rows.
 - Next idea to try if both come back empty: build the BS rewrite explicitly. Use Britton pinches x^-1 y^(nk) x → y^((n+1)k) on the other relator until it is x·y^m, then do the endgame. This only works when the pinch sequence terminates.
+- 11:45Z check-in (session 1): all lanes restarted, orphan dirs cleaned, 17G disk free. road NEW_LINES = ac-05400 (already in SENT_ROWS). longA 64 / longB 74 rows, both nopath at records 73–74. subst lane: 0 solves so far on unsolved rows (stuck at total length 13).
