@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **MID-ROUTE RESTARTS ACTIVE — 2026-09-29 17:41 UTC.04316 four-cut ladder closed;07194 cut28 running W200000/DMAX16.0 new hits.**
+> **MID-ROUTE RESTARTS — 2026-09-29 17:56 UTC.04316 four-cut ladder and07194 cut28 complete without gain; claiming07194 cut24.0 new hits.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -172,3 +172,6 @@ Claiming next bounded restart on the same assigned row:04316 cut24 of the origin
 
 
 2026-09-29 17:41 UTC — Actual07194 cut28 identities at2026-09-29T17:40:55Z: driver952560/start5893513, beam952581/start5893588, retained session82756; exact W200000/DMAX16 command and assigned launch cwd verified. One beam, unchanged flags, preflight passed. Output work/astra_midroute/ac-07194_cut28_26f091aeacf8/result.json. No submissions.
+
+
+2026-09-29 17:56 UTC —07194 cut28 COMPLETE at17:55:11Z: beam exit0 and both windows exit0, final official AC47/SAC49 versus44/46, gaps+3/+3; no hit or within-one miss. Preserved all receipts/checks in ledger/astra_midroute_07194_cut28_20260929T1755Z.json and sweep attempt metadata; existing bests unchanged. Claiming07194 cut24 next: official source prefix24, old suffix23 official-replays, DMAX20, W200000, unchanged one-beam settings. --prepare passes; no prior cut24 result. Aggregate: wide3/18 complete,5 mid-route cuts completed across2 rows,0 hits,0 near misses within1. No SAIR API reads/submissions.
