@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **MID-ROUTE RESTARTS ACTIVE — 2026-09-29 16:56 UTC. Wide pilot stopped at3/18;04316 cut28 complete AC45/SAC47, unfinished cut24 safely restarted W200000/DMAX19.0 new hits.**
+> **MID-ROUTE RESTARTS — 2026-09-29 17:09 UTC. Wide pilot3/18 no gain;04316 cuts28/24 complete AC45/SAC47, claiming cut20 next.0 new hits.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -154,3 +154,6 @@ Claiming next bounded restart on the same assigned row:04316 cut24 of the origin
 
 
 2026-09-29 16:56 UTC — Fresh lead inventory read: RALLY remains14:10Z; latest Astra-specific update remains1115Z. At16:55:58Z the previously recorded cut24 driver882337/beam882357 were absent; its job directory was empty and the audited command had no completed receipt. Same boot, cgroup OOM counters all zero; cause unestablished. Rechecked clean SAIR a0fd6e6, T8 exact size/full hash, and all controlled native binary hashes. Restarted only unfinished04316 cut24 with unchanged W200000/DMAX19 and two-eyes/audit settings; completed cut28 and wide rows were not repeated. Actual16:56:29Z: driver908206/start5627634, beam908226/start5627707, retained session41829, launch cwd assigned workspace; one beam. Keeping the session attached until a receipt is produced. Wide3/18, mid-route cut28 complete, cut24 active, hits0, near misses within1:0. No SAIR API reads/submissions.
+
+
+2026-09-29 17:09 UTC —04316 cut24 restart COMPLETE at17:08:09Z after safe restart and active observation. Beam exit0 receipt1790701337346540032 found full AC45/SAC48; AC window exit3 used the guarded officially verified input fallback with no shortening; swapped window exit0; official AC45 and derived SAC47 remain+2/+2. No hit/within-one miss. Preserved routes, checks and all actual receipts in ledger/astra_midroute_04316_cut24_20260929T1708Z.json; checkpointed attempt metadata in sweeps/astra_wide_20260929.jsonl, existing bests unchanged. Claiming04316 cut20 next: original official path prefix20, DMAX=43-20=23, W200000, unchanged two-eyes/audit flags, one beam. Old suffix25 is outside span14. Guarded --prepare passes and no prior cut20 result exists. No SAIR API reads/submissions.
