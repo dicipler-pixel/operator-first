@@ -256,7 +256,8 @@ def build(work):
              "2765": "ac/sac-03714 (k4, session 1 road11), ac/sac-04308, ac/sac-00905 (session 1), ac/sac-07548 (lane fe); 5 lines the user had already sent were dropped by the live check.",
              "2766": "ac/sac-02007 and sac-00797 (k6-k7), easy-rows lane fe.",
              "2767": "sac-00201 k4 (yx_mid), ac/sac-03040 and sac-00826 (easy-rows lane fe).",
-             "2768": "sac-01639 k5 (yx_mid), sac-05612 (Astra), ac/sac-07188 (rk2)."}
+             "2768": "sac-01639 k5 (yx_mid), sac-05612 (Astra), ac/sac-07188 (rk2).",
+             "2769": "ac/sac-01089 (easy-rows lane fe), sac-05668 (yx_mid)."}
     for x in subs:
         if x["id"] in notes:
             ok = sum(1 for r in x["results"] if r.get("ok"))
