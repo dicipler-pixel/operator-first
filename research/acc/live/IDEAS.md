@@ -1523,3 +1523,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
     ac-03871 is incomplete (disk full at depth 19, cap 35). Archived in charlie/v7/.
   - **Git's road-keeping DP (skel_dp.py), adapted with a replay_loop shim.** It is running on our own 249 near-miss paths (≤ record+4; roads and kernel paths, including Bob's 13:30 batch).
     Output: work/skdp_near.jsonl.
+- 14:11Z: yx_mid on Git's new ac-07119 33-move path (target: a (y,x) route of ≤32 for sac 34, k2): best (y,x) route 36. No Stable tie.
