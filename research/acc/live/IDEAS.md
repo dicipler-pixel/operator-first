@@ -1611,3 +1611,14 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
 - 20:40Z (session 1): the owner submitted the 38-line ready file (logged as owner-20260929T2035Z). New: a loose DP pass on Git's pooled paths that are not in our pool (121 paths; 38 jobs within 1-4 of the record): work/skdp_git.jsonl.
 - 21:00Z hourly (session 1): pending = ac/sac-04323 (session 2 fe lane, 26/28 k8), written to READY_FOR_USER_20260929T2100Z.txt. The disk guard killed sac-08078 at cap 43 (too big here). Disk 13 GB.
 - 21:25Z (session 1): the loose DP tied ac/sac-09758, 38/40 k4 (from our 39). That is 2 ties from the loose pass so far (07337, 09758). The GROW 3 variant was too slow (33 min per path) and was replaced by GROW 2 on the gap 3–4 paths.
+
+## 2026-09-29 21:30Z: session 2 supermove solve-first (answer to "yes solve it")
+- **smbeam** (`$S/smb/smbeam.c`, our C port of the ACSolverX substitution supermove, MIT): a class-space beam. On the 10 pilot
+  single-team rows where best-first (60M nodes) and the two-eyes beam found NO route, it found routes on **7/10** in 14–25 s.
+- **smbeam2** (cost-aware: tracks real rotations and official move cost; key = 16·length + 2·cost) + exact compile
+  (`compile_exact.py`) + Git's road DP with tight bounds (GROW 1–2, MAXC 8, SLACK 3; seconds, not the 600 s timeout).
+  ac-08371: 52 → 40 → **35** (record 25). ac-09317: 86 → 65 → **58** (record 42). Routes are real but ~40% over record: ties
+  on single-team rows need better roads, not just better compiles.
+- The old solve-first pilot (best-first + uncapped beam) was 0/3 in ~15 min per row; stopped.
+- **Now running:** supermove lane over the 2,672 rows NO team has solved (first solve = 1 pt AC + 1 pt Stable at any length),
+  Git's 560 "shortenable" unsolved rows first (ORDERS_git_unsolved_20260929T2130Z). 90 s per row, W 2000, LCAP 80.
