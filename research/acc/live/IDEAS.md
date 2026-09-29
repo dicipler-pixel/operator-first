@@ -1499,3 +1499,8 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   Chain matches noisy seeds 11/12 on most rows; seeds are better once (ac-10098 AC 41) and worse once (seed 12 ac-08995 53).
   No tie yet: every gain stops one move short of a record. Chain is deterministic and costs nothing, so the next step is
   chain + noise together, if the full 18 rows hold up.
+- 14:00Z hourly (session 1):
+  - Road cycle gave ac/sac-03919 27/29 (k11/k10), stacked in OWNER_STACK. ac/sac-07351 were already stacked by session 2.
+  - Git skeleton-DP ties 08371 and 07119 were already stacked by session 2.
+  - sac-07119 (the ac path + [16,15]) is 35 vs 34 k2, +1.
+  - Skeleton transfer: 31 rows, 0 solves. Bob window pass done (only 02583 improved: 31 to 29). longA/longB still nopath at the 74 records.
