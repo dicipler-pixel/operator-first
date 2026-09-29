@@ -1,27 +1,27 @@
 {
- "built": "2026-09-29T04:37Z",
+ "built": "2026-09-29T05:00Z",
  "summary": {
-  "updatedAt": "2026-09-29T04:37Z",
-  "leaderboardAt": "2026-09-29T04:35:00Z",
+  "updatedAt": "2026-09-29T05:00Z",
+  "leaderboardAt": "2026-09-29T05:00:00Z",
   "ac": {
    "rank": 14,
    "teams": 45,
-   "score": 2.8585,
-   "estimate": 1.9598,
-   "ties": 265
+   "score": 2.8663,
+   "estimate": 1.9676,
+   "ties": 266
   },
   "sac": {
    "rank": 12,
    "teams": 42,
-   "score": 5.7667,
-   "estimate": 4.0948,
-   "ties": 271
+   "score": 5.7979,
+   "estimate": 4.2667,
+   "ties": 274
   },
-  "sentToday": 4,
+  "sentToday": 5,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-29T04:35Z",
-  "subsTotal": 107
+  "boardAt": "2026-09-29T05:00Z",
+  "subsTotal": 108
  },
  "points": [
   {
@@ -498,6 +498,15 @@
    "acRank": 14,
    "acTeams": 45,
    "sac": 5.7667,
+   "sacRank": 12,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-29T05:00:00Z",
+   "ac": 2.8663,
+   "acRank": 14,
+   "acTeams": 45,
+   "sac": 5.7979,
    "sacRank": 12,
    "sacTeams": 42
   }
@@ -1940,9 +1949,9 @@
    "k_then": 7,
    "val_then": 0.00781,
    "rec_now": 32,
-   "k_now": 7,
+   "k_now": 8,
    "holding": true,
-   "val_now": 0.01562,
+   "val_now": 0.00781,
    "method": "Easy-rows lane fe"
   },
   {
@@ -1954,9 +1963,9 @@
    "k_then": 6,
    "val_then": 0.01562,
    "rec_now": 34,
-   "k_now": 6,
+   "k_now": 7,
    "holding": true,
-   "val_now": 0.03125,
+   "val_now": 0.01562,
    "method": "Easy-rows lane fe ((y,x) finish)"
   },
   {
@@ -1968,9 +1977,65 @@
    "k_then": 6,
    "val_then": 0.01562,
    "rec_now": 34,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "Easy-rows lane fe"
+  },
+  {
+   "sub": "2767",
+   "at": "05:00",
+   "row": "ac-03040",
+   "kind": "AC",
+   "len": 33,
+   "k_then": 8,
+   "val_then": 0.00391,
+   "rec_now": 33,
+   "k_now": 8,
+   "holding": true,
+   "val_now": 0.00781,
+   "method": "Easy-rows lane fe"
+  },
+  {
+   "sub": "2767",
+   "at": "05:00",
+   "row": "sac-00201",
+   "kind": "Stable AC",
+   "len": 42,
+   "k_then": 4,
+   "val_then": 0.0625,
+   "rec_now": 42,
+   "k_now": 4,
+   "holding": true,
+   "val_now": 0.125,
+   "method": "yx_mid (Stable = AC+1)"
+  },
+  {
+   "sub": "2767",
+   "at": "05:00",
+   "row": "sac-00826",
+   "kind": "Stable AC",
+   "len": 35,
+   "k_then": 6,
+   "val_then": 0.01562,
+   "rec_now": 35,
    "k_now": 6,
    "holding": true,
    "val_now": 0.03125,
+   "method": "Easy-rows lane fe"
+  },
+  {
+   "sub": "2767",
+   "at": "05:00",
+   "row": "sac-03040",
+   "kind": "Stable AC",
+   "len": 35,
+   "k_then": 7,
+   "val_then": 0.00781,
+   "rec_now": 35,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
    "method": "Easy-rows lane fe"
   }
  ],
@@ -2006,6 +2071,18 @@
    "held": 1
   },
   {
+   "method": "yx_mid (Stable = AC+1)",
+   "lines": 2,
+   "now": 0.25,
+   "held": 2
+  },
+  {
+   "method": "Easy-rows lane fe",
+   "lines": 11,
+   "now": 0.1484,
+   "held": 11
+  },
+  {
    "method": "Session 1 road11",
    "lines": 6,
    "now": 0.1283,
@@ -2030,18 +2107,6 @@
    "held": 2
   },
   {
-   "method": "yx_mid (Stable = AC+1)",
-   "lines": 1,
-   "now": 0.125,
-   "held": 1
-  },
-  {
-   "method": "Easy-rows lane fe",
-   "lines": 8,
-   "now": 0.1172,
-   "held": 8
-  },
-  {
    "method": "Beam + exact (NEW15)",
    "lines": 6,
    "now": 0.0986,
@@ -2060,12 +2125,6 @@
    "held": 37
   },
   {
-   "method": "Easy-rows lane fe ((y,x) finish)",
-   "lines": 1,
-   "now": 0.0312,
-   "held": 1
-  },
-  {
    "method": "AC+2 to Stable AC",
    "lines": 6,
    "now": 0.0235,
@@ -2073,6 +2132,12 @@
   },
   {
    "method": "Two-eyes ranked lane rk2 (y,x) finish",
+   "lines": 1,
+   "now": 0.0156,
+   "held": 1
+  },
+  {
+   "method": "Easy-rows lane fe ((y,x) finish)",
    "lines": 1,
    "now": 0.0156,
    "held": 1
