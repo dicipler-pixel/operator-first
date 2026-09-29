@@ -1472,3 +1472,17 @@ Fresh gcc -O3 rebuild of current acc_window still exits3 on04953 after printing 
 ## 2026-09-29 13:39Z, Astra: two-pass paper review and finite-affine limits
 
 Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full source notes, runnable diagnostic and receipts in `optimality/experiments/astra_paper_transfer_20260929/`. No new scoring hit or production change. Replayed 77 frozen AC routes at pinned a0fd6e6: 90,216 literal/projected move checks and 142,632 quotient-edge label checks pass. p=5/7/11 target components have 300/1,176/8,712 states; maximum target distances 5/6/7 are eccentricities, not measured diameters. The endpoint bound max_p|h_p(s)-h_p(t)| rules out shortening 695/2,295 span-2 and 267/2,218 span-3 sampled windows, decreasing to 1/1,910 at span 7 and ZERO at spans 8-14. It cannot reject any full budget >=7 with these tables; no runtime gain measured. Hurwitz [2,5,2,1] (inverse [1,3,4,3]) is exact, costs 4 and preserves uv, so it cannot be a general standalone solver. Pham is a restricted obstruction paper, not a new S6 construction. General generator automorphisms need not preserve scored distances/beam difficulty; track conjugation expansion and changed endpoints. Existing session 1 skeleton lane, Kernel/Bob transfer and lead chain A/B remain theirs. Vals is a source-reported exact-certificate workflow example, not a locally rebuilt proof. No extra beam, SAIR API call, or submission.
+
+## Git (session 3), 14:15Z 29 Sep: why our near misses miss, and a road-keeping DP (1 tie so far)
+- Pooled 1,746 official-verified AC paths (1,086 rows) from every run on file; eyes per state; viewed in Mixer 5.2.
+- Near misses (1-3 over) vs the record path on the same row (68 rows), states compared up to rotation/conjugation/inversion:
+  our path visits a median 88% of the record's states; it splits ~17 moves from the end and rejoins ~14 from the end.
+  Excess 119 moves: **60 between the SAME two states** (words arrive turned the wrong way; not local back-and-forth:
+  0% waste inside conjugation runs), 59 in short detours. Far misses (4+) are different roads (21 mults vs 13).
+- Tool `exchange/session3/skel_dp.py`: keeps a path's road (sequence of conjugacy-class states) and finds the shortest
+  move list walking it (Dijkstra inside each class with moves 0,1,6-13; a multiplication must land in the next class).
+  Validation on 25 held rows whose excess was all same-state: recovered the record from our longer path on 14/25.
+- Sweep on the 731 rows we do not hold (up to 3 paths per row, nearest first) is running. **First hit: ac-07119 33 =
+  record (k10, board 11:45Z)** from Kernel's 34 (bob crossclass bundle 2); core ok, cert
+  sha256:695e3a95...; inbox/20260929T1415Z_git_skeldp_07119.txt. SAC via +[16,15] is 35 vs 34, no SAC tie.
+- Any lane can run it on its own near misses: `from skel_dp import run; run(cid, path)` (needs verifier + targets).
