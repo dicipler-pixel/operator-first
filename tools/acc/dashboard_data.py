@@ -263,7 +263,8 @@ def build(work):
              "2773": "ac/sac-06591, ac-05229, ac/sac-02649 (Astra, k17-18; low-value end of the easy pool, list order since corrected).",
              "2774": "ac/sac-06015, ac/sac-01738 (Astra, k18-19).",
              "2778": "ac-01561 k4 + sac-01561 (session 1 family lane, a bundle near miss closed), ac/sac-04062 (fvb).",
-             "2779": "Astra easy pool: ac/sac-09550, 06183, 08825, 01929 (k14-15)."}
+             "2779": "Astra easy pool: ac/sac-09550, 06183, 08825, 01929 (k14-15).",
+             "2780": "Astra easy pool: ac/sac-04037, 01404, 05630, 02655, 08204 (k14-15)."}
     for x in subs:
         if x["id"] in notes:
             ok = sum(1 for r in x["results"] if r.get("ok"))
