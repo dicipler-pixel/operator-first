@@ -1544,3 +1544,22 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   - Fix: both killed and their state removed (22 GB free again). ac-10098 cap 40 re-queued first; 03719 dropped.
   - New `disk_guard.sh`, added to restart_all: every 30 s, if free < 5 GB it kills the newest acc_capped and removes dead work_cw dirs. Log: work/disk_guard.log.
   - Road-lane and exact-search lines from before 17:13 are intact.
+
+## 2026-09-29 16:58Z session 2: chain A/B final, Astra re-window final
+- **BEAM_CHAIN=1 (ordered-chain tie-break) vs production, 18 near-miss rows, W=20000, same two-eyes flags.**
+  - Seven rows had a matched production route (14 AC + Stable comparisons): chain better 5, same 8, worse 1.
+    - Better: ac-03871 32/34→31/33, ac-08995 AC 49→47, ac-00580 Stable 47→46.
+    - Worse: ac-08031 AC 37→38 (Stable 39→38).
+  - vs noisy seed 11: chain better 6, seed better 4.
+  - Chain reached the record on ac-05149 (33/35, k2; the owner had already sent it).
+  - No new tie on a row we do not hold. Verdict: a small positive with nothing to pay; adopt it as the tie-break in new lanes.
+  - Per-row table: scratchpad/chain_ab_rows.json.
+- **Astra re-window (our acc_window on Astra's 62 AC routes within 3 of the record):** 5 cut.
+  - ac-04953 38→37, ac-01755 40→38, ac-06653 40→38: ties, all submitted by the owner.
+  - ac-01874 42→40 (+1).
+  - ac-07188 27→24 (we already held 24).
+- **Road-keeping DP (Git's tool) on session 2 near misses:**
+  - AC side, 109 rows: 1 tie (ac-05149, already sent).
+  - Stable (y,x) side, 90 rows: 0 ties; one cut, ac-09727 40→39 (record 37).
+- 17:00Z new lanes: fe2 (the fe list from the bottom, BEAM_CHAIN=1) and cn (chain + noise seed 21 on the 18 near-miss rows).
+- 17:06Z: fe and fe2 target lists had 57 rows already held on both boards, left over from the owner's direct submissions. Filtered them out and restarted both lanes (fe 344->287 rows; fe2 249->192). Old PIDs 458/5653 and 5363/5679 were stopped by exact PID.
