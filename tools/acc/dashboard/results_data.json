@@ -1,27 +1,27 @@
 {
- "built": "2026-09-29T10:11Z",
+ "built": "2026-09-29T10:27Z",
  "summary": {
-  "updatedAt": "2026-09-29T10:11Z",
-  "leaderboardAt": "2026-09-29T10:10:00Z",
+  "updatedAt": "2026-09-29T10:27Z",
+  "leaderboardAt": "2026-09-29T10:25:00Z",
   "ac": {
    "rank": 14,
    "teams": 45,
-   "score": 3.0189,
-   "estimate": 2.1134,
-   "ties": 332
+   "score": 3.0194,
+   "estimate": 2.1131,
+   "ties": 334
   },
   "sac": {
    "rank": 12,
    "teams": 42,
-   "score": 6.0855,
-   "estimate": 4.4136,
-   "ties": 341
+   "score": 6.1011,
+   "estimate": 4.4293,
+   "ties": 343
   },
-  "sentToday": 21,
+  "sentToday": 22,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-29T10:10Z",
-  "subsTotal": 124
+  "boardAt": "2026-09-29T10:25Z",
+  "subsTotal": 125
  },
  "points": [
   {
@@ -642,6 +642,15 @@
    "acRank": 14,
    "acTeams": 45,
    "sac": 6.0855,
+   "sacRank": 12,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-29T10:25:00Z",
+   "ac": 3.0194,
+   "acRank": 14,
+   "acTeams": 45,
+   "sac": 6.1011,
    "sacRank": 12,
    "sacTeams": 42
   }
@@ -4016,9 +4025,9 @@
    "k_then": 11,
    "val_then": 0.00049,
    "rec_now": 26,
-   "k_now": 11,
+   "k_now": 12,
    "holding": true,
-   "val_now": 0.00098,
+   "val_now": 0.00049,
    "method": "two-eyes beam (fresh easy)"
   },
   {
@@ -4030,6 +4039,62 @@
    "k_then": 6,
    "val_then": 0.01562,
    "rec_now": 27,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "two-eyes beam (fresh easy)"
+  },
+  {
+   "sub": "2790",
+   "at": "10:27",
+   "row": "ac-01918",
+   "kind": "AC",
+   "len": 31,
+   "k_then": 14,
+   "val_then": 6e-05,
+   "rec_now": 31,
+   "k_now": 14,
+   "holding": true,
+   "val_now": 0.00012,
+   "method": "two-eyes beam (fresh easy)"
+  },
+  {
+   "sub": "2790",
+   "at": "10:27",
+   "row": "ac-09703",
+   "kind": "AC",
+   "len": 28,
+   "k_then": 13,
+   "val_then": 0.00012,
+   "rec_now": 28,
+   "k_now": 13,
+   "holding": true,
+   "val_now": 0.00024,
+   "method": "two-eyes beam (fresh easy)"
+  },
+  {
+   "sub": "2790",
+   "at": "10:27",
+   "row": "sac-01918",
+   "kind": "Stable AC",
+   "len": 32,
+   "k_then": 6,
+   "val_then": 0.01562,
+   "rec_now": 32,
+   "k_now": 6,
+   "holding": true,
+   "val_now": 0.03125,
+   "method": "two-eyes beam (fresh easy)"
+  },
+  {
+   "sub": "2790",
+   "at": "10:27",
+   "row": "sac-09703",
+   "kind": "Stable AC",
+   "len": 29,
+   "k_then": 6,
+   "val_then": 0.01562,
+   "rec_now": 29,
    "k_now": 6,
    "holding": true,
    "val_now": 0.03125,
@@ -4074,6 +4139,12 @@
    "held": 4
   },
   {
+   "method": "two-eyes beam (fresh easy)",
+   "lines": 15,
+   "now": 0.1727,
+   "held": 15
+  },
+  {
    "method": "Easy-rows lane fe",
    "lines": 15,
    "now": 0.164,
@@ -4090,12 +4161,6 @@
    "lines": 2,
    "now": 0.126,
    "held": 2
-  },
-  {
-   "method": "two-eyes beam (fresh easy)",
-   "lines": 11,
-   "now": 0.126,
-   "held": 11
   },
   {
    "method": "Class quota",
