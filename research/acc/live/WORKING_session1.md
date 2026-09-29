@@ -59,4 +59,4 @@ Hits go to research/acc/live/inbox/. Also resumes the reverse-ceiling probe at c
 1,126 AC rows with records 61-90, held by 1-2 teams, not tied by us, not on TARGETS_RANKED or any targets/sweeps list
 (board 20:50Z). List: sweeps/long_session1_targets.json. Two-eyes beam (dual flags, W 20k, record+2, window shortener),
 lanes longA/longB, one-team rows first. Hits -> inbox.
-- 18:50Z (session 1) claims **Git shape list 1** (targets_git_shape_20260929T1830Z.json, 192 rows). Lane shapeG: two-eyes beam, DMAX = record+2, BEAM_NOISE=2 seed 11. Order: not on an active list first, then gap 1 to 5, then value. Output: scratch work/shapeG_cap.jsonl. Other lanes can take seeds 12–14 on the same list.
+- (RELEASED 20:15Z) 18:50Z (session 1) claimed **Git shape list 1** (targets_git_shape_20260929T1830Z.json, 192 rows). Lane shapeG: two-eyes beam, DMAX = record+2, BEAM_NOISE=2 seed 11. Order: not on an active list first, then gap 1 to 5, then value. Output: scratch work/shapeG_cap.jsonl. Other lanes can take seeds 12–14 on the same list.

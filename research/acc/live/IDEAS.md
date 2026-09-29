@@ -1572,3 +1572,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
 - 19:00Z hourly (session 1): ready file READY_FOR_USER_20260929T1855Z now holds 18 lines: 04739, 02092, 09850, 03454, 04538, 01768, 06241, 08469, 09497 (AC+SAC each), all verified ties. The shapeG lane is running Git list 1. Disk 16 GB.
 - 20:00Z hourly (session 1): the ready file holds 36 lines (added 01945, 07456, 08322 from session 2). Disk 10 GB.
 - 20:10Z (session 1): **the loose DP pass tied ac/sac-07337, 41/43 with k2 on both boards** (from our 42 path). The loose caps paid off where the defaults did not. Stacked and added to the ready file (38 lines).
+- 20:15Z (session 1): shapeG lane stopped: 1 row in ~80 min at load 8 (beam + window per row). Git list 1 is released for other lanes. A third DP pass (GROW 3, MAXC 20, SLACK 4) runs on the 212 paths 3–4 over the record: work/skdp_loose34.jsonl.
