@@ -9,3 +9,5 @@ The Codex mirror 80-row sweep has an officially replayable AC47 road. Its direct
 23:54Z: junction restart at step29 found another verified Stable48; step20 restart also Stable48 (raw sweeps/mid20). Bounded 0–6 move cross-road joins among four roads found no 47. Trying P2=1 at the step20 junction, W20k/D25/DUAL=.75, which ranks P1m separately and is a distinct beam eye. Claim remains active.
 
 23:58Z: P2=1, P2=3 and DUAL=.5 at the step20 junction all returned official Stable48; logged in `sweeps/codex_sac08995_mid20_variants_20260928.jsonl`. Stable finish watcher found no earlier destabilization on the yx roads. A single wider full yx pass W40k/D45 is now running. It is the last beam pass planned on this row; release if still 48.
+
+29 Sep 00:04Z: wide full yx W40k/D45 finished in 304s with official-replayable SAC48, still one above snapshot47. Raw `sweeps/codex_sac08995_yx_W40000_20260929.jsonl`. No tie; claim released for another method.
