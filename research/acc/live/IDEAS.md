@@ -1390,3 +1390,6 @@ Morning sends so far: 2759 (3), 2763 (4), 2765 (8), 2766 (3): all accepted.
   - Key: P2 | H (18 bits) | chain (10 bits) | 27 fingerprint bits.
   - The chain-off build gives the same output as production.
   - Matched A/B running at W=20000 on the 18 div rows held by 1–2 teams (work/chain_cap.jsonl vs the production routes on those rows).
+- 11:21Z: after seed 11 (div lane), junction_splice R=3 on its 9 rows within 1 of the record found 0 improvements
+  (746 rows with routes, 461 with ≥2 routes). The routes from noisy seeds are shorter in places but do not join
+  into a shorter route at radius 3. Seeds 12–14 continue, to add more route pairs for the 15-minute R=2 splice.
