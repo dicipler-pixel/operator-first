@@ -1610,3 +1610,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   - If not: the gap is a different search (AC-Solver's published greedy/PPO), and we should read their method.
 - 20:40Z (session 1): the owner submitted the 38-line ready file (logged as owner-20260929T2035Z). New: a loose DP pass on Git's pooled paths that are not in our pool (121 paths; 38 jobs within 1-4 of the record): work/skdp_git.jsonl.
 - 21:00Z hourly (session 1): pending = ac/sac-04323 (session 2 fe lane, 26/28 k8), written to READY_FOR_USER_20260929T2100Z.txt. The disk guard killed sac-08078 at cap 43 (too big here). Disk 13 GB.
+- 21:25Z (session 1): the loose DP tied ac/sac-09758, 38/40 k4 (from our 39). That is 2 ties from the loose pass so far (07337, 09758). The GROW 3 variant was too slow (33 min per path) and was replaced by GROW 2 on the gap 3–4 paths.
