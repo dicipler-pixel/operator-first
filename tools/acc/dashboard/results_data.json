@@ -1,27 +1,27 @@
 {
- "built": "2026-09-29T08:45Z",
+ "built": "2026-09-29T08:58Z",
  "summary": {
-  "updatedAt": "2026-09-29T08:45Z",
-  "leaderboardAt": "2026-09-29T08:40:00Z",
+  "updatedAt": "2026-09-29T08:58Z",
+  "leaderboardAt": "2026-09-29T08:55:00Z",
   "ac": {
    "rank": 14,
    "teams": 45,
-   "score": 2.9946,
-   "estimate": 2.094,
-   "ties": 313
+   "score": 3.0005,
+   "estimate": 2.1098,
+   "ties": 316
   },
   "sac": {
    "rank": 12,
    "teams": 42,
-   "score": 6.017,
-   "estimate": 4.347,
-   "ties": 322
+   "score": 6.0502,
+   "estimate": 4.3786,
+   "ties": 325
   },
-  "sentToday": 18,
+  "sentToday": 19,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-29T08:40Z",
-  "subsTotal": 121
+  "boardAt": "2026-09-29T08:55Z",
+  "subsTotal": 122
  },
  "points": [
   {
@@ -615,6 +615,15 @@
    "acRank": 14,
    "acTeams": 45,
    "sac": 6.017,
+   "sacRank": 12,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-29T08:55:00Z",
+   "ac": 3.0005,
+   "acRank": 14,
+   "acTeams": 45,
+   "sac": 6.0502,
    "sacRank": 12,
    "sacTeams": 42
   }
@@ -3401,9 +3410,9 @@
    "k_then": 9,
    "val_then": 0.00195,
    "rec_now": 27,
-   "k_now": 9,
+   "k_now": 10,
    "holding": true,
-   "val_now": 0.00391,
+   "val_now": 0.00195,
    "method": "two-eyes beam (fresh easy)"
   },
   {
@@ -3415,9 +3424,9 @@
    "k_then": 9,
    "val_then": 0.00195,
    "rec_now": 43,
-   "k_now": 9,
+   "k_now": 10,
    "holding": true,
-   "val_now": 0.00391,
+   "val_now": 0.00195,
    "method": "two-eyes beam (fresh value, bottom half)"
   },
   {
@@ -3429,9 +3438,9 @@
    "k_then": 9,
    "val_then": 0.00195,
    "rec_now": 37,
-   "k_now": 9,
+   "k_now": 10,
    "holding": true,
-   "val_now": 0.00391,
+   "val_now": 0.00195,
    "method": "two-eyes beam (fresh easy)"
   },
   {
@@ -3443,9 +3452,9 @@
    "k_then": 6,
    "val_then": 0.01562,
    "rec_now": 28,
-   "k_now": 6,
+   "k_now": 7,
    "holding": true,
-   "val_now": 0.03125,
+   "val_now": 0.01562,
    "method": "two-eyes beam (fresh easy)"
   },
   {
@@ -3457,9 +3466,9 @@
    "k_then": 9,
    "val_then": 0.00195,
    "rec_now": 45,
-   "k_now": 9,
+   "k_now": 10,
    "holding": true,
-   "val_now": 0.00391,
+   "val_now": 0.00195,
    "method": "two-eyes beam (fresh value, bottom half)"
   },
   {
@@ -3471,10 +3480,94 @@
    "k_then": 6,
    "val_then": 0.01562,
    "rec_now": 38,
+   "k_now": 7,
+   "holding": true,
+   "val_now": 0.01562,
+   "method": "two-eyes beam (fresh easy)"
+  },
+  {
+   "sub": "2787",
+   "at": "08:58",
+   "row": "ac-05871",
+   "kind": "AC",
+   "len": 35,
+   "k_then": 13,
+   "val_then": 0.00012,
+   "rec_now": 35,
+   "k_now": 13,
+   "holding": true,
+   "val_now": 0.00024,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2787",
+   "at": "08:58",
+   "row": "ac-08398",
+   "kind": "AC",
+   "len": 43,
+   "k_then": 6,
+   "val_then": 0.01562,
+   "rec_now": 43,
    "k_now": 6,
    "holding": true,
    "val_now": 0.03125,
-   "method": "two-eyes beam (fresh easy)"
+   "method": "two-eyes beam (fresh value)"
+  },
+  {
+   "sub": "2787",
+   "at": "08:58",
+   "row": "ac-09663",
+   "kind": "AC",
+   "len": 33,
+   "k_then": 13,
+   "val_then": 0.00012,
+   "rec_now": 33,
+   "k_now": 13,
+   "holding": true,
+   "val_now": 0.00024,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2787",
+   "at": "08:58",
+   "row": "sac-05871",
+   "kind": "Stable AC",
+   "len": 37,
+   "k_then": 14,
+   "val_then": 6e-05,
+   "rec_now": 37,
+   "k_now": 14,
+   "holding": true,
+   "val_now": 0.00012,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2787",
+   "at": "08:58",
+   "row": "sac-08398",
+   "kind": "Stable AC",
+   "len": 45,
+   "k_then": 5,
+   "val_then": 0.03125,
+   "rec_now": 45,
+   "k_now": 5,
+   "holding": true,
+   "val_now": 0.0625,
+   "method": "two-eyes beam (fresh value)"
+  },
+  {
+   "sub": "2787",
+   "at": "08:58",
+   "row": "sac-09663",
+   "kind": "Stable AC",
+   "len": 35,
+   "k_then": 12,
+   "val_then": 0.00024,
+   "rec_now": 35,
+   "k_now": 12,
+   "holding": true,
+   "val_now": 0.00049,
+   "method": "Astra easy pool"
   }
  ],
  "byMethod": [
@@ -3521,12 +3614,6 @@
    "held": 15
   },
   {
-   "method": "two-eyes beam (fresh easy)",
-   "lines": 9,
-   "now": 0.1289,
-   "held": 9
-  },
-  {
    "method": "Session 1 road11",
    "lines": 6,
    "now": 0.1283,
@@ -3563,6 +3650,18 @@
    "held": 6
   },
   {
+   "method": "two-eyes beam (fresh value)",
+   "lines": 2,
+   "now": 0.0938,
+   "held": 2
+  },
+  {
+   "method": "two-eyes beam (fresh easy)",
+   "lines": 9,
+   "now": 0.0937,
+   "held": 9
+  },
+  {
    "method": "Session 1 family lane",
    "lines": 2,
    "now": 0.0664,
@@ -3593,22 +3692,22 @@
    "held": 1
   },
   {
-   "method": "two-eyes beam (fresh value, bottom half)",
-   "lines": 4,
-   "now": 0.0098,
-   "held": 4
-  },
-  {
    "method": "Astra ranked list",
    "lines": 1,
    "now": 0.0078,
    "held": 1
   },
   {
+   "method": "two-eyes beam (fresh value, bottom half)",
+   "lines": 4,
+   "now": 0.0059,
+   "held": 4
+  },
+  {
    "method": "Astra easy pool",
-   "lines": 67,
-   "now": 0.0041,
-   "held": 67
+   "lines": 71,
+   "now": 0.0052,
+   "held": 71
   },
   {
    "method": "User / Charlie line",
