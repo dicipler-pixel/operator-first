@@ -263,6 +263,18 @@ static void load_trace(const char*fn){ FILE*f=fopen(fn,"r"); if(!f) die("trace f
 static int trace_find(uint64_t h1,uint64_t h2){ for(int k=0;k<NTR;k++) if(TRh1[k]==h1&&TRh2[k]==h2) return TRi[k]; return -1; }
 // ---- atlas end ----
 static int cmpc(const void*a,const void*b){ uint64_t x=((Cand*)a)->key,y=((Cand*)b)->key; return x<y?-1:x>y; }
+/* BEAM_CHAIN=1 (P2 mode 2 only): ordered-chain tie-break behind H, ahead of the fingerprint (Astra's Snell-Smith
+   chain test, optimality/experiments/astra_snell_smith_chain). Sanov matrices X=[[1,2],[0,1]], Y=[[1,0],[2,1]];
+   score = d(i, X^-1 rho(r0) i) + d(i, Y^-1 rho(r1) i), d = acosh(|A|_F^2 / 2); quantized to 10 bits (x4). Off by default. */
+static int CHAIN=0;
+static uint32_t chain_q(const St*s){ double tot=0;
+  for(int r=0;r<2;r++){ double a=1,b=0,c=0,d=1;   /* start with the inverse of the target generator */
+    if(r==0){ b=-2; } else { c=-2; }
+    for(int k=0;k<s->l[r];k++){ double e,f,g,h; switch(s->w[r][k]){
+        case 0: e=1;f=2;g=0;h=1;break; case 1: e=1;f=-2;g=0;h=1;break; case 2: e=1;f=0;g=2;h=1;break; default: e=1;f=0;g=-2;h=1; }
+      double na=a*e+b*g, nb=a*f+b*h, nc=c*e+d*g, nd=c*f+d*h; a=na;b=nb;c=nc;d=nd; }
+    double n2=(a*a+b*b+c*c+d*d)/2; tot+=n2<=1?0:acosh(n2); }
+  double q=tot*4; return q>1023?1023u:(uint32_t)q; }
 int main(int argc,char**argv){
   const char*tf=argv[1]; uint64_t W=strtoull(argv[2],0,10); int DMAX=atoi(argv[3]); St s0; parse_state(argv,4,&s0);
   struct stat stt; int fd=open(tf,O_RDONLY); if(fd<0||fstat(fd,&stt)) die("tfile");
@@ -280,7 +292,7 @@ int main(int argc,char**argv){
   int HP=getenv("BEAM_H")?atoi(getenv("BEAM_H")):0; BAL=getenv("BEAM_BAL")?atof(getenv("BEAM_BAL")):0;
   if(getenv("BEAM_MACROS")){ load_macros(getenv("BEAM_MACROS")); MACW=getenv("BEAM_MACW")?atof(getenv("BEAM_MACW")):1.0; C=realloc(C,sizeof(Cand)*W*(14+NMAC)); fprintf(stderr,"macros: %d\n",NMAC); }
   SHW=getenv("BEAM_SHADOW")?atof(getenv("BEAM_SHADOW")):0.0; if(SHW>0){ if(!getenv("BEAM_SHADOW_FILE")) die("BEAM_SHADOW_FILE"); load_probes(getenv("BEAM_SHADOW_FILE")); }
-  P2M=getenv("BEAM_P2")?atoi(getenv("BEAM_P2")):0; if(P2M&&P2M!=1&&P2M!=2&&P2M!=3) die("BEAM_P2 must be 1, 2 or 3"); if(getenv("BEAM_P2CUT")) P2CUT=atoi(getenv("BEAM_P2CUT"));
+  P2M=getenv("BEAM_P2")?atoi(getenv("BEAM_P2")):0; CHAIN=getenv("BEAM_CHAIN")?atoi(getenv("BEAM_CHAIN")):0; if(CHAIN&&P2M!=2) die("BEAM_CHAIN needs BEAM_P2=2"); if(P2M&&P2M!=1&&P2M!=2&&P2M!=3) die("BEAM_P2 must be 1, 2 or 3"); if(getenv("BEAM_P2CUT")) P2CUT=atoi(getenv("BEAM_P2CUT"));
   if(P2M){ nodes[0].p2=p2_of(&s0); fprintf(stderr,"p2: mode %d cut %d start P2=%u P1m=%u\n",P2M,P2CUT,nodes[0].p2,p1m_of(&s0)); }
   QUOTA=getenv("BEAM_QUOTA")?atoi(getenv("BEAM_QUOTA")):0; WHM=getenv("BEAM_WH")?atoi(getenv("BEAM_WH")):0;
   ELITE=getenv("BEAM_ELITE")?strtoull(getenv("BEAM_ELITE"),0,10):0; if(ELITE&&QUOTA<=0) die("BEAM_ELITE needs BEAM_QUOTA");
@@ -336,6 +348,7 @@ int main(int argc,char**argv){
         // BEAM_P2: P2 (9 bits) | P1m (10 bits, mode 1 only) | existing klen (18 bits, saturated) | 27 fingerprint bits
         if(P2M){ uint64_t kl=klen>0x3FFFFu?0x3FFFFu:klen, pm=P2M!=2?p1m_of(&nx):0;
           key=((uint64_t)cp2<<55)|(pm<<45)|(kl<<27)|((h1^SEED)>>37);
+          if(CHAIN&&P2M==2&&!WHM) key=((uint64_t)cp2<<55)|(kl<<37)|((uint64_t)chain_q(&nx)<<27)|((h1^SEED)>>37);  /* BEAM_CHAIN: P2 | klen | chain | 27 fp */
           if(P2M==3) key=((uint64_t)cp2<<55)|((uint64_t)comm_len(&nx)<<45)|(pm<<35)|(kl<<17)|((h1^SEED)>>47);  /* P2 | comm_len | P1m | klen | 17 fp */
           if(WHM){ uint64_t wv=tWH[nt]; key=P2M==2?(((uint64_t)cp2<<55)|(wv<<45)|(kl<<27)|((h1^SEED)>>37))      /* P2 | WH | klen | 27 fp */
                                                 :(((uint64_t)cp2<<55)|(wv<<45)|(pm<<35)|(kl<<17)|((h1^SEED)>>47)); } }  /* P2 | WH | P1m | klen | 17 fp */

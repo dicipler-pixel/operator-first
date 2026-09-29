@@ -1380,3 +1380,13 @@ Morning sends so far: 2759 (3), 2763 (4), 2765 (8), 2766 (3): all accepted.
 - Replace the exponent ledger with a pair of exact Sanov word matrices (X=[[1,2],[0,1]],Y=[[1,0],[2,1]]). 33,208 official move cross-checks pass across77 routes. Original exponent chart misses1,181/2,203 moves on71 Astra routes; faithful matrix/exact two-disk encoding has zero collisions among35,664 tested depth5 states.
 - Complete official-move ball through depth6:336,477 states. Greedy optimal-step probability at depth5: chain68.58%, length78.07%, H81.06%, (H,chain)81.76%. So chain distance alone is not a replacement.
 - Direct production P2/H score probe on27,074 distinct states: chain tie-break improves overall recorded-move rank .1731→.1639 on71 routes and .1889→.1682 on6 separate controls. Far-from-finish gain on71 is uncertain (path bootstrap crosses0); no clear climb gain. No beam A/B or scoring hit claimed; production unchanged. Detailed fixed protocol, source/data hashes, exact checks and compressed step scores: optimality/experiments/astra_snell_smith_chain/README.md. Classical transfer-matrix/Sanov sources credited; no new theorem claim.
+- 11:15Z session 2: **Astra's AC window step is silently failing.**
+  - 0/70 of Astra's AC routes have ac_len < ac_beam, while their Stable routes are shortened (14/70).
+  - Our lanes shorten 32/158 AC routes (15–22% per lane).
+  - Likely the acc_window "walk to s_j failed" exit on their build. run_beam_raw keeps the unshortened path, so nothing warns.
+
+  Re-running our acc_window on Astra's 62 AC routes within 3 of the record. A tie that shortens would be a beat.
+- 11:15Z: **ordered-chain tie-break (Astra's Snell–Smith chain) added as opt-in `BEAM_CHAIN=1`.**
+  - Key: P2 | H (18 bits) | chain (10 bits) | 27 fingerprint bits.
+  - The chain-off build gives the same output as production.
+  - Matched A/B running at W=20000 on the 18 div rows held by 1–2 teams (work/chain_cap.jsonl vs the production routes on those rows).
