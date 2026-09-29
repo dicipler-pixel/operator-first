@@ -196,3 +196,6 @@ Claiming next bounded restart on the same assigned row:04316 cut24 of the origin
 
 
 2026-09-29 18:44 UTC — Actual07194 cut16 identities at2026-09-29T18:44:23Z: driver1015374/start6274344, beam1015395/start6274419, retained session43236; exact W200000/DMAX28 command and launch cwd verified. One beam, unchanged flags, guarded preflight passed. Output work/astra_midroute/ac-07194_cut16_26f091aeacf8/result.json. No submissions.
+
+
+2026-09-29 19:02 UTC — Fresh lead inventory remains unchanged (RALLY 14:10Z; latest Astra update 11:15Z). At 19:00:28Z the recorded ac-07194 cut16 driver1015374/beam1015395 were absent; the job directory was empty and the exact audited W200000/DMAX28 beam command had no receipt. Same boot 04117895-9019-4a84-848d-1e44a113f838, cgroup OOM counters all zero. Rechecked clean SAIR a0fd6e6, T8 size640000000/hash38f05b56d5e79d9df03cc3cd96cd8433725b051111984a8dad4fbe30d07068f8, and controlled native binary hashes. Cause remains unestablished. Restarting only this unfinished 07194 cut16 with unchanged one-beam/two-eyes/audit settings; completed rows and cuts will not repeat. No SAIR API reads or submissions.
