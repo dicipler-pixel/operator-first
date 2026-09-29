@@ -42,7 +42,7 @@ def solve(start,target,R,GROW=1,SLACK=3,MAXC=12):
             for m in INNER:
                 t=core.apply_move(s,m)
                 if t in dist: continue
-                if any(len(t[i])>len(cyc(t[i]))+2*GROW for i in (0,1)): continue
+                if any(len(t[i])>len(cyc(t[i]))+2*GROW and len(t[i])>len(s[i]) for i in (0,1)): continue  # reducing moves always allowed
                 if t not in par or par[t][0]>c+1:
                     par[t]=(c+1,s,m); cnt+=1; heapq.heappush(pq,(c+1,cnt,t))
         for s in dist: parents[(k,s)]=par[s]

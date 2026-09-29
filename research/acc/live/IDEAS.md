@@ -1622,3 +1622,11 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
 - The old solve-first pilot (best-first + uncapped beam) was 0/3 in ~15 min per row; stopped.
 - **Now running:** supermove lane over the 2,672 rows NO team has solved (first solve = 1 pt AC + 1 pt Stable at any length),
   Git's 560 "shortenable" unsolved rows first (ORDERS_git_unsolved_20260929T2130Z). 90 s per row, W 2000, LCAP 80.
+- 21:45Z supermove follow-up (session 2):
+  - **Long-record rows are NOT loose.** On 5 single-team rows with records 102–539, supermove found routes on 2 (ac-06169: 418 vs 149;
+    ac-02837: 263 vs 113) and none on 3 in 240 s. The holders' routes are ~2.5× shorter than our supermove roads. Lane stopped.
+  - **Road DP fix:** the GROW cap blocked the conjugations that cyclically reduce a product when more than GROW+1 end pairs cancel,
+    so the DP returned None on long roads. Reducing moves are now always allowed (local copy + research/acc/optimality/supermove).
+    After the fix: ac-06169 418→400, ac-09317 58→57, ac-08371 35. Small gains: the road, not the compile, sets the length.
+  - Unsolved sweep (90 s/row, W 2000, LCAP 80): 0/11 so far. Testing W 6000, LCAP 120, 600 s on Git's top 4.
+  - fe lane: ac/sac-07084 ties (k17/k7), stacked.
