@@ -89,3 +89,11 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
   1. **Unsolved rows (2,672, first solve = 1 AC + 1 Stable pt)**, Git's 560 shortenable rows first.
   2. **Long-record rows (1,475 with record >= 100; 1,317 single-team)**: supermove route + road DP can BEAT loose long records.
 - Drive hub: nothing new since 03:40Z.
+
+## 21:55Z rally (session 2)
+- Lanes alive: fe (128/287 rows), fe2 chain (26/192), shape (27/187), auto_splice, supermove unsolved sweep (23 rows, 0 routes),
+  and a wide supermove test (W 6000, LCAP 120, 600 s: ac-01930 no route). Watchers re-armed.
+- Stack since 21:30Z: ac/sac-07084 (fe, k17/k7). Ready file OWNER_SUBMIT_20260929_2025Z.txt = 04323, 09758, 07084 (6 lines).
+- Supermove verdict so far: routes where beams fail on held rows (7/10 pilot), but 1.4–3× the record; long-record rows are hard,
+  not loose (no beats); unsolved rows 0/23 at 90 s. The sweep continues on Git's 560 shortenable rows.
+- Inbox/UPDATE: nothing new since 09758 (21:25Z).
