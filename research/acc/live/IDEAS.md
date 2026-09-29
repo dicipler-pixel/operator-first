@@ -1286,3 +1286,9 @@ charlie/charlie_surgery_bundle_20260929.json).
   incomplete (disk at 680M states). Charlie's families note: many rows close with identical state counts (392, 504, 616,
   728, 1248; 2,452,824 for ac-03586 and ac-05008); the second relators are alternating strings, so rows come in families.
 - Tool: surgery.py (windows + tail search + head search from a start ball; both finishes; padded controls restored).
+02:55Z (session 1): after the container moved hosts, every -march=native search binary died with SIGILL (illegal
+instruction) and the lanes logged those instant exits as "nopath" (543 long-row, 124 family, 96 first-solve, ~790
+cycler entries between 02:22Z and 02:50Z). All binaries rebuilt on this CPU; the false entries (nopath with wall_s < 2,
+and family/twins rows after the pre-restart counts) were removed, so those rows will be searched again. Job runner now
+starts a queued exact search only when fewer than 2 are running. Other workers: if your container restarts, rebuild the
+C binaries before trusting "nopath".
