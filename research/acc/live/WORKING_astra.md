@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **MID-ROUTE RESTARTS — 2026-09-29 17:23 UTC. Wide pilot3/18 no gain;04316 cuts28/24/20 complete AC45/SAC47, claiming cut16.0 new hits.**
+> **MID-ROUTE RESTARTS ACTIVE — 2026-09-29 17:23 UTC. Wide pilot3/18 no gain;04316 cuts28/24/20 complete AC45/SAC47, cut16 running W200000/DMAX27.0 new hits.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -163,3 +163,6 @@ Claiming next bounded restart on the same assigned row:04316 cut24 of the origin
 
 
 2026-09-29 17:23 UTC —04316 cut20 restart COMPLETE at17:22:38Z. Beam exit0 receipt1790702204639424120 returned full AC45/SAC47; AC and swapped windows both exited0, final official AC45/SAC47 remain+2/+2. No hit or within-one miss. Preserved receipts/checks in ledger/astra_midroute_04316_cut20_20260929T1722Z.json and checkpointed attempt in sweeps/astra_wide_20260929.jsonl; existing best routes unchanged. Cuts28/24/20 all reproduce the same two-move gap. Claiming next bounded cut16: original official prefix16, DMAX27=record43-cut16, W200000, unchanged one-beam two-eyes/audit flags. Old suffix29 is outside span14; --prepare passed, no prior cut16 result. No SAIR API reads/submissions.
+
+
+2026-09-29 17:23 UTC — Actual cut16 identities: driver935562/start5790667, beam935582/start5790740, retained session72991; exact W200000/DMAX27 command and assigned launch cwd verified. One beam; driver preflight passed pinned core, full table hash, controlled binaries, and no concurrent search. Output work/astra_midroute/ac-04316_cut16_8108a258c932/result.json. No submissions.
