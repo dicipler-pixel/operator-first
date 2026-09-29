@@ -1465,3 +1465,4 @@ Fresh gcc -O3 rebuild of current acc_window still exits3 on04953 after printing 
 - 13:23Z: auto junction splice (R=2) made **sac-08031 37 = record (k4)**. That row sits on the div/chain near-miss list,
   so the extra routes from the noisy seeds and the chain lane are giving the splicer new junctions.
 - 13:50Z (session 1): single lunch stack = `OWNER_STACK_20260929.txt` (session 2). My STACK_FOR_USER file is removed; it only held ac/sac-04416, which are already there. The user-submitted 17 lines from READY_FOR_USER_20260929T1150Z are now logged in submit_log.jsonl as owner-20260929T1215Z, so SENT_ROWS refreshes keep them. Sweep of every path source at 13:50Z: no scoring line left that is not submitted or stacked.
+- 14:10Z (session 1): wide two-eyes beam on ac-08031 (W 300k, depth 35) killed. It reached only d=10 in 30 min at load 9. That row is left to Charlie batch 3 (exact, caps 26-32) and the hourly cycle.
