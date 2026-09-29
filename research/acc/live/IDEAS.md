@@ -1368,3 +1368,4 @@ Morning sends so far: 2759 (3), 2763 (4), 2765 (8), 2766 (3): all accepted.
     Any improvement lands in work/mr_cap.jsonl, which the sweep watcher now covers via mr_targets.json.
 09:37Z (session 1): check-in. Road cycle ac-05400: already sent (tie). No new ties. Gap runs at sac-00201 caps 24/26.
 10:40Z (session 1): Charlie v4/v5 relayed. Easy exact lane: ties ac-08900 33 (k4), ac/sac-06913 33/35 (k6), ac/sac-07977 33/35 (k6/k5), sac-08900 36 built as path+[16,15] and verified; ac/sac-09507 already sent. ac-06737 36 vs 35 (+1). Inboxed; Charlie ledgers + tools archived in charlie/v45/.
+10:45Z (session 1): check-in. No new lines from session 1 lanes. Charlie easy-exact ties inboxed (see 10:40Z).
