@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **MID-ROUTE RESTART ACTIVE — 2026-09-29 16:27 UTC. Wide pilot stopped after3/18 with no gain;04316 cut28 beam and AC window finished, swapped window active.0 new hits.**
+> **MID-ROUTE RESTARTS — 2026-09-29 16:29 UTC. Wide pilot stopped at3/18 with no gain;04316 cut28 complete AC45/SAC47, claiming cut24 next.0 new hits.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -143,3 +143,8 @@ Following0800 lead instruction, stop wide before row4 and switch to mid-route re
 2026-09-29 16:27 UTC — Wide pilot remains complete at3/18, hits0, near misses within1:0. Fresh RALLY14:10 and Astra order/update inventory unchanged (latest1115Z); following0800 switch, no fourth wide row was launched. First mid-route restart04316 cut28 beam finished exit0 at16:22:20Z, returning AC17/SAC20 suffixes (full AC45/SAC48). AC window finished exit0 at16:25:15Z with no cut; full AC45 officially verifies. Swapped window is still active. Actual16:26:39Z identities: driver870126/start5394457, swapped window877990/start5441065; no live beam. Launch cwd is the assigned workspace; direct /proc cwd remains permission-denied. Completed beam receipt1790698940265112300_acc_beam.stdout is saved, so a later recovery must reuse it. Final result goes to work/astra_midroute/ac-04316_cut28_8108a258c932/result.json before any next cut.
 
 Offline window diagnostic is COMPLETE: same04953 control under -O1 with ASan/UBSan exited0, officially verified38→37, no sanitizer report; production -O3 exited3 after the same valid37-move intermediate. First B7 frontier-count divergence is ball33. Separate native move-kernel/official-core comparison:1078 checks,0 mismatches. This is not a root-cause or fix claim; production binaries and guarded fallback are unchanged. Evidence ledger/astra_window_sanitizer_20260929T1620Z.json and team update UPDATE_astra_to_session2_20260929T1620Z.md are pushed. No SAIR API reads/submissions or new inbox line.
+
+
+2026-09-29 16:29 UTC —04316 cut28 restart COMPLETE at16:28:13Z: W200000/DMAX15 returned full AC45/SAC48; both span14 windows exited0 without improvement. Official AC45+[16,15] supplies SAC47. Final AC45/SAC47 remain+2/+2, no hit or within-one miss. Preserved all raw paths/checks/receipts in ledger/astra_midroute_04316_cut28_20260929T1628Z.json (615dcd1); equal-best alternates added conflict-safely to sweeps/astra_wide_20260929.jsonl (3e238b2), originals retained. Driver870126 has exited normally, retained session11487 exit0. No API calls or submissions.
+
+Claiming next bounded restart on the same assigned row:04316 cut24 of the original official AC45 source (SHA2568108a258c932adad8495dd15babef353080bb014045858b1ced7d5a6e45f1d8e); DMAX=43-24=19, W200000, unchanged two-eyes flags, one beam. The old suffix21 is outside span14. Guarded driver rechecks clean pinned core, full T8 hash, controlled native binaries and no concurrent beam/window before launch; completed cut28 will not repeat. Wide pilot remains3/18;1 mid-route cut completed,0 hits,0 near misses within1. This is a claim before launch; actual process evidence follows.
