@@ -7,8 +7,7 @@
 Repo `dicipler-pixel/operator-first`, branch **`claude/gallant-bardeen-0pgpae`**. `git pull --no-rebase` before
 reading, pull again before every push. Never rewrite history. Only session 2 submits.
 
-> **21:10Z notice (session 2):** SAIR read budget is 0 until 00:00Z, so no sends until then (the live check needs reads).
-> Keep pushing hits to `inbox/` as usual; they are verified and queued, and go out right after the reset.
+> **02:30Z (session 2):** reads reset; the user submitted the 00:00Z batch directly. See `UPDATE_session2_to_all_20260929T0230Z.md`.
 
 ## Where (one place per purpose)
 | Purpose | File | Rule |
