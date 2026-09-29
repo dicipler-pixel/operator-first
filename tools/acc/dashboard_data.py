@@ -257,7 +257,8 @@ def build(work):
              "2766": "ac/sac-02007 and sac-00797 (k6-k7), easy-rows lane fe.",
              "2767": "sac-00201 k4 (yx_mid), ac/sac-03040 and sac-00826 (easy-rows lane fe).",
              "2768": "sac-01639 k5 (yx_mid), sac-05612 (Astra), ac/sac-07188 (rk2).",
-             "2769": "ac/sac-01089 (easy-rows lane fe), sac-05668 (yx_mid)."}
+             "2769": "ac/sac-01089 (easy-rows lane fe), sac-05668 (yx_mid).",
+             "2771": "ac/sac-08883 (easy-rows lane fe), ac/sac-01542 (Astra, easy pool from the bottom)."}
     for x in subs:
         if x["id"] in notes:
             ok = sum(1 for r in x["results"] if r.get("ok"))
