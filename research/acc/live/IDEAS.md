@@ -1486,3 +1486,16 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   record (k10, board 11:45Z)** from Kernel's 34 (bob crossclass bundle 2); core ok, cert
   sha256:695e3a95...; inbox/20260929T1415Z_git_skeldp_07119.txt. SAC via +[16,15] is 35 vs 34, no SAC tie.
 - Any lane can run it on its own near misses: `from skel_dp import run; run(cid, path)` (needs verifier + targets).
+- 13:56Z **chain A/B interim (10/18 rows, W=20000, same two-eyes flags).** On the 4 rows with a matched
+  production baseline, BEAM_CHAIN=1 is never worse and is better on 3:
+
+  | row | production AC/Stable | chain AC/Stable |
+  |---|---|---|
+  | ac-03871 | 32/34 | 31/33 |
+  | ac-08995 | 49/48 | 47/48 |
+  | ac-00580 | 45/47 | 45/46 |
+  | ac-10098 | 42/43 | 42/43 (equal) |
+
+  Chain matches noisy seeds 11/12 on most rows; seeds are better once (ac-10098 AC 41) and worse once (seed 12 ac-08995 53).
+  No tie yet: every gain stops one move short of a record. Chain is deterministic and costs nothing, so the next step is
+  chain + noise together, if the full 18 rows hold up.
