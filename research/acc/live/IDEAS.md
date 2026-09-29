@@ -1514,3 +1514,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
     ac-03871 is incomplete (disk full at depth 19, cap 35). Archived in charlie/v7/.
   - **Git's road-keeping DP (skel_dp.py), adapted with a replay_loop shim.** It is running on our own 249 near-miss paths (≤ record+4; roads and kernel paths, including Bob's 13:30 batch).
     Output: work/skdp_near.jsonl.
+- 15:30Z (session 1): container restart. Scratchpad and repo survived; the binaries still run on this host (no SIGILL). All lanes restarted: restart_all, job_runner, skeleton transfer, road-keeping DP on near misses (50 of 249 done, 0 ties so far). run_near.py added to restart_all.sh.
