@@ -266,7 +266,8 @@ def build(work):
              "2779": "Astra easy pool: ac/sac-09550, 06183, 08825, 01929 (k14-15).",
              "2780": "Astra easy pool: ac/sac-04037, 01404, 05630, 02655, 08204 (k14-15).",
              "2781": "Session 2 lanes: ac/sac-09870 (fresh value, k10), ac/sac-07055 (fresh easy, k6-7).",
-             "2782": "Astra easy pool rows 17-36: 18 tie pairs, ac/sac-06766, 09685, 02182, 01503, 06503, 09774, 07837, 07443, 09193, 01548, 07665, 00621, 04414, 02907, 06391, 03389, 04702, 04688 (k13-16)."}
+             "2782": "Astra easy pool rows 17-36: 18 tie pairs, ac/sac-06766, 09685, 02182, 01503, 06503, 09774, 07837, 07443, 09193, 01548, 07665, 00621, 04414, 02907, 06391, 03389, 04702, 04688 (k13-16).",
+             "2784": "Session 2 fresh-easy lane: ac/sac-09763 (k6/k8), ac-07893 (k6)."}
     for x in subs:
         if x["id"] in notes:
             ok = sum(1 for r in x["results"] if r.get("ok"))
