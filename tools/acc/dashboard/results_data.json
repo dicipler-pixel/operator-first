@@ -1,27 +1,27 @@
 {
- "built": "2026-09-28T20:24Z",
+ "built": "2026-09-29T03:59Z",
  "summary": {
-  "updatedAt": "2026-09-28T20:24Z",
-  "leaderboardAt": "2026-09-28T20:20:00Z",
+  "updatedAt": "2026-09-29T03:59Z",
+  "leaderboardAt": "2026-09-29T03:55:00Z",
   "ac": {
-   "rank": 16,
+   "rank": 14,
    "teams": 45,
-   "score": 1.6117,
-   "estimate": 1.8617,
-   "ties": 257
+   "score": 2.6934,
+   "estimate": 1.8494,
+   "ties": 258
   },
   "sac": {
-   "rank": 14,
+   "rank": 12,
    "teams": 42,
-   "score": 4.1449,
-   "estimate": 4.3949,
-   "ties": 261
+   "score": 5.5301,
+   "estimate": 3.9676,
+   "ties": 263
   },
-  "sentToday": 13,
+  "sentToday": 1,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-28T20:20Z",
-  "subsTotal": 103
+  "boardAt": "2026-09-29T03:55Z",
+  "subsTotal": 104
  },
  "points": [
   {
@@ -455,6 +455,24 @@
    "sac": 4.1449,
    "sacRank": 14,
    "sacTeams": 42
+  },
+  {
+   "at": "2026-09-29T00:00:00Z",
+   "ac": 3.0719,
+   "acRank": 15,
+   "acTeams": 45,
+   "sac": 6.5356,
+   "sacRank": 12,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-29T03:55:00Z",
+   "ac": 2.6934,
+   "acRank": 14,
+   "acTeams": 45,
+   "sac": 5.5301,
+   "sacRank": 12,
+   "sacTeams": 42
   }
  ],
  "lines": [
@@ -691,9 +709,9 @@
    "k_then": 5,
    "val_then": 0.03125,
    "rec_now": 24,
-   "k_now": 6,
+   "k_now": 7,
    "holding": true,
-   "val_now": 0.03125,
+   "val_now": 0.01562,
    "method": "Exact capped sweep"
   },
   {
@@ -705,9 +723,9 @@
    "k_then": 5,
    "val_then": 0.03125,
    "rec_now": 26,
-   "k_now": 6,
+   "k_now": 7,
    "holding": true,
-   "val_now": 0.03125,
+   "val_now": 0.01562,
    "method": "Exact capped sweep"
   },
   {
@@ -719,9 +737,9 @@
    "k_then": 6,
    "val_then": 0.01562,
    "rec_now": 26,
-   "k_now": 7,
+   "k_now": 8,
    "holding": true,
-   "val_now": 0.01562,
+   "val_now": 0.00781,
    "method": "Exact capped sweep"
   },
   {
@@ -733,9 +751,9 @@
    "k_then": 5,
    "val_then": 0.03125,
    "rec_now": 31,
-   "k_now": 6,
+   "k_now": 7,
    "holding": true,
-   "val_now": 0.03125,
+   "val_now": 0.01562,
    "method": "Exact capped sweep"
   },
   {
@@ -761,9 +779,9 @@
    "k_then": 5,
    "val_then": 0.03125,
    "rec_now": 33,
-   "k_now": 6,
+   "k_now": 7,
    "holding": true,
-   "val_now": 0.03125,
+   "val_now": 0.01562,
    "method": "Exact capped sweep"
   },
   {
@@ -1377,9 +1395,9 @@
    "k_then": 4,
    "val_then": 0.0625,
    "rec_now": 36,
-   "k_now": 5,
+   "k_now": 6,
    "holding": true,
-   "val_now": 0.0625,
+   "val_now": 0.03125,
    "method": "P2 lookahead"
   },
   {
@@ -1545,9 +1563,9 @@
    "k_then": 1,
    "val_then": 0.5,
    "rec_now": 36,
-   "k_now": 2,
+   "k_now": 3,
    "holding": true,
-   "val_now": 0.5,
+   "val_now": 0.25,
    "method": "(y,x) lane (letter-swap twin)"
   },
   {
@@ -1601,9 +1619,9 @@
    "k_then": 1,
    "val_then": 0.5,
    "rec_now": 40,
-   "k_now": 2,
+   "k_now": 3,
    "holding": true,
-   "val_now": 0.5,
+   "val_now": 0.25,
    "method": "Two-eyes beam (DUAL)"
   },
   {
@@ -1657,9 +1675,9 @@
    "k_then": 2,
    "val_then": 0.25,
    "rec_now": 34,
-   "k_now": 2,
+   "k_now": 3,
    "holding": true,
-   "val_now": 0.5,
+   "val_now": 0.25,
    "method": "Codex mirror twin"
   },
   {
@@ -1671,41 +1689,89 @@
    "k_then": 2,
    "val_then": 0.25,
    "rec_now": 36,
-   "k_now": 2,
+   "k_now": 3,
    "holding": true,
-   "val_now": 0.5,
+   "val_now": 0.25,
    "method": "Codex mirror twin"
+  },
+  {
+   "sub": "2759",
+   "at": "03:59",
+   "row": "ac-09365",
+   "kind": "AC",
+   "len": 29,
+   "k_then": 4,
+   "val_then": 0.0625,
+   "rec_now": 29,
+   "k_now": 4,
+   "holding": true,
+   "val_now": 0.125,
+   "method": "Two-eyes ranked lane rk2"
+  },
+  {
+   "sub": "2759",
+   "at": "03:59",
+   "row": "sac-00021",
+   "kind": "Stable AC",
+   "len": 41,
+   "k_then": 3,
+   "val_then": 0.125,
+   "rec_now": 41,
+   "k_now": 3,
+   "holding": true,
+   "val_now": 0.25,
+   "method": "yx_mid (Stable = AC+1)"
+  },
+  {
+   "sub": "2759",
+   "at": "03:59",
+   "row": "sac-02153",
+   "kind": "Stable AC",
+   "len": 29,
+   "k_then": 6,
+   "val_then": 0.01562,
+   "rec_now": 29,
+   "k_now": 6,
+   "holding": true,
+   "val_now": 0.03125,
+   "method": "Two-eyes ranked lane rk2 (y,x) finish"
   }
  ],
  "byMethod": [
   {
-   "method": "Two-eyes beam (DUAL)",
-   "lines": 9,
-   "now": 1.3496,
-   "held": 9
-  },
-  {
    "method": "P2 lookahead",
    "lines": 6,
-   "now": 1.1954,
+   "now": 1.1642,
    "held": 6
   },
   {
-   "method": "Codex mirror twin",
-   "lines": 2,
-   "now": 1.0,
-   "held": 2
+   "method": "Two-eyes beam (DUAL)",
+   "lines": 9,
+   "now": 1.0996,
+   "held": 9
   },
   {
    "method": "Exact capped sweep",
    "lines": 10,
-   "now": 0.8515,
+   "now": 0.7812,
    "held": 10
+  },
+  {
+   "method": "Codex mirror twin",
+   "lines": 2,
+   "now": 0.5,
+   "held": 2
   },
   {
    "method": "(y,x) lane (letter-swap twin)",
    "lines": 1,
-   "now": 0.5,
+   "now": 0.25,
+   "held": 1
+  },
+  {
+   "method": "yx_mid (Stable = AC+1)",
+   "lines": 1,
+   "now": 0.25,
    "held": 1
   },
   {
@@ -1727,6 +1793,12 @@
    "held": 2
   },
   {
+   "method": "Two-eyes ranked lane rk2",
+   "lines": 1,
+   "now": 0.125,
+   "held": 1
+  },
+  {
    "method": "Beam + exact (NEW15)",
    "lines": 6,
    "now": 0.0986,
@@ -1737,6 +1809,12 @@
    "lines": 37,
    "now": 0.0364,
    "held": 37
+  },
+  {
+   "method": "Two-eyes ranked lane rk2 (y,x) finish",
+   "lines": 1,
+   "now": 0.0312,
+   "held": 1
   },
   {
    "method": "AC+2 to Stable AC",
