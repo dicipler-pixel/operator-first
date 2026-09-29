@@ -1532,3 +1532,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   maps the moves back, and checks with acmoves.run == (y,x); the Stable line is the route + [15,15].
   Output: work/skdyx_cap.jsonl, which is watched. The AC-side skd lane is at 107/109; its one tie so far
   (ac-05149 34->33) had already been sent by the owner.
+- 16:00Z hourly (session 1): road cycle NEW_LINES 17 (08567, 01284, 01279, 05034, 05179, 06825, 05972, 07351, 03919); all are already in OWNER_STACK. Road-keeping DP: 134 of 249, 1 tie (08371, already stacked). Exact queue: 2 running. 14G disk. Nothing new to stack.
