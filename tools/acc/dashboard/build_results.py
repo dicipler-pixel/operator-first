@@ -28,7 +28,8 @@ METHOD_BY_ROW = {"ac-03060": "P2 lookahead", "sac-03060": "P2 lookahead", "ac-05
     "ac-09729": "Fresh-value lane fvb", "sac-09729": "Fresh-value lane fvb", "ac-08638": "Astra easy pool", "sac-08638": "Astra easy pool",
     "ac-06591": "Astra easy pool", "sac-06591": "Astra easy pool", "ac-05229": "Astra easy pool", "ac-02649": "Astra easy pool", "sac-02649": "Astra easy pool",
     "ac-06015": "Astra easy pool", "sac-06015": "Astra easy pool", "ac-01738": "Astra easy pool", "sac-01738": "Astra easy pool",
-    "ac-01561": "Session 1 family lane", "sac-01561": "Session 1 family lane", "ac-04062": "Fresh-value lane fvb", "sac-04062": "Fresh-value lane fvb"}
+    "ac-01561": "Session 1 family lane", "sac-01561": "Session 1 family lane", "ac-04062": "Fresh-value lane fvb", "sac-04062": "Fresh-value lane fvb",
+    "ac-09550": "Astra easy pool", "sac-09550": "Astra easy pool", "ac-06183": "Astra easy pool", "sac-06183": "Astra easy pool", "ac-08825": "Astra easy pool", "sac-08825": "Astra easy pool", "ac-01929": "Astra easy pool", "sac-01929": "Astra easy pool"}
 def board(kind, ts):
     fs = sorted(glob.glob(f"research/acc/live/boards/{kind}_2026*.json.gz"))
     best = None

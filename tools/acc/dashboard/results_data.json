@@ -1,27 +1,27 @@
 {
- "built": "2026-09-29T06:49Z",
+ "built": "2026-09-29T06:55Z",
  "summary": {
-  "updatedAt": "2026-09-29T06:49Z",
-  "leaderboardAt": "2026-09-29T06:45:00Z",
+  "updatedAt": "2026-09-29T06:55Z",
+  "leaderboardAt": "2026-09-29T06:50:00Z",
   "ac": {
    "rank": 14,
    "teams": 45,
-   "score": 2.8898,
-   "estimate": 2.0463,
-   "ties": 279
+   "score": 2.9528,
+   "estimate": 2.0465,
+   "ties": 283
   },
   "sac": {
    "rank": 12,
    "teams": 42,
-   "score": 5.9894,
-   "estimate": 4.2912,
-   "ties": 289
+   "score": 5.9943,
+   "estimate": 4.2914,
+   "ties": 293
   },
-  "sentToday": 12,
+  "sentToday": 13,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-29T06:45Z",
-  "subsTotal": 115
+  "boardAt": "2026-09-29T06:50Z",
+  "subsTotal": 116
  },
  "points": [
   {
@@ -570,6 +570,15 @@
    "acRank": 14,
    "acTeams": 45,
    "sac": 5.9894,
+   "sacRank": 12,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-29T06:50:00Z",
+   "ac": 2.9528,
+   "acRank": 14,
+   "acTeams": 45,
+   "sac": 5.9943,
    "sacRank": 12,
    "sacTeams": 42
   }
@@ -2446,9 +2455,9 @@
    "k_then": 4,
    "val_then": 0.0625,
    "rec_now": 34,
-   "k_now": 4,
+   "k_now": 5,
    "holding": true,
-   "val_now": 0.125,
+   "val_now": 0.0625,
    "method": "Session 1 family lane"
   },
   {
@@ -2460,9 +2469,9 @@
    "k_then": 11,
    "val_then": 0.00049,
    "rec_now": 41,
-   "k_now": 11,
+   "k_now": 12,
    "holding": true,
-   "val_now": 0.00098,
+   "val_now": 0.00049,
    "method": "Fresh-value lane fvb"
   },
   {
@@ -2474,9 +2483,9 @@
    "k_then": 8,
    "val_then": 0.00391,
    "rec_now": 36,
-   "k_now": 8,
+   "k_now": 9,
    "holding": true,
-   "val_now": 0.00781,
+   "val_now": 0.00391,
    "method": "Session 1 family lane"
   },
   {
@@ -2488,10 +2497,122 @@
    "k_then": 10,
    "val_then": 0.00098,
    "rec_now": 43,
-   "k_now": 10,
+   "k_now": 11,
    "holding": true,
-   "val_now": 0.00195,
+   "val_now": 0.00098,
    "method": "Fresh-value lane fvb"
+  },
+  {
+   "sub": "2779",
+   "at": "06:54",
+   "row": "ac-01929",
+   "kind": "AC",
+   "len": 33,
+   "k_then": 15,
+   "val_then": 3e-05,
+   "rec_now": 33,
+   "k_now": 15,
+   "holding": true,
+   "val_now": 6e-05,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2779",
+   "at": "06:54",
+   "row": "ac-06183",
+   "kind": "AC",
+   "len": 35,
+   "k_then": 15,
+   "val_then": 3e-05,
+   "rec_now": 35,
+   "k_now": 15,
+   "holding": true,
+   "val_now": 6e-05,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2779",
+   "at": "06:54",
+   "row": "ac-08825",
+   "kind": "AC",
+   "len": 33,
+   "k_then": 14,
+   "val_then": 6e-05,
+   "rec_now": 33,
+   "k_now": 14,
+   "holding": true,
+   "val_now": 0.00012,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2779",
+   "at": "06:54",
+   "row": "ac-09550",
+   "kind": "AC",
+   "len": 36,
+   "k_then": 14,
+   "val_then": 6e-05,
+   "rec_now": 36,
+   "k_now": 14,
+   "holding": true,
+   "val_now": 0.00012,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2779",
+   "at": "06:54",
+   "row": "sac-01929",
+   "kind": "Stable AC",
+   "len": 35,
+   "k_then": 15,
+   "val_then": 3e-05,
+   "rec_now": 35,
+   "k_now": 15,
+   "holding": true,
+   "val_now": 6e-05,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2779",
+   "at": "06:54",
+   "row": "sac-06183",
+   "kind": "Stable AC",
+   "len": 37,
+   "k_then": 14,
+   "val_then": 6e-05,
+   "rec_now": 37,
+   "k_now": 14,
+   "holding": true,
+   "val_now": 0.00012,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2779",
+   "at": "06:54",
+   "row": "sac-08825",
+   "kind": "Stable AC",
+   "len": 35,
+   "k_then": 14,
+   "val_then": 6e-05,
+   "rec_now": 35,
+   "k_now": 14,
+   "holding": true,
+   "val_now": 0.00012,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2779",
+   "at": "06:54",
+   "row": "sac-09550",
+   "kind": "Stable AC",
+   "len": 38,
+   "k_then": 14,
+   "val_then": 6e-05,
+   "rec_now": 38,
+   "k_now": 14,
+   "holding": true,
+   "val_now": 0.00012,
+   "method": "Astra easy pool"
   }
  ],
  "byMethod": [
@@ -2538,12 +2659,6 @@
    "held": 15
   },
   {
-   "method": "Session 1 family lane",
-   "lines": 2,
-   "now": 0.1328,
-   "held": 2
-  },
-  {
    "method": "Session 1 road11",
    "lines": 6,
    "now": 0.1283,
@@ -2578,6 +2693,12 @@
    "lines": 6,
    "now": 0.0986,
    "held": 6
+  },
+  {
+   "method": "Session 1 family lane",
+   "lines": 2,
+   "now": 0.0664,
+   "held": 2
   },
   {
    "method": "Mirror cross-row",
@@ -2618,8 +2739,14 @@
   {
    "method": "Fresh-value lane fvb",
    "lines": 4,
-   "now": 0.003,
+   "now": 0.0016,
    "held": 4
+  },
+  {
+   "method": "Astra easy pool",
+   "lines": 21,
+   "now": 0.0008,
+   "held": 21
   },
   {
    "method": "Road cycle (session 1)",
@@ -2632,12 +2759,6 @@
    "lines": 1,
    "now": 0.0001,
    "held": 1
-  },
-  {
-   "method": "Astra easy pool",
-   "lines": 13,
-   "now": 0.0001,
-   "held": 13
   }
  ]
 }
