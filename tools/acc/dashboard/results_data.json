@@ -1,27 +1,27 @@
 {
- "built": "2026-09-29T06:13Z",
+ "built": "2026-09-29T06:20Z",
  "summary": {
-  "updatedAt": "2026-09-29T06:13Z",
-  "leaderboardAt": "2026-09-29T06:10:00Z",
+  "updatedAt": "2026-09-29T06:20Z",
+  "leaderboardAt": "2026-09-29T06:20:00Z",
   "ac": {
    "rank": 14,
    "teams": 45,
    "score": 2.8898,
    "estimate": 1.9833,
-   "ties": 275
+   "ties": 277
   },
   "sac": {
    "rank": 12,
    "teams": 42,
    "score": 5.9894,
    "estimate": 4.2863,
-   "ties": 285
+   "ties": 287
   },
-  "sentToday": 10,
+  "sentToday": 11,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-29T06:10Z",
-  "subsTotal": 113
+  "boardAt": "2026-09-29T06:20Z",
+  "subsTotal": 114
  },
  "points": [
   {
@@ -548,6 +548,15 @@
   },
   {
    "at": "2026-09-29T06:10:00Z",
+   "ac": 2.8898,
+   "acRank": 14,
+   "acTeams": 45,
+   "sac": 5.9894,
+   "sacRank": 12,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-29T06:20:00Z",
    "ac": 2.8898,
    "acRank": 14,
    "acTeams": 45,
@@ -2302,9 +2311,9 @@
    "k_then": 18,
    "val_then": 0.0,
    "rec_now": 23,
-   "k_now": 18,
+   "k_now": 19,
    "holding": true,
-   "val_now": 1e-05,
+   "val_now": 0.0,
    "method": "Astra easy pool"
   },
   {
@@ -2316,9 +2325,9 @@
    "k_then": 18,
    "val_then": 0.0,
    "rec_now": 24,
-   "k_now": 18,
+   "k_now": 19,
    "holding": true,
-   "val_now": 1e-05,
+   "val_now": 0.0,
    "method": "Astra easy pool"
   },
   {
@@ -2330,9 +2339,9 @@
    "k_then": 18,
    "val_then": 0.0,
    "rec_now": 25,
-   "k_now": 18,
+   "k_now": 19,
    "holding": true,
-   "val_now": 1e-05,
+   "val_now": 0.0,
    "method": "Astra easy pool"
   },
   {
@@ -2344,9 +2353,9 @@
    "k_then": 17,
    "val_then": 1e-05,
    "rec_now": 25,
-   "k_now": 17,
+   "k_now": 18,
    "holding": true,
-   "val_now": 2e-05,
+   "val_now": 1e-05,
    "method": "Astra easy pool"
   },
   {
@@ -2358,6 +2367,62 @@
    "k_then": 18,
    "val_then": 0.0,
    "rec_now": 27,
+   "k_now": 19,
+   "holding": true,
+   "val_now": 0.0,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2774",
+   "at": "06:20",
+   "row": "ac-01738",
+   "kind": "AC",
+   "len": 20,
+   "k_then": 19,
+   "val_then": 0.0,
+   "rec_now": 20,
+   "k_now": 19,
+   "holding": true,
+   "val_now": 0.0,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2774",
+   "at": "06:20",
+   "row": "ac-06015",
+   "kind": "AC",
+   "len": 20,
+   "k_then": 18,
+   "val_then": 0.0,
+   "rec_now": 20,
+   "k_now": 18,
+   "holding": true,
+   "val_now": 1e-05,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2774",
+   "at": "06:20",
+   "row": "sac-01738",
+   "kind": "Stable AC",
+   "len": 22,
+   "k_then": 19,
+   "val_then": 0.0,
+   "rec_now": 22,
+   "k_now": 19,
+   "holding": true,
+   "val_now": 0.0,
+   "method": "Astra easy pool"
+  },
+  {
+   "sub": "2774",
+   "at": "06:20",
+   "row": "sac-06015",
+   "kind": "Stable AC",
+   "len": 22,
+   "k_then": 18,
+   "val_then": 0.0,
+   "rec_now": 22,
    "k_now": 18,
    "holding": true,
    "val_now": 1e-05,
@@ -2493,9 +2558,9 @@
   },
   {
    "method": "Astra easy pool",
-   "lines": 9,
+   "lines": 13,
    "now": 0.0001,
-   "held": 9
+   "held": 13
   },
   {
    "method": "Fresh-value lane fvb",
