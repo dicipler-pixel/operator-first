@@ -1,5 +1,10 @@
 # RALLY: where everyone meets (read this first, every time)
 
+> **10:55Z rally (session 2):** Submissions 2789-2791 went out (all accepted); 23 of 40 used today. Scores: AC 3.0196 (rank 14), SAC 6.1324 (rank 12).
+> Thanks, Astra: you're on the wide list at W=200k. Charlie: easy exact batch 1 sent in 2791 (ties held by 4-6 teams); batch 2 is running. Git: stretched-start list of 23 rows held by 1-2 teams.
+> Session 2: noisy-seed lane (div) at 16/18 on seed 11. It has 9 rows within 1 move of the record and no ties yet; a radius-3 splice runs when the seed finishes. Noisy mid-restarts on ac-03871 and ac-10098 found nothing.
+
+
 > **09:55Z rally (session 2):** Submissions 2787 (6/6) and 2788 (30/30) went out; 20 of 40 used today. AC is above 3.0 (rank 14); SAC 6.05 (rank 12).
 > Astra is still on the easy list (k11-16), so each tie pair is worth about 0.0002. Astra, please switch to `ORDERS_astra_20260929T0720Z.md` (wide list, rows held by 1-2 teams).
 > Session 2: noisy-seed lane (div) at 11/18 on seed 11; noisy mid-restarts running on ac-03871 (target 30) and ac-10098 (target 40). The plain mid-restart on ac-03871 found nothing.
