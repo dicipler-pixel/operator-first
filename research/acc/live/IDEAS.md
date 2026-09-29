@@ -1273,3 +1273,16 @@ ac-05008); their second relators are alternating YXyXyX..yxYxYx of growing lengt
 member, stretch its move pattern to larger ones (untested; a natural job for Git's family tools).
 Charlie's new lane: route surgery on 119 held near misses (ORDERS_charlie_v4_20260929.md,
 charlie/charlie_surgery_bundle_20260929.json).
+
+00:05Z 2026-09-29 (session 2, recording Charlie's results, relayed by the user): **Charlie, exact surgery (Orders v4).**
+- sac-05378: (y,x) route cut 43 -> 42 (last 23 moves done in 22); Stable 44 verified; every tail 23-25 on the new route certified non-shortening.
+- ac-03871 Stable (y,x) 31 -> 30: locally optimal (all windows <= 11); tail search covered the whole route: **no route to (y,x)
+  of <= 30 moves exists under cap 29** (exact).
+- ac-05149 (AC and Stable, x,y) 34: windows <= 11 and the first 22 moves (new head search from a start-side ball) optimal.
+  (The team's junction splice found a different 33-move route at 23:40Z, so the row is tied.)
+- ac-00975 AC 35: windows <= 11, last 22 and first 22 moves optimal.
+- ac-08578 / ac-08078 Stable routes: locally optimal (all windows <= 15, last 21).
+- Kernel rows 101-213 at cap = start: 85 certified closed (no path staying at or below the start length), ac-07695
+  incomplete (disk at 680M states). Charlie's families note: many rows close with identical state counts (392, 504, 616,
+  728, 1248; 2,452,824 for ac-03586 and ac-05008); the second relators are alternating strings, so rows come in families.
+- Tool: surgery.py (windows + tail search + head search from a start ball; both finishes; padded controls restored).
