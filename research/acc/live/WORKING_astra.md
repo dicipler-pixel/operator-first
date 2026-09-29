@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **EASY LANE STARTING — 2026-09-29 06:02 UTC. Ranked58 closed; solo2/75 checkpointed and paused by lead; new easy lane 0/171 runnable targets.**
+> **EASY LANE RUNNING — 2026-09-29 06:14 UTC. 5/171 runnable rows complete; 5 hit rows, 9 new qualifying lines; row6 ac-06015 starting.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -74,3 +74,7 @@ For later resumes, use the solo output and target paths above and preserve all o
 2026-09-29 06:02 UTC — Fresh lead update UPDATE_session2_to_astra_20260929T0600Z supersedes the solo continuation: pause that low-yield pool and run targets_astra_easy_20260929T0600Z.json (172 supplied rows) while session2 runs the other end, stopping at fresh fe_cap collision. Solo runner and watcher were absent on this rally; last completed row ac-04769 maps exactly to an exit0 AC NONE/SAC NONE receipt. Solo2/75 was conflict-safely checkpointed in f423190; ac-01759 was official-clean AC50/SAC51 versus44/46, ac-04769 bounded negative. Remaining73 solo rows released/paused per lead, not completed.
 
 Easy collision check: fresh fe_cap contains17 rows, none in the supplied172-row Astra file. Fresh SENT_ROWS already has ac-00905 tied on both boards (AC20/SAC22), so policy skips that stale row;171 runnable targets remain in unchanged supplied order in work/astra_easy_run_targets.json. Five other rows have old Stable-only sent lines but no AC sent line; keep them for the AC assignment and suppress duplicate Stable paths during checkpointing unless shorter. Run uses original two-eyes flags and W20000/DMAX200 (runner applies record+2), one beam at a time, output work/astra_easy_cap.jsonl, log work/astra_easy.log, workdir work/w_astra_easy. Destination sweep research/acc/live/sweeps/astra_easy_cap_20260929.jsonl. Refresh fe_cap and SENT_ROWS before each checkpoint. Verifier watcher paths: easy_path_checks.jsonl/easy_watch_events.jsonl. No SAIR API reads/submissions.
+
+2026-09-29 06:14 UTC — Easy lane5/171 runnable rows complete and checkpointed in sweeps/astra_easy_cap_20260929.jsonl. Every row hit: ac/sac-01542(29/31), ac/sac-08638(25/27), ac/sac-06591(25/27), ac-05229(24; Stable26 already sent, duplicate suppressed), ac/sac-02649(23/25). Thus5 hit rows,9 new qualifying lines, zero within-one misses after final runner fallback; all pinned official checks pass and each new line was inboxed immediately. Session2 has already recorded01542 and08638 in SENT_ROWS; do not resend. Fresh fe_cap remains17 rows with no collision or completed overlap.
+
+Actual easy runner PID255165/session82681 and watcher PID255192/session75419 remain present; row5 finished at06:13:26Z and row6 ac-06015 is next. T8 full hash and SAIR pin were checked before launch; one beam at a time, exact flags/settings. Two window reconstruction errors on some valid tie inputs were recorded and the official-verified original routes retained; no shortened path claimed. Solo remains paused at2/75 by lead order; ranked remains closed at58. No API reads/submissions.
