@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **WIDE LANE RUNNING — 2026-09-29 10:45 UTC. W=200000, row1 ac-04316; 0/18 complete. Easy lane closed at61/171.**
+> **WIDE PILOT RESUMED — 2026-09-29 13:14 UTC. Rebuilt binaries and official controls passed; ac-07194 W200000 active; 1/18 complete. Stops after first3 for assessment.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -113,3 +113,8 @@ Unsolved scout is complete as a read-only catalogue audit: saved board11:18Z sti
 
 
 2026-09-29 13:08:20 UTC — Machine-restart recovery underway. Confirmed the intact 12:01Z checkpoint and read fresh RALLY (12:55Z), wide0720 orders, 0800 and1115 lead updates. Command-line Git still lacks authentication, but the authorized GitHub connector can read/write the private branch; restoring exact task source blobs from 8cbd3f579a9f0d548a7dff1c866d064f69dbbc73 into the surviving workspace (not claiming a full Git clone). Rebuilt acc_beam/acc_window/acc_opt for this CPU; four subprocess-guard canaries pass. Clean SAIR a0fd6e6 and T8 size640000000/full expected SHA-256 verified. Known beam control ac-06015 and positive shortening control04953 are being run before any production restart. Wide remains1/18, hits0, within-one misses0;04316 AC45/SAC47 versus43/45 is already logged as a non-hit, not repeated. Hourly automation remains paused pending controls. No submissions or SAIR API calls.
+
+
+2026-09-29 13:15:11 UTC — Recovery PASSED; wide pilot resumed on unfinished ac-07194. Source files restored through authenticated GitHub connector (CLI git clone still unauthenticated; original root .git remains absent), with source Git blob hashes matching pinned source commit8cbd3f5. acc_beam/acc_window/acc_opt rebuilt for this CPU; four failure-guard canaries pass. Clean SAIR a0fd6e6 and full T8 size/hash pass. Beam control06015 reproduced AC20/SAC22, both official-clean, exit0. Window positive control04953 recovered38→37 and passes official verification; underlying acc_window still exits3 on pass2, so the existing guarded intermediate-path recovery is validated, NOT a bug-fix claim. Both controls already in fresh SENT_ROWS; neither re-inboxed.
+
+Wide1/18 complete, hits0, within-one misses0;04316 AC45/SAC47 versus43/45 remains a preserved non-hit. No completed07194 audit receipt was present, so only that unfinished row was restarted. Exactly one beam: runner690203/start4294021; beam690204/start4294033 at W200000/depth46; watcher690232/start4294114, cursor1, stops at3. Retained sessions91989/32932. Actual command lines/start ticks checked; launch cwd is the assigned root, direct /proc cwd remains permission-denied. Unchanged H1/DIV.8/P2=2/QUOTA16/ELITE5000/DUAL.75, audited fallback, no chain flag. Input work/astra_wide_first3.json exactly matches original first3; output work/astra_wide_cap.jsonl. Stops before row4 for gain comparison/mid-route restart decision. 9 visible CPUs/8 quota,8GiB RAM,27GB free; zero OOM events. Evidence: ledger/astra_machine_restart_20260929T1314Z.json. Hourly continuation can now be re-enabled following the user's passed-control condition. Inbox only; team/owner submits. No SAIR API reads/submissions.
