@@ -252,7 +252,8 @@ def build(work):
              "2694": "ac/sac-04191 k4 ties (helper B on the two-eyes orders, first helper hit) and ac-08578 (k8).",
              "2701": "ac/sac-05818 k2 ties (+0.25 each): Codex's mirror-twin two-eyes run (swap x<->y and the relators); our stored best was 36.",
              "2759": "sac-00021 k3 (yx_mid on a Stable = AC+1 row), ac-09365 k4 and sac-02153 k6 (rk2).",
-             "2763": "ac/sac-04612 and ac/sac-09507 (k6/k7): first hits of the never-tried easy-rows lane fe."}
+             "2763": "ac/sac-04612 and ac/sac-09507 (k6/k7): first hits of the never-tried easy-rows lane fe.",
+             "2765": "ac/sac-03714 (k4, session 1 road11), ac/sac-04308, ac/sac-00905 (session 1), ac/sac-07548 (lane fe); 5 lines the user had already sent were dropped by the live check."}
     for x in subs:
         if x["id"] in notes:
             ok = sum(1 for r in x["results"] if r.get("ok"))
