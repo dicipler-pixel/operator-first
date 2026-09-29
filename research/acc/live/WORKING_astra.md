@@ -208,3 +208,6 @@ Claiming next bounded restart on the same assigned row:04316 cut24 of the origin
 
 
 2026-09-29 19:30 UTC — ac-05423 cut20 is active in retained attached session67823: driver1059955/start6545130, beam1059976/start6545202, launch from assigned workspace. Exact W200000/DMAX13 command verified; one beam, unchanged flags, no chain. Guarded preflight passed pinned core/table/binaries/no competing search. Output work/astra_midroute/ac-05423_cut20_88acefd7e90f/result.json. No submissions/API reads.
+
+
+2026-09-29 19:42 UTC — ac-05423 cut20 COMPLETE at19:40:56Z: beam and both span14 windows exit0; official AC37/SAC38 remain+4/+3 versus33/35. No gain, hit, or within-one miss. Receipts/checks preserved in ledger/astra_midroute_05423_cut20_20260929T1941Z.json and attempt checkpointed in sweep. Claiming cut16 next from the same official source: old suffix21 official-replays, DMAX17=33-16, W200000, unchanged one-beam settings. --prepare passed, no prior result. No SAIR API reads/submissions.
