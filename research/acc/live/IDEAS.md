@@ -1366,3 +1366,4 @@ Morning sends so far: 2759 (3), 2763 (4), 2765 (8), 2766 (3): all accepted.
   - Many cuts have state length 23, so the route crosses a long plateau.
   - Now running noisy mid-restarts (BEAM_NOISE=2, seeds 21–24) on ac-03871 (target 30) and ac-10098 (target 40).
     Any improvement lands in work/mr_cap.jsonl, which the sweep watcher now covers via mr_targets.json.
+09:37Z (session 1): check-in. Road cycle ac-05400: already sent (tie). No new ties. Gap runs at sac-00201 caps 24/26.
