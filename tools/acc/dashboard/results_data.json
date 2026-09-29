@@ -1,27 +1,27 @@
 {
- "built": "2026-09-29T04:15Z",
+ "built": "2026-09-29T04:28Z",
  "summary": {
-  "updatedAt": "2026-09-29T04:15Z",
-  "leaderboardAt": "2026-09-29T04:15:00Z",
+  "updatedAt": "2026-09-29T04:28Z",
+  "leaderboardAt": "2026-09-29T04:25:00Z",
   "ac": {
    "rank": 14,
    "teams": 45,
-   "score": 2.7559,
-   "estimate": 1.9119,
-   "ties": 260
+   "score": 2.7871,
+   "estimate": 1.952,
+   "ties": 264
   },
   "sac": {
    "rank": 12,
    "teams": 42,
-   "score": 5.6707,
-   "estimate": 3.9989,
-   "ties": 265
+   "score": 5.6864,
+   "estimate": 4.0635,
+   "ties": 269
   },
-  "sentToday": 2,
+  "sentToday": 3,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-29T04:15Z",
-  "subsTotal": 105
+  "boardAt": "2026-09-29T04:25Z",
+  "subsTotal": 106
  },
  "points": [
   {
@@ -480,6 +480,15 @@
    "acRank": 14,
    "acTeams": 45,
    "sac": 5.6707,
+   "sacRank": 12,
+   "sacTeams": 42
+  },
+  {
+   "at": "2026-09-29T04:25:00Z",
+   "ac": 2.7871,
+   "acRank": 14,
+   "acTeams": 45,
+   "sac": 5.6864,
    "sacRank": 12,
    "sacTeams": 42
   }
@@ -1754,9 +1763,9 @@
    "k_then": 6,
    "val_then": 0.01562,
    "rec_now": 29,
-   "k_now": 6,
+   "k_now": 7,
    "holding": true,
-   "val_now": 0.03125,
+   "val_now": 0.01562,
    "method": "Easy-rows lane fe"
   },
   {
@@ -1768,9 +1777,9 @@
    "k_then": 6,
    "val_then": 0.01562,
    "rec_now": 30,
-   "k_now": 6,
+   "k_now": 7,
    "holding": true,
-   "val_now": 0.03125,
+   "val_now": 0.01562,
    "method": "Easy-rows lane fe"
   },
   {
@@ -1782,9 +1791,9 @@
    "k_then": 7,
    "val_then": 0.00781,
    "rec_now": 31,
-   "k_now": 7,
+   "k_now": 8,
    "holding": true,
-   "val_now": 0.01562,
+   "val_now": 0.00781,
    "method": "Easy-rows lane fe"
   },
   {
@@ -1796,9 +1805,121 @@
    "k_then": 7,
    "val_then": 0.00781,
    "rec_now": 32,
+   "k_now": 8,
+   "holding": true,
+   "val_now": 0.00781,
+   "method": "Easy-rows lane fe"
+  },
+  {
+   "sub": "2765",
+   "at": "04:28",
+   "row": "ac-00905",
+   "kind": "AC",
+   "len": 20,
+   "k_then": 13,
+   "val_then": 0.00012,
+   "rec_now": 20,
+   "k_now": 13,
+   "holding": true,
+   "val_now": 0.00024,
+   "method": "Session 1 road11"
+  },
+  {
+   "sub": "2765",
+   "at": "04:28",
+   "row": "ac-03714",
+   "kind": "AC",
+   "len": 51,
+   "k_then": 4,
+   "val_then": 0.0625,
+   "rec_now": 51,
+   "k_now": 4,
+   "holding": true,
+   "val_now": 0.125,
+   "method": "Session 1 road11"
+  },
+  {
+   "sub": "2765",
+   "at": "04:28",
+   "row": "ac-04308",
+   "kind": "AC",
+   "len": 21,
+   "k_then": 10,
+   "val_then": 0.00098,
+   "rec_now": 21,
+   "k_now": 10,
+   "holding": true,
+   "val_now": 0.00195,
+   "method": "Session 1 road11"
+  },
+  {
+   "sub": "2765",
+   "at": "04:28",
+   "row": "ac-07548",
+   "kind": "AC",
+   "len": 31,
+   "k_then": 7,
+   "val_then": 0.00781,
+   "rec_now": 31,
    "k_now": 7,
    "holding": true,
    "val_now": 0.01562,
+   "method": "Easy-rows lane fe"
+  },
+  {
+   "sub": "2765",
+   "at": "04:28",
+   "row": "sac-00905",
+   "kind": "Stable AC",
+   "len": 22,
+   "k_then": 12,
+   "val_then": 0.00024,
+   "rec_now": 22,
+   "k_now": 12,
+   "holding": true,
+   "val_now": 0.00049,
+   "method": "Session 1 road11"
+  },
+  {
+   "sub": "2765",
+   "at": "04:28",
+   "row": "sac-03714",
+   "kind": "Stable AC",
+   "len": 53,
+   "k_then": 4,
+   "val_then": 0.0625,
+   "rec_now": 53,
+   "k_now": 4,
+   "holding": true,
+   "val_now": 0.125,
+   "method": "Session 1 road11"
+  },
+  {
+   "sub": "2765",
+   "at": "04:28",
+   "row": "sac-04308",
+   "kind": "Stable AC",
+   "len": 23,
+   "k_then": 9,
+   "val_then": 0.00195,
+   "rec_now": 23,
+   "k_now": 9,
+   "holding": true,
+   "val_now": 0.00391,
+   "method": "Session 1 road11"
+  },
+  {
+   "sub": "2765",
+   "at": "04:28",
+   "row": "sac-07548",
+   "kind": "Stable AC",
+   "len": 33,
+   "k_then": 6,
+   "val_then": 0.01562,
+   "rec_now": 33,
+   "k_now": 6,
+   "holding": true,
+   "val_now": 0.03125,
    "method": "Easy-rows lane fe"
   }
  ],
@@ -1826,6 +1947,12 @@
    "lines": 2,
    "now": 0.5,
    "held": 2
+  },
+  {
+   "method": "Session 1 road11",
+   "lines": 6,
+   "now": 0.2566,
+   "held": 6
   },
   {
    "method": "(y,x) lane (letter-swap twin)",
@@ -1865,9 +1992,9 @@
   },
   {
    "method": "Easy-rows lane fe",
-   "lines": 4,
+   "lines": 6,
    "now": 0.0937,
-   "held": 4
+   "held": 6
   },
   {
    "method": "Two-eyes ranked lane rk2",

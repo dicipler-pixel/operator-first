@@ -17,7 +17,9 @@ METHOD_BY_ROW = {"ac-03060": "P2 lookahead", "sac-03060": "P2 lookahead", "ac-05
     "ac-08578": "Two-eyes beam (DUAL)", "ac-04191": "Helper B two-eyes list", "sac-04191": "Helper B two-eyes list",
     "ac-05818": "Codex mirror twin", "sac-05818": "Codex mirror twin",
     "sac-00021": "yx_mid (Stable = AC+1)", "ac-09365": "Two-eyes ranked lane rk2", "sac-02153": "Two-eyes ranked lane rk2 (y,x) finish",
-    "ac-04612": "Easy-rows lane fe", "sac-04612": "Easy-rows lane fe", "ac-09507": "Easy-rows lane fe", "sac-09507": "Easy-rows lane fe"}
+    "ac-04612": "Easy-rows lane fe", "sac-04612": "Easy-rows lane fe", "ac-09507": "Easy-rows lane fe", "sac-09507": "Easy-rows lane fe",
+    "ac-03714": "Session 1 road11", "sac-03714": "Session 1 road11", "ac-04308": "Session 1 road11", "sac-04308": "Session 1 road11",
+    "ac-00905": "Session 1 road11", "sac-00905": "Session 1 road11", "ac-07548": "Easy-rows lane fe", "sac-07548": "Easy-rows lane fe"}
 def board(kind, ts):
     fs = sorted(glob.glob(f"research/acc/live/boards/{kind}_2026*.json.gz"))
     best = None
