@@ -1568,3 +1568,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   - (a) The road-keeping DP runs again on the new pool paths (default caps). A second pass with loose caps (GROW 2, MAXC 16, SLACK 4) runs on the 188 paths within 2 of the record (work/skdp_loose.jsonl).
   - (b) 228 rows where we hold AC but not the Stable tie (Stable record ≤ 34). Exact searches (caps start+8, +10) are queued for the top 10 by value, led by ac-08078 (Stable 34, k1), 07476 (k2) and 07119 (k2). Output: work/ceil_sac.log.
   - (c) The owner submitted ac/sac-03779. Pending: 04739, 02092, 09850 (AC+SAC).
+- 18:50Z (session 1): took Git shape list 1 with one noise seed (11), lane shapeG.
