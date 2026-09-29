@@ -1,0 +1,15 @@
+# Snell–Smith chain probe — fixed before numerical results
+
+2026-09-29. Private ACC diagnostic, no changes to production scoring.
+
+1. Re-express the supplied Slater overlap through Gamma=(b-a)/(b+a), and check all positive active-orbital exponents Z=1..86, q=0..Z-1, filling M/C. This is an algebraic identity, not a re-test of the missing IE/optics data.
+2. Use exact integer matrices X=[[1,2],[0,1]], Y=[[1,0],[2,1]], inverses for inverse letters. Multiply in word order. The pair of matrices represents the two relators; compare every move with pinned official core.
+3. Enumerate the complete uncapped AC ball through depth6 with the official14 moves. Evaluate all depth5 states: probability that a uniformly chosen minimum-score move lowers the exact distance. Scores fixed here: raw length, abelian hyperbolic radius, ordered-chain hyperbolic distance to target pair, H, and lexicographic (length,chain)/(H,chain). Include all14 legal moves and their ties. This local endgame probe cannot establish hard-row beam performance.
+4. Replay all AC paths in the frozen routes.json; verify each before use. Count chart-invisible transitions, false center states, and evaluate the same scores' tie-aware ranks of recorded next moves. Report all steps, uphill steps, and >=10 moves remaining separately. Recorded tails are upper bounds, not exact distances; beam-generated routes are selected data. No posthoc weights or sign flips.
+5. Demonstrate physical ordered composition on a synthetic lossless two-layer optical stack, at normal and oblique incidence, with phase and Snell-consistent angles. Check independent reflection recursion against transfer matrices. No actual material claims.
+
+Success boundary: preserving word order is an encoding result. Only better held-out/matched-budget searches could justify a new beam score; these probes cannot establish that. Prior Snell-Peel failures and the previous negative Smith beam pilot remain negative.
+
+Follow-up fixed locally after the primary results and before running the six-route comparison: resolve the easy-route sampling limitation using all six route controls from atlas_beam_ab_20260928.json diagnostic[]. No filters, feature changes, weights or sign flips; retain their original source labels (three capped-search paths and three crossrow paths). These are independent of the initial71 routes, not a claim of a pristine statistical holdout. Check exact rational disk-pair injectivity on the same depth5 states, because plotted floating coordinates can otherwise conceal information lost by the display.
+
+Second follow-up fixed locally before running the P2 score kernel: the production first eye ranks by P2 before H, so the H-only tie result is insufficient. Read its exact C P2/H implementation without running another beam, cross-check H against the Python feature on every evaluated state, and compare (P2,H) with (P2,H,chain) on the frozen71+6 routes. No changes to data, distances, weights or production settings. This still omits beam quota, sampling, deduplication, fingerprint ties and the second eye; it is an offline ranking check only.
