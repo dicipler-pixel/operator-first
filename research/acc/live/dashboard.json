@@ -1,26 +1,26 @@
 {
  "summary": {
-  "updatedAt": "2026-09-29T03:59Z",
-  "leaderboardAt": "2026-09-29T03:55:00Z",
+  "updatedAt": "2026-09-29T04:15Z",
+  "leaderboardAt": "2026-09-29T04:15:00Z",
   "ac": {
    "rank": 14,
    "teams": 45,
-   "score": 2.6934,
-   "estimate": 1.8494,
-   "ties": 258
+   "score": 2.7559,
+   "estimate": 1.9119,
+   "ties": 260
   },
   "sac": {
    "rank": 12,
    "teams": 42,
-   "score": 5.5301,
-   "estimate": 3.9676,
-   "ties": 263
+   "score": 5.6707,
+   "estimate": 3.9989,
+   "ties": 265
   },
-  "sentToday": 1,
+  "sentToday": 2,
   "quota": 40,
   "alone": 0,
-  "boardAt": "2026-09-29T03:55Z",
-  "subsTotal": 104
+  "boardAt": "2026-09-29T04:15Z",
+  "subsTotal": 105
  },
  "scores": {
   "points": [
@@ -473,6 +473,15 @@
     "sac": 5.5301,
     "sacRank": 12,
     "sacTeams": 42
+   },
+   {
+    "at": "2026-09-29T04:15:00Z",
+    "ac": 2.7559,
+    "acRank": 14,
+    "acTeams": 45,
+    "sac": 5.6707,
+    "sacRank": 12,
+    "sacTeams": 42
    }
   ]
  },
@@ -570,16 +579,16 @@
    },
    {
     "d": "2026-09-29",
-    "subs": 1,
-    "ac": 1,
-    "sac": 2
+    "subs": 2,
+    "ac": 3,
+    "sac": 4
    }
   ]
  },
  "standing": {
   "gaps": {
    "ac": {
-    "0": 258,
+    "0": 260,
     "1": 3,
     "2": 4,
     "3": 4,
@@ -588,7 +597,7 @@
     "11+": 206
    },
    "sac": {
-    "0": 263,
+    "0": 265,
     "1": 5,
     "2": 5,
     "3": 3,
@@ -613,7 +622,7 @@
     "3": 2,
     "4": 1,
     "5": 5,
-    "6": 4,
+    "6": 6,
     "7": 7,
     "8": 8,
     "9": 13,
@@ -628,7 +637,7 @@
     "4": 6,
     "5": 6,
     "6": 13,
-    "7": 15,
+    "7": 17,
     "8": 12,
     "9": 14,
     "10": 11,
@@ -642,7 +651,7 @@
    {
     "rank": 8,
     "name": "jr",
-    "score": 141.9954,
+    "score": 141.9095,
     "rows": 1478,
     "alone": null,
     "us": false
@@ -650,7 +659,7 @@
    {
     "rank": 9,
     "name": "Snowbound",
-    "score": 36.541,
+    "score": 36.4706,
     "rows": 1085,
     "alone": null,
     "us": false
@@ -690,8 +699,8 @@
    {
     "rank": 14,
     "name": "Mad Hatters",
-    "score": 2.6934,
-    "rows": 265,
+    "score": 2.7559,
+    "rows": 266,
     "alone": 0,
     "us": true
    },
@@ -712,20 +721,20 @@
     "us": false
    }
   ],
-  "acAt": "2026-09-29T03:55:00Z",
+  "acAt": "2026-09-29T04:15:00Z",
   "sac": [
    {
     "rank": 6,
     "name": "grothendiecksga.com",
-    "score": 285.7611,
-    "rows": 1925,
+    "score": 296.9486,
+    "rows": 1944,
     "alone": null,
     "us": false
    },
    {
     "rank": 7,
     "name": "jr",
-    "score": 168.153,
+    "score": 168.0749,
     "rows": 1493,
     "alone": null,
     "us": false
@@ -749,7 +758,7 @@
    {
     "rank": 10,
     "name": "nahom",
-    "score": 14.0368,
+    "score": 14.0212,
     "rows": 475,
     "alone": 5,
     "us": false
@@ -757,7 +766,7 @@
    {
     "rank": 11,
     "name": "ACC01-T00076",
-    "score": 9.7921,
+    "score": 9.7765,
     "rows": 463,
     "alone": 7,
     "us": false
@@ -765,8 +774,8 @@
    {
     "rank": 12,
     "name": "Mad Hatters",
-    "score": 5.5301,
-    "rows": 271,
+    "score": 5.6707,
+    "rows": 273,
     "alone": 0,
     "us": true
    },
@@ -787,7 +796,7 @@
     "us": false
    }
   ],
-  "sacAt": "2026-09-29T03:55:00Z"
+  "sacAt": "2026-09-29T04:15:00Z"
  },
  "searches": {
   "items": [
@@ -1097,6 +1106,11 @@
     "at": "2026-09-29T03:59Z",
     "kind": "submit",
     "text": "Submission 2759: 3/3 accepted. sac-00021 k3 (yx_mid on a Stable = AC+1 row), ac-09365 k4 and sac-02153 k6 (rk2)."
+   },
+   {
+    "at": "2026-09-29T04:15Z",
+    "kind": "submit",
+    "text": "Submission 2763: 4/4 accepted. ac/sac-04612 and ac/sac-09507 (k6/k7): first hits of the never-tried easy-rows lane fe."
    }
   ]
  }
