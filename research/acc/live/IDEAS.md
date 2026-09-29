@@ -1462,3 +1462,5 @@ Fresh gcc -O3 rebuild of current acc_window still exits3 on04953 after printing 
   - Scoring: ac-04416 29/29 k12 and sac-04416 31/31 k10 TIE, stacked. ac/sac-01618 were already submitted.
   - Near misses: ac-08031 36 vs 35 (k1, high value) and ac-06269 37 vs 36 (k9).
   - All 16 of Bob's paths within 6 of the record are in acc_window exact shortening (work/bob_win_out.jsonl), +1 rows first. Bob's paths are added to the pool (kernel_paths.jsonl).
+- 13:23Z: auto junction splice (R=2) made **sac-08031 37 = record (k4)**. That row sits on the div/chain near-miss list,
+  so the extra routes from the noisy seeds and the chain lane are giving the splicer new junctions.
