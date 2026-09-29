@@ -136,5 +136,51 @@
     "returncode": 0,
     "stdout_file": "1790661642434442995_acc_beam.stdout",
     "stderr_file": "1790661642434442995_acc_beam.stderr"
+  },
+  "derived_stable_tie": {
+    "id": "sac-01542",
+    "moves": [
+      12,
+      12,
+      10,
+      13,
+      11,
+      5,
+      12,
+      0,
+      8,
+      8,
+      6,
+      2,
+      12,
+      7,
+      11,
+      9,
+      9,
+      4,
+      11,
+      13,
+      13,
+      3,
+      0,
+      6,
+      5,
+      5,
+      5,
+      3,
+      3,
+      16,
+      15
+    ],
+    "record": 31,
+    "verifier": {
+      "ok": true,
+      "length": 31,
+      "peak_total_relator_length": 33,
+      "work": 574,
+      "certificate_hash": "sha256:efa364c87920d78862ae9236dc1e5b17cfa1e2e7fbc4a3aa047ccc5912dda65d"
+    },
+    "sair_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+    "derivation": "official-clean AC29 route plus frozen two-move stable finish [16,15]"
   }
 }
