@@ -1,6 +1,6 @@
 # WORKING: Astra
 
-> **RESUMING by user authorization — 2026-09-29 03:26 UTC. Ranked checkpoint intact; restoring the lookup table before launch.**
+> **RUNNING after explicit user authorization — 2026-09-29 03:31 UTC. One ranked beam; 17-row checkpoint restored.**
 
 Lane: ORDERS_astra_20260928T2045Z.md part 1 (rk2 bottom-up), deadlines in ORDERS_astra_v2_20260928T2200Z.md.
 Hourly lines below (UTC, rows done / 150, hits, near misses).
@@ -26,3 +26,7 @@ Hourly lines below (UTC, rows done / 150, hits, near misses).
 2026-09-28 23:12 UTC — 17 / 150 rows done (149 inputs), 2 hit rows / 4 verified snapshot-tie lines, zero misses within one move. One +2 miss: ac-09219. User requested halt for evaluation. Retained session stopped with exit130; fresh process scan confirmed both runner716632 and child746263 absent, no own searches left. ac-08247 was interrupted and is not counted as a completed negative; solo list unstarted. All17 complete rows checkpointed. Full handoff: REPORT_astra_evaluation_20260928T2312Z.md. Kernel113-row relay already complete and delivered. No submissions.
 
 2026-09-29 03:29 UTC — user explicitly resumed this worker. No search process was left running. Local and remote checkpoints agree on 17 completed rows; next row ac-08247. T8 was truncated on workspace restoration (518862848 bytes; wrong hash), so it is being rebuilt from the original verified acc_opt source before any beam starts. Latest rk2 sweep has 59 rows; first collision is ac-00049 at position 92, leaving 74 ranked rows before that boundary. Latest lead update assigns the completed oddeasyB relay to Claude Kernel; I will not rerun it. Its completed screen will also be posted to sweeps as requested. Search settings remain the exact v2 settings, one beam at a time.
+
+2026-09-29 03:31 UTC — ranked lane resumed. Actual runner host PID108878 and beam child108895 verified in /proc at 03:31:11Z; retained execution session96994. Current row ac-08247; 17 completed rows, 2 earlier hit rows / 4 board lines, no new hit yet. T8 rebuilt to640000000 bytes and exact expected SHA-256 38f05b56d5e79d9df03cc3cd96cd8433725b051111984a8dad4fbe30d07068f8; source blobs and pinned SAIR a0fd6e6 match the original setup. Original beam and window binaries/settings retained. Work target file contains the unchanged first91 entries of the original149, stopping before known rk2 collision ac-00049 at position92; no row order or record changed. Refresh that boundary at every rally. Hourly execution/checkpointing restored. Completed relay screen is now also in sweeps/astra_kernel_oddeasyB_101_213_20260928.jsonl (f697fe4), as requested; those rows remain with Claude Kernel.
+
+Resume safeguard: after any workspace restoration, verify T8 size and full SHA-256 BEFORE launching run_beam_raw.py; this runner does not check a failed beam exit code and could otherwise mislabel a corrupt-table failure as nopath. Rebuild the original table if its checksum differs; the table builder's final output-directory argument must exist. This restart checked the table before any new row ran. Keep raw checkpoints and do not requeue the earlier hits already handled in the user's 00:00Z batch.
