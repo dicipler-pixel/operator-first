@@ -1,7 +1,41 @@
 {
- "pulledAt": "2026-09-30T00:11:12Z",
- "totalCount": 146,
+ "pulledAt": "2026-09-30T00:40:47Z",
+ "totalCount": 147,
  "items": [
+  {
+   "submissionId": "2834",
+   "competitionId": "acc",
+   "teamId": "teamv2_8be23d60b3ea4dac81bbdbc3bb316917",
+   "submittedBySairId": "U-fd957ce38d4fa4a97b5d13337141ae4a0012e7a3",
+   "status": "complete",
+   "receivedAt": "2026-09-30T00:25:49.029685Z",
+   "updatedAt": "2026-09-30T00:25:49Z",
+   "solutionCount": 3,
+   "meta": {
+    "description": "Mad Hatters ACC_SUBMIT_API_20260930T0025Z.txt"
+   },
+   "results": [
+    {
+     "challenge_id": "ac-01461",
+     "ok": true,
+     "length": 32,
+     "problem": "ac"
+    },
+    {
+     "challenge_id": "sac-01461",
+     "ok": true,
+     "length": 34,
+     "problem": "stable_ac"
+    },
+    {
+     "challenge_id": "sac-08788",
+     "ok": true,
+     "length": 45,
+     "problem": "stable_ac"
+    }
+   ],
+   "errorMessage": null
+  },
   {
    "submissionId": "2831",
    "competitionId": "acc",
