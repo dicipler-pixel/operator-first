@@ -1,0 +1,164 @@
+{
+  "schema": "acc-named-state-queries/1",
+  "source_path": "research/acc/live/UPDATE_fable_to_astra_20260930T1858Z.md",
+  "source_head": "10a937b0016c0d19186dc5ddbd9eedf58d41d20f",
+  "scope": "Frozen saved graph plus explicit paid neighborhoods of radius <=2. No unpriced symmetry. Fable finish estimates are hypotheses until replay.",
+  "rows": {
+    "ac-00028": {
+      "type": "road_exit",
+      "moves": [
+        0,
+        9,
+        2,
+        6,
+        9,
+        2,
+        6,
+        8,
+        7,
+        3,
+        9,
+        2,
+        13,
+        13,
+        11,
+        5,
+        13,
+        11,
+        5,
+        1,
+        13,
+        4,
+        1,
+        11,
+        5,
+        13,
+        1,
+        4,
+        10,
+        12,
+        4,
+        8,
+        13,
+        11,
+        4,
+        13,
+        2,
+        6,
+        8,
+        8,
+        3,
+        9,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        6,
+        3,
+        3
+      ],
+      "entry_index": 12,
+      "exit_indices": [
+        41,
+        42
+      ],
+      "fable_expected_entry": [
+        "YXyxyyx",
+        "YYYYXyyyx"
+      ],
+      "fable_expected_exits": {
+        "41": [
+          "yyyxY",
+          "yyyxyyxyyxyyxyyxyyxyyx"
+        ],
+        "42": [
+          "yyx",
+          "yyyxyyxyyxyyxyyxyyxyyx"
+        ]
+      }
+    },
+    "ac-00003": {
+      "type": "pure_y_states",
+      "ms_state": [
+        "YYYYXyyyx"
+      ],
+      "proposed_finish": [
+        5,
+        1,
+        6,
+        13,
+        13,
+        5
+      ],
+      "m_values": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "note": "Test all four exact relator/word orientations. The same six-move n=5 template is independently tested at n=3; invalid templates authorize no candidate."
+    },
+    "ac-00013": {
+      "type": "paid_prefix",
+      "moves": [
+        12,
+        10,
+        12,
+        10,
+        12,
+        10,
+        10,
+        12,
+        10,
+        12,
+        10,
+        13,
+        11,
+        5
+      ],
+      "expected_state": [
+        "YXYXYXXYXYXyx",
+        "xYXYXXyx"
+      ]
+    },
+    "ac-00029": {
+      "type": "paid_prefix",
+      "moves": [
+        12,
+        12,
+        12,
+        11,
+        13,
+        13,
+        11,
+        11,
+        12,
+        11,
+        12,
+        11,
+        11,
+        11,
+        5
+      ],
+      "expected_state": [
+        "YYYxyyxxYxYxxx",
+        "YYxyx"
+      ]
+    },
+    "ac-00018": {
+      "type": "road_exit",
+      "moves": null,
+      "entry_index": null,
+      "exit_indices": [
+        46
+      ],
+      "note": "Use lexicographically first shortest own saved road (51); replay the exact index-46 state and paid five-move suffix."
+    }
+  }
+}

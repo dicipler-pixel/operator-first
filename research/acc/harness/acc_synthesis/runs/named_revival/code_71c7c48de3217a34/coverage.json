@@ -1,0 +1,63 @@
+{
+  "algorithm_id": "named-exact-state-neighborhood-v1",
+  "row_id": "ac-00029",
+  "graph_input": "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz",
+  "graph_sha256": "d6b28b5d8139402b18225c3fa404c831e75055a6195bdc6d3c720ebe0060f835",
+  "capture_sha256": "f89f5ff8f6484a2d3f3a1e690b3debcc31e7694b9c38ca726539f3e7c62e82ee",
+  "helper_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+  "queries_sha256": "1b630a4af65a8ed75c0a6b952e300b3d9397b91e7b15ed5b84012707aaec9438",
+  "limits": {
+    "wall_seconds": 180.0,
+    "node_cap": 600000,
+    "memory_mib": 1024,
+    "fresh_radius": 2
+  },
+  "admitted_records": 283994,
+  "generated_neighborhood_moves": 210,
+  "verified_graph_edges": 144916,
+  "graph_states": 69433,
+  "graph_directed_edges": 144916,
+  "complete_named_neighborhoods": true,
+  "termination_reason": "named_neighborhood_complete",
+  "best_saved_length": null,
+  "best_length": null,
+  "target_length": 46,
+  "queries": [
+    {
+      "label": "paid_stripped_core",
+      "state": [
+        "YYYxyyxxYxYxxx",
+        "YYxyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": [
+        12,
+        12,
+        12,
+        11,
+        13,
+        13,
+        11,
+        11,
+        12,
+        11,
+        12,
+        11,
+        11,
+        11,
+        5
+      ],
+      "paid_suffix": null,
+      "direction": "successor",
+      "hits": [],
+      "neighborhood_unique_states": 160,
+      "neighborhood_move_strings": 211
+    }
+  ],
+  "verified_compositions": [],
+  "elapsed_seconds": 1.2020302189994254,
+  "peak_rss_mib": 132.6640625,
+  "scope": "Only the pinned saved graph and declared exact 0..2-move neighborhoods; no global impossibility or live scoring claim."
+}
