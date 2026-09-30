@@ -1,7 +1,7 @@
 {
-  "completed_batches": 121,
+  "completed_batches": 122,
   "model_worker_launches": 4,
-  "code_only_batches": 117,
+  "code_only_batches": 118,
   "new_improved_routes": 9,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -28,42 +28,13 @@
     }
   ],
   "next": {
-    "status": "active",
-    "active": {
-      "job": {
-        "row_id": "ac-00009",
-        "track": "AC",
-        "helper": "geometry",
-        "algorithm_id": "prospective-disk-heading-clock-beam-with-exact-pool-v1",
-        "script": "helpers/geometry_portfolio_v1.py",
-        "method_sha256": "615bf5402a4fa275e7b352098c3f0543a50aef3f908e136c0436f1431b1ad843",
-        "inputs": {
-          "helpers/geometry_portfolio_protocol.json": "b9de5ce0cb2901c69916d3d8787909ff126ea6e56f529e8668c5cfac0e413674",
-          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
-        },
-        "seed_sha256": "e6b2089e1133c9172a9d5d6eaa86e5280bfff4ef97a2e34aae4139f297513580",
-        "baseline": 78,
-        "target": 34,
-        "caps": {
-          "wall_seconds": 180,
-          "node_cap": 600000,
-          "memory_mib": 1024
-        },
-        "key": "c3456c8439b8dadc080cea1e3af61a104d450619481212a44b890c428005c291"
-      },
-      "task_id": 137,
-      "lease_token": "6ff0b3b04f11420e955709e1fccee328",
-      "expires_at": 1790813345.2436838,
-      "repo_head": "68d81575a2b24cbfa6be753ff3bf398b7345c8bd",
-      "phase": "reserved",
-      "host_must_commit_before_execution": true
-    }
+    "status": "exhausted",
+    "reason": "All eligible helper/row/input probes are already recorded or claimed. New evidence or a justified method is required."
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 121,
-      "running": 1
+      "completed": 122
     },
     "unconnected_roles": [
       "luna_memory",
@@ -1556,6 +1527,19 @@
         "memory_mib": 1024,
         "fresh_depth": 8,
         "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "geometry",
+      "row_id": "ac-00009",
+      "baseline": 78,
+      "target": 34,
+      "kind": "bounded_miss",
+      "result_path": "runs/geometry_revival/code_c3456c8439b8dadc/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
       }
     }
   ],
