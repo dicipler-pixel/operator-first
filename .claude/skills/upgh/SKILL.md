@@ -25,7 +25,7 @@ U="python3 tools/acc/upgh/upgh.py"
 - `$U harvest`. Always safe; it writes the ledger line for any path found in files (S4).
 - `$U plan`. Show the user its lines, the points and the file path.
 
-**Sending is the user's decision.** Never run `tools/acc/sair_api.py submit ... --yes` unless the user, in this conversation, tells you to send that specific plan file. Run the dry run first and show its output.
+**Sending.** The user's standing rule (2026-09-30): send the team queue about every 40 minutes when it has lines. That is at most about 36 of the 40 daily submissions; never send more often than every 30 minutes. Use only `python3 tools/acc/sair_api.py send-queue --yes --force --lean`. It re-pulls the live board within 5 minutes, drops lines already sent (API history plus the local send log), and keeps only ties, beats and first solves. Never use `submit --yes` directly. With an empty queue, send nothing. Report every send: rows, lengths, live record and k.
 
 ## 2. Work loop (for `loop N`, or until the user's budget)
 

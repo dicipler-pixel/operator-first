@@ -112,6 +112,25 @@ class Harness:
                 out[problem] = sources.load_board(path)
         return out
 
+    def held(self, st):
+        """Rows we already hold: the API history plus accepted results in the team's local send log
+        (owner direct submissions appear only there). Two witnesses for one bit of R."""
+        out = dict(st.held())
+        log = self.repo / "research/acc/live/submit_log.jsonl"
+        if log.exists():
+            for line in log.read_text(encoding="utf-8", errors="replace").splitlines():
+                try:
+                    e = json.loads(line)
+                except ValueError:
+                    continue
+                if e.get("event") != "result":
+                    continue
+                for r in e.get("results") or []:
+                    cid, n = r.get("challenge_id"), r.get("length")
+                    if r.get("ok") and isinstance(cid, str) and isinstance(n, int):
+                        out[cid] = min(n, out.get(cid, n))
+        return out
+
     def _clocks(self, st):
         return observe.clock_report(st, self.cfg, self.now())
 
@@ -367,7 +386,7 @@ class Harness:
     # -- plan --------------------------------------------------------------------------
     def rows_report(self, st=None):
         st = st or self.state()
-        boards, held, clocks = self._boards(st), st.held(), self._clocks(st)
+        boards, held, clocks = self._boards(st), self.held(st), self._clocks(st)
         out = []
         for cid in sorted(st.best):
             R = observe.observe(cid, st.best[cid], boards, held, clocks)
@@ -455,7 +474,7 @@ class Harness:
                  for p in st.parked.values() if p["row"] == cid][-5:]
         return {"start": ch.get("initial_relators"), "record": row.get("record"), "k": row.get("k"),
                 "our_best": best["length"] if best else None, "our_best_moves": best["moves"] if best else None,
-                "held": st.held().get(cid), "prior_misses": prior,
+                "held": self.held(st).get(cid), "prior_misses": prior,
                 "refined_knobs": sorted(st.refined.get(cid, ()))}
 
     def _builder_contract(self, st, tid, rows, strategy, why, boards, extra=None):
@@ -512,7 +531,7 @@ class Harness:
 
     def _select_rows(self, st, boards, strategy):
         g = self.cfg["gates"]
-        held, busy = st.held(), st.busy_rows()
+        held, busy = self.held(st), st.busy_rows()
         claimed = self.external_claims()
         cands = []
         for problem in ("ac", "stable_ac"):
@@ -891,7 +910,7 @@ class Harness:
                                                                       all_paths=True)
         events += [("path.invalid", d, "V") for d in invalid[:50]]
         boards, clocks = self._boards(st), self._clocks(st)
-        held = st.held()
+        held = self.held(st)
         rows_out, heat, parked = {}, [], []
         strategy = c["strategy"]
         for row in c["rows"]:
@@ -1406,7 +1425,7 @@ class Harness:
                     "`upgh split %s KNOB %s %s`" % (row, fam, hit[0], miss[0], diff, row, hit[0], miss[0]))
         # frozen: work on rows that can no longer score
         if st.boards:
-            boards, held = self._boards(st), st.held()
+            boards, held = self._boards(st), self.held(st)
             for t in st.open_tasks("builder"):
                 for row in t["contract"]["rows"]:
                     b = boards.get(observe.BOARD_OF[observe.track_of(row)], {}).get(row)
