@@ -28,7 +28,8 @@
     "pair_max_skew_s": 900,
     "select_board_max_age_s": 21600,
     "lease_s": 1200,
-    "heartbeat_s": 30
+    "heartbeat_s": 30,
+    "claims_max_age_s": 21600
   },
   "gates": {
     "heat_before_advisor": 3,

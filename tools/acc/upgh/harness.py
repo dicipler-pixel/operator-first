@@ -451,14 +451,52 @@ class Harness:
             c.update(extra)
         return c
 
+    def external_claims(self):
+        """Row numbers named in other lanes' research/acc/live/WORKING_*.md files committed recently.
+        The team's convention: a lane writes the rows it is on. Twins (ac/sac) count as claimed together."""
+        live = self.repo / "research/acc/live"
+        limit = self.cfg["clocks"].get("claims_max_age_s", 21600)
+        claimed = {}
+        for f in sorted(live.glob("WORKING_*.md")):
+            if f.name == "WORKING_upgh.md":
+                continue
+            t = subprocess.run(["git", "-C", str(self.repo), "log", "-1", "--format=%ct", "--", str(f)],
+                               capture_output=True, text=True).stdout.strip()
+            when = float(t) if t else f.stat().st_mtime
+            if self.now() - when > limit:
+                continue
+            for num in set(re.findall(r"\b(?:ac|sac)-(\d{5})\b", f.read_text(encoding="utf-8", errors="replace"))):
+                claimed.setdefault(num, f.name)
+        return claimed
+
+    def _write_working(self):
+        st = self.state()
+        lines = ["# Active harness lanes: UPG-H v2 (Claude edition)", "",
+                 "Written by tools/acc/upgh on every claim and result. Rows below are being searched now; "
+                 "other lanes please skip them. The harness skips rows named in any WORKING_*.md committed "
+                 "in the last %d hours." % (self.cfg["clocks"].get("claims_max_age_s", 21600) // 3600), ""]
+        open_tasks = [t for t in st.tasks.values() if t["status"] == "claimed" and t["contract"]["role"] == "builder"]
+        for t in sorted(open_tasks, key=lambda t: t["contract"]["task"]):
+            c = t["contract"]
+            lines.append("- %s: %s (method %s, seed %s)" % (c["task"], ", ".join(c["rows"]), c["strategy"]["method"],
+                                                           (c["strategy"].get("knobs") or {}).get("SEED")))
+        if not open_tasks:
+            lines.append("- (no rows claimed right now)")
+        text = "\n".join(lines) + "\n"
+        path = self.repo / "research/acc/live/WORKING_upgh.md"
+        if not path.exists() or path.read_text(encoding="utf-8") != text:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(text, encoding="utf-8")
+
     def _select_rows(self, st, boards, strategy):
         g = self.cfg["gates"]
         held, busy = st.held(), st.busy_rows()
+        claimed = self.external_claims()
         cands = []
         for problem in ("ac", "stable_ac"):
             for cid, row in boards.get(problem, {}).items():
                 rec, best = row["record"], st.best.get(cid)
-                if best is None or cid in busy:
+                if best is None or cid in busy or cid.split("-")[1] in claimed:
                     continue
                 if rec is None and not g["include_unsolved"]:
                     continue
@@ -540,6 +578,7 @@ class Harness:
             self.ledger.append_many(events)
             path = self._write_contract(contract)
             self._write_lease(contract["task"], until)
+            self._write_working()
             return {"task": contract["task"], "role": contract["role"], "token": token,
                     "contract": self._rel(path), "runner": contract.get("runner", "agent"),
                     "agent": self.cfg["roles"][contract["role"]]["claude_agent"]}
@@ -616,6 +655,11 @@ class Harness:
                     raise ValueError("strategy lacks %s" % missing)
                 hot = [r for r in rows if st.heat[(r, st.family_for(r, strategy))]
                        >= self.cfg["gates"]["heat_before_advisor"]]
+                claimed = self.external_claims()
+                taken = sorted({r for r in rows if r.split("-")[1] in claimed})
+                if taken and not contract.get("force_claim"):
+                    self._refuse("open", "claim", "rows claimed by another lane: %s (%s); a person may set "
+                                 "force_claim" % (taken, ", ".join(sorted({claimed[r.split('-')[1]] for r in taken}))))
                 repeats = self._exact_repeats(st, rows, strategy)
                 if repeats and not contract.get("force_heat"):
                     self._refuse("open", "S2", "exact repeat of %s: same rows, same strategy and knobs; a "
@@ -759,6 +803,7 @@ class Harness:
             if st.stopped:  # record everything, dispatch nothing
                 events = [e for e in events if e[0] != "task.opened"]
             self.ledger.append_many(events)
+            self._write_working()
             closed = next((d for k, d, _ in events if k == "task.closed"), {})
             opened = [d["task"] + ":" + d["role"] for k, d, _ in events if k == "task.opened"]
             return {"task": tid, "outcome": closed.get("outcome"), "rows": closed.get("rows"), "opened": opened}

@@ -335,6 +335,20 @@ class HarnessTests(unittest.TestCase):
         self.assertNotEqual(st.family_for("ac-00313", a), st.family_for("ac-00313", b))   # W now separates
         self.assertEqual(st.family_for("ac-01373", a), st.family_for("ac-01373", b))       # only on that row
 
+    def test_rows_claimed_by_other_lanes_are_skipped(self):
+        e = Env()
+        e.file("inbox/a.txt", "ac-01373: %s\nac-00313: %s\n" % (AC1373, AC313 + [0, 0]))
+        e.h.harvest()
+        e.boards(ac={"ac-01373": (29, 2), "ac-00313": (33, 3)}, sac={}, held={})
+        e.file("research/acc/live/WORKING_other.md", "Row: sac-01373, bounded probe\n")
+        e.t[0] = __import__("time").time()          # the claim file is fresh
+        e.boards(ac={"ac-01373": (29, 2), "ac-00313": (33, 3)}, sac={}, held={})
+        c = e.h.next(role="builder")
+        self.assertEqual(json.loads((e.repo / c["contract"]).read_text())["rows"], ["ac-00313"])
+        self.assertIn("t00001: ac-00313", (e.repo / "research/acc/live/WORKING_upgh.md").read_text())
+        with self.assertRaises(Refused):
+            e.h.open({"role": "builder", "rows": ["ac-01373"], "strategy": CFG["default_strategy"]})
+
     def test_artifacts_are_fenced_to_the_workspace(self):
         e = Env()
         e.file("inbox/a.txt", "ac-01373: %s\n" % AC1373)
