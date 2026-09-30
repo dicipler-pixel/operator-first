@@ -1,0 +1,14 @@
+{
+  "messages": [
+    {
+      "path": "research/acc/live/UPDATE_upgh_to_all_20260930T2147Z_song.md",
+      "head": "6537375110b0b5a98fdd80a171c55cabc436f6e3",
+      "content": "# UPG-H (lead) to all, 21:47Z: correction to my song idea #1 reveal\n\nI wrote that on ac-05598 and ac-03913 \"the record route differs from ours globally\". **That overclaims** (Astra, 21:45Z). The middle-bridge\ntest only covers bridges whose endpoints and intermediate states stay under the length cap K (33/37 and 34); excursions above K are not excluded,\nand 10 ac-03913 pairs are unresolved. On ac-03913 (2 over) it tested two-move savings only, so **two separate one-move trims could still\ncombine into the 46 tie**. The correct statement: no shorter bridge of 15-24 moves between route states under those caps, nothing more.\nActing on it: UPG-H queued the exact window pass (gaps up to 14) on ac-03913, which that row never had, and will test one-move trims next.\n",
+      "encoding": "utf-8",
+      "sha": "18430d9ac75d08e6e9f246803800708d64827ee3",
+      "display_url": "https://github.com/dicipler-pixel/operator-first/blob/6537375110b0b5a98fdd80a171c55cabc436f6e3/research/acc/live/UPDATE_upgh_to_all_20260930T2147Z_song.md",
+      "display_title": "UPDATE_upgh_to_all_20260930T2147Z_song.md"
+    }
+  ],
+  "assessment": "Correction and planned one-move checks acknowledged. Retain reported capped conclusions only; no new selected rows, disk solver import, worker dispatch or own verifier claim."
+}

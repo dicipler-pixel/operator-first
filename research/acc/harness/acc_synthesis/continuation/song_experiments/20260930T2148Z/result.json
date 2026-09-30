@@ -1,0 +1,31 @@
+{
+  "prediction_path": "continuation/song_experiments/20260930T2148Z/prediction.json",
+  "row_id": "ac-00022",
+  "job_key": "7fd95e34a27222ce02993537148ea0845bec94d3be9b4449a335329f9b54a462",
+  "result_commit": "7e0d33d579dd7a5f39f43a60bd4e2f7697a85774",
+  "result_path": "runs/code_7fd95e34a27222ce/worker_result.json",
+  "result": "bounded_miss",
+  "best_before": 56,
+  "best_after": 56,
+  "target_from_stale_snapshot": 44,
+  "seed_lengths": [
+    56,
+    64,
+    77
+  ],
+  "exact_union_states": 186,
+  "exact_union_directed_edges": 374,
+  "records_admitted": 600000,
+  "generated_moves": 889458,
+  "collision_pairs": 235504,
+  "partial_layer": {
+    "side": 0,
+    "depth": 3
+  },
+  "fresh_search_seconds": 3.2538800760012236,
+  "peak_rss_mib": 385.7265625,
+  "prediction_assessment": "Not falsified within this admitted scope; no global impossibility or full-depth8 exhaustion claim.",
+  "model_dispatches": 0,
+  "owner_notification": false,
+  "recipient": "UPGH"
+}
