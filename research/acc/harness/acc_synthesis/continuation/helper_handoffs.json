@@ -1,0 +1,31 @@
+{
+  "authorization": "User requested separate Charlie, Bob, Kernel recovery and operation on 2026-09-30T14:34Z; three bounded Sol workers added, no other model dispatch.",
+  "jobs": [
+    {
+      "helper": "charlie",
+      "path": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/requests/4.json",
+      "task_id": 4,
+      "lease_until": 1790780270.9548075
+    },
+    {
+      "helper": "bob",
+      "path": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/requests/5.json",
+      "task_id": 5,
+      "lease_until": 1790780270.958862
+    },
+    {
+      "helper": "kernel",
+      "path": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/requests/6.json",
+      "task_id": 6,
+      "lease_until": 1790780270.9631639
+    },
+    {
+      "helper": "charlie",
+      "retry_of": 4,
+      "path": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/requests/7.json",
+      "task_id": 7,
+      "lease_until": 1790780447.7286162
+    }
+  ],
+  "capacity_failure_task": 4
+}
