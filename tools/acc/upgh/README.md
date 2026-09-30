@@ -20,9 +20,18 @@ python3 tools/acc/upgh/upgh.py run            # code picks rows near the record 
 python3 tools/acc/upgh/upgh.py status
 ```
 
+### Working with the team (added 30 September)
+
+- **Claims:** the harness skips any row named in a `research/acc/live/WORKING_*.md` committed in the last 6 hours (AC/SAC twins together). It publishes its own rows in `WORKING_upgh.md`.
+- **Queue, not a second sender:** `upgh plan --queue` and `upgh cycle` copy scoring lines into `research/acc/live/queue/`. Sending stays with the team tool (`python3 tools/acc/sair_api.py send-queue --yes --force --lean`). That tool re-checks the live board within 5 minutes, drops anything already sent, and uses about 8 API calls. The harness itself never sends.
+- **API budget (about 360 reads per UTC day, 40 sends):** `cycle` spends calls only when a search produced a new best path. Boards the team tool already pulled are imported for free. History pulls are incremental (1 call), and every snapshot records the server's remaining read budget.
+- **Targets:** code picks rows held by at most 3 teams that are 1–3 moves off the record. Every target gets one attempt before any gets a second. A beat is weighted by a 0.3 prior because ties land far more often.
+- **Derived Stable AC:** every checked AC path P also yields P + `[16,15]`, which is replayed and recorded.
+- **Lanes:** `bash tools/acc/upgh/lanes.sh 3` runs three parallel code-runner lanes, one task per process, so code fixes apply from the next task.
+
 In Claude Code, type **`/upgh`**. The skill runs the same loop. It hands model work to four subagents and commits the ledger after each batch.
 
-Tests: `python3 -m unittest discover -s tools/acc/upgh/tests` (21 tests; they use temp folders and never the network).
+Tests: `python3 -m unittest discover -s tools/acc/upgh/tests` (23 tests; they use temp folders and never the network).
 
 ## How one step works
 

@@ -173,15 +173,24 @@ class HarnessTests(unittest.TestCase):
         self.assertEqual(st.best["sac-00313"]["length"], 35)
         self.assertEqual(e.h.harvest()["checked"], 0)   # nothing new: nothing re-checked, nothing re-written
 
+    def test_sac_is_derived_from_checked_ac_paths_only(self):
+        e = Env()
+        e.file("inbox/a.txt", "ac-00313: %s\nac-01373: [1, 2, 3]\n" % AC313)
+        e.h.harvest()
+        st = e.h.state()
+        self.assertEqual(st.best["sac-00313"]["moves"], AC313 + [16, 15])
+        self.assertEqual(st.best["sac-00313"]["source"]["kind"], "derived")
+        self.assertNotIn("sac-01373", st.best)              # an invalid AC path derives nothing
+
     def test_scoring_needs_every_bit_of_R(self):
         e = Env()
         e.file("inbox/a.txt", "ac-00313: %s\nac-01373: %s\n" % (AC313, AC1373))
         e.h.harvest()
         e.boards(ac={"ac-00313": (33, 3), "ac-01373": (29, 2)}, sac={}, held={})
-        rows = {r["R"]["cid"]: r["verdict"] for r in e.h.rows_report()[0]}
+        rows = {r["R"]["cid"]: r["verdict"] for r in e.h.rows_report()[0] if r["R"]["cid"].startswith("ac-")}
         self.assertEqual(rows, {"ac-00313": "tie", "ac-01373": "above"})   # gate 11: valid is not scoring
         e.boards(ac={"ac-00313": (33, 3)}, sac={}, held={"ac-00313": 33})
-        self.assertEqual(e.h.rows_report()[0][0]["verdict"], "held")
+        self.assertEqual({r["R"]["cid"]: r["verdict"] for r in e.h.rows_report()[0]}["ac-00313"], "held")
         e.t[0] += 3600                                                   # board goes stale
         v = {r["R"]["cid"]: (r["verdict"], r["missing"]) for r in e.h.rows_report()[0]}
         self.assertEqual(v["ac-00313"][0], "unobservable")
@@ -276,7 +285,7 @@ class HarnessTests(unittest.TestCase):
         self.assertEqual(len(st.parked), 0)              # not a miss
         with self.assertRaises(ValueError):
             e.h.accept(c["task"], c["token"], {"kind": "blocked", "summary": "late"})   # fenced
-        self.assertEqual(e.h.harvest()["improved"], 1)   # S4 repair: the orphaned path still gets its Z line
+        self.assertEqual(e.h.harvest()["improved"], 2)   # S4 repair: the orphaned path (and its +[16,15] twin)
         self.assertEqual(e.h.state().best["ac-01373"]["length"], 30)
 
     def test_wake_reopens_once(self):

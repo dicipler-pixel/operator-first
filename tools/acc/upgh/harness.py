@@ -205,6 +205,20 @@ class Harness:
                 found += [(c, m, "%s:%s" % (rel, w)) for c, m, w in harvest_mod.extract(p)]
             events, improved, invalid, disagree, n_unique, n_checked = self._check_paths(
                 st, found, {"kind": "harvest"})
+            # exact construction from checked AC paths only: P gives the Stable AC path P + [16, 15]
+            ac_best = {c: b["moves"] for c, b in st.best.items() if c.startswith("ac-")}
+            ac_best.update({c: d["moves"] for c, d in improved.items() if c.startswith("ac-")})
+            sac_len = {c: b["length"] for c, b in st.best.items() if c.startswith("sac-")}
+            sac_len.update({c: d["length"] for c, d in improved.items() if c.startswith("sac-")})
+            derived = [("sac-" + c.split("-")[1], m + [16, 15], "derived: %s + [16,15]" % c)
+                       for c, m in ac_best.items() if len(m) + 2 < sac_len.get("sac-" + c.split("-")[1], 10 ** 9)]
+            if derived:
+                ev2, imp2, inv2, dis2, _, n2 = self._check_paths(st, derived, {"kind": "derived"})
+                events += ev2
+                improved.update(imp2)
+                invalid += inv2
+                disagree += dis2
+                n_checked += n2
             stamp = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime(self.now()))
             art = self.state_dir / "harvests" / ("harvest_%s.json" % stamp)
             art.parent.mkdir(parents=True, exist_ok=True)
@@ -496,16 +510,23 @@ class Harness:
         for problem in ("ac", "stable_ac"):
             for cid, row in boards.get(problem, {}).items():
                 rec, best = row["record"], st.best.get(cid)
-                if best is None or cid in busy or cid.split("-")[1] in claimed:
+                if cid in busy or cid.split("-")[1] in claimed:
                     continue
                 if rec is None and not g["include_unsolved"]:
                     continue
                 if rec is not None and g.get("max_k") is not None and row["k"] > g["max_k"]:
                     continue
-                L = best["length"]
-                if rec is None:
+                if best is None:
+                    # a new target: other teams hold it, we have no path yet; short records only
+                    if rec is None or rec > g.get("nopath_record_max", 0):
+                        continue
+                    L = None
+                    gap, value = 2, 2.0 ** (-row["k"])
+                elif rec is None:
+                    L = best["length"]
                     gap, value = 1, 1.0
                 else:
+                    L = best["length"]
                     ours_at_rec = held.get(cid, 10 ** 9) <= rec or L <= rec
                     gap = L - (rec - 1 if ours_at_rec else rec)
                     # a beat is worth 1.0 minus the tie we already have; a new tie is worth 2^-k
