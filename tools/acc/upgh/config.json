@@ -105,6 +105,29 @@
       ],
       "needs_best": true,
       "wall_seconds": 1500
+    },
+    "tail": {
+      "runner": "code",
+      "about": "exact tail replacement: from each state on our best AC path, capped exact search to the target with the T9 finish (research/acc/optimality/tail_replace.py via adapters/tail_replace_rows.py); deterministic",
+      "command": [
+        "{python}",
+        "tools/acc/upgh/adapters/tail_replace_rows.py",
+        "{sair}",
+        "{bin}",
+        "{t9}",
+        "{work}",
+        "{jobs}",
+        "{out}",
+        "{knob:SLACK}",
+        "{knob:BUDGET}",
+        "{knob:ROW_S}"
+      ],
+      "needs": [
+        "bin/acc_capped",
+        "T9.tab"
+      ],
+      "needs_best": true,
+      "wall_seconds": 1500
     }
   },
   "roles": {
@@ -156,6 +179,19 @@
       "representation": "direct",
       "board_filter": "near-record",
       "knobs": {}
+    },
+    {
+      "method": "tail",
+      "seed": "our-best",
+      "pool": "none",
+      "capture": "tail-exact",
+      "representation": "direct",
+      "board_filter": "near-record",
+      "knobs": {
+        "SLACK": 2,
+        "BUDGET": 20000000,
+        "ROW_S": 600
+      }
     },
     {
       "method": "beam",
