@@ -1,0 +1,591 @@
+{
+  "algorithm_id": "named-exact-state-neighborhood-v1",
+  "row_id": "ac-00003",
+  "graph_input": "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz",
+  "graph_sha256": "d6b28b5d8139402b18225c3fa404c831e75055a6195bdc6d3c720ebe0060f835",
+  "capture_sha256": "f89f5ff8f6484a2d3f3a1e690b3debcc31e7694b9c38ca726539f3e7c62e82ee",
+  "helper_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+  "queries_sha256": "1b630a4af65a8ed75c0a6b952e300b3d9397b91e7b15ed5b84012707aaec9438",
+  "limits": {
+    "wall_seconds": 180.0,
+    "node_cap": 600000,
+    "memory_mib": 1024,
+    "fresh_radius": 2
+  },
+  "admitted_records": 353243,
+  "generated_neighborhood_moves": 0,
+  "verified_graph_edges": 144916,
+  "graph_states": 69433,
+  "graph_directed_edges": 144916,
+  "complete_named_neighborhoods": true,
+  "termination_reason": "named_neighborhood_complete",
+  "best_saved_length": 53,
+  "best_length": 53,
+  "target_length": 40,
+  "queries": [
+    {
+      "label": "pure_y_m2_orientation0",
+      "state": [
+        "yyx",
+        "YYYYXyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 8,
+      "proposed_finish_endpoint": [
+        "xyyxYYYYXyyyxYYYYXyyy",
+        "YYYxyyyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m2_orientation1",
+      "state": [
+        "xyy",
+        "YYYYXyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 8,
+      "proposed_finish_endpoint": [
+        "xxyyxyyXYYYYYYXyyyxYYXyyxxyyXYYYYYYXyyyxYYXyy",
+        "YYxyyXYYYxyyyyyyxYYXX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m2_orientation2",
+      "state": [
+        "YYYYXyyyx",
+        "yyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 8,
+      "proposed_finish_endpoint": [
+        "xYYYYXyyyxyyxyy",
+        "YYX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m2_orientation3",
+      "state": [
+        "YYYYXyyyx",
+        "xyy"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 8,
+      "proposed_finish_endpoint": [
+        "xYYYYXyyyxYYYYXyxyyXYYYxyyyyyyxYYYYXyxyyXYYYxyyyyyy",
+        "YYYYYYXyyyxYYXYxyyyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m3_orientation0",
+      "state": [
+        "yyyx",
+        "YYYYXyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 9,
+      "proposed_finish_endpoint": [
+        "xyyyxYYYXyyxYYYXyyxYYYXyy",
+        "YYxyyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m3_orientation1",
+      "state": [
+        "xyyy",
+        "YYYYXyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 9,
+      "proposed_finish_endpoint": [
+        "xxyyyxyyyXYYYYYYXyyyxYYYXyyxxyyyXYYYYYYXyyyxYYYXyyxxyyyXYYYYYYXyyyxYYYXyy",
+        "YYxyyyXYYYxyyyyyyxYYYXX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m3_orientation2",
+      "state": [
+        "YYYYXyyyx",
+        "yyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 9,
+      "proposed_finish_endpoint": [
+        "xYYYYXyyyxYYYYXyxyyyyyyxYYYYXyxyyyyyyxYYYYXyxyyyyyy",
+        "YYYYYYXYxyyyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m3_orientation3",
+      "state": [
+        "YYYYXyyyx",
+        "xyyy"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 9,
+      "proposed_finish_endpoint": [
+        "xYYYYXyyyxYYYYXyxyyyXYYYxyyyyyyxYYYYXyxyyyXYYYxyyyyyyxYYYYXyxyyyXYYYxyyyyyy",
+        "YYYYYYXyyyxYYYXYxyyyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m4_orientation0",
+      "state": [
+        "yyyyx",
+        "YYYYXyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 10,
+      "proposed_finish_endpoint": [
+        "xyyyyxYYXyxYYXyxYYXyxYYXy",
+        "YxyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m4_orientation1",
+      "state": [
+        "xyyyy",
+        "YYYYXyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 10,
+      "proposed_finish_endpoint": [
+        "xxyyyyxyyyyXYYYYYYXyyyxYYYYXyyxxyyyyXYYYYYYXyyyxYYYYXyyxxyyyyXYYYYYYXyyyxYYYYXyyxxyyyyXYYYYYYXyyyxYYYYXyy",
+        "YYxyyyyXYYYxyyyyyyxYYYYXX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m4_orientation2",
+      "state": [
+        "YYYYXyyyx",
+        "yyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 10,
+      "proposed_finish_endpoint": [
+        "xYYYYXyyyxYYYYXyyxyyyyyyxYYYYXyyxyyyyyyxYYYYXyyxyyyyyyxYYYYXyyxyyyyyy",
+        "YYYYYYXYYxyyyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m4_orientation3",
+      "state": [
+        "YYYYXyyyx",
+        "xyyyy"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 10,
+      "proposed_finish_endpoint": [
+        "xYYYYXyyyxYYYYXyxyyyyXYYYxyyyyyyxYYYYXyxyyyyXYYYxyyyyyyxYYYYXyxyyyyXYYYxyyyyyyxYYYYXyxyyyyXYYYxyyyyyy",
+        "YYYYYYXyyyxYYYYXYxyyyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m5_orientation0",
+      "state": [
+        "yyyyyx",
+        "YYYYXyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 11,
+      "proposed_finish_endpoint": [
+        "xyyyyyxYYYYYX",
+        "xyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m5_orientation1",
+      "state": [
+        "xyyyyy",
+        "YYYYXyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 11,
+      "proposed_finish_endpoint": [
+        "xxyyyyyxyyyyyXYYYYYYXyyyxYYYYYXyyxxyyyyyXYYYYYYXyyyxYYYYYXyyxxyyyyyXYYYYYYXyyyxYYYYYXyyxxyyyyyXYYYYYYXyyyxYYYYYXyyxxyyyyyXYYYYYYXyyyxYYYYYXyy",
+        "YYxyyyyyXYYYxyyyyyyxYYYYYXX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m5_orientation2",
+      "state": [
+        "YYYYXyyyx",
+        "yyyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 11,
+      "proposed_finish_endpoint": [
+        "xYYYYXyyyxYYYYXyyyxyyyyyyxYYYYXyyyxyyyyyyxYYYYXyyyxyyyyyyxYYYYXyyyxyyyyyyxYYYYXyyyxyyyyyy",
+        "YYYYYYXYYYxyyyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m5_orientation3",
+      "state": [
+        "YYYYXyyyx",
+        "xyyyyy"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 11,
+      "proposed_finish_endpoint": [
+        "xYYYYXyyyxYYYYXyxyyyyyXYYYxyyyyyyxYYYYXyxyyyyyXYYYxyyyyyyxYYYYXyxyyyyyXYYYxyyyyyyxYYYYXyxyyyyyXYYYxyyyyyyxYYYYXyxyyyyyXYYYxyyyyyy",
+        "YYYYYYXyyyxYYYYYXYxyyyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m6_orientation0",
+      "state": [
+        "yyyyyyx",
+        "YYYYXyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 12,
+      "proposed_finish_endpoint": [
+        "x",
+        "y"
+      ],
+      "proposed_finish_valid": true
+    },
+    {
+      "label": "pure_y_m6_orientation1",
+      "state": [
+        "xyyyyyy",
+        "YYYYXyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 12,
+      "proposed_finish_endpoint": [
+        "xxyyyyyyxyyyyyyXYYYYYYXyyyxYYYYYYXyyxxyyyyyyXYYYYYYXyyyxYYYYYYXyyxxyyyyyyXYYYYYYXyyyxYYYYYYXyyxxyyyyyyXYYYYYYXyyyxYYYYYYXyyxxyyyyyyXYYYYYYXyyyxYYYYYYXyyxxyyyyyyXYYYYYYXyyyxYYYYYYXyy",
+        "YYxyyyyyyXYYYxyyyyyyxYYYYYYXX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m6_orientation2",
+      "state": [
+        "YYYYXyyyx",
+        "yyyyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 12,
+      "proposed_finish_endpoint": [
+        "xYYYYXyyyxYYYYXyyyyxyyyyyyxYYYYXyyyyxyyyyyyxYYYYXyyyyxyyyyyyxYYYYXyyyyxyyyyyyxYYYYXyyyyxyyyyyyxYYYYXyyyyxyyyyyy",
+        "YYYYYYXYYYYxyyyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m6_orientation3",
+      "state": [
+        "YYYYXyyyx",
+        "xyyyyyy"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 12,
+      "proposed_finish_endpoint": [
+        "xYYYYXyyyxYYYYXyxyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyXYYYxyyyyyy",
+        "YYYYYYXyyyxYYYYYYXYxyyyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m7_orientation0",
+      "state": [
+        "yyyyyyyx",
+        "YYYYXyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 13,
+      "proposed_finish_endpoint": [
+        "xyyyyyyyxyXYYxyXYYxyXYYxyXYYxyXYYxyXYYxyXYY",
+        "yyxYX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m7_orientation1",
+      "state": [
+        "xyyyyyyy",
+        "YYYYXyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 13,
+      "proposed_finish_endpoint": [
+        "xxyyyyyyyxyyyyyyyXYYYYYYXyyyxYYYYYYYXyyxxyyyyyyyXYYYYYYXyyyxYYYYYYYXyyxxyyyyyyyXYYYYYYXyyyxYYYYYYYXyyxxyyyyyyyXYYYYYYXyyyxYYYYYYYXyyxxyyyyyyyXYYYYYYXyyyxYYYYYYYXyyxxyyyyyyyXYYYYYYXyyyxYYYYYYYXyyxxyyyyyyyXYYYYYYXyyyxYYYYYYYXyy",
+        "YYxyyyyyyyXYYYxyyyyyyxYYYYYYYXX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m7_orientation2",
+      "state": [
+        "YYYYXyyyx",
+        "yyyyyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 13,
+      "proposed_finish_endpoint": [
+        "xYYYYXyyyxYYYYXyyyyyxyyyyyyxYYYYXyyyyyxyyyyyyxYYYYXyyyyyxyyyyyyxYYYYXyyyyyxyyyyyyxYYYYXyyyyyxyyyyyyxYYYYXyyyyyxyyyyyyxYYYYXyyyyyxyyyyyy",
+        "YYYYYYXYYYYYxyyyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m7_orientation3",
+      "state": [
+        "YYYYXyyyx",
+        "xyyyyyyy"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 13,
+      "proposed_finish_endpoint": [
+        "xYYYYXyyyxYYYYXyxyyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyyXYYYxyyyyyy",
+        "YYYYYYXyyyxYYYYYYYXYxyyyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m8_orientation0",
+      "state": [
+        "yyyyyyyyx",
+        "YYYYXyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 14,
+      "proposed_finish_endpoint": [
+        "xyyyyyyyyxyyXYYYxyyXYYYxyyXYYYxyyXYYYxyyXYYYxyyXYYYxyyXYYYxyyXYYY",
+        "yyyxYYX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m8_orientation1",
+      "state": [
+        "xyyyyyyyy",
+        "YYYYXyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 14,
+      "proposed_finish_endpoint": [
+        "xxyyyyyyyyxyyyyyyyyXYYYYYYXyyyxYYYYYYYYXyyxxyyyyyyyyXYYYYYYXyyyxYYYYYYYYXyyxxyyyyyyyyXYYYYYYXyyyxYYYYYYYYXyyxxyyyyyyyyXYYYYYYXyyyxYYYYYYYYXyyxxyyyyyyyyXYYYYYYXyyyxYYYYYYYYXyyxxyyyyyyyyXYYYYYYXyyyxYYYYYYYYXyyxxyyyyyyyyXYYYYYYXyyyxYYYYYYYYXyyxxyyyyyyyyXYYYYYYXyyyxYYYYYYYYXyy",
+        "YYxyyyyyyyyXYYYxyyyyyyxYYYYYYYYXX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m8_orientation2",
+      "state": [
+        "YYYYXyyyx",
+        "yyyyyyyyx"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 14,
+      "proposed_finish_endpoint": [
+        "xYYYYXyyyxYYYYXyyyyyyxyyyyyyxYYYYXyyyyyyxyyyyyyxYYYYXyyyyyyxyyyyyyxYYYYXyyyyyyxyyyyyyxYYYYXyyyyyyxyyyyyyxYYYYXyyyyyyxyyyyyyxYYYYXyyyyyyxyyyyyyxYYYYXyyyyyyxyyyyyy",
+        "YYYYYYXYYYYYYxyyyyX"
+      ],
+      "proposed_finish_valid": false
+    },
+    {
+      "label": "pure_y_m8_orientation3",
+      "state": [
+        "YYYYXyyyx",
+        "xyyyyyyyy"
+      ],
+      "saved_node": false,
+      "saved_distance_from_start": null,
+      "saved_distance_to_goal": null,
+      "paid_prefix": null,
+      "paid_suffix": null,
+      "direction": null,
+      "hits": [],
+      "proposed_finish_cost": 14,
+      "proposed_finish_endpoint": [
+        "xYYYYXyyyxYYYYXyxyyyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyyyXYYYxyyyyyyxYYYYXyxyyyyyyyyXYYYxyyyyyy",
+        "YYYYYYXyyyxYYYYYYYYXYxyyyyX"
+      ],
+      "proposed_finish_valid": false
+    }
+  ],
+  "verified_compositions": [],
+  "elapsed_seconds": 1.4253999200009275,
+  "peak_rss_mib": 142.046875,
+  "scope": "Only the pinned saved graph and declared exact 0..2-move neighborhoods; no global impossibility or live scoring claim."
+}

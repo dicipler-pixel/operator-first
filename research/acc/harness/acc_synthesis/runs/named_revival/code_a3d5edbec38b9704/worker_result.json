@@ -1,0 +1,56 @@
+{
+  "kind": "bounded_miss",
+  "summary": "No improvement in named exact neighborhoods; best 53, target 40; named_neighborhood_complete.",
+  "limits": {
+    "wall_seconds": 180.0,
+    "node_cap": 600000,
+    "memory_mib": 1024,
+    "fresh_radius": 2
+  },
+  "actual_coverage": {
+    "admitted_records": 353243,
+    "generated_neighborhood_moves": 0,
+    "verified_graph_edges": 144916,
+    "complete_named_neighborhoods": true,
+    "queries_completed": 28
+  },
+  "termination_reason": "named_neighborhood_complete",
+  "reopen_when": {
+    "event": "new_exact_named_state_or_saved_edges",
+    "row_id": "ac-00003"
+  },
+  "evidence": [
+    {
+      "path": "runs/named_revival/code_a3d5edbec38b9704/coverage.json",
+      "sha256": "a76f7ab3c4405d74e8aba2e77162e3d940777d635a75c853ebb4b8e0e1ca55b5"
+    },
+    {
+      "path": "runs/named_revival/code_a3d5edbec38b9704/own_input.json",
+      "sha256": "a91517e28d2b350bdbf27a7032e0133ed98084872b8301c7d91a31cdaa2a3c85"
+    },
+    {
+      "path": "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz",
+      "sha256": "d6b28b5d8139402b18225c3fa404c831e75055a6195bdc6d3c720ebe0060f835"
+    },
+    {
+      "path": "runs/kernel_revival/code_a7e9bffde8b90533/captured_input.json",
+      "sha256": "f89f5ff8f6484a2d3f3a1e690b3debcc31e7694b9c38ca726539f3e7c62e82ee"
+    },
+    {
+      "path": "runs/named_revival/code_a3d5edbec38b9704/executed_named_bridge_lane_v1.py",
+      "sha256": "1552796aaeda2e9bbb4644674011d20bc1b3bf95875ffdb6d60ba78c8eb3fc5a"
+    },
+    {
+      "path": "runs/named_revival/code_a3d5edbec38b9704/executed_kernel_dependency.py",
+      "sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca"
+    },
+    {
+      "path": "runs/named_revival/code_a3d5edbec38b9704/executed_named_queries.json",
+      "sha256": "1b630a4af65a8ed75c0a6b952e300b3d9397b91e7b15ed5b84012707aaec9438"
+    },
+    {
+      "path": "runs/named_revival/code_a3d5edbec38b9704/executed_test_named_bridge.py",
+      "sha256": "8f6be06b707c6bd616d0f2de85b752504a69bd1125cbc32b481f2f8751693ec1"
+    }
+  ]
+}
