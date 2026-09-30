@@ -5,3 +5,5 @@ Written by tools/acc/upgh on every claim and result. Rows below are being search
 - t00135: sac-07467, ac-07467 (method beam_free, seed 101)
 - t00137: ac-06262, ac-06737 (method splice, seed None)
 - t00138: sac-03211, sac-02092, sac-00282 (method construction, seed None)
+- t00139: ac-00009, ac-00028 (method beam_free, seed 211)
+- t00140: ac-01432, ac-06752, ac-00183 (method construction, seed None)
