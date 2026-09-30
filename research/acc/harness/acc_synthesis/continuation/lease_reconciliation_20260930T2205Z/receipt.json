@@ -1,0 +1,14 @@
+{
+  "task_id": 113,
+  "key": "89ac2645fae0d6aef76360de4f2b24533c08479881bd51ed9c3bab8323b1daf4",
+  "reservation_commit": "5e6a00e0d492039326fa7472ab004f6b51eebfc0",
+  "observed_state_before": "running despite completed command/checkpoint",
+  "repaired_state": "completed via existing own token-fenced lease",
+  "cause": "Not established; integrity_check passed; task completion events were absent in subsequent read",
+  "result_sha256": "51812d429536437321bcef78de23c6faeed778a5989f669bd28e2a937e8bab1a",
+  "artifact_hashes_verified": 7,
+  "attempts_unchanged": 98,
+  "new_searches": 0,
+  "model_dispatches": 0,
+  "budgets_changed": false
+}
