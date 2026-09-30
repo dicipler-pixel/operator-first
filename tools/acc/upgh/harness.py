@@ -548,7 +548,8 @@ class Harness:
                     continue  # every rung is hot or spent: advisor territory now
                 fam = st.family_for(cid, chosen)
                 cands.append({"cid": cid, "gap": gap, "k": row["k"], "record": rec, "value": round(value, 4),
-                              "tries": st.heat[(cid, fam)], "strategy": chosen})
+                              "tries": st.heat[(cid, fam)], "strategy": chosen,
+                              "category": "new" if best is None else "near"})
         # breadth first: every target gets one attempt before any gets a second
         cands.sort(key=lambda c: (c["tries"], c["gap"], -c["value"], c["record"] or 0, c["cid"]))
         return cands
@@ -604,6 +605,13 @@ class Harness:
                              if self.cfg["methods"].get(c["strategy"]["method"], {}).get("runner") == "code"]
                 if not cands:
                     return None
+                # alternate near-record rows and new targets (rows other teams hold, no path of ours yet)
+                last = next((t["contract"].get("category") for t in sorted(
+                    st.tasks.values(), key=lambda t: t["opened_seq"], reverse=True)
+                    if t["contract"].get("category")), None)
+                want = "new" if last == "near" else "near"
+                pick = [c for c in cands if c["category"] == want] or cands
+                cands = pick + [c for c in cands if c not in pick]
                 tid = self._next_tid(st)
                 strategy = cands[0]["strategy"]
                 same = [c["cid"] for c in cands if canon(c["strategy"]) == canon(strategy)]
@@ -624,7 +632,8 @@ class Harness:
                     "%s gap %d, k=%d, record %s, worth %.3g" % (c["cid"], c["gap"], c["k"], c["record"] or "none",
                                                                c["value"])
                     for c in cands if c["cid"] in rows)
-                contract = self._builder_contract(st, tid, rows, strategy, why, boards)
+                contract = self._builder_contract(st, tid, rows, strategy, why, boards,
+                                                  {"category": cands[0]["category"]})
                 events.append(("task.opened", contract, "V"))
             token = secrets.token_hex(12)
             until = self.now() + self.cfg["clocks"]["lease_s"]

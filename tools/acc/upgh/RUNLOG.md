@@ -43,3 +43,8 @@ Short human notes on each working batch. The ledger (`research/acc/upgh/ledger.j
   - Each run records its binary and source hashes, and `doctor` fails on a stale binary.
   - `upgh void` withdraws a result by appending a correction; the original lines stay.
 - The yx and window results stand: correct paths, realistic wall times (yx about 10 s per 2 rows, window about 20 min).
+
+**Budget shape (15:10–15:35Z)**
+- The real tail rung (t00029–31) hit the 600 s row limit on all six rows, starting from the costliest positions. `tail_replace.py` gained an opt-in `TAIL_ORDER=rev` (default unchanged), and the rung now searches the short end tails first (about 30–40 s per position).
+- beam_p2 t00033–35 were killed at 900 s before `run_beam_raw.py` wrote any row. They were voided as unobservable. Timing shows the P2 beam itself takes about 2 min (ac-02528: AC 40, worse than our 35); the window pass afterwards is the slow part. beam_p2 now gets one row per task and a 40-min wall.
+- Every new rung restarts the attempt count, so the lanes kept giving the hard near-record rows first turn. Code now alternates near-record rows with **new targets** (k ≤ 3, no path of ours yet), as the user asked.
