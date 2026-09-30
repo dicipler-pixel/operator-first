@@ -1,7 +1,7 @@
 {
-  "completed_batches": 43,
+  "completed_batches": 44,
   "model_worker_launches": 4,
-  "code_only_batches": 39,
+  "code_only_batches": 40,
   "new_improved_routes": 3,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -30,7 +30,7 @@
   "next": {
     "status": "planned",
     "job": {
-      "row_id": "ac-00013",
+      "row_id": "ac-00015",
       "track": "AC",
       "helper": "charlie",
       "algorithm_id": "charlie-exact-cap-ladder-v1",
@@ -41,20 +41,20 @@
       },
       "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
       "baseline": null,
-      "target": 96,
+      "target": 150,
       "caps": {
         "wall_seconds": 180,
         "node_cap": 600000,
         "memory_mib": 1024
       },
-      "key": "98e3d99206c0fadc7487501b71d35c5f0acdf5f1c8fad209c5a91a448ee29252"
+      "key": "ab7688a3f2ec5b7584b6f71aa56a07f62768ec0a04fb0df787871c42491976eb"
     },
-    "remaining_jobs": 50
+    "remaining_jobs": 49
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 43
+      "completed": 44
     },
     "unconnected_roles": [
       "luna_memory",
@@ -650,6 +650,19 @@
         "memory_mib": 1024,
         "fresh_depth": 8,
         "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "charlie",
+      "row_id": "ac-00013",
+      "baseline": null,
+      "target": 96,
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_98e3d99206c0fadc/worker_result.json",
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
       }
     }
   ],
