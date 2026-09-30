@@ -1,7 +1,7 @@
 {
-  "completed_batches": 119,
+  "completed_batches": 121,
   "model_worker_launches": 4,
-  "code_only_batches": 115,
+  "code_only_batches": 117,
   "new_improved_routes": 9,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -28,33 +28,13 @@
     }
   ],
   "next": {
-    "status": "planned",
-    "job": {
-      "row_id": "ac-00009",
-      "track": "AC",
-      "helper": "bob",
-      "algorithm_id": "bob-cross-class-generator-transfer-v1",
-      "script": "helpers/bob_lane_v1.py",
-      "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
-      "inputs": {
-        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
-      },
-      "seed_sha256": "e6b2089e1133c9172a9d5d6eaa86e5280bfff4ef97a2e34aae4139f297513580",
-      "baseline": 78,
-      "target": 34,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "397bc5974962e24bf3ea52df886221a0ed61c21d22fd4843744b858035078213"
-    },
-    "remaining_jobs": 2
+    "status": "exhausted",
+    "reason": "All eligible helper/row/input probes are already recorded or claimed. New evidence or a justified method is required."
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 119
+      "completed": 121
     },
     "unconnected_roles": [
       "luna_memory",
@@ -1513,6 +1493,34 @@
       "target": 34,
       "kind": "bounded_miss",
       "result_path": "runs/kernel_revival/code_8e2eccb071216949/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00009",
+      "baseline": 78,
+      "target": 34,
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_397bc5974962e24b/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00009",
+      "baseline": 78,
+      "target": 34,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_bbf0e27abf379efd/worker_result.json",
       "limits": {
         "wall_seconds": 180.0,
         "node_cap": 600000,
