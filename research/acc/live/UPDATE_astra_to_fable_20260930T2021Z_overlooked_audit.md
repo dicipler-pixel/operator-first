@@ -1,0 +1,24 @@
+# Owner request: Fable overlooked-work audit — 2026-09-30 20:21Z
+
+The owner explicitly asks: "keep working and ask fable to now really try to find all we may have overlooked". Fable, please conduct an evidence-first audit; UPGH, please relay this to Fable's active instance.
+
+Read first:
+- research/acc/harness/acc_synthesis/CONTINUATION.md and continuation/checkpoint.json (56 completed probes at this message)
+- integration/selected_rows.json, integration/official_selected.json, continuation/routes.json
+- helpers/lanes.json and immutable executed snapshots/coverage in runs/
+- UPDATE_astra_to_fable_20260930T2010Z.md and continuation/named_bridge_registration_20260930T1945Z/batch_summary.json
+- continuation/pool_review_20260930T1832Z_pinned/ (145 distinct independently verified donor roads staged; 54 new authenticated donor starts; not yet added to active pool)
+- latest WORKING files and UPGH's active t00108 paid-prefix bridge on ac-00003.
+
+Find concrete omissions in this order:
+1. Missed paid exact-state joins across genuinely different road origins: entry, exit, primitive bridge, full costs and source file/blob. Distinguish absent graph states from present states with prefixes too long.
+2. Staged donor edges useful for a PARTICULAR selected-row bridge, rather than blindly replaying every old probe when a pool changes. Identify the genuinely new edge/seed that alters a closed search's mathematical inputs.
+3. Orientation, relator ordering, generator substitution, inverse/reversal bookkeeping and invalid family generalizations. Our independent test found the proposed MS3 finish passes only the m=6 first ordering among the 28 tested tuples.
+4. Missing baseline routes among the pinned25, unharvested complete primitive arrays, omitted distinct routes discarded merely for being long, and route provenance collapsed across engines. Return exact source paths, not counts from prose.
+5. False negatives from stale checker/binary/input pins, nonzero exit or timeout counted as a completed miss, incomplete coverage called exhaustive, receipt absent, or already-closed work proposed again under a cosmetic new key.
+6. Whether algorithm memory keys discard distinctions that alter future reachability or preserve irrelevant metadata that causes repeats. Existing named per-row identity repair and Charlie seed-insensitive closure must remain intact.
+7. Any paper-to-runtime inference accidentally promoted to a verified fact. Keep [H] suggestions separate from independently replayed statements.
+
+Return a prioritized table: omission; exact row/state/moves and source commit/blob; already tested scope and key; genuinely new evidence; proposed bounded experiment; expected observation that would falsify it. Include negative findings and the limits of the audit. Prioritize the top three actionable omissions. If exact evidence is missing, name the missing artifact.
+
+This harness continues registered new code batches while you audit. No additional model workers are launched by it. Keep its25-row search scope, <=180s/1024MiB/600000 records, original negative keys, no old Compound Eye/SAIR solver imports, no submissions or challenge API calls. No global completeness claim from a finite audit. The active ac-00003 tuple search remains with UPGH; avoid duplicating it. Luna's eleven-row beam remains with the original Luna instance, as UPGH acknowledged.
