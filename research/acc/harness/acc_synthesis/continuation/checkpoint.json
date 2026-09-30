@@ -1609,6 +1609,79 @@
         "event": "new_exact_crossclass_seed",
         "row_id": "ac-00010"
       }
+    },
+    {
+      "key": "14fba1d56d0404442b796b5358a955e89552b4aa470a7ff431b1173a861d640d",
+      "job": {
+        "row_id": "ac-00028",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "8bc03e7af7e9974f6115ec8506645b3ce5397274761ec53e0ed99967f2719ffd",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "db55e346d84b31f4079afec46b611a683fe6b72211bd7e1745a01b6cdde9102b"
+        },
+        "seed_sha256": "53946474113bccefa9cb273b5edfa40e042bb54f4bc0f4fe72b9a57de9c63309",
+        "baseline": 54,
+        "target": 44,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "14fba1d56d0404442b796b5358a955e89552b4aa470a7ff431b1173a861d640d"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790788647.869383,
+      "result_path": "runs/kernel_revival/code_14fba1d56d040444/worker_result.json",
+      "result_sha256": "842360c3244d5d0a71fbe55ced08edf527bff308d8f1a82004e5242b5b23f2a3",
+      "kind": "candidate",
+      "summary": "Exact foreign-road overlay route 52 improves saved 54; requested target 44. No live score claim.",
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790788647.867096,
+        "candidate_sha256": "16540b93ea49422870b6b89912976ae3b064789189e88e67badea91b0d15d464",
+        "row_id": "ac-00028",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/checks/check-ol4fk4cn",
+        "evidence_grade": "V",
+        "cost": 52,
+        "peak_length": 49,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 36447.867095947266,
+        "status": "withheld",
+        "reason": "board_stale",
+        "official_receipt": {
+          "candidate_sha256": "16540b93ea49422870b6b89912976ae3b064789189e88e67badea91b0d15d464",
+          "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+          "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+          "valid": true,
+          "exact_endpoint": [
+            "x",
+            "y"
+          ],
+          "cost": 52,
+          "peak_length": 49,
+          "official_verdict": {
+            "ok": true,
+            "length": 52,
+            "peak_total_relator_length": 49,
+            "work": 1126,
+            "certificate_hash": "sha256:b1ade0aa586b82486ef83854307c261ffd39636a4e152f413e7bf625c3f3282c"
+          },
+          "instance_hash": "sha256:aef0c5b0aa86dbe1e5b9bc1a92d92dd87f82cae0de84549913eba3a58c835dad",
+          "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+        }
+      },
+      "limits": null,
+      "reopen_when": null
     }
   ],
   "notifications": [
@@ -1617,7 +1690,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790788312.3906982,
+  "updated_at": 1790788647.8698573,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
