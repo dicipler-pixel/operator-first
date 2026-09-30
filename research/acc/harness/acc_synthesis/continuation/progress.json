@@ -1,8 +1,8 @@
 {
-  "completed_batches": 10,
+  "completed_batches": 24,
   "model_worker_launches": 4,
-  "code_only_batches": 6,
-  "new_improved_routes": 0,
+  "code_only_batches": 20,
+  "new_improved_routes": 1,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
   "runs": [
@@ -28,33 +28,41 @@
     }
   ],
   "next": {
-    "status": "planned",
-    "job": {
-      "row_id": "ac-00012",
-      "track": "AC",
-      "helper": "kernel",
-      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
-      "script": "helpers/kernel_lane_v1.py",
-      "method_sha256": "34aa9c690efcbb3f2324d2a02a9e0ac016c30793e734f2d8f0317661a0b4773b",
-      "inputs": {
-        "helpers/kernel_sources/roads_input.json": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae"
+    "status": "active",
+    "active": {
+      "job": {
+        "row_id": "ac-00003",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "8bc03e7af7e9974f6115ec8506645b3ce5397274761ec53e0ed99967f2719ffd",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae"
+        },
+        "seed_sha256": "e5bcaca785f33eeffa39b1f540c4828120989fa0d5dd1e4817b75d0b6731b6a0",
+        "baseline": 92,
+        "target": 40,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "be150c4ff82d82e3c08ef056d181f8e09689020dc7aa6f1d865b07b6c1833523"
       },
-      "seed_sha256": "080bbe88ccf41c29ce20ff672ca310011ecc7a906bb7c957d6401f53b8b6b177",
-      "baseline": 52,
-      "target": 47,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "546c93b37167cb2213004417a595efeb65a3516af08ba247df236aa7874393e7"
-    },
-    "remaining_jobs": 67
+      "task_id": 40,
+      "lease_token": "7c5faa703e68449c94dc174611dfcaa4",
+      "expires_at": 1790788032.095702,
+      "repo_head": "930421075d06136e6a8391b6e9442b7b566716d6",
+      "phase": "reserved",
+      "host_must_commit_before_execution": true
+    }
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 10
+      "completed": 24,
+      "running": 1
     },
     "unconnected_roles": [
       "luna_memory",
@@ -213,6 +221,192 @@
         "memory_mib": 1024,
         "node_cap": 600000,
         "wall_seconds": 180.0
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00012",
+      "baseline": 52,
+      "target": 47,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_546c93b37167cb22/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00018",
+      "baseline": 51,
+      "target": 43,
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_855a8558b538b1b6/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "charlie",
+      "row_id": "ac-00018",
+      "baseline": 51,
+      "target": 43,
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_650489b6ef372111/worker_result.json",
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00018",
+      "baseline": 51,
+      "target": 43,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_781ea7e4bf93335d/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00022",
+      "baseline": 56,
+      "target": 44,
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_6b531c914800dce6/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "charlie",
+      "row_id": "ac-00022",
+      "baseline": 56,
+      "target": 44,
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_587bbbabf5fc8e78/worker_result.json",
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00022",
+      "baseline": 56,
+      "target": 44,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_ebdf68eb745492fc/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00028",
+      "baseline": 58,
+      "target": 44,
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_53029195919c498a/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "charlie",
+      "row_id": "ac-00028",
+      "baseline": 58,
+      "target": 44,
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_29f9fb153e3db425/worker_result.json",
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00028",
+      "baseline": 58,
+      "target": 44,
+      "kind": "candidate",
+      "result_path": "runs/kernel_revival/code_6abe0e893a2057f7/worker_result.json",
+      "limits": null
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00028",
+      "baseline": 54,
+      "target": 44,
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_4c57880a06ebf3da/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00028",
+      "baseline": 54,
+      "target": 44,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_24ef35f442f14e38/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "charlie",
+      "row_id": "ac-00003",
+      "baseline": 92,
+      "target": 40,
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_256c2702129c739d/worker_result.json",
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      }
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00003",
+      "baseline": 92,
+      "target": 40,
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_fb75ba30210a1f53/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
       }
     }
   ],

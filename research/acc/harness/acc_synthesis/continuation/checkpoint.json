@@ -1,7 +1,34 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": null,
+  "active": {
+    "job": {
+      "row_id": "ac-00003",
+      "track": "AC",
+      "helper": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "script": "helpers/kernel_lane_v1.py",
+      "method_sha256": "8bc03e7af7e9974f6115ec8506645b3ce5397274761ec53e0ed99967f2719ffd",
+      "inputs": {
+        "helpers/kernel_sources/roads_input.json": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae"
+      },
+      "seed_sha256": "e5bcaca785f33eeffa39b1f540c4828120989fa0d5dd1e4817b75d0b6731b6a0",
+      "baseline": 92,
+      "target": 40,
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "key": "be150c4ff82d82e3c08ef056d181f8e09689020dc7aa6f1d865b07b6c1833523"
+    },
+    "task_id": 40,
+    "lease_token": "7c5faa703e68449c94dc174611dfcaa4",
+    "expires_at": 1790788032.095702,
+    "repo_head": "930421075d06136e6a8391b6e9442b7b566716d6",
+    "phase": "reserved",
+    "host_must_commit_before_execution": true
+  },
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -394,12 +421,602 @@
         "event": "higher_exact_cap_capacity",
         "row_id": "ac-00012"
       }
+    },
+    {
+      "key": "546c93b37167cb2213004417a595efeb65a3516af08ba247df236aa7874393e7",
+      "job": {
+        "row_id": "ac-00012",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "8bc03e7af7e9974f6115ec8506645b3ce5397274761ec53e0ed99967f2719ffd",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae"
+        },
+        "seed_sha256": "080bbe88ccf41c29ce20ff672ca310011ecc7a906bb7c957d6401f53b8b6b177",
+        "baseline": 52,
+        "target": 47,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "546c93b37167cb2213004417a595efeb65a3516af08ba247df236aa7874393e7"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790786697.2764053,
+      "result_path": "runs/kernel_revival/code_546c93b37167cb22/worker_result.json",
+      "result_sha256": "86a3b4de7a2ce27b1ae9440a02358d58744ff16ca29791bb5eb61448ddef1476",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best 52, target 47.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00012"
+      }
+    },
+    {
+      "key": "855a8558b538b1b6dcb5d4c646209989cf30fe69259f6987f632daf8acb623b6",
+      "job": {
+        "row_id": "ac-00018",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "cfd5a7d115fadbc37789fea8bf7e7806acb1bc7c6ef58f1bc80726ae8014f8f8",
+        "baseline": 51,
+        "target": 43,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "855a8558b538b1b6dcb5d4c646209989cf30fe69259f6987f632daf8acb623b6"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790786731.88237,
+      "result_path": "runs/bob_revival/code_855a8558b538b1b6/worker_result.json",
+      "result_sha256": "02b6d3868671eaf870e85ad03f472c7887ebfd66ce9f9a225e198507bb08df7c",
+      "kind": "bounded_miss",
+      "summary": "No improvement from the tested Bob cross-class transfers; saved baseline 51, target 43.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "reopen_when": {
+        "event": "new_exact_crossclass_seed",
+        "row_id": "ac-00018"
+      }
+    },
+    {
+      "key": "650489b6ef372111766eed79edd89c3c0d26872b568955e2f96ecfb6d30c0dce",
+      "job": {
+        "row_id": "ac-00018",
+        "track": "AC",
+        "helper": "charlie",
+        "algorithm_id": "charlie-exact-cap-ladder-v1",
+        "script": "helpers/charlie_lane_v1.py",
+        "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
+        "inputs": {
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "cfd5a7d115fadbc37789fea8bf7e7806acb1bc7c6ef58f1bc80726ae8014f8f8",
+        "baseline": 51,
+        "target": 43,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "650489b6ef372111766eed79edd89c3c0d26872b568955e2f96ecfb6d30c0dce"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790786752.3515906,
+      "result_path": "runs/charlie_revival/code_650489b6ef372111/worker_result.json",
+      "result_sha256": "4430fdfd3a21bc55debc0d6842040dea7d7000760a73da43be7ca3be7cd6023a",
+      "kind": "bounded_miss",
+      "summary": "No saved-baseline improvement in bounded cap probe",
+      "gate": null,
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      },
+      "reopen_when": {
+        "event": "higher_exact_cap_capacity",
+        "row_id": "ac-00018"
+      }
+    },
+    {
+      "key": "781ea7e4bf93335de6f7a5b93627a1c4fe9ae3d428cd155f9c806524a1c4c4aa",
+      "job": {
+        "row_id": "ac-00018",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "8bc03e7af7e9974f6115ec8506645b3ce5397274761ec53e0ed99967f2719ffd",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae"
+        },
+        "seed_sha256": "cfd5a7d115fadbc37789fea8bf7e7806acb1bc7c6ef58f1bc80726ae8014f8f8",
+        "baseline": 51,
+        "target": 43,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "781ea7e4bf93335de6f7a5b93627a1c4fe9ae3d428cd155f9c806524a1c4c4aa"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790786794.1666324,
+      "result_path": "runs/kernel_revival/code_781ea7e4bf93335d/worker_result.json",
+      "result_sha256": "cce90f463a4f84f012c6763bc297c46066e1da2ddf15dc67edc75c2a2054e1a0",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best 51, target 43.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00018"
+      }
+    },
+    {
+      "key": "6b531c914800dce6307f9e3fc3123d7776fb452f70c7cc48847132391d92870d",
+      "job": {
+        "row_id": "ac-00022",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "cddef9ac7f402b48f74b941a7ffbd5c62b1b55bc52ec59d85ce7ba9fd476cf55",
+        "baseline": 56,
+        "target": 44,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "6b531c914800dce6307f9e3fc3123d7776fb452f70c7cc48847132391d92870d"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790786822.7748742,
+      "result_path": "runs/bob_revival/code_6b531c914800dce6/worker_result.json",
+      "result_sha256": "a6b5c056fc1e598953565ca617d0b52f09758554c960a99bea522cdeb22db6b3",
+      "kind": "bounded_miss",
+      "summary": "No improvement from the tested Bob cross-class transfers; saved baseline 56, target 44.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "reopen_when": {
+        "event": "new_exact_crossclass_seed",
+        "row_id": "ac-00022"
+      }
+    },
+    {
+      "key": "587bbbabf5fc8e782cdaec8d29a5fa2a156d012d85b3e4b41f1361149d6e8270",
+      "job": {
+        "row_id": "ac-00022",
+        "track": "AC",
+        "helper": "charlie",
+        "algorithm_id": "charlie-exact-cap-ladder-v1",
+        "script": "helpers/charlie_lane_v1.py",
+        "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
+        "inputs": {
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "cddef9ac7f402b48f74b941a7ffbd5c62b1b55bc52ec59d85ce7ba9fd476cf55",
+        "baseline": 56,
+        "target": 44,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "587bbbabf5fc8e782cdaec8d29a5fa2a156d012d85b3e4b41f1361149d6e8270"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790786843.795882,
+      "result_path": "runs/charlie_revival/code_587bbbabf5fc8e78/worker_result.json",
+      "result_sha256": "a51e34421de51ce31dff93066c70320d0f671a94e9db6c9cafca565f09687b4c",
+      "kind": "bounded_miss",
+      "summary": "No saved-baseline improvement in bounded cap probe",
+      "gate": null,
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      },
+      "reopen_when": {
+        "event": "higher_exact_cap_capacity",
+        "row_id": "ac-00022"
+      }
+    },
+    {
+      "key": "ebdf68eb745492fcc6e5b1ccab78812fb8d862c4209e1703d40f4caaacf1b080",
+      "job": {
+        "row_id": "ac-00022",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "8bc03e7af7e9974f6115ec8506645b3ce5397274761ec53e0ed99967f2719ffd",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae"
+        },
+        "seed_sha256": "cddef9ac7f402b48f74b941a7ffbd5c62b1b55bc52ec59d85ce7ba9fd476cf55",
+        "baseline": 56,
+        "target": 44,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "ebdf68eb745492fcc6e5b1ccab78812fb8d862c4209e1703d40f4caaacf1b080"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790786899.7188206,
+      "result_path": "runs/kernel_revival/code_ebdf68eb745492fc/worker_result.json",
+      "result_sha256": "be7d75fb14b171842a76fe269ac1fb38bebb0f968a5f4da0640696d0f7d2ceaf",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best 56, target 44.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00022"
+      }
+    },
+    {
+      "key": "53029195919c498a559e80044149db07b2fa68ec9b18b6cb1bd6cbf5117da4bc",
+      "job": {
+        "row_id": "ac-00028",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "37312460075f2bcf5cfb49fa4d97d995029b84789eb9d6f51aad72cf4383aecf",
+        "baseline": 58,
+        "target": 44,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "53029195919c498a559e80044149db07b2fa68ec9b18b6cb1bd6cbf5117da4bc"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790786930.093017,
+      "result_path": "runs/bob_revival/code_53029195919c498a/worker_result.json",
+      "result_sha256": "576bc30310e32bb24b439e58b23ba70957f3900da3687567316e16e9691465e3",
+      "kind": "bounded_miss",
+      "summary": "No improvement from the tested Bob cross-class transfers; saved baseline 58, target 44.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "reopen_when": {
+        "event": "new_exact_crossclass_seed",
+        "row_id": "ac-00028"
+      }
+    },
+    {
+      "key": "29f9fb153e3db425aeeb801c479ef68a4b30ffdbfedb9a5dd51f8de942df5fc2",
+      "job": {
+        "row_id": "ac-00028",
+        "track": "AC",
+        "helper": "charlie",
+        "algorithm_id": "charlie-exact-cap-ladder-v1",
+        "script": "helpers/charlie_lane_v1.py",
+        "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
+        "inputs": {
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "37312460075f2bcf5cfb49fa4d97d995029b84789eb9d6f51aad72cf4383aecf",
+        "baseline": 58,
+        "target": 44,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "29f9fb153e3db425aeeb801c479ef68a4b30ffdbfedb9a5dd51f8de942df5fc2"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790786949.1622045,
+      "result_path": "runs/charlie_revival/code_29f9fb153e3db425/worker_result.json",
+      "result_sha256": "62282b80856d02ca7e1e77bb30b7630be6655ba467d62f6e8a895cb3c7ca11fe",
+      "kind": "bounded_miss",
+      "summary": "No saved-baseline improvement in bounded cap probe",
+      "gate": null,
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      },
+      "reopen_when": {
+        "event": "higher_exact_cap_capacity",
+        "row_id": "ac-00028"
+      }
+    },
+    {
+      "key": "6abe0e893a2057f7a53553f345cdafa273f0531e35c7b152b15f88c1a59b7c73",
+      "job": {
+        "row_id": "ac-00028",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "8bc03e7af7e9974f6115ec8506645b3ce5397274761ec53e0ed99967f2719ffd",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae"
+        },
+        "seed_sha256": "37312460075f2bcf5cfb49fa4d97d995029b84789eb9d6f51aad72cf4383aecf",
+        "baseline": 58,
+        "target": 44,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "6abe0e893a2057f7a53553f345cdafa273f0531e35c7b152b15f88c1a59b7c73"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790786991.096769,
+      "result_path": "runs/kernel_revival/code_6abe0e893a2057f7/worker_result.json",
+      "result_sha256": "c75dd319cbda4691cd2134bc097c00cf1b82bea56d483201af9262c0fcacf1fa",
+      "kind": "candidate",
+      "summary": "Exact foreign-road overlay route 54 improves saved 58; requested target 44. No live score claim.",
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790786991.0940995,
+        "candidate_sha256": "2b2613408847d16d2dc82e7b40c23c39b18bba10722c67b7674e8a8eca0c78b7",
+        "row_id": "ac-00028",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/checks/check-q1e_7xal",
+        "evidence_grade": "V",
+        "cost": 54,
+        "peak_length": 49,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 34791.09409952164,
+        "status": "withheld",
+        "reason": "board_stale",
+        "official_receipt": {
+          "candidate_sha256": "2b2613408847d16d2dc82e7b40c23c39b18bba10722c67b7674e8a8eca0c78b7",
+          "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+          "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+          "valid": true,
+          "exact_endpoint": [
+            "x",
+            "y"
+          ],
+          "cost": 54,
+          "peak_length": 49,
+          "official_verdict": {
+            "ok": true,
+            "length": 54,
+            "peak_total_relator_length": 49,
+            "work": 1203,
+            "certificate_hash": "sha256:ac4973508735fb4d156d1f4dee2d83803e44a5401cd1336887164bd091448d51"
+          },
+          "instance_hash": "sha256:aef0c5b0aa86dbe1e5b9bc1a92d92dd87f82cae0de84549913eba3a58c835dad",
+          "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+        }
+      },
+      "limits": null,
+      "reopen_when": null
+    },
+    {
+      "key": "4c57880a06ebf3da61849b32ceb8c8fd2dc413a3e7b90fdc99bef462f6bdc689",
+      "job": {
+        "row_id": "ac-00028",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "53946474113bccefa9cb273b5edfa40e042bb54f4bc0f4fe72b9a57de9c63309",
+        "baseline": 54,
+        "target": 44,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "4c57880a06ebf3da61849b32ceb8c8fd2dc413a3e7b90fdc99bef462f6bdc689"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790787264.5431511,
+      "result_path": "runs/bob_revival/code_4c57880a06ebf3da/worker_result.json",
+      "result_sha256": "c33012c0508af34c0cb78a2f40a3b147d4922581c827c46d906875d5006c3305",
+      "kind": "bounded_miss",
+      "summary": "No improvement from the tested Bob cross-class transfers; saved baseline 54, target 44.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "reopen_when": {
+        "event": "new_exact_crossclass_seed",
+        "row_id": "ac-00028"
+      }
+    },
+    {
+      "key": "24ef35f442f14e38195914ca4228cedf5a3929df55170a11c872e9ddcb8de1ac",
+      "job": {
+        "row_id": "ac-00028",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "8bc03e7af7e9974f6115ec8506645b3ce5397274761ec53e0ed99967f2719ffd",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae"
+        },
+        "seed_sha256": "53946474113bccefa9cb273b5edfa40e042bb54f4bc0f4fe72b9a57de9c63309",
+        "baseline": 54,
+        "target": 44,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "24ef35f442f14e38195914ca4228cedf5a3929df55170a11c872e9ddcb8de1ac"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790787308.1369421,
+      "result_path": "runs/kernel_revival/code_24ef35f442f14e38/worker_result.json",
+      "result_sha256": "d1acc1613ec90502b1f818c0bc360fbd340091e45159d58a30464ce9f4f6e7bb",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best 54, target 44.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00028"
+      }
+    },
+    {
+      "key": "256c2702129c739dc20661ab0ed880fb8bf1c0efb21c2a942f8532189303cc60",
+      "job": {
+        "row_id": "ac-00003",
+        "track": "AC",
+        "helper": "charlie",
+        "algorithm_id": "charlie-exact-cap-ladder-v1",
+        "script": "helpers/charlie_lane_v1.py",
+        "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
+        "inputs": {
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "e5bcaca785f33eeffa39b1f540c4828120989fa0d5dd1e4817b75d0b6731b6a0",
+        "baseline": 92,
+        "target": 40,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "256c2702129c739dc20661ab0ed880fb8bf1c0efb21c2a942f8532189303cc60"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790787337.1754944,
+      "result_path": "runs/charlie_revival/code_256c2702129c739d/worker_result.json",
+      "result_sha256": "f9b40b7f113bf493054e232d19c61f4b21a44d852a53bb0319b8e0bcd7f530c3",
+      "kind": "bounded_miss",
+      "summary": "No saved-baseline improvement in bounded cap probe",
+      "gate": null,
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      },
+      "reopen_when": {
+        "event": "higher_exact_cap_capacity",
+        "row_id": "ac-00003"
+      }
+    },
+    {
+      "key": "fb75ba30210a1f534686502b9fda6529ce64d68862471aab0784e8a7bcabf3f2",
+      "job": {
+        "row_id": "ac-00003",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "e5bcaca785f33eeffa39b1f540c4828120989fa0d5dd1e4817b75d0b6731b6a0",
+        "baseline": 92,
+        "target": 40,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "fb75ba30210a1f534686502b9fda6529ce64d68862471aab0784e8a7bcabf3f2"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790787425.2192264,
+      "result_path": "runs/bob_revival/code_fb75ba30210a1f53/worker_result.json",
+      "result_sha256": "d3f5a9493d92d5983ba34b6df79989a76b17ed316626cbbdc9cafdd52932f4cb",
+      "kind": "bounded_miss",
+      "summary": "No improvement from the tested Bob cross-class transfers; saved baseline 92, target 40.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "reopen_when": {
+        "event": "new_exact_crossclass_seed",
+        "row_id": "ac-00003"
+      }
     }
   ],
-  "notifications": [],
+  "notifications": [
+    "2b2613408847d16d2dc82e7b40c23c39b18bba10722c67b7674e8a8eca0c78b7"
+  ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790786487.9504848,
+  "updated_at": 1790787432.096216,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,

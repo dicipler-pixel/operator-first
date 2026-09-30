@@ -1,0 +1,95 @@
+{
+  "protocol": "kernel-helper/1",
+  "helper": "KERNEL (Claude Kernel; not WORKING_kernel Astra relay)",
+  "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+  "source_branch": "claude/gallant-bardeen-0pgpae",
+  "source_head": "3981da39a41834acf982336318cad2dde8d4b8a0",
+  "sourcepool_fingerprint": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae",
+  "method": "Official-verify saved foreign roads before adding exact directed unit edges and inverse edges. BFS minimum saved suffixes; target saved-route states seeded with shortest graph prefixes; layered primitive forward bridge search joins exact states. No unpaid symmetry.",
+  "historical_method": {
+    "algorithm_ids": [
+      "KERNEL-CROSS-CLASS-01",
+      "KERNEL-TWIN-TRANSFER-01"
+    ],
+    "description": "Paid compilation of generator changes, conjugations, inversion, relator maps and endpoint finishing; reach-2/3 block splice.",
+    "reported_20260929": "495 verified transfers; 44 new road rows; 0 recorded ties/beats. Block-splice lead locally reported dead.",
+    "latest_evidence": "06:00Z handoff: 2781 verified roads on 1139 rows for Kernel; 06:55Z RALLY: further roads for compressor. Session 1 thanks Kernel for w* write-up closing doubling lead. Standalone Kernel closing write-up absent from pinned tree; conversion lengths not invented.",
+    "adaptation": "New exact foreign-road overlay adaptation grounded in latest compressor handoff; not a reproduced historical hit."
+  },
+  "runtime_inputs": [
+    "helpers/kernel_lane_v1.py",
+    "helpers/kernel_protocol.json",
+    "helpers/kernel_sources/roads_input.json",
+    "helpers/kernel_sources/source_catalog.json",
+    "integration/adapter_pins.json",
+    "integration/official_selected.json",
+    "official_checker.py",
+    "tests/test_kernel_lane.py",
+    "vendor/verifier/__init__.py",
+    "vendor/verifier/__main__.py",
+    "vendor/verifier/canon.py",
+    "vendor/verifier/cli.py",
+    "vendor/verifier/core.py",
+    "vendor/verifier/data/golden_vectors.json",
+    "vendor/verifier/data/move_spec.json",
+    "vendor/verifier/data/stable_move_spec.json",
+    "vendor/verifier/golden.py",
+    "vendor/verifier/specs.py",
+    "vendor/verifier/stable_core.py",
+    "vendor/verifier/submission.py"
+  ],
+  "cli": [
+    "python",
+    "helpers/kernel_lane_v1.py",
+    "--row",
+    "ac-00034",
+    "--output-dir",
+    "runs/kernel_revival/production_ac00034",
+    "--wall-seconds",
+    "180",
+    "--node-cap",
+    "600000",
+    "--target-length",
+    "41",
+    "--memory-mib",
+    "1024"
+  ],
+  "cli_defaults": {
+    "wall_seconds": 180,
+    "node_cap": 600000,
+    "target_length": 41,
+    "memory_mib": 1024,
+    "depth": 8,
+    "pool_route_cap": 6000,
+    "source_pool": "helpers/kernel_sources/roads_input.json"
+  },
+  "bounds": {
+    "search_wall_seconds_max": 180,
+    "node_cap_max": 600000,
+    "memory_mib_max": 1024,
+    "fresh_depth_max": 8,
+    "pool_routes_max": 6000,
+    "wall_scope": "Donor verification, ingestion, graph distances and fresh search share one wall deadline; artifact writing follows"
+  },
+  "artifacts": [
+    "coverage.json",
+    "worker_result.json",
+    "captured_input.json",
+    "exact_graph.json.gz",
+    "executed_kernel_lane_v1.py",
+    "executed_test_kernel_lane.py",
+    "candidate.json and receipt.json only when saved-baseline improved"
+  ],
+  "pool_resume": "All chosen paths and exact donor starts retained. source_cursor_next records processed source prefix; truncation explicitly incomplete. Reopen from pinned pack with increased declared pool cap.",
+  "constraints": [
+    "no donor active search",
+    "no search-code imports",
+    "no SAIR API/submissions/GitHub writes",
+    "local replay only; no live board score claim"
+  ],
+  "input_files": [
+    "helpers/kernel_sources/roads_input.json"
+  ],
+  "own_seed_source": "continuation/routes.json (integration/recovered_routes.json fallback)",
+  "node_accounting": "Distinct saved graph states plus all fresh admitted labels are charged against node_cap"
+}

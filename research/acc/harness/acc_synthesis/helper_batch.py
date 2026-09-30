@@ -34,10 +34,20 @@ class HelperContinuation(Continuation):
         return {p:hashlib.sha256(self.h.local_file(p).read_bytes()).hexdigest()
                 for p in lane['input_files']}
 
+    @staticmethod
+    def search_identity(job):
+        ignored={'method_sha256','key'}
+        # Charlie explores only the official start/goal, cap and target. Saved
+        # routes are a baseline gate; an unchanged target gives the same search.
+        if job.get('helper')=='charlie':ignored.update({'seed_sha256','baseline'})
+        return digest({k:v for k,v in job.items() if k not in ignored})
+
     def jobs(self,excluded=()):
         selected=read_json(self.root/'integration/selected_rows.json')['rows']
         routes=self.seeds()['routes']
         seen={a['key'] for a in self.cp['attempts']}
+        seen.update(self.search_identity(a['job']) for a in self.cp['attempts']
+                    if a.get('job',{}).get('helper')=='charlie')
         jobs=[]
         for lane in self.lanes():
             sources=self.fingerprints(lane)
@@ -53,7 +63,7 @@ class HelperContinuation(Continuation):
                      'algorithm_id':lane['algorithm_id'],'script':lane['script'],
                      'method_sha256':method,'inputs':sources,'seed_sha256':digest(moves),
                      'baseline':baseline,'target':target,'caps':CAPS}
-                job['key']=digest({k:v for k,v in job.items() if k!='method_sha256'})
+                job['key']=self.search_identity(job)
                 if job['key'] not in seen:
                     jobs.append(job)
         # Balanced helper coverage; within a lane, near-record unheld rows first.

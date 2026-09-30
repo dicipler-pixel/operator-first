@@ -60,6 +60,7 @@ test_preserved_projector_can_have_nonnormal_operator (test_geometry.GeometryTest
 test_reject_nonprojector (test_geometry.GeometryTests.test_reject_nonprojector) ... ok
 test_changed_foreign_pool_invalidates_reservation (test_helper_batch.HelperBatchTests.test_changed_foreign_pool_invalidates_reservation) ... ok
 test_distinct_lanes_share_negative_memory_without_dispatching_models (test_helper_batch.HelperBatchTests.test_distinct_lanes_share_negative_memory_without_dispatching_models) ... ok
+test_new_seed_does_not_repeat_charlie_when_search_target_is_unchanged (test_helper_batch.HelperBatchTests.test_new_seed_does_not_repeat_charlie_when_search_target_is_unchanged) ... ok
 test_out_of_contract_candidate_is_rejected_before_checker (test_helper_batch.HelperBatchTests.test_out_of_contract_candidate_is_rejected_before_checker) ... ok
 test_cap_and_stop_are_bounded_misses (test_kernel_lane.KernelLaneTests.test_cap_and_stop_are_bounded_misses) ... ok
 test_foreign_road_suffix_minimum_and_direction (test_kernel_lane.KernelLaneTests.test_foreign_road_suffix_minimum_and_direction) ... ok
@@ -83,6 +84,7 @@ test_stop_persists_and_resume_does_not_retry_interrupted_work (test_runtime.Runt
 test_timeout_returns_promptly (test_runtime.RuntimeTests.test_timeout_returns_promptly) ... ok
 test_unique_key_survives_completion_and_reopen (test_runtime.RuntimeTests.test_unique_key_survives_completion_and_reopen) ... ok
 test_wrong_token_is_fenced (test_runtime.RuntimeTests.test_wrong_token_is_fenced) ... ok
+test_workers_stop_without_opening_sqlite (test_worker_control.WorkerControlTests.test_workers_stop_without_opening_sqlite) ... ok
 test_bad_evidence_and_bad_strategy_rejected_without_crash (test_workflow.WorkflowTests.test_bad_evidence_and_bad_strategy_rejected_without_crash) ... ok
 test_code_first_routing_avoids_memory_and_review_workers (test_workflow.WorkflowTests.test_code_first_routing_avoids_memory_and_review_workers) ... ok
 test_cosmetic_switch_does_not_dispatch_new_family (test_workflow.WorkflowTests.test_cosmetic_switch_does_not_dispatch_new_family) ... ok
@@ -96,7 +98,7 @@ test_stop_persists_and_prevents_dispatch (test_workflow.WorkflowTests.test_stop_
 test_zero_budget_blocks_run_and_file_handoff (test_workflow.WorkflowTests.test_zero_budget_blocks_run_and_file_handoff) ... ok
 
 ----------------------------------------------------------------------
-Ran 84 tests in 2.135s
+Ran 86 tests in 2.360s
 
 OK
 {"kind": "bounded_miss", "row_id": "ac-00001", "result_path": "run/worker_result.json", "coverage_path": "run/coverage.json", "termination_reason": "node_cap", "admitted_records": 3, "winner_length": null}

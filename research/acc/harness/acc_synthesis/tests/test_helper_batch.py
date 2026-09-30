@@ -54,5 +54,21 @@ r={"kind":"bounded_miss","summary":"transport fixture only","limits":{"fixture":
             c.record(job,path,'fixture')
         self.assertEqual(c.cp['attempts'],[])
 
+    def test_new_seed_does_not_repeat_charlie_when_search_target_is_unchanged(self):
+        atomic_json(self.root/'continuation/routes.json',{'routes':[
+            {'row_id':'ac-00001','moves':[0]*410}]})
+        c=HelperContinuation(self.root)
+        job=next(j for j in c.jobs() if j['helper']=='charlie')
+        # Preserve the historical seed-sensitive key as a migrated record.
+        from acc_synthesis.harness import digest
+        old_key=digest({k:v for k,v in job.items() if k not in {'key','method_sha256'}})
+        c.cp['attempts'].append({'key':old_key,'job':{**job,'key':old_key}})
+        c.save()
+        atomic_json(self.root/'continuation/routes.json',{'routes':[
+            {'row_id':'ac-00001','moves':[0]*410},
+            {'row_id':'ac-00001','moves':[0]*409}]})
+        self.assertEqual({j['helper'] for j in c.jobs()},{'bob','kernel'})
+        self.assertEqual(c.cp['attempts'][0]['key'],old_key)
+
 
 if __name__=='__main__':unittest.main()
