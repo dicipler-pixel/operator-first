@@ -613,7 +613,9 @@ class Harness:
                     for r in [cid] + [x for x in same if x != cid and x.split("-")[1] == num]:
                         if r not in rows:
                             rows.append(r)
-                    if len({r.split("-")[1] for r in rows}) >= self.cfg["gates"]["rows_per_task"]:
+                    per_task = self.cfg["methods"].get(strategy["method"], {}).get(
+                        "rows_per_task", self.cfg["gates"]["rows_per_task"])
+                    if len({r.split("-")[1] for r in rows}) >= per_task:
                         break
                 strategy = self._rotate_seed(st, rows, strategy)
                 while self._exact_repeats(st, rows, strategy) and "SEED" in (strategy.get("knobs") or {}):
