@@ -22,3 +22,4 @@
 - 18:13Z New-target lane (free-depth P2 dual W100k): ac-00304 (rec 41, k1): no route within depth 61. ac-08424 (rec 39, k2): FIRST PATH, AC 66 / SAC 68, in sweeps/git/newtarget_roads_20260930.txt for the road cycle. ac-00935 (rec 41): the beam holds AC 60 at depth 57, still running. Worker 2 is on 02728, 02235, 03785, 06239, 08500, 09433. Every checked road goes to sweeps/git, scoring lines to queue/.
 - 18:18Z New-target lane: ac-00935 record 41 k 2 -> AC 58 (beam 60) ; roads in sweeps/git/newtarget_roads_20260930.txt
 - 18:28Z New-target lane: ac-02728 record 41 k 2 -> AC 65 (beam 65) ; roads in sweeps/git/newtarget_roads_20260930.txt
+- 18:33Z New-target lane: ac-00650 record 41 k 3 -> no route ; roads in sweeps/git/newtarget_roads_20260930.txt
