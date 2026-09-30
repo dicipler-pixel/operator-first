@@ -1,7 +1,7 @@
 {
-  "completed_batches": 44,
+  "completed_batches": 46,
   "model_worker_launches": 4,
-  "code_only_batches": 40,
+  "code_only_batches": 42,
   "new_improved_routes": 3,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -28,38 +28,33 @@
     }
   ],
   "next": {
-    "status": "active",
-    "active": {
-      "job": {
-        "row_id": "ac-00018",
-        "track": "AC",
-        "baseline": 51,
-        "target": 43,
-        "seed_sha256": "cfd5a7d115fadbc37789fea8bf7e7806acb1bc7c6ef58f1bc80726ae8014f8f8",
-        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
-        "caps": {
-          "wall_seconds": 180,
-          "node_cap": 600000,
-          "depth": 8,
-          "profile": "route-local",
-          "memory_mib": 1024
-        },
-        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
-        "key": "9868bc65744b21d8e6be7d5710ce65ffd18631f9bb959305d8bb947640fe6aa4"
+    "status": "planned",
+    "job": {
+      "row_id": "ac-00015",
+      "track": "AC",
+      "helper": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "script": "helpers/charlie_lane_v1.py",
+      "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
+      "inputs": {
+        "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
       },
-      "task_id": 60,
-      "lease_token": "d5ce2c4704dc47ed8d870e3d714ff852",
-      "expires_at": 1790793099.811334,
-      "repo_head": "43e7e28d0e91a456373690faa02156c78890c85b",
-      "phase": "reserved",
-      "host_must_commit_before_execution": true
-    }
+      "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "baseline": null,
+      "target": 150,
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "key": "ab7688a3f2ec5b7584b6f71aa56a07f62768ec0a04fb0df787871c42491976eb"
+    },
+    "remaining_jobs": 49
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 44,
-      "running": 1
+      "completed": 46
     },
     "unconnected_roles": [
       "luna_memory",
