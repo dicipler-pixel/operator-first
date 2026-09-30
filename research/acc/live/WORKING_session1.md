@@ -4,3 +4,4 @@
 - Surgery: sac-03871 at K=33.
 - Session 1 NEVER sends. Lines go to research/acc/live/queue/, roads to sweeps/session1/.
 - ac-09689: RELEASED 21:05Z (cap 32 CLOSED at 662.9M states; cap 34 DISKFULL at 667M, undecided).
+- **ac-03055 (MS(4) doubling, UPG-H 21:03Z job):** exact meet-in-the-middle over r1-only moves (r0 = YXYXyx fixed), backward from every (xy)^k x with the k+7 tail, total <= 55; r1 caps 22 then 24. Started 21:25Z. Then ac-04524 (MS(5)).
