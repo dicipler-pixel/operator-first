@@ -1,0 +1,33 @@
+{
+ "task": "t00077",
+ "echo": {
+  "requested_R": 7,
+  "built_R": 6,
+  "states": 23085971,
+  "note": "R=7 build aborted: global table passed 25M states after 6 of ~30 sources; full R=7 est >100M states (echo hash >11 GB)"
+ },
+ "runs": {
+  "cap22": {
+   "MAXD": 25,
+   "budget": 100000000,
+   "states": 28632747,
+   "deepest_depth": 25,
+   "ended": "STOPPED (MAXD)",
+   "bestAC": null,
+   "bestE": 40,
+   "echo_id": 6855000
+  },
+  "cap23": {
+   "MAXD": 23,
+   "budget": 210000000,
+   "states": 59819024,
+   "deepest_depth": 23,
+   "ended": "STOPPED (MAXD)",
+   "bestAC": null,
+   "bestE": 40,
+   "echo_id": 6855000
+  }
+ },
+ "verified_lines_in_out_txt": 2,
+ "wall_note": "elapsed 2549 s at finish (limit 2400 s, includes lease pause)"
+}

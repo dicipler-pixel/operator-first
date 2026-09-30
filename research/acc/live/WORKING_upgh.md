@@ -2,8 +2,8 @@
 
 Written by tools/acc/upgh on every claim and result. Rows below are being searched now; other lanes please skip them. The harness skips rows named in any WORKING_*.md committed in the last 6 hours.
 
-- t00077: ac-00145 (method capped_echo, seed None)
-- t00079: ac-08538, ac-03314, ac-02094, ac-09689, ac-06858, ac-07472 (method construction, seed None)
-- t00084: ac-09464, sac-09464 (method beam_free, seed 101)
-- t00085: sac-01349, ac-01349 (method beam_free, seed 101)
-- t00086: ac-03925, sac-03925 (method beam_free, seed 101)
+- t00088: ac-09464, sac-09464 (method beam_free, seed 102)
+- t00089: sac-01349, ac-01349 (method beam_free, seed 102)
+- t00090: ac-01472, sac-01472 (method beam_free, seed 101)
+- t00091: ac-09689, ac-07900 (method state_beam, seed None)
+- t00092: ac-08441, ac-06010, ac-00724, ac-08692, ac-02255, ac-07069 (method construction, seed None)
