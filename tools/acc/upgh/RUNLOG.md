@@ -34,3 +34,12 @@ Short human notes on each working batch. The ledger (`research/acc/upgh/ledger.j
 - Rival activity from a board diff (0 API calls): `research/acc/upgh/briefs/RIVAL_ACTIVITY_20260930T0711Z_to_1402Z.md`. Long rows are being shortened by 1–2 moves, and the AC tie campaign is ten times the SAC one.
 - The strategy ladder is: window-shorten our best path once, then seeded beam, then the advisor.
 - Three lanes are running with a 35-minute cycle. A self check-in is scheduled every 40 minutes.
+
+**Two silent defects, caught by watching wall times (14:40–14:47Z)**
+- *Dead lane read as a miss (the map's R rule).* The tail rung "finished" two rows in 1 s. The adapter's path was one directory too high, so `tail_replace.py` never ran. The harness recorded "no splices" as a miss. The earlier smoke test had "passed" for the same reason. Voided: t00018, t00022, t00025.
+- *Wrong method label.* `acc_beam` was compiled at 13:43 from the pre-merge source, which has no P2 code, so "beam_p2" ran the old beam at W20k. Voided: t00023, t00026. The binaries were rebuilt, and P2 mode now prints (`p2: mode 2`, `dual`, `atlas: quota 16`).
+- Changes:
+  - Adapters exit non-zero on tool errors, and a non-zero exit becomes `blocked`, never a miss.
+  - Each run records its binary and source hashes, and `doctor` fails on a stale binary.
+  - `upgh void` withdraws a result by appending a correction; the original lines stay.
+- The yx and window results stand: correct paths, realistic wall times (yx about 10 s per 2 rows, window about 20 min).
