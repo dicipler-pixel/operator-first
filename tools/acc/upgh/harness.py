@@ -631,10 +631,11 @@ class Harness:
                 if not cands:
                     return None
                 # alternate near-record rows and new targets (rows other teams hold, no path of ours yet)
-                last = next((t["contract"].get("category") for t in sorted(
-                    st.tasks.values(), key=lambda t: t["opened_seq"], reverse=True)
-                    if t["contract"].get("category")), None)
-                want = "new" if last == "near" else "near"
+                recent = [t["contract"].get("category") for t in sorted(
+                    st.tasks.values(), key=lambda t: t["opened_seq"], reverse=True) if t["contract"].get("category")]
+                ratio = self.cfg["gates"].get("new_per_near", 1)
+                # N new targets per near-record row: new targets are where the points came from
+                want = "near" if recent[:ratio] == ["new"] * ratio else "new"
                 pick = [c for c in cands if c["category"] == want] or cands
                 cands = pick + [c for c in cands if c not in pick]
                 tid = self._next_tid(st)
