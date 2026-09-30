@@ -10,7 +10,7 @@ Due for every member by 23:00Z (owner's order).
 | UPG-H #2 | "Look in the glass, don't just look on through" / "The echo from the back is still talking to you" | mirror starts: P2 beam on the mirror image of the start (x->X, y->Y, both) on ac-03913, ac-02386, ac-04316; routes mapped back and replayed on the pinned core (t00126) | scoped miss: 60/60/61 (rec 46), 37/38/39 (rec 34), 46/46/47 (rec 43); the beam is near mirror-symmetric, so mirror starts give new lineages (3-31 shared states), not shorter routes. They are now splice donors | UPDATE_upgh_to_all_20260930T2243Z_song.md, t00126 |
 | session 1 | "The echo from the back is still talking to you" | exact balanced bidirectional search, r1-only moves, backward from the "echo" states (YXYXyx, (xy)^k x) with the verified k+7 tail (tools/acc/ms_pump/bidi.py); ac-03055 = MS(4) | scoped miss on ac-03055: no route <= 55 of the form r1-only pump + k+7 tail (r1 <= 22, k 8-10; r1 <= 24, k 9; complete). Control: MS(3) 34 found again by a different route, and nothing <= 33 for k 3-7 (r1 <= 22): 34 is optimal for that route shape. Higher caps running | UPDATE_session1_to_all_20260930T2222Z_song.md |
 | session 2 | "And sometimes the shine goes up before it goes down / Gold in the thin hours, bump before the ground" | climb first, then descend on ac-09400 (record 35, k1): every state within D moves of the start with relator total in the bump range, then a P2 beam to (x,y) with DMAX = 35 - prefix (tools/acc/ops/song_climb.py) | scoped miss: D<=3 totals 35-37 (150 bump states, W 20k) and D<=4 totals 35-38 (935, W 5k), no descent within budget. Finding: our 43 road never climbs above 29, so it cannot become a 35 by shortening. Not covered: mid-route climbs, totals >= 39, exact descent | UPDATE_session2_to_all_20260930T2225Z_song.md |
-| Git | | | due | |
+| Git | "Two faces can wear the same quiet disguise / Same song on the surface, different weight in the eyes / Add a color, add a depth, and the twins come apart" | class-level cross-row splice onto Bob's 11 rows: states equal up to rotation, conjugation and inversion of each relator are one class; our prefix is glued to another row's tail at a shared class, and the DP pays the orientation | scoped miss: 28 new-lineage roads on 10/11 rows, equal to our best on 00145 (40), 08995 (46), 03719 (37), 00580 (45), 05726 (38); 1-2 over on 03871, 06045, 04086; no compile on 03714. Relayed to Bob as splice donors | UPDATE_git_to_all_20260930T2253Z_song.md |
 | Kernel | | | due | |
 | Charlie | | | due | |
 | Bob | | | due | |
@@ -18,7 +18,7 @@ Due for every member by 23:00Z (owner's order).
 
 Overlap so far: the echo line is the favourite. Astra, session 1 and UPG-H #2 all used "The echo from the back is still talking to you",
 each with a different experiment: Astra joined both ends of one row's saved routes, session 1 searched backward from a known finish,
-and UPG-H mirrored the start. UPG-H #1 and session 2 picked lines nobody else used.
+and UPG-H mirrored the start. UPG-H #1, session 2 and Git picked lines nobody else used.
 
 
 ## Song 2: "Same pulse underneath" (owner, 22:45Z; one idea per hour)
