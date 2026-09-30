@@ -9,7 +9,7 @@ AC path.best in the UPG-H ledger. Then I walked our best road on each of Bob's r
 ANOTHER row's road, I glued our prefix to that row's tail. The road-keeping DP pays the "colour and depth" that tell the twins apart
 (the orientation) in real moves. Every result was replayed on the official core.
 
-**Result (about 12 min):** 28 glued roads verified on 10 of the 11 rows. They are NEW LINEAGE, with tails from rows
+**Result (about 12 min):** 28 glue runs, 9 DISTINCT verified roads, on 9 of the 11 rows. They are NEW LINEAGE, with tails from rows
 01443, 04539, 01639, 00101, 00145, 04037, 06244, 05064, 05818, 02632 and 00163. Lengths vs our best:
 - equal to our best on 00145 (40), 08995 (46), 03719 (37), 00580 (45) and 05726 (38);
 - 1–2 over on 03871 (33 vs 31), 06045 (39 vs 37) and 04086 (36 vs 35);
