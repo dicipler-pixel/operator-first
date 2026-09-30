@@ -40,7 +40,17 @@ class HelperContinuation(Continuation):
         # Charlie explores only the official start/goal, cap and target. Saved
         # routes are a baseline gate; an unchanged target gives the same search.
         if job.get('helper')=='charlie':ignored.update({'seed_sha256','baseline'})
-        return digest({k:v for k,v in job.items() if k not in ignored})
+        contract={k:v for k,v in job.items() if k not in ignored}
+        if job.get('helper')=='named' and 'query_identity' in job:
+            contract['inputs']={k:v for k,v in contract['inputs'].items() if k!='helpers/named_queries.json'}
+        return digest(contract)
+
+    @staticmethod
+    def named_query_identity(query):
+        # Fence the whole source file at execution, but remember only this row's
+        # mathematical query. Changing another row or prose cannot reopen it.
+        fields={'type','moves','entry_index','exit_indices','expected_state','ms_state'}
+        return digest({k:v for k,v in query.items() if k in fields})
 
     def jobs(self,excluded=()):
         selected=read_json(self.root/'integration/selected_rows.json')['rows']
@@ -48,6 +58,19 @@ class HelperContinuation(Continuation):
         seen={a['key'] for a in self.cp['attempts']}
         seen.update(self.search_identity(a['job']) for a in self.cp['attempts']
                     if a.get('job',{}).get('helper')=='charlie')
+        for attempt in self.cp['attempts']:
+            old=attempt.get('job',{})
+            if old.get('helper')!='named':continue
+            if 'query_identity' in old:
+                seen.add(self.search_identity(old));continue
+            if not attempt.get('result_path'):
+                raise ValueError('Historical named query lacks portable result; reconcile explicitly.')
+            archive=self.h.local_file(str(Path(attempt['result_path']).parent/'executed_named_queries.json'))
+            if hashlib.sha256(archive.read_bytes()).hexdigest()!=old['inputs']['helpers/named_queries.json']:
+                raise ValueError('Historical named query snapshot changed; do not reopen its miss.')
+            saved=read_json(archive)['rows'][old['row_id']]
+            alias={**old,'query_identity':self.named_query_identity(saved)}
+            seen.add(self.search_identity(alias))
         jobs=[]
         for lane in self.lanes():
             sources=self.fingerprints(lane)
@@ -63,6 +86,9 @@ class HelperContinuation(Continuation):
                      'algorithm_id':lane['algorithm_id'],'script':lane['script'],
                      'method_sha256':method,'inputs':sources,'seed_sha256':digest(moves),
                      'baseline':baseline,'target':target,'caps':CAPS}
+                if lane['name']=='named':
+                    query=read_json(self.root/'helpers/named_queries.json')['rows'][cid]
+                    job['query_identity']=self.named_query_identity(query)
                 job['key']=self.search_identity(job)
                 if job['key'] not in seen:
                     jobs.append(job)

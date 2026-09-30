@@ -1,0 +1,22 @@
+{
+  "change": "named per-row semantic negative-memory identity",
+  "legacy_named_attempts_closed": 5,
+  "previous_attempts_preserved": 55,
+  "execution_fences": "complete query JSON SHA and immutable graph/capture hashes retained",
+  "semantic_fields": [
+    "type",
+    "moves",
+    "entry_index",
+    "exit_indices",
+    "expected_state",
+    "ms_state"
+  ],
+  "verification": [
+    "4 named graph/reconstruction tests passed",
+    "2 named semantic identity tests passed",
+    "6 helper continuation tests passed"
+  ],
+  "worker_dispatch": 0,
+  "budgets_changed": false,
+  "checkpoint_reset": false
+}
