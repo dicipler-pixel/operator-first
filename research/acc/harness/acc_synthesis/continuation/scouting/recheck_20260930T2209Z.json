@@ -1,0 +1,190 @@
+{
+  "checked_at": "2026-09-30T22:12:00Z",
+  "discovery_queries": 0,
+  "status": "new_released_artifacts_verified_at_commit",
+  "paper": {
+    "id": "arxiv:2609.34460v1",
+    "published": "2026-09-28T07:17:43Z",
+    "url": "https://arxiv.org/abs/2609.34460v1"
+  },
+  "repo": {
+    "name": "sarehnabi/mathagent",
+    "sha": "003d7deb8f73b88714572c965f32b1ffb071efc7",
+    "date": "2026-09-30T21:09:35Z",
+    "message": "Release code, data, results, and project page for arXiv:2609.34460\n\nWhen Does Structured Knowledge Help Neural Theorem Proving?\nSareh Nabi, Roland Vogl, Marzieh Nabi (Stanford University)\n\n- MathAgent implementation: Explorer, Conjecturer, Prover, Integrator,\n  Orchestrator; MathKG construction; benchmark evaluator with the Lean 4\n  verifier\n- MathKG node file (364 nodes) and released graph (9,434 typed edges)\n- Per-problem results and run configurations of the 28 evaluation runs\n  (Qwen3-8B/32B, Goedel-Prover-V2-8B/32B, Claude Sonnet 4.6 on miniF2F,\n  PutnamBench, MathOlympiadBench)\n- Scripts for the ablation runs\n- Project page (Astro, in site/) with slides; Pages workflow builds from site/\n- README, MIT license, CITATION.cff",
+    "url": "https://github.com/sarehnabi/mathagent/commit/003d7deb8f73b88714572c965f32b1ffb071efc7",
+    "readme_blob": "311276cc46ac2b7ad0de5e26fad63457e13f5e85",
+    "tree_truncated": false,
+    "artifacts": [
+      {
+        "path": "data/mathlib_fundamentals_verified.json",
+        "sha": "041a7b06039ca90eb814b38156bff2e9e8716352",
+        "size": 157603
+      },
+      {
+        "path": "outputs/experiments/full_ablation_05162026_2359_claude_sonnet/matholympiadbench_full_system/run_config.json",
+        "sha": "07206c687890eaea50cc1c7a2d4a07bd0d2c0d3f",
+        "size": 444
+      },
+      {
+        "path": "outputs/experiments/full_ablation_05162026_2359_claude_sonnet/matholympiadbench_prover_only/run_config.json",
+        "sha": "131544e7e41be4851d48461cfdd87f2d7b45c87d",
+        "size": 342
+      },
+      {
+        "path": "outputs/experiments/full_ablation_05162026_2359_claude_sonnet/matholympiadbench_with_kg/run_config.json",
+        "sha": "fb67e42c25f5f56ce646ba21dc2f0c798568a31d",
+        "size": 440
+      },
+      {
+        "path": "outputs/experiments/full_ablation_05162026_2359_claude_sonnet/matholympiadbench_with_mathlib/run_config.json",
+        "sha": "9e719249a9e99169cad80164f6f0dedaae4d47d5",
+        "size": 343
+      },
+      {
+        "path": "outputs/experiments/full_ablation_05162026_2359_claude_sonnet/minif2f_full_system/run_config.json",
+        "sha": "4616225c74c27fe6b0cf3178b00cf35eede8a328",
+        "size": 433
+      },
+      {
+        "path": "outputs/experiments/full_ablation_05162026_2359_claude_sonnet/minif2f_prover_only/run_config.json",
+        "sha": "9d8e8c8b9f634b287d9940c2aa16a779621c88f2",
+        "size": 331
+      },
+      {
+        "path": "outputs/experiments/full_ablation_05162026_2359_claude_sonnet/minif2f_with_kg/run_config.json",
+        "sha": "463c478fe74c38407e82ff29693e4a01a529d441",
+        "size": 429
+      },
+      {
+        "path": "outputs/experiments/full_ablation_05162026_2359_claude_sonnet/minif2f_with_mathlib/run_config.json",
+        "sha": "b3531f7bc433ffc3618ffcffd4958ebe8b433166",
+        "size": 332
+      },
+      {
+        "path": "outputs/experiments/full_ablation_05182026_2052_qwen3_8b/minif2f_full_system/run_config.json",
+        "sha": "edb195b06087cf11607b65c8ab73a5e22f2930a1",
+        "size": 700
+      },
+      {
+        "path": "outputs/experiments/full_ablation_05182026_2052_qwen3_8b/minif2f_prover_only/run_config.json",
+        "sha": "94ee488d2dfa2aa46ce54bc949ef279b9c264793",
+        "size": 598
+      },
+      {
+        "path": "outputs/experiments/full_ablation_05182026_2052_qwen3_8b/minif2f_with_kg/run_config.json",
+        "sha": "df44d26d2addd0b2e065d8ec93449564be796dc6",
+        "size": 696
+      },
+      {
+        "path": "outputs/experiments/full_ablation_05182026_2052_qwen3_8b/minif2f_with_mathlib/run_config.json",
+        "sha": "39e54bca46f7e2ee2c5360878fbeba13ecead702",
+        "size": 599
+      },
+      {
+        "path": "outputs/experiments/full_ablation_08272026_goedel_v2_32b/minif2f_full_system/run_config.json",
+        "sha": "54af1be44a2ba7ca547074409836189209ff746d",
+        "size": 889
+      },
+      {
+        "path": "outputs/experiments/full_ablation_08272026_goedel_v2_32b/minif2f_prover_only/run_config.json",
+        "sha": "57f9fef7611212d8073180e850cf8dfff11dd978",
+        "size": 783
+      },
+      {
+        "path": "outputs/experiments/full_ablation_08272026_goedel_v2_32b/minif2f_with_kg/run_config.json",
+        "sha": "13bd64c26012e760f3bd34f4df4375af5a562900",
+        "size": 885
+      },
+      {
+        "path": "outputs/experiments/full_ablation_08272026_goedel_v2_32b/minif2f_with_mathlib/run_config.json",
+        "sha": "ae08ef0f9d676f5cd20e59d810885a6460f7832c",
+        "size": 788
+      },
+      {
+        "path": "outputs/experiments/full_ablation_08272026_goedel_v2_8b/minif2f_full_system/run_config.json",
+        "sha": "8d5ba3d357fd6c412fcc28536e7fc578678e7bb9",
+        "size": 888
+      },
+      {
+        "path": "outputs/experiments/full_ablation_08272026_goedel_v2_8b/minif2f_prover_only/run_config.json",
+        "sha": "d299f065379c612d49a3648177284a49215cb5e7",
+        "size": 782
+      },
+      {
+        "path": "outputs/experiments/full_ablation_08272026_goedel_v2_8b/minif2f_with_kg/run_config.json",
+        "sha": "863642dbf29e29222cd70f1c4e2a30096d85494b",
+        "size": 884
+      },
+      {
+        "path": "outputs/experiments/full_ablation_08272026_goedel_v2_8b/minif2f_with_mathlib/run_config.json",
+        "sha": "b1c75ca1a5a78f54eefcccfa60495c733899f851",
+        "size": 787
+      },
+      {
+        "path": "outputs/experiments/full_ablation_08292026_qwen3_32b/minif2f_full_system/run_config.json",
+        "sha": "53d05612d520b310b1a3d2136798881a4f7735c6",
+        "size": 856
+      },
+      {
+        "path": "outputs/experiments/full_ablation_08292026_qwen3_32b/minif2f_prover_only/run_config.json",
+        "sha": "116e48f1ee5805ab1c970e9d7ef6b10838899ecf",
+        "size": 754
+      },
+      {
+        "path": "outputs/experiments/full_ablation_08292026_qwen3_32b/minif2f_with_kg/run_config.json",
+        "sha": "e3a62980282451546a3468cca2499b4ad8dee8ab",
+        "size": 852
+      },
+      {
+        "path": "outputs/experiments/full_ablation_08292026_qwen3_32b/minif2f_with_mathlib/run_config.json",
+        "sha": "3411e40eaa65f1128e6f686e6677b7a788a4c51f",
+        "size": 755
+      },
+      {
+        "path": "outputs/experiments/putnam_merged_09262026_claude_sonnet/putnambench_full_system/run_config.json",
+        "sha": "a36927b7af314db3cdcbde843933b07ceedb6b3a",
+        "size": 2350
+      },
+      {
+        "path": "outputs/experiments/putnam_merged_09262026_claude_sonnet/putnambench_prover_only/run_config.json",
+        "sha": "9f8b3a153aa91c2a3e0630a09a68d9febc88fef1",
+        "size": 2146
+      },
+      {
+        "path": "outputs/experiments/putnam_merged_09262026_claude_sonnet/putnambench_with_kg/run_config.json",
+        "sha": "359db16c85445ca26815d8d73294d19be57a997e",
+        "size": 2338
+      },
+      {
+        "path": "outputs/experiments/putnam_merged_09262026_claude_sonnet/putnambench_with_mathlib/run_config.json",
+        "sha": "d64f5278210aaab347b8e600df087ae3790d3d77",
+        "size": 2149
+      },
+      {
+        "path": "src/agents/orchestrator.py",
+        "sha": "b3032034c7c9aedae1ddc6cfc4314d32132b96a3",
+        "size": 15262
+      },
+      {
+        "path": "src/lean4_verifier.py",
+        "sha": "a7b4274b3b36e6e2b560574c806a67686c9de9ba",
+        "size": 8937
+      },
+      {
+        "path": "src/statement_check.py",
+        "sha": "f32b8cdc52acf67f5043f114b5e92326bdd2b2fc",
+        "size": 5101
+      }
+    ],
+    "result_files": 28
+  },
+  "correction": "Cached GitHub HTML exposed the older Astro-only tree. The current API commit and pinned README establish a new implementation/data/results release. The provisional22:09 judgment is superseded and archived; earlier20:54 website-only observation is historical.",
+  "limitations": "Released but not run or reproduced here. README says the open-ended agent loop was not evaluated in the paper. Reported theorem-proving benchmarks are not ACC results. Lean/model dependencies were not installed or invoked.",
+  "specific_harness_question": "Does a method label reflect the mechanism that actually improved a route? Endpoint validity alone does not establish method attribution, just as compilation alone does not establish statement fidelity.",
+  "bounded_next_experiment": "Within180s/1024MiB, analyze only our hash-verified candidate receipts/coverage. Attribute improvements to saved union, fresh bridge, or actual transfer. If the purported transfer success has zero transfers, reject that reading. No route replay, model call, external recipe or new target.",
+  "recipient": "UPGH",
+  "owner_notification": false,
+  "no_external_code_run": true,
+  "model_dispatches": 0
+}

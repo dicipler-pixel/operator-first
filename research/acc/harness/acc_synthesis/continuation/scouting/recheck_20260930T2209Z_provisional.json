@@ -1,0 +1,29 @@
+{
+  "checked_at": "2026-09-30T22:09:11Z",
+  "discovery_queries": 0,
+  "discovery_budget_note": "Continue the same active scouting pass; two discovery queries were already used. Only re-open primary sources, no additional discovery.",
+  "status": "quiet_unchanged_primary_recheck",
+  "entries": [
+    {
+      "id": "arxiv:2609.34460v1",
+      "url": "https://arxiv.org/abs/2609.34460v1",
+      "published": "2026-09-28T07:17:43Z",
+      "updated": "2026-09-28T07:17:43Z",
+      "version_change": false,
+      "repo": "https://github.com/sarehnabi/mathagent",
+      "repo_commit": {
+        "sha": "003d7deb8f73b88714572c965f32b1ffb071efc7",
+        "date": "2026-09-30T21:09:35Z",
+        "message": "Release code, data, results, and project page for arXiv:2609.34460\n\nWhen Does Structured Knowledge Help Neural Theorem Proving?\nSareh Nabi, Roland Vogl, Marzieh Nabi (Stanford University)\n\n- MathAgent implementation: Explorer, Conjecturer, Prover, Integrator,\n  Orchestrator; MathKG construction; benchmark evaluator with the Lean 4\n  verifier\n- MathKG node file (364 nodes) and released graph (9,434 typed edges)\n- Per-problem results and run configurations of the 28 evaluation runs\n  (Qwen3-8B/32B, Goedel-Prover-V2-8B/32B, Claude Sonnet 4.6 on miniF2F,\n  PutnamBench, MathOlympiadBench)\n- Scripts for the ablation runs\n- Project page (Astro, in site/) with slides; Pages workflow builds from site/\n- README, MIT license, CITATION.cff",
+        "url": "https://github.com/sarehnabi/mathagent/commit/003d7deb8f73b88714572c965f32b1ffb071efc7"
+      },
+      "available_artifacts": "Primary abstract/PDF and an Astro project-page repository; runnable theorem-proving or ACC search implementation not established from this tree.",
+      "limitations": "Paper claims code/data availability, while linked repository README identifies a project page. No released executable engine established by this recheck; no external code run. Paper benchmarks are not ACC results.",
+      "harness_question": "Does the context/method complementarity hypothesis justify adaptive lane selection? Existing untried code lanes remain more concrete evidence than importing a website.",
+      "bounded_falsifiable_next_experiment": "Use existing receipts to compare which completed lanes actually produced independently verified own-road improvements per selected row. Reject claims of universal benefit from adding context if none of the observed rows support them.",
+      "action": "Version already recorded; no new private lead message or owner notification."
+    }
+  ],
+  "recipient": "UPGH",
+  "model_dispatches": 0
+}
