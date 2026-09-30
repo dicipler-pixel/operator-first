@@ -1,0 +1,42 @@
+{
+  "old_sha256": "80bdca96ada2c8018fdc022e13bb32fa8d0f172c447d0b0df26117e66a3c0a7e",
+  "new_sha256": "e8bd36380adff7ba0bfbb66c59fb0cab2ec353e5503bd37dfbf6535f76a3e80c",
+  "closure": {
+    "type": "bob-zero-match-plus-complete-own-union",
+    "job": {
+      "row_id": "ac-00003",
+      "track": "AC",
+      "helper": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "script": "helpers/bob_lane_v1.py",
+      "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+      "inputs": {
+        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+      },
+      "seed_sha256": "7914988d47a2aa50da91c882a20417bef5847597924ad773bb407898a12148a8",
+      "baseline": 49,
+      "target": 40,
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "key": "a51147b6c1b3449783bc4faf168bdeaee625cd746eb50f7761f1447a95097ea0"
+    },
+    "donor_attempt_key": "a36129206ffe2c00373e311f3cb566aa413b037cec179de6d5f9c7852523f19a",
+    "union_attempt_key": "103a4f654dd16d2f8550a0e37716c5a26cfa5469e2d6a69dcc795bda9931ee8e",
+    "donor_source_archive": "continuation/bob_equivalence_20260930T2130Z/donor_source.json",
+    "reason": "430920 complete comparisons had zero class matches; the nine-road exact union independently has shortest distance49. Do not repeat the donor pass just because own-road arrays changed. This closes only this exact job; no attempt is added."
+  },
+  "attempts_unchanged": 75,
+  "budget_changes": false,
+  "algorithm_identity_changes": false,
+  "scope": "One proven equivalent Bob job; not a global no-route claim",
+  "validation": {
+    "unittest_cases": 11,
+    "passed": 11,
+    "new_seed_or_donor_input_still_eligible": true,
+    "partial_or_damaged_evidence_rejected": true,
+    "checkpoint_attempts_unchanged": 75
+  }
+}

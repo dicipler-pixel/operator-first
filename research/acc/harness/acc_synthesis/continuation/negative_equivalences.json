@@ -1,0 +1,32 @@
+{
+  "schema": "acc-negative-equivalences/1",
+  "closures": [
+    {
+      "type": "bob-zero-match-plus-complete-own-union",
+      "job": {
+        "row_id": "ac-00003",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "7914988d47a2aa50da91c882a20417bef5847597924ad773bb407898a12148a8",
+        "baseline": 49,
+        "target": 40,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "a51147b6c1b3449783bc4faf168bdeaee625cd746eb50f7761f1447a95097ea0"
+      },
+      "donor_attempt_key": "a36129206ffe2c00373e311f3cb566aa413b037cec179de6d5f9c7852523f19a",
+      "union_attempt_key": "103a4f654dd16d2f8550a0e37716c5a26cfa5469e2d6a69dcc795bda9931ee8e",
+      "donor_source_archive": "continuation/bob_equivalence_20260930T2130Z/donor_source.json",
+      "reason": "430920 complete comparisons had zero class matches; the nine-road exact union independently has shortest distance49. Do not repeat the donor pass just because own-road arrays changed. This closes only this exact job; no attempt is added."
+    }
+  ]
+}
