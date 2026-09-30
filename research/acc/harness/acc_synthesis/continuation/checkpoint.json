@@ -1,34 +1,7 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": {
-    "job": {
-      "row_id": "ac-00009",
-      "track": "AC",
-      "helper": "bob",
-      "algorithm_id": "bob-cross-class-generator-transfer-v1",
-      "script": "helpers/bob_lane_v1.py",
-      "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
-      "inputs": {
-        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
-      },
-      "seed_sha256": "922710224fdd6dad5197d195dd96f8027ded2ad03b016ec931fc4e2be17e0d14",
-      "baseline": 91,
-      "target": 34,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "9819ffdba2cd20f3e65a67ee7eda10cbe35e61933d443ed2a4db7d732caf9096"
-    },
-    "task_id": 127,
-    "lease_token": "69fa44e4252849d989889581adb5e1ee",
-    "expires_at": 1790808054.3043253,
-    "repo_head": "263ffab310220823df032354dcec4b73738b497d",
-    "phase": "reserved",
-    "host_must_commit_before_execution": true
-  },
+  "active": null,
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -4638,6 +4611,45 @@
       },
       "limits": null,
       "reopen_when": null
+    },
+    {
+      "key": "9819ffdba2cd20f3e65a67ee7eda10cbe35e61933d443ed2a4db7d732caf9096",
+      "job": {
+        "row_id": "ac-00009",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "922710224fdd6dad5197d195dd96f8027ded2ad03b016ec931fc4e2be17e0d14",
+        "baseline": 91,
+        "target": 34,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "9819ffdba2cd20f3e65a67ee7eda10cbe35e61933d443ed2a4db7d732caf9096"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790807474.801129,
+      "result_path": "runs/bob_revival/code_9819ffdba2cd20f3/worker_result.json",
+      "result_sha256": "362457fd335856d32e2b4a26fdc7bd6c164c7f45c5a4d3a41580b71761b6818f",
+      "kind": "bounded_miss",
+      "summary": "No improvement from the tested Bob cross-class transfers; saved baseline 91, target 34.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "reopen_when": {
+        "event": "new_exact_crossclass_seed",
+        "row_id": "ac-00009"
+      }
     }
   ],
   "notifications": [
@@ -4651,7 +4663,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790807454.304675,
+  "updated_at": 1790807474.801682,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
