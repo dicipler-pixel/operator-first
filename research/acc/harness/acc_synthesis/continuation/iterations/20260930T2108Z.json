@@ -1,0 +1,564 @@
+{
+  "reviewed_start_head": "4ae9617b668776bec0906f1667341b22548d9f64",
+  "finished_at": 1790804493.616055,
+  "attempts_before": 61,
+  "attempts_after": 82,
+  "new_jobs": [
+    {
+      "key": "ff5881ba24feb517fceed2f64397ee2e4f5c77af3806dbe22fff48b0bc799630",
+      "job": {
+        "row_id": "ac-00024",
+        "track": "AC",
+        "helper": "charlie",
+        "algorithm_id": "charlie-exact-cap-ladder-v1",
+        "script": "helpers/charlie_lane_v1.py",
+        "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
+        "inputs": {
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 96,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "ff5881ba24feb517fceed2f64397ee2e4f5c77af3806dbe22fff48b0bc799630"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_ff5881ba24feb517/worker_result.json",
+      "result_sha256": "a459de16a6280d68e5cb9a8e0b057f4fcd429579c78665409050bf941b0d80ca"
+    },
+    {
+      "key": "103a4f654dd16d2f8550a0e37716c5a26cfa5469e2d6a69dcc795bda9931ee8e",
+      "job": {
+        "row_id": "ac-00003",
+        "track": "AC",
+        "baseline": 49,
+        "target": 40,
+        "seed_sha256": "7914988d47a2aa50da91c882a20417bef5847597924ad773bb407898a12148a8",
+        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
+          "memory_mib": 1024
+        },
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "103a4f654dd16d2f8550a0e37716c5a26cfa5469e2d6a69dcc795bda9931ee8e"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/code_103a4f654dd16d2f/worker_result.json",
+      "result_sha256": "da9a712d94bf33aa1bd0446663f1e0131a9cde9a49ee5193d68a8a930964c2e1"
+    },
+    {
+      "key": "c8995ddefc2e1290b77a3c1a59c77906fec3fb3d6c86f11e8d3db99d7064d99d",
+      "job": {
+        "row_id": "ac-00034",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
+        },
+        "seed_sha256": "bc2df84804504ea95dbc700666e1ac7ba54bf3091d42c57a958299015541baa4",
+        "baseline": 44,
+        "target": 41,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "c8995ddefc2e1290b77a3c1a59c77906fec3fb3d6c86f11e8d3db99d7064d99d"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_c8995ddefc2e1290/worker_result.json",
+      "result_sha256": "65512da68ca3f33dca751bbac5d60604dd18d13c28d6150badd0c45c6906e10a"
+    },
+    {
+      "key": "873fdb98239f66b8e68db735d620180552ee611073dca8f6e566556c2e6159ad",
+      "job": {
+        "row_id": "ac-00027",
+        "track": "AC",
+        "helper": "charlie",
+        "algorithm_id": "charlie-exact-cap-ladder-v1",
+        "script": "helpers/charlie_lane_v1.py",
+        "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
+        "inputs": {
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 77,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "873fdb98239f66b8e68db735d620180552ee611073dca8f6e566556c2e6159ad"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_873fdb98239f66b8/worker_result.json",
+      "result_sha256": "930e7ebd0a438e7638075aa2c3fe911c07d01d9c2238ab5dda389487b9a8c9a7"
+    },
+    {
+      "key": "369c3b5b999de9be589a2b1b0449fe8c7011ce78d17722520064ee1f810cfea5",
+      "job": {
+        "row_id": "ac-00012",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
+        },
+        "seed_sha256": "080bbe88ccf41c29ce20ff672ca310011ecc7a906bb7c957d6401f53b8b6b177",
+        "baseline": 52,
+        "target": 47,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "369c3b5b999de9be589a2b1b0449fe8c7011ce78d17722520064ee1f810cfea5"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_369c3b5b999de9be/worker_result.json",
+      "result_sha256": "0c73d9cbd4657ff299e9082879de9321882002c0fbb84d70edd4b025d50f9724"
+    },
+    {
+      "key": "77f429e1e44e73a189dd9d485ae9e97c300a39f4d4d60ffca6abda61b105ab82",
+      "job": {
+        "row_id": "ac-00001",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 404,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "77f429e1e44e73a189dd9d485ae9e97c300a39f4d4d60ffca6abda61b105ab82"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_77f429e1e44e73a1/worker_result.json",
+      "result_sha256": "057ed1db88b42a365e4eb4e8c9d7fa85dff3b6bfcd6ef0b0b4cdfec37cf48f9c"
+    },
+    {
+      "key": "166572bd23edd5dec08b2eb9c1adffd9ae84a7d09f9a450461f39a6c8a38d826",
+      "job": {
+        "row_id": "ac-00031",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 93,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "166572bd23edd5dec08b2eb9c1adffd9ae84a7d09f9a450461f39a6c8a38d826"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_166572bd23edd5de/worker_result.json",
+      "result_sha256": "e2bdde966dd8673b5f1800606f5eaae914863adb71f737ff9710926493e7f0e6"
+    },
+    {
+      "key": "1b29df2cd303ffd51fe68501f51dc00faeb814930f7a5dc7274c9f814c88edf9",
+      "job": {
+        "row_id": "ac-00031",
+        "track": "AC",
+        "helper": "charlie",
+        "algorithm_id": "charlie-exact-cap-ladder-v1",
+        "script": "helpers/charlie_lane_v1.py",
+        "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
+        "inputs": {
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 93,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "1b29df2cd303ffd51fe68501f51dc00faeb814930f7a5dc7274c9f814c88edf9"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_1b29df2cd303ffd5/worker_result.json",
+      "result_sha256": "c3a21146106984d19b63ea10d73f4605b87de54a724f92d63567d815a6f2481b"
+    },
+    {
+      "key": "033b28f98e4784ef12ebf1b879207d288f9c18de536597a61c98d7dbbfa64132",
+      "job": {
+        "row_id": "ac-00031",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 93,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "033b28f98e4784ef12ebf1b879207d288f9c18de536597a61c98d7dbbfa64132"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_033b28f98e4784ef/worker_result.json",
+      "result_sha256": "29c31ed93098166a206539795eb7c4fe55ec11bf7ad7d2fd3d67819979412c33"
+    },
+    {
+      "key": "387e46f8ee8918f19fb0103edbbbe0b9851170437423ddccb26767b2daf91dab",
+      "job": {
+        "row_id": "ac-00032",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 72,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "387e46f8ee8918f19fb0103edbbbe0b9851170437423ddccb26767b2daf91dab"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_387e46f8ee8918f1/worker_result.json",
+      "result_sha256": "8f36d3d3ab4bd94796fc99ecf354b1aaf72265c9c8a8cb838f02450285b1220a"
+    },
+    {
+      "key": "430f559fc4207a3862750183177f3eff03142bf1b1742dd34b0e1b25952934e4",
+      "job": {
+        "row_id": "ac-00032",
+        "track": "AC",
+        "helper": "charlie",
+        "algorithm_id": "charlie-exact-cap-ladder-v1",
+        "script": "helpers/charlie_lane_v1.py",
+        "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
+        "inputs": {
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 72,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "430f559fc4207a3862750183177f3eff03142bf1b1742dd34b0e1b25952934e4"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_430f559fc4207a38/worker_result.json",
+      "result_sha256": "5e2a1af0453fefc1cd3f169561afb6903993b79c8bfb4e54cf729262ae9dd27b"
+    },
+    {
+      "key": "084a3883c6b3efd128d50926ec941154d2db626c1e8d3c4d65b0317108b70b18",
+      "job": {
+        "row_id": "ac-00032",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 72,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "084a3883c6b3efd128d50926ec941154d2db626c1e8d3c4d65b0317108b70b18"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_084a3883c6b3efd1/worker_result.json",
+      "result_sha256": "784b4d2e192474fbe701cf7f6c20d8cce25ca3ce9262ab52b7aa4adad8cb1c6f"
+    },
+    {
+      "key": "9dab18f9d4ff7ca0d219c2d8bd91237e2b3afb8a95b92ef7818a7cf222254899",
+      "job": {
+        "row_id": "ac-00013",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 96,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "9dab18f9d4ff7ca0d219c2d8bd91237e2b3afb8a95b92ef7818a7cf222254899"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_9dab18f9d4ff7ca0/worker_result.json",
+      "result_sha256": "5db1aaaf04035c5ac8bc5295cfb7694c9caecc61a5608a1715251b6c09cfa951"
+    },
+    {
+      "key": "0d9e9b3972d336b43b93508992ffddc97ee5886ea3a6609271053bc5da7dafe7",
+      "job": {
+        "row_id": "ac-00013",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 96,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "0d9e9b3972d336b43b93508992ffddc97ee5886ea3a6609271053bc5da7dafe7"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_0d9e9b3972d336b4/worker_result.json",
+      "result_sha256": "77cc8d981c7823eeebc4f2bc57eff4e3241a2721546becaa69d73bcde12bd672"
+    },
+    {
+      "key": "4e43efe778eaaa3a6f6edec0a3c1f6e53a094ce1660d7abe622e63bd639ff082",
+      "job": {
+        "row_id": "ac-00003",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
+        },
+        "seed_sha256": "7914988d47a2aa50da91c882a20417bef5847597924ad773bb407898a12148a8",
+        "baseline": 49,
+        "target": 40,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "4e43efe778eaaa3a6f6edec0a3c1f6e53a094ce1660d7abe622e63bd639ff082"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_4e43efe778eaaa3a/worker_result.json",
+      "result_sha256": "fb29a08c522d2d640cf9e95e5f011fc4e1b3cf9047702bb06676f7b587fe3074"
+    },
+    {
+      "key": "91cbc13ee92a1c6aeacce3714f980d883f3c0be37efbcb8dbbde02f93da9079c",
+      "job": {
+        "row_id": "ac-00020",
+        "track": "AC",
+        "helper": "charlie",
+        "algorithm_id": "charlie-exact-cap-ladder-v1",
+        "script": "helpers/charlie_lane_v1.py",
+        "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
+        "inputs": {
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 52,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "91cbc13ee92a1c6aeacce3714f980d883f3c0be37efbcb8dbbde02f93da9079c"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_91cbc13ee92a1c6a/worker_result.json",
+      "result_sha256": "feb1b11247e1d5564933451008794e8bfde12c64d7c3815f49187f427386d8fa"
+    },
+    {
+      "key": "692d4d0910392d03fe7bd028d39f2730869bee87bb674846259d207ddfe8b732",
+      "job": {
+        "row_id": "ac-00020",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 52,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "692d4d0910392d03fe7bd028d39f2730869bee87bb674846259d207ddfe8b732"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_692d4d0910392d03/worker_result.json",
+      "result_sha256": "45284d51c8eda5289647172a679d008f0ea9f2ec1c4e6107af5f0d6e047322b3"
+    },
+    {
+      "key": "93a2a016b780facf8a1f246b7238084211c9b8e02921177d718185ab32cae9d9",
+      "job": {
+        "row_id": "ac-00020",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 52,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "93a2a016b780facf8a1f246b7238084211c9b8e02921177d718185ab32cae9d9"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_93a2a016b780facf/worker_result.json",
+      "result_sha256": "fe34808b8fe51c5ec07c68fe0327b8f6e4cd93b432a6ec7cd91ce110df6daf7b"
+    },
+    {
+      "key": "d8221d1b014f5effa330b320608370712d5664ed50edf268f8ea57ac840e43e4",
+      "job": {
+        "row_id": "ac-00033",
+        "track": "AC",
+        "helper": "charlie",
+        "algorithm_id": "charlie-exact-cap-ladder-v1",
+        "script": "helpers/charlie_lane_v1.py",
+        "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
+        "inputs": {
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 53,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "d8221d1b014f5effa330b320608370712d5664ed50edf268f8ea57ac840e43e4"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_d8221d1b014f5eff/worker_result.json",
+      "result_sha256": "96eadb538f511d6dae9ca5ce54210ca7e4eb84d2463bae662f8a0acd4e3c9234"
+    },
+    {
+      "key": "c33b7c64c92563fadc8a031c76d227cebc5868e1626f676c56fb2663868d2668",
+      "job": {
+        "row_id": "ac-00033",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 53,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "c33b7c64c92563fadc8a031c76d227cebc5868e1626f676c56fb2663868d2668"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_c33b7c64c92563fa/worker_result.json",
+      "result_sha256": "e2163375208de54e26471163d4f60e55532a5a6a05a53c8b4ce7217cb3cc848e"
+    },
+    {
+      "key": "92299638075c488b33ff64e825ac42bdc3dedfa94ba7bfe1c5d3d1eae67c4c8b",
+      "job": {
+        "row_id": "ac-00033",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 53,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "92299638075c488b33ff64e825ac42bdc3dedfa94ba7bfe1c5d3d1eae67c4c8b"
+      },
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_92299638075c488b/worker_result.json",
+      "result_sha256": "54fee8aa574a4a22926af4ce0ea8a8fc35f3894c48f28feef2ab4c949f82bc84"
+    }
+  ],
+  "independently_verified_improvements": 0,
+  "data_only_new_roads": 5,
+  "proven_equivalent_probes_suppressed": 1,
+  "model_workers_dispatched": 0,
+  "challenge_api_calls": 0,
+  "submissions": 0,
+  "public_discovery_queries": 2,
+  "scouting_receipt": "continuation/scouting/scan_20260930T2116Z.json",
+  "negative_equivalence_receipt": "continuation/bob_equivalence_20260930T2130Z/receipt.json",
+  "coordination_recipient": "UPGH",
+  "owner_notification": false,
+  "active": null,
+  "stopped": false
+}

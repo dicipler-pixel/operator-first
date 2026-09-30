@@ -1,7 +1,7 @@
 {
-  "completed_batches": 75,
+  "completed_batches": 83,
   "model_worker_launches": 4,
-  "code_only_batches": 71,
+  "code_only_batches": 79,
   "new_improved_routes": 5,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -28,33 +28,41 @@
     }
   ],
   "next": {
-    "status": "planned",
-    "job": {
-      "row_id": "ac-00020",
-      "track": "AC",
-      "helper": "charlie",
-      "algorithm_id": "charlie-exact-cap-ladder-v1",
-      "script": "helpers/charlie_lane_v1.py",
-      "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
-      "inputs": {
-        "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+    "status": "active",
+    "active": {
+      "job": {
+        "row_id": "ac-00015",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 150,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "cff9c8fad8471333f63fdf62e6004d0dd3c6e5a7ad81774a9312cecf2afb7e23"
       },
-      "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-      "baseline": null,
-      "target": 52,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "91cbc13ee92a1c6aeacce3714f980d883f3c0be37efbcb8dbbde02f93da9079c"
-    },
-    "remaining_jobs": 33
+      "task_id": 99,
+      "lease_token": "01b486e7b2f8417d8df05708e843232d",
+      "expires_at": 1790805188.1629171,
+      "repo_head": "249b4ca59c81c0ab4c732f70aee5825364a8d4ae",
+      "phase": "reserved",
+      "host_must_commit_before_execution": true
+    }
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 75
+      "completed": 83,
+      "running": 1
     },
     "unconnected_roles": [
       "luna_memory",
@@ -1039,6 +1047,116 @@
         "memory_mib": 1024,
         "fresh_depth": 8,
         "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00003",
+      "baseline": 49,
+      "target": 40,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_4e43efe778eaaa3a/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "charlie",
+      "row_id": "ac-00020",
+      "baseline": null,
+      "target": 52,
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_91cbc13ee92a1c6a/worker_result.json",
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      }
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00020",
+      "baseline": null,
+      "target": 52,
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_692d4d0910392d03/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00020",
+      "baseline": null,
+      "target": 52,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_93a2a016b780facf/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "charlie",
+      "row_id": "ac-00033",
+      "baseline": null,
+      "target": 53,
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_d8221d1b014f5eff/worker_result.json",
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      }
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00033",
+      "baseline": null,
+      "target": 53,
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_c33b7c64c92563fa/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00033",
+      "baseline": null,
+      "target": 53,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_92299638075c488b/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "charlie",
+      "row_id": "ac-00029",
+      "baseline": null,
+      "target": 46,
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_f65a1221b0e76010/worker_result.json",
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
       }
     }
   ],

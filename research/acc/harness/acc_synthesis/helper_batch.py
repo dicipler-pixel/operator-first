@@ -58,6 +58,11 @@ class HelperContinuation(Continuation):
         selected=read_json(self.root/'integration/selected_rows.json')['rows']
         routes=self.seeds()['routes']
         seen={a['key'] for a in self.cp['attempts']}
+        try:
+            from .helpers.negative_equivalences import validated_keys
+        except ImportError:
+            from helpers.negative_equivalences import validated_keys
+        seen.update(validated_keys(self.root,self.cp,self.search_identity,digest))
         seen.update(self.search_identity(a['job']) for a in self.cp['attempts']
                     if a.get('job',{}).get('helper')=='charlie')
         for attempt in self.cp['attempts']:
