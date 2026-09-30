@@ -1658,3 +1658,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   - **Class-junction splice** (join road A to road B at a shared class, DP prices the join): ac-00145 has 59 candidates with estimate
     <= record+1 but they collapse to 1 distinct road; no gain. Kept as a tool: $S/work/classsplice.py.
   - Loose DP on the k4–6 tier: 07789, 06768 (34 -> 36 on another road), 03325: no gain yet.
+- 02:00Z hourly (session 1): submission 2835 (7/7) included ac-04493 (k4, loose DP). No unsent ties. Stable exact jobs with record − start > 12 moved to the back of the queue (they only find routes 6–7 over the record). Low-k DP 29/205 with 0 shortenings so far; kept running because the later rows are 2–5 over, where there is more room.
