@@ -1638,3 +1638,15 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
 - 00:05Z hourly (session 1): the hold file grew to 47 lines. Added 01850 (Charlie batch 5, from the easy-gap list: AC 29 k4 / Stable 31 k3), 00071 (session 2 DP, k4), 04963 (shape lane, k6/k5), plus 05269, 09359, 02305 and 09333 (fe/fe2 lanes).
 - 01:00Z (session 1): **the owner confirmed: at most ONE send per hour** (the :25 slot, 24 a day, under the 40-a-day team limit). The :10/:40 jobs are read-only pulls (one API call each) and never submit.
 - 01:00Z hourly (session 1): no new unsent ties (the fixed plan_offline agrees). Low-k loose DP 15/205, gap 3–4 DP ~85/212. Disk 15 GB.
+
+## 2026-09-30 00:45–01:05Z session 2: low-k push (owner: "work nonstop")
+- **C16 exact-tail check** on every verified path we hold for the 70 low-k rows (1,319 distinct short states): no gain. Our tails
+  are already exact inside the ceiling, so the missing move on the +1 rows is in the head or middle, not the finish.
+- **Stable via (y,x):** on 15 SAC rows with k<=3 the SAC record is AC record + 1 (e.g. sac-02528 36 k1 while we hold AC 35): the
+  holder ends at (y,x) one move sooner, then [15,15]. (x,y) and (y,x) share a class, so the road DP can walk our AC roads to (y,x).
+  Lane yxdp (GROW 1–2, MAXC 8–16). Earlier skdyx/yxl/twinyx attempts reached +1 on most of these rows.
+- **Exact capped search** on the +1 rows: infeasible. At the start length, ac-00975 is predicted at ~657M states and ac-06262 at ~1.03B
+  (budget 120M). Our routes there never rise above the start, but even the non-climbing space is too big.
+- **k4–6 tier:** 55 rows within +4 (14 at +1) → loose DP lane midkdp (GROW 2, MAXC 16, SLACK 4 = session 1's winning setting).
+- **Beat hunt:** 60 rows where we HOLD the record with k 2–8 → DP on our record-length roads looking for −1 (a beat = 1.0 pt).
+- Lanes are restarted by $S/restart_lanes.sh (no kills; starts only missing lanes), which the :10/:25/:40 jobs run first.
