@@ -3,7 +3,7 @@
  "cap": 34,
  "route_len": 48,
  "over": 2,
- "maxst_ball": 8000000,
+ "maxst_ball": 3000000,
  "rmax": 16,
  "eligible_states": [
   3,
@@ -53,6 +53,12 @@
    "radius": 16,
    "cum": 11498198,
    "stop": "finished"
+  },
+  "25": {
+   "tot": 27,
+   "radius": 11,
+   "cum": 459803,
+   "stop": "finished"
   }
  },
  "pairs": [
@@ -70,8 +76,23 @@
    "states": 259330,
    "result": "CERTIFIED_NO_SHORTER_BRIDGE",
    "secs": 0.2
+  },
+  {
+   "i": 3,
+   "j": 25,
+   "gap": 22,
+   "target_T": 20,
+   "tot_i": 28,
+   "tot_j": 27,
+   "Ri": 16,
+   "Rj": 11,
+   "a": 11,
+   "b": 9,
+   "states": 236714,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.0
   }
  ],
  "shortened": [],
- "wall_s": 19.5
+ "wall_s": 3.7
 }
