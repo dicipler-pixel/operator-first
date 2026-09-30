@@ -48,3 +48,10 @@ Short human notes on each working batch. The ledger (`research/acc/upgh/ledger.j
 - The real tail rung (t00029–31) hit the 600 s row limit on all six rows, starting from the costliest positions. `tail_replace.py` gained an opt-in `TAIL_ORDER=rev` (default unchanged), and the rung now searches the short end tails first (about 30–40 s per position).
 - beam_p2 t00033–35 were killed at 900 s before `run_beam_raw.py` wrote any row. They were voided as unobservable. Timing shows the P2 beam itself takes about 2 min (ac-02528: AC 40, worse than our 35); the window pass afterwards is the slow part. beam_p2 now gets one row per task and a 40-min wall.
 - Every new rung restarts the attempt count, so the lanes kept giving the hard near-record rows first turn. Code now alternates near-record rows with **new targets** (k ≤ 3, no path of ours yet), as the user asked.
+
+**Fable 5.1 and the lead role (30 September, 17:40–20:50Z)**
+- The owner asked why Fable 5.1 was not in the harness. The advisor had run only once: lanes are code-only, and heat imported with `negative` never opened advisor tasks. New `upgh advise` queues advisor tasks for spent rows; `construction` is an agent-builder method.
+- Fable 5.1 ran: two advisors (ac-00975 raised-ceiling surgery, ac-00145 echo funnel: both scoped misses), the MS(n,YXXyx) chain generator (first paths on 12 rows; the Stable-beat idea failed: pre-strip is 2^(n+1)), the MS(n,XYxYYY) structure proof (template closes only for n=1,3), the y-run negative (flank orientation, 102/128 rows), the board-level zoom-out, and the overlooked-work audit.
+- The owner approved making Fable the default advisor model (`.claude/agents/upgh-advisor.md`, `config.json roles.advisor`) at 20:50Z; the edit had been blocked earlier as self-modification without that approval.
+- Lead tools: `comms.py` (message sweep), `scout.py` (low-k rows with roads, 0 API), 50 MB commit guard in `commit_state.sh`, harvest reads nested JSON and `route`/`line` keys.
+- Sends 17:36–20:43Z: #2902, #2904, #2907, #2909, #2914 (ties; sac-03272 and sac-04086 from session 1's new-seed lane, sac-08862 from session 2's yx_mid).

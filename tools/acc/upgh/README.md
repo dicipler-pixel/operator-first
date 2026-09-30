@@ -67,7 +67,7 @@ Tests: `python3 -m unittest discover -s tools/acc/upgh/tests` (23 tests; they us
 |---|---|---|---|---|
 | builder | `upgh-builder` | sonnet | a builder task whose method has no code runner (splice, capped, anything new) | Sol |
 | checker | `upgh-checker` | sonnet, separate context, read-only | the verifier and kernel disagree, or a tool emits invalid paths | Sol, second context |
-| advisor | `upgh-advisor` | opus, high effort, read-only | one strategy family missed 3 times on a row, or a checker escalates | Astra |
+| advisor | `upgh-advisor` | fable (Fable 5.1, owner's choice 30 Sep), high effort, read-only | one strategy family missed 3 times on a row, or a checker escalates | Astra |
 | memory | `upgh-memory` | haiku, read-only | a person opens a memory task over prose notes | Luna |
 | routine search | none: code runs it | none | every beam task (`upgh run`) | none |
 

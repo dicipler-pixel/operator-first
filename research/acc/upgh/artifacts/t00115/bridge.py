@@ -71,7 +71,7 @@ def moves_to(d, state): return json.loads(run([BIN, 'path', d, state]).strip())
 
 elig = [i for i in range(3, L - 2) if tot(S[i]) <= K]      # both ends at least 3 moves from the route's ends
 pairs = [(i, j) for i in elig for j in elig if GMIN <= j - i <= GMAX]
-pairs.sort(key=lambda p: (-(p[1] - p[0]), p[0]))
+pairs.sort(key=lambda p: (p[0], -(p[1] - p[0])))   # grouped by i (so ball i can be deleted afterwards), largest gap first within a group
 need = sorted({x for p in pairs for x in p})
 res = {'row': ROW, 'cap': K, 'route_len': L, 'over': OVER, 'maxst_ball': MAXST, 'rmax': RMAX, 'eligible_states': elig, 'n_pairs': len(pairs), 'balls': {}, 'pairs': [], 'shortened': []}
 out = os.path.join(ART, 'res_%s_K%d.json' % (ROW, K))
@@ -81,8 +81,11 @@ try:
     if not pairs: res['ended_by'] = 'no pair has both ends within the cap'; save(); raise SystemExit(0)
     # pairs, largest gap first
     cacheU = {}
+    lastI = None
     for (i, j) in pairs:
-        chk(); g = j - i; T = g - OVER
+        chk(); g = j - i
+        if lastI is not None and i != lastI: subprocess.run(['rm', '-rf', os.path.join(WORK, '%s_K%d_s%d' % (ROW, K, lastI))])
+        lastI = i; T = g - OVER
         di, dj = build_ball(i), build_ball(j); fi, fj = info(di), info(dj)
         rec = {'i': i, 'j': j, 'gap': g, 'target_T': T, 'tot_i': tot(S[i]), 'tot_j': tot(S[j]), 'Ri': fi['radius'], 'Rj': fj['radius']}
         best = None

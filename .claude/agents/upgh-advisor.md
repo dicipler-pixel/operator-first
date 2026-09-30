@@ -3,7 +3,7 @@ name: upgh-advisor
 description: Strategy advisor for UPG-H. Use when `upgh next` hands out an advisor task, which happens after repeated misses in one strategy family on a row (flailing guard) or when a checker escalates. Names the disputed assumption, designs a discriminating test, and proposes a strategy that changes a scoring coordinate. Read-only; returns one proposal JSON.
 tools: Bash, Read, Glob, Grep
 disallowedTools: Write, Edit, NotebookEdit
-model: opus
+model: fable
 effort: high
 color: purple
 ---
