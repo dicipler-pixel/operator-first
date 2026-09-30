@@ -1,0 +1,74 @@
+{
+  "kind": "bounded_miss",
+  "summary": "No saved-baseline improvement found; best 32, target 31; bounded run ended node_cap. No impossibility or live score claim.",
+  "limits": {
+    "wall_seconds": 180.0,
+    "node_cap": 600000,
+    "memory_mib": 1024,
+    "total_bridge_depth": 8
+  },
+  "actual_coverage": {
+    "admitted_records": 600000,
+    "generated_moves": 904295,
+    "expanded_by_side_depth": [
+      [
+        103,
+        1212,
+        11566,
+        39064,
+        0
+      ],
+      [
+        104,
+        1202,
+        11342,
+        0,
+        0
+      ]
+    ],
+    "collision_pairs": 185350,
+    "unique_states_by_side": [
+      423703,
+      105539
+    ],
+    "partial_layer": {
+      "side": 0,
+      "depth": 3
+    }
+  },
+  "termination_reason": "node_cap",
+  "reopen_when": {
+    "event": "new_exact_seed",
+    "row_id": "ac-00037"
+  },
+  "evidence": [
+    {
+      "path": "runs/active_00037/saved_union.json",
+      "sha256": "b514b2f3373cc8075799fb9db6bd05eb4982ec0d88105f9747499a3452aeedf4"
+    },
+    {
+      "path": "runs/active_00037/coverage.json",
+      "sha256": "57d6406e4b528b3de8eb7be4b51d3326042c0ee530163f2fbf17dc67881828b4"
+    },
+    {
+      "path": "runs/active_00037/baseline.json",
+      "sha256": "d7267b65285ffbe1344c57089a7d20983256855e80fca642c2c45f4e1afc179c"
+    },
+    {
+      "path": "runs/active_00037/baseline_receipt.json",
+      "sha256": "78ec3da43feed49a6cacf17f56e153d4b31312631b27c51c2504147822299ca2"
+    },
+    {
+      "path": "runs/active_00037/executed_bridge_search.py",
+      "sha256": "d0f379e21d13f44fd57f3d05a5be76244572c46e60c2d5d84f62da396401cf39"
+    },
+    {
+      "path": "runs/active_00037/test_report.txt",
+      "sha256": "87e286ada9cfb3f81c5ab774262d5b36f9bd27aa9f964dddc120e63023b07af7"
+    },
+    {
+      "path": "runs/active_00037/executed_test_bridge_search.py",
+      "sha256": "4edc5ba573f4a440ef7f8310dbfc1633b8ebf5c9153003b56f8c06f07e8c6f0c"
+    }
+  ]
+}

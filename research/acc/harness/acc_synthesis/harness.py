@@ -287,7 +287,7 @@ class Harness:
     def export_one(self, role=None):
         with controller_lock(self.state):
             self.store.recover(); self._reconcile()
-            choices = [t for t in self.store.tasks('queued') if self.in_scope(t['payload'].get('row_id')) and (role is None or t['role'] == role) and self.dispatch_budget(t['role'])]
+            choices = [t for t in self.store.tasks('queued') if t['role'] in self.config['roles'] and self.in_scope(t['payload'].get('row_id')) and (role is None or t['role'] == role) and self.dispatch_budget(t['role'])]
             if not choices:
                 return None
             role = choices[0]['role']
@@ -317,7 +317,7 @@ class Harness:
                 if remaining <= 0:
                     break
                 queued=self.store.tasks('queued')
-                runnable=[t for t in queued if self.in_scope(t['payload'].get('row_id')) and self.config['roles'][t['role']].get('command') and self.dispatch_budget(t['role'])]
+                runnable=[t for t in queued if t['role'] in self.config['roles'] and self.in_scope(t['payload'].get('row_id')) and self.config['roles'][t['role']].get('command') and self.dispatch_budget(t['role'])]
                 if not runnable:
                     break
                 task=self.store.claim(role=runnable[0]['role'],lease_seconds=self.limits['worker_seconds']+30,task_id=runnable[0]['id'])

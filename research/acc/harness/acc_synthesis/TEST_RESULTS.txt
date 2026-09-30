@@ -1,3 +1,14 @@
+test_exact_order_and_word_rotation_are_not_normalized (test_bridge_search.BridgeTests.test_exact_order_and_word_rotation_are_not_normalized) ... ok
+test_fresh_bidirectional_route_reconstruction (test_bridge_search.BridgeTests.test_fresh_bidirectional_route_reconstruction) ... ok
+test_honors_stop (test_bridge_search.BridgeTests.test_honors_stop) ... ok
+test_real_node_cap (test_bridge_search.BridgeTests.test_real_node_cap) ... ok
+test_saved_union_exact_edges_and_inverse (test_bridge_search.BridgeTests.test_saved_union_exact_edges_and_inverse) ... ok
+test_changed_seed_cannot_run_under_old_reservation (test_continuation.ContinuationTests.test_changed_seed_cannot_run_under_old_reservation) ... ok
+test_code_batch_persists_miss_without_model_dispatch_and_never_repeats (test_continuation.ContinuationTests.test_code_batch_persists_miss_without_model_dispatch_and_never_repeats) ... ok
+test_cosmetic_source_edit_does_not_erase_negative_memory (test_continuation.ContinuationTests.test_cosmetic_source_edit_does_not_erase_negative_memory) ... ok
+test_missing_result_is_interrupted_not_a_miss_or_repeat (test_continuation.ContinuationTests.test_missing_result_is_interrupted_not_a_miss_or_repeat) ... ok
+test_portable_stop_blocks_fresh_host (test_continuation.ContinuationTests.test_portable_stop_blocks_fresh_host) ... ok
+test_reservation_survives_host_loss_and_cannot_be_adopted (test_continuation.ContinuationTests.test_reservation_survives_host_loss_and_cannot_be_adopted) ... ok
 test_canonical_hash_key_order (test_gates.GateTests.test_canonical_hash_key_order) ... ok
 test_checker_change_is_detected (test_gates.GateTests.test_checker_change_is_detected) ... ok
 test_checker_output_files_are_bounded (test_gates.GateTests.test_checker_output_files_are_bounded) ... ok
@@ -57,6 +68,6 @@ test_stop_persists_and_prevents_dispatch (test_workflow.WorkflowTests.test_stop_
 test_zero_budget_blocks_run_and_file_handoff (test_workflow.WorkflowTests.test_zero_budget_blocks_run_and_file_handoff) ... ok
 
 ----------------------------------------------------------------------
-Ran 57 tests in 1.761s
+Ran 68 tests in 1.877s
 
 OK
