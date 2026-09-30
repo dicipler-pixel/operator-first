@@ -48,6 +48,8 @@ for cid, c in C.items():
     if cid.startswith('ac-'):
         sk, ex = sig(c['initial_relators']); fam[sk].append((cid, ex))
 Y = json.load(open(REPO + '/research/acc/live/sweeps/fable/zoom_20260930T1858Z.json'))['soft_unsolved_yrun_rows']
+if os.environ.get('SKEL_ORDER'):   # UPG-H 19:33Z: rows with a right-flank-orientation solved sibling first
+    od = {r: i for i, r in enumerate(json.load(open(os.environ['SKEL_ORDER'])))}; Y = sorted(Y, key=lambda r: od.get(r[0], 999))
 if os.environ.get('REVERSE'): Y = Y[::-1]   # second worker: other end of the list
 E = {1: 0, -1: 1, 2: 2, -2: 3}
 def beam(s, env, W_='20000', depth=250):
