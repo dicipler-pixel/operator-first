@@ -1,6 +1,6 @@
 {
-  "completed_batches": 2,
-  "model_worker_launches": 1,
+  "completed_batches": 5,
+  "model_worker_launches": 4,
   "code_only_batches": 1,
   "new_improved_routes": 0,
   "model_worker_dispatch_budget": 0,
@@ -30,29 +30,33 @@
   "next": {
     "status": "planned",
     "job": {
-      "row_id": "ac-00012",
+      "row_id": "ac-00037",
       "track": "AC",
-      "baseline": 52,
-      "target": 47,
-      "seed_sha256": "080bbe88ccf41c29ce20ff672ca310011ecc7a906bb7c957d6401f53b8b6b177",
-      "method_sha256": "83ba1aae847c148c7eb0fd214e7e2cb51bbe0ff0bf1ae83976f8183a486ecfc2",
+      "helper": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "script": "helpers/bob_lane_v1.py",
+      "method_sha256": "6db9762dbb867b46978c1eec3f59d1c3a109d229996b47b54f7e7f6347327263",
+      "inputs": {
+        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+      },
+      "seed_sha256": "5b683f21874f6c092ad127c4deb51021114a10ae95f7e4845c64c87de6ada3e3",
+      "baseline": 32,
+      "target": 31,
       "caps": {
         "wall_seconds": 180,
         "node_cap": 600000,
-        "depth": 8,
-        "profile": "route-local",
         "memory_mib": 1024
       },
-      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
-      "key": "175db250bbb1b1d0dc5c555333d86563228399a6ba9a760ae0f6fa987ae933f7"
+      "key": "cdec5531f4d1eb8e731274aea40297b53a701c7b9944d5889ce165a25d008ca6"
     },
-    "remaining_jobs": 8
+    "remaining_jobs": 72
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 2,
-      "queued": 1
+      "completed": 6,
+      "queued": 4,
+      "failed": 2
     },
     "unconnected_roles": [
       "luna_memory",
@@ -69,7 +73,7 @@
         "astra_advisor": 0
       }
     },
-    "reserved_worker_dispatches": 1,
+    "reserved_worker_dispatches": 7,
     "selected_rows": [
       "ac-00001",
       "ac-00003",
@@ -101,5 +105,57 @@
     "demo": false,
     "submission_enabled": false,
     "state": "/workspace/scratch/981699a2d5e1/acc_synthesis/state"
+  },
+  "capacity_failed_launch_attempts": 2,
+  "helper_reassignment_handoffs": 1,
+  "helper_probes": [
+    {
+      "helper": "kernel",
+      "row_id": "ac-00034",
+      "baseline": 44,
+      "target": 41,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/production_ac00034/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00012",
+      "baseline": 52,
+      "target": 47,
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/first_probe/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "charlie",
+      "row_id": "ac-00037",
+      "baseline": 32,
+      "target": 31,
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/repaired_run/worker_result.json",
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 178.0
+      }
+    }
+  ],
+  "implementation_failure": {
+    "path": "runs/charlie_revival/worker_result.json",
+    "classification": "goal_ball_allocation_failure",
+    "mathematical_negative": false,
+    "repair": "radius 5; runs/charlie_revival/repaired_run/worker_result.json",
+    "extra_model_worker": false
   }
 }

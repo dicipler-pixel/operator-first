@@ -1,0 +1,67 @@
+{
+  "schema": "acc-helper-protocol/1",
+  "helper": "bob",
+  "algorithm_id": "bob-cross-class-generator-transfer-v1.1",
+  "source_commit": "3981da39a41834acf982336318cad2dde8d4b8a0",
+  "description": "Short Nielsen generator changes map target cyclic relator classes to saved donor classes; donor path pulled back using paid official conjugation atoms, exact relator alignment and endpoint finishing; saved target routes spliced by exact ordered-state union. Every improvement independently replayed by pinned verifier. Current continuation routes are read before historical recovered routes; original shortest route is the improvement baseline. Runtime enforces RLIMIT_AS and validates upper bounds.",
+  "inputs": [
+    {
+      "path": "helpers/bob_sources/manifest.json",
+      "sha256": "3f078c8ac38c5f7e85afff90245851698ab979e4b044a2ef34e19d25add520e7"
+    },
+    {
+      "path": "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json",
+      "sha256": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+    },
+    {
+      "path": "integration/recovered_routes.json",
+      "sha256": "9ffa85c82623ae7675f86c23cbbe1c64fb43dc28ec9fe7675fd933b01fda2dcb"
+    },
+    {
+      "path": "integration/official_selected.json",
+      "sha256": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+    },
+    {
+      "path": "integration/adapter_pins.json",
+      "sha256": "c1e6fdb694d57f876aa8ef1b73be63820b08a7dd1aa1f2651a5f40c7700bcbdd"
+    },
+    {
+      "path": "official_checker.py",
+      "sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900"
+    },
+    {
+      "path": "vendor/verifier/core.py",
+      "sha256": "d2972711dc7008679127a987a8965d41ea1606b0fc50bf67e2e06c71c456b3b5"
+    },
+    {
+      "path": "vendor/verifier/canon.py",
+      "sha256": "36cc9e6e79c8087ffaa48c50e2643872e8a0eb4ab0e134e601526604d9abf297"
+    },
+    {
+      "path": "vendor/verifier/specs.py",
+      "sha256": "181102f058f85b3c793d95127051ac21de793e370a2c4d1f5a9808ae59cb3ed0"
+    },
+    {
+      "path": "continuation/routes.json",
+      "sha256": "9ffa85c82623ae7675f86c23cbbe1c64fb43dc28ec9fe7675fd933b01fda2dcb"
+    }
+  ],
+  "cli": "python helpers/bob_lane_v1.py --row ac-00012 --output-dir PATH --wall-seconds 180 --node-cap 600000 --target-length 47 --memory-mib 1024",
+  "defaults": {
+    "row": "ac-00012",
+    "wall_seconds": 180,
+    "node_cap": 600000,
+    "target_length": 47,
+    "memory_mib": 1024
+  },
+  "cost_model": "official ac-r2-v1; each move ID 0..13 costs one",
+  "representation": "ordered freely reduced words",
+  "source_pool_rows": 946,
+  "automorphisms_short_images_length_at_most": 3,
+  "reopen_when": {
+    "event": "new_exact_crossclass_seed",
+    "row_id": "ac-00012"
+  },
+  "source_provenance_note": "Recovered original Git blob byte-identically from pinned archive; manifest has all git_blob_verified=true.",
+  "supported_rows": "Any AC row present in pinned integration/official_selected.json; a row absent from the 946-bundle is allowed when present in official selected inputs. If it has no own saved path, improvement baseline is absent and first verified transfer is a candidate."
+}

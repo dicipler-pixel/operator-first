@@ -1,0 +1,169 @@
+{
+  "protocol": "acc-harness/1",
+  "task_id": 4,
+  "role": "sol_builder",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "instruction": "# Sol \u2014 bounded investigator and builder\n\nYou own the active investigation in the supplied task contract. The worker input contains `task` and `memory` (up to the last 40 archived records). Read the task's exact starting object, AC/Stable AC ruleset, evidence, prediction, allowed artifacts and resource limits before acting. Use only the tools and model-host capabilities actually available. Operate the user's authorized research tool; do not import old Compound Eye code or SAIR search recipes. A configured trusted checker may be called.\n\nMake the test distinguish explicit predicted outcomes. Preserve reproducible input, complete moves or outputs, command/tool details, versions, observed bounds, and artifact references. Retain useful failed fragments and record the condition under which they become worth revisiting. A route fragment requires exact endpoints, direction, generator map and cost convention before composition.\n\nReturn only one JSON object with `kind`, `summary`, and `evidence`. Every evidence entry is exactly `{ \"path\": \"workspace-relative artifact\", \"sha256\": \"hex digest\" }`; use supplied hashes or compute them using an admitted tool. Allowed kinds for your role are:\n\n- `candidate`: include nested `candidate` with exactly the required fields `row_id`, `track` (`\"AC\"` or `\"SAC\"`), `start` (list of strings), `moves` (list), `ruleset_sha256`, `evidence_grade` (`\"V\"`, `\"L\"`, `\"T\"`, `\"C\"`, or `\"H\"`), and `family`. Match the task's encoding; do not invent a move grammar. Treat validity as pending until the code verifier reports it. Use a truthful grade; an `H` candidate cannot be certified.\n- `bounded_miss`: include `limits`, actual coverage, termination reason and `reopen_when`. The latter is a flat exact-event dictionary, such as `{ \"event\": \"verified_bridge\", \"row_id\": \"ac-example\" }`, not prose. A cap, interruption or timeout is never an impossibility proof.\n- `blocked`: identify the missing input, integration or capability and the next concrete recovery action. If a new strategy is needed, attach the suggested plan here for an Astra review task; do not emit a `proposal` from this role.\n\nNo fabricated no-hit, execution, checker, heartbeat, saved file, score or historical claim. Without a run artifact, return a proposal or blocker rather than a completed experiment. Fresh board eligibility is independent of valid replay. Hypotheses and analogies cannot authorize a scoring claim.\n\nThe controller owns dispatch, deadlines and persistence. Honor stop state immediately. Request Astra review for a repeated identical failure, incompatible evidence, an unsupported representation change, or a hard mathematical obligation; state the disputed assumption. Do not loop indefinitely. Never submit, publish or re-enable a watch.\n",
+  "task": {
+    "objective": "Recover the latest saved charlie protocol, implement a reusable faithful lane, and run one bounded first probe on ac-00028 after coordinator row-claim GO. Preserve source histories and all output.",
+    "row_id": "ac-00028",
+    "track": "AC",
+    "helper": "charlie",
+    "strategy": {
+      "seed": "latest-owner-helper-archives-20260930",
+      "route_family": "exact-cap-ladder",
+      "probe": "source-grounded-helper-recovery-and-first-run",
+      "representation": "ordered-freely-reduced-words",
+      "cost_model": "official-ac-r2-v1-unit-moves",
+      "board_filter": "user-selected-25-offline"
+    },
+    "prediction": "Recovered helper-specific methods and richer saved paths may expose routes missed by the initial route-local probes. A bounded miss only limits the tested scope.",
+    "resource_budget": {
+      "search_wall_seconds": 180,
+      "node_cap": 600000,
+      "max_memory_mib": 1024,
+      "model_workers": 1
+    },
+    "allowed_paths": [
+      "helpers/charlie_lane_v1.py",
+      "helpers/charlie_protocol.json",
+      "helpers/charlie_sources",
+      "runs/charlie_revival",
+      "tests/test_charlie_lane.py"
+    ],
+    "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+    "repairs": 0,
+    "switches": 0,
+    "work_id": "7fe179b6fd0e9561299ecc737e496f29c31cc06ca8526332221ee15b92a74bdf"
+  },
+  "memory": [
+    {
+      "id": 10,
+      "at": 1790778319.459184,
+      "kind": "memory.parked",
+      "payload": {
+        "task_id": 1,
+        "work": {
+          "objective": "Find an exact AC route of at most 31 moves on ac-00037 using its five saved routes and a bounded new bridge search. Implement reusable code; preserve coverage and misses. No submissions.",
+          "row_id": "ac-00037",
+          "track": "AC",
+          "strategy": {
+            "seed": "integration/recovered_routes.json:five-ac-00037-paths",
+            "route_family": "exact-multipath-bridge",
+            "probe": "exact-state-union-then-bounded-bridge",
+            "representation": "ordered-freely-reduced-words",
+            "cost_model": "ac-r2-v1-unit-moves",
+            "board_filter": "user-selected-ac-00037-at-most31-offline"
+          },
+          "prediction": "Shared states may yield a shorter composition; otherwise test bounded exact bridges. Failure only excludes the tested bridges under declared caps.",
+          "resource_budget": {
+            "search_wall_seconds": 180,
+            "max_memory_mib": 1024,
+            "model_workers": 1
+          },
+          "allowed_paths": [
+            "runs/active_00037",
+            "bridge_search.py",
+            "tests/test_bridge_search.py"
+          ],
+          "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+          "repairs": 0,
+          "switches": 0,
+          "work_id": "d12f15e593302f3d4334aa5cf1d3a91b4361026547bd14ebcea23a07b1a71818"
+        },
+        "result": {
+          "kind": "bounded_miss",
+          "summary": "No saved-baseline improvement found; best 32, target 31; bounded run ended node_cap. No impossibility or live score claim.",
+          "limits": {
+            "wall_seconds": 180.0,
+            "node_cap": 600000,
+            "memory_mib": 1024,
+            "total_bridge_depth": 8
+          },
+          "actual_coverage": {
+            "admitted_records": 600000,
+            "generated_moves": 904295,
+            "expanded_by_side_depth": [
+              [
+                103,
+                1212,
+                11566,
+                39064,
+                0
+              ],
+              [
+                104,
+                1202,
+                11342,
+                0,
+                0
+              ]
+            ],
+            "collision_pairs": 185350,
+            "unique_states_by_side": [
+              423703,
+              105539
+            ],
+            "partial_layer": {
+              "side": 0,
+              "depth": 3
+            }
+          },
+          "termination_reason": "node_cap",
+          "reopen_when": {
+            "event": "new_exact_seed",
+            "row_id": "ac-00037"
+          },
+          "evidence": [
+            {
+              "path": "runs/active_00037/saved_union.json",
+              "sha256": "b514b2f3373cc8075799fb9db6bd05eb4982ec0d88105f9747499a3452aeedf4"
+            },
+            {
+              "path": "runs/active_00037/coverage.json",
+              "sha256": "57d6406e4b528b3de8eb7be4b51d3326042c0ee530163f2fbf17dc67881828b4"
+            },
+            {
+              "path": "runs/active_00037/baseline.json",
+              "sha256": "d7267b65285ffbe1344c57089a7d20983256855e80fca642c2c45f4e1afc179c"
+            },
+            {
+              "path": "runs/active_00037/baseline_receipt.json",
+              "sha256": "78ec3da43feed49a6cacf17f56e153d4b31312631b27c51c2504147822299ca2"
+            },
+            {
+              "path": "runs/active_00037/executed_bridge_search.py",
+              "sha256": "d0f379e21d13f44fd57f3d05a5be76244572c46e60c2d5d84f62da396401cf39"
+            },
+            {
+              "path": "runs/active_00037/test_report.txt",
+              "sha256": "87e286ada9cfb3f81c5ab774262d5b36f9bd27aa9f964dddc120e63023b07af7"
+            },
+            {
+              "path": "runs/active_00037/executed_test_bridge_search.py",
+              "sha256": "4edc5ba573f4a440ef7f8310dbfc1633b8ebf5c9153003b56f8c06f07e8c6f0c"
+            }
+          ]
+        },
+        "reason": "bounded_miss",
+        "reopen_when": {
+          "event": "new_exact_seed",
+          "row_id": "ac-00037"
+        }
+      }
+    }
+  ],
+  "workspace": "research/acc/harness/acc_synthesis",
+  "limits": {
+    "worker_seconds": 1200,
+    "batch_seconds": 900,
+    "max_tasks_per_run": 12,
+    "max_repairs": 2,
+    "max_switches": 2,
+    "max_output_bytes": 1048576,
+    "board_max_age_seconds": 300,
+    "max_evidence_bytes": 16777216
+  },
+  "demo": false
+}

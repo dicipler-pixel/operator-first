@@ -1,0 +1,30 @@
+{
+  "helper": "charlie",
+  "archive_ref": "3981da39a41834acf982336318cad2dde8d4b8a0",
+  "latest_orders": "research/acc/live/ORDERS_charlie_v11_20260930.md",
+  "orders_scope": "Batch 6 low-k short starts; both (x,y) and (y,x)+[15,15] finishes on rows needing SAC, with prescribed caps. The selected ac-00037 first probe is a separate offline AC-only row at start length 31, one beyond the original <=30 slice.",
+  "archived_method": {
+    "source": "tools/acc/charlie/README_charlie.md and tools/acc/charlie/acc_disk.cpp",
+    "method": "Exact capped BFS on ordered freely reduced rank-2 relator pairs. Sorted disk layers with same/previous-layer subtraction; row frontier meets a closed goal component under the same total-length cap. Reverse the goal-side moves by the official inverse map and independently replay the complete route.",
+    "large_goal_components_missing": [
+      "T16",
+      "B36 radius 9"
+    ],
+    "original_success_and_negatives": "The checkpoint and ledgers contain scoped closed/maxlayer negatives; no prior Charlie ac-00037 cap result was found. Large frontier data were not present and are not claimed reproduced."
+  },
+  "new_lane": {
+    "source": "helpers/charlie_lane_v1.py",
+    "representation": "exact ordered tuple pair, freely reduced by pinned official core.apply_move; no cyclic rotation, relator permutation, or generator relabeling quotient",
+    "move_cost": "one per official ac-r2-v1 move",
+    "caps": "default start+8,+10,+12; ascending cap ladder advances only after a complete component closure",
+    "goal_ball": "bounded radius 5 generated within each total-length cap, then exact row-side BFS; first collision reconstructs a verified route",
+    "budget": "one shared 180-second/600000-admitted-record/1024-MiB budget, with explicit partial layers",
+    "negative_scope": "A stopped partial layer cannot prove a cap empty; coverage gives completed depths only. Closure of a full start component does prove no route under that cap. A fully constructed goal ball plus complete start layers can exclude only the stated finite move-depth and cap.",
+    "startup": "Enforce deadline/node/address limits; load and check all official checker pins; allow absent saved baseline using exact official start."
+  },
+  "official_ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+  "separate_search_family": "Earlier ac-00037 route-union bridge had 600000 records and no <=31 route; this cap-ladder searches original state neighborhoods, not route-local bridge seeds.",
+  "first_probe": "runs/charlie_revival/coverage.json: radius 7 spent 599999 of 600000 records on an incomplete goal depth-6 layer, leaving only the start root; allocation failure, no mathematical negative.",
+  "repaired_probe": "runs/charlie_revival/repaired_run/coverage.json: radius 5 completed the goal ball and searched the start frontier through complete expansion depth 10 before node cap in depth 11. Cap 39 remained incomplete.",
+  "algorithm_id": "charlie-exact-cap-ladder-v1"
+}

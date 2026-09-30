@@ -1,6 +1,6 @@
-# ACC harness 1.4 — bounded continuation
+# ACC harness 1.5 — recovered helper lanes
 
-The owner's exact 25 selected AC rows are now connected to their exact starts and the pinned official checker. Routine import, replay, receipts, bounded bridge search and dispatch limits run as code. The owner-authorized hourly continuation uses `continue_batch.py`; see `CONTINUATION.md` for reservation, checkpoint and quiet-notification rules. Model-worker dispatch budgets are zero after one initial Sol implementation handoff. Scheduled host orchestration itself still uses the host model.
+The owner's exact 25 selected AC rows are now connected to their exact starts and the pinned official checker. Routine import, replay, receipts, bounded bridge search and dispatch limits run as code. The owner-authorized hourly continuation uses `helper_batch.py`; see `CONTINUATION.md` for reservation, checkpoint and quiet-notification rules. Model-worker dispatch budgets are zero. Three explicitly authorized helper implementation workers have finished; recurring batches launch no workers. Scheduled host orchestration itself still uses the host model.
 
 ## Run from the repository root
 
@@ -21,11 +21,13 @@ Python 3.10+ and the standard library suffice. No network or model account is ne
 
 ## Current bounded progress
 
-Two real probes completed: ac-00037 remains 32 against pasted target 31; ac-00034 remains 44 against 41. Each stopped at 600,000 admitted records, with no shorter route found. The second ran through the code-only continuation controller without another model worker. Exact bounds, immutable executed source, baseline replay receipts and next-work selection are in `continuation/progress.json` and `runs/`. These are bounded misses, not impossibility results.
+Five method probes are recorded: the two original bridge probes plus Charlie's exact-cap ac-00037 probe (32 vs 31), Bob's generator-transfer ac-00012 probe (52 vs 47), and Kernel's foreign-road overlay ac-00034 probe (44 vs 41). No shorter route was found. Charlie's initial goal-ball allocation failure is retained separately and never treated as a mathematical negative. Kernel freshly verified all 2,781 donor roads before constructing its graph. Sources, paid move semantics, exact coverage and adaptations are in `HELPERS.md`, `helpers/`, and `runs/`.
+
+`helper_batch.py` rotates the three recovered code lanes across the selected rows, shares the portable negative-memory ledger, and checks active reservations. It preserves `continue_batch.py` and the original bridge history. Each code batch remains <=180 search seconds, <=600,000 admitted records and <=1,024 MiB address space. Cosmetic code edits do not reopen a previous miss.
 
 ## Actual validation
 
-**68 local tests pass; the official checker passes all 63 upstream conformance cases. All 25 recovered routes across 10 selected rows replay correctly.**
+**84 local tests pass; the official checker passes all 63 upstream conformance cases. All 25 recovered routes across 10 selected rows replay correctly.**
 
 | Row | Best recovered length | Pasted record |
 | --- | ---: | ---: |
@@ -42,7 +44,7 @@ Two real probes completed: ac-00037 remains 32 against pasted target 31; ac-0003
 
 The last two are already ledger-reported accepted ties and need improvements. The other 15 starts are connected but have no recovered route in the inspected sources. This is limited source coverage, not a whole-repository absence claim. Accepted lengths 829 on ac-00010 and 999 on ac-00024 remain ledger evidence; their move lists were not recovered here.
 
-A bounded check for exact repeated-state loops across these 25 paths found no shortening. This does not exclude other shortcuts. That initial integration stage produced no new scoring line, live challenge API request, submission or model-worker call. Subsequent bounded runs and the one initial Sol implementation handoff are tracked separately in `continuation/checkpoint.json` and `runs/`. Historical board freshness withholds readiness while preserving exact replay results.
+A bounded check for exact repeated-state loops across these 25 paths found no shortening. This does not exclude other shortcuts. That initial integration stage produced no new scoring line, live challenge API request, submission or model-worker call. Subsequent bounded runs and explicitly authorized implementation handoffs are tracked separately in `continuation/checkpoint.json` and `runs/`. Historical board freshness withholds readiness while preserving exact replay results.
 
 `integration/offline_plan.json` is the current target/seed map. `target_status.json` preserves the earlier narrower intake; it does not override the later recovered-route evidence. Replay reports include full official receipts and certificate hashes.
 
@@ -60,7 +62,7 @@ The exact 25-row selection is hash-pinned. Other rows, including old queued task
 
 `stop --reason TEXT` persists and revokes leases. `resume` clears the stop without restarting tasks. Scoped failures retain their explicit reopening condition. The host must enforce its own memory, sandbox, network and spending limits. A local heartbeat proves process liveness, not mathematical progress. POSIX process groups are stopped on timeout; Windows hosts must supervise descendant cleanup.
 
-The SQLite ledger is authoritative for live-host task leases. The committed continuation checkpoint retains attempts, reservations, stop state and notification keys across host loss; never reset it to repeat work. Use SQLite backup for active databases rather than copying a WAL database file alone. Previous watches remain untouched. One new hourly continuation was authorized; model clients remain unbound for autonomous agent dispatch. File handoff connected the initial Sol worker; later search batches use code directly.
+The SQLite ledger is authoritative for live-host task leases. The committed continuation checkpoint retains attempts, reservations, stop state and notification keys across host loss; never reset it to repeat work. Use SQLite backup for active databases rather than copying a WAL database file alone. Previous watches remain untouched. One new hourly continuation was authorized; model clients remain unbound for autonomous agent dispatch. File handoffs connected the initial Sol and three restored-helper workers; later search batches use code directly.
 
 `scan_saved.py --targets integration/selected_rows.json --repo /path/to/operator-first --output integration/target_status.json` repeats the narrow saved-ledger import without network or models. Broader recovered routes are preserved separately with original source references.
 
