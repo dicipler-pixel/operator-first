@@ -1,0 +1,69 @@
+{
+  "name": "ACC Memory-First Harness",
+  "version": "1.3.0",
+  "mode": "offline",
+  "demo": false,
+  "routing": {
+    "model_memory": false,
+    "model_candidate_review": false
+  },
+  "dispatch_budget": {
+    "total": 0,
+    "per_role": {
+      "luna_memory": 0,
+      "sol_builder": 0,
+      "sol_checker": 0,
+      "astra_advisor": 0
+    }
+  },
+  "roles": {
+    "luna_memory": {
+      "model": "gpt-6-luna",
+      "effort": "medium",
+      "command": []
+    },
+    "sol_builder": {
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "command": []
+    },
+    "sol_checker": {
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "command": []
+    },
+    "astra_advisor": {
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "command": []
+    }
+  },
+  "limits": {
+    "worker_seconds": 240,
+    "batch_seconds": 900,
+    "max_tasks_per_run": 12,
+    "max_repairs": 2,
+    "max_switches": 2,
+    "max_output_bytes": 1048576,
+    "board_max_age_seconds": 300,
+    "max_evidence_bytes": 16777216
+  },
+  "checker": {
+    "path": "official_checker.py",
+    "sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+    "command": [
+      "{python}",
+      "official_checker.py",
+      "{candidate}",
+      "{receipt}"
+    ],
+    "timeout_seconds": 60
+  },
+  "target_manifest": "integration/exact_targets.json",
+  "target_manifest_sha256": "3b6a937c8b29c9c103635bae2d048ee1f8480edff83dc2415dd9f2c919e02ad4",
+  "board_snapshot": "integration/board_snapshot.json",
+  "board_max_age_seconds": 300,
+  "submission_enabled": false,
+  "selected_rows": "integration/selected_rows.json",
+  "selected_rows_sha256": "d4327cd12433ade89f99717cd33da205121ff7853370a2fe7300ed757d4e10c2"
+}

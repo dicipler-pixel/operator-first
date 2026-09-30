@@ -1,0 +1,16 @@
+{
+  "objective": "Investigate the supplied offline ACC target using the authorized research tool and preserve exact outcomes.",
+  "row_id": "REPLACE_WITH_AN_UNCLAIMED_TARGET",
+  "track": "AC",
+  "strategy": {
+    "seed": "PIN_EXACT_SEED_ARTIFACT",
+    "route_family": "initial",
+    "probe": "exact-endpoint-and-cost",
+    "representation": "exact-reduced-words",
+    "cost_model": "one-per-official-primitive",
+    "board_filter": "unheld-and-at-most-record"
+  },
+  "prediction": "Declare possible observations and what each will change before execution.",
+  "allowed_paths": ["research/acc/private"],
+  "research_tool": "BIND_EXISTING_AUTHORIZED_TOOL"
+}

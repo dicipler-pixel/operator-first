@@ -1,0 +1,321 @@
+{
+  "upstream_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "tests": [
+    {
+      "name": "accept-shortest-ms-train-0160",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "accept-median-ms-train-0109",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "accept-longest-ms-train-0066",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "spec-mismatch",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "bad-move-id-negative",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "bad-move-id-14",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "bad-move-id-float",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "bad-move-id-string",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "bad-move-id-null",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "bad-move-id-bool",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "path-too-long",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "not-target-truncated",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "not-target-empty-path",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "not-target-wrong-order",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "length-limit",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "work-budget",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "accept-stable-shortest-sac-train-0160",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "accept-stable-median-sac-train-0109",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "accept-stable-longest-sac-train-0066",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "accept-stable-canon-xy",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "accept-stable-canon-yx",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "accept-stable-rank3-detour",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "not-target-stable-missing-destabilizations",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "not-target-stable-empty-path",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "move-not-applicable-relator-out-of-rank",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "move-not-applicable-generator-out-of-rank",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "move-not-applicable-max-rank-exceeded",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "move-not-applicable-destabilize-precondition-long-relator",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "move-not-applicable-destabilize-precondition-inverted",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "move-not-applicable-destabilize-precondition-shared-generator",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "bad-move-id-stable-257",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "spec-mismatch-ac-version-on-stable-challenge",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "spec-mismatch-stable-version-on-ac-challenge",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-accept-one",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-accept-comments-and-blank-lines",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-accept-crlf-whitespace",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-accept-utf8-bom",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-accept-long-unicode-comment",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-malformed-truncated",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-malformed-missing-colon",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-malformed-missing-id",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-malformed-missing-moves",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-malformed-moves-without-brackets",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-malformed-trailing-comma",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-noninteger-move-id",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-malformed-trailing-text",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-malformed-multiline-moves",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-malformed-comments-only",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-duplicate-after-success-skipped",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-duplicate-first-valid-wins-before-shorter",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-duplicate-failures-then-success",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-duplicate-unknown-challenge-retried",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-duplicate-malformed-later-line-rejects-whole-file",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-duplicate-all-records-count-toward-limit",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-unknown-challenge",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-negative-move-id",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-too-many-solutions",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-bad-move-id-bool",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-bad-move-id-string",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-bad-move-id-null",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-accept-mixed-tracks",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-stable-comment-does-not-select-ac-spec",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "sub-duplicate-mixed-problems-select-independently",
+      "passed": true,
+      "mismatches": []
+    }
+  ],
+  "passed": true
+}
