@@ -1,6 +1,6 @@
 {
  "summary": {
-  "updatedAt": "2026-09-30T00:51Z",
+  "updatedAt": "2026-09-30T01:20Z",
   "leaderboardAt": "2026-09-30T00:00:00Z",
   "ac": {
    "rank": 14,
@@ -1031,6 +1031,56 @@
     "best": 41,
     "status": "paused",
     "detail": "Exact: no path of 38 or fewer stays within total length 32 for its first 29 moves (caps 27\u201332 proved). Beam restarts: 0 runs, best None. Paused: caps 33+ need more memory than we have; posted to helpers."
+   },
+   {
+    "key": "midB",
+    "row": "129 rows",
+    "goal": "ac-00145 first, then records 33\u201340 held by 1\u20136 teams",
+    "record": null,
+    "k": null,
+    "best": null,
+    "status": "stopped",
+    "detail": "Exact capped sweep (stopped for the P2 lanes): 17 of 129 rows done, 0 with a tie or beat."
+   },
+   {
+    "key": "p2a",
+    "row": "308 rows",
+    "goal": "Hump rows \u2264 45: ties and beats",
+    "record": null,
+    "k": null,
+    "best": null,
+    "status": "running",
+    "detail": "P2 lane A, two-eyes beam (BEAM_DUAL): 186 of 308 rows done, 30 with a path, 3 at or under the record (ac-03060, ac-05835, ac-01698)."
+   },
+   {
+    "key": "p2b",
+    "row": "307 rows",
+    "goal": "Hump rows \u2264 45: ties and beats",
+    "record": null,
+    "k": null,
+    "best": null,
+    "status": "running",
+    "detail": "P2 lane B, two-eyes beam (BEAM_DUAL): 247 of 307 rows done, 47 with a path, 3 at or under the record (ac-03789, ac-00222, ac-06094)."
+   },
+   {
+    "key": "p2u",
+    "row": "40 rows",
+    "goal": "First solves (1.0 each): unsolved rows in Miller\u2013Schupp families with a solved neighbour",
+    "record": null,
+    "k": null,
+    "best": null,
+    "status": "running",
+    "detail": "Unsolved MS rows, two-eyes beam (BEAM_DUAL): 2 of 40 rows done, 0 with a path, 0 at or under the record."
+   },
+   {
+    "key": "p2r",
+    "row": "20 rows",
+    "goal": "Rows 1\u20133 over the record, second eye DUAL 0.5",
+    "record": null,
+    "k": null,
+    "best": null,
+    "status": "running",
+    "detail": "Near-miss re-pass, two-eyes beam (BEAM_DUAL): 5 of 20 rows done, 5 with a path, 3 at or under the record (ac-03789, ac-05835, ac-00222)."
    },
    {
     "key": "queue",
