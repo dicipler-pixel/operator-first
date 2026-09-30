@@ -267,13 +267,18 @@ static int cmpc(const void*a,const void*b){ uint64_t x=((Cand*)a)->key,y=((Cand*
    chain test, optimality/experiments/astra_snell_smith_chain). Sanov matrices X=[[1,2],[0,1]], Y=[[1,0],[2,1]];
    score = d(i, X^-1 rho(r0) i) + d(i, Y^-1 rho(r1) i), d = acosh(|A|_F^2 / 2); quantized to 10 bits (x4). Off by default. */
 static int CHAIN=0;
+/* BEAM_CHAIN=2 (atlas B69/B79/B83): trace mode. The Frobenius distance above depends on the rotation of each relator (a fixed
+   frame, B83), so rotations that change nothing about the class move the score. Trace is conjugation-invariant (a scalar built
+   from the operator alone, B79) and acosh(|tr|/2) = log of the spectral radius = half the SL2 rate -log|l2/l1| (B69).
+   score = sum_i acosh(max(1, |tr rho(r_i)|/2)); 0 at the target (tr rho(x) = tr rho(y) = 2). Same quantization. */
 static uint32_t chain_q(const St*s){ double tot=0;
-  for(int r=0;r<2;r++){ double a=1,b=0,c=0,d=1;   /* start with the inverse of the target generator */
-    if(r==0){ b=-2; } else { c=-2; }
+  for(int r=0;r<2;r++){ double a=1,b=0,c=0,d=1;   /* start with the inverse of the target generator (mode 1) or I (mode 2) */
+    if(CHAIN!=2){ if(r==0){ b=-2; } else { c=-2; } }
     for(int k=0;k<s->l[r];k++){ double e,f,g,h; switch(s->w[r][k]){
         case 0: e=1;f=2;g=0;h=1;break; case 1: e=1;f=-2;g=0;h=1;break; case 2: e=1;f=0;g=2;h=1;break; default: e=1;f=0;g=-2;h=1; }
       double na=a*e+b*g, nb=a*f+b*h, nc=c*e+d*g, nd=c*f+d*h; a=na;b=nb;c=nc;d=nd; }
-    double n2=(a*a+b*b+c*c+d*d)/2; tot+=n2<=1?0:acosh(n2); }
+    if(CHAIN==2){ double t=fabs(a+d)/2; tot+=t<=1?0:acosh(t); }
+    else { double n2=(a*a+b*b+c*c+d*d)/2; tot+=n2<=1?0:acosh(n2); } }
   double q=tot*4; return q>1023?1023u:(uint32_t)q; }
 int main(int argc,char**argv){
   const char*tf=argv[1]; uint64_t W=strtoull(argv[2],0,10); int DMAX=atoi(argv[3]); St s0; parse_state(argv,4,&s0);
