@@ -32,9 +32,12 @@ wall = round(time.time() - t0, 1)
 open(f'{ART}/work/{tag}.out', 'w').write(p.stdout + '\n---STDERR---\n' + p.stderr[-3000:])
 res = {'row': row, 'phi': phi_name, 'W': W, 'wall_s': wall, 'start_mirror': [S(Sm[0]), S(Sm[1])]}
 def window(s, path):
-    q = subprocess.run([BIN + '/acc_window', ART + '/work', *enc(s), str(len(path)), *map(str, path)], capture_output=True, text=True)
+  try:
+    q = subprocess.run([BIN + '/acc_window', ART + '/work', *enc(s), str(len(path)), *map(str, path)], capture_output=True, text=True, timeout=int(os.environ.get('WIN_TIMEOUT', '75')))
     m = re.search(r'FINALPATH ?([\d ]*)', q.stdout)
     return list(map(int, m.group(1).split())) if m else path
+  except subprocess.TimeoutExpired:
+    return path
 def replay(start, path):
     st = start; out = [st]
     for m in path:
@@ -80,7 +83,7 @@ for kind in ('AC',):
 # also try windowing the mapped route from the official start
 best = {}
 for nm, ids in list(routes):
-    if len(ids) <= REC[row] + 12:
+    if len(ids) <= REC[row] + 12 and os.environ.get('WIN_S', '0') == '1':
         w = window(S0, ids)
         if w != ids and core.verify(ch, w, ch['move_spec_version'], lim).get('ok'):
             routes.append((nm + '+wS', w))

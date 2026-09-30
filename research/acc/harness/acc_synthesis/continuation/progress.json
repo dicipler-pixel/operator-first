@@ -1,7 +1,7 @@
 {
-  "completed_batches": 97,
+  "completed_batches": 105,
   "model_worker_launches": 4,
-  "code_only_batches": 93,
+  "code_only_batches": 101,
   "new_improved_routes": 5,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -31,7 +31,7 @@
     "status": "active",
     "active": {
       "job": {
-        "row_id": "ac-00006",
+        "row_id": "ac-00029",
         "track": "AC",
         "helper": "kernel",
         "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
@@ -42,18 +42,18 @@
         },
         "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "baseline": null,
-        "target": 63,
+        "target": 46,
         "caps": {
           "wall_seconds": 180,
           "node_cap": 600000,
           "memory_mib": 1024
         },
-        "key": "89ac2645fae0d6aef76360de4f2b24533c08479881bd51ed9c3bab8323b1daf4"
+        "key": "0baea81059a836fc4cf996d0df543cd55fbc76c3b5f2ba6be5d604f264c46fcb"
       },
-      "task_id": 113,
-      "lease_token": "a82dbbc550f04f7c953c125e76ab24ea",
-      "expires_at": 1790806310.379527,
-      "repo_head": "5bce3556cf42bb3005281b8cd80a5ffafe449768",
+      "task_id": 121,
+      "lease_token": "6acb3b7945234564a76fdd0556d1ab9a",
+      "expires_at": 1790807720.9552763,
+      "repo_head": "1e99ee4bf31e297bd7437b44be9167aa22255655",
       "phase": "reserved",
       "host_must_commit_before_execution": true
     }
@@ -61,7 +61,7 @@
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 97,
+      "completed": 105,
       "running": 1
     },
     "unconnected_roles": [
@@ -1334,6 +1334,126 @@
         "wall_seconds": 180.0,
         "node_cap": 600000,
         "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00006",
+      "baseline": null,
+      "target": 63,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_89ac2645fae0d6ae/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00010",
+      "baseline": null,
+      "target": 68,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_9cd8695e0c237b37/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00011",
+      "baseline": null,
+      "target": 48,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_7b4c933b000f8c56/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00015",
+      "baseline": null,
+      "target": 150,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_7aff07d6b8bd8177/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00016",
+      "baseline": null,
+      "target": 79,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_53d9ef948c2948ad/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00017",
+      "baseline": null,
+      "target": 82,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_6316b1b0198353a0/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00024",
+      "baseline": null,
+      "target": 96,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_bbea15c400b609ae/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00027",
+      "baseline": null,
+      "target": 77,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_27b70e4f421d5230/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
       }
     }
   ],

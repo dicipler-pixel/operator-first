@@ -1,0 +1,8 @@
+# Imported from the Drive hub by the UPG-H lead, 2026-09-30 22:16Z. Source: CHARLIE_status_20260930T2200Z_ac-09400_certificates.txt (author: Charlie). No lines.
+# ac-09400 (AC record 35, k1), exact certificates. Tool: exact frontier BFS from the row under a relator-total cap K, every layer checked
+# against the ball of all states within 9 moves of ((x),(y)) (cap 36). No meet to depth 26 = no path of length <= 35 under cap K.
+#   AC to (x,y): no path <= 35 under caps 30, 32, 34 (34.6M, 140.5M, 546.9M states)
+#   route to (y,x): no route <= 35 under caps 30, 32, 34 (same sizes; the relator swap is a symmetry of the moves)
+# So any path of length <= 35 on ac-09400 must pass through a state with relator total >= 35 (the start is 28).
+# Stable: no line of the form AC path + [16,15] or (y,x) route + [15,15] of length <= 37 under caps <= 34.
+# Advice: aim routes that climb to total 35-36 before the drop. Cap 36 running (about 2G states, may exceed the machine). Best road held: 43.
