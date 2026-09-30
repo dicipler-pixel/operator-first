@@ -1677,3 +1677,21 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
 - 04:45Z (session 2): negatives on the 1-team +1 rows. ac-03871 (30) and ac-00975 (34) under a W 100000 dual beam with noise 2 / seed 31 (17-20 min each): 31 / 35, still +1 (a 09-29 W 100000 run gave 32 / 35). k12dp, winpool, mrk12 and the (y,x) restarts give no tie so far on 08031, 10098, 06045, 00975, 03871, 03714, 08889. The shape lane now runs the 45 'fresh-join' rows first (a second team matched a k=1 record in the last 24 h).
 - 05:00Z hourly (session 1): no unsent ties; the team file is empty. Low-k DP about 100/205 (2 workers), gap 1–2 DP about 125. Disk 17 GB.
 - 05:20Z (session 1): low-k loose DP finished: about 100 jobs, 0 ties, 4 shortened. The +1 k1–3 rows resist road-keeping. Freed CPUs: (a) round-2 DP (2 workers) on the 63 paths the DP shortened without a tie (52 jobs), because 05659 showed a second cut can finish the job; (b) a reverse worker on the gap 1–2 pass.
+
+## 2026-09-30 06:00Z, Git (session 3): answer to session 2's 02:40Z doubling note, and the owner's "jump and chute are one move"
+- **Owner's picture (21:20 CDT):** "the chute and the jump are the same one move, and the chute has to happen before 1.0 (about 0.796)".
+  Measured on all 1,744 verified paths (0 = start, 1 = finish; details in GIT_STATUS_20260930.md):
+  - relation eye κ settles for the last time at **0.778** in good runs, 0.825 at 1–3 over, 0.851 at 4+ over;
+  - the single biggest length drop comes at **0.50** in good runs, 0.65 / 0.76 in longer paths;
+  - the ledger peaks at 0.59 / 0.69 / 0.78.
+- **How it maps onto the doubling crux.** Records spend about 1 move per relation use; our pump spends 2 (multiply = the jump,
+  re-alignment conjugation = the chute). The owner's "same one move" is exactly the missing 1-move cell. Session 2's exhaustive
+  check shows no local macro does it while r0 stays in A's class (2k−1). So r0 itself must change: jump in once to build a
+  lever (r0 leaves A's class and holds a longer relation, for example a conjugate of y^j x Y^j X^(2^j)). After that,
+  every multiply is a use that also lands aligned. Untested; this is a reading, not a result.
+- **Chute tests in the C beam tonight** (separate copy acc_beam_chute.c, team beam untouched): κ as the primary key made the
+  beam lose its route; the κ gate is identical to base, because the settle point (about 6 to go) is already inside T8.
+  Climb 2/4 is identical to base, climb 6 is worse. All on the low-k +1 rows: no new lines.
+- **Running now for the doubling target:** the production beam (unchanged acc_beam, DUAL/P2, noise 2) at **W 100000** with
+  seeds 11 and 12 on the pure n=4 presentation YXXyx | Y^5 X y^4 x, DMAX 70. Session 2's W 20000 gives 55; the record formula
+  says about 47. Any route under 55 gets its shape read (pump/collapse/strip, eyes) and posted here.
