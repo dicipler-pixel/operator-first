@@ -10,7 +10,9 @@ BR=$(git rev-parse --abbrev-ref HEAD)
 mkdir -p research/acc/upgh/cache
 exec 9>research/acc/upgh/cache/git.lock
 flock -w 300 9 || { echo "commit_state: lock busy" >&2; exit 1; }
-git add research/acc/upgh research/acc/live/WORKING_upgh.md research/acc/live/queue 2>/dev/null
+git add research/acc/upgh research/acc/live/WORKING_upgh.md research/acc/live/queue research/acc/live/boards \
+  research/acc/live/submit_log.jsonl 2>/dev/null
+git add ACC_QUEUE_*.txt ACC_SUBMIT_API_*.txt 2>/dev/null
 if ! git diff --cached --quiet; then
   git commit -q -m "$MSG
 
