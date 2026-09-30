@@ -1,0 +1,137 @@
+{
+  "baseline_source": "continuation/routes.json",
+  "caps_executed": [
+    {
+      "admitted_records": 600000,
+      "bounded_negative_through": 15,
+      "cap": 39,
+      "complete_under_cap": false,
+      "completed_expansion_depth": {
+        "goal": 5,
+        "start": 10
+      },
+      "duplicates": 1322233,
+      "elapsed_seconds": 7.506920685002115,
+      "excluded_by_cap": 1655942,
+      "expanded_layers": {
+        "goal": [
+          {
+            "complete": true,
+            "depth": 0,
+            "expanded": 1
+          },
+          {
+            "complete": true,
+            "depth": 1,
+            "expanded": 10
+          },
+          {
+            "complete": true,
+            "depth": 2,
+            "expanded": 77
+          },
+          {
+            "complete": true,
+            "depth": 3,
+            "expanded": 574
+          },
+          {
+            "complete": true,
+            "depth": 4,
+            "expanded": 4453
+          }
+        ],
+        "start": [
+          {
+            "complete": true,
+            "depth": 0,
+            "expanded": 1
+          },
+          {
+            "complete": true,
+            "depth": 1,
+            "expanded": 11
+          },
+          {
+            "complete": true,
+            "depth": 2,
+            "expanded": 63
+          },
+          {
+            "complete": true,
+            "depth": 3,
+            "expanded": 291
+          },
+          {
+            "complete": true,
+            "depth": 4,
+            "expanded": 1183
+          },
+          {
+            "complete": true,
+            "depth": 5,
+            "expanded": 3570
+          },
+          {
+            "complete": true,
+            "depth": 6,
+            "expanded": 7899
+          },
+          {
+            "complete": true,
+            "depth": 7,
+            "expanded": 14036
+          },
+          {
+            "complete": true,
+            "depth": 8,
+            "expanded": 22230
+          },
+          {
+            "complete": true,
+            "depth": 9,
+            "expanded": 34173
+          },
+          {
+            "complete": true,
+            "depth": 10,
+            "expanded": 58385
+          },
+          {
+            "complete": false,
+            "depth": 11,
+            "expanded": 108627
+          }
+        ]
+      },
+      "generated_moves": 3578174,
+      "goal_radius": 5,
+      "partial_layer": {
+        "depth": 11,
+        "expanded_in_layer": 108626,
+        "side": "start"
+      },
+      "peak_rss_mib": 234.84375,
+      "termination_reason": "node_cap",
+      "unique_states": {
+        "goal": 40779,
+        "start": 559221
+      }
+    }
+  ],
+  "caps_requested": [
+    39,
+    41,
+    43
+  ],
+  "limits": {
+    "memory_mib": 1024,
+    "node_cap": 600000,
+    "target_length": 68,
+    "wall_seconds": 180.0
+  },
+  "row_id": "ac-00010",
+  "saved_baseline_length": null,
+  "scope": "exact ordered freely reduced AC states; no cyclic or permutation quotient; incomplete cap is not exhaustive",
+  "winner_length": null
+}
