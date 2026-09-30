@@ -1,17 +1,18 @@
 # Recent submissions (auto, every 30 min; one API call per pull)
 
-Pulled 2026-09-30 01:20Z. **Uploads today (UTC): 2 / 40** (team-wide). **API calls left today: 329 / 360** (resets 00:00Z).
+Pulled 2026-09-30 01:40Z. **Uploads today (UTC): 3 / 40** (team-wide). **API calls left today: 322 / 360** (resets 00:00Z).
 
-## Last 30 minutes (0)
-
-| id | received | status | accepted | failed lines |
-|---|---|---|---|---|
-| - | - | - | - | - |
-
-## Last 24 hours (21)
+## Last 30 minutes (1)
 
 | id | received | status | accepted | failed lines |
 |---|---|---|---|---|
+| 2835 | 09-30 01:30Z | complete | 7/7 | - |
+
+## Last 24 hours (22)
+
+| id | received | status | accepted | failed lines |
+|---|---|---|---|---|
+| 2835 | 09-30 01:30Z | complete | 7/7 | - |
 | 2834 | 09-30 00:25Z | complete | 3/3 | - |
 | 2831 | 09-30 00:01Z | complete | 44/44 | - |
 | 2821 | 09-29 20:28Z | complete | 2/2 | - |
