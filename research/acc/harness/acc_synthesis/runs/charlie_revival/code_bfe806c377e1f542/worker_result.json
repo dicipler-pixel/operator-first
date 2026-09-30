@@ -1,0 +1,156 @@
+{
+  "actual_coverage": [
+    {
+      "admitted_records": 600000,
+      "bounded_negative_through": 16,
+      "cap": 29,
+      "complete_under_cap": false,
+      "completed_expansion_depth": {
+        "goal": 5,
+        "start": 11
+      },
+      "duplicates": 1848338,
+      "elapsed_seconds": 8.571602844000154,
+      "excluded_by_cap": 2663509,
+      "expanded_layers": {
+        "goal": [
+          {
+            "complete": true,
+            "depth": 0,
+            "expanded": 1
+          },
+          {
+            "complete": true,
+            "depth": 1,
+            "expanded": 10
+          },
+          {
+            "complete": true,
+            "depth": 2,
+            "expanded": 77
+          },
+          {
+            "complete": true,
+            "depth": 3,
+            "expanded": 574
+          },
+          {
+            "complete": true,
+            "depth": 4,
+            "expanded": 4453
+          }
+        ],
+        "start": [
+          {
+            "complete": true,
+            "depth": 0,
+            "expanded": 1
+          },
+          {
+            "complete": true,
+            "depth": 1,
+            "expanded": 12
+          },
+          {
+            "complete": true,
+            "depth": 2,
+            "expanded": 86
+          },
+          {
+            "complete": true,
+            "depth": 3,
+            "expanded": 421
+          },
+          {
+            "complete": true,
+            "depth": 4,
+            "expanded": 1681
+          },
+          {
+            "complete": true,
+            "depth": 5,
+            "expanded": 5024
+          },
+          {
+            "complete": true,
+            "depth": 6,
+            "expanded": 11363
+          },
+          {
+            "complete": true,
+            "depth": 7,
+            "expanded": 21352
+          },
+          {
+            "complete": true,
+            "depth": 8,
+            "expanded": 36122
+          },
+          {
+            "complete": true,
+            "depth": 9,
+            "expanded": 57317
+          },
+          {
+            "complete": true,
+            "depth": 10,
+            "expanded": 87683
+          },
+          {
+            "complete": true,
+            "depth": 11,
+            "expanded": 132502
+          },
+          {
+            "complete": false,
+            "depth": 12,
+            "expanded": 6453
+          }
+        ]
+      },
+      "generated_moves": 5111846,
+      "goal_radius": 5,
+      "partial_layer": {
+        "depth": 12,
+        "expanded_in_layer": 6452,
+        "side": "start"
+      },
+      "peak_rss_mib": 216.87109375,
+      "termination_reason": "node_cap",
+      "unique_states": {
+        "goal": 40779,
+        "start": 559221
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "path": "runs/charlie_revival/code_bfe806c377e1f542/baseline.json",
+      "sha256": "89bb866117dfc9ff432d82a5c05c9c28a158f92731d3f70d0b8c861ed99b8430"
+    },
+    {
+      "path": "runs/charlie_revival/code_bfe806c377e1f542/coverage.json",
+      "sha256": "aa2f5d1167869ea983880ec138851d3f05bdd17eb5342d6fff8697b71801587f"
+    },
+    {
+      "path": "runs/charlie_revival/code_bfe806c377e1f542/executed_charlie_lane_v1.py",
+      "sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b"
+    },
+    {
+      "path": "runs/charlie_revival/code_bfe806c377e1f542/executed_test_charlie_lane.py",
+      "sha256": "6f109ae43ecddb588fc467a361abdc9ee69958073f7fe653dc512662fdd09d5a"
+    }
+  ],
+  "kind": "bounded_miss",
+  "limits": {
+    "memory_mib": 1024,
+    "node_cap": 600000,
+    "wall_seconds": 180.0
+  },
+  "reopen_when": {
+    "event": "higher_exact_cap_capacity",
+    "row_id": "ac-00016"
+  },
+  "summary": "No saved-baseline improvement in bounded cap probe",
+  "termination_reason": "node_cap"
+}
