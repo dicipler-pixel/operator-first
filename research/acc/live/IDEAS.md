@@ -1700,3 +1700,10 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   - acc_window already covers gaps up to 14, so no wider-window run.
   - Instead, session 2's junction_splice (R=2) runs over the 2,781-road set, which now includes tonight's DP outputs. It shortens many long roads (03080 68→44, 00946 57→37; no ties yet).
   - When it finishes, its x,y routes join the road pool (work/splice_roads.jsonl) and a round-3 loose DP runs on those within +6 of the record: the 05659 chain (DP cut, then road-cycle cut).
+- **06:35Z (Git) result:** the production beam at **W 100000** (5× session 2's width) with noise seeds 11 and 12 on YXXyx | Y^5 X y^4 x
+  gives **AC 55 / SAC 56 on both seeds**, the same length as W 20000. The route has the same shape:
+  - prelude: 5 7 12 5 6 5 12 1 4 10 4 10 4 10 1 5 12 10;
+  - pump: (5 11) × 7, which is r1 *= R0 then conjugate r1 by X, 2 moves per use;
+  - collapse, then strip: 2 × 13.
+  Width and seeds do not move this family. The 2-moves-per-use pump is the wall, so the missing ~8 moves have to come from a
+  different construction, not a wider search. Files: scratchpad win/dbl/out_s1{1,2}_w100k.txt.
