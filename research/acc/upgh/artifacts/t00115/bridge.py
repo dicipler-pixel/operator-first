@@ -39,7 +39,7 @@ def build_ball(i):
     d = os.path.join(WORK, '%s_K%d_s%d' % (ROW, K, i))
     if os.path.exists(d + '/DONE'): return d
     subprocess.run(['rm', '-rf', d])
-    p = subprocess.Popen(['nice', '-n', '10', BIN, 'bfs', d, st(S[i]), str(K), '--mem', '1200', '--notarget', '--maxlayer', str(RMAX), '--minfree', '3'],
+    p = subprocess.Popen(['nice', '-n', '10', BIN, 'bfs', d, st(S[i]), str(K), '--mem', '1200', '--notarget', '--maxlayer', str(RMAX), '--minfree', '1.5'],
                          stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     why = None
     while p.poll() is None:
@@ -52,7 +52,7 @@ def build_ball(i):
             if p.poll() is None: why = 'budget cum %d >= %d after layer %d' % (cm, MAXST, len(ly)); p.kill(); p.wait(); break
         if os.path.isdir(d) and sum(os.path.getsize(os.path.join(d, f)) for f in os.listdir(d)) > 1.6 * MAXST * 16 + 2e8:
             why = 'budget bytes inside layer %d' % (len(ly) + 1); p.kill(); p.wait(); break
-        if freegb() < 2.0: why = 'disk low'; p.kill(); p.wait(); break
+        if freegb() < 1.2: why = 'disk low'; p.kill(); p.wait(); break
     out = p.stdout.read()
     ly = layers(d)
     # drop the partial layer file left by a kill
@@ -125,5 +125,5 @@ except SystemExit as e:
     res['ended_by'] = 'stopped: %s' % e
 save()
 for f in os.listdir(WORK):
-    if f.startswith('u_'): subprocess.run(['rm', '-rf', os.path.join(WORK, f)])
+    if f.startswith('u_') or f.startswith('%s_K%d_s' % (ROW, K)): subprocess.run(['rm', '-rf', os.path.join(WORK, f)])
 print(json.dumps({k: v for k, v in res.items() if k not in ('pairs', 'balls', 'shortened')}))
