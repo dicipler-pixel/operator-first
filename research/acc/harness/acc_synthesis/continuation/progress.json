@@ -28,35 +28,43 @@
     }
   ],
   "next": {
-    "status": "planned",
-    "job": {
-      "row_id": "ac-00018",
-      "track": "AC",
-      "helper": "named",
-      "algorithm_id": "named-exact-state-neighborhood-v1",
-      "script": "helpers/named_bridge_lane_v1.py",
-      "method_sha256": "1552796aaeda2e9bbb4644674011d20bc1b3bf95875ffdb6d60ba78c8eb3fc5a",
-      "inputs": {
-        "helpers/named_queries.json": "1b630a4af65a8ed75c0a6b952e300b3d9397b91e7b15ed5b84012707aaec9438",
-        "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz": "d6b28b5d8139402b18225c3fa404c831e75055a6195bdc6d3c720ebe0060f835",
-        "runs/kernel_revival/code_a7e9bffde8b90533/captured_input.json": "f89f5ff8f6484a2d3f3a1e690b3debcc31e7694b9c38ca726539f3e7c62e82ee"
+    "status": "active",
+    "active": {
+      "job": {
+        "row_id": "ac-00013",
+        "track": "AC",
+        "helper": "named",
+        "algorithm_id": "named-exact-state-neighborhood-v1",
+        "script": "helpers/named_bridge_lane_v1.py",
+        "method_sha256": "1552796aaeda2e9bbb4644674011d20bc1b3bf95875ffdb6d60ba78c8eb3fc5a",
+        "inputs": {
+          "helpers/named_queries.json": "1b630a4af65a8ed75c0a6b952e300b3d9397b91e7b15ed5b84012707aaec9438",
+          "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz": "d6b28b5d8139402b18225c3fa404c831e75055a6195bdc6d3c720ebe0060f835",
+          "runs/kernel_revival/code_a7e9bffde8b90533/captured_input.json": "f89f5ff8f6484a2d3f3a1e690b3debcc31e7694b9c38ca726539f3e7c62e82ee"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 96,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "b0298aefe7125dfe22032b2b5e81ca4200f0aedb7ceaa24b1fb69ff838f40d78"
       },
-      "seed_sha256": "cfd5a7d115fadbc37789fea8bf7e7806acb1bc7c6ef58f1bc80726ae8014f8f8",
-      "baseline": 51,
-      "target": 43,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "6530588bf0ae4a2d5de396ef480ff76c11252f2892ee6ca3c670a892cd4d5657"
-    },
-    "remaining_jobs": 53
+      "task_id": 67,
+      "lease_token": "a2d3ba1e2a7b40ec9cf92312b8a13dab",
+      "expires_at": 1790798882.2002778,
+      "repo_head": "aac73f84d3b5bffc93654a006f5f8faf81f4da5a",
+      "phase": "reserved",
+      "host_must_commit_before_execution": true
+    }
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 51
+      "completed": 51,
+      "running": 1
     },
     "unconnected_roles": [
       "luna_memory",
