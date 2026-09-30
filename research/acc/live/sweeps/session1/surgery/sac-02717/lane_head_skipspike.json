@@ -1,0 +1,340 @@
+{
+ "lane": "head",
+ "cap": 37,
+ "maxst": 80000000,
+ "maxL": 22,
+ "start_epoch": 1790794288.0079567,
+ "searches": [
+  {
+   "L": 1,
+   "root": "YYXYYxyxYYXyxYxYXYxYxYXYx,XyXyxy",
+   "root_total": 31,
+   "root_in_ball_depth": 1,
+   "result": "checked by root membership only (d > 9 or d >= L)"
+  },
+  {
+   "L": 2,
+   "root": "YXYYxyxYYXyxYxYXYxYxYXYxY,XyXyxy",
+   "root_total": 31,
+   "root_in_ball_depth": 2,
+   "result": "checked by root membership only (d > 9 or d >= L)"
+  },
+  {
+   "L": 3,
+   "root_total": 50,
+   "result": "skipped: root above cap"
+  },
+  {
+   "L": 4,
+   "root": "YXYxYx,XyXYxyxYYXyxYxYXYxYxYXYxY",
+   "root_total": 31,
+   "root_in_ball_depth": null,
+   "result": "checked by root membership only (d > 9 or d >= L)"
+  },
+  {
+   "L": 5,
+   "root": "xYXYxY,XyXYxyxYYXyxYxYXYxYxYXYxY",
+   "root_total": 31,
+   "root_in_ball_depth": null,
+   "result": "checked by root membership only (d > 9 or d >= L)"
+  },
+  {
+   "L": 6,
+   "root": "xYXYxY,XyXYxyxYYXyxYxYXYxY",
+   "root_total": 25,
+   "root_in_ball_depth": null,
+   "result": "checked by root membership only (d > 9 or d >= L)"
+  },
+  {
+   "L": 7,
+   "root": "xYXYxY,XyXYxyxYYXyxY",
+   "root_total": 19,
+   "root_in_ball_depth": 9,
+   "result": "checked by root membership only (d > 9 or d >= L)"
+  },
+  {
+   "L": 8,
+   "root": "YXYxYx,XyXYxyxYYXyxY",
+   "root_total": 19,
+   "root_in_ball_depth": 8,
+   "result": "checked by root membership only (d > 9 or d >= L)"
+  },
+  {
+   "L": 9,
+   "root": "XYxYxY,XyXYxyxYYXyxY",
+   "root_total": 19,
+   "root_in_ball_depth": 9,
+   "result": "checked by root membership only (d > 9 or d >= L)"
+  },
+  {
+   "L": 10,
+   "root": "yXYxYxYY,XyXYxyxYYXyxY",
+   "root_total": 21,
+   "root_in_ball_depth": null,
+   "result": "checked by root membership only (d > 9 or d >= L)"
+  },
+  {
+   "L": 11,
+   "root": "yXYxYxYY,XyXYxyxYYYxYY",
+   "root_total": 21,
+   "root_in_ball_depth": null,
+   "tag": "head_L11",
+   "start": "yXYxYxYY,XyXYxyxYYYxYY",
+   "cap": 37,
+   "maxlayer": 1,
+   "secs": 2.0,
+   "layer_sizes": [
+    14
+   ],
+   "states_completed": 15,
+   "raw": "RESULT MAXLAYER states=15",
+   "result": "MAXLAYER",
+   "states": 15
+  },
+  {
+   "L": 12,
+   "root": "yXYxYxYY,yyXyyyXYXyxYx",
+   "root_total": 21,
+   "root_in_ball_depth": null,
+   "tag": "head_L12",
+   "start": "yXYxYxYY,yyXyyyXYXyxYx",
+   "cap": 37,
+   "maxlayer": 2,
+   "secs": 2.0,
+   "layer_sizes": [
+    14,
+    135
+   ],
+   "states_completed": 150,
+   "raw": "RESULT MAXLAYER states=150",
+   "result": "MAXLAYER",
+   "states": 150
+  },
+  {
+   "L": 13,
+   "root": "yXYxYxYY,xyyXyyyXYXyxY",
+   "root_total": 21,
+   "root_in_ball_depth": null,
+   "tag": "head_L13",
+   "start": "yXYxYxYY,xyyXyyyXYXyxY",
+   "cap": 37,
+   "maxlayer": 3,
+   "secs": 2.0,
+   "layer_sizes": [
+    14,
+    136,
+    1025
+   ],
+   "states_completed": 1176,
+   "raw": "RESULT MAXLAYER states=1176",
+   "result": "MAXLAYER",
+   "states": 1176
+  },
+  {
+   "L": 14,
+   "root": "yXYxYxYY,xyyXyyyXYYxYY",
+   "root_total": 21,
+   "root_in_ball_depth": null,
+   "tag": "head_L14",
+   "start": "yXYxYxYY,xyyXyyyXYYxYY",
+   "cap": 37,
+   "maxlayer": 4,
+   "secs": 2.0,
+   "layer_sizes": [
+    14,
+    138,
+    1043,
+    6383
+   ],
+   "states_completed": 7579,
+   "raw": "RESULT MAXLAYER states=7579",
+   "result": "MAXLAYER",
+   "states": 7579
+  },
+  {
+   "L": 15,
+   "root": "XYxYxY,xyyXyyyXYYxYY",
+   "root_total": 19,
+   "root_in_ball_depth": null,
+   "tag": "head_L15",
+   "start": "XYxYxY,xyyXyyyXYYxYY",
+   "cap": 37,
+   "maxlayer": 5,
+   "secs": 2.0,
+   "layer_sizes": [
+    14,
+    137,
+    1089,
+    7185,
+    40909
+   ],
+   "states_completed": 49335,
+   "raw": "RESULT MAXLAYER states=49335",
+   "result": "MAXLAYER",
+   "states": 49335
+  },
+  {
+   "L": 16,
+   "root": "YXYxYx,xyyXyyyXYYxYY",
+   "root_total": 19,
+   "root_in_ball_depth": null,
+   "tag": "head_L16",
+   "start": "YXYxYx,xyyXyyyXYYxYY",
+   "cap": 37,
+   "maxlayer": 6,
+   "secs": 2.0,
+   "layer_sizes": [
+    14,
+    137,
+    1073,
+    6991,
+    38994,
+    190835
+   ],
+   "states_completed": 238045,
+   "raw": "RESULT MAXLAYER states=238045",
+   "result": "MAXLAYER",
+   "states": 238045
+  },
+  {
+   "L": 17,
+   "root": "YXYxYx,YxyyXyyyXYYxY",
+   "root_total": 19,
+   "root_in_ball_depth": null,
+   "tag": "head_L17",
+   "start": "YXYxYx,YxyyXyyyXYYxY",
+   "cap": 37,
+   "maxlayer": 7,
+   "secs": 3.0,
+   "layer_sizes": [
+    14,
+    137,
+    1085,
+    7055,
+    39931,
+    198047,
+    863165
+   ],
+   "states_completed": 1109435,
+   "raw": "RESULT MAXLAYER states=1109435",
+   "result": "MAXLAYER",
+   "states": 1109435
+  },
+  {
+   "L": 18,
+   "root": "YXYxYx,XYxyyXyyyXYYxYx",
+   "root_total": 21,
+   "root_in_ball_depth": null,
+   "tag": "head_L18",
+   "start": "YXYxYx,XYxyyXyyyXYYxYx",
+   "cap": 37,
+   "maxlayer": 8,
+   "secs": 4.0,
+   "layer_sizes": [
+    14,
+    131,
+    940,
+    6129,
+    34783,
+    170377,
+    722067,
+    2706415
+   ],
+   "states_completed": 3640857,
+   "raw": "RESULT MAXLAYER states=3640857",
+   "result": "MAXLAYER",
+   "states": 3640857
+  },
+  {
+   "L": 19,
+   "root": "YXYxYx,XYxyyXyyyXYxy",
+   "root_total": 19,
+   "root_in_ball_depth": null,
+   "tag": "head_L19",
+   "start": "YXYxYx,XYxyyXyyyXYxy",
+   "cap": 37,
+   "maxlayer": 9,
+   "secs": 11.0,
+   "layer_sizes": [
+    14,
+    138,
+    1102,
+    7241,
+    41246,
+    207318,
+    914609,
+    3510988,
+    11777964
+   ],
+   "states_completed": 16460621,
+   "raw": "RESULT MAXLAYER states=16460621",
+   "result": "MAXLAYER",
+   "states": 16460621
+  },
+  {
+   "L": 20,
+   "root": "XyXyxy,XYxyyXyyyXYxy",
+   "root_total": 19,
+   "root_in_ball_depth": null,
+   "tag": "head_L20",
+   "start": "XyXyxy,XYxyyXyyyXYxy",
+   "cap": 37,
+   "maxlayer": 10,
+   "secs": 43.1,
+   "layer_sizes": [
+    14,
+    139,
+    1103,
+    7323,
+    41840,
+    208798,
+    917754,
+    3528303,
+    11870578,
+    34881788
+   ],
+   "states_completed": 51457641,
+   "raw": "RESULT MAXLAYER states=51457641",
+   "result": "MAXLAYER",
+   "states": 51457641
+  },
+  {
+   "L": 21,
+   "root": "yXyXyx,XYxyyXyyyXYxy",
+   "root_total": 19,
+   "root_in_ball_depth": null,
+   "tag": "head_L21",
+   "start": "yXyXyx,XYxyyXyyyXYxy",
+   "cap": 37,
+   "maxlayer": 11,
+   "secs": 125.5,
+   "layer_sizes": [
+    14,
+    137,
+    1089,
+    7161,
+    40363,
+    199873,
+    872469,
+    3341505,
+    11253472,
+    33245479
+   ],
+   "states_completed": 48961563,
+   "result": "BUDGET_STOP",
+   "reason": "budget: on-disk bytes 2.03 GB (> 1.5 x MAXST x 16 B) inside layer 11"
+  }
+ ],
+ "certified_upto": 20,
+ "shortened": null,
+ "ended_by": "BUDGET_STOP at L=21: budget: on-disk bytes 2.03 GB (> 1.5 x MAXST x 16 B) inside layer 11",
+ "ball": {
+  "dir": "work/headball",
+  "layers_0_9_total": 316726,
+  "meet": "union of layers 0..9"
+ },
+ "wall_s": 220.0,
+ "skipped_above_cap": [
+  3
+ ]
+}
