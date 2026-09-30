@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-09-30T20:54:00Z",
+  "query_count": 2,
+  "scope": "public AI/math papers and author GitHub repositories; source review only",
+  "recipient": "UPGH",
+  "entries": [
+    {
+      "id": "arxiv:2609.34460v1",
+      "title": "When Does Structured Knowledge Help Neural Theorem Proving?",
+      "published": "2026-09-28",
+      "url": "https://arxiv.org/abs/2609.34460",
+      "repo": "https://github.com/sarehnabi/mathagent",
+      "observed_artifact": "GitHub README says project page; displayed tree is Astro website. Runnable evaluation code not established by this read.",
+      "reported_result": "Augmentation effects vary by model and problem; complementary solved sets can exceed any single mode.",
+      "relevance_inference": "Context/method complementarity motivates testing existing lane selection against an equal-budget baseline rather than adding retrieval everywhere.",
+      "bounded_next_check": "Use existing per-row coverage and saved route availability to identify untried eligible lanes with different prerequisites; no new model calls. New search only after the exact job key and inputs pass negative memory.",
+      "status": "paper lead; executable release not confirmed; reported theorem-proving results are not ACC evidence"
+    },
+    {
+      "id": "arxiv:2609.28603v1",
+      "title": "Learning to Discover Interesting Mathematics",
+      "published": "2026-09-23",
+      "url": "https://arxiv.org/abs/2609.28603",
+      "reported_result": "Authors propose proof/statement length and conditional proof difficulty to rank useful novel theorems.",
+      "relevance_inference": "For ACC donor selection, downstream reachability benefit is a better candidate screen than collecting long routes by count alone. Directly copying the theorem-length metric would be unjustified.",
+      "bounded_next_check": "For one newly authenticated donor, compare selected-start distances and named-state connectivity before/after edge addition within existing record cap. Retain zero-benefit result; don't reopen all old probes.",
+      "status": "hypothesis for prioritization; no model training or imported code"
+    },
+    {
+      "id": "github:deepseek-ai/DeepSeek-Prover-V2",
+      "url": "https://github.com/deepseek-ai/DeepSeek-Prover-V2",
+      "observed_artifact": "Official README documents recursive subgoal decomposition and verified proof composition; repository has paper, model links and proof outputs.",
+      "status": "background; not established as a new September release or newest DeepSeek harness; no import proposed"
+    }
+  ]
+}
