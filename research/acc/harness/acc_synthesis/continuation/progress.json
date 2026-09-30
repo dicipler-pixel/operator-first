@@ -28,33 +28,38 @@
     }
   ],
   "next": {
-    "status": "planned",
-    "job": {
-      "row_id": "ac-00009",
-      "track": "AC",
-      "helper": "bob",
-      "algorithm_id": "bob-cross-class-generator-transfer-v1",
-      "script": "helpers/bob_lane_v1.py",
-      "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
-      "inputs": {
-        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+    "status": "active",
+    "active": {
+      "job": {
+        "row_id": "ac-00021",
+        "track": "AC",
+        "baseline": 40,
+        "target": 39,
+        "seed_sha256": "de2e9c1214dbdbdcb571c9d1d251de00c093dc4c4f8716fccc86077077c99b88",
+        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
+          "memory_mib": 1024
+        },
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "2f357d887faa15477322593a09ec609af06425edc4741eb663c1e5b96e456e47"
       },
-      "seed_sha256": "e6b2089e1133c9172a9d5d6eaa86e5280bfff4ef97a2e34aae4139f297513580",
-      "baseline": 78,
-      "target": 34,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "397bc5974962e24bf3ea52df886221a0ed61c21d22fd4843744b858035078213"
-    },
-    "remaining_jobs": 2
+      "task_id": 134,
+      "lease_token": "ef2e15f22a3441f78fc6b7c22e9729f3",
+      "expires_at": 1790808360.1752222,
+      "repo_head": "3e41a8fef3ac35c02fbf85d0c7ef688d95de378b",
+      "phase": "reserved",
+      "host_must_commit_before_execution": true
+    }
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 118
+      "completed": 118,
+      "running": 1
     },
     "unconnected_roles": [
       "luna_memory",
