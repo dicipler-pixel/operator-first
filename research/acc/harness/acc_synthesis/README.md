@@ -27,7 +27,7 @@ Seven method probes are recorded: the two original bridge probes plus Charlie's 
 
 ## Actual validation
 
-**84 local tests pass; the official checker passes all 63 upstream conformance cases. All 25 recovered routes across 10 selected rows replay correctly.**
+**85 local tests pass; the official checker passes all 63 upstream conformance cases. All 25 recovered routes across 10 selected rows replay correctly.**
 
 | Row | Best recovered length | Pasted record |
 | --- | ---: | ---: |

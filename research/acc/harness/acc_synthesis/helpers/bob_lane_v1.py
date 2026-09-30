@@ -14,7 +14,6 @@ import math
 from pathlib import Path
 import resource
 import shutil
-import sqlite3
 import sys
 import time
 
@@ -118,15 +117,24 @@ class Budget:
         else:self.count+=n
         return self.reason is None
 
+_control_checked_at = float('-inf')
+_control_value = True
+
+
 def controller_stopped():
-    ledger=ROOT/'state/ledger.sqlite3'
-    if not ledger.exists():return False
+    # The parent owns SQLite and polls its stop flag every 50 ms. Workers only
+    # read the atomically replaced portable checkpoint; never open the ledger.
+    global _control_checked_at, _control_value
+    now = time.monotonic()
+    if now - _control_checked_at < 0.1:
+        return _control_value
     try:
-        with sqlite3.connect('file:'+str(ledger)+'?mode=ro',uri=True,timeout=0.1) as db:
-            row=db.execute('SELECT stopped FROM control WHERE singleton=1').fetchone()
-            return bool(row and row[0])
-    except sqlite3.OperationalError:
-        return False
+        state = json.loads((ROOT / 'continuation/checkpoint.json').read_text())
+        value = state.get('stopped') is not False
+    except (OSError, ValueError):
+        value = True
+    _control_checked_at, _control_value = now, value
+    return value
 
 
 def bridge_word(core, start, goal, k, budget, max_moves):

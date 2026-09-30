@@ -75,3 +75,5 @@ To stop this continuation, pause the named scheduled task and run
 `python3 helper_batch.py stop`, then commit its checkpoint. Do not reactivate
 any previous watch. The GitHub host handles persistence and notification; the
 Python runner intentionally has no credentials, network, or notification client.
+
+Worker control repair, September 30: the controller exclusively accesses the live SQLite ledger. Search workers use a cached portable JSON stop flag (100ms), failing closed on missing or malformed checkpoint data; the parent retains its existing database stop polling and process-group termination. Two malformed local ledgers were archived under continuation/ledger_recovery_*. Both were rebuilt from the unchanged completed-attempt checkpoint and preserved model dispatch contracts. The exact corruption cause was not established; repeated unclosed child SQLite reads were removed. No completed probe was reopened.

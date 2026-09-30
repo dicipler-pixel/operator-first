@@ -1,9 +1,9 @@
 {
   "date": "2026-09-30",
   "suite": {
-    "tests": 84,
+    "tests": 85,
     "passed": true,
-    "seconds": 2.135
+    "seconds": 2.147
   },
   "demo": {
     "test": "complete-controller-toy-demonstration",
@@ -78,5 +78,12 @@
     "local_sqlite": "ok",
     "fresh_ledger_resume": "passed",
     "new_code_only_batch": "3cc9c62c8fb11bbf50a0aa5055fb442453bae887045dbbcc27c603d8f68c98b0"
+  },
+  "worker_control_repair": {
+    "child_sqlite_access": false,
+    "portable_stop_read": "cached 100ms; fail closed on missing/corrupt checkpoint",
+    "parent_control": "existing SQLite stop and lease enforcement retained",
+    "test": "test_worker_control.WorkerControlTests.test_workers_stop_without_opening_sqlite",
+    "cause_of_original_corruption": "not established"
   }
 }

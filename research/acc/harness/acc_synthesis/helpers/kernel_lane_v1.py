@@ -14,7 +14,6 @@ import json
 import math
 from pathlib import Path
 import resource
-import sqlite3
 import sys
 import time
 
@@ -31,12 +30,25 @@ def dump(path, value):
 def state_of(words):
     return tuple(tuple(w) for w in words)
 
+_control_checked_at = float('-inf')
+_control_value = True
+
+
 def stopped():
-    db=ROOT/'state/ledger.sqlite3'
-    if not db.exists(): return False
-    with sqlite3.connect('file:'+str(db)+'?mode=ro', uri=True) as con:
-        r=con.execute('SELECT stopped FROM control WHERE singleton=1').fetchone()
-    return bool(r and r[0])
+    # The parent owns SQLite and polls its stop flag every 50 ms. Workers only
+    # read the atomically replaced portable checkpoint; never open the ledger.
+    global _control_checked_at, _control_value
+    now = time.monotonic()
+    if now - _control_checked_at < 0.1:
+        return _control_value
+    try:
+        state = json.loads((ROOT / 'continuation/checkpoint.json').read_text())
+        value = state.get('stopped') is not False
+    except (OSError, ValueError):
+        value = True
+    _control_checked_at, _control_value = now, value
+    return value
+
 
 def replay(core, start, moves):
     states=[start]

@@ -1,0 +1,43 @@
+{
+  "captured_at": "2026-09-30T16:43:09.574414+00:00",
+  "failure": "second sqlite3.DatabaseError after Charlie batch",
+  "source_files": {
+    "ledger.sqlite3": {
+      "bytes": 81920,
+      "sha256": "e4321dc6e1e152253c8b808aa725620ae853eab1f673817ed8d71434a0e31304"
+    }
+  },
+  "portable_attempts": 10,
+  "portable_active": null,
+  "cause": "not proven; recurrence follows high-frequency unclosed child SQLite reads",
+  "repair": "complete worker replacements use cached portable JSON stop flag; parent retains SQLite control and process-group stop polling",
+  "repaired_at": "2026-09-30T16:43:09.661174+00:00",
+  "recovery": "new local database from unchanged portable checkpoint and preserved request contracts",
+  "restored_completed_attempts": 10,
+  "restored_worker_dispatch_reservations": 7,
+  "model_dispatch_cap": 0,
+  "negative_memory_preserved": true,
+  "active_tasks_restored": 0,
+  "queued_advisories_not_reconstructed": true,
+  "integrity_check": "ok",
+  "next_job": {
+    "row_id": "ac-00012",
+    "track": "AC",
+    "helper": "kernel",
+    "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+    "script": "helpers/kernel_lane_v1.py",
+    "method_sha256": "8bc03e7af7e9974f6115ec8506645b3ce5397274761ec53e0ed99967f2719ffd",
+    "inputs": {
+      "helpers/kernel_sources/roads_input.json": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae"
+    },
+    "seed_sha256": "080bbe88ccf41c29ce20ff672ca310011ecc7a906bb7c957d6401f53b8b6b177",
+    "baseline": 52,
+    "target": 47,
+    "caps": {
+      "wall_seconds": 180,
+      "node_cap": 600000,
+      "memory_mib": 1024
+    },
+    "key": "546c93b37167cb2213004417a595efeb65a3516af08ba247df236aa7874393e7"
+  }
+}

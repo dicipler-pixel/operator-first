@@ -83,6 +83,7 @@ test_stop_persists_and_resume_does_not_retry_interrupted_work (test_runtime.Runt
 test_timeout_returns_promptly (test_runtime.RuntimeTests.test_timeout_returns_promptly) ... ok
 test_unique_key_survives_completion_and_reopen (test_runtime.RuntimeTests.test_unique_key_survives_completion_and_reopen) ... ok
 test_wrong_token_is_fenced (test_runtime.RuntimeTests.test_wrong_token_is_fenced) ... ok
+test_workers_stop_without_opening_sqlite (test_worker_control.WorkerControlTests.test_workers_stop_without_opening_sqlite) ... ok
 test_bad_evidence_and_bad_strategy_rejected_without_crash (test_workflow.WorkflowTests.test_bad_evidence_and_bad_strategy_rejected_without_crash) ... ok
 test_code_first_routing_avoids_memory_and_review_workers (test_workflow.WorkflowTests.test_code_first_routing_avoids_memory_and_review_workers) ... ok
 test_cosmetic_switch_does_not_dispatch_new_family (test_workflow.WorkflowTests.test_cosmetic_switch_does_not_dispatch_new_family) ... ok
@@ -96,7 +97,7 @@ test_stop_persists_and_prevents_dispatch (test_workflow.WorkflowTests.test_stop_
 test_zero_budget_blocks_run_and_file_handoff (test_workflow.WorkflowTests.test_zero_budget_blocks_run_and_file_handoff) ... ok
 
 ----------------------------------------------------------------------
-Ran 84 tests in 2.135s
+Ran 85 tests in 2.147s
 
 OK
 {"kind": "bounded_miss", "row_id": "ac-00001", "result_path": "run/worker_result.json", "coverage_path": "run/coverage.json", "termination_reason": "node_cap", "admitted_records": 3, "winner_length": null}
