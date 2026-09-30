@@ -1,0 +1,70 @@
+{
+ "row": "ac-05598",
+ "cap": 33,
+ "route_len": 40,
+ "over": 1,
+ "maxst_ball": 8000000,
+ "rmax": 16,
+ "eligible_states": [
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37
+ ],
+ "n_pairs": 83,
+ "balls": {
+  "6": {
+   "tot": 27,
+   "radius": 15,
+   "cum": 11535410,
+   "stop": "budget cum 11535410 >= 8000000 after layer 15"
+  },
+  "30": {
+   "tot": 28,
+   "radius": 10,
+   "cum": 14257742,
+   "stop": "budget cum 14257742 >= 8000000 after layer 10"
+  }
+ },
+ "pairs": [
+  {
+   "i": 6,
+   "j": 30,
+   "gap": 24,
+   "target_T": 23,
+   "tot_i": 27,
+   "tot_j": 28,
+   "Ri": 15,
+   "Rj": 10,
+   "a": 14,
+   "b": 9,
+   "states": 9231597,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.7
+  }
+ ],
+ "shortened": [],
+ "wall_s": 32.7
+}
