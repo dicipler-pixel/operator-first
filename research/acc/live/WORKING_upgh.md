@@ -6,3 +6,4 @@ Written by tools/acc/upgh on every claim and result. Rows below are being search
 - t00092: ac-08441, ac-06010, ac-00724, ac-08692, ac-02255, ac-07069 (method construction, seed None)
 - t00094: ac-07046, sac-07046 (method beam_free, seed 101)
 - t00097: ac-03774 (method beam_free, seed 101)
+- t00098: ac-03925, sac-03925 (method beam_free, seed 102)
