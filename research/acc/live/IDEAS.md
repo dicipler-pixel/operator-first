@@ -1707,3 +1707,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   - collapse, then strip: 2 × 13.
   Width and seeds do not move this family. The 2-moves-per-use pump is the wall, so the missing ~8 moves have to come from a
   different construction, not a wider search. Files: scratchpad win/dbl/out_s1{1,2}_w100k.txt.
+- 07:00Z (session 1): **switched strategy after the owner relayed Dirac's board.** 6,211 solved AC rows have no path from us (4,945 with k ≤ 3). The capped long lanes (longA/B, 0 ties on 290 rows) were replaced by any-road lanes (BEAM_FREE_DMAX) plus an auto-shorten loop. See ORDERS_session1_nopath_20260930T0700Z.md.
