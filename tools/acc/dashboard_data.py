@@ -31,7 +31,7 @@ def jl(path):
 
 def history():
     """Our submissions: history pull + later local sends, oldest first; and our best per row."""
-    h = json.load(open(sorted(glob.glob(str(LIVE / "mine_*.json")))[-1]))
+    h = json.load(open(sorted(glob.glob(str(LIVE / "mine_2*.json")))[-1]))
     subs = {}
     for it in h["items"]:
         subs[it["submissionId"]] = {"id": it["submissionId"], "at": it["receivedAt"][:16] + "Z",

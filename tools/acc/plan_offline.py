@@ -9,9 +9,14 @@ for p in ('ac', 'stable_ac'):
     f = sorted(glob.glob(f'{L}/boards/{p}_*.json.gz'))[-1]
     for x in json.load(gzip.open(f))['data']['items']: board[x['challengeId']] = (x['currentBestLength'], x['kTeams'])
 mine = {}
-for it in json.load(open(sorted(glob.glob(f'{L}/mine_*.json'))[-1]))['items']:
-    for r in it.get('results') or []:
-        if r.get('ok'): mine[r['challenge_id']] = min(mine.get(r['challenge_id'], 1 << 30), r['length'])
+for fn in glob.glob(f'{L}/mine_*.json'):  # full history pulls + mine_recent.json (newest 20), merged
+    for it in json.load(open(fn))['items']:
+        for r in it.get('results') or []:
+            if r.get('ok'): mine[r['challenge_id']] = min(mine.get(r['challenge_id'], 1 << 30), r['length'])
+for l in open(f'{L}/submit_log.jsonl'):  # every later send logged by the sessions
+    x = json.loads(l)
+    for r in (x.get('results') or []) if x.get('event') == 'result' else []:
+        if r.get('ok') and r.get('length'): mine[r['challenge_id']] = min(mine.get(r['challenge_id'], 1 << 30), r['length'])
 lines = {}
 for fn in A.files:
     for l in open(fn):

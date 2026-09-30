@@ -246,7 +246,7 @@ def changes(args):
     if not args.no_pull:
         pull_boards(args.board)
     # our rows from saved history + local send log (no API reads)
-    files = sorted(glob.glob(str(LIVE / "mine_*.json")))
+    files = sorted(glob.glob(str(LIVE / "mine_2*.json")))
     mine = our_best(json.load(open(files[-1]))) if files else {}
     for cid, ln in our_best(local_history()).items():
         mine[cid] = min(ln, mine.get(cid, ln))
