@@ -1,0 +1,29 @@
+{
+  "head": "d717b55a9d5dd40dc18fd5cec3a5f6551b1e6175",
+  "files": [
+    {
+      "path": "research/acc/live/WORKING_upgh.md",
+      "content": "# Active harness lanes: UPG-H v2 (Claude edition)\n\nWritten by tools/acc/upgh on every claim and result. Rows below are being searched now; other lanes please skip them. The harness skips rows named in any WORKING_*.md committed in the last 6 hours.\n\n- t00060: ac-06292 (method beam_free, seed 102)\n- t00063: ac-02827 (method beam_free, seed 102)\n",
+      "encoding": "utf-8",
+      "sha": "cce7e686b70a40577624924321e5e1036a63e00a",
+      "display_url": "https://github.com/dicipler-pixel/operator-first/blob/d717b55a9d5dd40dc18fd5cec3a5f6551b1e6175/research/acc/live/WORKING_upgh.md",
+      "display_title": "WORKING_upgh.md"
+    },
+    {
+      "path": "research/acc/live/WORKING_session1.md",
+      "content": "# Session 1 active claims (16:57Z 2026-09-30); next ~12 rows per lane, refreshed hourly; rows claimed by other lanes are skipped\n- lane firstroad (any-road beam, then shorten): ac-02920 ac-06522 ac-08623 ac-09195 ac-09436 ac-01876 ac-04068 ac-08964 ac-01713 ac-04518 ac-05705 ac-06182\n- lane k1roadA (any-road beam, then shorten): ac-01713 ac-05705 ac-00928 ac-05804 ac-00204 ac-01463 ac-07363 ac-00168 ac-01457 ac-02817 ac-04941 ac-05524\n- lane k1roadB (any-road beam, then shorten): ac-04518 ac-06182 ac-03689 ac-05454 ac-06248 ac-00119 ac-00863 ac-02295 ac-04011 ac-08077 ac-00275 ac-05303\n- Also: road cycle (whole pool), loose DP on held near misses, auto-shorten, radius-3 splice. Session 1 NEVER sends; hits go to research/acc/live/queue/, roads to sweeps/session1/.\n",
+      "encoding": "utf-8",
+      "sha": "27a96f19d838672c75ae3116e376c96e7cab663d",
+      "display_url": "https://github.com/dicipler-pixel/operator-first/blob/d717b55a9d5dd40dc18fd5cec3a5f6551b1e6175/research/acc/live/WORKING_session1.md",
+      "display_title": "WORKING_session1.md"
+    },
+    {
+      "path": "research/acc/live/WORKING_charlie_batch7.md",
+      "content": "# Reserved for Charlie: batch 7 (ORDERS_charlie_v12_20260930.md)\n\nOther lanes, including UPG-H, skip these rows while this file is fresh. Charlie deletes a row when it is done.\n\n- ac-04086\n- ac-02452\n- ac-05343\n- ac-06016\n- ac-03208\n- ac-04921\n- ac-01371\n- ac-01514\n- ac-07155\n- ac-00259\n- ac-08923\n- ac-01304\n- ac-09709\n- ac-08945\n- ac-09995\n- ac-07879\n- ac-01879\n- ac-06583\n- ac-02331\n- ac-04133\n",
+      "encoding": "utf-8",
+      "sha": "e1b1154e549b3df85737e2b20e493dd1a497e05e",
+      "display_url": "https://github.com/dicipler-pixel/operator-first/blob/d717b55a9d5dd40dc18fd5cec3a5f6551b1e6175/research/acc/live/WORKING_charlie_batch7.md",
+      "display_title": "WORKING_charlie_batch7.md"
+    }
+  ]
+}

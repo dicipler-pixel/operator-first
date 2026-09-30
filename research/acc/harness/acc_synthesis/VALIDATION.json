@@ -1,9 +1,9 @@
 {
   "date": "2026-09-30",
   "suite": {
-    "tests": 88,
+    "tests": 90,
     "passed": true,
-    "seconds": 2.186
+    "seconds": 2.227
   },
   "demo": {
     "test": "complete-controller-toy-demonstration",
@@ -49,7 +49,7 @@
   "real_ACC_search_run": true,
   "submission_performed": false,
   "historical_ACC_fixtures_replayed": true,
-  "scope": "88 local tests pass. Pinned official checker previously passed all 63 conformance cases; pins unchanged. Independently verified improvements: ac-00028 58 -> 54 and ac-00003 92 -> 84. Both above pasted targets; no scoring claim or submission. Exact attempt coverage is in continuation/progress.json and checkpoint.json.",
+  "scope": "90 local tests pass. Pinned official checker previously passed all 63 conformance cases; pins unchanged. Independently verified improvements: ac-00028 58 -> 54 -> 52 and ac-00003 92 -> 84. Both above pasted targets; no scoring claim or submission. Exact attempt coverage is in continuation/progress.json and checkpoint.json.",
   "version": "1.5.0",
   "cost_scope": "Persistent worker dispatch caps; code-first verification; no provider currency/token enforcement.",
   "intake": {
@@ -86,5 +86,29 @@
     "test": "test_worker_control.WorkerControlTests.test_workers_stop_without_opening_sqlite",
     "cause_of_original_corruption": "not established"
   },
-  "message_failure_regressions": "Nonzero exit even after result write, and successful exit without result: interrupted, never a miss; no replay after host restore."
+  "message_failure_regressions": "Nonzero exit even after result write, and successful exit without result: interrupted, never a miss; no replay after host restore.",
+  "new_foreign_road_merge": {
+    "review": "continuation/pool_review_20260930T1715Z/review.json",
+    "events_reviewed": 42,
+    "roads_with_new_edges": 21,
+    "new_selected_improvement": {
+      "row_id": "ac-00028",
+      "old": 54,
+      "new": 52,
+      "pasted_target": 44,
+      "official_verified": true
+    },
+    "source_recipes_imported": false,
+    "selected_rows_changed": false,
+    "budgets_changed": false
+  },
+  "artifact_persistence_guard": {
+    "tests": [
+      "test_truncated_artifact_blocks_persistence_without_rewriting_history",
+      "test_stale_completed_task_lease_blocks_persistence"
+    ],
+    "complete_evidence_checks": 249,
+    "mismatches_after_recovery": 0,
+    "underlying_storage_cause": "not established"
+  }
 }

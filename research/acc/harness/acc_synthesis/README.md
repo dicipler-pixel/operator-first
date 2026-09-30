@@ -21,13 +21,13 @@ Python 3.10+ and the standard library suffice. No network or model account is ne
 
 ## Current bounded progress
 
-Current totals and exact coverage are in `continuation/progress.json` and `continuation/checkpoint.json`. Every completed method/row/input probe is retained. Exact foreign-road overlay produced two independently checked improvements: **ac-00028, 58 -> 54 moves**, and **ac-00003, 92 -> 84 moves**. Their pasted targets are 44 and 40 respectively, so neither reaches its target and no live scoring claim is made. Both routes and official receipts are preserved in `continuation/routes.json` and immutable run folders.
+Current totals and exact coverage are in `continuation/progress.json` and `continuation/checkpoint.json`. Every completed method/row/input probe is retained. Exact foreign-road overlay improved two rows, with three independently checked shorter paths: **ac-00028, 58 -> 54 -> 52 moves**, and **ac-00003, 92 -> 84 moves**. Their pasted targets are 44 and 40 respectively, so neither reaches its target and no live scoring claim is made. All three routes and official receipts are preserved in `continuation/routes.json` and immutable run folders.
 
 `helper_batch.py` rotates the recovered code lanes and keeps model dispatch at zero. Each batch remains <=180 search seconds, <=600000 records and <=1024 MiB. Workers read the portable stop flag; the controller owns SQLite and enforces live stops and leases. Source hardening does not reopen old probes. Charlie's search identity also ignores changed saved routes when its actual start/goal/target/caps are unchanged. Bob and Kernel retain seed-sensitive identities because they use those routes.
 
 ## Actual validation
 
-**88 local tests pass; the official checker passes all 63 upstream conformance cases. All 25 recovered routes across 10 selected rows replay correctly.**
+**90 local tests pass; the official checker passes all 63 upstream conformance cases. All 25 recovered routes across 10 selected rows replay correctly.**
 
 | Row | Best recovered length | Pasted record |
 | --- | ---: | ---: |
@@ -67,3 +67,5 @@ The SQLite ledger is authoritative for live-host task leases. The committed cont
 `scan_saved.py --targets integration/selected_rows.json --repo /path/to/operator-first --output integration/target_status.json` repeats the narrow saved-ledger import without network or models. Broader recovered routes are preserved separately with original source references.
 
 `DESIGN.md` and `source_map.json` preserve the paper synthesis and its mathematical limits. The demo is explicitly a toy, separate from the real replay above. Third-party checker attribution and its Apache license are under `vendor/`.
+
+Persistence checks every completed evidence hash before publication to the private branch. September 30 recovery restored two truncated graph artifacts to their original hashes and reconciled one already-completed local lease from its committed result. No search was repeated; the underlying storage cause was not established. See `continuation/completion_reconciliation_20260930T1721Z/`.

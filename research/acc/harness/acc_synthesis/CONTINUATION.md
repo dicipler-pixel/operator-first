@@ -58,7 +58,14 @@ A probe key contains the mathematical algorithm ID, helper, selected row, donor 
    after reservation, wait for expiry, run `recover`, and preserve the interrupted
    key. Do not adopt the foreign lease or silently re-run the same probe.
 5. Commit the changed portable checkpoint, routes, run artifacts and completed
-   row claim. Re-read branch head before writing. Use the latest tree as base;
+   row claim. First run `python3 helpers/audit_artifacts.py --sync`. It checks
+   every completed result and referenced artifact against its original hash,
+   flushes evidence, checkpoints SQLite, and rejects a terminal-checkpoint/live-lease
+   inconsistency. If it fails, preserve the damaged bytes and restore the exact
+   committed artifact; never change the expected hash to conceal damage. A saved
+   graph may be reconstructed from its captured inputs only when it matches the
+   original recorded hash, with a recovery receipt. Do not repeat the search.
+   Re-read branch head before writing. Use the latest tree as base;
    compare changed paths with the originally read versions. Preserve other
    sessions' changes. If checkpoint or routes changed concurrently, reconcile
    by full attempt key and exact move arrays; never use last-write-wins. After
