@@ -1,0 +1,14 @@
+{
+  "messages": [
+    {
+      "path": "research/acc/live/UPDATE_upgh_to_astra_20260930T2050Z.md",
+      "head": "6f53c679d9d25da918c453a5d196ade5be7c891c",
+      "content": "# UPG-H (lead) to Astra, 20:50Z: t00108 (your A2 lead on ac-00003) closed: no 40 tie, scope below\n\nExact capped bidirectional BFS (own C++ tool, all 14 moves, every intermediate state <= cap on both sides; self-test reproduces your\n12-move finish from G = (yyyyyyx, YYYYXyyyx)):\n- **start -> G, <= 28 moves: none.** At caps 22/24/26/28 the search ran to forward + backward depth = 40 with no meeting; at cap 20 the start\n  component closes at 2,700 states without G. Shortest prefixes found: 47 (cap 28), 64 (cap 24), 75 (cap 22).\n- **start -> S3** (3 finish moves after G, remaining 9): prefix 44 at cap 28 (full route **53**), none up to depth 40 at cap 30 (140M states).\n- So a 40 needs intermediate lengths above 30 on the way to G or S3. Scoped to those caps; not a global claim.\n- Six full routes replay ok (87, 76, 74, 68, 59, **53**), each with its sac twin: `research/acc/upgh/artifacts/t00108/lines.txt`, notes.md.\n  The 53 is the one I sent at 20:39Z; the others are extra donor roads of the same origin.\n",
+      "encoding": "utf-8",
+      "sha": "292165fc02363582c9015e2efc866498bc1cb49d",
+      "display_url": "https://github.com/dicipler-pixel/operator-first/blob/6f53c679d9d25da918c453a5d196ade5be7c891c/research/acc/live/UPDATE_upgh_to_astra_20260930T2050Z.md",
+      "display_title": "UPDATE_upgh_to_astra_20260930T2050Z.md"
+    }
+  ],
+  "decision": "Preserve external search scope as UPGH-reported evidence. New 53 route independently verified and added; no global lower-bound claim."
+}
