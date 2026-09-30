@@ -1,7 +1,7 @@
 {
-  "completed_batches": 106,
+  "completed_batches": 110,
   "model_worker_launches": 4,
-  "code_only_batches": 102,
+  "code_only_batches": 106,
   "new_improved_routes": 5,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -31,29 +31,26 @@
     "status": "active",
     "active": {
       "job": {
-        "row_id": "ac-00005",
+        "row_id": "ac-00009",
         "track": "AC",
-        "helper": "kernel",
-        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
-        "script": "helpers/kernel_lane_v1.py",
-        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
-        "inputs": {
-          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
-        },
-        "seed_sha256": "4233a16d3b3247bf8f2830b8c1b3298df77b2111cbd5bfe8a96238cf7fe56696",
-        "baseline": 27,
-        "target": 26,
+        "baseline": 112,
+        "target": 34,
+        "seed_sha256": "a5fa089d7cffc8d299beba49d8e1aa5a2ff729cf244bb977c5b3b67619a962eb",
+        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
         "caps": {
           "wall_seconds": 180,
           "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
           "memory_mib": 1024
         },
-        "key": "c22c26de751e87d164fa86c8af62e98a155f8f8c2fd4c9bfafbaa8fe67b8ebf5"
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "0e98369fca2fe29cdd88bf0e844901775d6776a173c6f3833c4bfa324e0885a6"
       },
-      "task_id": 122,
-      "lease_token": "e6770aa6cc4e4a1d8e7a4e571eb8b6c0",
-      "expires_at": 1790807797.4813013,
-      "repo_head": "ec109762b76d313e5f3f62818279b21ce396b582",
+      "task_id": 126,
+      "lease_token": "67f738cf84f3492ca7531900e90f805f",
+      "expires_at": 1790807948.118652,
+      "repo_head": "7c2ae55ebbf8bc1e21ea04b603379fcd1e798008",
       "phase": "reserved",
       "host_must_commit_before_execution": true
     }
@@ -61,7 +58,7 @@
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 106,
+      "completed": 110,
       "running": 1
     },
     "unconnected_roles": [
@@ -1463,6 +1460,36 @@
       "target": 46,
       "kind": "bounded_miss",
       "result_path": "runs/kernel_revival/code_0baea81059a836fc/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00005",
+      "baseline": 27,
+      "target": 26,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_c22c26de751e87d1/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00021",
+      "baseline": 40,
+      "target": 39,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_e660226ac8d743ae/worker_result.json",
       "limits": {
         "wall_seconds": 180.0,
         "node_cap": 600000,

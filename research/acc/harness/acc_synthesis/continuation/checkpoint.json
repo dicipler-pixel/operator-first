@@ -3,29 +3,26 @@
   "stopped": false,
   "active": {
     "job": {
-      "row_id": "ac-00005",
+      "row_id": "ac-00009",
       "track": "AC",
-      "helper": "kernel",
-      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
-      "script": "helpers/kernel_lane_v1.py",
-      "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
-      "inputs": {
-        "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
-      },
-      "seed_sha256": "4233a16d3b3247bf8f2830b8c1b3298df77b2111cbd5bfe8a96238cf7fe56696",
-      "baseline": 27,
-      "target": 26,
+      "baseline": 112,
+      "target": 34,
+      "seed_sha256": "a5fa089d7cffc8d299beba49d8e1aa5a2ff729cf244bb977c5b3b67619a962eb",
+      "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
       "caps": {
         "wall_seconds": 180,
         "node_cap": 600000,
+        "depth": 8,
+        "profile": "route-local",
         "memory_mib": 1024
       },
-      "key": "c22c26de751e87d164fa86c8af62e98a155f8f8c2fd4c9bfafbaa8fe67b8ebf5"
+      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+      "key": "0e98369fca2fe29cdd88bf0e844901775d6776a173c6f3833c4bfa324e0885a6"
     },
-    "task_id": 122,
-    "lease_token": "e6770aa6cc4e4a1d8e7a4e571eb8b6c0",
-    "expires_at": 1790807797.4813013,
-    "repo_head": "ec109762b76d313e5f3f62818279b21ce396b582",
+    "task_id": 126,
+    "lease_token": "67f738cf84f3492ca7531900e90f805f",
+    "expires_at": 1790807948.118652,
+    "repo_head": "7c2ae55ebbf8bc1e21ea04b603379fcd1e798008",
     "phase": "reserved",
     "host_must_commit_before_execution": true
   },
@@ -4412,6 +4409,162 @@
         "event": "new_verified_foreign_road",
         "row_id": "ac-00029"
       }
+    },
+    {
+      "key": "c22c26de751e87d164fa86c8af62e98a155f8f8c2fd4c9bfafbaa8fe67b8ebf5",
+      "job": {
+        "row_id": "ac-00005",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
+        },
+        "seed_sha256": "4233a16d3b3247bf8f2830b8c1b3298df77b2111cbd5bfe8a96238cf7fe56696",
+        "baseline": 27,
+        "target": 26,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "c22c26de751e87d164fa86c8af62e98a155f8f8c2fd4c9bfafbaa8fe67b8ebf5"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790807237.0310187,
+      "result_path": "runs/kernel_revival/code_c22c26de751e87d1/worker_result.json",
+      "result_sha256": "e19566eebee543f77ff1e130c6dd46a8d7a46cd65efcbe49a23bbb64c66b55e8",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best 27, target 26.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00005"
+      }
+    },
+    {
+      "key": "e660226ac8d743ae29453c09863d66351e207934d2ba2df1a1a332b451bba2b4",
+      "job": {
+        "row_id": "ac-00021",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
+        },
+        "seed_sha256": "de2e9c1214dbdbdcb571c9d1d251de00c093dc4c4f8716fccc86077077c99b88",
+        "baseline": 40,
+        "target": 39,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "e660226ac8d743ae29453c09863d66351e207934d2ba2df1a1a332b451bba2b4"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790807287.2517493,
+      "result_path": "runs/kernel_revival/code_e660226ac8d743ae/worker_result.json",
+      "result_sha256": "4dade7087b46e6c974e7ddde34442a6229bfc97a91dbb7cede4cd1c9f68513b7",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best 40, target 39.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00021"
+      }
+    },
+    {
+      "key": "175db250bbb1b1d0dc5c555333d86563228399a6ba9a760ae0f6fa987ae933f7",
+      "job": {
+        "row_id": "ac-00012",
+        "track": "AC",
+        "baseline": 52,
+        "target": 47,
+        "seed_sha256": "080bbe88ccf41c29ce20ff672ca310011ecc7a906bb7c957d6401f53b8b6b177",
+        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
+          "memory_mib": 1024
+        },
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "175db250bbb1b1d0dc5c555333d86563228399a6ba9a760ae0f6fa987ae933f7"
+      },
+      "origin": "deterministic_code",
+      "finished_at": 1790807320.233556,
+      "result_path": "runs/code_175db250bbb1b1d0/worker_result.json",
+      "result_sha256": "d4ff6f910f51de85b7fe21d1f65eb75841892a99a17e18de2d63b59efc8ec5a3",
+      "kind": "bounded_miss",
+      "summary": "No saved-baseline improvement found; best 52, target 47; bounded run ended node_cap. No impossibility or live score claim.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "total_bridge_depth": 8
+      },
+      "reopen_when": {
+        "event": "new_exact_seed",
+        "row_id": "ac-00012"
+      }
+    },
+    {
+      "key": "15a16c2b7f75621d57f36f4961a525c56aaf7aee02cede45bf100ddf902d17dd",
+      "job": {
+        "row_id": "ac-00028",
+        "track": "AC",
+        "baseline": 51,
+        "target": 44,
+        "seed_sha256": "69e4f0d549324aa7af6fc90ea349c8de2050cd0946fb52fdf7e0254f707e0c87",
+        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
+          "memory_mib": 1024
+        },
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "15a16c2b7f75621d57f36f4961a525c56aaf7aee02cede45bf100ddf902d17dd"
+      },
+      "origin": "deterministic_code",
+      "finished_at": 1790807338.8810813,
+      "result_path": "runs/code_15a16c2b7f75621d/worker_result.json",
+      "result_sha256": "cf4380eb16ba5a7a795c67f03f0d8478d2fd9ccb5387774d194371ecfc6087f4",
+      "kind": "bounded_miss",
+      "summary": "No saved-baseline improvement found; best 51, target 44; bounded run ended node_cap. No impossibility or live score claim.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "total_bridge_depth": 8
+      },
+      "reopen_when": {
+        "event": "new_exact_seed",
+        "row_id": "ac-00028"
+      }
     }
   ],
   "notifications": [
@@ -4424,7 +4577,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790807197.4816897,
+  "updated_at": 1790807348.1189744,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
