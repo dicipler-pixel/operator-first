@@ -1,0 +1,20 @@
+{
+  "id": "exact-monotone-clock-and-layer-alignment-v1",
+  "owner_request": "Account for time and rotation relative to a plane; warp clock and shift layers; check overall length.",
+  "input": "Committed ac00009 original112 and new78 move arrays frozen in previous counter-test inputs.json; no newly generated routes.",
+  "clock": "One shared tick per paid official move; per-relator update tick counts are recorded separately, not averaged. Chart uses fixed target-centered frames X^-1 rho(r0),Y^-1 rho(r1).",
+  "H0": "Both state paths differ only by monotone endpoint-preserving re-timing and repetitions of identical observations; clock-only alignment succeeds iff exact state sequences agree after consecutive duplicate removal.",
+  "H1": "Separate layer clocks explain differences even if full-state clock alignment fails; test equality of each relator's ordered update sequence after removal of consecutive duplicates. No permutation of layers or free move reordering.",
+  "rotation": "Compare exact disk coordinates in fixed frames; record principal angle increments for nonzero successive points. These are sampled coordinate angles, not a proven continuous winding or physical rotation rate. Nonzero shared start fixes any constant plane rotation preserving that start to identity.",
+  "lengths": "Record paid move count, peak total relator length, terminal total length and cumulative pre-move word length separately. Retiming cannot change paid move count.",
+  "coverage": "Exact longest common subsequence of whole states supplies monotone shared anchors and paid interval-length differences; no interpolation or approximate geometric matches.",
+  "bounds": {
+    "wall_seconds": 180,
+    "memory_mib": 1024,
+    "max_dp_cells": 12000,
+    "model_workers": 0,
+    "new_searches": 0
+  },
+  "decision": "If either layer's reduced exact trajectory differs, pure layer-clock alignment is insufficient for these two routes. It may still provide a useful diagnostic; do not infer a general impossibility or reject the owner's broader hypothesis.",
+  "claims": "Read-only route comparison; UPGH owns fresh search on ac00009/ac00028. No claim, route search, submission or old recipe import."
+}

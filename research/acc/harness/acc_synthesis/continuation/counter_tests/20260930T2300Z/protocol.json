@@ -1,0 +1,21 @@
+{
+  "id": "smith-direction-countertest-v1-new-ac00009-states",
+  "owner_request": "Reverse assumptions, test the other way, retain checked good results and document ideas/changes.",
+  "usual_prediction": "Among14 legal next moves at newly visited states, decreasing summed target-centered Smith hyperbolic distance ranks the recorded successful route move better than increasing it.",
+  "opposite_prediction": "Increasing that distance ranks it better, especially on length-climbing or length-flat steps.",
+  "control": "Minimize total freely reduced word length, identical states and14 legal move candidates.",
+  "fixed_inputs": "Final78-move route ac00009; analyze only pre-move states absent from original112-move route. No intermediate route used to tune the score.",
+  "score": "d=acosh(||X^-1 rho(r0)||_F^2/2)+acosh(||Y^-1 rho(r1)||_F^2/2); usual d, opposite -d; X=[[1,2],[0,1]],Y=[[1,0],[2,1]].",
+  "measurement": "Mean normalized midrank of the recorded move among14 (0best,1worst); all selected states primary, climbing/flat/shrinking secondary. Rank ties abs_tol1e-12,rel_tol1e-12. Keep individual scores and counts.",
+  "decision": "Lower observed mean wins this descriptive check. If the reverse is better, it remains an H lead requiring an independent matched-budget outcome test; if worse, do not enable. Small selected sample cannot validate global steering.",
+  "bounds": {
+    "wall_seconds": 180,
+    "memory_mib": 1024,
+    "max_states": 78,
+    "max_one_step_evaluations": 1092,
+    "model_workers": 0,
+    "searches": 0
+  },
+  "claims": "UPGH currently holds ac00009/ac00028; this is readonly new measurement on committed data, no row claimed or search duplicated.",
+  "forbidden_inference": "Recorded route steps need not be shortest-path steps; related states are not independent trials; no live score or statistical generalization claim."
+}
