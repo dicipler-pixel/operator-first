@@ -69,3 +69,7 @@ RIVAL_METHODS_20260928.md §5.7 has the same bound.
   a generator runs at 1 move per unit. So a record route (≈ 2^(n+1)) cannot contain 2^n doubling cells plus a 2^n strip. It
   must do about 2^n cells total and never hold y = x^(2^n − 1). The natural candidate is a route that trivializes one
   generator early at shallow depth. Open.
+- **05:20Z data point:** the production beam (W 20000, DUAL/P2, DMAX 70) on the pure presentation YXXyx | Y^5 X y^4 x (n=4, not a
+  board row) finds AC 55 / Stable 56 (the Stable route ends at (y,x)). Its shape: prelude 15, pump [r1*=R0, c1X] ×7, collapse,
+  strip 13×(r0*=R1). That is the 3-per-unit shape again. The record formula predicts about 47 for n=4, so a 47-move route for
+  this presentation is the concrete target that would show the leaders' construction.
