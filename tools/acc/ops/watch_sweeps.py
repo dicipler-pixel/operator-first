@@ -5,7 +5,8 @@ import glob, json, os, time
 S = os.environ.get('ACC_S', '/tmp/claude-0/-home-user-operator-first/3cb9951d-8cab-51bf-a791-90f0d5bac4db/scratchpad') + '/work/'
 H = '/home/user/operator-first/research/acc/live/sweeps/handled.txt'
 end = time.time() + 8 * 3600
-while time.time() < end:
+ONCE = bool(os.environ.get('WATCH_ONCE'))   # one pass, then exit (used by the hourly send job)
+while ONCE or time.time() < end:
     handled = set(open(H).read().split()) if os.path.exists(H) else set()
     hits = []
     for res in glob.glob(S + '*_cap.jsonl'):
@@ -20,5 +21,7 @@ while time.time() < end:
                 hits.append(f"{os.path.basename(res)} {r['id']} ac {a}/{t.get('ac_record')} sac {s}/{t.get('sac_record')}")
     if hits:
         print('HIT:'); print('\n'.join(hits)); raise SystemExit
+    if ONCE:
+        print('no unhandled hit'); raise SystemExit
     time.sleep(60)
 print('no hit in 8h')
