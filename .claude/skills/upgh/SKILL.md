@@ -34,6 +34,7 @@ Repeat up to N times:
 1. `$U --json next` returns `{task, role, token, contract, runner, agent}`, or `{"task": null}`. On null, stop and report.
 2. If `runner` is `code`: `$U execute TASK TOKEN`. It heartbeats itself. For runs over two minutes, use `run_in_background`.
 3. Otherwise dispatch the subagent named in `agent` (`upgh-builder`, `upgh-checker`, `upgh-advisor`, `upgh-memory`) with the Agent tool. Use this prompt: "Task contract: `<contract>`. Task id `<task>`. Lease token for heartbeats: `<token>`. Follow your role file. Return only the result JSON." Save its reply verbatim to `research/acc/upgh/tasks/<task>.result.json`, then run `$U accept TASK TOKEN research/acc/upgh/tasks/<task>.result.json`.
+   If that agent type is not available (agent files added during a session load only in the next session), use `general-purpose` with the model from `tools/acc/upgh/config.json` `roles`, and tell it to read `.claude/agents/<agent>.md` and its role file first.
 4. If `accept` rejects the result, show the error. Send the subagent one correction with the error text, then accept again. If it fails a second time, let the lease expire (`$U recover` marks it interrupted) and report it.
 
 Independent tasks can run in parallel: several `execute` runs in the background, or several subagents in one message. Each task has its own lease.
