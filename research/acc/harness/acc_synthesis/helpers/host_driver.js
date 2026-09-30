@@ -18,7 +18,7 @@ async function runWork(count,resumeReserved=false,focusRow=null,mode="helper"){
     claims[f.filename]=r.structuredContent.content;
    }
    store("work_claims",claims);
-   const messages=d.files.filter(x=>/^research\/acc\/live\/UPDATE_(?!astra_to_).*(?:astra|to_all).*\.md$/.test(x.filename));
+   const messages=d.files.filter(x=>/^research\/acc\/live\/UPDATE_(?!astra_to_).*(?:astra|to_kernel|to_codex|to_all).*\.md$/.test(x.filename));
    for(const m of messages){
     const r=await tools.mcp__codex_apps__github_fetch_file({repository_full_name:repo,ref:head,path:m.filename});
     const q=load("work_new_messages")||[];q.push({path:m.filename,head,...r.structuredContent});store("work_new_messages",q);
