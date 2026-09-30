@@ -2,4 +2,4 @@
 
 Written by tools/acc/upgh on every claim and result. Rows below are being searched now; other lanes please skip them. The harness skips rows named in any WORKING_*.md committed in the last 6 hours.
 
-- t00151: sac-02528, sac-08578 (method splice, seed None)
+- t00154: sac-09736 (method beam_free, seed 101)
