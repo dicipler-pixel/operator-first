@@ -1,6 +1,6 @@
-# SCOUT: low-k rows where the team has a road (2026-09-30 22:42Z)
+# SCOUT: low-k rows where the team has a road (2026-09-30 23:17Z)
 
-Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20260930T2213Z.json.gz, stable_ac_20260930T2213Z.json.gz; 28 min old) and the UPG-H ledger. 0 API calls.
+Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20260930T2302Z.json.gz, stable_ac_20260930T2302Z.json.gz; 15 min old) and the UPG-H ledger. 0 API calls.
 Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) or `upgh (running)`. Take an unclaimed row by writing it in your WORKING file. Scoring lines go to `queue/`.
 
 ## SEND: our road is at or under the record, not held yet (next send) (0)
@@ -20,7 +20,7 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 |---|---|---|---|---|---|---|---|---|---|
 | sac-02288 | 38 | 1 | 39 |  | +1 | 12 | session1 | 0.500 | (y,x) finish |
 | sac-02528 | 36 | 1 | 37 |  | +1 | 6 | session2 | 0.500 | (y,x) finish |
-| sac-05378 | 43 | 1 | 44 |  | +1 | 13 | owner (never-send list) | 0.500 | (y,x) finish |
+| sac-05378 | 43 | 1 | 44 |  | +1 | 14 | owner (never-send list) | 0.500 | (y,x) finish |
 | sac-08078 | 34 | 1 | 35 |  | +1 | 14 | session1 | 0.500 | (y,x) finish |
 | sac-01514 | 37 | 2 | 38 |  | +1 | 0 | charlie_batch7 | 0.250 | (y,x) finish |
 | sac-04493 | 53 | 2 | 54 |  | +1 | 5 | session2 | 0.250 | (y,x) finish |
@@ -37,7 +37,7 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | sac-02288 | 38 | 1 | 39 |  | +1 | 12 | session1 | 0.800 |
 | sac-02528 | 36 | 1 | 37 |  | +1 | 6 | session2 | 0.800 |
 | sac-03871 | 32 | 1 | 33 |  | +1 | 13 | bob | 0.800 |
-| sac-05378 | 43 | 1 | 44 |  | +1 | 13 | owner (never-send list) | 0.800 |
+| sac-05378 | 43 | 1 | 44 |  | +1 | 14 | owner (never-send list) | 0.800 |
 | sac-06045 | 38 | 1 | 39 | 50 | +1 | 13 | bob | 0.800 |
 | sac-08078 | 34 | 1 | 35 |  | +1 | 14 | session1 | 0.800 |
 | sac-08995 | 47 | 1 | 48 |  | +1 | 13 | bob | 0.800 |
