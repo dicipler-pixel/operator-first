@@ -1,0 +1,100 @@
+{
+  "actual_coverage": [
+    {
+      "admitted_records": 600000,
+      "bounded_negative_through": null,
+      "cap": 39,
+      "complete_under_cap": false,
+      "completed_expansion_depth": {
+        "goal": 5,
+        "start": -1
+      },
+      "duplicates": 420089,
+      "elapsed_seconds": 1.9947542500012787,
+      "excluded_by_cap": 0,
+      "expanded_layers": {
+        "goal": [
+          {
+            "complete": true,
+            "depth": 0,
+            "expanded": 1
+          },
+          {
+            "complete": true,
+            "depth": 1,
+            "expanded": 10
+          },
+          {
+            "complete": true,
+            "depth": 2,
+            "expanded": 77
+          },
+          {
+            "complete": true,
+            "depth": 3,
+            "expanded": 574
+          },
+          {
+            "complete": true,
+            "depth": 4,
+            "expanded": 4453
+          },
+          {
+            "complete": true,
+            "depth": 5,
+            "expanded": 35664
+          },
+          {
+            "complete": false,
+            "depth": 6,
+            "expanded": 32085
+          }
+        ],
+        "start": []
+      },
+      "generated_moves": 1020088,
+      "goal_radius": 7,
+      "partial_layer": {
+        "depth": 6,
+        "expanded_in_layer": 32084,
+        "side": "goal"
+      },
+      "peak_rss_mib": 179.8046875,
+      "termination_reason": "node_cap",
+      "unique_states": {
+        "goal": 599999,
+        "start": 1
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "path": "runs/charlie_revival/baseline.json",
+      "sha256": "0ac9035e2f628d3419a5f79adade8257b2284fd4a4bfedef196c6d5bca3a1f6f"
+    },
+    {
+      "path": "runs/charlie_revival/coverage.json",
+      "sha256": "ac1d40ccfe49e90d6e9afc147a68040f3100554f0f76b28253d4c7e033153b18"
+    },
+    {
+      "path": "runs/charlie_revival/executed_charlie_lane_v1.py",
+      "sha256": "1d667e18e958aff954673ce91896083105f7862627fe1888bff4b1095f16b3d0"
+    },
+    {
+      "path": "runs/charlie_revival/executed_test_charlie_lane.py",
+      "sha256": "9a99a4a8166f97abafba89a6d110f7356498d0ff51c6a015065232529b2f8d0a"
+    }
+  ],
+  "kind": "bounded_miss",
+  "limits": {
+    "memory_mib": 1024,
+    "node_cap": 600000,
+    "wall_seconds": 180.0
+  },
+  "reopen_when": {
+    "event": "higher_exact_cap_capacity",
+    "row_id": "ac-00037"
+  },
+  "summary": "No saved-baseline improvement in bounded cap probe",
+  "termination_reason": "node_cap"
+}

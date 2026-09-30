@@ -1,8 +1,28 @@
+test_limits_and_reuse_protection (test_bob_lane.BobLaneTest.test_limits_and_reuse_protection) ... ok
+test_nielsen_inverse_and_unit_conjugators (test_bob_lane.BobLaneTest.test_nielsen_inverse_and_unit_conjugators) ... ok
+test_paid_transfer_and_absent_seed (test_bob_lane.BobLaneTest.test_paid_transfer_and_absent_seed) ... ok
+test_saved_target_exact_and_bridge (test_bob_lane.BobLaneTest.test_saved_target_exact_and_bridge) ... ok
 test_exact_order_and_word_rotation_are_not_normalized (test_bridge_search.BridgeTests.test_exact_order_and_word_rotation_are_not_normalized) ... ok
 test_fresh_bidirectional_route_reconstruction (test_bridge_search.BridgeTests.test_fresh_bidirectional_route_reconstruction) ... ok
 test_honors_stop (test_bridge_search.BridgeTests.test_honors_stop) ... ok
 test_real_node_cap (test_bridge_search.BridgeTests.test_real_node_cap) ... ok
 test_saved_union_exact_edges_and_inverse (test_bridge_search.BridgeTests.test_saved_union_exact_edges_and_inverse) ... ok
+test_goal_ball_and_ordered_route (test_charlie_lane.CharlieLaneTests.test_goal_ball_and_ordered_route) ... ok
+test_partial_layer_never_closed (test_charlie_lane.CharlieLaneTests.test_partial_layer_never_closed) ... ok
+test_unseeded_row_reaches_bounded_search_with_absent_baseline (test_charlie_lane.CharlieLaneTests.test_unseeded_row_reaches_bounded_search_with_absent_baseline) ... ok
+test_wall_budget_cannot_be_increased_or_nan (test_charlie_lane.CharlieLaneTests.test_wall_budget_cannot_be_increased_or_nan) ... usage: python -m unittest [-h] --row ROW --output-dir OUTPUT_DIR
+                          [--wall-seconds WALL_SECONDS] [--node-cap NODE_CAP]
+                          [--target-length TARGET_LENGTH]
+                          [--memory-mib MEMORY_MIB] [--caps CAPS]
+                          [--goal-radius GOAL_RADIUS]
+python -m unittest: error: bounds: wall (0,180], nodes [1,600000], memory [64,1024], goal radius [0,5]
+usage: python -m unittest [-h] --row ROW --output-dir OUTPUT_DIR
+                          [--wall-seconds WALL_SECONDS] [--node-cap NODE_CAP]
+                          [--target-length TARGET_LENGTH]
+                          [--memory-mib MEMORY_MIB] [--caps CAPS]
+                          [--goal-radius GOAL_RADIUS]
+python -m unittest: error: bounds: wall (0,180], nodes [1,600000], memory [64,1024], goal radius [0,5]
+ok
 test_changed_seed_cannot_run_under_old_reservation (test_continuation.ContinuationTests.test_changed_seed_cannot_run_under_old_reservation) ... ok
 test_code_batch_persists_miss_without_model_dispatch_and_never_repeats (test_continuation.ContinuationTests.test_code_batch_persists_miss_without_model_dispatch_and_never_repeats) ... ok
 test_cosmetic_source_edit_does_not_erase_negative_memory (test_continuation.ContinuationTests.test_cosmetic_source_edit_does_not_erase_negative_memory) ... ok
@@ -38,6 +58,14 @@ test_wrong_ruleset (test_gates.GateTests.test_wrong_ruleset) ... ok
 test_normal_operator_can_cross_projector (test_geometry.GeometryTests.test_normal_operator_can_cross_projector) ... ok
 test_preserved_projector_can_have_nonnormal_operator (test_geometry.GeometryTests.test_preserved_projector_can_have_nonnormal_operator) ... ok
 test_reject_nonprojector (test_geometry.GeometryTests.test_reject_nonprojector) ... ok
+test_changed_foreign_pool_invalidates_reservation (test_helper_batch.HelperBatchTests.test_changed_foreign_pool_invalidates_reservation) ... ok
+test_distinct_lanes_share_negative_memory_without_dispatching_models (test_helper_batch.HelperBatchTests.test_distinct_lanes_share_negative_memory_without_dispatching_models) ... ok
+test_out_of_contract_candidate_is_rejected_before_checker (test_helper_batch.HelperBatchTests.test_out_of_contract_candidate_is_rejected_before_checker) ... ok
+test_cap_and_stop_are_bounded_misses (test_kernel_lane.KernelLaneTests.test_cap_and_stop_are_bounded_misses) ... ok
+test_foreign_road_suffix_minimum_and_direction (test_kernel_lane.KernelLaneTests.test_foreign_road_suffix_minimum_and_direction) ... ok
+test_foreign_route_join_by_paid_bridge (test_kernel_lane.KernelLaneTests.test_foreign_route_join_by_paid_bridge) ... ok
+test_invalid_saved_move_rejected (test_kernel_lane.KernelLaneTests.test_invalid_saved_move_rejected) ... ok
+test_unpaid_relator_symmetry_never_matches (test_kernel_lane.KernelLaneTests.test_unpaid_relator_symmetry_never_matches) ... ok
 test_case_changed_real_start_is_rejected (test_official_adapter.OfficialAdapterTests.test_case_changed_real_start_is_rejected) ... ok
 test_real_checker_rejects_bool_move_without_endpoint_claim (test_official_adapter.OfficialAdapterTests.test_real_checker_rejects_bool_move_without_endpoint_claim) ... ok
 test_real_saved_tie_is_verified_with_official_certificate (test_official_adapter.OfficialAdapterTests.test_real_saved_tie_is_verified_with_official_certificate) ... ok
@@ -68,6 +96,7 @@ test_stop_persists_and_prevents_dispatch (test_workflow.WorkflowTests.test_stop_
 test_zero_budget_blocks_run_and_file_handoff (test_workflow.WorkflowTests.test_zero_budget_blocks_run_and_file_handoff) ... ok
 
 ----------------------------------------------------------------------
-Ran 68 tests in 1.877s
+Ran 84 tests in 2.135s
 
 OK
+{"kind": "bounded_miss", "row_id": "ac-00001", "result_path": "run/worker_result.json", "coverage_path": "run/coverage.json", "termination_reason": "node_cap", "admitted_records": 3, "winner_length": null}

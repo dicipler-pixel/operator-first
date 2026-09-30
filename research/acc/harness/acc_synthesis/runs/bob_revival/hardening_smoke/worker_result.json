@@ -1,0 +1,59 @@
+{
+  "kind": "bounded_miss",
+  "summary": "No improvement from the tested Bob cross-class transfers; saved baseline 52, target 47.",
+  "limits": {
+    "wall_seconds": 5.0,
+    "node_cap": 1,
+    "memory_mib": 1024
+  },
+  "actual_coverage": {
+    "method": "bob-cross-class-generator-transfer-v1",
+    "row_id": "ac-00012",
+    "saved_routes_replayed": 3,
+    "saved_union_states": 135,
+    "saved_union_best": 52,
+    "original_shortest_saved_route": 52,
+    "donors_in_bundle": 946,
+    "donors_examined": 1,
+    "automorphisms": 456,
+    "automorphism_comparisons": 1,
+    "relator_class_matches": 0,
+    "verified_donor_transfer_attempts": 0,
+    "successful_transfers": 0,
+    "admitted_records": 1,
+    "elapsed_seconds": 0.0035043389943894,
+    "termination_reason": "node_cap",
+    "best_length": 52,
+    "best_origin": "saved_union",
+    "transfer_detail": null,
+    "target_length": 47,
+    "limits": {
+      "wall_seconds": 5.0,
+      "node_cap": 1,
+      "memory_mib": 1024
+    }
+  },
+  "termination_reason": "node_cap",
+  "reopen_when": {
+    "event": "new_exact_crossclass_seed",
+    "row_id": "ac-00012"
+  },
+  "evidence": [
+    {
+      "path": "runs/bob_revival/hardening_smoke/coverage.json",
+      "sha256": "13ed4412f2611660b7ed50fd91a4beb02bb6c6727429627f52f74f5f8b330caf"
+    },
+    {
+      "path": "runs/bob_revival/hardening_smoke/executed_bob_lane_v1.py",
+      "sha256": "f3cd534fef140368eb349095e47cb9c944696725a0028841f9e7042ae8f2bbdb"
+    },
+    {
+      "path": "runs/bob_revival/hardening_smoke/executed_bob_protocol.json",
+      "sha256": "20722cd4017752f85dc2d0bcc75a5d959470dbf9185210827a2f0666211097f9"
+    },
+    {
+      "path": "runs/bob_revival/hardening_smoke/executed_test_bob_lane.py",
+      "sha256": "4f45216df0b64becaff2bd91b530301dfb47ac8c18a78dbe1952f7bcf1341bb6"
+    }
+  ]
+}

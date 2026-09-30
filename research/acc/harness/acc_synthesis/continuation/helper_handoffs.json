@@ -3,29 +3,320 @@
   "jobs": [
     {
       "helper": "charlie",
-      "path": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/requests/4.json",
+      "path": "continuation/handoffs/request_4.json",
       "task_id": 4,
-      "lease_until": 1790780270.9548075
+      "final_status": "failed",
+      "result": null
     },
     {
       "helper": "bob",
-      "path": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/requests/5.json",
+      "path": "continuation/handoffs/request_5.json",
       "task_id": 5,
-      "lease_until": 1790780270.958862
+      "final_status": "failed",
+      "result": null
     },
     {
       "helper": "kernel",
-      "path": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/requests/6.json",
+      "path": "continuation/handoffs/request_6.json",
       "task_id": 6,
-      "lease_until": 1790780270.9631639
+      "final_status": "completed",
+      "result": {
+        "kind": "bounded_miss",
+        "summary": "No improvement under recorded foreign-road overlay scope; best 44, target 41.",
+        "limits": {
+          "wall_seconds": 180.0,
+          "node_cap": 600000,
+          "memory_mib": 1024,
+          "fresh_depth": 8,
+          "pool_route_cap": 6000
+        },
+        "actual_coverage": {
+          "source_verified": 2781,
+          "foreign_verified": 2779,
+          "source_cursor_next": 2781,
+          "graph_states": 69116,
+          "graph_directed_edges": 144184,
+          "admitted_records": 530884,
+          "generated_moves": 800791
+        },
+        "termination_reason": "node_cap",
+        "reopen_when": {
+          "event": "new_verified_foreign_road",
+          "row_id": "ac-00034"
+        },
+        "evidence": [
+          {
+            "path": "runs/kernel_revival/production_ac00034/captured_input.json",
+            "sha256": "a3a12285e0db38a51ac4a808e391f168e689f72331576ce0acfb823ad86f711a"
+          },
+          {
+            "path": "runs/kernel_revival/production_ac00034/exact_graph.json.gz",
+            "sha256": "9dc902192bd2dfa1ddfc3531f1b273b074f666a9ce839c58a581fa040a28ad1a"
+          },
+          {
+            "path": "runs/kernel_revival/production_ac00034/coverage.json",
+            "sha256": "173c92a56c43f83a0c1f50f709de7c03f642fedb004e0a154aeee661f17caf1c"
+          },
+          {
+            "path": "runs/kernel_revival/production_ac00034/executed_kernel_lane_v1.py",
+            "sha256": "e5119175665e8c7e0885add4d40b13addf0429354d823621720e092d70980ea9"
+          },
+          {
+            "path": "runs/kernel_revival/production_ac00034/executed_test_kernel_lane.py",
+            "sha256": "b504e9b1eb73f4dec95e74f650e5fd64ab7490e40ca3ccea7e08ca81545c3316"
+          },
+          {
+            "path": "runs/kernel_revival/production_ac00034/executed_kernel_protocol.json",
+            "sha256": "feaa4c038ae6fb1036d4c7f0899ea663c40e6bcdda8ac61b0c6018c49efc62a8"
+          },
+          {
+            "path": "runs/kernel_revival/production_ac00034/executed_source_catalog.json",
+            "sha256": "33d71a5e6b54f0e3dc1d8f5af1419c637ef66a24a2737dcce1104cb341eaa46a"
+          }
+        ]
+      }
     },
     {
       "helper": "charlie",
       "retry_of": 4,
-      "path": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/requests/7.json",
+      "path": "continuation/handoffs/request_7.json",
       "task_id": 7,
-      "lease_until": 1790780447.7286162
+      "final_status": "completed",
+      "result": {
+        "kind": "blocked",
+        "summary": "Source-fit review before production: ac-00028 record-start gap28 is outside Charlie v11 sweetspot<=10. Coordinator reassigns existing worker to ac-00037, gap0; no ac-00028 search ran.",
+        "evidence": []
+      }
+    },
+    {
+      "helper": "bob",
+      "retry_of": 5,
+      "path": "continuation/handoffs/request_8.json",
+      "task_id": 8,
+      "final_status": "completed",
+      "result": {
+        "kind": "bounded_miss",
+        "summary": "No improvement from the tested Bob cross-class transfers; saved baseline 52, target 47.",
+        "limits": {
+          "wall_seconds": 180.0,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "actual_coverage": {
+          "method": "bob-cross-class-generator-transfer-v1",
+          "row_id": "ac-00012",
+          "saved_routes_replayed": 4,
+          "saved_union_states": 135,
+          "saved_union_best": 52,
+          "donors_in_bundle": 946,
+          "donors_examined": 945,
+          "automorphisms": 456,
+          "automorphism_comparisons": 430920,
+          "relator_class_matches": 0,
+          "verified_donor_transfer_attempts": 0,
+          "successful_transfers": 0,
+          "admitted_records": 430920,
+          "elapsed_seconds": 14.772345643003064,
+          "termination_reason": "exhausted_donor_automorphisms",
+          "best_length": 52,
+          "best_origin": "saved_union",
+          "transfer_detail": null,
+          "target_length": 47,
+          "limits": {
+            "wall_seconds": 180.0,
+            "node_cap": 600000,
+            "memory_mib": 1024
+          }
+        },
+        "termination_reason": "exhausted_donor_automorphisms",
+        "reopen_when": {
+          "event": "new_exact_crossclass_seed",
+          "row_id": "ac-00012"
+        },
+        "evidence": [
+          {
+            "path": "runs/bob_revival/first_probe/coverage.json",
+            "sha256": "79b0fcd7e758795ac47b1d4b6dea77fdf55509f902945a5ea6a8e88e8f7c714c"
+          },
+          {
+            "path": "runs/bob_revival/first_probe/executed_bob_lane_v1.py",
+            "sha256": "584eb569d89c022d1a4eb2b37e9a86a677c8909bab7cc0c3b3ca5da1182f2640"
+          },
+          {
+            "path": "runs/bob_revival/first_probe/executed_test_bob_lane.py",
+            "sha256": "e4319bc5b0e1af27713eaf0b869c89bbaefd15d8b1e5eb6d1d79516af952d091"
+          }
+        ]
+      }
+    },
+    {
+      "helper": "charlie",
+      "reassignment_from": 7,
+      "additional_worker_launch": false,
+      "path": "continuation/handoffs/request_9.json",
+      "task_id": 9,
+      "final_status": "completed",
+      "result": {
+        "actual_coverage": [
+          {
+            "admitted_records": 600000,
+            "bounded_negative_through": 15,
+            "cap": 39,
+            "complete_under_cap": false,
+            "completed_expansion_depth": {
+              "goal": 5,
+              "start": 10
+            },
+            "duplicates": 1604681,
+            "elapsed_seconds": 9.09908405799797,
+            "excluded_by_cap": 2249819,
+            "expanded_layers": {
+              "goal": [
+                {
+                  "complete": true,
+                  "depth": 0,
+                  "expanded": 1
+                },
+                {
+                  "complete": true,
+                  "depth": 1,
+                  "expanded": 10
+                },
+                {
+                  "complete": true,
+                  "depth": 2,
+                  "expanded": 77
+                },
+                {
+                  "complete": true,
+                  "depth": 3,
+                  "expanded": 574
+                },
+                {
+                  "complete": true,
+                  "depth": 4,
+                  "expanded": 4453
+                }
+              ],
+              "start": [
+                {
+                  "complete": true,
+                  "depth": 0,
+                  "expanded": 1
+                },
+                {
+                  "complete": true,
+                  "depth": 1,
+                  "expanded": 12
+                },
+                {
+                  "complete": true,
+                  "depth": 2,
+                  "expanded": 86
+                },
+                {
+                  "complete": true,
+                  "depth": 3,
+                  "expanded": 433
+                },
+                {
+                  "complete": true,
+                  "depth": 4,
+                  "expanded": 1731
+                },
+                {
+                  "complete": true,
+                  "depth": 5,
+                  "expanded": 5196
+                },
+                {
+                  "complete": true,
+                  "depth": 6,
+                  "expanded": 12021
+                },
+                {
+                  "complete": true,
+                  "depth": 7,
+                  "expanded": 23732
+                },
+                {
+                  "complete": true,
+                  "depth": 8,
+                  "expanded": 43265
+                },
+                {
+                  "complete": true,
+                  "depth": 9,
+                  "expanded": 76219
+                },
+                {
+                  "complete": true,
+                  "depth": 10,
+                  "expanded": 133172
+                },
+                {
+                  "complete": false,
+                  "depth": 11,
+                  "expanded": 17196
+                }
+              ]
+            },
+            "generated_moves": 4454499,
+            "goal_radius": 5,
+            "partial_layer": {
+              "depth": 11,
+              "expanded_in_layer": 17195,
+              "side": "start"
+            },
+            "peak_rss_mib": 249.17578125,
+            "termination_reason": "node_cap",
+            "unique_states": {
+              "goal": 40779,
+              "start": 559221
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "path": "runs/charlie_revival/repaired_run/baseline.json",
+            "sha256": "0ac9035e2f628d3419a5f79adade8257b2284fd4a4bfedef196c6d5bca3a1f6f"
+          },
+          {
+            "path": "runs/charlie_revival/repaired_run/coverage.json",
+            "sha256": "840f0522d25e47130a2694d69dd0d34b45d5921feee4ffba7aa36a794bf9fcbf"
+          },
+          {
+            "path": "runs/charlie_revival/repaired_run/executed_charlie_lane_v1.py",
+            "sha256": "97e148677999ce92a155d0cca09ae062432eb2bffea76ebae0c563e7825dcaa3"
+          },
+          {
+            "path": "runs/charlie_revival/repaired_run/executed_test_charlie_lane.py",
+            "sha256": "9a99a4a8166f97abafba89a6d110f7356498d0ff51c6a015065232529b2f8d0a"
+          }
+        ],
+        "kind": "bounded_miss",
+        "limits": {
+          "memory_mib": 1024,
+          "node_cap": 600000,
+          "wall_seconds": 178.0
+        },
+        "reopen_when": {
+          "event": "higher_exact_cap_capacity",
+          "row_id": "ac-00037"
+        },
+        "summary": "No saved-baseline improvement in bounded cap probe",
+        "termination_reason": "node_cap"
+      }
     }
   ],
-  "capacity_failure_task": 4
+  "capacity_failure_task": 4,
+  "capacity_failures": [
+    4,
+    5
+  ],
+  "successful_new_helper_workers": 3,
+  "capacity_failed_attempts": 2,
+  "reassignment_new_launches": 0,
+  "scheduled_model_workers": 0,
+  "closed": true
 }
