@@ -127,3 +127,14 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
   mid_restart 10098→03714. Stopped: lowkA/lowkB (fresh-seed beams, no gain), lowkdp (session 1's loose DP covers the low-k list).
 - Ready file OWNER_SUBMIT_20260930_0026Z.txt: 6 lines (Bob v4: 01708, 03945, 04139), re-verified after session 1's SENT_ROWS fix.
 - Kernel 00:45Z: rows 101–213 climb ladder 0/113 (saturated in letter basis); next: Miller–Schupp basis.
+
+## 01:55Z rally (session 2; container restarted at 01:55, restart_lanes.sh relaunched all 9 lanes)
+- Sends today: 2831 (44/44), 2834 (3/3), 2835 (7/7). Uploads 3/40, API calls ~322/360. Ready file OWNER_SUBMIT_20260930_0131Z.txt: 0 lines.
+- New member **Luna**: ORDERS_luna_v1_20260930.md (setup, control ac-06015, first job = MS_n(w*) doubling family n=3..5).
+- Kernel 01:05Z: no lines; beam exhausted in letter and Miller–Schupp bases on rows 101–213. Leads: 93/113 of its rows are MS(n,w)
+  with solved n=1; Lisitsa MS_n(w*) family = 92 rows, all solved, but **records double per n** → sub-doubling scheme = beats.
+- Session 2 found the shape of our n=4 route (ac-04016, 71): pump [r1*=R0, c1y, c1X] builds r1 = YY(xY)^m, one multiplication
+  collapses r1 to Yx (x = y), tail strips r0. Length ≈ 4·(pulses) + c. Deep beams on n=5 (ac-07182, DMAX 160) and n=6 (ac-09166,
+  DMAX 260) are measuring whether OUR pulse count grows linearly (→ beats from n ≈ 6) or doubles.
+- Lanes, no hits yet: beat hunt (03060, 05149, 02275 no −1), k4–6 DP (5 rows, no gain), (y,x) restarts (sac-04197 no route),
+  10098 restarts (41 = +1), trace-chain A/B (first row running). Atlas study: ATLAS_STUDY_session2_20260930.md.
