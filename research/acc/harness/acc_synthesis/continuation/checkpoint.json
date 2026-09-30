@@ -1682,15 +1682,55 @@
       },
       "limits": null,
       "reopen_when": null
+    },
+    {
+      "key": "d4143db5b1084e8d52923acbb92ae2b85c19cd5f0c2add1fbdb8aba97e65d844",
+      "job": {
+        "row_id": "ac-00028",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "6f212a9381cebac74b9c8c6314e9099395e3c339d02e6674f9c911018e485ee1",
+        "baseline": 52,
+        "target": 44,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "d4143db5b1084e8d52923acbb92ae2b85c19cd5f0c2add1fbdb8aba97e65d844"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790789355.1017115,
+      "result_path": "runs/bob_revival/code_d4143db5b1084e8d/worker_result.json",
+      "result_sha256": "2a3629a8cd0e03184dac7490ba215518f0406345c5caba7d04b1545ed15b2f4f",
+      "kind": "bounded_miss",
+      "summary": "No improvement from the tested Bob cross-class transfers; saved baseline 52, target 44.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "reopen_when": {
+        "event": "new_exact_crossclass_seed",
+        "row_id": "ac-00028"
+      }
     }
   ],
   "notifications": [
     "2b2613408847d16d2dc82e7b40c23c39b18bba10722c67b7674e8a8eca0c78b7",
-    "9a028e3778ba0a208c824f630cb76415d2ffd6a397859a5e6291ce62d1ee42c1"
+    "9a028e3778ba0a208c824f630cb76415d2ffd6a397859a5e6291ce62d1ee42c1",
+    "16540b93ea49422870b6b89912976ae3b064789189e88e67badea91b0d15d464"
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790788647.8698573,
+  "updated_at": 1790789355.102144,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,

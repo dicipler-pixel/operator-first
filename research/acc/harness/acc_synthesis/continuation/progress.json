@@ -1,7 +1,7 @@
 {
-  "completed_batches": 40,
+  "completed_batches": 41,
   "model_worker_launches": 4,
-  "code_only_batches": 36,
+  "code_only_batches": 37,
   "new_improved_routes": 3,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -49,12 +49,12 @@
       },
       "key": "98e3d99206c0fadc7487501b71d35c5f0acdf5f1c8fad209c5a91a448ee29252"
     },
-    "remaining_jobs": 53
+    "remaining_jobs": 52
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 40
+      "completed": 41
     },
     "unconnected_roles": [
       "luna_memory",
@@ -608,6 +608,19 @@
       "kind": "candidate",
       "result_path": "runs/kernel_revival/code_14fba1d56d040444/worker_result.json",
       "limits": null
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00028",
+      "baseline": 52,
+      "target": 44,
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_d4143db5b1084e8d/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
     }
   ],
   "implementation_failure": {

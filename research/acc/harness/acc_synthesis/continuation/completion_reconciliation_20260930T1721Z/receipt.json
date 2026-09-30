@@ -1,0 +1,28 @@
+{
+  "task_id": 55,
+  "key": "14fba1d56d0404442b796b5358a955e89552b4aa470a7ff431b1173a861d640d",
+  "result_sha256": "842360c3244d5d0a71fbe55ced08edf527bff308d8f1a82004e5242b5b23f2a3",
+  "official_verified": true,
+  "recomputed": false,
+  "checkpoint_reset": false,
+  "own_completed_lease_reconciled": true,
+  "other_leases_touched": false,
+  "queued_task_56_launches": 0,
+  "cause": "not established",
+  "state_after": "completed",
+  "restored_graphs": [
+    {
+      "run": "code_14fba1d56d040444",
+      "method": "byte-exact restore from original completion commit",
+      "commit": "1ffcd270d85d7c848cde7f3be4d5902a595e41fd"
+    },
+    {
+      "run": "code_82e71293e34d8e6f",
+      "method": "Original completion commit also contained a truncated gzip. Reconstructed from captured verified roads, preserving gzip timestamp; exact original recorded SHA256 matched. No search repeated.",
+      "receipt": "reconstructed_graph_receipt.json"
+    }
+  ],
+  "post_recovery_artifact_checks": 249,
+  "mismatches": 0,
+  "persistence_guard": "helpers/audit_artifacts.py --sync"
+}
