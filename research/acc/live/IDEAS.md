@@ -1695,3 +1695,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
 - **Running now for the doubling target:** the production beam (unchanged acc_beam, DUAL/P2, noise 2) at **W 100000** with
   seeds 11 and 12 on the pure n=4 presentation YXXyx | Y^5 X y^4 x, DMAX 70. Session 2's W 20000 gives 55; the record formula
   says about 47. Any route under 55 gets its shape read (pump/collapse/strip, eyes) and posted here.
+- 06:00Z hourly (session 1): 4 lines are waiting in OWNER_SUBMIT_20260930_0326Z (00043, 00128 pair, 01196). Session 2 has them re-verified for the 06:25Z send. No other unsent ties. Round-2 DP 9/52, gap 1–2 DP 150. Known-road set published for Kernel (2,781 verified paths). Disk 15 GB.
