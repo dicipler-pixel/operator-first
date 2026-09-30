@@ -1,7 +1,7 @@
 {
-  "completed_batches": 28,
+  "completed_batches": 29,
   "model_worker_launches": 4,
-  "code_only_batches": 24,
+  "code_only_batches": 25,
   "new_improved_routes": 2,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -28,41 +28,33 @@
     }
   ],
   "next": {
-    "status": "active",
-    "active": {
-      "job": {
-        "row_id": "ac-00001",
-        "track": "AC",
-        "helper": "charlie",
-        "algorithm_id": "charlie-exact-cap-ladder-v1",
-        "script": "helpers/charlie_lane_v1.py",
-        "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
-        "inputs": {
-          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
-        },
-        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "baseline": null,
-        "target": 404,
-        "caps": {
-          "wall_seconds": 180,
-          "node_cap": 600000,
-          "memory_mib": 1024
-        },
-        "key": "ffce72610d52ded96731be009fff04481323e5630e2c3b160917c169b96c2b1d"
+    "status": "planned",
+    "job": {
+      "row_id": "ac-00009",
+      "track": "AC",
+      "helper": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "script": "helpers/bob_lane_v1.py",
+      "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+      "inputs": {
+        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
       },
-      "task_id": 44,
-      "lease_token": "fd714b1738a04a91af99e2714644369e",
-      "expires_at": 1790788222.2077615,
-      "repo_head": "c8a6b02a1cf28febb23eb8a915b42507985e36c0",
-      "phase": "reserved",
-      "host_must_commit_before_execution": true
-    }
+      "seed_sha256": "a5fa089d7cffc8d299beba49d8e1aa5a2ff729cf244bb977c5b3b67619a962eb",
+      "baseline": 112,
+      "target": 34,
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "key": "e6c6577250370c2d250b67cb4b10661a1050eb384082fec4691fc04da6e6e957"
+    },
+    "remaining_jobs": 52
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 28,
-      "running": 1
+      "completed": 29
     },
     "unconnected_roles": [
       "luna_memory",
@@ -457,6 +449,19 @@
         "memory_mib": 1024,
         "fresh_depth": 8,
         "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "charlie",
+      "row_id": "ac-00001",
+      "baseline": null,
+      "target": 404,
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_ffce72610d52ded9/worker_result.json",
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
       }
     }
   ],
