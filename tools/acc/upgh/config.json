@@ -225,6 +225,11 @@
       "wall_seconds": 1800,
       "rows_per_task": 1,
       "needs_nobest": true
+    },
+    "construction": {
+      "runner": "agent",
+      "wall_seconds": 3600,
+      "about": "agent reasons out a generator path(n) for a family of rows (for example the MS(n,w) doubling chains), checks it on small n, then writes full paths for the board rows; code verifies every line"
     }
   },
   "roles": {

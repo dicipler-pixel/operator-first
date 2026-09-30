@@ -769,6 +769,60 @@ class Harness:
             self._write_contract(full)
             return tid
 
+    def advise(self, max_tasks=2):
+        """Queue advisor tasks for rows whose family is spent and that no advisor task covers.
+        A builder miss opens one by itself, but heat imported with `negative` never does, so without
+        this step the model half of the harness sits idle on exactly the rows code has given up on.
+        Best value first: rows held by at most max_k teams, the smallest gap to the record, then k.
+        Rows whose last advisor task was blocked, or that used every switch, are left to a person."""
+        with self.control():
+            st = self.state()
+            self._licence("advise", st)
+            if st.stopped:
+                self._refuse("advise", "stop", "harness is stopped: %s" % st.stop_reason)
+            g = self.cfg["gates"]["heat_before_advisor"]
+            max_k = self.cfg["gates"].get("max_k", 3)
+            boards = self._boards(st)
+            claimed = self.external_claims()
+            held = self.held(st)
+            last = {}
+            for t in sorted(st.tasks.values(), key=lambda t: t["opened_seq"]):
+                if t["contract"]["role"] == "advisor":
+                    for r in t["contract"]["rows"]:
+                        last[r] = t
+            cands = []
+            for row in sorted({row for (row, _), n in st.heat.items() if n >= g}):
+                t = last.get(row)
+                if t and (t["status"] in ("queued", "claimed")
+                          or (t["status"] == "closed" and (t["closed"] or {}).get("outcome") == "blocked")):
+                    continue
+                if st.switches[row] >= self.cfg["gates"]["max_switches_per_row"]:
+                    continue
+                if row.split("-")[1] in claimed or self.checker.challenge(row) is None:
+                    continue
+                b = boards.get(observe.BOARD_OF[observe.track_of(row)], {}).get(row, {})
+                rec, k = b.get("record"), b.get("k") or 0
+                best = st.best.get(row)
+                if rec is None or k > max_k or (held.get(row) is not None and held[row] <= rec):
+                    continue
+                gap = (best["length"] - rec) if best else 99
+                cands.append((gap, k, row))
+            cands.sort()
+            opened = []
+            for i, (gap, k, row) in enumerate(cands[:max_tasks]):
+                tid = self._next_tid(st, i)
+                cur = st.strategy_for(row, self.cfg["default_strategy"])
+                full = {"task": tid, "role": "advisor", "rows": [row],
+                        "why": "family %s is spent on %s (gap %s, k %d) and no advisor has looked at it"
+                               % (st.family_for(row, cur), row, gap if gap != 99 else "no path", k),
+                        "limits": {"wall_seconds": 900}, "workspace": self._workspace(tid),
+                        "context": {row: self._row_context(st, row, boards)},
+                        **self._advisor_fields(st, row)}
+                self.ledger.append("task.opened", full, "V")
+                self._write_contract(full)
+                opened.append({"task": tid, "row": row, "gap": gap if gap != 99 else None, "k": k})
+            return {"opened": opened, "hot_candidates": len(cands)}
+
     def _advisor_fields(self, st, row):
         cur = st.strategy_for(row, self.cfg["default_strategy"])
         return {"current_strategy": cur, "current_family": st.family_for(row, cur),

@@ -127,6 +127,8 @@ def main(argv=None):
     p.add_argument("token")
     p = sub.add_parser("open")
     p.add_argument("contract")
+    p = sub.add_parser("advise", help="queue advisor tasks for spent rows no advisor has seen")
+    p.add_argument("--max", type=int, default=2)
     p = sub.add_parser("wake")
     p.add_argument("event")
     p = sub.add_parser("split")
@@ -191,6 +193,8 @@ def main(argv=None):
             out = h.heartbeat(args.task, args.token)
         elif args.cmd == "open":
             out = {"task": h.open(_load(args.contract))}
+        elif args.cmd == "advise":
+            out = h.advise(args.max)
         elif args.cmd == "recover":
             out = {"interrupted": h.recover(abandon=args.abandon)}
         elif args.cmd == "wake":

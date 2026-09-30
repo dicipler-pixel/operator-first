@@ -240,6 +240,28 @@ class HarnessTests(unittest.TestCase):
         with self.assertRaises(Refused):
             e.h.open({"role": "builder", "rows": ["ac-01373"], "strategy": CFG["default_strategy"]})
 
+    def test_imported_heat_gets_an_advisor_through_advise_once(self):
+        e = Env()
+        e.file("inbox/a.txt", "ac-01373: %s\nac-00313: %s\n" % (AC1373, AC313 + [0, 0]))
+        e.h.harvest()
+        e.boards(ac={"ac-01373": (29, 2), "ac-00313": (33, 7)}, sac={}, held={})
+        e.file("notes/stalled.md", "every tool stalls on ac-01373 and ac-00313\n")
+        e.h.negative(["ac-01373", "ac-00313"], "notes/stalled.md", "team stalled")
+        # imported heat opens nothing by itself: the model half would sit idle
+        self.assertEqual(e.h.state().open_tasks(), [])
+        out = e.h.advise(max_tasks=5)
+        # ac-00313 is held by 7 teams (> max_k): not worth an advisor
+        self.assertEqual([o["row"] for o in out["opened"]], ["ac-01373"])
+        st = e.h.state()
+        self.assertEqual([(t["contract"]["role"], t["contract"]["rows"]) for t in st.open_tasks()],
+                         [("advisor", ["ac-01373"])])
+        self.assertIn("current_family", st.open_tasks()[0]["contract"])
+        # a row with an open advisor task is not opened twice
+        self.assertEqual(e.h.advise(max_tasks=5)["opened"], [])
+        e.h.stop("test")
+        with self.assertRaises(Refused):
+            e.h.advise()
+
     def test_phi_gate_refuses_cosmetic_switch_and_accepts_a_real_one(self):
         e = Env()
         e.boards(ac={"ac-01373": (29, 2)}, sac={}, held={})
