@@ -1,0 +1,335 @@
+{
+  "path": "research/acc/live/UPDATE_astra_to_upgh_20260930T2235Z_ac00009.md",
+  "sent": {
+    "commit_sha": "5a130c184788a2db3ac6b8a7dd4b29f8fb67f8fa"
+  },
+  "content": "UPGH — fresh independently verified improvement, 20260930T2235Z\n\n[V] ac-00009: 81 → 79 moves. Peak total relator length 22; exact endpoint (x,y). Pinned checker independently replayed the new route. Saved board target 34 is stale: this is a local route improvement, not a live scoring claim. No submission or send queue.\n\nResult commit: 5c542e9f3cc6817e6094c4d20ad6ca7583376796\nArtifacts: research/acc/harness/acc_synthesis/runs/code_c6e47bb49472b548/ (candidate.json, receipt.json, coverage.json, saved_union.json, executed_bridge_search.py, worker_result.json).\nJob key: c6e47bb49472b548a7c93b42fa762746e39087316b2b0fedaacf2e9590856663\nOfficial certificate: sha256:1e6ab245413554fdbb754c350a063766fa4187d0ea105fc67edc046523ee641e\n\nMechanism: fresh route-local bridge collisions; union shortest 81.\nCoverage: {\"admitted\":600000,\"collision_pairs\":210664,\"fresh_seconds\":3.356079260003753,\"rss_mib\":388.515625,\"partial_layer\":{\"side\":0,\"depth\":3},\"improvements\":[{\"length\":79,\"fresh_depths\":[2,1],\"meeting_state\":[[1,2,1,-2,-1,-1,-2,-1,2,-1,-2,-1,-1],[-1,-2,1,2,-1,-2,-1,-1]],\"elapsed_seconds\":0.043843089006259106}]}\nNo global lower bound; caps 180s/1024MiB/600000 unchanged, zero model workers.\n\nReview route only:\nac-00009: [1,4,7,11,8,6,4,3,7,9,3,1,5,1,9,12,10,7,7,8,3,7,13,11,9,2,7,7,9,3,6,8,6,3,6,4,3,6,12,8,10,2,5,13,5,13,11,12,4,7,5,10,13,5,7,12,2,5,6,2,6,1,6,4,13,4,1,7,9,5,6,8,2,6,8,5,3,3,5]\n",
+  "attempt": {
+    "key": "c6e47bb49472b548a7c93b42fa762746e39087316b2b0fedaacf2e9590856663",
+    "job": {
+      "row_id": "ac-00009",
+      "track": "AC",
+      "baseline": 81,
+      "target": 34,
+      "seed_sha256": "406d75da5d288d4fcbf770c08cb39736e3aadc5b8f9b641249c0497ab8a682e2",
+      "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "depth": 8,
+        "profile": "route-local",
+        "memory_mib": 1024
+      },
+      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+      "key": "c6e47bb49472b548a7c93b42fa762746e39087316b2b0fedaacf2e9590856663"
+    },
+    "origin": "deterministic_code",
+    "finished_at": 1790807642.84472,
+    "result_path": "runs/code_c6e47bb49472b548/worker_result.json",
+    "result_sha256": "6b7d3a64c03953f0df1a4647a9779ba25f5608a90892e4cd1c8edd679f8c2faa",
+    "kind": "candidate",
+    "summary": "Officially replayed local route length 79, saved baseline 81; target 34. No live score or submission.",
+    "gate": {
+      "exact_verified": true,
+      "checked_at": 1790807642.8422108,
+      "candidate_sha256": "690210a8ac73bb65c3ff603dc1d6bd781379cdd3de3028c8fe7634bba5bbfa47",
+      "row_id": "ac-00009",
+      "track": "AC",
+      "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+      "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+      "check_directory": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/checks/check-pisvc_66",
+      "evidence_grade": "V",
+      "cost": 79,
+      "peak_length": 22,
+      "exact_endpoint": [
+        "x",
+        "y"
+      ],
+      "board_observed_at": 1790752200,
+      "board_age_seconds": 55442.84221076965,
+      "status": "withheld",
+      "reason": "board_stale",
+      "official_receipt": {
+        "candidate_sha256": "690210a8ac73bb65c3ff603dc1d6bd781379cdd3de3028c8fe7634bba5bbfa47",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 79,
+        "peak_length": 22,
+        "official_verdict": {
+          "ok": true,
+          "length": 79,
+          "peak_total_relator_length": 22,
+          "work": 1216,
+          "certificate_hash": "sha256:1e6ab245413554fdbb754c350a063766fa4187d0ea105fc67edc046523ee641e"
+        },
+        "instance_hash": "sha256:384fe3ad4508ddbf9ae8963cec6215ba9aa06578ab66eb454dbf25349e3082a4",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    "limits": null,
+    "reopen_when": null
+  },
+  "candidate": {
+    "row_id": "ac-00009",
+    "track": "AC",
+    "start": [
+      "YYxyxyX",
+      "YYxyxyxyXYXXXYX"
+    ],
+    "moves": [
+      1,
+      4,
+      7,
+      11,
+      8,
+      6,
+      4,
+      3,
+      7,
+      9,
+      3,
+      1,
+      5,
+      1,
+      9,
+      12,
+      10,
+      7,
+      7,
+      8,
+      3,
+      7,
+      13,
+      11,
+      9,
+      2,
+      7,
+      7,
+      9,
+      3,
+      6,
+      8,
+      6,
+      3,
+      6,
+      4,
+      3,
+      6,
+      12,
+      8,
+      10,
+      2,
+      5,
+      13,
+      5,
+      13,
+      11,
+      12,
+      4,
+      7,
+      5,
+      10,
+      13,
+      5,
+      7,
+      12,
+      2,
+      5,
+      6,
+      2,
+      6,
+      1,
+      6,
+      4,
+      13,
+      4,
+      1,
+      7,
+      9,
+      5,
+      6,
+      8,
+      2,
+      6,
+      8,
+      5,
+      3,
+      3,
+      5
+    ],
+    "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+    "evidence_grade": "V",
+    "family": "exact-multipath-bridge"
+  },
+  "coverage": {
+    "admitted_records": 600000,
+    "generated_moves": 893479,
+    "collision_pairs": 210664,
+    "duplicate_or_dominated": 293728,
+    "replaced_labels": 0,
+    "length_pruned": 0,
+    "cost_pruned": 661,
+    "stale_queue_labels": 0,
+    "expanded_by_side_depth": [
+      [
+        124,
+        1528,
+        15180,
+        31363,
+        0
+      ],
+      [
+        124,
+        1447,
+        14054,
+        0,
+        0
+      ]
+    ],
+    "admitted_by_side_depth": [
+      [
+        125,
+        1562,
+        15310,
+        143884,
+        290257
+      ],
+      [
+        125,
+        1558,
+        14438,
+        132741,
+        0
+      ]
+    ],
+    "improvements": [
+      {
+        "length": 79,
+        "fresh_depths": [
+          2,
+          1
+        ],
+        "meeting_state": [
+          [
+            1,
+            2,
+            1,
+            -2,
+            -1,
+            -1,
+            -2,
+            -1,
+            2,
+            -1,
+            -2,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -2,
+            1,
+            2,
+            -1,
+            -2,
+            -1,
+            -1
+          ]
+        ],
+        "elapsed_seconds": 0.043843089006259106
+      }
+    ],
+    "termination_reason": "node_cap",
+    "elapsed_seconds": 3.356079260003753,
+    "peak_rss_mib": 388.515625,
+    "unique_states_by_side": [
+      398710,
+      132813
+    ],
+    "latest_labels_by_side": [
+      451138,
+      148862
+    ],
+    "pending_by_side_depth": [
+      [
+        0,
+        0,
+        0,
+        112521,
+        290257
+      ],
+      [
+        0,
+        0,
+        0,
+        132741,
+        0
+      ]
+    ],
+    "partial_layer": {
+      "side": 0,
+      "depth": 3
+    },
+    "target_length": 34,
+    "best_length": 79,
+    "total_bridge_depth_cap": 8,
+    "per_side_depth_cap": 4,
+    "coverage_scope": "Only admitted exact labels and generated moves under caps; no impossibility claim.",
+    "row_id": "ac-00009",
+    "profile": "route-local",
+    "best_saved_length": 81,
+    "union_shortest_length": 81,
+    "union_states": 125,
+    "union_directed_edges": 252,
+    "saved_route_lengths": [
+      112,
+      91,
+      81
+    ],
+    "phase_seconds": {
+      "saved_union_and_replay": 0.008487232000334188,
+      "fresh_search": 3.356079260003753
+    },
+    "limits": {
+      "wall_seconds": 180,
+      "node_cap": 600000,
+      "memory_mib": 1024,
+      "total_bridge_depth": 8
+    },
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "bridge_search.py",
+      "--row",
+      "ac-00009",
+      "--output-dir",
+      "/workspace/scratch/981699a2d5e1/acc_synthesis/runs/code_c6e47bb49472b548",
+      "--wall-seconds",
+      "180",
+      "--node-cap",
+      "600000",
+      "--profile",
+      "route-local",
+      "--depth",
+      "8",
+      "--target-length",
+      "34",
+      "--memory-mib",
+      "1024",
+      "--routes",
+      "/workspace/scratch/981699a2d5e1/acc_synthesis/continuation/routes.json"
+    ],
+    "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+    "route_source_sha256": "a9874ceedfe96709e9bd99a2c3a0bd40e01fb209d45de7dde5ea2f2881043b8f",
+    "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+    "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+    "executed_method_path": "runs/code_c6e47bb49472b548/executed_bridge_search.py",
+    "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+    "live_score_claim": false
+  }
+}

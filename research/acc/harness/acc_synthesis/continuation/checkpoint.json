@@ -1,7 +1,31 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": null,
+  "active": {
+    "job": {
+      "row_id": "ac-00009",
+      "track": "AC",
+      "baseline": 79,
+      "target": 34,
+      "seed_sha256": "4a1a5d671190fb4ea7265fce1ad94987c3896c43623a7fc209528646e7479edc",
+      "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "depth": 8,
+        "profile": "route-local",
+        "memory_mib": 1024
+      },
+      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+      "key": "3f2e3d57f9e0078d1777ce0c7dee1366b0127feafa974ed96988154050a9245c"
+    },
+    "task_id": 131,
+    "lease_token": "eb958c7abd984886907d766349c4064c",
+    "expires_at": 1790808271.2283258,
+    "repo_head": "9dcb04479a7976a9788d260b83ef608e22cf737c",
+    "phase": "reserved",
+    "host_must_commit_before_execution": true
+  },
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -4841,11 +4865,12 @@
     "aa9b99ae7424a49509aa03f8038cea717471368f6b8dde30c75a1ce13c4fe17e",
     "2fe509fd115dea9c0247eee5438638379f71b81be535575ccab9a3bc766acfd1",
     "0e98369fca2fe29cdd88bf0e844901775d6776a173c6f3833c4bfa324e0885a6",
-    "254c7c4fa9e1df83a205eec630d8caa2057b62849286225a61f93feaba9dd603"
+    "254c7c4fa9e1df83a205eec630d8caa2057b62849286225a61f93feaba9dd603",
+    "c6e47bb49472b548a7c93b42fa762746e39087316b2b0fedaacf2e9590856663"
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790807642.8451955,
+  "updated_at": 1790807671.2286453,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
