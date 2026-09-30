@@ -541,15 +541,19 @@ class Harness:
                     value = 1.0 - 2.0 ** (1 - row["k"]) if ours_at_rec else 2.0 ** (-row["k"])
                     if ours_at_rec:
                         value *= g.get("beat_prior", 1.0)   # [H] beats by one have been rare; ties land more often
-                if not 1 <= gap <= g["gap_max"]:
+                category = "new" if best is None else "near"
+                if best is not None and rec is not None and g["gap_max"] < gap <= g.get("shorten_gap_max", 0) \
+                        and rec <= g.get("nopath_record_max", 0):
+                    category = "new"          # a new target's first road: keep shortening it toward the record
+                    value = 2.0 ** (-row["k"])
+                elif not 1 <= gap <= g["gap_max"]:
                     continue
                 chosen = self._rung(st, cid, best, strategy)
                 if chosen is None:
                     continue  # every rung is hot or spent: advisor territory now
                 fam = st.family_for(cid, chosen)
                 cands.append({"cid": cid, "gap": gap, "k": row["k"], "record": rec, "value": round(value, 4),
-                              "tries": st.heat[(cid, fam)], "strategy": chosen,
-                              "category": "new" if best is None else "near"})
+                              "tries": st.heat[(cid, fam)], "strategy": chosen, "category": category})
         # breadth first: every target gets one attempt before any gets a second
         cands.sort(key=lambda c: (c["tries"], c["gap"], -c["value"], c["record"] or 0, c["cid"]))
         return cands
@@ -563,6 +567,8 @@ class Harness:
         for rung in self.cfg.get("ladder") or [default]:
             method = self.cfg["methods"].get(rung["method"], {})
             if method.get("needs_best") and best is None:
+                continue
+            if method.get("needs_nobest") and best is not None:
                 continue
             if method.get("sac_only") and not cid.startswith("sac-"):
                 continue

@@ -41,7 +41,8 @@
     "nopath_record_max": 40,
     "rows_per_task": 2,
     "include_unsolved": false,
-    "max_artifact_bytes": 67108864
+    "max_artifact_bytes": 67108864,
+    "shorten_gap_max": 10
   },
   "default_strategy": {
     "method": "beam_p2",
@@ -187,6 +188,42 @@
       "needs_ac_twin": true,
       "sac_only": true,
       "wall_seconds": 1200
+    },
+    "beam_free": {
+      "runner": "code",
+      "about": "P2 dual beam with free depth (record + FREE): any road first, shorten later (team pipeline for rows with no path)",
+      "command": [
+        "{python}",
+        "research/acc/optimality/run_beam_raw.py",
+        "{manifest}",
+        "{bin}",
+        "{t9}",
+        "{work}",
+        "{knob:W}",
+        "{knob:DMAX}",
+        "{out}",
+        "{targets}"
+      ],
+      "env": {
+        "BEAM_H": "{knob:H}",
+        "BEAM_DIV": "{knob:DIV}",
+        "BEAM_SEED": "{knob:SEED}",
+        "BEAM_NOISE": "{knob:NOISE}",
+        "BEAM_P2": "{knob:P2}",
+        "BEAM_QUOTA": "{knob:QUOTA}",
+        "BEAM_ELITE": "{knob:ELITE}",
+        "BEAM_DUAL": "{knob:DUAL}",
+        "BEAM_CHAIN": "{knob:CHAIN}",
+        "BEAM_FREE_DMAX": "{knob:FREE}"
+      },
+      "needs": [
+        "bin/acc_beam",
+        "bin/acc_window",
+        "T9.tab"
+      ],
+      "wall_seconds": 1800,
+      "rows_per_task": 1,
+      "needs_nobest": true
     }
   },
   "roles": {
@@ -262,6 +299,28 @@
         "BUDGET": 20000000,
         "ROW_S": 600,
         "ORDER": "rev"
+      }
+    },
+    {
+      "method": "beam_free",
+      "seed": "start",
+      "pool": "none",
+      "capture": "window14",
+      "representation": "direct",
+      "board_filter": "new-target",
+      "knobs": {
+        "W": 20000,
+        "DMAX": 600,
+        "H": 1,
+        "DIV": 0.8,
+        "P2": 2,
+        "QUOTA": 16,
+        "ELITE": 5000,
+        "DUAL": 0.75,
+        "CHAIN": 1,
+        "SEED": 101,
+        "NOISE": 2,
+        "FREE": 20
       }
     },
     {
