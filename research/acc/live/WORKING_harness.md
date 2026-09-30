@@ -1,9 +1,9 @@
 # ACC memory-first harness claims
 
-Updated: 2026-09-30T21:33:53.019463+00:00.
+Updated: 2026-09-30T21:35:33.314707+00:00.
 
-No active claim. Completed 76 bounded method probes. Latest: kernel ac-00003: No improvement under recorded foreign-road overlay scope; best 49, target 40.
+Active: charlie ac-00020, code-only batch. Key 91cbc13ee92a1c6aeacce3714f980d883f3c0be37efbcb8dbbde02f93da9079c. Expires 2026-09-30T21:45:33.311498+00:00.
 
-Next proposed charlie ac-00020; this is not a claim.
+Row checked against current WORKING claims. Previous completed attempts are retained in continuation/checkpoint.json. This batch begins only after its reservation is committed.
 
-All results and precise limits are preserved in research/acc/harness/acc_synthesis/continuation/checkpoint.json and runs/. Scheduled model-worker dispatch zero. Bounds unchanged: <=180 search seconds / <=600000 records / <=1024 MiB. No submissions, challenge API requests, public publishing or old watches. Scope of a bounded miss is not a nonexistence proof.
+Bounds <=180 search seconds / <=600000 records / <=1024 MiB; model-worker dispatch zero. No challenge API calls, submissions, public publishing or old watches. Read research/acc/harness/acc_synthesis/CONTINUATION.md for the procedure.
