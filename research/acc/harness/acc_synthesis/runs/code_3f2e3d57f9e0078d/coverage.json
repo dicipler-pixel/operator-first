@@ -1,0 +1,163 @@
+{
+  "admitted_records": 600000,
+  "generated_moves": 893260,
+  "collision_pairs": 227100,
+  "duplicate_or_dominated": 293513,
+  "replaced_labels": 0,
+  "length_pruned": 0,
+  "cost_pruned": 527,
+  "stale_queue_labels": 0,
+  "expanded_by_side_depth": [
+    [
+      126,
+      1574,
+      15630,
+      29787,
+      0
+    ],
+    [
+      126,
+      1544,
+      15018,
+      0,
+      0
+    ]
+  ],
+  "admitted_by_side_depth": [
+    [
+      127,
+      1584,
+      15737,
+      147994,
+      275617
+    ],
+    [
+      127,
+      1580,
+      15390,
+      141844,
+      0
+    ]
+  ],
+  "improvements": [
+    {
+      "length": 78,
+      "fresh_depths": [
+        4,
+        3
+      ],
+      "meeting_state": [
+        [
+          -1,
+          -1,
+          -2,
+          -1,
+          -2,
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -2,
+          1,
+          2,
+          -1,
+          -2,
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "elapsed_seconds": 3.368974716999219
+    }
+  ],
+  "termination_reason": "node_cap",
+  "elapsed_seconds": 3.7368243529999745,
+  "peak_rss_mib": 390.9453125,
+  "unique_states_by_side": [
+    391498,
+    141844
+  ],
+  "latest_labels_by_side": [
+    441059,
+    158941
+  ],
+  "pending_by_side_depth": [
+    [
+      0,
+      0,
+      0,
+      118207,
+      275617
+    ],
+    [
+      0,
+      0,
+      0,
+      141844,
+      0
+    ]
+  ],
+  "partial_layer": {
+    "side": 0,
+    "depth": 3
+  },
+  "target_length": 34,
+  "best_length": 78,
+  "total_bridge_depth_cap": 8,
+  "per_side_depth_cap": 4,
+  "coverage_scope": "Only admitted exact labels and generated moves under caps; no impossibility claim.",
+  "row_id": "ac-00009",
+  "profile": "route-local",
+  "best_saved_length": 79,
+  "union_shortest_length": 79,
+  "union_states": 127,
+  "union_directed_edges": 258,
+  "saved_route_lengths": [
+    112,
+    91,
+    81,
+    79
+  ],
+  "phase_seconds": {
+    "saved_union_and_replay": 0.00955872199847363,
+    "fresh_search": 3.7368243529999745
+  },
+  "limits": {
+    "wall_seconds": 180.0,
+    "node_cap": 600000,
+    "memory_mib": 1024,
+    "total_bridge_depth": 8
+  },
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "bridge_search.py",
+    "--row",
+    "ac-00009",
+    "--output-dir",
+    "/workspace/scratch/981699a2d5e1/acc_synthesis/runs/code_3f2e3d57f9e0078d",
+    "--wall-seconds",
+    "180",
+    "--node-cap",
+    "600000",
+    "--profile",
+    "route-local",
+    "--depth",
+    "8",
+    "--target-length",
+    "34",
+    "--memory-mib",
+    "1024",
+    "--routes",
+    "/workspace/scratch/981699a2d5e1/acc_synthesis/continuation/routes.json"
+  ],
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+  "route_source_sha256": "32a4ac0a1bfc919a68427f0abdfa9ec101d96fb1a11abe72e1dd7338f2d2c452",
+  "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+  "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+  "executed_method_path": "runs/code_3f2e3d57f9e0078d/executed_bridge_search.py",
+  "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+  "live_score_claim": false
+}
