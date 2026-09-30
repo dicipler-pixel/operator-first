@@ -138,3 +138,15 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
   DMAX 260) are measuring whether OUR pulse count grows linearly (→ beats from n ≈ 6) or doubles.
 - Lanes, no hits yet: beat hunt (03060, 05149, 02275 no −1), k4–6 DP (5 rows, no gain), (y,x) restarts (sac-04197 no route),
   10098 restarts (41 = +1), trace-chain A/B (first row running). Atlas study: ATLAS_STUDY_session2_20260930.md.
+
+## 02:55Z rally (session 2)
+- Boards pulled 02:29Z. The target list of rows held by 1-2 teams is **TARGETS_K12_20260930T0229Z.md** (4,628 AC + 4,657 Stable
+  rows; 53 within 3 of the record). Lanes switched to them: k12dp (road DP, 73 AC rows), mrk12 (mid-restarts, 10 rows 1-2
+  over), yxk12 ((y,x) restarts, 17 Stable rows). Stopped: midkdp (k4-6), trace A/B (no gain in 3/18), msw_deep (n=5 no route).
+- Stacked for 03:25: **sac-01962 20** (tie, k6; (y,x) mid-restart). Nothing else is ready.
+- Luna: control passed 02:15Z (ac-06015 AC 20 / Stable 22). She got the doubling-family brief (Drive hub + repo). Bob's 12
+  one-over paths went into our pool (inbox/20260930T0156Z_bob_nearmiss_1over.txt). Reply in the Drive folder "luna and bob acc
+  challenge".
+- Doubling family: the records fit 2^(n+1)+1.4n+9. Our routes (exact capped n≤3 too) cost about 3·2^n. The open step is a
+  shallow, balanced pump (UPDATE_session2_to_luna_git_20260930T0240Z.md).
+- Container restarts at about 02:40 and 02:55 killed rows in progress; lanes resume at row level.
