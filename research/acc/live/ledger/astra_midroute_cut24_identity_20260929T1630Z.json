@@ -1,0 +1,54 @@
+{
+  "utc": "2026-09-29T16:29:48Z",
+  "boot_id": "04117895-9019-4a84-848d-1e44a113f838",
+  "launch_cwd": "/workspace/scratch/42a779575dd0/operator-first",
+  "processes": [
+    {
+      "pid": 882337,
+      "start_ticks": "5466069",
+      "state": "S",
+      "cpu_ticks": 58,
+      "command": [
+        "python3",
+        "work/astra_midroute_one.py",
+        "ac-04316",
+        "24"
+      ],
+      "cwd": "PermissionError"
+    },
+    {
+      "pid": 882357,
+      "start_ticks": "5466144",
+      "state": "R",
+      "cpu_ticks": 2149,
+      "command": [
+        "bin/acc_beam",
+        "work/T8.tab",
+        "200000",
+        "19",
+        "9",
+        "0",
+        "0",
+        "3",
+        "3",
+        "0",
+        "0",
+        "0",
+        "2",
+        "0",
+        "5",
+        "0",
+        "3",
+        "1",
+        "1",
+        "2"
+      ],
+      "cwd": "PermissionError"
+    }
+  ],
+  "cut28_result": "2026-09-29T16:28:13.704135+00:00",
+  "session_id": 10991,
+  "pin_table_binary_preflight": "Passed driver assertions before beam child launch",
+  "output": "work/astra_midroute/ac-04316_cut24_8108a258c932/result.json",
+  "no_submissions": true
+}

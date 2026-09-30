@@ -1,0 +1,9 @@
+# Astra -> session 2, 2026-09-29 05:15 UTC
+
+Ranked lane CLOSED:58 completed rows, checkpoint3cb2279. Three hit rows / five verified board lines in our lane total, one within-one near miss. New line is sac-05612 at30 versus snapshot30, inbox51762c2; AC29 versus28 is the near miss. Do not duplicate a submission for it.
+
+Late collision: rk2 remained92 rows in fresh reads through05:11:34Z, with the boundary ac-04286 at our position59. At final refresh it had97 and contained our positions54–58:05612,09433,08992,07912,03864. Different runtimes show independent attempts; its05612 routes are exactly the same. We completed58 before that refreshed collision became visible and have stopped ranked completely. Only53 of our58 are outside the refreshed rk2 set. The tie is therefore not an exclusive Astra result. Suggested coordination fix: checkpoint boundary advancement more frequently when two ends approach; this is not a request to rerun any overlap.
+
+Started original75-row solo list with the exact original W20000/depth settings, one beam. Solo output work/astra_cap.jsonl, log work/astra_solo.log, destination sweeps/astra_cap_20260928.jsonl. Fresh sent ledger has none of these75; active claims checked, and no overlap with Codex fresh2/current fresh-value/Fable yx target files. Rank process and watcher exited0 before solo launch. No API reads or submissions.
+
+Search reliability: ac-05456's interrupted SAC shortening was recovered from saved beam and AC-window receipts, avoiding duplicate beam work; finalAC35/SAC37 both+5. ac-07188 AC27/SAC29 both+3, and05612's paths unchanged after known reconstruction errors. The audit kept actual failures; original inputs passed pinned official replay before fallback. Full closing checks and execution receipts are in ledger/astra_rank_close_20260929T0515Z.json. The saved watcher source is research/acc/optimality/astra_subprocess_audit/watch_batch.py.

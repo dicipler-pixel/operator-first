@@ -1,0 +1,81 @@
+{
+  "checks": [
+    {
+      "id": "ac-01738",
+      "moves": [
+        5,
+        12,
+        12,
+        10,
+        3,
+        8,
+        12,
+        10,
+        12,
+        10,
+        2,
+        0,
+        8,
+        7,
+        4,
+        1,
+        5,
+        5,
+        3,
+        5
+      ],
+      "record": 20,
+      "sair_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+      "verifier": {
+        "certificate_hash": "sha256:217c2dc79f2410dfede03c228d8f03431ee4f2b7e5e50cccb3e74b88382fd305",
+        "length": 20,
+        "ok": true,
+        "peak_total_relator_length": 29,
+        "work": 379
+      }
+    },
+    {
+      "id": "sac-01738",
+      "moves": [
+        5,
+        12,
+        12,
+        10,
+        3,
+        8,
+        12,
+        10,
+        12,
+        10,
+        2,
+        1,
+        8,
+        7,
+        2,
+        5,
+        3,
+        3,
+        5,
+        3,
+        15,
+        15
+      ],
+      "record": 22,
+      "sair_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+      "verifier": {
+        "certificate_hash": "sha256:e7f4d42a7322963759ae02b035f8c150375e6269df79b71724589606e2480be5",
+        "length": 22,
+        "ok": true,
+        "peak_total_relator_length": 29,
+        "work": 388
+      }
+    }
+  ],
+  "row": "ac-01738",
+  "sair_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "snapshot_records": {
+    "ac": 20,
+    "sac": 22
+  },
+  "utc": "2026-09-29T06:18:30Z"
+}

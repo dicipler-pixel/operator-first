@@ -3,6 +3,82 @@
 Read this first. It records what the earlier session knew, so a new session can continue
 without its chat history. Branch: `claude/gallant-bardeen-0pgpae`.
 
+## SUBMISSION RULE (agreed with the user, 2026-09-27): no exceptions
+Before **every** submission:
+1. Pull the live boards (`sair_api.py boards`) and our history (`sair_api.py mine`) fresh, right then.
+   Never reuse an older pull.
+2. For each line, read the live record (`currentBestLength`) and the team count (`kTeams`) for its
+   exact row number.
+3. Keep a line only if it is UNSOLVED, a BEAT, or a TIE, and we haven't already sent that length
+   or shorter. Drop everything else.
+4. Every kept line must have passed the official verifier (this session can run it, and
+   `tools/acc/plan_offline.py` does all of steps 2–4 offline).
+5. The user's rule (2026-09-27 22:4xZ): **ties, beats and unsolved rows may be sent without
+   asking first**, but the live check must be **at most 5 minutes old** when the POST goes out.
+   Report the row, length, live record and k after sending.
+   **Batches (user rule, 2026-09-28):** queue verified lines in `research/acc/live/queue/`, then
+   send with `sair_api.py send-queue --yes` once 3 or more lines wait. A line worth ≥ 0.25 waits
+   at most 30 minutes (`--force`).
+6. The session with SAIR network access sends. The search session produces and verifies lines.
+
+**Tool:** `python3 tools/acc/sair_api.py send FILE... --yes` does steps 1–3 and 5 in one go. It
+pulls fresh, prints the table, keeps only UNSOLVED, BEAT or TIE lines that haven't been sent, and
+refuses to POST if the pull is more than 300 s old. `submit --yes` alone is refused on purpose.
+Without `--yes`, it's a dry run.
+
+**Sent log:** `research/acc/live/submit_log.jsonl`.
+- Submission 2558 (22:45Z): NEW15, 6 ties, all accepted.
+- Submission 2565 (23:29Z): SACPLUS2, 6 Stable AC ties (our accepted AC paths + `[16,15]`), all
+  accepted. It already covers all 4 rows of NEW16 (sac-09757, 06754, 00276, 08702). **Don't
+  resend NEW16.**
+
+- Submission 2566 (23:36Z): ac-03305 23 (tie, k6) and **sac-03305 24 (tie on a row held by one
+  team, about +0.5)**, found by the adaptive exact capped sweep at caps 37 and 40.
+
+- Submission 2569 (23:50Z): ac-01629 23 (tie, k4→5) and sac-01629 25 (tie, k3→4, AC + `[16,15]`),
+  about +0.19. From exact sweep C.
+
+- Submission 2572 (23:56Z): ac-05558 24 and sac-05558 26 (ties, k5→6 each, about +0.06), from sweep C.
+
+- Submission 2581 (01:24Z, first batch under the batching rule): ac/sac-07435 (26/28, k6→7) and
+  ac/sac-08201 (31/33, k5→6), 4/4 accepted, about +0.09. From sweep C.
+- Submission 2606 (04:23Z, batch): 13 Stable AC ties from session 1's mirrored roads (crossrow, (y,x)
+  finish) plus ac/sac-03028 (26/28), 15/15 accepted, about +0.02 (best: sac-02902 k6, sac-04278 and
+  sac-00974 k8; the rest sit on rows with 12–20 teams).
+- Submission 2607 (04:28Z, batch): 20 AC ties from session 1's unsent roads plus ac/sac-09989, 22/22
+  accepted, about +0.012 (best: ac-02902 k7, ac-01639 k9). Three AC+2 Stable AC lines were dropped as
+  already sent.
+- Submission 2632 (07:07Z, batch): ac/sac-07004 (43/45) and ac-04278 (35), k14 ties from session 1's road
+  cycle, 3/3 accepted (tiny value).
+- **Submission 2638 (08:19Z): ac/sac-03060 28/30, k1 ties (+1.0), the first win from the P2 beam** (atlas B31
+  lookahead), plus ac-05835 33 (k13). 3/3 accepted.
+- Submission 2648 (10:07Z): ac-01698 36 (k4), ac-03789 34 (k7) from the P2 lanes, and sac-01698 37 (k3) from the
+  (y,x) shortcut on our P2 path (`tools/acc/yx_shortcut.py`). 3/3 accepted, about +0.2.
+- Submission 2657 (11:07Z): sac-00487 27 (k3, atlas class quota B16/B17), ac-00487 26 (k14, overlap splice of two
+  of our paths), sac-05091 26 (k10, (y,x) shortcut). 3/3 accepted, about +0.13.
+- Board watcher: `changes` every 30 min into `research/acc/live/changes/`. It alerts on
+  "LOST OUR TIE" or a newly solved row.
+
+**Verifier permission:** at 23:29Z the user told the API session to run the official verifier
+("run the verifier"). That session can now verify and send by itself.
+
+## Key docs (2026-09-27)
+- `tools/acc/METHODS_PLAYBOOK.md`: what works and what doesn't, with evidence. Read it before
+  picking a method, and add to it after every win or clear failure.
+- `tools/acc/HELP_WANTED.md`: the brief for the user's helper AIs (our struggles and the asks).
+- `tools/acc/proof_track/WIN_TEMPLATE.md`: **every 1-point result** (a beat, or a row we hold
+  alone) gets a write-up on how we got it, with commit hashes (user rule).
+- `tools/acc/targets_easy_lowk_20260927.json`: 66 rows held by 1–2 teams with records of 36 or less.
+- `tools/acc/targets_mid_25to40_k2to6_20260927.json`: 496 rows (records 25–40, 1–6 teams, AC and
+  Stable AC), sorted by tie value. Sweeps B and C run the exact capped search on them.
+- **Tracker page:** https://claude.ai/artifact/PesMNAWMhazVqhNx5DpP5u (private to the user, charts and
+  tables). To update it:
+  1. Run `python3 tools/acc/dashboard_data.py`. It uses no API reads and writes
+     `research/acc/live/dashboard.json`.
+  2. Write each top-level key to the page's database: ArtifactData `batch`, `set dash/<key>`.
+  3. Change the page layout only in `tools/acc/dashboard/acc_tracker_template.html`. Build it with
+     `--page OUT` and republish with the Artifact tool using `url`.
+
 ## Goal
 Get Mad Hatters points in the SAIR Andrews–Curtis Challenge (Discovery track, AC and Stable AC).
 - Beat a live record: 1.0 point. Tie it: 2^(1-k), where k is the number of teams on it.

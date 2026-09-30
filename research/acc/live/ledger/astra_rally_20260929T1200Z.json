@@ -1,0 +1,126 @@
+{
+  "utc": "2026-09-29T12:01:10.566745+00:00",
+  "rows_done": 1,
+  "rows_total": 18,
+  "hits": 0,
+  "near_miss_rows_within_one": 0,
+  "processes": [
+    {
+      "host_pid": 618357,
+      "start_ticks": "3850551",
+      "argv": [
+        "python3",
+        "research/acc/optimality/run_beam_raw.py",
+        "SAIR/competition/tools/verifier/data/manifest.json",
+        "bin",
+        "work/T8.tab",
+        "work/w_astra_wide",
+        "200000",
+        "200",
+        "work/astra_wide_cap.jsonl",
+        "work/astra_wide_first3.json"
+      ],
+      "cpu_ticks": 14,
+      "cwd_error": "[Errno 13] Permission denied: '/proc/618357/cwd'"
+    },
+    {
+      "host_pid": 618358,
+      "start_ticks": "3850566",
+      "argv": [
+        "bin/acc_beam",
+        "work/T8.tab",
+        "200000",
+        "46",
+        "9",
+        "3",
+        "3",
+        "0",
+        "2",
+        "0",
+        "3",
+        "0",
+        "2",
+        "0",
+        "17",
+        "3",
+        "3",
+        "1",
+        "3",
+        "1",
+        "2",
+        "1",
+        "3",
+        "1",
+        "2",
+        "0",
+        "0",
+        "2",
+        "1",
+        "2",
+        "0",
+        "0"
+      ],
+      "cpu_ticks": 5947,
+      "cwd_error": "[Errno 13] Permission denied: '/proc/618358/cwd'"
+    },
+    {
+      "host_pid": 618386,
+      "start_ticks": "3850699",
+      "argv": [
+        "python3",
+        "work/astra_watch_batch.py",
+        "1",
+        "3"
+      ],
+      "cpu_ticks": 18,
+      "cwd_error": "[Errno 13] Permission denied: '/proc/618386/cwd'"
+    }
+  ],
+  "current_row": "ac-07194",
+  "runner_session": 66043,
+  "watcher_session": 20969,
+  "watcher_resume_cursor": 1,
+  "pilot_stop_after": 3,
+  "restart": true,
+  "restart_reason": "Previous runner and watcher absent at11:58:28; retained sessions unknown. No completed07194 subprocess receipt. Stop cause not established; memory.events has no OOM.",
+  "completed_rows_repeated": 0,
+  "unfinished_row_restarted": "ac-07194",
+  "sair_pin": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "t8_size": 640000000,
+  "t8_sha256": "38f05b56d5e79d9df03cc3cd96cd8433725b051111984a8dad4fbe30d07068f8",
+  "settings": {
+    "W": 200000,
+    "H": 1,
+    "DIV": 0.8,
+    "P2": 2,
+    "QUOTA": 16,
+    "ELITE": 5000,
+    "DUAL": 0.75,
+    "depth": "record+2"
+  },
+  "input": "work/astra_wide_first3.json",
+  "output": "work/astra_wide_cap.jsonl",
+  "watcher_last_complete": {
+    "event": "ROW_COMPLETE",
+    "utc": "2026-09-29T11:38:33+00:00",
+    "completed": 1,
+    "id": "ac-04316",
+    "verdict": "above",
+    "wall_s": null,
+    "verified": [
+      {
+        "id": "ac-04316",
+        "length": 45,
+        "record": 43
+      },
+      {
+        "id": "sac-04316",
+        "length": 47,
+        "record": 45
+      }
+    ],
+    "qualifying_lines": 0,
+    "inbox": null
+  },
+  "new_completed_rows": 0
+}

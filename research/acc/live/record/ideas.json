@@ -1,0 +1,299 @@
+[
+{
+"t": "Unsent roads",
+"who": "session 1",
+"when": "09-28 04:30",
+"st": "worked",
+"test": "Diffed every verified road we hold (677 roads, 496 rows) against our accepted history.",
+"res": "20 AC ties we held but never had accepted. Sent in 2607.",
+"next": "Run this diff before any new search, every day.",
+"raw": "ledger/crossrow_roads_ac_20260928.json"
+},
+{
+"t": "Mirrored roads finish Stable AC through (y,x)",
+"who": "session 1",
+"when": "09-28 04:20",
+"st": "worked",
+"test": "Mirror a known road so it ends at (y,x); two deletions [15,15] finish it. Verified with the official stable kernel.",
+"res": "13 new Stable AC ties (k 6-20). Sent in 2606.",
+"next": "Re-run whenever the road pool grows.",
+"raw": "ledger/crossrow_r2i2_sac_20260928.json"
+},
+{
+"t": "Borrow another row's road, then shorten the joins",
+"who": "session 1",
+"when": "09-28 04:10",
+"st": "worked",
+"test": "Cross-row lookup (row radius 2, index radius 2, 16 mirrors) then exact window shortening (every window up to 14 moves).",
+"res": "ac-03028 29 to 26 and ac-09989 24 to 23, both ties. 33 more borrowed roads in the window queue.",
+"next": "More roads in the pool means more hits.",
+"raw": "ledger/crossrow_windowed_20260928.jsonl",
+"q": "Why does a road built for a different start pass within 2 moves of this one? Rows may come in families (scrambled Miller-Schupp instances)."
+},
+{
+"t": "Exact capped search",
+"who": "session 2",
+"when": "09-27 23:30",
+"st": "worked",
+"test": "BFS of every state under a total-length cap, finished with the 215M-state T9 table.",
+"res": "Every tie between 23:30 and 04:00: sac-03305, ac/sac-01629, 05558, 07435, 08201.",
+"next": "Best on records up to about 31. Memory stops it near 210M states.",
+"raw": "ledger/exact_capped_runs.jsonl"
+},
+{
+"t": "Rank 3 behind short Stable AC records?",
+"who": "session 1",
+"when": "09-28 03:50",
+"st": "closed",
+"test": "Exact rank-2 Stable AC optimum on the 9 shortest rows where the SAC record is at most AC + 1.",
+"res": "All 8 finished rows match the record at rank 2 through (y,x) + [15,15]. No third generator needed.",
+"next": "Rank 3 untested on long rows.",
+"raw": "ledger/sac_rank2_probe_20260928.log"
+},
+{
+"t": "Stable AC is thinner than AC",
+"who": "team lead",
+"when": "09-28 03:50",
+"st": "signal",
+"test": "Board check on 7,443 rows solved on both.",
+"res": "95 rows have SAC record > AC record + 2. There any AC path of length up to SAC record - 3 beats Stable AC for a full point.",
+"next": "sacbeat sweep running (session 2).",
+"raw": "sweeps/sacbeat_targets.json"
+},
+{
+"t": "Move rhythm in the training roads",
+"who": "Bob",
+"when": "09-28",
+"st": "signal",
+"test": "424 SAIR training routes vs shuffles, 1000 each.",
+"res": "Real blocks (tandem repeats 589 vs 365, p=0.001; 0.48 bits/move gain). No beat (periodogram p=0.22). Did not transfer: tie vs trailing AUC 0.588, p=0.57.",
+"next": "Top macros as beam supermoves, A/B running.",
+"raw": "ledger/BOB_move_rhythm_20260928.md",
+"q": "Core macro 4,\u00b7,2,5,2 repeats across 20-43 different words. Why that block?"
+},
+{
+"t": "Periodicity eye",
+"who": "Bob / session 1",
+"when": "09-27",
+"st": "signal",
+"test": "Unsolved vs solved rows at matched length.",
+"res": "Unsolved rows are more periodic (+0.28 at length 30+, p=0.003). The driver is the longest single-letter run: unsolved share 6% at run 2, 75% at run 8.",
+"next": "Beam the unsolved rows with short runs first (running, half A and half B).",
+"raw": "tools/acc/METHODS_PLAYBOOK.md"
+},
+{
+"t": "Commutator load predicts the hump",
+"who": "team lead / session 2",
+"when": "09-28 02:00",
+"st": "signal",
+"test": "292 known paths: climb vs cyclic |[r0,r1]|.",
+"res": "corr +0.36. Least-commuting quarter climbs 75% higher. Misses the extreme humps (ac-03305 needs +16, model says +3.6).",
+"next": "Triage only.",
+"raw": "research/acc/optimality/hump_features.py",
+"q": "What makes ac-03305 climb +16?"
+},
+{
+"t": "Probe shadows (SL(2,p) images)",
+"who": "team lead / session 2",
+"when": "09-28 02:45",
+"st": "signal",
+"test": "As lower bounds and as a guide.",
+"res": "Bounds are log-scale, nothing new. As a guide: corr +0.31 with moves left, where word length gives +0.02. On hump states length points the wrong way.",
+"next": "Needs a broad A/B in the beam.",
+"raw": "research/acc/optimality/shadow_bounds.py"
+},
+{
+"t": "The ceiling (QHE plateau idea)",
+"who": "team lead / session 1",
+"when": "09-27",
+"st": "closed",
+"test": "163 record-length paths: is the peak quantized?",
+"res": "Only a 0-climb plateau (35% never exceed the start). No other steps. Descent rate not constant.",
+"next": "Closed.",
+"raw": "research/acc/optimality/path_chart_163.svg"
+},
+{
+"t": "Push vs oscillation",
+"who": "team lead / session 1",
+"when": "09-27",
+"st": "signal",
+"test": "Move-by-move length changes on 163 paths.",
+"res": "Push score +0.34. Flat 38%, rising 13%, falling 50%. Both words shrink together; one word hits length 1 at 84% of the path.",
+"next": "Used in the beam balance term.",
+"raw": "tools/acc/METHODS_PLAYBOOK.md"
+},
+{
+"t": "Balance term in the beam (BEAM_BAL)",
+"who": "session 1",
+"when": "09-27",
+"st": "nogain",
+"test": "9 near-miss rows at BAL 0, 1, 2, 4.",
+"res": "No ties. Helps one row a little (ac-09189 32 to 31). Only acts when BEAM_H=1 is also set.",
+"next": "Keep as a second eye, not default.",
+"raw": "tools/acc/METHODS_PLAYBOOK.md"
+},
+{
+"t": "Mountain passes: RETURN vs ADVANCE exits",
+"who": "Codex / team lead",
+"when": "09-28",
+"st": "untested",
+"test": "Atlas showed 680 cheapest exits collapse to 23 exact components on ac-02842.",
+"res": "Not yet run as a search.",
+"next": "Switch lanes after an ADVANCE exit and meet the solved-side region.",
+"raw": "research/acc/live/CODEX_TRANSCRIPT_AUDIT_20260928.md"
+},
+{
+"t": "Schur macros (up-and-back-down excursions)",
+"who": "session 2",
+"when": "09-28 03:15",
+"st": "nogain",
+"test": "36,194 mined macros as beam supermoves.",
+"res": "ac-03305 stays 27 (exact is 23) at every weight.",
+"next": "4-row A/B running.",
+"raw": "research/acc/optimality/mine_macros.py"
+},
+{
+"t": "Local repair of near misses",
+"who": "all",
+"when": "09-27 to 09-28",
+"st": "nogain",
+"test": "Windows up to 14, corridors to 60M states, echo of own routes, macros: ac-00145, 05064, 05818, 09311, 06095, 00766, 00974.",
+"res": "Nothing. The record roads are different roads, not repairs of ours.",
+"next": "Stop repairing. Find new roads.",
+"raw": "IDEAS.md"
+},
+{
+"t": "Mirror transport and near-mirror bridges",
+"who": "session 2",
+"when": "09-28 00:05",
+"st": "closed",
+"test": "22 exact mirror pairs, then starts within 2-3 moves of each other.",
+"res": "No gain; leaders cover them. One radius-2 pair, both unsolved.",
+"next": "Superseded by the cross-row lookup (roads, not starts).",
+"raw": "research/acc/optimality/find_bridges.py"
+},
+{
+"t": "Jump-ahead caps and growth prediction",
+"who": "session 2",
+"when": "09-28 00:40",
+"st": "worked",
+"test": "Fit layer growth on a cheap probe, predict the full run.",
+"res": "Predictions right on both tests. About 2x rows per hour.",
+"next": "In the sweep.",
+"raw": "research/acc/optimality/run_capped_sweep.py"
+},
+{
+"t": "Disk-backed exact search",
+"who": "Charlie",
+"when": "09-28",
+"st": "running",
+"test": "acc_capped_disk.c pilot.",
+"res": "Matches the original at 299,177 states. Slow under shared memory pressure.",
+"next": "The memory wall: 52 of 76 of session 1's capped runs stopped at the budget.",
+"raw": "research/acc/optimality/acc_capped_disk.c"
+},
+{
+"t": "Unsolved rows with short letter runs",
+"who": "session 1 / Adam",
+"when": "09-28",
+"st": "running",
+"test": "Beam on 427 unsolved rows with longest run up to 3, split A (session 1) and B (Adam).",
+"res": "No solve yet (11 rows of half A).",
+"next": "Stop at 100 rows with nothing.",
+"raw": "targets_codex_oddeasyB.json"
+},
+{
+"t": "Scored rows as scrambled Miller-Schupp",
+"who": "session 2",
+"when": "09-28 01:35",
+"st": "untested",
+"test": "If starts are MS(n,w) after random moves, find (n,w) per row and reuse the training road.",
+"res": "Not tested yet. The borrowed-road hits make it more likely.",
+"next": "Canonical MS form per row.",
+"raw": "research/acc/optimality/road_bridges.py",
+"q": "Are most rows secretly members of a few families?"
+},
+{
+"t": "The board is Miller\u2013Schupp families",
+"who": "session 1",
+"when": "09-28 05:10",
+"st": "signal",
+"test": "Matched every row against the MS relator y^-(n+1) x^-1 y^n x in all spellings.",
+"res": "3,363 rows are MS(n,w), n = 1..10, 1,006 second words. They hold most of the 2,672 unsolved rows. Rows in a family share a relator, which is why borrowed roads work.",
+"next": "Group work by family, not by row.",
+"raw": "ledger/ms_families_by_w_20260928.json",
+"q": "Are the unsolved MS rows solvable at all? Some may be genuinely hard open cases."
+},
+{
+"t": "2^(n+1) doubling chains (the leaders' construction)",
+"who": "session 1",
+"when": "09-28 05:20",
+"st": "running",
+"test": "10 second words solved for every n = 3..10; records 2^(n+1) + small (YXyXyx: 32 ... 2088). Our own paths on made-up rows MS(n, YXXyx): n=3 29 (on the formula), n=4 55 (formula about 47).",
+"res": "Mechanism found: a Baumslag\u2013Solitar relation y^-1 x^2 y = x doubles a run of x's with the move pair (5, 11), then move 2 peels it one letter at a time. 68 chain rows are held by 1-2 teams; each tie \u2248 2 points (AC + Stable AC). Exact MS(3, YXXyx) = 28 at cap 20 (one under the formula): builds X^6 at 1 move per x, then y = x^7 and y = x^6 collapse in one move. The 10 chains share one construction: record gaps to the YXXyx chain are 4-28 moves and grow 1-3 per level.",
+"next": "Exact n=4 search to find the leaders' shorter prefix; then a generator path(n) for n up to 10. Luna takes the other 9 chains.",
+"raw": "research/acc/live/ORDERS_luna_ms.md",
+"q": "How do the leaders avoid our 2^(n-1) phase-A build?"
+},
+{
+"t": "Cross-row echo in the exact search",
+"who": "session 1",
+"when": "09-28 04:40",
+"st": "nogain",
+"test": "255k mirrored road states as meeting targets in acc_capped, 4 near-miss rows, 2-3 caps each.",
+"res": "Rerun with a rebuilt binary (the first run ignored the echo): ac-09989 23 (already ours), ac-03919 30 (27), ac-04251 38 (37), ac-06903 39 (37). No improvement.",
+"next": "Closed for these rows.",
+"raw": "ledger/xecho_20260928.log"
+},
+{
+"t": "Adam / Bob / Charlie (Luna)",
+"who": "Luna",
+"when": "09-28",
+"st": "nogain",
+"test": "Adam: first 100 unsolved rows, H and H+BAL. Bob: joins into 478 routes to radius 7. Charlie: 640 MB goal table, fixed visited table on ac-00580 (60M states), rank-3 kernel check.",
+"res": "No path. ac-00766 stays 34 (33), ac-00974 26 (24). Rank-3 kernel matches the official one in 10,280 checks. ac-00580 layer incomplete.",
+"next": "Luna moves to the MS doubling chains.",
+"raw": "research/acc/live/WORKING_codex_abc.md"
+},
+{
+"t": "Recursion T(n) = 2T(n-1) - c",
+"who": "user's song / session 1",
+"when": "09-28 10:40",
+"st": "running",
+"test": "'You measure a tick with a tick.' Exact small cases 8, 15, 28; YXXyx chain records 80, 145, 275, 532, 1046, 2071 each = 2 x previous - (15..21). Ran the n=3 recipe on n=4.",
+"res": "The recipe transfers move for move with one extra y-level and reaches the doubling-ready state in 17 moves; finish 39, total 56 (ours 55). Macro beam from exact small paths: 61, with a repeating 8-move block.",
+"next": "A recursion that avoids building the full 2^n run.",
+"raw": "IDEAS.md 10:40Z and 11:40Z",
+"q": "What does the leaders' level step reuse, exactly?"
+},
+{
+"t": "Go up a rank (Stable AC)",
+"who": "user's song / session 1",
+"when": "09-28 11:40",
+"st": "untested",
+"test": "On the chains the Stable AC record is exactly AC + 2 (1 team). A rank-3 detour that builds the run cheaper would beat it.",
+"res": "MS(2, YXXyx): no rank-2 Stable AC path <= 15 (answer 17). Rank 3 at radii 8+7 needs more memory than this machine.",
+"next": "Charlie's rank-3 lane on a bigger machine: a meet <= 16 means rank 3 helps.",
+"raw": "IDEAS.md 11:40Z"
+},
+{
+"t": "Leads from the old Drive work",
+"who": "session 1",
+"when": "09-28 09:30",
+"st": "untested",
+"test": "Read the Sept 16 War Room and 'Idle Wheels, Housings and Light'.",
+"res": "R_n = (x^2yx^-1y, xy^nx^-1y^-(n+1)): 21 rows n = 3..10 unsolved by every team (deep P2 beam: 14+ no path). External doubling transports (Robby955/ac-square-divisibility). 104 rows with a primitive relator, 15 held by one team.",
+"next": "Helper lanes.",
+"raw": "IDEAS.md 09:30Z"
+},
+{
+"t": "Commutator census (helper, 8 papers)",
+"who": "helper",
+"when": "09-28 12:00",
+"st": "signal",
+"test": "Checked the core identity: H = S + K (S symmetric, K skew) gives [H,H^T] = -2[S,K].",
+"res": "Holds to 1e-15 (n = 3, 6, 10). It is the same identity behind the paper's 'non-normality energy = move Dirichlet form'. For search, the relator commutator load |[r0,r1]| already predicts hump height (+0.36).",
+"next": "Physics-paper notes stay with those papers; no ACC action.",
+"raw": "helper's COMMUTATOR-CENSUS-01"
+}
+]

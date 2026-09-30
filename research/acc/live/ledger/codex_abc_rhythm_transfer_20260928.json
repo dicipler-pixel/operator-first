@@ -1,0 +1,28 @@
+{
+  "training_routes": 424,
+  "road_routes": 478,
+  "ties": 237,
+  "trailing": 241,
+  "metric": "AUC of training nonundo transition score, tie over trailing",
+  "observed_auc": 0.5884937934415323,
+  "null_mean": 0.5770225502039673,
+  "null_95_interval": [
+    0.5376682949034438,
+    0.6155435334488856
+  ],
+  "p_two_sided": 0.5674325674325674,
+  "selected": [
+    {
+      "id": "ac-00766",
+      "live": 33,
+      "gap": 1,
+      "rhythm": -1.0414265538956393
+    },
+    {
+      "id": "ac-00974",
+      "live": 24,
+      "gap": 2,
+      "rhythm": -0.2495317153044226
+    }
+  ]
+}

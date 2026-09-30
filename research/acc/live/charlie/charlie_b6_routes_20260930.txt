@@ -1,0 +1,9 @@
+# Charlie batch 6 k1 rows: best held routes (session 1, 07:15Z). Official-core verified. NOT a send file.
+# ac-09390 39 (record 35), ac-06045 37 (record 36). No (y,x) routes held for any of the six.
+# No path at all for 04735, 06292, 09400, 01472: session 1's any-road beam (DMAX = record + 30) now runs them first.
+ac-09390: [1,6,10,4,10,12,11,11,12,11,2,0,7,8,4,1,7,8,12,11,2,7,8,7,8,7,5,13,10,4,6,12,3,5,11,2,2,2,4]
+ac-06045: [5,12,12,12,12,1,4,10,0,10,9,2,12,7,4,12,12,2,5,6,12,5,12,10,2,8,2,6,13,3,9,5,5,5,5,5,3]
+# 07:30Z: first road on ac-09400 from session 1 any-road beam (record 38, k1), official-core verified.
+ac-09400: [0,1,12,5,8,13,8,10,6,6,3,12,11,13,7,10,12,2,9,0,10,2,7,12,11,13,10,12,3,8,6,0,11,13,2,8,10,12,6,3,13,11,1,5,12,7,9,7,4,10,3,3,9,3,3,5]
+# 07:35Z: ac-09400 shortened 56 -> 49 by loose road-keeping DP (record 38), official-core verified.
+ac-09400: [0,1,9,5,1,8,8,8,6,2,6,8,12,10,3,9,7,2,7,9,13,11,3,9,7,7,7,9,3,9,7,8,6,2,13,11,5,7,9,12,10,4,8,6,3,3,3,3,5]

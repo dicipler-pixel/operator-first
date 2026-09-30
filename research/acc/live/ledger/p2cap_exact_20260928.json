@@ -1,0 +1,8884 @@
+{
+ "generated": "2026-09-28T12:19:14Z",
+ "idea": "team lead, 'cross the wall, keep the record clean': exact capped BFS restricted to P2(state) <= P2(start)+c with a loose length cap, expecting the record hump paths inside a much smaller state set than a length cap",
+ "tool": {
+  "source": "research/acc/optimality/acc_capped_p2.c",
+  "source_sha256": "17eb04c4a528709c5cd85ba386f563825214d8ce8d8857c9064b4459195a1b34",
+  "repo_head_at_build": "954803f0820631ecea8622f80a8aec1ed6b129c1",
+  "build": "gcc -O3 -march=native -o acc_capped_p2 acc_capped_p2.c -lm",
+  "identity_check": "without CAP_P2, stdout and stderr byte-identical to acc_capped (ac-07435, cap 27, MAXD 18, T8): 9,397,019 states, AC 26 PATH identical",
+  "P2": "P2 cut 8 (P2c of p2_hump_test.py; code copied from acc_beam.c P2 block), class-keyed cache 2^22; only multiplication children are evaluated (P2 is a class function, conjugation/inversion children inherit)"
+ },
+ "offline": {
+  "method": "p2_hump_test.collect_rows (all verified repo paths, board snapshot research/acc/live/boards/ac_20260928T0428Z.json.gz); hump = raw total climbs >= 6 above the start; climb = max over s_0..s_{N-9} (the states a T8-finish BFS must expand) of P2c8(s) - P2c8(s_0); full-path climbs were identical",
+  "collection": {
+   "raw_lines": 2496,
+   "files_with_paths": 289,
+   "distinct_row_paths": 654,
+   "replay_failures": 0,
+   "rows_verified": 548,
+   "rows_at_board_record": 246,
+   "board_snapshot": "research/acc/live/boards/ac_20260928T0428Z.json.gz",
+   "official_core_crosscheck": true,
+   "note": "session-1 163-path data file is not in the repo (only path_chart_163.svg); the at-record set below supersedes it"
+  },
+  "summary": {
+   "at_record_hump": {
+    "n": 59,
+    "p2_climb_full": {
+     "0": 39,
+     "1": 10,
+     "2": 5,
+     "3": 1,
+     "4": 2,
+     "5": 1,
+     "11": 1
+    },
+    "p2_climb_prefix": {
+     "0": 39,
+     "1": 10,
+     "2": 5,
+     "3": 1,
+     "4": 2,
+     "5": 1,
+     "11": 1
+    },
+    "raw_climb_full": {
+     "6": 8,
+     "7": 10,
+     "8": 10,
+     "9": 6,
+     "10": 4,
+     "11": 5,
+     "12": 1,
+     "14": 5,
+     "15": 1,
+     "16": 3,
+     "17": 2,
+     "19": 1,
+     "21": 1,
+     "24": 1,
+     "25": 1
+    },
+    "raw_climb_prefix": {
+     "6": 8,
+     "7": 10,
+     "8": 12,
+     "9": 7,
+     "10": 2,
+     "11": 4,
+     "12": 1,
+     "14": 5,
+     "15": 1,
+     "16": 3,
+     "17": 2,
+     "19": 1,
+     "21": 1,
+     "24": 1,
+     "25": 1
+    },
+    "frac_p2_prefix_le_c": {
+     "0": 0.661,
+     "1": 0.831,
+     "2": 0.915,
+     "3": 0.932,
+     "4": 0.966,
+     "5": 0.983,
+     "6": 0.983
+    },
+    "frac_p2_prefix_le_c_and_raw_le_24": {
+     "0": 0.661,
+     "1": 0.831,
+     "2": 0.915,
+     "3": 0.932,
+     "4": 0.966,
+     "5": 0.966,
+     "6": 0.966
+    },
+    "frac_raw_prefix_le_24": 0.983
+   },
+   "all_verified_hump": {
+    "n": 178,
+    "p2_climb_full": {
+     "0": 90,
+     "1": 32,
+     "2": 7,
+     "3": 8,
+     "4": 15,
+     "5": 17,
+     "6": 5,
+     "8": 3,
+     "11": 1
+    },
+    "p2_climb_prefix": {
+     "0": 90,
+     "1": 32,
+     "2": 7,
+     "3": 8,
+     "4": 15,
+     "5": 17,
+     "6": 5,
+     "8": 3,
+     "11": 1
+    },
+    "raw_climb_full": {
+     "6": 17,
+     "7": 16,
+     "8": 25,
+     "9": 16,
+     "10": 16,
+     "11": 14,
+     "12": 12,
+     "13": 6,
+     "14": 12,
+     "15": 6,
+     "16": 13,
+     "17": 5,
+     "18": 3,
+     "19": 4,
+     "20": 2,
+     "21": 1,
+     "22": 1,
+     "23": 6,
+     "24": 1,
+     "25": 2
+    },
+    "raw_climb_prefix": {
+     "4": 1,
+     "6": 16,
+     "7": 16,
+     "8": 27,
+     "9": 17,
+     "10": 14,
+     "11": 13,
+     "12": 12,
+     "13": 6,
+     "14": 12,
+     "15": 6,
+     "16": 13,
+     "17": 5,
+     "18": 3,
+     "19": 4,
+     "20": 2,
+     "21": 1,
+     "22": 1,
+     "23": 6,
+     "24": 1,
+     "25": 2
+    },
+    "frac_p2_prefix_le_c": {
+     "0": 0.506,
+     "1": 0.685,
+     "2": 0.725,
+     "3": 0.77,
+     "4": 0.854,
+     "5": 0.949,
+     "6": 0.978
+    },
+    "frac_p2_prefix_le_c_and_raw_le_24": {
+     "0": 0.506,
+     "1": 0.685,
+     "2": 0.725,
+     "3": 0.77,
+     "4": 0.854,
+     "5": 0.944,
+     "6": 0.972
+    },
+    "frac_raw_prefix_le_24": 0.989
+   }
+  },
+  "per_path": [
+   {
+    "row": "ac-00012",
+    "len": 54,
+    "record": 47,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 26,
+    "peak": 33,
+    "p2_start": 18,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-00061",
+    "len": 26,
+    "record": 26,
+    "at_record": true,
+    "src": "ACC_SAC_BATCH_ALL_20260925.txt",
+    "start": 30,
+    "peak": 55,
+    "p2_start": 20,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 25,
+    "raw_climb_prefix": 25
+   },
+   {
+    "row": "ac-00083",
+    "len": 32,
+    "record": 30,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 17,
+    "peak": 25,
+    "p2_start": 17,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-00101",
+    "len": 30,
+    "record": 30,
+    "at_record": true,
+    "src": "ACC_SUBMIT_ALL_20260926.txt",
+    "start": 17,
+    "peak": 25,
+    "p2_start": 17,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-00104",
+    "len": 21,
+    "record": 21,
+    "at_record": true,
+    "src": "ACC_SUBMIT_ALL_20260926.txt",
+    "start": 12,
+    "peak": 26,
+    "p2_start": 12,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 14,
+    "raw_climb_prefix": 14
+   },
+   {
+    "row": "ac-00145",
+    "len": 40,
+    "record": 39,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 15,
+    "peak": 29,
+    "p2_start": 15,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 14,
+    "raw_climb_prefix": 14
+   },
+   {
+    "row": "ac-00147",
+    "len": 35,
+    "record": 34,
+    "at_record": false,
+    "src": "research/acc/optimality/runs/2026-09-27/results/beam_livenear.jsonl",
+    "start": 16,
+    "peak": 29,
+    "p2_start": 15,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 13,
+    "raw_climb_prefix": 13
+   },
+   {
+    "row": "ac-00219",
+    "len": 58,
+    "record": 49,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_00219_20260926.txt",
+    "start": 24,
+    "peak": 41,
+    "p2_start": 16,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 17,
+    "raw_climb_prefix": 17
+   },
+   {
+    "row": "ac-00276",
+    "len": 39,
+    "record": 39,
+    "at_record": true,
+    "src": "ACC_SUBMIT_API_20260927T2329Z.txt#sac",
+    "start": 31,
+    "peak": 47,
+    "p2_start": 19,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 16,
+    "raw_climb_prefix": 16
+   },
+   {
+    "row": "ac-00282",
+    "len": 59,
+    "record": 59,
+    "at_record": true,
+    "src": "ACC_NEW_00282_20260924.txt",
+    "start": 35,
+    "peak": 49,
+    "p2_start": 21,
+    "p2_climb_full": 11,
+    "p2_climb_prefix": 11,
+    "raw_climb_full": 14,
+    "raw_climb_prefix": 14
+   },
+   {
+    "row": "ac-00286",
+    "len": 30,
+    "record": 26,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 14,
+    "peak": 22,
+    "p2_start": 14,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-00302",
+    "len": 25,
+    "record": 25,
+    "at_record": true,
+    "src": "ACC_SUBMIT_ALL_20260926.txt",
+    "start": 23,
+    "peak": 37,
+    "p2_start": 17,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 14,
+    "raw_climb_prefix": 14
+   },
+   {
+    "row": "ac-00313",
+    "len": 33,
+    "record": 33,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_00313_20260926.txt",
+    "start": 29,
+    "peak": 41,
+    "p2_start": 19,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 12,
+    "raw_climb_prefix": 12
+   },
+   {
+    "row": "ac-00338",
+    "len": 20,
+    "record": 20,
+    "at_record": true,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 17,
+    "peak": 25,
+    "p2_start": 15,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-00367",
+    "len": 36,
+    "record": 31,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 21,
+    "peak": 31,
+    "p2_start": 19,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 10
+   },
+   {
+    "row": "ac-00455",
+    "len": 53,
+    "record": 45,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 31,
+    "peak": 43,
+    "p2_start": 19,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 12,
+    "raw_climb_prefix": 12
+   },
+   {
+    "row": "ac-00478",
+    "len": 32,
+    "record": 32,
+    "at_record": true,
+    "src": "ACC_TIE_00478_20260924.txt",
+    "start": 27,
+    "peak": 46,
+    "p2_start": 17,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 19,
+    "raw_climb_prefix": 19
+   },
+   {
+    "row": "ac-00483",
+    "len": 39,
+    "record": 39,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_00483_20260926.txt",
+    "start": 18,
+    "peak": 29,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 11,
+    "raw_climb_prefix": 11
+   },
+   {
+    "row": "ac-00484",
+    "len": 30,
+    "record": 24,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 28,
+    "peak": 37,
+    "p2_start": 14,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-00505",
+    "len": 47,
+    "record": 43,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 29,
+    "peak": 42,
+    "p2_start": 21,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 13,
+    "raw_climb_prefix": 13
+   },
+   {
+    "row": "ac-00513",
+    "len": 33,
+    "record": 30,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 16,
+    "peak": 29,
+    "p2_start": 15,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 13,
+    "raw_climb_prefix": 13
+   },
+   {
+    "row": "ac-00541",
+    "len": 36,
+    "record": 34,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 30,
+    "peak": 53,
+    "p2_start": 24,
+    "p2_climb_full": 3,
+    "p2_climb_prefix": 3,
+    "raw_climb_full": 23,
+    "raw_climb_prefix": 23
+   },
+   {
+    "row": "ac-00576",
+    "len": 43,
+    "record": 39,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_00576_20260926.txt",
+    "start": 15,
+    "peak": 33,
+    "p2_start": 15,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 18,
+    "raw_climb_prefix": 18
+   },
+   {
+    "row": "ac-00637",
+    "len": 32,
+    "record": 32,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_00637_20260926.txt",
+    "start": 17,
+    "peak": 25,
+    "p2_start": 15,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-00766",
+    "len": 34,
+    "record": 33,
+    "at_record": false,
+    "src": "research/acc/live/ledger/codex_abc_crossjoin_20260928.json",
+    "start": 15,
+    "peak": 26,
+    "p2_start": 14,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 11,
+    "raw_climb_prefix": 11
+   },
+   {
+    "row": "ac-00797",
+    "len": 78,
+    "record": 32,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 24,
+    "peak": 31,
+    "p2_start": 20,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-00828",
+    "len": 34,
+    "record": 30,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 15,
+    "peak": 31,
+    "p2_start": 15,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 16,
+    "raw_climb_prefix": 16
+   },
+   {
+    "row": "ac-00845",
+    "len": 41,
+    "record": 37,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 16,
+    "peak": 26,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 10
+   },
+   {
+    "row": "ac-00862",
+    "len": 50,
+    "record": 43,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_00862_20260926.txt",
+    "start": 16,
+    "peak": 31,
+    "p2_start": 16,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 15,
+    "raw_climb_prefix": 15
+   },
+   {
+    "row": "ac-00974",
+    "len": 26,
+    "record": 24,
+    "at_record": false,
+    "src": "research/acc/live/ledger/codex_abc_crossjoin_20260928.json",
+    "start": 13,
+    "peak": 29,
+    "p2_start": 13,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 16,
+    "raw_climb_prefix": 16
+   },
+   {
+    "row": "ac-01059",
+    "len": 22,
+    "record": 22,
+    "at_record": true,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 19,
+    "peak": 25,
+    "p2_start": 15,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-01182",
+    "len": 33,
+    "record": 32,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 17,
+    "peak": 26,
+    "p2_start": 14,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-01198",
+    "len": 37,
+    "record": 35,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_01198_20260926.txt",
+    "start": 15,
+    "peak": 29,
+    "p2_start": 15,
+    "p2_climb_full": 3,
+    "p2_climb_prefix": 3,
+    "raw_climb_full": 14,
+    "raw_climb_prefix": 14
+   },
+   {
+    "row": "ac-01373",
+    "len": 30,
+    "record": 30,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_01373_20260926.txt",
+    "start": 25,
+    "peak": 32,
+    "p2_start": 21,
+    "p2_climb_full": 2,
+    "p2_climb_prefix": 2,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-01553",
+    "len": 48,
+    "record": 43,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_01553_20260926.txt",
+    "start": 16,
+    "peak": 31,
+    "p2_start": 16,
+    "p2_climb_full": 3,
+    "p2_climb_prefix": 3,
+    "raw_climb_full": 15,
+    "raw_climb_prefix": 15
+   },
+   {
+    "row": "ac-01564",
+    "len": 39,
+    "record": 39,
+    "at_record": true,
+    "src": "ACC_SAC_BATCH_ALL_20260925.txt",
+    "start": 35,
+    "peak": 43,
+    "p2_start": 19,
+    "p2_climb_full": 2,
+    "p2_climb_prefix": 2,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-01570",
+    "len": 44,
+    "record": 40,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 17,
+    "peak": 29,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 12,
+    "raw_climb_prefix": 12
+   },
+   {
+    "row": "ac-01698",
+    "len": 36,
+    "record": 36,
+    "at_record": true,
+    "src": "ACC_QUEUE_20260928T1007Z.txt",
+    "start": 35,
+    "peak": 49,
+    "p2_start": 25,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 14,
+    "raw_climb_prefix": 14
+   },
+   {
+    "row": "ac-01734",
+    "len": 36,
+    "record": 36,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_01734_20260926.txt",
+    "start": 17,
+    "peak": 24,
+    "p2_start": 15,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-01736",
+    "len": 56,
+    "record": 47,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 21,
+    "peak": 31,
+    "p2_start": 15,
+    "p2_climb_full": 6,
+    "p2_climb_prefix": 6,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 10
+   },
+   {
+    "row": "ac-01744",
+    "len": 32,
+    "record": 32,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_01744_20260926.txt",
+    "start": 17,
+    "peak": 26,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-01773",
+    "len": 25,
+    "record": 25,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_01773_20260926.txt",
+    "start": 18,
+    "peak": 25,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-01784",
+    "len": 56,
+    "record": 48,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_01784_20260926.txt",
+    "start": 16,
+    "peak": 35,
+    "p2_start": 16,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 19,
+    "raw_climb_prefix": 19
+   },
+   {
+    "row": "ac-01818",
+    "len": 59,
+    "record": 51,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_01818_20260926.txt",
+    "start": 21,
+    "peak": 35,
+    "p2_start": 15,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 14,
+    "raw_climb_prefix": 14
+   },
+   {
+    "row": "ac-01925",
+    "len": 49,
+    "record": 44,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_01925_20260926.txt",
+    "start": 16,
+    "peak": 35,
+    "p2_start": 16,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 19,
+    "raw_climb_prefix": 19
+   },
+   {
+    "row": "ac-01945",
+    "len": 67,
+    "record": 28,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 31,
+    "peak": 42,
+    "p2_start": 17,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 11,
+    "raw_climb_prefix": 11
+   },
+   {
+    "row": "ac-01962",
+    "len": 20,
+    "record": 20,
+    "at_record": true,
+    "src": "ACC_QUEUE_20260928T0428Z.txt",
+    "start": 27,
+    "peak": 34,
+    "p2_start": 18,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-02315",
+    "len": 36,
+    "record": 36,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_02315_20260926.txt",
+    "start": 17,
+    "peak": 31,
+    "p2_start": 15,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 14,
+    "raw_climb_prefix": 14
+   },
+   {
+    "row": "ac-02346",
+    "len": 51,
+    "record": 40,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 23,
+    "peak": 32,
+    "p2_start": 21,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-02394",
+    "len": 40,
+    "record": 36,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 17,
+    "peak": 31,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 14,
+    "raw_climb_prefix": 14
+   },
+   {
+    "row": "ac-02623",
+    "len": 48,
+    "record": 41,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_02623_20260926.txt",
+    "start": 24,
+    "peak": 31,
+    "p2_start": 20,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-02660",
+    "len": 32,
+    "record": 32,
+    "at_record": true,
+    "src": "research/acc/optimality/runs/2026-09-27/results/beam_scoring20.jsonl",
+    "start": 19,
+    "peak": 35,
+    "p2_start": 17,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 16,
+    "raw_climb_prefix": 16
+   },
+   {
+    "row": "ac-02661",
+    "len": 26,
+    "record": 26,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_02661_20260926.txt",
+    "start": 20,
+    "peak": 29,
+    "p2_start": 19,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-02665",
+    "len": 49,
+    "record": 42,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_02665_20260926.txt",
+    "start": 16,
+    "peak": 31,
+    "p2_start": 16,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 15,
+    "raw_climb_prefix": 15
+   },
+   {
+    "row": "ac-02861",
+    "len": 53,
+    "record": 50,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_02861_20260926.txt",
+    "start": 23,
+    "peak": 35,
+    "p2_start": 17,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 12,
+    "raw_climb_prefix": 12
+   },
+   {
+    "row": "ac-02998",
+    "len": 25,
+    "record": 25,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_02998_20260926.txt",
+    "start": 17,
+    "peak": 24,
+    "p2_start": 17,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-03060",
+    "len": 28,
+    "record": 28,
+    "at_record": true,
+    "src": "ACC_QUEUE_20260928T0819Z.txt",
+    "start": 22,
+    "peak": 46,
+    "p2_start": 22,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 24,
+    "raw_climb_prefix": 24
+   },
+   {
+    "row": "ac-03084",
+    "len": 47,
+    "record": 42,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_03084_20260926.txt",
+    "start": 15,
+    "peak": 31,
+    "p2_start": 15,
+    "p2_climb_full": 6,
+    "p2_climb_prefix": 6,
+    "raw_climb_full": 16,
+    "raw_climb_prefix": 16
+   },
+   {
+    "row": "ac-03142",
+    "len": 36,
+    "record": 35,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 18,
+    "peak": 26,
+    "p2_start": 14,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-03145",
+    "len": 53,
+    "record": 27,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 15,
+    "peak": 23,
+    "p2_start": 15,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-03246",
+    "len": 37,
+    "record": 34,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 17,
+    "peak": 26,
+    "p2_start": 14,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-03254",
+    "len": 31,
+    "record": 28,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 15,
+    "peak": 26,
+    "p2_start": 14,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 11,
+    "raw_climb_prefix": 11
+   },
+   {
+    "row": "ac-03272",
+    "len": 31,
+    "record": 31,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_03272_20260926.txt",
+    "start": 19,
+    "peak": 25,
+    "p2_start": 15,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-03305",
+    "len": 23,
+    "record": 23,
+    "at_record": true,
+    "src": "ACC_SUBMIT_03305_20260927.txt",
+    "start": 24,
+    "peak": 40,
+    "p2_start": 19,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 16,
+    "raw_climb_prefix": 16
+   },
+   {
+    "row": "ac-03474",
+    "len": 22,
+    "record": 22,
+    "at_record": true,
+    "src": "ACC_SAC_BATCH_ALL_20260925.txt",
+    "start": 31,
+    "peak": 41,
+    "p2_start": 17,
+    "p2_climb_full": 2,
+    "p2_climb_prefix": 2,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 10
+   },
+   {
+    "row": "ac-03533",
+    "len": 31,
+    "record": 31,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_03533_20260926.txt",
+    "start": 16,
+    "peak": 26,
+    "p2_start": 14,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-03562",
+    "len": 38,
+    "record": 37,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 18,
+    "peak": 26,
+    "p2_start": 14,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-03696",
+    "len": 46,
+    "record": 40,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_03696_20260926.txt",
+    "start": 15,
+    "peak": 31,
+    "p2_start": 15,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 16,
+    "raw_climb_prefix": 16
+   },
+   {
+    "row": "ac-03789",
+    "len": 34,
+    "record": 34,
+    "at_record": true,
+    "src": "ACC_QUEUE_20260928T1007Z.txt",
+    "start": 31,
+    "peak": 39,
+    "p2_start": 17,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-03853",
+    "len": 52,
+    "record": 44,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_03853_20260926.txt",
+    "start": 15,
+    "peak": 31,
+    "p2_start": 15,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 16,
+    "raw_climb_prefix": 16
+   },
+   {
+    "row": "ac-03919",
+    "len": 30,
+    "record": 27,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 14,
+    "peak": 23,
+    "p2_start": 14,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-03926",
+    "len": 22,
+    "record": 22,
+    "at_record": true,
+    "src": "ACC_NEW_03926_20260925.txt",
+    "start": 23,
+    "peak": 31,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-03945",
+    "len": 29,
+    "record": 28,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 27,
+    "peak": 36,
+    "p2_start": 19,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-04042",
+    "len": 57,
+    "record": 50,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_04042_20260926.txt",
+    "start": 16,
+    "peak": 31,
+    "p2_start": 16,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 15,
+    "raw_climb_prefix": 15
+   },
+   {
+    "row": "ac-04070",
+    "len": 40,
+    "record": 34,
+    "at_record": false,
+    "src": "research/acc/live/sweeps/p2b_cap.jsonl",
+    "start": 18,
+    "peak": 25,
+    "p2_start": 14,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-04101",
+    "len": 46,
+    "record": 36,
+    "at_record": false,
+    "src": "research/acc/live/sweeps/p2a_cap.jsonl",
+    "start": 36,
+    "peak": 51,
+    "p2_start": 22,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 15,
+    "raw_climb_prefix": 15
+   },
+   {
+    "row": "ac-04193",
+    "len": 48,
+    "record": 44,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_04193_20260926.txt",
+    "start": 16,
+    "peak": 35,
+    "p2_start": 16,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 19,
+    "raw_climb_prefix": 19
+   },
+   {
+    "row": "ac-04251",
+    "len": 38,
+    "record": 37,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 17,
+    "peak": 26,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-04263",
+    "len": 29,
+    "record": 29,
+    "at_record": true,
+    "src": "ACC_SAC_BATCH_ALL_20260925.txt",
+    "start": 16,
+    "peak": 27,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 11,
+    "raw_climb_prefix": 11
+   },
+   {
+    "row": "ac-04276",
+    "len": 33,
+    "record": 32,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 15,
+    "peak": 29,
+    "p2_start": 15,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 14,
+    "raw_climb_prefix": 14
+   },
+   {
+    "row": "ac-04282",
+    "len": 48,
+    "record": 35,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 16,
+    "peak": 27,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 11,
+    "raw_climb_prefix": 11
+   },
+   {
+    "row": "ac-04308",
+    "len": 34,
+    "record": 21,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 13,
+    "peak": 20,
+    "p2_start": 13,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-04315",
+    "len": 52,
+    "record": 44,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_04315_20260926.txt",
+    "start": 24,
+    "peak": 35,
+    "p2_start": 18,
+    "p2_climb_full": 3,
+    "p2_climb_prefix": 3,
+    "raw_climb_full": 11,
+    "raw_climb_prefix": 11
+   },
+   {
+    "row": "ac-04346",
+    "len": 27,
+    "record": 24,
+    "at_record": false,
+    "src": "research/acc/live/sweeps/p2a_cap.jsonl",
+    "start": 24,
+    "peak": 41,
+    "p2_start": 22,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 17,
+    "raw_climb_prefix": 17
+   },
+   {
+    "row": "ac-04416",
+    "len": 32,
+    "record": 29,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 15,
+    "peak": 23,
+    "p2_start": 14,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-04520",
+    "len": 38,
+    "record": 34,
+    "at_record": false,
+    "src": "research/acc/live/sweeps/p2a_cap.jsonl",
+    "start": 18,
+    "peak": 41,
+    "p2_start": 18,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 23,
+    "raw_climb_prefix": 23
+   },
+   {
+    "row": "ac-04624",
+    "len": 37,
+    "record": 33,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 16,
+    "peak": 29,
+    "p2_start": 15,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 13,
+    "raw_climb_prefix": 13
+   },
+   {
+    "row": "ac-04638",
+    "len": 50,
+    "record": 45,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_04638_20260926.txt",
+    "start": 23,
+    "peak": 31,
+    "p2_start": 17,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-04690",
+    "len": 62,
+    "record": 53,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 16,
+    "peak": 39,
+    "p2_start": 16,
+    "p2_climb_full": 6,
+    "p2_climb_prefix": 6,
+    "raw_climb_full": 23,
+    "raw_climb_prefix": 23
+   },
+   {
+    "row": "ac-04705",
+    "len": 13,
+    "record": 13,
+    "at_record": true,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 21,
+    "peak": 38,
+    "p2_start": 2,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 17,
+    "raw_climb_prefix": 17
+   },
+   {
+    "row": "ac-04860",
+    "len": 17,
+    "record": 17,
+    "at_record": true,
+    "src": "ACC_TIES_20260924.txt",
+    "start": 33,
+    "peak": 48,
+    "p2_start": 20,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 15,
+    "raw_climb_prefix": 15
+   },
+   {
+    "row": "ac-04953",
+    "len": 50,
+    "record": 37,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 29,
+    "peak": 51,
+    "p2_start": 17,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 22,
+    "raw_climb_prefix": 22
+   },
+   {
+    "row": "ac-04969",
+    "len": 49,
+    "record": 39,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 23,
+    "peak": 31,
+    "p2_start": 21,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-04989",
+    "len": 34,
+    "record": 34,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_04989_20260926.txt",
+    "start": 16,
+    "peak": 26,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 10
+   },
+   {
+    "row": "ac-05064",
+    "len": 40,
+    "record": 36,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_05064_20260926.txt",
+    "start": 15,
+    "peak": 29,
+    "p2_start": 15,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 14,
+    "raw_climb_prefix": 14
+   },
+   {
+    "row": "ac-05137",
+    "len": 42,
+    "record": 39,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_05137_20260926.txt",
+    "start": 15,
+    "peak": 31,
+    "p2_start": 15,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 16,
+    "raw_climb_prefix": 16
+   },
+   {
+    "row": "ac-05170",
+    "len": 15,
+    "record": 15,
+    "at_record": true,
+    "src": "ACC_TIES_20260924.txt",
+    "start": 19,
+    "peak": 30,
+    "p2_start": 19,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 11,
+    "raw_climb_prefix": 11
+   },
+   {
+    "row": "ac-05214",
+    "len": 54,
+    "record": 46,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_05214_20260926.txt",
+    "start": 17,
+    "peak": 37,
+    "p2_start": 17,
+    "p2_climb_full": 6,
+    "p2_climb_prefix": 6,
+    "raw_climb_full": 20,
+    "raw_climb_prefix": 20
+   },
+   {
+    "row": "ac-05262",
+    "len": 43,
+    "record": 42,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 28,
+    "peak": 37,
+    "p2_start": 20,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-05393",
+    "len": 33,
+    "record": 33,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_05393_20260926.txt",
+    "start": 20,
+    "peak": 27,
+    "p2_start": 18,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-05406",
+    "len": 32,
+    "record": 31,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 14,
+    "peak": 26,
+    "p2_start": 14,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 12,
+    "raw_climb_prefix": 12
+   },
+   {
+    "row": "ac-05441",
+    "len": 38,
+    "record": 26,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 18,
+    "peak": 29,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 11,
+    "raw_climb_prefix": 11
+   },
+   {
+    "row": "ac-05487",
+    "len": 36,
+    "record": 33,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 17,
+    "peak": 29,
+    "p2_start": 15,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 12,
+    "raw_climb_prefix": 12
+   },
+   {
+    "row": "ac-05521",
+    "len": 34,
+    "record": 31,
+    "at_record": false,
+    "src": "research/acc/live/sweeps/p2b_cap.jsonl",
+    "start": 19,
+    "peak": 29,
+    "p2_start": 17,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 10
+   },
+   {
+    "row": "ac-05653",
+    "len": 28,
+    "record": 28,
+    "at_record": true,
+    "src": "ACC_SAC_BATCH_ALL_20260925.txt",
+    "start": 17,
+    "peak": 24,
+    "p2_start": 13,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-05728",
+    "len": 32,
+    "record": 32,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_05728_20260926.txt",
+    "start": 16,
+    "peak": 22,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-05873",
+    "len": 34,
+    "record": 34,
+    "at_record": true,
+    "src": "ACC_SAC_BATCH_ALL_20260925.txt",
+    "start": 34,
+    "peak": 41,
+    "p2_start": 23,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-05954",
+    "len": 36,
+    "record": 36,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_05954_20260926.txt",
+    "start": 17,
+    "peak": 26,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-06095",
+    "len": 47,
+    "record": 40,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_06095_20260926.txt",
+    "start": 22,
+    "peak": 31,
+    "p2_start": 18,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-06105",
+    "len": 59,
+    "record": 52,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_06105_20260926.txt",
+    "start": 22,
+    "peak": 33,
+    "p2_start": 18,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 11,
+    "raw_climb_prefix": 11
+   },
+   {
+    "row": "ac-06122",
+    "len": 36,
+    "record": 32,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 15,
+    "peak": 26,
+    "p2_start": 14,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 11,
+    "raw_climb_prefix": 11
+   },
+   {
+    "row": "ac-06154",
+    "len": 15,
+    "record": 15,
+    "at_record": true,
+    "src": "ACC_TIES_20260924.txt",
+    "start": 25,
+    "peak": 46,
+    "p2_start": 2,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 21,
+    "raw_climb_prefix": 21
+   },
+   {
+    "row": "ac-06299",
+    "len": 44,
+    "record": 36,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 21,
+    "peak": 27,
+    "p2_start": 19,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-06527",
+    "len": 45,
+    "record": 35,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 18,
+    "peak": 26,
+    "p2_start": 14,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-06639",
+    "len": 34,
+    "record": 34,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_06639_20260926.txt",
+    "start": 18,
+    "peak": 27,
+    "p2_start": 17,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-06888",
+    "len": 42,
+    "record": 38,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_06888_20260926.txt",
+    "start": 15,
+    "peak": 31,
+    "p2_start": 15,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 16,
+    "raw_climb_prefix": 16
+   },
+   {
+    "row": "ac-06903",
+    "len": 39,
+    "record": 37,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 18,
+    "peak": 27,
+    "p2_start": 14,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-06904",
+    "len": 43,
+    "record": 35,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 29,
+    "peak": 36,
+    "p2_start": 19,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-06936",
+    "len": 30,
+    "record": 26,
+    "at_record": false,
+    "src": "research/acc/live/sweeps/p2a_cap.jsonl",
+    "start": 25,
+    "peak": 33,
+    "p2_start": 19,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-06960",
+    "len": 33,
+    "record": 33,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_06960_20260926.txt",
+    "start": 14,
+    "peak": 23,
+    "p2_start": 13,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-07031",
+    "len": 41,
+    "record": 38,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 17,
+    "peak": 29,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 12,
+    "raw_climb_prefix": 12
+   },
+   {
+    "row": "ac-07071",
+    "len": 18,
+    "record": 18,
+    "at_record": true,
+    "src": "ACC_TIES_20260924.txt",
+    "start": 19,
+    "peak": 27,
+    "p2_start": 15,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-07119",
+    "len": 38,
+    "record": 33,
+    "at_record": false,
+    "src": "research/acc/live/sweeps/p2b_cap.jsonl",
+    "start": 18,
+    "peak": 24,
+    "p2_start": 14,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-07163",
+    "len": 31,
+    "record": 31,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_07163_20260926.txt",
+    "start": 17,
+    "peak": 24,
+    "p2_start": 17,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-07169",
+    "len": 18,
+    "record": 18,
+    "at_record": true,
+    "src": "ACC_TIES_20260924.txt",
+    "start": 20,
+    "peak": 31,
+    "p2_start": 20,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 11,
+    "raw_climb_prefix": 11
+   },
+   {
+    "row": "ac-07269",
+    "len": 52,
+    "record": 38,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 21,
+    "peak": 29,
+    "p2_start": 19,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-07289",
+    "len": 26,
+    "record": 26,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_07289_20260926.txt",
+    "start": 16,
+    "peak": 26,
+    "p2_start": 13,
+    "p2_climb_full": 2,
+    "p2_climb_prefix": 2,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-07341",
+    "len": 67,
+    "record": 55,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_07341_20260926.txt",
+    "start": 18,
+    "peak": 43,
+    "p2_start": 16,
+    "p2_climb_full": 8,
+    "p2_climb_prefix": 8,
+    "raw_climb_full": 25,
+    "raw_climb_prefix": 25
+   },
+   {
+    "row": "ac-07351",
+    "len": 26,
+    "record": 24,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 29,
+    "peak": 41,
+    "p2_start": 17,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 12,
+    "raw_climb_prefix": 12
+   },
+   {
+    "row": "ac-07458",
+    "len": 24,
+    "record": 24,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_07458_20260926.txt",
+    "start": 17,
+    "peak": 26,
+    "p2_start": 15,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 9,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-07517",
+    "len": 34,
+    "record": 34,
+    "at_record": true,
+    "src": "ACC_SAC_BATCH_ALL_20260925.txt",
+    "start": 17,
+    "peak": 25,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-07531",
+    "len": 33,
+    "record": 33,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_07531_20260926.txt",
+    "start": 19,
+    "peak": 25,
+    "p2_start": 17,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-07542",
+    "len": 35,
+    "record": 28,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 23,
+    "peak": 29,
+    "p2_start": 17,
+    "p2_climb_full": 2,
+    "p2_climb_prefix": 2,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-07667",
+    "len": 52,
+    "record": 45,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_07667_20260926.txt",
+    "start": 15,
+    "peak": 35,
+    "p2_start": 15,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 20,
+    "raw_climb_prefix": 20
+   },
+   {
+    "row": "ac-07673",
+    "len": 31,
+    "record": 31,
+    "at_record": true,
+    "src": "ACC_SAC_BATCH_ALL_20260925.txt",
+    "start": 31,
+    "peak": 39,
+    "p2_start": 21,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-07738",
+    "len": 49,
+    "record": 39,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 17,
+    "peak": 27,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 10
+   },
+   {
+    "row": "ac-07875",
+    "len": 43,
+    "record": 38,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 24,
+    "peak": 32,
+    "p2_start": 18,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-07920",
+    "len": 47,
+    "record": 35,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 29,
+    "peak": 39,
+    "p2_start": 19,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 10
+   },
+   {
+    "row": "ac-08031",
+    "len": 37,
+    "record": 35,
+    "at_record": false,
+    "src": "research/acc/live/sweeps/p2b_cap.jsonl",
+    "start": 18,
+    "peak": 41,
+    "p2_start": 18,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 23,
+    "raw_climb_prefix": 23
+   },
+   {
+    "row": "ac-08106",
+    "len": 79,
+    "record": 40,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 15,
+    "peak": 23,
+    "p2_start": 15,
+    "p2_climb_full": 2,
+    "p2_climb_prefix": 2,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-08130",
+    "len": 30,
+    "record": 30,
+    "at_record": true,
+    "src": "ACC_SUBMIT_API_20260927T2329Z.txt#sac",
+    "start": 28,
+    "peak": 45,
+    "p2_start": 18,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 17,
+    "raw_climb_prefix": 17
+   },
+   {
+    "row": "ac-08252",
+    "len": 39,
+    "record": 33,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 15,
+    "peak": 23,
+    "p2_start": 15,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-08275",
+    "len": 35,
+    "record": 33,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 17,
+    "peak": 27,
+    "p2_start": 14,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 10
+   },
+   {
+    "row": "ac-08301",
+    "len": 32,
+    "record": 32,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_08301_20260926.txt",
+    "start": 17,
+    "peak": 23,
+    "p2_start": 17,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-08323",
+    "len": 29,
+    "record": 29,
+    "at_record": true,
+    "src": "ACC_CANDIDATE_08323_20260926.txt",
+    "start": 15,
+    "peak": 26,
+    "p2_start": 13,
+    "p2_climb_full": 2,
+    "p2_climb_prefix": 2,
+    "raw_climb_full": 11,
+    "raw_climb_prefix": 9
+   },
+   {
+    "row": "ac-08327",
+    "len": 17,
+    "record": 17,
+    "at_record": true,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 11,
+    "peak": 19,
+    "p2_start": 11,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-08339",
+    "len": 37,
+    "record": 36,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 18,
+    "peak": 26,
+    "p2_start": 14,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 8,
+    "raw_climb_prefix": 8
+   },
+   {
+    "row": "ac-08376",
+    "len": 67,
+    "record": 57,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 33,
+    "peak": 39,
+    "p2_start": 17,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-08382",
+    "len": 58,
+    "record": 51,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 16,
+    "peak": 39,
+    "p2_start": 16,
+    "p2_climb_full": 6,
+    "p2_climb_prefix": 6,
+    "raw_climb_full": 23,
+    "raw_climb_prefix": 23
+   },
+   {
+    "row": "ac-08516",
+    "len": 59,
+    "record": 48,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 16,
+    "peak": 39,
+    "p2_start": 16,
+    "p2_climb_full": 8,
+    "p2_climb_prefix": 8,
+    "raw_climb_full": 23,
+    "raw_climb_prefix": 23
+   },
+   {
+    "row": "ac-08586",
+    "len": 52,
+    "record": 44,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 25,
+    "peak": 38,
+    "p2_start": 21,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 13,
+    "raw_climb_prefix": 13
+   },
+   {
+    "row": "ac-08630",
+    "len": 49,
+    "record": 43,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_08630_20260926.txt",
+    "start": 17,
+    "peak": 35,
+    "p2_start": 15,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 18,
+    "raw_climb_prefix": 18
+   },
+   {
+    "row": "ac-08649",
+    "len": 41,
+    "record": 37,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_08649_20260926.txt",
+    "start": 15,
+    "peak": 27,
+    "p2_start": 15,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 12,
+    "raw_climb_prefix": 12
+   },
+   {
+    "row": "ac-08651",
+    "len": 33,
+    "record": 29,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 14,
+    "peak": 26,
+    "p2_start": 14,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 12,
+    "raw_climb_prefix": 12
+   },
+   {
+    "row": "ac-08705",
+    "len": 49,
+    "record": 38,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 17,
+    "peak": 27,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 10
+   },
+   {
+    "row": "ac-08813",
+    "len": 61,
+    "record": 41,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 19,
+    "peak": 31,
+    "p2_start": 17,
+    "p2_climb_full": 3,
+    "p2_climb_prefix": 3,
+    "raw_climb_full": 12,
+    "raw_climb_prefix": 12
+   },
+   {
+    "row": "ac-08832",
+    "len": 60,
+    "record": 49,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_08832_20260926.txt",
+    "start": 22,
+    "peak": 39,
+    "p2_start": 18,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 17,
+    "raw_climb_prefix": 17
+   },
+   {
+    "row": "ac-08900",
+    "len": 75,
+    "record": 33,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 17,
+    "peak": 27,
+    "p2_start": 17,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 10
+   },
+   {
+    "row": "ac-08941",
+    "len": 65,
+    "record": 57,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 29,
+    "peak": 39,
+    "p2_start": 16,
+    "p2_climb_full": 8,
+    "p2_climb_prefix": 8,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 10
+   },
+   {
+    "row": "ac-08998",
+    "len": 51,
+    "record": 46,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 19,
+    "peak": 33,
+    "p2_start": 17,
+    "p2_climb_full": 4,
+    "p2_climb_prefix": 4,
+    "raw_climb_full": 14,
+    "raw_climb_prefix": 14
+   },
+   {
+    "row": "ac-09034",
+    "len": 64,
+    "record": 57,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_09034_20260926.txt",
+    "start": 23,
+    "peak": 39,
+    "p2_start": 17,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 16,
+    "raw_climb_prefix": 16
+   },
+   {
+    "row": "ac-09070",
+    "len": 40,
+    "record": 30,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_windowed_20260928.jsonl",
+    "start": 15,
+    "peak": 21,
+    "p2_start": 14,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-09091",
+    "len": 30,
+    "record": 29,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 31,
+    "peak": 47,
+    "p2_start": 20,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 16,
+    "raw_climb_prefix": 16
+   },
+   {
+    "row": "ac-09243",
+    "len": 36,
+    "record": 32,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 15,
+    "peak": 21,
+    "p2_start": 15,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-09259",
+    "len": 75,
+    "record": 36,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 21,
+    "peak": 27,
+    "p2_start": 15,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-09327",
+    "len": 35,
+    "record": 32,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 16,
+    "peak": 26,
+    "p2_start": 14,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 10
+   },
+   {
+    "row": "ac-09365",
+    "len": 30,
+    "record": 29,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_09365_20260926.txt",
+    "start": 21,
+    "peak": 27,
+    "p2_start": 17,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 4
+   },
+   {
+    "row": "ac-09562",
+    "len": 60,
+    "record": 36,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 31,
+    "peak": 37,
+    "p2_start": 15,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-09594",
+    "len": 15,
+    "record": 15,
+    "at_record": true,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 11,
+    "peak": 17,
+    "p2_start": 11,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-09717",
+    "len": 32,
+    "record": 28,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 15,
+    "peak": 26,
+    "p2_start": 14,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 11,
+    "raw_climb_prefix": 11
+   },
+   {
+    "row": "ac-09757",
+    "len": 40,
+    "record": 40,
+    "at_record": true,
+    "src": "ACC_SUBMIT_API_20260927T2329Z.txt#sac",
+    "start": 24,
+    "peak": 31,
+    "p2_start": 18,
+    "p2_climb_full": 3,
+    "p2_climb_prefix": 3,
+    "raw_climb_full": 7,
+    "raw_climb_prefix": 7
+   },
+   {
+    "row": "ac-09776",
+    "len": 38,
+    "record": 34,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 15,
+    "peak": 27,
+    "p2_start": 15,
+    "p2_climb_full": 3,
+    "p2_climb_prefix": 3,
+    "raw_climb_full": 12,
+    "raw_climb_prefix": 12
+   },
+   {
+    "row": "ac-09825",
+    "len": 44,
+    "record": 40,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_09825_20260926.txt",
+    "start": 15,
+    "peak": 31,
+    "p2_start": 15,
+    "p2_climb_full": 3,
+    "p2_climb_prefix": 3,
+    "raw_climb_full": 16,
+    "raw_climb_prefix": 16
+   },
+   {
+    "row": "ac-09868",
+    "len": 25,
+    "record": 25,
+    "at_record": true,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 14,
+    "peak": 20,
+    "p2_start": 13,
+    "p2_climb_full": 1,
+    "p2_climb_prefix": 1,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   },
+   {
+    "row": "ac-09870",
+    "len": 46,
+    "record": 41,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+    "start": 30,
+    "peak": 43,
+    "p2_start": 26,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 13,
+    "raw_climb_prefix": 13
+   },
+   {
+    "row": "ac-09910",
+    "len": 43,
+    "record": 39,
+    "at_record": false,
+    "src": "ACC_CANDIDATE_09910_20260926.txt",
+    "start": 15,
+    "peak": 33,
+    "p2_start": 15,
+    "p2_climb_full": 5,
+    "p2_climb_prefix": 5,
+    "raw_climb_full": 18,
+    "raw_climb_prefix": 18
+   },
+   {
+    "row": "ac-09973",
+    "len": 49,
+    "record": 39,
+    "at_record": false,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 17,
+    "peak": 27,
+    "p2_start": 16,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 10,
+    "raw_climb_prefix": 10
+   },
+   {
+    "row": "ac-10115",
+    "len": 22,
+    "record": 22,
+    "at_record": true,
+    "src": "research/acc/live/ledger/crossrow_r2_20260928.json",
+    "start": 16,
+    "peak": 22,
+    "p2_start": 15,
+    "p2_climb_full": 0,
+    "p2_climb_prefix": 0,
+    "raw_climb_full": 6,
+    "raw_climb_prefix": 6
+   }
+  ],
+  "c_choice": "c = 1 keeps 83% of the 59 at-record hump paths (c = 0: 66%); on all 178 verified hump paths c = 2 is needed for >= 70% (72.5%)"
+ },
+ "runs": [
+  {
+   "row": "ac-07435",
+   "mode": "p2",
+   "param": 0,
+   "cap": 50,
+   "start": 26,
+   "ac_record": 26,
+   "sac_record": 28,
+   "maxd": 18,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 189.1,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 11,
+   "status": "STOPPED",
+   "p2_start": 18,
+   "p2_bound": 18,
+   "p2_rejected_children": 10930009,
+   "p2_calls": 13090339,
+   "p2_cache_hits": 11714745,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     12,
+     13,
+     -1,
+     -1
+    ],
+    [
+     2,
+     82,
+     95,
+     -1,
+     -1
+    ],
+    [
+     3,
+     463,
+     558,
+     -1,
+     -1
+    ],
+    [
+     4,
+     2416,
+     2974,
+     -1,
+     -1
+    ],
+    [
+     5,
+     11587,
+     14561,
+     -1,
+     -1
+    ],
+    [
+     6,
+     51561,
+     66122,
+     -1,
+     -1
+    ],
+    [
+     7,
+     217052,
+     283174,
+     -1,
+     -1
+    ],
+    [
+     8,
+     878806,
+     1161980,
+     -1,
+     -1
+    ],
+    [
+     9,
+     3421121,
+     4583101,
+     -1,
+     -1
+    ],
+    [
+     10,
+     12813766,
+     17396867,
+     -1,
+     -1
+    ],
+    [
+     11,
+     37603133,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "pad": null,
+   "cap_slack": 24,
+   "set": "test"
+  },
+  {
+   "row": "ac-07435",
+   "mode": "p2",
+   "param": 1,
+   "cap": 50,
+   "start": 26,
+   "ac_record": 26,
+   "sac_record": 28,
+   "maxd": 18,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 183.0,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 11,
+   "status": "STOPPED",
+   "p2_start": 18,
+   "p2_bound": 19,
+   "p2_rejected_children": 11383234,
+   "p2_calls": 14032782,
+   "p2_cache_hits": 12659370,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     12,
+     13,
+     -1,
+     -1
+    ],
+    [
+     2,
+     84,
+     97,
+     -1,
+     -1
+    ],
+    [
+     3,
+     487,
+     584,
+     -1,
+     -1
+    ],
+    [
+     4,
+     2606,
+     3190,
+     -1,
+     -1
+    ],
+    [
+     5,
+     12923,
+     16113,
+     -1,
+     -1
+    ],
+    [
+     6,
+     60075,
+     76188,
+     -1,
+     -1
+    ],
+    [
+     7,
+     265424,
+     341612,
+     -1,
+     -1
+    ],
+    [
+     8,
+     1123505,
+     1465117,
+     -1,
+     -1
+    ],
+    [
+     9,
+     4526194,
+     5991311,
+     -1,
+     -1
+    ],
+    [
+     10,
+     17280597,
+     23271908,
+     -1,
+     -1
+    ],
+    [
+     11,
+     31728092,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "pad": null,
+   "cap_slack": 24,
+   "set": "test"
+  },
+  {
+   "row": "ac-07435",
+   "mode": "p2",
+   "param": 2,
+   "cap": 50,
+   "start": 26,
+   "ac_record": 26,
+   "sac_record": 28,
+   "maxd": 18,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 174.0,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 11,
+   "status": "STOPPED",
+   "p2_start": 18,
+   "p2_bound": 20,
+   "p2_rejected_children": 10860830,
+   "p2_calls": 13835674,
+   "p2_cache_hits": 12482360,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     12,
+     13,
+     -1,
+     -1
+    ],
+    [
+     2,
+     84,
+     97,
+     -1,
+     -1
+    ],
+    [
+     3,
+     489,
+     586,
+     -1,
+     -1
+    ],
+    [
+     4,
+     2632,
+     3218,
+     -1,
+     -1
+    ],
+    [
+     5,
+     13119,
+     16337,
+     -1,
+     -1
+    ],
+    [
+     6,
+     61483,
+     77820,
+     -1,
+     -1
+    ],
+    [
+     7,
+     274737,
+     352557,
+     -1,
+     -1
+    ],
+    [
+     8,
+     1177988,
+     1530545,
+     -1,
+     -1
+    ],
+    [
+     9,
+     4805912,
+     6336457,
+     -1,
+     -1
+    ],
+    [
+     10,
+     18560048,
+     24896505,
+     -1,
+     -1
+    ],
+    [
+     11,
+     30103495,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "pad": null,
+   "cap_slack": 24,
+   "set": "test"
+  },
+  {
+   "row": "ac-07435",
+   "mode": "p2",
+   "param": 0,
+   "pad": 4,
+   "cap": 50,
+   "cap_slack": 24,
+   "start": 26,
+   "ac_record": 26,
+   "sac_record": 28,
+   "maxd": 18,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 366.1,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 16,
+   "status": "STOPPED",
+   "p2_start": 18,
+   "p2_bound": 18,
+   "p2_rejected_children": 98128041,
+   "p2_calls": 26812494,
+   "p2_cache_hits": 23965889,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     12,
+     13,
+     -1,
+     -1
+    ],
+    [
+     2,
+     69,
+     82,
+     -1,
+     -1
+    ],
+    [
+     3,
+     269,
+     351,
+     -1,
+     -1
+    ],
+    [
+     4,
+     856,
+     1207,
+     -1,
+     -1
+    ],
+    [
+     5,
+     2722,
+     3929,
+     -1,
+     -1
+    ],
+    [
+     6,
+     9073,
+     13002,
+     -1,
+     -1
+    ],
+    [
+     7,
+     28808,
+     41810,
+     -1,
+     -1
+    ],
+    [
+     8,
+     80617,
+     122427,
+     -1,
+     -1
+    ],
+    [
+     9,
+     199902,
+     322329,
+     -1,
+     -1
+    ],
+    [
+     10,
+     456073,
+     778402,
+     -1,
+     -1
+    ],
+    [
+     11,
+     995240,
+     1773642,
+     -1,
+     -1
+    ],
+    [
+     12,
+     2145126,
+     3918768,
+     -1,
+     -1
+    ],
+    [
+     13,
+     4655492,
+     8574260,
+     -1,
+     -1
+    ],
+    [
+     14,
+     10265292,
+     18839552,
+     -1,
+     -1
+    ],
+    [
+     15,
+     22935991,
+     41775543,
+     -1,
+     -1
+    ],
+    [
+     16,
+     13224457,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-07435",
+   "mode": "p2",
+   "param": 0,
+   "pad": null,
+   "cap": 27,
+   "cap_slack": 1,
+   "start": 26,
+   "ac_record": 26,
+   "sac_record": 28,
+   "maxd": 18,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 21.0,
+   "peak_rss_gb": 2.67,
+   "killed": null,
+   "states": 6975907,
+   "depth_reached": 19,
+   "status": "STOPPED",
+   "p2_start": 18,
+   "p2_bound": 18,
+   "p2_rejected_children": 162565,
+   "p2_calls": 573804,
+   "p2_cache_hits": 522696,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     7,
+     8,
+     -1,
+     -1
+    ],
+    [
+     2,
+     28,
+     36,
+     -1,
+     -1
+    ],
+    [
+     3,
+     79,
+     115,
+     -1,
+     -1
+    ],
+    [
+     4,
+     217,
+     332,
+     -1,
+     -1
+    ],
+    [
+     5,
+     601,
+     933,
+     -1,
+     -1
+    ],
+    [
+     6,
+     1582,
+     2515,
+     -1,
+     -1
+    ],
+    [
+     7,
+     3692,
+     6207,
+     -1,
+     -1
+    ],
+    [
+     8,
+     7264,
+     13471,
+     -1,
+     -1
+    ],
+    [
+     9,
+     12942,
+     26413,
+     -1,
+     -1
+    ],
+    [
+     10,
+     23942,
+     50355,
+     -1,
+     -1
+    ],
+    [
+     11,
+     47406,
+     97761,
+     -1,
+     -1
+    ],
+    [
+     12,
+     92716,
+     190477,
+     -1,
+     -1
+    ],
+    [
+     13,
+     173749,
+     364226,
+     -1,
+     -1
+    ],
+    [
+     14,
+     312408,
+     676634,
+     -1,
+     -1
+    ],
+    [
+     15,
+     547956,
+     1224590,
+     -1,
+     -1
+    ],
+    [
+     16,
+     962470,
+     2187060,
+     -1,
+     -1
+    ],
+    [
+     17,
+     1714460,
+     3901520,
+     -1,
+     -1
+    ],
+    [
+     18,
+     3074387,
+     6975907,
+     26,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": 6975907,
+   "sac_record_hit_states": null,
+   "ac": {
+    "len": 26,
+    "replay_ok": true,
+    "moves": [
+     0,
+     4,
+     8,
+     12,
+     12,
+     4,
+     10,
+     5,
+     1,
+     13,
+     11,
+     3,
+     12,
+     11,
+     12,
+     4,
+     12,
+     3,
+     0,
+     2,
+     6,
+     3,
+     9,
+     12,
+     4,
+     2
+    ]
+   },
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-07435",
+   "mode": "len",
+   "param": 27,
+   "pad": null,
+   "cap": 27,
+   "cap_slack": 1,
+   "start": 26,
+   "ac_record": 26,
+   "sac_record": 28,
+   "maxd": 18,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 18.0,
+   "peak_rss_gb": 2.6,
+   "killed": null,
+   "states": 9397019,
+   "depth_reached": 19,
+   "status": "STOPPED",
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     7,
+     8,
+     -1,
+     -1
+    ],
+    [
+     2,
+     28,
+     36,
+     -1,
+     -1
+    ],
+    [
+     3,
+     79,
+     115,
+     -1,
+     -1
+    ],
+    [
+     4,
+     220,
+     335,
+     -1,
+     -1
+    ],
+    [
+     5,
+     641,
+     976,
+     -1,
+     -1
+    ],
+    [
+     6,
+     1836,
+     2812,
+     -1,
+     -1
+    ],
+    [
+     7,
+     4741,
+     7553,
+     -1,
+     -1
+    ],
+    [
+     8,
+     10351,
+     17904,
+     -1,
+     -1
+    ],
+    [
+     9,
+     19817,
+     37721,
+     -1,
+     -1
+    ],
+    [
+     10,
+     36175,
+     73896,
+     -1,
+     -1
+    ],
+    [
+     11,
+     66843,
+     140739,
+     -1,
+     -1
+    ],
+    [
+     12,
+     123917,
+     264656,
+     -1,
+     -1
+    ],
+    [
+     13,
+     226875,
+     491531,
+     -1,
+     -1
+    ],
+    [
+     14,
+     407241,
+     898772,
+     -1,
+     -1
+    ],
+    [
+     15,
+     723595,
+     1622367,
+     -1,
+     -1
+    ],
+    [
+     16,
+     1292052,
+     2914419,
+     -1,
+     -1
+    ],
+    [
+     17,
+     2323586,
+     5238005,
+     -1,
+     -1
+    ],
+    [
+     18,
+     4159014,
+     9397019,
+     26,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": 9397019,
+   "sac_record_hit_states": null,
+   "ac": {
+    "len": 26,
+    "replay_ok": true,
+    "moves": [
+     0,
+     4,
+     8,
+     12,
+     12,
+     4,
+     10,
+     5,
+     1,
+     13,
+     11,
+     3,
+     12,
+     11,
+     12,
+     4,
+     12,
+     3,
+     0,
+     2,
+     6,
+     3,
+     9,
+     12,
+     4,
+     2
+    ]
+   },
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-03305",
+   "mode": "p2",
+   "param": 0,
+   "pad": null,
+   "cap": 40,
+   "cap_slack": 16,
+   "start": 24,
+   "ac_record": 23,
+   "sac_record": 24,
+   "maxd": 15,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 111.0,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 13,
+   "status": "STOPPED",
+   "p2_start": 19,
+   "p2_bound": 19,
+   "p2_rejected_children": 605406,
+   "p2_calls": 2230117,
+   "p2_cache_hits": 2050734,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     14,
+     15,
+     -1,
+     -1
+    ],
+    [
+     2,
+     133,
+     148,
+     -1,
+     -1
+    ],
+    [
+     3,
+     921,
+     1069,
+     -1,
+     -1
+    ],
+    [
+     4,
+     4712,
+     5781,
+     -1,
+     -1
+    ],
+    [
+     5,
+     18802,
+     24583,
+     -1,
+     -1
+    ],
+    [
+     6,
+     63015,
+     87598,
+     -1,
+     -1
+    ],
+    [
+     7,
+     189241,
+     276839,
+     -1,
+     -1
+    ],
+    [
+     8,
+     537239,
+     814078,
+     -1,
+     -1
+    ],
+    [
+     9,
+     1404836,
+     2218914,
+     -1,
+     -1
+    ],
+    [
+     10,
+     3316309,
+     5535223,
+     -1,
+     -1
+    ],
+    [
+     11,
+     7328957,
+     12864180,
+     -1,
+     -1
+    ],
+    [
+     12,
+     16056451,
+     28920631,
+     -1,
+     -1
+    ],
+    [
+     13,
+     26079369,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-03305",
+   "mode": "p2",
+   "param": 0,
+   "pad": 2,
+   "cap": 48,
+   "cap_slack": 24,
+   "start": 24,
+   "ac_record": 23,
+   "sac_record": 24,
+   "maxd": 15,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 222.1,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 36284724,
+   "depth_reached": 16,
+   "status": "STOPPED",
+   "p2_start": 19,
+   "p2_bound": 19,
+   "p2_rejected_children": 53465496,
+   "p2_calls": 9478414,
+   "p2_cache_hits": 8177367,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     12,
+     13,
+     -1,
+     -1
+    ],
+    [
+     2,
+     87,
+     100,
+     -1,
+     -1
+    ],
+    [
+     3,
+     514,
+     614,
+     -1,
+     -1
+    ],
+    [
+     4,
+     2282,
+     2896,
+     -1,
+     -1
+    ],
+    [
+     5,
+     7766,
+     10662,
+     -1,
+     -1
+    ],
+    [
+     6,
+     21368,
+     32030,
+     -1,
+     -1
+    ],
+    [
+     7,
+     50285,
+     82315,
+     -1,
+     -1
+    ],
+    [
+     8,
+     106743,
+     189058,
+     -1,
+     -1
+    ],
+    [
+     9,
+     214791,
+     403849,
+     -1,
+     -1
+    ],
+    [
+     10,
+     429866,
+     833715,
+     -1,
+     -1
+    ],
+    [
+     11,
+     887994,
+     1721709,
+     -1,
+     -1
+    ],
+    [
+     12,
+     1914756,
+     3636465,
+     -1,
+     -1
+    ],
+    [
+     13,
+     4223582,
+     7860047,
+     -1,
+     -1
+    ],
+    [
+     14,
+     9200244,
+     17060291,
+     -1,
+     -1
+    ],
+    [
+     15,
+     19224433,
+     36284724,
+     23,
+     25
+    ]
+   ],
+   "ac_record_hit_states": 36284724,
+   "sac_record_hit_states": null,
+   "ac": {
+    "len": 23,
+    "replay_ok": true,
+    "moves": [
+     0,
+     6,
+     11,
+     13,
+     4,
+     7,
+     4,
+     7,
+     9,
+     9,
+     12,
+     5,
+     6,
+     5,
+     7,
+     13,
+     13,
+     2,
+     4,
+     4,
+     3,
+     3,
+     3
+    ]
+   },
+   "sac": {
+    "len": 25,
+    "moves": [
+     1,
+     7,
+     11,
+     13,
+     11,
+     4,
+     11,
+     4,
+     9,
+     9,
+     12,
+     10,
+     5,
+     10,
+     5,
+     13,
+     13,
+     2,
+     0,
+     5,
+     3,
+     5,
+     5,
+     15,
+     15
+    ],
+    "replay_ok": null
+   },
+   "set": "test"
+  },
+  {
+   "row": "ac-03305",
+   "mode": "p2",
+   "param": 0,
+   "pad": null,
+   "cap": 48,
+   "cap_slack": 24,
+   "start": 24,
+   "ac_record": 23,
+   "sac_record": 24,
+   "maxd": 15,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 111.0,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 11,
+   "status": "STOPPED",
+   "p2_start": 19,
+   "p2_bound": 19,
+   "p2_rejected_children": 1123427,
+   "p2_calls": 2844918,
+   "p2_cache_hits": 2587588,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     14,
+     15,
+     -1,
+     -1
+    ],
+    [
+     2,
+     137,
+     152,
+     -1,
+     -1
+    ],
+    [
+     3,
+     1095,
+     1247,
+     -1,
+     -1
+    ],
+    [
+     4,
+     7229,
+     8476,
+     -1,
+     -1
+    ],
+    [
+     5,
+     40082,
+     48558,
+     -1,
+     -1
+    ],
+    [
+     6,
+     188697,
+     237255,
+     -1,
+     -1
+    ],
+    [
+     7,
+     767381,
+     1004636,
+     -1,
+     -1
+    ],
+    [
+     8,
+     2716596,
+     3721232,
+     -1,
+     -1
+    ],
+    [
+     9,
+     8443240,
+     12164472,
+     -1,
+     -1
+    ],
+    [
+     10,
+     23585083,
+     35749555,
+     -1,
+     -1
+    ],
+    [
+     11,
+     19250445,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-03305",
+   "mode": "len",
+   "param": 40,
+   "pad": null,
+   "cap": 40,
+   "cap_slack": 16,
+   "start": 24,
+   "ac_record": 23,
+   "sac_record": 24,
+   "maxd": 15,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 126.0,
+   "peak_rss_gb": 2.6,
+   "killed": null,
+   "states": 71498852,
+   "depth_reached": 13,
+   "status": "STOPPED",
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     14,
+     15,
+     -1,
+     -1
+    ],
+    [
+     2,
+     133,
+     148,
+     -1,
+     -1
+    ],
+    [
+     3,
+     921,
+     1069,
+     -1,
+     -1
+    ],
+    [
+     4,
+     4713,
+     5782,
+     -1,
+     -1
+    ],
+    [
+     5,
+     18835,
+     24617,
+     -1,
+     -1
+    ],
+    [
+     6,
+     63368,
+     87985,
+     -1,
+     -1
+    ],
+    [
+     7,
+     191522,
+     279507,
+     -1,
+     -1
+    ],
+    [
+     8,
+     548207,
+     827714,
+     -1,
+     -1
+    ],
+    [
+     9,
+     1449247,
+     2276961,
+     -1,
+     -1
+    ],
+    [
+     10,
+     3477470,
+     5754431,
+     -1,
+     -1
+    ],
+    [
+     11,
+     7866846,
+     13621277,
+     -1,
+     -1
+    ],
+    [
+     12,
+     17727084,
+     31348361,
+     -1,
+     -1
+    ],
+    [
+     13,
+     40150491,
+     71498852,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-05558",
+   "mode": "p2",
+   "param": 0,
+   "pad": null,
+   "cap": 51,
+   "cap_slack": 24,
+   "start": 27,
+   "ac_record": 24,
+   "sac_record": 26,
+   "maxd": 16,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 237.0,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 12,
+   "status": "STOPPED",
+   "p2_start": 14,
+   "p2_bound": 14,
+   "p2_rejected_children": 14153526,
+   "p2_calls": 16829685,
+   "p2_cache_hits": 14902819,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     10,
+     11,
+     -1,
+     -1
+    ],
+    [
+     2,
+     63,
+     74,
+     -1,
+     -1
+    ],
+    [
+     3,
+     324,
+     398,
+     -1,
+     -1
+    ],
+    [
+     4,
+     1518,
+     1916,
+     -1,
+     -1
+    ],
+    [
+     5,
+     6914,
+     8830,
+     -1,
+     -1
+    ],
+    [
+     6,
+     31290,
+     40120,
+     -1,
+     -1
+    ],
+    [
+     7,
+     137897,
+     178017,
+     -1,
+     -1
+    ],
+    [
+     8,
+     581316,
+     759333,
+     -1,
+     -1
+    ],
+    [
+     9,
+     2392295,
+     3151628,
+     -1,
+     -1
+    ],
+    [
+     10,
+     9570555,
+     12722183,
+     -1,
+     -1
+    ],
+    [
+     11,
+     37092231,
+     49814414,
+     -1,
+     -1
+    ],
+    [
+     12,
+     5185586,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-01629",
+   "mode": "p2",
+   "param": 0,
+   "pad": null,
+   "cap": 58,
+   "cap_slack": 24,
+   "start": 34,
+   "ac_record": 23,
+   "sac_record": 25,
+   "maxd": 15,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 117.0,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 50956621,
+   "depth_reached": 11,
+   "status": "STOPPED",
+   "p2_start": 18,
+   "p2_bound": 18,
+   "p2_rejected_children": 2646498,
+   "p2_calls": 3934233,
+   "p2_cache_hits": 3534779,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     12,
+     13,
+     -1,
+     -1
+    ],
+    [
+     2,
+     82,
+     95,
+     -1,
+     -1
+    ],
+    [
+     3,
+     465,
+     560,
+     -1,
+     -1
+    ],
+    [
+     4,
+     2452,
+     3012,
+     -1,
+     -1
+    ],
+    [
+     5,
+     12025,
+     15037,
+     -1,
+     -1
+    ],
+    [
+     6,
+     53713,
+     68750,
+     -1,
+     -1
+    ],
+    [
+     7,
+     224790,
+     293540,
+     -1,
+     -1
+    ],
+    [
+     8,
+     883156,
+     1176696,
+     -1,
+     -1
+    ],
+    [
+     9,
+     3227452,
+     4404148,
+     -1,
+     -1
+    ],
+    [
+     10,
+     11084726,
+     15488874,
+     -1,
+     -1
+    ],
+    [
+     11,
+     35467747,
+     50956621,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-08201",
+   "mode": "p2",
+   "param": 0,
+   "pad": null,
+   "cap": 57,
+   "cap_slack": 24,
+   "start": 33,
+   "ac_record": 31,
+   "sac_record": 33,
+   "maxd": 23,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 111.0,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 12,
+   "status": "STOPPED",
+   "p2_start": 23,
+   "p2_bound": 23,
+   "p2_rejected_children": 1819846,
+   "p2_calls": 2713073,
+   "p2_cache_hits": 2507678,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     12,
+     13,
+     -1,
+     -1
+    ],
+    [
+     2,
+     80,
+     93,
+     -1,
+     -1
+    ],
+    [
+     3,
+     428,
+     521,
+     -1,
+     -1
+    ],
+    [
+     4,
+     2097,
+     2618,
+     -1,
+     -1
+    ],
+    [
+     5,
+     9636,
+     12254,
+     -1,
+     -1
+    ],
+    [
+     6,
+     39312,
+     51566,
+     -1,
+     -1
+    ],
+    [
+     7,
+     147587,
+     199153,
+     -1,
+     -1
+    ],
+    [
+     8,
+     520758,
+     719911,
+     -1,
+     -1
+    ],
+    [
+     9,
+     1767004,
+     2486915,
+     -1,
+     -1
+    ],
+    [
+     10,
+     5808408,
+     8295323,
+     -1,
+     -1
+    ],
+    [
+     11,
+     17847905,
+     26143228,
+     -1,
+     -1
+    ],
+    [
+     12,
+     28856772,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-05558",
+   "mode": "len",
+   "param": 29,
+   "pad": null,
+   "cap": 29,
+   "cap_slack": 2,
+   "start": 27,
+   "ac_record": 24,
+   "sac_record": 26,
+   "maxd": 16,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 144.0,
+   "peak_rss_gb": 2.6,
+   "killed": null,
+   "states": 70214823,
+   "depth_reached": 16,
+   "status": "STOPPED",
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     10,
+     11,
+     -1,
+     -1
+    ],
+    [
+     2,
+     43,
+     54,
+     -1,
+     -1
+    ],
+    [
+     3,
+     128,
+     182,
+     -1,
+     -1
+    ],
+    [
+     4,
+     425,
+     607,
+     -1,
+     -1
+    ],
+    [
+     5,
+     1919,
+     2526,
+     -1,
+     -1
+    ],
+    [
+     6,
+     8505,
+     11031,
+     -1,
+     -1
+    ],
+    [
+     7,
+     31762,
+     42793,
+     -1,
+     -1
+    ],
+    [
+     8,
+     100507,
+     143300,
+     -1,
+     -1
+    ],
+    [
+     9,
+     266986,
+     410286,
+     -1,
+     -1
+    ],
+    [
+     10,
+     614188,
+     1024474,
+     -1,
+     -1
+    ],
+    [
+     11,
+     1299021,
+     2323495,
+     -1,
+     -1
+    ],
+    [
+     12,
+     2637146,
+     4960641,
+     -1,
+     -1
+    ],
+    [
+     13,
+     5227974,
+     10188615,
+     -1,
+     -1
+    ],
+    [
+     14,
+     10035676,
+     20224291,
+     -1,
+     -1
+    ],
+    [
+     15,
+     18325907,
+     38550198,
+     -1,
+     -1
+    ],
+    [
+     16,
+     31664625,
+     70214823,
+     24,
+     26
+    ]
+   ],
+   "ac_record_hit_states": 70214823,
+   "sac_record_hit_states": 70214823,
+   "ac": {
+    "len": 24,
+    "replay_ok": true,
+    "moves": [
+     6,
+     4,
+     4,
+     3,
+     7,
+     8,
+     6,
+     12,
+     5,
+     1,
+     11,
+     2,
+     11,
+     13,
+     11,
+     13,
+     11,
+     3,
+     7,
+     5,
+     5,
+     3,
+     3,
+     5
+    ]
+   },
+   "sac": {
+    "len": 26,
+    "moves": [
+     6,
+     4,
+     4,
+     3,
+     7,
+     8,
+     6,
+     12,
+     5,
+     11,
+     3,
+     11,
+     13,
+     11,
+     13,
+     11,
+     2,
+     8,
+     4,
+     4,
+     2,
+     4,
+     3,
+     3,
+     15,
+     15
+    ],
+    "replay_ok": null
+   },
+   "set": "test"
+  },
+  {
+   "row": "ac-05558",
+   "mode": "p2",
+   "param": 3,
+   "pad": null,
+   "cap": 29,
+   "cap_slack": 2,
+   "start": 27,
+   "ac_record": 24,
+   "sac_record": 26,
+   "maxd": 16,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 102.0,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 16,
+   "status": "STOPPED",
+   "p2_start": 14,
+   "p2_bound": 17,
+   "p2_rejected_children": 181594,
+   "p2_calls": 2068808,
+   "p2_cache_hits": 1950727,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     10,
+     11,
+     -1,
+     -1
+    ],
+    [
+     2,
+     43,
+     54,
+     -1,
+     -1
+    ],
+    [
+     3,
+     128,
+     182,
+     -1,
+     -1
+    ],
+    [
+     4,
+     425,
+     607,
+     -1,
+     -1
+    ],
+    [
+     5,
+     1919,
+     2526,
+     -1,
+     -1
+    ],
+    [
+     6,
+     8505,
+     11031,
+     -1,
+     -1
+    ],
+    [
+     7,
+     31756,
+     42787,
+     -1,
+     -1
+    ],
+    [
+     8,
+     100399,
+     143186,
+     -1,
+     -1
+    ],
+    [
+     9,
+     266169,
+     409355,
+     -1,
+     -1
+    ],
+    [
+     10,
+     610169,
+     1019524,
+     -1,
+     -1
+    ],
+    [
+     11,
+     1284077,
+     2303601,
+     -1,
+     -1
+    ],
+    [
+     12,
+     2590978,
+     4894579,
+     -1,
+     -1
+    ],
+    [
+     13,
+     5104401,
+     9998980,
+     -1,
+     -1
+    ],
+    [
+     14,
+     9740549,
+     19739529,
+     -1,
+     -1
+    ],
+    [
+     15,
+     17680813,
+     37420342,
+     -1,
+     -1
+    ],
+    [
+     16,
+     17579658,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-01629",
+   "mode": "len",
+   "param": 38,
+   "pad": null,
+   "cap": 38,
+   "cap_slack": 4,
+   "start": 34,
+   "ac_record": 23,
+   "sac_record": 25,
+   "maxd": 15,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 57.0,
+   "peak_rss_gb": 2.6,
+   "killed": null,
+   "states": 34739139,
+   "depth_reached": 16,
+   "status": "STOPPED",
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     11,
+     12,
+     -1,
+     -1
+    ],
+    [
+     2,
+     68,
+     80,
+     -1,
+     -1
+    ],
+    [
+     3,
+     272,
+     352,
+     -1,
+     -1
+    ],
+    [
+     4,
+     818,
+     1170,
+     -1,
+     -1
+    ],
+    [
+     5,
+     2005,
+     3175,
+     -1,
+     -1
+    ],
+    [
+     6,
+     4671,
+     7846,
+     -1,
+     -1
+    ],
+    [
+     7,
+     11035,
+     18881,
+     -1,
+     -1
+    ],
+    [
+     8,
+     27547,
+     46428,
+     -1,
+     -1
+    ],
+    [
+     9,
+     68133,
+     114561,
+     -1,
+     -1
+    ],
+    [
+     10,
+     162911,
+     277472,
+     -1,
+     -1
+    ],
+    [
+     11,
+     398039,
+     675511,
+     -1,
+     -1
+    ],
+    [
+     12,
+     1046665,
+     1722176,
+     -1,
+     -1
+    ],
+    [
+     13,
+     2911121,
+     4633297,
+     -1,
+     -1
+    ],
+    [
+     14,
+     8160199,
+     12793496,
+     -1,
+     -1
+    ],
+    [
+     15,
+     21945643,
+     34739139,
+     23,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": 34739139,
+   "sac_record_hit_states": null,
+   "ac": {
+    "len": 23,
+    "replay_ok": true,
+    "moves": [
+     1,
+     9,
+     12,
+     12,
+     4,
+     8,
+     4,
+     8,
+     8,
+     8,
+     8,
+     6,
+     5,
+     13,
+     13,
+     2,
+     0,
+     5,
+     3,
+     11,
+     3,
+     3,
+     3
+    ]
+   },
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-01629",
+   "mode": "p2",
+   "param": 0,
+   "pad": null,
+   "cap": 38,
+   "cap_slack": 4,
+   "start": 34,
+   "ac_record": 23,
+   "sac_record": 25,
+   "maxd": 15,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 60.0,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 29854609,
+   "depth_reached": 16,
+   "status": "STOPPED",
+   "p2_start": 18,
+   "p2_bound": 18,
+   "p2_rejected_children": 482050,
+   "p2_calls": 1919245,
+   "p2_cache_hits": 1740285,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     11,
+     12,
+     -1,
+     -1
+    ],
+    [
+     2,
+     68,
+     80,
+     -1,
+     -1
+    ],
+    [
+     3,
+     268,
+     348,
+     -1,
+     -1
+    ],
+    [
+     4,
+     795,
+     1143,
+     -1,
+     -1
+    ],
+    [
+     5,
+     1935,
+     3078,
+     -1,
+     -1
+    ],
+    [
+     6,
+     4485,
+     7563,
+     -1,
+     -1
+    ],
+    [
+     7,
+     10468,
+     18031,
+     -1,
+     -1
+    ],
+    [
+     8,
+     25674,
+     43705,
+     -1,
+     -1
+    ],
+    [
+     9,
+     62062,
+     105767,
+     -1,
+     -1
+    ],
+    [
+     10,
+     144800,
+     250567,
+     -1,
+     -1
+    ],
+    [
+     11,
+     347650,
+     598217,
+     -1,
+     -1
+    ],
+    [
+     12,
+     908086,
+     1506303,
+     -1,
+     -1
+    ],
+    [
+     13,
+     2521872,
+     4028175,
+     -1,
+     -1
+    ],
+    [
+     14,
+     7048580,
+     11076755,
+     -1,
+     -1
+    ],
+    [
+     15,
+     18777854,
+     29854609,
+     23,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": 29854609,
+   "sac_record_hit_states": null,
+   "ac": {
+    "len": 23,
+    "replay_ok": true,
+    "moves": [
+     1,
+     9,
+     12,
+     12,
+     4,
+     8,
+     4,
+     8,
+     8,
+     8,
+     8,
+     6,
+     5,
+     13,
+     13,
+     2,
+     0,
+     5,
+     3,
+     11,
+     3,
+     3,
+     3
+    ]
+   },
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-08201",
+   "mode": "len",
+   "param": 36,
+   "pad": null,
+   "cap": 36,
+   "cap_slack": 3,
+   "start": 33,
+   "ac_record": 31,
+   "sac_record": 33,
+   "maxd": 23,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 72.0,
+   "peak_rss_gb": 2.6,
+   "killed": null,
+   "states": 32680592,
+   "depth_reached": 24,
+   "status": "STOPPED",
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     10,
+     11,
+     -1,
+     -1
+    ],
+    [
+     2,
+     42,
+     53,
+     -1,
+     -1
+    ],
+    [
+     3,
+     110,
+     163,
+     -1,
+     -1
+    ],
+    [
+     4,
+     233,
+     396,
+     -1,
+     -1
+    ],
+    [
+     5,
+     445,
+     841,
+     -1,
+     -1
+    ],
+    [
+     6,
+     848,
+     1689,
+     -1,
+     -1
+    ],
+    [
+     7,
+     1644,
+     3333,
+     -1,
+     -1
+    ],
+    [
+     8,
+     3176,
+     6509,
+     -1,
+     -1
+    ],
+    [
+     9,
+     6066,
+     12575,
+     -1,
+     -1
+    ],
+    [
+     10,
+     11772,
+     24347,
+     -1,
+     -1
+    ],
+    [
+     11,
+     24053,
+     48400,
+     -1,
+     -1
+    ],
+    [
+     12,
+     47025,
+     95425,
+     -1,
+     -1
+    ],
+    [
+     13,
+     82578,
+     178003,
+     -1,
+     -1
+    ],
+    [
+     14,
+     136545,
+     314548,
+     -1,
+     -1
+    ],
+    [
+     15,
+     228871,
+     543419,
+     -1,
+     -1
+    ],
+    [
+     16,
+     392309,
+     935728,
+     -1,
+     -1
+    ],
+    [
+     17,
+     673878,
+     1609606,
+     -1,
+     -1
+    ],
+    [
+     18,
+     1152002,
+     2761608,
+     -1,
+     -1
+    ],
+    [
+     19,
+     1930883,
+     4692491,
+     -1,
+     -1
+    ],
+    [
+     20,
+     3148539,
+     7841030,
+     -1,
+     -1
+    ],
+    [
+     21,
+     5021496,
+     12862526,
+     -1,
+     -1
+    ],
+    [
+     22,
+     7853177,
+     20715703,
+     -1,
+     -1
+    ],
+    [
+     23,
+     11964889,
+     32680592,
+     31,
+     33
+    ]
+   ],
+   "ac_record_hit_states": 32680592,
+   "sac_record_hit_states": 32680592,
+   "ac": {
+    "len": 31,
+    "replay_ok": true,
+    "moves": [
+     1,
+     4,
+     1,
+     8,
+     10,
+     13,
+     10,
+     4,
+     3,
+     6,
+     9,
+     13,
+     10,
+     2,
+     12,
+     11,
+     12,
+     11,
+     12,
+     5,
+     11,
+     12,
+     2,
+     5,
+     6,
+     12,
+     4,
+     2,
+     4,
+     4,
+     2
+    ]
+   },
+   "sac": {
+    "len": 33,
+    "moves": [
+     0,
+     1,
+     5,
+     8,
+     10,
+     13,
+     10,
+     2,
+     0,
+     9,
+     6,
+     8,
+     7,
+     4,
+     8,
+     7,
+     8,
+     10,
+     13,
+     3,
+     7,
+     8,
+     4,
+     3,
+     8,
+     10,
+     2,
+     4,
+     2,
+     2,
+     4,
+     15,
+     15
+    ],
+    "replay_ok": null
+   },
+   "set": "test"
+  },
+  {
+   "row": "ac-08201",
+   "mode": "p2",
+   "param": 0,
+   "pad": null,
+   "cap": 36,
+   "cap_slack": 3,
+   "start": 33,
+   "ac_record": 31,
+   "sac_record": 33,
+   "maxd": 23,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 69.0,
+   "peak_rss_gb": 2.65,
+   "killed": null,
+   "states": 30001845,
+   "depth_reached": 24,
+   "status": "STOPPED",
+   "p2_start": 23,
+   "p2_bound": 23,
+   "p2_rejected_children": 47595,
+   "p2_calls": 354067,
+   "p2_cache_hits": 336314,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     10,
+     11,
+     -1,
+     -1
+    ],
+    [
+     2,
+     42,
+     53,
+     -1,
+     -1
+    ],
+    [
+     3,
+     110,
+     163,
+     -1,
+     -1
+    ],
+    [
+     4,
+     233,
+     396,
+     -1,
+     -1
+    ],
+    [
+     5,
+     442,
+     838,
+     -1,
+     -1
+    ],
+    [
+     6,
+     827,
+     1665,
+     -1,
+     -1
+    ],
+    [
+     7,
+     1577,
+     3242,
+     -1,
+     -1
+    ],
+    [
+     8,
+     3029,
+     6271,
+     -1,
+     -1
+    ],
+    [
+     9,
+     5766,
+     12037,
+     -1,
+     -1
+    ],
+    [
+     10,
+     11147,
+     23184,
+     -1,
+     -1
+    ],
+    [
+     11,
+     22816,
+     46000,
+     -1,
+     -1
+    ],
+    [
+     12,
+     44706,
+     90706,
+     -1,
+     -1
+    ],
+    [
+     13,
+     78213,
+     168919,
+     -1,
+     -1
+    ],
+    [
+     14,
+     128233,
+     297152,
+     -1,
+     -1
+    ],
+    [
+     15,
+     213467,
+     510619,
+     -1,
+     -1
+    ],
+    [
+     16,
+     364927,
+     875546,
+     -1,
+     -1
+    ],
+    [
+     17,
+     626592,
+     1502138,
+     -1,
+     -1
+    ],
+    [
+     18,
+     1070785,
+     2572923,
+     -1,
+     -1
+    ],
+    [
+     19,
+     1790181,
+     4363104,
+     -1,
+     -1
+    ],
+    [
+     20,
+     2907590,
+     7270694,
+     -1,
+     -1
+    ],
+    [
+     21,
+     4618220,
+     11888914,
+     -1,
+     -1
+    ],
+    [
+     22,
+     7196769,
+     19085683,
+     -1,
+     -1
+    ],
+    [
+     23,
+     10916162,
+     30001845,
+     31,
+     33
+    ]
+   ],
+   "ac_record_hit_states": 30001845,
+   "sac_record_hit_states": 30001845,
+   "ac": {
+    "len": 31,
+    "replay_ok": true,
+    "moves": [
+     1,
+     4,
+     1,
+     8,
+     10,
+     13,
+     10,
+     4,
+     3,
+     6,
+     9,
+     13,
+     10,
+     2,
+     12,
+     11,
+     12,
+     11,
+     12,
+     5,
+     11,
+     12,
+     2,
+     5,
+     6,
+     12,
+     4,
+     2,
+     4,
+     4,
+     2
+    ]
+   },
+   "sac": {
+    "len": 33,
+    "moves": [
+     0,
+     1,
+     5,
+     8,
+     10,
+     13,
+     10,
+     2,
+     0,
+     9,
+     6,
+     8,
+     7,
+     4,
+     8,
+     7,
+     8,
+     10,
+     13,
+     3,
+     7,
+     8,
+     4,
+     3,
+     8,
+     10,
+     2,
+     4,
+     2,
+     2,
+     4,
+     15,
+     15
+    ],
+    "replay_ok": null
+   },
+   "set": "test"
+  },
+  {
+   "row": "ac-03305",
+   "mode": "p2",
+   "param": 99,
+   "pad": 2,
+   "cap": 48,
+   "cap_slack": 24,
+   "start": 24,
+   "ac_record": 23,
+   "sac_record": 24,
+   "maxd": 15,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 192.0,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 14,
+   "status": "STOPPED",
+   "p2_start": 19,
+   "p2_bound": 118,
+   "p2_rejected_children": 38992073,
+   "p2_calls": 4777436,
+   "p2_cache_hits": 4091989,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     12,
+     13,
+     -1,
+     -1
+    ],
+    [
+     2,
+     88,
+     101,
+     -1,
+     -1
+    ],
+    [
+     3,
+     549,
+     650,
+     -1,
+     -1
+    ],
+    [
+     4,
+     2772,
+     3422,
+     -1,
+     -1
+    ],
+    [
+     5,
+     11555,
+     14977,
+     -1,
+     -1
+    ],
+    [
+     6,
+     41011,
+     55988,
+     -1,
+     -1
+    ],
+    [
+     7,
+     126394,
+     182382,
+     -1,
+     -1
+    ],
+    [
+     8,
+     344642,
+     527024,
+     -1,
+     -1
+    ],
+    [
+     9,
+     849456,
+     1376480,
+     -1,
+     -1
+    ],
+    [
+     10,
+     1940309,
+     3316789,
+     -1,
+     -1
+    ],
+    [
+     11,
+     4212899,
+     7529688,
+     -1,
+     -1
+    ],
+    [
+     12,
+     8936085,
+     16465773,
+     -1,
+     -1
+    ],
+    [
+     13,
+     19027426,
+     35493199,
+     -1,
+     -1
+    ],
+    [
+     14,
+     19506801,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-03305",
+   "mode": "p2",
+   "param": 1,
+   "pad": 2,
+   "cap": 48,
+   "cap_slack": 24,
+   "start": 24,
+   "ac_record": 23,
+   "sac_record": 24,
+   "maxd": 15,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 225.0,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 36284779,
+   "depth_reached": 16,
+   "status": "STOPPED",
+   "p2_start": 19,
+   "p2_bound": 20,
+   "p2_rejected_children": 53465459,
+   "p2_calls": 9478416,
+   "p2_cache_hits": 8177367,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     12,
+     13,
+     -1,
+     -1
+    ],
+    [
+     2,
+     87,
+     100,
+     -1,
+     -1
+    ],
+    [
+     3,
+     514,
+     614,
+     -1,
+     -1
+    ],
+    [
+     4,
+     2282,
+     2896,
+     -1,
+     -1
+    ],
+    [
+     5,
+     7766,
+     10662,
+     -1,
+     -1
+    ],
+    [
+     6,
+     21368,
+     32030,
+     -1,
+     -1
+    ],
+    [
+     7,
+     50285,
+     82315,
+     -1,
+     -1
+    ],
+    [
+     8,
+     106743,
+     189058,
+     -1,
+     -1
+    ],
+    [
+     9,
+     214791,
+     403849,
+     -1,
+     -1
+    ],
+    [
+     10,
+     429866,
+     833715,
+     -1,
+     -1
+    ],
+    [
+     11,
+     887994,
+     1721709,
+     -1,
+     -1
+    ],
+    [
+     12,
+     1914756,
+     3636465,
+     -1,
+     -1
+    ],
+    [
+     13,
+     4223582,
+     7860047,
+     -1,
+     -1
+    ],
+    [
+     14,
+     9200246,
+     17060293,
+     -1,
+     -1
+    ],
+    [
+     15,
+     19224486,
+     36284779,
+     23,
+     25
+    ]
+   ],
+   "ac_record_hit_states": 36284779,
+   "sac_record_hit_states": null,
+   "ac": {
+    "len": 23,
+    "replay_ok": true,
+    "moves": [
+     0,
+     6,
+     11,
+     13,
+     4,
+     7,
+     4,
+     7,
+     9,
+     9,
+     12,
+     5,
+     6,
+     5,
+     7,
+     13,
+     13,
+     2,
+     4,
+     4,
+     3,
+     3,
+     3
+    ]
+   },
+   "sac": {
+    "len": 25,
+    "moves": [
+     1,
+     7,
+     11,
+     13,
+     11,
+     4,
+     11,
+     4,
+     9,
+     9,
+     12,
+     10,
+     5,
+     10,
+     5,
+     13,
+     13,
+     2,
+     0,
+     5,
+     3,
+     5,
+     5,
+     15,
+     15
+    ],
+    "replay_ok": null
+   },
+   "set": "test"
+  },
+  {
+   "row": "ac-03305",
+   "mode": "p2",
+   "param": 2,
+   "pad": 2,
+   "cap": 48,
+   "cap_slack": 24,
+   "start": 24,
+   "ac_record": 23,
+   "sac_record": 24,
+   "maxd": 15,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 318.1,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 49567603,
+   "depth_reached": 16,
+   "status": "STOPPED",
+   "p2_start": 19,
+   "p2_bound": 21,
+   "p2_rejected_children": 66482076,
+   "p2_calls": 12337737,
+   "p2_cache_hits": 10424568,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     12,
+     13,
+     -1,
+     -1
+    ],
+    [
+     2,
+     87,
+     100,
+     -1,
+     -1
+    ],
+    [
+     3,
+     514,
+     614,
+     -1,
+     -1
+    ],
+    [
+     4,
+     2282,
+     2896,
+     -1,
+     -1
+    ],
+    [
+     5,
+     7769,
+     10665,
+     -1,
+     -1
+    ],
+    [
+     6,
+     21394,
+     32059,
+     -1,
+     -1
+    ],
+    [
+     7,
+     50454,
+     82513,
+     -1,
+     -1
+    ],
+    [
+     8,
+     107780,
+     190293,
+     -1,
+     -1
+    ],
+    [
+     9,
+     220320,
+     410613,
+     -1,
+     -1
+    ],
+    [
+     10,
+     456015,
+     866628,
+     -1,
+     -1
+    ],
+    [
+     11,
+     995710,
+     1862338,
+     -1,
+     -1
+    ],
+    [
+     12,
+     2298788,
+     4161126,
+     -1,
+     -1
+    ],
+    [
+     13,
+     5421070,
+     9582196,
+     -1,
+     -1
+    ],
+    [
+     14,
+     12512724,
+     22094920,
+     -1,
+     -1
+    ],
+    [
+     15,
+     27472683,
+     49567603,
+     23,
+     25
+    ]
+   ],
+   "ac_record_hit_states": 49567603,
+   "sac_record_hit_states": null,
+   "ac": {
+    "len": 23,
+    "replay_ok": true,
+    "moves": [
+     0,
+     6,
+     11,
+     13,
+     4,
+     7,
+     4,
+     7,
+     9,
+     9,
+     12,
+     5,
+     6,
+     5,
+     7,
+     13,
+     13,
+     2,
+     4,
+     4,
+     3,
+     3,
+     3
+    ]
+   },
+   "sac": {
+    "len": 25,
+    "moves": [
+     1,
+     7,
+     11,
+     13,
+     11,
+     4,
+     11,
+     4,
+     9,
+     9,
+     12,
+     10,
+     5,
+     10,
+     5,
+     13,
+     13,
+     2,
+     0,
+     5,
+     3,
+     5,
+     5,
+     15,
+     15
+    ],
+    "replay_ok": null
+   },
+   "set": "test"
+  },
+  {
+   "row": "ac-07435",
+   "mode": "p2",
+   "param": 0,
+   "pad": 2,
+   "cap": 50,
+   "cap_slack": 24,
+   "start": 26,
+   "ac_record": 26,
+   "sac_record": 28,
+   "maxd": 18,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 480.1,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 18,
+   "status": "STOPPED",
+   "p2_start": 18,
+   "p2_bound": 18,
+   "p2_rejected_children": 110095640,
+   "p2_calls": 27493849,
+   "p2_cache_hits": 23547732,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     10,
+     11,
+     -1,
+     -1
+    ],
+    [
+     2,
+     43,
+     54,
+     -1,
+     -1
+    ],
+    [
+     3,
+     116,
+     170,
+     -1,
+     -1
+    ],
+    [
+     4,
+     255,
+     425,
+     -1,
+     -1
+    ],
+    [
+     5,
+     637,
+     1062,
+     -1,
+     -1
+    ],
+    [
+     6,
+     1990,
+     3052,
+     -1,
+     -1
+    ],
+    [
+     7,
+     6238,
+     9290,
+     -1,
+     -1
+    ],
+    [
+     8,
+     17242,
+     26532,
+     -1,
+     -1
+    ],
+    [
+     9,
+     41316,
+     67848,
+     -1,
+     -1
+    ],
+    [
+     10,
+     89330,
+     157178,
+     -1,
+     -1
+    ],
+    [
+     11,
+     184626,
+     341804,
+     -1,
+     -1
+    ],
+    [
+     12,
+     381092,
+     722896,
+     -1,
+     -1
+    ],
+    [
+     13,
+     803918,
+     1526814,
+     -1,
+     -1
+    ],
+    [
+     14,
+     1740333,
+     3267147,
+     -1,
+     -1
+    ],
+    [
+     15,
+     3795353,
+     7062500,
+     -1,
+     -1
+    ],
+    [
+     16,
+     8170288,
+     15232788,
+     -1,
+     -1
+    ],
+    [
+     17,
+     17241814,
+     32474602,
+     -1,
+     -1
+    ],
+    [
+     18,
+     22525398,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-05558",
+   "mode": "p2",
+   "param": 0,
+   "pad": 2,
+   "cap": 51,
+   "cap_slack": 24,
+   "start": 27,
+   "ac_record": 24,
+   "sac_record": 26,
+   "maxd": 16,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 693.1,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 42651843,
+   "depth_reached": 17,
+   "status": "STOPPED",
+   "p2_start": 14,
+   "p2_bound": 14,
+   "p2_rejected_children": 98868748,
+   "p2_calls": 35191743,
+   "p2_cache_hits": 28766607,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     10,
+     11,
+     -1,
+     -1
+    ],
+    [
+     2,
+     43,
+     54,
+     -1,
+     -1
+    ],
+    [
+     3,
+     126,
+     180,
+     -1,
+     -1
+    ],
+    [
+     4,
+     350,
+     530,
+     -1,
+     -1
+    ],
+    [
+     5,
+     1140,
+     1670,
+     -1,
+     -1
+    ],
+    [
+     6,
+     3925,
+     5595,
+     -1,
+     -1
+    ],
+    [
+     7,
+     11906,
+     17501,
+     -1,
+     -1
+    ],
+    [
+     8,
+     30689,
+     48190,
+     -1,
+     -1
+    ],
+    [
+     9,
+     69314,
+     117504,
+     -1,
+     -1
+    ],
+    [
+     10,
+     146872,
+     264376,
+     -1,
+     -1
+    ],
+    [
+     11,
+     318871,
+     583247,
+     -1,
+     -1
+    ],
+    [
+     12,
+     749963,
+     1333210,
+     -1,
+     -1
+    ],
+    [
+     13,
+     1875576,
+     3208786,
+     -1,
+     -1
+    ],
+    [
+     14,
+     4667255,
+     7876041,
+     -1,
+     -1
+    ],
+    [
+     15,
+     10961963,
+     18838004,
+     -1,
+     -1
+    ],
+    [
+     16,
+     23813839,
+     42651843,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-01629",
+   "mode": "p2",
+   "param": 0,
+   "pad": 2,
+   "cap": 58,
+   "cap_slack": 24,
+   "start": 34,
+   "ac_record": 23,
+   "sac_record": 25,
+   "maxd": 15,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 15.0,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 1421214,
+   "depth_reached": 16,
+   "status": "STOPPED",
+   "p2_start": 18,
+   "p2_bound": 18,
+   "p2_rejected_children": 2913618,
+   "p2_calls": 700815,
+   "p2_cache_hits": 615975,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     10,
+     11,
+     -1,
+     -1
+    ],
+    [
+     2,
+     41,
+     52,
+     -1,
+     -1
+    ],
+    [
+     3,
+     100,
+     152,
+     -1,
+     -1
+    ],
+    [
+     4,
+     178,
+     330,
+     -1,
+     -1
+    ],
+    [
+     5,
+     273,
+     603,
+     -1,
+     -1
+    ],
+    [
+     6,
+     421,
+     1024,
+     -1,
+     -1
+    ],
+    [
+     7,
+     738,
+     1762,
+     -1,
+     -1
+    ],
+    [
+     8,
+     1644,
+     3406,
+     -1,
+     -1
+    ],
+    [
+     9,
+     4506,
+     7912,
+     -1,
+     -1
+    ],
+    [
+     10,
+     12698,
+     20610,
+     -1,
+     -1
+    ],
+    [
+     11,
+     33015,
+     53625,
+     -1,
+     -1
+    ],
+    [
+     12,
+     78155,
+     131780,
+     -1,
+     -1
+    ],
+    [
+     13,
+     172113,
+     303893,
+     -1,
+     -1
+    ],
+    [
+     14,
+     362336,
+     666229,
+     -1,
+     -1
+    ],
+    [
+     15,
+     754985,
+     1421214,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-08201",
+   "mode": "p2",
+   "param": 0,
+   "pad": 2,
+   "cap": 57,
+   "cap_slack": 24,
+   "start": 33,
+   "ac_record": 31,
+   "sac_record": 33,
+   "maxd": 23,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 402.1,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 21,
+   "status": "STOPPED",
+   "p2_start": 23,
+   "p2_bound": 23,
+   "p2_rejected_children": 100168503,
+   "p2_calls": 16773928,
+   "p2_cache_hits": 14800271,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     10,
+     11,
+     -1,
+     -1
+    ],
+    [
+     2,
+     41,
+     52,
+     -1,
+     -1
+    ],
+    [
+     3,
+     103,
+     155,
+     -1,
+     -1
+    ],
+    [
+     4,
+     197,
+     352,
+     -1,
+     -1
+    ],
+    [
+     5,
+     329,
+     681,
+     -1,
+     -1
+    ],
+    [
+     6,
+     515,
+     1196,
+     -1,
+     -1
+    ],
+    [
+     7,
+     796,
+     1992,
+     -1,
+     -1
+    ],
+    [
+     8,
+     1355,
+     3347,
+     -1,
+     -1
+    ],
+    [
+     9,
+     2978,
+     6325,
+     -1,
+     -1
+    ],
+    [
+     10,
+     8148,
+     14473,
+     -1,
+     -1
+    ],
+    [
+     11,
+     22757,
+     37230,
+     -1,
+     -1
+    ],
+    [
+     12,
+     58508,
+     95738,
+     -1,
+     -1
+    ],
+    [
+     13,
+     136320,
+     232058,
+     -1,
+     -1
+    ],
+    [
+     14,
+     293580,
+     525638,
+     -1,
+     -1
+    ],
+    [
+     15,
+     602877,
+     1128515,
+     -1,
+     -1
+    ],
+    [
+     16,
+     1213757,
+     2342272,
+     -1,
+     -1
+    ],
+    [
+     17,
+     2434509,
+     4776781,
+     -1,
+     -1
+    ],
+    [
+     18,
+     4876536,
+     9653317,
+     -1,
+     -1
+    ],
+    [
+     19,
+     9693012,
+     19346329,
+     -1,
+     -1
+    ],
+    [
+     20,
+     18973674,
+     38320003,
+     -1,
+     -1
+    ],
+    [
+     21,
+     16679997,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-01629",
+   "mode": "p2",
+   "param": 0,
+   "pad": 4,
+   "cap": 58,
+   "cap_slack": 24,
+   "start": 34,
+   "ac_record": 23,
+   "sac_record": 25,
+   "maxd": 15,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 51.0,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 6298527,
+   "depth_reached": 16,
+   "status": "STOPPED",
+   "p2_start": 18,
+   "p2_bound": 18,
+   "p2_rejected_children": 10643244,
+   "p2_calls": 2675810,
+   "p2_cache_hits": 2400641,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     10,
+     11,
+     -1,
+     -1
+    ],
+    [
+     2,
+     57,
+     68,
+     -1,
+     -1
+    ],
+    [
+     3,
+     196,
+     264,
+     -1,
+     -1
+    ],
+    [
+     4,
+     451,
+     715,
+     -1,
+     -1
+    ],
+    [
+     5,
+     797,
+     1512,
+     -1,
+     -1
+    ],
+    [
+     6,
+     1255,
+     2767,
+     -1,
+     -1
+    ],
+    [
+     7,
+     2110,
+     4877,
+     -1,
+     -1
+    ],
+    [
+     8,
+     4463,
+     9340,
+     -1,
+     -1
+    ],
+    [
+     9,
+     12320,
+     21660,
+     -1,
+     -1
+    ],
+    [
+     10,
+     37876,
+     59536,
+     -1,
+     -1
+    ],
+    [
+     11,
+     111079,
+     170615,
+     -1,
+     -1
+    ],
+    [
+     12,
+     295133,
+     465748,
+     -1,
+     -1
+    ],
+    [
+     13,
+     712899,
+     1178647,
+     -1,
+     -1
+    ],
+    [
+     14,
+     1606689,
+     2785336,
+     -1,
+     -1
+    ],
+    [
+     15,
+     3513191,
+     6298527,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-01629",
+   "mode": "p2",
+   "param": 0,
+   "pad": 8,
+   "cap": 58,
+   "cap_slack": 24,
+   "start": 34,
+   "ac_record": 23,
+   "sac_record": 25,
+   "maxd": 15,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 306.1,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 14,
+   "status": "STOPPED",
+   "p2_start": 18,
+   "p2_bound": 18,
+   "p2_rejected_children": 49127599,
+   "p2_calls": 16651824,
+   "p2_cache_hits": 14953014,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     12,
+     13,
+     -1,
+     -1
+    ],
+    [
+     2,
+     67,
+     80,
+     -1,
+     -1
+    ],
+    [
+     3,
+     300,
+     380,
+     -1,
+     -1
+    ],
+    [
+     4,
+     1236,
+     1616,
+     -1,
+     -1
+    ],
+    [
+     5,
+     4153,
+     5769,
+     -1,
+     -1
+    ],
+    [
+     6,
+     11553,
+     17322,
+     -1,
+     -1
+    ],
+    [
+     7,
+     31429,
+     48751,
+     -1,
+     -1
+    ],
+    [
+     8,
+     89471,
+     138222,
+     -1,
+     -1
+    ],
+    [
+     9,
+     255133,
+     393355,
+     -1,
+     -1
+    ],
+    [
+     10,
+     701679,
+     1095034,
+     -1,
+     -1
+    ],
+    [
+     11,
+     1897945,
+     2992979,
+     -1,
+     -1
+    ],
+    [
+     12,
+     5235429,
+     8228408,
+     -1,
+     -1
+    ],
+    [
+     13,
+     14953925,
+     23182333,
+     -1,
+     -1
+    ],
+    [
+     14,
+     31817667,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "test"
+  },
+  {
+   "row": "ac-04346",
+   "mode": "p2",
+   "param": 0,
+   "pad": 2,
+   "cap": 48,
+   "cap_slack": 24,
+   "start": 24,
+   "ac_record": 24,
+   "sac_record": 26,
+   "maxd": 16,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 9.0,
+   "peak_rss_gb": 2.52,
+   "killed": null,
+   "states": 70950,
+   "depth_reached": 17,
+   "status": "STOPPED",
+   "p2_start": 22,
+   "p2_bound": 22,
+   "p2_rejected_children": 172500,
+   "p2_calls": 19823,
+   "p2_cache_hits": 17063,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     10,
+     11,
+     -1,
+     -1
+    ],
+    [
+     2,
+     42,
+     53,
+     -1,
+     -1
+    ],
+    [
+     3,
+     108,
+     161,
+     -1,
+     -1
+    ],
+    [
+     4,
+     215,
+     376,
+     -1,
+     -1
+    ],
+    [
+     5,
+     381,
+     757,
+     -1,
+     -1
+    ],
+    [
+     6,
+     634,
+     1391,
+     -1,
+     -1
+    ],
+    [
+     7,
+     1019,
+     2410,
+     -1,
+     -1
+    ],
+    [
+     8,
+     1569,
+     3979,
+     -1,
+     -1
+    ],
+    [
+     9,
+     2264,
+     6243,
+     -1,
+     -1
+    ],
+    [
+     10,
+     3073,
+     9316,
+     -1,
+     -1
+    ],
+    [
+     11,
+     3978,
+     13294,
+     -1,
+     -1
+    ],
+    [
+     12,
+     5021,
+     18315,
+     -1,
+     -1
+    ],
+    [
+     13,
+     6284,
+     24599,
+     -1,
+     -1
+    ],
+    [
+     14,
+     8035,
+     32634,
+     -1,
+     -1
+    ],
+    [
+     15,
+     12255,
+     44889,
+     -1,
+     -1
+    ],
+    [
+     16,
+     26061,
+     70950,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "step4"
+  },
+  {
+   "row": "ac-06936",
+   "mode": "p2",
+   "param": 0,
+   "pad": 2,
+   "cap": 49,
+   "cap_slack": 24,
+   "start": 25,
+   "ac_record": 26,
+   "sac_record": 27,
+   "maxd": 18,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 390.1,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 43246090,
+   "depth_reached": 19,
+   "status": "STOPPED",
+   "p2_start": 19,
+   "p2_bound": 19,
+   "p2_rejected_children": 88681111,
+   "p2_calls": 20670051,
+   "p2_cache_hits": 17653355,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     11,
+     12,
+     -1,
+     -1
+    ],
+    [
+     2,
+     46,
+     58,
+     -1,
+     -1
+    ],
+    [
+     3,
+     117,
+     175,
+     -1,
+     -1
+    ],
+    [
+     4,
+     235,
+     410,
+     -1,
+     -1
+    ],
+    [
+     5,
+     435,
+     845,
+     -1,
+     -1
+    ],
+    [
+     6,
+     870,
+     1715,
+     -1,
+     -1
+    ],
+    [
+     7,
+     2169,
+     3884,
+     -1,
+     -1
+    ],
+    [
+     8,
+     6509,
+     10393,
+     -1,
+     -1
+    ],
+    [
+     9,
+     20101,
+     30494,
+     -1,
+     -1
+    ],
+    [
+     10,
+     57545,
+     88039,
+     -1,
+     -1
+    ],
+    [
+     11,
+     146726,
+     234765,
+     -1,
+     -1
+    ],
+    [
+     12,
+     332825,
+     567590,
+     -1,
+     -1
+    ],
+    [
+     13,
+     687836,
+     1255426,
+     -1,
+     -1
+    ],
+    [
+     14,
+     1343021,
+     2598447,
+     -1,
+     -1
+    ],
+    [
+     15,
+     2581929,
+     5180376,
+     -1,
+     -1
+    ],
+    [
+     16,
+     5085322,
+     10265698,
+     -1,
+     -1
+    ],
+    [
+     17,
+     10484785,
+     20750483,
+     -1,
+     -1
+    ],
+    [
+     18,
+     22495607,
+     43246090,
+     -1,
+     28
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": {
+    "len": 28,
+    "moves": [
+     12,
+     10,
+     13,
+     10,
+     13,
+     4,
+     1,
+     8,
+     7,
+     5,
+     7,
+     3,
+     0,
+     6,
+     8,
+     7,
+     12,
+     3,
+     6,
+     5,
+     5,
+     1,
+     2,
+     4,
+     2,
+     2,
+     15,
+     15
+    ],
+    "replay_ok": null
+   },
+   "set": "step4"
+  },
+  {
+   "row": "ac-04346",
+   "mode": "p2",
+   "param": 0,
+   "pad": 4,
+   "cap": 48,
+   "cap_slack": 24,
+   "start": 24,
+   "ac_record": 24,
+   "sac_record": 26,
+   "maxd": 16,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 6.0,
+   "peak_rss_gb": 2.51,
+   "killed": null,
+   "states": 286085,
+   "depth_reached": 17,
+   "status": "STOPPED",
+   "p2_start": 22,
+   "p2_bound": 22,
+   "p2_rejected_children": 544085,
+   "p2_calls": 69676,
+   "p2_cache_hits": 62266,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     10,
+     11,
+     -1,
+     -1
+    ],
+    [
+     2,
+     58,
+     69,
+     -1,
+     -1
+    ],
+    [
+     3,
+     210,
+     279,
+     -1,
+     -1
+    ],
+    [
+     4,
+     519,
+     798,
+     -1,
+     -1
+    ],
+    [
+     5,
+     1021,
+     1819,
+     -1,
+     -1
+    ],
+    [
+     6,
+     1810,
+     3629,
+     -1,
+     -1
+    ],
+    [
+     7,
+     3041,
+     6670,
+     -1,
+     -1
+    ],
+    [
+     8,
+     4913,
+     11583,
+     -1,
+     -1
+    ],
+    [
+     9,
+     7502,
+     19085,
+     -1,
+     -1
+    ],
+    [
+     10,
+     10740,
+     29825,
+     -1,
+     -1
+    ],
+    [
+     11,
+     14498,
+     44323,
+     -1,
+     -1
+    ],
+    [
+     12,
+     18733,
+     63056,
+     -1,
+     -1
+    ],
+    [
+     13,
+     23912,
+     86968,
+     -1,
+     -1
+    ],
+    [
+     14,
+     31925,
+     118893,
+     -1,
+     -1
+    ],
+    [
+     15,
+     51769,
+     170662,
+     -1,
+     -1
+    ],
+    [
+     16,
+     115423,
+     286085,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "step4"
+  },
+  {
+   "row": "ac-06936",
+   "mode": "p2",
+   "param": 0,
+   "pad": 4,
+   "cap": 49,
+   "cap_slack": 24,
+   "start": 25,
+   "ac_record": 26,
+   "sac_record": 27,
+   "maxd": 18,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 405.1,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 17,
+   "status": "STOPPED",
+   "p2_start": 19,
+   "p2_bound": 19,
+   "p2_rejected_children": 106845184,
+   "p2_calls": 26506405,
+   "p2_cache_hits": 23707771,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     11,
+     12,
+     -1,
+     -1
+    ],
+    [
+     2,
+     68,
+     80,
+     -1,
+     -1
+    ],
+    [
+     3,
+     239,
+     319,
+     -1,
+     -1
+    ],
+    [
+     4,
+     583,
+     902,
+     -1,
+     -1
+    ],
+    [
+     5,
+     1200,
+     2102,
+     -1,
+     -1
+    ],
+    [
+     6,
+     2468,
+     4570,
+     -1,
+     -1
+    ],
+    [
+     7,
+     6000,
+     10570,
+     -1,
+     -1
+    ],
+    [
+     8,
+     17517,
+     28087,
+     -1,
+     -1
+    ],
+    [
+     9,
+     55538,
+     83625,
+     -1,
+     -1
+    ],
+    [
+     10,
+     171645,
+     255270,
+     -1,
+     -1
+    ],
+    [
+     11,
+     488187,
+     743457,
+     -1,
+     -1
+    ],
+    [
+     12,
+     1251676,
+     1995133,
+     -1,
+     -1
+    ],
+    [
+     13,
+     2902556,
+     4897689,
+     -1,
+     -1
+    ],
+    [
+     14,
+     6203413,
+     11101102,
+     -1,
+     -1
+    ],
+    [
+     15,
+     12573833,
+     23674935,
+     -1,
+     -1
+    ],
+    [
+     16,
+     24995311,
+     48670246,
+     -1,
+     -1
+    ],
+    [
+     17,
+     6329754,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "step4"
+  },
+  {
+   "row": "ac-04346",
+   "mode": "p2",
+   "param": 0,
+   "pad": 6,
+   "cap": 48,
+   "cap_slack": 24,
+   "start": 24,
+   "ac_record": 24,
+   "sac_record": 26,
+   "maxd": 16,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 12.0,
+   "peak_rss_gb": 2.67,
+   "killed": null,
+   "states": 1878317,
+   "depth_reached": 17,
+   "status": "STOPPED",
+   "p2_start": 22,
+   "p2_bound": 22,
+   "p2_rejected_children": 1680111,
+   "p2_calls": 498656,
+   "p2_cache_hits": 438984,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     11,
+     12,
+     -1,
+     -1
+    ],
+    [
+     2,
+     63,
+     75,
+     -1,
+     -1
+    ],
+    [
+     3,
+     285,
+     360,
+     -1,
+     -1
+    ],
+    [
+     4,
+     936,
+     1296,
+     -1,
+     -1
+    ],
+    [
+     5,
+     2245,
+     3541,
+     -1,
+     -1
+    ],
+    [
+     6,
+     4374,
+     7915,
+     -1,
+     -1
+    ],
+    [
+     7,
+     7674,
+     15589,
+     -1,
+     -1
+    ],
+    [
+     8,
+     12689,
+     28278,
+     -1,
+     -1
+    ],
+    [
+     9,
+     19777,
+     48055,
+     -1,
+     -1
+    ],
+    [
+     10,
+     28944,
+     76999,
+     -1,
+     -1
+    ],
+    [
+     11,
+     40440,
+     117439,
+     -1,
+     -1
+    ],
+    [
+     12,
+     56249,
+     173688,
+     -1,
+     -1
+    ],
+    [
+     13,
+     85879,
+     259567,
+     -1,
+     -1
+    ],
+    [
+     14,
+     165167,
+     424734,
+     -1,
+     -1
+    ],
+    [
+     15,
+     399357,
+     824091,
+     -1,
+     -1
+    ],
+    [
+     16,
+     1054226,
+     1878317,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "step4"
+  },
+  {
+   "row": "ac-04346",
+   "mode": "p2",
+   "param": 0,
+   "pad": 8,
+   "cap": 48,
+   "cap_slack": 24,
+   "start": 24,
+   "ac_record": 24,
+   "sac_record": 26,
+   "maxd": 16,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 18.0,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 3067401,
+   "depth_reached": 17,
+   "status": "STOPPED",
+   "p2_start": 22,
+   "p2_bound": 22,
+   "p2_rejected_children": 3256297,
+   "p2_calls": 806018,
+   "p2_cache_hits": 726426,
+   "midlayer_stop": false,
+   "layers": [
+    [
+     1,
+     11,
+     12,
+     -1,
+     -1
+    ],
+    [
+     2,
+     68,
+     80,
+     -1,
+     -1
+    ],
+    [
+     3,
+     306,
+     386,
+     -1,
+     -1
+    ],
+    [
+     4,
+     1208,
+     1594,
+     -1,
+     -1
+    ],
+    [
+     5,
+     3741,
+     5335,
+     -1,
+     -1
+    ],
+    [
+     6,
+     8639,
+     13974,
+     -1,
+     -1
+    ],
+    [
+     7,
+     15925,
+     29899,
+     -1,
+     -1
+    ],
+    [
+     8,
+     25700,
+     55599,
+     -1,
+     -1
+    ],
+    [
+     9,
+     39036,
+     94635,
+     -1,
+     -1
+    ],
+    [
+     10,
+     56265,
+     150900,
+     -1,
+     -1
+    ],
+    [
+     11,
+     76909,
+     227809,
+     -1,
+     -1
+    ],
+    [
+     12,
+     105041,
+     332850,
+     -1,
+     -1
+    ],
+    [
+     13,
+     155510,
+     488360,
+     -1,
+     -1
+    ],
+    [
+     14,
+     275835,
+     764195,
+     -1,
+     -1
+    ],
+    [
+     15,
+     625725,
+     1389920,
+     -1,
+     -1
+    ],
+    [
+     16,
+     1677481,
+     3067401,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "step4"
+  },
+  {
+   "row": "ac-04346",
+   "mode": "p2",
+   "param": 1,
+   "pad": 4,
+   "cap": 48,
+   "cap_slack": 24,
+   "start": 24,
+   "ac_record": 24,
+   "sac_record": 26,
+   "maxd": 16,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 315.1,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 13,
+   "status": "STOPPED",
+   "p2_start": 22,
+   "p2_bound": 23,
+   "p2_rejected_children": 62207972,
+   "p2_calls": 17110440,
+   "p2_cache_hits": 15096675,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     12,
+     13,
+     -1,
+     -1
+    ],
+    [
+     2,
+     109,
+     122,
+     -1,
+     -1
+    ],
+    [
+     3,
+     759,
+     881,
+     -1,
+     -1
+    ],
+    [
+     4,
+     4090,
+     4971,
+     -1,
+     -1
+    ],
+    [
+     5,
+     17072,
+     22043,
+     -1,
+     -1
+    ],
+    [
+     6,
+     57590,
+     79633,
+     -1,
+     -1
+    ],
+    [
+     7,
+     166440,
+     246073,
+     -1,
+     -1
+    ],
+    [
+     8,
+     438353,
+     684426,
+     -1,
+     -1
+    ],
+    [
+     9,
+     1118775,
+     1803201,
+     -1,
+     -1
+    ],
+    [
+     10,
+     2868243,
+     4671444,
+     -1,
+     -1
+    ],
+    [
+     11,
+     7367190,
+     12038634,
+     -1,
+     -1
+    ],
+    [
+     12,
+     18451438,
+     30490072,
+     -1,
+     -1
+    ],
+    [
+     13,
+     24509928,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "step4"
+  },
+  {
+   "row": "ac-04346",
+   "mode": "p2",
+   "param": 2,
+   "pad": 4,
+   "cap": 48,
+   "cap_slack": 24,
+   "start": 24,
+   "ac_record": 24,
+   "sac_record": 26,
+   "maxd": 16,
+   "budget": 50000000,
+   "table": "T8.tab",
+   "wall_s": 300.2,
+   "peak_rss_gb": 2.69,
+   "killed": null,
+   "states": 55000000,
+   "depth_reached": 12,
+   "status": "STOPPED",
+   "p2_start": 22,
+   "p2_bound": 24,
+   "p2_rejected_children": 51930306,
+   "p2_calls": 11437756,
+   "p2_cache_hits": 9884415,
+   "midlayer_stop": true,
+   "layers": [
+    [
+     1,
+     12,
+     13,
+     -1,
+     -1
+    ],
+    [
+     2,
+     110,
+     123,
+     -1,
+     -1
+    ],
+    [
+     3,
+     800,
+     923,
+     -1,
+     -1
+    ],
+    [
+     4,
+     4781,
+     5704,
+     -1,
+     -1
+    ],
+    [
+     5,
+     23897,
+     29601,
+     -1,
+     -1
+    ],
+    [
+     6,
+     103659,
+     133260,
+     -1,
+     -1
+    ],
+    [
+     7,
+     399162,
+     532422,
+     -1,
+     -1
+    ],
+    [
+     8,
+     1378222,
+     1910644,
+     -1,
+     -1
+    ],
+    [
+     9,
+     4289322,
+     6199966,
+     -1,
+     -1
+    ],
+    [
+     10,
+     12087497,
+     18287463,
+     -1,
+     -1
+    ],
+    [
+     11,
+     30977853,
+     49265316,
+     -1,
+     -1
+    ],
+    [
+     12,
+     5734684,
+     55000000,
+     -1,
+     -1
+    ]
+   ],
+   "ac_record_hit_states": null,
+   "sac_record_hit_states": null,
+   "ac": null,
+   "sac": null,
+   "set": "step4"
+  }
+ ],
+ "notes": {
+  "table": [
+   {
+    "set": "test",
+    "row": "ac-07435",
+    "variant": "P2 c=0",
+    "cap": 50,
+    "maxd": 18,
+    "states": 55000000,
+    "last_complete_depth": 10,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 26,
+    "record_sac": 28,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 189.1
+   },
+   {
+    "set": "test",
+    "row": "ac-07435",
+    "variant": "P2 c=1",
+    "cap": 50,
+    "maxd": 18,
+    "states": 55000000,
+    "last_complete_depth": 10,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 26,
+    "record_sac": 28,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 183.0
+   },
+   {
+    "set": "test",
+    "row": "ac-07435",
+    "variant": "P2 c=2",
+    "cap": 50,
+    "maxd": 18,
+    "states": 55000000,
+    "last_complete_depth": 10,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 26,
+    "record_sac": 28,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 174.0
+   },
+   {
+    "set": "test",
+    "row": "ac-07435",
+    "variant": "P2 c=0 pad<=4",
+    "cap": 50,
+    "maxd": 18,
+    "states": 55000000,
+    "last_complete_depth": 15,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 26,
+    "record_sac": 28,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 366.1
+   },
+   {
+    "set": "test",
+    "row": "ac-07435",
+    "variant": "P2 c=0",
+    "cap": 27,
+    "maxd": 18,
+    "states": 6975907,
+    "last_complete_depth": 18,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": 26,
+    "best_sac": null,
+    "record_ac": 26,
+    "record_sac": 28,
+    "ac_record_found": true,
+    "sac_record_found": false,
+    "wall_s": 21.0
+   },
+   {
+    "set": "test",
+    "row": "ac-07435",
+    "variant": "length cap",
+    "cap": 27,
+    "maxd": 18,
+    "states": 9397019,
+    "last_complete_depth": 18,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": 26,
+    "best_sac": null,
+    "record_ac": 26,
+    "record_sac": 28,
+    "ac_record_found": true,
+    "sac_record_found": false,
+    "wall_s": 18.0
+   },
+   {
+    "set": "test",
+    "row": "ac-03305",
+    "variant": "P2 c=0",
+    "cap": 40,
+    "maxd": 15,
+    "states": 55000000,
+    "last_complete_depth": 12,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 23,
+    "record_sac": 24,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 111.0
+   },
+   {
+    "set": "test",
+    "row": "ac-03305",
+    "variant": "P2 c=0 pad<=2",
+    "cap": 48,
+    "maxd": 15,
+    "states": 36284724,
+    "last_complete_depth": 15,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": 23,
+    "best_sac": 25,
+    "record_ac": 23,
+    "record_sac": 24,
+    "ac_record_found": true,
+    "sac_record_found": false,
+    "wall_s": 222.1
+   },
+   {
+    "set": "test",
+    "row": "ac-03305",
+    "variant": "P2 c=0",
+    "cap": 48,
+    "maxd": 15,
+    "states": 55000000,
+    "last_complete_depth": 10,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 23,
+    "record_sac": 24,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 111.0
+   },
+   {
+    "set": "test",
+    "row": "ac-03305",
+    "variant": "length cap",
+    "cap": 40,
+    "maxd": 15,
+    "states": 71498852,
+    "last_complete_depth": 13,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 23,
+    "record_sac": 24,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 126.0
+   },
+   {
+    "set": "test",
+    "row": "ac-05558",
+    "variant": "P2 c=0",
+    "cap": 51,
+    "maxd": 16,
+    "states": 55000000,
+    "last_complete_depth": 11,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 24,
+    "record_sac": 26,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 237.0
+   },
+   {
+    "set": "test",
+    "row": "ac-01629",
+    "variant": "P2 c=0",
+    "cap": 58,
+    "maxd": 15,
+    "states": 50956621,
+    "last_complete_depth": 11,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 23,
+    "record_sac": 25,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 117.0
+   },
+   {
+    "set": "test",
+    "row": "ac-08201",
+    "variant": "P2 c=0",
+    "cap": 57,
+    "maxd": 23,
+    "states": 55000000,
+    "last_complete_depth": 11,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 31,
+    "record_sac": 33,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 111.0
+   },
+   {
+    "set": "test",
+    "row": "ac-05558",
+    "variant": "length cap",
+    "cap": 29,
+    "maxd": 16,
+    "states": 70214823,
+    "last_complete_depth": 16,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": 24,
+    "best_sac": 26,
+    "record_ac": 24,
+    "record_sac": 26,
+    "ac_record_found": true,
+    "sac_record_found": true,
+    "wall_s": 144.0
+   },
+   {
+    "set": "test",
+    "row": "ac-05558",
+    "variant": "P2 c=3",
+    "cap": 29,
+    "maxd": 16,
+    "states": 55000000,
+    "last_complete_depth": 15,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 24,
+    "record_sac": 26,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 102.0
+   },
+   {
+    "set": "test",
+    "row": "ac-01629",
+    "variant": "length cap",
+    "cap": 38,
+    "maxd": 15,
+    "states": 34739139,
+    "last_complete_depth": 15,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": 23,
+    "best_sac": null,
+    "record_ac": 23,
+    "record_sac": 25,
+    "ac_record_found": true,
+    "sac_record_found": false,
+    "wall_s": 57.0
+   },
+   {
+    "set": "test",
+    "row": "ac-01629",
+    "variant": "P2 c=0",
+    "cap": 38,
+    "maxd": 15,
+    "states": 29854609,
+    "last_complete_depth": 15,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": 23,
+    "best_sac": null,
+    "record_ac": 23,
+    "record_sac": 25,
+    "ac_record_found": true,
+    "sac_record_found": false,
+    "wall_s": 60.0
+   },
+   {
+    "set": "test",
+    "row": "ac-08201",
+    "variant": "length cap",
+    "cap": 36,
+    "maxd": 23,
+    "states": 32680592,
+    "last_complete_depth": 23,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": 31,
+    "best_sac": 33,
+    "record_ac": 31,
+    "record_sac": 33,
+    "ac_record_found": true,
+    "sac_record_found": true,
+    "wall_s": 72.0
+   },
+   {
+    "set": "test",
+    "row": "ac-08201",
+    "variant": "P2 c=0",
+    "cap": 36,
+    "maxd": 23,
+    "states": 30001845,
+    "last_complete_depth": 23,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": 31,
+    "best_sac": 33,
+    "record_ac": 31,
+    "record_sac": 33,
+    "ac_record_found": true,
+    "sac_record_found": true,
+    "wall_s": 69.0
+   },
+   {
+    "set": "test",
+    "row": "ac-03305",
+    "variant": "P2 c=99 pad<=2",
+    "cap": 48,
+    "maxd": 15,
+    "states": 55000000,
+    "last_complete_depth": 13,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 23,
+    "record_sac": 24,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 192.0
+   },
+   {
+    "set": "test",
+    "row": "ac-03305",
+    "variant": "P2 c=1 pad<=2",
+    "cap": 48,
+    "maxd": 15,
+    "states": 36284779,
+    "last_complete_depth": 15,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": 23,
+    "best_sac": 25,
+    "record_ac": 23,
+    "record_sac": 24,
+    "ac_record_found": true,
+    "sac_record_found": false,
+    "wall_s": 225.0
+   },
+   {
+    "set": "test",
+    "row": "ac-03305",
+    "variant": "P2 c=2 pad<=2",
+    "cap": 48,
+    "maxd": 15,
+    "states": 49567603,
+    "last_complete_depth": 15,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": 23,
+    "best_sac": 25,
+    "record_ac": 23,
+    "record_sac": 24,
+    "ac_record_found": true,
+    "sac_record_found": false,
+    "wall_s": 318.1
+   },
+   {
+    "set": "test",
+    "row": "ac-07435",
+    "variant": "P2 c=0 pad<=2",
+    "cap": 50,
+    "maxd": 18,
+    "states": 55000000,
+    "last_complete_depth": 17,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 26,
+    "record_sac": 28,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 480.1
+   },
+   {
+    "set": "test",
+    "row": "ac-05558",
+    "variant": "P2 c=0 pad<=2",
+    "cap": 51,
+    "maxd": 16,
+    "states": 42651843,
+    "last_complete_depth": 16,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 24,
+    "record_sac": 26,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 693.1
+   },
+   {
+    "set": "test",
+    "row": "ac-01629",
+    "variant": "P2 c=0 pad<=2",
+    "cap": 58,
+    "maxd": 15,
+    "states": 1421214,
+    "last_complete_depth": 15,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 23,
+    "record_sac": 25,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 15.0
+   },
+   {
+    "set": "test",
+    "row": "ac-08201",
+    "variant": "P2 c=0 pad<=2",
+    "cap": 57,
+    "maxd": 23,
+    "states": 55000000,
+    "last_complete_depth": 20,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 31,
+    "record_sac": 33,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 402.1
+   },
+   {
+    "set": "test",
+    "row": "ac-01629",
+    "variant": "P2 c=0 pad<=4",
+    "cap": 58,
+    "maxd": 15,
+    "states": 6298527,
+    "last_complete_depth": 15,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 23,
+    "record_sac": 25,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 51.0
+   },
+   {
+    "set": "test",
+    "row": "ac-01629",
+    "variant": "P2 c=0 pad<=8",
+    "cap": 58,
+    "maxd": 15,
+    "states": 55000000,
+    "last_complete_depth": 13,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 23,
+    "record_sac": 25,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 306.1
+   },
+   {
+    "set": "step4",
+    "row": "ac-04346",
+    "variant": "P2 c=0 pad<=2",
+    "cap": 48,
+    "maxd": 16,
+    "states": 70950,
+    "last_complete_depth": 16,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 24,
+    "record_sac": 26,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 9.0
+   },
+   {
+    "set": "step4",
+    "row": "ac-06936",
+    "variant": "P2 c=0 pad<=2",
+    "cap": 49,
+    "maxd": 18,
+    "states": 43246090,
+    "last_complete_depth": 18,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": null,
+    "best_sac": 28,
+    "record_ac": 26,
+    "record_sac": 27,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 390.1
+   },
+   {
+    "set": "step4",
+    "row": "ac-04346",
+    "variant": "P2 c=0 pad<=4",
+    "cap": 48,
+    "maxd": 16,
+    "states": 286085,
+    "last_complete_depth": 16,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 24,
+    "record_sac": 26,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 6.0
+   },
+   {
+    "set": "step4",
+    "row": "ac-06936",
+    "variant": "P2 c=0 pad<=4",
+    "cap": 49,
+    "maxd": 18,
+    "states": 55000000,
+    "last_complete_depth": 16,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 26,
+    "record_sac": 27,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 405.1
+   },
+   {
+    "set": "step4",
+    "row": "ac-04346",
+    "variant": "P2 c=0 pad<=6",
+    "cap": 48,
+    "maxd": 16,
+    "states": 1878317,
+    "last_complete_depth": 16,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 24,
+    "record_sac": 26,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 12.0
+   },
+   {
+    "set": "step4",
+    "row": "ac-04346",
+    "variant": "P2 c=0 pad<=8",
+    "cap": 48,
+    "maxd": 16,
+    "states": 3067401,
+    "last_complete_depth": 16,
+    "midlayer_stop": false,
+    "exhausted_to_maxd": true,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 24,
+    "record_sac": 26,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 18.0
+   },
+   {
+    "set": "step4",
+    "row": "ac-04346",
+    "variant": "P2 c=1 pad<=4",
+    "cap": 48,
+    "maxd": 16,
+    "states": 55000000,
+    "last_complete_depth": 12,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 24,
+    "record_sac": 26,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 315.1
+   },
+   {
+    "set": "step4",
+    "row": "ac-04346",
+    "variant": "P2 c=2 pad<=4",
+    "cap": 48,
+    "maxd": 16,
+    "states": 55000000,
+    "last_complete_depth": 11,
+    "midlayer_stop": true,
+    "exhausted_to_maxd": false,
+    "best_ac": null,
+    "best_sac": null,
+    "record_ac": 24,
+    "record_sac": 26,
+    "ac_record_found": false,
+    "sac_record_found": false,
+    "wall_s": 300.2
+   }
+  ],
+  "table_note": "states = stored states when the run ended (P2 runs: BUDGET 50M checked at layer end, HARD_BUDGET 55M mid-layer; reference acc_capped has only the layer-end check, hence 70M/71M). last_complete_depth = deepest fully expanded BFS layer; MAXD = max(AC record - 8, SAC record - 10) with the T8 table; exhausted_to_maxd = the whole region was searched to MAXD, so no AC <= record / SAC <= record path has its first MAXD states inside it (up to the 123-bit fingerprint caveat of acc_opt). Length-capped baseline caps are the peak of our known record path (oracle cap).",
+  "historical_length_capped": {
+   "ac-03305": "adaptive sweep (T9, MAXD 14): caps 24-36 empty; SAC 24 at cap 37, AC 23 at cap 40 with 133M states (556M over the climbing caps)",
+   "ac-01629": "sweep C: AC 23 at cap 42 (start 34)",
+   "ac-05558": "sweep C (cap start+2)",
+   "ac-07435": "sweep C (cap start+1)",
+   "ac-08201": "sweep C",
+   "ac-06936": "caps 25-33 proved empty; 180M budget hit at cap 34"
+  },
+  "findings": [
+   "P2 <= P2(start)+c with the loose cap start+24 (the proposed rule) never reached a record: 50-55M states by depth 10-11 on all five test rows (needs 15-23). Growth 3.5-4x per layer vs 1.8x for the length cap at the known peak. c=1,2 regions contain c=0, so they stop no deeper (checked on 07435: all depth 10).",
+   "Cause 1: P2 is a class function, so conjugations (8 of 14 moves) and inversions are always admitted; with a loose length cap the region fills with conjugation padding (non-cyclically-reduced forms).",
+   "Cause 2: P2 flatness is not selective. Inside the length cap, P2 <= P2(start) holds for most states: 74% of the cap-27 region on 07435 (6.98M of 9.40M), 92% of the cap-40 region on 03305 by depth 12 (28.9M of 31.3M), 86% on 01629 cap 38, 92% on 08201 cap 36. Record hump paths being P2-flat (66%) is close to the base rate.",
+   "P2 inside the known length cap saves only 8-26% (07435 9.40M -> 6.98M, 01629 34.7M -> 29.9M, 08201 32.7M -> 30.0M; 05558 at c=3 needs the path P2 climb of 3 and still stopped at 55M, depth 15 of 16, against 70.2M for the full length-capped run).",
+   "Adding a padding bound (pad = total length - cyclic core length <= 2) makes the region small. On the one real hump row, ac-03305 (raw +16, pad <= 2, P2 flat), P2 c=0 + pad <= 2 + cap 48 finds AC 23 (record) at depth 15 with 36.3M states / 222 s (c=1 36.3M, c=2 49.6M). The length cap 40 needs >71.5M just to depth 13 with T8 (133M with T9 historically). The pad-only control (c=99) hit 55M at depth 14: P2 cuts the pad-2 region 4.5x (7.9M vs 35.5M at depth 13). SAC 24 is not in the region (best SAC 25).",
+   "The pad bound loses the other rows: their record paths carry pad 4-8 (07435 4, 05558 4 + P2 climb 3, 01629 8, 08201 8). P2 c=0 + pad 2 exhausts 05558 (42.7M) and 01629 (1.4M; pad 4: 6.3M) with no record path, and overflows on 07435 (depth 17 of 18) and 08201 (20 of 23). Offline, only 20% of the 59 at-record hump paths have c <= 1 and pad <= 2 (c <= 2, pad <= 4: 64%).",
+   "Step 4 (hump near-miss rows): ac-04346 (AC 24 / SAC 26): P2 c=0 regions are tiny and exhausted to depth 16 with no record path for pad 2/4/6/8 (71k / 286k / 1.88M / 3.07M states); c=1 or 2 (pad 4) overflow 55M by depth 12. So every AC <= 24 / SAC <= 26 path of 04346 leaves P2 <= 22 or pad <= 8 or total <= 48 within its first 16 states. ac-06936 (SAC 27): c=0 pad 2 exhausted to depth 18 (43.2M), best SAC 28; pad 4 overflowed at depth 16. ac-00487 was already tied by another lane (SENT_ROWS: ac 26, sac 27). No hits, no inbox lines."
+  ],
+  "verdict": "P2 as a region bound: dead as proposed (loose length cap). P2 + padding bound: a real 4-9x saving on a pad-free hump row (03305), but it contains only ~20% of hump record paths and missed on 4 of 5 test rows; keep it as an optional filter (CAP_PAD + CAP_P2 inside the length-capped sweep) for rows whose best known route is pad <= 2 and P2-flat, not as a replacement."
+ }
+}

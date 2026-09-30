@@ -1,0 +1,10586 @@
+{
+ "what": "Matched A/B of three atlas beam ideas on top of BEAM_P2=2 in research/acc/optimality/acc_beam.c: BEAM_QUOTA=q (B16/B17, at most q survivors per cyclic-class pair), BEAM_WH=1 (B83, Whitehead-minimal cyclic total as the key after P2), and the beam-loss diagnostic (B20 + Plate XI, BEAM_TRACE_FILE + beam_loss.py)",
+ "date": "2026-09-28",
+ "generated": "2026-09-28T11:52Z",
+ "code": {
+  "acc_beam.c_sha256": "beee7f830490c871a74baec17e68b12c49b097d4f93606a36a481641eda339af",
+  "beam_loss.py_sha256": "d1386a1248dcd138c9483d310fc80e0895ee0d30f60b87b86a533dd5b8bf4100",
+  "binary": "acc_beam_x (scratch)",
+  "binary_sha256_v1_arms_P2_2_Q_WH": "ca01d0681939851610ec3b796c7fe6760eb6ac1eef745196ac696ce8cf35c548",
+  "binary_sha256_v2_arms_P2_3": "ed95fd2b3912706adc0d10aa0ef5ab2590a48cf104bd6bd6fe24268e14be6294",
+  "binary_sha256_v3_arms_elite": "c7bbe329d7b05510215428814cf8bf90339939253f27521bdb9d58cab974bb26",
+  "build": "gcc -O3 -march=native -o acc_beam_x acc_beam.c -lm",
+  "parent_acc_beam.c_sha256": "deed6dd9b3a982c70f752f4af809dc905cafe790b403f2ebe1c168b4c43a6ef0"
+ },
+ "settings": {
+  "W": 20000,
+  "depth_cap": "live AC record + 6",
+  "env_all_arms": {
+   "BEAM_H": "1",
+   "BEAM_DIV": "0.8",
+   "BEAM_P2": "2"
+  },
+  "arms": {
+   "P2=2": {},
+   "P2=2+Q4": {
+    "BEAM_QUOTA": "4"
+   },
+   "P2=2+Q16": {
+    "BEAM_QUOTA": "16"
+   },
+   "P2=2+WH": {
+    "BEAM_WH": "1"
+   },
+   "P2=3": {
+    "BEAM_P2": "3"
+   },
+   "P2=3+Q16": {
+    "BEAM_P2": "3",
+    "BEAM_QUOTA": "16"
+   },
+   "P2=2+Q16+E5000": {
+    "BEAM_QUOTA": "16",
+    "BEAM_ELITE": "5000"
+   },
+   "P2=3+Q16+E5000": {
+    "BEAM_P2": "3",
+    "BEAM_QUOTA": "16",
+    "BEAM_ELITE": "5000"
+   }
+  },
+  "arm_note": "P2=3 and P2=3+Q16 were added at the lead's request after the first four arms (score zoo, SCORE_ZOO.md); they ran on acc_beam_x v2 (P2=3 added), which is stdout-identical to v1 on the v1 flags (validation.identity_v2_vs_v1). The elite arms (the lead's second request, BEAM_ELITE=W/4 with QUOTA=16) ran on v3 (BEAM_ELITE added), stdout-identical to v2 on the v2 flags (validation.identity_v3_vs_v2). Raw AC / Stable AC paths of every arm and row are in table[].<arm>.ac_path / sac_path",
+  "finish_table": "T8 (scratch p2beam/T8.tab, sha256 38f05b56d5e79d9df03cc3cd96cd8433725b051111984a8dad4fbe30d07068f8)",
+  "scheduling": "one beam at a time, nice -n 5, 20-minute cap (kill by PID); 3 other P2 search lanes on the other cores"
+ },
+ "definitions": {
+  "QUOTA": "class = unordered pair of cyclic conjugacy classes of (r0, r1), each up to inversion (64-bit hash of the least rotation of the cyclically reduced word or its inverse). Candidates admitted in key order while their class has < q; BEAM_DIV keeps its best 0.8W of the admitted list and samples the other 0.2W evenly from the admitted tail; if fewer than W are admitted, the rest are filled from the over-quota candidates in key order.",
+  "WH": "greedy steepest descent over x->x y^e, x->y^e x, y->y x^e, y->x^e y (e=+-1) on both cyclic words until no automorphism lowers the cyclic total; key = P2 | WH | hprio | fingerprint bits (P1m slot of mode 2). Computed for multiplication children with a class-keyed cache, inherited for conjugation/inversion children.",
+  "P2=3": "key = P2 (9 bits) | comm_len (10) | P1m (10) | hprio klen (18) | 17 fingerprint bits; comm_len = cyclically reduced length of r0 r1 r0^-1 r1^-1 on the stored words, computed for every child (0 mismatches vs score_zoo.py f_comm_len on 900 random-walk states)",
+  "ELITE": "BEAM_ELITE=e with BEAM_QUOTA=q: the best e candidates by the full key are admitted regardless of class and do not use up their class quota; the other admissions obey the per-class quota q; BEAM_DIV then works on the admitted list as for QUOTA.",
+  "TRACE": "BEAM_TRACE_FILE lines \"i h1 h2\" (fp() of the known path states); each depth prints rank, tie block (same key without fingerprint bits), cut keys at k1=0.8W and W, kept flag. Observation only."
+ },
+ "validation": {
+  "identity_new_flags_unset": [
+   {
+    "row": "ac-00236",
+    "W": 2000,
+    "D": 25,
+    "env": {},
+    "identical_stdout": true,
+    "ac_len": 15,
+    "sac_len": 17,
+    "wall_old": 2.1,
+    "wall_new": 0.6,
+    "sha1": "500f412e8872229a92794bba436ac1595456729f"
+   },
+   {
+    "row": "ac-00236",
+    "W": 2000,
+    "D": 25,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8"
+    },
+    "identical_stdout": true,
+    "ac_len": 15,
+    "sac_len": 17,
+    "wall_old": 0.6,
+    "wall_new": 0.6,
+    "sha1": "500f412e8872229a92794bba436ac1595456729f"
+   },
+   {
+    "row": "ac-03305",
+    "W": 2000,
+    "D": 29,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8"
+    },
+    "identical_stdout": true,
+    "ac_len": null,
+    "sac_len": null,
+    "wall_old": 1.2,
+    "wall_new": 1.2,
+    "sha1": "9a79785413b694983f1a47313922d354db192a61"
+   },
+   {
+    "row": "ac-03305",
+    "W": 2000,
+    "D": 29,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8",
+     "BEAM_P2": "2"
+    },
+    "identical_stdout": true,
+    "ac_len": 24,
+    "sac_len": 26,
+    "wall_old": 4.1,
+    "wall_new": 4.1,
+    "sha1": "e4b9fd44d48d9476ed18d49ad3b715d99824a81c"
+   },
+   {
+    "row": "ac-05558",
+    "W": 4000,
+    "D": 30,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8",
+     "BEAM_P2": "2"
+    },
+    "identical_stdout": true,
+    "ac_len": 26,
+    "sac_len": 28,
+    "wall_old": 7.0,
+    "wall_new": 6.9,
+    "sha1": "e0eb73c5ada54f23708b7e7bb85caf65c4b94dde"
+   },
+   {
+    "row": "ac-07435",
+    "W": 3000,
+    "D": 32,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8",
+     "BEAM_P2": "1"
+    },
+    "identical_stdout": true,
+    "ac_len": 35,
+    "sac_len": 37,
+    "wall_old": 10.7,
+    "wall_new": 10.9,
+    "sha1": "ea25b44a869cb1d939ce1017dfa88f7623e2ebe9"
+   },
+   {
+    "row": "ac-06045",
+    "W": 3000,
+    "D": 42,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8",
+     "BEAM_NOV": "3"
+    },
+    "identical_stdout": true,
+    "ac_len": null,
+    "sac_len": null,
+    "wall_old": 2.3,
+    "wall_new": 2.3,
+    "sha1": "9a79785413b694983f1a47313922d354db192a61"
+   }
+  ],
+  "identity_v3_vs_v2": [
+   {
+    "row": "ac-00236",
+    "W": 2000,
+    "D": 25,
+    "env": {},
+    "identical_stdout": true,
+    "ac_len": 15,
+    "sac_len": 17
+   },
+   {
+    "row": "ac-05558",
+    "W": 4000,
+    "D": 30,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8",
+     "BEAM_P2": "2"
+    },
+    "identical_stdout": true,
+    "ac_len": 26,
+    "sac_len": 28
+   },
+   {
+    "row": "ac-05558",
+    "W": 4000,
+    "D": 30,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8",
+     "BEAM_P2": "3"
+    },
+    "identical_stdout": true,
+    "ac_len": null,
+    "sac_len": null
+   },
+   {
+    "row": "ac-05558",
+    "W": 4000,
+    "D": 30,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8",
+     "BEAM_P2": "2",
+     "BEAM_QUOTA": "16"
+    },
+    "identical_stdout": true,
+    "ac_len": 27,
+    "sac_len": 28
+   },
+   {
+    "row": "ac-03305",
+    "W": 2000,
+    "D": 29,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8",
+     "BEAM_P2": "3",
+     "BEAM_QUOTA": "16"
+    },
+    "identical_stdout": true,
+    "ac_len": 26,
+    "sac_len": 29
+   }
+  ],
+  "identity_v2_vs_v1": [
+   {
+    "row": "ac-00236",
+    "W": 2000,
+    "D": 25,
+    "env": {},
+    "identical_stdout": true,
+    "ac_len": 15,
+    "sac_len": 17
+   },
+   {
+    "row": "ac-05558",
+    "W": 4000,
+    "D": 30,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8",
+     "BEAM_P2": "2"
+    },
+    "identical_stdout": true,
+    "ac_len": 26,
+    "sac_len": 28
+   },
+   {
+    "row": "ac-05558",
+    "W": 4000,
+    "D": 30,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8",
+     "BEAM_P2": "1"
+    },
+    "identical_stdout": true,
+    "ac_len": 26,
+    "sac_len": 28
+   },
+   {
+    "row": "ac-05558",
+    "W": 4000,
+    "D": 30,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8",
+     "BEAM_P2": "2",
+     "BEAM_QUOTA": "16"
+    },
+    "identical_stdout": true,
+    "ac_len": 27,
+    "sac_len": 28
+   },
+   {
+    "row": "ac-05558",
+    "W": 4000,
+    "D": 30,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8",
+     "BEAM_P2": "2",
+     "BEAM_WH": "1"
+    },
+    "identical_stdout": true,
+    "ac_len": 26,
+    "sac_len": 28
+   },
+   {
+    "row": "ac-03305",
+    "W": 2000,
+    "D": 29,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8",
+     "BEAM_QUOTA": "4"
+    },
+    "identical_stdout": true,
+    "ac_len": 31,
+    "sac_len": 33
+   },
+   {
+    "row": "ac-03305",
+    "W": 2000,
+    "D": 29,
+    "env": {
+     "BEAM_H": "1",
+     "BEAM_DIV": "0.8",
+     "BEAM_WH": "1"
+    },
+    "identical_stdout": true,
+    "ac_len": null,
+    "sac_len": null
+   }
+  ],
+  "identity_P2_2_W20000_vs_earlier_ab": [
+   {
+    "row": "ac-05558",
+    "identical_to_earlier_acc_beam_p2_run": true
+   },
+   {
+    "row": "ac-07435",
+    "identical_to_earlier_acc_beam_p2_run": true
+   },
+   {
+    "row": "ac-06045",
+    "identical_to_earlier_acc_beam_p2_run": true
+   },
+   {
+    "row": "ac-00145",
+    "identical_to_earlier_acc_beam_p2_run": true
+   }
+  ],
+  "class_and_WH_invariance": "12,000 random conjugation/inversion/relator-swap walks from random-walk states of ac-05558, ac-00145, ac-06045 each (36,000 total): 0 class mismatches, 0 WH mismatches; the class changes on 400/400 multiplication children per row",
+  "WH_vs_independent_python": "200 random-walk states (ac-06045): 0 mismatches against an independent string implementation of the same descent; mean WH drop below the cyclic total 0.385 letters, max 18",
+  "trace_fingerprint_port": "beam_loss.py refuses to analyse unless the beam reports the start state as trace index 0 (Python fp() port = acc_opt.c fp()); held on every diagnostic run",
+  "official_verifier": "every AC and Stable AC path from every A/B arm replayed with the SAIR verifier (competition/tools/verifier, manifest data)"
+ },
+ "kill_condition": "fixed before the runs: QUOTA / WH are dead if they never beat P2=2 on any row (AC or Stable AC length) and never find a path where P2=2 finds none",
+ "table": [
+  {
+   "row": "ac-05558",
+   "record_ac": 24,
+   "ours_ac": 24,
+   "ours_sac": 26,
+   "live_sac": 26,
+   "P2=2": {
+    "ac": 26,
+    "sac": 28,
+    "wall_s": 36.8,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "acbf518dbf312ebc96d6ef991cdd753ba54fccbe",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     6,
+     4,
+     1,
+     7,
+     12,
+     4,
+     8,
+     6,
+     4,
+     13,
+     11,
+     11,
+     1,
+     4,
+     8,
+     0,
+     6,
+     3,
+     10,
+     4,
+     10,
+     12,
+     11,
+     3,
+     3,
+     5
+    ],
+    "sac_path": [
+     6,
+     4,
+     1,
+     7,
+     12,
+     4,
+     8,
+     11,
+     4,
+     13,
+     10,
+     12,
+     6,
+     5,
+     7,
+     9,
+     10,
+     3,
+     10,
+     2,
+     5,
+     8,
+     4,
+     4,
+     2,
+     0,
+     15,
+     15
+    ]
+   },
+   "P2=2+Q4": {
+    "ac": 30,
+    "sac": 32,
+    "wall_s": 170.2,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "9e48f6804c516d037d3ac3d9b2640c53c70da607",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     11,
+     4,
+     8,
+     6,
+     5,
+     10,
+     12,
+     5,
+     12,
+     10,
+     5,
+     12,
+     10,
+     13,
+     11,
+     4,
+     13,
+     11,
+     4,
+     8,
+     3,
+     1,
+     6,
+     2,
+     6,
+     3,
+     7,
+     9,
+     5,
+     5
+    ],
+    "sac_path": [
+     11,
+     4,
+     8,
+     6,
+     5,
+     10,
+     12,
+     5,
+     12,
+     10,
+     5,
+     12,
+     10,
+     13,
+     11,
+     4,
+     13,
+     11,
+     4,
+     8,
+     3,
+     1,
+     6,
+     9,
+     7,
+     3,
+     13,
+     4,
+     2,
+     0,
+     15,
+     15
+    ]
+   },
+   "P2=2+Q16": {
+    "ac": 27,
+    "sac": 28,
+    "wall_s": 96.4,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "096fd3543d7d77b698f8cc77aa8b6ec477677daf",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     6,
+     4,
+     4,
+     7,
+     12,
+     1,
+     4,
+     11,
+     13,
+     4,
+     10,
+     12,
+     11,
+     13,
+     3,
+     11,
+     13,
+     4,
+     11,
+     5,
+     7,
+     12,
+     10,
+     2,
+     2,
+     5,
+     5
+    ],
+    "sac_path": [
+     6,
+     4,
+     4,
+     7,
+     12,
+     1,
+     4,
+     11,
+     13,
+     4,
+     10,
+     12,
+     11,
+     13,
+     5,
+     0,
+     11,
+     13,
+     3,
+     6,
+     2,
+     8,
+     5,
+     5,
+     3,
+     7,
+     15,
+     15
+    ]
+   },
+   "P2=2+WH": {
+    "ac": 26,
+    "sac": 28,
+    "wall_s": 40.9,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "acbf518dbf312ebc96d6ef991cdd753ba54fccbe",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     6,
+     4,
+     1,
+     7,
+     12,
+     4,
+     8,
+     6,
+     4,
+     13,
+     11,
+     11,
+     1,
+     4,
+     8,
+     0,
+     6,
+     3,
+     10,
+     4,
+     10,
+     12,
+     11,
+     3,
+     3,
+     5
+    ],
+    "sac_path": [
+     6,
+     4,
+     1,
+     7,
+     12,
+     4,
+     8,
+     11,
+     4,
+     13,
+     10,
+     12,
+     6,
+     5,
+     7,
+     9,
+     10,
+     3,
+     10,
+     2,
+     5,
+     8,
+     4,
+     4,
+     2,
+     0,
+     15,
+     15
+    ]
+   },
+   "P2=3": {
+    "ac": 26,
+    "sac": 28,
+    "wall_s": 38.0,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "ee1eef6e8a0a5545f69644a267e9ec93a126364c",
+    "binary": "acc_beam_x(v2)",
+    "ac_path": [
+     6,
+     4,
+     1,
+     7,
+     12,
+     4,
+     8,
+     6,
+     4,
+     13,
+     11,
+     11,
+     1,
+     4,
+     8,
+     6,
+     0,
+     3,
+     10,
+     4,
+     10,
+     12,
+     11,
+     3,
+     3,
+     5
+    ],
+    "sac_path": [
+     6,
+     4,
+     1,
+     7,
+     12,
+     4,
+     8,
+     11,
+     4,
+     13,
+     6,
+     10,
+     12,
+     5,
+     10,
+     7,
+     9,
+     3,
+     10,
+     2,
+     5,
+     8,
+     4,
+     4,
+     2,
+     0,
+     15,
+     15
+    ]
+   },
+   "P2=3+Q16": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 108.9,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "9a79785413b694983f1a47313922d354db192a61",
+    "binary": "acc_beam_x(v2)",
+    "ac_path": null,
+    "sac_path": null
+   },
+   "P2=2+Q16+E5000": {
+    "ac": 26,
+    "sac": 28,
+    "wall_s": 79.1,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "f642d8eecb9b799eac222a9cdc294f144522bf7e",
+    "binary": "acc_beam_x(v3)",
+    "ac_path": [
+     6,
+     4,
+     1,
+     7,
+     12,
+     4,
+     8,
+     6,
+     4,
+     13,
+     11,
+     11,
+     1,
+     4,
+     8,
+     0,
+     6,
+     3,
+     10,
+     4,
+     10,
+     12,
+     11,
+     3,
+     3,
+     5
+    ],
+    "sac_path": [
+     6,
+     4,
+     4,
+     7,
+     12,
+     1,
+     4,
+     11,
+     0,
+     13,
+     5,
+     10,
+     12,
+     11,
+     13,
+     4,
+     11,
+     13,
+     3,
+     6,
+     2,
+     8,
+     5,
+     5,
+     3,
+     7,
+     15,
+     15
+    ]
+   },
+   "P2=3+Q16+E5000": {
+    "ac": 29,
+    "sac": 31,
+    "wall_s": 91.1,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "b2aae2bba660ce5a27392fc8fc66fee536ce04a5",
+    "binary": "acc_beam_x(v3)",
+    "ac_path": [
+     0,
+     12,
+     2,
+     5,
+     10,
+     12,
+     2,
+     11,
+     13,
+     0,
+     3,
+     9,
+     7,
+     3,
+     12,
+     10,
+     7,
+     4,
+     3,
+     0,
+     6,
+     13,
+     2,
+     9,
+     5,
+     11,
+     3,
+     5,
+     8
+    ],
+    "sac_path": [
+     0,
+     12,
+     2,
+     5,
+     10,
+     12,
+     2,
+     11,
+     13,
+     0,
+     3,
+     9,
+     7,
+     3,
+     12,
+     10,
+     7,
+     0,
+     3,
+     0,
+     9,
+     10,
+     4,
+     13,
+     3,
+     7,
+     5,
+     3,
+     12,
+     15,
+     15
+    ]
+   }
+  },
+  {
+   "row": "ac-07435",
+   "record_ac": 26,
+   "ours_ac": 26,
+   "ours_sac": 28,
+   "live_sac": 28,
+   "P2=2": {
+    "ac": 28,
+    "sac": 29,
+    "wall_s": 44.2,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "0ec6c16ec514f61371c26d84accc94735e43ff0b",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     5,
+     12,
+     5,
+     12,
+     11,
+     5,
+     12,
+     7,
+     4,
+     6,
+     8,
+     2,
+     8,
+     7,
+     8,
+     0,
+     2,
+     8,
+     5,
+     0,
+     1,
+     5,
+     10,
+     4,
+     8,
+     5,
+     2,
+     2
+    ],
+    "sac_path": [
+     5,
+     12,
+     5,
+     12,
+     11,
+     5,
+     12,
+     7,
+     4,
+     6,
+     8,
+     2,
+     8,
+     7,
+     8,
+     0,
+     2,
+     8,
+     5,
+     1,
+     4,
+     10,
+     5,
+     8,
+     13,
+     2,
+     4,
+     15,
+     15
+    ]
+   },
+   "P2=2+Q4": {
+    "ac": 38,
+    "sac": 40,
+    "wall_s": 208.5,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "2098265861a2c546131f1dfc1eefb04a88c66afa",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     0,
+     4,
+     12,
+     4,
+     8,
+     12,
+     1,
+     10,
+     2,
+     9,
+     10,
+     4,
+     12,
+     11,
+     7,
+     0,
+     13,
+     4,
+     12,
+     11,
+     6,
+     2,
+     5,
+     8,
+     11,
+     5,
+     12,
+     4,
+     11,
+     5,
+     8,
+     12,
+     10,
+     4,
+     8,
+     5,
+     2,
+     2
+    ],
+    "sac_path": [
+     0,
+     4,
+     12,
+     4,
+     8,
+     12,
+     1,
+     10,
+     2,
+     9,
+     10,
+     4,
+     12,
+     11,
+     7,
+     0,
+     13,
+     4,
+     12,
+     11,
+     6,
+     2,
+     5,
+     8,
+     11,
+     5,
+     12,
+     4,
+     11,
+     0,
+     4,
+     12,
+     10,
+     13,
+     5,
+     6,
+     2,
+     4,
+     15,
+     15
+    ]
+   },
+   "P2=2+Q16": {
+    "ac": 29,
+    "sac": 31,
+    "wall_s": 120.4,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "9e6a5aa6d61e0327a0a3b22557bc2bfd9d66e5e5",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     5,
+     1,
+     12,
+     2,
+     5,
+     12,
+     8,
+     0,
+     6,
+     3,
+     9,
+     7,
+     4,
+     8,
+     1,
+     7,
+     0,
+     8,
+     3,
+     8,
+     2,
+     5,
+     3,
+     6,
+     2,
+     9,
+     5,
+     1,
+     2
+    ],
+    "sac_path": [
+     5,
+     1,
+     12,
+     2,
+     5,
+     12,
+     8,
+     0,
+     6,
+     3,
+     9,
+     7,
+     4,
+     8,
+     1,
+     7,
+     0,
+     8,
+     3,
+     8,
+     2,
+     5,
+     3,
+     6,
+     2,
+     12,
+     3,
+     4,
+     4,
+     15,
+     15
+    ]
+   },
+   "P2=2+WH": {
+    "ac": 29,
+    "sac": 31,
+    "wall_s": 47.9,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "377aafc29e9e30708c49ef3ea71f595629108d1c",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     5,
+     12,
+     5,
+     12,
+     10,
+     13,
+     4,
+     1,
+     11,
+     13,
+     4,
+     3,
+     8,
+     8,
+     7,
+     4,
+     3,
+     12,
+     2,
+     8,
+     0,
+     12,
+     3,
+     6,
+     2,
+     9,
+     5,
+     1,
+     2
+    ],
+    "sac_path": [
+     5,
+     12,
+     5,
+     12,
+     10,
+     13,
+     4,
+     1,
+     11,
+     13,
+     4,
+     3,
+     8,
+     8,
+     7,
+     4,
+     12,
+     0,
+     3,
+     8,
+     6,
+     9,
+     2,
+     7,
+     3,
+     8,
+     4,
+     4,
+     6,
+     15,
+     15
+    ]
+   },
+   "P2=3": {
+    "ac": 28,
+    "sac": 29,
+    "wall_s": 41.9,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "07f85b094ed120d2194c5f4222ca567bdddd51b6",
+    "binary": "acc_beam_x(v2)",
+    "ac_path": [
+     5,
+     12,
+     5,
+     12,
+     10,
+     13,
+     4,
+     11,
+     6,
+     12,
+     2,
+     7,
+     8,
+     6,
+     12,
+     5,
+     8,
+     2,
+     7,
+     3,
+     9,
+     6,
+     8,
+     2,
+     0,
+     7,
+     4,
+     2
+    ],
+    "sac_path": [
+     5,
+     12,
+     5,
+     12,
+     11,
+     5,
+     12,
+     7,
+     4,
+     6,
+     8,
+     2,
+     8,
+     7,
+     8,
+     0,
+     2,
+     8,
+     5,
+     1,
+     4,
+     10,
+     5,
+     8,
+     13,
+     2,
+     4,
+     15,
+     15
+    ]
+   },
+   "P2=3+Q16": {
+    "ac": 36,
+    "sac": 38,
+    "wall_s": 122.7,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "92d898ea487ef72854f22f16c7b52f8b96778e46",
+    "binary": "acc_beam_x(v2)",
+    "ac_path": [
+     5,
+     8,
+     12,
+     12,
+     5,
+     10,
+     4,
+     13,
+     3,
+     6,
+     3,
+     8,
+     7,
+     1,
+     9,
+     11,
+     3,
+     8,
+     7,
+     0,
+     8,
+     10,
+     2,
+     8,
+     5,
+     8,
+     4,
+     9,
+     5,
+     1,
+     6,
+     5,
+     13,
+     3,
+     3,
+     4
+    ],
+    "sac_path": [
+     5,
+     8,
+     12,
+     12,
+     5,
+     10,
+     4,
+     13,
+     3,
+     6,
+     3,
+     8,
+     7,
+     1,
+     9,
+     11,
+     3,
+     8,
+     7,
+     0,
+     8,
+     10,
+     2,
+     11,
+     4,
+     12,
+     5,
+     11,
+     4,
+     12,
+     10,
+     13,
+     5,
+     6,
+     2,
+     4,
+     15,
+     15
+    ]
+   },
+   "P2=2+Q16+E5000": {
+    "ac": 28,
+    "sac": 29,
+    "wall_s": 96.1,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "14e5f89795a954d3f86651f2d59c40a15d200c6d",
+    "binary": "acc_beam_x(v3)",
+    "ac_path": [
+     5,
+     12,
+     5,
+     12,
+     11,
+     5,
+     12,
+     10,
+     4,
+     11,
+     8,
+     2,
+     8,
+     7,
+     8,
+     0,
+     2,
+     8,
+     5,
+     0,
+     1,
+     5,
+     10,
+     4,
+     8,
+     5,
+     2,
+     2
+    ],
+    "sac_path": [
+     5,
+     12,
+     5,
+     12,
+     11,
+     5,
+     12,
+     10,
+     4,
+     11,
+     8,
+     2,
+     8,
+     7,
+     8,
+     0,
+     2,
+     8,
+     5,
+     1,
+     4,
+     10,
+     5,
+     8,
+     13,
+     2,
+     4,
+     15,
+     15
+    ]
+   },
+   "P2=3+Q16+E5000": {
+    "ac": 26,
+    "sac": 29,
+    "wall_s": 89.1,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "15171c85b9cfbda6776cd46ae2f48358cca29b3b",
+    "binary": "acc_beam_x(v3)",
+    "ac_path": [
+     5,
+     12,
+     5,
+     12,
+     10,
+     13,
+     4,
+     11,
+     8,
+     0,
+     2,
+     12,
+     11,
+     12,
+     1,
+     4,
+     12,
+     3,
+     0,
+     2,
+     6,
+     3,
+     9,
+     12,
+     4,
+     2
+    ],
+    "sac_path": [
+     5,
+     12,
+     5,
+     12,
+     10,
+     13,
+     4,
+     11,
+     8,
+     0,
+     2,
+     12,
+     11,
+     12,
+     1,
+     4,
+     12,
+     3,
+     0,
+     1,
+     3,
+     6,
+     2,
+     12,
+     3,
+     4,
+     4,
+     15,
+     15
+    ]
+   }
+  },
+  {
+   "row": "ac-06045",
+   "record_ac": 36,
+   "ours_ac": 48,
+   "ours_sac": 50,
+   "live_sac": 38,
+   "P2=2": {
+    "ac": 39,
+    "sac": 42,
+    "wall_s": 51.6,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "c1769839ed36e5bee4c6f2912be458b38b3f07cf",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     5,
+     12,
+     12,
+     12,
+     12,
+     0,
+     2,
+     6,
+     1,
+     13,
+     11,
+     5,
+     7,
+     9,
+     7,
+     2,
+     8,
+     8,
+     4,
+     10,
+     9,
+     2,
+     9,
+     4,
+     1,
+     12,
+     9,
+     7,
+     10,
+     4,
+     0,
+     9,
+     3,
+     5,
+     5,
+     5,
+     5,
+     11,
+     3
+    ],
+    "sac_path": [
+     5,
+     12,
+     12,
+     12,
+     12,
+     0,
+     2,
+     6,
+     6,
+     8,
+     1,
+     5,
+     10,
+     8,
+     10,
+     2,
+     9,
+     9,
+     2,
+     7,
+     1,
+     4,
+     11,
+     8,
+     3,
+     8,
+     8,
+     6,
+     2,
+     6,
+     8,
+     5,
+     8,
+     6,
+     2,
+     2,
+     5,
+     3,
+     3,
+     5,
+     15,
+     15
+    ]
+   },
+   "P2=2+Q4": {
+    "ac": 50,
+    "sac": null,
+    "wall_s": 276.2,
+    "timeout": false,
+    "verified": {
+     "ac": true
+    },
+    "stdout_sha1": "a4bd12931117c8598d904ff9cc95a2f741cc0f0c",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     5,
+     12,
+     12,
+     12,
+     12,
+     6,
+     2,
+     10,
+     0,
+     2,
+     11,
+     4,
+     3,
+     10,
+     12,
+     3,
+     6,
+     13,
+     6,
+     4,
+     11,
+     11,
+     13,
+     5,
+     12,
+     0,
+     1,
+     7,
+     3,
+     0,
+     1,
+     4,
+     7,
+     9,
+     0,
+     4,
+     8,
+     4,
+     10,
+     12,
+     9,
+     7,
+     9,
+     5,
+     12,
+     3,
+     3,
+     5,
+     5,
+     3
+    ],
+    "sac_path": null
+   },
+   "P2=2+Q16": {
+    "ac": 40,
+    "sac": 42,
+    "wall_s": 155.8,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "40d6e088b2bac04b9cb594120ad340442372ac4d",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     5,
+     12,
+     12,
+     12,
+     12,
+     0,
+     2,
+     6,
+     6,
+     8,
+     2,
+     5,
+     1,
+     13,
+     6,
+     6,
+     5,
+     11,
+     8,
+     11,
+     4,
+     10,
+     12,
+     4,
+     12,
+     2,
+     12,
+     10,
+     1,
+     9,
+     12,
+     7,
+     2,
+     13,
+     4,
+     2,
+     4,
+     1,
+     5,
+     3
+    ],
+    "sac_path": [
+     5,
+     12,
+     12,
+     12,
+     12,
+     0,
+     2,
+     6,
+     6,
+     8,
+     2,
+     5,
+     1,
+     13,
+     6,
+     6,
+     5,
+     11,
+     2,
+     5,
+     7,
+     12,
+     5,
+     12,
+     3,
+     13,
+     11,
+     8,
+     13,
+     11,
+     2,
+     1,
+     9,
+     7,
+     13,
+     5,
+     5,
+     3,
+     3,
+     5,
+     15,
+     15
+    ]
+   },
+   "P2=2+WH": {
+    "ac": 41,
+    "sac": 44,
+    "wall_s": 70.9,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "03f540e9abbda967458c489bf31ea3c58d1acd0e",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     5,
+     12,
+     12,
+     12,
+     12,
+     1,
+     4,
+     10,
+     0,
+     10,
+     9,
+     2,
+     12,
+     12,
+     12,
+     10,
+     2,
+     5,
+     11,
+     12,
+     12,
+     10,
+     5,
+     12,
+     10,
+     2,
+     11,
+     13,
+     4,
+     8,
+     2,
+     6,
+     13,
+     3,
+     6,
+     5,
+     5,
+     5,
+     5,
+     5,
+     3
+    ],
+    "sac_path": [
+     5,
+     12,
+     12,
+     12,
+     12,
+     1,
+     4,
+     10,
+     0,
+     10,
+     9,
+     2,
+     12,
+     12,
+     12,
+     10,
+     2,
+     5,
+     11,
+     12,
+     12,
+     10,
+     5,
+     12,
+     10,
+     2,
+     11,
+     13,
+     4,
+     8,
+     2,
+     6,
+     1,
+     13,
+     2,
+     4,
+     4,
+     4,
+     4,
+     4,
+     4,
+     3,
+     15,
+     15
+    ]
+   },
+   "P2=3": {
+    "ac": 44,
+    "sac": 46,
+    "wall_s": 56.5,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "bec805f5cbc70abf54ece6a2f9e1154e9d0c8542",
+    "binary": "acc_beam_x(v2)",
+    "ac_path": [
+     5,
+     12,
+     12,
+     12,
+     12,
+     0,
+     2,
+     6,
+     6,
+     8,
+     1,
+     5,
+     10,
+     10,
+     8,
+     2,
+     9,
+     9,
+     2,
+     7,
+     1,
+     4,
+     11,
+     8,
+     3,
+     8,
+     3,
+     11,
+     13,
+     0,
+     3,
+     7,
+     9,
+     3,
+     12,
+     4,
+     6,
+     13,
+     3,
+     6,
+     5,
+     5,
+     5,
+     3
+    ],
+    "sac_path": [
+     1,
+     2,
+     5,
+     8,
+     8,
+     8,
+     8,
+     5,
+     10,
+     10,
+     12,
+     3,
+     6,
+     6,
+     12,
+     4,
+     13,
+     13,
+     4,
+     11,
+     0,
+     2,
+     7,
+     12,
+     5,
+     12,
+     5,
+     7,
+     9,
+     1,
+     5,
+     11,
+     13,
+     5,
+     8,
+     2,
+     9,
+     10,
+     5,
+     13,
+     3,
+     3,
+     3,
+     5,
+     15,
+     15
+    ]
+   },
+   "P2=3+Q16": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 198.8,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "9a79785413b694983f1a47313922d354db192a61",
+    "binary": "acc_beam_x(v2)",
+    "ac_path": null,
+    "sac_path": null
+   },
+   "P2=2+Q16+E5000": {
+    "ac": 39,
+    "sac": 41,
+    "wall_s": 124.2,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "6cbe9e70a4f39301a059f950a82da5a3ffe7895d",
+    "binary": "acc_beam_x(v3)",
+    "ac_path": [
+     5,
+     12,
+     12,
+     12,
+     12,
+     0,
+     2,
+     6,
+     1,
+     13,
+     11,
+     5,
+     7,
+     9,
+     7,
+     2,
+     8,
+     8,
+     4,
+     10,
+     9,
+     2,
+     9,
+     4,
+     1,
+     12,
+     9,
+     7,
+     10,
+     4,
+     0,
+     9,
+     3,
+     5,
+     5,
+     5,
+     5,
+     11,
+     3
+    ],
+    "sac_path": [
+     1,
+     2,
+     5,
+     8,
+     8,
+     8,
+     8,
+     5,
+     10,
+     9,
+     7,
+     3,
+     11,
+     13,
+     11,
+     4,
+     12,
+     12,
+     2,
+     6,
+     13,
+     4,
+     13,
+     2,
+     13,
+     11,
+     8,
+     6,
+     0,
+     2,
+     1,
+     8,
+     5,
+     3,
+     3,
+     3,
+     13,
+     3,
+     5,
+     15,
+     15
+    ]
+   },
+   "P2=3+Q16+E5000": {
+    "ac": 40,
+    "sac": 42,
+    "wall_s": 132.7,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "85084b46594237261c2233bdc1cef7a35ccddba9",
+    "binary": "acc_beam_x(v3)",
+    "ac_path": [
+     1,
+     2,
+     5,
+     8,
+     8,
+     8,
+     8,
+     5,
+     10,
+     9,
+     7,
+     3,
+     11,
+     13,
+     11,
+     4,
+     12,
+     12,
+     2,
+     6,
+     8,
+     1,
+     5,
+     1,
+     10,
+     3,
+     6,
+     13,
+     2,
+     9,
+     1,
+     7,
+     9,
+     2,
+     5,
+     5,
+     5,
+     5,
+     5,
+     3
+    ],
+    "sac_path": [
+     5,
+     12,
+     12,
+     12,
+     12,
+     0,
+     2,
+     6,
+     13,
+     11,
+     1,
+     5,
+     7,
+     9,
+     7,
+     2,
+     8,
+     8,
+     4,
+     10,
+     12,
+     0,
+     3,
+     0,
+     6,
+     5,
+     10,
+     9,
+     4,
+     13,
+     1,
+     8,
+     6,
+     2,
+     2,
+     5,
+     3,
+     3,
+     3,
+     5,
+     15,
+     15
+    ]
+   }
+  },
+  {
+   "row": "ac-00487",
+   "record_ac": 26,
+   "ours_ac": 26,
+   "ours_sac": 27,
+   "live_sac": 27,
+   "P2=2": {
+    "ac": 27,
+    "sac": 28,
+    "wall_s": 38.6,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "2db34077779b633f9f2a4855420c236ee14d0fde",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     5,
+     12,
+     12,
+     10,
+     13,
+     10,
+     13,
+     8,
+     4,
+     3,
+     13,
+     0,
+     2,
+     7,
+     8,
+     4,
+     12,
+     11,
+     6,
+     5,
+     7,
+     3,
+     3,
+     3,
+     5,
+     5,
+     1
+    ],
+    "sac_path": [
+     5,
+     12,
+     12,
+     10,
+     13,
+     10,
+     0,
+     13,
+     8,
+     3,
+     9,
+     5,
+     11,
+     12,
+     3,
+     7,
+     8,
+     7,
+     2,
+     6,
+     4,
+     4,
+     4,
+     8,
+     2,
+     2,
+     15,
+     15
+    ]
+   },
+   "P2=2+Q4": {
+    "ac": 37,
+    "sac": 40,
+    "wall_s": 284.1,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "dc1e61e3f60dc13b95b943f13e43ef4cfdd4a61c",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     5,
+     12,
+     3,
+     3,
+     12,
+     10,
+     13,
+     8,
+     10,
+     8,
+     2,
+     6,
+     9,
+     6,
+     6,
+     9,
+     3,
+     7,
+     13,
+     9,
+     1,
+     11,
+     0,
+     2,
+     8,
+     6,
+     9,
+     12,
+     11,
+     2,
+     9,
+     4,
+     8,
+     2,
+     4,
+     4,
+     10
+    ],
+    "sac_path": [
+     0,
+     4,
+     12,
+     2,
+     12,
+     10,
+     13,
+     10,
+     8,
+     3,
+     9,
+     7,
+     8,
+     6,
+     2,
+     13,
+     11,
+     12,
+     1,
+     11,
+     4,
+     3,
+     10,
+     13,
+     10,
+     10,
+     13,
+     10,
+     13,
+     0,
+     8,
+     10,
+     2,
+     9,
+     4,
+     2,
+     2,
+     6,
+     15,
+     15
+    ]
+   },
+   "P2=2+Q16": {
+    "ac": 27,
+    "sac": 27,
+    "wall_s": 127.5,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "34661a2932cc42f755ccf14e65c302e09ada8c57",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     5,
+     12,
+     12,
+     10,
+     13,
+     10,
+     13,
+     2,
+     8,
+     0,
+     3,
+     7,
+     5,
+     8,
+     7,
+     7,
+     4,
+     11,
+     12,
+     2,
+     0,
+     5,
+     5,
+     3,
+     5,
+     2,
+     8
+    ],
+    "sac_path": [
+     5,
+     12,
+     12,
+     10,
+     13,
+     10,
+     13,
+     2,
+     8,
+     0,
+     3,
+     7,
+     5,
+     8,
+     7,
+     7,
+     4,
+     11,
+     12,
+     2,
+     4,
+     4,
+     8,
+     2,
+     2,
+     15,
+     15
+    ]
+   },
+   "P2=2+WH": {
+    "ac": 27,
+    "sac": 28,
+    "wall_s": 43.2,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "58d5da43555beba56b2ee6997b320f24e992fa1d",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     5,
+     12,
+     12,
+     10,
+     13,
+     10,
+     13,
+     8,
+     4,
+     3,
+     13,
+     1,
+     4,
+     11,
+     12,
+     3,
+     10,
+     10,
+     8,
+     2,
+     0,
+     6,
+     4,
+     2,
+     2,
+     4,
+     4
+    ],
+    "sac_path": [
+     5,
+     12,
+     12,
+     10,
+     13,
+     10,
+     0,
+     13,
+     8,
+     3,
+     9,
+     3,
+     7,
+     8,
+     4,
+     11,
+     12,
+     6,
+     5,
+     7,
+     2,
+     4,
+     4,
+     8,
+     2,
+     2,
+     15,
+     15
+    ]
+   },
+   "P2=3": {
+    "ac": 27,
+    "sac": 28,
+    "wall_s": 37.5,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "a3de09bf5b6df79c264353fed28f9be21dd572af",
+    "binary": "acc_beam_x(v2)",
+    "ac_path": [
+     5,
+     12,
+     12,
+     10,
+     13,
+     10,
+     13,
+     13,
+     0,
+     3,
+     12,
+     5,
+     11,
+     12,
+     3,
+     7,
+     8,
+     10,
+     2,
+     6,
+     4,
+     4,
+     4,
+     2,
+     4,
+     3,
+     0
+    ],
+    "sac_path": [
+     5,
+     12,
+     12,
+     10,
+     13,
+     10,
+     13,
+     13,
+     0,
+     3,
+     12,
+     5,
+     11,
+     12,
+     3,
+     7,
+     8,
+     7,
+     2,
+     6,
+     4,
+     4,
+     4,
+     8,
+     2,
+     2,
+     15,
+     15
+    ]
+   },
+   "P2=3+Q16": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 196.5,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "9a79785413b694983f1a47313922d354db192a61",
+    "binary": "acc_beam_x(v2)",
+    "ac_path": null,
+    "sac_path": null
+   },
+   "P2=2+Q16+E5000": {
+    "ac": 26,
+    "sac": 27,
+    "wall_s": 93.5,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "bf2e69e1b914a12a4987e730ede25c39552d7c7e",
+    "binary": "acc_beam_x(v3)",
+    "ac_path": [
+     5,
+     12,
+     12,
+     10,
+     13,
+     10,
+     8,
+     2,
+     0,
+     13,
+     3,
+     6,
+     9,
+     6,
+     9,
+     6,
+     2,
+     10,
+     4,
+     8,
+     2,
+     9,
+     5,
+     1,
+     4,
+     4
+    ],
+    "sac_path": [
+     5,
+     12,
+     12,
+     10,
+     13,
+     10,
+     8,
+     2,
+     0,
+     13,
+     3,
+     7,
+     5,
+     8,
+     7,
+     7,
+     4,
+     11,
+     12,
+     2,
+     4,
+     4,
+     8,
+     2,
+     2,
+     15,
+     15
+    ]
+   },
+   "P2=3+Q16+E5000": {
+    "ac": 26,
+    "sac": 27,
+    "wall_s": 84.2,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "5a44b1577c073fe2ebefabf19beff36ed899001c",
+    "binary": "acc_beam_x(v3)",
+    "ac_path": [
+     5,
+     12,
+     12,
+     10,
+     13,
+     10,
+     8,
+     2,
+     13,
+     4,
+     3,
+     11,
+     12,
+     11,
+     13,
+     4,
+     6,
+     4,
+     3,
+     8,
+     3,
+     9,
+     4,
+     4,
+     4,
+     10
+    ],
+    "sac_path": [
+     5,
+     12,
+     12,
+     10,
+     13,
+     10,
+     8,
+     2,
+     0,
+     13,
+     3,
+     7,
+     5,
+     8,
+     7,
+     7,
+     4,
+     11,
+     12,
+     2,
+     4,
+     4,
+     8,
+     2,
+     2,
+     15,
+     15
+    ]
+   }
+  },
+  {
+   "row": "ac-04346",
+   "record_ac": 24,
+   "ours_ac": null,
+   "ours_sac": null,
+   "live_sac": null,
+   "P2=2": {
+    "ac": 27,
+    "sac": 28,
+    "wall_s": 57.0,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "77eb323c4d7a2c5497ea53d2d978ddad486b632f",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     3,
+     8,
+     8,
+     8,
+     11,
+     13,
+     13,
+     11,
+     2,
+     8,
+     2,
+     10,
+     8,
+     6,
+     0,
+     12,
+     2,
+     8,
+     1,
+     5,
+     5,
+     3,
+     0,
+     2,
+     2,
+     5,
+     3
+    ],
+    "sac_path": [
+     3,
+     8,
+     8,
+     8,
+     11,
+     13,
+     13,
+     11,
+     2,
+     8,
+     2,
+     10,
+     8,
+     6,
+     0,
+     12,
+     2,
+     1,
+     8,
+     5,
+     5,
+     3,
+     13,
+     3,
+     5,
+     5,
+     15,
+     15
+    ]
+   },
+   "P2=2+Q4": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 236.0,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "9a79785413b694983f1a47313922d354db192a61",
+    "binary": "acc_beam_x",
+    "ac_path": null,
+    "sac_path": null
+   },
+   "P2=2+Q16": {
+    "ac": 28,
+    "sac": 28,
+    "wall_s": 167.8,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "d67673906171f1f58ccb77403a8f34fe21ca7148",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     0,
+     2,
+     7,
+     11,
+     13,
+     2,
+     13,
+     11,
+     7,
+     9,
+     3,
+     9,
+     0,
+     2,
+     13,
+     1,
+     3,
+     4,
+     3,
+     0,
+     1,
+     9,
+     3,
+     3,
+     5,
+     5,
+     3,
+     3
+    ],
+    "sac_path": [
+     0,
+     1,
+     3,
+     7,
+     7,
+     11,
+     9,
+     2,
+     13,
+     13,
+     11,
+     13,
+     6,
+     8,
+     13,
+     3,
+     8,
+     6,
+     2,
+     8,
+     5,
+     5,
+     3,
+     3,
+     5,
+     5,
+     15,
+     15
+    ]
+   },
+   "P2=2+WH": {
+    "ac": 27,
+    "sac": 28,
+    "wall_s": 64.7,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "77eb323c4d7a2c5497ea53d2d978ddad486b632f",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     3,
+     8,
+     8,
+     8,
+     11,
+     13,
+     13,
+     11,
+     2,
+     8,
+     2,
+     10,
+     8,
+     6,
+     0,
+     12,
+     2,
+     8,
+     1,
+     5,
+     5,
+     3,
+     0,
+     2,
+     2,
+     5,
+     3
+    ],
+    "sac_path": [
+     3,
+     8,
+     8,
+     8,
+     11,
+     13,
+     13,
+     11,
+     2,
+     8,
+     2,
+     10,
+     8,
+     6,
+     0,
+     12,
+     2,
+     1,
+     8,
+     5,
+     5,
+     3,
+     13,
+     3,
+     5,
+     5,
+     15,
+     15
+    ]
+   },
+   "P2=3": {
+    "ac": 27,
+    "sac": 28,
+    "wall_s": 54.1,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "01b46da4741c6240857680018bf7d5d2bf7236b4",
+    "binary": "acc_beam_x(v2)",
+    "ac_path": [
+     3,
+     8,
+     8,
+     8,
+     11,
+     13,
+     13,
+     11,
+     2,
+     8,
+     2,
+     8,
+     6,
+     10,
+     12,
+     0,
+     2,
+     8,
+     1,
+     5,
+     5,
+     3,
+     0,
+     2,
+     2,
+     5,
+     3
+    ],
+    "sac_path": [
+     3,
+     8,
+     8,
+     8,
+     11,
+     13,
+     13,
+     11,
+     2,
+     8,
+     2,
+     8,
+     6,
+     10,
+     12,
+     0,
+     2,
+     1,
+     8,
+     5,
+     5,
+     3,
+     13,
+     3,
+     5,
+     5,
+     15,
+     15
+    ]
+   },
+   "P2=3+Q16": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 130.4,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "9a79785413b694983f1a47313922d354db192a61",
+    "binary": "acc_beam_x(v2)",
+    "ac_path": null,
+    "sac_path": null
+   },
+   "P2=2+Q16+E5000": {
+    "ac": 27,
+    "sac": 28,
+    "wall_s": 148.9,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "8f8dd6ff916e1026727b63043858cbee1efb27ff",
+    "binary": "acc_beam_x(v3)",
+    "ac_path": [
+     3,
+     8,
+     11,
+     13,
+     13,
+     11,
+     13,
+     13,
+     2,
+     12,
+     7,
+     3,
+     12,
+     6,
+     10,
+     0,
+     8,
+     3,
+     9,
+     4,
+     4,
+     2,
+     4,
+     3,
+     11,
+     3,
+     3
+    ],
+    "sac_path": [
+     0,
+     2,
+     7,
+     11,
+     13,
+     2,
+     13,
+     11,
+     7,
+     9,
+     3,
+     9,
+     0,
+     2,
+     13,
+     1,
+     3,
+     0,
+     3,
+     13,
+     5,
+     5,
+     3,
+     3,
+     5,
+     5,
+     15,
+     15
+    ]
+   },
+   "P2=3+Q16+E5000": {
+    "ac": 27,
+    "sac": 29,
+    "wall_s": 105.8,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "177b3986bfbb2f1a135b8c52638e64c579a421cd",
+    "binary": "acc_beam_x(v3)",
+    "ac_path": [
+     3,
+     8,
+     8,
+     11,
+     13,
+     13,
+     11,
+     13,
+     2,
+     9,
+     7,
+     3,
+     12,
+     10,
+     6,
+     8,
+     0,
+     3,
+     9,
+     4,
+     4,
+     2,
+     4,
+     3,
+     11,
+     3,
+     3
+    ],
+    "sac_path": [
+     3,
+     8,
+     8,
+     11,
+     13,
+     13,
+     11,
+     13,
+     2,
+     9,
+     7,
+     3,
+     12,
+     10,
+     6,
+     8,
+     0,
+     3,
+     9,
+     4,
+     4,
+     1,
+     8,
+     3,
+     3,
+     5,
+     5,
+     15,
+     15
+    ]
+   }
+  },
+  {
+   "row": "ac-04211",
+   "record_ac": 32,
+   "ours_ac": null,
+   "ours_sac": null,
+   "live_sac": null,
+   "P2=2": {
+    "ac": 33,
+    "sac": 35,
+    "wall_s": 44.8,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "f50c4b33f1c1c0fb8e218a78a2d4e19c50cdb424",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     0,
+     2,
+     5,
+     7,
+     8,
+     6,
+     4,
+     12,
+     12,
+     12,
+     11,
+     1,
+     5,
+     8,
+     2,
+     10,
+     13,
+     7,
+     3,
+     6,
+     9,
+     5,
+     0,
+     13,
+     10,
+     3,
+     8,
+     10,
+     4,
+     2,
+     2,
+     2,
+     4
+    ],
+    "sac_path": [
+     1,
+     4,
+     11,
+     12,
+     10,
+     3,
+     8,
+     6,
+     6,
+     9,
+     6,
+     3,
+     12,
+     1,
+     5,
+     11,
+     6,
+     9,
+     4,
+     13,
+     10,
+     3,
+     7,
+     8,
+     4,
+     8,
+     10,
+     3,
+     9,
+     4,
+     4,
+     4,
+     2,
+     15,
+     15
+    ]
+   },
+   "P2=2+Q4": {
+    "ac": 41,
+    "sac": 43,
+    "wall_s": 250.3,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "acc2384a4da6f8635ae3be1d3b81f3dad5ce52cd",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     1,
+     4,
+     7,
+     11,
+     12,
+     3,
+     6,
+     8,
+     2,
+     8,
+     2,
+     8,
+     12,
+     5,
+     6,
+     8,
+     11,
+     12,
+     7,
+     4,
+     3,
+     6,
+     3,
+     9,
+     0,
+     3,
+     6,
+     3,
+     9,
+     0,
+     6,
+     3,
+     9,
+     9,
+     6,
+     2,
+     5,
+     7,
+     9,
+     4,
+     4
+    ],
+    "sac_path": [
+     1,
+     4,
+     7,
+     11,
+     12,
+     3,
+     6,
+     8,
+     2,
+     8,
+     2,
+     8,
+     12,
+     5,
+     6,
+     8,
+     11,
+     12,
+     7,
+     4,
+     3,
+     6,
+     3,
+     9,
+     0,
+     3,
+     6,
+     3,
+     9,
+     0,
+     6,
+     3,
+     9,
+     9,
+     13,
+     10,
+     4,
+     13,
+     3,
+     0,
+     2,
+     15,
+     15
+    ]
+   },
+   "P2=2+Q16": {
+    "ac": 35,
+    "sac": 38,
+    "wall_s": 146.8,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "6b9db0ffc93a90810648b52d57ffa84dc8a5172b",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     0,
+     2,
+     5,
+     7,
+     8,
+     6,
+     4,
+     12,
+     10,
+     7,
+     10,
+     8,
+     4,
+     8,
+     4,
+     3,
+     11,
+     11,
+     0,
+     12,
+     5,
+     7,
+     4,
+     3,
+     12,
+     11,
+     2,
+     6,
+     12,
+     5,
+     1,
+     2,
+     2,
+     2,
+     4
+    ],
+    "sac_path": [
+     0,
+     2,
+     5,
+     7,
+     8,
+     6,
+     4,
+     12,
+     10,
+     7,
+     10,
+     8,
+     4,
+     8,
+     4,
+     3,
+     11,
+     11,
+     0,
+     12,
+     5,
+     7,
+     4,
+     3,
+     12,
+     11,
+     2,
+     6,
+     12,
+     3,
+     4,
+     4,
+     4,
+     10,
+     4,
+     2,
+     15,
+     15
+    ]
+   },
+   "P2=2+WH": {
+    "ac": 33,
+    "sac": 35,
+    "wall_s": 50.8,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "43beba5a9294a530e063f7eda5c62a821ba02503",
+    "binary": "acc_beam_x",
+    "ac_path": [
+     0,
+     2,
+     5,
+     7,
+     8,
+     6,
+     4,
+     12,
+     12,
+     12,
+     11,
+     1,
+     5,
+     8,
+     2,
+     10,
+     13,
+     7,
+     3,
+     6,
+     9,
+     5,
+     0,
+     13,
+     10,
+     3,
+     8,
+     10,
+     4,
+     2,
+     2,
+     2,
+     4
+    ],
+    "sac_path": [
+     1,
+     4,
+     11,
+     12,
+     10,
+     3,
+     8,
+     8,
+     8,
+     0,
+     7,
+     2,
+     12,
+     1,
+     4,
+     6,
+     9,
+     11,
+     5,
+     10,
+     13,
+     3,
+     9,
+     6,
+     1,
+     5,
+     6,
+     12,
+     2,
+     4,
+     4,
+     4,
+     2,
+     15,
+     15
+    ]
+   },
+   "P2=3": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 73.9,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "9a79785413b694983f1a47313922d354db192a61",
+    "binary": "acc_beam_x(v2)",
+    "ac_path": null,
+    "sac_path": null
+   },
+   "P2=3+Q16": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 153.3,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "9a79785413b694983f1a47313922d354db192a61",
+    "binary": "acc_beam_x(v2)",
+    "ac_path": null,
+    "sac_path": null
+   },
+   "P2=2+Q16+E5000": {
+    "ac": 33,
+    "sac": 35,
+    "wall_s": 100.8,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "da1118c1138913401ce78377dc6cf319e0f8f021",
+    "binary": "acc_beam_x(v3)",
+    "ac_path": [
+     1,
+     4,
+     11,
+     12,
+     10,
+     3,
+     8,
+     8,
+     8,
+     0,
+     10,
+     2,
+     12,
+     4,
+     11,
+     9,
+     11,
+     5,
+     10,
+     3,
+     6,
+     9,
+     4,
+     11,
+     12,
+     3,
+     6,
+     2,
+     5,
+     3,
+     3,
+     0,
+     4
+    ],
+    "sac_path": [
+     1,
+     4,
+     11,
+     12,
+     10,
+     3,
+     8,
+     8,
+     8,
+     0,
+     10,
+     2,
+     12,
+     4,
+     11,
+     9,
+     11,
+     5,
+     10,
+     3,
+     6,
+     9,
+     4,
+     11,
+     9,
+     3,
+     8,
+     4,
+     4,
+     4,
+     1,
+     3,
+     0,
+     15,
+     15
+    ]
+   },
+   "P2=3+Q16+E5000": {
+    "ac": 36,
+    "sac": 38,
+    "wall_s": 136.2,
+    "timeout": false,
+    "verified": {
+     "ac": true,
+     "sac": true
+    },
+    "stdout_sha1": "2e6fb779b4c1d3c60a08528970aaa04e47087b00",
+    "binary": "acc_beam_x(v3)",
+    "ac_path": [
+     1,
+     4,
+     11,
+     12,
+     10,
+     3,
+     8,
+     8,
+     8,
+     7,
+     0,
+     2,
+     7,
+     10,
+     13,
+     5,
+     6,
+     12,
+     6,
+     9,
+     4,
+     9,
+     6,
+     2,
+     10,
+     13,
+     5,
+     8,
+     10,
+     4,
+     3,
+     3,
+     0,
+     2,
+     2,
+     4
+    ],
+    "sac_path": [
+     1,
+     4,
+     11,
+     12,
+     10,
+     3,
+     8,
+     8,
+     8,
+     7,
+     0,
+     2,
+     7,
+     10,
+     13,
+     5,
+     6,
+     12,
+     6,
+     9,
+     4,
+     9,
+     6,
+     2,
+     10,
+     13,
+     5,
+     6,
+     6,
+     12,
+     2,
+     7,
+     4,
+     4,
+     4,
+     2,
+     15,
+     15
+    ]
+   }
+  },
+  {
+   "row": "ac-00145",
+   "record_ac": 39,
+   "ours_ac": 40,
+   "ours_sac": 42,
+   "live_sac": 42,
+   "P2=2": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 55.5,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "9a79785413b694983f1a47313922d354db192a61",
+    "binary": "acc_beam_x",
+    "ac_path": null,
+    "sac_path": null
+   },
+   "P2=2+Q4": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 203.2,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "9a79785413b694983f1a47313922d354db192a61",
+    "binary": "acc_beam_x",
+    "ac_path": null,
+    "sac_path": null
+   },
+   "P2=2+Q16": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 133.4,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "9a79785413b694983f1a47313922d354db192a61",
+    "binary": "acc_beam_x",
+    "ac_path": null,
+    "sac_path": null
+   },
+   "P2=2+WH": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 58.8,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "9a79785413b694983f1a47313922d354db192a61",
+    "binary": "acc_beam_x",
+    "ac_path": null,
+    "sac_path": null
+   },
+   "P2=3": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 174.0,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "9a79785413b694983f1a47313922d354db192a61",
+    "binary": "acc_beam_x(v2)",
+    "ac_path": null,
+    "sac_path": null
+   },
+   "P2=3+Q16": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 148.8,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "9a79785413b694983f1a47313922d354db192a61",
+    "binary": "acc_beam_x(v2)",
+    "ac_path": null,
+    "sac_path": null
+   },
+   "P2=2+Q16+E5000": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 109.7,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "9a79785413b694983f1a47313922d354db192a61",
+    "binary": "acc_beam_x(v3)",
+    "ac_path": null,
+    "sac_path": null
+   },
+   "P2=3+Q16+E5000": {
+    "ac": null,
+    "sac": null,
+    "wall_s": 137.7,
+    "timeout": false,
+    "verified": {},
+    "stdout_sha1": "bb7e15bb95be8e2cccc21dfb96a3fd048ec769e7",
+    "binary": "acc_beam_x(v3)",
+    "ac_path": null,
+    "sac_path": null
+   }
+  }
+ ],
+ "vs_P2_2": {
+  "P2=2+Q4": {
+   "baseline": "P2=2",
+   "better_rows": [],
+   "worse_rows": [
+    {
+     "row": "ac-05558",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-07435",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-06045",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-00487",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-04346",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-04211",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    }
+   ],
+   "same_rows": [
+    "ac-00145"
+   ],
+   "found_where_P2_none": [],
+   "kill_condition_met": true
+  },
+  "P2=2+Q16": {
+   "baseline": "P2=2",
+   "better_rows": [
+    {
+     "row": "ac-00487",
+     "fields": [
+      "sac"
+     ]
+    }
+   ],
+   "worse_rows": [
+    {
+     "row": "ac-05558",
+     "fields": [
+      "ac"
+     ]
+    },
+    {
+     "row": "ac-07435",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-06045",
+     "fields": [
+      "ac"
+     ]
+    },
+    {
+     "row": "ac-04346",
+     "fields": [
+      "ac"
+     ]
+    },
+    {
+     "row": "ac-04211",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    }
+   ],
+   "same_rows": [
+    "ac-00145"
+   ],
+   "found_where_P2_none": [],
+   "kill_condition_met": false
+  },
+  "P2=2+WH": {
+   "baseline": "P2=2",
+   "better_rows": [],
+   "worse_rows": [
+    {
+     "row": "ac-07435",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-06045",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    }
+   ],
+   "same_rows": [
+    "ac-05558",
+    "ac-00487",
+    "ac-04346",
+    "ac-04211",
+    "ac-00145"
+   ],
+   "found_where_P2_none": [],
+   "kill_condition_met": true
+  },
+  "P2=3": {
+   "baseline": "P2=2",
+   "better_rows": [],
+   "worse_rows": [
+    {
+     "row": "ac-06045",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-04211",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    }
+   ],
+   "same_rows": [
+    "ac-05558",
+    "ac-07435",
+    "ac-00487",
+    "ac-04346",
+    "ac-00145"
+   ],
+   "found_where_P2_none": [],
+   "kill_condition_met": true
+  },
+  "P2=3+Q16": {
+   "baseline": "P2=2",
+   "better_rows": [],
+   "worse_rows": [
+    {
+     "row": "ac-05558",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-07435",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-06045",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-00487",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-04346",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-04211",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    }
+   ],
+   "same_rows": [
+    "ac-00145"
+   ],
+   "found_where_P2_none": [],
+   "kill_condition_met": true
+  },
+  "P2=2+Q16+E5000": {
+   "baseline": "P2=2",
+   "better_rows": [
+    {
+     "row": "ac-06045",
+     "fields": [
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-00487",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    }
+   ],
+   "worse_rows": [],
+   "same_rows": [
+    "ac-05558",
+    "ac-07435",
+    "ac-04346",
+    "ac-04211",
+    "ac-00145"
+   ],
+   "found_where_P2_none": [],
+   "kill_condition_met": false
+  },
+  "P2=3+Q16+E5000": {
+   "baseline": "P2=2",
+   "better_rows": [
+    {
+     "row": "ac-07435",
+     "fields": [
+      "ac"
+     ]
+    },
+    {
+     "row": "ac-00487",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    }
+   ],
+   "worse_rows": [
+    {
+     "row": "ac-05558",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-06045",
+     "fields": [
+      "ac"
+     ]
+    },
+    {
+     "row": "ac-04346",
+     "fields": [
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-04211",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    }
+   ],
+   "same_rows": [
+    "ac-00145"
+   ],
+   "found_where_P2_none": [],
+   "kill_condition_met": false
+  },
+  "P2=3+Q16 vs P2=3": {
+   "baseline": "P2=3",
+   "better_rows": [],
+   "worse_rows": [
+    {
+     "row": "ac-05558",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-07435",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-06045",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-00487",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-04346",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    }
+   ],
+   "same_rows": [
+    "ac-04211",
+    "ac-00145"
+   ],
+   "found_where_P2_none": [],
+   "kill_condition_met": true
+  },
+  "P2=2+Q16+E5000 vs P2=2+Q16": {
+   "baseline": "P2=2+Q16",
+   "better_rows": [
+    {
+     "row": "ac-05558",
+     "fields": [
+      "ac"
+     ]
+    },
+    {
+     "row": "ac-07435",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-06045",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-00487",
+     "fields": [
+      "ac"
+     ]
+    },
+    {
+     "row": "ac-04346",
+     "fields": [
+      "ac"
+     ]
+    },
+    {
+     "row": "ac-04211",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    }
+   ],
+   "worse_rows": [],
+   "same_rows": [
+    "ac-00145"
+   ],
+   "found_where_P2_none": [],
+   "kill_condition_met": false
+  },
+  "P2=3+Q16+E5000 vs P2=3": {
+   "baseline": "P2=3",
+   "better_rows": [
+    {
+     "row": "ac-07435",
+     "fields": [
+      "ac"
+     ]
+    },
+    {
+     "row": "ac-06045",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-00487",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-04211",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    }
+   ],
+   "worse_rows": [
+    {
+     "row": "ac-05558",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-04346",
+     "fields": [
+      "sac"
+     ]
+    }
+   ],
+   "same_rows": [
+    "ac-00145"
+   ],
+   "found_where_P2_none": [
+    {
+     "row": "ac-04211",
+     "field": "ac"
+    },
+    {
+     "row": "ac-04211",
+     "field": "sac"
+    }
+   ],
+   "kill_condition_met": false
+  },
+  "P2=3+Q16+E5000 vs P2=3+Q16": {
+   "baseline": "P2=3+Q16",
+   "better_rows": [
+    {
+     "row": "ac-05558",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-07435",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-06045",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-00487",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-04346",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    },
+    {
+     "row": "ac-04211",
+     "fields": [
+      "ac",
+      "sac"
+     ]
+    }
+   ],
+   "worse_rows": [],
+   "same_rows": [
+    "ac-00145"
+   ],
+   "found_where_P2_none": [
+    {
+     "row": "ac-05558",
+     "field": "ac"
+    },
+    {
+     "row": "ac-05558",
+     "field": "sac"
+    },
+    {
+     "row": "ac-06045",
+     "field": "ac"
+    },
+    {
+     "row": "ac-06045",
+     "field": "sac"
+    },
+    {
+     "row": "ac-00487",
+     "field": "ac"
+    },
+    {
+     "row": "ac-00487",
+     "field": "sac"
+    },
+    {
+     "row": "ac-04346",
+     "field": "ac"
+    },
+    {
+     "row": "ac-04346",
+     "field": "sac"
+    },
+    {
+     "row": "ac-04211",
+     "field": "ac"
+    },
+    {
+     "row": "ac-04211",
+     "field": "sac"
+    }
+   ],
+   "kill_condition_met": false
+  }
+ },
+ "diagnostic": [
+  {
+   "row": "ac-03305",
+   "path_len": 23,
+   "path_source": "ACC_SUBMIT_API_20260927T2336Z.txt",
+   "path": [
+    0,
+    11,
+    13,
+    2,
+    5,
+    7,
+    3,
+    8,
+    11,
+    13,
+    13,
+    2,
+    0,
+    6,
+    3,
+    9,
+    9,
+    4,
+    1,
+    3,
+    5,
+    3,
+    3
+   ],
+   "lengths_along_path": [
+    24,
+    24,
+    24,
+    24,
+    35,
+    33,
+    31,
+    40,
+    40,
+    40,
+    40,
+    40,
+    29,
+    29,
+    29,
+    18,
+    18,
+    18,
+    11,
+    11,
+    7,
+    4,
+    3,
+    2
+   ],
+   "arms": {
+    "H": {
+     "N": 23,
+     "need_index": 14,
+     "kept_on_time_through": 6,
+     "kept_any_depth_through": 6,
+     "reached_finish_zone": false,
+     "late_states": [],
+     "first_dropped_index": 7,
+     "drop": {
+      "depth": 7,
+      "rank": 68779,
+      "nt": 178191,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 68777,
+      "tie_hi": 68782,
+      "tie_count": 5,
+      "table_dist": -1,
+      "len": 40,
+      "fields": {
+       "klen": 1936,
+       "hprio": 121.0
+      },
+      "cut_k1_fields": {
+       "klen": 1629,
+       "hprio": 101.81
+      },
+      "cut_W_fields": {
+       "klen": 1656,
+       "hprio": 103.5
+      },
+      "verdict": "ranked",
+      "rank_over_k1": 4.3,
+      "decided_by": "klen",
+      "other_depths": []
+     },
+     "ac_len": 29,
+     "sac_len": 31,
+     "wall_s": 7.4,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 24
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 24
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 24
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 35
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 4362,
+       "tie": [
+        4356,
+        4407
+       ],
+       "p2": 0,
+       "len": 33
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 8651,
+       "tie": [
+        8540,
+        8665
+       ],
+       "p2": 0,
+       "len": 31
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 0,
+       "rank": 68779,
+       "tie": [
+        68777,
+        68782
+       ],
+       "p2": 0,
+       "len": 40
+      },
+      {
+       "i": 14,
+       "d": 28,
+       "kept": 0,
+       "rank": 148010,
+       "tie": [
+        147746,
+        148636
+       ],
+       "p2": 0,
+       "len": 29
+      },
+      {
+       "i": 15,
+       "d": 27,
+       "kept": 1,
+       "rank": 9194,
+       "tie": [
+        9185,
+        9763
+       ],
+       "p2": 0,
+       "len": 18
+      },
+      {
+       "i": 16,
+       "d": 26,
+       "kept": 1,
+       "rank": 2423,
+       "tie": [
+        2360,
+        2552
+       ],
+       "p2": 0,
+       "len": 18
+      },
+      {
+       "i": 17,
+       "d": 25,
+       "kept": 1,
+       "rank": 744,
+       "tie": [
+        720,
+        773
+       ],
+       "p2": 0,
+       "len": 18
+      },
+      {
+       "i": 18,
+       "d": 25,
+       "kept": 1,
+       "rank": 60,
+       "tie": [
+        54,
+        89
+       ],
+       "p2": 0,
+       "len": 11
+      },
+      {
+       "i": 19,
+       "d": 26,
+       "kept": 1,
+       "rank": 348,
+       "tie": [
+        270,
+        351
+       ],
+       "p2": 0,
+       "len": 11
+      },
+      {
+       "i": 20,
+       "d": 27,
+       "kept": 1,
+       "rank": 114,
+       "tie": [
+        78,
+        125
+       ],
+       "p2": 0,
+       "len": 7
+      },
+      {
+       "i": 21,
+       "d": 27,
+       "kept": 1,
+       "rank": 13,
+       "tie": [
+        4,
+        19
+       ],
+       "p2": 0,
+       "len": 4
+      },
+      {
+       "i": 22,
+       "d": 28,
+       "kept": 1,
+       "rank": 12,
+       "tie": [
+        3,
+        16
+       ],
+       "p2": 0,
+       "len": 3
+      }
+     ]
+    },
+    "P2=2": {
+     "N": 23,
+     "need_index": 14,
+     "kept_on_time_through": 7,
+     "kept_any_depth_through": 7,
+     "reached_finish_zone": false,
+     "late_states": [],
+     "first_dropped_index": 8,
+     "drop": {
+      "depth": 8,
+      "rank": 17535,
+      "nt": 180715,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 17516,
+      "tie_hi": 17545,
+      "tie_count": 29,
+      "table_dist": -1,
+      "len": 40,
+      "fields": {
+       "p2": 18,
+       "klen": 1936,
+       "hprio": 121.0
+      },
+      "cut_k1_fields": {
+       "p2": 17,
+       "klen": 2726,
+       "hprio": 170.38
+      },
+      "cut_W_fields": {
+       "p2": 19,
+       "klen": 1265,
+       "hprio": 79.06
+      },
+      "verdict": "width",
+      "rank_over_k1": 1.1,
+      "decided_by": "p2",
+      "other_depths": []
+     },
+     "ac_len": 24,
+     "sac_len": 24,
+     "wall_s": 40.3,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8",
+      "BEAM_P2": "2"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 19,
+       "len": 24
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 19,
+       "len": 24
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 19,
+       "len": 24
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 19,
+       "len": 35
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 4466,
+       "tie": [
+        4460,
+        4506
+       ],
+       "p2": 19,
+       "len": 33
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 9419,
+       "tie": [
+        9338,
+        9429
+       ],
+       "p2": 19,
+       "len": 31
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 1,
+       "rank": 3883,
+       "tie": [
+        3881,
+        3886
+       ],
+       "p2": 18,
+       "len": 40
+      },
+      {
+       "i": 8,
+       "d": 8,
+       "kept": 0,
+       "rank": 17535,
+       "tie": [
+        17516,
+        17545
+       ],
+       "p2": 18,
+       "len": 40
+      },
+      {
+       "i": 15,
+       "d": 22,
+       "kept": 0,
+       "rank": 67365,
+       "tie": [
+        67361,
+        68041
+       ],
+       "p2": 7,
+       "len": 18
+      },
+      {
+       "i": 16,
+       "d": 21,
+       "kept": 1,
+       "rank": 13733,
+       "tie": [
+        13632,
+        13929
+       ],
+       "p2": 7,
+       "len": 18
+      },
+      {
+       "i": 17,
+       "d": 20,
+       "kept": 1,
+       "rank": 2629,
+       "tie": [
+        2550,
+        2696
+       ],
+       "p2": 7,
+       "len": 18
+      },
+      {
+       "i": 18,
+       "d": 19,
+       "kept": 1,
+       "rank": 8,
+       "tie": [
+        6,
+        27
+       ],
+       "p2": 4,
+       "len": 11
+      },
+      {
+       "i": 19,
+       "d": 20,
+       "kept": 1,
+       "rank": 176,
+       "tie": [
+        109,
+        179
+       ],
+       "p2": 4,
+       "len": 11
+      },
+      {
+       "i": 20,
+       "d": 21,
+       "kept": 1,
+       "rank": 135,
+       "tie": [
+        98,
+        147
+       ],
+       "p2": 3,
+       "len": 7
+      },
+      {
+       "i": 21,
+       "d": 22,
+       "kept": 1,
+       "rank": 17,
+       "tie": [
+        9,
+        22
+       ],
+       "p2": 2,
+       "len": 4
+      },
+      {
+       "i": 22,
+       "d": 23,
+       "kept": 1,
+       "rank": 14,
+       "tie": [
+        3,
+        18
+       ],
+       "p2": 2,
+       "len": 3
+      }
+     ]
+    },
+    "P2=3": {
+     "N": 23,
+     "need_index": 14,
+     "kept_on_time_through": 5,
+     "kept_any_depth_through": 5,
+     "reached_finish_zone": false,
+     "late_states": [],
+     "first_dropped_index": 6,
+     "drop": {
+      "depth": 6,
+      "rank": 37578,
+      "nt": 200926,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 37575,
+      "tie_hi": 37579,
+      "tie_count": 4,
+      "table_dist": -1,
+      "len": 31,
+      "fields": {
+       "p2": 19,
+       "comm": 60,
+       "p1m": 40,
+       "klen": 1645,
+       "hprio": 102.81
+      },
+      "cut_k1_fields": {
+       "p2": 19,
+       "comm": 52,
+       "p1m": 37,
+       "klen": 2960,
+       "hprio": 185.0
+      },
+      "cut_W_fields": {
+       "p2": 19,
+       "comm": 54,
+       "p1m": 37,
+       "klen": 2292,
+       "hprio": 143.25
+      },
+      "verdict": "ranked",
+      "rank_over_k1": 2.35,
+      "decided_by": "comm",
+      "other_depths": [
+       {
+        "d": 8,
+        "rank": 62782,
+        "kept": 0
+       }
+      ]
+     },
+     "ac_len": 24,
+     "sac_len": 26,
+     "wall_s": 40.7,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8",
+      "BEAM_P2": "3"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 19,
+       "len": 24
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 19,
+       "len": 24
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 19,
+       "len": 24
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 19,
+       "len": 35
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 1611,
+       "tie": [
+        1611,
+        1613
+       ],
+       "p2": 19,
+       "len": 33
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 0,
+       "rank": 37578,
+       "tie": [
+        37575,
+        37579
+       ],
+       "p2": 19,
+       "len": 31
+      },
+      {
+       "i": 6,
+       "d": 8,
+       "kept": 0,
+       "rank": 62782,
+       "tie": [
+        62781,
+        62783
+       ],
+       "p2": 19,
+       "len": 31
+      },
+      {
+       "i": 13,
+       "d": 19,
+       "kept": 0,
+       "rank": 42313,
+       "tie": [
+        42310,
+        42318
+       ],
+       "p2": 11,
+       "len": 29
+      },
+      {
+       "i": 15,
+       "d": 22,
+       "kept": 0,
+       "rank": 55569,
+       "tie": [
+        55569,
+        55615
+       ],
+       "p2": 7,
+       "len": 18
+      },
+      {
+       "i": 16,
+       "d": 21,
+       "kept": 1,
+       "rank": 11403,
+       "tie": [
+        11385,
+        11438
+       ],
+       "p2": 7,
+       "len": 18
+      },
+      {
+       "i": 17,
+       "d": 20,
+       "kept": 1,
+       "rank": 1430,
+       "tie": [
+        1416,
+        1451
+       ],
+       "p2": 7,
+       "len": 18
+      },
+      {
+       "i": 18,
+       "d": 19,
+       "kept": 1,
+       "rank": 3,
+       "tie": [
+        2,
+        13
+       ],
+       "p2": 4,
+       "len": 11
+      },
+      {
+       "i": 19,
+       "d": 20,
+       "kept": 1,
+       "rank": 80,
+       "tie": [
+        52,
+        84
+       ],
+       "p2": 4,
+       "len": 11
+      },
+      {
+       "i": 20,
+       "d": 21,
+       "kept": 1,
+       "rank": 73,
+       "tie": [
+        56,
+        79
+       ],
+       "p2": 3,
+       "len": 7
+      },
+      {
+       "i": 21,
+       "d": 22,
+       "kept": 1,
+       "rank": 13,
+       "tie": [
+        4,
+        18
+       ],
+       "p2": 2,
+       "len": 4
+      },
+      {
+       "i": 22,
+       "d": 23,
+       "kept": 1,
+       "rank": 4,
+       "tie": [
+        0,
+        7
+       ],
+       "p2": 2,
+       "len": 3
+      }
+     ]
+    }
+   }
+  },
+  {
+   "row": "ac-05558",
+   "path_len": 24,
+   "path_source": "ACC_SUBMIT_API_20260927T2356Z.txt",
+   "path": [
+    6,
+    4,
+    4,
+    3,
+    7,
+    8,
+    6,
+    12,
+    5,
+    1,
+    11,
+    2,
+    11,
+    13,
+    11,
+    13,
+    11,
+    3,
+    7,
+    5,
+    5,
+    3,
+    3,
+    5
+   ],
+   "lengths_along_path": [
+    27,
+    27,
+    17,
+    23,
+    20,
+    20,
+    20,
+    22,
+    20,
+    21,
+    21,
+    21,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    17,
+    17,
+    12,
+    7,
+    5,
+    3,
+    2
+   ],
+   "arms": {
+    "H": {
+     "N": 24,
+     "need_index": 15,
+     "kept_on_time_through": 10,
+     "kept_any_depth_through": 10,
+     "reached_finish_zone": false,
+     "late_states": [],
+     "first_dropped_index": 11,
+     "drop": {
+      "depth": 11,
+      "rank": 19872,
+      "nt": 182761,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 19717,
+      "tie_hi": 20556,
+      "tie_count": 839,
+      "table_dist": -1,
+      "len": 21,
+      "fields": {
+       "klen": 1333,
+       "hprio": 83.31
+      },
+      "cut_k1_fields": {
+       "klen": 1309,
+       "hprio": 81.81
+      },
+      "cut_W_fields": {
+       "klen": 1333,
+       "hprio": 83.31
+      },
+      "verdict": "width",
+      "rank_over_k1": 1.24,
+      "decided_by": "klen",
+      "other_depths": []
+     },
+     "ac_len": 30,
+     "sac_len": 32,
+     "wall_s": 7.6,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 27
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 17
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 23
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 20
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 166,
+       "tie": [
+        162,
+        174
+       ],
+       "p2": 0,
+       "len": 20
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 377,
+       "tie": [
+        358,
+        410
+       ],
+       "p2": 0,
+       "len": 20
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 1,
+       "rank": 1790,
+       "tie": [
+        1775,
+        1829
+       ],
+       "p2": 0,
+       "len": 22
+      },
+      {
+       "i": 8,
+       "d": 8,
+       "kept": 1,
+       "rank": 1980,
+       "tie": [
+        1645,
+        2020
+       ],
+       "p2": 0,
+       "len": 20
+      },
+      {
+       "i": 9,
+       "d": 9,
+       "kept": 1,
+       "rank": 4674,
+       "tie": [
+        4652,
+        4949
+       ],
+       "p2": 0,
+       "len": 21
+      },
+      {
+       "i": 10,
+       "d": 10,
+       "kept": 1,
+       "rank": 9760,
+       "tie": [
+        9643,
+        10145
+       ],
+       "p2": 0,
+       "len": 21
+      },
+      {
+       "i": 11,
+       "d": 11,
+       "kept": 0,
+       "rank": 19872,
+       "tie": [
+        19717,
+        20556
+       ],
+       "p2": 0,
+       "len": 21
+      },
+      {
+       "i": 21,
+       "d": 29,
+       "kept": 1,
+       "rank": 584,
+       "tie": [
+        507,
+        592
+       ],
+       "p2": 0,
+       "len": 7
+      },
+      {
+       "i": 22,
+       "d": 28,
+       "kept": 1,
+       "rank": 43,
+       "tie": [
+        12,
+        52
+       ],
+       "p2": 0,
+       "len": 5
+      },
+      {
+       "i": 23,
+       "d": 29,
+       "kept": 1,
+       "rank": 6,
+       "tie": [
+        0,
+        14
+       ],
+       "p2": 0,
+       "len": 3
+      }
+     ]
+    },
+    "P2=2": {
+     "N": 24,
+     "need_index": 15,
+     "kept_on_time_through": 8,
+     "kept_any_depth_through": 8,
+     "reached_finish_zone": false,
+     "late_states": [],
+     "first_dropped_index": 9,
+     "drop": {
+      "depth": 9,
+      "rank": 140392,
+      "nt": 180011,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 140392,
+      "tie_hi": 140393,
+      "tie_count": 1,
+      "table_dist": -1,
+      "len": 21,
+      "fields": {
+       "p2": 17,
+       "klen": 1333,
+       "hprio": 83.31
+      },
+      "cut_k1_fields": {
+       "p2": 14,
+       "klen": 1455,
+       "hprio": 90.94
+      },
+      "cut_W_fields": {
+       "p2": 14,
+       "klen": 1473,
+       "hprio": 92.06
+      },
+      "verdict": "ranked",
+      "rank_over_k1": 8.77,
+      "decided_by": "p2",
+      "other_depths": []
+     },
+     "ac_len": 26,
+     "sac_len": 28,
+     "wall_s": 35.0,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8",
+      "BEAM_P2": "2"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 14,
+       "len": 27
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 14,
+       "len": 17
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 14,
+       "len": 23
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 14,
+       "len": 20
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 166,
+       "tie": [
+        162,
+        174
+       ],
+       "p2": 14,
+       "len": 20
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 377,
+       "tie": [
+        358,
+        410
+       ],
+       "p2": 14,
+       "len": 20
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 1,
+       "rank": 1776,
+       "tie": [
+        1761,
+        1815
+       ],
+       "p2": 14,
+       "len": 22
+      },
+      {
+       "i": 8,
+       "d": 8,
+       "kept": 1,
+       "rank": 1974,
+       "tie": [
+        1640,
+        2014
+       ],
+       "p2": 14,
+       "len": 20
+      },
+      {
+       "i": 9,
+       "d": 9,
+       "kept": 0,
+       "rank": 140392,
+       "tie": [
+        140392,
+        140393
+       ],
+       "p2": 17,
+       "len": 21
+      },
+      {
+       "i": 21,
+       "d": 23,
+       "kept": 0,
+       "rank": 24556,
+       "tie": [
+        24526,
+        24559
+       ],
+       "p2": 3,
+       "len": 7
+      },
+      {
+       "i": 22,
+       "d": 25,
+       "kept": 1,
+       "rank": 80,
+       "tie": [
+        44,
+        95
+       ],
+       "p2": 2,
+       "len": 5
+      },
+      {
+       "i": 23,
+       "d": 25,
+       "kept": 1,
+       "rank": 7,
+       "tie": [
+        1,
+        12
+       ],
+       "p2": 2,
+       "len": 3
+      }
+     ]
+    },
+    "P2=3": {
+     "N": 24,
+     "need_index": 15,
+     "kept_on_time_through": 8,
+     "kept_any_depth_through": 8,
+     "reached_finish_zone": false,
+     "late_states": [],
+     "first_dropped_index": 9,
+     "drop": {
+      "depth": 9,
+      "rank": 172807,
+      "nt": 213512,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 172807,
+      "tie_hi": 172808,
+      "tie_count": 1,
+      "table_dist": -1,
+      "len": 21,
+      "fields": {
+       "p2": 17,
+       "comm": 30,
+       "p1m": 24,
+       "klen": 1333,
+       "hprio": 83.31
+      },
+      "cut_k1_fields": {
+       "p2": 14,
+       "comm": 32,
+       "p1m": 24,
+       "klen": 3356,
+       "hprio": 209.75
+      },
+      "cut_W_fields": {
+       "p2": 14,
+       "comm": 32,
+       "p1m": 39,
+       "klen": 3122,
+       "hprio": 195.12
+      },
+      "verdict": "ranked",
+      "rank_over_k1": 10.8,
+      "decided_by": "p2",
+      "other_depths": []
+     },
+     "ac_len": 26,
+     "sac_len": 28,
+     "wall_s": 39.3,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8",
+      "BEAM_P2": "3"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 14,
+       "len": 27
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 14,
+       "len": 17
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 14,
+       "len": 23
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 14,
+       "len": 20
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 472,
+       "tie": [
+        472,
+        473
+       ],
+       "p2": 14,
+       "len": 20
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 3292,
+       "tie": [
+        3290,
+        3297
+       ],
+       "p2": 14,
+       "len": 20
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 1,
+       "rank": 14468,
+       "tie": [
+        14464,
+        14475
+       ],
+       "p2": 14,
+       "len": 22
+      },
+      {
+       "i": 8,
+       "d": 8,
+       "kept": 1,
+       "rank": 4804,
+       "tie": [
+        4795,
+        4806
+       ],
+       "p2": 14,
+       "len": 20
+      },
+      {
+       "i": 9,
+       "d": 9,
+       "kept": 0,
+       "rank": 172807,
+       "tie": [
+        172807,
+        172808
+       ],
+       "p2": 17,
+       "len": 21
+      },
+      {
+       "i": 21,
+       "d": 23,
+       "kept": 0,
+       "rank": 24969,
+       "tie": [
+        24953,
+        24970
+       ],
+       "p2": 3,
+       "len": 7
+      },
+      {
+       "i": 22,
+       "d": 25,
+       "kept": 1,
+       "rank": 61,
+       "tie": [
+        54,
+        67
+       ],
+       "p2": 2,
+       "len": 5
+      },
+      {
+       "i": 23,
+       "d": 25,
+       "kept": 1,
+       "rank": 3,
+       "tie": [
+        0,
+        7
+       ],
+       "p2": 2,
+       "len": 3
+      }
+     ]
+    }
+   }
+  },
+  {
+   "row": "ac-07435",
+   "path_len": 26,
+   "path_source": "research/acc/live/queue/sent/20260928T0124Z_20260928T0010Z_07435.txt",
+   "path": [
+    0,
+    4,
+    8,
+    12,
+    12,
+    4,
+    10,
+    5,
+    1,
+    13,
+    11,
+    3,
+    12,
+    11,
+    12,
+    4,
+    12,
+    3,
+    0,
+    2,
+    6,
+    3,
+    9,
+    12,
+    4,
+    2
+   ],
+   "lengths_along_path": [
+    26,
+    26,
+    25,
+    25,
+    23,
+    25,
+    22,
+    22,
+    19,
+    19,
+    19,
+    19,
+    27,
+    27,
+    27,
+    27,
+    16,
+    16,
+    13,
+    13,
+    10,
+    8,
+    7,
+    5,
+    5,
+    3,
+    2
+   ],
+   "arms": {
+    "H": {
+     "N": 26,
+     "need_index": 17,
+     "kept_on_time_through": 11,
+     "kept_any_depth_through": 11,
+     "reached_finish_zone": false,
+     "late_states": [],
+     "first_dropped_index": 12,
+     "drop": {
+      "depth": 12,
+      "rank": 85674,
+      "nt": 185402,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 85670,
+      "tie_hi": 85693,
+      "tie_count": 23,
+      "table_dist": -1,
+      "len": 27,
+      "fields": {
+       "klen": 1814,
+       "hprio": 113.38
+      },
+      "cut_k1_fields": {
+       "klen": 1550,
+       "hprio": 96.88
+      },
+      "cut_W_fields": {
+       "klen": 1569,
+       "hprio": 98.06
+      },
+      "verdict": "ranked",
+      "rank_over_k1": 5.35,
+      "decided_by": "klen",
+      "other_depths": []
+     },
+     "ac_len": 29,
+     "sac_len": 32,
+     "wall_s": 7.6,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 26
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 25
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 25
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 23
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 497,
+       "tie": [
+        484,
+        529
+       ],
+       "p2": 0,
+       "len": 25
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 109,
+       "tie": [
+        83,
+        185
+       ],
+       "p2": 0,
+       "len": 22
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 1,
+       "rank": 359,
+       "tie": [
+        205,
+        382
+       ],
+       "p2": 0,
+       "len": 22
+      },
+      {
+       "i": 8,
+       "d": 8,
+       "kept": 1,
+       "rank": 392,
+       "tie": [
+        388,
+        398
+       ],
+       "p2": 0,
+       "len": 19
+      },
+      {
+       "i": 9,
+       "d": 9,
+       "kept": 1,
+       "rank": 1174,
+       "tie": [
+        1170,
+        1194
+       ],
+       "p2": 0,
+       "len": 19
+      },
+      {
+       "i": 10,
+       "d": 10,
+       "kept": 1,
+       "rank": 2845,
+       "tie": [
+        2817,
+        2855
+       ],
+       "p2": 0,
+       "len": 19
+      },
+      {
+       "i": 11,
+       "d": 11,
+       "kept": 1,
+       "rank": 5937,
+       "tie": [
+        5925,
+        5975
+       ],
+       "p2": 0,
+       "len": 19
+      },
+      {
+       "i": 12,
+       "d": 12,
+       "kept": 0,
+       "rank": 85674,
+       "tie": [
+        85670,
+        85693
+       ],
+       "p2": 0,
+       "len": 27
+      },
+      {
+       "i": 19,
+       "d": 28,
+       "kept": 0,
+       "rank": 27254,
+       "tie": [
+        27251,
+        27255
+       ],
+       "p2": 0,
+       "len": 13
+      },
+      {
+       "i": 20,
+       "d": 27,
+       "kept": 1,
+       "rank": 709,
+       "tie": [
+        707,
+        711
+       ],
+       "p2": 0,
+       "len": 10
+      },
+      {
+       "i": 21,
+       "d": 26,
+       "kept": 1,
+       "rank": 21,
+       "tie": [
+        16,
+        24
+       ],
+       "p2": 0,
+       "len": 8
+      },
+      {
+       "i": 22,
+       "d": 27,
+       "kept": 1,
+       "rank": 46,
+       "tie": [
+        21,
+        54
+       ],
+       "p2": 0,
+       "len": 7
+      },
+      {
+       "i": 23,
+       "d": 27,
+       "kept": 1,
+       "rank": 19,
+       "tie": [
+        13,
+        21
+       ],
+       "p2": 0,
+       "len": 5
+      },
+      {
+       "i": 24,
+       "d": 27,
+       "kept": 1,
+       "rank": 17,
+       "tie": [
+        13,
+        21
+       ],
+       "p2": 0,
+       "len": 5
+      },
+      {
+       "i": 25,
+       "d": 28,
+       "kept": 1,
+       "rank": 4,
+       "tie": [
+        0,
+        6
+       ],
+       "p2": 0,
+       "len": 3
+      },
+      {
+       "i": 26,
+       "d": 29,
+       "kept": 1,
+       "rank": 0,
+       "tie": [
+        0,
+        3
+       ],
+       "p2": 0,
+       "len": 2
+      }
+     ]
+    },
+    "P2=2": {
+     "N": 26,
+     "need_index": 17,
+     "kept_on_time_through": 6,
+     "kept_any_depth_through": 6,
+     "reached_finish_zone": false,
+     "late_states": [
+      12,
+      13,
+      16,
+      17
+     ],
+     "first_dropped_index": 7,
+     "drop": {
+      "depth": 7,
+      "rank": 37534,
+      "nt": 181358,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 37389,
+      "tie_hi": 37554,
+      "tie_count": 165,
+      "table_dist": -1,
+      "len": 22,
+      "fields": {
+       "p2": 18,
+       "klen": 1580,
+       "hprio": 98.75
+      },
+      "cut_k1_fields": {
+       "p2": 17,
+       "klen": 2266,
+       "hprio": 141.62
+      },
+      "cut_W_fields": {
+       "p2": 17,
+       "klen": 2394,
+       "hprio": 149.62
+      },
+      "verdict": "ranked",
+      "rank_over_k1": 2.35,
+      "decided_by": "p2",
+      "other_depths": [
+       {
+        "d": 9,
+        "rank": 82801,
+        "kept": 0
+       }
+      ]
+     },
+     "ac_len": 28,
+     "sac_len": 29,
+     "wall_s": 43.8,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8",
+      "BEAM_P2": "2"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 18,
+       "len": 26
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 17,
+       "len": 25
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 17,
+       "len": 25
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 17,
+       "len": 23
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 321,
+       "tie": [
+        308,
+        353
+       ],
+       "p2": 17,
+       "len": 25
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 8955,
+       "tie": [
+        8930,
+        9028
+       ],
+       "p2": 18,
+       "len": 22
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 0,
+       "rank": 37534,
+       "tie": [
+        37389,
+        37554
+       ],
+       "p2": 18,
+       "len": 22
+      },
+      {
+       "i": 7,
+       "d": 9,
+       "kept": 0,
+       "rank": 82801,
+       "tie": [
+        82762,
+        82809
+       ],
+       "p2": 18,
+       "len": 22
+      },
+      {
+       "i": 8,
+       "d": 8,
+       "kept": 1,
+       "rank": 1619,
+       "tie": [
+        1615,
+        1625
+       ],
+       "p2": 17,
+       "len": 19
+      },
+      {
+       "i": 9,
+       "d": 9,
+       "kept": 1,
+       "rank": 6724,
+       "tie": [
+        6720,
+        6744
+       ],
+       "p2": 17,
+       "len": 19
+      },
+      {
+       "i": 10,
+       "d": 10,
+       "kept": 0,
+       "rank": 25950,
+       "tie": [
+        25923,
+        25959
+       ],
+       "p2": 17,
+       "len": 19
+      },
+      {
+       "i": 11,
+       "d": 14,
+       "kept": 0,
+       "rank": 110515,
+       "tie": [
+        110510,
+        110528
+       ],
+       "p2": 17,
+       "len": 19
+      },
+      {
+       "i": 11,
+       "d": 18,
+       "kept": 0,
+       "rank": 168741,
+       "tie": [
+        168741,
+        168744
+       ],
+       "p2": 17,
+       "len": 19
+      },
+      {
+       "i": 12,
+       "d": 17,
+       "kept": 1,
+       "rank": 1173,
+       "tie": [
+        1134,
+        1293
+       ],
+       "p2": 12,
+       "len": 27
+      },
+      {
+       "i": 13,
+       "d": 18,
+       "kept": 1,
+       "rank": 5931,
+       "tie": [
+        5873,
+        6061
+       ],
+       "p2": 12,
+       "len": 27
+      },
+      {
+       "i": 14,
+       "d": 19,
+       "kept": 0,
+       "rank": 26431,
+       "tie": [
+        26292,
+        26497
+       ],
+       "p2": 12,
+       "len": 27
+      },
+      {
+       "i": 15,
+       "d": 20,
+       "kept": 0,
+       "rank": 68774,
+       "tie": [
+        68758,
+        68778
+       ],
+       "p2": 12,
+       "len": 27
+      },
+      {
+       "i": 16,
+       "d": 19,
+       "kept": 1,
+       "rank": 28,
+       "tie": [
+        10,
+        42
+       ],
+       "p2": 8,
+       "len": 16
+      },
+      {
+       "i": 17,
+       "d": 20,
+       "kept": 1,
+       "rank": 193,
+       "tie": [
+        173,
+        229
+       ],
+       "p2": 8,
+       "len": 16
+      },
+      {
+       "i": 18,
+       "d": 21,
+       "kept": 1,
+       "rank": 583,
+       "tie": [
+        575,
+        620
+       ],
+       "p2": 5,
+       "len": 13
+      },
+      {
+       "i": 19,
+       "d": 22,
+       "kept": 1,
+       "rank": 3093,
+       "tie": [
+        3042,
+        3105
+       ],
+       "p2": 5,
+       "len": 13
+      },
+      {
+       "i": 20,
+       "d": 23,
+       "kept": 1,
+       "rank": 135,
+       "tie": [
+        129,
+        141
+       ],
+       "p2": 3,
+       "len": 10
+      },
+      {
+       "i": 21,
+       "d": 24,
+       "kept": 1,
+       "rank": 853,
+       "tie": [
+        832,
+        863
+       ],
+       "p2": 3,
+       "len": 8
+      },
+      {
+       "i": 22,
+       "d": 25,
+       "kept": 1,
+       "rank": 14,
+       "tie": [
+        8,
+        17
+       ],
+       "p2": 2,
+       "len": 7
+      },
+      {
+       "i": 23,
+       "d": 26,
+       "kept": 1,
+       "rank": 32,
+       "tie": [
+        17,
+        39
+       ],
+       "p2": 2,
+       "len": 5
+      },
+      {
+       "i": 24,
+       "d": 27,
+       "kept": 1,
+       "rank": 56,
+       "tie": [
+        43,
+        90
+       ],
+       "p2": 2,
+       "len": 5
+      },
+      {
+       "i": 25,
+       "d": 27,
+       "kept": 1,
+       "rank": 10,
+       "tie": [
+        3,
+        17
+       ],
+       "p2": 2,
+       "len": 3
+      }
+     ]
+    },
+    "P2=3": {
+     "N": 26,
+     "need_index": 17,
+     "kept_on_time_through": 6,
+     "kept_any_depth_through": 6,
+     "reached_finish_zone": false,
+     "late_states": [
+      12,
+      13,
+      14,
+      16,
+      17
+     ],
+     "first_dropped_index": 7,
+     "drop": {
+      "depth": 7,
+      "rank": 37790,
+      "nt": 189937,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 37790,
+      "tie_hi": 37791,
+      "tie_count": 1,
+      "table_dist": -1,
+      "len": 22,
+      "fields": {
+       "p2": 18,
+       "comm": 36,
+       "p1m": 19,
+       "klen": 1580,
+       "hprio": 98.75
+      },
+      "cut_k1_fields": {
+       "p2": 17,
+       "comm": 66,
+       "p1m": 29,
+       "klen": 2559,
+       "hprio": 159.94
+      },
+      "cut_W_fields": {
+       "p2": 17,
+       "comm": 70,
+       "p1m": 29,
+       "klen": 2559,
+       "hprio": 159.94
+      },
+      "verdict": "ranked",
+      "rank_over_k1": 2.36,
+      "decided_by": "p2",
+      "other_depths": [
+       {
+        "d": 9,
+        "rank": 105113,
+        "kept": 0
+       }
+      ]
+     },
+     "ac_len": 28,
+     "sac_len": 29,
+     "wall_s": 43.3,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8",
+      "BEAM_P2": "3"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 18,
+       "len": 26
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 17,
+       "len": 25
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 17,
+       "len": 25
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 17,
+       "len": 23
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 42,
+       "tie": [
+        41,
+        45
+       ],
+       "p2": 17,
+       "len": 25
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 9090,
+       "tie": [
+        9089,
+        9098
+       ],
+       "p2": 18,
+       "len": 22
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 0,
+       "rank": 37790,
+       "tie": [
+        37790,
+        37791
+       ],
+       "p2": 18,
+       "len": 22
+      },
+      {
+       "i": 7,
+       "d": 9,
+       "kept": 0,
+       "rank": 105113,
+       "tie": [
+        105112,
+        105114
+       ],
+       "p2": 18,
+       "len": 22
+      },
+      {
+       "i": 8,
+       "d": 8,
+       "kept": 1,
+       "rank": 1566,
+       "tie": [
+        1565,
+        1568
+       ],
+       "p2": 17,
+       "len": 19
+      },
+      {
+       "i": 9,
+       "d": 9,
+       "kept": 1,
+       "rank": 7018,
+       "tie": [
+        7018,
+        7020
+       ],
+       "p2": 17,
+       "len": 19
+      },
+      {
+       "i": 10,
+       "d": 10,
+       "kept": 0,
+       "rank": 31766,
+       "tie": [
+        31764,
+        31768
+       ],
+       "p2": 17,
+       "len": 19
+      },
+      {
+       "i": 11,
+       "d": 14,
+       "kept": 0,
+       "rank": 137157,
+       "tie": [
+        137155,
+        137170
+       ],
+       "p2": 17,
+       "len": 19
+      },
+      {
+       "i": 11,
+       "d": 17,
+       "kept": 0,
+       "rank": 175960,
+       "tie": [
+        175960,
+        175963
+       ],
+       "p2": 17,
+       "len": 19
+      },
+      {
+       "i": 12,
+       "d": 16,
+       "kept": 1,
+       "rank": 405,
+       "tie": [
+        405,
+        408
+       ],
+       "p2": 12,
+       "len": 27
+      },
+      {
+       "i": 13,
+       "d": 17,
+       "kept": 1,
+       "rank": 3123,
+       "tie": [
+        3122,
+        3135
+       ],
+       "p2": 12,
+       "len": 27
+      },
+      {
+       "i": 14,
+       "d": 18,
+       "kept": 1,
+       "rank": 13914,
+       "tie": [
+        13908,
+        13919
+       ],
+       "p2": 12,
+       "len": 27
+      },
+      {
+       "i": 15,
+       "d": 19,
+       "kept": 0,
+       "rank": 49292,
+       "tie": [
+        49291,
+        49293
+       ],
+       "p2": 12,
+       "len": 27
+      },
+      {
+       "i": 15,
+       "d": 20,
+       "kept": 0,
+       "rank": 81154,
+       "tie": [
+        81154,
+        81155
+       ],
+       "p2": 12,
+       "len": 27
+      },
+      {
+       "i": 16,
+       "d": 19,
+       "kept": 1,
+       "rank": 494,
+       "tie": [
+        488,
+        499
+       ],
+       "p2": 8,
+       "len": 16
+      },
+      {
+       "i": 17,
+       "d": 20,
+       "kept": 1,
+       "rank": 2270,
+       "tie": [
+        2268,
+        2278
+       ],
+       "p2": 8,
+       "len": 16
+      },
+      {
+       "i": 18,
+       "d": 21,
+       "kept": 1,
+       "rank": 5501,
+       "tie": [
+        5501,
+        5505
+       ],
+       "p2": 5,
+       "len": 13
+      },
+      {
+       "i": 19,
+       "d": 22,
+       "kept": 0,
+       "rank": 26775,
+       "tie": [
+        26775,
+        26777
+       ],
+       "p2": 5,
+       "len": 13
+      },
+      {
+       "i": 19,
+       "d": 24,
+       "kept": 0,
+       "rank": 113497,
+       "tie": [
+        113495,
+        113499
+       ],
+       "p2": 5,
+       "len": 13
+      },
+      {
+       "i": 20,
+       "d": 23,
+       "kept": 1,
+       "rank": 1972,
+       "tie": [
+        1969,
+        1974
+       ],
+       "p2": 3,
+       "len": 10
+      },
+      {
+       "i": 21,
+       "d": 24,
+       "kept": 1,
+       "rank": 7728,
+       "tie": [
+        7723,
+        7730
+       ],
+       "p2": 3,
+       "len": 8
+      },
+      {
+       "i": 22,
+       "d": 25,
+       "kept": 1,
+       "rank": 48,
+       "tie": [
+        46,
+        49
+       ],
+       "p2": 2,
+       "len": 7
+      },
+      {
+       "i": 23,
+       "d": 26,
+       "kept": 1,
+       "rank": 39,
+       "tie": [
+        28,
+        46
+       ],
+       "p2": 2,
+       "len": 5
+      },
+      {
+       "i": 24,
+       "d": 26,
+       "kept": 1,
+       "rank": 31,
+       "tie": [
+        28,
+        46
+       ],
+       "p2": 2,
+       "len": 5
+      },
+      {
+       "i": 25,
+       "d": 27,
+       "kept": 1,
+       "rank": 4,
+       "tie": [
+        0,
+        10
+       ],
+       "p2": 2,
+       "len": 3
+      }
+     ]
+    }
+   }
+  },
+  {
+   "row": "ac-00145",
+   "path_len": 40,
+   "path_source": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+   "path": [
+    0,
+    6,
+    5,
+    12,
+    5,
+    12,
+    1,
+    4,
+    11,
+    12,
+    4,
+    13,
+    4,
+    13,
+    4,
+    13,
+    4,
+    13,
+    4,
+    13,
+    4,
+    11,
+    13,
+    10,
+    3,
+    8,
+    4,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "lengths_along_path": [
+    15,
+    15,
+    15,
+    18,
+    16,
+    19,
+    17,
+    17,
+    18,
+    16,
+    16,
+    17,
+    17,
+    18,
+    18,
+    19,
+    19,
+    20,
+    20,
+    21,
+    21,
+    22,
+    20,
+    20,
+    20,
+    29,
+    29,
+    15,
+    14,
+    13,
+    12,
+    11,
+    10,
+    9,
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2
+   ],
+   "arms": {
+    "H": {
+     "N": 40,
+     "need_index": 31,
+     "kept_on_time_through": 19,
+     "kept_any_depth_through": 19,
+     "reached_finish_zone": false,
+     "late_states": [],
+     "first_dropped_index": 20,
+     "drop": {
+      "depth": 20,
+      "rank": 16977,
+      "nt": 189039,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 15408,
+      "tie_hi": 17291,
+      "tie_count": 1883,
+      "table_dist": -1,
+      "len": 21,
+      "fields": {
+       "klen": 1009,
+       "hprio": 63.06
+      },
+      "cut_k1_fields": {
+       "klen": 1009,
+       "hprio": 63.06
+      },
+      "cut_W_fields": {
+       "klen": 1018,
+       "hprio": 63.62
+      },
+      "verdict": "ties",
+      "rank_over_k1": 1.06,
+      "decided_by": "fingerprint",
+      "other_depths": [
+       {
+        "d": 22,
+        "rank": 22206,
+        "kept": 0
+       }
+      ]
+     },
+     "ac_len": 40,
+     "sac_len": 43,
+     "wall_s": 10.8,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 15
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 15
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 18
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 16
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 1134,
+       "tie": [
+        1106,
+        1151
+       ],
+       "p2": 0,
+       "len": 19
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 1087,
+       "tie": [
+        1082,
+        1122
+       ],
+       "p2": 0,
+       "len": 17
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 1,
+       "rank": 1751,
+       "tie": [
+        1646,
+        1798
+       ],
+       "p2": 0,
+       "len": 17
+      },
+      {
+       "i": 8,
+       "d": 8,
+       "kept": 1,
+       "rank": 4230,
+       "tie": [
+        3497,
+        4514
+       ],
+       "p2": 0,
+       "len": 18
+      },
+      {
+       "i": 9,
+       "d": 9,
+       "kept": 1,
+       "rank": 113,
+       "tie": [
+        104,
+        123
+       ],
+       "p2": 0,
+       "len": 16
+      },
+      {
+       "i": 10,
+       "d": 10,
+       "kept": 1,
+       "rank": 180,
+       "tie": [
+        158,
+        210
+       ],
+       "p2": 0,
+       "len": 16
+      },
+      {
+       "i": 11,
+       "d": 11,
+       "kept": 1,
+       "rank": 345,
+       "tie": [
+        288,
+        397
+       ],
+       "p2": 0,
+       "len": 17
+      },
+      {
+       "i": 12,
+       "d": 12,
+       "kept": 1,
+       "rank": 454,
+       "tie": [
+        338,
+        538
+       ],
+       "p2": 0,
+       "len": 17
+      },
+      {
+       "i": 13,
+       "d": 13,
+       "kept": 1,
+       "rank": 954,
+       "tie": [
+        867,
+        1006
+       ],
+       "p2": 0,
+       "len": 18
+      },
+      {
+       "i": 14,
+       "d": 14,
+       "kept": 1,
+       "rank": 1268,
+       "tie": [
+        1082,
+        1273
+       ],
+       "p2": 0,
+       "len": 18
+      },
+      {
+       "i": 15,
+       "d": 15,
+       "kept": 1,
+       "rank": 2548,
+       "tie": [
+        2163,
+        2621
+       ],
+       "p2": 0,
+       "len": 19
+      },
+      {
+       "i": 16,
+       "d": 16,
+       "kept": 1,
+       "rank": 3088,
+       "tie": [
+        2801,
+        3403
+       ],
+       "p2": 0,
+       "len": 19
+      },
+      {
+       "i": 17,
+       "d": 17,
+       "kept": 1,
+       "rank": 6233,
+       "tie": [
+        5145,
+        6299
+       ],
+       "p2": 0,
+       "len": 20
+      },
+      {
+       "i": 18,
+       "d": 18,
+       "kept": 1,
+       "rank": 6734,
+       "tie": [
+        6322,
+        7934
+       ],
+       "p2": 0,
+       "len": 20
+      },
+      {
+       "i": 19,
+       "d": 19,
+       "kept": 1,
+       "rank": 13162,
+       "tie": [
+        12724,
+        14220
+       ],
+       "p2": 0,
+       "len": 21
+      },
+      {
+       "i": 20,
+       "d": 20,
+       "kept": 0,
+       "rank": 16977,
+       "tie": [
+        15408,
+        17291
+       ],
+       "p2": 0,
+       "len": 21
+      },
+      {
+       "i": 20,
+       "d": 22,
+       "kept": 0,
+       "rank": 22206,
+       "tie": [
+        20259,
+        22584
+       ],
+       "p2": 0,
+       "len": 21
+      },
+      {
+       "i": 21,
+       "d": 21,
+       "kept": 1,
+       "rank": 3111,
+       "tie": [
+        2706,
+        3296
+       ],
+       "p2": 0,
+       "len": 22
+      },
+      {
+       "i": 22,
+       "d": 22,
+       "kept": 1,
+       "rank": 226,
+       "tie": [
+        224,
+        230
+       ],
+       "p2": 0,
+       "len": 20
+      },
+      {
+       "i": 23,
+       "d": 23,
+       "kept": 1,
+       "rank": 243,
+       "tie": [
+        230,
+        247
+       ],
+       "p2": 0,
+       "len": 20
+      },
+      {
+       "i": 24,
+       "d": 24,
+       "kept": 1,
+       "rank": 245,
+       "tie": [
+        233,
+        263
+       ],
+       "p2": 0,
+       "len": 20
+      },
+      {
+       "i": 25,
+       "d": 25,
+       "kept": 1,
+       "rank": 242,
+       "tie": [
+        233,
+        245
+       ],
+       "p2": 0,
+       "len": 29
+      },
+      {
+       "i": 26,
+       "d": 26,
+       "kept": 1,
+       "rank": 187,
+       "tie": [
+        162,
+        212
+       ],
+       "p2": 0,
+       "len": 29
+      },
+      {
+       "i": 27,
+       "d": 27,
+       "kept": 1,
+       "rank": 7,
+       "tie": [
+        1,
+        9
+       ],
+       "p2": 0,
+       "len": 15
+      },
+      {
+       "i": 28,
+       "d": 28,
+       "kept": 1,
+       "rank": 7,
+       "tie": [
+        1,
+        9
+       ],
+       "p2": 0,
+       "len": 14
+      },
+      {
+       "i": 29,
+       "d": 29,
+       "kept": 1,
+       "rank": 3,
+       "tie": [
+        1,
+        9
+       ],
+       "p2": 0,
+       "len": 13
+      },
+      {
+       "i": 30,
+       "d": 30,
+       "kept": 1,
+       "rank": 6,
+       "tie": [
+        1,
+        9
+       ],
+       "p2": 0,
+       "len": 12
+      },
+      {
+       "i": 31,
+       "d": 31,
+       "kept": 1,
+       "rank": 2,
+       "tie": [
+        1,
+        9
+       ],
+       "p2": 0,
+       "len": 11
+      },
+      {
+       "i": 32,
+       "d": 32,
+       "kept": 1,
+       "rank": 8,
+       "tie": [
+        1,
+        9
+       ],
+       "p2": 0,
+       "len": 10
+      },
+      {
+       "i": 33,
+       "d": 33,
+       "kept": 1,
+       "rank": 5,
+       "tie": [
+        1,
+        9
+       ],
+       "p2": 0,
+       "len": 9
+      },
+      {
+       "i": 34,
+       "d": 34,
+       "kept": 1,
+       "rank": 7,
+       "tie": [
+        1,
+        9
+       ],
+       "p2": 0,
+       "len": 8
+      },
+      {
+       "i": 35,
+       "d": 35,
+       "kept": 1,
+       "rank": 4,
+       "tie": [
+        1,
+        9
+       ],
+       "p2": 0,
+       "len": 7
+      },
+      {
+       "i": 36,
+       "d": 36,
+       "kept": 1,
+       "rank": 2,
+       "tie": [
+        1,
+        9
+       ],
+       "p2": 0,
+       "len": 6
+      },
+      {
+       "i": 37,
+       "d": 37,
+       "kept": 1,
+       "rank": 7,
+       "tie": [
+        1,
+        9
+       ],
+       "p2": 0,
+       "len": 5
+      },
+      {
+       "i": 38,
+       "d": 38,
+       "kept": 1,
+       "rank": 7,
+       "tie": [
+        1,
+        9
+       ],
+       "p2": 0,
+       "len": 4
+      },
+      {
+       "i": 39,
+       "d": 39,
+       "kept": 1,
+       "rank": 5,
+       "tie": [
+        1,
+        8
+       ],
+       "p2": 0,
+       "len": 3
+      },
+      {
+       "i": 40,
+       "d": 40,
+       "kept": 1,
+       "rank": 1,
+       "tie": [
+        0,
+        3
+       ],
+       "p2": 0,
+       "len": 2
+      }
+     ]
+    },
+    "P2=2": {
+     "N": 40,
+     "need_index": 31,
+     "kept_on_time_through": 7,
+     "kept_any_depth_through": 7,
+     "reached_finish_zone": false,
+     "late_states": [],
+     "first_dropped_index": 8,
+     "drop": {
+      "depth": 8,
+      "rank": 138220,
+      "nt": 182477,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 138167,
+      "tie_hi": 138237,
+      "tie_count": 70,
+      "table_dist": -1,
+      "len": 18,
+      "fields": {
+       "p2": 16,
+       "klen": 1111,
+       "hprio": 69.44
+      },
+      "cut_k1_fields": {
+       "p2": 15,
+       "klen": 1278,
+       "hprio": 79.88
+      },
+      "cut_W_fields": {
+       "p2": 15,
+       "klen": 1301,
+       "hprio": 81.31
+      },
+      "verdict": "ranked",
+      "rank_over_k1": 8.64,
+      "decided_by": "p2",
+      "other_depths": []
+     },
+     "ac_len": null,
+     "sac_len": null,
+     "wall_s": 58.7,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8",
+      "BEAM_P2": "2"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 15,
+       "len": 15
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 15,
+       "len": 15
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 16,
+       "len": 18
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 16,
+       "len": 16
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 776,
+       "tie": [
+        758,
+        789
+       ],
+       "p2": 15,
+       "len": 19
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 692,
+       "tie": [
+        688,
+        719
+       ],
+       "p2": 15,
+       "len": 17
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 1,
+       "rank": 965,
+       "tie": [
+        900,
+        987
+       ],
+       "p2": 15,
+       "len": 17
+      },
+      {
+       "i": 8,
+       "d": 8,
+       "kept": 0,
+       "rank": 138220,
+       "tie": [
+        138167,
+        138237
+       ],
+       "p2": 16,
+       "len": 18
+      }
+     ]
+    },
+    "P2=3": {
+     "N": 40,
+     "need_index": 31,
+     "kept_on_time_through": 7,
+     "kept_any_depth_through": 7,
+     "reached_finish_zone": false,
+     "late_states": [],
+     "first_dropped_index": 8,
+     "drop": {
+      "depth": 8,
+      "rank": 175849,
+      "nt": 220548,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 175837,
+      "tie_hi": 175858,
+      "tie_count": 21,
+      "table_dist": -1,
+      "len": 18,
+      "fields": {
+       "p2": 16,
+       "comm": 28,
+       "p1m": 17,
+       "klen": 1111,
+       "hprio": 69.44
+      },
+      "cut_k1_fields": {
+       "p2": 15,
+       "comm": 28,
+       "p1m": 25,
+       "klen": 2988,
+       "hprio": 186.75
+      },
+      "cut_W_fields": {
+       "p2": 15,
+       "comm": 28,
+       "p1m": 39,
+       "klen": 2210,
+       "hprio": 138.12
+      },
+      "verdict": "ranked",
+      "rank_over_k1": 10.99,
+      "decided_by": "p2",
+      "other_depths": []
+     },
+     "ac_len": null,
+     "sac_len": null,
+     "wall_s": 192.9,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8",
+      "BEAM_P2": "3"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 15,
+       "len": 15
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 15,
+       "len": 15
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 16,
+       "len": 18
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 16,
+       "len": 16
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 1808,
+       "tie": [
+        1807,
+        1810
+       ],
+       "p2": 15,
+       "len": 19
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 3910,
+       "tie": [
+        3909,
+        3915
+       ],
+       "p2": 15,
+       "len": 17
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 1,
+       "rank": 7548,
+       "tie": [
+        7540,
+        7554
+       ],
+       "p2": 15,
+       "len": 17
+      },
+      {
+       "i": 8,
+       "d": 8,
+       "kept": 0,
+       "rank": 175849,
+       "tie": [
+        175837,
+        175858
+       ],
+       "p2": 16,
+       "len": 18
+      }
+     ]
+    }
+   }
+  },
+  {
+   "row": "ac-00061",
+   "path_len": 26,
+   "path_source": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+   "path": [
+    6,
+    11,
+    13,
+    2,
+    5,
+    7,
+    8,
+    2,
+    10,
+    2,
+    2,
+    6,
+    11,
+    6,
+    5,
+    7,
+    8,
+    6,
+    9,
+    2,
+    8,
+    5,
+    5,
+    5,
+    3,
+    3
+   ],
+   "lengths_along_path": [
+    30,
+    30,
+    30,
+    30,
+    55,
+    35,
+    33,
+    33,
+    30,
+    32,
+    27,
+    20,
+    18,
+    16,
+    16,
+    21,
+    21,
+    21,
+    21,
+    21,
+    15,
+    13,
+    10,
+    7,
+    4,
+    3,
+    2
+   ],
+   "arms": {
+    "H": {
+     "N": 26,
+     "need_index": 17,
+     "kept_on_time_through": 17,
+     "kept_any_depth_through": 17,
+     "reached_finish_zone": true,
+     "late_states": [],
+     "ac_len": 26,
+     "sac_len": 29,
+     "wall_s": 6.8,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 30
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 30
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 30
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 55
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 2723,
+       "tie": [
+        2541,
+        2818
+       ],
+       "p2": 0,
+       "len": 35
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 4018,
+       "tie": [
+        3937,
+        4141
+       ],
+       "p2": 0,
+       "len": 33
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 1,
+       "rank": 7581,
+       "tie": [
+        7290,
+        7723
+       ],
+       "p2": 0,
+       "len": 33
+      },
+      {
+       "i": 8,
+       "d": 8,
+       "kept": 1,
+       "rank": 322,
+       "tie": [
+        226,
+        369
+       ],
+       "p2": 0,
+       "len": 30
+      },
+      {
+       "i": 9,
+       "d": 9,
+       "kept": 1,
+       "rank": 1413,
+       "tie": [
+        1122,
+        1462
+       ],
+       "p2": 0,
+       "len": 32
+      },
+      {
+       "i": 10,
+       "d": 10,
+       "kept": 1,
+       "rank": 170,
+       "tie": [
+        168,
+        180
+       ],
+       "p2": 0,
+       "len": 27
+      },
+      {
+       "i": 11,
+       "d": 11,
+       "kept": 1,
+       "rank": 4,
+       "tie": [
+        0,
+        6
+       ],
+       "p2": 0,
+       "len": 20
+      },
+      {
+       "i": 12,
+       "d": 12,
+       "kept": 1,
+       "rank": 5,
+       "tie": [
+        0,
+        7
+       ],
+       "p2": 0,
+       "len": 18
+      },
+      {
+       "i": 13,
+       "d": 13,
+       "kept": 1,
+       "rank": 0,
+       "tie": [
+        0,
+        3
+       ],
+       "p2": 0,
+       "len": 16
+      },
+      {
+       "i": 14,
+       "d": 14,
+       "kept": 1,
+       "rank": 15,
+       "tie": [
+        3,
+        20
+       ],
+       "p2": 0,
+       "len": 16
+      },
+      {
+       "i": 15,
+       "d": 15,
+       "kept": 1,
+       "rank": 591,
+       "tie": [
+        587,
+        594
+       ],
+       "p2": 0,
+       "len": 21
+      },
+      {
+       "i": 16,
+       "d": 16,
+       "kept": 1,
+       "rank": 1187,
+       "tie": [
+        1173,
+        1215
+       ],
+       "p2": 0,
+       "len": 21
+      },
+      {
+       "i": 17,
+       "d": 17,
+       "kept": 1,
+       "rank": 2238,
+       "tie": [
+        2201,
+        2384
+       ],
+       "p2": 0,
+       "len": 21
+      },
+      {
+       "i": 18,
+       "d": 18,
+       "kept": 1,
+       "rank": 4053,
+       "tie": [
+        3678,
+        4163
+       ],
+       "p2": 0,
+       "len": 21
+      },
+      {
+       "i": 19,
+       "d": 19,
+       "kept": 1,
+       "rank": 6018,
+       "tie": [
+        5869,
+        6730
+       ],
+       "p2": 0,
+       "len": 21
+      },
+      {
+       "i": 20,
+       "d": 20,
+       "kept": 1,
+       "rank": 9,
+       "tie": [
+        7,
+        11
+       ],
+       "p2": 0,
+       "len": 15
+      },
+      {
+       "i": 21,
+       "d": 21,
+       "kept": 1,
+       "rank": 16,
+       "tie": [
+        0,
+        32
+       ],
+       "p2": 0,
+       "len": 13
+      },
+      {
+       "i": 22,
+       "d": 22,
+       "kept": 1,
+       "rank": 5,
+       "tie": [
+        0,
+        7
+       ],
+       "p2": 0,
+       "len": 10
+      },
+      {
+       "i": 23,
+       "d": 23,
+       "kept": 1,
+       "rank": 5,
+       "tie": [
+        0,
+        7
+       ],
+       "p2": 0,
+       "len": 7
+      },
+      {
+       "i": 24,
+       "d": 24,
+       "kept": 1,
+       "rank": 4,
+       "tie": [
+        0,
+        7
+       ],
+       "p2": 0,
+       "len": 4
+      },
+      {
+       "i": 25,
+       "d": 25,
+       "kept": 1,
+       "rank": 3,
+       "tie": [
+        0,
+        5
+       ],
+       "p2": 0,
+       "len": 3
+      },
+      {
+       "i": 26,
+       "d": 26,
+       "kept": 1,
+       "rank": 0,
+       "tie": [
+        0,
+        3
+       ],
+       "p2": 0,
+       "len": 2
+      }
+     ]
+    },
+    "P2=2": {
+     "N": 26,
+     "need_index": 17,
+     "kept_on_time_through": 5,
+     "kept_any_depth_through": 5,
+     "reached_finish_zone": false,
+     "late_states": [
+      15,
+      16,
+      17
+     ],
+     "first_dropped_index": 6,
+     "drop": {
+      "depth": 6,
+      "rank": 27721,
+      "nt": 181836,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 27716,
+      "tie_hi": 27746,
+      "tie_count": 30,
+      "table_dist": -1,
+      "len": 33,
+      "fields": {
+       "p2": 23,
+       "klen": 2086,
+       "hprio": 130.38
+      },
+      "cut_k1_fields": {
+       "p2": 20,
+       "klen": 2679,
+       "hprio": 167.44
+      },
+      "cut_W_fields": {
+       "p2": 20,
+       "klen": 4606,
+       "hprio": 287.88
+      },
+      "verdict": "width",
+      "rank_over_k1": 1.73,
+      "decided_by": "p2",
+      "other_depths": []
+     },
+     "ac_len": 29,
+     "sac_len": 32,
+     "wall_s": 58.2,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8",
+      "BEAM_P2": "2"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 20,
+       "len": 30
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 20,
+       "len": 30
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 20,
+       "len": 30
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 25,
+       "len": 55
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 6796,
+       "tie": [
+        6707,
+        6841
+       ],
+       "p2": 23,
+       "len": 35
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 0,
+       "rank": 27721,
+       "tie": [
+        27716,
+        27746
+       ],
+       "p2": 23,
+       "len": 33
+      },
+      {
+       "i": 10,
+       "d": 16,
+       "kept": 0,
+       "rank": 16541,
+       "tie": [
+        16511,
+        16892
+       ],
+       "p2": 15,
+       "len": 27
+      },
+      {
+       "i": 14,
+       "d": 23,
+       "kept": 0,
+       "rank": 109795,
+       "tie": [
+        109793,
+        109797
+       ],
+       "p2": 16,
+       "len": 16
+      },
+      {
+       "i": 15,
+       "d": 22,
+       "kept": 1,
+       "rank": 132,
+       "tie": [
+        53,
+        154
+       ],
+       "p2": 10,
+       "len": 21
+      },
+      {
+       "i": 16,
+       "d": 23,
+       "kept": 1,
+       "rank": 249,
+       "tie": [
+        196,
+        329
+       ],
+       "p2": 10,
+       "len": 21
+      },
+      {
+       "i": 17,
+       "d": 24,
+       "kept": 1,
+       "rank": 688,
+       "tie": [
+        656,
+        816
+       ],
+       "p2": 10,
+       "len": 21
+      },
+      {
+       "i": 18,
+       "d": 25,
+       "kept": 1,
+       "rank": 2612,
+       "tie": [
+        2506,
+        2666
+       ],
+       "p2": 10,
+       "len": 21
+      },
+      {
+       "i": 19,
+       "d": 26,
+       "kept": 1,
+       "rank": 10596,
+       "tie": [
+        10564,
+        10695
+       ],
+       "p2": 10,
+       "len": 21
+      },
+      {
+       "i": 20,
+       "d": 26,
+       "kept": 1,
+       "rank": 725,
+       "tie": [
+        697,
+        750
+       ],
+       "p2": 7,
+       "len": 15
+      },
+      {
+       "i": 21,
+       "d": 26,
+       "kept": 1,
+       "rank": 667,
+       "tie": [
+        627,
+        697
+       ],
+       "p2": 7,
+       "len": 13
+      },
+      {
+       "i": 22,
+       "d": 25,
+       "kept": 1,
+       "rank": 14,
+       "tie": [
+        3,
+        17
+       ],
+       "p2": 4,
+       "len": 10
+      },
+      {
+       "i": 23,
+       "d": 26,
+       "kept": 1,
+       "rank": 10,
+       "tie": [
+        3,
+        13
+       ],
+       "p2": 3,
+       "len": 7
+      },
+      {
+       "i": 24,
+       "d": 27,
+       "kept": 1,
+       "rank": 2,
+       "tie": [
+        0,
+        6
+       ],
+       "p2": 2,
+       "len": 4
+      },
+      {
+       "i": 25,
+       "d": 28,
+       "kept": 1,
+       "rank": 3,
+       "tie": [
+        0,
+        4
+       ],
+       "p2": 2,
+       "len": 3
+      },
+      {
+       "i": 26,
+       "d": 29,
+       "kept": 1,
+       "rank": 0,
+       "tie": [
+        0,
+        2
+       ],
+       "p2": 2,
+       "len": 2
+      }
+     ]
+    },
+    "P2=3": {
+     "N": 26,
+     "need_index": 17,
+     "kept_on_time_through": 5,
+     "kept_any_depth_through": 5,
+     "reached_finish_zone": false,
+     "late_states": [
+      10,
+      15,
+      16,
+      17
+     ],
+     "first_dropped_index": 6,
+     "drop": {
+      "depth": 6,
+      "rank": 28479,
+      "nt": 188784,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 28479,
+      "tie_hi": 28483,
+      "tie_count": 4,
+      "table_dist": -1,
+      "len": 33,
+      "fields": {
+       "p2": 23,
+       "comm": 64,
+       "p1m": 32,
+       "klen": 2086,
+       "hprio": 130.38
+      },
+      "cut_k1_fields": {
+       "p2": 20,
+       "comm": 84,
+       "p1m": 33,
+       "klen": 2542,
+       "hprio": 158.88
+      },
+      "cut_W_fields": {
+       "p2": 20,
+       "comm": 164,
+       "p1m": 33,
+       "klen": 4266,
+       "hprio": 266.62
+      },
+      "verdict": "width",
+      "rank_over_k1": 1.78,
+      "decided_by": "p2",
+      "other_depths": []
+     },
+     "ac_len": 29,
+     "sac_len": 32,
+     "wall_s": 58.9,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8",
+      "BEAM_P2": "3"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 20,
+       "len": 30
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 20,
+       "len": 30
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 20,
+       "len": 30
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 25,
+       "len": 55
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 6396,
+       "tie": [
+        6395,
+        6399
+       ],
+       "p2": 23,
+       "len": 35
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 0,
+       "rank": 28479,
+       "tie": [
+        28479,
+        28483
+       ],
+       "p2": 23,
+       "len": 33
+      },
+      {
+       "i": 9,
+       "d": 17,
+       "kept": 0,
+       "rank": 119090,
+       "tie": [
+        119088,
+        119093
+       ],
+       "p2": 16,
+       "len": 32
+      },
+      {
+       "i": 10,
+       "d": 16,
+       "kept": 1,
+       "rank": 4829,
+       "tie": [
+        4829,
+        4831
+       ],
+       "p2": 15,
+       "len": 27
+      },
+      {
+       "i": 11,
+       "d": 17,
+       "kept": 0,
+       "rank": 118653,
+       "tie": [
+        118652,
+        118654
+       ],
+       "p2": 16,
+       "len": 20
+      },
+      {
+       "i": 11,
+       "d": 18,
+       "kept": 0,
+       "rank": 127303,
+       "tie": [
+        127300,
+        127304
+       ],
+       "p2": 16,
+       "len": 20
+      },
+      {
+       "i": 14,
+       "d": 23,
+       "kept": 0,
+       "rank": 120447,
+       "tie": [
+        120447,
+        120449
+       ],
+       "p2": 16,
+       "len": 16
+      },
+      {
+       "i": 15,
+       "d": 22,
+       "kept": 1,
+       "rank": 13,
+       "tie": [
+        13,
+        15
+       ],
+       "p2": 10,
+       "len": 21
+      },
+      {
+       "i": 16,
+       "d": 23,
+       "kept": 1,
+       "rank": 1745,
+       "tie": [
+        1742,
+        1754
+       ],
+       "p2": 10,
+       "len": 21
+      },
+      {
+       "i": 17,
+       "d": 24,
+       "kept": 1,
+       "rank": 3418,
+       "tie": [
+        3412,
+        3427
+       ],
+       "p2": 10,
+       "len": 21
+      },
+      {
+       "i": 18,
+       "d": 25,
+       "kept": 1,
+       "rank": 6652,
+       "tie": [
+        6651,
+        6655
+       ],
+       "p2": 10,
+       "len": 21
+      },
+      {
+       "i": 19,
+       "d": 26,
+       "kept": 1,
+       "rank": 10706,
+       "tie": [
+        10706,
+        10707
+       ],
+       "p2": 10,
+       "len": 21
+      },
+      {
+       "i": 20,
+       "d": 26,
+       "kept": 1,
+       "rank": 874,
+       "tie": [
+        870,
+        881
+       ],
+       "p2": 7,
+       "len": 15
+      },
+      {
+       "i": 21,
+       "d": 26,
+       "kept": 1,
+       "rank": 643,
+       "tie": [
+        625,
+        659
+       ],
+       "p2": 7,
+       "len": 13
+      },
+      {
+       "i": 22,
+       "d": 25,
+       "kept": 1,
+       "rank": 9,
+       "tie": [
+        3,
+        11
+       ],
+       "p2": 4,
+       "len": 10
+      },
+      {
+       "i": 23,
+       "d": 26,
+       "kept": 1,
+       "rank": 10,
+       "tie": [
+        3,
+        11
+       ],
+       "p2": 3,
+       "len": 7
+      },
+      {
+       "i": 24,
+       "d": 27,
+       "kept": 1,
+       "rank": 1,
+       "tie": [
+        0,
+        4
+       ],
+       "p2": 2,
+       "len": 4
+      },
+      {
+       "i": 25,
+       "d": 28,
+       "kept": 1,
+       "rank": 1,
+       "tie": [
+        0,
+        2
+       ],
+       "p2": 2,
+       "len": 3
+      },
+      {
+       "i": 26,
+       "d": 29,
+       "kept": 1,
+       "rank": 15,
+       "tie": [
+        15,
+        17
+       ],
+       "p2": 2,
+       "len": 2
+      }
+     ]
+    }
+   }
+  },
+  {
+   "row": "ac-08130",
+   "path_len": 30,
+   "path_source": "research/acc/live/ledger/crossrow_roads_ac_20260928.json",
+   "path": [
+    6,
+    12,
+    12,
+    2,
+    5,
+    9,
+    9,
+    11,
+    12,
+    6,
+    11,
+    12,
+    2,
+    13,
+    10,
+    3,
+    9,
+    3,
+    12,
+    5,
+    9,
+    6,
+    9,
+    4,
+    6,
+    2,
+    2,
+    2,
+    4,
+    2
+   ],
+   "lengths_along_path": [
+    28,
+    28,
+    28,
+    28,
+    45,
+    27,
+    27,
+    27,
+    27,
+    27,
+    27,
+    29,
+    31,
+    22,
+    20,
+    18,
+    17,
+    17,
+    16,
+    18,
+    25,
+    25,
+    25,
+    25,
+    14,
+    14,
+    11,
+    8,
+    5,
+    3,
+    2
+   ],
+   "arms": {
+    "H": {
+     "N": 30,
+     "need_index": 21,
+     "kept_on_time_through": 10,
+     "kept_any_depth_through": 10,
+     "reached_finish_zone": false,
+     "late_states": [
+      18,
+      19
+     ],
+     "first_dropped_index": 11,
+     "drop": {
+      "depth": 11,
+      "rank": 33041,
+      "nt": 182156,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 32918,
+      "tie_hi": 34200,
+      "tie_count": 1282,
+      "table_dist": -1,
+      "len": 29,
+      "fields": {
+       "klen": 1998,
+       "hprio": 124.88
+      },
+      "cut_k1_fields": {
+       "klen": 1878,
+       "hprio": 117.38
+      },
+      "cut_W_fields": {
+       "klen": 1916,
+       "hprio": 119.75
+      },
+      "verdict": "ranked",
+      "rank_over_k1": 2.07,
+      "decided_by": "klen",
+      "other_depths": []
+     },
+     "ac_len": 32,
+     "sac_len": 35,
+     "wall_s": 8.8,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 28
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 28
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 28
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 0,
+       "len": 45
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 7,
+       "tie": [
+        5,
+        9
+       ],
+       "p2": 0,
+       "len": 27
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 46,
+       "tie": [
+        39,
+        60
+       ],
+       "p2": 0,
+       "len": 27
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 1,
+       "rank": 201,
+       "tie": [
+        198,
+        257
+       ],
+       "p2": 0,
+       "len": 27
+      },
+      {
+       "i": 8,
+       "d": 8,
+       "kept": 1,
+       "rank": 864,
+       "tie": [
+        846,
+        951
+       ],
+       "p2": 0,
+       "len": 27
+      },
+      {
+       "i": 9,
+       "d": 9,
+       "kept": 1,
+       "rank": 3195,
+       "tie": [
+        3075,
+        3227
+       ],
+       "p2": 0,
+       "len": 27
+      },
+      {
+       "i": 10,
+       "d": 10,
+       "kept": 1,
+       "rank": 9435,
+       "tie": [
+        9397,
+        9695
+       ],
+       "p2": 0,
+       "len": 27
+      },
+      {
+       "i": 11,
+       "d": 11,
+       "kept": 0,
+       "rank": 33041,
+       "tie": [
+        32918,
+        34200
+       ],
+       "p2": 0,
+       "len": 29
+      },
+      {
+       "i": 15,
+       "d": 21,
+       "kept": 0,
+       "rank": 29351,
+       "tie": [
+        27913,
+        30497
+       ],
+       "p2": 0,
+       "len": 18
+      },
+      {
+       "i": 17,
+       "d": 24,
+       "kept": 0,
+       "rank": 49570,
+       "tie": [
+        49561,
+        49619
+       ],
+       "p2": 0,
+       "len": 17
+      },
+      {
+       "i": 18,
+       "d": 23,
+       "kept": 1,
+       "rank": 736,
+       "tie": [
+        367,
+        888
+       ],
+       "p2": 0,
+       "len": 16
+      },
+      {
+       "i": 19,
+       "d": 22,
+       "kept": 1,
+       "rank": 2239,
+       "tie": [
+        1671,
+        2550
+       ],
+       "p2": 0,
+       "len": 18
+      },
+      {
+       "i": 20,
+       "d": 23,
+       "kept": 0,
+       "rank": 67048,
+       "tie": [
+        66986,
+        67156
+       ],
+       "p2": 0,
+       "len": 25
+      }
+     ]
+    },
+    "P2=2": {
+     "N": 30,
+     "need_index": 21,
+     "kept_on_time_through": 8,
+     "kept_any_depth_through": 8,
+     "reached_finish_zone": false,
+     "late_states": [],
+     "first_dropped_index": 9,
+     "drop": {
+      "depth": 9,
+      "rank": 60716,
+      "nt": 176420,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 60623,
+      "tie_hi": 60741,
+      "tie_count": 118,
+      "table_dist": -1,
+      "len": 27,
+      "fields": {
+       "p2": 17,
+       "klen": 1963,
+       "hprio": 122.69
+      },
+      "cut_k1_fields": {
+       "p2": 16,
+       "klen": 2743,
+       "hprio": 171.44
+      },
+      "cut_W_fields": {
+       "p2": 16,
+       "klen": 2820,
+       "hprio": 176.25
+      },
+      "verdict": "ranked",
+      "rank_over_k1": 3.79,
+      "decided_by": "p2",
+      "other_depths": []
+     },
+     "ac_len": 34,
+     "sac_len": 37,
+     "wall_s": 61.9,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8",
+      "BEAM_P2": "2"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 18,
+       "len": 28
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 18,
+       "len": 28
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 18,
+       "len": 28
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 18,
+       "len": 45
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 155,
+       "tie": [
+        153,
+        157
+       ],
+       "p2": 17,
+       "len": 27
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 818,
+       "tie": [
+        811,
+        832
+       ],
+       "p2": 17,
+       "len": 27
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 1,
+       "rank": 3743,
+       "tie": [
+        3740,
+        3798
+       ],
+       "p2": 17,
+       "len": 27
+      },
+      {
+       "i": 8,
+       "d": 8,
+       "kept": 1,
+       "rank": 15675,
+       "tie": [
+        15659,
+        15758
+       ],
+       "p2": 17,
+       "len": 27
+      },
+      {
+       "i": 9,
+       "d": 9,
+       "kept": 0,
+       "rank": 60716,
+       "tie": [
+        60623,
+        60741
+       ],
+       "p2": 17,
+       "len": 27
+      },
+      {
+       "i": 28,
+       "d": 34,
+       "kept": 1,
+       "rank": 53,
+       "tie": [
+        37,
+        90
+       ],
+       "p2": 2,
+       "len": 5
+      },
+      {
+       "i": 29,
+       "d": 33,
+       "kept": 1,
+       "rank": 3,
+       "tie": [
+        0,
+        4
+       ],
+       "p2": 2,
+       "len": 3
+      },
+      {
+       "i": 30,
+       "d": 34,
+       "kept": 1,
+       "rank": 0,
+       "tie": [
+        0,
+        2
+       ],
+       "p2": 2,
+       "len": 2
+      }
+     ]
+    },
+    "P2=3": {
+     "N": 30,
+     "need_index": 21,
+     "kept_on_time_through": 8,
+     "kept_any_depth_through": 8,
+     "reached_finish_zone": false,
+     "late_states": [],
+     "first_dropped_index": 9,
+     "drop": {
+      "depth": 9,
+      "rank": 63029,
+      "nt": 178039,
+      "W": 20000,
+      "k1": 16000,
+      "tie_lo": 63022,
+      "tie_hi": 63038,
+      "tie_count": 16,
+      "table_dist": -1,
+      "len": 27,
+      "fields": {
+       "p2": 17,
+       "comm": 52,
+       "p1m": 28,
+       "klen": 1963,
+       "hprio": 122.69
+      },
+      "cut_k1_fields": {
+       "p2": 16,
+       "comm": 76,
+       "p1m": 37,
+       "klen": 2446,
+       "hprio": 152.88
+      },
+      "cut_W_fields": {
+       "p2": 16,
+       "comm": 80,
+       "p1m": 33,
+       "klen": 2538,
+       "hprio": 158.62
+      },
+      "verdict": "ranked",
+      "rank_over_k1": 3.94,
+      "decided_by": "p2",
+      "other_depths": []
+     },
+     "ac_len": 34,
+     "sac_len": 37,
+     "wall_s": 63.3,
+     "timeout": false,
+     "rc": 0,
+     "env": {
+      "BEAM_H": "1",
+      "BEAM_DIV": "0.8",
+      "BEAM_P2": "3"
+     },
+     "per_index": [
+      {
+       "i": 1,
+       "d": 1,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 18,
+       "len": 28
+      },
+      {
+       "i": 2,
+       "d": 2,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 18,
+       "len": 28
+      },
+      {
+       "i": 3,
+       "d": 3,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 18,
+       "len": 28
+      },
+      {
+       "i": 4,
+       "d": 4,
+       "kept": 1,
+       "rank": -1,
+       "tie": [
+        -1,
+        -1
+       ],
+       "p2": 18,
+       "len": 45
+      },
+      {
+       "i": 5,
+       "d": 5,
+       "kept": 1,
+       "rank": 159,
+       "tie": [
+        159,
+        161
+       ],
+       "p2": 17,
+       "len": 27
+      },
+      {
+       "i": 6,
+       "d": 6,
+       "kept": 1,
+       "rank": 1552,
+       "tie": [
+        1551,
+        1554
+       ],
+       "p2": 17,
+       "len": 27
+      },
+      {
+       "i": 7,
+       "d": 7,
+       "kept": 1,
+       "rank": 3750,
+       "tie": [
+        3750,
+        3760
+       ],
+       "p2": 17,
+       "len": 27
+      },
+      {
+       "i": 8,
+       "d": 8,
+       "kept": 1,
+       "rank": 15888,
+       "tie": [
+        15884,
+        15902
+       ],
+       "p2": 17,
+       "len": 27
+      },
+      {
+       "i": 9,
+       "d": 9,
+       "kept": 0,
+       "rank": 63029,
+       "tie": [
+        63022,
+        63038
+       ],
+       "p2": 17,
+       "len": 27
+      },
+      {
+       "i": 28,
+       "d": 34,
+       "kept": 1,
+       "rank": 47,
+       "tie": [
+        42,
+        65
+       ],
+       "p2": 2,
+       "len": 5
+      },
+      {
+       "i": 29,
+       "d": 33,
+       "kept": 1,
+       "rank": 1,
+       "tie": [
+        0,
+        2
+       ],
+       "p2": 2,
+       "len": 3
+      },
+      {
+       "i": 30,
+       "d": 34,
+       "kept": 1,
+       "rank": 17,
+       "tie": [
+        17,
+        19
+       ],
+       "p2": 2,
+       "len": 2
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "diagnostic_summary": [
+  {
+   "row": "ac-03305",
+   "arm": "H",
+   "road_len": 23,
+   "beam_ac": 29,
+   "reached_finish_zone": false,
+   "first_dropped_index": 7,
+   "depth": 7,
+   "rank": 68779,
+   "k1": 16000,
+   "rank_over_k1": 4.3,
+   "tie_block": [
+    68777,
+    68782
+   ],
+   "verdict": "ranked",
+   "decided_by": "klen",
+   "road_fields": {
+    "klen": 1936,
+    "hprio": 121.0
+   },
+   "cut_k1_fields": {
+    "klen": 1629,
+    "hprio": 101.81
+   },
+   "road_P2_by_index": null
+  },
+  {
+   "row": "ac-03305",
+   "arm": "P2=2",
+   "road_len": 23,
+   "beam_ac": 24,
+   "reached_finish_zone": false,
+   "first_dropped_index": 8,
+   "depth": 8,
+   "rank": 17535,
+   "k1": 16000,
+   "rank_over_k1": 1.1,
+   "tie_block": [
+    17516,
+    17545
+   ],
+   "verdict": "width",
+   "decided_by": "p2",
+   "road_fields": {
+    "p2": 18,
+    "klen": 1936,
+    "hprio": 121.0
+   },
+   "cut_k1_fields": {
+    "p2": 17,
+    "klen": 2726,
+    "hprio": 170.38
+   },
+   "road_P2_by_index": [
+    19,
+    19,
+    19,
+    19,
+    19,
+    19,
+    18,
+    18,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    7,
+    7,
+    7,
+    4,
+    4,
+    3,
+    2,
+    2,
+    null
+   ]
+  },
+  {
+   "row": "ac-03305",
+   "arm": "P2=3",
+   "road_len": 23,
+   "beam_ac": 24,
+   "reached_finish_zone": false,
+   "first_dropped_index": 6,
+   "depth": 6,
+   "rank": 37578,
+   "k1": 16000,
+   "rank_over_k1": 2.35,
+   "tie_block": [
+    37575,
+    37579
+   ],
+   "verdict": "ranked",
+   "decided_by": "comm",
+   "road_fields": {
+    "p2": 19,
+    "comm": 60,
+    "p1m": 40,
+    "klen": 1645,
+    "hprio": 102.81
+   },
+   "cut_k1_fields": {
+    "p2": 19,
+    "comm": 52,
+    "p1m": 37,
+    "klen": 2960,
+    "hprio": 185.0
+   },
+   "road_P2_by_index": [
+    19,
+    19,
+    19,
+    19,
+    19,
+    19,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    11,
+    null,
+    7,
+    7,
+    7,
+    4,
+    4,
+    3,
+    2,
+    2,
+    null
+   ]
+  },
+  {
+   "row": "ac-05558",
+   "arm": "H",
+   "road_len": 24,
+   "beam_ac": 30,
+   "reached_finish_zone": false,
+   "first_dropped_index": 11,
+   "depth": 11,
+   "rank": 19872,
+   "k1": 16000,
+   "rank_over_k1": 1.24,
+   "tie_block": [
+    19717,
+    20556
+   ],
+   "verdict": "width",
+   "decided_by": "klen",
+   "road_fields": {
+    "klen": 1333,
+    "hprio": 83.31
+   },
+   "cut_k1_fields": {
+    "klen": 1309,
+    "hprio": 81.81
+   },
+   "road_P2_by_index": null
+  },
+  {
+   "row": "ac-05558",
+   "arm": "P2=2",
+   "road_len": 24,
+   "beam_ac": 26,
+   "reached_finish_zone": false,
+   "first_dropped_index": 9,
+   "depth": 9,
+   "rank": 140392,
+   "k1": 16000,
+   "rank_over_k1": 8.77,
+   "tie_block": [
+    140392,
+    140393
+   ],
+   "verdict": "ranked",
+   "decided_by": "p2",
+   "road_fields": {
+    "p2": 17,
+    "klen": 1333,
+    "hprio": 83.31
+   },
+   "cut_k1_fields": {
+    "p2": 14,
+    "klen": 1455,
+    "hprio": 90.94
+   },
+   "road_P2_by_index": [
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    17,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    3,
+    2,
+    2,
+    null
+   ]
+  },
+  {
+   "row": "ac-05558",
+   "arm": "P2=3",
+   "road_len": 24,
+   "beam_ac": 26,
+   "reached_finish_zone": false,
+   "first_dropped_index": 9,
+   "depth": 9,
+   "rank": 172807,
+   "k1": 16000,
+   "rank_over_k1": 10.8,
+   "tie_block": [
+    172807,
+    172808
+   ],
+   "verdict": "ranked",
+   "decided_by": "p2",
+   "road_fields": {
+    "p2": 17,
+    "comm": 30,
+    "p1m": 24,
+    "klen": 1333,
+    "hprio": 83.31
+   },
+   "cut_k1_fields": {
+    "p2": 14,
+    "comm": 32,
+    "p1m": 24,
+    "klen": 3356,
+    "hprio": 209.75
+   },
+   "road_P2_by_index": [
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    17,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    3,
+    2,
+    2,
+    null
+   ]
+  },
+  {
+   "row": "ac-07435",
+   "arm": "H",
+   "road_len": 26,
+   "beam_ac": 29,
+   "reached_finish_zone": false,
+   "first_dropped_index": 12,
+   "depth": 12,
+   "rank": 85674,
+   "k1": 16000,
+   "rank_over_k1": 5.35,
+   "tie_block": [
+    85670,
+    85693
+   ],
+   "verdict": "ranked",
+   "decided_by": "klen",
+   "road_fields": {
+    "klen": 1814,
+    "hprio": 113.38
+   },
+   "cut_k1_fields": {
+    "klen": 1550,
+    "hprio": 96.88
+   },
+   "road_P2_by_index": null
+  },
+  {
+   "row": "ac-07435",
+   "arm": "P2=2",
+   "road_len": 26,
+   "beam_ac": 28,
+   "reached_finish_zone": false,
+   "first_dropped_index": 7,
+   "depth": 7,
+   "rank": 37534,
+   "k1": 16000,
+   "rank_over_k1": 2.35,
+   "tie_block": [
+    37389,
+    37554
+   ],
+   "verdict": "ranked",
+   "decided_by": "p2",
+   "road_fields": {
+    "p2": 18,
+    "klen": 1580,
+    "hprio": 98.75
+   },
+   "cut_k1_fields": {
+    "p2": 17,
+    "klen": 2266,
+    "hprio": 141.62
+   },
+   "road_P2_by_index": [
+    18,
+    17,
+    17,
+    17,
+    17,
+    18,
+    18,
+    17,
+    17,
+    17,
+    17,
+    12,
+    12,
+    12,
+    12,
+    8,
+    8,
+    5,
+    5,
+    3,
+    3,
+    2,
+    2,
+    2,
+    2,
+    null
+   ]
+  },
+  {
+   "row": "ac-07435",
+   "arm": "P2=3",
+   "road_len": 26,
+   "beam_ac": 28,
+   "reached_finish_zone": false,
+   "first_dropped_index": 7,
+   "depth": 7,
+   "rank": 37790,
+   "k1": 16000,
+   "rank_over_k1": 2.36,
+   "tie_block": [
+    37790,
+    37791
+   ],
+   "verdict": "ranked",
+   "decided_by": "p2",
+   "road_fields": {
+    "p2": 18,
+    "comm": 36,
+    "p1m": 19,
+    "klen": 1580,
+    "hprio": 98.75
+   },
+   "cut_k1_fields": {
+    "p2": 17,
+    "comm": 66,
+    "p1m": 29,
+    "klen": 2559,
+    "hprio": 159.94
+   },
+   "road_P2_by_index": [
+    18,
+    17,
+    17,
+    17,
+    17,
+    18,
+    18,
+    17,
+    17,
+    17,
+    17,
+    12,
+    12,
+    12,
+    12,
+    8,
+    8,
+    5,
+    5,
+    3,
+    3,
+    2,
+    2,
+    2,
+    2,
+    null
+   ]
+  },
+  {
+   "row": "ac-00145",
+   "arm": "H",
+   "road_len": 40,
+   "beam_ac": 40,
+   "reached_finish_zone": false,
+   "first_dropped_index": 20,
+   "depth": 20,
+   "rank": 16977,
+   "k1": 16000,
+   "rank_over_k1": 1.06,
+   "tie_block": [
+    15408,
+    17291
+   ],
+   "verdict": "ties",
+   "decided_by": "fingerprint",
+   "road_fields": {
+    "klen": 1009,
+    "hprio": 63.06
+   },
+   "cut_k1_fields": {
+    "klen": 1009,
+    "hprio": 63.06
+   },
+   "road_P2_by_index": null
+  },
+  {
+   "row": "ac-00145",
+   "arm": "P2=2",
+   "road_len": 40,
+   "beam_ac": null,
+   "reached_finish_zone": false,
+   "first_dropped_index": 8,
+   "depth": 8,
+   "rank": 138220,
+   "k1": 16000,
+   "rank_over_k1": 8.64,
+   "tie_block": [
+    138167,
+    138237
+   ],
+   "verdict": "ranked",
+   "decided_by": "p2",
+   "road_fields": {
+    "p2": 16,
+    "klen": 1111,
+    "hprio": 69.44
+   },
+   "cut_k1_fields": {
+    "p2": 15,
+    "klen": 1278,
+    "hprio": 79.88
+   },
+   "road_P2_by_index": [
+    15,
+    15,
+    16,
+    16,
+    15,
+    15,
+    15,
+    16,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "row": "ac-00145",
+   "arm": "P2=3",
+   "road_len": 40,
+   "beam_ac": null,
+   "reached_finish_zone": false,
+   "first_dropped_index": 8,
+   "depth": 8,
+   "rank": 175849,
+   "k1": 16000,
+   "rank_over_k1": 10.99,
+   "tie_block": [
+    175837,
+    175858
+   ],
+   "verdict": "ranked",
+   "decided_by": "p2",
+   "road_fields": {
+    "p2": 16,
+    "comm": 28,
+    "p1m": 17,
+    "klen": 1111,
+    "hprio": 69.44
+   },
+   "cut_k1_fields": {
+    "p2": 15,
+    "comm": 28,
+    "p1m": 25,
+    "klen": 2988,
+    "hprio": 186.75
+   },
+   "road_P2_by_index": [
+    15,
+    15,
+    16,
+    16,
+    15,
+    15,
+    15,
+    16,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "row": "ac-00061",
+   "arm": "H",
+   "road_len": 26,
+   "beam_ac": 26,
+   "reached_finish_zone": true,
+   "first_dropped_index": null,
+   "depth": null,
+   "rank": null,
+   "k1": null,
+   "rank_over_k1": null,
+   "tie_block": null,
+   "verdict": null,
+   "decided_by": null,
+   "road_fields": null,
+   "cut_k1_fields": null,
+   "road_P2_by_index": null
+  },
+  {
+   "row": "ac-00061",
+   "arm": "P2=2",
+   "road_len": 26,
+   "beam_ac": 29,
+   "reached_finish_zone": false,
+   "first_dropped_index": 6,
+   "depth": 6,
+   "rank": 27721,
+   "k1": 16000,
+   "rank_over_k1": 1.73,
+   "tie_block": [
+    27716,
+    27746
+   ],
+   "verdict": "width",
+   "decided_by": "p2",
+   "road_fields": {
+    "p2": 23,
+    "klen": 2086,
+    "hprio": 130.38
+   },
+   "cut_k1_fields": {
+    "p2": 20,
+    "klen": 2679,
+    "hprio": 167.44
+   },
+   "road_P2_by_index": [
+    20,
+    20,
+    20,
+    25,
+    23,
+    23,
+    null,
+    null,
+    null,
+    15,
+    null,
+    null,
+    null,
+    16,
+    10,
+    10,
+    10,
+    10,
+    10,
+    7,
+    7,
+    4,
+    3,
+    2,
+    2,
+    2
+   ]
+  },
+  {
+   "row": "ac-00061",
+   "arm": "P2=3",
+   "road_len": 26,
+   "beam_ac": 29,
+   "reached_finish_zone": false,
+   "first_dropped_index": 6,
+   "depth": 6,
+   "rank": 28479,
+   "k1": 16000,
+   "rank_over_k1": 1.78,
+   "tie_block": [
+    28479,
+    28483
+   ],
+   "verdict": "width",
+   "decided_by": "p2",
+   "road_fields": {
+    "p2": 23,
+    "comm": 64,
+    "p1m": 32,
+    "klen": 2086,
+    "hprio": 130.38
+   },
+   "cut_k1_fields": {
+    "p2": 20,
+    "comm": 84,
+    "p1m": 33,
+    "klen": 2542,
+    "hprio": 158.88
+   },
+   "road_P2_by_index": [
+    20,
+    20,
+    20,
+    25,
+    23,
+    23,
+    null,
+    null,
+    16,
+    15,
+    16,
+    null,
+    null,
+    16,
+    10,
+    10,
+    10,
+    10,
+    10,
+    7,
+    7,
+    4,
+    3,
+    2,
+    2,
+    2
+   ]
+  },
+  {
+   "row": "ac-08130",
+   "arm": "H",
+   "road_len": 30,
+   "beam_ac": 32,
+   "reached_finish_zone": false,
+   "first_dropped_index": 11,
+   "depth": 11,
+   "rank": 33041,
+   "k1": 16000,
+   "rank_over_k1": 2.07,
+   "tie_block": [
+    32918,
+    34200
+   ],
+   "verdict": "ranked",
+   "decided_by": "klen",
+   "road_fields": {
+    "klen": 1998,
+    "hprio": 124.88
+   },
+   "cut_k1_fields": {
+    "klen": 1878,
+    "hprio": 117.38
+   },
+   "road_P2_by_index": null
+  },
+  {
+   "row": "ac-08130",
+   "arm": "P2=2",
+   "road_len": 30,
+   "beam_ac": 34,
+   "reached_finish_zone": false,
+   "first_dropped_index": 9,
+   "depth": 9,
+   "rank": 60716,
+   "k1": 16000,
+   "rank_over_k1": 3.79,
+   "tie_block": [
+    60623,
+    60741
+   ],
+   "verdict": "ranked",
+   "decided_by": "p2",
+   "road_fields": {
+    "p2": 17,
+    "klen": 1963,
+    "hprio": 122.69
+   },
+   "cut_k1_fields": {
+    "p2": 16,
+    "klen": 2743,
+    "hprio": 171.44
+   },
+   "road_P2_by_index": [
+    18,
+    18,
+    18,
+    18,
+    17,
+    17,
+    17,
+    17,
+    17,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    2,
+    2,
+    2
+   ]
+  },
+  {
+   "row": "ac-08130",
+   "arm": "P2=3",
+   "road_len": 30,
+   "beam_ac": 34,
+   "reached_finish_zone": false,
+   "first_dropped_index": 9,
+   "depth": 9,
+   "rank": 63029,
+   "k1": 16000,
+   "rank_over_k1": 3.94,
+   "tie_block": [
+    63022,
+    63038
+   ],
+   "verdict": "ranked",
+   "decided_by": "p2",
+   "road_fields": {
+    "p2": 17,
+    "comm": 52,
+    "p1m": 28,
+    "klen": 1963,
+    "hprio": 122.69
+   },
+   "cut_k1_fields": {
+    "p2": 16,
+    "comm": 76,
+    "p1m": 37,
+    "klen": 2446,
+    "hprio": 152.88
+   },
+   "road_P2_by_index": [
+    18,
+    18,
+    18,
+    18,
+    17,
+    17,
+    17,
+    17,
+    17,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    2,
+    2,
+    2
+   ]
+  }
+ ],
+ "records": {
+  "inbox": "research/acc/live/inbox/20260928T1022Z_atlas_ac-00487.txt: sac-00487 27 (P2=2+Q16), official ok, ties live Stable AC 27; not held at the time (SENT_ROWS 62). The lead queued and sent it (queue/sent/20260928T1107Z_..._sac00487_quota.txt).",
+  "not_new": [
+   "ac-00487 26 (both elite arms, official ok): by the time it was found the lead had already sent ac-00487 26 via the overlap splice (SENT_ROWS 11:35Z: ac-00487 26 26 tie), so no inbox file",
+   "ac-07435 26 (P2=3+Q16+E5000, official ok): ties the record we already hold (SENT_ROWS ac-07435 26 tie)"
+  ],
+  "nothing_submitted": true
+ },
+ "verdicts": {
+  "QUOTA q=4": "dead: worse than P2=2 on 6 rows, same on 1 (ac-00145, all none); no path P2 misses",
+  "QUOTA q=16": "alive by the fixed rule only through sac-00487 27 (P2=2 28), a live-record tie we did not hold; worse on 5 rows, same on 1",
+  "WH": "dead: never better than P2=2 (worse on ac-07435, ac-06045; same on 5)",
+  "P2=3 (comm_len)": "dead as a beam key: never better than P2=2 (worse on ac-06045 44 vs 39 and ac-04211 none vs 33; same on 5); the offline top-3 gain did not transfer",
+  "P2=3+Q16": "dead: worse than P2=2 on 6 rows; the comm_len tie-break plus quota drifts to long states (len up to 1,300-2,100 at d=30)",
+  "ELITE e=W/4 + QUOTA 16 under P2=2": "best arm: never worse than P2=2 on any row or field; better on ac-00487 (AC 26 vs 27 = live record, SAC 27 vs 28 = live record) and ac-06045 (SAC 41 vs 42)",
+  "ELITE + QUOTA 16 under P2=3": "mixed: better on ac-00487 (26/27) and ac-07435 (AC 26 = record vs 28), worse on ac-04211, ac-05558, ac-06045 (AC), ac-04346 (SAC)"
+ }
+}

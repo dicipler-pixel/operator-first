@@ -1,0 +1,133 @@
+{
+  "processes": [
+    {
+      "pid": 844196,
+      "command": [
+        "python3",
+        "research/acc/optimality/run_beam_raw.py",
+        "SAIR/competition/tools/verifier/data/manifest.json",
+        "bin",
+        "work/T8.tab",
+        "work/w_astra_wide",
+        "200000",
+        "200",
+        "work/astra_wide_cap.jsonl",
+        "work/astra_wide_first3.json"
+      ],
+      "cwd": "PermissionError",
+      "start_ticks": "5238594",
+      "state": "S",
+      "cpu_ticks": 12
+    },
+    {
+      "pid": 844197,
+      "command": [
+        "bin/acc_beam",
+        "work/T8.tab",
+        "200000",
+        "35",
+        "8",
+        "3",
+        "1",
+        "3",
+        "1",
+        "3",
+        "1",
+        "1",
+        "1",
+        "17",
+        "3",
+        "1",
+        "3",
+        "1",
+        "2",
+        "0",
+        "2",
+        "0",
+        "3",
+        "1",
+        "3",
+        "0",
+        "2",
+        "1",
+        "3",
+        "1",
+        "1"
+      ],
+      "cwd": "PermissionError",
+      "start_ticks": "5238607",
+      "state": "R",
+      "cpu_ticks": 35944
+    },
+    {
+      "pid": 844241,
+      "command": [
+        "python3",
+        "research/acc/optimality/astra_subprocess_audit/watch_batch.py",
+        "2",
+        "3"
+      ],
+      "cwd": "PermissionError",
+      "start_ticks": "5238743",
+      "state": "S",
+      "cpu_ticks": 14
+    }
+  ],
+  "audit_receipts": 234,
+  "finished_07194": [
+    {
+      "utc": "2026-09-29T13:40:42+00:00",
+      "command": [
+        "bin/acc_beam",
+        "work/T8.tab",
+        "200000",
+        "46",
+        "9",
+        "3",
+        "3",
+        "0",
+        "2",
+        "0",
+        "3",
+        "0",
+        "2",
+        "0",
+        "17",
+        "3",
+        "3",
+        "1",
+        "3",
+        "1",
+        "2",
+        "1",
+        "3",
+        "1",
+        "2",
+        "0",
+        "0",
+        "2",
+        "1",
+        "2",
+        "0",
+        "0"
+      ],
+      "returncode": 0,
+      "stdout_file": "1790689242864254695_acc_beam.stdout",
+      "stderr_file": "1790689242864254695_acc_beam.stderr"
+    }
+  ],
+  "completed_wide": [
+    "ac-04316",
+    "ac-07194"
+  ],
+  "utc": "2026-09-29T15:57:30.945770+00:00",
+  "launch_cwd": "/workspace/scratch/42a779575dd0/operator-first",
+  "boot_id": "04117895-9019-4a84-848d-1e44a113f838",
+  "sessions": {
+    "runner": 52480,
+    "watcher": 55605
+  },
+  "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "preflight": "prelaunch.py passed clean SAIR pin/full T8 hash/native hashes/no05423 receipt",
+  "previous_attempt": "Previous runner786611 beam786628 watcher786656 absent; no completed receipt; cause not established"
+}

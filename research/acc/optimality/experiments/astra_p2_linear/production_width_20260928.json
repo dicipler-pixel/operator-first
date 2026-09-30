@@ -1,0 +1,56 @@
+{
+  "runs": [
+    {
+      "id": "ac-06403",
+      "variant": "linear",
+      "width": 20000,
+      "elite": 5000,
+      "depth": 24,
+      "wall_s": 83.194,
+      "checks": {
+        "AC": {
+          "ok": true,
+          "length": 22,
+          "peak_total_relator_length": 45,
+          "work": 543,
+          "certificate_hash": "sha256:186db79ef73dd6a38d46eda5c317cc51304b097cd2da6d03dad5b0a582434f14"
+        },
+        "SAC": {
+          "ok": true,
+          "length": 24,
+          "peak_total_relator_length": 45,
+          "work": 543,
+          "certificate_hash": "sha256:6b6a5a7726a0601036c24c9f8c5b2660d663aeafa8f9a14a3756fc41af0d8e03"
+        }
+      }
+    },
+    {
+      "id": "ac-06403",
+      "variant": "base",
+      "width": 20000,
+      "elite": 5000,
+      "depth": 24,
+      "wall_s": 116.853,
+      "checks": {
+        "AC": {
+          "ok": true,
+          "length": 22,
+          "peak_total_relator_length": 45,
+          "work": 543,
+          "certificate_hash": "sha256:186db79ef73dd6a38d46eda5c317cc51304b097cd2da6d03dad5b0a582434f14"
+        },
+        "SAC": {
+          "ok": true,
+          "length": 24,
+          "peak_total_relator_length": 45,
+          "work": 543,
+          "certificate_hash": "sha256:6b6a5a7726a0601036c24c9f8c5b2660d663aeafa8f9a14a3756fc41af0d8e03"
+        }
+      }
+    }
+  ],
+  "outputs_and_frontiers_identical": true,
+  "elapsed_reduction_percent": 28.8,
+  "caveat": "Single production-width pair on concurrent machine; not a general speed estimate. Both AC and SAC paths pass official verification. Assigned lane continues original binary."
+}
+

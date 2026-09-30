@@ -1,0 +1,14 @@
+--- a/research/acc/optimality/acc_beam.c
++++ b/research/acc/optimality/acc_beam.c
+@@ -86,7 +86,10 @@
+ static int p2_cycred(const char*w,int n,char*out){ int i=0,j=n; while(j-i>1&&w[i]==p2_invc(w[j-1])){ i++; j--; }
+   memcpy(out,w+i,j-i); out[j-i]=0; return j-i; }
+ static void p2_inv(const char*w,int n,char*out){ for(int i=0;i<n;i++) out[i]=p2_invc(w[n-1-i]); out[n]=0; }
+-static int p2_minrot2(const char*d,int n){ int best=0; for(int i=1;i<n;i++){ if(memcmp(d+i,d+best,n)<0) best=i; } return best; }
++static int p2_minrot2(const char*d,int n){ int i=0,j=1,k=0;
++  while(i<n&&j<n&&k<n){ unsigned char a=d[i+k],b=d[j+k]; if(a==b){ k++; continue; }
++    if(a>b) i+=k+1; else j+=k+1; if(i==j) j++; k=0; }
++  return i<j?i:j; }
+ static void p2_canon(const char*w,int n,char*out){          /* canonical cyclic word up to rotation and inversion */
+   if(n==0){ out[0]=0; return; } char d[2*P2L+2],iw[P2L+1],di[2*P2L+2];
+   memcpy(d,w,n); memcpy(d+n,w,n); p2_inv(w,n,iw); memcpy(di,iw,n); memcpy(di+n,iw,n);

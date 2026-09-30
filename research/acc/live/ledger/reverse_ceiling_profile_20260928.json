@@ -1,0 +1,838 @@
+{
+  "ceiling_metric": "sum of two relator lengths",
+  "ceilings": [
+    {
+      "abort_reason": null,
+      "cap_total_length": 2,
+      "complete": true,
+      "depth_histogram": {
+        "0": 1,
+        "1": 2,
+        "2": 1
+      },
+      "diameter_within_cap": 2,
+      "manifest_ac_rows_connected": 0,
+      "manifest_examples": [],
+      "new_states_from_prior_cap": null,
+      "queue_remaining": 0,
+      "states_expanded": 4,
+      "states_seen": 4,
+      "transitions_attempted": 56,
+      "wall_s": 0.0
+    },
+    {
+      "abort_reason": null,
+      "cap_total_length": 3,
+      "complete": true,
+      "depth_histogram": {
+        "0": 1,
+        "1": 6,
+        "2": 19,
+        "3": 24,
+        "4": 21,
+        "5": 1
+      },
+      "diameter_within_cap": 5,
+      "height_witness": {
+        "distance_within_cap": 4,
+        "moves_from_root": [
+          2,
+          0,
+          4,
+          3
+        ],
+        "moves_home": [
+          2,
+          5,
+          0,
+          3
+        ],
+        "optional_challenge_id": null,
+        "state": [
+          [
+            -2
+          ],
+          [
+            -1
+          ]
+        ],
+        "state_total_length": 2
+      },
+      "largest_distance_saving_at_new_cap": 0,
+      "manifest_ac_rows_connected": 0,
+      "manifest_examples": [],
+      "new_lower_length_states_requiring_this_height": 4,
+      "new_states_from_prior_cap": 68,
+      "old_states_with_shorter_path_at_new_cap": 0,
+      "queue_remaining": 0,
+      "states_expanded": 72,
+      "states_seen": 72,
+      "transitions_attempted": 1008,
+      "wall_s": 0.001
+    },
+    {
+      "abort_reason": null,
+      "cap_total_length": 4,
+      "complete": true,
+      "depth_histogram": {
+        "0": 1,
+        "1": 10,
+        "2": 31,
+        "3": 56,
+        "4": 63,
+        "5": 35,
+        "6": 4
+      },
+      "diameter_within_cap": 6,
+      "largest_distance_saving_at_new_cap": 0,
+      "manifest_ac_rows_connected": 0,
+      "manifest_examples": [],
+      "new_lower_length_states_requiring_this_height": 0,
+      "new_states_from_prior_cap": 128,
+      "old_states_with_shorter_path_at_new_cap": 0,
+      "queue_remaining": 0,
+      "states_expanded": 200,
+      "states_seen": 200,
+      "transitions_attempted": 2800,
+      "wall_s": 0.002
+    },
+    {
+      "abort_reason": null,
+      "cap_total_length": 5,
+      "complete": true,
+      "depth_histogram": {
+        "0": 1,
+        "1": 10,
+        "2": 57,
+        "3": 184,
+        "4": 305,
+        "5": 177,
+        "6": 36,
+        "7": 6
+      },
+      "diameter_within_cap": 7,
+      "distance_shortcut_witness": {
+        "new_cap": 5,
+        "new_distance_within_cap": 3,
+        "new_moves_from_root": [
+          5,
+          2,
+          7
+        ],
+        "optional_challenge_id": null,
+        "prior_cap": 4,
+        "prior_distance_within_cap": 4,
+        "prior_moves_from_root": [
+          0,
+          4,
+          3,
+          0
+        ],
+        "state": [
+          [
+            2
+          ],
+          [
+            2,
+            -1
+          ]
+        ],
+        "state_total_length": 3
+      },
+      "largest_distance_saving_at_new_cap": 1,
+      "manifest_ac_rows_connected": 0,
+      "manifest_examples": [],
+      "new_lower_length_states_requiring_this_height": 0,
+      "new_states_from_prior_cap": 576,
+      "old_states_with_shorter_path_at_new_cap": 12,
+      "queue_remaining": 0,
+      "states_expanded": 776,
+      "states_seen": 776,
+      "transitions_attempted": 10864,
+      "wall_s": 0.01
+    },
+    {
+      "abort_reason": null,
+      "cap_total_length": 6,
+      "complete": true,
+      "depth_histogram": {
+        "0": 1,
+        "1": 10,
+        "2": 73,
+        "3": 246,
+        "4": 521,
+        "5": 542,
+        "6": 285,
+        "7": 80,
+        "8": 10
+      },
+      "diameter_within_cap": 8,
+      "distance_shortcut_witness": {
+        "new_cap": 6,
+        "new_distance_within_cap": 4,
+        "new_moves_from_root": [
+          3,
+          5,
+          2,
+          7
+        ],
+        "optional_challenge_id": null,
+        "prior_cap": 5,
+        "prior_distance_within_cap": 5,
+        "prior_moves_from_root": [
+          3,
+          0,
+          4,
+          3,
+          0
+        ],
+        "state": [
+          [
+            2
+          ],
+          [
+            2,
+            2,
+            -1
+          ]
+        ],
+        "state_total_length": 4
+      },
+      "largest_distance_saving_at_new_cap": 1,
+      "manifest_ac_rows_connected": 0,
+      "manifest_examples": [],
+      "new_lower_length_states_requiring_this_height": 0,
+      "new_states_from_prior_cap": 992,
+      "old_states_with_shorter_path_at_new_cap": 8,
+      "queue_remaining": 0,
+      "states_expanded": 1768,
+      "states_seen": 1768,
+      "transitions_attempted": 24752,
+      "wall_s": 0.022
+    },
+    {
+      "abort_reason": null,
+      "cap_total_length": 7,
+      "complete": true,
+      "depth_histogram": {
+        "0": 1,
+        "1": 10,
+        "2": 77,
+        "3": 412,
+        "4": 1383,
+        "5": 2518,
+        "6": 2189,
+        "7": 970,
+        "8": 214,
+        "9": 10
+      },
+      "diameter_within_cap": 9,
+      "distance_shortcut_witness": {
+        "new_cap": 7,
+        "new_distance_within_cap": 4,
+        "new_moves_from_root": [
+          5,
+          2,
+          2,
+          7
+        ],
+        "optional_challenge_id": null,
+        "prior_cap": 6,
+        "prior_distance_within_cap": 5,
+        "prior_moves_from_root": [
+          0,
+          4,
+          3,
+          3,
+          0
+        ],
+        "state": [
+          [
+            2,
+            -1,
+            2
+          ],
+          [
+            2,
+            -1
+          ]
+        ],
+        "state_total_length": 5
+      },
+      "largest_distance_saving_at_new_cap": 1,
+      "manifest_ac_rows_connected": 0,
+      "manifest_examples": [],
+      "new_lower_length_states_requiring_this_height": 0,
+      "new_states_from_prior_cap": 6016,
+      "old_states_with_shorter_path_at_new_cap": 22,
+      "queue_remaining": 0,
+      "states_expanded": 7784,
+      "states_seen": 7784,
+      "transitions_attempted": 108976,
+      "wall_s": 0.114
+    },
+    {
+      "abort_reason": null,
+      "cap_total_length": 8,
+      "complete": true,
+      "depth_histogram": {
+        "0": 1,
+        "1": 10,
+        "10": 12,
+        "2": 77,
+        "3": 492,
+        "4": 1857,
+        "5": 4234,
+        "6": 5341,
+        "7": 3962,
+        "8": 1946,
+        "9": 412
+      },
+      "diameter_within_cap": 10,
+      "distance_shortcut_witness": {
+        "new_cap": 8,
+        "new_distance_within_cap": 4,
+        "new_moves_from_root": [
+          2,
+          11,
+          2,
+          5
+        ],
+        "optional_challenge_id": null,
+        "prior_cap": 7,
+        "prior_distance_within_cap": 7,
+        "prior_moves_from_root": [
+          1,
+          5,
+          2,
+          0,
+          6,
+          3,
+          7
+        ],
+        "state": [
+          [
+            1,
+            2,
+            -1,
+            2,
+            1
+          ],
+          [
+            -2,
+            -1
+          ]
+        ],
+        "state_total_length": 7
+      },
+      "largest_distance_saving_at_new_cap": 3,
+      "manifest_ac_rows_connected": 0,
+      "manifest_examples": [],
+      "new_lower_length_states_requiring_this_height": 0,
+      "new_states_from_prior_cap": 10560,
+      "old_states_with_shorter_path_at_new_cap": 124,
+      "queue_remaining": 0,
+      "states_expanded": 18344,
+      "states_seen": 18344,
+      "transitions_attempted": 256816,
+      "wall_s": 0.351
+    },
+    {
+      "abort_reason": null,
+      "cap_total_length": 9,
+      "complete": true,
+      "depth_histogram": {
+        "0": 1,
+        "1": 10,
+        "10": 1056,
+        "11": 236,
+        "12": 48,
+        "2": 77,
+        "3": 554,
+        "4": 2915,
+        "5": 9648,
+        "6": 19037,
+        "7": 21530,
+        "8": 14204,
+        "9": 5540
+      },
+      "diameter_within_cap": 12,
+      "distance_shortcut_witness": {
+        "new_cap": 9,
+        "new_distance_within_cap": 5,
+        "new_moves_from_root": [
+          5,
+          11,
+          13,
+          2,
+          5
+        ],
+        "optional_challenge_id": null,
+        "prior_cap": 8,
+        "prior_distance_within_cap": 7,
+        "prior_moves_from_root": [
+          0,
+          2,
+          5,
+          1,
+          9,
+          3,
+          6
+        ],
+        "state": [
+          [
+            1,
+            -2,
+            -1,
+            2,
+            2
+          ],
+          [
+            -1
+          ]
+        ],
+        "state_total_length": 6
+      },
+      "largest_distance_saving_at_new_cap": 2,
+      "manifest_ac_rows_connected": 1,
+      "manifest_examples": [
+        [
+          "ac-08491",
+          8
+        ]
+      ],
+      "new_lower_length_states_requiring_this_height": 0,
+      "new_states_from_prior_cap": 56512,
+      "old_states_with_shorter_path_at_new_cap": 528,
+      "queue_remaining": 0,
+      "states_expanded": 74856,
+      "states_seen": 74856,
+      "transitions_attempted": 1047984,
+      "wall_s": 1.294
+    },
+    {
+      "abort_reason": null,
+      "cap_total_length": 10,
+      "complete": true,
+      "depth_histogram": {
+        "0": 1,
+        "1": 10,
+        "10": 12249,
+        "11": 2726,
+        "12": 398,
+        "13": 18,
+        "2": 77,
+        "3": 554,
+        "4": 3349,
+        "5": 12580,
+        "6": 29767,
+        "7": 42598,
+        "8": 39347,
+        "9": 26318
+      },
+      "diameter_within_cap": 13,
+      "distance_shortcut_witness": {
+        "new_cap": 10,
+        "new_distance_within_cap": 9,
+        "new_moves_from_root": [
+          4,
+          4,
+          2,
+          11,
+          5,
+          11,
+          2,
+          5,
+          7
+        ],
+        "optional_challenge_id": null,
+        "prior_cap": 9,
+        "prior_distance_within_cap": 12,
+        "prior_moves_from_root": [
+          2,
+          0,
+          4,
+          2,
+          4,
+          11,
+          3,
+          11,
+          2,
+          0,
+          8,
+          10
+        ],
+        "state": [
+          [
+            2,
+            2,
+            1,
+            -2,
+            1
+          ],
+          [
+            -1,
+            -1,
+            -2,
+            -1
+          ]
+        ],
+        "state_total_length": 9
+      },
+      "largest_distance_saving_at_new_cap": 3,
+      "manifest_ac_rows_connected": 1,
+      "manifest_examples": [
+        [
+          "ac-08491",
+          8
+        ]
+      ],
+      "new_lower_length_states_requiring_this_height": 0,
+      "new_states_from_prior_cap": 95136,
+      "old_states_with_shorter_path_at_new_cap": 1038,
+      "queue_remaining": 0,
+      "states_expanded": 169992,
+      "states_seen": 169992,
+      "transitions_attempted": 2379888,
+      "wall_s": 3.423
+    },
+    {
+      "abort_reason": "state_budget",
+      "cap_total_length": 11,
+      "complete": false,
+      "queue_remaining": 177256,
+      "states_expanded": 322745,
+      "states_seen": 500001,
+      "transitions_attempted": 4518429,
+      "wall_s": 7.286
+    }
+  ],
+  "date_utc": "2026-09-28",
+  "independent_witness_replays": [
+    {
+      "cap_record": 3,
+      "endpoint": [
+        [
+          -2
+        ],
+        [
+          -1
+        ]
+      ],
+      "field": "height_witness",
+      "moves": 4,
+      "path_key": "moves_from_root",
+      "peak_total_length": 3,
+      "replay": true
+    },
+    {
+      "cap_record": 8,
+      "endpoint": [
+        [
+          1,
+          2,
+          -1,
+          2,
+          1
+        ],
+        [
+          -2,
+          -1
+        ]
+      ],
+      "field": "distance_shortcut_witness",
+      "moves": 7,
+      "path_key": "prior_moves_from_root",
+      "peak_total_length": 7,
+      "replay": true
+    },
+    {
+      "cap_record": 8,
+      "endpoint": [
+        [
+          1,
+          2,
+          -1,
+          2,
+          1
+        ],
+        [
+          -2,
+          -1
+        ]
+      ],
+      "field": "distance_shortcut_witness",
+      "moves": 4,
+      "path_key": "new_moves_from_root",
+      "peak_total_length": 8,
+      "replay": true
+    },
+    {
+      "cap_record": 10,
+      "endpoint": [
+        [
+          2,
+          2,
+          1,
+          -2,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "field": "distance_shortcut_witness",
+      "moves": 12,
+      "path_key": "prior_moves_from_root",
+      "peak_total_length": 9,
+      "replay": true
+    },
+    {
+      "cap_record": 10,
+      "endpoint": [
+        [
+          2,
+          2,
+          1,
+          -2,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "field": "distance_shortcut_witness",
+      "moves": 9,
+      "path_key": "new_moves_from_root",
+      "peak_total_length": 10,
+      "replay": true
+    }
+  ],
+  "kernel": "ac-r2-v1, 14 moves",
+  "limits": {
+    "max_seconds_per_cap": 60,
+    "max_states": 500000,
+    "unrestricted_depth": 5
+  },
+  "notes": [
+    "Within-ceiling distances are not claimed globally shortest except where separately proven by unrestricted radius BFS.",
+    "The eight signed-generator ordered pairs exhaust reachable length-two states by the abelianization determinant invariant.",
+    "No competition submission follows from these synthetic witnesses."
+  ],
+  "reference": "SAIRcompetition/Andrews-Curtis a0fd6e6",
+  "search": "complete breadth-first search for caps 2 through 10; cap 11 aborted on state budget",
+  "start_state": [
+    [
+      1
+    ],
+    [
+      2
+    ]
+  ],
+  "state_equality": "ordered freely reduced relator words, no cyclic quotient",
+  "unrestricted_radius": {
+    "D2_of_2_exact_if_all_found": 5,
+    "depth_layer_sizes": [
+      1,
+      10,
+      77,
+      574,
+      4453,
+      35664
+    ],
+    "landmark_distances": [
+      {
+        "cap_record": 3,
+        "kind": "height_witness",
+        "state": [
+          [
+            -2
+          ],
+          [
+            -1
+          ]
+        ],
+        "unrestricted_distance": 4
+      },
+      {
+        "cap_record": 5,
+        "kind": "distance_shortcut_witness",
+        "state": [
+          [
+            2
+          ],
+          [
+            2,
+            -1
+          ]
+        ],
+        "unrestricted_distance": 3
+      },
+      {
+        "cap_record": 6,
+        "kind": "distance_shortcut_witness",
+        "state": [
+          [
+            2
+          ],
+          [
+            2,
+            2,
+            -1
+          ]
+        ],
+        "unrestricted_distance": 4
+      },
+      {
+        "cap_record": 7,
+        "kind": "distance_shortcut_witness",
+        "state": [
+          [
+            2,
+            -1,
+            2
+          ],
+          [
+            2,
+            -1
+          ]
+        ],
+        "unrestricted_distance": 4
+      },
+      {
+        "cap_record": 8,
+        "kind": "distance_shortcut_witness",
+        "state": [
+          [
+            1,
+            2,
+            -1,
+            2,
+            1
+          ],
+          [
+            -2,
+            -1
+          ]
+        ],
+        "unrestricted_distance": 4
+      },
+      {
+        "cap_record": 9,
+        "kind": "distance_shortcut_witness",
+        "state": [
+          [
+            1,
+            -2,
+            -1,
+            2,
+            2
+          ],
+          [
+            -1
+          ]
+        ],
+        "unrestricted_distance": 5
+      }
+    ],
+    "length_two_distances": [
+      {
+        "distance": 4,
+        "state": [
+          [
+            -2
+          ],
+          [
+            -1
+          ]
+        ]
+      },
+      {
+        "distance": 4,
+        "state": [
+          [
+            -2
+          ],
+          [
+            1
+          ]
+        ]
+      },
+      {
+        "distance": 2,
+        "state": [
+          [
+            -1
+          ],
+          [
+            -2
+          ]
+        ]
+      },
+      {
+        "distance": 1,
+        "state": [
+          [
+            -1
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      {
+        "distance": 1,
+        "state": [
+          [
+            1
+          ],
+          [
+            -2
+          ]
+        ]
+      },
+      {
+        "distance": 0,
+        "state": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      {
+        "distance": 4,
+        "state": [
+          [
+            2
+          ],
+          [
+            -1
+          ]
+        ]
+      },
+      {
+        "distance": 5,
+        "state": [
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ]
+      }
+    ],
+    "length_two_found": 8,
+    "length_two_possible": 8,
+    "unrestricted_depth_completed": 5
+  }
+}

@@ -1,0 +1,5 @@
+# Codex Stable -> Session 2, 20260928T234709Z: exact road-height checkpoint
+
+`ledger/codex_ac09839_three_road_map_20260928.md` now has a certified highway comparison. At the shared state after 17 moves, total relator length15, the complete C16 table (129.247M states, SHA recorded there) gives shortest within-height-16 routes of 35 moves to (x,y) and 33 to (y,x). The two eyes beam finds both endpoints in 27 moves, crossing height31 and28 respectively. The low roads were officially replayed. Mixed exact-state and bounded bridge joins (through six moves for low-yx versus both fast roads) found no 45-move Stable beat. Avoid treating the table's within-cap distance as an unrestricted lower bound.
+
+The official Stable finish watcher `tools/acc/ops/stable_finish_watch.py` and verified near-miss trigger feed are pushed. The verified sac-09839 46 tie remains in `inbox/20260928T2312Z_codex_sac-09839.txt`; sac-02257 47 remains in `inbox/20260928T2227Z_codex_sac-02257.txt`. I have sent neither to SAIR. Current independent lane: sac-08995 yx; sac-05506 three-road pilot closed one move over record.

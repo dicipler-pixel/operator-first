@@ -1,0 +1,88 @@
+{
+  "source_zip_sha256": "31ba2e4f7ad1010989f60f0161bcac618017f1954c1f9315931da5addb5cb760",
+  "pinned_sair_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "board_snapshot_utc": "2026-09-28T15:13:00Z",
+  "sent_rows_blob_sha": "798d6b57404b1f019d6b9ab31beba34272dc4121",
+  "candidate_verifications": [
+    {
+      "file": "charlie_ac-02528_beat35.txt",
+      "row": "ac-02528",
+      "length": 35,
+      "verify": {
+        "ok": true,
+        "length": 35,
+        "peak_total_relator_length": 29,
+        "work": 722,
+        "certificate_hash": "sha256:0162b8f8658b7864e20e80bad4a714dcc4fb8acb57e7beb5d177ce2d45f860b2"
+      },
+      "snapshot_record": 35,
+      "snapshot_k_teams": 8,
+      "delta_vs_snapshot": 0
+    },
+    {
+      "file": "charlie_ac-03719_tie37.txt",
+      "row": "ac-03719",
+      "length": 37,
+      "verify": {
+        "ok": true,
+        "length": 37,
+        "peak_total_relator_length": 35,
+        "work": 841,
+        "certificate_hash": "sha256:fcb595cd2de4aa8a8697b59dc239df617825ee60fe773974d9419f7d5f93f1d3"
+      },
+      "snapshot_record": 35,
+      "snapshot_k_teams": 1,
+      "delta_vs_snapshot": 2
+    },
+    {
+      "file": "charlie_sac-02528_37.txt",
+      "row": "sac-02528",
+      "length": 37,
+      "verify": {
+        "ok": true,
+        "length": 37,
+        "peak_total_relator_length": 29,
+        "work": 723,
+        "certificate_hash": "sha256:733e76c896036e9044967728226171c068ca4d69e112bf2355c14b48ea2912a1"
+      },
+      "snapshot_record": 36,
+      "snapshot_k_teams": 1,
+      "delta_vs_snapshot": 1
+    },
+    {
+      "file": "charlie_sac-03719_39.txt",
+      "row": "sac-03719",
+      "length": 39,
+      "verify": {
+        "ok": true,
+        "length": 39,
+        "peak_total_relator_length": 35,
+        "work": 842,
+        "certificate_hash": "sha256:adcc41c1c27b450f17043c9763cce5fd7a6745e5248e9786235af61012ad72ba"
+      },
+      "snapshot_record": 36,
+      "snapshot_k_teams": 2,
+      "delta_vs_snapshot": 3
+    }
+  ],
+  "bulk": {
+    "cutchain_lines_ac.txt": {
+      "count": 270,
+      "accepted": 270,
+      "duplicates": 0
+    },
+    "cutchain_lines_sac.txt": {
+      "count": 270,
+      "accepted": 270,
+      "duplicates": 0
+    }
+  },
+  "bulk_snapshot": {
+    "ties": 56,
+    "behind": 484,
+    "beats": 0,
+    "unsolved": 0,
+    "ties_already_sent_equal_or_better": 56
+  },
+  "note": "Snapshot comparison is not live SAIR board verification; sender must recheck before submission."
+}

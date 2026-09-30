@@ -1,0 +1,93 @@
+{
+  "date": "2026-09-28",
+  "challenge_id": "sac-09365",
+  "move_spec_version": "sac-r8-v1",
+  "status": "ARCHIVED_ROUTE_RECOVERED; NOT A NEW PATH",
+  "archived_route_source": "main",
+  "archived_route_source_path_sha256": "05101cdb48914fe7f23291f4567d26cd59207d94eb8237b6158e0254b126f14c",
+  "short_length": 31,
+  "long_alternate_length": 32,
+  "official_verifier_receipt": {
+    "ok": true,
+    "length": 31,
+    "peak_total_relator_length": 25,
+    "work": 553,
+    "certificate_hash": "sha256:4ab12b955395518fce200098cd65168c8c7438c72a766660d03ef0d07b3568b2"
+  },
+  "intersection_count": 9,
+  "intersections": [
+    {
+      "i_short": 0,
+      "j_long": 0,
+      "short_prefix_long_suffix_len": 32,
+      "same_as_short31": false,
+      "long_prefix_short_suffix_len": 31,
+      "same_as_short31_reverse": true
+    },
+    {
+      "i_short": 24,
+      "j_long": 25,
+      "short_prefix_long_suffix_len": 31,
+      "same_as_short31": true,
+      "long_prefix_short_suffix_len": 32,
+      "same_as_short31_reverse": false
+    },
+    {
+      "i_short": 25,
+      "j_long": 26,
+      "short_prefix_long_suffix_len": 31,
+      "same_as_short31": true,
+      "long_prefix_short_suffix_len": 32,
+      "same_as_short31_reverse": false
+    },
+    {
+      "i_short": 26,
+      "j_long": 27,
+      "short_prefix_long_suffix_len": 31,
+      "same_as_short31": true,
+      "long_prefix_short_suffix_len": 32,
+      "same_as_short31_reverse": false
+    },
+    {
+      "i_short": 27,
+      "j_long": 28,
+      "short_prefix_long_suffix_len": 31,
+      "same_as_short31": true,
+      "long_prefix_short_suffix_len": 32,
+      "same_as_short31_reverse": false
+    },
+    {
+      "i_short": 28,
+      "j_long": 29,
+      "short_prefix_long_suffix_len": 31,
+      "same_as_short31": true,
+      "long_prefix_short_suffix_len": 32,
+      "same_as_short31_reverse": false
+    },
+    {
+      "i_short": 29,
+      "j_long": 30,
+      "short_prefix_long_suffix_len": 31,
+      "same_as_short31": true,
+      "long_prefix_short_suffix_len": 32,
+      "same_as_short31_reverse": false
+    },
+    {
+      "i_short": 30,
+      "j_long": 31,
+      "short_prefix_long_suffix_len": 31,
+      "same_as_short31": true,
+      "long_prefix_short_suffix_len": 32,
+      "same_as_short31_reverse": false
+    },
+    {
+      "i_short": 31,
+      "j_long": 32,
+      "short_prefix_long_suffix_len": 31,
+      "same_as_short31": true,
+      "long_prefix_short_suffix_len": 32,
+      "same_as_short31_reverse": false
+    }
+  ],
+  "claim_limit": "The 31-move path is already a route-map record in the upstream graph archive; the graph splice reproduces it and does not add a new certificate."
+}

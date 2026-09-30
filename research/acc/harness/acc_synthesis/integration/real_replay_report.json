@@ -1,0 +1,1420 @@
+{
+  "checked_at": 1790776921.287924,
+  "scope": "Exact offline route replay; eligibility is separately gated.",
+  "attempted": 25,
+  "exact_verified": 25,
+  "rows_with_verified_paths": 10,
+  "model_workers_dispatched": 0,
+  "submission_enabled": false,
+  "best_verified_lengths": {
+    "ac-00028": 58,
+    "ac-00022": 56,
+    "ac-00034": 44,
+    "ac-00005": 27,
+    "ac-00021": 40,
+    "ac-00012": 52,
+    "ac-00037": 32,
+    "ac-00009": 112,
+    "ac-00018": 51,
+    "ac-00003": 92
+  },
+  "results": [
+    {
+      "row_id": "ac-00037",
+      "length": 32,
+      "pasted_record": 31,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/optimality/runs/2026-09-24/beam_results2_partial.jsonl"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 12
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.450422,
+        "candidate_sha256": "e87a3e084c57be6d7d473394e8dcb3e7c586bd89b4f965cb4f459ca3c32183b1",
+        "row_id": "ac-00037",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-33x6cqnq",
+        "evidence_grade": "V",
+        "cost": 32,
+        "peak_length": 36,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.45042204857,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "e87a3e084c57be6d7d473394e8dcb3e7c586bd89b4f965cb4f459ca3c32183b1",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 32,
+        "peak_length": 36,
+        "official_verdict": {
+          "ok": true,
+          "length": 32,
+          "peak_total_relator_length": 36,
+          "work": 662,
+          "certificate_hash": "sha256:c32a73ac2da66ef0e0e7bceb334d42258409ac65fdd215dcf7ade0d49381051d"
+        },
+        "instance_hash": "sha256:7f1a53a0803f586480a5f348411c6ecad7a8e5db4103f4964be1bc784e90c68d",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00037",
+      "length": 32,
+      "pasted_record": 31,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/live/sweeps/fe_cap.jsonl"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 1147
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.483784,
+        "candidate_sha256": "11f87cbb40e32630adbd9fed6ff3226fddb8f1d621929f28cc30238e5ac84612",
+        "row_id": "ac-00037",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-9oqs56um",
+        "evidence_grade": "V",
+        "cost": 32,
+        "peak_length": 36,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.483783960342,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "11f87cbb40e32630adbd9fed6ff3226fddb8f1d621929f28cc30238e5ac84612",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 32,
+        "peak_length": 36,
+        "official_verdict": {
+          "ok": true,
+          "length": 32,
+          "peak_total_relator_length": 36,
+          "work": 669,
+          "certificate_hash": "sha256:de0fb504eb84599be397b7acc3ba6511e60096d43a0e6c85bd9cfb006023be68"
+        },
+        "instance_hash": "sha256:7f1a53a0803f586480a5f348411c6ecad7a8e5db4103f4964be1bc784e90c68d",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00034",
+      "length": 44,
+      "pasted_record": 41,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/optimality/runs/2026-09-24/beam_results3_partial.jsonl"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 11
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.517953,
+        "candidate_sha256": "05538f015a4ebeb38e8da6366b763fe5782f0dadd6e3f92539ebe89dd11896f7",
+        "row_id": "ac-00034",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-3zs4fxie",
+        "evidence_grade": "V",
+        "cost": 44,
+        "peak_length": 25,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.517952919006,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "05538f015a4ebeb38e8da6366b763fe5782f0dadd6e3f92539ebe89dd11896f7",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 44,
+        "peak_length": 25,
+        "official_verdict": {
+          "ok": true,
+          "length": 44,
+          "peak_total_relator_length": 25,
+          "work": 768,
+          "certificate_hash": "sha256:85de019fdf24fdb914b73a108eccbcbcd2b2aa26b929bf5365bac69d53dce559"
+        },
+        "instance_hash": "sha256:830e301db667424486ca21a752eb25b9c8d68b947328fce8df331cd63f43ac29",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00018",
+      "length": 51,
+      "pasted_record": 43,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/optimality/runs/2026-09-27/results/beam_wide4.jsonl"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 7
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.548992,
+        "candidate_sha256": "fb7bb4641574d8244b138d3c12a04f6ee75336333e556d47c724f230b05abe53",
+        "row_id": "ac-00018",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-z6opjgow",
+        "evidence_grade": "V",
+        "cost": 51,
+        "peak_length": 28,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.548991918564,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "fb7bb4641574d8244b138d3c12a04f6ee75336333e556d47c724f230b05abe53",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 51,
+        "peak_length": 28,
+        "official_verdict": {
+          "ok": true,
+          "length": 51,
+          "peak_total_relator_length": 28,
+          "work": 1062,
+          "certificate_hash": "sha256:b9e805882808f1bff86eb17f658b2a54cba48569e567b17bf96ded9ad8903742"
+        },
+        "instance_hash": "sha256:a136dcc0bf07745df4311fe102cce24b32c1bf64f62dcf5ed086f5bd7579578e",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00018",
+      "length": 54,
+      "pasted_record": 43,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/optimality/runs/2026-09-24/beam_results3_partial.jsonl"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 1143
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.5854983,
+        "candidate_sha256": "b7f1ac26ca2985ce10158a83445404e734cef4c913c2e0a9d5d372f510bb7354",
+        "row_id": "ac-00018",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-yt5m3isf",
+        "evidence_grade": "V",
+        "cost": 54,
+        "peak_length": 31,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.585498332977,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "b7f1ac26ca2985ce10158a83445404e734cef4c913c2e0a9d5d372f510bb7354",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 54,
+        "peak_length": 31,
+        "official_verdict": {
+          "ok": true,
+          "length": 54,
+          "peak_total_relator_length": 31,
+          "work": 1135,
+          "certificate_hash": "sha256:70eac1cc499c54eb21982ec02525e4a62e56910740f4ceb3180ab51f53f4708b"
+        },
+        "instance_hash": "sha256:a136dcc0bf07745df4311fe102cce24b32c1bf64f62dcf5ed086f5bd7579578e",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00005",
+      "length": 27,
+      "pasted_record": 27,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/optimality/runs/2026-09-27/results/beam_live2.jsonl"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 4
+        },
+        {
+          "archive": "ACC_TIE_00005_20260925.txt",
+          "line": 1
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.618158,
+        "candidate_sha256": "feb091368218d0d085fe0bcb30059a49a6a8075b421dcc64af827eafd501721d",
+        "row_id": "ac-00005",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-0urdv2uk",
+        "evidence_grade": "V",
+        "cost": 27,
+        "peak_length": 32,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.618158102036,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "feb091368218d0d085fe0bcb30059a49a6a8075b421dcc64af827eafd501721d",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 27,
+        "peak_length": 32,
+        "official_verdict": {
+          "ok": true,
+          "length": 27,
+          "peak_total_relator_length": 32,
+          "work": 579,
+          "certificate_hash": "sha256:93c088acc5d2aa0af263f56b7d758e45e40baea77f87f98f9c81511277eb4905"
+        },
+        "instance_hash": "sha256:604a59957abb576808ab1fdd18b9c8dbcfca3e528409c562194024c28e536fdf",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00022",
+      "length": 56,
+      "pasted_record": 44,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/optimality/runs/2026-09-27/results/beam_results4.jsonl"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 9
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.65355,
+        "candidate_sha256": "5d05a4f06637b78e4ba31f6f3c9fe7e893f103805c310d5c9cecc56fd7ac32a0",
+        "row_id": "ac-00022",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-yj80m34s",
+        "evidence_grade": "V",
+        "cost": 56,
+        "peak_length": 25,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.65354990959,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "5d05a4f06637b78e4ba31f6f3c9fe7e893f103805c310d5c9cecc56fd7ac32a0",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 56,
+        "peak_length": 25,
+        "official_verdict": {
+          "ok": true,
+          "length": 56,
+          "peak_total_relator_length": 25,
+          "work": 954,
+          "certificate_hash": "sha256:1963d0a2159ea916765314a4172fd037d284ea02e6535d71a0c577922e8b2837"
+        },
+        "instance_hash": "sha256:c7abc325a5de26834d7e08fa9ac29d05e1d94405da9ca2e0cccaaa41192239f9",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00021",
+      "length": 40,
+      "pasted_record": 40,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/optimality/runs/2026-09-27/results/beam_wide.jsonl"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 8
+        },
+        {
+          "archive": "ACC_TIE_00021_20260925.txt",
+          "line": 1
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.685088,
+        "candidate_sha256": "e59830fd2a845439e2136a7525b4299d0a5637871f40c1a6287091928230dc83",
+        "row_id": "ac-00021",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-0hylggjz",
+        "evidence_grade": "V",
+        "cost": 40,
+        "peak_length": 33,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.685087919235,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "e59830fd2a845439e2136a7525b4299d0a5637871f40c1a6287091928230dc83",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 40,
+        "peak_length": 33,
+        "official_verdict": {
+          "ok": true,
+          "length": 40,
+          "peak_total_relator_length": 33,
+          "work": 714,
+          "certificate_hash": "sha256:60218728d1adf681571f7df32b1f5fa7a501f8f4392ad83d7c47a0c181acd81a"
+        },
+        "instance_hash": "sha256:d0c0be9feaa1cba23619c0b6d66ae0eb9e9e3c5f3bf02f283479b82e50442a34",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00012",
+      "length": 55,
+      "pasted_record": 47,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/optimality/runs/2026-09-27/results/beam_wide.jsonl"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 1781
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.723145,
+        "candidate_sha256": "d93d2d8d3dfe677064184de6c16c2bf58730e1787e3799d17b3873582469a5b3",
+        "row_id": "ac-00012",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-q20lpdcc",
+        "evidence_grade": "V",
+        "cost": 55,
+        "peak_length": 28,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.723145008087,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "d93d2d8d3dfe677064184de6c16c2bf58730e1787e3799d17b3873582469a5b3",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 55,
+        "peak_length": 28,
+        "official_verdict": {
+          "ok": true,
+          "length": 55,
+          "peak_total_relator_length": 28,
+          "work": 957,
+          "certificate_hash": "sha256:89f0580a0c5683e5549d267320d337d293378fe416310ac5836420bd57ef2294"
+        },
+        "instance_hash": "sha256:64158b465a11ff5a10cd0a09e79c28746c08e76b62ee6a525ed76bc026f216b9",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00012",
+      "length": 54,
+      "pasted_record": 47,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/optimality/runs/2026-09-27/results/beam_wide9.jsonl"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 1142
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.7569408,
+        "candidate_sha256": "e26794ff9ff8653527dbde850129207a2c1db4c255246991bbbb0b82479068d6",
+        "row_id": "ac-00012",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-uk74nej9",
+        "evidence_grade": "V",
+        "cost": 54,
+        "peak_length": 33,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.756940841675,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "e26794ff9ff8653527dbde850129207a2c1db4c255246991bbbb0b82479068d6",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 54,
+        "peak_length": 33,
+        "official_verdict": {
+          "ok": true,
+          "length": 54,
+          "peak_total_relator_length": 33,
+          "work": 1047,
+          "certificate_hash": "sha256:1505e47e4914f40b09124ced634564ce2d56a20b5a6f5e60ec447ac8898d2ca4"
+        },
+        "instance_hash": "sha256:64158b465a11ff5a10cd0a09e79c28746c08e76b62ee6a525ed76bc026f216b9",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00003",
+      "length": 92,
+      "pasted_record": 40,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/live/bob/bob_crossclass_bundle2_20260929.json"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 3
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.7994137,
+        "candidate_sha256": "d11e42835e0a913fe919fc0c3fbdc5d0ddd8f06347b0af2dbcc4f2068335a590",
+        "row_id": "ac-00003",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-e_fjxzyy",
+        "evidence_grade": "V",
+        "cost": 92,
+        "peak_length": 22,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.79941368103,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "d11e42835e0a913fe919fc0c3fbdc5d0ddd8f06347b0af2dbcc4f2068335a590",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 92,
+        "peak_length": 22,
+        "official_verdict": {
+          "ok": true,
+          "length": 92,
+          "peak_total_relator_length": 22,
+          "work": 1581,
+          "certificate_hash": "sha256:5d20ea87e4be0a2cdd6602b9470c77a36fade3187964c07c4e16e4f218d986cf"
+        },
+        "instance_hash": "sha256:40dd745fe5ee208019252e3234cc97f8254cfe5d370d2fdf784f34b0726af6e8",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00009",
+      "length": 112,
+      "pasted_record": 34,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/live/bob/bob_crossclass_bundle2_20260929.json"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 5
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.835839,
+        "candidate_sha256": "4463cf4135375f2dc2d3192fac008a81cb44662f78c76a3623ca930611beada4",
+        "row_id": "ac-00009",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-prnjoi36",
+        "evidence_grade": "V",
+        "cost": 112,
+        "peak_length": 22,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.835839033127,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "4463cf4135375f2dc2d3192fac008a81cb44662f78c76a3623ca930611beada4",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 112,
+        "peak_length": 22,
+        "official_verdict": {
+          "ok": true,
+          "length": 112,
+          "peak_total_relator_length": 22,
+          "work": 1831,
+          "certificate_hash": "sha256:dcde7816af78ffd04f79570c164faf1ad745de57181cfffa64e3653aa1f71b13"
+        },
+        "instance_hash": "sha256:384fe3ad4508ddbf9ae8963cec6215ba9aa06578ab66eb454dbf25349e3082a4",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00028",
+      "length": 65,
+      "pasted_record": 44,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/live/ledger/crossrow_roads_ac_20260928.json"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 2174
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.8726282,
+        "candidate_sha256": "86605d529779dec319cba9067327281c7c35dc0770df1cdca8a7e322dcefffbc",
+        "row_id": "ac-00028",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-ffo5jnuh",
+        "evidence_grade": "V",
+        "cost": 65,
+        "peak_length": 21,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.872628211975,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "86605d529779dec319cba9067327281c7c35dc0770df1cdca8a7e322dcefffbc",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 65,
+        "peak_length": 21,
+        "official_verdict": {
+          "ok": true,
+          "length": 65,
+          "peak_total_relator_length": 21,
+          "work": 1040,
+          "certificate_hash": "sha256:ef94dfe66eee2ec135a7b127a66c14efbffe3d1b60a9d155ced7944a7cd83500"
+        },
+        "instance_hash": "sha256:aef0c5b0aa86dbe1e5b9bc1a92d92dd87f82cae0de84549913eba3a58c835dad",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00028",
+      "length": 66,
+      "pasted_record": 44,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/live/ledger/crossrow_r2_20260928.json"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 2402
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.9055908,
+        "candidate_sha256": "f84e2ec7561396c2f9e0b91ec5541f972fe0c6cc8ad044b6d4abd2003f26eba3",
+        "row_id": "ac-00028",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-l8d9fop8",
+        "evidence_grade": "V",
+        "cost": 66,
+        "peak_length": 21,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.90559077263,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "f84e2ec7561396c2f9e0b91ec5541f972fe0c6cc8ad044b6d4abd2003f26eba3",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 66,
+        "peak_length": 21,
+        "official_verdict": {
+          "ok": true,
+          "length": 66,
+          "peak_total_relator_length": 21,
+          "work": 983,
+          "certificate_hash": "sha256:16fe048420ae12e4d19508b2e9d187af757e81fc41c20ea419cd2be41740e07b"
+        },
+        "instance_hash": "sha256:aef0c5b0aa86dbe1e5b9bc1a92d92dd87f82cae0de84549913eba3a58c835dad",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00028",
+      "length": 58,
+      "pasted_record": 44,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/live/ledger/bob_paths_20260929T1330Z.txt"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 10
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.9434114,
+        "candidate_sha256": "5b2f7586c3b7930299da4830dd046ba0b5a65ee66190dbd419a3f5eb2757bfe5",
+        "row_id": "ac-00028",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-_6fcszpq",
+        "evidence_grade": "V",
+        "cost": 58,
+        "peak_length": 34,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.94341135025,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "5b2f7586c3b7930299da4830dd046ba0b5a65ee66190dbd419a3f5eb2757bfe5",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 58,
+        "peak_length": 34,
+        "official_verdict": {
+          "ok": true,
+          "length": 58,
+          "peak_total_relator_length": 34,
+          "work": 1049,
+          "certificate_hash": "sha256:542de8034f0d72ab587df8c3cd24e09fcbe68011a8e5a80f8d4fd53306393d81"
+        },
+        "instance_hash": "sha256:aef0c5b0aa86dbe1e5b9bc1a92d92dd87f82cae0de84549913eba3a58c835dad",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00028",
+      "length": 63,
+      "pasted_record": 44,
+      "sources": [
+        {
+          "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+          "original_source": "hub/live/bob/bob_crossclass_bundle2_20260929.json"
+        },
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 1145
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776920.9841845,
+        "candidate_sha256": "dfb13783a3035bbe7b1a6e70c7b076ad3fa2bdfbaea02887e36b1993bc2dcbc0",
+        "row_id": "ac-00028",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-2h456b48",
+        "evidence_grade": "V",
+        "cost": 63,
+        "peak_length": 21,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24720.984184503555,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "dfb13783a3035bbe7b1a6e70c7b076ad3fa2bdfbaea02887e36b1993bc2dcbc0",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 63,
+        "peak_length": 21,
+        "official_verdict": {
+          "ok": true,
+          "length": 63,
+          "peak_total_relator_length": 21,
+          "work": 1003,
+          "certificate_hash": "sha256:fdbf37dbef63fc3556405eec9c55325f0216fc72e50d64520b2b8096149bf5ea"
+        },
+        "instance_hash": "sha256:aef0c5b0aa86dbe1e5b9bc1a92d92dd87f82cae0de84549913eba3a58c835dad",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00012",
+      "length": 52,
+      "pasted_record": 47,
+      "sources": [
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 6
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776921.0262334,
+        "candidate_sha256": "fc6a6262dd025fee780da9b208c8c99e8f60a552a8a7245577b6847628633cac",
+        "row_id": "ac-00012",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-ruv991ep",
+        "evidence_grade": "V",
+        "cost": 52,
+        "peak_length": 28,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24721.026233434677,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "fc6a6262dd025fee780da9b208c8c99e8f60a552a8a7245577b6847628633cac",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 52,
+        "peak_length": 28,
+        "official_verdict": {
+          "ok": true,
+          "length": 52,
+          "peak_total_relator_length": 28,
+          "work": 970,
+          "certificate_hash": "sha256:b4f5ce860d8b6e5c8b70b06bad902d226156c20de211a8dcdeafe082ac2f1b44"
+        },
+        "instance_hash": "sha256:64158b465a11ff5a10cd0a09e79c28746c08e76b62ee6a525ed76bc026f216b9",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00022",
+      "length": 64,
+      "pasted_record": 44,
+      "sources": [
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 1144
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776921.0605943,
+        "candidate_sha256": "85ec5a7d875bf53844cbcba4fc9ffebca3fd4e5cea149ec768d6be4b93c53c85",
+        "row_id": "ac-00022",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-d954mi97",
+        "evidence_grade": "V",
+        "cost": 64,
+        "peak_length": 25,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24721.060594320297,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "85ec5a7d875bf53844cbcba4fc9ffebca3fd4e5cea149ec768d6be4b93c53c85",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 64,
+        "peak_length": 25,
+        "official_verdict": {
+          "ok": true,
+          "length": 64,
+          "peak_total_relator_length": 25,
+          "work": 1013,
+          "certificate_hash": "sha256:6dad5702ffc991b5fbe1afdce10126a759d080331aafef3fa6d8c6b699f2a2d0"
+        },
+        "instance_hash": "sha256:c7abc325a5de26834d7e08fa9ac29d05e1d94405da9ca2e0cccaaa41192239f9",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00034",
+      "length": 45,
+      "pasted_record": 41,
+      "sources": [
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 1146
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776921.0916655,
+        "candidate_sha256": "068d9088b0517050f0be00f61229a51b8dce72d056a1851ef323cff8b601d205",
+        "row_id": "ac-00034",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-ddy26z0s",
+        "evidence_grade": "V",
+        "cost": 45,
+        "peak_length": 25,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24721.091665506363,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "068d9088b0517050f0be00f61229a51b8dce72d056a1851ef323cff8b601d205",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 45,
+        "peak_length": 25,
+        "official_verdict": {
+          "ok": true,
+          "length": 45,
+          "peak_total_relator_length": 25,
+          "work": 823,
+          "certificate_hash": "sha256:227d9df2ca346c935fa720ac561781e66ae1640d52dab179c248cd16c5fb40cf"
+        },
+        "instance_hash": "sha256:830e301db667424486ca21a752eb25b9c8d68b947328fce8df331cd63f43ac29",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00022",
+      "length": 77,
+      "pasted_record": 44,
+      "sources": [
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 1782
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776921.123691,
+        "candidate_sha256": "89cc361f0f877d1a51a4dcced854e192c8918c5bf9cc59da64d76ffb6c35b856",
+        "row_id": "ac-00022",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-8a04qrhh",
+        "evidence_grade": "V",
+        "cost": 77,
+        "peak_length": 25,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24721.123691082,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "89cc361f0f877d1a51a4dcced854e192c8918c5bf9cc59da64d76ffb6c35b856",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 77,
+        "peak_length": 25,
+        "official_verdict": {
+          "ok": true,
+          "length": 77,
+          "peak_total_relator_length": 25,
+          "work": 1157,
+          "certificate_hash": "sha256:7e3d08aa17c45abf01728b970d8d8cc0864739513c5ffb2123f3f3bac495d52e"
+        },
+        "instance_hash": "sha256:c7abc325a5de26834d7e08fa9ac29d05e1d94405da9ca2e0cccaaa41192239f9",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00028",
+      "length": 64,
+      "pasted_record": 44,
+      "sources": [
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 1783
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776921.1546884,
+        "candidate_sha256": "56fc821574aca5e72de330a1ea97f8af2915ae10440652cccf26222d47bf4ad7",
+        "row_id": "ac-00028",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-js8yw4p_",
+        "evidence_grade": "V",
+        "cost": 64,
+        "peak_length": 23,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24721.154688358307,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "56fc821574aca5e72de330a1ea97f8af2915ae10440652cccf26222d47bf4ad7",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 64,
+        "peak_length": 23,
+        "official_verdict": {
+          "ok": true,
+          "length": 64,
+          "peak_total_relator_length": 23,
+          "work": 1023,
+          "certificate_hash": "sha256:117b81df8f637f81e7b3bc10b5bec4b6ce2eb61d45b8b3a0a818fdd6bda4c89d"
+        },
+        "instance_hash": "sha256:aef0c5b0aa86dbe1e5b9bc1a92d92dd87f82cae0de84549913eba3a58c835dad",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00037",
+      "length": 32,
+      "pasted_record": 31,
+      "sources": [
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 1784
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776921.1885793,
+        "candidate_sha256": "b5bae99defbb3810f9a1482a4ecefbd09a01a666e052e23292033b7ba98975a5",
+        "row_id": "ac-00037",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-5j5_j4ea",
+        "evidence_grade": "V",
+        "cost": 32,
+        "peak_length": 36,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24721.188579320908,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "b5bae99defbb3810f9a1482a4ecefbd09a01a666e052e23292033b7ba98975a5",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 32,
+        "peak_length": 36,
+        "official_verdict": {
+          "ok": true,
+          "length": 32,
+          "peak_total_relator_length": 36,
+          "work": 685,
+          "certificate_hash": "sha256:bd061eb02963a23097fd4030a7b45898e36e9c9c143063a9fd309ddbdbe17686"
+        },
+        "instance_hash": "sha256:7f1a53a0803f586480a5f348411c6ecad7a8e5db4103f4964be1bc784e90c68d",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00037",
+      "length": 33,
+      "pasted_record": 31,
+      "sources": [
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 2175
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776921.2227416,
+        "candidate_sha256": "cb448a49c1d804171cb69fd5eafd57828df3847d26717df3aae46adda193c63b",
+        "row_id": "ac-00037",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-yjeek7ez",
+        "evidence_grade": "V",
+        "cost": 33,
+        "peak_length": 36,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24721.22274160385,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "cb448a49c1d804171cb69fd5eafd57828df3847d26717df3aae46adda193c63b",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 33,
+        "peak_length": 36,
+        "official_verdict": {
+          "ok": true,
+          "length": 33,
+          "peak_total_relator_length": 36,
+          "work": 703,
+          "certificate_hash": "sha256:05ea6bb830cababe2979e55f054e3f37663b1d59b9c5784345d7dee129465f7f"
+        },
+        "instance_hash": "sha256:7f1a53a0803f586480a5f348411c6ecad7a8e5db4103f4964be1bc784e90c68d",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00037",
+      "length": 34,
+      "pasted_record": 31,
+      "sources": [
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 2403
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776921.252788,
+        "candidate_sha256": "0cf58c3b8371a9acab5f227d55688cacf3f4f3520a598cc850aa1ceeb0edcbaf",
+        "row_id": "ac-00037",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-wqnl0cl9",
+        "evidence_grade": "V",
+        "cost": 34,
+        "peak_length": 41,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24721.252788066864,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "0cf58c3b8371a9acab5f227d55688cacf3f4f3520a598cc850aa1ceeb0edcbaf",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 34,
+        "peak_length": 41,
+        "official_verdict": {
+          "ok": true,
+          "length": 34,
+          "peak_total_relator_length": 41,
+          "work": 815,
+          "certificate_hash": "sha256:a026aac0b51195f82be781d6a8c69f22b93c47835c9c571c74e9eb800deaee5d"
+        },
+        "instance_hash": "sha256:7f1a53a0803f586480a5f348411c6ecad7a8e5db4103f4964be1bc784e90c68d",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    },
+    {
+      "row_id": "ac-00028",
+      "length": 76,
+      "pasted_record": 44,
+      "sources": [
+        {
+          "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+          "line": 2530
+        }
+      ],
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790776921.2866676,
+        "candidate_sha256": "c8974e1fd7fe72bc2a7636e632f1f4682c256fd8043a37944819e0d28e7c53f9",
+        "row_id": "ac-00028",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/tmp/acc_connected_batch_20260930/checks/check-q2kel4pa",
+        "evidence_grade": "V",
+        "cost": 76,
+        "peak_length": 25,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 24721.286667585373,
+        "status": "withheld",
+        "reason": "board_stale"
+      },
+      "official_receipt": {
+        "candidate_sha256": "c8974e1fd7fe72bc2a7636e632f1f4682c256fd8043a37944819e0d28e7c53f9",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "valid": true,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "cost": 76,
+        "peak_length": 25,
+        "official_verdict": {
+          "ok": true,
+          "length": 76,
+          "peak_total_relator_length": 25,
+          "work": 1181,
+          "certificate_hash": "sha256:6f1b69e2da3d6b2d25c16c39f37617c14db8c7cd5b385e87ab478287662c6108"
+        },
+        "instance_hash": "sha256:aef0c5b0aa86dbe1e5b9bc1a92d92dd87f82cae0de84549913eba3a58c835dad",
+        "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+      }
+    }
+  ]
+}

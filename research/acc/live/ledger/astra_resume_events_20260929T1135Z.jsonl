@@ -1,0 +1,6 @@
+{"utc": "2026-09-29T11:33:17.977552+00:00", "pid": 2, "stage": "waiting_for_positive_window_control"}
+{"utc": "2026-09-29T11:35:42.968688+00:00", "pid": 2, "stage": "waiting_for_positive_window_control"}
+{"utc": "2026-09-29T11:35:42.969364+00:00", "pid": 2, "stage": "verified_intermediate_recovery_enabled", "retained_binary_sha256": "5e44d482bee6e52cf769f79623dbcff27b84db8cc3b47e5b0ef37d0ed3e3abcd", "control_length": 37, "rebuilt_window_exit": 3, "underlying_window_fixed": false, "recovery": "guard preserves officially verified intermediate PATH; actual failure stays in audit"}
+{"utc": "2026-09-29T11:35:42.970189+00:00", "pid": 2, "stage": "recovering_finished_beam_sac_window", "id": "ac-04316", "ac_len": 45, "sac_beam": 47}
+{"utc": "2026-09-29T11:38:32.992126+00:00", "pid": 2, "stage": "row1_recovered_without_repeating_beam", "ac_len": 45, "sac_len": 47}
+{"utc": "2026-09-29T11:38:32.992237+00:00", "pid": 2, "stage": "starting_remaining_two_wide_rows", "target_file": "/workspace/scratch/42a779575dd0/operator-first/work/astra_wide_first3.json", "width": 200000, "depth_rule": "record+2"}

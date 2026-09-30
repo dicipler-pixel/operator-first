@@ -1,0 +1,94 @@
+# Codex ACC route-map handoff — 2026-09-27
+
+Verifier: SAIR Andrews–Curtis commit `a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e`. Board comparison: committed AC/SAC snapshots generated 2026-09-27 22:45 UTC; team history snapshot 22:39 UTC. Recheck fresh boards before any submission.
+
+## Highest-value near miss
+
+`ac-05818`: 35 moves versus AC record 34 (k=2). Our history at the snapshot held 52. The stable companion `+[16,15]` is 37 versus Stable AC record 36 (k=2); our history held 54. The official CLI accepts the AC line, work 646, certificate `sha256:ff11001a0bc55e9769d0832d4f3f62a8c12d54d03fe272b57e53aacd0a648912`.
+
+```text
+ac-05818: [10,10,13,4,10,12,5,12,5,6,4,1,11,13,3,7,4,1,6,3,7,8,5,10,2,13,10,3,8,10,4,2,2,2,4]
+```
+
+Method: exact ordered-state root BFS into 183,810 validated suffix states gave 35. Enlarging the root BFS from depth 4 to 6 found no shorter join. Generator sign symmetries of the short suffix atlas (102,512 transformed states) plus depth-6 root BFS found 35 again. Exact bidirectional replacement search found no shorter section of length 2–14 in the displayed route. These are local and atlas-limited misses, not a shortestness proof. Try the queued capped search or a different hump-sensitive route.
+
+## Other checked routes
+
+- `ac-06045`: 40 versus record 36 (k=1). Official CLI work 658, certificate `sha256:3a634624e653ed70e4c1545e6d7cb765fb5dfd1a0eed050084a97ec60d37e96a`. No exact shorter section of length 2–13.
+- `ac-09230`: atlas join 36 shortened repeatedly to 27, versus record 26. Official CLI work 435, certificate `sha256:e85c900b72af99471f2bad6cf1ce02bbdbaba5280415f8c0dc7a087a8774b1bf`. No further exact shorter section through length 14. Team history already held AC 26 and SAC 28.
+- `ac-09292`: atlas join 19 shortened to 17; an exact forward radius-7 BFS joined the radius-9 goal filter to produce an AC 16. Official CLI accepted AC 16 (work 235, `sha256:2ac991d73c2ce4dd3c552124ca353f3f7e45ec3d7f063287fc5184f565d73f8f`) and SAC 18 (work 236, `sha256:cdb38606bd2a4b900e9a1ce2e000a88241f15cc3b2b5466d7905c44094a19435`). Team history already held both lengths, so these are alternate verified routes, not new scoring submissions.
+
+```text
+ac-06045: [5,12,12,12,12,0,2,6,6,8,1,5,10,10,8,2,9,9,2,7,1,4,11,8,3,8,8,6,2,6,8,5,11,8,2,4,4,4,2,0]
+ac-09230: [0,11,4,8,6,12,3,7,9,7,8,2,6,5,6,4,6,5,6,6,2,4,4,4,4,4,4]
+ac-09292: [1,4,10,12,12,12,12,5,6,2,2,2,2,2,2,2]
+sac-09292: [1,4,10,12,12,12,12,5,6,2,2,2,2,2,2,2,16,15]
+```
+
+## Coverage and method
+
+- Exact root BFS to depth 4 over all 270 `ac-09071`–`ac-09340` starts found 22 full AC suffix joins. Their AC and simple Stable AC companions (44 lines) all passed the official CLI, but none reached the saved board records.
+- The same atlas pass on the 66 targets in `tools/acc/targets_easy_lowk_20260927.json` found seven joins; the closest was `ac-05818` at 35 versus 34.
+- A sign-flipped suffix atlas (109,534 short transformed states) and depth-4 root BFS over those 66 found no tie or beat.
+- Radius-9 filter was built by streaming 304,332,182 neighbor inserts from the 21,738,013 states at exact radius 8; every positive hit is confirmed by an exact radius-8 neighbor. This avoids the 4.5 GB T9 disk file for exploratory searches. The team's full T9 remains the preferred faster tool when available.
+- No SAIR POST was made from this session. No WIN proof-track file is appropriate because no new point was established.
+
+## Global tube check on ac-05818
+
+An exact shortest-path BFS was restricted to the union of radius-R neighborhoods around all 36 ordered states of the 35-move route. It allows switching lanes repeatedly, including detours that cannot be represented by one contiguous window replacement. Results:
+
+| Radius | Allowed states | BFS states visited through 34 moves | Route ≤ 34 |
+|---:|---:|---:|---|
+| 3 | 42,655 | 39,759 | none |
+| 4 | 391,687 | 359,007 | none |
+| 5 | 3,555,823 | 3,183,477 | none |
+| 6 | 32,087,950 | 27,911,371 | none |
+
+The radius-6 run used packed states and 123-bit fingerprints, with a 6.5 GB virtual-memory cap; it completed without OOM. A competitive path must leave this radius-6 union at some point, subject to the fingerprint collision caveat. This supports an outbound excursion search that deliberately preserves states beyond the known route's local neighborhood. No team record or SAIR submission changed.
+
+## Two-interstate search on ac-05818
+
+A depth-6 exact root search into the validated suffix atlas found three full routes: the 35-move route above and two 36-move alternatives. The first 36-move route and the 35-move route share **only start and goal** as exact ordered states. An additional 35-move route was recovered from the joint radius-3 graph; it adds 11 states to the graph. All four routes have official core verification receipts and exact state sequences in [the mergeable graph map](ac-05818_two_interstates_map.json), now 83 nodes and 87 labeled edges.
+
+The exact shortest-path search allowed any number of switches inside the union of the two distinct routes' radius-R neighborhoods. It looked for a path of at most 34 moves:
+
+| Joint radius | Allowed states | Reached within 34 moves | Tie or beat |
+|---:|---:|---:|---|
+| 3 | 83,551 | 77,480 | none |
+| 4 | 767,892 | 698,448 | none |
+| 5 | 6,975,226 | 6,177,667 | none |
+| 6 | 62,967,597 | 54,138,001 | none |
+
+The radius-6 traversal used disk frontier layers and 123-bit fingerprints. A separate positive control, with the 36-move route as primary, reconstructed another 35-move route through the same graph and passed official core verification (certificate `sha256:5df43220b2a5997c5ba5e9fdea3959514818e4900852bd2bcf1b6c5e3c59f31a`). Exact contiguous-window replacement on the alternate 36-move route checked 377 windows of lengths 2–14 and found no shorter replacement. These are corridor-restricted results, not a global shortestness proof; any competitive route must leave both tested radius-6 neighborhoods at some point, apart from the negligible fingerprint-collision caveat.
+
+A depth-5 suffix-atlas search also found `ac-07119` at 35 moves versus the snapshot AC record 33 and Stable AC record 34. Its exact window search found no shorter section. No new scoring submission was produced by these checks.
+
+### Additional long corridors and exact checks (2026-09-28 UTC)
+
+Three independent beam settings supplied further official-core-verified AC routes of length 36, including one beginning with move `7` that shares only start and goal with route 0. The [graph map](ac-05818_two_interstates_map.json) now contains **seven verified routes, 141 exact states, and 149 labeled edges**. The two long routes beginning `10` and `7` formed another radius-6 union of 62,272,133 states; exact layered BFS reached 53,893,187 states within 34 moves and found no competitive path. The union of **all seven** radius-5 corridors had 13,399,301 states; 12,302,285 were reached within 34 moves, with no path. The alternate 36-move route resisted all 377 contiguous windows of lengths 2–14; the 35-move route also resisted all 21 exact windows of length 15 (balanced radius-7 meet).
+
+A separate ac-07119 root-depth-6 atlas pass found a distinct 37-move route sharing only endpoints with the 35-move route. Its two-route radius-4 and radius-5 searches found no path at most 34. Diversified beams found alternative AC 35/36 routes for ac-07119/ac-05818, all above the saved record. No new score was established.
+
+## 01734 verifier replay — already sent
+
+[Archived, already-sent lines](codex_01734_candidate_ties.txt): the user's AC path at 36 and its Stable AC companion at 38 (append `[16,15]`). The official CLI accepts **both lines together** at verifier commit `a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e`: AC work 647, certificate `sha256:bb37c26f8fec919b55a02bd5d39bc694d2668ab546f8ab68dfe07214a1228a1f`; SAC work 648, certificate `sha256:c3e44dc4b6a61a51db12bf42919a98b0496de098355ff26b2a9255abf68723ba`. The saved 2026-09-27 22:45 UTC board listed AC 36 (k=5) and SAC 38 (k=4); a 22:51 UTC team snapshot listed SAC k=5. The team confirmed ac-01734 at 36 and sac-01734 at 38 were previously accepted by SAIR (SAC submission 2558). **Do not resend these lines.** No SAIR POST occurred here. The SAC line is a valid shorter alternative to the earlier 39-move example, but it is not a new team result.
+
+An exact balanced radius-7 meet tested all 22 contiguous windows of length 15 on the 36-move AC path and found no shortcut to 35. A root-depth-5 suffix atlas supplied only one route of length at most 42 for this challenge.
+
+**Mandatory duplicate gate for helpers:** read [`research/acc/live/SENT_ROWS.txt`](../live/SENT_ROWS.txt) before preparing or claiming any scoring line. It is regenerated by the dashboard and lists our best accepted length, live record, and teams on record. The 01734 lines in this handoff are already sent.
+
+## Next low-k one-over target: ac-00145
+
+[Exact ordered-state alternate route map](ac-00145_alt40_map.json): official CLI accepts an AC 40 (work 620, certificate `sha256:bbfbb1176ddd44ec9eb509086c7a677f560a50b1ba1f5a784b82331adfe51dd4`). `SENT_ROWS.txt` says the team already sent length 40. The 2026-09-27 23:55 UTC board had record **39, k=1**. This is **not** a new submission line; it is a search map.
+
+The route's total relator length starts at 15, peaks at **31 at state 24**, then drops to 29 and 15 over the next two moves. The team's earlier exact pass through cap 22 does not reach this witness's peak. **Cap 31 contains the known 40-move route; cap 32 would explore states above its peak.** A witness peak is not a closed-cap certificate, and no peak lower bound for a 39-move path follows from it. The current sweep budget cannot reach cap 31 on this row, so prioritize merging independent routes and testing the resulting corridor. Track `known_route_peak` separately from `closed_cap_through` as the other helper's audit advises. Another H-beam setting reproduced the same 40-move path. Depth-6 root search into the 183,810-state suffix atlas found no ≤45 join. Exact contiguous-window shortening through length 14 found no improvement. Banning the first route's state at depth 24 produced [a second official-CLI-verified AC 40 route](ac-00145_two_routes_map.json), with peak 29; both routes are already at a length the team sent. They share the first 22 states and then diverge, producing a 59-node exact ordered-state map. Merged radius-4, radius-5, and radius-6 shortest-path searches found no path of at most 39 moves. At radius 6 the union had 40,689,811 states and 35,955,940 were reached within 39 moves. This is restricted to the tested corridor and does not prove global shortestness. A restart at state 22 reproduced the first 18-move finish. Banning exact states 5–22 yielded [a fourth official-CLI-verified route](ac-00145_four_routes_map.json) of 40 moves that starts with move 0, adds 23 new ordered states, and rejoins the second route around state 24. The four-route map has 85 nodes and 88 labeled edges. Its radius-5 union has 6,682,338 states; BFS reached 6,239,994 within 39 moves, with no tie. The compact 2^27-slot radius-6 run completed: **59,899,612 allowed states**, **55,165,741 reached within 39 moves**, and **no ≤39 path**. The larger 2^28 allocation pressed against the 8 GB memory limit; the smaller table finished below the limit. These are corridor-restricted negative results, not global optimality. All four 40-move paths are already covered by the team's accepted length; do not submit them. Next target `ac-05064`: accepted 40 against record 38 (k=2), with a closely related 15-letter start. An uncapped exact root BFS through depth 4 (14,445 cumulative states) found no join to the ac-00145 map. The same depth-4 check from all 40 states along a verified ac-05064 route examined 503,190 source-local states. It found 16 joins near the shared goal, but the best combined path is still 40, so **no competitive ≤38 bridge**.
+
+## ac-05064 two-route check
+
+[Verified ordered-state map](ac-05064_two_routes_map.json): two AC routes at lengths 40 and 41, with official CLI receipts and 64 nodes/64 edges. They share the first five states and rejoin near state 27 of the 40 path (state 28 of the 41). The team's `SENT_ROWS.txt` already has AC 40 and SAC 42; live records were AC 38 and SAC 40, each k=2. Neither map route is a scoring submission.
+
+The length-40 route resisted all 429 local windows of lengths 2–14; the length-41 route resisted 442. An 80k phase beam found no finish, and a 400k H beam found another 40. An uncapped depth-4 bridge search from each state on both routes to the ac-00145 four-route map found only late joins near the common goal; no combined line better than 40. The two-route exact tube BFS found no path shorter than 40: radius 5 allowed 5,743,719 states and reached 5,475,327 within 39; radius 6 allowed **51,512,374** and reached **48,681,575** within 39. These are corridor-restricted bounds, not proofs of optimality. Next probe: low-k records 42–43 from the user's ac-09xxx list.
+
+## ac-09311 one-over probe
+
+[Two-route verified graph](ac-09311_two_routes_map.json) has an official-CLI-accepted AC 43 (work 845, certificate `sha256:8e6b55af149b0965546e14d2a5c5632506d9b9d8951b31a5da101149e3e7aa59`) and an AC 44. The saved board record was 42 (k=1); neither route is a scoring line. The routes share the first 24 ordered states and then diverge, yielding 64 nodes and 64 labeled edges. AC 44 resisted 481 exact local windows of lengths 2–14; AC 43 resisted 468. The merged radius-5 search allowed 6,096,063 states and reached 5,515,650 within 42 moves, with no tie. Radius 6 allowed **54,987,511** states; BFS reached **48,227,459** within 42 moves and found no tie. This excludes only paths inside the tested corridor. Other probes ac-09239, ac-09165, and ac-09317 returned no beam finish at width 100k/depth 35–36.

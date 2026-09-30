@@ -1,0 +1,1368 @@
+{
+  "limits": {
+    "max_path_length": 100000,
+    "max_total_relator_length": 10000,
+    "max_work": 5000000
+  },
+  "move_specs": [
+    {
+      "move_spec_version": "ac-r2-v1",
+      "move_spec_hash": "sha256:e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+      "file": "move_spec.json",
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "max_rank": 2,
+      "id_prefix": "ac-"
+    },
+    {
+      "move_spec_version": "sac-r8-v1",
+      "move_spec_hash": "sha256:27ecd0ebd4af39871cbfb23ecbd8be73710e85e04d8be788c1d81117d9f4b2b0",
+      "file": "stable_move_spec.json",
+      "target_relators": [],
+      "max_rank": 8,
+      "id_prefix": "sac-"
+    }
+  ],
+  "challenges": [
+    {
+      "challenge_id": "ac-00001",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -1,
+          2,
+          1,
+          -2,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          -2,
+          -2,
+          -1,
+          2,
+          -1,
+          -2,
+          -1,
+          2,
+          1,
+          -2,
+          1,
+          1,
+          2,
+          -1,
+          2,
+          -1,
+          2,
+          -1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:d487be903c9353c1de9e427ee11ef02c31338d0b37ec7cabd5390e787ad687fa",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00003",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          -1,
+          2,
+          2,
+          2,
+          1
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          1,
+          -2,
+          -2,
+          -1,
+          -1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:40dd745fe5ee208019252e3234cc97f8254cfe5d370d2fdf784f34b0726af6e8",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00005",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          1,
+          1,
+          1
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          -1,
+          -2,
+          1,
+          1,
+          1,
+          -2,
+          1,
+          -2,
+          1,
+          1,
+          1,
+          2,
+          1,
+          2,
+          -1,
+          -2,
+          1,
+          -2,
+          -1,
+          2,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:604a59957abb576808ab1fdd18b9c8dbcfca3e528409c562194024c28e536fdf",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00006",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -1,
+          -2,
+          1,
+          1,
+          2,
+          -1
+        ],
+        [
+          -2,
+          -2,
+          -1,
+          -2,
+          1,
+          1,
+          2,
+          -1,
+          -1,
+          2,
+          1,
+          -2,
+          -1,
+          -1,
+          2,
+          2,
+          1,
+          -2,
+          1,
+          -2,
+          -1,
+          2,
+          -1,
+          -2,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:72b90e92f8a3639c108d825baa157f9f43ae84e509b98977d487452d29bf8ea2",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00009",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          1,
+          2,
+          1,
+          2,
+          -1
+        ],
+        [
+          -2,
+          -2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          -1,
+          -2,
+          -1,
+          -1,
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:384fe3ad4508ddbf9ae8963cec6215ba9aa06578ab66eb454dbf25349e3082a4",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00010",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          -1,
+          -1,
+          -2,
+          -1,
+          -1,
+          2,
+          1
+        ],
+        [
+          -2,
+          -2,
+          -1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          -2,
+          -2,
+          -1,
+          -1,
+          -2,
+          -1,
+          -1,
+          -1,
+          -2,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:c4f1815f75d38b2f6d8fa34c4ba0a25caee73b91af205db3934e6151c3ef35f3",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00011",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          1,
+          1,
+          1
+        ],
+        [
+          -2,
+          -2,
+          -1,
+          2,
+          -1,
+          2,
+          1,
+          2,
+          1,
+          -2,
+          -1,
+          2,
+          -1,
+          2,
+          -1,
+          -1,
+          2,
+          -1,
+          2,
+          2,
+          -1,
+          -1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:11f0e9431ffdb59e98cba9746358e8bea6d7b6e34be2a6f1b0d625b4526b74d2",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00012",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          -1,
+          -1,
+          -1,
+          2,
+          2,
+          -1,
+          2,
+          2,
+          2,
+          -1,
+          -2,
+          -2,
+          -2,
+          1,
+          -2,
+          1,
+          -2,
+          -1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:64158b465a11ff5a10cd0a09e79c28746c08e76b62ee6a525ed76bc026f216b9",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00013",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -1,
+          -2,
+          -1,
+          -2,
+          -1,
+          -1,
+          -2,
+          -1,
+          -2,
+          -1,
+          2,
+          1
+        ],
+        [
+          -2,
+          -1,
+          -2,
+          -1,
+          -2,
+          -1,
+          -1,
+          -2,
+          -1,
+          -2,
+          -1,
+          2,
+          1,
+          1,
+          -2,
+          -1,
+          -2,
+          -1,
+          -1,
+          2,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:16ccec636ddf1b62cfc9d04b2c7678d1a0e1dfc013ce28b5dc3f05d96af3615c",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00015",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -1,
+          2,
+          -1,
+          -2,
+          1,
+          2,
+          -1,
+          2,
+          1
+        ],
+        [
+          -2,
+          -2,
+          1,
+          -2,
+          1,
+          -2,
+          1,
+          -2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:484385cd2354ee2af9d415c7476b82b5863f580a79b71b2a697706c6ed0a9fc2",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00016",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          -1,
+          2,
+          1,
+          -2,
+          -2,
+          1
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:244c3a0b73d328696731b4f6d253a10b906a0924c5112e5d6733445ed6545ab9",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00017",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -1,
+          -1,
+          2,
+          1
+        ],
+        [
+          -2,
+          -2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          -1,
+          -1,
+          2,
+          1,
+          -2,
+          -1,
+          -1,
+          -1,
+          -1,
+          -2,
+          -1,
+          -1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:a20398d5e3c0ab8507e6c829559448b0da68bb510bf5dd97a16b8fb6b3769823",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00018",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          1,
+          1,
+          -2,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          -2,
+          -2,
+          -1,
+          -1,
+          2,
+          -1,
+          -1,
+          2,
+          -1,
+          2,
+          2,
+          1,
+          -2,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:a136dcc0bf07745df4311fe102cce24b32c1bf64f62dcf5ed086f5bd7579578e",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00020",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -1,
+          -1,
+          2,
+          -1,
+          -1,
+          -1,
+          2,
+          -1,
+          2,
+          1
+        ],
+        [
+          -2,
+          -2,
+          1,
+          1,
+          2,
+          -1,
+          -2,
+          1,
+          -2,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          -2,
+          -1,
+          2,
+          1,
+          -2,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:8a64af6392a14198f57b08987242621a7851dfbb3060ff6ef174dc29b4f10a90",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00021",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          -2,
+          -1,
+          2,
+          -1,
+          -1,
+          2,
+          -1,
+          -1,
+          -2,
+          -1
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          -2,
+          -1,
+          2,
+          -1,
+          -1,
+          2,
+          -1,
+          -1,
+          -1,
+          -2,
+          -2,
+          -1,
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:d0c0be9feaa1cba23619c0b6d66ae0eb9e9e3c5f3bf02f283479b82e50442a34",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00022",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -1,
+          2,
+          -1,
+          2,
+          1
+        ],
+        [
+          -2,
+          -2,
+          -1,
+          2,
+          2,
+          1,
+          -2,
+          1,
+          -2,
+          1,
+          -2,
+          1,
+          -2,
+          -1,
+          2,
+          2,
+          -1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:c7abc325a5de26834d7e08fa9ac29d05e1d94405da9ca2e0cccaaa41192239f9",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00024",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          -1,
+          -2,
+          -1
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          -1,
+          -2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          -1,
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:acb7dd7122c24e9a2a5851876435c85338ec6d8ac3fd72cea482b84e1baca1ce",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00027",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          -1,
+          -1,
+          -1,
+          -1,
+          -2,
+          1,
+          1
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          -1,
+          -1,
+          2,
+          2,
+          2,
+          1,
+          -2,
+          -2,
+          -2,
+          -2,
+          -1,
+          -1,
+          -1,
+          -1,
+          -2,
+          -1,
+          -1,
+          -2,
+          1,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:2de1334e49c7ff884dbff57bef4e02d95f65fa5aa3065bb95dd44942561b5534",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00028",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          -2,
+          -1,
+          -1,
+          -2,
+          1
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          -1,
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:aef0c5b0aa86dbe1e5b9bc1a92d92dd87f82cae0de84549913eba3a58c835dad",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00029",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          1,
+          1,
+          -2,
+          1,
+          -2,
+          1,
+          1,
+          1
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          1,
+          1,
+          -2,
+          1,
+          -2,
+          1,
+          1,
+          1,
+          -2,
+          -2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:59d83f77adb924e6a924e3c570ef8f41aff6cf48efb31f28d2b659cb481c88a8",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00031",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          -1,
+          2,
+          -1,
+          2,
+          2,
+          1
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          1,
+          1,
+          -2,
+          -1,
+          -2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          -2,
+          -2,
+          -2,
+          1,
+          -2,
+          1,
+          2,
+          2,
+          -1,
+          2,
+          -1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:cc69fe2c0077c8fc0a3288a43a931ed70b08f733ed5c1d72a6c5a296dc0b17db",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00032",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -1,
+          -2,
+          1,
+          2,
+          -1
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          1,
+          -2,
+          -1,
+          2,
+          -1,
+          2,
+          -1,
+          -1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:0f92ccad4140c3cbc23ad78cb7148e90e117732e8ff8b6599f44618394c24637",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00033",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          -2,
+          -1,
+          2,
+          1,
+          -2,
+          -2,
+          -2,
+          -1,
+          -1,
+          -2,
+          -2,
+          -1
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          -1,
+          -1,
+          -2,
+          -1,
+          -2,
+          -2,
+          -1,
+          -2,
+          -2,
+          -2,
+          -1,
+          2,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:469fb97fcddaae15d30ac1026668c76a3f55021726ef06c044ea6fedc86293fa",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00034",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          -1,
+          -1,
+          -1,
+          2,
+          1,
+          1
+        ],
+        [
+          -2,
+          -2,
+          -1,
+          -1,
+          2,
+          -1,
+          -2,
+          1,
+          -2,
+          -2,
+          -1,
+          -1,
+          2,
+          -1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:830e301db667424486ca21a752eb25b9c8d68b947328fce8df331cd63f43ac29",
+      "freeze_date": null
+    },
+    {
+      "challenge_id": "ac-00037",
+      "generators": [
+        "x",
+        "y"
+      ],
+      "initial_relators": [
+        [
+          -2,
+          -2,
+          1,
+          -2,
+          -2,
+          1,
+          1
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          -1,
+          2,
+          1,
+          -2,
+          -1,
+          2,
+          2,
+          -1,
+          2,
+          2,
+          -1,
+          -1,
+          2,
+          2,
+          -1,
+          2,
+          -1,
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "target_relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move_spec_version": "ac-r2-v1",
+      "scored": true,
+      "base_score": 1,
+      "instance_hash": "sha256:7f1a53a0803f586480a5f348411c6ecad7a8e5db4103f4964be1bc784e90c68d",
+      "freeze_date": null
+    }
+  ],
+  "source_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "source_manifest_git_blob": "accdb626ee08a06beea3f88dc7f351514c99eb27",
+  "source_manifest_sha256": "dc8587d7dc6855edfb8aad087f27f4db59c558f66bdf838b664c1634a357ad37"
+}

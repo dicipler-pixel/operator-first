@@ -1,0 +1,253 @@
+{
+  "sair_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "source_sha256": "cff57e3105994be2a88759284b897a5ac4cd90f6d871bcc37215ad7b1fb0e0ab",
+  "slater_identity": {
+    "state_links": 7468,
+    "orbital_links": 22056,
+    "max_absolute_error": 3.175237850427948e-14,
+    "scalar_demo": {
+      "values": [
+        1.0,
+        4.0,
+        2.0
+      ],
+      "gammas": [
+        0.6,
+        -0.3333333333333333
+      ],
+      "composed": 0.3333333333333333,
+      "direct": 0.3333333333333333
+    }
+  },
+  "optics": {
+    "0": {
+      "AB": {
+        "reflectance": 0.04718505070744713,
+        "reflection": [
+          0.20838163526171158,
+          -0.06133632523311232
+        ],
+        "matrix_recursion_error": 1.3947004136484323e-16,
+        "snell_transverse": 0.0
+      },
+      "BA": {
+        "reflectance": 0.30533663086266094,
+        "reflection": [
+          -0.5525091939176422,
+          0.008379826915764272
+        ],
+        "matrix_recursion_error": 1.734723475976807e-18,
+        "snell_transverse": 0.0
+      }
+    },
+    "45": {
+      "AB": {
+        "reflectance": 0.08792410713426443,
+        "reflection": [
+          0.07394976197113767,
+          -0.2871507266901418
+        ],
+        "matrix_recursion_error": 6.206335383118183e-17,
+        "snell_transverse": 0.7071067811865475
+      },
+      "BA": {
+        "reflectance": 0.44910061014411806,
+        "reflection": [
+          -0.6681229395869521,
+          0.052080204894066694
+        ],
+        "matrix_recursion_error": 1.1123893155135927e-16,
+        "snell_transverse": 0.7071067811865475
+      }
+    }
+  },
+  "exact_ball": {
+    "layer_sizes": [
+      1,
+      10,
+      77,
+      574,
+      4453,
+      35664,
+      295698
+    ],
+    "total_states": 336477,
+    "test_depth": 5,
+    "test_states": 35664,
+    "matrix_pair_collisions": 0,
+    "exact_word_disk_pair_collisions": 0,
+    "distinct_abelian_chart_points": 125,
+    "false_center_states": 3892,
+    "states_without_length_decreasing_optimal_move": 3769,
+    "optimal_descent_probability": {
+      "length": 0.7807285992010126,
+      "abelian": 0.28282301480485594,
+      "chain": 0.6858008075370121,
+      "H": 0.8105639406951733,
+      "length_chain": 0.7786329819051893,
+      "H_chain": 0.8175798190518918
+    },
+    "wall_s": 6.835366899998917
+  },
+  "routes": {
+    "routes": 71,
+    "transitions": 2203,
+    "full_state_changes": 2203,
+    "chart_invisible_changes": 1181,
+    "chart_invisible_fraction": 0.5360871538810713,
+    "nonterminal_center_occurrences": 22,
+    "distinct_nonterminal_center_states": 15,
+    "center_example": {
+      "id": "ac-03068",
+      "step": 1,
+      "left": 50,
+      "length": 24,
+      "state": [
+        [
+          -2,
+          -2,
+          1,
+          -2,
+          -1,
+          2,
+          -1,
+          -1,
+          2,
+          1,
+          1
+        ],
+        [
+          -2,
+          -2,
+          1,
+          -2,
+          -1,
+          2,
+          1,
+          -2,
+          -1,
+          2,
+          1,
+          2,
+          2
+        ]
+      ]
+    },
+    "official_matrix_move_crosschecks": 30842,
+    "unique_states": 2010,
+    "groups": {
+      "all": {
+        "steps": 2203,
+        "mean_rank_fraction": {
+          "length": 0.1811515765215266,
+          "abelian": 0.4003456824609798,
+          "chain": 0.1891127483501519,
+          "H": 0.17724082544781591,
+          "length_chain": 0.17128740528649744,
+          "H_chain": 0.16814483745940853
+        }
+      },
+      "climb": {
+        "steps": 284,
+        "mean_rank_fraction": {
+          "length": 0.6684723726977247,
+          "abelian": 0.6275731310942578,
+          "chain": 0.6052275189599133,
+          "H": 0.6217497291440954,
+          "length_chain": 0.6698266522210184,
+          "H_chain": 0.6224268689057422
+        }
+      },
+      "far": {
+        "steps": 1564,
+        "mean_rank_fraction": {
+          "length": 0.22459669486523706,
+          "abelian": 0.4872860515443636,
+          "chain": 0.2441717489671454,
+          "H": 0.21965374778674013,
+          "length_chain": 0.22171945701357465,
+          "H_chain": 0.2168994688176274
+        }
+      },
+      "climbing_conjugation": {
+        "steps": 88,
+        "mean_rank_fraction": {
+          "length": 0.5769230769230769,
+          "abelian": 0.4606643356643357,
+          "chain": 0.5257867132867132,
+          "H": 0.5642482517482518,
+          "length_chain": 0.5804195804195804,
+          "H_chain": 0.5646853146853147
+        }
+      }
+    },
+    "far_chain_minus_length_path_mean": 0.02035464582849425,
+    "far_chain_minus_length_path_bootstrap95": [
+      0.012210049947134337,
+      0.028721729091636897
+    ]
+  },
+  "heldout_routes": {
+    "routes": 6,
+    "transitions": 169,
+    "full_state_changes": 169,
+    "chart_invisible_changes": 81,
+    "chart_invisible_fraction": 0.47928994082840237,
+    "nonterminal_center_occurrences": 0,
+    "distinct_nonterminal_center_states": 0,
+    "center_example": null,
+    "official_matrix_move_crosschecks": 2366,
+    "unique_states": 163,
+    "groups": {
+      "all": {
+        "steps": 169,
+        "mean_rank_fraction": {
+          "length": 0.19253527537551207,
+          "abelian": 0.40236686390532544,
+          "chain": 0.1784251251706873,
+          "H": 0.1834319526627219,
+          "length_chain": 0.17137005006827494,
+          "H_chain": 0.16272189349112426
+        }
+      },
+      "climb": {
+        "steps": 26,
+        "mean_rank_fraction": {
+          "length": 0.6715976331360948,
+          "abelian": 0.7692307692307693,
+          "chain": 0.6050295857988166,
+          "H": 0.613905325443787,
+          "length_chain": 0.668639053254438,
+          "H_chain": 0.6124260355029586
+        }
+      },
+      "far": {
+        "steps": 115,
+        "mean_rank_fraction": {
+          "length": 0.25986622073578597,
+          "abelian": 0.5083612040133779,
+          "chain": 0.24581939799331104,
+          "H": 0.24648829431438127,
+          "length_chain": 0.2367892976588629,
+          "H_chain": 0.22408026755852845
+        }
+      },
+      "climbing_conjugation": {
+        "steps": 6,
+        "mean_rank_fraction": {
+          "length": 0.5833333333333334,
+          "abelian": 0.44871794871794873,
+          "chain": 0.4294871794871795,
+          "H": 0.5576923076923077,
+          "length_chain": 0.5641025641025641,
+          "H_chain": 0.5512820512820513
+        }
+      }
+    },
+    "far_chain_minus_length_path_mean": -0.012883474316111879,
+    "far_chain_minus_length_path_bootstrap95": [
+      -0.021084448047208954,
+      -0.00468469439057674
+    ]
+  }
+}

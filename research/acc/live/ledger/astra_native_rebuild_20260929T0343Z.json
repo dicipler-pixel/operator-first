@@ -1,0 +1,18 @@
+{
+  "utc": "2026-09-29T03:44:06+00:00",
+  "reason": "Rebuild original sources for restored executor CPU after the team's SIGILL incident",
+  "binaries": [
+    {
+      "binary": "acc_beam",
+      "old_sha256": "36eac2541c12637abd49a3156ead3cacf580f92ca194b9f91c7f5af2cc415efd",
+      "new_sha256": "65c22dfb28d1dcae12a2920a01f940ea58a2dff782f7c0eb65300cc1cf7260a5",
+      "source_sha256": "ea8b3c917c4f95a512361e17737f82531b5057daf5a374ffbcd8397a7fc64d89"
+    },
+    {
+      "binary": "acc_window",
+      "old_sha256": "54676d06bddf96faee9e8c9705a88ec2a9a776d9ac3d0670291bafa08ea6b86f",
+      "new_sha256": "5e44d482bee6e52cf769f79623dbcff27b84db8cc3b47e5b0ef37d0ed3e3abcd",
+      "source_sha256": "37579e2f10faad65feff3cbb805c3c8f7e5e226872ba8fa331e1400049bf7b8f"
+    }
+  ]
+}
