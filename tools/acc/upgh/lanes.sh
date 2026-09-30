@@ -12,7 +12,11 @@ lane() {
     out=$(python3 tools/acc/upgh/upgh.py --json run --max-tasks 1 2>&1)
     echo "$(date -u +%FT%TZ) $out" | tr '\n' ' ' >> "research/acc/upgh/cache/lane$i.log"
     echo >> "research/acc/upgh/cache/lane$i.log"
-    case "$out" in "[]"*) sleep 300 ;; *Refused*|*refused*) sleep 300 ;; esac
+    case "$out" in
+      "[]"*) sleep 300 ;;
+      *Refused*|*refused*) sleep 300 ;;
+      *) bash tools/acc/upgh/commit_state.sh "UPG-H lane $i: $(echo "$out" | tr -d '\n' | grep -o '"task": "t[0-9]*"' | head -1) $(echo "$out" | tr -d '\n' | grep -o '"outcome": "[a-z]*"' | head -1)" >/dev/null 2>&1 ;;
+    esac
     n=$((n + 1))
   done
 }
