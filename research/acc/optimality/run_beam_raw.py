@@ -28,7 +28,7 @@ done = {json.loads(l)['id'] for l in open(OUT)} if os.path.exists(OUT) else set(
 for t in json.load(open(TGT)):
     if t['id'] in done: continue
     cid = t['id']; r0, r1 = CH[cid]['initial_relators']; t0 = time.time()
-    w = W if t['record'] <= 100 else '20000'; dm = str(min(t['record'] + 2, int(DMAX)))
+    w = W if t['record'] <= 100 else '20000'; dm = str(min(t['record'] + int(os.environ.get('RB_SLACK', '2')), int(DMAX)))  # RB_SLACK: DMAX = record + slack (default 2)
     if os.environ.get('BEAM_FREE_DMAX'): dm = str(t['record'] + int(os.environ['BEAM_FREE_DMAX']))  # any road, shorten later
     p = subprocess.run([BIN + '/acc_beam', TF, w, dm, *enc(r0, r1)], capture_output=True, text=True)
     rec = {'id': cid, 'record': t['record'], 'k': t['k'], 'checked': False,
