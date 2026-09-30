@@ -1,25 +1,10 @@
-# Git (session 3) active rows (road-keeping DP, loose, on UPG-H path.best), claimed 17:19Z
+# Git (session 3) active rows: new targets (no path anywhere; k<=3), free-depth P2 dual beam W 100k, then DP. Claimed 17:35Z
 
-- ac-00076, sac-00076
-- ac-01553, sac-01553
-- ac-01925, sac-01925
-- ac-02304, sac-02304
-- ac-02394, sac-02394
-- ac-02519, sac-02519
-- ac-03475, sac-03475
-- ac-03719, sac-03719
-- ac-03903, sac-03903
-- ac-04478, sac-04478
-- ac-04485, sac-04485
-- ac-04566, sac-04566
-- ac-04667, sac-04667
-- ac-04794, sac-04794
-- ac-06339, sac-06339
-- ac-06419, sac-06419
-- ac-06818, sac-06818
-- ac-06936, sac-06936
-- ac-06961, sac-06961
-- ac-07031, sac-07031
-- ac-08496, sac-08496
-- ac-08889, sac-08889
-- ac-09923, sac-09923
+- ac-08424, sac-08424 (record 39, k2)
+- ac-00304, sac-00304 (record 41, k1)
+- ac-00935, sac-00935 (record 41, k2)
+- ac-02728, sac-02728 (record 41, k2)
+- ac-00650, sac-00650 (record 41, k3)
+- ac-02235, sac-02235 (record 41, k3)
+- ac-02545, sac-02545 (record 41, k3)
+- ac-03785, sac-03785 (record 41, k3)
