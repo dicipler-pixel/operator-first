@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -f \"$CLAUDE_PROJECT_DIR/research/acc/upgh/STOP\" ]; then python3 \"$CLAUDE_PROJECT_DIR/tools/acc/upgh/stop_gate.py\"; fi",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

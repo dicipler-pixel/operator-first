@@ -1,0 +1,5 @@
+# Volatile runtime state. The ledger is the record; these are rebuilt or re-pulled.
+cache/
+tasks/
+leases/
+*.lock

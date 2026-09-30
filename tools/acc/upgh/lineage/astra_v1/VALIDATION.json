@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-30",
+  "suite": {
+    "tests": 46,
+    "seconds": 1.62,
+    "passed": true
+  },
+  "demo": {
+    "test": "complete-controller-toy-demonstration",
+    "passed": true,
+    "language_models_called": false,
+    "real_ACC_checker_used": false,
+    "real_candidates_produced": false,
+    "status": {
+      "processed_tasks": 6,
+      "stopped": false,
+      "tasks": {
+        "completed": 6
+      },
+      "unconnected_roles": [],
+      "checker_connected": true,
+      "demo": true,
+      "submission_enabled": false,
+      "state": "/tmp/acc-harness-demo-ycvwt2zz/state"
+    },
+    "directory": "/tmp/acc-harness-demo-ycvwt2zz",
+    "sequence": [
+      "luna_memory",
+      "sol_builder",
+      "astra_advisor",
+      "luna_memory",
+      "sol_builder",
+      "sol_checker"
+    ]
+  },
+  "live_models_tested": false,
+  "real_ACC_checker_tested": false,
+  "real_ACC_search_run": false,
+  "submission_performed": false,
+  "historical_ACC_fixtures_replayed": false,
+  "scope": "Controller, replay interface, fault handling, and toy demonstration only. Source proof companions not rebuilt."
+}

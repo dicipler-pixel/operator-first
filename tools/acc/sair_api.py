@@ -30,6 +30,7 @@ import sys
 import tempfile
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 
 BASE = "https://api.sair.foundation/api/public/v1/competitions/acc"
@@ -153,6 +154,18 @@ def load_board(board_dir):
 
 # -- our history -------------------------------------------------------------
 
+def all_mine(max_pages=200):
+    """Every page of /submissions/mine (20 submissions per page, `cursor` = the previous nextCursor)."""
+    items, cursor = [], None
+    for _ in range(max_pages):
+        page = get("/submissions/mine" + (f"?cursor={urllib.parse.quote(cursor)}" if cursor else ""))
+        items += page.get("items", [])
+        cursor = page.get("nextCursor")
+        if not cursor:
+            return {"items": items, "totalCount": len(items)}
+    raise ApiError(f"submission history has more than {max_pages} pages")
+
+
 def our_best(history):
     """challengeId -> shortest length the platform accepted from us, from /submissions/mine
     and the local log. Unknown shapes are walked generically (any dict with challenge_id/ok/length)."""
@@ -237,7 +250,7 @@ def plan(args):
     board = load_board(args.board)
     sent = our_best(local_history())
     if not args.no_history:
-        sent.update({k: min(v, sent.get(k, v)) for k, v in our_best(get("/submissions/mine")).items()})
+        sent.update({k: min(v, sent.get(k, v)) for k, v in our_best(all_mine()).items()})
     rows, behind = [], []
     for cid, mv in lines.items():
         if cid not in ok or ok[cid] != len(mv):
@@ -402,7 +415,7 @@ def main():
     elif args.cmd == "leaderboard":
         print(json.dumps(get(f"/leaderboard?problem={args.problem}&limit=100"), indent=1)[:6000])
     elif args.cmd == "mine":
-        hist = get("/submissions/mine")
+        hist = all_mine()
         best = our_best(hist)
         path = LIVE / f"mine_{stamp()}.json"
         LIVE.mkdir(parents=True, exist_ok=True)

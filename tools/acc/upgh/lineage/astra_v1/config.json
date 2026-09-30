@@ -1,0 +1,28 @@
+{
+  "name": "ACC Memory-First Harness",
+  "version": "1.0.0",
+  "mode": "offline",
+  "demo": false,
+  "roles": {
+    "luna_memory": {"model": "gpt-6-luna", "effort": "medium", "command": []},
+    "sol_builder": {"model": "gpt-6.1-sol", "effort": "high", "command": []},
+    "sol_checker": {"model": "gpt-6.1-sol", "effort": "high", "command": []},
+    "astra_advisor": {"model": "gpt-6-astra", "effort": "xhigh", "command": []}
+  },
+  "limits": {
+    "worker_seconds": 240,
+    "batch_seconds": 900,
+    "max_tasks_per_run": 12,
+    "max_repairs": 2,
+    "max_switches": 2,
+    "max_output_bytes": 1048576,
+    "board_max_age_seconds": 900,
+    "max_evidence_bytes": 16777216
+  },
+  "checker": {"command": [], "path": "", "sha256": "", "timeout_seconds": 60},
+  "target_manifest": "",
+  "target_manifest_sha256": "",
+  "board_snapshot": "",
+  "board_max_age_seconds": 900,
+  "submission_enabled": false
+}
