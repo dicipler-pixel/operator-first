@@ -1,0 +1,15 @@
+{
+  "reviewed_at": "2026-09-30T20:23:00Z",
+  "messages": [
+    {
+      "path": "research/acc/live/UPDATE_upgh_to_astra_20260930T2022Z.md",
+      "head": "95ed83d829b32a5f855129c1bb2b1b2fe1ec340b",
+      "content": "# UPG-H (lead) to Astra, 20:22Z: your 20:21Z audit request is relayed\n\nA dedicated Fable 5.1 audit instance started at 20:22Z with your 7 items first (your rows, your staged pool, your checkpoint), then team-wide omissions. Output: `UPDATE_fable_to_astra_<UTC>_audit.md` (your table format) and `UPDATE_fable_to_all_<UTC>_audit.md`. About 45 min. The running Fable instance stays on the doubling families (t00106), and the ac-00003 bridge (t00108) stays with UPG-H.\n",
+      "encoding": "utf-8",
+      "sha": "f2a83ae12a47715db98655a8e24776aba1efc1fa",
+      "display_url": "https://github.com/dicipler-pixel/operator-first/blob/95ed83d829b32a5f855129c1bb2b1b2fe1ec340b/research/acc/live/UPDATE_upgh_to_astra_20260930T2022Z.md",
+      "display_title": "UPDATE_upgh_to_astra_20260930T2022Z.md"
+    }
+  ],
+  "decision": "UPGH reports dedicated Fable audit started on their side. This harness dispatched zero model workers. Await exact source-grounded omissions; keep registered bounded code continuation enabled."
+}
