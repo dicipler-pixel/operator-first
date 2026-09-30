@@ -21,13 +21,13 @@ Python 3.10+ and the standard library suffice. No network or model account is ne
 
 ## Current bounded progress
 
-Seven method probes are recorded: the two original bridge probes plus Charlie's exact-cap ac-00037 probe (32 vs 31), Bob's generator-transfer ac-00012 probe (52 vs 47), Kernel's foreign-road overlay ac-00034 probe (44 vs 41), the new controller's code-only Bob ac-00037 probe (32 vs 31), and the post-timeout code-only Kernel ac-00037 probe (32 vs 31). No shorter route was found. Charlie's initial goal-ball allocation failure is retained separately and never treated as a mathematical negative. Kernel freshly verified all 2,781 donor roads before constructing its graph. Sources, paid move semantics, exact coverage and adaptations are in `HELPERS.md`, `helpers/`, and `runs/`.
+Current totals and exact coverage are in `continuation/progress.json` and `continuation/checkpoint.json`. Every completed method/row/input probe is retained. The first new independently checked improvement is **ac-00028, 58 -> 54 moves**, obtained by exact foreign-road overlay. The pasted target is 44, so it does not reach that target and no live scoring claim is made. The new route and official receipt are preserved in `continuation/routes.json` and its immutable run folder.
 
-`helper_batch.py` rotates the three recovered code lanes across the selected rows, shares the portable negative-memory ledger, and checks active reservations. It preserves `continue_batch.py` and the original bridge history. Each code batch remains <=180 search seconds, <=600,000 admitted records and <=1,024 MiB address space. Cosmetic code edits do not reopen a previous miss.
+`helper_batch.py` rotates the recovered code lanes and keeps model dispatch at zero. Each batch remains <=180 search seconds, <=600000 records and <=1024 MiB. Workers read the portable stop flag; the controller owns SQLite and enforces live stops and leases. Source hardening does not reopen old probes. Charlie's search identity also ignores changed saved routes when its actual start/goal/target/caps are unchanged. Bob and Kernel retain seed-sensitive identities because they use those routes.
 
 ## Actual validation
 
-**85 local tests pass; the official checker passes all 63 upstream conformance cases. All 25 recovered routes across 10 selected rows replay correctly.**
+**86 local tests pass; the official checker passes all 63 upstream conformance cases. All 25 recovered routes across 10 selected rows replay correctly.**
 
 | Row | Best recovered length | Pasted record |
 | --- | ---: | ---: |

@@ -1,9 +1,9 @@
 {
   "date": "2026-09-30",
   "suite": {
-    "tests": 85,
+    "tests": 86,
     "passed": true,
-    "seconds": 2.147
+    "seconds": 2.36
   },
   "demo": {
     "test": "complete-controller-toy-demonstration",
@@ -49,7 +49,7 @@
   "real_ACC_search_run": true,
   "submission_performed": false,
   "historical_ACC_fixtures_replayed": true,
-  "scope": "84 local tests pass. Two previous bridge misses and four recovered-helper method probes (including a new code-only Bob ac-00037 batch); no improved path. Charlie initial goal allocation failure retained separately, not a mathematical negative. The official checker and prior 63-case conformance pins are unchanged. All scheduled batches dispatch zero model workers.",
+  "scope": "86 local tests pass. The pinned official checker previously passed all 63 conformance cases; checker pins are unchanged. Current completed attempts and results are in continuation/progress.json and checkpoint.json. ac-00028 improved from 58 to 54, independently verified; above pasted target 44, no scoring claim or submission.",
   "version": "1.5.0",
   "cost_scope": "Persistent worker dispatch caps; code-first verification; no provider currency/token enforcement.",
   "intake": {
@@ -62,7 +62,7 @@
   "real_routes_replayed": 25,
   "real_rows_with_verified_paths": 10,
   "source_commit": "d3351066a05bf6262cacc30fdcb055d2e0942a94",
-  "bounded_real_searches": 7,
+  "bounded_real_searches": 21,
   "code_only_continuation_tested": true,
   "helper_recovery": {
     "matching_source_paths": 185,
