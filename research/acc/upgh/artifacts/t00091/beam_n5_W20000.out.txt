@@ -1,0 +1,25 @@
+AC 57 PATH 0 3 6 13 2 9 5 11 8 1 4 9 3 7 3 7 8 8 6 2 9 7 11 3 8 7 5 12 12 1 4 10 13 11 5 12 11 8 2 8 2 6 8 13 6 2 12 1 10 4 12 10 3 5 5 5 3
+SAC 59 PATH 0 3 6 13 2 9 5 11 8 1 4 9 3 7 3 7 8 8 6 2 9 7 11 3 8 7 5 12 12 1 4 10 13 11 5 12 11 8 2 8 2 6 8 13 6 2 7 9 5 10 12 2 4 4 4 4 3 15 15
+
+---STDERR---
+p2: mode 2 cut 8 start P2=14 P1m=17
+dual: first eye 0.750 of W by the main key, the rest by the plain key
+atlas: quota 16 wh 0 start WH=0
+quota d=10 classes=34512 admitted=111326
+dual d=10 first=15000 second=5000 of 191006 left
+d=10 gen=206006 kept=20000 len[14..195] bestAC=-1 bestSAC=-1 arena=4MB
+quota d=20 classes=42341 admitted=117333
+dual d=20 first=15000 second=5000 of 200117 left
+d=20 gen=215117 kept=20000 len[16..142] bestAC=-1 bestSAC=-1 arena=9MB
+quota d=30 classes=36902 admitted=113022
+dual d=30 first=15000 second=5000 of 193991 left
+d=30 gen=208991 kept=20000 len[14..147] bestAC=-1 bestSAC=-1 arena=14MB
+quota d=40 classes=33202 admitted=109081
+dual d=40 first=15000 second=5000 of 191002 left
+d=40 gen=206002 kept=20000 len[13..163] bestAC=-1 bestSAC=-1 arena=19MB
+d=48 gen=200021 kept=20000 len[12..145] bestAC=57 bestSAC=59 arena=23MB
+d=49 gen=200547 kept=20000 len[12..149] bestAC=57 bestSAC=59 arena=24MB
+quota d=50 classes=31057 admitted=116057
+dual d=50 first=15000 second=5000 of 185005 left
+d=50 gen=200005 kept=20000 len[11..145] bestAC=57 bestSAC=59 arena=24MB
+p2: computed 3449549 (cache hits 2571461, saturated 0) inherited 6033935, 71.7 s in P2

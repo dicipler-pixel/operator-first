@@ -1,0 +1,35 @@
+AC NONE
+SAC NONE
+
+---STDERR---
+p2: mode 2 cut 8 start P2=19 P1m=22
+dual: first eye 0.750 of W by the main key, the rest by the plain key
+atlas: quota 16 wh 0 start WH=0
+quota d=10 classes=34487 admitted=115096
+dual d=10 first=15000 second=5000 of 187877 left
+d=10 gen=202877 kept=20000 len[19..236] bestAC=-1 bestSAC=-1 arena=5MB
+quota d=20 classes=41502 admitted=116459
+dual d=20 first=15000 second=5000 of 197420 left
+d=20 gen=212420 kept=20000 len[18..247] bestAC=-1 bestSAC=-1 arena=12MB
+quota d=30 classes=49986 admitted=120876
+dual d=30 first=15000 second=5000 of 204989 left
+d=30 gen=219989 kept=20000 len[19..182] bestAC=-1 bestSAC=-1 arena=18MB
+quota d=40 classes=52085 admitted=121573
+dual d=40 first=15000 second=5000 of 200990 left
+d=40 gen=215990 kept=20000 len[21..165] bestAC=-1 bestSAC=-1 arena=25MB
+quota d=50 classes=52576 admitted=121832
+dual d=50 first=15000 second=5000 of 197181 left
+d=50 gen=212181 kept=20000 len[19..208] bestAC=-1 bestSAC=-1 arena=32MB
+quota d=60 classes=49792 admitted=120973
+dual d=60 first=15000 second=5000 of 195547 left
+d=60 gen=210547 kept=20000 len[19..181] bestAC=-1 bestSAC=-1 arena=39MB
+quota d=70 classes=53133 admitted=122085
+dual d=70 first=15000 second=5000 of 198098 left
+d=70 gen=213098 kept=20000 len[19..167] bestAC=-1 bestSAC=-1 arena=46MB
+quota d=80 classes=51840 admitted=121770
+dual d=80 first=15000 second=5000 of 195382 left
+d=80 gen=210382 kept=20000 len[19..213] bestAC=-1 bestSAC=-1 arena=53MB
+quota d=90 classes=53019 admitted=122276
+dual d=90 first=15000 second=5000 of 195328 left
+d=90 gen=210328 kept=20000 len[19..199] bestAC=-1 bestSAC=-1 arena=60MB
+p2: computed 6584858 (cache hits 4690862, saturated 2) inherited 11529564, 217.7 s in P2
