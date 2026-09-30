@@ -1,7 +1,7 @@
 {
-  "completed_batches": 117,
+  "completed_batches": 118,
   "model_worker_launches": 4,
-  "code_only_batches": 113,
+  "code_only_batches": 114,
   "new_improved_routes": 9,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -28,38 +28,33 @@
     }
   ],
   "next": {
-    "status": "active",
-    "active": {
-      "job": {
-        "row_id": "ac-00005",
-        "track": "AC",
-        "baseline": 27,
-        "target": 26,
-        "seed_sha256": "4233a16d3b3247bf8f2830b8c1b3298df77b2111cbd5bfe8a96238cf7fe56696",
-        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
-        "caps": {
-          "wall_seconds": 180,
-          "node_cap": 600000,
-          "depth": 8,
-          "profile": "route-local",
-          "memory_mib": 1024
-        },
-        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
-        "key": "a9e20a78194c7222a06d4de9781ff5083e271226410637cdb83837bc6478b99a"
+    "status": "planned",
+    "job": {
+      "row_id": "ac-00009",
+      "track": "AC",
+      "helper": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "script": "helpers/bob_lane_v1.py",
+      "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+      "inputs": {
+        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
       },
-      "task_id": 133,
-      "lease_token": "a8adfd7d1b424efb983c835b41fc4fe4",
-      "expires_at": 1790808340.1972096,
-      "repo_head": "93282dad4eab8988cd8d8beef06196eac5c1dc31",
-      "phase": "reserved",
-      "host_must_commit_before_execution": true
-    }
+      "seed_sha256": "e6b2089e1133c9172a9d5d6eaa86e5280bfff4ef97a2e34aae4139f297513580",
+      "baseline": 78,
+      "target": 34,
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "key": "397bc5974962e24bf3ea52df886221a0ed61c21d22fd4843744b858035078213"
+    },
+    "remaining_jobs": 2
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 117,
-      "running": 1
+      "completed": 118
     },
     "unconnected_roles": [
       "luna_memory",

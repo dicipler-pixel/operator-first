@@ -1,31 +1,7 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": {
-    "job": {
-      "row_id": "ac-00005",
-      "track": "AC",
-      "baseline": 27,
-      "target": 26,
-      "seed_sha256": "4233a16d3b3247bf8f2830b8c1b3298df77b2111cbd5bfe8a96238cf7fe56696",
-      "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "depth": 8,
-        "profile": "route-local",
-        "memory_mib": 1024
-      },
-      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
-      "key": "a9e20a78194c7222a06d4de9781ff5083e271226410637cdb83837bc6478b99a"
-    },
-    "task_id": 133,
-    "lease_token": "a8adfd7d1b424efb983c835b41fc4fe4",
-    "expires_at": 1790808340.1972096,
-    "repo_head": "93282dad4eab8988cd8d8beef06196eac5c1dc31",
-    "phase": "reserved",
-    "host_must_commit_before_execution": true
-  },
+  "active": null,
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -4962,6 +4938,43 @@
         "event": "new_exact_seed",
         "row_id": "ac-00009"
       }
+    },
+    {
+      "key": "a9e20a78194c7222a06d4de9781ff5083e271226410637cdb83837bc6478b99a",
+      "job": {
+        "row_id": "ac-00005",
+        "track": "AC",
+        "baseline": 27,
+        "target": 26,
+        "seed_sha256": "4233a16d3b3247bf8f2830b8c1b3298df77b2111cbd5bfe8a96238cf7fe56696",
+        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
+          "memory_mib": 1024
+        },
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "a9e20a78194c7222a06d4de9781ff5083e271226410637cdb83837bc6478b99a"
+      },
+      "origin": "deterministic_code",
+      "finished_at": 1790807751.0951061,
+      "result_path": "runs/code_a9e20a78194c7222/worker_result.json",
+      "result_sha256": "7098cbeae641f58d2d0c0d1ec2e5e41ae7d16ac98b97af97ab6a6ca9794baf21",
+      "kind": "bounded_miss",
+      "summary": "No saved-baseline improvement found; best 27, target 26; bounded run ended depth_exhausted. No impossibility or live score claim.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "total_bridge_depth": 8
+      },
+      "reopen_when": {
+        "event": "new_exact_seed",
+        "row_id": "ac-00005"
+      }
     }
   ],
   "notifications": [
@@ -4978,7 +4991,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790807740.1975343,
+  "updated_at": 1790807751.0954683,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
