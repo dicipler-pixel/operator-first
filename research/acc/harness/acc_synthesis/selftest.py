@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run local fault tests. These do not call a model or validate real ACC routes."""
+"""Run fault tests and pinned replay controls. No model or network calls."""
 from pathlib import Path
 import sys
 import unittest

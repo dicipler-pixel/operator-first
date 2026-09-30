@@ -1,6 +1,6 @@
 {
   "name": "ACC Memory-First Harness",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "mode": "offline",
   "demo": false,
   "routing": {
@@ -10,9 +10,9 @@
   "dispatch_budget": {
     "total": 0,
     "per_role": {
-      "luna_memory": 0,
       "sol_builder": 0,
       "sol_checker": 0,
+      "luna_memory": 0,
       "astra_advisor": 0
     }
   },
@@ -39,7 +39,7 @@
     }
   },
   "limits": {
-    "worker_seconds": 240,
+    "worker_seconds": 900,
     "batch_seconds": 900,
     "max_tasks_per_run": 12,
     "max_repairs": 2,

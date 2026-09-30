@@ -1,0 +1,128 @@
+{
+  "admitted_records": 600000,
+  "generated_moves": 904295,
+  "collision_pairs": 185350,
+  "duplicate_or_dominated": 304504,
+  "replaced_labels": 0,
+  "length_pruned": 0,
+  "cost_pruned": 634,
+  "stale_queue_labels": 0,
+  "expanded_by_side_depth": [
+    [
+      103,
+      1212,
+      11566,
+      39064,
+      0
+    ],
+    [
+      104,
+      1202,
+      11342,
+      0,
+      0
+    ]
+  ],
+  "admitted_by_side_depth": [
+    [
+      105,
+      1233,
+      11833,
+      108376,
+      359922
+    ],
+    [
+      105,
+      1236,
+      11651,
+      105539,
+      0
+    ]
+  ],
+  "improvements": [],
+  "termination_reason": "node_cap",
+  "elapsed_seconds": 15.258116714001517,
+  "peak_rss_mib": 459.6875,
+  "unique_states_by_side": [
+    423703,
+    105539
+  ],
+  "latest_labels_by_side": [
+    481469,
+    118531
+  ],
+  "pending_by_side_depth": [
+    [
+      0,
+      0,
+      0,
+      69312,
+      359922
+    ],
+    [
+      0,
+      0,
+      0,
+      105539,
+      0
+    ]
+  ],
+  "partial_layer": {
+    "side": 0,
+    "depth": 3
+  },
+  "target_length": 31,
+  "best_length": 32,
+  "total_bridge_depth_cap": 8,
+  "per_side_depth_cap": 4,
+  "coverage_scope": "Only admitted exact labels and generated moves under caps; no impossibility claim.",
+  "row_id": "ac-00037",
+  "profile": "route-local",
+  "best_saved_length": 32,
+  "union_shortest_length": 32,
+  "union_states": 105,
+  "union_directed_edges": 222,
+  "saved_route_lengths": [
+    32,
+    32,
+    32,
+    33,
+    34
+  ],
+  "phase_seconds": {
+    "saved_union_and_replay": 0.0076758669965784065,
+    "fresh_search": 15.258116714001517
+  },
+  "limits": {
+    "wall_seconds": 180.0,
+    "node_cap": 600000,
+    "memory_mib": 1024,
+    "total_bridge_depth": 8
+  },
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "bridge_search.py",
+    "--row",
+    "ac-00037",
+    "--output-dir",
+    "runs/active_00037",
+    "--wall-seconds",
+    "180",
+    "--node-cap",
+    "600000",
+    "--profile",
+    "route-local",
+    "--depth",
+    "8",
+    "--target-length",
+    "31"
+  ],
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+  "route_source_sha256": "9ffa85c82623ae7675f86c23cbbe1c64fb43dc28ec9fe7675fd933b01fda2dcb",
+  "method_sha256": "d0f379e21d13f44fd57f3d05a5be76244572c46e60c2d5d84f62da396401cf39",
+  "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+  "live_score_claim": false,
+  "executed_method_path": "runs/active_00037/executed_bridge_search.py",
+  "postrun_metadata_note": "Executed source preserved byte-for-byte. Reusable CLI reopen condition subsequently changed to new_exact_seed; search semantics unchanged."
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "acc-continuation/1",
+  "stopped": false,
+  "active": {
+    "job": {
+      "row_id": "ac-00034",
+      "track": "AC",
+      "baseline": 44,
+      "target": 41,
+      "seed_sha256": "bc2df84804504ea95dbc700666e1ac7ba54bf3091d42c57a958299015541baa4",
+      "method_sha256": "83ba1aae847c148c7eb0fd214e7e2cb51bbe0ff0bf1ae83976f8183a486ecfc2",
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "depth": 8,
+        "profile": "route-local",
+        "memory_mib": 1024
+      },
+      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+      "key": "677063858da8fd7faf815479283f6ee5b50f2be643594bc139ab475d9a6c67e9"
+    },
+    "task_id": 3,
+    "lease_token": "be798f5a0c224b0abcee66ab36609a7e",
+    "expires_at": 1790778960.8975139,
+    "repo_head": "964bdce8c5611df1752ebbef1d36875a69811d4c",
+    "phase": "reserved",
+    "host_must_commit_before_execution": true
+  },
+  "attempts": [
+    {
+      "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
+      "job": {
+        "row_id": "ac-00037",
+        "track": "AC",
+        "baseline": 32,
+        "target": 31,
+        "seed_sha256": "5b683f21874f6c092ad127c4deb51021114a10ae95f7e4845c64c87de6ada3e3",
+        "method_sha256": "d0f379e21d13f44fd57f3d05a5be76244572c46e60c2d5d84f62da396401cf39",
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
+          "memory_mib": 1024
+        },
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11"
+      },
+      "origin": "one_authorized_sol_handoff",
+      "finished_at": 1790778319.46228,
+      "result_path": "runs/active_00037/worker_result.json",
+      "result_sha256": "6393ef17b007628c6e293e2bdfe9f2fdb8c8a71173d6929e698c91ce5b45f2ad",
+      "kind": "bounded_miss",
+      "summary": "No saved-baseline improvement found; best 32, target 31; bounded run ended node_cap. No impossibility or live score claim.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "total_bridge_depth": 8
+      },
+      "reopen_when": {
+        "event": "new_exact_seed",
+        "row_id": "ac-00037"
+      }
+    }
+  ],
+  "notifications": [],
+  "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
+  "model_dispatches_authorized_for_scheduled_batches": 0,
+  "updated_at": 1790778360.897908,
+  "initial_model_worker_launches": 1
+}

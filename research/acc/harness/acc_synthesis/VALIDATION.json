@@ -1,8 +1,8 @@
 {
   "date": "2026-09-30",
   "suite": {
-    "tests": 57,
-    "seconds": 1.761,
+    "tests": 68,
+    "seconds": 1.877,
     "passed": true
   },
   "demo": {
@@ -44,13 +44,13 @@
       "sol_checker"
     ]
   },
-  "live_models_tested": false,
+  "live_models_tested": true,
   "real_ACC_checker_tested": true,
-  "real_ACC_search_run": false,
+  "real_ACC_search_run": true,
   "submission_performed": false,
   "historical_ACC_fixtures_replayed": true,
-  "scope": "57 local tests, 63 frozen upstream conformance cases, exact replay of 25 recovered routes, and a bounded exact-loop-removal pass. No new route or submission. Model host clients remain unbound.",
-  "version": "1.3.0",
+  "scope": "68 local tests; unchanged pinned verifier previously passed 63 upstream checks and 25 archived routes. One real bounded bridge miss on ac-00037; one authorized Sol file handoff; model-worker dispatch now zero. No submission or live scoring claim.",
+  "version": "1.4.0",
   "cost_scope": "Persistent worker dispatch caps; code-first verification; no provider currency/token enforcement.",
   "intake": {
     "rows": 25,
