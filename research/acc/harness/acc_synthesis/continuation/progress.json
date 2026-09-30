@@ -28,33 +28,44 @@
     }
   ],
   "next": {
-    "status": "planned",
-    "job": {
-      "row_id": "ac-00011",
-      "track": "AC",
-      "helper": "bob",
-      "algorithm_id": "bob-cross-class-generator-transfer-v1",
-      "script": "helpers/bob_lane_v1.py",
-      "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
-      "inputs": {
-        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+    "status": "active",
+    "active": {
+      "job": {
+        "row_id": "ac-00003",
+        "track": "AC",
+        "helper": "named",
+        "algorithm_id": "named-exact-state-neighborhood-v1",
+        "script": "helpers/named_bridge_lane_v1.py",
+        "method_sha256": "1552796aaeda2e9bbb4644674011d20bc1b3bf95875ffdb6d60ba78c8eb3fc5a",
+        "inputs": {
+          "helpers/named_queries.json": "1b630a4af65a8ed75c0a6b952e300b3d9397b91e7b15ed5b84012707aaec9438",
+          "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz": "d6b28b5d8139402b18225c3fa404c831e75055a6195bdc6d3c720ebe0060f835",
+          "runs/kernel_revival/code_a7e9bffde8b90533/captured_input.json": "f89f5ff8f6484a2d3f3a1e690b3debcc31e7694b9c38ca726539f3e7c62e82ee"
+        },
+        "seed_sha256": "c79e30a493654b083fb4b97e778356514cd179cc1985b952ea8241e8401132da",
+        "baseline": 53,
+        "target": 40,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "query_identity": "447eaa98db282eaf3d93c9dc5bb5da0eeb67aae38406e5e2409fb5bb6f6b9d34",
+        "key": "a3d5edbec38b970488c70540dfab395aa830c9e8e13e492fed4af0318d3a0475"
       },
-      "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-      "baseline": null,
-      "target": 48,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "429ad3d52d961df6ecd7a51f2e82c34cbd1ec1b8f33e2608ea83e88bb218c6b6"
-    },
-    "remaining_jobs": 46
+      "task_id": 74,
+      "lease_token": "8a210ee5bf2c48df982a2b1593fdc602",
+      "expires_at": 1790802040.7876573,
+      "repo_head": "6f53c679d9d25da918c453a5d196ade5be7c891c",
+      "phase": "reserved",
+      "host_must_commit_before_execution": true
+    }
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 58
+      "completed": 58,
+      "running": 1
     },
     "unconnected_roles": [
       "luna_memory",
