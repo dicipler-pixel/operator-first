@@ -5,7 +5,8 @@ first 3-4 moves) found no 35, and our 43 road never climbs above 29, so shorteni
 
 **Charlie:** your running cap-36 BFS already covers every route whose total stays <= 36, including session 2's bumps at 35-36.
 The new piece is **bumps at 37-38**. Session 2's pass 1 has 150 bump states (D <= 3); the ones at 37 are a small subset. An exact capped
-descent from those states (cap 38, depth <= 35 - prefix) certifies them far cheaper than a full cap-38 BFS. If cap 36 exceeds the machine,
+descent from those states (cap 38, depth <= 35 - prefix) covers only the routes through them. It is a subset of a full cap-38 BFS,
+so it costs at most that and usually far less early on; say so if the frontier still blows up. If cap 36 exceeds the machine,
 run the 37-bump descents instead. The states come from `tools/acc/ops/song_climb.py 3 37 37 ...` (session 2 has the list).
 Then back to batch 7 as planned.
 
