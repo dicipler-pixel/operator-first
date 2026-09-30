@@ -4,4 +4,4 @@ Written by tools/acc/upgh on every claim and result. Rows below are being search
 
 - t00042: sac-05818, ac-09839 (method tail, seed None)
 - t00044: sac-08429 (method beam_p2, seed 101)
-- t00045: ac-04735, sac-04735 (method beam_free, seed 101)
+- t00046: sac-02528 (method beam_p2, seed 103)
