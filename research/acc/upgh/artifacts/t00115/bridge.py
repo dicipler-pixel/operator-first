@@ -8,7 +8,7 @@ TOKEN = '2f344389985971a605763f70'; STOPF = os.path.join(REPO, 'research/acc/upg
 INV = [0, 1, 3, 2, 5, 4, 7, 6, 9, 8, 11, 10, 13, 12]
 args = sys.argv[1:]; ROW = args[0]; K = int(args[1])
 def opt(n, d): return type(d)(args[args.index(n) + 1]) if n in args else d
-MAXST = opt('--maxst', 12000000); DEADLINE = opt('--deadline', 0.0); GMIN = opt('--gmin', 15); GMAX = opt('--gmax', 24); RMAX = opt('--rmax', 16)
+MAXST = opt('--maxst', 12000000); DEADLINE = opt('--deadline', 0.0); GMIN = opt('--gmin', 15); GMAX = opt('--gmax', 24); RMAX = opt('--rmax', 16); IMIN = opt('--imin', 0); IMAX = opt('--imax', 999); JMIN = opt('--jmin', 0); TAG = opt('--tag', '')
 _hb = [0.0]
 def hb():
     if time.time() - _hb[0] > 200:
@@ -70,11 +70,11 @@ def union(d, a, tag):
 def moves_to(d, state): return json.loads(run([BIN, 'path', d, state]).strip())
 
 elig = [i for i in range(3, L - 2) if tot(S[i]) <= K]      # both ends at least 3 moves from the route's ends
-pairs = [(i, j) for i in elig for j in elig if GMIN <= j - i <= GMAX]
+pairs = [(i, j) for i in elig for j in elig if GMIN <= j - i <= GMAX and IMIN <= i <= IMAX and j >= JMIN]
 pairs.sort(key=lambda p: (p[0], -(p[1] - p[0])))   # grouped by i (so ball i can be deleted afterwards), largest gap first within a group
 need = sorted({x for p in pairs for x in p})
-res = {'row': ROW, 'cap': K, 'route_len': L, 'over': OVER, 'maxst_ball': MAXST, 'rmax': RMAX, 'eligible_states': elig, 'n_pairs': len(pairs), 'balls': {}, 'pairs': [], 'shortened': []}
-out = os.path.join(ART, 'res_%s_K%d.json' % (ROW, K))
+res = {'row': ROW, 'cap': K, 'route_len': L, 'over': OVER, 'maxst_ball': MAXST, 'filter': {'imin': IMIN, 'imax': IMAX, 'jmin': JMIN, 'gmin': GMIN, 'gmax': GMAX}, 'rmax': RMAX, 'eligible_states': elig, 'n_pairs': len(pairs), 'balls': {}, 'pairs': [], 'shortened': []}
+out = os.path.join(ART, 'res_%s_K%d%s.json' % (ROW, K, TAG))
 def save(): res['wall_s'] = round(time.time() - t0, 1); json.dump(res, open(out, 'w'), indent=1)
 t0 = time.time(); print(ROW, 'cap', K, 'eligible', elig, 'pairs', len(pairs), flush=True)
 try:
