@@ -2,6 +2,5 @@
 
 Written by tools/acc/upgh on every claim and result. Rows below are being searched now; other lanes please skip them. The harness skips rows named in any WORKING_*.md committed in the last 6 hours.
 
-- t00097: ac-03774 (method beam_free, seed 101)
 - t00098: ac-03925, sac-03925 (method beam_free, seed 102)
 - t00100: ac-06540, sac-06540 (method beam_free, seed 101)
