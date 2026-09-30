@@ -179,6 +179,12 @@
    "radius": 16,
    "cum": 7659887,
    "stop": "finished"
+  },
+  "15": {
+   "tot": 32,
+   "radius": 16,
+   "cum": 6675472,
+   "stop": "finished"
   }
  },
  "pairs": [
@@ -979,8 +985,128 @@
    "states": 264864,
    "result": "CERTIFIED_NO_SHORTER_BRIDGE",
    "secs": 0.0
+  },
+  {
+   "i": 15,
+   "j": 37,
+   "gap": 22,
+   "target_T": 21,
+   "tot_i": 32,
+   "tot_j": 4,
+   "Ri": 16,
+   "Rj": 7,
+   "a": 15,
+   "b": 6,
+   "states": 4476776,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.3
+  },
+  {
+   "i": 15,
+   "j": 36,
+   "gap": 21,
+   "target_T": 20,
+   "tot_i": 32,
+   "tot_j": 5,
+   "Ri": 16,
+   "Rj": 7,
+   "a": 14,
+   "b": 6,
+   "states": 2972996,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.3
+  },
+  {
+   "i": 15,
+   "j": 35,
+   "gap": 20,
+   "target_T": 19,
+   "tot_i": 32,
+   "tot_j": 6,
+   "Ri": 16,
+   "Rj": 7,
+   "a": 13,
+   "b": 6,
+   "states": 2098415,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.3
+  },
+  {
+   "i": 15,
+   "j": 34,
+   "gap": 19,
+   "target_T": 18,
+   "tot_i": 32,
+   "tot_j": 7,
+   "Ri": 16,
+   "Rj": 7,
+   "a": 13,
+   "b": 5,
+   "states": 1500198,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.1
+  },
+  {
+   "i": 15,
+   "j": 33,
+   "gap": 18,
+   "target_T": 17,
+   "tot_i": 32,
+   "tot_j": 11,
+   "Ri": 16,
+   "Rj": 7,
+   "a": 12,
+   "b": 5,
+   "states": 990587,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.1
+  },
+  {
+   "i": 15,
+   "j": 32,
+   "gap": 17,
+   "target_T": 16,
+   "tot_i": 32,
+   "tot_j": 17,
+   "Ri": 16,
+   "Rj": 8,
+   "a": 11,
+   "b": 5,
+   "states": 611297,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.1
+  },
+  {
+   "i": 15,
+   "j": 31,
+   "gap": 16,
+   "target_T": 15,
+   "tot_i": 32,
+   "tot_j": 28,
+   "Ri": 16,
+   "Rj": 9,
+   "a": 9,
+   "b": 6,
+   "states": 296654,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.1
+  },
+  {
+   "i": 15,
+   "j": 30,
+   "gap": 15,
+   "target_T": 14,
+   "tot_i": 32,
+   "tot_j": 28,
+   "Ri": 16,
+   "Rj": 9,
+   "a": 8,
+   "b": 6,
+   "states": 128560,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.0
   }
  ],
  "shortened": [],
- "wall_s": 400.9
+ "wall_s": 410.2
 }
