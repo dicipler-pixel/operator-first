@@ -42,13 +42,13 @@ def _from_obj(obj, fallback_cid, depth=0):
     if not isinstance(obj, dict):
         return
     if depth < 4:
-        own = next((obj.get(k) for k in ("id", "row", "cid", "challenge_id")
+        own = next((obj.get(k) for k in ("id", "row", "row_id", "cid", "challenge_id")
                     if isinstance(obj.get(k), str) and CID.match(obj.get(k))), None)
         for v in obj.values():
             if isinstance(v, (dict, list)) and not _moves(v):
                 yield from _from_obj(v, own or fallback_cid, depth + 1)
     cid = None
-    for key in ("id", "row", "cid", "challenge_id"):
+    for key in ("id", "row", "row_id", "cid", "challenge_id"):
         v = obj.get(key)
         if isinstance(v, str) and CID.match(v):
             cid = v
