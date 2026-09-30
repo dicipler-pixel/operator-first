@@ -316,12 +316,90 @@
         "event": "higher_exact_cap_capacity",
         "row_id": "ac-00034"
       }
+    },
+    {
+      "key": "214dd8fe97c7d2dca649bde444b3aa23a9b3ddaa63cb54a2abf6a9c601ef8db8",
+      "job": {
+        "row_id": "ac-00034",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "6db9762dbb867b46978c1eec3f59d1c3a109d229996b47b54f7e7f6347327263",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "bc2df84804504ea95dbc700666e1ac7ba54bf3091d42c57a958299015541baa4",
+        "baseline": 44,
+        "target": 41,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "214dd8fe97c7d2dca649bde444b3aa23a9b3ddaa63cb54a2abf6a9c601ef8db8"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790786435.5036664,
+      "result_path": "runs/bob_revival/code_214dd8fe97c7d2dc/worker_result.json",
+      "result_sha256": "2386ca77d41ec5694d45af9d48865be007eaaad6815e96b2a5f0c41e6c4f98e7",
+      "kind": "bounded_miss",
+      "summary": "No improvement from the tested Bob cross-class transfers; saved baseline 44, target 41.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "reopen_when": {
+        "event": "new_exact_crossclass_seed",
+        "row_id": "ac-00034"
+      }
+    },
+    {
+      "key": "4eb202433b73a30dda920356c70e7edfd67e533bde965feebc351dc1d680bcd3",
+      "job": {
+        "row_id": "ac-00012",
+        "track": "AC",
+        "helper": "charlie",
+        "algorithm_id": "charlie-exact-cap-ladder-v1",
+        "script": "helpers/charlie_lane_v1.py",
+        "method_sha256": "b61c30eff96191be3cf3939916056b737269cdb2ebbd200c611917c6c222310f",
+        "inputs": {
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "080bbe88ccf41c29ce20ff672ca310011ecc7a906bb7c957d6401f53b8b6b177",
+        "baseline": 52,
+        "target": 47,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "4eb202433b73a30dda920356c70e7edfd67e533bde965feebc351dc1d680bcd3"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790786487.9501128,
+      "result_path": "runs/charlie_revival/code_4eb202433b73a30d/worker_result.json",
+      "result_sha256": "e0ec20d8bbec8fbffb04d89f10392770e718e70954abf6a4c699d74e875d86c8",
+      "kind": "bounded_miss",
+      "summary": "No saved-baseline improvement in bounded cap probe",
+      "gate": null,
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      },
+      "reopen_when": {
+        "event": "higher_exact_cap_capacity",
+        "row_id": "ac-00012"
+      }
     }
   ],
   "notifications": [],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790786217.4882114,
+  "updated_at": 1790786487.9504848,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,

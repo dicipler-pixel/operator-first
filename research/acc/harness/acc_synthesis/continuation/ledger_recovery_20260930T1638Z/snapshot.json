@@ -1,0 +1,50 @@
+{
+  "captured_at": "2026-09-30T16:38:25.128375+00:00",
+  "failure": "sqlite3.DatabaseError: database disk image is malformed",
+  "source_files": {
+    "ledger.sqlite3-wal": {
+      "bytes": 12392,
+      "sha256": "fc755ba956460bf23b0bd48947fcf76cc8dbaee1011e4694914b37c5949464db"
+    },
+    "ledger.sqlite3-shm": {
+      "bytes": 32768,
+      "sha256": "07349d3d7c9933c59a8c7b6d9a99f14b9f72f775788d4708bb4022c1d9ad0370"
+    },
+    "ledger.sqlite3": {
+      "bytes": 167936,
+      "sha256": "1e4cafc6f8f37fa25ad7a309463aa2379c0f9bac1a54550d8e911f19cda83e4f"
+    }
+  },
+  "portable_attempts": 8,
+  "portable_active": null,
+  "cause": "not established",
+  "repaired_at": "2026-09-30T16:39:41.631728+00:00",
+  "recovery": "new local database from unchanged portable checkpoint and preserved request contracts",
+  "restored_completed_attempts": 8,
+  "restored_worker_dispatch_reservations": 7,
+  "model_dispatch_cap": 0,
+  "negative_memory_preserved": true,
+  "active_tasks_restored": 0,
+  "queued_advisories_not_reconstructed": true,
+  "integrity_check": "ok",
+  "next_job": {
+    "row_id": "ac-00034",
+    "track": "AC",
+    "helper": "bob",
+    "algorithm_id": "bob-cross-class-generator-transfer-v1",
+    "script": "helpers/bob_lane_v1.py",
+    "method_sha256": "6db9762dbb867b46978c1eec3f59d1c3a109d229996b47b54f7e7f6347327263",
+    "inputs": {
+      "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+    },
+    "seed_sha256": "bc2df84804504ea95dbc700666e1ac7ba54bf3091d42c57a958299015541baa4",
+    "baseline": 44,
+    "target": 41,
+    "caps": {
+      "wall_seconds": 180,
+      "node_cap": 600000,
+      "memory_mib": 1024
+    },
+    "key": "214dd8fe97c7d2dca649bde444b3aa23a9b3ddaa63cb54a2abf6a9c601ef8db8"
+  }
+}
