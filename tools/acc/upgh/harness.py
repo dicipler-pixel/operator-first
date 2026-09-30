@@ -596,6 +596,9 @@ class Harness:
                 boards = self._boards(st)
                 strategy = self.cfg["default_strategy"]
                 cands = self._select_rows(st, boards, strategy)
+                if runner == "code":   # a code lane must not claim a row whose strategy needs an agent
+                    cands = [c for c in cands
+                             if self.cfg["methods"].get(c["strategy"]["method"], {}).get("runner") == "code"]
                 if not cands:
                     return None
                 tid = self._next_tid(st)
