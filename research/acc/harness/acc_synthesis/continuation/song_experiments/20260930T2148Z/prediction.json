@@ -1,0 +1,26 @@
+{
+  "recorded_before_execution": true,
+  "created_at": "2026-09-30T21:48:00Z",
+  "recipient": "UPGH",
+  "line": "The echo from the back is still talking to you",
+  "interpretation_grade": "H: a prompt to inspect reverse reachability, not a physical or mathematical theorem",
+  "row_id": "ac-00022",
+  "job_key": "7fd95e34a27222ce02993537148ea0845bec94d3be9b4449a335329f9b54a462",
+  "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+  "choice": "Row34's equivalent original probe is already closed, so use the declared fallback22. No checkpoint reset.",
+  "baseline": 56,
+  "pasted_target": 44,
+  "prediction": "No new route below56 before the unchanged600000-record bound is reached. A shorter independently replayed route falsifies this prediction even if it remains above44.",
+  "experiment": "Join exact paid prefixes and suffixes of row22's own saved roads using the original bidirectional fresh-bridge search. Reverse edges carry their frozen official inverse moves; prefix, bridge and suffix are fully charged.",
+  "bounds": {
+    "search_seconds": 180,
+    "memory_mib": 1024,
+    "records": 600000,
+    "total_bridge_depth": 8,
+    "profile": "route-local"
+  },
+  "success_gate": "Pinned official replay passes and length<56. Stale board cannot establish current score.",
+  "normal_work_continues": true,
+  "worker_dispatches": 0,
+  "no_new_automation": true
+}

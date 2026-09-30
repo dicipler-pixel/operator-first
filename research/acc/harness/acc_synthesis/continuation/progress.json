@@ -28,33 +28,38 @@
     }
   ],
   "next": {
-    "status": "planned",
-    "job": {
-      "row_id": "ac-00017",
-      "track": "AC",
-      "helper": "bob",
-      "algorithm_id": "bob-cross-class-generator-transfer-v1",
-      "script": "helpers/bob_lane_v1.py",
-      "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
-      "inputs": {
-        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+    "status": "active",
+    "active": {
+      "job": {
+        "row_id": "ac-00022",
+        "track": "AC",
+        "baseline": 56,
+        "target": 44,
+        "seed_sha256": "cddef9ac7f402b48f74b941a7ffbd5c62b1b55bc52ec59d85ce7ba9fd476cf55",
+        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
+          "memory_mib": 1024
+        },
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "7fd95e34a27222ce02993537148ea0845bec94d3be9b4449a335329f9b54a462"
       },
-      "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-      "baseline": null,
-      "target": 82,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "e1eeb044101d3b295a4bc7b03bcced0ede3134dc3ae3aa29cf3c82f9e90d8e9d"
-    },
-    "remaining_jobs": 22
+      "task_id": 101,
+      "lease_token": "976be262ee7841f8bbdde6380bd1ccca",
+      "expires_at": 1790805587.3954482,
+      "repo_head": "6537375110b0b5a98fdd80a171c55cabc436f6e3",
+      "phase": "reserved",
+      "host_must_commit_before_execution": true
+    }
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 85
+      "completed": 85,
+      "running": 1
     },
     "unconnected_roles": [
       "luna_memory",
