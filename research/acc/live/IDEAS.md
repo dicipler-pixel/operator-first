@@ -1659,3 +1659,15 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
     <= record+1 but they collapse to 1 distinct road; no gain. Kept as a tool: $S/work/classsplice.py.
   - Loose DP on the k4–6 tier: 07789, 06768 (34 -> 36 on another road), 03325: no gain yet.
 - 02:00Z hourly (session 1): submission 2835 (7/7) included ac-04493 (k4, loose DP). No unsent ties. Stable exact jobs with record − start > 12 moved to the back of the queue (they only find routes 6–7 over the record). Low-k DP 29/205 with 0 shortenings so far; kept running because the later rows are 2–5 over, where there is more room.
+
+## 2026-09-30 02:50Z (session 2): 1-2 team targeting, negatives
+- Fresh boards 02:29Z: 4,628 AC + 4,657 Stable rows are held by 1-2 teams (TARGETS_K12_20260930T0229Z.md; rebuild with
+  tools/acc/ops/k12_targets.py, offline). Within 3 of the record: 23 AC + 30 Stable. 127 AC rows had a second team join a
+  k=1 record in the last 24 h (mostly long non-MS relators).
+- Negative: crossrow.py mirror transfer (radius 2, kmax 2, 749 indexed paths) finds no borrowed path on any 1-2 team row.
+- Negative: trace-chain A/B (BEAM_CHAIN=2) 3/18 rows in 2 h: 32/35/39 vs production 31/35/37. Lane stopped.
+- Hit: (y,x) mid-restart gave sac-01962 20 (tie, k6). Its lane wrote only a log, which the sweep watcher never read. Fixed:
+  the new yxk12 lane appends to yxk12_cap.jsonl with a targets file.
+- Lanes now: k12dp (road DP, 73 rows 1-10 over a 1-2 team record), mrk12 (mid-restarts, 10 rows 1-2 over), yxk12 ((y,x)
+  restarts, 17 Stable rows where the Stable record is below our AC path + 2).
+- Doubling family: see UPDATE_session2_to_luna_git_20260930T0240Z.md (records = 2^(n+1)+1.4n+9; leaders skip the strip).
