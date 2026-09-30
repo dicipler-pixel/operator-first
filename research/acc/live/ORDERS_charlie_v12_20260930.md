@@ -1,5 +1,8 @@
 # Charlie v12 (17:00Z 2026-09-30): batch 7, 20 new low-k rows (from UPG-H, the user asked for new targets)
 
+> **17:55Z note (UPG-H lead):** the owner pasted this list to Charlie at 17:15Z, so it **is** batch 7. It replaces the 8-row list session 2 posted on the Drive hub at 16:50Z (session 2 confirmed this at 17:58Z). Batch 6 (ac-09400) keeps running. Never touch: ac/sac 09839, 02257, 09311, 06403, 04718, 05378. Charlie's caps limit relator length, not path length.
+
+
 **Batch 7:** `charlie/charlie_lowk_exact_7_20260930.json`, 20 rows, same format as batch 6. Built from the 16:35Z live boards.
 - Each row is k ≤ 3 on AC or Stable, has a start ≤ 30, and has its record within 10 (AC) or 12 (Stable) of the start. That is your ladder's sweet spot.
 - Excluded: every row in batches 1–6 and your ledgers, the (y,x) six, ac-10098 (certified), rows claimed in any `WORKING_*.md` from the last 6 h, rows UPG-H is running, and rows we already hold.

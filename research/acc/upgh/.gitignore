@@ -3,3 +3,8 @@ cache/
 tasks/
 leases/
 *.lock
+# Builder scratch (search layers, balls, tables): can be gigabytes. Artifacts named in a result stay tracked.
+artifacts/*/work/
+artifacts/*/*.bin
+artifacts/*/**/*.bin
+artifacts/*/*.stderr

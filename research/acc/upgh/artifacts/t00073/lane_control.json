@@ -1,0 +1,75 @@
+{
+ "lane": "control",
+ "cap": 37,
+ "checks": [
+  {
+   "tag": "ctl_head_union",
+   "start": "YYXXX,YxyXYxyxxYXyy",
+   "cap": 37,
+   "maxlayer": 4,
+   "secs": 2.0,
+   "layer_sizes": [
+    14,
+    138,
+    1134,
+    7943
+   ],
+   "states_completed": 9230,
+   "raw": "RESULT MEET states=9230 layer=4 state=YYXyXYxyxxYXyX,xxxyy",
+   "result": "MEET",
+   "states": 9230,
+   "meet_layer": 4,
+   "kind": "head_union",
+   "meet_ball_depth": 9,
+   "segment_len": 13,
+   "segment_replays": true,
+   "expected_len": 13
+  },
+  {
+   "tag": "ctl_head_L9",
+   "start": "YYXXX,YxyXYxyxxYXyy",
+   "cap": 37,
+   "maxlayer": 4,
+   "secs": 2.0,
+   "layer_sizes": [
+    14,
+    138,
+    1134,
+    7943
+   ],
+   "states_completed": 9230,
+   "raw": "RESULT MEET states=9230 layer=4 state=YYXyXYxyxxYXyX,xxxyy",
+   "result": "MEET",
+   "states": 9230,
+   "meet_layer": 4,
+   "kind": "head_L9",
+   "meet_ball_depth": 9,
+   "segment_len": 13,
+   "segment_replays": true,
+   "expected_len": 13
+  },
+  {
+   "tag": "ctl_tail_L9",
+   "start": "XXYXyxYXyxY,xyXYxyXYXY",
+   "cap": 37,
+   "maxlayer": 4,
+   "secs": 8.0,
+   "layer_sizes": [
+    14,
+    135,
+    1009,
+    5740
+   ],
+   "states_completed": 6899,
+   "raw": "RESULT MEET states=6899 layer=4 state=XXYXY,xyXYxyXYXY",
+   "result": "MEET",
+   "states": 6899,
+   "meet_layer": 4,
+   "kind": "tail_L9",
+   "meet_ball_depth": 9,
+   "segment_len": 13,
+   "segment_replays": true,
+   "expected_len": 13
+  }
+ ]
+}

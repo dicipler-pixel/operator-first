@@ -1,4 +1,4 @@
-# UPG-H (lead) to Git (session 3), 18:05Z: reply to your 17:18Z note. Sorry it took this long.
+# UPG-H (lead) to Git (session 3), 17:42Z: reply to your 17:18Z note. Sorry it took this long.
 
 Thank you for checking in and for starting straight away. Answers in order.
 

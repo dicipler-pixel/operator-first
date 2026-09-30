@@ -1,0 +1,581 @@
+# UPG-H (lead) to Bob, 2026-09-30T17:49Z: every distinct verified road the team holds on TARGETS_team section D rows with k<=2.
+# Each line replays ok on the independent UPG-H kernel (the official verifier agrees on all harvested paths). Starts: official manifest initial_relators, SAIR a0fd6e6.
+# Format: a comment with row, record, k, length and source file, then the move line. Shortest first; at most 12 per row.
+# sac-03272 record(sac-03272) 32 k 1 | length 33 | ACC_CANDIDATE_03272_20260926.txt
+sac-03272: [0, 1, 8, 5, 9, 10, 13, 5, 10, 4, 13, 13, 5, 11, 11, 5, 11, 13, 3, 7, 8, 6, 12, 4, 7, 9, 3, 3, 5, 5, 3, 16, 15]
+# ac-03272 record(sac-03272) 32 k 1 | length 31 | ACC_CANDIDATE_03272_20260926.txt
+ac-03272: [0, 1, 8, 5, 9, 10, 13, 5, 10, 4, 13, 13, 5, 11, 11, 5, 11, 13, 3, 7, 8, 6, 12, 4, 7, 9, 3, 3, 5, 5, 3]
+# sac-03871 record(sac-03871) 32 k 1 | length 34 | research/acc/live/charlie/charlie_surgery_bundle_20260929.json
+sac-03871: [1, 12, 4, 12, 11, 5, 8, 4, 8, 8, 7, 2, 10, 13, 11, 12, 5, 2, 8, 7, 8, 3, 7, 8, 2, 8, 5, 1, 4, 2, 4, 12, 15, 15]
+# ac-03871 record(sac-03871) 32 k 1 | length 31 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-03871: [1, 12, 4, 12, 11, 5, 8, 4, 13, 10, 6, 9, 3, 7, 8, 6, 9, 4, 13, 10, 8, 3, 1, 2, 0, 7, 8, 4, 2, 4, 2]
+# ac-03871 record(sac-03871) 32 k 1 | length 31 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03871: [1, 12, 4, 12, 11, 5, 8, 4, 6, 9, 13, 10, 3, 7, 8, 6, 9, 4, 1, 8, 7, 8, 2, 2, 0, 13, 10, 4, 2, 4, 2]
+# ac-03871 record(sac-03871) 32 k 1 | length 31 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03871: [1, 12, 4, 12, 11, 5, 8, 4, 6, 9, 7, 8, 3, 6, 9, 13, 10, 4, 8, 7, 1, 13, 2, 2, 0, 8, 10, 4, 2, 4, 2]
+# ac-03871 record(sac-03871) 32 k 1 | length 31 | research/acc/live/pool/session2_best_k1to3_20260930T0645Z.jsonl
+ac-03871: [1, 12, 4, 12, 11, 5, 13, 4, 8, 6, 9, 7, 3, 10, 8, 6, 9, 4, 13, 8, 10, 3, 1, 2, 0, 7, 8, 4, 2, 4, 2]
+# ac-03871 record(sac-03871) 32 k 1 | length 32 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-03871: [1, 12, 4, 12, 11, 5, 8, 4, 8, 8, 7, 2, 9, 10, 13, 6, 5, 11, 12, 0, 9, 3, 0, 6, 9, 5, 13, 3, 10, 4, 4, 2]
+# ac-03871 record(sac-03871) 32 k 1 | length 32 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-03871: [1, 12, 4, 12, 11, 5, 8, 4, 10, 13, 13, 0, 3, 10, 13, 9, 6, 2, 9, 6, 9, 5, 11, 12, 4, 12, 3, 0, 2, 4, 2, 8]
+# ac-03871 record(sac-03871) 32 k 1 | length 32 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-03871: [1, 12, 4, 12, 11, 5, 8, 4, 8, 8, 7, 2, 10, 13, 11, 12, 5, 2, 8, 7, 8, 3, 7, 8, 2, 8, 5, 3, 12, 4, 4, 2]
+# ac-03871 record(sac-03871) 32 k 1 | length 32 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03871: [1, 12, 4, 12, 11, 5, 8, 4, 8, 8, 7, 2, 10, 13, 11, 12, 5, 8, 7, 8, 7, 8, 2, 6, 9, 5, 13, 3, 10, 4, 4, 2]
+# ac-03871 record(sac-03871) 32 k 1 | length 33 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03871: [1, 12, 4, 6, 12, 5, 7, 8, 6, 4, 11, 13, 10, 12, 3, 9, 7, 8, 6, 4, 1, 7, 8, 13, 2, 2, 0, 13, 10, 4, 2, 4, 2]
+# ac-03871 record(sac-03871) 32 k 1 | length 33 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03871: [1, 12, 4, 6, 12, 5, 7, 8, 6, 4, 9, 7, 11, 13, 3, 8, 6, 9, 10, 4, 1, 8, 7, 8, 2, 2, 0, 13, 10, 4, 2, 4, 2]
+# ac-03871 record(sac-03871) 32 k 1 | length 34 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03871: [1, 12, 4, 6, 12, 5, 7, 8, 6, 4, 7, 8, 8, 2, 0, 7, 9, 6, 13, 4, 9, 11, 12, 3, 0, 6, 9, 5, 13, 3, 10, 4, 4, 2]
+# ac-03871 record(sac-03871) 32 k 1 | length 34 | research/acc/live/exchange/session3/picture/skel_dp_sweep.jsonl
+ac-03871: [0, 1, 12, 5, 6, 12, 4, 7, 8, 6, 5, 7, 13, 13, 3, 9, 6, 10, 13, 2, 9, 6, 9, 5, 11, 12, 4, 8, 10, 3, 0, 2, 4, 2]
+# ac-00975 record(ac-00975) 34 k 1 | length 35 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-00975: [1, 4, 11, 12, 11, 13, 10, 13, 13, 4, 3, 11, 13, 4, 11, 5, 8, 4, 3, 10, 12, 8, 6, 2, 6, 8, 5, 11, 4, 1, 13, 2, 2, 0, 5]
+# ac-00975 record(ac-00975) 34 k 1 | length 35 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-00975: [1, 4, 11, 12, 11, 13, 10, 0, 13, 13, 3, 7, 0, 9, 3, 7, 2, 12, 5, 8, 10, 12, 6, 4, 7, 9, 10, 3, 6, 2, 8, 11, 5, 3, 5]
+# ac-00975 record(ac-00975) 34 k 1 | length 35 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-00975: [1, 4, 11, 12, 11, 13, 10, 13, 13, 4, 3, 11, 13, 4, 11, 5, 8, 4, 3, 10, 8, 6, 12, 2, 6, 8, 5, 11, 4, 1, 13, 2, 2, 0, 5]
+# ac-00975 record(ac-00975) 34 k 1 | length 35 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-00975: [1, 4, 11, 12, 11, 13, 10, 13, 13, 4, 3, 11, 13, 4, 11, 5, 8, 4, 3, 8, 6, 10, 12, 2, 6, 8, 5, 11, 4, 1, 13, 2, 2, 0, 5]
+# sac-00975 record(ac-00975) 34 k 1 | length 37 | research/acc/live/charlie/charlie_surgery_bundle_20260929.json
+sac-00975: [1, 4, 11, 12, 11, 13, 10, 13, 13, 4, 3, 11, 13, 4, 11, 5, 8, 4, 3, 10, 12, 8, 6, 2, 6, 8, 5, 11, 4, 13, 3, 0, 4, 3, 3, 15, 15]
+# sac-00975 record(ac-00975) 34 k 1 | length 37 | research/acc/live/sweeps/c16ab_cap.jsonl
+sac-00975: [1, 4, 11, 12, 11, 13, 10, 13, 13, 4, 3, 11, 13, 4, 0, 11, 4, 8, 3, 12, 6, 10, 8, 2, 6, 11, 13, 5, 7, 4, 10, 12, 3, 5, 3, 15, 15]
+# sac-00975 record(ac-00975) 34 k 1 | length 37 | research/acc/live/sweeps/noise1600975_cap.jsonl
+sac-00975: [1, 4, 11, 12, 11, 13, 8, 8, 10, 2, 6, 6, 8, 0, 2, 7, 3, 9, 4, 13, 6, 10, 12, 3, 10, 9, 5, 7, 2, 5, 8, 6, 5, 5, 3, 15, 15]
+# sac-00975 record(ac-00975) 34 k 1 | length 37 | research/acc/live/sweeps/seed23_cap.jsonl
+sac-00975: [1, 4, 11, 12, 11, 13, 10, 8, 8, 2, 6, 6, 8, 0, 2, 7, 3, 9, 4, 13, 10, 6, 9, 3, 12, 7, 5, 10, 2, 5, 8, 6, 5, 5, 3, 15, 15]
+# sac-00975 record(ac-00975) 34 k 1 | length 37 | research/acc/live/sweeps/twinyx_cap.jsonl
+sac-00975: [1, 4, 11, 12, 11, 13, 10, 13, 13, 4, 3, 11, 13, 4, 11, 5, 8, 4, 3, 8, 6, 10, 12, 2, 6, 8, 5, 11, 4, 13, 3, 0, 4, 3, 3, 15, 15]
+# ac-04086 record(ac-04086) 34 k 1 | length 35 | ACC_CANDIDATE_04086_20260926.txt
+ac-04086: [8, 6, 8, 4, 4, 7, 4, 3, 12, 12, 10, 12, 4, 8, 11, 13, 3, 13, 13, 5, 1, 9, 9, 3, 13, 2, 13, 5, 3, 3, 3, 3, 3, 3, 3]
+# ac-04086 record(ac-04086) 34 k 1 | length 36 | research/acc/live/sweeps/session1/roads_latest.txt
+ac-04086: [8, 6, 8, 4, 4, 7, 4, 3, 12, 12, 10, 12, 4, 8, 8, 11, 3, 13, 13, 5, 1, 9, 9, 3, 13, 2, 13, 5, 9, 3, 3, 3, 3, 3, 3, 3]
+# ac-04086 record(ac-04086) 34 k 1 | length 37 | research/acc/live/sweeps/session1/roads_latest.txt
+ac-04086: [13, 11, 13, 4, 4, 7, 8, 4, 3, 10, 12, 4, 8, 6, 13, 13, 5, 11, 13, 13, 13, 2, 13, 13, 4, 13, 3, 1, 13, 5, 3, 3, 3, 3, 3, 3, 3]
+# ac-04086 record(ac-04086) 34 k 1 | length 37 | research/acc/upgh/artifacts/t00001/out.jsonl
+ac-04086: [13, 11, 13, 4, 4, 7, 8, 4, 3, 10, 12, 4, 8, 13, 6, 13, 5, 11, 13, 13, 13, 2, 13, 13, 4, 13, 3, 1, 13, 5, 3, 3, 3, 3, 3, 3, 3]
+# sac-04086 record(ac-04086) 34 k 1 | length 37 | ACC_CANDIDATE_04086_20260926.txt
+sac-04086: [8, 6, 8, 4, 4, 7, 4, 3, 12, 12, 10, 12, 4, 8, 11, 13, 3, 13, 13, 5, 1, 9, 9, 3, 13, 2, 13, 5, 3, 3, 3, 3, 3, 3, 3, 16, 15]
+# sac-04086 record(ac-04086) 34 k 1 | length 39 | research/acc/upgh/artifacts/t00001/out.jsonl
+sac-04086: [13, 11, 13, 4, 4, 7, 8, 4, 3, 10, 12, 4, 8, 13, 6, 13, 5, 11, 13, 13, 13, 2, 13, 13, 4, 13, 3, 1, 13, 5, 3, 3, 3, 3, 3, 3, 3, 16, 15]
+# sac-04086 record(ac-04086) 34 k 1 | length 39 | research/acc/upgh/artifacts/t00007/out.jsonl
+sac-04086: [13, 11, 13, 4, 4, 7, 8, 4, 3, 10, 12, 4, 8, 6, 13, 13, 5, 11, 13, 13, 13, 2, 13, 13, 4, 13, 3, 1, 13, 5, 3, 3, 3, 3, 3, 3, 3, 16, 15]
+# sac-08078 record(sac-08078) 34 k 1 | length 35 | research/acc/live/charlie/charlie_surgery_bundle_20260929.json
+sac-08078: [9, 12, 2, 5, 12, 4, 10, 12, 2, 5, 9, 4, 11, 13, 11, 13, 1, 8, 4, 9, 10, 3, 0, 2, 0, 9, 2, 7, 5, 1, 2, 5, 5, 15, 15]
+# sac-08078 record(sac-08078) 34 k 1 | length 35 | research/acc/live/sweeps/yxl_cap.jsonl
+sac-08078: [9, 12, 2, 5, 12, 4, 9, 10, 2, 5, 12, 4, 11, 13, 11, 13, 1, 8, 4, 10, 9, 3, 0, 2, 0, 9, 2, 7, 5, 1, 2, 5, 5, 15, 15]
+# ac-08078 record(sac-08078) 34 k 1 | length 33 | ACC_QUEUE_20260928T1718Z.txt
+ac-08078: [9, 12, 2, 5, 12, 4, 10, 12, 2, 5, 9, 4, 11, 13, 11, 13, 1, 8, 4, 10, 12, 3, 0, 2, 1, 9, 2, 8, 6, 8, 5, 5, 3]
+# ac-08031 record(ac-08031) 35 k 1 | length 35 | ACC_QUEUE_20260930T1736Z.txt
+ac-08031: [1, 2, 8, 8, 5, 10, 12, 12, 6, 3, 8, 8, 7, 8, 8, 3, 8, 8, 7, 2, 5, 9, 3, 9, 9, 6, 2, 12, 4, 2, 12, 4, 2, 2, 2]
+# ac-08031 record(ac-08031) 35 k 1 | length 36 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/inbox/20260929T2330Z_bob_best86.txt
+ac-08031: [3, 8, 8, 4, 12, 12, 2, 12, 10, 13, 8, 13, 13, 4, 3, 9, 6, 9, 9, 4, 3, 8, 5, 13, 10, 13, 4, 8, 2, 4, 4, 3, 3, 0, 2, 2]
+# ac-08031 record(ac-08031) 35 k 1 | length 36 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08031: [8, 12, 3, 8, 8, 4, 12, 12, 2, 8, 8, 10, 13, 4, 3, 9, 9, 9, 6, 4, 3, 13, 5, 13, 13, 10, 4, 8, 2, 4, 4, 3, 0, 2, 2, 2]
+# ac-08031 record(ac-08031) 35 k 1 | length 36 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08031: [8, 12, 3, 8, 8, 4, 12, 12, 2, 8, 10, 13, 13, 4, 3, 9, 9, 6, 9, 4, 3, 8, 5, 13, 13, 10, 4, 8, 2, 4, 4, 3, 0, 2, 2, 2]
+# ac-08031 record(ac-08031) 35 k 1 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-08031: [1, 2, 8, 8, 5, 10, 12, 12, 6, 3, 8, 8, 7, 8, 1, 8, 2, 8, 8, 7, 5, 1, 13, 4, 13, 13, 10, 5, 8, 3, 12, 5, 5, 2, 2, 2, 2]
+# ac-08031 record(ac-08031) 35 k 1 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08031: [1, 2, 8, 8, 6, 10, 5, 1, 12, 12, 2, 8, 8, 7, 8, 8, 2, 8, 8, 7, 5, 1, 13, 4, 13, 13, 10, 5, 8, 3, 12, 5, 5, 2, 2, 2, 2]
+# ac-08031 record(ac-08031) 35 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08031: [1, 2, 8, 8, 5, 10, 12, 12, 6, 3, 8, 8, 7, 8, 8, 3, 8, 8, 7, 8, 4, 12, 4, 12, 11, 12, 12, 9, 5, 8, 3, 12, 5, 5, 2, 2, 2, 2]
+# ac-08031 record(ac-08031) 35 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08031: [1, 2, 8, 8, 6, 10, 5, 12, 12, 3, 8, 8, 7, 8, 8, 3, 8, 8, 7, 8, 4, 9, 4, 8, 8, 13, 13, 10, 5, 9, 3, 12, 5, 5, 2, 2, 2, 2]
+# ac-08031 record(ac-08031) 35 k 1 | length 39 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08031: [1, 2, 8, 8, 6, 10, 5, 12, 1, 8, 12, 12, 2, 8, 7, 8, 8, 8, 2, 8, 7, 13, 5, 1, 13, 4, 13, 13, 10, 5, 8, 3, 12, 5, 5, 2, 2, 2, 2]
+# ac-08031 record(ac-08031) 35 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-08031: [1, 2, 8, 8, 5, 10, 12, 12, 6, 3, 8, 8, 7, 8, 8, 3, 8, 8, 7, 8, 4, 9, 4, 9, 12, 12, 9, 6, 5, 11, 12, 12, 12, 5, 2, 2, 4, 2, 2, 2]
+# ac-08031 record(ac-08031) 35 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08031: [1, 2, 8, 8, 6, 10, 5, 12, 8, 12, 12, 3, 8, 7, 8, 8, 8, 3, 8, 7, 8, 8, 4, 9, 4, 8, 13, 13, 13, 10, 5, 9, 3, 12, 5, 5, 2, 2, 2, 2]
+# ac-08031 record(ac-08031) 35 k 1 | length 40 | research/acc/live/exchange/session3/picture/skel_dp_sweep.jsonl
+ac-08031: [1, 2, 8, 8, 6, 10, 5, 12, 8, 12, 12, 3, 8, 7, 8, 8, 8, 3, 8, 7, 8, 8, 4, 9, 4, 1, 12, 11, 12, 12, 4, 12, 4, 3, 3, 5, 1, 2, 2, 2]
+# sac-08031 record(ac-08031) 35 k 1 | length 37 | ACC_QUEUE_20260929T0230Z.txt
+sac-08031: [3, 8, 8, 4, 12, 12, 2, 12, 10, 13, 8, 13, 13, 4, 3, 9, 6, 9, 9, 4, 3, 8, 5, 13, 10, 8, 4, 8, 2, 4, 8, 2, 4, 4, 4, 15, 15]
+# sac-08031 record(ac-08031) 35 k 1 | length 37 | research/acc/live/inbox/drive_import_20260930T1740Z.txt
+sac-08031: [1, 2, 8, 8, 5, 10, 12, 12, 6, 3, 8, 8, 7, 8, 8, 3, 8, 8, 7, 2, 5, 9, 3, 9, 9, 6, 2, 12, 4, 2, 12, 4, 2, 2, 2, 16, 15]
+# sac-08031 record(ac-08031) 35 k 1 | length 38 | research/acc/live/ledger/bob_paths_20260929T1330Z.txt
+sac-08031: [3, 8, 8, 4, 12, 12, 2, 12, 10, 13, 8, 13, 13, 4, 3, 9, 6, 9, 9, 4, 3, 8, 5, 13, 10, 13, 4, 8, 2, 4, 4, 3, 3, 0, 2, 2, 16, 15]
+# sac-08031 record(ac-08031) 35 k 1 | length 39 | research/acc/live/charlie/charlie_surgery_bundle_20260929.json
+sac-08031: [1, 2, 8, 8, 5, 10, 12, 12, 6, 3, 8, 8, 7, 8, 1, 8, 2, 8, 8, 7, 5, 1, 13, 4, 13, 13, 10, 5, 0, 8, 2, 4, 8, 2, 4, 4, 4, 15, 15]
+# sac-08031 record(ac-08031) 35 k 1 | length 39 | research/acc/live/sweeps/p2b_cap.jsonl
+sac-08031: [1, 2, 8, 8, 5, 10, 12, 12, 6, 3, 8, 8, 7, 8, 1, 8, 2, 8, 8, 7, 5, 1, 13, 4, 13, 13, 10, 5, 8, 3, 12, 5, 5, 2, 2, 2, 2, 16, 15]
+# sac-08031 record(ac-08031) 35 k 1 | length 40 | research/acc/live/sweeps/session1/roads_latest.txt
+sac-08031: [1, 2, 8, 8, 5, 10, 12, 12, 6, 3, 8, 8, 7, 8, 8, 3, 8, 8, 7, 13, 4, 9, 4, 13, 10, 13, 13, 0, 13, 4, 9, 2, 4, 2, 4, 4, 4, 6, 15, 15]
+# sac-08031 record(ac-08031) 35 k 1 | length 44 | research/acc/upgh/artifacts/t00003/out.jsonl
+sac-08031: [1, 2, 8, 8, 5, 10, 12, 12, 6, 3, 8, 8, 7, 0, 8, 13, 2, 9, 9, 9, 6, 9, 5, 13, 13, 10, 4, 8, 7, 8, 8, 8, 3, 9, 5, 8, 2, 8, 2, 4, 4, 4, 15, 15]
+# sac-02288 record(sac-02288) 38 k 1 | length 40 | research/acc/live/charlie/charlie_surgery_bundle_20260929.json
+sac-02288: [1, 4, 10, 10, 12, 5, 13, 4, 13, 13, 10, 2, 5, 0, 9, 9, 3, 6, 2, 9, 3, 6, 9, 10, 5, 7, 8, 12, 1, 11, 3, 12, 4, 4, 8, 2, 2, 4, 15, 15]
+# ac-02288 record(sac-02288) 38 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-02288: [1, 4, 10, 10, 12, 5, 13, 4, 13, 13, 1, 10, 5, 13, 13, 4, 10, 5, 0, 13, 5, 6, 10, 13, 3, 11, 12, 8, 10, 4, 9, 11, 3, 3, 5, 5, 3, 0]
+# ac-02288 record(sac-02288) 38 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-02288: [1, 4, 10, 10, 9, 5, 13, 4, 8, 13, 10, 1, 5, 13, 13, 4, 10, 5, 13, 4, 10, 13, 6, 0, 3, 11, 12, 8, 0, 7, 5, 8, 2, 2, 12, 4, 4, 2]
+# ac-02288 record(sac-02288) 38 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-02288: [0, 1, 5, 9, 10, 10, 4, 8, 5, 1, 13, 13, 10, 4, 13, 13, 5, 10, 4, 6, 13, 10, 5, 8, 3, 0, 7, 13, 11, 12, 5, 8, 2, 2, 12, 4, 4, 2]
+# ac-02288 record(sac-02288) 38 k 1 | length 38 | research/acc/live/ORDERS_git_production_20260930T0735Z.txt
+ac-02288: [1, 4, 10, 10, 12, 5, 13, 4, 13, 13, 1, 10, 5, 13, 13, 4, 10, 5, 13, 4, 10, 13, 0, 6, 3, 11, 12, 8, 7, 0, 3, 12, 5, 5, 8, 2, 4, 2]
+# ac-02288 record(sac-02288) 38 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-02288: [0, 1, 5, 10, 9, 10, 4, 8, 5, 1, 13, 13, 10, 4, 8, 13, 5, 9, 13, 10, 4, 13, 5, 6, 8, 10, 3, 0, 7, 13, 11, 12, 5, 8, 2, 2, 12, 4, 4, 2]
+# sac-02717 record(sac-02717) 38 k 1 | length 40 | research/acc/live/charlie/charlie_surgery_bundle_20260929.json
+sac-02717: [0, 12, 2, 5, 10, 3, 3, 11, 12, 12, 2, 0, 6, 2, 13, 13, 9, 7, 3, 1, 12, 4, 12, 10, 13, 11, 0, 2, 8, 5, 5, 5, 6, 10, 12, 2, 4, 4, 15, 15]
+# sac-02717 record(sac-02717) 38 k 1 | length 41 | research/acc/live/sweeps/yxl_cap.jsonl
+sac-02717: [6, 12, 5, 5, 12, 10, 12, 9, 6, 5, 12, 5, 11, 9, 4, 7, 13, 11, 12, 3, 12, 6, 8, 7, 2, 8, 5, 10, 13, 4, 0, 9, 11, 4, 12, 3, 5, 5, 1, 15, 15]
+# ac-02717 record(sac-02717) 38 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-02717: [6, 9, 5, 5, 8, 7, 13, 4, 12, 12, 1, 4, 10, 13, 13, 4, 12, 11, 5, 0, 8, 2, 8, 6, 9, 1, 7, 4, 12, 3, 3, 3, 6, 8, 10, 4, 2, 2]
+# ac-02717 record(sac-02717) 38 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-02717: [6, 9, 5, 5, 6, 9, 7, 4, 12, 12, 5, 10, 12, 6, 5, 12, 11, 4, 11, 13, 0, 7, 3, 8, 6, 9, 7, 4, 12, 3, 3, 3, 10, 6, 8, 4, 2, 2]
+# ac-02717 record(sac-02717) 38 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-02717: [0, 6, 9, 6, 10, 4, 4, 9, 5, 11, 12, 12, 10, 4, 12, 4, 12, 7, 11, 11, 5, 8, 3, 6, 9, 7, 8, 4, 9, 6, 10, 3, 3, 3, 8, 4, 2, 2]
+# ac-02717 record(sac-02717) 38 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-02717: [0, 6, 9, 6, 10, 4, 4, 9, 5, 11, 12, 12, 10, 4, 12, 4, 7, 12, 11, 11, 5, 8, 3, 6, 9, 7, 8, 4, 9, 6, 10, 3, 3, 3, 8, 4, 2, 2]
+# sac-06045 record(sac-06045) 38 k 1 | length 40 | research/acc/live/charlie/charlie_surgery_bundle_20260929.json
+sac-06045: [5, 12, 12, 12, 12, 0, 2, 6, 1, 13, 11, 5, 7, 9, 7, 2, 8, 8, 4, 10, 0, 12, 3, 6, 4, 10, 9, 5, 13, 11, 13, 2, 4, 4, 4, 4, 4, 3, 15, 15]
+# sac-06045 record(sac-06045) 38 k 1 | length 40 | research/acc/live/sweeps/session1/roads_latest.txt
+sac-06045: [5, 12, 12, 12, 12, 0, 2, 6, 1, 13, 11, 5, 7, 9, 7, 2, 8, 8, 4, 10, 12, 0, 3, 6, 4, 10, 9, 5, 13, 11, 13, 2, 4, 4, 4, 4, 4, 3, 15, 15]
+# sac-06045 record(sac-06045) 38 k 1 | length 41 | research/acc/live/sweeps/c16ab_cap.jsonl
+sac-06045: [1, 2, 5, 8, 8, 8, 8, 5, 10, 9, 7, 3, 11, 13, 11, 4, 12, 12, 2, 6, 13, 4, 13, 2, 13, 11, 8, 6, 0, 2, 1, 8, 5, 3, 3, 3, 13, 3, 5, 15, 15]
+# sac-06045 record(sac-06045) 38 k 1 | length 41 | research/acc/live/sweeps/cfgB06045_cap.jsonl
+sac-06045: [5, 12, 12, 12, 12, 0, 2, 6, 1, 13, 11, 5, 7, 9, 7, 2, 8, 8, 4, 10, 9, 2, 9, 4, 1, 12, 9, 7, 10, 4, 0, 9, 3, 5, 5, 5, 5, 11, 3, 16, 15]
+# sac-06045 record(sac-06045) 38 k 1 | length 42 | research/acc/live/ledger/crossrow_r2i2_sac_20260928.json
+sac-06045: [5, 12, 12, 12, 12, 0, 2, 6, 6, 8, 1, 5, 10, 10, 8, 2, 9, 9, 2, 7, 1, 4, 11, 8, 3, 8, 8, 6, 2, 6, 8, 5, 11, 8, 2, 4, 4, 4, 2, 0, 16, 15]
+# sac-06045 record(sac-06045) 38 k 1 | length 42 | research/acc/live/sweeps/cfgC06045_cap.jsonl
+sac-06045: [5, 12, 12, 12, 12, 0, 2, 6, 6, 8, 1, 5, 10, 8, 10, 2, 9, 9, 2, 7, 1, 4, 11, 8, 3, 8, 8, 6, 2, 6, 8, 5, 8, 6, 2, 2, 5, 3, 3, 5, 15, 15]
+# sac-06045 record(sac-06045) 38 k 1 | length 43 | research/acc/live/sweeps/session1/roads_latest.txt
+sac-06045: [5, 12, 12, 12, 12, 0, 2, 6, 6, 8, 1, 5, 10, 8, 10, 2, 9, 9, 2, 7, 1, 4, 11, 8, 3, 8, 8, 6, 2, 0, 6, 8, 4, 11, 13, 3, 6, 5, 5, 5, 3, 16, 15]
+# sac-06045 record(sac-06045) 38 k 1 | length 46 | research/acc/live/sweeps/cfgA06045_cap.jsonl
+sac-06045: [0, 4, 12, 12, 12, 12, 2, 1, 6, 6, 8, 5, 8, 10, 10, 2, 9, 9, 2, 7, 1, 4, 8, 11, 1, 2, 8, 11, 1, 13, 4, 3, 9, 7, 2, 9, 7, 5, 3, 0, 2, 2, 4, 1, 15, 15]
+# sac-06045 record(sac-06045) 38 k 1 | length 46 | research/acc/live/sweeps/cfgD06045_cap.jsonl
+sac-06045: [5, 12, 12, 12, 12, 0, 2, 6, 1, 13, 11, 5, 8, 8, 7, 2, 9, 9, 0, 3, 10, 9, 7, 4, 6, 8, 3, 8, 3, 8, 10, 12, 6, 2, 13, 11, 3, 7, 5, 9, 2, 4, 4, 3, 15, 15]
+# sac-06045 record(sac-06045) 38 k 1 | length 53 | research/acc/live/charlie/cutchain_lines_sac.txt
+sac-06045: [8, 8, 8, 8, 12, 12, 12, 12, 5, 6, 12, 12, 12, 12, 10, 5, 10, 2, 9, 9, 11, 13, 13, 4, 0, 13, 13, 3, 6, 8, 13, 11, 4, 6, 8, 3, 8, 8, 6, 2, 6, 8, 5, 8, 11, 2, 4, 4, 4, 2, 0, 16, 15]
+# ac-06045 record(sac-06045) 38 k 1 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-06045: [5, 12, 12, 12, 12, 1, 4, 10, 0, 10, 9, 2, 12, 7, 4, 12, 12, 2, 5, 6, 12, 5, 12, 10, 2, 8, 2, 6, 13, 3, 9, 5, 5, 5, 5, 5, 3]
+# ac-06045 record(sac-06045) 38 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-06045: [1, 6, 10, 4, 12, 0, 6, 12, 5, 7, 7, 9, 2, 7, 12, 4, 12, 12, 2, 5, 6, 12, 5, 12, 10, 2, 8, 2, 6, 13, 3, 6, 5, 5, 5, 5, 5, 3]
+# ac-06045 record(sac-06045) 38 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-06045: [1, 2, 5, 8, 8, 8, 8, 5, 10, 9, 7, 3, 11, 13, 11, 4, 12, 12, 2, 6, 1, 8, 5, 10, 2, 6, 13, 3, 9, 7, 9, 2, 5, 5, 5, 5, 5, 3]
+# ac-06045 record(sac-06045) 38 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-06045: [0, 1, 6, 10, 5, 6, 12, 12, 5, 7, 7, 9, 2, 7, 12, 4, 12, 12, 2, 5, 6, 12, 5, 12, 10, 2, 8, 2, 6, 13, 3, 6, 5, 5, 5, 5, 5, 3]
+# ac-06045 record(sac-06045) 38 k 1 | length 39 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-06045: [5, 12, 12, 12, 12, 0, 2, 6, 1, 13, 11, 5, 7, 9, 7, 2, 8, 8, 4, 10, 9, 2, 9, 4, 1, 12, 9, 7, 10, 4, 0, 9, 3, 5, 5, 5, 5, 11, 3]
+# ac-06045 record(sac-06045) 38 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-06045: [5, 12, 12, 12, 12, 0, 2, 6, 6, 8, 2, 5, 1, 13, 6, 6, 5, 11, 8, 11, 4, 10, 12, 4, 12, 2, 12, 10, 1, 9, 12, 7, 2, 13, 4, 2, 4, 1, 5, 3]
+# ac-06045 record(sac-06045) 38 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-06045: [1, 2, 5, 8, 8, 8, 8, 5, 10, 9, 7, 3, 11, 13, 11, 4, 12, 12, 2, 6, 8, 1, 5, 1, 10, 3, 6, 13, 2, 9, 1, 7, 9, 2, 5, 5, 5, 5, 5, 3]
+# ac-06045 record(sac-06045) 38 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-06045: [5, 12, 12, 12, 12, 0, 2, 6, 6, 8, 1, 5, 10, 8, 10, 2, 9, 9, 2, 7, 1, 4, 11, 8, 3, 8, 8, 6, 2, 6, 8, 5, 8, 11, 2, 4, 4, 4, 2, 0]
+# ac-06045 record(sac-06045) 38 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-06045: [5, 12, 12, 12, 12, 0, 2, 6, 6, 8, 1, 5, 10, 10, 8, 2, 9, 9, 2, 7, 1, 4, 11, 8, 3, 8, 8, 6, 2, 6, 8, 5, 11, 8, 2, 4, 4, 4, 2, 0]
+# ac-06045 record(sac-06045) 38 k 1 | length 41 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-06045: [5, 12, 12, 12, 12, 1, 4, 10, 0, 10, 9, 2, 12, 12, 12, 10, 2, 5, 11, 12, 12, 10, 5, 12, 10, 2, 11, 13, 4, 8, 2, 6, 13, 3, 6, 5, 5, 5, 5, 5, 3]
+# ac-06045 record(sac-06045) 38 k 1 | length 41 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-06045: [1, 6, 10, 4, 12, 0, 6, 12, 3, 8, 6, 11, 5, 1, 7, 8, 10, 3, 9, 9, 3, 7, 4, 8, 11, 3, 8, 8, 6, 2, 6, 8, 5, 11, 13, 2, 0, 5, 5, 5, 3]
+# ac-06045 record(sac-06045) 38 k 1 | length 41 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-06045: [0, 1, 6, 10, 5, 6, 12, 12, 3, 8, 6, 6, 5, 1, 7, 7, 8, 3, 9, 9, 3, 7, 4, 8, 11, 3, 8, 8, 6, 2, 6, 8, 5, 11, 13, 2, 0, 5, 5, 5, 3]
+# ac-00145 record(ac-00145) 39 k 1 | length 40 | ACC_CANDIDATE_00145_20260926.txt
+ac-00145: [6, 4, 12, 4, 1, 12, 5, 11, 12, 5, 13, 5, 13, 5, 13, 5, 13, 5, 13, 5, 11, 7, 8, 2, 8, 5, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0]
+# ac-00145 record(ac-00145) 39 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-00145: [6, 4, 12, 4, 12, 1, 5, 11, 12, 5, 13, 5, 13, 5, 13, 5, 13, 5, 13, 5, 11, 7, 8, 2, 8, 5, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0]
+# ac-00145 record(ac-00145) 39 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-00145: [6, 4, 12, 4, 1, 12, 5, 11, 12, 5, 13, 5, 13, 5, 13, 5, 13, 5, 13, 5, 11, 13, 10, 0, 3, 8, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+# ac-00145 record(ac-00145) 39 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-00145: [0, 6, 5, 12, 5, 12, 1, 4, 11, 12, 4, 13, 4, 13, 4, 13, 4, 13, 4, 13, 4, 11, 13, 10, 3, 8, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+# ac-00145 record(ac-00145) 39 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-00145: [6, 4, 12, 4, 12, 1, 5, 11, 12, 5, 13, 5, 13, 5, 13, 5, 13, 5, 13, 5, 11, 13, 10, 0, 3, 8, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+# ac-00145 record(ac-00145) 39 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-00145: [6, 4, 12, 4, 1, 12, 5, 11, 9, 5, 8, 5, 13, 5, 13, 5, 13, 5, 13, 5, 11, 13, 10, 0, 3, 8, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+# ac-00145 record(ac-00145) 39 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-00145: [0, 6, 5, 9, 5, 12, 1, 4, 12, 11, 4, 8, 4, 13, 4, 13, 4, 13, 4, 13, 4, 11, 13, 10, 3, 8, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+# ac-00145 record(ac-00145) 39 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-00145: [6, 4, 12, 4, 12, 1, 5, 11, 9, 5, 13, 5, 13, 5, 13, 5, 13, 5, 8, 5, 11, 7, 8, 2, 8, 5, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0]
+# ac-00145 record(ac-00145) 39 k 1 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-00145: [0, 6, 5, 9, 5, 1, 12, 4, 12, 11, 4, 8, 4, 13, 4, 13, 4, 13, 4, 13, 4, 11, 13, 10, 3, 8, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+# ac-00145 record(ac-00145) 39 k 1 | length 42 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-00145: [6, 4, 12, 4, 12, 2, 5, 7, 0, 13, 2, 9, 2, 9, 2, 9, 2, 12, 2, 12, 4, 3, 7, 8, 11, 2, 8, 5, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 2, 2]
+# ac-00145 record(ac-00145) 39 k 1 | length 47 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-00145: [6, 4, 12, 4, 12, 4, 12, 11, 5, 11, 12, 5, 11, 12, 10, 4, 12, 4, 12, 4, 12, 4, 12, 4, 12, 4, 12, 4, 12, 11, 0, 2, 8, 1, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+# ac-00145 record(ac-00145) 39 k 1 | length 50 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-00145: [6, 4, 12, 4, 12, 4, 12, 11, 11, 12, 8, 4, 11, 12, 10, 12, 4, 12, 4, 12, 4, 12, 4, 12, 4, 12, 11, 7, 4, 6, 2, 9, 12, 5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+# sac-00145 record(ac-00145) 39 k 1 | length 42 | ACC_CANDIDATE_00145_20260926.txt
+sac-00145: [6, 4, 12, 4, 12, 2, 5, 7, 0, 8, 2, 9, 2, 9, 2, 9, 2, 9, 2, 9, 2, 7, 9, 6, 5, 12, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 15, 15]
+# sac-00145 record(ac-00145) 39 k 1 | length 42 | research/acc/live/ledger/crossrow_r2i2_sac_20260928.json
+sac-00145: [6, 4, 12, 4, 1, 12, 5, 11, 12, 5, 13, 5, 13, 5, 13, 5, 13, 5, 13, 5, 11, 7, 8, 2, 8, 5, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 16, 15]
+# sac-00145 record(ac-00145) 39 k 1 | length 42 | research/acc/live/ledger/crossrow_roads_sac_20260928.json
+sac-00145: [0, 6, 5, 12, 5, 12, 1, 4, 11, 12, 4, 13, 4, 13, 4, 13, 4, 13, 4, 13, 4, 11, 13, 10, 3, 8, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 16, 15]
+# sac-00145 record(ac-00145) 39 k 1 | length 75 | research/acc/live/charlie/cutchain_lines_sac.txt
+sac-00145: [0, 8, 11, 11, 4, 8, 12, 10, 4, 1, 9, 11, 4, 12, 10, 4, 1, 11, 4, 1, 12, 4, 9, 12, 10, 4, 12, 12, 4, 1, 6, 8, 13, 5, 7, 11, 13, 4, 9, 12, 4, 1, 12, 4, 1, 12, 4, 1, 12, 4, 1, 12, 4, 1, 12, 4, 9, 12, 4, 6, 13, 10, 5, 12, 3, 8, 4, 2, 2, 2, 2, 2, 2, 16, 15]
+# ac-10098 record(ac-10098) 40 k 1 | length 41 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/inbox/20260929T2330Z_bob_best86.txt
+ac-10098: [6, 9, 10, 4, 11, 13, 10, 13, 13, 11, 12, 12, 12, 12, 5, 1, 12, 11, 12, 10, 5, 9, 3, 7, 8, 6, 9, 4, 13, 3, 3, 0, 2, 9, 5, 3, 3, 3, 3, 3, 1]
+# ac-10098 record(ac-10098) 40 k 1 | length 41 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-10098: [6, 9, 7, 4, 13, 10, 13, 13, 11, 12, 6, 12, 12, 12, 5, 1, 12, 11, 12, 10, 5, 9, 3, 7, 8, 6, 9, 4, 13, 3, 3, 0, 2, 9, 5, 1, 2, 2, 2, 2, 2]
+# ac-10098 record(ac-10098) 40 k 1 | length 41 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-10098: [6, 9, 7, 4, 6, 13, 10, 13, 13, 11, 12, 12, 12, 12, 5, 1, 12, 11, 12, 10, 5, 9, 3, 7, 8, 6, 9, 4, 13, 3, 3, 0, 2, 9, 5, 1, 2, 2, 2, 2, 2]
+# ac-10098 record(ac-10098) 40 k 1 | length 41 | research/acc/live/pool/session2_best_k1to3_20260930T0645Z.jsonl
+ac-10098: [10, 12, 11, 2, 5, 8, 8, 7, 8, 3, 6, 9, 12, 7, 2, 13, 10, 6, 13, 1, 13, 4, 11, 12, 10, 13, 0, 2, 9, 5, 5, 1, 4, 8, 5, 2, 2, 2, 2, 2, 2]
+# ac-10098 record(ac-10098) 40 k 1 | length 42 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-10098: [6, 9, 7, 4, 13, 10, 13, 13, 11, 12, 6, 12, 12, 12, 5, 1, 12, 11, 12, 10, 5, 12, 3, 9, 7, 8, 6, 4, 13, 3, 3, 0, 2, 1, 9, 9, 4, 2, 2, 2, 2, 2]
+# ac-10098 record(ac-10098) 40 k 1 | length 44 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-10098: [6, 9, 7, 4, 13, 10, 13, 13, 11, 12, 12, 6, 12, 12, 5, 7, 12, 11, 1, 12, 5, 10, 6, 12, 3, 9, 7, 8, 6, 4, 13, 3, 3, 0, 2, 1, 9, 9, 4, 2, 2, 2, 2, 2]
+# sac-10098 record(ac-10098) 40 k 1 | length 43 | research/acc/live/charlie/charlie_surgery_bundle_20260929.json
+sac-10098: [6, 9, 7, 4, 13, 10, 13, 13, 11, 12, 6, 12, 12, 12, 5, 12, 1, 11, 12, 10, 5, 12, 3, 9, 7, 8, 6, 4, 13, 3, 3, 0, 2, 9, 3, 4, 4, 4, 4, 4, 4, 15, 15]
+# ac-08995 record(ac-08995) 45 k 1 | length 46 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-08995: [12, 12, 8, 6, 8, 7, 7, 2, 5, 9, 9, 10, 5, 8, 10, 2, 8, 2, 7, 8, 1, 4, 3, 12, 11, 9, 7, 5, 8, 3, 6, 9, 7, 8, 4, 9, 3, 3, 6, 8, 10, 4, 2, 2, 2, 2]
+# ac-08995 record(ac-08995) 45 k 1 | length 46 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-08995: [8, 6, 8, 7, 12, 12, 7, 2, 5, 9, 10, 12, 5, 13, 10, 2, 8, 2, 7, 8, 1, 4, 3, 12, 9, 5, 7, 8, 6, 3, 9, 7, 8, 11, 4, 10, 9, 6, 3, 3, 8, 4, 2, 2, 2, 2]
+# ac-08995 record(ac-08995) 45 k 1 | length 46 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-08995: [8, 6, 8, 7, 12, 7, 12, 2, 5, 10, 9, 9, 5, 8, 10, 2, 8, 2, 7, 1, 8, 4, 3, 9, 12, 5, 7, 8, 6, 3, 9, 7, 8, 11, 4, 10, 9, 6, 3, 3, 8, 4, 2, 2, 2, 2]
+# ac-08995 record(ac-08995) 45 k 1 | length 46 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08995: [8, 6, 8, 7, 7, 9, 9, 2, 5, 12, 12, 10, 5, 1, 8, 10, 3, 8, 3, 7, 8, 4, 3, 9, 7, 12, 11, 5, 8, 3, 6, 9, 7, 8, 4, 9, 6, 10, 3, 3, 8, 4, 2, 2, 2, 2]
+# ac-08995 record(ac-08995) 45 k 1 | length 46 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08995: [8, 6, 8, 7, 7, 9, 12, 2, 5, 9, 12, 10, 5, 1, 8, 10, 3, 8, 3, 7, 8, 4, 3, 9, 7, 12, 11, 5, 8, 3, 6, 9, 7, 8, 4, 9, 6, 10, 3, 3, 8, 4, 2, 2, 2, 2]
+# ac-08995 record(ac-08995) 45 k 1 | length 47 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-08995: [12, 12, 8, 6, 8, 7, 7, 2, 5, 9, 9, 10, 5, 8, 10, 2, 8, 2, 7, 0, 13, 2, 8, 0, 8, 3, 7, 11, 12, 5, 10, 13, 11, 12, 2, 8, 5, 0, 2, 5, 8, 4, 6, 2, 2, 2, 2]
+# ac-08995 record(ac-08995) 45 k 1 | length 47 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08995: [8, 6, 8, 7, 12, 12, 7, 2, 5, 9, 10, 12, 5, 13, 10, 2, 8, 2, 7, 8, 0, 2, 13, 0, 8, 3, 11, 12, 10, 5, 13, 11, 7, 12, 2, 8, 5, 0, 2, 5, 8, 4, 6, 2, 2, 2, 2]
+# ac-08995 record(ac-08995) 45 k 1 | length 47 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08995: [8, 6, 8, 7, 12, 12, 7, 2, 5, 9, 9, 10, 5, 10, 8, 2, 8, 2, 7, 8, 0, 2, 8, 13, 0, 3, 7, 11, 12, 5, 10, 13, 11, 12, 2, 8, 5, 1, 4, 12, 3, 3, 4, 2, 2, 2, 10]
+# ac-08995 record(ac-08995) 45 k 1 | length 47 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08995: [8, 6, 8, 7, 7, 9, 9, 2, 5, 12, 12, 10, 5, 8, 10, 2, 8, 2, 0, 7, 8, 2, 0, 8, 7, 13, 11, 3, 0, 9, 4, 8, 6, 9, 13, 10, 3, 8, 4, 2, 5, 8, 4, 2, 2, 2, 2]
+# ac-08995 record(ac-08995) 45 k 1 | length 49 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08995: [8, 6, 8, 7, 12, 12, 7, 2, 5, 9, 10, 12, 5, 13, 10, 2, 8, 2, 7, 1, 0, 13, 3, 8, 0, 8, 2, 7, 11, 1, 12, 5, 10, 13, 11, 12, 2, 8, 5, 0, 2, 5, 8, 4, 6, 2, 2, 2, 2]
+# ac-08995 record(ac-08995) 45 k 1 | length 55 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08995: [8, 6, 8, 7, 12, 12, 7, 2, 5, 10, 12, 12, 5, 12, 11, 7, 12, 0, 10, 2, 6, 9, 1, 2, 9, 11, 7, 13, 9, 2, 6, 9, 10, 3, 11, 7, 12, 1, 4, 8, 13, 6, 9, 10, 3, 8, 2, 5, 3, 8, 4, 2, 2, 2, 2]
+# sac-08995 record(ac-08995) 45 k 1 | length 48 | research/acc/live/charlie/charlie_surgery_bundle_20260929.json
+sac-08995: [8, 6, 8, 7, 12, 12, 7, 2, 5, 9, 10, 12, 5, 13, 10, 2, 8, 2, 7, 8, 0, 2, 13, 0, 8, 3, 11, 12, 10, 5, 13, 11, 7, 12, 2, 6, 13, 10, 5, 5, 12, 2, 4, 4, 4, 4, 15, 15]
+# sac-08995 record(ac-08995) 45 k 1 | length 48 | research/acc/live/ledger/crossrow_r2i2_sac_20260928.json
+sac-08995: [8, 6, 8, 7, 12, 12, 7, 2, 5, 9, 10, 12, 5, 13, 10, 2, 8, 2, 7, 8, 1, 4, 3, 12, 9, 5, 7, 8, 6, 3, 9, 7, 8, 11, 4, 10, 9, 6, 3, 3, 8, 4, 2, 2, 2, 2, 16, 15]
+# sac-08995 record(ac-08995) 45 k 1 | length 48 | research/acc/live/sweeps/codex_sac08995_mid20_variants_20260928.jsonl
+sac-08995: [12, 12, 8, 6, 8, 7, 7, 2, 5, 9, 9, 10, 5, 8, 10, 2, 8, 2, 7, 0, 8, 2, 0, 8, 13, 3, 11, 7, 12, 5, 10, 13, 11, 12, 2, 13, 5, 5, 6, 10, 12, 2, 4, 4, 4, 4, 15, 15]
+# sac-08995 record(ac-08995) 45 k 1 | length 48 | research/acc/live/sweeps/codex_sac08995_mid20_variants_20260928.jsonl
+sac-08995: [12, 12, 8, 6, 8, 7, 7, 2, 5, 9, 9, 10, 5, 8, 10, 2, 8, 2, 7, 0, 8, 2, 0, 8, 13, 3, 11, 12, 10, 5, 13, 11, 7, 12, 2, 13, 5, 5, 6, 10, 12, 2, 4, 4, 4, 4, 15, 15]
+# sac-08995 record(ac-08995) 45 k 1 | length 48 | research/acc/live/sweeps/codex_sac08995_mid29_yx_20260928.jsonl
+sac-08995: [12, 12, 8, 6, 8, 7, 7, 2, 5, 9, 9, 10, 5, 8, 10, 2, 8, 2, 7, 0, 13, 2, 8, 0, 8, 3, 7, 11, 12, 5, 10, 13, 11, 12, 2, 13, 5, 5, 6, 10, 12, 2, 4, 4, 4, 4, 15, 15]
+# sac-08995 record(ac-08995) 45 k 1 | length 48 | research/acc/live/sweeps/codex_sac08995_yx2_W20000_20260928.jsonl
+sac-08995: [12, 8, 6, 8, 7, 7, 12, 2, 5, 9, 9, 10, 5, 10, 8, 2, 8, 2, 7, 13, 0, 2, 8, 8, 0, 3, 7, 11, 12, 5, 10, 13, 11, 12, 2, 8, 5, 1, 4, 12, 3, 5, 5, 5, 5, 1, 15, 15]
+# sac-08995 record(ac-08995) 45 k 1 | length 48 | research/acc/live/sweeps/codex_sac08995_yx_W20000_20260928.jsonl
+sac-08995: [8, 6, 8, 7, 12, 12, 7, 2, 5, 9, 9, 10, 5, 8, 10, 2, 8, 2, 7, 0, 8, 2, 13, 8, 0, 3, 11, 7, 12, 5, 10, 13, 11, 12, 2, 13, 5, 5, 6, 10, 12, 2, 4, 4, 4, 4, 15, 15]
+# sac-08995 record(ac-08995) 45 k 1 | length 48 | research/acc/live/sweeps/codex_sac08995_yx_W40000_20260929.jsonl
+sac-08995: [8, 6, 8, 7, 12, 12, 7, 2, 5, 9, 9, 10, 5, 8, 10, 2, 8, 2, 7, 0, 8, 2, 0, 8, 13, 3, 11, 7, 12, 5, 10, 13, 11, 12, 2, 13, 5, 5, 6, 10, 12, 2, 4, 4, 4, 4, 15, 15]
+# sac-08995 record(ac-08995) 45 k 1 | length 57 | research/acc/live/sweeps/session1/roads_latest.txt
+sac-08995: [8, 6, 8, 7, 12, 12, 7, 2, 5, 10, 12, 12, 5, 12, 11, 7, 12, 0, 10, 2, 6, 9, 1, 2, 9, 11, 7, 13, 9, 2, 6, 9, 10, 3, 11, 7, 12, 1, 4, 8, 13, 6, 9, 10, 3, 8, 2, 5, 3, 8, 4, 2, 2, 2, 2, 16, 15]
+# ac-03714 record(ac-03714) 50 k 1 | length 51 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-03714: [1, 4, 10, 10, 4, 10, 13, 4, 10, 10, 13, 4, 8, 13, 4, 7, 8, 3, 12, 12, 11, 11, 12, 11, 2, 10, 4, 10, 13, 5, 11, 5, 1, 12, 4, 6, 9, 5, 6, 9, 4, 8, 2, 7, 8, 3, 4, 4, 4, 4, 2]
+# ac-03714 record(ac-03714) 50 k 1 | length 53 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03714: [1, 6, 10, 4, 10, 7, 4, 8, 10, 4, 13, 10, 10, 4, 13, 13, 4, 7, 8, 3, 6, 12, 12, 11, 11, 12, 2, 7, 4, 10, 13, 5, 11, 5, 1, 12, 4, 6, 9, 5, 6, 9, 4, 8, 2, 7, 8, 3, 4, 4, 4, 4, 2]
+# sac-03714 record(ac-03714) 50 k 1 | length 53 | research/acc/live/inbox/20260929T0426Z_session1_road11.txt
+sac-03714: [1, 4, 10, 10, 4, 10, 13, 4, 10, 10, 13, 4, 8, 13, 4, 7, 8, 3, 12, 12, 11, 11, 12, 11, 2, 10, 4, 10, 13, 5, 11, 5, 1, 12, 4, 6, 9, 5, 6, 9, 4, 8, 2, 7, 8, 3, 4, 4, 4, 4, 2, 16, 15]
+# sac-02386 record(sac-02386) 36 k 2 | length 38 | research/acc/live/sweeps/rk2_cap.jsonl
+sac-02386: [10, 13, 10, 13, 13, 4, 10, 13, 4, 11, 5, 12, 4, 8, 5, 9, 6, 4, 7, 8, 2, 6, 9, 12, 11, 12, 5, 0, 8, 3, 3, 3, 5, 1, 2, 4, 15, 15]
+# ac-02386 record(sac-02386) 36 k 2 | length 36 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-02386: [10, 13, 10, 12, 11, 13, 4, 11, 5, 9, 4, 8, 5, 6, 9, 4, 1, 10, 5, 8, 3, 7, 8, 6, 9, 4, 9, 6, 3, 3, 3, 12, 5, 5, 2, 2]
+# ac-02386 record(sac-02386) 36 k 2 | length 36 | research/acc/live/sweeps/session1/roads_latest.txt
+ac-02386: [10, 13, 10, 12, 11, 13, 4, 11, 5, 9, 4, 8, 5, 6, 9, 4, 1, 10, 5, 8, 3, 7, 8, 6, 12, 4, 7, 8, 8, 3, 3, 3, 5, 5, 2, 2]
+# ac-02386 record(sac-02386) 36 k 2 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-02386: [10, 13, 10, 13, 13, 4, 10, 13, 4, 11, 5, 12, 4, 8, 5, 9, 6, 4, 1, 7, 13, 3, 8, 6, 9, 10, 4, 8, 0, 2, 2, 2, 2, 5, 1, 4, 2]
+# ac-02386 record(sac-02386) 36 k 2 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-02386: [10, 13, 10, 13, 13, 4, 10, 13, 4, 11, 5, 12, 4, 8, 5, 9, 6, 4, 7, 8, 2, 13, 10, 12, 11, 1, 4, 10, 8, 8, 5, 2, 4, 4, 2, 4, 2]
+# ac-02386 record(sac-02386) 36 k 2 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-02386: [10, 13, 10, 13, 13, 4, 10, 13, 4, 11, 5, 9, 4, 8, 5, 6, 12, 4, 7, 8, 2, 6, 9, 9, 6, 9, 5, 6, 12, 2, 2, 2, 0, 3, 4, 4, 2]
+# ac-02386 record(sac-02386) 36 k 2 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-02386: [10, 13, 10, 13, 13, 4, 10, 13, 4, 11, 5, 9, 4, 8, 5, 6, 9, 4, 1, 8, 7, 3, 8, 6, 10, 12, 4, 7, 8, 8, 5, 2, 4, 4, 2, 4, 2]
+# ac-02386 record(sac-02386) 36 k 2 | length 39 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-02386: [8, 10, 13, 10, 13, 4, 9, 13, 10, 13, 4, 11, 5, 9, 4, 8, 5, 6, 9, 4, 1, 8, 7, 3, 8, 6, 10, 12, 4, 7, 8, 8, 5, 2, 4, 4, 2, 4, 2]
+# ac-02386 record(sac-02386) 36 k 2 | length 39 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-02386: [8, 10, 13, 10, 13, 4, 9, 13, 10, 13, 4, 11, 5, 9, 4, 8, 5, 6, 12, 4, 7, 8, 2, 6, 9, 9, 6, 9, 5, 6, 12, 2, 2, 2, 0, 3, 4, 4, 2]
+# sac-08578 record(sac-08578) 36 k 2 | length 37 | research/acc/live/charlie/charlie_surgery_bundle_20260929.json
+sac-08578: [5, 6, 12, 12, 4, 7, 1, 12, 11, 12, 5, 12, 5, 13, 11, 5, 13, 4, 10, 5, 11, 3, 8, 10, 6, 12, 4, 7, 13, 3, 3, 5, 5, 3, 0, 15, 15]
+# ac-08578 record(sac-08578) 36 k 2 | length 35 | ACC_QUEUE_20260928T1856Z.txt
+ac-08578: [5, 6, 12, 12, 4, 1, 12, 11, 12, 7, 5, 9, 5, 8, 11, 5, 6, 12, 11, 5, 11, 2, 10, 10, 13, 10, 13, 3, 10, 4, 4, 6, 2, 2, 4]
+# sac-06262 record(sac-06262) 37 k 2 | length 38 | research/acc/live/sweeps/codex_mirror_80_stable_near1_20260928.jsonl
+sac-06262: [11, 6, 8, 7, 9, 6, 8, 4, 7, 9, 3, 6, 8, 3, 10, 12, 4, 6, 12, 10, 8, 3, 10, 12, 4, 10, 5, 13, 11, 12, 4, 10, 3, 3, 9, 5, 15, 15]
+# ac-06262 record(sac-06262) 37 k 2 | length 36 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-06262: [11, 6, 8, 7, 9, 6, 8, 4, 7, 9, 3, 6, 8, 3, 10, 12, 4, 6, 12, 10, 8, 3, 10, 12, 4, 10, 5, 13, 11, 12, 4, 10, 3, 3, 9, 5]
+# ac-06262 record(sac-06262) 37 k 2 | length 36 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-06262: [6, 8, 7, 9, 6, 11, 8, 4, 7, 9, 3, 6, 8, 3, 10, 12, 4, 6, 8, 12, 10, 3, 10, 12, 4, 10, 5, 13, 11, 12, 4, 10, 3, 3, 9, 5]
+# ac-06262 record(sac-06262) 37 k 2 | length 36 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-06262: [6, 8, 7, 9, 6, 8, 11, 4, 7, 9, 3, 6, 8, 3, 10, 12, 4, 6, 8, 12, 10, 3, 10, 12, 4, 10, 5, 13, 11, 12, 4, 10, 3, 6, 3, 5]
+# ac-06262 record(sac-06262) 37 k 2 | length 36 | research/acc/live/pool/session2_best_k1to3_20260930T0645Z.jsonl
+ac-06262: [6, 8, 7, 9, 6, 8, 11, 4, 7, 9, 3, 6, 8, 3, 10, 12, 4, 12, 6, 10, 8, 3, 10, 12, 4, 10, 5, 13, 11, 12, 4, 10, 3, 3, 9, 5]
+# ac-05598 record(ac-05598) 39 k 2 | length 40 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/sweeps/kernel_bob_xclass_20260929.jsonl
+ac-05598: [3, 8, 8, 4, 12, 12, 2, 12, 10, 13, 13, 8, 13, 13, 4, 3, 9, 6, 9, 9, 9, 4, 3, 8, 5, 13, 10, 13, 13, 4, 8, 2, 4, 4, 3, 3, 3, 0, 2, 2]
+# ac-05598 record(ac-05598) 39 k 2 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-05598: [8, 12, 3, 8, 8, 4, 12, 12, 2, 8, 10, 13, 13, 13, 4, 3, 9, 9, 6, 9, 12, 4, 3, 8, 5, 13, 13, 13, 10, 4, 8, 2, 4, 4, 3, 0, 2, 2, 2, 2]
+# ac-05598 record(ac-05598) 39 k 2 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-05598: [8, 12, 3, 8, 8, 4, 12, 12, 2, 8, 8, 10, 13, 13, 4, 3, 9, 9, 9, 6, 9, 4, 3, 8, 5, 13, 13, 13, 10, 4, 8, 2, 4, 4, 3, 0, 2, 2, 2, 2]
+# sac-05598 record(ac-05598) 39 k 2 | length 42 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/sweeps/kernel_bob_xclass_20260929.jsonl
+sac-05598: [3, 8, 8, 4, 12, 12, 2, 12, 10, 13, 13, 8, 13, 13, 4, 3, 9, 6, 9, 9, 9, 4, 3, 8, 5, 13, 10, 13, 13, 4, 8, 2, 4, 4, 3, 3, 3, 0, 2, 2, 16, 15]
+# sac-07730 record(sac-07730) 43 k 2 | length 44 | research/acc/live/charlie/charlie_surgery_bundle_20260929.json
+sac-07730: [1, 12, 4, 11, 5, 12, 4, 10, 4, 4, 7, 5, 6, 1, 8, 13, 4, 1, 8, 10, 4, 13, 5, 11, 4, 9, 5, 10, 3, 8, 7, 9, 6, 4, 1, 6, 12, 2, 2, 4, 2, 4, 16, 15]
+# ac-07730 record(sac-07730) 43 k 2 | length 42 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-07730: [1, 12, 4, 11, 5, 12, 4, 10, 4, 4, 7, 5, 6, 1, 8, 13, 4, 1, 8, 10, 4, 13, 5, 11, 4, 9, 5, 10, 3, 8, 7, 9, 6, 4, 1, 6, 12, 2, 2, 4, 2, 4]
+# ac-07730 record(sac-07730) 43 k 2 | length 42 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-07730: [1, 12, 4, 11, 5, 12, 4, 7, 4, 4, 10, 5, 1, 6, 8, 8, 4, 1, 13, 10, 4, 13, 5, 11, 4, 9, 5, 10, 3, 8, 7, 9, 6, 4, 1, 6, 12, 2, 2, 4, 2, 4]
+# ac-07730 record(sac-07730) 43 k 2 | length 45 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-07730: [1, 12, 4, 11, 5, 12, 4, 10, 4, 4, 10, 5, 11, 8, 13, 8, 4, 12, 5, 11, 4, 13, 5, 10, 4, 13, 9, 6, 2, 9, 7, 8, 1, 6, 4, 13, 1, 10, 2, 2, 0, 7, 4, 2, 4]
+# ac-07730 record(sac-07730) 43 k 2 | length 45 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-07730: [1, 12, 4, 11, 5, 12, 4, 7, 4, 4, 10, 5, 6, 8, 8, 8, 4, 9, 5, 11, 4, 13, 5, 9, 10, 13, 4, 6, 2, 7, 8, 7, 9, 13, 11, 5, 8, 10, 2, 0, 3, 10, 4, 2, 4]
+# ac-07730 record(sac-07730) 43 k 2 | length 45 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-07730: [1, 12, 4, 11, 5, 12, 4, 7, 4, 4, 10, 5, 6, 8, 8, 8, 4, 9, 5, 11, 4, 13, 5, 9, 10, 13, 4, 6, 2, 7, 8, 7, 9, 6, 13, 5, 7, 8, 2, 0, 3, 10, 4, 2, 4]
+# sac-02341 record(sac-02341) 30 k 1 | length 32 | research/acc/live/charlie/charlie_surgery_bundle_20260929.json
+sac-02341: [1, 2, 5, 8, 10, 6, 9, 3, 11, 2, 8, 7, 10, 4, 7, 0, 8, 12, 11, 1, 5, 6, 3, 3, 7, 4, 10, 4, 2, 2, 15, 15]
+# sac-02341 record(sac-02341) 30 k 1 | length 32 | research/acc/live/sweeps/yxl_cap.jsonl
+sac-02341: [1, 2, 5, 8, 6, 9, 10, 3, 11, 2, 8, 7, 10, 4, 12, 11, 7, 1, 8, 4, 0, 6, 3, 3, 7, 4, 10, 4, 2, 2, 15, 15]
+# sac-02341 record(sac-02341) 30 k 1 | length 37 | research/acc/live/sweeps/p2a_cap.jsonl
+sac-02341: [5, 1, 6, 8, 12, 7, 4, 11, 12, 2, 5, 6, 9, 7, 8, 4, 6, 9, 7, 8, 3, 4, 10, 13, 10, 5, 10, 4, 10, 13, 3, 3, 5, 1, 4, 16, 15]
+# ac-02341 record(sac-02341) 30 k 1 | length 30 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-02341: [1, 2, 5, 8, 6, 9, 10, 3, 11, 2, 8, 7, 10, 4, 12, 11, 7, 8, 0, 2, 10, 1, 4, 4, 4, 3, 0, 2, 4, 4]
+# ac-02341 record(sac-02341) 30 k 1 | length 30 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-02341: [5, 1, 6, 12, 10, 13, 4, 7, 5, 12, 11, 6, 0, 2, 11, 12, 8, 7, 1, 4, 0, 1, 6, 3, 3, 5, 1, 2, 4, 4]
+# ac-02341 record(sac-02341) 30 k 1 | length 30 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-02341: [0, 4, 1, 6, 12, 10, 13, 5, 7, 4, 1, 6, 12, 11, 3, 0, 8, 7, 11, 12, 5, 1, 6, 3, 3, 5, 1, 2, 4, 4]
+# ac-02341 record(sac-02341) 30 k 1 | length 30 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-02341: [0, 4, 1, 6, 12, 10, 13, 5, 7, 4, 12, 1, 6, 11, 3, 0, 8, 7, 11, 12, 5, 1, 6, 3, 3, 5, 1, 2, 4, 4]
+# ac-02341 record(sac-02341) 30 k 1 | length 30 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-02341: [1, 2, 5, 8, 6, 9, 7, 3, 6, 2, 8, 0, 7, 7, 5, 1, 8, 6, 10, 12, 3, 7, 4, 4, 4, 3, 0, 2, 4, 4]
+# ac-02341 record(sac-02341) 30 k 1 | length 30 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-02341: [1, 2, 5, 8, 6, 9, 7, 3, 6, 2, 0, 8, 7, 7, 5, 1, 8, 6, 10, 12, 3, 7, 4, 4, 4, 3, 0, 2, 4, 4]
+# ac-02341 record(sac-02341) 30 k 1 | length 35 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-02341: [5, 1, 6, 8, 12, 7, 4, 11, 12, 2, 5, 6, 9, 7, 8, 4, 6, 9, 7, 8, 3, 4, 10, 13, 10, 5, 10, 4, 10, 13, 3, 3, 5, 1, 4]
+# ac-02341 record(sac-02341) 30 k 1 | length 39 | research/acc/live/exchange/session3/picture/skel_dp_sweep.jsonl
+ac-02341: [5, 1, 6, 8, 12, 10, 4, 11, 11, 12, 10, 2, 5, 9, 7, 8, 6, 4, 9, 7, 8, 6, 3, 9, 13, 4, 10, 8, 10, 5, 10, 4, 1, 13, 10, 2, 2, 4, 4]
+# ac-03719 record(ac-03719) 35 k 1 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-03719: [7, 8, 6, 9, 7, 5, 5, 12, 6, 8, 7, 9, 7, 2, 6, 1, 4, 13, 7, 9, 6, 5, 7, 2, 8, 6, 5, 10, 0, 12, 5, 7, 4, 11, 3, 5, 5]
+# ac-03719 record(ac-03719) 35 k 1 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-03719: [7, 8, 6, 9, 10, 5, 5, 1, 11, 8, 7, 9, 12, 7, 5, 10, 3, 11, 13, 10, 9, 2, 11, 4, 8, 6, 5, 10, 0, 12, 5, 7, 4, 11, 3, 5, 5]
+# ac-03719 record(ac-03719) 35 k 1 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-03719: [7, 8, 6, 9, 10, 5, 5, 11, 12, 10, 8, 7, 1, 9, 5, 7, 3, 11, 13, 10, 9, 2, 11, 4, 8, 6, 5, 10, 0, 12, 5, 7, 4, 11, 3, 5, 5]
+# ac-03719 record(ac-03719) 35 k 1 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03719: [7, 8, 6, 9, 7, 5, 5, 1, 6, 8, 7, 9, 7, 12, 3, 6, 4, 7, 9, 6, 13, 5, 7, 2, 0, 8, 6, 4, 10, 12, 5, 7, 4, 11, 3, 5, 5]
+# ac-03719 record(ac-03719) 35 k 1 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03719: [7, 8, 6, 9, 10, 5, 5, 1, 11, 8, 7, 9, 12, 7, 5, 10, 3, 11, 13, 10, 9, 2, 11, 4, 8, 6, 5, 0, 10, 12, 5, 7, 4, 11, 3, 5, 5]
+# ac-03719 record(ac-03719) 35 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03719: [7, 8, 6, 9, 7, 5, 5, 1, 6, 8, 7, 9, 7, 12, 5, 10, 3, 9, 11, 13, 10, 2, 0, 11, 5, 8, 7, 10, 12, 4, 6, 11, 5, 13, 4, 3, 5, 5]
+# ac-03719 record(ac-03719) 35 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03719: [7, 8, 6, 9, 7, 5, 5, 1, 6, 8, 7, 9, 7, 12, 3, 6, 4, 7, 9, 6, 13, 5, 7, 2, 0, 8, 7, 10, 12, 4, 6, 11, 5, 13, 4, 3, 5, 5]
+# ac-03719 record(ac-03719) 35 k 1 | length 39 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-03719: [7, 8, 6, 9, 7, 5, 5, 6, 8, 12, 10, 12, 7, 1, 5, 13, 9, 7, 3, 11, 13, 10, 9, 2, 11, 4, 8, 6, 5, 10, 0, 12, 5, 7, 4, 11, 3, 5, 5]
+# ac-03719 record(ac-03719) 35 k 1 | length 41 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03719: [7, 8, 6, 9, 10, 5, 5, 11, 12, 10, 8, 7, 1, 9, 5, 8, 6, 9, 10, 7, 2, 6, 8, 7, 9, 5, 7, 3, 6, 2, 0, 11, 3, 8, 6, 2, 9, 5, 5, 5, 11]
+# ac-03719 record(ac-03719) 35 k 1 | length 46 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03719: [7, 10, 12, 11, 13, 5, 5, 1, 11, 4, 12, 10, 13, 11, 6, 3, 11, 12, 10, 13, 11, 2, 10, 12, 11, 13, 4, 8, 6, 10, 9, 7, 2, 10, 7, 7, 12, 5, 11, 2, 2, 2, 0, 5, 5, 5]
+# ac-03719 record(ac-03719) 35 k 1 | length 46 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03719: [7, 10, 12, 11, 13, 5, 5, 1, 11, 4, 12, 10, 13, 6, 11, 3, 11, 6, 12, 8, 10, 2, 9, 7, 11, 13, 4, 8, 10, 10, 6, 9, 2, 7, 7, 12, 7, 5, 11, 2, 2, 2, 0, 5, 5, 5]
+# sac-03719 record(ac-03719) 35 k 1 | length 38 | research/acc/live/charlie/charlie_surgery_bundle_20260929.json
+sac-03719: [7, 8, 6, 9, 10, 5, 5, 11, 12, 10, 8, 7, 1, 9, 5, 7, 3, 11, 13, 10, 9, 2, 11, 4, 8, 6, 5, 10, 12, 4, 7, 3, 5, 2, 2, 5, 15, 15]
+# sac-03719 record(ac-03719) 35 k 1 | length 38 | research/acc/live/sweeps/p2b_cap.jsonl
+sac-03719: [7, 8, 6, 9, 10, 5, 5, 1, 11, 8, 7, 9, 12, 7, 5, 10, 3, 11, 13, 10, 9, 2, 11, 4, 8, 6, 5, 10, 12, 4, 7, 3, 5, 2, 2, 5, 15, 15]
+# sac-03719 record(ac-03719) 35 k 1 | length 39 | research/acc/live/charlie/source_inbox/charlie_sac-03719_39.txt
+sac-03719: [7, 8, 6, 9, 7, 5, 5, 12, 6, 8, 7, 9, 7, 2, 6, 1, 4, 13, 7, 9, 6, 5, 7, 2, 8, 6, 5, 10, 0, 12, 5, 7, 4, 11, 3, 5, 5, 16, 15]
+# sac-08889 record(sac-08889) 37 k 1 | length 39 | research/acc/live/charlie/charlie_surgery_bundle_20260929.json
+sac-08889: [1, 8, 4, 11, 13, 10, 12, 10, 4, 1, 8, 6, 4, 13, 5, 11, 2, 11, 8, 6, 0, 8, 13, 2, 7, 12, 1, 4, 1, 5, 12, 4, 10, 3, 3, 5, 13, 15, 15]
+# sac-08889 record(sac-08889) 37 k 1 | length 41 | research/acc/live/sweeps/yxl_cap.jsonl
+sac-08889: [0, 8, 2, 5, 7, 9, 6, 2, 8, 6, 3, 8, 8, 6, 12, 3, 7, 4, 10, 12, 10, 12, 9, 0, 2, 5, 7, 12, 2, 5, 3, 8, 2, 6, 5, 5, 1, 4, 3, 15, 15]
+# ac-08889 record(sac-08889) 37 k 1 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08889: [1, 8, 4, 11, 13, 10, 12, 10, 4, 1, 8, 6, 4, 13, 5, 11, 2, 11, 8, 13, 6, 8, 0, 2, 7, 0, 12, 4, 2, 5, 8, 2, 6, 5, 5, 3, 9]
+# ac-08889 record(sac-08889) 37 k 1 | length 37 | research/acc/live/sweeps/session1/roads_latest.txt
+ac-08889: [1, 8, 4, 11, 13, 10, 12, 10, 4, 1, 8, 6, 4, 8, 5, 13, 11, 12, 2, 6, 8, 7, 9, 3, 8, 13, 11, 4, 2, 5, 8, 2, 6, 5, 5, 6, 3]
+# ac-08889 record(sac-08889) 37 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-08889: [0, 8, 2, 5, 7, 9, 6, 2, 8, 6, 3, 8, 8, 6, 12, 3, 7, 4, 10, 12, 10, 1, 12, 9, 4, 8, 11, 0, 2, 0, 3, 8, 2, 6, 5, 5, 3, 9]
+# ac-08889 record(sac-08889) 37 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08889: [0, 8, 2, 5, 7, 9, 6, 8, 12, 2, 6, 8, 3, 8, 6, 3, 0, 7, 5, 1, 9, 10, 12, 10, 12, 5, 8, 11, 2, 0, 3, 8, 2, 6, 5, 5, 6, 3]
+# ac-08889 record(sac-08889) 37 k 1 | length 39 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-08889: [1, 8, 4, 11, 13, 10, 1, 4, 12, 10, 5, 12, 12, 10, 8, 5, 11, 2, 6, 8, 6, 8, 13, 1, 4, 3, 11, 8, 4, 3, 5, 12, 4, 10, 3, 3, 0, 2, 5]
+# ac-08889 record(sac-08889) 37 k 1 | length 39 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08889: [1, 8, 4, 1, 8, 11, 13, 10, 12, 4, 10, 12, 5, 7, 12, 5, 1, 6, 3, 6, 8, 6, 8, 8, 4, 3, 13, 11, 4, 3, 5, 12, 4, 10, 3, 3, 0, 2, 5]
+# sac-00580 record(sac-00580) 44 k 1 | length 47 | research/acc/live/sweeps/p2b_cap.jsonl
+sac-00580: [6, 6, 4, 7, 13, 5, 13, 4, 10, 0, 2, 5, 10, 8, 3, 11, 2, 9, 6, 2, 11, 0, 9, 2, 6, 3, 8, 2, 10, 3, 9, 5, 11, 12, 10, 1, 13, 5, 13, 3, 3, 10, 4, 4, 2, 16, 15]
+# ac-00580 record(sac-00580) 44 k 1 | length 45 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-00580: [6, 6, 4, 7, 13, 5, 13, 4, 10, 0, 2, 5, 10, 8, 3, 11, 2, 9, 6, 2, 11, 0, 9, 2, 6, 3, 8, 2, 10, 3, 9, 5, 11, 12, 10, 1, 13, 5, 13, 3, 3, 10, 4, 4, 2]
+# ac-00580 record(sac-00580) 44 k 1 | length 45 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-00580: [11, 6, 4, 10, 13, 5, 12, 12, 11, 5, 6, 4, 12, 5, 7, 4, 13, 10, 4, 1, 7, 13, 4, 10, 5, 12, 4, 6, 5, 13, 3, 7, 8, 6, 9, 4, 0, 8, 2, 2, 2, 5, 1, 4, 2]
+# ac-00580 record(sac-00580) 44 k 1 | length 45 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-00580: [0, 6, 6, 5, 7, 13, 4, 13, 5, 10, 2, 5, 8, 7, 3, 6, 2, 9, 6, 2, 0, 9, 6, 2, 11, 3, 8, 2, 10, 3, 9, 5, 1, 11, 12, 10, 13, 5, 13, 3, 3, 10, 4, 4, 2]
+# ac-00580 record(sac-00580) 44 k 1 | length 45 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-00580: [0, 6, 6, 5, 7, 13, 4, 13, 5, 10, 2, 5, 8, 10, 3, 11, 2, 9, 6, 2, 0, 9, 11, 2, 6, 3, 8, 2, 10, 3, 9, 5, 11, 1, 12, 10, 13, 5, 13, 3, 3, 10, 4, 4, 2]
+# ac-00580 record(sac-00580) 44 k 1 | length 45 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-00580: [6, 6, 4, 7, 8, 5, 9, 6, 12, 5, 11, 4, 12, 5, 7, 4, 7, 13, 4, 1, 10, 13, 4, 10, 5, 12, 4, 6, 5, 13, 3, 7, 0, 8, 6, 9, 5, 8, 2, 2, 2, 5, 1, 4, 2]
+# ac-03913 record(ac-03913) 46 k 1 | length 48 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/inbox/20260929T2330Z_bob_best86.txt
+ac-03913: [6, 1, 10, 4, 8, 8, 12, 12, 11, 4, 7, 9, 9, 3, 10, 12, 12, 12, 0, 4, 12, 12, 2, 5, 6, 8, 5, 12, 12, 10, 12, 2, 8, 2, 8, 6, 13, 13, 3, 9, 5, 5, 5, 5, 5, 3, 3, 3]
+# ac-03913 record(ac-03913) 46 k 1 | length 48 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03913: [1, 6, 10, 4, 8, 8, 12, 12, 11, 4, 7, 9, 9, 3, 0, 10, 12, 12, 12, 4, 12, 12, 2, 5, 6, 8, 5, 12, 9, 12, 10, 2, 8, 2, 8, 8, 6, 13, 3, 9, 5, 5, 5, 5, 5, 3, 3, 3]
+# ac-03913 record(ac-03913) 46 k 1 | length 49 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/sweeps/kernel_bob_xclass_20260929.jsonl
+ac-03913: [6, 9, 9, 10, 12, 9, 9, 3, 9, 7, 5, 8, 7, 3, 12, 11, 4, 6, 8, 5, 10, 12, 3, 9, 9, 9, 7, 9, 3, 8, 6, 8, 5, 13, 3, 9, 9, 7, 2, 9, 2, 5, 5, 5, 5, 5, 3, 3, 9]
+# ac-03913 record(ac-03913) 46 k 1 | length 52 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03913: [6, 9, 9, 10, 12, 12, 12, 3, 9, 9, 9, 7, 8, 13, 5, 7, 8, 3, 9, 6, 4, 8, 6, 5, 7, 9, 3, 9, 9, 7, 9, 9, 3, 8, 8, 6, 5, 13, 3, 9, 7, 9, 2, 9, 2, 5, 5, 5, 5, 5, 3, 3]
+# ac-03913 record(ac-03913) 46 k 1 | length 54 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03913: [6, 9, 10, 12, 12, 12, 12, 3, 9, 9, 9, 9, 7, 8, 13, 13, 5, 7, 13, 3, 6, 12, 4, 8, 11, 5, 9, 10, 3, 9, 9, 7, 9, 9, 3, 8, 8, 6, 5, 13, 3, 9, 7, 9, 2, 9, 2, 5, 5, 5, 5, 5, 3, 3]
+# sac-03913 record(ac-03913) 46 k 1 | length 51 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/sweeps/kernel_bob_xclass_20260929.jsonl
+sac-03913: [6, 9, 9, 10, 12, 9, 9, 3, 9, 7, 5, 8, 7, 3, 12, 11, 4, 6, 8, 5, 10, 12, 3, 9, 9, 9, 7, 9, 3, 8, 6, 8, 5, 13, 3, 9, 9, 7, 2, 9, 2, 5, 5, 5, 5, 5, 3, 3, 9, 16, 15]
+# sac-06936 record(sac-06936) 27 k 2 | length 32 | research/acc/live/sweeps/p2a_cap.jsonl
+sac-06936: [1, 10, 13, 4, 10, 5, 8, 7, 5, 6, 9, 6, 0, 2, 11, 12, 8, 7, 0, 2, 5, 1, 7, 5, 5, 3, 5, 3, 0, 2, 15, 15]
+# ac-06936 record(sac-06936) 27 k 2 | length 27 | research/acc/live/ORDERS_git_production_20260930T0735Z.txt
+ac-06936: [6, 6, 6, 12, 4, 10, 13, 1, 5, 0, 10, 3, 6, 9, 13, 10, 4, 3, 6, 6, 12, 2, 2, 4, 2, 4, 4]
+# ac-06936 record(sac-06936) 27 k 2 | length 28 | research/acc/live/sweeps/session1/roads_latest.txt
+ac-06936: [0, 8, 7, 12, 10, 13, 5, 10, 1, 8, 4, 7, 3, 6, 9, 13, 10, 4, 3, 6, 6, 12, 2, 2, 4, 2, 4, 4]
+# ac-06936 record(sac-06936) 27 k 2 | length 30 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-06936: [1, 10, 13, 4, 10, 5, 8, 7, 5, 6, 9, 6, 0, 2, 11, 12, 8, 7, 0, 2, 7, 1, 5, 5, 6, 2, 6, 2, 4, 4]
+# ac-06936 record(sac-06936) 27 k 2 | length 30 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-06936: [0, 1, 10, 13, 5, 10, 4, 8, 7, 4, 1, 6, 9, 6, 3, 0, 8, 7, 11, 12, 3, 7, 5, 5, 7, 8, 2, 2, 4, 4]
+# ac-06768 record(sac-06768) 34 k 2 | length 34 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-06768: [11, 8, 8, 7, 9, 5, 9, 4, 1, 10, 5, 8, 8, 6, 11, 12, 5, 12, 10, 8, 2, 6, 13, 13, 11, 13, 3, 0, 9, 5, 5, 3, 5, 3]
+# ac-06768 record(sac-06768) 34 k 2 | length 36 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-06768: [0, 8, 8, 7, 9, 11, 4, 12, 5, 1, 13, 10, 12, 4, 8, 6, 13, 11, 12, 4, 12, 10, 13, 3, 6, 13, 11, 13, 13, 2, 12, 5, 5, 3, 5, 3]
+# ac-06768 record(sac-06768) 34 k 2 | length 38 | research/acc/live/exchange/session3/picture/skel_dp_sweep.jsonl
+ac-06768: [8, 8, 7, 11, 12, 5, 12, 4, 1, 13, 13, 10, 12, 12, 5, 6, 8, 13, 13, 11, 12, 12, 5, 10, 2, 6, 13, 13, 11, 13, 3, 0, 9, 5, 5, 3, 5, 3]
+# ac-04316 record(ac-04316) 43 k 2 | length 45 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-04316: [1, 4, 10, 12, 11, 12, 6, 2, 12, 3, 7, 8, 8, 4, 8, 4, 8, 4, 11, 12, 10, 2, 5, 8, 11, 3, 7, 3, 7, 3, 8, 10, 4, 11, 3, 8, 5, 5, 5, 5, 5, 5, 5, 5, 1]
+# ac-04316 record(ac-04316) 43 k 2 | length 45 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-04316: [1, 4, 10, 12, 11, 12, 6, 2, 12, 3, 7, 8, 8, 8, 4, 8, 1, 5, 12, 11, 5, 12, 11, 5, 10, 5, 10, 5, 10, 5, 12, 8, 7, 2, 10, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+# ac-04316 record(ac-04316) 43 k 2 | length 46 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-04316: [0, 2, 5, 6, 8, 7, 8, 10, 5, 8, 1, 5, 12, 12, 12, 10, 2, 8, 7, 2, 6, 2, 8, 0, 3, 7, 3, 7, 3, 7, 3, 7, 8, 4, 11, 3, 1, 4, 4, 4, 4, 4, 4, 4, 4, 8]
+# ac-04316 record(ac-04316) 43 k 2 | length 85 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-04316: [8, 8, 8, 8, 8, 7, 12, 12, 12, 12, 12, 11, 5, 9, 9, 9, 13, 13, 2, 9, 6, 12, 4, 12, 4, 1, 9, 7, 4, 6, 8, 7, 10, 5, 8, 10, 13, 5, 7, 13, 4, 6, 9, 12, 2, 5, 6, 9, 2, 0, 10, 2, 6, 9, 11, 2, 0, 12, 2, 6, 2, 9, 6, 9, 11, 2, 8, 7, 3, 7, 7, 8, 2, 8, 7, 5, 7, 8, 2, 2, 5, 3, 3, 0, 4]
+# sac-04316 record(ac-04316) 43 k 2 | length 47 | research/acc/live/sweeps/astra_wide_20260929.jsonl
+sac-04316: [1, 4, 10, 12, 11, 12, 6, 2, 12, 3, 7, 8, 8, 4, 8, 4, 8, 1, 5, 12, 11, 5, 12, 11, 5, 10, 5, 10, 5, 12, 7, 8, 10, 2, 10, 5, 1, 2, 2, 2, 2, 2, 2, 2, 2, 15, 15]
+# sac-04316 record(ac-04316) 43 k 2 | length 87 | research/acc/live/charlie/cutchain_lines_sac.txt
+sac-04316: [8, 8, 8, 8, 8, 7, 12, 12, 12, 12, 12, 11, 5, 9, 9, 9, 13, 13, 2, 9, 6, 12, 4, 12, 4, 1, 9, 7, 4, 6, 8, 7, 10, 5, 8, 10, 13, 5, 7, 13, 4, 6, 9, 12, 2, 5, 6, 9, 2, 0, 10, 2, 6, 9, 11, 2, 0, 12, 2, 6, 2, 9, 6, 9, 11, 2, 8, 7, 3, 7, 7, 8, 2, 8, 7, 5, 7, 8, 2, 2, 5, 3, 3, 0, 4, 16, 15]
+# sac-07194 record(sac-07194) 46 k 2 | length 48 | research/acc/live/sweeps/astra_wide_20260929.jsonl
+sac-07194: [5, 1, 12, 12, 5, 8, 4, 11, 13, 11, 12, 5, 10, 4, 9, 11, 6, 8, 3, 9, 7, 8, 4, 6, 4, 11, 13, 10, 12, 5, 10, 5, 7, 0, 3, 10, 2, 6, 3, 7, 10, 4, 2, 2, 2, 2, 15, 15]
+# ac-07194 record(sac-07194) 46 k 2 | length 47 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-07194: [5, 1, 12, 12, 5, 8, 4, 11, 13, 11, 12, 5, 10, 4, 9, 11, 6, 8, 3, 9, 7, 8, 4, 6, 2, 5, 9, 6, 8, 2, 0, 10, 3, 6, 11, 4, 6, 5, 7, 4, 11, 3, 0, 4, 4, 4, 4]
+# ac-07194 record(sac-07194) 46 k 2 | length 47 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-07194: [5, 12, 1, 12, 5, 8, 4, 11, 13, 11, 12, 5, 7, 4, 6, 9, 6, 8, 3, 9, 7, 8, 4, 6, 2, 5, 9, 6, 8, 2, 0, 7, 3, 6, 6, 4, 6, 5, 7, 4, 11, 3, 0, 4, 4, 4, 4]
+# ac-07194 record(sac-07194) 46 k 2 | length 47 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-07194: [5, 1, 12, 12, 5, 8, 4, 11, 13, 11, 12, 5, 7, 4, 6, 9, 6, 8, 3, 9, 7, 8, 4, 6, 2, 5, 9, 6, 8, 2, 0, 7, 3, 6, 6, 4, 6, 5, 7, 4, 11, 3, 0, 4, 4, 4, 4]
+# ac-07194 record(sac-07194) 46 k 2 | length 47 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-07194: [5, 1, 12, 12, 5, 8, 4, 11, 13, 11, 12, 5, 10, 4, 9, 11, 6, 13, 3, 7, 4, 12, 11, 13, 4, 10, 12, 11, 0, 8, 4, 10, 4, 10, 3, 10, 10, 2, 1, 9, 6, 8, 4, 4, 4, 4, 4]
+# ac-05726 record(ac-05726) 35 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-05726: [1, 11, 11, 5, 12, 11, 5, 12, 10, 13, 2, 10, 8, 0, 2, 9, 6, 12, 9, 3, 9, 6, 9, 4, 3, 8, 7, 8, 2, 1, 8, 5, 12, 2, 4, 6, 2, 2]
+# ac-05726 record(ac-05726) 35 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-05726: [1, 11, 11, 5, 12, 11, 5, 12, 10, 13, 2, 10, 0, 8, 2, 9, 6, 9, 9, 3, 6, 9, 12, 4, 3, 8, 7, 8, 2, 1, 8, 5, 12, 2, 4, 6, 2, 2]
+# ac-05726 record(ac-05726) 35 k 1 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-05726: [1, 8, 11, 11, 12, 5, 11, 12, 5, 10, 2, 0, 13, 10, 2, 9, 6, 9, 9, 3, 6, 9, 12, 4, 1, 2, 8, 7, 8, 3, 8, 5, 12, 2, 4, 6, 2, 2]
+# ac-05726 record(ac-05726) 35 k 1 | length 42 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-05726: [6, 6, 9, 13, 4, 6, 10, 13, 4, 1, 7, 8, 7, 13, 2, 0, 7, 8, 2, 9, 6, 9, 12, 3, 9, 6, 9, 4, 1, 2, 8, 7, 8, 3, 8, 5, 12, 2, 4, 6, 2, 2]
+# sac-05726 record(ac-05726) 35 k 1 | length 40 | research/acc/live/sweeps/p2v_cap.jsonl
+sac-05726: [1, 11, 11, 5, 12, 11, 5, 12, 10, 13, 2, 10, 8, 0, 2, 9, 6, 12, 9, 3, 9, 6, 0, 9, 3, 12, 11, 12, 2, 1, 8, 4, 12, 2, 2, 10, 4, 4, 15, 15]
+# sac-09390 record(sac-09390) 37 k 1 | length 40 | research/acc/live/sweeps/p2v_cap.jsonl
+sac-09390: [1, 4, 10, 10, 10, 13, 10, 13, 10, 8, 2, 7, 0, 13, 4, 10, 12, 1, 8, 11, 2, 7, 8, 7, 8, 7, 5, 13, 10, 4, 6, 12, 3, 0, 2, 4, 4, 2, 15, 15]
+# ac-09390 record(sac-09390) 37 k 1 | length 39 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-09390: [1, 4, 10, 10, 10, 13, 10, 13, 10, 8, 2, 7, 0, 13, 4, 10, 12, 1, 8, 11, 2, 7, 8, 7, 8, 7, 5, 13, 10, 4, 6, 12, 3, 5, 11, 2, 2, 2, 4]
+# ac-09390 record(sac-09390) 37 k 1 | length 39 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-09390: [1, 6, 10, 4, 10, 12, 11, 11, 12, 11, 2, 0, 7, 8, 4, 1, 7, 8, 12, 11, 2, 7, 8, 7, 8, 7, 5, 13, 10, 4, 6, 12, 3, 5, 11, 2, 2, 2, 4]
+# ac-09390 record(sac-09390) 37 k 1 | length 39 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-09390: [1, 6, 10, 4, 10, 12, 11, 11, 12, 11, 2, 7, 0, 8, 4, 1, 7, 8, 12, 11, 2, 7, 8, 7, 8, 7, 5, 13, 10, 4, 6, 12, 3, 5, 11, 2, 2, 2, 4]
+# ac-04581 record(ac-04581) 47 k 1 | length 50 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/inbox/20260929T2330Z_bob_best86.txt
+ac-04581: [7, 4, 12, 10, 12, 4, 6, 8, 2, 8, 6, 12, 10, 13, 5, 12, 3, 0, 7, 13, 2, 7, 2, 6, 9, 2, 6, 9, 2, 6, 9, 2, 1, 12, 11, 12, 4, 0, 13, 10, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2]
+# ac-04581 record(ac-04581) 47 k 1 | length 50 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-04581: [7, 4, 12, 10, 12, 4, 6, 8, 8, 12, 2, 6, 8, 10, 5, 1, 9, 2, 0, 7, 13, 3, 7, 3, 6, 9, 3, 6, 9, 3, 6, 9, 3, 0, 9, 6, 12, 5, 7, 8, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2]
+# ac-04581 record(ac-04581) 47 k 1 | length 50 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-04581: [7, 4, 12, 10, 12, 4, 6, 8, 8, 6, 12, 10, 2, 8, 5, 1, 9, 2, 0, 7, 13, 3, 7, 3, 6, 9, 3, 6, 9, 3, 6, 9, 3, 0, 9, 6, 12, 5, 7, 8, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2]
+# ac-04581 record(ac-04581) 47 k 1 | length 51 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/sweeps/kernel_bob_xclass_20260929.jsonl
+ac-04581: [7, 4, 12, 10, 12, 4, 6, 8, 2, 8, 1, 8, 7, 4, 12, 6, 9, 2, 8, 7, 2, 9, 0, 3, 6, 9, 3, 6, 9, 3, 6, 9, 3, 6, 9, 9, 4, 10, 13, 0, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 8]
+# ac-04581 record(ac-04581) 47 k 1 | length 51 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-04581: [0, 7, 3, 8, 2, 6, 8, 4, 12, 12, 12, 12, 12, 8, 11, 4, 12, 0, 2, 8, 4, 8, 8, 12, 4, 11, 11, 4, 8, 11, 4, 10, 4, 10, 4, 10, 4, 13, 2, 7, 0, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+# ac-04581 record(ac-04581) 47 k 1 | length 51 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-04581: [0, 7, 3, 8, 2, 6, 8, 4, 12, 12, 12, 12, 12, 8, 11, 4, 12, 0, 2, 8, 4, 8, 8, 12, 4, 11, 11, 4, 11, 8, 4, 10, 4, 10, 4, 10, 4, 13, 2, 7, 0, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+# ac-04581 record(ac-04581) 47 k 1 | length 51 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-04581: [0, 7, 3, 8, 2, 6, 8, 8, 8, 12, 12, 4, 12, 0, 12, 12, 11, 12, 5, 12, 2, 8, 4, 8, 4, 11, 11, 4, 8, 6, 4, 7, 4, 10, 4, 10, 4, 13, 2, 0, 7, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+# sac-04581 record(ac-04581) 47 k 1 | length 53 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/sweeps/kernel_bob_xclass_20260929.jsonl
+sac-04581: [7, 4, 12, 10, 12, 4, 6, 8, 2, 8, 1, 8, 7, 4, 12, 6, 9, 2, 8, 7, 2, 9, 0, 3, 6, 9, 3, 6, 9, 3, 6, 9, 3, 6, 9, 9, 4, 10, 13, 0, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 8, 16, 15]
+# sac-04581 record(ac-04581) 47 k 1 | length 53 | research/acc/live/sweeps/session1/roads_latest.txt
+sac-04581: [0, 7, 3, 8, 2, 6, 8, 4, 12, 12, 12, 12, 12, 8, 11, 4, 12, 0, 2, 8, 4, 8, 8, 12, 4, 11, 11, 4, 8, 11, 4, 10, 4, 10, 4, 10, 4, 13, 2, 7, 0, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 16, 15]
+# ac-08445 record(ac-08445) 53 k 1 | length 56 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-08445: [1, 4, 7, 11, 12, 11, 9, 5, 1, 7, 4, 9, 6, 9, 13, 10, 9, 3, 8, 8, 5, 11, 12, 12, 10, 4, 13, 7, 9, 13, 9, 11, 5, 8, 8, 6, 8, 8, 8, 4, 3, 6, 8, 8, 10, 2, 9, 9, 4, 4, 1, 3, 3, 3, 3, 3]
+# ac-08445 record(ac-08445) 53 k 1 | length 58 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08445: [1, 7, 11, 4, 9, 12, 11, 5, 1, 7, 9, 13, 4, 6, 9, 9, 7, 3, 6, 8, 8, 7, 5, 9, 12, 4, 12, 9, 10, 13, 13, 11, 5, 8, 8, 6, 8, 13, 13, 4, 3, 0, 9, 12, 12, 10, 3, 0, 9, 9, 4, 4, 1, 3, 3, 3, 3, 3]
+# ac-08445 record(ac-08445) 53 k 1 | length 58 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-08445: [1, 7, 11, 4, 9, 12, 11, 5, 1, 7, 9, 13, 4, 6, 9, 9, 7, 3, 6, 8, 8, 7, 5, 9, 9, 4, 12, 12, 10, 13, 13, 11, 5, 8, 8, 6, 8, 8, 13, 4, 3, 8, 6, 8, 8, 12, 10, 2, 9, 9, 4, 4, 1, 3, 3, 3, 3, 3]
+# sac-08445 record(ac-08445) 53 k 1 | length 58 | research/acc/live/ledger/crossrow_r2i2_sac_20260928.json
+sac-08445: [1, 4, 7, 11, 12, 11, 9, 5, 1, 7, 4, 9, 6, 9, 13, 10, 9, 3, 8, 8, 5, 11, 12, 12, 10, 4, 13, 7, 9, 13, 9, 11, 5, 8, 8, 6, 8, 8, 8, 4, 3, 6, 8, 8, 10, 2, 9, 9, 4, 4, 1, 3, 3, 3, 3, 3, 16, 15]
+# sac-08445 record(ac-08445) 53 k 1 | length 58 | research/acc/live/sweeps/session1/roads_latest.txt
+sac-08445: [1, 4, 7, 11, 12, 11, 9, 5, 1, 7, 4, 9, 6, 9, 13, 10, 9, 3, 8, 8, 5, 11, 12, 12, 10, 4, 13, 7, 9, 13, 9, 11, 5, 8, 8, 6, 8, 8, 8, 4, 3, 6, 8, 8, 10, 2, 9, 12, 4, 4, 2, 2, 2, 2, 4, 3, 15, 15]
+# sac-04882 record(sac-04882) 53 k 1 | length 56 | research/acc/live/sweeps/codex_dualA_resume_20260928.jsonl
+sac-04882: [1, 11, 13, 4, 13, 4, 10, 13, 6, 4, 13, 11, 5, 12, 12, 11, 11, 2, 5, 6, 11, 9, 0, 4, 9, 10, 6, 8, 13, 3, 9, 5, 11, 13, 13, 13, 0, 2, 5, 8, 7, 9, 11, 2, 9, 2, 5, 9, 4, 2, 4, 4, 1, 5, 15, 15]
+# ac-04882 record(sac-04882) 53 k 1 | length 54 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-04882: [1, 11, 13, 4, 13, 4, 10, 13, 6, 4, 13, 11, 5, 12, 12, 11, 11, 2, 5, 6, 11, 9, 0, 4, 9, 10, 6, 8, 13, 3, 9, 5, 11, 13, 13, 13, 1, 4, 12, 11, 7, 1, 13, 4, 8, 4, 3, 13, 2, 4, 2, 2, 2, 0]
+# ac-04882 record(sac-04882) 53 k 1 | length 54 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-04882: [1, 11, 13, 4, 6, 13, 10, 4, 13, 4, 13, 6, 5, 11, 12, 12, 11, 2, 0, 4, 9, 6, 11, 4, 7, 9, 6, 8, 13, 3, 9, 7, 11, 5, 13, 13, 13, 11, 5, 12, 9, 10, 12, 4, 13, 4, 3, 13, 2, 4, 2, 0, 3, 3]
+# ac-04882 record(sac-04882) 53 k 1 | length 54 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-04882: [1, 11, 13, 4, 6, 13, 10, 4, 13, 4, 6, 13, 5, 11, 12, 12, 11, 2, 0, 4, 9, 6, 11, 4, 7, 9, 6, 8, 13, 3, 9, 7, 11, 5, 13, 13, 13, 11, 5, 9, 9, 12, 10, 4, 13, 4, 3, 13, 2, 0, 5, 3, 3, 3]
+# ac-05423 record(ac-05423) 33 k 2 | length 36 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-05423: [5, 12, 10, 12, 10, 13, 11, 13, 4, 11, 1, 4, 11, 11, 13, 0, 3, 7, 8, 6, 9, 4, 11, 12, 10, 8, 2, 7, 9, 7, 3, 3, 5, 5, 3, 5]
+# ac-05423 record(ac-05423) 33 k 2 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-05423: [5, 12, 10, 12, 10, 13, 11, 13, 4, 11, 5, 12, 10, 12, 7, 10, 2, 6, 8, 7, 9, 3, 11, 11, 13, 4, 8, 6, 5, 10, 12, 2, 11, 2, 2, 5, 5]
+# ac-05423 record(ac-05423) 33 k 2 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-05423: [1, 7, 11, 4, 7, 7, 11, 11, 13, 10, 12, 5, 6, 4, 6, 8, 6, 3, 7, 9, 6, 8, 2, 6, 8, 6, 5, 13, 11, 4, 1, 11, 2, 2, 11, 2, 5, 5]
+# ac-05423 record(ac-05423) 33 k 2 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-05423: [0, 1, 7, 11, 5, 7, 7, 11, 11, 13, 10, 12, 4, 6, 5, 6, 6, 13, 3, 7, 8, 6, 9, 4, 11, 8, 7, 9, 2, 7, 12, 10, 3, 3, 5, 5, 3, 5]
+# ac-05423 record(ac-05423) 33 k 2 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-05423: [1, 7, 11, 4, 1, 11, 11, 13, 13, 11, 13, 11, 4, 1, 11, 4, 8, 11, 11, 3, 9, 6, 8, 10, 2, 6, 8, 6, 5, 13, 11, 4, 1, 11, 2, 2, 11, 2, 5, 5]
+# ac-05423 record(ac-05423) 33 k 2 | length 40 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-05423: [1, 7, 11, 4, 1, 11, 11, 13, 13, 11, 13, 11, 4, 1, 11, 4, 0, 11, 13, 11, 3, 8, 6, 9, 7, 4, 12, 6, 8, 7, 2, 9, 7, 10, 3, 3, 5, 5, 3, 5]
+# sac-05423 record(ac-05423) 33 k 2 | length 38 | research/acc/live/sweeps/astra_wide_20260929.jsonl
+sac-05423: [5, 12, 10, 12, 10, 13, 11, 13, 4, 11, 5, 12, 10, 12, 7, 10, 2, 6, 8, 7, 9, 3, 11, 11, 13, 4, 8, 6, 5, 10, 12, 2, 0, 3, 5, 3, 15, 15]
+# sac-07085 record(sac-07085) 34 k 2 | length 37 | research/acc/live/sweeps/p2v_cap.jsonl
+sac-07085: [0, 13, 13, 5, 9, 9, 2, 6, 8, 7, 3, 10, 8, 4, 3, 12, 11, 5, 9, 3, 6, 9, 7, 8, 4, 10, 1, 8, 8, 2, 2, 4, 2, 4, 4, 15, 15]
+# ac-07085 record(sac-07085) 34 k 2 | length 36 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-07085: [0, 13, 13, 5, 9, 9, 2, 6, 8, 7, 3, 10, 8, 4, 3, 12, 11, 5, 9, 3, 6, 9, 7, 8, 4, 8, 8, 10, 3, 3, 3, 9, 4, 4, 2, 2]
+# ac-07085 record(sac-07085) 34 k 2 | length 36 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-07085: [0, 13, 13, 5, 9, 9, 2, 6, 8, 7, 3, 8, 10, 4, 3, 12, 11, 5, 9, 3, 6, 9, 7, 8, 4, 8, 8, 10, 3, 3, 3, 9, 4, 4, 2, 2]
+# ac-07085 record(sac-07085) 34 k 2 | length 37 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-07085: [8, 8, 4, 7, 8, 13, 13, 10, 3, 0, 8, 3, 7, 8, 4, 3, 12, 11, 5, 9, 3, 6, 9, 7, 8, 4, 8, 8, 10, 3, 3, 3, 9, 4, 4, 2, 2]
+# ac-07492 record(ac-07492) 35 k 2 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-07492: [11, 4, 12, 7, 7, 10, 5, 13, 11, 12, 7, 7, 5, 7, 4, 3, 13, 10, 6, 12, 2, 6, 6, 6, 8, 5, 11, 4, 13, 1, 10, 12, 2, 2, 0, 5, 5, 5]
+# ac-07492 record(ac-07492) 35 k 2 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-07492: [11, 4, 7, 7, 12, 10, 5, 13, 11, 12, 7, 1, 7, 2, 5, 11, 4, 13, 6, 9, 7, 3, 11, 11, 13, 11, 4, 6, 5, 8, 12, 10, 2, 0, 3, 5, 5, 5]
+# ac-07492 record(ac-07492) 35 k 2 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-07492: [11, 4, 7, 7, 7, 12, 5, 1, 7, 10, 13, 11, 12, 2, 5, 6, 4, 11, 9, 13, 10, 3, 8, 11, 11, 11, 4, 13, 11, 12, 5, 10, 2, 0, 3, 5, 5, 5]
+# ac-07492 record(ac-07492) 35 k 2 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-07492: [11, 4, 7, 7, 7, 12, 5, 7, 10, 13, 11, 12, 5, 7, 4, 1, 2, 6, 9, 13, 10, 3, 8, 11, 11, 11, 4, 13, 11, 12, 5, 10, 2, 0, 3, 5, 5, 5]
+# ac-07492 record(ac-07492) 35 k 2 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-07492: [11, 4, 7, 7, 7, 12, 5, 1, 7, 10, 13, 11, 12, 2, 5, 6, 4, 9, 7, 11, 13, 3, 6, 8, 11, 11, 4, 13, 11, 12, 5, 10, 2, 0, 3, 5, 5, 5]
+# ac-07492 record(ac-07492) 35 k 2 | length 38 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-07492: [11, 4, 7, 7, 7, 12, 5, 7, 10, 13, 11, 12, 5, 7, 4, 1, 2, 6, 9, 7, 13, 3, 6, 8, 11, 11, 4, 13, 11, 12, 5, 10, 2, 0, 3, 5, 5, 5]
+# sac-07492 record(ac-07492) 35 k 2 | length 40 | research/acc/live/sweeps/p2b_cap.jsonl
+sac-07492: [11, 4, 7, 7, 12, 10, 5, 13, 11, 0, 7, 7, 12, 4, 7, 3, 9, 6, 8, 10, 2, 5, 6, 6, 6, 8, 4, 11, 3, 9, 6, 13, 5, 10, 3, 3, 3, 12, 15, 15]
+# ac-04667 record(ac-04667) 41 k 2 | length 44 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-04667: [10, 12, 11, 11, 5, 12, 6, 4, 10, 7, 5, 8, 7, 5, 6, 9, 4, 13, 4, 1, 10, 8, 4, 10, 13, 1, 5, 7, 3, 8, 7, 9, 6, 4, 1, 6, 6, 12, 2, 2, 4, 2, 4, 4]
+# ac-04667 record(ac-04667) 41 k 2 | length 44 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-04667: [6, 10, 12, 11, 5, 11, 12, 4, 7, 10, 5, 8, 7, 5, 6, 9, 4, 8, 4, 1, 13, 10, 4, 1, 10, 13, 5, 7, 3, 8, 7, 9, 6, 4, 1, 6, 6, 12, 2, 2, 4, 2, 4, 4]
+# ac-04667 record(ac-04667) 41 k 2 | length 45 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-04667: [10, 12, 10, 10, 13, 4, 10, 10, 5, 8, 7, 5, 6, 9, 4, 8, 4, 1, 11, 4, 10, 13, 10, 4, 10, 13, 1, 5, 7, 3, 8, 7, 9, 6, 4, 1, 12, 6, 6, 2, 2, 4, 2, 4, 4]
+# ac-04667 record(ac-04667) 41 k 2 | length 45 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-04667: [10, 12, 10, 10, 13, 4, 10, 10, 5, 8, 7, 5, 6, 9, 4, 8, 4, 1, 6, 4, 7, 13, 10, 4, 1, 10, 13, 5, 7, 3, 8, 7, 9, 6, 4, 1, 6, 6, 12, 2, 2, 4, 2, 4, 4]
+# ac-04667 record(ac-04667) 41 k 2 | length 47 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-04667: [8, 10, 12, 10, 10, 4, 9, 13, 10, 10, 5, 8, 7, 5, 6, 9, 4, 8, 4, 1, 6, 4, 7, 13, 10, 4, 1, 10, 13, 5, 7, 3, 8, 7, 9, 6, 4, 1, 6, 6, 12, 2, 2, 4, 2, 4, 4]
+# sac-04667 record(ac-04667) 41 k 2 | length 46 | research/acc/live/sweeps/p2b_cap.jsonl
+sac-04667: [10, 12, 11, 11, 5, 12, 6, 4, 10, 7, 5, 8, 7, 5, 6, 9, 4, 8, 4, 0, 13, 10, 2, 5, 6, 9, 3, 11, 5, 12, 11, 13, 10, 2, 10, 0, 8, 10, 4, 4, 2, 4, 2, 2, 15, 15]
+# ac-06961 record(ac-06961) 43 k 2 | length 46 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/inbox/20260929T2330Z_bob_best86.txt
+ac-06961: [7, 4, 9, 6, 12, 4, 3, 8, 2, 12, 4, 12, 4, 11, 13, 11, 13, 4, 11, 4, 10, 12, 4, 10, 12, 4, 10, 12, 4, 9, 2, 12, 1, 7, 2, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3]
+# ac-06961 record(ac-06961) 43 k 2 | length 46 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-06961: [7, 4, 9, 6, 12, 4, 3, 8, 2, 0, 9, 5, 1, 12, 4, 1, 8, 6, 5, 11, 5, 7, 12, 5, 10, 12, 5, 10, 12, 5, 1, 12, 2, 7, 9, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3]
+# ac-06961 record(ac-06961) 43 k 2 | length 48 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-06961: [7, 4, 9, 12, 11, 4, 3, 6, 8, 10, 2, 0, 9, 5, 1, 12, 4, 1, 8, 6, 5, 11, 5, 7, 12, 5, 10, 12, 5, 10, 12, 5, 1, 12, 2, 7, 9, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3]
+# ac-06961 record(ac-06961) 43 k 2 | length 49 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/ledger/bob_job3_20260929/bob_job3_checked.json
+ac-06961: [7, 4, 9, 6, 8, 12, 12, 4, 3, 8, 2, 12, 4, 9, 4, 11, 13, 11, 13, 4, 11, 4, 10, 12, 4, 10, 12, 4, 10, 12, 4, 9, 2, 12, 7, 0, 2, 4, 4, 4, 4, 4, 4, 4, 1, 6, 5, 5, 3]
+# ac-06961 record(ac-06961) 43 k 2 | length 51 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/sweeps/kernel_bob_xclass_20260929.jsonl
+ac-06961: [7, 4, 12, 12, 9, 6, 8, 4, 3, 8, 2, 12, 4, 12, 4, 13, 11, 13, 11, 4, 13, 11, 9, 4, 10, 12, 4, 10, 12, 4, 10, 12, 4, 12, 2, 9, 7, 0, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 3, 9]
+# ac-06961 record(ac-06961) 43 k 2 | length 53 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-06961: [0, 9, 9, 9, 7, 3, 12, 2, 12, 9, 6, 2, 5, 9, 11, 9, 12, 3, 9, 10, 4, 11, 8, 2, 13, 6, 2, 7, 2, 8, 0, 3, 6, 3, 6, 3, 6, 3, 6, 8, 4, 7, 0, 2, 4, 4, 4, 4, 4, 4, 4, 1, 5]
+# sac-06961 record(ac-06961) 43 k 2 | length 50 | research/acc/live/sweeps/session1/roads_latest.txt
+sac-06961: [7, 4, 9, 6, 8, 12, 12, 4, 3, 8, 2, 12, 4, 9, 4, 11, 13, 11, 13, 4, 11, 4, 10, 12, 4, 10, 12, 4, 10, 12, 4, 9, 2, 12, 7, 0, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 15, 15]
+# sac-06961 record(ac-06961) 43 k 2 | length 51 | research/acc/live/ledger/bob_paths_20260929T1330Z.txt
+sac-06961: [7, 4, 9, 6, 8, 12, 12, 4, 3, 8, 2, 12, 4, 9, 4, 11, 13, 11, 13, 4, 11, 4, 10, 12, 4, 10, 12, 4, 10, 12, 4, 9, 2, 12, 7, 0, 2, 4, 4, 4, 4, 4, 4, 4, 1, 6, 5, 5, 3, 16, 15]
+# sac-06961 record(ac-06961) 43 k 2 | length 53 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/sweeps/kernel_bob_xclass_20260929.jsonl
+sac-06961: [7, 4, 12, 12, 9, 6, 8, 4, 3, 8, 2, 12, 4, 12, 4, 13, 11, 13, 11, 4, 13, 11, 9, 4, 10, 12, 4, 10, 12, 4, 10, 12, 4, 12, 2, 9, 7, 0, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 3, 9, 16, 15]
+# sac-06961 record(ac-06961) 43 k 2 | length 55 | research/acc/live/sweeps/session1/roads_latest.txt
+sac-06961: [0, 9, 9, 9, 7, 3, 12, 2, 12, 9, 6, 2, 5, 9, 11, 9, 12, 3, 9, 10, 4, 8, 6, 2, 10, 13, 4, 3, 7, 5, 12, 10, 5, 11, 5, 11, 5, 11, 5, 12, 8, 6, 2, 6, 5, 3, 3, 3, 3, 3, 3, 3, 3, 15, 15]
+# ac-03211 record(ac-03211) 50 k 2 | length 53 | research/acc/harness/acc_synthesis/helpers/bob_sources/research/acc/live/inbox/20260929T2330Z_bob_best86.txt
+ac-03211: [12, 12, 12, 12, 5, 1, 12, 12, 12, 4, 10, 13, 13, 13, 13, 4, 8, 8, 8, 10, 13, 4, 12, 11, 4, 12, 11, 4, 12, 11, 4, 13, 2, 13, 2, 13, 2, 6, 9, 3, 9, 3, 9, 5, 6, 2, 2, 2, 2, 2, 2, 2, 4]
+# ac-03211 record(ac-03211) 50 k 2 | length 53 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03211: [12, 12, 12, 12, 5, 12, 1, 12, 12, 4, 8, 8, 8, 8, 10, 4, 13, 7, 13, 13, 13, 4, 6, 9, 4, 12, 11, 4, 12, 11, 4, 13, 2, 13, 2, 13, 2, 6, 9, 3, 9, 3, 9, 5, 6, 2, 2, 2, 2, 2, 2, 2, 4]
+# ac-03211 record(ac-03211) 50 k 2 | length 55 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/exchange/session3/ROADS_FOR_KERNEL_20260930.txt
+ac-03211: [6, 12, 3, 7, 8, 3, 8, 8, 8, 4, 12, 12, 12, 12, 12, 12, 8, 8, 8, 2, 6, 6, 2, 6, 12, 12, 12, 2, 7, 2, 7, 2, 7, 2, 9, 9, 4, 9, 4, 10, 5, 13, 5, 13, 1, 4, 6, 11, 3, 5, 5, 5, 5, 5, 5]
+# ac-03211 record(ac-03211) 50 k 2 | length 57 | research/acc/harness/acc_synthesis/helpers/kernel_sources/research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03211: [0, 2, 6, 9, 2, 6, 8, 8, 8, 1, 10, 4, 12, 12, 12, 2, 12, 12, 12, 2, 7, 7, 2, 7, 7, 8, 8, 8, 2, 9, 9, 9, 2, 7, 7, 2, 12, 7, 7, 5, 12, 5, 12, 5, 11, 4, 13, 4, 13, 2, 0, 5, 5, 5, 5, 5, 5]
+# sac-03211 record(ac-03211) 50 k 2 | length 58 | research/acc/live/sweeps/session1/roads_latest.txt
+sac-03211: [6, 12, 3, 7, 8, 3, 8, 8, 8, 4, 12, 12, 12, 12, 12, 12, 8, 8, 8, 2, 6, 6, 2, 6, 12, 12, 12, 2, 7, 2, 7, 2, 7, 2, 9, 9, 4, 9, 4, 10, 5, 13, 5, 13, 1, 4, 0, 6, 2, 2, 5, 3, 3, 3, 3, 3, 15, 15]

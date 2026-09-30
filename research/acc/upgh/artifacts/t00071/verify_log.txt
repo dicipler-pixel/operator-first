@@ -1,0 +1,15 @@
+official verifier commit a0fd6e6, SAIR=/root/.cache/upgh/sair; starts checked equal to manifest initial_relators
+made-up n 3 AC 32 SAC 33 {'prefix_to_level1': 18, 'variant': 'v2plain', 'p': 6, 'k': 0, 'collapse+tail': 15, 'total': 33} AC moves: 5 7 12 5 6 5 12 1 4 10 4 10 4 10 1 5 12 10 13 6 2 10 1 4 2 2 2 2 2 4 1 2
+made-up n 4 AC 55 SAC 56 {'prefix_to_level1': 34, 'variant': 'v2plain', 'p': 14, 'k': 0, 'collapse+tail': 22, 'total': 56} AC moves: 5 7 12 5 6 5 12 1 4 10 4 10 4 10 1 5 12 10 5 11 5 11 5 11 5 11 5 11 5 11 5 11 5 12 6 2 10 1 4 2 2 2 2 2 2 2 2 2 2 2 2 2 4 1 2
+5 ac-01950 ok len 107 peak 63 record 80 {'A': 7, 'prefix_to_level1': 69, 'collapse': 6, 'p': 29, 'strip': 32, 'total': 107}
+5 sac-01950 ok len 108 peak 63 record 82 {'prefix_to_level1': 69, 'variant': 'v2', 'p': 30, 'k': 6, 'collapse+tail': 39, 'total': 108}
+6 ac-02033 ok len 202 peak 127 record 145 {'A': 7, 'prefix_to_level1': 133, 'collapse': 5, 'p': 61, 'strip': 64, 'total': 202}
+6 sac-02033 ok len 184 peak 127 record 147 {'prefix_to_level1': 133, 'variant': 'v1', 'p': 61, 'k': 10, 'collapse+tail': 51, 'total': 184}
+7 ac-06796 ok len 398 peak 255 record 275 {'A': 7, 'prefix_to_level1': 264, 'collapse': 6, 'p': 125, 'strip': 128, 'total': 398}
+7 sac-06796 ok len 331 peak 255 record 277 {'prefix_to_level1': 264, 'variant': 'v2', 'p': 126, 'k': 14, 'collapse+tail': 67, 'total': 331}
+8 ac-03079 ok len 781 peak 511 record 532 {'A': 7, 'prefix_to_level1': 520, 'collapse': 5, 'p': 253, 'strip': 256, 'total': 781}
+8 sac-03079 ok len 611 peak 511 record 534 {'prefix_to_level1': 520, 'variant': 'v1', 'p': 253, 'k': 18, 'collapse+tail': 91, 'total': 611}
+9 ac-06727 ok len 1553 peak 1023 record 1046 {'A': 7, 'prefix_to_level1': 1035, 'collapse': 6, 'p': 509, 'strip': 512, 'total': 1553}
+9 sac-06727 ok len 1158 peak 1023 record 1048 {'prefix_to_level1': 1035, 'variant': 'v2', 'p': 510, 'k': 30, 'collapse+tail': 123, 'total': 1158}
+10 ac-00106 ok len 3088 peak 2047 record 2071 {'A': 7, 'prefix_to_level1': 2059, 'collapse': 5, 'p': 1021, 'strip': 1024, 'total': 3088}
+10 sac-00106 ok len 2230 peak 2047 record 2073 {'prefix_to_level1': 2059, 'variant': 'v1', 'p': 1021, 'k': 34, 'collapse+tail': 171, 'total': 2230}
