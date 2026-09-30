@@ -1,0 +1,132 @@
+{
+  "kind": "candidate",
+  "summary": "Officially replayed local route length 81, saved baseline 91; target 34. No live score or submission.",
+  "candidate": {
+    "row_id": "ac-00009",
+    "track": "AC",
+    "start": [
+      "YYxyxyX",
+      "YYxyxyxyXYXXXYX"
+    ],
+    "moves": [
+      1,
+      4,
+      7,
+      11,
+      8,
+      6,
+      4,
+      3,
+      7,
+      9,
+      3,
+      1,
+      5,
+      1,
+      9,
+      12,
+      10,
+      7,
+      7,
+      8,
+      3,
+      7,
+      13,
+      11,
+      9,
+      2,
+      7,
+      7,
+      9,
+      3,
+      6,
+      11,
+      8,
+      3,
+      10,
+      6,
+      6,
+      4,
+      3,
+      6,
+      12,
+      8,
+      10,
+      2,
+      5,
+      13,
+      5,
+      13,
+      11,
+      12,
+      4,
+      7,
+      5,
+      10,
+      13,
+      5,
+      7,
+      12,
+      2,
+      5,
+      6,
+      2,
+      6,
+      1,
+      6,
+      4,
+      13,
+      4,
+      1,
+      7,
+      9,
+      5,
+      6,
+      8,
+      2,
+      6,
+      8,
+      5,
+      3,
+      3,
+      5
+    ],
+    "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+    "evidence_grade": "V",
+    "family": "exact-multipath-bridge"
+  },
+  "evidence": [
+    {
+      "path": "runs/code_254c7c4fa9e1df83/saved_union.json",
+      "sha256": "a89a6ef385a03a376c40e4c74a9d71c3ba5670e0588364aeb63426eeb04b7221"
+    },
+    {
+      "path": "runs/code_254c7c4fa9e1df83/coverage.json",
+      "sha256": "8bc8daa60fd663c50c66cd212a151b367d4187de007043bc70179bfbe56f70d5"
+    },
+    {
+      "path": "runs/code_254c7c4fa9e1df83/executed_bridge_search.py",
+      "sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8"
+    },
+    {
+      "path": "runs/code_254c7c4fa9e1df83/executed_test_bridge_search.py",
+      "sha256": "4edc5ba573f4a440ef7f8310dbfc1633b8ebf5c9153003b56f8c06f07e8c6f0c"
+    },
+    {
+      "path": "runs/code_254c7c4fa9e1df83/baseline.json",
+      "sha256": "d4bc306226fcf5566dee183e650cc596c67934deffcbd6b5aa1faba2cfbd8b8c"
+    },
+    {
+      "path": "runs/code_254c7c4fa9e1df83/baseline_receipt.json",
+      "sha256": "e81fac5a622e64145ccfbaafeccd9034d75f1f16006a64497307ac4fd9a28f00"
+    },
+    {
+      "path": "runs/code_254c7c4fa9e1df83/candidate.json",
+      "sha256": "cbbc3572ac2534c21f7b88d96bcbf7ccd1f0db2e52fa99c992f52bd18057a6f6"
+    },
+    {
+      "path": "runs/code_254c7c4fa9e1df83/receipt.json",
+      "sha256": "7d18f0c16ca448a176455fdb67d6bcc3a363c1129b5494bc48e6599bbb75038e"
+    }
+  ]
+}
