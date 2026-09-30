@@ -2828,6 +2828,125 @@
         "event": "new_verified_foreign_road",
         "row_id": "ac-00001"
       }
+    },
+    {
+      "key": "166572bd23edd5dec08b2eb9c1adffd9ae84a7d09f9a450461f39a6c8a38d826",
+      "job": {
+        "row_id": "ac-00031",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 93,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "166572bd23edd5dec08b2eb9c1adffd9ae84a7d09f9a450461f39a6c8a38d826"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790803283.8758535,
+      "result_path": "runs/bob_revival/code_166572bd23edd5de/worker_result.json",
+      "result_sha256": "e2bdde966dd8673b5f1800606f5eaae914863adb71f737ff9710926493e7f0e6",
+      "kind": "bounded_miss",
+      "summary": "No improvement from the tested Bob cross-class transfers; saved baseline None, target 93.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "reopen_when": {
+        "event": "new_exact_crossclass_seed",
+        "row_id": "ac-00031"
+      }
+    },
+    {
+      "key": "1b29df2cd303ffd51fe68501f51dc00faeb814930f7a5dc7274c9f814c88edf9",
+      "job": {
+        "row_id": "ac-00031",
+        "track": "AC",
+        "helper": "charlie",
+        "algorithm_id": "charlie-exact-cap-ladder-v1",
+        "script": "helpers/charlie_lane_v1.py",
+        "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
+        "inputs": {
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 93,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "1b29df2cd303ffd51fe68501f51dc00faeb814930f7a5dc7274c9f814c88edf9"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790803306.4717796,
+      "result_path": "runs/charlie_revival/code_1b29df2cd303ffd5/worker_result.json",
+      "result_sha256": "c3a21146106984d19b63ea10d73f4605b87de54a724f92d63567d815a6f2481b",
+      "kind": "bounded_miss",
+      "summary": "No saved-baseline improvement in bounded cap probe",
+      "gate": null,
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      },
+      "reopen_when": {
+        "event": "higher_exact_cap_capacity",
+        "row_id": "ac-00031"
+      }
+    },
+    {
+      "key": "033b28f98e4784ef12ebf1b879207d288f9c18de536597a61c98d7dbbfa64132",
+      "job": {
+        "row_id": "ac-00031",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 93,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "033b28f98e4784ef12ebf1b879207d288f9c18de536597a61c98d7dbbfa64132"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790803353.827377,
+      "result_path": "runs/kernel_revival/code_033b28f98e4784ef/worker_result.json",
+      "result_sha256": "29c31ed93098166a206539795eb7c4fe55ec11bf7ad7d2fd3d67819979412c33",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best None, target 93.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00031"
+      }
     }
   ],
   "notifications": [
@@ -2840,7 +2959,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790803204.1092584,
+  "updated_at": 1790803353.8277977,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,

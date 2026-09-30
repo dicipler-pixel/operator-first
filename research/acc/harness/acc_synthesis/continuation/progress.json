@@ -1,7 +1,7 @@
 {
-  "completed_batches": 67,
+  "completed_batches": 70,
   "model_worker_launches": 4,
-  "code_only_batches": 63,
+  "code_only_batches": 66,
   "new_improved_routes": 5,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -49,12 +49,12 @@
       },
       "key": "a51147b6c1b3449783bc4faf168bdeaee625cd746eb50f7761f1447a95097ea0"
     },
-    "remaining_jobs": 41
+    "remaining_jobs": 38
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 67
+      "completed": 70
     },
     "unconnected_roles": [
       "luna_memory",
@@ -923,6 +923,47 @@
       "target": 404,
       "kind": "bounded_miss",
       "result_path": "runs/kernel_revival/code_77f429e1e44e73a1/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00031",
+      "baseline": null,
+      "target": 93,
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_166572bd23edd5de/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "charlie",
+      "row_id": "ac-00031",
+      "baseline": null,
+      "target": 93,
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_1b29df2cd303ffd5/worker_result.json",
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00031",
+      "baseline": null,
+      "target": 93,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_033b28f98e4784ef/worker_result.json",
       "limits": {
         "wall_seconds": 180.0,
         "node_cap": 600000,
