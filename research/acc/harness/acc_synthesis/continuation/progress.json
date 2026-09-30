@@ -28,13 +28,38 @@
     }
   ],
   "next": {
-    "status": "exhausted",
-    "reason": "All eligible helper/row/input probes are already recorded or claimed. New evidence or a justified method is required."
+    "status": "active",
+    "active": {
+      "job": {
+        "row_id": "ac-00009",
+        "track": "AC",
+        "baseline": 112,
+        "target": 34,
+        "seed_sha256": "a5fa089d7cffc8d299beba49d8e1aa5a2ff729cf244bb977c5b3b67619a962eb",
+        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
+          "memory_mib": 1024
+        },
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "0e98369fca2fe29cdd88bf0e844901775d6776a173c6f3833c4bfa324e0885a6"
+      },
+      "task_id": 126,
+      "lease_token": "67f738cf84f3492ca7531900e90f805f",
+      "expires_at": 1790807948.118652,
+      "repo_head": "7c2ae55ebbf8bc1e21ea04b603379fcd1e798008",
+      "phase": "reserved",
+      "host_must_commit_before_execution": true
+    }
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 110
+      "completed": 110,
+      "running": 1
     },
     "unconnected_roles": [
       "luna_memory",
