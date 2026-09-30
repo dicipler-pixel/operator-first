@@ -35,7 +35,7 @@ T0 = 1_790_000_000.0
 class Env:
     """A throwaway repository with a harness, a fake clock and fake boards."""
 
-    def __init__(self, methods=None):
+    def __init__(self, methods=None, ladder=False):
         self.tmp = Path(tempfile.mkdtemp())
         self.repo = self.tmp / "repo"
         self.repo.mkdir()
@@ -43,6 +43,8 @@ class Env:
         cfg["harvest"]["globs"] = ["inbox/**/*.txt", "inbox/**/*.jsonl"]
         if methods:
             cfg["methods"].update(methods)
+        if not ladder:
+            cfg["ladder"] = [cfg["default_strategy"]]   # one family unless a test asks for the ladder
         self.cfg_path = self.tmp / "config.json"
         self.cfg_path.write_text(json.dumps(cfg))
         self.h = Harness(config_path=self.cfg_path, state_dir=self.repo / "state", repo=self.repo)
@@ -358,6 +360,19 @@ class HarnessTests(unittest.TestCase):
         with self.assertRaises(Refused):
             e.h.open({"role": "builder", "rows": ["ac-01373"], "strategy": CFG["default_strategy"]})
 
+    def test_ladder_runs_the_deterministic_rung_once_then_moves_on(self):
+        e = Env(ladder=True)
+        e.file("inbox/a.txt", "ac-01373: %s\n" % AC1373)
+        e.h.harvest()
+        e.boards(ac={"ac-01373": (29, 2)}, sac={}, held={})
+        c1 = e.h.next(role="builder")
+        first = json.loads((e.repo / c1["contract"]).read_text())["strategy"]["method"]
+        art = e.result("state/artifacts/%s/out.jsonl" % c1["task"], {"row": "ac-01373", "final_path": AC1373})
+        e.h.accept(c1["task"], c1["token"], {"kind": "ran", "summary": "x", "prediction": "p", "artifacts": [art]})
+        c2 = e.h.next(role="builder")
+        second = json.loads((e.repo / c2["contract"]).read_text())["strategy"]["method"]
+        self.assertEqual((first, second), ("window", "beam"))
+
     def test_artifacts_are_fenced_to_the_workspace(self):
         e = Env()
         e.file("inbox/a.txt", "ac-01373: %s\n" % AC1373)
@@ -409,6 +424,7 @@ class HarnessTests(unittest.TestCase):
                                               "{out}", line]}})
         cfg = json.loads(e.cfg_path.read_text())
         cfg["default_strategy"]["method"] = "fake"
+        cfg["ladder"] = [cfg["default_strategy"]]
         e.cfg_path.write_text(json.dumps(cfg))
         e.h = Harness(config_path=e.cfg_path, state_dir=e.repo / "state", repo=e.repo)
         e.h.now = lambda: e.t[0]

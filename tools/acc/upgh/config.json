@@ -50,30 +50,128 @@
     "capture": "window14",
     "representation": "direct",
     "board_filter": "near-record",
-    "knobs": {"W": 200000, "DMAX": 600, "H": 1, "DIV": 0.8, "SEED": 101, "NOISE": 2}
+    "knobs": {
+      "W": 200000,
+      "DMAX": 600,
+      "H": 1,
+      "DIV": 0.8,
+      "SEED": 101,
+      "NOISE": 2
+    }
   },
   "methods": {
     "beam": {
       "runner": "code",
       "about": "acc_beam (T9 finish) + acc_window shortening via run_beam_raw.py; writes one JSON line per row with ac and sac paths",
-      "command": ["{python}", "research/acc/optimality/run_beam_raw.py", "{manifest}", "{bin}", "{t9}", "{work}",
-                  "{knob:W}", "{knob:DMAX}", "{out}", "{targets}"],
-      "env": {"BEAM_H": "{knob:H}", "BEAM_DIV": "{knob:DIV}", "BEAM_SEED": "{knob:SEED}", "BEAM_NOISE": "{knob:NOISE}"},
-      "needs": ["bin/acc_beam", "bin/acc_window", "T9.tab"],
+      "command": [
+        "{python}",
+        "research/acc/optimality/run_beam_raw.py",
+        "{manifest}",
+        "{bin}",
+        "{t9}",
+        "{work}",
+        "{knob:W}",
+        "{knob:DMAX}",
+        "{out}",
+        "{targets}"
+      ],
+      "env": {
+        "BEAM_H": "{knob:H}",
+        "BEAM_DIV": "{knob:DIV}",
+        "BEAM_SEED": "{knob:SEED}",
+        "BEAM_NOISE": "{knob:NOISE}"
+      },
+      "needs": [
+        "bin/acc_beam",
+        "bin/acc_window",
+        "T9.tab"
+      ],
       "wall_seconds": 1080
+    },
+    "window": {
+      "runner": "code",
+      "about": "acc_window 7-layer BFS window shortening of our current best AC path per row (run_window.py); deterministic",
+      "command": [
+        "{python}",
+        "research/acc/optimality/run_window.py",
+        "{bin}/acc_window",
+        "{sair}",
+        "{work}",
+        "{out}",
+        "{jobs}"
+      ],
+      "needs": [
+        "bin/acc_window"
+      ],
+      "needs_best": true,
+      "wall_seconds": 1500
     }
   },
   "roles": {
-    "builder": {"claude_agent": "upgh-builder", "claude_model": "sonnet", "other_host": "gpt-6.1-sol"},
-    "checker": {"claude_agent": "upgh-checker", "claude_model": "sonnet", "other_host": "gpt-6.1-sol, separate context"},
-    "advisor": {"claude_agent": "upgh-advisor", "claude_model": "opus", "other_host": "gpt-6-astra"},
-    "memory": {"claude_agent": "upgh-memory", "claude_model": "haiku", "other_host": "gpt-6-luna"}
+    "builder": {
+      "claude_agent": "upgh-builder",
+      "claude_model": "sonnet",
+      "other_host": "gpt-6.1-sol"
+    },
+    "checker": {
+      "claude_agent": "upgh-checker",
+      "claude_model": "sonnet",
+      "other_host": "gpt-6.1-sol, separate context"
+    },
+    "advisor": {
+      "claude_agent": "upgh-advisor",
+      "claude_model": "opus",
+      "other_host": "gpt-6-astra"
+    },
+    "memory": {
+      "claude_agent": "upgh-memory",
+      "claude_model": "haiku",
+      "other_host": "gpt-6-luna"
+    }
   },
   "harvest": {
-    "globs": ["ACC_*.txt", "research/acc/**/*.txt", "research/acc/**/*.jsonl", "research/acc/**/*.json",
-              "tools/acc/**/*.txt", "tools/acc/**/*.json"],
-    "exclude": ["research/acc/upgh/ledger.jsonl", "research/acc/upgh/plans/", "research/acc/upgh/tasks/",
-                "research/acc/upgh/cache/", "tools/acc/upgh/"]
+    "globs": [
+      "ACC_*.txt",
+      "research/acc/**/*.txt",
+      "research/acc/**/*.jsonl",
+      "research/acc/**/*.json",
+      "tools/acc/**/*.txt",
+      "tools/acc/**/*.json"
+    ],
+    "exclude": [
+      "research/acc/upgh/ledger.jsonl",
+      "research/acc/upgh/plans/",
+      "research/acc/upgh/tasks/",
+      "research/acc/upgh/cache/",
+      "tools/acc/upgh/"
+    ]
   },
-  "submission": "never automatic: `upgh plan` writes a file; a person sends it with tools/acc/sair_api.py submit FILE --yes"
+  "submission": "never automatic: `upgh plan` writes a file; a person sends it with tools/acc/sair_api.py submit FILE --yes",
+  "ladder": [
+    {
+      "method": "window",
+      "seed": "our-best",
+      "pool": "none",
+      "capture": "window7",
+      "representation": "direct",
+      "board_filter": "near-record",
+      "knobs": {}
+    },
+    {
+      "method": "beam",
+      "seed": "start",
+      "pool": "none",
+      "capture": "window14",
+      "representation": "direct",
+      "board_filter": "near-record",
+      "knobs": {
+        "W": 200000,
+        "DMAX": 600,
+        "H": 1,
+        "DIV": 0.8,
+        "SEED": 101,
+        "NOISE": 2
+      }
+    }
+  ]
 }

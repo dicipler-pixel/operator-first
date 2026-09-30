@@ -535,14 +535,32 @@ class Harness:
                         value *= g.get("beat_prior", 1.0)   # [H] beats by one have been rare; ties land more often
                 if not 1 <= gap <= g["gap_max"]:
                     continue
-                fam = st.family_for(cid, st.strategy_for(cid, strategy))
-                if st.heat[(cid, fam)] >= g["heat_before_advisor"]:
-                    continue  # flailing: this family is advisor territory now
+                chosen = self._rung(st, cid, best, strategy)
+                if chosen is None:
+                    continue  # every rung is hot or spent: advisor territory now
+                fam = st.family_for(cid, chosen)
                 cands.append({"cid": cid, "gap": gap, "k": row["k"], "record": rec, "value": round(value, 4),
-                              "tries": st.heat[(cid, fam)]})
+                              "tries": st.heat[(cid, fam)], "strategy": chosen})
         # breadth first: every target gets one attempt before any gets a second
         cands.sort(key=lambda c: (c["tries"], c["gap"], -c["value"], c["record"] or 0, c["cid"]))
         return cands
+
+    def _rung(self, st, cid, best, default):
+        """The strategy code uses on this row: an advisor's switch if there was one, else the first ladder
+        rung that applies (needs a best path?), is not hot, and is not a spent deterministic run."""
+        if cid in st.row_strategy:
+            s = st.row_strategy[cid]
+            return None if st.heat[(cid, st.family_for(cid, s))] >= self.cfg["gates"]["heat_before_advisor"] else s
+        for rung in self.cfg.get("ladder") or [default]:
+            method = self.cfg["methods"].get(rung["method"], {})
+            if method.get("needs_best") and best is None:
+                continue
+            if st.heat[(cid, st.family_for(cid, rung))] >= self.cfg["gates"]["heat_before_advisor"]:
+                continue
+            if "SEED" not in (rung.get("knobs") or {}) and self._exact_repeats(st, [cid], rung):
+                continue  # deterministic and already run here
+            return rung
+        return None
 
     def next(self, role=None, runner=None):
         """Claim the next task: queued work first (advisor/checker/reopened), else code picks rows.
@@ -572,9 +590,8 @@ class Harness:
                 if not cands:
                     return None
                 tid = self._next_tid(st)
-                strategy = st.strategy_for(cands[0]["cid"], strategy)
-                same = [c["cid"] for c in cands
-                        if st.strategy_for(c["cid"], self.cfg["default_strategy"]) == strategy]
+                strategy = cands[0]["strategy"]
+                same = [c["cid"] for c in cands if canon(c["strategy"]) == canon(strategy)]
                 rows = []
                 for cid in same:   # a row and its AC/SAC twin share one beam run
                     num = cid.split("-")[1]
@@ -1095,10 +1112,18 @@ class Harness:
             record = ctx["record"] if ctx["record"] is not None else (ctx["our_best"] or 100)
             targets.append({"id": ac, "record": record, "k": ctx["k"] or 0})
         (art / "targets.json").write_text(json.dumps(targets) + "\n", encoding="utf-8")
+        jobs = {}
+        for row in c["rows"]:
+            ac = "ac-" + row.split("-")[1]
+            best = st.best.get(ac)
+            if best and ac not in jobs:
+                jobs[ac] = best["moves"]
+        (art / "jobs.json").write_text(json.dumps(jobs) + "\n", encoding="utf-8")
         knobs = c["strategy"].get("knobs") or {}
         subst = {"{python}": sys.executable, "{manifest}": str(self.sair_dir / "competition/tools/verifier/data/manifest.json"),
                  "{bin}": str(self.cache / "bin"), "{t9}": str(self.cache / "T9.tab"), "{work}": str(work),
-                 "{out}": str(art / "out.jsonl"), "{targets}": str(art / "targets.json")}
+                 "{out}": str(art / "out.jsonl"), "{targets}": str(art / "targets.json"),
+                 "{jobs}": str(art / "jobs.json"), "{sair}": str(self.sair_dir)}
 
         def fill(text):
             for k, v in subst.items():
