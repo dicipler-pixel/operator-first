@@ -243,7 +243,9 @@ class Harness:
             st = self.state()
             cache = self.state_dir / "cache"
             snaps = sources.pull_boards(cache / "boards")
-            hist = sources.pull_history(cache / "history")
+            prev = st.history if (st.history and st.history.get("max_submission_id") is not None
+                                  and self.now() - st.history["pulled_at"] < 86400) else None
+            hist = sources.pull_history(cache / "history", previous=prev)
             for s in snaps:
                 s["file"] = self._rel(Path(s["file"]))
             hist["file"] = self._rel(Path(hist["file"]))
@@ -263,6 +265,82 @@ class Harness:
             self.ledger.append_many(events)
             return {"boards": snaps, "history": {k: v for k, v in hist.items() if k != "best"},
                     "wakes": len(wakes)}
+
+    def import_boards(self):
+        """Adopt boards the team's sair_api.py already pulled. Zero API calls."""
+        with self.control():
+            st = self.state()
+            live = self.repo / "research/acc/live/boards"
+            events = []
+            for problem in ("ac", "stable_ac"):
+                snap = sources.newest_live_board(live, problem)
+                cur = st.boards.get(problem)
+                if snap and (cur is None or snap["pulled_at"] > cur["pulled_at"]):
+                    snap["file"] = self._rel(Path(snap["file"]))
+                    events.append(("board.snapshot", snap, "C"))
+            self.ledger.append_many(events)
+            return [e[1]["problem"] for e in events]
+
+    def history(self):
+        """Refresh only our submission history (usually one API call)."""
+        with self.control():
+            st = self.state()
+            prev = st.history if (st.history and st.history.get("max_submission_id") is not None
+                                  and self.now() - st.history["pulled_at"] < 86400) else None
+            hist = sources.pull_history(self.state_dir / "cache" / "history", previous=prev)
+            hist["file"] = self._rel(Path(hist["file"]))
+            self.ledger.append("history.snapshot", hist, "C")
+            return {k: v for k, v in hist.items() if k not in ("best", "today_ids")}
+
+    def queue(self, plan_result):
+        """Copy plan lines into the team's send queue (research/acc/live/queue). Sending is a separate,
+        human-authorised step: `sair_api.py send-queue` re-checks the live board and drops anything sent."""
+        if not plan_result.get("file"):
+            return {"queued": 0}
+        qdir = self.repo / "research/acc/live/queue"
+        qdir.mkdir(parents=True, exist_ok=True)
+        waiting = {}
+        for f in qdir.glob("*.txt"):
+            for cid, moves, _ in harvest_mod.extract(f):
+                waiting[cid] = min(len(moves), waiting.get(cid, 10 ** 9))
+        keep = []
+        for cid, moves, _ in harvest_mod.extract(self.repo / plan_result["file"]["path"]):
+            if waiting.get(cid, 10 ** 9) > len(moves):
+                keep.append("%s: [%s]" % (cid, ", ".join(map(str, moves))))
+        if not keep:
+            return {"queued": 0}
+        out = qdir / ("upgh_%s.txt" % time.strftime("%Y%m%dT%H%M%SZ", time.gmtime(self.now())))
+        out.write_text("\n".join(keep) + "\n", encoding="utf-8")
+        self.ledger.append("queue.written", {"file": self._rel(out), "sha256": sha256_file(out),
+                                             "lines": len(keep), "plan": plan_result["file"]}, "V")
+        return {"queued": len(keep), "file": self._rel(out)}
+
+    def cycle(self):
+        """One cycle: harvest, refresh board/history only when something new needs deciding, plan,
+        queue. It does not send."""
+        out = {"at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(self.now()))}
+        out["harvest"] = {k: self.harvest()[k] for k in ("improved", "invalid", "disagree")}
+        out["imported_boards"] = self.import_boards()
+        st = self.state()
+        new_since_plan = any(b["seq"] > (st.plans[-1]["seq"] if st.plans else 0) for b in st.best.values())
+        if new_since_plan:
+            clocks = self._clocks(st)
+            if not (clocks["board_ac"]["ok"] and clocks["board_stable_ac"]["ok"]):
+                out["board"] = {"pulled": [s["problem"] for s in self.board()["boards"]]}
+            elif not clocks["history"]["ok"] or not clocks["board_history_skew"]["ok"]:
+                out["history"] = self.history()
+            try:
+                p = self.plan()
+                out["plan"] = {"scoring": p["scoring"], "points": p["points"]}
+                out["queue"] = self.queue(p)
+            except Refused as exc:
+                out["plan"] = {"refused": str(exc)}
+        else:
+            out["plan"] = "skipped: no new best path since the last plan (no API calls spent)"
+        qdir = self.repo / "research/acc/live/queue"
+        out["queue_lines_waiting"] = sum(1 for f in qdir.glob("*.txt") for _ in harvest_mod.extract(f)) \
+            if qdir.is_dir() else 0
+        return out
 
     # -- plan --------------------------------------------------------------------------
     def rows_report(self, st=None):
@@ -384,19 +462,27 @@ class Harness:
                     continue
                 if rec is None and not g["include_unsolved"]:
                     continue
+                if rec is not None and g.get("max_k") is not None and row["k"] > g["max_k"]:
+                    continue
                 L = best["length"]
                 if rec is None:
-                    gap = 1
+                    gap, value = 1, 1.0
                 else:
                     ours_at_rec = held.get(cid, 10 ** 9) <= rec or L <= rec
                     gap = L - (rec - 1 if ours_at_rec else rec)
+                    # a beat is worth 1.0 minus the tie we already have; a new tie is worth 2^-k
+                    value = 1.0 - 2.0 ** (1 - row["k"]) if ours_at_rec else 2.0 ** (-row["k"])
+                    if ours_at_rec:
+                        value *= g.get("beat_prior", 1.0)   # [H] beats by one have been rare; ties land more often
                 if not 1 <= gap <= g["gap_max"]:
                     continue
                 fam = st.family_for(cid, st.strategy_for(cid, strategy))
                 if st.heat[(cid, fam)] >= g["heat_before_advisor"]:
                     continue  # flailing: this family is advisor territory now
-                cands.append((gap, row["k"], rec or 0, cid))
-        cands.sort()
+                cands.append({"cid": cid, "gap": gap, "k": row["k"], "record": rec, "value": round(value, 4),
+                              "tries": st.heat[(cid, fam)]})
+        # breadth first: every target gets one attempt before any gets a second
+        cands.sort(key=lambda c: (c["tries"], c["gap"], -c["value"], c["record"] or 0, c["cid"]))
         return cands
 
     def next(self, role=None, runner=None):
@@ -427,14 +513,24 @@ class Harness:
                 if not cands:
                     return None
                 tid = self._next_tid(st)
-                gap, k, rec, first = cands[0]
-                strategy = st.strategy_for(first, strategy)
-                rows = [c[3] for c in cands if st.strategy_for(c[3], self.cfg["default_strategy"]) == strategy]
-                rows = rows[:self.cfg["gates"]["rows_per_task"]]
-                strategy = self._rotate_seed(st, rows[0], strategy)
+                strategy = st.strategy_for(cands[0]["cid"], strategy)
+                same = [c["cid"] for c in cands
+                        if st.strategy_for(c["cid"], self.cfg["default_strategy"]) == strategy]
+                rows = []
+                for cid in same:   # a row and its AC/SAC twin share one beam run
+                    num = cid.split("-")[1]
+                    for r in [cid] + [x for x in same if x != cid and x.split("-")[1] == num]:
+                        if r not in rows:
+                            rows.append(r)
+                    if len({r.split("-")[1] for r in rows}) >= self.cfg["gates"]["rows_per_task"]:
+                        break
+                strategy = self._rotate_seed(st, rows, strategy)
+                while self._exact_repeats(st, rows, strategy) and "SEED" in (strategy.get("knobs") or {}):
+                    strategy = {**strategy, "knobs": {**strategy["knobs"], "SEED": strategy["knobs"]["SEED"] + 1}}
                 why = "code choice (metric g): " + "; ".join(
-                    "%s gap %d over target, k=%d, record %s" % (c[3], c[0], c[1], c[2] or "none")
-                    for c in cands if c[3] in rows)
+                    "%s gap %d, k=%d, record %s, worth %.3g" % (c["cid"], c["gap"], c["k"], c["record"] or "none",
+                                                               c["value"])
+                    for c in cands if c["cid"] in rows)
                 contract = self._builder_contract(st, tid, rows, strategy, why, boards)
                 events.append(("task.opened", contract, "V"))
             token = secrets.token_hex(12)
@@ -448,23 +544,32 @@ class Harness:
                     "contract": self._rel(path), "runner": contract.get("runner", "agent"),
                     "agent": self.cfg["roles"][contract["role"]]["claude_agent"]}
 
-    def _rotate_seed(self, st, row, strategy):
-        """Heat, not a switch: each attempt in one family gets a fresh noise seed, so no run is an exact
-        (deterministic) repeat of an earlier one."""
+    def _rotate_seed(self, st, rows, strategy):
+        """Heat, not a switch: each attempt in one family gets a fresh noise seed, new for every row in
+        the task, so no run is an exact (deterministic) repeat of an earlier one."""
         knobs = dict(strategy.get("knobs") or {})
         if "SEED" not in knobs:
             return strategy
-        fam = st.family_for(row, strategy)
-        tries = sum(1 for t in st.tasks.values() if t["contract"]["role"] == "builder"
-                    and t["contract"].get("family", {}).get(row) == fam)
+        tries = 0
+        for row in rows:
+            fam = st.family_for(row, strategy)
+            tries = max(tries, sum(1 for t in st.tasks.values() if t["contract"]["role"] == "builder"
+                                   and t["contract"].get("family", {}).get(row) == fam))
         knobs["SEED"] = int(knobs["SEED"]) + tries
         return {**strategy, "knobs": knobs}
 
+    @staticmethod
+    def _twins(rows):
+        return {"%s-%s" % (p, r.split("-")[1]) for r in rows for p in ("ac", "sac")}
+
     def _exact_repeats(self, st, rows, strategy):
+        """Earlier builder tasks with the same strategy and knobs on any of these rows or their AC/SAC
+        twins (one beam run serves both twins)."""
+        want = self._twins(rows)
         return sorted({t["contract"]["task"] for t in st.tasks.values()
-                       if t["contract"]["role"] == "builder" and t["status"] == "closed"
+                       if t["contract"]["role"] == "builder" and t["status"] in ("closed", "claimed")
                        and canon(t["contract"]["strategy"]) == canon(strategy)
-                       and set(rows) & set(t["contract"]["rows"])})
+                       and want & self._twins(t["contract"]["rows"])})
 
     def _write_contract(self, contract):
         path = self.state_dir / "tasks" / (contract["task"] + ".json")
@@ -554,9 +659,16 @@ class Harness:
             raise ValueError("wrong lease token for " + tid)
         return task
 
-    def recover(self):
+    def recover(self, abandon=()):
+        """Mark expired leases interrupted. `abandon` lets a person end named claimed tasks now
+        (for example after restarting workers); they are recorded as interrupted, never as misses."""
         with self.control():
-            return self._recover_locked()
+            st = self.state()
+            events = [("task.interrupted", {"task": tid, "reason": "abandoned by operator before its lease "
+                                                                  "expired; not a miss, not a hit"}, "V")
+                      for tid in abandon if st.tasks.get(tid, {}).get("status") == "claimed"]
+            self.ledger.append_many(events)
+            return [e[1]["task"] for e in events] + self._recover_locked()
 
     def _recover_locked(self):
         st = self.state()
@@ -977,8 +1089,9 @@ class Harness:
         out = []
         for e in self.ledger.events():
             d = e["data"]
+            rows = d.get("rows")
             touched = (d.get("cid") in cids or d.get("row") in cids
-                       or bool(cids & set(d.get("rows") or [])) or bool(cids & set((d.get("rows") or {}))))
+                       or (isinstance(rows, (list, dict)) and bool(cids & set(rows))))
             if not touched:
                 continue
             item = {"seq": e["seq"], "at": e["at"], "kind": e["kind"], "grade": e["grade"]}

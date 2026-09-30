@@ -49,6 +49,8 @@ def verdict(R) -> tuple[str, list]:
     if missing:
         return "unobservable", missing
     L, rec, held = R["length"], R["record"], R["held_len"]
+    if rec is not None and L > rec:
+        return "above", []          # behind the live record, whatever we hold
     if held is not None and held <= L:
         return "held", []
     if rec is None:

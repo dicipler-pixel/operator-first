@@ -539,7 +539,7 @@ def send_queue(args):
         return
     merged = REPO / f"ACC_QUEUE_{stamp()}.txt"
     merged.write_text("".join(f"{c}: [{','.join(map(str, lines[c]))}]\n" for c in sorted(lines)), encoding="utf-8")
-    send(argparse.Namespace(files=[str(merged)], yes=args.yes))
+    send(argparse.Namespace(files=[str(merged)], yes=args.yes, lean=getattr(args, "lean", False)))
     if args.yes:
         done = qdir / "sent"
         done.mkdir(exist_ok=True)
@@ -657,6 +657,7 @@ def main():
     sq.add_argument("--min-lines", type=int, default=3)
     sq.add_argument("--force", action="store_true")
     sq.add_argument("--yes", action="store_true")
+    sq.add_argument("--lean", action="store_true", help="send through `send --lean` (~8 API calls)")
     st = sub.add_parser("status")
     st.add_argument("sid")
     args = ap.parse_args()

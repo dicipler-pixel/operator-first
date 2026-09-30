@@ -9,7 +9,10 @@ its own. Write Z or refuse.
   upgh status                    one screen: clocks, paths, tasks, heat, last plan
   upgh board                     pull live boards + full submission history (read-only)
   upgh harvest [FILE...]         write every path found in files to the ledger (checked twice)
-  upgh plan                      write the lines that score now; never sends them
+  upgh plan [--queue]            write the lines that score now (and queue them); never sends them
+  upgh cycle                     harvest, import boards, refresh only if needed, plan, queue (no send)
+  upgh import-boards             adopt boards the team's sair_api.py already pulled (0 API calls)
+  upgh history                   refresh our submission history (usually 1 API call)
   upgh next [--role R] [--runner code]   claim the next task (prints contract path + token)
   upgh run [--max-tasks N]       code runner: claim and execute beam tasks, no model needed
   upgh accept TASK TOKEN RESULT.json     hand in a worker result
@@ -82,9 +85,9 @@ def show_plan(p):
         print("closest behind: " + ", ".join("%(cid)s %(length)d/%(record)d" % b for b in p["behind_by_1_to_3"][:12]))
     if p["file"]:
         print("wrote %s  (official CLI: %d lines ok)" % (p["file"]["path"], p["official_cli"]["lines"]))
-        print("nothing was sent. To send, a person runs:\n"
-              "  python3 tools/acc/sair_api.py submit %s          (dry run)\n"
-              "  python3 tools/acc/sair_api.py submit %s --yes    (uses 1 of 40 daily submissions)"
+        print("nothing was sent. Sending goes through the team tool, which re-checks the board within 5 min:\n"
+              "  python3 tools/acc/sair_api.py send %s --lean          (dry run)\n"
+              "  python3 tools/acc/sair_api.py send %s --lean --yes    (uses 1 of 40 daily submissions)"
               % (p["file"]["path"], p["file"]["path"]))
 
 
@@ -98,8 +101,12 @@ def main(argv=None):
     p.add_argument("--t9", action="store_true", help="also build T9.tab (4.5 GB, about 3 minutes)")
     p = sub.add_parser("doctor")
     p.add_argument("--repair-tail", action="store_true")
-    for name in ("status", "board", "plan", "recover", "resume"):
+    p = sub.add_parser("recover")
+    p.add_argument("--abandon", nargs="*", default=[], help="claimed task ids to end now (operator)")
+    for name in ("status", "board", "resume", "cycle", "import-boards", "history"):
         sub.add_parser(name)
+    p = sub.add_parser("plan")
+    p.add_argument("--queue", action="store_true", help="also copy the lines into research/acc/live/queue")
     p = sub.add_parser("harvest")
     p.add_argument("files", nargs="*")
     p = sub.add_parser("next")
@@ -150,8 +157,19 @@ def main(argv=None):
             out = h.harvest(args.files or None)
         elif args.cmd == "plan":
             out = h.plan()
+            if args.queue:
+                out["queue"] = h.queue(out)
             if not args.json:
-                return show_plan(out) or 0
+                show_plan(out)
+                if args.queue:
+                    print("queue: %s" % out["queue"])
+                return 0
+        elif args.cmd == "cycle":
+            out = h.cycle()
+        elif args.cmd == "import-boards":
+            out = {"imported": h.import_boards()}
+        elif args.cmd == "history":
+            out = h.history()
         elif args.cmd == "next":
             out = h.next(role=args.role, runner=args.runner) or {"task": None, "note": "nothing runnable"}
         elif args.cmd == "run":
@@ -165,7 +183,7 @@ def main(argv=None):
         elif args.cmd == "open":
             out = {"task": h.open(_load(args.contract))}
         elif args.cmd == "recover":
-            out = {"interrupted": h.recover()}
+            out = {"interrupted": h.recover(abandon=args.abandon)}
         elif args.cmd == "wake":
             out = h.wake(_load(args.event))
         elif args.cmd == "split":
