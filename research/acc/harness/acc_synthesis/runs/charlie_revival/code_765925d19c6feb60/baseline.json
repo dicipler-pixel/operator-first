@@ -1,0 +1,67 @@
+{
+  "length": 40,
+  "moves": [
+    1,
+    4,
+    7,
+    11,
+    13,
+    10,
+    12,
+    2,
+    13,
+    3,
+    6,
+    2,
+    8,
+    0,
+    3,
+    7,
+    2,
+    8,
+    3,
+    6,
+    2,
+    12,
+    3,
+    7,
+    9,
+    5,
+    10,
+    12,
+    11,
+    13,
+    2,
+    6,
+    8,
+    5,
+    5,
+    11,
+    4,
+    3,
+    3,
+    5
+  ],
+  "official_receipt": {
+    "certificate_hash": "sha256:60218728d1adf681571f7df32b1f5fa7a501f8f4392ad83d7c47a0c181acd81a",
+    "length": 40,
+    "ok": true,
+    "peak_total_relator_length": 33,
+    "work": 714
+  },
+  "row_id": "ac-00021",
+  "sources": [
+    {
+      "archive": "research/acc/live/exchange/session3/picture/all_paths.json.gz",
+      "original_source": "hub/optimality/runs/2026-09-27/results/beam_wide.jsonl"
+    },
+    {
+      "archive": "research/acc/live/kernel/known_roads_20260930T0600Z.txt",
+      "line": 8
+    },
+    {
+      "archive": "ACC_TIE_00021_20260925.txt",
+      "line": 1
+    }
+  ]
+}
