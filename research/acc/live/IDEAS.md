@@ -1672,3 +1672,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   restarts, 17 Stable rows where the Stable record is below our AC path + 2).
 - Doubling family: see UPDATE_session2_to_luna_git_20260930T0240Z.md (records = 2^(n+1)+1.4n+9; leaders skip the strip).
 - 03:00Z hourly (session 1): no new unsent ties. Low-k loose DP 44/205, 4 paths shortened (no tie yet). Gap 3–4 loose DP 139/212: 28 shortened, 4 ties (00345, 04157, 01461, 04493, all sent). Disk 16 GB.
+- 03:15Z (session 1): **ac-05659 38 k1 / sac-05659 40 k2 ties**, in the team send file. The chain: the loose DP (gap 3–4) cut our 42 to 40 (no tie). The road cycle picks up every work/*.jsonl, so it took that 40 into the pool, and its rotation/window step cut 2 more to 38. So the DP's partial shortenings (28 so far) also count: each feeds the road cycle.
