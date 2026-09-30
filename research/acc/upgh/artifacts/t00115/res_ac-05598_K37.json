@@ -185,6 +185,12 @@
    "radius": 16,
    "cum": 6675472,
    "stop": "finished"
+  },
+  "16": {
+   "tot": 29,
+   "radius": 16,
+   "cum": 8136805,
+   "stop": "finished"
   }
  },
  "pairs": [
@@ -1105,8 +1111,113 @@
    "states": 128560,
    "result": "CERTIFIED_NO_SHORTER_BRIDGE",
    "secs": 0.0
+  },
+  {
+   "i": 16,
+   "j": 37,
+   "gap": 21,
+   "target_T": 20,
+   "tot_i": 29,
+   "tot_j": 4,
+   "Ri": 16,
+   "Rj": 7,
+   "a": 14,
+   "b": 6,
+   "states": 3154366,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.2
+  },
+  {
+   "i": 16,
+   "j": 36,
+   "gap": 20,
+   "target_T": 19,
+   "tot_i": 29,
+   "tot_j": 5,
+   "Ri": 16,
+   "Rj": 7,
+   "a": 13,
+   "b": 6,
+   "states": 2164181,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.2
+  },
+  {
+   "i": 16,
+   "j": 35,
+   "gap": 19,
+   "target_T": 18,
+   "tot_i": 29,
+   "tot_j": 6,
+   "Ri": 16,
+   "Rj": 7,
+   "a": 13,
+   "b": 5,
+   "states": 1575839,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.0
+  },
+  {
+   "i": 16,
+   "j": 34,
+   "gap": 18,
+   "target_T": 17,
+   "tot_i": 29,
+   "tot_j": 7,
+   "Ri": 16,
+   "Rj": 7,
+   "a": 12,
+   "b": 5,
+   "states": 988435,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.1
+  },
+  {
+   "i": 16,
+   "j": 33,
+   "gap": 17,
+   "target_T": 16,
+   "tot_i": 29,
+   "tot_j": 11,
+   "Ri": 16,
+   "Rj": 7,
+   "a": 11,
+   "b": 5,
+   "states": 658568,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.1
+  },
+  {
+   "i": 16,
+   "j": 32,
+   "gap": 16,
+   "target_T": 15,
+   "tot_i": 29,
+   "tot_j": 17,
+   "Ri": 16,
+   "Rj": 8,
+   "a": 10,
+   "b": 5,
+   "states": 391890,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.1
+  },
+  {
+   "i": 16,
+   "j": 31,
+   "gap": 15,
+   "target_T": 14,
+   "tot_i": 29,
+   "tot_j": 28,
+   "Ri": 16,
+   "Rj": 9,
+   "a": 9,
+   "b": 5,
+   "states": 196859,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.0
   }
  ],
  "shortened": [],
- "wall_s": 410.2
+ "wall_s": 420.6
 }
