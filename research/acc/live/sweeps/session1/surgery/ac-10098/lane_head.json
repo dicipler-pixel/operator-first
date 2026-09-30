@@ -1,0 +1,39 @@
+{
+ "lane": "head",
+ "cap": 36,
+ "maxst": 80000000,
+ "maxL": 22,
+ "start_epoch": 1790793662.3879883,
+ "searches": [
+  {
+   "L": 1,
+   "root": "YYYYxYXYx,xYYYYYxYYxYXyyyyXyyXy",
+   "root_total": 30,
+   "root_in_ball_depth": 1,
+   "result": "checked by root membership only (d > 9 or d >= L)"
+  },
+  {
+   "L": 2,
+   "root": "YYYYxYXYx,yxYYYYYxYYxYXyyyyXyyX",
+   "root_total": 30,
+   "root_in_ball_depth": 2,
+   "result": "checked by root membership only (d > 9 or d >= L)"
+  },
+  {
+   "L": 3,
+   "root": "YYYYxYXYx,XyxYYYYYxYYxYXyyyyXyy",
+   "root_total": 30,
+   "root_in_ball_depth": 3,
+   "result": "checked by root membership only (d > 9 or d >= L)"
+  }
+ ],
+ "certified_upto": 3,
+ "shortened": null,
+ "ended_by": "root above cap at L=4",
+ "ball": {
+  "dir": "work/headball",
+  "layers_0_9_total": 55362,
+  "meet": "union of layers 0..9"
+ },
+ "wall_s": 4.3
+}
