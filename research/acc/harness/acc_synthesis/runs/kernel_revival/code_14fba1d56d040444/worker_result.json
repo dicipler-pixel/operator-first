@@ -1,0 +1,107 @@
+{
+  "kind": "candidate",
+  "summary": "Exact foreign-road overlay route 52 improves saved 54; requested target 44. No live score claim.",
+  "candidate": {
+    "row_id": "ac-00028",
+    "track": "AC",
+    "start": [
+      "YYYXXYx",
+      "YYYYXyyyx"
+    ],
+    "moves": [
+      0,
+      9,
+      2,
+      6,
+      9,
+      2,
+      6,
+      8,
+      7,
+      3,
+      9,
+      2,
+      13,
+      13,
+      11,
+      5,
+      13,
+      11,
+      5,
+      1,
+      13,
+      4,
+      1,
+      11,
+      5,
+      13,
+      1,
+      4,
+      10,
+      12,
+      4,
+      8,
+      13,
+      11,
+      4,
+      13,
+      2,
+      6,
+      8,
+      8,
+      3,
+      9,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      6,
+      3,
+      3
+    ],
+    "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+    "evidence_grade": "V",
+    "family": "kernel-foreign-road-overlay"
+  },
+  "evidence": [
+    {
+      "path": "runs/kernel_revival/code_14fba1d56d040444/captured_input.json",
+      "sha256": "1a2885b9e99ffc43f3ebc31f151c9b67ba40041c86e301efb1e21a0673717547"
+    },
+    {
+      "path": "runs/kernel_revival/code_14fba1d56d040444/exact_graph.json.gz",
+      "sha256": "02ef6fc328860a8808e5da44c7a76e36148ae3e84f196ad09976725a2ef5413a"
+    },
+    {
+      "path": "runs/kernel_revival/code_14fba1d56d040444/coverage.json",
+      "sha256": "0391d1eb0cd936ff2f9fb4b08cc08ac0515d07e59fb3d386dda406ec98c25907"
+    },
+    {
+      "path": "runs/kernel_revival/code_14fba1d56d040444/executed_kernel_lane_v1.py",
+      "sha256": "8bc03e7af7e9974f6115ec8506645b3ce5397274761ec53e0ed99967f2719ffd"
+    },
+    {
+      "path": "runs/kernel_revival/code_14fba1d56d040444/executed_test_kernel_lane.py",
+      "sha256": "b504e9b1eb73f4dec95e74f650e5fd64ab7490e40ca3ccea7e08ca81545c3316"
+    },
+    {
+      "path": "runs/kernel_revival/code_14fba1d56d040444/executed_kernel_protocol.json",
+      "sha256": "5d6671e8f2cfb6ccbb3597d9fe6603d72053e618dcde4326842ab5053efd2d80"
+    },
+    {
+      "path": "runs/kernel_revival/code_14fba1d56d040444/executed_source_catalog.json",
+      "sha256": "33d71a5e6b54f0e3dc1d8f5af1419c637ef66a24a2737dcce1104cb341eaa46a"
+    },
+    {
+      "path": "runs/kernel_revival/code_14fba1d56d040444/candidate.json",
+      "sha256": "3a1fb5797a83cffa0f787678d07d9f5eb8ca811a504f1df6937e52b60e192876"
+    },
+    {
+      "path": "runs/kernel_revival/code_14fba1d56d040444/receipt.json",
+      "sha256": "8b8fe8e35b1f6140eba5077522d01e9a374af3fb8a52282c4ec2b23143b35b89"
+    }
+  ]
+}
