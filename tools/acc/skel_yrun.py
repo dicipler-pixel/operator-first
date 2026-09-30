@@ -48,6 +48,7 @@ for cid, c in C.items():
     if cid.startswith('ac-'):
         sk, ex = sig(c['initial_relators']); fam[sk].append((cid, ex))
 Y = json.load(open(REPO + '/research/acc/live/sweeps/fable/zoom_20260930T1858Z.json'))['soft_unsolved_yrun_rows']
+if os.environ.get('REVERSE'): Y = Y[::-1]   # second worker: other end of the list
 E = {1: 0, -1: 1, 2: 2, -2: 3}
 def beam(s, env, W_='20000', depth=250):
     enc = [str(len(s[0]))] + [str(E[g]) for g in s[0]] + [str(len(s[1]))] + [str(E[g]) for g in s[1]]
@@ -60,7 +61,9 @@ done = {json.loads(l)['id'] for l in open(out)} if os.path.exists(out) else set(
 nodonor = 0
 for row in Y:
     tid = row[0]
-    if tid in done: continue
+    if os.path.exists(out): done |= {json.loads(l)['id'] for l in open(out)}
+    if tid in done or os.path.exists(S + '/work/skel_yrun_claim_' + tid): continue
+    open(S + '/work/skel_yrun_claim_' + tid, 'w').close()   # a row is taken by the first worker to reach it
     sk, ex = sig(C[tid]['initial_relators'])
     donors = sorted((sum(abs(p - q) for p, q in zip(ex, e2)), sid) for sid, e2 in fam[sk] if sid in roads and sid != tid)[:DONORS]
     rec = {'id': tid, 'n': row[1], 'w': row[2], 'donors': [(d, s, len(roads[s])) for d, s in donors], 'ok': False}
