@@ -14,5 +14,23 @@
   "fresh_empty_local_ledger_resume": "same next key; zero worker dispatches; previous attempts retained",
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "automation_observed_enabled": true,
-  "scope": "This harness folder and its live local ledger. Older uncommitted raw search scratch from other helpers was not recovered or assessed. Timeout cause is not observable from these records."
+  "scope": "This harness folder and its live local ledger. Older uncommitted raw search scratch from other helpers was not recovered or assessed. Timeout cause is not observable from these records.",
+  "reservation_commit": "4a0ea60217d7a6621eb8e8ef7896419285ff6187",
+  "resumed_batch": {
+    "key": "3cc9c62c8fb11bbf50a0aa5055fb442453bae887045dbbcc27c603d8f68c98b0",
+    "row_id": "ac-00037",
+    "helper": "kernel",
+    "result_path": "runs/kernel_revival/code_3cc9c62c8fb11bbf/worker_result.json",
+    "result_sha256": "ecd37ae5b4263ad89b16d619bf00511076784a1fce0501b6c649e63080b47eb3",
+    "kind": "bounded_miss",
+    "elapsed_seconds": 27.571935609004868,
+    "peak_rss_mib": 442.0078125,
+    "total_admitted_records": 600000,
+    "saved_best": 32,
+    "target": 31
+  },
+  "completed_attempts": 7,
+  "final_active": null,
+  "model_workers_launched_during_recovery": 0,
+  "automation_reaffirmed_enabled": true
 }

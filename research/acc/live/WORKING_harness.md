@@ -1,11 +1,9 @@
 # ACC memory-first harness claims
 
-Updated: 2026-09-30T16:23:21.154399+00:00.
+Updated: 2026-09-30T16:25:46.981384+00:00.
 
-Active code-only recovery batch: Kernel ac-00037. Claim expiry: 2026-09-30T16:33:21.161688+00:00. Checkpoint key: 3cc9c62c8fb11bbf50a0aa5055fb442453bae887045dbbcc27c603d8f68c98b0.
+No active row claim. Post-timeout Kernel ac-00037 batch completed and its claim is released. Best remains 32 against pasted target 31. It ran 27.57 seconds, admitted 600000 graph-plus-fresh records, and used 442.01 MiB peak RSS. The result is a scoped bounded miss, not a nonexistence proof.
 
-All six prior attempts survived byte-for-byte; no active or stale lease was found. This batch tests a previously untried method/row combination, not a repeat. Current UPG-H claims at 2198fe09ad851a05f01718b7f340556afaa8092a are disjoint. Search starts only after this reservation is committed.
+All six earlier attempts and all 203 saved harness files survived and matched GitHub. SQLite integrity, pinned checker dependencies and evidence hashes pass. A fresh empty local ledger loads the same portable history and next key. Seven completed attempts are now saved; no active lease remains. No model worker was launched for recovery. Continue ACC harness is enabled; other old watches were not reactivated.
 
-Bounds: <=180 search seconds, <=600000 admitted records, <=1024 MiB. Model-worker dispatch zero. No submission or challenge API access. Other old watches remain outside this harness.
-
-Read research/acc/harness/acc_synthesis/CONTINUATION.md and continuation/checkpoint.json for authoritative state and negative memory.
+Next plan: charlie ac-00034, subject to fresh head/claims/lease checks. This is not a current claim. Read research/acc/harness/acc_synthesis/CONTINUATION.md and continuation/checkpoint.json. Recovery audit: continuation/timeout_recovery_20260930.json. Bounds remain <=180 search seconds / <=600000 admitted records / <=1024 MiB. No submissions or challenge API calls.
