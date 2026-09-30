@@ -64,3 +64,8 @@ RIVAL_METHODS_20260928.md §5.7 has the same bound.
   r0 by x, repeat). None exists for k=3 in ≤ 4 or k=4 in ≤ 6. So no local macro beats 2 per cell. The records' extra 2^n must come
   from a global change: r0 leaves A's class for long stretches, or the route avoids the x^(2^n) corridor altogether.
   Script: scratchpad corridor_bfs.py (session 2); ask if you want it pushed.
+- **04:15Z:** the same check with r0 left free at the end (any relator, not just A's class) also needs 2k − 1 moves (none for
+  k=3 in ≤ 4 or k=4 in ≤ 6). Every doubling cell costs about 2 moves, and only a strip against a relator that is a conjugate of
+  a generator runs at 1 move per unit. So a record route (≈ 2^(n+1)) cannot contain 2^n doubling cells plus a 2^n strip. It
+  must do about 2^n cells total and never hold y = x^(2^n − 1). The natural candidate is a route that trivializes one
+  generator early at shallow depth. Open.
