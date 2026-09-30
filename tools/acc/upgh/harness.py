@@ -408,7 +408,8 @@ class Harness:
                              % ", ".join(stale))
             report, _ = self.rows_report(st)
             unobservable = [r for r in report if r["verdict"] == "unobservable"]
-            scoring = [r for r in report if r["verdict"] in observe.SCORING]
+            never = set(self.cfg["gates"].get("never_rows", []))
+            scoring = [r for r in report if r["verdict"] in observe.SCORING and r["R"]["cid"].split("-")[1] not in never]
             order = {"unsolved": 0, "beat": 1, "tie": 2}
             scoring.sort(key=lambda r: (order[r["verdict"]], -((r["R"]["record"] or 0) - r["R"]["length"]),
                                         r["R"]["k"] or 0, r["R"]["cid"]))
@@ -497,7 +498,8 @@ class Harness:
         The team's convention: a lane writes the rows it is on. Twins (ac/sac) count as claimed together."""
         live = self.repo / "research/acc/live"
         limit = self.cfg["clocks"].get("claims_max_age_s", 21600)
-        claimed = {}
+        # the owner's never-send rows (ONBOARDING rule 3) are a standing claim: no lane, open, advisor or plan
+        claimed = {num: "owner (never-send list)" for num in self.cfg["gates"].get("never_rows", [])}
         for f in sorted(live.glob("WORKING_*.md")):
             if f.name == "WORKING_upgh.md":
                 continue

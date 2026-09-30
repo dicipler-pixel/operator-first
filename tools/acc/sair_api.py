@@ -475,6 +475,10 @@ def summarize(sid, final, source):
 FRESH_S = 300   # user rule: the live check must be at most 5 minutes old when we POST
 
 
+# ONBOARDING rule 3 (owner): never send or stack these rows or their sac twins; the owner handles them.
+NEVER_SEND = {"09839", "02257", "09311", "06403", "04718", "05378"}
+
+
 def send(args):
     """User rule (2026-09-27): pull boards + history fresh, keep only lines that are unsolved, beat
     or tie on their exact row and are shorter than anything we already sent, and POST within
@@ -502,7 +506,9 @@ def send(args):
     for cid in sorted(lines):
         L = len(lines[cid])
         rec, k = board.get(cid, (None, None))
-        if cid not in board:
+        if cid.split("-")[1] in NEVER_SEND:
+            why = "DROP never-send row (the owner handles it; ONBOARDING rule 3)"
+        elif cid not in board:
             why = "DROP not on board"
         elif cid in sent and sent[cid] <= L:
             why = f"DROP already sent {sent[cid]}"

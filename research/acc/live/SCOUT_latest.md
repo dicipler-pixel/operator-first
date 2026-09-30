@@ -1,6 +1,6 @@
-# SCOUT: low-k rows where the team has a road (2026-09-30 22:16Z)
+# SCOUT: low-k rows where the team has a road (2026-09-30 22:29Z)
 
-Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20260930T2213Z.json.gz, stable_ac_20260930T2213Z.json.gz; 2 min old) and the UPG-H ledger. 0 API calls.
+Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20260930T2213Z.json.gz, stable_ac_20260930T2213Z.json.gz; 15 min old) and the UPG-H ledger. 0 API calls.
 Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) or `upgh (running)`. Take an unclaimed row by writing it in your WORKING file. Scoring lines go to `queue/`.
 
 ## SEND: our road is at or under the record, not held yet (next send) (0)
@@ -13,14 +13,14 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | ac-03714 | 50 | 1 | 51 | 51 | +1 | 12 | bob | 0.500 |
 | ac-04086 | 34 | 1 | 35 | 35 | +1 | 13 | bob | 0.500 |
 | sac-03714 | 52 | 1 | 53 | 53 | +1 | 13 | bob | 0.500 |
-| ac-06969 | 38 | 3 | 39 | 41 | +1 | 0 |  | 0.125 |
+| ac-06969 | 38 | 3 | 39 | 41 | +1 | 1 |  | 0.125 |
 
 ## TWIN: we hold the AC record, not the Stable twin (8)
 | row | record | k | ours | held | gap | heat | who | value | route |
 |---|---|---|---|---|---|---|---|---|---|
 | sac-02288 | 38 | 1 | 39 |  | +1 | 12 | session1 | 0.500 | (y,x) finish |
 | sac-02528 | 36 | 1 | 37 |  | +1 | 6 | session2 | 0.500 | (y,x) finish |
-| sac-05378 | 43 | 1 | 44 |  | +1 | 13 |  | 0.500 | (y,x) finish |
+| sac-05378 | 43 | 1 | 44 |  | +1 | 13 | owner (never-send list) | 0.500 | (y,x) finish |
 | sac-08078 | 34 | 1 | 35 |  | +1 | 14 | session1 | 0.500 | (y,x) finish |
 | sac-01514 | 37 | 2 | 38 |  | +1 | 0 | charlie_batch7 | 0.250 | (y,x) finish |
 | sac-04493 | 53 | 2 | 54 |  | +1 | 5 | session2 | 0.250 | (y,x) finish |
@@ -37,7 +37,7 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | sac-02288 | 38 | 1 | 39 |  | +1 | 12 | session1 | 0.800 |
 | sac-02528 | 36 | 1 | 37 |  | +1 | 6 | session2 | 0.800 |
 | sac-03871 | 32 | 1 | 33 |  | +1 | 13 | bob | 0.800 |
-| sac-05378 | 43 | 1 | 44 |  | +1 | 13 |  | 0.800 |
+| sac-05378 | 43 | 1 | 44 |  | +1 | 13 | owner (never-send list) | 0.800 |
 | sac-06045 | 38 | 1 | 39 | 50 | +1 | 13 | bob | 0.800 |
 | sac-08078 | 34 | 1 | 35 |  | +1 | 14 | session1 | 0.800 |
 | sac-08995 | 47 | 1 | 48 |  | +1 | 13 | bob | 0.800 |

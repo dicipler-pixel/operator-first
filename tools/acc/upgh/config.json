@@ -43,7 +43,15 @@
     "include_unsolved": false,
     "max_artifact_bytes": 67108864,
     "shorten_gap_max": 10,
-    "new_per_near": 3
+    "new_per_near": 3,
+    "never_rows": [
+      "09839",
+      "02257",
+      "09311",
+      "06403",
+      "04718",
+      "05378"
+    ]
   },
   "default_strategy": {
     "method": "beam_p2",

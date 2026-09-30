@@ -218,6 +218,19 @@ class HarnessTests(unittest.TestCase):
         self.assertTrue(p["official_cli"]["ok"])
         self.assertIn("ac-00313: [7, 7, 12", (e.repo / p["file"]["path"]).read_text())
 
+    def test_never_send_rows_are_a_standing_claim_and_never_planned(self):
+        e = Env()
+        e.file("inbox/a.txt", "ac-00313: %s\n" % AC313)
+        e.h.harvest()
+        e.boards(ac={"ac-00313": (33, 3)}, sac={}, held={})
+        e.h.cfg["gates"]["never_rows"] = ["00313"]
+        self.assertIn("00313", e.h.external_claims())
+        with self.assertRaises(Refused):
+            e.h.open({"role": "builder", "rows": ["ac-00313"], "strategy": CFG["default_strategy"]})
+        self.assertEqual(e.h.plan()["scoring"], 0)          # a scoring tie on a never-send row is not planned
+        e.h.cfg["gates"]["never_rows"] = []
+        self.assertEqual([l["cid"] for l in e.h.plan()["lines"]], ["ac-00313"])
+
     def test_builder_miss_parks_heats_and_calls_the_advisor(self):
         e = Env()
         e.file("inbox/a.txt", "ac-01373: %s\n" % AC1373)
