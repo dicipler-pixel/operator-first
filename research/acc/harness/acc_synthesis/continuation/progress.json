@@ -1,7 +1,7 @@
 {
-  "completed_batches": 109,
+  "completed_batches": 110,
   "model_worker_launches": 4,
-  "code_only_batches": 105,
+  "code_only_batches": 106,
   "new_improved_routes": 5,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -28,38 +28,13 @@
     }
   ],
   "next": {
-    "status": "active",
-    "active": {
-      "job": {
-        "row_id": "ac-00028",
-        "track": "AC",
-        "baseline": 51,
-        "target": 44,
-        "seed_sha256": "69e4f0d549324aa7af6fc90ea349c8de2050cd0946fb52fdf7e0254f707e0c87",
-        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
-        "caps": {
-          "wall_seconds": 180,
-          "node_cap": 600000,
-          "depth": 8,
-          "profile": "route-local",
-          "memory_mib": 1024
-        },
-        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
-        "key": "15a16c2b7f75621d57f36f4961a525c56aaf7aee02cede45bf100ddf902d17dd"
-      },
-      "task_id": 125,
-      "lease_token": "e71541dbc35a40afb6e77f16d2b208e8",
-      "expires_at": 1790807928.6423094,
-      "repo_head": "640f10ff2b1eacecddf00a9b1ebd43747eb623e0",
-      "phase": "reserved",
-      "host_must_commit_before_execution": true
-    }
+    "status": "exhausted",
+    "reason": "All eligible helper/row/input probes are already recorded or claimed. New evidence or a justified method is required."
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 109,
-      "running": 1
+      "completed": 110
     },
     "unconnected_roles": [
       "luna_memory",
