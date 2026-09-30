@@ -1,0 +1,42 @@
+{
+  "exact_verified": true,
+  "checked_at": 1790802918.8382654,
+  "candidate_sha256": "3aa52bbc0373677caad1ce89757f7bb1ed84d09d01291563cb90ea73a957e325",
+  "row_id": "ac-00003",
+  "track": "AC",
+  "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+  "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+  "check_directory": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/checks/check-cxcw9sb0",
+  "evidence_grade": "V",
+  "cost": 68,
+  "peak_length": 26,
+  "exact_endpoint": [
+    "x",
+    "y"
+  ],
+  "board_observed_at": 1790752200.0,
+  "board_age_seconds": 50718.838265419006,
+  "status": "withheld",
+  "reason": "board_stale",
+  "official_receipt": {
+    "candidate_sha256": "3aa52bbc0373677caad1ce89757f7bb1ed84d09d01291563cb90ea73a957e325",
+    "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+    "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+    "valid": true,
+    "exact_endpoint": [
+      "x",
+      "y"
+    ],
+    "cost": 68,
+    "peak_length": 26,
+    "official_verdict": {
+      "ok": true,
+      "length": 68,
+      "peak_total_relator_length": 26,
+      "work": 1284,
+      "certificate_hash": "sha256:752194bf08ec608ca8ab4ab9dcb6a45094e026ba56cb597d565bdc94693b96e0"
+    },
+    "instance_hash": "sha256:40dd745fe5ee208019252e3234cc97f8254cfe5d370d2fdf784f34b0726af6e8",
+    "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+  }
+}
