@@ -1,7 +1,7 @@
 {
-  "completed_batches": 103,
+  "completed_batches": 104,
   "model_worker_launches": 4,
-  "code_only_batches": 99,
+  "code_only_batches": 100,
   "new_improved_routes": 5,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -31,7 +31,7 @@
     "status": "active",
     "active": {
       "job": {
-        "row_id": "ac-00024",
+        "row_id": "ac-00027",
         "track": "AC",
         "helper": "kernel",
         "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
@@ -42,18 +42,18 @@
         },
         "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "baseline": null,
-        "target": 96,
+        "target": 77,
         "caps": {
           "wall_seconds": 180,
           "node_cap": 600000,
           "memory_mib": 1024
         },
-        "key": "bbea15c400b609ae76938e3ce43237776ff6f20c74e1b8ed191e8614f969bf30"
+        "key": "27b70e4f421d52308008afd0d3ce981f26e66f3d03388479af9769edb67c16f0"
       },
-      "task_id": 119,
-      "lease_token": "f1047f1cea4543c0b1bb08337994f317",
-      "expires_at": 1790807593.8317373,
-      "repo_head": "8f32675e791c34f6af86365aade52dab47e54597",
+      "task_id": 120,
+      "lease_token": "a697e501dc744e868546c8b007bcdbb1",
+      "expires_at": 1790807667.9187882,
+      "repo_head": "18722531c5905e3853d1a8314eee310209e4ec92",
       "phase": "reserved",
       "host_must_commit_before_execution": true
     }
@@ -61,7 +61,7 @@
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 103,
+      "completed": 104,
       "running": 1
     },
     "unconnected_roles": [
@@ -1418,6 +1418,21 @@
       "target": 82,
       "kind": "bounded_miss",
       "result_path": "runs/kernel_revival/code_6316b1b0198353a0/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00024",
+      "baseline": null,
+      "target": 96,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_bbea15c400b609ae/worker_result.json",
       "limits": {
         "wall_seconds": 180.0,
         "node_cap": 600000,
