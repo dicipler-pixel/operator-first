@@ -44,17 +44,22 @@
     "max_artifact_bytes": 67108864
   },
   "default_strategy": {
-    "method": "beam",
+    "method": "beam_p2",
     "seed": "start",
     "pool": "none",
     "capture": "window14",
     "representation": "direct",
     "board_filter": "near-record",
     "knobs": {
-      "W": 200000,
+      "W": 20000,
       "DMAX": 600,
       "H": 1,
       "DIV": 0.8,
+      "P2": 2,
+      "QUOTA": 16,
+      "ELITE": 5000,
+      "DUAL": 0.75,
+      "CHAIN": 1,
       "SEED": 101,
       "NOISE": 2
     }
@@ -128,6 +133,56 @@
       ],
       "needs_best": true,
       "wall_seconds": 1500
+    },
+    "beam_p2": {
+      "runner": "code",
+      "about": "P2 dual beam (the team's winning setting: shorter on 7 of 10, never longer, 20-60% faster; METHODS_PLAYBOOK) + window shortening via run_beam_raw.py",
+      "command": [
+        "{python}",
+        "research/acc/optimality/run_beam_raw.py",
+        "{manifest}",
+        "{bin}",
+        "{t9}",
+        "{work}",
+        "{knob:W}",
+        "{knob:DMAX}",
+        "{out}",
+        "{targets}"
+      ],
+      "env": {
+        "BEAM_H": "{knob:H}",
+        "BEAM_DIV": "{knob:DIV}",
+        "BEAM_SEED": "{knob:SEED}",
+        "BEAM_NOISE": "{knob:NOISE}",
+        "BEAM_P2": "{knob:P2}",
+        "BEAM_QUOTA": "{knob:QUOTA}",
+        "BEAM_ELITE": "{knob:ELITE}",
+        "BEAM_DUAL": "{knob:DUAL}",
+        "BEAM_CHAIN": "{knob:CHAIN}"
+      },
+      "needs": [
+        "bin/acc_beam",
+        "bin/acc_window",
+        "T9.tab"
+      ],
+      "wall_seconds": 900
+    },
+    "yx": {
+      "runner": "code",
+      "about": "Stable AC through the (y,x) orientation: exact meet in the middle from late states of our AC twin path to (y,x), then [15,15] (tools/acc/yx_shortcut.py via adapters/yx_rows.py); deterministic; SAC rows only",
+      "command": [
+        "{python}",
+        "tools/acc/upgh/adapters/yx_rows.py",
+        "{sair}",
+        "{jobs}",
+        "{targets}",
+        "{out}",
+        "{knob:ROW_S}"
+      ],
+      "needs": [],
+      "needs_ac_twin": true,
+      "sac_only": true,
+      "wall_seconds": 1200
     }
   },
   "roles": {
@@ -172,6 +227,17 @@
   "submission": "never automatic: `upgh plan` writes a file; a person sends it with tools/acc/sair_api.py submit FILE --yes",
   "ladder": [
     {
+      "method": "yx",
+      "seed": "our-best-ac",
+      "pool": "none",
+      "capture": "meet-in-middle",
+      "representation": "yx",
+      "board_filter": "near-record",
+      "knobs": {
+        "ROW_S": 180
+      }
+    },
+    {
       "method": "window",
       "seed": "our-best",
       "pool": "none",
@@ -194,17 +260,22 @@
       }
     },
     {
-      "method": "beam",
+      "method": "beam_p2",
       "seed": "start",
       "pool": "none",
       "capture": "window14",
       "representation": "direct",
       "board_filter": "near-record",
       "knobs": {
-        "W": 200000,
+        "W": 20000,
         "DMAX": 600,
         "H": 1,
         "DIV": 0.8,
+        "P2": 2,
+        "QUOTA": 16,
+        "ELITE": 5000,
+        "DUAL": 0.75,
+        "CHAIN": 1,
         "SEED": 101,
         "NOISE": 2
       }

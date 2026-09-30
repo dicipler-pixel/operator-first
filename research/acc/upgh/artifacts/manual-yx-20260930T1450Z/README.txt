@@ -1,0 +1,1 @@
+Manual smoke run of adapters/yx_rows.py (tools/acc/yx_shortcut.py: exact meet in the middle from the last 10 states of our AC path to (y,x)), 150 s per row, on the 7 SAC rows whose record = our AC best + 1. Result: no route within the searched suffix for any row (bounded miss, not an impossibility).

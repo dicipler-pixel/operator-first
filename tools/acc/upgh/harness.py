@@ -555,6 +555,10 @@ class Harness:
             method = self.cfg["methods"].get(rung["method"], {})
             if method.get("needs_best") and best is None:
                 continue
+            if method.get("sac_only") and not cid.startswith("sac-"):
+                continue
+            if method.get("needs_ac_twin") and ("ac-" + cid.split("-")[1]) not in st.best:
+                continue
             if st.heat[(cid, st.family_for(cid, rung))] >= self.cfg["gates"]["heat_before_advisor"]:
                 continue
             if "SEED" not in (rung.get("knobs") or {}) and self._exact_repeats(st, [cid], rung):
@@ -1063,6 +1067,30 @@ class Harness:
             self.ledger.append("witness.split", data, "V")
             return data
 
+    def negative(self, rows, source, reason, methods=None):
+        """Import negative memory recorded outside the ledger (for example a team note that every tool
+        stalled on these rows). Every ladder family becomes hot on them, so code stops choosing them; an
+        advisor switch or a wake (new path, board change) can still reopen them."""
+        with self.control():
+            st = self.state()
+            src = self.repo / source
+            if not src.is_file():
+                raise ValueError("source file not found: " + source)
+            unknown = [r for r in rows if self.checker.challenge(r) is None]
+            if unknown:
+                raise ValueError("unknown challenge ids: %s" % unknown)
+            rungs = (self.cfg.get("ladder") or []) + [self.cfg["default_strategy"],
+                                                     dict(self.cfg["default_strategy"], method="beam")]
+            if methods:
+                rungs = [r for r in rungs if r["method"] in methods]
+                if not rungs:
+                    raise ValueError("no ladder rung uses %s" % (methods,))
+            fams = sorted({family(r, ()) for r in rungs})
+            data = {"rows": sorted(set(rows)), "families": fams, "heat": self.cfg["gates"]["heat_before_advisor"],
+                    "source": {"path": self._rel(src), "sha256": sha256_file(src)}, "reason": reason}
+            self.ledger.append("memory.imported", data, "C")
+            return {k: v for k, v in data.items() if k != "families"}
+
     # -- stop -----------------------------------------------------------------------------------------
     def stop(self, reason):
         with self.control():
@@ -1278,10 +1306,12 @@ class Harness:
                     % (len(unplanned), ", ".join(r["R"]["cid"] for r in unplanned[:5])))
         # S2 and flailing
         g = self.cfg["gates"]["heat_before_advisor"]
-        for (row, fam), n in st.heat.items():
-            if n >= g and not any(t["contract"]["role"] == "advisor" and row in t["contract"]["rows"]
-                                  for t in st.open_tasks()):
-                add("warn", "S2", "%s family %s: %d misses and no advisor task open (flailing)" % (row, fam, n))
+        hot_rows = sorted({row for (row, fam), n in st.heat.items() if n >= g
+                           and not any(t["contract"]["role"] == "advisor" and row in t["contract"]["rows"]
+                                       for t in st.open_tasks())})
+        if hot_rows:
+            add("info", "S2", "%d row(s) have a spent family and no advisor task (code skips them): %s%s"
+                % (len(hot_rows), ", ".join(hot_rows[:8]), " ..." if len(hot_rows) > 8 else ""))
         for p in st.parked.values():
             rw = p.get("reopen_when") or {}
             b = st.best.get(rw.get("row"))

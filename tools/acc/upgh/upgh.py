@@ -61,7 +61,8 @@ def show_status(st):
     print("tasks: %s   parked misses: %d   switches: %s   splits: %d" % (
         st["tasks"] or "none", st["parked_misses"], st["switches"] or "none", st["splits"]))
     if st["hot_families"]:
-        print("hot (advisor territory): " + ", ".join("%(row)s %(family)s x%(heat)d" % h for h in st["hot_families"]))
+        rows = sorted({h["row"] for h in st["hot_families"]})
+        print("hot rows (a spent family; advisor territory): %d, e.g. %s" % (len(rows), ", ".join(rows[:6])))
     if st["last_plan"]:
         lp = st["last_plan"]
         print("last plan %s: %d scoring lines, ~%s points, file %s" % (
@@ -131,6 +132,11 @@ def main(argv=None):
     p = sub.add_parser("split")
     for name in ("row", "knob", "left", "right"):
         p.add_argument(name)
+    p = sub.add_parser("negative")
+    p.add_argument("--source", required=True, help="repo file that records the failed work")
+    p.add_argument("--reason", required=True)
+    p.add_argument("--methods", nargs="*", help="only these ladder methods are spent (default: all)")
+    p.add_argument("rows", nargs="+")
     p = sub.add_parser("recall")
     p.add_argument("row")
     p = sub.add_parser("stop")
@@ -188,6 +194,8 @@ def main(argv=None):
             out = h.wake(_load(args.event))
         elif args.cmd == "split":
             out = h.split({"row": args.row, "knob": args.knob, "left": args.left, "right": args.right})
+        elif args.cmd == "negative":
+            out = h.negative(args.rows, args.source, args.reason, methods=args.methods)
         elif args.cmd == "recall":
             out = h.recall(args.row)
         elif args.cmd == "stop":

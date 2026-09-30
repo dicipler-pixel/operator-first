@@ -371,7 +371,7 @@ class HarnessTests(unittest.TestCase):
         e.h.accept(c1["task"], c1["token"], {"kind": "ran", "summary": "x", "prediction": "p", "artifacts": [art]})
         c2 = e.h.next(role="builder")
         second = json.loads((e.repo / c2["contract"]).read_text())["strategy"]["method"]
-        self.assertEqual((first, second), ("window", "beam"))
+        self.assertEqual((first, second), ("window", "tail"))   # the next rung, not a repeat
 
     def test_artifacts_are_fenced_to_the_workspace(self):
         e = Env()

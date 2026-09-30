@@ -135,6 +135,11 @@ class State:
         elif kind == "switch":
             self.switches[d["row"]] += 1
             self.row_strategy[d["row"]] = d["after"]
+        elif kind == "memory.imported":
+            # negative memory from outside the ledger (team files): these families are already spent here
+            for row in d["rows"]:
+                for fam in d["families"]:
+                    self.heat[(row, fam)] += d["heat"]
         elif kind == "witness.split":
             self.refined[d["row"]].add(d["knob"])
             self.splits.append({**d, "seq": e["seq"]})
