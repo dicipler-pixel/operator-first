@@ -1,0 +1,2319 @@
+{
+  "schema": "acc-probe-pattern/1",
+  "checkpoint_sha256": "a6fdb9f89393fb51d3a088e1a11a122a46118847ecbe4663f622bc0dfa102e10",
+  "attempts": 46,
+  "model_worker_dispatch": 0,
+  "search_performed_by_this_script": false,
+  "family_source": "research/acc/live/UPDATE_fable_to_astra_20260930T1800Z.md",
+  "family_grade": "H: source classification, not independently established here",
+  "scope": "Selected rows, unequal sequential inputs; descriptive counts are not success probabilities or live scoring claims.",
+  "by_method": {
+    "bob": {
+      "attempts": 14,
+      "unique_rows": [
+        "ac-00001",
+        "ac-00003",
+        "ac-00006",
+        "ac-00009",
+        "ac-00010",
+        "ac-00012",
+        "ac-00018",
+        "ac-00022",
+        "ac-00028",
+        "ac-00034",
+        "ac-00037"
+      ],
+      "kinds": {
+        "bounded_miss": 14
+      },
+      "termination_reasons": {
+        "exhausted_donor_automorphisms": 14
+      },
+      "verified_improvements": 0,
+      "saved_moves": 0,
+      "median_measured_seconds": 15.349307383501582,
+      "max_measured_seconds": 18.27621757000452
+    },
+    "bridge": {
+      "attempts": 4,
+      "unique_rows": [
+        "ac-00018",
+        "ac-00028",
+        "ac-00034",
+        "ac-00037"
+      ],
+      "kinds": {
+        "bounded_miss": 4
+      },
+      "termination_reasons": {
+        "node_cap": 4
+      },
+      "verified_improvements": 0,
+      "saved_moves": 0,
+      "median_measured_seconds": 8.108037023495854,
+      "max_measured_seconds": 15.258116714001517
+    },
+    "charlie": {
+      "attempts": 13,
+      "unique_rows": [
+        "ac-00001",
+        "ac-00003",
+        "ac-00006",
+        "ac-00009",
+        "ac-00010",
+        "ac-00011",
+        "ac-00012",
+        "ac-00013",
+        "ac-00018",
+        "ac-00022",
+        "ac-00028",
+        "ac-00034",
+        "ac-00037"
+      ],
+      "kinds": {
+        "bounded_miss": 13
+      },
+      "termination_reasons": {
+        "node_cap": 13
+      },
+      "verified_improvements": 0,
+      "saved_moves": 0,
+      "median_measured_seconds": 7.653550066002936,
+      "max_measured_seconds": 39.94637408400013
+    },
+    "kernel": {
+      "attempts": 15,
+      "unique_rows": [
+        "ac-00001",
+        "ac-00003",
+        "ac-00006",
+        "ac-00009",
+        "ac-00012",
+        "ac-00018",
+        "ac-00022",
+        "ac-00028",
+        "ac-00034",
+        "ac-00037"
+      ],
+      "kinds": {
+        "bounded_miss": 12,
+        "candidate": 3
+      },
+      "termination_reasons": {
+        "node_cap": 15
+      },
+      "verified_improvements": 3,
+      "saved_moves": 14,
+      "median_measured_seconds": 25.450952731000143,
+      "max_measured_seconds": 27.571935609004868
+    }
+  },
+  "by_family_hypothesis": {
+    "BS(1,2)": {
+      "attempts": 3,
+      "unique_rows": [
+        "ac-00022"
+      ],
+      "kinds": {
+        "bounded_miss": 3
+      },
+      "termination_reasons": {
+        "exhausted_donor_automorphisms": 1,
+        "node_cap": 2
+      },
+      "verified_improvements": 0,
+      "saved_moves": 0,
+      "median_measured_seconds": 12.724034970997309,
+      "max_measured_seconds": 25.01121229599812
+    },
+    "MS(3)": {
+      "attempts": 14,
+      "unique_rows": [
+        "ac-00003",
+        "ac-00028"
+      ],
+      "kinds": {
+        "bounded_miss": 11,
+        "candidate": 3
+      },
+      "termination_reasons": {
+        "exhausted_donor_automorphisms": 5,
+        "node_cap": 9
+      },
+      "verified_improvements": 3,
+      "saved_moves": 14,
+      "median_measured_seconds": 16.45250766999743,
+      "max_measured_seconds": 26.963054658997862
+    },
+    "prefix-scrambled": {
+      "attempts": 1,
+      "unique_rows": [
+        "ac-00013"
+      ],
+      "kinds": {
+        "bounded_miss": 1
+      },
+      "termination_reasons": {
+        "node_cap": 1
+      },
+      "verified_improvements": 0,
+      "saved_moves": 0,
+      "median_measured_seconds": 4.7176587489957456,
+      "max_measured_seconds": 4.7176587489957456
+    },
+    "trefoil-type": {
+      "attempts": 4,
+      "unique_rows": [
+        "ac-00011",
+        "ac-00012"
+      ],
+      "kinds": {
+        "bounded_miss": 4
+      },
+      "termination_reasons": {
+        "exhausted_donor_automorphisms": 1,
+        "node_cap": 3
+      },
+      "verified_improvements": 0,
+      "saved_moves": 0,
+      "median_measured_seconds": 20.385674494500563,
+      "max_measured_seconds": 39.94637408400013
+    },
+    "unclassified": {
+      "attempts": 19,
+      "unique_rows": [
+        "ac-00001",
+        "ac-00006",
+        "ac-00009",
+        "ac-00010",
+        "ac-00034",
+        "ac-00037"
+      ],
+      "kinds": {
+        "bounded_miss": 19
+      },
+      "termination_reasons": {
+        "node_cap": 13,
+        "exhausted_donor_automorphisms": 6
+      },
+      "verified_improvements": 0,
+      "saved_moves": 0,
+      "median_measured_seconds": 15.761084871999628,
+      "max_measured_seconds": 36.89559016699786
+    },
+    "x2Yx5=y": {
+      "attempts": 5,
+      "unique_rows": [
+        "ac-00018"
+      ],
+      "kinds": {
+        "bounded_miss": 5
+      },
+      "termination_reasons": {
+        "exhausted_donor_automorphisms": 1,
+        "node_cap": 4
+      },
+      "verified_improvements": 0,
+      "saved_moves": 0,
+      "median_measured_seconds": 18.27621757000452,
+      "max_measured_seconds": 25.04826152100577
+    }
+  },
+  "by_start_length": {
+    "17..24": {
+      "attempts": 16,
+      "unique_rows": [
+        "ac-00003",
+        "ac-00009",
+        "ac-00018",
+        "ac-00022"
+      ],
+      "kinds": {
+        "bounded_miss": 15,
+        "candidate": 1
+      },
+      "termination_reasons": {
+        "exhausted_donor_automorphisms": 5,
+        "node_cap": 11
+      },
+      "verified_improvements": 1,
+      "saved_moves": 8,
+      "median_measured_seconds": 16.45250766999743,
+      "max_measured_seconds": 26.65689900799771
+    },
+    "<=16": {
+      "attempts": 9,
+      "unique_rows": [
+        "ac-00028"
+      ],
+      "kinds": {
+        "bounded_miss": 7,
+        "candidate": 2
+      },
+      "termination_reasons": {
+        "exhausted_donor_automorphisms": 3,
+        "node_cap": 6
+      },
+      "verified_improvements": 2,
+      "saved_moves": 6,
+      "median_measured_seconds": 13.882421937996696,
+      "max_measured_seconds": 26.963054658997862
+    },
+    ">=25": {
+      "attempts": 21,
+      "unique_rows": [
+        "ac-00001",
+        "ac-00006",
+        "ac-00010",
+        "ac-00011",
+        "ac-00012",
+        "ac-00013",
+        "ac-00034",
+        "ac-00037"
+      ],
+      "kinds": {
+        "bounded_miss": 21
+      },
+      "termination_reasons": {
+        "node_cap": 15,
+        "exhausted_donor_automorphisms": 6
+      },
+      "verified_improvements": 0,
+      "saved_moves": 0,
+      "median_measured_seconds": 15.761084871999628,
+      "max_measured_seconds": 39.94637408400013
+    }
+  },
+  "improvements": [
+    {
+      "key": "6abe0e893a2057f7a53553f345cdafa273f0531e35c7b152b15f88c1a59b7c73",
+      "row_id": "ac-00028",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "candidate",
+      "baseline": 58,
+      "target": 44,
+      "best_length": 54,
+      "verified_improvement": true,
+      "saved_moves": 4,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 16,
+      "start_length_cohort": "<=16",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 24.720422793994658,
+      "peak_rss_mib": 383.3359375,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 8
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 54,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_6abe0e893a2057f7/worker_result.json"
+    },
+    {
+      "key": "be150c4ff82d82e3c08ef056d181f8e09689020dc7aa6f1d865b07b6c1833523",
+      "row_id": "ac-00003",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "candidate",
+      "baseline": 92,
+      "target": 40,
+      "best_length": 84,
+      "verified_improvement": true,
+      "saved_moves": 8,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 19,
+      "start_length_cohort": "17..24",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 26.65689900799771,
+      "peak_rss_mib": 395.6875,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 39
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 84,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_be150c4ff82d82e3/worker_result.json"
+    },
+    {
+      "key": "14fba1d56d0404442b796b5358a955e89552b4aa470a7ff431b1173a861d640d",
+      "row_id": "ac-00028",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "candidate",
+      "baseline": 54,
+      "target": 44,
+      "best_length": 52,
+      "verified_improvement": true,
+      "saved_moves": 2,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 16,
+      "start_length_cohort": "<=16",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 26.097730714005593,
+      "peak_rss_mib": 384.80078125,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 7
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 52,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_14fba1d56d040444/worker_result.json"
+    }
+  ],
+  "prefix_checks": [
+    {
+      "row_id": "ac-00013",
+      "moves": [
+        12,
+        10,
+        12,
+        10,
+        12,
+        10,
+        10,
+        12,
+        10,
+        12,
+        10,
+        13,
+        11,
+        5
+      ],
+      "paid_length": 14,
+      "actual_state": [
+        "YXYXYXXYXYXyx",
+        "xYXYXXyx"
+      ],
+      "matches_fable": true,
+      "total_letters": 21,
+      "full_solution": false
+    },
+    {
+      "row_id": "ac-00029",
+      "moves": [
+        12,
+        12,
+        12,
+        11,
+        13,
+        13,
+        11,
+        11,
+        12,
+        11,
+        12,
+        11,
+        11,
+        11,
+        5
+      ],
+      "paid_length": 15,
+      "actual_state": [
+        "YYYxyyxxYxYxxx",
+        "YYxyx"
+      ],
+      "matches_fable": true,
+      "total_letters": 19,
+      "full_solution": false
+    }
+  ],
+  "attempt_details": [
+    {
+      "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
+      "row_id": "ac-00037",
+      "method": "bridge",
+      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+      "kind": "bounded_miss",
+      "baseline": 32,
+      "target": 31,
+      "best_length": 32,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 31,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 15.258116714001517,
+      "peak_rss_mib": 459.6875,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "side": 0,
+        "depth": 3
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/active_00037/worker_result.json"
+    },
+    {
+      "key": "677063858da8fd7faf815479283f6ee5b50f2be643594bc139ab475d9a6c67e9",
+      "row_id": "ac-00034",
+      "method": "bridge",
+      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+      "kind": "bounded_miss",
+      "baseline": 44,
+      "target": 41,
+      "best_length": 44,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 25,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 12.135496290997253,
+      "peak_rss_mib": 409.296875,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "side": 0,
+        "depth": 3
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/code_677063858da8fd7f/worker_result.json"
+    },
+    {
+      "key": "ac24d80fb6483cca8cf2c1bd7e75c63c68be3dce82bcc55e5860bdc53d13aed7",
+      "row_id": "ac-00034",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "bounded_miss",
+      "baseline": 44,
+      "target": 41,
+      "best_length": 44,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 25,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 26.620120457999292,
+      "peak_rss_mib": 397.640625,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 25
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 44,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/production_ac00034/worker_result.json"
+    },
+    {
+      "key": "fa531db437cb78fd03c8acb65336a4902f7d2751fb5384fd7757e40d1ca33996",
+      "row_id": "ac-00012",
+      "method": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "kind": "bounded_miss",
+      "baseline": 52,
+      "target": 47,
+      "best_length": 52,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "trefoil-type",
+      "exact_start_total_length": 26,
+      "start_length_cohort": ">=25",
+      "termination_reason": "exhausted_donor_automorphisms",
+      "elapsed_seconds": 14.772345643003064,
+      "peak_rss_mib": null,
+      "admitted_records": 430920,
+      "partial_layer": null,
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": 0,
+      "bob_successful_transfers": 0,
+      "result_path": "runs/bob_revival/first_probe/worker_result.json"
+    },
+    {
+      "key": "7638f90fe9107cb6d065ffdde0459a739bb0b31f818ad878345849148f9e526b",
+      "row_id": "ac-00037",
+      "method": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "kind": "bounded_miss",
+      "baseline": 32,
+      "target": 31,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 31,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 9.09908405799797,
+      "peak_rss_mib": 249.17578125,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "depth": 11,
+        "expanded_in_layer": 17195,
+        "side": "start"
+      },
+      "cap_slices": [
+        {
+          "cap": 39,
+          "goal_radius": 5,
+          "completed_expansion_depth": {
+            "goal": 5,
+            "start": 10
+          },
+          "bounded_negative_through": 15,
+          "termination_reason": "node_cap",
+          "partial_layer": {
+            "depth": 11,
+            "expanded_in_layer": 17195,
+            "side": "start"
+          }
+        }
+      ],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/charlie_revival/repaired_run/worker_result.json"
+    },
+    {
+      "key": "cdec5531f4d1eb8e731274aea40297b53a701c7b9944d5889ce165a25d008ca6",
+      "row_id": "ac-00037",
+      "method": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "kind": "bounded_miss",
+      "baseline": 32,
+      "target": 31,
+      "best_length": 32,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 31,
+      "start_length_cohort": ">=25",
+      "termination_reason": "exhausted_donor_automorphisms",
+      "elapsed_seconds": 16.246331413000007,
+      "peak_rss_mib": null,
+      "admitted_records": 430920,
+      "partial_layer": null,
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": 0,
+      "bob_successful_transfers": 0,
+      "result_path": "runs/bob_revival/code_cdec5531f4d1eb8e/worker_result.json"
+    },
+    {
+      "key": "3cc9c62c8fb11bbf50a0aa5055fb442453bae887045dbbcc27c603d8f68c98b0",
+      "row_id": "ac-00037",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "bounded_miss",
+      "baseline": 32,
+      "target": 31,
+      "best_length": 32,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 31,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 27.571935609004868,
+      "peak_rss_mib": 442.0078125,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 15
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 32,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_3cc9c62c8fb11bbf/worker_result.json"
+    },
+    {
+      "key": "9768616e833fa84adf63e771b017c5047cdbcaa870f0c8a8789a06dc0c65f94d",
+      "row_id": "ac-00034",
+      "method": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "kind": "bounded_miss",
+      "baseline": 44,
+      "target": 41,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 25,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 36.89559016699786,
+      "peak_rss_mib": 237.6328125,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "depth": 9,
+        "expanded_in_layer": 115465,
+        "side": "start"
+      },
+      "cap_slices": [
+        {
+          "cap": 33,
+          "goal_radius": 5,
+          "completed_expansion_depth": {
+            "goal": 5,
+            "start": 8
+          },
+          "bounded_negative_through": 13,
+          "termination_reason": "node_cap",
+          "partial_layer": {
+            "depth": 9,
+            "expanded_in_layer": 115465,
+            "side": "start"
+          }
+        }
+      ],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/charlie_revival/code_9768616e833fa84a/worker_result.json"
+    },
+    {
+      "key": "214dd8fe97c7d2dca649bde444b3aa23a9b3ddaa63cb54a2abf6a9c601ef8db8",
+      "row_id": "ac-00034",
+      "method": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "kind": "bounded_miss",
+      "baseline": 44,
+      "target": 41,
+      "best_length": 44,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 25,
+      "start_length_cohort": ">=25",
+      "termination_reason": "exhausted_donor_automorphisms",
+      "elapsed_seconds": 16.97044940700289,
+      "peak_rss_mib": null,
+      "admitted_records": 430920,
+      "partial_layer": null,
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": 0,
+      "bob_successful_transfers": 0,
+      "result_path": "runs/bob_revival/code_214dd8fe97c7d2dc/worker_result.json"
+    },
+    {
+      "key": "4eb202433b73a30dda920356c70e7edfd67e533bde965feebc351dc1d680bcd3",
+      "row_id": "ac-00012",
+      "method": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "kind": "bounded_miss",
+      "baseline": 52,
+      "target": 47,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "trefoil-type",
+      "exact_start_total_length": 26,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 39.94637408400013,
+      "peak_rss_mib": 245.2265625,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "depth": 9,
+        "expanded_in_layer": 6313,
+        "side": "start"
+      },
+      "cap_slices": [
+        {
+          "cap": 34,
+          "goal_radius": 5,
+          "completed_expansion_depth": {
+            "goal": 5,
+            "start": 8
+          },
+          "bounded_negative_through": 13,
+          "termination_reason": "node_cap",
+          "partial_layer": {
+            "depth": 9,
+            "expanded_in_layer": 6313,
+            "side": "start"
+          }
+        }
+      ],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/charlie_revival/code_4eb202433b73a30d/worker_result.json"
+    },
+    {
+      "key": "546c93b37167cb2213004417a595efeb65a3516af08ba247df236aa7874393e7",
+      "row_id": "ac-00012",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "bounded_miss",
+      "baseline": 52,
+      "target": 47,
+      "best_length": 52,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "trefoil-type",
+      "exact_start_total_length": 26,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 25.999003345998062,
+      "peak_rss_mib": 401.7421875,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 21
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 52,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_546c93b37167cb22/worker_result.json"
+    },
+    {
+      "key": "855a8558b538b1b6dcb5d4c646209989cf30fe69259f6987f632daf8acb623b6",
+      "row_id": "ac-00018",
+      "method": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "kind": "bounded_miss",
+      "baseline": 51,
+      "target": 43,
+      "best_length": 51,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "x2Yx5=y",
+      "exact_start_total_length": 23,
+      "start_length_cohort": "17..24",
+      "termination_reason": "exhausted_donor_automorphisms",
+      "elapsed_seconds": 18.27621757000452,
+      "peak_rss_mib": null,
+      "admitted_records": 430920,
+      "partial_layer": null,
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": 0,
+      "bob_successful_transfers": 0,
+      "result_path": "runs/bob_revival/code_855a8558b538b1b6/worker_result.json"
+    },
+    {
+      "key": "650489b6ef372111766eed79edd89c3c0d26872b568955e2f96ecfb6d30c0dce",
+      "row_id": "ac-00018",
+      "method": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "kind": "bounded_miss",
+      "baseline": 51,
+      "target": 43,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "x2Yx5=y",
+      "exact_start_total_length": 23,
+      "start_length_cohort": "17..24",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 7.653550066002936,
+      "peak_rss_mib": 220.91015625,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "depth": 12,
+        "expanded_in_layer": 51516,
+        "side": "start"
+      },
+      "cap_slices": [
+        {
+          "cap": 31,
+          "goal_radius": 5,
+          "completed_expansion_depth": {
+            "goal": 5,
+            "start": 11
+          },
+          "bounded_negative_through": 16,
+          "termination_reason": "node_cap",
+          "partial_layer": {
+            "depth": 12,
+            "expanded_in_layer": 51516,
+            "side": "start"
+          }
+        }
+      ],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/charlie_revival/code_650489b6ef372111/worker_result.json"
+    },
+    {
+      "key": "781ea7e4bf93335de6f7a5b93627a1c4fe9ae3d428cd155f9c806524a1c4c4aa",
+      "row_id": "ac-00018",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "bounded_miss",
+      "baseline": 51,
+      "target": 43,
+      "best_length": 51,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "x2Yx5=y",
+      "exact_start_total_length": 23,
+      "start_length_cohort": "17..24",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 24.65447491499799,
+      "peak_rss_mib": 418.359375,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 21
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 51,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_781ea7e4bf93335d/worker_result.json"
+    },
+    {
+      "key": "6b531c914800dce6307f9e3fc3123d7776fb452f70c7cc48847132391d92870d",
+      "row_id": "ac-00022",
+      "method": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "kind": "bounded_miss",
+      "baseline": 56,
+      "target": 44,
+      "best_length": 56,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "BS(1,2)",
+      "exact_start_total_length": 23,
+      "start_length_cohort": "17..24",
+      "termination_reason": "exhausted_donor_automorphisms",
+      "elapsed_seconds": 12.724034970997309,
+      "peak_rss_mib": null,
+      "admitted_records": 430920,
+      "partial_layer": null,
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": 0,
+      "bob_successful_transfers": 0,
+      "result_path": "runs/bob_revival/code_6b531c914800dce6/worker_result.json"
+    },
+    {
+      "key": "587bbbabf5fc8e782cdaec8d29a5fa2a156d012d85b3e4b41f1361149d6e8270",
+      "row_id": "ac-00022",
+      "method": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "kind": "bounded_miss",
+      "baseline": 56,
+      "target": 44,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "BS(1,2)",
+      "exact_start_total_length": 23,
+      "start_length_cohort": "17..24",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 7.721639313000196,
+      "peak_rss_mib": 225.890625,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "depth": 10,
+        "expanded_in_layer": 21195,
+        "side": "start"
+      },
+      "cap_slices": [
+        {
+          "cap": 31,
+          "goal_radius": 5,
+          "completed_expansion_depth": {
+            "goal": 5,
+            "start": 9
+          },
+          "bounded_negative_through": 14,
+          "termination_reason": "node_cap",
+          "partial_layer": {
+            "depth": 10,
+            "expanded_in_layer": 21195,
+            "side": "start"
+          }
+        }
+      ],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/charlie_revival/code_587bbbabf5fc8e78/worker_result.json"
+    },
+    {
+      "key": "ebdf68eb745492fcc6e5b1ccab78812fb8d862c4209e1703d40f4caaacf1b080",
+      "row_id": "ac-00022",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "bounded_miss",
+      "baseline": 56,
+      "target": 44,
+      "best_length": 56,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "BS(1,2)",
+      "exact_start_total_length": 23,
+      "start_length_cohort": "17..24",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 25.01121229599812,
+      "peak_rss_mib": 389.41796875,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 16
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 56,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_ebdf68eb745492fc/worker_result.json"
+    },
+    {
+      "key": "53029195919c498a559e80044149db07b2fa68ec9b18b6cb1bd6cbf5117da4bc",
+      "row_id": "ac-00028",
+      "method": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "kind": "bounded_miss",
+      "baseline": 58,
+      "target": 44,
+      "best_length": 58,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 16,
+      "start_length_cohort": "<=16",
+      "termination_reason": "exhausted_donor_automorphisms",
+      "elapsed_seconds": 13.882421937996696,
+      "peak_rss_mib": null,
+      "admitted_records": 435586,
+      "partial_layer": null,
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": 22,
+      "bob_successful_transfers": 0,
+      "result_path": "runs/bob_revival/code_53029195919c498a/worker_result.json"
+    },
+    {
+      "key": "29f9fb153e3db425aeeb801c479ef68a4b30ffdbfedb9a5dd51f8de942df5fc2",
+      "row_id": "ac-00028",
+      "method": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "kind": "bounded_miss",
+      "baseline": 58,
+      "target": 44,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 16,
+      "start_length_cohort": "<=16",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 6.510841306000657,
+      "peak_rss_mib": 195.48828125,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "depth": 9,
+        "expanded_in_layer": 114718,
+        "side": "start"
+      },
+      "cap_slices": [
+        {
+          "cap": 24,
+          "goal_radius": 5,
+          "completed_expansion_depth": {
+            "goal": 5,
+            "start": 8
+          },
+          "bounded_negative_through": 13,
+          "termination_reason": "node_cap",
+          "partial_layer": {
+            "depth": 9,
+            "expanded_in_layer": 114718,
+            "side": "start"
+          }
+        }
+      ],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/charlie_revival/code_29f9fb153e3db425/worker_result.json"
+    },
+    {
+      "key": "6abe0e893a2057f7a53553f345cdafa273f0531e35c7b152b15f88c1a59b7c73",
+      "row_id": "ac-00028",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "candidate",
+      "baseline": 58,
+      "target": 44,
+      "best_length": 54,
+      "verified_improvement": true,
+      "saved_moves": 4,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 16,
+      "start_length_cohort": "<=16",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 24.720422793994658,
+      "peak_rss_mib": 383.3359375,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 8
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 54,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_6abe0e893a2057f7/worker_result.json"
+    },
+    {
+      "key": "4c57880a06ebf3da61849b32ceb8c8fd2dc413a3e7b90fdc99bef462f6bdc689",
+      "row_id": "ac-00028",
+      "method": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "kind": "bounded_miss",
+      "baseline": 54,
+      "target": 44,
+      "best_length": 54,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 16,
+      "start_length_cohort": "<=16",
+      "termination_reason": "exhausted_donor_automorphisms",
+      "elapsed_seconds": 13.844958935995237,
+      "peak_rss_mib": null,
+      "admitted_records": 435586,
+      "partial_layer": null,
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": 22,
+      "bob_successful_transfers": 0,
+      "result_path": "runs/bob_revival/code_4c57880a06ebf3da/worker_result.json"
+    },
+    {
+      "key": "24ef35f442f14e38195914ca4228cedf5a3929df55170a11c872e9ddcb8de1ac",
+      "row_id": "ac-00028",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "bounded_miss",
+      "baseline": 54,
+      "target": 44,
+      "best_length": 54,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 16,
+      "start_length_cohort": "<=16",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 26.963054658997862,
+      "peak_rss_mib": 381.23828125,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 7
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 54,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_24ef35f442f14e38/worker_result.json"
+    },
+    {
+      "key": "256c2702129c739dc20661ab0ed880fb8bf1c0efb21c2a942f8532189303cc60",
+      "row_id": "ac-00003",
+      "method": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "kind": "bounded_miss",
+      "baseline": 92,
+      "target": 40,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 19,
+      "start_length_cohort": "17..24",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 8.384183133995975,
+      "peak_rss_mib": 201.88671875,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "depth": 10,
+        "expanded_in_layer": 97915,
+        "side": "start"
+      },
+      "cap_slices": [
+        {
+          "cap": 27,
+          "goal_radius": 5,
+          "completed_expansion_depth": {
+            "goal": 5,
+            "start": 9
+          },
+          "bounded_negative_through": 14,
+          "termination_reason": "node_cap",
+          "partial_layer": {
+            "depth": 10,
+            "expanded_in_layer": 97915,
+            "side": "start"
+          }
+        }
+      ],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/charlie_revival/code_256c2702129c739d/worker_result.json"
+    },
+    {
+      "key": "fb75ba30210a1f534686502b9fda6529ce64d68862471aab0784e8a7bcabf3f2",
+      "row_id": "ac-00003",
+      "method": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "kind": "bounded_miss",
+      "baseline": 92,
+      "target": 40,
+      "best_length": 92,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 19,
+      "start_length_cohort": "17..24",
+      "termination_reason": "exhausted_donor_automorphisms",
+      "elapsed_seconds": 16.554134095997142,
+      "peak_rss_mib": null,
+      "admitted_records": 430920,
+      "partial_layer": null,
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": 0,
+      "bob_successful_transfers": 0,
+      "result_path": "runs/bob_revival/code_fb75ba30210a1f53/worker_result.json"
+    },
+    {
+      "key": "be150c4ff82d82e3c08ef056d181f8e09689020dc7aa6f1d865b07b6c1833523",
+      "row_id": "ac-00003",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "candidate",
+      "baseline": 92,
+      "target": 40,
+      "best_length": 84,
+      "verified_improvement": true,
+      "saved_moves": 8,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 19,
+      "start_length_cohort": "17..24",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 26.65689900799771,
+      "peak_rss_mib": 395.6875,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 39
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 84,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_be150c4ff82d82e3/worker_result.json"
+    },
+    {
+      "key": "39e99120b33185919f040b2877e9889cb31407f9a8f673b697f4e43c10c47137",
+      "row_id": "ac-00009",
+      "method": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "kind": "bounded_miss",
+      "baseline": 112,
+      "target": 34,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 22,
+      "start_length_cohort": "17..24",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 5.633904018002795,
+      "peak_rss_mib": 215.53125,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "depth": 8,
+        "expanded_in_layer": 129251,
+        "side": "start"
+      },
+      "cap_slices": [
+        {
+          "cap": 30,
+          "goal_radius": 5,
+          "completed_expansion_depth": {
+            "goal": 5,
+            "start": 7
+          },
+          "bounded_negative_through": 12,
+          "termination_reason": "node_cap",
+          "partial_layer": {
+            "depth": 8,
+            "expanded_in_layer": 129251,
+            "side": "start"
+          }
+        }
+      ],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/charlie_revival/code_39e99120b3318591/worker_result.json"
+    },
+    {
+      "key": "767b2368e9e44030461d81bdd9ecbc279aeea207fb60d2e878f9207e752b2833",
+      "row_id": "ac-00003",
+      "method": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "kind": "bounded_miss",
+      "baseline": 84,
+      "target": 40,
+      "best_length": 84,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 19,
+      "start_length_cohort": "17..24",
+      "termination_reason": "exhausted_donor_automorphisms",
+      "elapsed_seconds": 16.35088124399772,
+      "peak_rss_mib": null,
+      "admitted_records": 430920,
+      "partial_layer": null,
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": 0,
+      "bob_successful_transfers": 0,
+      "result_path": "runs/bob_revival/code_767b2368e9e44030/worker_result.json"
+    },
+    {
+      "key": "51931ca92567707aa8e55e78a376288244268d3e4888ee5fa39cffe174807815",
+      "row_id": "ac-00003",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "bounded_miss",
+      "baseline": 84,
+      "target": 40,
+      "best_length": 84,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 19,
+      "start_length_cohort": "17..24",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 24.32825177400082,
+      "peak_rss_mib": 396.1953125,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 36
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 84,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_51931ca92567707a/worker_result.json"
+    },
+    {
+      "key": "ffce72610d52ded96731be009fff04481323e5630e2c3b160917c169b96c2b1d",
+      "row_id": "ac-00001",
+      "method": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "kind": "bounded_miss",
+      "baseline": null,
+      "target": 404,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 27,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 9.388189188997785,
+      "peak_rss_mib": 232.3203125,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "depth": 13,
+        "expanded_in_layer": 78212,
+        "side": "start"
+      },
+      "cap_slices": [
+        {
+          "cap": 35,
+          "goal_radius": 5,
+          "completed_expansion_depth": {
+            "goal": 5,
+            "start": 12
+          },
+          "bounded_negative_through": 17,
+          "termination_reason": "node_cap",
+          "partial_layer": {
+            "depth": 13,
+            "expanded_in_layer": 78212,
+            "side": "start"
+          }
+        }
+      ],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/charlie_revival/code_ffce72610d52ded9/worker_result.json"
+    },
+    {
+      "key": "e6c6577250370c2d250b67cb4b10661a1050eb384082fec4691fc04da6e6e957",
+      "row_id": "ac-00009",
+      "method": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "kind": "bounded_miss",
+      "baseline": 112,
+      "target": 34,
+      "best_length": 112,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 22,
+      "start_length_cohort": "17..24",
+      "termination_reason": "exhausted_donor_automorphisms",
+      "elapsed_seconds": 13.377751806998276,
+      "peak_rss_mib": null,
+      "admitted_records": 430920,
+      "partial_layer": null,
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": 0,
+      "bob_successful_transfers": 0,
+      "result_path": "runs/bob_revival/code_e6c6577250370c2d/worker_result.json"
+    },
+    {
+      "key": "82e71293e34d8e6f2fdf665ee52e9c9b3690e59c1a7a404b816e6b48e7fa45d6",
+      "row_id": "ac-00009",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "bounded_miss",
+      "baseline": 112,
+      "target": 34,
+      "best_length": 112,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 22,
+      "start_length_cohort": "17..24",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 24.188730169997143,
+      "peak_rss_mib": 386.890625,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 36
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 112,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_82e71293e34d8e6f/worker_result.json"
+    },
+    {
+      "key": "13698c55a7b421c75910f8d69df286a251f0b00ef6d9807c7f4e8360c2c9f00a",
+      "row_id": "ac-00006",
+      "method": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "kind": "bounded_miss",
+      "baseline": null,
+      "target": 63,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 32,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 6.38165107700479,
+      "peak_rss_mib": 247.49609375,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "depth": 9,
+        "expanded_in_layer": 107290,
+        "side": "start"
+      },
+      "cap_slices": [
+        {
+          "cap": 40,
+          "goal_radius": 5,
+          "completed_expansion_depth": {
+            "goal": 5,
+            "start": 8
+          },
+          "bounded_negative_through": 13,
+          "termination_reason": "node_cap",
+          "partial_layer": {
+            "depth": 9,
+            "expanded_in_layer": 107290,
+            "side": "start"
+          }
+        }
+      ],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/charlie_revival/code_13698c55a7b421c7/worker_result.json"
+    },
+    {
+      "key": "ce93b51d9837a38170678e2f673eda7cc7c705bd24a427e3d9bea4aad0e84028",
+      "row_id": "ac-00001",
+      "method": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "kind": "bounded_miss",
+      "baseline": null,
+      "target": 404,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 27,
+      "start_length_cohort": ">=25",
+      "termination_reason": "exhausted_donor_automorphisms",
+      "elapsed_seconds": 15.761084871999628,
+      "peak_rss_mib": null,
+      "admitted_records": 431376,
+      "partial_layer": null,
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": 0,
+      "bob_successful_transfers": 0,
+      "result_path": "runs/bob_revival/code_ce93b51d9837a381/worker_result.json"
+    },
+    {
+      "key": "c97961e767e7a81c093775c2af855f0de47c151146f0f10251a4d22cce674e84",
+      "row_id": "ac-00010",
+      "method": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "kind": "bounded_miss",
+      "baseline": null,
+      "target": 68,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 31,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 7.506920685002115,
+      "peak_rss_mib": 234.84375,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "depth": 11,
+        "expanded_in_layer": 108626,
+        "side": "start"
+      },
+      "cap_slices": [
+        {
+          "cap": 39,
+          "goal_radius": 5,
+          "completed_expansion_depth": {
+            "goal": 5,
+            "start": 10
+          },
+          "bounded_negative_through": 15,
+          "termination_reason": "node_cap",
+          "partial_layer": {
+            "depth": 11,
+            "expanded_in_layer": 108626,
+            "side": "start"
+          }
+        }
+      ],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/charlie_revival/code_c97961e767e7a81c/worker_result.json"
+    },
+    {
+      "key": "3f77e3b7278389fcb6893f57a4d7e6ff7477e248b849207357648ca80d2d9bb8",
+      "row_id": "ac-00001",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "bounded_miss",
+      "baseline": null,
+      "target": 404,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 27,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 24.83552680700086,
+      "peak_rss_mib": 484.73046875,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 5,
+        "cost": 5
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_3f77e3b7278389fc/worker_result.json"
+    },
+    {
+      "key": "222cf74cec793f24fedd05c460ef26fa84cd20935904847f74a2b422dafeaf00",
+      "row_id": "ac-00006",
+      "method": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "kind": "bounded_miss",
+      "baseline": null,
+      "target": 63,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 32,
+      "start_length_cohort": ">=25",
+      "termination_reason": "exhausted_donor_automorphisms",
+      "elapsed_seconds": 14.937529895003536,
+      "peak_rss_mib": null,
+      "admitted_records": 431376,
+      "partial_layer": null,
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": 0,
+      "bob_successful_transfers": 0,
+      "result_path": "runs/bob_revival/code_222cf74cec793f24/worker_result.json"
+    },
+    {
+      "key": "b1e3f60204efd2982a45e1e7e78395727169870f5d99fd79a58eb98315b60de9",
+      "row_id": "ac-00011",
+      "method": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "kind": "bounded_miss",
+      "baseline": null,
+      "target": 48,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "trefoil-type",
+      "exact_start_total_length": 27,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 6.975327790998563,
+      "peak_rss_mib": 237.046875,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "depth": 9,
+        "expanded_in_layer": 26995,
+        "side": "start"
+      },
+      "cap_slices": [
+        {
+          "cap": 35,
+          "goal_radius": 5,
+          "completed_expansion_depth": {
+            "goal": 5,
+            "start": 8
+          },
+          "bounded_negative_through": 13,
+          "termination_reason": "node_cap",
+          "partial_layer": {
+            "depth": 9,
+            "expanded_in_layer": 26995,
+            "side": "start"
+          }
+        }
+      ],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/charlie_revival/code_b1e3f60204efd298/worker_result.json"
+    },
+    {
+      "key": "93c3591b1c64ef5ed1bffb4b3d50927fa9cabcbe9f7a9551dd482a02553912f6",
+      "row_id": "ac-00006",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "bounded_miss",
+      "baseline": null,
+      "target": 63,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 32,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 25.450952731000143,
+      "peak_rss_mib": 524.04296875,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 5,
+        "cost": 5
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_93c3591b1c64ef5e/worker_result.json"
+    },
+    {
+      "key": "5113bb38b54140c0c8c13df212306a7fb5336ef8415dca38953804a395771639",
+      "row_id": "ac-00010",
+      "method": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "kind": "bounded_miss",
+      "baseline": null,
+      "target": 68,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "unclassified",
+      "exact_start_total_length": 31,
+      "start_length_cohort": ">=25",
+      "termination_reason": "exhausted_donor_automorphisms",
+      "elapsed_seconds": 16.46530175999942,
+      "peak_rss_mib": null,
+      "admitted_records": 431376,
+      "partial_layer": null,
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": 0,
+      "bob_successful_transfers": 0,
+      "result_path": "runs/bob_revival/code_5113bb38b54140c0/worker_result.json"
+    },
+    {
+      "key": "14fba1d56d0404442b796b5358a955e89552b4aa470a7ff431b1173a861d640d",
+      "row_id": "ac-00028",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "candidate",
+      "baseline": 54,
+      "target": 44,
+      "best_length": 52,
+      "verified_improvement": true,
+      "saved_moves": 2,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 16,
+      "start_length_cohort": "<=16",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 26.097730714005593,
+      "peak_rss_mib": 384.80078125,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 7
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 52,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_14fba1d56d040444/worker_result.json"
+    },
+    {
+      "key": "d4143db5b1084e8d52923acbb92ae2b85c19cd5f0c2add1fbdb8aba97e65d844",
+      "row_id": "ac-00028",
+      "method": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "kind": "bounded_miss",
+      "baseline": 52,
+      "target": 44,
+      "best_length": 52,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 16,
+      "start_length_cohort": "<=16",
+      "termination_reason": "exhausted_donor_automorphisms",
+      "elapsed_seconds": 13.84592849999899,
+      "peak_rss_mib": null,
+      "admitted_records": 435586,
+      "partial_layer": null,
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": 22,
+      "bob_successful_transfers": 0,
+      "result_path": "runs/bob_revival/code_d4143db5b1084e8d/worker_result.json"
+    },
+    {
+      "key": "3cf507b91ce31d16253e86bdc8ae5ca33b2713256b5faab73a8af47c874b3091",
+      "row_id": "ac-00028",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "bounded_miss",
+      "baseline": 52,
+      "target": 44,
+      "best_length": 52,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 16,
+      "start_length_cohort": "<=16",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 25.669080958999984,
+      "peak_rss_mib": 384.734375,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 7
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 52,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_3cf507b91ce31d16/worker_result.json"
+    },
+    {
+      "key": "e43d58b5db12d83713ba4aef2caea70ea29e67eb2cc6fe255dee720895ab2d9a",
+      "row_id": "ac-00018",
+      "method": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "kind": "bounded_miss",
+      "baseline": 51,
+      "target": 43,
+      "best_length": 51,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "x2Yx5=y",
+      "exact_start_total_length": 23,
+      "start_length_cohort": "17..24",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 25.04826152100577,
+      "peak_rss_mib": 419.625,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "fresh_depth": 3,
+        "cost": 21
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": 51,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/kernel_revival/code_e43d58b5db12d837/worker_result.json"
+    },
+    {
+      "key": "98e3d99206c0fadc7487501b71d35c5f0acdf5f1c8fad209c5a91a448ee29252",
+      "row_id": "ac-00013",
+      "method": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "kind": "bounded_miss",
+      "baseline": null,
+      "target": 96,
+      "best_length": null,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "prefix-scrambled",
+      "exact_start_total_length": 34,
+      "start_length_cohort": ">=25",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 4.7176587489957456,
+      "peak_rss_mib": 231.67578125,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "depth": 8,
+        "expanded_in_layer": 33065,
+        "side": "start"
+      },
+      "cap_slices": [
+        {
+          "cap": 42,
+          "goal_radius": 5,
+          "completed_expansion_depth": {
+            "goal": 5,
+            "start": 7
+          },
+          "bounded_negative_through": 12,
+          "termination_reason": "node_cap",
+          "partial_layer": {
+            "depth": 8,
+            "expanded_in_layer": 33065,
+            "side": "start"
+          }
+        }
+      ],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": null,
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/charlie_revival/code_98e3d99206c0fadc/worker_result.json"
+    },
+    {
+      "key": "9868bc65744b21d8e6be7d5710ce65ffd18631f9bb959305d8bb947640fe6aa4",
+      "row_id": "ac-00018",
+      "method": "bridge",
+      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+      "kind": "bounded_miss",
+      "baseline": 51,
+      "target": 43,
+      "best_length": 51,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "x2Yx5=y",
+      "exact_start_total_length": 23,
+      "start_length_cohort": "17..24",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 4.0805777559944545,
+      "peak_rss_mib": 428.33203125,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "side": 0,
+        "depth": 3
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/code_9868bc65744b21d8/worker_result.json"
+    },
+    {
+      "key": "6638f991c1b9dc10b4985fe4d776055e96e9c39c1d6149cd6156694c0d354973",
+      "row_id": "ac-00028",
+      "method": "bridge",
+      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+      "kind": "bounded_miss",
+      "baseline": 52,
+      "target": 44,
+      "best_length": 52,
+      "verified_improvement": false,
+      "saved_moves": 0,
+      "family_hypothesis": "MS(3)",
+      "exact_start_total_length": 16,
+      "start_length_cohort": "<=16",
+      "termination_reason": "node_cap",
+      "elapsed_seconds": 3.3617258000012953,
+      "peak_rss_mib": 385.80078125,
+      "admitted_records": 600000,
+      "partial_layer": {
+        "side": 1,
+        "depth": 2
+      },
+      "cap_slices": [],
+      "saved_graph_shortest_length": null,
+      "fresh_improvement_events": [],
+      "bob_paid_attempts": null,
+      "bob_successful_transfers": null,
+      "result_path": "runs/code_6638f991c1b9dc10/worker_result.json"
+    }
+  ],
+  "sources": [
+    {
+      "path": "runs/active_00037/worker_result.json",
+      "sha256": "6393ef17b007628c6e293e2bdfe9f2fdb8c8a71173d6929e698c91ce5b45f2ad"
+    },
+    {
+      "path": "runs/active_00037/coverage.json",
+      "sha256": "57d6406e4b528b3de8eb7be4b51d3326042c0ee530163f2fbf17dc67881828b4"
+    },
+    {
+      "path": "runs/code_677063858da8fd7f/worker_result.json",
+      "sha256": "ffc0aa296d7ed02c855e6af9640db45045d93c708897630442dda080f45163ba"
+    },
+    {
+      "path": "runs/code_677063858da8fd7f/coverage.json",
+      "sha256": "8154c094f4f262381d45487ec3527edbd5e7166fda7efa6b98ee46348e1dc5d6"
+    },
+    {
+      "path": "runs/kernel_revival/production_ac00034/worker_result.json",
+      "sha256": "d4e842643ab6bb3caeaa2e51991550e02c55f6b34a78d40dcd344c28a17c2eed"
+    },
+    {
+      "path": "runs/kernel_revival/production_ac00034/coverage.json",
+      "sha256": "173c92a56c43f83a0c1f50f709de7c03f642fedb004e0a154aeee661f17caf1c"
+    },
+    {
+      "path": "runs/bob_revival/first_probe/worker_result.json",
+      "sha256": "385b1147c3a294bff925e4eaada889bc50e50dd5c4a89e6f19f56200e1cce3c8"
+    },
+    {
+      "path": "runs/bob_revival/first_probe/coverage.json",
+      "sha256": "79b0fcd7e758795ac47b1d4b6dea77fdf55509f902945a5ea6a8e88e8f7c714c"
+    },
+    {
+      "path": "runs/charlie_revival/repaired_run/worker_result.json",
+      "sha256": "9662ed56a8e06b485fdc47571b5f1078526c2dc8036d35367139bf05bb114e9b"
+    },
+    {
+      "path": "runs/charlie_revival/repaired_run/coverage.json",
+      "sha256": "840f0522d25e47130a2694d69dd0d34b45d5921feee4ffba7aa36a794bf9fcbf"
+    },
+    {
+      "path": "runs/bob_revival/code_cdec5531f4d1eb8e/worker_result.json",
+      "sha256": "978dcee7d1f2d9b075e9ee57d1f5fc5b4bf8f6e3aa5b74a94a479af02a5333bf"
+    },
+    {
+      "path": "runs/bob_revival/code_cdec5531f4d1eb8e/coverage.json",
+      "sha256": "0b5d417a20f708b240caadbe05b4a47364c5d36e67afe40ca34d5d2aceba2291"
+    },
+    {
+      "path": "runs/kernel_revival/code_3cc9c62c8fb11bbf/worker_result.json",
+      "sha256": "ecd37ae5b4263ad89b16d619bf00511076784a1fce0501b6c649e63080b47eb3"
+    },
+    {
+      "path": "runs/kernel_revival/code_3cc9c62c8fb11bbf/coverage.json",
+      "sha256": "b48c62d3f3f28b202eb0b50d4054beb3604e8fd7d7e7b674891c090540b99ab9"
+    },
+    {
+      "path": "runs/charlie_revival/code_9768616e833fa84a/worker_result.json",
+      "sha256": "09fb0f8d867f325624dba998199b42231d64777e91e560f4c2590aa084389a58"
+    },
+    {
+      "path": "runs/charlie_revival/code_9768616e833fa84a/coverage.json",
+      "sha256": "285fd447ee205a9e1f253c29d0286dd763449000ce9e229224d659216ac806a6"
+    },
+    {
+      "path": "runs/bob_revival/code_214dd8fe97c7d2dc/worker_result.json",
+      "sha256": "2386ca77d41ec5694d45af9d48865be007eaaad6815e96b2a5f0c41e6c4f98e7"
+    },
+    {
+      "path": "runs/bob_revival/code_214dd8fe97c7d2dc/coverage.json",
+      "sha256": "8fb13b74b7b1a019d9d37eb026a891b020b0d9c4f2ce107aa38328b071155b25"
+    },
+    {
+      "path": "runs/charlie_revival/code_4eb202433b73a30d/worker_result.json",
+      "sha256": "e0ec20d8bbec8fbffb04d89f10392770e718e70954abf6a4c699d74e875d86c8"
+    },
+    {
+      "path": "runs/charlie_revival/code_4eb202433b73a30d/coverage.json",
+      "sha256": "adfae29a20e85a43200c3d668515bebc2fd0dfeb451a431004e8b9b9f911e032"
+    },
+    {
+      "path": "runs/kernel_revival/code_546c93b37167cb22/worker_result.json",
+      "sha256": "86a3b4de7a2ce27b1ae9440a02358d58744ff16ca29791bb5eb61448ddef1476"
+    },
+    {
+      "path": "runs/kernel_revival/code_546c93b37167cb22/coverage.json",
+      "sha256": "71f43dc4aac44f64ac80ac343528b704eb6c1a378390aea84aea0f32a3bfdd55"
+    },
+    {
+      "path": "runs/bob_revival/code_855a8558b538b1b6/worker_result.json",
+      "sha256": "02b6d3868671eaf870e85ad03f472c7887ebfd66ce9f9a225e198507bb08df7c"
+    },
+    {
+      "path": "runs/bob_revival/code_855a8558b538b1b6/coverage.json",
+      "sha256": "7d883b1ffaceb7439b00d0ffbab279a7856a91ac684b19bde7a28a36bca07236"
+    },
+    {
+      "path": "runs/charlie_revival/code_650489b6ef372111/worker_result.json",
+      "sha256": "4430fdfd3a21bc55debc0d6842040dea7d7000760a73da43be7ca3be7cd6023a"
+    },
+    {
+      "path": "runs/charlie_revival/code_650489b6ef372111/coverage.json",
+      "sha256": "b81c73eb5d867c2ba358470f6f4fe12a611b06433750853bb744e77fcd59bf6e"
+    },
+    {
+      "path": "runs/kernel_revival/code_781ea7e4bf93335d/worker_result.json",
+      "sha256": "cce90f463a4f84f012c6763bc297c46066e1da2ddf15dc67edc75c2a2054e1a0"
+    },
+    {
+      "path": "runs/kernel_revival/code_781ea7e4bf93335d/coverage.json",
+      "sha256": "3ae8f2f73d2ed333e304b92aa7d2a46af7a9895be7890b9d5d2ac7504e66fca8"
+    },
+    {
+      "path": "runs/bob_revival/code_6b531c914800dce6/worker_result.json",
+      "sha256": "a6b5c056fc1e598953565ca617d0b52f09758554c960a99bea522cdeb22db6b3"
+    },
+    {
+      "path": "runs/bob_revival/code_6b531c914800dce6/coverage.json",
+      "sha256": "446cb82c0e9d0fe39549340907a5f7487e0e578e4718b9c33217e48c4f517875"
+    },
+    {
+      "path": "runs/charlie_revival/code_587bbbabf5fc8e78/worker_result.json",
+      "sha256": "a51e34421de51ce31dff93066c70320d0f671a94e9db6c9cafca565f09687b4c"
+    },
+    {
+      "path": "runs/charlie_revival/code_587bbbabf5fc8e78/coverage.json",
+      "sha256": "81d62e8a4bafa17c6ca9179aa87d01c045895d9608903ec171e3bef1b7005967"
+    },
+    {
+      "path": "runs/kernel_revival/code_ebdf68eb745492fc/worker_result.json",
+      "sha256": "be7d75fb14b171842a76fe269ac1fb38bebb0f968a5f4da0640696d0f7d2ceaf"
+    },
+    {
+      "path": "runs/kernel_revival/code_ebdf68eb745492fc/coverage.json",
+      "sha256": "bfc19209db395419760d3ae1952285979cf275ba8105437ce23ea374d788b7dc"
+    },
+    {
+      "path": "runs/bob_revival/code_53029195919c498a/worker_result.json",
+      "sha256": "576bc30310e32bb24b439e58b23ba70957f3900da3687567316e16e9691465e3"
+    },
+    {
+      "path": "runs/bob_revival/code_53029195919c498a/coverage.json",
+      "sha256": "f77e9ae64717fd5a6d953264eab439ab977be3151659086a41257d0be31dfaac"
+    },
+    {
+      "path": "runs/charlie_revival/code_29f9fb153e3db425/worker_result.json",
+      "sha256": "62282b80856d02ca7e1e77bb30b7630be6655ba467d62f6e8a895cb3c7ca11fe"
+    },
+    {
+      "path": "runs/charlie_revival/code_29f9fb153e3db425/coverage.json",
+      "sha256": "71fd277a366a33f6b544041d2c552be6c4eec245f7b707d7b7e486c892366991"
+    },
+    {
+      "path": "runs/kernel_revival/code_6abe0e893a2057f7/worker_result.json",
+      "sha256": "c75dd319cbda4691cd2134bc097c00cf1b82bea56d483201af9262c0fcacf1fa"
+    },
+    {
+      "path": "runs/kernel_revival/code_6abe0e893a2057f7/coverage.json",
+      "sha256": "29f28f3d61625517179168e89f8078daebe7999bd56e54965cabf157ad1ee30b"
+    },
+    {
+      "path": "runs/bob_revival/code_4c57880a06ebf3da/worker_result.json",
+      "sha256": "c33012c0508af34c0cb78a2f40a3b147d4922581c827c46d906875d5006c3305"
+    },
+    {
+      "path": "runs/bob_revival/code_4c57880a06ebf3da/coverage.json",
+      "sha256": "9981c58d5baeaec27befc87891f2951062c7699111a31087d1d31fe62b0250fe"
+    },
+    {
+      "path": "runs/kernel_revival/code_24ef35f442f14e38/worker_result.json",
+      "sha256": "d1acc1613ec90502b1f818c0bc360fbd340091e45159d58a30464ce9f4f6e7bb"
+    },
+    {
+      "path": "runs/kernel_revival/code_24ef35f442f14e38/coverage.json",
+      "sha256": "fa932325e8704451d7931a52a2475148c57e5dd68b0b28dea73c963c44d96498"
+    },
+    {
+      "path": "runs/charlie_revival/code_256c2702129c739d/worker_result.json",
+      "sha256": "f9b40b7f113bf493054e232d19c61f4b21a44d852a53bb0319b8e0bcd7f530c3"
+    },
+    {
+      "path": "runs/charlie_revival/code_256c2702129c739d/coverage.json",
+      "sha256": "73b86e36b00de6f9bf64322da70c9a97b9916144435c2dfb07f7357804e77631"
+    },
+    {
+      "path": "runs/bob_revival/code_fb75ba30210a1f53/worker_result.json",
+      "sha256": "d3f5a9493d92d5983ba34b6df79989a76b17ed316626cbbdc9cafdd52932f4cb"
+    },
+    {
+      "path": "runs/bob_revival/code_fb75ba30210a1f53/coverage.json",
+      "sha256": "d3e653449ae3618fd988eeae9b19f06f992801ce555f6da612e5b9dcfe936693"
+    },
+    {
+      "path": "runs/kernel_revival/code_be150c4ff82d82e3/worker_result.json",
+      "sha256": "ca8a303e5eb17f7c4d81066d067bca83d3cd5b2ca8bd9a89f55e69b96f542188"
+    },
+    {
+      "path": "runs/kernel_revival/code_be150c4ff82d82e3/coverage.json",
+      "sha256": "9009451ecc7040bea54f6938a17e668755effb1b9170048a355a70f03dbfed2e"
+    },
+    {
+      "path": "runs/charlie_revival/code_39e99120b3318591/worker_result.json",
+      "sha256": "cf937066dc2416790f190bcffeda4ee881a78336173c92b6928637971e79c8d4"
+    },
+    {
+      "path": "runs/charlie_revival/code_39e99120b3318591/coverage.json",
+      "sha256": "c8c21994fff6590c16a6f09b4567710307a93983958291389509ffb17ff957c9"
+    },
+    {
+      "path": "runs/bob_revival/code_767b2368e9e44030/worker_result.json",
+      "sha256": "2403d7ba4fe7ac8e9ce2d7b8dab7b9a8e63ba10f10c2984a741b8c5b6bb788b1"
+    },
+    {
+      "path": "runs/bob_revival/code_767b2368e9e44030/coverage.json",
+      "sha256": "21700b5cf5cc9bcb4f2319066466bb0529b6a615d71109a7c4d95cae6a5eca89"
+    },
+    {
+      "path": "runs/kernel_revival/code_51931ca92567707a/worker_result.json",
+      "sha256": "7cf120b1b0274dfadbb1090b5f6bcd4057d9d6d3e9c37bd7d7db67652366dd1c"
+    },
+    {
+      "path": "runs/kernel_revival/code_51931ca92567707a/coverage.json",
+      "sha256": "d1a0b55c93fd190a76b06293b957e72506933c3fb42e2519c2cfbe9c907b4bac"
+    },
+    {
+      "path": "runs/charlie_revival/code_ffce72610d52ded9/worker_result.json",
+      "sha256": "19c6505a9d8ac8e667c3994d1f442c83daa4bceb7c94ba150e4f6c804987326b"
+    },
+    {
+      "path": "runs/charlie_revival/code_ffce72610d52ded9/coverage.json",
+      "sha256": "6577fb1429b8dc6698898f155be6c48b0cef089cce93cfd0226a69a459e8f173"
+    },
+    {
+      "path": "runs/bob_revival/code_e6c6577250370c2d/worker_result.json",
+      "sha256": "af6aed9e194877e5c9ba959dc2c90a80a2f655903d78fc1ea72f576343ae1430"
+    },
+    {
+      "path": "runs/bob_revival/code_e6c6577250370c2d/coverage.json",
+      "sha256": "329636c30d72b71f0feadfd0ac0fe0d670550700ff92d0efaf6a2396fca36e6b"
+    },
+    {
+      "path": "runs/kernel_revival/code_82e71293e34d8e6f/worker_result.json",
+      "sha256": "939d952ba112e9554835d2f26026d801de2c686e86329a5b07164ba578bf31ee"
+    },
+    {
+      "path": "runs/kernel_revival/code_82e71293e34d8e6f/coverage.json",
+      "sha256": "a18e715450ead03c3f4135e2fcc8f72f6fc85f46ce7f72c11dd02cf007fd5dc8"
+    },
+    {
+      "path": "runs/charlie_revival/code_13698c55a7b421c7/worker_result.json",
+      "sha256": "5b5999e970e8819a6391617e2c331a9c3b2b618f942b6b47b085c761b14b945d"
+    },
+    {
+      "path": "runs/charlie_revival/code_13698c55a7b421c7/coverage.json",
+      "sha256": "76657bd19252c6ff059f9521db846f0359a7bdb9ec13eefdf1959f17cffc787c"
+    },
+    {
+      "path": "runs/bob_revival/code_ce93b51d9837a381/worker_result.json",
+      "sha256": "03afb354c34d808479ce27b452a305d3845e800ef015634cfb0b1975ce38e45c"
+    },
+    {
+      "path": "runs/bob_revival/code_ce93b51d9837a381/coverage.json",
+      "sha256": "2a7e7ab01c8101f95463da102550e24a0abfeabdc28030559fd2e8f75d3609fe"
+    },
+    {
+      "path": "runs/charlie_revival/code_c97961e767e7a81c/worker_result.json",
+      "sha256": "09aa755c80931bac9d07cdf1e3cc8dc5ff6bef40e8ba12756e073b2ed48ef7fa"
+    },
+    {
+      "path": "runs/charlie_revival/code_c97961e767e7a81c/coverage.json",
+      "sha256": "b4e3823de33e4925d23608ca65f14bdae23ef00a43dd8dbe05026fdc2586cc39"
+    },
+    {
+      "path": "runs/kernel_revival/code_3f77e3b7278389fc/worker_result.json",
+      "sha256": "4b29445f94e4fbfa86a4149a3722a6367f0a9dad54f34bf80fff57cbd05e416b"
+    },
+    {
+      "path": "runs/kernel_revival/code_3f77e3b7278389fc/coverage.json",
+      "sha256": "0a616951b38ec06847a55a1d0ba2934b7c12172a1c07bfea108479bf7b4ecac6"
+    },
+    {
+      "path": "runs/bob_revival/code_222cf74cec793f24/worker_result.json",
+      "sha256": "ac45db4c765572ced687bd891b8d414b2c8287f0bded02f199ac489d14416757"
+    },
+    {
+      "path": "runs/bob_revival/code_222cf74cec793f24/coverage.json",
+      "sha256": "3d0b1abd9f80fd8ec72b7538e5c3aeeb3acb60000c5544c817425416b308368a"
+    },
+    {
+      "path": "runs/charlie_revival/code_b1e3f60204efd298/worker_result.json",
+      "sha256": "30e1d6f1dfe985a58fa1f2b3a83aa14a201b0b2e821889997f165fc33c3f03c4"
+    },
+    {
+      "path": "runs/charlie_revival/code_b1e3f60204efd298/coverage.json",
+      "sha256": "d219e8ad943b3a465fe1874916070e75ee4abd7fdc99f34096f724694f273e6d"
+    },
+    {
+      "path": "runs/kernel_revival/code_93c3591b1c64ef5e/worker_result.json",
+      "sha256": "88bae25481d06a78369f62dff00c5b0662527302370a6213c686b72657fb8d82"
+    },
+    {
+      "path": "runs/kernel_revival/code_93c3591b1c64ef5e/coverage.json",
+      "sha256": "0934a5b9e05d2d2f14903d3e2dc46528241e0d68bc4e5ad189d3e400e9b278c6"
+    },
+    {
+      "path": "runs/bob_revival/code_5113bb38b54140c0/worker_result.json",
+      "sha256": "856dffb6c01b24023bb4a003b48cc22f7d9d406b4399cf0b4bf00924eaf04f64"
+    },
+    {
+      "path": "runs/bob_revival/code_5113bb38b54140c0/coverage.json",
+      "sha256": "17c2ce63ff4e512bf648f767c681179a5288a9f26372991216fe4c8145a34d7d"
+    },
+    {
+      "path": "runs/kernel_revival/code_14fba1d56d040444/worker_result.json",
+      "sha256": "842360c3244d5d0a71fbe55ced08edf527bff308d8f1a82004e5242b5b23f2a3"
+    },
+    {
+      "path": "runs/kernel_revival/code_14fba1d56d040444/coverage.json",
+      "sha256": "0391d1eb0cd936ff2f9fb4b08cc08ac0515d07e59fb3d386dda406ec98c25907"
+    },
+    {
+      "path": "runs/bob_revival/code_d4143db5b1084e8d/worker_result.json",
+      "sha256": "2a3629a8cd0e03184dac7490ba215518f0406345c5caba7d04b1545ed15b2f4f"
+    },
+    {
+      "path": "runs/bob_revival/code_d4143db5b1084e8d/coverage.json",
+      "sha256": "81736deec0a1f4c7c6dfab1f9beab4d2850acb6c99dc37df8fd6e7ccb7b84c19"
+    },
+    {
+      "path": "runs/kernel_revival/code_3cf507b91ce31d16/worker_result.json",
+      "sha256": "48ceb899f5dd1204e8b5e1765c9ac132a41a134f3c7ebf2f89463b4ec7a15009"
+    },
+    {
+      "path": "runs/kernel_revival/code_3cf507b91ce31d16/coverage.json",
+      "sha256": "051ebd74355a192896fb762533805b09e28995d7a94cfd03a8b3a81dd9293794"
+    },
+    {
+      "path": "runs/kernel_revival/code_e43d58b5db12d837/worker_result.json",
+      "sha256": "1a1808c827ba0d7e036aa284487844ebb61d6c5ea6ce76ae37d99ca1d8175470"
+    },
+    {
+      "path": "runs/kernel_revival/code_e43d58b5db12d837/coverage.json",
+      "sha256": "aecba24ee9876e979b713c4171c59c9ac18bb0cf120454f256d68b32687b838a"
+    },
+    {
+      "path": "runs/charlie_revival/code_98e3d99206c0fadc/worker_result.json",
+      "sha256": "7de52b6e6801eef5a9f172af5ef9bb5128dd2c0a216becb260046b296c7d6a85"
+    },
+    {
+      "path": "runs/charlie_revival/code_98e3d99206c0fadc/coverage.json",
+      "sha256": "6af1076d1ec589bee1dc54f3ce5f66e69e8a18af89cd055b45151a3920e5d80b"
+    },
+    {
+      "path": "runs/code_9868bc65744b21d8/worker_result.json",
+      "sha256": "94f1a8eb0815797bd5836efe65a81814e3fe03b17db2e2c114da7717ebabc219"
+    },
+    {
+      "path": "runs/code_9868bc65744b21d8/coverage.json",
+      "sha256": "a4da9d904da605500e6d297a0fa1ec59eee63a8b3fd13dd8af9f0077a5d5526b"
+    },
+    {
+      "path": "runs/code_6638f991c1b9dc10/worker_result.json",
+      "sha256": "4ea610218946680141ab6456b80b40b29467a327f26c68fc658653cef9c13e7c"
+    },
+    {
+      "path": "runs/code_6638f991c1b9dc10/coverage.json",
+      "sha256": "b5b3e853f1e528af8451603868098c30797614111ee169cae00583bc1a698d80"
+    }
+  ],
+  "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900"
+}
