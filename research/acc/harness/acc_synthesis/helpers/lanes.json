@@ -127,6 +127,19 @@
         "ac-00029",
         "ac-00018"
       ]
+    },
+    {
+      "name": "geometry",
+      "algorithm_id": "prospective-disk-heading-clock-beam-with-exact-pool-v1",
+      "script": "helpers/geometry_portfolio_v1.py",
+      "input_files": [
+        "helpers/geometry_portfolio_protocol.json",
+        "integration/official_selected.json"
+      ],
+      "enabled": true,
+      "rows": [
+        "ac-00009"
+      ]
     }
   ]
 }

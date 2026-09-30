@@ -1,0 +1,64 @@
+{
+  "type": "synthetic_engine_controls_not_ACC_results",
+  "inverse_controls": 14,
+  "exact_Mobius_ray_controls": 12,
+  "eight_arm_paid_join_controls": [
+    {
+      "arm": "length",
+      "synthetic_padded_cost": 3,
+      "found_cost": 1,
+      "exact_endpoint": true,
+      "record_count": 162
+    },
+    {
+      "arm": "toward",
+      "synthetic_padded_cost": 3,
+      "found_cost": 1,
+      "exact_endpoint": true,
+      "record_count": 162
+    },
+    {
+      "arm": "away",
+      "synthetic_padded_cost": 3,
+      "found_cost": 1,
+      "exact_endpoint": true,
+      "record_count": 162
+    },
+    {
+      "arm": "fixed_heading",
+      "synthetic_padded_cost": 3,
+      "found_cost": 1,
+      "exact_endpoint": true,
+      "record_count": 162
+    },
+    {
+      "arm": "local_heading",
+      "synthetic_padded_cost": 3,
+      "found_cost": 1,
+      "exact_endpoint": true,
+      "record_count": 162
+    },
+    {
+      "arm": "local_heading_reverse",
+      "synthetic_padded_cost": 3,
+      "found_cost": 1,
+      "exact_endpoint": true,
+      "record_count": 162
+    },
+    {
+      "arm": "layer_clock_heading",
+      "synthetic_padded_cost": 3,
+      "found_cost": 1,
+      "exact_endpoint": true,
+      "record_count": 162
+    },
+    {
+      "arm": "reverse_toward",
+      "synthetic_padded_cost": 3,
+      "found_cost": 1,
+      "exact_endpoint": true,
+      "record_count": 160
+    }
+  ],
+  "worker_sha256": "615bf5402a4fa275e7b352098c3f0543a50aef3f908e136c0436f1431b1ad843"
+}

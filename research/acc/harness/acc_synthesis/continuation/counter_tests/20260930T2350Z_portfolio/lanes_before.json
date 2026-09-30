@@ -1,0 +1,132 @@
+{
+  "schema": "acc-helper-lanes/1",
+  "scope": "Recovered owner methods with separately documented bounded adaptations; no submission or model client. Only user-selected AC rows.",
+  "lanes": [
+    {
+      "name": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "script": "helpers/charlie_lane_v1.py",
+      "input_files": [
+        "integration/official_selected.json"
+      ],
+      "enabled": true,
+      "rows": [
+        "ac-00001",
+        "ac-00003",
+        "ac-00005",
+        "ac-00006",
+        "ac-00009",
+        "ac-00010",
+        "ac-00011",
+        "ac-00012",
+        "ac-00013",
+        "ac-00015",
+        "ac-00016",
+        "ac-00017",
+        "ac-00018",
+        "ac-00020",
+        "ac-00021",
+        "ac-00022",
+        "ac-00024",
+        "ac-00027",
+        "ac-00028",
+        "ac-00029",
+        "ac-00031",
+        "ac-00032",
+        "ac-00033",
+        "ac-00034",
+        "ac-00037"
+      ]
+    },
+    {
+      "name": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "script": "helpers/bob_lane_v1.py",
+      "input_files": [
+        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json"
+      ],
+      "enabled": true,
+      "rows": [
+        "ac-00001",
+        "ac-00003",
+        "ac-00005",
+        "ac-00006",
+        "ac-00009",
+        "ac-00010",
+        "ac-00011",
+        "ac-00012",
+        "ac-00013",
+        "ac-00015",
+        "ac-00016",
+        "ac-00017",
+        "ac-00018",
+        "ac-00020",
+        "ac-00021",
+        "ac-00022",
+        "ac-00024",
+        "ac-00027",
+        "ac-00028",
+        "ac-00029",
+        "ac-00031",
+        "ac-00032",
+        "ac-00033",
+        "ac-00034",
+        "ac-00037"
+      ]
+    },
+    {
+      "name": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "script": "helpers/kernel_lane_v1.py",
+      "input_files": [
+        "helpers/kernel_sources/roads_input.json"
+      ],
+      "enabled": true,
+      "rows": [
+        "ac-00001",
+        "ac-00003",
+        "ac-00005",
+        "ac-00006",
+        "ac-00009",
+        "ac-00010",
+        "ac-00011",
+        "ac-00012",
+        "ac-00013",
+        "ac-00015",
+        "ac-00016",
+        "ac-00017",
+        "ac-00018",
+        "ac-00020",
+        "ac-00021",
+        "ac-00022",
+        "ac-00024",
+        "ac-00027",
+        "ac-00028",
+        "ac-00029",
+        "ac-00031",
+        "ac-00032",
+        "ac-00033",
+        "ac-00034",
+        "ac-00037"
+      ]
+    },
+    {
+      "name": "named",
+      "algorithm_id": "named-exact-state-neighborhood-v1",
+      "script": "helpers/named_bridge_lane_v1.py",
+      "input_files": [
+        "helpers/named_queries.json",
+        "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz",
+        "runs/kernel_revival/code_a7e9bffde8b90533/captured_input.json"
+      ],
+      "enabled": true,
+      "rows": [
+        "ac-00028",
+        "ac-00003",
+        "ac-00013",
+        "ac-00029",
+        "ac-00018"
+      ]
+    }
+  ]
+}
