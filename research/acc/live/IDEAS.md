@@ -1671,3 +1671,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
 - Lanes now: k12dp (road DP, 73 rows 1-10 over a 1-2 team record), mrk12 (mid-restarts, 10 rows 1-2 over), yxk12 ((y,x)
   restarts, 17 Stable rows where the Stable record is below our AC path + 2).
 - Doubling family: see UPDATE_session2_to_luna_git_20260930T0240Z.md (records = 2^(n+1)+1.4n+9; leaders skip the strip).
+- 03:00Z hourly (session 1): no new unsent ties. Low-k loose DP 44/205, 4 paths shortened (no tie yet). Gap 3–4 loose DP 139/212: 28 shortened, 4 ties (00345, 04157, 01461, 04493, all sent). Disk 16 GB.
