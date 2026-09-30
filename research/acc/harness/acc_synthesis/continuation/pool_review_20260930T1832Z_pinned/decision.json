@@ -1,0 +1,11 @@
+{
+  "source_pool_sha256": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3",
+  "review_path": "continuation/pool_review_20260930T1832Z_pinned/review.json",
+  "review_sha256": "3d57cb76a1a643a8ca4073de5d2fc177d483cfb4810f8572e0bbcab5d5e8dff5",
+  "verified_novel_roads": 145,
+  "new_pinned_donors": 54,
+  "selected_graph_distance_improvements": [],
+  "decision": "Preserve verified new roads as staged data. Active pool restored byte-exactly because no selected saved-graph distance improved; do not reopen every overlay merely because the archive grew. Use staged roads for a specifically justified exact entry/exit proposal.",
+  "reconstruction": "Read source pool at d45d6ad537508fc109dab96d4b09b93280f070f1; append challenge objects in donor_pin_receipt.new_pinned_donor_instances order, serialize indent=2 plus newline, and verify augmented_pool_sha256 before reproducing the pinned review.",
+  "preparation_error": "Initial one-off preparation imported verifier before load_kernel had established its import path; it made no changes. Initial review then completed with original pins. Corrected import ordering; preserved both initial and augmented-pin reviews. No search crash or timeout was recorded as a miss."
+}

@@ -1,7 +1,7 @@
 {
-  "completed_batches": 47,
+  "completed_batches": 49,
   "model_worker_launches": 4,
-  "code_only_batches": 43,
+  "code_only_batches": 45,
   "new_improved_routes": 4,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -30,7 +30,7 @@
   "next": {
     "status": "planned",
     "job": {
-      "row_id": "ac-00015",
+      "row_id": "ac-00016",
       "track": "AC",
       "helper": "charlie",
       "algorithm_id": "charlie-exact-cap-ladder-v1",
@@ -41,20 +41,20 @@
       },
       "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
       "baseline": null,
-      "target": 150,
+      "target": 79,
       "caps": {
         "wall_seconds": 180,
         "node_cap": 600000,
         "memory_mib": 1024
       },
-      "key": "ab7688a3f2ec5b7584b6f71aa56a07f62768ec0a04fb0df787871c42491976eb"
+      "key": "bfe806c377e1f542a1eccf40870ae7a2138075c385e96256e14b5c524d71aae5"
     },
-    "remaining_jobs": 52
+    "remaining_jobs": 50
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 47
+      "completed": 49
     },
     "unconnected_roles": [
       "luna_memory",
@@ -673,6 +673,32 @@
       "kind": "candidate",
       "result_path": "runs/kernel_revival/code_a7e9bffde8b90533/worker_result.json",
       "limits": null
+    },
+    {
+      "helper": "charlie",
+      "row_id": "ac-00015",
+      "baseline": null,
+      "target": 150,
+      "kind": "bounded_miss",
+      "result_path": "runs/charlie_revival/code_ab7688a3f2ec5b75/worker_result.json",
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      }
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00016",
+      "baseline": null,
+      "target": 79,
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_383ac114de9b7884/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
     }
   ],
   "implementation_failure": {

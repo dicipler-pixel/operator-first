@@ -1989,6 +1989,84 @@
       },
       "limits": null,
       "reopen_when": null
+    },
+    {
+      "key": "ab7688a3f2ec5b7584b6f71aa56a07f62768ec0a04fb0df787871c42491976eb",
+      "job": {
+        "row_id": "ac-00015",
+        "track": "AC",
+        "helper": "charlie",
+        "algorithm_id": "charlie-exact-cap-ladder-v1",
+        "script": "helpers/charlie_lane_v1.py",
+        "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
+        "inputs": {
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 150,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "ab7688a3f2ec5b7584b6f71aa56a07f62768ec0a04fb0df787871c42491976eb"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790793065.2830994,
+      "result_path": "runs/charlie_revival/code_ab7688a3f2ec5b75/worker_result.json",
+      "result_sha256": "b89f8c3fb7cc5c72806c4fdaa657b217e9c54d0c5db6232e68bd4d27ad270600",
+      "kind": "bounded_miss",
+      "summary": "No saved-baseline improvement in bounded cap probe",
+      "gate": null,
+      "limits": {
+        "memory_mib": 1024,
+        "node_cap": 600000,
+        "wall_seconds": 180.0
+      },
+      "reopen_when": {
+        "event": "higher_exact_cap_capacity",
+        "row_id": "ac-00015"
+      }
+    },
+    {
+      "key": "383ac114de9b7884aa510e1607689e6c7a983702596c1bee32fa729d4644ae7f",
+      "job": {
+        "row_id": "ac-00016",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 79,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "383ac114de9b7884aa510e1607689e6c7a983702596c1bee32fa729d4644ae7f"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790793310.5439265,
+      "result_path": "runs/bob_revival/code_383ac114de9b7884/worker_result.json",
+      "result_sha256": "7f205abe46bd04633b418ae2587be89bfced2bd8272720e713dc55b85f940b58",
+      "kind": "bounded_miss",
+      "summary": "No improvement from the tested Bob cross-class transfers; saved baseline None, target 79.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "reopen_when": {
+        "event": "new_exact_crossclass_seed",
+        "row_id": "ac-00016"
+      }
     }
   ],
   "notifications": [
@@ -1999,7 +2077,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790792928.647875,
+  "updated_at": 1790793310.5444348,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
