@@ -42,7 +42,8 @@
     "rows_per_task": 2,
     "include_unsolved": false,
     "max_artifact_bytes": 67108864,
-    "shorten_gap_max": 10
+    "shorten_gap_max": 10,
+    "new_per_near": 3
   },
   "default_strategy": {
     "method": "beam_p2",
