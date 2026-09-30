@@ -60,6 +60,18 @@
    "radius": 9,
    "cum": 13421550,
    "stop": "budget bytes inside layer 10"
+  },
+  "18": {
+   "tot": 19,
+   "radius": 13,
+   "cum": 47758638,
+   "stop": "budget cum 47758638 >= 30000000 after layer 13"
+  },
+  "42": {
+   "tot": 17,
+   "radius": 9,
+   "cum": 37483241,
+   "stop": "budget cum 37483241 >= 30000000 after layer 9"
   }
  },
  "pairs": [
@@ -77,8 +89,39 @@
    "states": 61214730,
    "result": "NOT_REACHED",
    "why": "pair budget"
+  },
+  {
+   "i": 18,
+   "j": 42,
+   "gap": 24,
+   "target_T": 22,
+   "tot_i": 19,
+   "tot_j": 17,
+   "Ri": 13,
+   "Rj": 9,
+   "a": 13,
+   "b": 9,
+   "states": 85241879,
+   "result": "NOT_REACHED",
+   "why": "pair budget"
+  },
+  {
+   "i": 18,
+   "j": 41,
+   "gap": 23,
+   "target_T": 21,
+   "tot_i": 19,
+   "tot_j": 21,
+   "Ri": 13,
+   "Rj": 9,
+   "a": 12,
+   "b": 9,
+   "states": 39673367,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 2.6
   }
  ],
  "shortened": [],
- "wall_s": 72.0
+ "wall_s": 140.6,
+ "ended_by": "finished"
 }

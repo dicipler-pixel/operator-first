@@ -69,6 +69,26 @@
 - pairs never tested (deadline): 0
 - balls stopped by budget/disk (radius reached): s_15 r=11 (budget cum 15448585 >=), s_16 r=11 (budget bytes inside la), s_17 r=11 (budget bytes inside la), s_18 r=11 (budget bytes inside la), s_19 r=12 (budget cum 25324827 >=), s_20 r=12 (budget bytes inside la), s_21 r=13 (budget cum 18288281 >=), s_22 r=14 (budget cum 23903514 >=), s_39 r=10 (budget bytes inside la), s_40 r=10 (budget bytes inside la), s_41 r=9 (budget bytes inside la), s_42 r=8 (budget bytes inside la), s_43 r=8 (budget cum 18255718 >=), s_44 r=7 (budget bytes inside la), s_45 r=7 (budget bytes inside la)
 
+## ac-03913 cap K=34 (route 48 moves, 2 over record; per-ball budget 30000000 states, radius max 16)
+- ended_by: finished, wall 140.6s; eligible endpoint states (3 <= i <= L-3, total <= K): [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32, 33, 39, 40, 41, 42, 43, 44, 45]
+- pairs (gap 15..24, both ends eligible): 3; tested 3; result counts {'NOT_REACHED': 2, 'CERTIFIED_NO_SHORTER_BRIDGE': 1}; shortcuts found: 0
+- certified (no bridge of <= g-2 moves at cap 34), by gap:
+  - gap 23: 1 pairs: (18,41)
+- not reached (budget stops, scoped misses): 2
+  - (17,41) gap 24: pair budget
+  - (18,42) gap 24: pair budget
+- pairs never tested (deadline): 0
+- balls stopped by budget/disk (radius reached): s_17 r=13 (budget cum 47793180 >=), s_18 r=13 (budget cum 47758638 >=), s_41 r=9 (budget bytes inside la), s_42 r=9 (budget cum 37483241 >=)
+
+## ac-03913 cap K=34 (route 48 moves, 2 over record; per-ball budget 30000000 states, radius max 16)
+- ended_by: finished, wall 142.1s; eligible endpoint states (3 <= i <= L-3, total <= K): [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32, 33, 39, 40, 41, 42, 43, 44, 45]
+- pairs (gap 15..24, both ends eligible): 2; tested 2; result counts {'CERTIFIED_NO_SHORTER_BRIDGE': 2}; shortcuts found: 0
+- certified (no bridge of <= g-2 moves at cap 34), by gap:
+  - gap 24: 2 pairs: (15,39) (16,40)
+- not reached (budget stops, scoped misses): 0
+- pairs never tested (deadline): 0
+- balls stopped by budget/disk (radius reached): s_15 r=12 (budget cum 30697466 >=), s_16 r=12 (budget bytes inside la), s_39 r=11 (budget bytes inside la), s_40 r=10 (budget bytes inside la)
+
 ## ac-05598 cap K=25 (route 40 moves, 1 over record; per-ball budget 0 states, radius max 0)
 - ended_by: finished (literal cap start+6=25: no pair of route states with both totals <= 25 and gap 15..24, so nothing to test), wall 0s; eligible endpoint states (3 <= i <= L-3, total <= K): [3, 32, 33, 34, 35, 36, 37]
 - pairs (gap 15..24, both ends eligible): 0; tested 0; result counts {}; shortcuts found: 0

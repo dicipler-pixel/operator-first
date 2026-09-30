@@ -1,6 +1,6 @@
-# SCOUT: low-k rows where the team has a road (2026-09-30 20:47Z)
+# SCOUT: low-k rows where the team has a road (2026-09-30 21:22Z)
 
-Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20260930T2043Z.json.gz, stable_ac_20260930T2043Z.json.gz; 4 min old) and the UPG-H ledger. 0 API calls.
+Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20260930T2043Z.json.gz, stable_ac_20260930T2043Z.json.gz; 39 min old) and the UPG-H ledger. 0 API calls.
 Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) or `upgh (running)`. Take an unclaimed row by writing it in your WORKING file. Scoring lines go to `queue/`.
 
 ## SEND: our road is at or under the record, not held yet (next send) (0)
@@ -25,7 +25,7 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | sac-01514 | 37 | 2 | 38 |  | +1 | 0 | charlie_batch7 | 0.250 | (y,x) finish |
 | sac-04493 | 53 | 2 | 54 |  | +1 | 5 | session2 | 0.250 | (y,x) finish |
 | sac-08578 | 36 | 2 | 37 |  | +1 | 15 | session2 | 0.250 | (y,x) finish |
-| sac-07119 | 34 | 3 | 35 | 50 | +1 | 5 |  | 0.125 | (y,x) finish |
+| sac-07119 | 34 | 3 | 35 | 50 | +1 | 5 | session2 | 0.125 | (y,x) finish |
 
 ## NEAR: 1-3 over, k <= 3 (86)
 | row | record | k | ours | held | gap | heat | who | value |
@@ -57,7 +57,7 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | sac-04882 | 53 | 1 | 56 |  | +3 | 0 |  | 0.600 |
 (61 more in research/acc/upgh/cache/scout_latest.json)
 
-## ROAD: 4-10 over, k <= 3 (shorten lanes) (228)
+## ROAD: 4-10 over, k <= 3 (shorten lanes) (229)
 | row | record | k | ours | held | gap | heat | who | value |
 |---|---|---|---|---|---|---|---|---|
 | ac-03475 | 43 | 1 | 47 |  | +4 | 0 |  | 0.125 |
@@ -85,5 +85,5 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | ac-09221 | 69 | 1 | 75 |  | +6 | 0 |  | 0.083 |
 | sac-00786 | 43 | 1 | 49 |  | +6 | 0 |  | 0.083 |
 | sac-03364 | 42 | 1 | 48 |  | +6 | 0 |  | 0.083 |
-(203 more in research/acc/upgh/cache/scout_latest.json)
+(204 more in research/acc/upgh/cache/scout_latest.json)
 
