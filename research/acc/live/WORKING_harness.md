@@ -1,9 +1,9 @@
 # ACC memory-first harness claims
 
-Updated: 2026-09-30T22:34:44.354598+00:00.
+Updated: 2026-09-30T22:35:19.742055+00:00.
 
-No active claim. Completed 116 bounded method probes.
+Active: bridge ac-00009, code-only batch. Key 818bdda1c412d64bf1ae3c9518c5e66acc897ea58c968b5c36224b8928ec0045. Expires 2026-09-30T22:45:19.737946+00:00.
 
-Completed row details and proposed jobs are in the continuation checkpoint and progress files. They are not reservations.
+Row checked against current WORKING claims. Previous completed attempts are retained in continuation/checkpoint.json. This batch begins only after its reservation is committed.
 
-All results and precise limits are preserved in research/acc/harness/acc_synthesis/continuation/checkpoint.json and runs/. Scheduled model-worker dispatch zero. Bounds unchanged: <=180 search seconds / <=600000 records / <=1024 MiB. No submissions, challenge API requests, public publishing or old watches. Scope of a bounded miss is not a nonexistence proof.
+Bounds <=180 search seconds / <=600000 records / <=1024 MiB; model-worker dispatch zero. No challenge API calls, submissions, public publishing or old watches. Read research/acc/harness/acc_synthesis/CONTINUATION.md for the procedure.
