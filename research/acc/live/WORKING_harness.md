@@ -1,9 +1,11 @@
 # ACC memory-first harness claims
 
-Updated: 2026-09-30T15:05:00Z.
+Updated: 2026-09-30T15:07:38.943266+00:00.
 
-Charlie ac-00037, Bob ac-00012 and Kernel ac-00034 first probes are complete and their row claims released. No shorter route found. Exact bounds, original sources and negative memory are in research/acc/harness/acc_synthesis/continuation/checkpoint.json and runs/.
+No active row claim. Charlie ac-00037, Bob ac-00012, Kernel ac-00034, and the subsequent code-only Bob ac-00037 batch are complete. No shorter route found; all claims released.
 
-Next code-only batch: Bob generator-transfer ac-00037, at most 180 search seconds / 600000 comparisons or admitted records / 1024 MiB. No model workers, submissions or challenge API calls. The durable checkpoint reservation is authoritative for this claim; its expires_at is the expiry. The batch begins only after the reservation is committed. Current UPG-H rows inspected at 8717ca613d9625b90c107a944ed0f044b65e46e1 are disjoint.
+Exact sources, tested bounds, immutable executed code, results and negative memory are saved under research/acc/harness/acc_synthesis/. Start at CONTINUATION.md and continuation/checkpoint.json; the continuation entry point is helper_batch.py. The committed portable checkpoint contains no active reservation.
 
-Earlier claims and helper recovery history remain in prior commits and continuation/helper_handoffs.json. Old reach2/3 splice and doubling leads remain closed. No claim on ac-00028 was searched.
+The next plan is Kernel ac-00037, subject to fresh branch head, current WORKING claims and lease checks. It is not a current claim. Scheduled model-worker dispatch is zero. Limits remain 180 search seconds / 600000 records / 1024 MiB. No submissions or challenge API calls. Old block-splice and doubling leads remain closed. No ac-00028 search was performed.
+
+Earlier helper reservations, capacity failures and same-worker reassignment remain in branch history and continuation/helper_handoffs.json.
