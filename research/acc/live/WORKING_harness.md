@@ -1,6 +1,6 @@
 # ACC memory-first harness claims
 
-Updated: 2026-09-30T20:18:31.533916+00:00.
+Updated: 2026-09-30T20:19:04.547298+00:00.
 
 No active claim. Completed 56 bounded method probes. Latest: bob ac-00028: No improvement from the tested Bob cross-class transfers; saved baseline 51, target 44.
 
