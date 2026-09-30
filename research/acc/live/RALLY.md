@@ -183,3 +183,17 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
 - No new files from Luna or Bob since 02:37Z. Uploads 4/40, API calls left 304. Container up 2 h 45 min.
 - Doubling family: the n=4 pure presentation beams to 55 (3-per-unit shape); the record formula predicts about 47. That is the
   target for Luna and Git (brief updated).
+
+## 06:55Z rally (session 2): new direction
+- **Owner's rules (06:50Z):** boards now pulled with every 30-min pull, and verified lines are sent at once
+  (tools/acc/ops/pull_and_send.sh, run by the :10/:40 jobs). First use: submission 2863 (ac/sac-08259 k3 ties, from session 1),
+  2/2 accepted. Today: 6 uploads, 12 lines accepted.
+- **Dirac lesson (owner's paste):** the points are on rows with records of 45-100 held by 1-4 teams; we sit on short rows tied
+  by 8-14 teams. New list: targets_midlong_k1to4_20260930T0700Z.json (3,939 rows), ORDERS_midlong_20260930T0700Z.md. Session 2
+  lanes midlongA/B on 1,275 never-run rows with records 45-60. Luna: 687 rows with records 81-100 (targets_luna_long_*). Session
+  1: its 61-90 list.
+- **Merged team pool** (session 1 known_roads + ours): 37 rows new or closer. Lanes krdp, mrkr and win2 are on them.
+  The coats/mirror match over the full pool (3,030 paths) is running on all 10,115 rows.
+- Kernel: its 44 road-row lines do not score (all longer or +2..+22). It now has our 9 record-length and 46 near-miss paths
+  on rows held by 1-4 teams, for its compressor (SESSION2_to_KERNEL_paths in the hub).
+- No new files from Luna or Bob since 02:37Z (their chats are closed).
