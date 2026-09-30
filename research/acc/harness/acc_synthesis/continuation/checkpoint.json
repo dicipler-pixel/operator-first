@@ -3,7 +3,7 @@
   "stopped": false,
   "active": {
     "job": {
-      "row_id": "ac-00009",
+      "row_id": "ac-00006",
       "track": "AC",
       "helper": "kernel",
       "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
@@ -12,20 +12,20 @@
       "inputs": {
         "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
       },
-      "seed_sha256": "a5fa089d7cffc8d299beba49d8e1aa5a2ff729cf244bb977c5b3b67619a962eb",
-      "baseline": 112,
-      "target": 34,
+      "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "baseline": null,
+      "target": 63,
       "caps": {
         "wall_seconds": 180,
         "node_cap": 600000,
         "memory_mib": 1024
       },
-      "key": "064bcc24492c41a235a9d9d7e556d4b09890e4ab3173bc6ac28534c2cd9c4309"
+      "key": "89ac2645fae0d6aef76360de4f2b24533c08479881bd51ed9c3bab8323b1daf4"
     },
-    "task_id": 111,
-    "lease_token": "69e79c8f922d4db18dafb561fd2a2383",
-    "expires_at": 1790806219.1471727,
-    "repo_head": "624130bd338253213b64eda3811090c607d7c78f",
+    "task_id": 113,
+    "lease_token": "a82dbbc550f04f7c953c125e76ab24ea",
+    "expires_at": 1790806310.379527,
+    "repo_head": "5bce3556cf42bb3005281b8cd80a5ffafe449768",
     "phase": "reserved",
     "host_must_commit_before_execution": true
   },
@@ -3963,6 +3963,86 @@
         "event": "new_exact_crossclass_seed",
         "row_id": "ac-00005"
       }
+    },
+    {
+      "key": "064bcc24492c41a235a9d9d7e556d4b09890e4ab3173bc6ac28534c2cd9c4309",
+      "job": {
+        "row_id": "ac-00009",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
+        },
+        "seed_sha256": "a5fa089d7cffc8d299beba49d8e1aa5a2ff729cf244bb977c5b3b67619a962eb",
+        "baseline": 112,
+        "target": 34,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "064bcc24492c41a235a9d9d7e556d4b09890e4ab3173bc6ac28534c2cd9c4309"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790805657.1628728,
+      "result_path": "runs/kernel_revival/code_064bcc24492c41a2/worker_result.json",
+      "result_sha256": "791303c940cf8940fe15ea949c6cef78ac3c8321f2c153a1bc881a0108f993e9",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best 112, target 34.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00009"
+      }
+    },
+    {
+      "key": "67c982921a251bff2032c544ba555d021bc6e200a26a1df2ab3809dd51749884",
+      "job": {
+        "row_id": "ac-00021",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "de2e9c1214dbdbdcb571c9d1d251de00c093dc4c4f8716fccc86077077c99b88",
+        "baseline": 40,
+        "target": 39,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "67c982921a251bff2032c544ba555d021bc6e200a26a1df2ab3809dd51749884"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790805701.5400028,
+      "result_path": "runs/bob_revival/code_67c982921a251bff/worker_result.json",
+      "result_sha256": "180e1ba8ef28b19e4db1627467f31a1b9a8b36bdb680132b383a7ad687beea83",
+      "kind": "bounded_miss",
+      "summary": "No improvement from the tested Bob cross-class transfers; saved baseline 40, target 39.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "reopen_when": {
+        "event": "new_exact_crossclass_seed",
+        "row_id": "ac-00021"
+      }
     }
   ],
   "notifications": [
@@ -3975,7 +4055,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790805619.1475062,
+  "updated_at": 1790805710.3798673,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,

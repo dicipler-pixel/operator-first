@@ -1,7 +1,7 @@
 {
-  "completed_batches": 95,
+  "completed_batches": 97,
   "model_worker_launches": 4,
-  "code_only_batches": 91,
+  "code_only_batches": 93,
   "new_improved_routes": 5,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -31,7 +31,7 @@
     "status": "active",
     "active": {
       "job": {
-        "row_id": "ac-00009",
+        "row_id": "ac-00006",
         "track": "AC",
         "helper": "kernel",
         "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
@@ -40,20 +40,20 @@
         "inputs": {
           "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
         },
-        "seed_sha256": "a5fa089d7cffc8d299beba49d8e1aa5a2ff729cf244bb977c5b3b67619a962eb",
-        "baseline": 112,
-        "target": 34,
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 63,
         "caps": {
           "wall_seconds": 180,
           "node_cap": 600000,
           "memory_mib": 1024
         },
-        "key": "064bcc24492c41a235a9d9d7e556d4b09890e4ab3173bc6ac28534c2cd9c4309"
+        "key": "89ac2645fae0d6aef76360de4f2b24533c08479881bd51ed9c3bab8323b1daf4"
       },
-      "task_id": 111,
-      "lease_token": "69e79c8f922d4db18dafb561fd2a2383",
-      "expires_at": 1790806219.1471727,
-      "repo_head": "624130bd338253213b64eda3811090c607d7c78f",
+      "task_id": 113,
+      "lease_token": "a82dbbc550f04f7c953c125e76ab24ea",
+      "expires_at": 1790806310.379527,
+      "repo_head": "5bce3556cf42bb3005281b8cd80a5ffafe449768",
       "phase": "reserved",
       "host_must_commit_before_execution": true
     }
@@ -61,7 +61,7 @@
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 95,
+      "completed": 97,
       "running": 1
     },
     "unconnected_roles": [
@@ -1302,6 +1302,34 @@
       "target": 26,
       "kind": "bounded_miss",
       "result_path": "runs/bob_revival/code_957974f627250df3/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00009",
+      "baseline": 112,
+      "target": 34,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_064bcc24492c41a2/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00021",
+      "baseline": 40,
+      "target": 39,
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_67c982921a251bff/worker_result.json",
       "limits": {
         "wall_seconds": 180.0,
         "node_cap": 600000,
