@@ -15,9 +15,9 @@ from collections import deque
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
 import resource
-import sqlite3
 import sys
 import time
 
@@ -27,7 +27,18 @@ ROOT = Path(__file__).resolve().parent
 
 
 def dump(path, value):
-    Path(path).write_text(json.dumps(value, indent=2, allow_nan=False) + '\n')
+    path = Path(path)
+    partial = path.with_name(path.name + '.partial')
+    with partial.open('w') as stream:
+        stream.write(json.dumps(value, indent=2, allow_nan=False) + '\n')
+        stream.flush()
+        os.fsync(stream.fileno())
+    os.replace(partial, path)
+    fd = os.open(path.parent, os.O_RDONLY)
+    try:
+        os.fsync(fd)
+    finally:
+        os.close(fd)
 
 
 def state_json(state):
@@ -74,13 +85,24 @@ def saved_union(core, start, target, routes):
     return graph, traces, prefix, suffix
 
 
+_control_checked_at = float('-inf')
+_control_value = True
+
+
 def stopped():
-    database = ROOT / 'state/ledger.sqlite3'
-    if not database.exists():
-        return False
-    with sqlite3.connect('file:' + str(database) + '?mode=ro', uri=True) as conn:
-        row = conn.execute('SELECT stopped FROM control WHERE singleton=1').fetchone()
-    return bool(row and row[0])
+    # The parent owns SQLite and polls its stop flag every 50 ms. Workers only
+    # read the atomically replaced portable checkpoint; never open the ledger.
+    global _control_checked_at, _control_value
+    now = time.monotonic()
+    if now - _control_checked_at < 0.1:
+        return _control_value
+    try:
+        state = json.loads((ROOT / 'continuation/checkpoint.json').read_text())
+        value = state.get('stopped') is not False
+    except (OSError, ValueError):
+        value = True
+    _control_checked_at, _control_value = now, value
+    return value
 
 
 def peak_rss_mib():
@@ -240,8 +262,8 @@ def main(argv=None):
     args = parser.parse_args(argv)
     if not math.isfinite(args.wall_seconds) or not 0 < args.wall_seconds <= 180:
         parser.error('wall-seconds must be finite, positive and at most 180')
-    if args.node_cap < 2 or not 1 <= args.depth <= 20 or args.target_length < 0:
-        parser.error('positive depth <=20, node-cap>=2, target-length>=0 required')
+    if not 2 <= args.node_cap <= 600000 or not 1 <= args.depth <= 20 or args.target_length < 0:
+        parser.error('depth 1..20, node-cap 2..600000, target-length>=0 required')
     if not 64 <= args.memory_mib <= 1024:
         parser.error('memory-mib must be between 64 and 1024')
     out = Path(args.output_dir).resolve()

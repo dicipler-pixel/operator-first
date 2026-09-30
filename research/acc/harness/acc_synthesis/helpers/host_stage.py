@@ -1,8 +1,9 @@
 import argparse,base64,datetime,hashlib,json
 from pathlib import Path
 from acc_synthesis.helper_batch import HelperContinuation
+from acc_synthesis.continue_batch import Continuation
 r=Path('acc_synthesis');prefix='research/acc/harness/acc_synthesis/'
-p=argparse.ArgumentParser();p.add_argument('action',choices=['reserve','pack']);p.add_argument('--head');p.add_argument('--exclude',default='[]');a=p.parse_args();c=HelperContinuation()
+p=argparse.ArgumentParser();p.add_argument('action',choices=['reserve','pack']);p.add_argument('--head');p.add_argument('--exclude',default='[]');p.add_argument('--mode',choices=['helper','bridge'],default='helper');a=p.parse_args();c=Continuation() if a.mode=='bridge' else HelperContinuation()
 if a.action=='reserve':
  plan=c.plan(json.loads(a.exclude))
  if plan['status']!='planned':print(json.dumps(plan));raise SystemExit
@@ -11,7 +12,7 @@ if a.action=='reserve':
 
 Updated: {datetime.datetime.now(datetime.timezone.utc).isoformat()}.
 
-Active: {j['helper']} {j['row_id']}, code-only batch. Key {j['key']}. Expires {datetime.datetime.fromtimestamp(plan['active']['expires_at'],datetime.timezone.utc).isoformat()}.
+Active: {j.get('helper','bridge')} {j['row_id']}, code-only batch. Key {j['key']}. Expires {datetime.datetime.fromtimestamp(plan['active']['expires_at'],datetime.timezone.utc).isoformat()}.
 
 Row checked against current WORKING claims. Previous completed attempts are retained in continuation/checkpoint.json. This batch begins only after its reservation is committed.
 
@@ -21,7 +22,7 @@ Bounds <=180 search seconds / <=600000 records / <=1024 MiB; model-worker dispat
 from acc_synthesis.helpers.audit_artifacts import audit_all
 audit_all(r,sync=True)
 meta=json.loads(Path('/tmp/acc_work_meta.json').read_text());remote={e['path']:e['sha'] for e in meta['files']};known=set(meta['known'])
-progress=json.loads((r/'continuation/progress.json').read_text());progress.update(completed_batches=len(c.cp['attempts']),code_only_batches=sum(x['origin'] in ['deterministic_code','deterministic_helper_code'] for x in c.cp['attempts']),next=c.plan(),harness_status=c.h.status(),helper_probes=[{'helper':x['job'].get('helper'),'row_id':x['job']['row_id'],'baseline':x['job']['baseline'],'target':x['job']['target'],'kind':x['kind'],'result_path':x['result_path'],'limits':x.get('limits')} for x in c.cp['attempts'] if x['job'].get('helper')],new_improved_routes=sum(bool(x.get('gate',{}).get('exact_verified')) for x in c.cp['attempts'] if x.get('gate')))
+progress=json.loads((r/'continuation/progress.json').read_text());progress.update(completed_batches=len(c.cp['attempts']),code_only_batches=sum(x.get('origin') in ['deterministic_code','deterministic_helper_code'] for x in c.cp['attempts']),next=c.plan(),harness_status=c.h.status(),helper_probes=[{'helper':x['job'].get('helper'),'row_id':x['job']['row_id'],'baseline':x['job']['baseline'],'target':x['job']['target'],'kind':x['kind'],'result_path':x['result_path'],'limits':x.get('limits')} for x in c.cp['attempts'] if x['job'].get('helper')],new_improved_routes=sum(bool(x.get('gate',{}).get('exact_verified')) for x in c.cp['attempts'] if x.get('gate')))
 (r/'continuation/progress.json').write_text(json.dumps(progress,indent=2)+'\n')
 v=json.loads((r/'VALIDATION.json').read_text());v['bounded_real_searches']=len(c.cp['attempts']);(r/'VALIDATION.json').write_text(json.dumps(v,indent=2)+'\n')
 if c.cp['active'] is None:

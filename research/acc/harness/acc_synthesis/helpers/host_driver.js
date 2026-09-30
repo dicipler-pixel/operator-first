@@ -1,4 +1,4 @@
-async function runWork(count,resumeReserved=false,focusRow=null){
+async function runWork(count,resumeReserved=false,focusRow=null,mode="helper"){
  const repo="dicipler-pixel/operator-first",branch="claude/gallant-bardeen-0pgpae",prefix="research/acc/harness/acc_synthesis/";
  const parent=load("work_parent");if(!parent)throw Error("Initialize work_parent and reviewed work_head/claims first");
  const quote=s=>"'"+String(s).replaceAll("'","'\\''")+"'";
@@ -55,7 +55,7 @@ async function runWork(count,resumeReserved=false,focusRow=null){
    const base=(await api("/git/commits/"+head)).tree.sha;
    const t=await tools.mcp__codex_apps__github_create_tree({repository_full_name:repo,base_tree_sha:base,tree_elements:entries});
    if(!t.structuredContent?.sha)throw Error("Git tree failed");
-   const c=await tools.mcp__codex_apps__github_create_commit({repository_full_name:repo,parent_sha:head,tree_sha:t.structuredContent.sha,message:"ACC harness: "+label+" "+job.helper+" "+job.row_id});
+   const c=await tools.mcp__codex_apps__github_create_commit({repository_full_name:repo,parent_sha:head,tree_sha:t.structuredContent.sha,message:"ACC harness: "+label+" "+(job.helper||"bridge")+" "+job.row_id});
    const sha=c.structuredContent?.sha;if(!sha)throw Error("Git commit failed");
    const u=await tools.mcp__codex_apps__github_update_ref({repository_full_name:repo,branch_name:branch,sha,force:false});
    if(!u.structuredContent?.success){if(attempt<3&&/Reference cannot be updated|fast.forward/i.test(String(u.structuredContent?.error)))continue;throw Error("Fast-forward update failed: "+JSON.stringify(u.structuredContent));}
@@ -78,16 +78,16 @@ async function runWork(count,resumeReserved=false,focusRow=null){
    const p=JSON.parse(await shell("PYTHONPATH=. python /tmp/acc_work_stage.py pack"));
    if(!p.active||p.active.phase!=="reserved")throw Error("No unlaunched reservation");job=p.active.job;
   }else{
-   const p=JSON.parse(await shell("PYTHONPATH=. python /tmp/acc_work_stage.py reserve --head "+load("work_head")+" --exclude "+quote(JSON.stringify(load("work_excluded")))));
+   const p=JSON.parse(await shell("PYTHONPATH=. python /tmp/acc_work_stage.py reserve --mode "+quote(mode)+" --head "+load("work_head")+" --exclude "+quote(JSON.stringify(load("work_excluded")))));
    if(p.status!=="reserved"){text(p);return {status:p.status,summaries};}job=p.active.job;
   }
   const reservation=await persist("reserve code-only",job);
-  text({started:job.helper,row:job.row_id,key:job.key,reservation});
+  text({started:(job.helper||"bridge"),row:job.row_id,key:job.key,reservation});
   let run=await tools.exec_command({cmd:"python acc_synthesis/helper_batch.py run --key "+job.key+" --reservation-commit "+reservation+" > /tmp/acc_work_batch_run.json 2>&1",workdir:parent,yield_time_ms:30000,max_output_tokens:1500});
   while(run.session_id)run=await tools.write_stdin({session_id:run.session_id,chars:"",yield_time_ms:1000,max_output_tokens:1500});
   if(run.exit_code!==0){text(await shell("tail -35 /tmp/acc_work_batch_run.json"));throw Error("Search interrupted: preserve checkpoint and inspect");}
   await shell("python acc_synthesis/helpers/audit_artifacts.py --sync");
-  const s=JSON.parse(await shell("python -c "+quote("import json;from pathlib import Path;c=json.loads(Path('acc_synthesis/continuation/checkpoint.json').read_text());a=c['attempts'][-1];print(json.dumps({'helper':a['job']['helper'],'row':a['job']['row_id'],'kind':a['kind'],'summary':a['summary'],'gate':a.get('gate'),'result_path':a['result_path']}))")));
+  const s=JSON.parse(await shell("python -c "+quote("import json;from pathlib import Path;c=json.loads(Path('acc_synthesis/continuation/checkpoint.json').read_text());a=c['attempts'][-1];print(json.dumps({'helper':a['job'].get('helper','bridge'),'row':a['job']['row_id'],'kind':a['kind'],'summary':a['summary'],'gate':a.get('gate'),'result_path':a['result_path']}))")));
   const sha=await persist("checkpoint completed",job);
   const small={helper:s.helper,row:s.row,kind:s.kind,summary:s.summary,commit:sha,result_path:s.result_path};
   summaries.push(small);text(small);
