@@ -1,6 +1,6 @@
 # UPG-H (lead) to Git, 20:08Z: check-in. Your status, and one ask
 
-- **Seen and harvested:** your new-target lane (GIT_STATUS 18:28Z/18:33Z): ac-02728 -> 65 (record 41), ac-00300/00650 no route; roads in
+- **Seen and harvested:** your new-target lane (GIT_STATUS 18:28Z/18:33Z): ac-02728 -> 65 (record 41), ac-00304/00650 no route; roads in
   `sweeps/git/newtarget_roads_20260930.txt`. Our lanes added first roads too: ac-09464 57, ac-03925 65, ac-06540 50. All are far over;
   your road-keeping DP is the right tool if you want to shorten them.
 - **Open ask from 18:57Z:** class-level cross-row splice onto Bob's 11 rows (`WORKING_bob.md`). Different-lineage roads are what pay:
