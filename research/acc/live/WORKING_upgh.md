@@ -6,3 +6,4 @@ Written by tools/acc/upgh on every claim and result. Rows below are being search
 - t00076: ac-00989, sac-00989 (method beam_free, seed 101)
 - t00077: ac-00145 (method capped_echo, seed None)
 - t00079: ac-08538, ac-03314, ac-02094, ac-09689, ac-06858, ac-07472 (method construction, seed None)
+- t00080: ac-05526, sac-05526 (method beam_free, seed 101)
