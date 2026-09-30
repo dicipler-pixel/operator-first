@@ -119,3 +119,11 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
 - Retarget done: lanes now on the low-k list (lowkdp road DP over all our paths; lowkA seed 21; lowkB chain seed 22) + shape.
   First results: 00145 no gain (5 roads, 900 s); mid-route restarts: 08031 no gain (all cuts end at 36), 10098 running.
 - Supermove unsolved sweep stopped at 0/64 (+0/4 wide).
+
+## 00:55Z rally (session 2; delivered 01:1xZ after two container restarts ~00:40Z and ~00:50Z)
+- Schedule: pulls :10/:40 (1 API call), team send :25 (lean, ~8 calls). Sent today: 2831 (44/44), 2834 (3/3). API calls left ~330.
+- Lanes (restart_lanes.sh, run first by every scheduled job): capped exact sweep (infeasible so far: 0.66–1B states at start caps),
+  yxdp (Stable via (y,x) on 15 k≤3 rows), midkdp (k4–6 loose DP, 55 rows), beatdp (−1 on 60 held k2–8 rows), shape, auto_splice,
+  mid_restart 10098→03714. Stopped: lowkA/lowkB (fresh-seed beams, no gain), lowkdp (session 1's loose DP covers the low-k list).
+- Ready file OWNER_SUBMIT_20260930_0026Z.txt: 6 lines (Bob v4: 01708, 03945, 04139), re-verified after session 1's SENT_ROWS fix.
+- Kernel 00:45Z: rows 101–213 climb ladder 0/113 (saturated in letter basis); next: Miller–Schupp basis.
