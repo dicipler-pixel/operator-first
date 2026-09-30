@@ -15,6 +15,9 @@ from pathlib import Path
 
 SAIR, JOBS, TARGETS, OUT, PER_ROW = sys.argv[1:6]
 TOOL = Path(__file__).resolve().parents[2] / "yx_shortcut.py"
+if not TOOL.is_file():
+    sys.exit("tool not found: %s" % TOOL)
+errors = 0
 jobs = json.loads(Path(JOBS).read_text())
 for t in json.loads(Path(TARGETS).read_text()):
     ac = t["id"]
@@ -26,6 +29,9 @@ for t in json.loads(Path(TARGETS).read_text()):
                            text=True, timeout=float(PER_ROW), env={**os.environ, "SAIR": SAIR})
         out = [json.loads(l) for l in p.stdout.splitlines() if l.startswith("{")]
         ended = "finished"
+        if p.returncode != 0 or not out:
+            ended = "tool_error (exit %s): %s" % (p.returncode, (p.stderr or "")[-300:])
+            errors += 1
     except subprocess.TimeoutExpired:
         out, ended = [], "row_time_limit"
     rec = {"row": "s" + ac, "target": t["record"], "ended": ended}
@@ -35,3 +41,4 @@ for t in json.loads(Path(TARGETS).read_text()):
     with open(OUT, "a") as fh:
         fh.write(json.dumps(rec) + "\n")
     print(json.dumps({k: v for k, v in rec.items() if k != "sac"}), flush=True)
+sys.exit(3 if errors else 0)

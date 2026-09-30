@@ -135,6 +135,14 @@ class State:
         elif kind == "switch":
             self.switches[d["row"]] += 1
             self.row_strategy[d["row"]] = d["after"]
+        elif kind == "task.voided":
+            t = self.tasks[d["task"]]
+            t["status"] = "voided"
+            for row, fam in d.get("heat", []):
+                self.heat[(row, fam)] -= 1
+                if self.heat[(row, fam)] <= 0:
+                    del self.heat[(row, fam)]
+            self.parked.pop(d["task"], None)
         elif kind == "memory.imported":
             # negative memory from outside the ledger (team files): these families are already spent here
             for row in d["rows"]:

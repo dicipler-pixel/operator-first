@@ -373,6 +373,33 @@ class HarnessTests(unittest.TestCase):
         second = json.loads((e.repo / c2["contract"]).read_text())["strategy"]["method"]
         self.assertEqual((first, second), ("window", "tail"))   # the next rung, not a repeat
 
+    def test_a_tool_that_fails_is_blocked_not_a_miss_and_void_withdraws_false_misses(self):
+        e = Env(methods={"broken": {"runner": "code", "wall_seconds": 30, "needs": [],
+                                    "command": ["{python}", "-c", "import sys; sys.exit('no such tool')"]}})
+        cfg = json.loads(e.cfg_path.read_text())
+        cfg["default_strategy"]["method"] = "broken"
+        cfg["ladder"] = [cfg["default_strategy"]]
+        e.cfg_path.write_text(json.dumps(cfg))
+        e.h = Harness(config_path=e.cfg_path, state_dir=e.repo / "state", repo=e.repo)
+        e.h.now = lambda: e.t[0]
+        e.file("inbox/a.txt", "ac-01373: %s\n" % AC1373)
+        e.h.harvest()
+        e.boards(ac={"ac-01373": (29, 2)}, sac={}, held={})
+        out = e.h.run(max_tasks=1)[0]
+        self.assertEqual(out["outcome"], "blocked")
+        st = e.h.state()
+        self.assertEqual((len(st.parked), sum(st.heat.values())), (0, 0))
+        # a false miss recorded earlier can be withdrawn; the original lines stay
+        c = e.h.open({"role": "builder", "rows": ["ac-01373"],
+                      "strategy": dict(CFG["default_strategy"], method="beam_p2")})
+        claim = e.h.next(role="builder")
+        art = e.result("state/artifacts/%s/out.jsonl" % c, {"id": "ac-01373", "ac": AC1373})
+        e.h.accept(c, claim["token"], {"kind": "ran", "summary": "x", "prediction": "p", "artifacts": [art]})
+        self.assertEqual(len(e.h.state().parked), 1)
+        e.h.void([c], "the tool never ran")
+        st = e.h.state()
+        self.assertEqual((st.tasks[c]["status"], len(st.parked), sum(st.heat.values())), ("voided", 0, 0))
+
     def test_artifacts_are_fenced_to_the_workspace(self):
         e = Env()
         e.file("inbox/a.txt", "ac-01373: %s\n" % AC1373)

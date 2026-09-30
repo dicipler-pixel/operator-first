@@ -132,6 +132,9 @@ def main(argv=None):
     p = sub.add_parser("split")
     for name in ("row", "knob", "left", "right"):
         p.add_argument(name)
+    p = sub.add_parser("void")
+    p.add_argument("--reason", required=True)
+    p.add_argument("tasks", nargs="+")
     p = sub.add_parser("negative")
     p.add_argument("--source", required=True, help="repo file that records the failed work")
     p.add_argument("--reason", required=True)
@@ -194,6 +197,8 @@ def main(argv=None):
             out = h.wake(_load(args.event))
         elif args.cmd == "split":
             out = h.split({"row": args.row, "knob": args.knob, "left": args.left, "right": args.right})
+        elif args.cmd == "void":
+            out = {"voided": h.void(args.tasks, args.reason)}
         elif args.cmd == "negative":
             out = h.negative(args.rows, args.source, args.reason, methods=args.methods)
         elif args.cmd == "recall":

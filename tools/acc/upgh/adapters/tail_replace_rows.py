@@ -11,12 +11,18 @@ import sys
 from pathlib import Path
 
 SAIR, BIN, T9, WORK, JOBS, OUT, SLACK, BUDGET, PER_ROW = sys.argv[1:10]
-TOOL = Path(__file__).resolve().parents[3] / "research/acc/optimality/tail_replace.py"
+TOOL = Path(__file__).resolve().parents[4] / "research/acc/optimality/tail_replace.py"
+if not TOOL.is_file():
+    sys.exit("tool not found: %s" % TOOL)
+errors = 0
 for row, path in json.loads(Path(JOBS).read_text()).items():
     try:
         p = subprocess.run([sys.executable, str(TOOL), SAIR, BIN, T9, WORK, row, json.dumps(path), SLACK, BUDGET],
                            capture_output=True, text=True, timeout=float(PER_ROW))
         text, ended = p.stdout, "finished"
+        if p.returncode != 0 or "FINAL" not in text:
+            ended = "tool_error (exit %s): %s" % (p.returncode, (p.stderr or "")[-300:])
+            errors += 1
     except subprocess.TimeoutExpired as exc:
         text, ended = (exc.stdout or b"").decode() if isinstance(exc.stdout, bytes) else (exc.stdout or ""), "row_time_limit"
     best = path
@@ -28,3 +34,4 @@ for row, path in json.loads(Path(JOBS).read_text()).items():
     with open(OUT, "a") as fh:
         fh.write(json.dumps(rec) + "\n")
     print(json.dumps({k: v for k, v in rec.items() if k != "final_path"}), flush=True)
+sys.exit(3 if errors else 0)

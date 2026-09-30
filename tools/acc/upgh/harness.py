@@ -133,11 +133,16 @@ class Harness:
         if compile_tools:
             bindir.mkdir(parents=True, exist_ok=True)
             for tool in ("acc_beam", "acc_window", "acc_capped"):
-                if not (bindir / tool).exists():
+                src = self.repo / "research/acc/optimality" / (tool + ".c")
+                stamp = bindir / (tool + ".src.sha256")
+                have = stamp.read_text().strip() if stamp.exists() else None
+                if not (bindir / tool).exists() or have != sha256_file(src):
+                    tmp = bindir / (tool + ".new")
                     subprocess.run(["gcc", "-O3", "-march=native", "-Wno-misleading-indentation", "-o",
-                                    str(bindir / tool), str(self.repo / "research/acc/optimality" / (tool + ".c")),
-                                    "-lm"], check=True)
-                    log.append("compiled " + tool)
+                                    str(tmp), str(src), "-lm"], check=True)
+                    os.replace(tmp, bindir / tool)   # a running lane keeps the old inode
+                    stamp.write_text(sha256_file(src) + "\n")
+                    log.append("compiled %s from source %s" % (tool, sha256_file(src)[:12]))
         t9 = self.cache / "T9.tab"
         if build_t9 and not t9.exists():
             subprocess.run(["bash", str(self.repo / "tools/acc/build_T9.sh"), str(self.cache)],
@@ -1091,6 +1096,21 @@ class Harness:
             self.ledger.append("memory.imported", data, "C")
             return {k: v for k, v in data.items() if k != "families"}
 
+    def void(self, tasks, reason):
+        """Withdraw closed builder results that were not real searches (for example a tool that never ran).
+        Appends a correction; the original lines stay in the ledger. Heat and parked misses are removed."""
+        with self.control():
+            st = self.state()
+            events = []
+            for tid in tasks:
+                t = st.tasks.get(tid)
+                if t is None or t["status"] != "closed" or t["contract"]["role"] != "builder":
+                    raise ValueError("%s is not a closed builder task" % tid)
+                events.append(("task.voided", {"task": tid, "reason": reason,
+                                               "heat": t["closed"].get("heat", [])}, "V"))
+            self.ledger.append_many(events)
+            return [e[1]["task"] for e in events]
+
     # -- stop -----------------------------------------------------------------------------------------
     def stop(self, reason):
         with self.control():
@@ -1188,15 +1208,25 @@ class Harness:
                 data = p.read_bytes()[-262144:]
                 p.write_bytes(b"[truncated to last 256 KiB]\n" + data)
         wall_s = round(time.monotonic() - t0, 1)
+        provenance = {}
+        for n in method.get("needs", []):
+            if n.startswith("bin/"):
+                stamp = self.cache / (n + ".src.sha256")
+                provenance[n] = {"binary_sha256": sha256_file(self.cache / n),
+                                 "source_sha256": stamp.read_text().strip() if stamp.exists() else None}
         arts = [{"path": self._rel(p), "sha256": sha256_file(p)}
                 for p in (art / "out.jsonl", art / "targets.json", art / "stdout.log", art / "stderr.log")
                 if p.exists()]
+        if reason == "finished" and proc.returncode != 0:
+            return self.accept(tid, token, {"task": tid, "kind": "blocked", "artifacts": arts,
+                                            "summary": "%s exited %s after %ss: a tool error is not a miss; see "
+                                                       "stderr.log" % (c["strategy"]["method"], proc.returncode, wall_s)})
         result = {"task": tid, "kind": "ran",
                   "summary": "%s on %s: exit %s after %ss (%s)" % (c["strategy"]["method"], ",".join(c["rows"]),
                                                                   proc.returncode, wall_s, reason),
                   "prediction": c["prediction"], "artifacts": arts,
                   "coverage": {"rows": [t["id"] for t in targets], "wall_s": wall_s, "exit": proc.returncode,
-                               "ended_by": reason, "knobs": knobs,
+                               "ended_by": reason, "knobs": knobs, "binaries": provenance,
                                "note": "a wall limit or stop is a scoped miss, never an impossibility claim"}}
         return self.accept(tid, token, result)
 
@@ -1263,9 +1293,15 @@ class Harness:
         problems = self.checker.pin_problems()
         add("error" if problems else "ok", "licence",
             "; ".join(problems) if problems else "official verifier pinned at %s" % self.cfg["sair"]["commit"][:7])
-        for name in ("bin/acc_beam", "bin/acc_window", "T9.tab"):
+        for name in ("bin/acc_beam", "bin/acc_window", "bin/acc_capped", "T9.tab"):
             if not (self.cache / name).exists():
                 add("warn", "tools", "%s missing in %s (code runner blocked): `upgh setup --t9`" % (name, self.cache))
+            elif name.startswith("bin/"):
+                stamp = self.cache / (name + ".src.sha256")
+                src = self.repo / "research/acc/optimality" / (name[4:] + ".c")
+                if src.is_file() and (not stamp.exists() or stamp.read_text().strip() != sha256_file(src)):
+                    add("error", "tools", "%s was not built from the current %s; results would carry the wrong "
+                        "method label: run `upgh setup`" % (name, self._rel(src)))
         if st.stopped != self._stop_file().exists():
             add("warn", "stop", "STOP file and ledger disagree; the ledger wins (stopped=%s)" % st.stopped)
         if st.stopped:
