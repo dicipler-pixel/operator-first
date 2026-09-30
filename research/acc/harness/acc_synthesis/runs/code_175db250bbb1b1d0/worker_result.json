@@ -1,0 +1,70 @@
+{
+  "kind": "bounded_miss",
+  "summary": "No saved-baseline improvement found; best 52, target 47; bounded run ended node_cap. No impossibility or live score claim.",
+  "limits": {
+    "wall_seconds": 180.0,
+    "node_cap": 600000,
+    "memory_mib": 1024,
+    "total_bridge_depth": 8
+  },
+  "actual_coverage": {
+    "admitted_records": 600000,
+    "generated_moves": 892490,
+    "expanded_by_side_depth": [
+      [
+        131,
+        1651,
+        16237,
+        27272,
+        0
+      ],
+      [
+        134,
+        1686,
+        16639,
+        0,
+        0
+      ]
+    ],
+    "collision_pairs": 237657,
+    "unique_states_by_side": [
+      377035,
+      156681
+    ],
+    "partial_layer": {
+      "side": 0,
+      "depth": 3
+    }
+  },
+  "termination_reason": "node_cap",
+  "reopen_when": {
+    "event": "new_exact_seed",
+    "row_id": "ac-00012"
+  },
+  "evidence": [
+    {
+      "path": "runs/code_175db250bbb1b1d0/saved_union.json",
+      "sha256": "526fd4ebb4178785d59030a34536d4b0c4449998dde6d2437a839dc47a3f5e00"
+    },
+    {
+      "path": "runs/code_175db250bbb1b1d0/coverage.json",
+      "sha256": "2c389c0070532e8b162a2ad23685c7889985621f5d770761d4bab1de3ae049f9"
+    },
+    {
+      "path": "runs/code_175db250bbb1b1d0/executed_bridge_search.py",
+      "sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8"
+    },
+    {
+      "path": "runs/code_175db250bbb1b1d0/executed_test_bridge_search.py",
+      "sha256": "4edc5ba573f4a440ef7f8310dbfc1633b8ebf5c9153003b56f8c06f07e8c6f0c"
+    },
+    {
+      "path": "runs/code_175db250bbb1b1d0/baseline.json",
+      "sha256": "199f1e56c292f34e131322bcaf87786d7066352a01cfc09de1997da71ac18274"
+    },
+    {
+      "path": "runs/code_175db250bbb1b1d0/baseline_receipt.json",
+      "sha256": "e76e4c95edba5ad509a32734c55990e9088dd908f6b62790919a97dcea701c50"
+    }
+  ]
+}
