@@ -1,7 +1,7 @@
 """Long-window tail replacement: for each state s_i on a path, exact capped search from s_i to (x,y)
 (capped BFS prefix + exact uncapped T_9 finish). If found length d < n-i, splice. Repeats until no gain.
 usage: tail_replace.py SAIR BIN TFILE WORK row pathjson CAPSLACK BUDGET"""
-import json, subprocess, sys, re
+import json, os, subprocess, sys, re
 SAIR, BIN, TF, WORK, row, pj, slack, bud = sys.argv[1:9]
 sys.path.insert(0, SAIR + '/competition/tools'); from verifier import core
 man = json.load(open(SAIR + '/competition/tools/verifier/data/manifest.json')); CH = {c['challenge_id']: c for c in man['challenges']}
@@ -14,7 +14,10 @@ def states(p):
 improved = True
 while improved:
     improved = False; S = states(path); n = len(path)
-    for i in range(0, n - 10):
+    order = range(0, n - 10)
+    if os.environ.get("TAIL_ORDER") == "rev":   # opt-in: short, cheap tails first (default order unchanged)
+        order = reversed(order)
+    for i in order:
         st = S[i]; peak = max(len(a) + len(b) for a, b in S[i:]); cap = peak + int(slack)
         need = n - i - 1  # must find a path from s_i of length <= need
         args = [BIN + '/acc_capped', TF, str(cap), bud, WORK, 'tail', str(len(st[0])), *[str(E[t]) for t in st[0]], str(len(st[1])), *[str(E[t]) for t in st[1]]]

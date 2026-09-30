@@ -132,7 +132,10 @@
         "T9.tab"
       ],
       "needs_best": true,
-      "wall_seconds": 1500
+      "wall_seconds": 1500,
+      "env": {
+        "TAIL_ORDER": "{knob:ORDER}"
+      }
     },
     "beam_p2": {
       "runner": "code",
@@ -256,7 +259,8 @@
       "knobs": {
         "SLACK": 2,
         "BUDGET": 20000000,
-        "ROW_S": 600
+        "ROW_S": 600,
+        "ORDER": "rev"
       }
     },
     {
