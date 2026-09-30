@@ -40,6 +40,8 @@ class HelperContinuation(Continuation):
         # Charlie explores only the official start/goal, cap and target. Saved
         # routes are a baseline gate; an unchanged target gives the same search.
         if job.get('helper')=='charlie':ignored.update({'seed_sha256','baseline'})
+        if job.get('helper')=='named' and job.get('query_uses_own_road') is False:
+            ignored.update({'seed_sha256','baseline','target'})
         contract={k:v for k,v in job.items() if k not in ignored}
         if job.get('helper')=='named' and 'query_identity' in job:
             contract['inputs']={k:v for k,v in contract['inputs'].items() if k!='helpers/named_queries.json'}
@@ -61,7 +63,7 @@ class HelperContinuation(Continuation):
         for attempt in self.cp['attempts']:
             old=attempt.get('job',{})
             if old.get('helper')!='named':continue
-            if 'query_identity' in old:
+            if 'query_identity' in old and 'query_uses_own_road' in old:
                 seen.add(self.search_identity(old));continue
             if not attempt.get('result_path'):
                 raise ValueError('Historical named query lacks portable result; reconcile explicitly.')
@@ -69,7 +71,8 @@ class HelperContinuation(Continuation):
             if hashlib.sha256(archive.read_bytes()).hexdigest()!=old['inputs']['helpers/named_queries.json']:
                 raise ValueError('Historical named query snapshot changed; do not reopen its miss.')
             saved=read_json(archive)['rows'][old['row_id']]
-            alias={**old,'query_identity':self.named_query_identity(saved)}
+            alias={**old,'query_identity':self.named_query_identity(saved),
+                   'query_uses_own_road':saved.get('type')=='road_exit' and saved.get('moves') is None}
             seen.add(self.search_identity(alias))
         jobs=[]
         for lane in self.lanes():
@@ -89,6 +92,7 @@ class HelperContinuation(Continuation):
                 if lane['name']=='named':
                     query=read_json(self.root/'helpers/named_queries.json')['rows'][cid]
                     job['query_identity']=self.named_query_identity(query)
+                    job['query_uses_own_road']=query.get('type')=='road_exit' and query.get('moves') is None
                 job['key']=self.search_identity(job)
                 if job['key'] not in seen:
                     jobs.append(job)

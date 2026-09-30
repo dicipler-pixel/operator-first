@@ -1,0 +1,8 @@
+{
+  "cause": "Importing a better ac-00003 own route reopened a named membership query on an unchanged pinned graph.",
+  "duplicate_attempt": "a3d5edbec38b970488c70540dfab395aa830c9e8e13e492fed4af0318d3a0475",
+  "decision": "Preserve the completed result as historical overhead, not new mathematical coverage. Fixed-query semantic identity now ignores own-route seed, baseline and target; own-road-derived queries remain seed-sensitive. Historical aliases require hash-matched executed query snapshots.",
+  "tests": "3 named memory regression tests passed",
+  "negative_records_reset": false,
+  "budgets_changed": false
+}
