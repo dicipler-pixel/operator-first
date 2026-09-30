@@ -27,7 +27,7 @@ Current totals and exact coverage are in `continuation/progress.json` and `conti
 
 ## Actual validation
 
-**90 local tests pass; the official checker passes all 63 upstream conformance cases. All 25 recovered routes across 10 selected rows replay correctly.**
+**92 local tests pass; the official checker passes all 63 upstream conformance cases. All 25 recovered routes across 10 selected rows replay correctly.**
 
 | Row | Best recovered length | Pasted record |
 | --- | ---: | ---: |
@@ -69,3 +69,5 @@ The SQLite ledger is authoritative for live-host task leases. The committed cont
 `DESIGN.md` and `source_map.json` preserve the paper synthesis and its mathematical limits. The demo is explicitly a toy, separate from the real replay above. Third-party checker attribution and its Apache license are under `vendor/`.
 
 Persistence checks every completed evidence hash before publication to the private branch. September 30 recovery restored two truncated graph artifacts to their original hashes and reconciled one already-completed local lease from its committed result. No search was repeated; the underlying storage cause was not established. See `continuation/completion_reconciliation_20260930T1721Z/`.
+
+Kernel graph archives are now written to a partial file, fully closed and synced, then renamed atomically. A further truncated local gzip was reconstructed to its original hash without repeating its search. This hardening changes artifact publication only; all old probe keys remain closed.

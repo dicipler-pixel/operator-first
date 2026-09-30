@@ -1,5 +1,7 @@
 test_stale_completed_task_lease_blocks_persistence (test_artifact_audit.ArtifactAuditTests.test_stale_completed_task_lease_blocks_persistence) ... ok
 test_truncated_artifact_blocks_persistence_without_rewriting_history (test_artifact_audit.ArtifactAuditTests.test_truncated_artifact_blocks_persistence_without_rewriting_history) ... ok
+test_failed_stream_keeps_previous_final_file (test_atomic_graph.AtomicGraphTests.test_failed_stream_keeps_previous_final_file) ... ok
+test_success_publishes_complete_gzip (test_atomic_graph.AtomicGraphTests.test_success_publishes_complete_gzip) ... ok
 test_limits_and_reuse_protection (test_bob_lane.BobLaneTest.test_limits_and_reuse_protection) ... ok
 test_nielsen_inverse_and_unit_conjugators (test_bob_lane.BobLaneTest.test_nielsen_inverse_and_unit_conjugators) ... ok
 test_paid_transfer_and_absent_seed (test_bob_lane.BobLaneTest.test_paid_transfer_and_absent_seed) ... ok
@@ -100,7 +102,7 @@ test_stop_persists_and_prevents_dispatch (test_workflow.WorkflowTests.test_stop_
 test_zero_budget_blocks_run_and_file_handoff (test_workflow.WorkflowTests.test_zero_budget_blocks_run_and_file_handoff) ... ok
 
 ----------------------------------------------------------------------
-Ran 90 tests in 2.227s
+Ran 92 tests in 2.392s
 
 OK
 {"kind": "bounded_miss", "row_id": "ac-00001", "result_path": "run/worker_result.json", "coverage_path": "run/coverage.json", "termination_reason": "node_cap", "admitted_records": 3, "winner_length": null}

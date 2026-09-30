@@ -1,9 +1,9 @@
 {
   "date": "2026-09-30",
   "suite": {
-    "tests": 90,
+    "tests": 92,
     "passed": true,
-    "seconds": 2.227
+    "seconds": 2.392
   },
   "demo": {
     "test": "complete-controller-toy-demonstration",
@@ -49,7 +49,7 @@
   "real_ACC_search_run": true,
   "submission_performed": false,
   "historical_ACC_fixtures_replayed": true,
-  "scope": "90 local tests pass. Pinned official checker previously passed all 63 conformance cases; pins unchanged. Independently verified improvements: ac-00028 58 -> 54 -> 52 and ac-00003 92 -> 84. Both above pasted targets; no scoring claim or submission. Exact attempt coverage is in continuation/progress.json and checkpoint.json.",
+  "scope": "92 local tests pass. Pinned official checker previously passed all 63 conformance cases; pins unchanged. Independently verified improvements: ac-00028 58 -> 54 -> 52 and ac-00003 92 -> 84. Both above pasted targets; no scoring claim or submission. Exact attempt coverage is in continuation/progress.json and checkpoint.json.",
   "version": "1.5.0",
   "cost_scope": "Persistent worker dispatch caps; code-first verification; no provider currency/token enforcement.",
   "intake": {
@@ -110,5 +110,12 @@
     "complete_evidence_checks": 249,
     "mismatches_after_recovery": 0,
     "underlying_storage_cause": "not established"
+  },
+  "atomic_archive_repair": {
+    "source": "continuation/artifact_atomic_repair_20260930T1734Z/previous_kernel_lane_v1.py",
+    "behavior": "write gzip to a partial file, close and fsync, then atomic rename and directory fsync",
+    "algorithm_changed": false,
+    "old_attempts_reopened": false,
+    "underlying_filesystem_cause": "not established"
   }
 }

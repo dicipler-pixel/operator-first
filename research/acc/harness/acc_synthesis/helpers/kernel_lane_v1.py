@@ -11,6 +11,8 @@ import gzip
 import hashlib
 import heapq
 import json
+import io
+import os
 import math
 from pathlib import Path
 import resource
@@ -26,6 +28,19 @@ RULE = 'e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643'
 
 def dump(path, value):
     Path(path).write_text(json.dumps(value, indent=2, allow_nan=False)+'\n')
+
+def write_graph_archive(path, value):
+    """Publish a complete gzip in one rename; never expose a partial final file."""
+    path=Path(path);partial=path.with_name(path.name+'.partial')
+    with partial.open('wb') as raw:
+        with gzip.GzipFile(filename=path.name,mode='wb',fileobj=raw) as zipped:
+            with io.TextIOWrapper(zipped) as stream:
+                json.dump(value,stream,separators=(',',':'))
+        raw.flush();os.fsync(raw.fileno())
+    os.replace(partial,path)
+    fd=os.open(path.parent,os.O_RDONLY)
+    try:os.fsync(fd)
+    finally:os.close(fd)
 
 def state_of(words):
     return tuple(tuple(w) for w in words)
@@ -234,8 +249,7 @@ def main(argv=None):
     chosen=[pool['routes'][i] for i in accepted]
     dump(out/'captured_input.json',{'sourcepool_fingerprint':coverage['sourcepool_fingerprint'],'manifest_sha256':pool['manifest_sha256'],'limits':pool['limits'],'challenges':{r['row_id']:pool['challenges'][r['row_id']] for r in chosen},'routes':chosen,'source_record_indices':accepted,'negative_coverage':negative})
     states=sorted(graph);ids={s:i for i,s in enumerate(states)}
-    with gzip.open(out/'exact_graph.json.gz','wt') as f:
-        json.dump({'states':[[list(w) for w in s] for s in states],'edges':[[ids[s],m,ids[t]] for s in states for t,m in sorted(graph[s],key=lambda e:(e[1],e[0]))],'cost':'unit official primitive','direction':'explicit forward and inverse'},f,separators=(',',':'))
+    write_graph_archive(out/'exact_graph.json.gz',{'states':[[list(w) for w in s] for s in states],'edges':[[ids[s],m,ids[t]] for s in states for t,m in sorted(graph[s],key=lambda e:(e[1],e[0]))],'cost':'unit official primitive','direction':'explicit forward and inverse'})
     dump(out/'coverage.json',coverage)
     evidence=[out/'captured_input.json',out/'exact_graph.json.gz',out/'coverage.json',out/'executed_kernel_lane_v1.py',out/'executed_test_kernel_lane.py',out/'executed_kernel_protocol.json',out/'executed_source_catalog.json']
     if best is not None and (best_saved is None or len(best)<best_saved):
