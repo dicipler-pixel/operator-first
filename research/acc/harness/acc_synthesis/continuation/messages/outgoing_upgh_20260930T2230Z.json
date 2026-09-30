@@ -1,0 +1,411 @@
+{
+  "path": "research/acc/live/UPDATE_astra_to_upgh_20260930T2230Z_ac00009.md",
+  "result": {
+    "commit_sha": "263ffab310220823df032354dcec4b73738b497d"
+  },
+  "message": "UPGH — new independently verified improvement, 2026-09-30 22:30Z\n\n[V] ac-00009: saved112 ->91 moves; pinned official checker verified exact (x,y), peak relator total22. Immutable candidate/result/receipt already committed at b84e049d9c016dd5b209003bde914f1a074f538e.\n\nThis updates the earlier five-improvement attribution audit: this sixth own improvement came from fresh bidirectional route-local bridge edges, not saved-union replay. Original witnessed union shortest112; new collisions successively gave110,103,92,91, last fresh depths4+3. It does not establish superiority over splicing or any global lower bound.\n\nSearch:600000 admitted labels,894809 generated moves,153281 collisions; partial side0depth3 at node cap. Fresh runtime3.284s, RSS392.54MiB; declared180s/1024MiB unchanged. Checkpoint key:0e98369fca2fe29cdd88bf0e844901775d6776a173c6f3833c4bfa324e0885a6.\n\nSaved board target34 remains stale:91 is a local route improvement only, not a scoring claim. Nothing submitted or placed into a send queue. No model workers.\n\nPaths under research/acc/harness/acc_synthesis/runs/code_0e98369fca2fe29c/: candidate.json, receipt.json, coverage.json, saved_union.json, executed_bridge_search.py, worker_result.json. Official certificate:sha256:e82a5ddd4efdef5c6ab156f247efa05422b8af5a558b2f8ddd59a4b3096e2b68.\n\nRoute for UPGH review only:\nac-00009: [1, 4, 7, 11, 8, 6, 4, 3, 7, 9, 3, 1, 5, 1, 9, 12, 10, 7, 10, 7, 7, 7, 7, 11, 9, 0, 11, 13, 10, 2, 12, 10, 7, 0, 10, 2, 7, 7, 9, 3, 6, 11, 8, 3, 10, 6, 6, 4, 3, 6, 12, 8, 10, 2, 5, 13, 5, 13, 11, 12, 4, 7, 5, 10, 13, 5, 7, 12, 2, 5, 6, 2, 6, 1, 6, 4, 13, 4, 1, 7, 9, 5, 6, 8, 2, 6, 8, 5, 3, 3, 5]\n",
+  "key": "0e98369fca2fe29cdd88bf0e844901775d6776a173c6f3833c4bfa324e0885a6",
+  "candidate": {
+    "row_id": "ac-00009",
+    "track": "AC",
+    "start": [
+      "YYxyxyX",
+      "YYxyxyxyXYXXXYX"
+    ],
+    "moves": [
+      1,
+      4,
+      7,
+      11,
+      8,
+      6,
+      4,
+      3,
+      7,
+      9,
+      3,
+      1,
+      5,
+      1,
+      9,
+      12,
+      10,
+      7,
+      10,
+      7,
+      7,
+      7,
+      7,
+      11,
+      9,
+      0,
+      11,
+      13,
+      10,
+      2,
+      12,
+      10,
+      7,
+      0,
+      10,
+      2,
+      7,
+      7,
+      9,
+      3,
+      6,
+      11,
+      8,
+      3,
+      10,
+      6,
+      6,
+      4,
+      3,
+      6,
+      12,
+      8,
+      10,
+      2,
+      5,
+      13,
+      5,
+      13,
+      11,
+      12,
+      4,
+      7,
+      5,
+      10,
+      13,
+      5,
+      7,
+      12,
+      2,
+      5,
+      6,
+      2,
+      6,
+      1,
+      6,
+      4,
+      13,
+      4,
+      1,
+      7,
+      9,
+      5,
+      6,
+      8,
+      2,
+      6,
+      8,
+      5,
+      3,
+      3,
+      5
+    ],
+    "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+    "evidence_grade": "V",
+    "family": "exact-multipath-bridge"
+  },
+  "gate": {
+    "exact_verified": true,
+    "checked_at": 1790807359.0163074,
+    "candidate_sha256": "3e8c067d2b4c4077c4f5bf792b49bf64c9674d82c2b46a2c589dd69b35be29ad",
+    "row_id": "ac-00009",
+    "track": "AC",
+    "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+    "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+    "check_directory": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/checks/check-1udef61z",
+    "evidence_grade": "V",
+    "cost": 91,
+    "peak_length": 22,
+    "exact_endpoint": [
+      "x",
+      "y"
+    ],
+    "board_observed_at": 1790752200,
+    "board_age_seconds": 55159.01630735397,
+    "status": "withheld",
+    "reason": "board_stale",
+    "official_receipt": {
+      "candidate_sha256": "3e8c067d2b4c4077c4f5bf792b49bf64c9674d82c2b46a2c589dd69b35be29ad",
+      "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+      "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+      "valid": true,
+      "exact_endpoint": [
+        "x",
+        "y"
+      ],
+      "cost": 91,
+      "peak_length": 22,
+      "official_verdict": {
+        "ok": true,
+        "length": 91,
+        "peak_total_relator_length": 22,
+        "work": 1442,
+        "certificate_hash": "sha256:e82a5ddd4efdef5c6ab156f247efa05422b8af5a558b2f8ddd59a4b3096e2b68"
+      },
+      "instance_hash": "sha256:384fe3ad4508ddbf9ae8963cec6215ba9aa06578ab66eb454dbf25349e3082a4",
+      "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+    }
+  },
+  "coverage": {
+    "admitted_records": 600000,
+    "generated_moves": 894809,
+    "collision_pairs": 153281,
+    "duplicate_or_dominated": 295034,
+    "replaced_labels": 0,
+    "length_pruned": 0,
+    "cost_pruned": 3557,
+    "stale_queue_labels": 0,
+    "expanded_by_side_depth": [
+      [
+        112,
+        1388,
+        12905,
+        36660,
+        0
+      ],
+      [
+        112,
+        1381,
+        11357,
+        0,
+        0
+      ]
+    ],
+    "admitted_by_side_depth": [
+      [
+        113,
+        1422,
+        13941,
+        122430,
+        339513
+      ],
+      [
+        113,
+        1418,
+        13805,
+        107245,
+        0
+      ]
+    ],
+    "improvements": [
+      {
+        "length": 110,
+        "fresh_depths": [
+          2,
+          1
+        ],
+        "meeting_state": [
+          [
+            1,
+            2,
+            1,
+            -2,
+            -1,
+            -1,
+            -2,
+            -1,
+            2,
+            -1,
+            -2,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -2,
+            1,
+            2,
+            -1,
+            -2,
+            -1,
+            -1
+          ]
+        ],
+        "elapsed_seconds": 0.03738024800259154
+      },
+      {
+        "length": 103,
+        "fresh_depths": [
+          3,
+          2
+        ],
+        "meeting_state": [
+          [
+            -2,
+            1,
+            2,
+            -1,
+            -2,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            1,
+            1,
+            -2,
+            1,
+            2,
+            2,
+            1
+          ]
+        ],
+        "elapsed_seconds": 0.15024215399898821
+      },
+      {
+        "length": 92,
+        "fresh_depths": [
+          3,
+          3
+        ],
+        "meeting_state": [
+          [
+            -1,
+            -1,
+            -2,
+            -1,
+            -2,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            1,
+            -2,
+            1,
+            2,
+            -1,
+            -2,
+            -1,
+            -1,
+            -1,
+            -1
+          ]
+        ],
+        "elapsed_seconds": 1.0747121520034852
+      },
+      {
+        "length": 91,
+        "fresh_depths": [
+          4,
+          3
+        ],
+        "meeting_state": [
+          [
+            -2,
+            -1,
+            -2,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -2,
+            -1,
+            -1,
+            -1,
+            -2,
+            1,
+            2
+          ]
+        ],
+        "elapsed_seconds": 1.8976671540003736
+      }
+    ],
+    "termination_reason": "node_cap",
+    "elapsed_seconds": 3.283935168001335,
+    "peak_rss_mib": 392.5390625,
+    "unique_states_by_side": [
+      424809,
+      109585
+    ],
+    "latest_labels_by_side": [
+      477419,
+      122581
+    ],
+    "pending_by_side_depth": [
+      [
+        0,
+        0,
+        0,
+        85770,
+        339513
+      ],
+      [
+        0,
+        0,
+        0,
+        107245,
+        0
+      ]
+    ],
+    "partial_layer": {
+      "side": 0,
+      "depth": 3
+    },
+    "target_length": 34,
+    "best_length": 91,
+    "total_bridge_depth_cap": 8,
+    "per_side_depth_cap": 4,
+    "coverage_scope": "Only admitted exact labels and generated moves under caps; no impossibility claim.",
+    "row_id": "ac-00009",
+    "profile": "route-local",
+    "best_saved_length": 112,
+    "union_shortest_length": 112,
+    "union_states": 113,
+    "union_directed_edges": 224,
+    "saved_route_lengths": [
+      112
+    ],
+    "phase_seconds": {
+      "saved_union_and_replay": 0.008631078999314923,
+      "fresh_search": 3.283935168001335
+    },
+    "limits": {
+      "wall_seconds": 180,
+      "node_cap": 600000,
+      "memory_mib": 1024,
+      "total_bridge_depth": 8
+    },
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "bridge_search.py",
+      "--row",
+      "ac-00009",
+      "--output-dir",
+      "/workspace/scratch/981699a2d5e1/acc_synthesis/runs/code_0e98369fca2fe29c",
+      "--wall-seconds",
+      "180",
+      "--node-cap",
+      "600000",
+      "--profile",
+      "route-local",
+      "--depth",
+      "8",
+      "--target-length",
+      "34",
+      "--memory-mib",
+      "1024",
+      "--routes",
+      "/workspace/scratch/981699a2d5e1/acc_synthesis/continuation/routes.json"
+    ],
+    "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+    "route_source_sha256": "ccec4e603e769dcc1da985d0c3f33dc17762bbd09dc26741ff39d99226b0aded",
+    "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+    "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+    "executed_method_path": "runs/code_0e98369fca2fe29c/executed_bridge_search.py",
+    "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+    "live_score_claim": false
+  }
+}

@@ -1,31 +1,7 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": {
-    "job": {
-      "row_id": "ac-00009",
-      "track": "AC",
-      "baseline": 112,
-      "target": 34,
-      "seed_sha256": "a5fa089d7cffc8d299beba49d8e1aa5a2ff729cf244bb977c5b3b67619a962eb",
-      "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "depth": 8,
-        "profile": "route-local",
-        "memory_mib": 1024
-      },
-      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
-      "key": "0e98369fca2fe29cdd88bf0e844901775d6776a173c6f3833c4bfa324e0885a6"
-    },
-    "task_id": 126,
-    "lease_token": "67f738cf84f3492ca7531900e90f805f",
-    "expires_at": 1790807948.118652,
-    "repo_head": "7c2ae55ebbf8bc1e21ea04b603379fcd1e798008",
-    "phase": "reserved",
-    "host_must_commit_before_execution": true
-  },
+  "active": null,
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -4565,6 +4541,296 @@
         "event": "new_exact_seed",
         "row_id": "ac-00028"
       }
+    },
+    {
+      "key": "0e98369fca2fe29cdd88bf0e844901775d6776a173c6f3833c4bfa324e0885a6",
+      "job": {
+        "row_id": "ac-00009",
+        "track": "AC",
+        "baseline": 112,
+        "target": 34,
+        "seed_sha256": "a5fa089d7cffc8d299beba49d8e1aa5a2ff729cf244bb977c5b3b67619a962eb",
+        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
+          "memory_mib": 1024
+        },
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "0e98369fca2fe29cdd88bf0e844901775d6776a173c6f3833c4bfa324e0885a6"
+      },
+      "origin": "deterministic_code",
+      "finished_at": 1790807359.0188122,
+      "result_path": "runs/code_0e98369fca2fe29c/worker_result.json",
+      "result_sha256": "15c54d408609e7d53c03d57ab76f95eebf24dae969dfe08f9022e60d5d344594",
+      "kind": "candidate",
+      "summary": "Officially replayed local route length 91, saved baseline 112; target 34. No live score or submission.",
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790807359.0163074,
+        "candidate_sha256": "3e8c067d2b4c4077c4f5bf792b49bf64c9674d82c2b46a2c589dd69b35be29ad",
+        "row_id": "ac-00009",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/checks/check-1udef61z",
+        "evidence_grade": "V",
+        "cost": 91,
+        "peak_length": 22,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 55159.01630735397,
+        "status": "withheld",
+        "reason": "board_stale",
+        "official_receipt": {
+          "candidate_sha256": "3e8c067d2b4c4077c4f5bf792b49bf64c9674d82c2b46a2c589dd69b35be29ad",
+          "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+          "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+          "valid": true,
+          "exact_endpoint": [
+            "x",
+            "y"
+          ],
+          "cost": 91,
+          "peak_length": 22,
+          "official_verdict": {
+            "ok": true,
+            "length": 91,
+            "peak_total_relator_length": 22,
+            "work": 1442,
+            "certificate_hash": "sha256:e82a5ddd4efdef5c6ab156f247efa05422b8af5a558b2f8ddd59a4b3096e2b68"
+          },
+          "instance_hash": "sha256:384fe3ad4508ddbf9ae8963cec6215ba9aa06578ab66eb454dbf25349e3082a4",
+          "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+        }
+      },
+      "limits": null,
+      "reopen_when": null
+    },
+    {
+      "key": "9819ffdba2cd20f3e65a67ee7eda10cbe35e61933d443ed2a4db7d732caf9096",
+      "job": {
+        "row_id": "ac-00009",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "922710224fdd6dad5197d195dd96f8027ded2ad03b016ec931fc4e2be17e0d14",
+        "baseline": 91,
+        "target": 34,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "9819ffdba2cd20f3e65a67ee7eda10cbe35e61933d443ed2a4db7d732caf9096"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790807474.801129,
+      "result_path": "runs/bob_revival/code_9819ffdba2cd20f3/worker_result.json",
+      "result_sha256": "362457fd335856d32e2b4a26fdc7bd6c164c7f45c5a4d3a41580b71761b6818f",
+      "kind": "bounded_miss",
+      "summary": "No improvement from the tested Bob cross-class transfers; saved baseline 91, target 34.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "reopen_when": {
+        "event": "new_exact_crossclass_seed",
+        "row_id": "ac-00009"
+      }
+    },
+    {
+      "key": "8e2eccb071216949c7b36c44c1da275b6cd2247fa99bab7dbe3b97a297428f55",
+      "job": {
+        "row_id": "ac-00009",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "7dfd867e1515f31c96cb670b877ec8ff2f5aafd45a7fb1c1cf2cfe41b2ec2ee3"
+        },
+        "seed_sha256": "922710224fdd6dad5197d195dd96f8027ded2ad03b016ec931fc4e2be17e0d14",
+        "baseline": 91,
+        "target": 34,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "8e2eccb071216949c7b36c44c1da275b6cd2247fa99bab7dbe3b97a297428f55"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790807520.8890982,
+      "result_path": "runs/kernel_revival/code_8e2eccb071216949/worker_result.json",
+      "result_sha256": "7d9ca655dc7ddc47e24683837d1afcda756025f7832777da453c95197e0d6cf6",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best 91, target 34.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00009"
+      }
+    },
+    {
+      "key": "254c7c4fa9e1df83a205eec630d8caa2057b62849286225a61f93feaba9dd603",
+      "job": {
+        "row_id": "ac-00009",
+        "track": "AC",
+        "baseline": 91,
+        "target": 34,
+        "seed_sha256": "922710224fdd6dad5197d195dd96f8027ded2ad03b016ec931fc4e2be17e0d14",
+        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
+          "memory_mib": 1024
+        },
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "254c7c4fa9e1df83a205eec630d8caa2057b62849286225a61f93feaba9dd603"
+      },
+      "origin": "deterministic_code",
+      "finished_at": 1790807561.5540876,
+      "result_path": "runs/code_254c7c4fa9e1df83/worker_result.json",
+      "result_sha256": "b472f0ff3bc26934e3690c7923d20fbdce610ff63949ad8f7f4bd8a50deb653b",
+      "kind": "candidate",
+      "summary": "Officially replayed local route length 81, saved baseline 91; target 34. No live score or submission.",
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790807561.5513794,
+        "candidate_sha256": "e57880e735f48ce38ee0bdcc1bf33c3162ae5604b548d9d5928894f37bc01cc8",
+        "row_id": "ac-00009",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/checks/check-22v6h5yr",
+        "evidence_grade": "V",
+        "cost": 81,
+        "peak_length": 22,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 55361.551379442215,
+        "status": "withheld",
+        "reason": "board_stale",
+        "official_receipt": {
+          "candidate_sha256": "e57880e735f48ce38ee0bdcc1bf33c3162ae5604b548d9d5928894f37bc01cc8",
+          "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+          "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+          "valid": true,
+          "exact_endpoint": [
+            "x",
+            "y"
+          ],
+          "cost": 81,
+          "peak_length": 22,
+          "official_verdict": {
+            "ok": true,
+            "length": 81,
+            "peak_total_relator_length": 22,
+            "work": 1252,
+            "certificate_hash": "sha256:5258fdf4df4c922d9adca0ea8596f1a7c795f1f0cafc9a055f5434d3b1a34bc0"
+          },
+          "instance_hash": "sha256:384fe3ad4508ddbf9ae8963cec6215ba9aa06578ab66eb454dbf25349e3082a4",
+          "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+        }
+      },
+      "limits": null,
+      "reopen_when": null
+    },
+    {
+      "key": "c6e47bb49472b548a7c93b42fa762746e39087316b2b0fedaacf2e9590856663",
+      "job": {
+        "row_id": "ac-00009",
+        "track": "AC",
+        "baseline": 81,
+        "target": 34,
+        "seed_sha256": "406d75da5d288d4fcbf770c08cb39736e3aadc5b8f9b641249c0497ab8a682e2",
+        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
+          "memory_mib": 1024
+        },
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "c6e47bb49472b548a7c93b42fa762746e39087316b2b0fedaacf2e9590856663"
+      },
+      "origin": "deterministic_code",
+      "finished_at": 1790807642.84472,
+      "result_path": "runs/code_c6e47bb49472b548/worker_result.json",
+      "result_sha256": "6b7d3a64c03953f0df1a4647a9779ba25f5608a90892e4cd1c8edd679f8c2faa",
+      "kind": "candidate",
+      "summary": "Officially replayed local route length 79, saved baseline 81; target 34. No live score or submission.",
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790807642.8422108,
+        "candidate_sha256": "690210a8ac73bb65c3ff603dc1d6bd781379cdd3de3028c8fe7634bba5bbfa47",
+        "row_id": "ac-00009",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/checks/check-pisvc_66",
+        "evidence_grade": "V",
+        "cost": 79,
+        "peak_length": 22,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 55442.84221076965,
+        "status": "withheld",
+        "reason": "board_stale",
+        "official_receipt": {
+          "candidate_sha256": "690210a8ac73bb65c3ff603dc1d6bd781379cdd3de3028c8fe7634bba5bbfa47",
+          "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+          "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+          "valid": true,
+          "exact_endpoint": [
+            "x",
+            "y"
+          ],
+          "cost": 79,
+          "peak_length": 22,
+          "official_verdict": {
+            "ok": true,
+            "length": 79,
+            "peak_total_relator_length": 22,
+            "work": 1216,
+            "certificate_hash": "sha256:1e6ab245413554fdbb754c350a063766fa4187d0ea105fc67edc046523ee641e"
+          },
+          "instance_hash": "sha256:384fe3ad4508ddbf9ae8963cec6215ba9aa06578ab66eb454dbf25349e3082a4",
+          "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+        }
+      },
+      "limits": null,
+      "reopen_when": null
     }
   ],
   "notifications": [
@@ -4573,11 +4839,13 @@
     "16540b93ea49422870b6b89912976ae3b064789189e88e67badea91b0d15d464",
     "629fa4dd198006bfa7bed1564b8ea80d6fe780828d296958dcfcc99a8f8cbc01",
     "aa9b99ae7424a49509aa03f8038cea717471368f6b8dde30c75a1ce13c4fe17e",
-    "2fe509fd115dea9c0247eee5438638379f71b81be535575ccab9a3bc766acfd1"
+    "2fe509fd115dea9c0247eee5438638379f71b81be535575ccab9a3bc766acfd1",
+    "0e98369fca2fe29cdd88bf0e844901775d6776a173c6f3833c4bfa324e0885a6",
+    "254c7c4fa9e1df83a205eec630d8caa2057b62849286225a61f93feaba9dd603"
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790807348.1189744,
+  "updated_at": 1790807642.8451955,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
