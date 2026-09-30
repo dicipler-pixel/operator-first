@@ -2090,6 +2090,93 @@
           }
         }
       ]
+    },
+    {
+      "row_id": "ac-00003",
+      "moves": [
+        6,
+        2,
+        5,
+        7,
+        9,
+        9,
+        9,
+        2,
+        0,
+        11,
+        12,
+        12,
+        10,
+        4,
+        8,
+        3,
+        9,
+        7,
+        8,
+        8,
+        6,
+        2,
+        9,
+        5,
+        13,
+        11,
+        12,
+        10,
+        4,
+        9,
+        5,
+        8,
+        11,
+        12,
+        10,
+        4,
+        12,
+        9,
+        3,
+        7,
+        4,
+        2,
+        12,
+        12,
+        13,
+        13,
+        5,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "sources": [
+        {
+          "archive": "continuation/import_upgh_20260930T2048Z/source.json",
+          "source_commit": "e2afca4672b37b03f7dc59d9f33e06d06cb130e5",
+          "source_blob": "ea9b014fbe829d854e8af95e409e2e069dc51ff2",
+          "exact_receipt": {
+            "candidate_sha256": "526f39dad8c27bdcdd641b1a80acf5812b3f1fdd2063fd41fb5520545fdecb7e",
+            "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+            "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+            "valid": true,
+            "exact_endpoint": [
+              "x",
+              "y"
+            ],
+            "cost": 53,
+            "peak_length": 28,
+            "official_verdict": {
+              "ok": true,
+              "length": 53,
+              "peak_total_relator_length": 28,
+              "work": 1075,
+              "certificate_hash": "sha256:c15082f207abbcb155da3131aaafdbea3b4d87cb23af8af4dce4c7eae5cc69da"
+            },
+            "instance_hash": "sha256:40dd745fe5ee208019252e3234cc97f8254cfe5d370d2fdf784f34b0726af6e8",
+            "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+          },
+          "origin": "UPGH t00108; independently checked here"
+        }
+      ]
     }
   ]
 }
