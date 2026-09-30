@@ -1,7 +1,34 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": null,
+  "active": {
+    "job": {
+      "row_id": "ac-00009",
+      "track": "AC",
+      "helper": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "script": "helpers/charlie_lane_v1.py",
+      "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
+      "inputs": {
+        "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+      },
+      "seed_sha256": "a5fa089d7cffc8d299beba49d8e1aa5a2ff729cf244bb977c5b3b67619a962eb",
+      "baseline": 112,
+      "target": 34,
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "key": "39e99120b33185919f040b2877e9889cb31407f9a8f673b697f4e43c10c47137"
+    },
+    "task_id": 41,
+    "lease_token": "047995d6fbc4466782a89b22f2ad136b",
+    "expires_at": 1790788124.3285124,
+    "repo_head": "a38a26ac2a5b387a433ed541b5162cac14cd808b",
+    "phase": "reserved",
+    "host_must_commit_before_execution": true
+  },
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -1058,11 +1085,12 @@
     }
   ],
   "notifications": [
-    "2b2613408847d16d2dc82e7b40c23c39b18bba10722c67b7674e8a8eca0c78b7"
+    "2b2613408847d16d2dc82e7b40c23c39b18bba10722c67b7674e8a8eca0c78b7",
+    "9a028e3778ba0a208c824f630cb76415d2ffd6a397859a5e6291ce62d1ee42c1"
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790787468.7234647,
+  "updated_at": 1790787524.3288317,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
