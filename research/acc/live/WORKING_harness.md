@@ -1,11 +1,9 @@
 # ACC memory-first harness claims
 
-Updated: 2026-09-30T15:07:38.943266+00:00.
+Updated: 2026-09-30T16:25:46.981384+00:00.
 
-No active row claim. Charlie ac-00037, Bob ac-00012, Kernel ac-00034, and the subsequent code-only Bob ac-00037 batch are complete. No shorter route found; all claims released.
+No active row claim. Post-timeout Kernel ac-00037 batch completed and its claim is released. Best remains 32 against pasted target 31. It ran 27.57 seconds, admitted 600000 graph-plus-fresh records, and used 442.01 MiB peak RSS. The result is a scoped bounded miss, not a nonexistence proof.
 
-Exact sources, tested bounds, immutable executed code, results and negative memory are saved under research/acc/harness/acc_synthesis/. Start at CONTINUATION.md and continuation/checkpoint.json; the continuation entry point is helper_batch.py. The committed portable checkpoint contains no active reservation.
+All six earlier attempts and all 203 saved harness files survived and matched GitHub. SQLite integrity, pinned checker dependencies and evidence hashes pass. A fresh empty local ledger loads the same portable history and next key. Seven completed attempts are now saved; no active lease remains. No model worker was launched for recovery. Continue ACC harness is enabled; other old watches were not reactivated.
 
-The next plan is Kernel ac-00037, subject to fresh branch head, current WORKING claims and lease checks. It is not a current claim. Scheduled model-worker dispatch is zero. Limits remain 180 search seconds / 600000 records / 1024 MiB. No submissions or challenge API calls. Old block-splice and doubling leads remain closed. No ac-00028 search was performed.
-
-Earlier helper reservations, capacity failures and same-worker reassignment remain in branch history and continuation/helper_handoffs.json.
+Next plan: charlie ac-00034, subject to fresh head/claims/lease checks. This is not a current claim. Read research/acc/harness/acc_synthesis/CONTINUATION.md and continuation/checkpoint.json. Recovery audit: continuation/timeout_recovery_20260930.json. Bounds remain <=180 search seconds / <=600000 admitted records / <=1024 MiB. No submissions or challenge API calls.
