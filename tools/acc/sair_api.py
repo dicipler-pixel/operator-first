@@ -210,7 +210,7 @@ def stamp():
 
 # -- boards ----------------------------------------------------------------
 
-def pull_boards(out):
+def pull_boards(out, leaderboards=True):
     out = pathlib.Path(out)
     out.mkdir(parents=True, exist_ok=True)
     t = stamp()
@@ -222,6 +222,8 @@ def pull_boards(out):
             json.dump({"pulledAt": t, "data": data}, fh)
         solved = [i for i in items if i.get("currentBestLength") is not None]
         print(f"{problem}: {len(items)} rows, {len(solved)} solved -> {path}")
+        if not leaderboards:
+            continue
         lb = get(f"/leaderboard?problem={problem}&limit=100")
         with gzip.open(out / f"leaderboard_{problem}_{t}.json.gz", "wt", encoding="utf-8") as fh:
             json.dump({"pulledAt": t, "data": lb}, fh)
@@ -444,6 +446,9 @@ def log(entry):
         fh.write(json.dumps(entry) + "\n")
 
 
+POLL_MIN_S = 0          # `send --lean` raises this so a send spends few API calls on status polls
+
+
 def wait(sid, timeout_s=1800):
     t0 = time.time()
     while time.time() - t0 < timeout_s:
@@ -451,7 +456,7 @@ def wait(sid, timeout_s=1800):
         data = body.get("data", {})
         if code == 200 and data.get("status") in ("complete", "failed"):
             return data
-        time.sleep(int(h.get("Retry-After", 15) or 15))
+        time.sleep(max(int(h.get("Retry-After", 15) or 15), POLL_MIN_S))
     return None
 
 
@@ -474,12 +479,19 @@ def send(args):
     """User rule (2026-09-27): pull boards + history fresh, keep only lines that are unsolved, beat
     or tie on their exact row and are shorter than anything we already sent, and POST within
     5 minutes of that pull. Lines must already have passed the official verifier (search session)."""
-    global ESSENTIAL
+    global ESSENTIAL, POLL_MIN_S
     ESSENTIAL = True
     t0 = time.time()
     board_dir = LIVE / "boards"
-    pull_boards(board_dir)
-    hist = fetch_mine()
+    if getattr(args, "lean", False):
+        # ~8 API calls instead of ~15 (owner, 2026-09-30): board snapshots only (no leaderboards), the newest page
+        # of our history (older sends are already in submit_log.jsonl via the 30-min pull), slower status polls.
+        pull_boards(board_dir, leaderboards=False)
+        hist = {"items": get("/submissions/mine").get("items", [])}
+        POLL_MIN_S = 30
+    else:
+        pull_boards(board_dir)
+        hist = fetch_mine()
     board = load_board(board_dir)
     sent = our_best(hist)
     for cid, ln in our_best(local_history()).items():
@@ -638,6 +650,7 @@ def main():
     sd = sub.add_parser("send")
     sd.add_argument("files", nargs="+")
     sd.add_argument("--yes", action="store_true")
+    sd.add_argument("--lean", action="store_true", help="~8 API calls: snapshots only, newest history page + local log")
     dl = sub.add_parser("download")
     dl.add_argument("sids", nargs="+")
     sq = sub.add_parser("send-queue")
