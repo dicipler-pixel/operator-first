@@ -1,0 +1,92 @@
+{
+  "kind": "candidate",
+  "summary": "Bob route 53 -> 49 on ac-00003, official replay valid.",
+  "candidate": {
+    "row_id": "ac-00003",
+    "track": "AC",
+    "start": [
+      "YYYYXyyyx",
+      "YYYYYxYYXX"
+    ],
+    "moves": [
+      6,
+      2,
+      5,
+      7,
+      9,
+      9,
+      9,
+      2,
+      0,
+      11,
+      12,
+      12,
+      10,
+      4,
+      8,
+      3,
+      9,
+      7,
+      8,
+      8,
+      6,
+      2,
+      9,
+      5,
+      13,
+      11,
+      12,
+      10,
+      4,
+      9,
+      5,
+      8,
+      11,
+      12,
+      10,
+      4,
+      12,
+      9,
+      3,
+      7,
+      4,
+      2,
+      5,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+    "evidence_grade": "V",
+    "family": "bob-cross-class-generator-transfer"
+  },
+  "evidence": [
+    {
+      "path": "runs/bob_revival/code_a36129206ffe2c00/candidate.json",
+      "sha256": "27d806fef394c0d9fdd93fba6b95545d9771df51bcf172e1e462602184f2d901"
+    },
+    {
+      "path": "runs/bob_revival/code_a36129206ffe2c00/coverage.json",
+      "sha256": "a5379c071ee6a23ba171dadfc8d29b13bd33b00d76c2b667c7390f90de89b4ec"
+    },
+    {
+      "path": "runs/bob_revival/code_a36129206ffe2c00/executed_bob_lane_v1.py",
+      "sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470"
+    },
+    {
+      "path": "runs/bob_revival/code_a36129206ffe2c00/executed_bob_protocol.json",
+      "sha256": "b659184042a1ef33981f5cf20244005ebd4b89b32c36d4f176769d9da76fc898"
+    },
+    {
+      "path": "runs/bob_revival/code_a36129206ffe2c00/executed_test_bob_lane.py",
+      "sha256": "d0c4f48ab8ef1822e5d29122186bc5489ef1e8a5d1305a71c2edf13e7c3ee9eb"
+    },
+    {
+      "path": "runs/bob_revival/code_a36129206ffe2c00/receipt.json",
+      "sha256": "f36fc4f95cbea7fa317491c017e9dfbf142c45d572c57e853690e6c56a318b95"
+    }
+  ]
+}
