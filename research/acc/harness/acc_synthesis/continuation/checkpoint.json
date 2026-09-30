@@ -1,31 +1,7 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": {
-    "job": {
-      "row_id": "ac-00009",
-      "track": "AC",
-      "baseline": 81,
-      "target": 34,
-      "seed_sha256": "406d75da5d288d4fcbf770c08cb39736e3aadc5b8f9b641249c0497ab8a682e2",
-      "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "depth": 8,
-        "profile": "route-local",
-        "memory_mib": 1024
-      },
-      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
-      "key": "c6e47bb49472b548a7c93b42fa762746e39087316b2b0fedaacf2e9590856663"
-    },
-    "task_id": 130,
-    "lease_token": "469a99cd962b4324a471aff368cf63c3",
-    "expires_at": 1790808232.2402964,
-    "repo_head": "410e6e948040408af2656c379b3dbe517c979005",
-    "phase": "reserved",
-    "host_must_commit_before_execution": true
-  },
+  "active": null,
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -4785,6 +4761,76 @@
       },
       "limits": null,
       "reopen_when": null
+    },
+    {
+      "key": "c6e47bb49472b548a7c93b42fa762746e39087316b2b0fedaacf2e9590856663",
+      "job": {
+        "row_id": "ac-00009",
+        "track": "AC",
+        "baseline": 81,
+        "target": 34,
+        "seed_sha256": "406d75da5d288d4fcbf770c08cb39736e3aadc5b8f9b641249c0497ab8a682e2",
+        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
+          "memory_mib": 1024
+        },
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "c6e47bb49472b548a7c93b42fa762746e39087316b2b0fedaacf2e9590856663"
+      },
+      "origin": "deterministic_code",
+      "finished_at": 1790807642.84472,
+      "result_path": "runs/code_c6e47bb49472b548/worker_result.json",
+      "result_sha256": "6b7d3a64c03953f0df1a4647a9779ba25f5608a90892e4cd1c8edd679f8c2faa",
+      "kind": "candidate",
+      "summary": "Officially replayed local route length 79, saved baseline 81; target 34. No live score or submission.",
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790807642.8422108,
+        "candidate_sha256": "690210a8ac73bb65c3ff603dc1d6bd781379cdd3de3028c8fe7634bba5bbfa47",
+        "row_id": "ac-00009",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/checks/check-pisvc_66",
+        "evidence_grade": "V",
+        "cost": 79,
+        "peak_length": 22,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 55442.84221076965,
+        "status": "withheld",
+        "reason": "board_stale",
+        "official_receipt": {
+          "candidate_sha256": "690210a8ac73bb65c3ff603dc1d6bd781379cdd3de3028c8fe7634bba5bbfa47",
+          "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+          "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+          "valid": true,
+          "exact_endpoint": [
+            "x",
+            "y"
+          ],
+          "cost": 79,
+          "peak_length": 22,
+          "official_verdict": {
+            "ok": true,
+            "length": 79,
+            "peak_total_relator_length": 22,
+            "work": 1216,
+            "certificate_hash": "sha256:1e6ab245413554fdbb754c350a063766fa4187d0ea105fc67edc046523ee641e"
+          },
+          "instance_hash": "sha256:384fe3ad4508ddbf9ae8963cec6215ba9aa06578ab66eb454dbf25349e3082a4",
+          "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+        }
+      },
+      "limits": null,
+      "reopen_when": null
     }
   ],
   "notifications": [
@@ -4799,7 +4845,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790807632.2407806,
+  "updated_at": 1790807642.8451955,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,

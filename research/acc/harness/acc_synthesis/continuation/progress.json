@@ -1,8 +1,8 @@
 {
-  "completed_batches": 114,
+  "completed_batches": 115,
   "model_worker_launches": 4,
-  "code_only_batches": 110,
-  "new_improved_routes": 7,
+  "code_only_batches": 111,
+  "new_improved_routes": 8,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
   "runs": [
@@ -28,38 +28,33 @@
     }
   ],
   "next": {
-    "status": "active",
-    "active": {
-      "job": {
-        "row_id": "ac-00009",
-        "track": "AC",
-        "baseline": 81,
-        "target": 34,
-        "seed_sha256": "406d75da5d288d4fcbf770c08cb39736e3aadc5b8f9b641249c0497ab8a682e2",
-        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
-        "caps": {
-          "wall_seconds": 180,
-          "node_cap": 600000,
-          "depth": 8,
-          "profile": "route-local",
-          "memory_mib": 1024
-        },
-        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
-        "key": "c6e47bb49472b548a7c93b42fa762746e39087316b2b0fedaacf2e9590856663"
+    "status": "planned",
+    "job": {
+      "row_id": "ac-00009",
+      "track": "AC",
+      "helper": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "script": "helpers/bob_lane_v1.py",
+      "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+      "inputs": {
+        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
       },
-      "task_id": 130,
-      "lease_token": "469a99cd962b4324a471aff368cf63c3",
-      "expires_at": 1790808232.2402964,
-      "repo_head": "410e6e948040408af2656c379b3dbe517c979005",
-      "phase": "reserved",
-      "host_must_commit_before_execution": true
-    }
+      "seed_sha256": "4a1a5d671190fb4ea7265fce1ad94987c3896c43623a7fc209528646e7479edc",
+      "baseline": 79,
+      "target": 34,
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "key": "4138b3bfecf8d6e2ed0089cbccff114c9a704f36447e52aa1466e392a2be51c2"
+    },
+    "remaining_jobs": 2
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 114,
-      "running": 1
+      "completed": 115
     },
     "unconnected_roles": [
       "luna_memory",
