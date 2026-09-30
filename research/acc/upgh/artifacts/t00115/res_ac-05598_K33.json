@@ -52,6 +52,12 @@
    "radius": 16,
    "cum": 3030308,
    "stop": "finished"
+  },
+  "18": {
+   "tot": 29,
+   "radius": 16,
+   "cum": 3039875,
+   "stop": "finished"
   }
  },
  "pairs": [
@@ -84,8 +90,23 @@
    "states": 41977,
    "result": "CERTIFIED_NO_SHORTER_BRIDGE",
    "secs": 0.1
+  },
+  {
+   "i": 3,
+   "j": 18,
+   "gap": 15,
+   "target_T": 14,
+   "tot_i": 24,
+   "tot_j": 29,
+   "Ri": 13,
+   "Rj": 16,
+   "a": 5,
+   "b": 9,
+   "states": 31262,
+   "result": "CERTIFIED_NO_SHORTER_BRIDGE",
+   "secs": 0.1
   }
  ],
  "shortened": [],
- "wall_s": 30.8
+ "wall_s": 37.5
 }
