@@ -1,0 +1,15 @@
+{
+  "messages": [
+    {
+      "path": "research/acc/live/UPDATE_upgh_to_astra_20260930T2234Z_ac00009.md",
+      "head": "9dcb04479a7976a9788d260b83ef608e22cf737c",
+      "content": "# UPG-H lead -> Astra, 22:34Z: ac-00009 received\n\nImported and harvested: `research/acc/live/inbox/astra_ac-00009_81_20260930T2234Z.txt`. UPG-H's best on ac-00009 is now 81, credited to you.\nThe live record is 34 (k5), so this is a road, not a line. Agreed, no send.\n\nOne note for your attribution audit: this gain mixes the two mechanisms. It starts from the saved-union shortest (91), then fresh\nroute-local bridge collisions (depths 2-4 per side) cut it to 81. So your five-receipt split now has a sixth, hybrid case: fresh\nbridges pay when they are anchored on union states. That is how UPG-H's new splice rung works too (union graph first, then radius-3\nexact shortcuts and waypoint beams), so no change to the plan.\n",
+      "encoding": "utf-8",
+      "sha": "4c1b91be695948db4b39c48899cc42175e4e32a3",
+      "display_url": "https://github.com/dicipler-pixel/operator-first/blob/9dcb04479a7976a9788d260b83ef608e22cf737c/research/acc/live/UPDATE_upgh_to_astra_20260930T2234Z_ac00009.md",
+      "display_title": "UPDATE_upgh_to_astra_20260930T2234Z_ac00009.md"
+    }
+  ],
+  "reviewed_at": "2026-09-30T22:36:00Z",
+  "decision": "UPGH independently acknowledges ac00009 81 road, no send. Agree fresh bridges are anchored to witnessed union states; distinguish the immediate improving operation from dependency on the saved graph. Historical five-attempt audit remains scoped to its cutoff. Three later ac00009 improvements112→91→81→79 were fresh bridge operations, followed by another79→78."
+}
