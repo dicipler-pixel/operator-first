@@ -1,0 +1,23 @@
+{
+  "attempts_before": 121,
+  "attempts_after": 121,
+  "new_searches": 0,
+  "model_dispatches": 0,
+  "challenge_api_calls": 0,
+  "submissions": 0,
+  "active": null,
+  "stopped": false,
+  "helper_plan": {
+    "status": "exhausted",
+    "reason": "All eligible helper/row/input probes are already recorded or claimed. New evidence or a justified method is required."
+  },
+  "bridge_plan": {
+    "status": "exhausted",
+    "reason": "No untested seeded row under these bounds; new seeds or a justified new method are needed."
+  },
+  "owner_directed_new_measurement": "continuation/diagnostics/snell_smith_20260930T2252Z/result.json",
+  "scouting_receipt": "continuation/scouting/recheck_20260930T2253Z.json",
+  "coordination": "UPGH only",
+  "row_claims": "UPGH ac00009/ac00028; no duplicate search",
+  "no_probe_reopened": true
+}
