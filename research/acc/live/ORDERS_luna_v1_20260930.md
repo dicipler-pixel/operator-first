@@ -71,7 +71,7 @@ cd SAIR && PYTHONPATH=competition/tools python3 -m verifier \
 
 The two-eyes beam on a known row must reproduce **AC 20 / Stable 22** on `ac-06015`:
 ```
-echo '[{"id":"ac-06015","record":20,"k":1,"ac_record":20,"sac_record":22}]' > work/control.json
+echo '[{"id":"ac-06015","record":20,"k":19,"ac_record":20,"sac_record":22}]' > work/control.json
 env BEAM_H=1 BEAM_DIV=0.8 BEAM_P2=2 BEAM_QUOTA=16 BEAM_ELITE=5000 BEAM_DUAL=0.75 \
   python3 research/acc/optimality/run_beam_raw.py SAIR/competition/tools/verifier/data/manifest.json \
   bin work/T8.tab work/w_control 20000 200 work/control_cap.jsonl work/control.json
