@@ -49,7 +49,7 @@
   "real_ACC_search_run": true,
   "submission_performed": false,
   "historical_ACC_fixtures_replayed": true,
-  "scope": "84 local tests pass. Two previous bridge misses and three recovered-helper method probes; no improved path. Charlie initial goal allocation failure retained separately, not a mathematical negative. The official checker and prior 63-case conformance pins are unchanged. All scheduled batches dispatch zero model workers.",
+  "scope": "84 local tests pass. Two previous bridge misses and four recovered-helper method probes (including a new code-only Bob ac-00037 batch); no improved path. Charlie initial goal allocation failure retained separately, not a mathematical negative. The official checker and prior 63-case conformance pins are unchanged. All scheduled batches dispatch zero model workers.",
   "version": "1.5.0",
   "cost_scope": "Persistent worker dispatch caps; code-first verification; no provider currency/token enforcement.",
   "intake": {
@@ -62,7 +62,7 @@
   "real_routes_replayed": 25,
   "real_rows_with_verified_paths": 10,
   "source_commit": "d3351066a05bf6262cacc30fdcb055d2e0942a94",
-  "bounded_real_searches": 5,
+  "bounded_real_searches": 6,
   "code_only_continuation_tested": true,
   "helper_recovery": {
     "matching_source_paths": 185,
@@ -71,5 +71,6 @@
     "source_commit": "3981da39a41834acf982336318cad2dde8d4b8a0",
     "new_workers_completed": 3,
     "capacity_failed_attempts": 2
-  }
+  },
+  "multi_helper_code_continuation_tested": true
 }

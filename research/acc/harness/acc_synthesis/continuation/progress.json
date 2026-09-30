@@ -1,7 +1,7 @@
 {
-  "completed_batches": 5,
+  "completed_batches": 6,
   "model_worker_launches": 4,
-  "code_only_batches": 1,
+  "code_only_batches": 2,
   "new_improved_routes": 0,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -32,12 +32,12 @@
     "job": {
       "row_id": "ac-00037",
       "track": "AC",
-      "helper": "bob",
-      "algorithm_id": "bob-cross-class-generator-transfer-v1",
-      "script": "helpers/bob_lane_v1.py",
-      "method_sha256": "6db9762dbb867b46978c1eec3f59d1c3a109d229996b47b54f7e7f6347327263",
+      "helper": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "script": "helpers/kernel_lane_v1.py",
+      "method_sha256": "34aa9c690efcbb3f2324d2a02a9e0ac016c30793e734f2d8f0317661a0b4773b",
       "inputs": {
-        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        "helpers/kernel_sources/roads_input.json": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae"
       },
       "seed_sha256": "5b683f21874f6c092ad127c4deb51021114a10ae95f7e4845c64c87de6ada3e3",
       "baseline": 32,
@@ -47,14 +47,14 @@
         "node_cap": 600000,
         "memory_mib": 1024
       },
-      "key": "cdec5531f4d1eb8e731274aea40297b53a701c7b9944d5889ce165a25d008ca6"
+      "key": "3cc9c62c8fb11bbf50a0aa5055fb442453bae887045dbbcc27c603d8f68c98b0"
     },
-    "remaining_jobs": 72
+    "remaining_jobs": 71
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 6,
+      "completed": 7,
       "queued": 4,
       "failed": 2
     },
@@ -148,6 +148,19 @@
         "memory_mib": 1024,
         "node_cap": 600000,
         "wall_seconds": 178.0
+      }
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00037",
+      "baseline": 32,
+      "target": 31,
+      "kind": "bounded_miss",
+      "result_path": "runs/bob_revival/code_cdec5531f4d1eb8e/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
       }
     }
   ],
