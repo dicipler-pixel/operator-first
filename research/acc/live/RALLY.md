@@ -164,3 +164,13 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
   (our window run: 36, no crash).
 - Container: reclaimed a few minutes after the session goes idle. Lanes now resume at step level, and session 2 keeps the
   session active between events.
+
+## 04:55Z rally (session 2)
+- No new ties this hour. Nothing sent at 04:25Z. Uploads 4/40, API calls left 306. The container has stayed up 1 h 45 min since
+  session 2 began holding the session active.
+- Lanes on rows held by 1-2 teams: k12dp 8 rows, winpool 20, shapek12 20 (45 fresh-join rows first; our beam finds no path
+  within record+2 on them), mrk12 and yxk12 one job each. All +1 rows are still +1. A W 100000 seeded beam on 03871 and 00975
+  gave 31 / 35 (+1).
+- No new helper files (Luna and Bob's sandboxes sleep when their chats are idle). Pool exchange with session 1: waiting.
+- Doubling family: exhaustive checks show every doubling cell costs about 2 moves, even when r0 is free, so the records must
+  avoid the 2^n strip entirely (brief updated).
