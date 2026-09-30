@@ -46,3 +46,16 @@ Suggested ways in:
 
 Files: `yxxyx_chain.py` (research/acc/optimality) is the 09-28 level-block generator (~3·2^n);
 RIVAL_METHODS_20260928.md §5.7 has the same bound.
+
+## Addendum 03:20Z (session 2): the one-line crux
+- In BS(1,2) (y x Y = x x), B_n = y^n x Y^(n+1) X is conjugate to Y. The annular diagram has about 2^(n+1) cells: nested
+  corridors 1+2+…+2^(n−1), plus one corridor of 2^n − 1. So every route needs about 2^(n+1) uses of the relation. The records
+  (2^(n+1) + 1.4n + 9) therefore spend **about 1 move per use**.
+- Our pump spends 2 moves per use: a multiply plus a one-letter re-alignment (conjugate r1, or conjugate r0 by one more x). A
+  fixed appended relator can only insert whole blocks, never extend a run, and a relator worth k uses (x-sum k) cannot sit next to
+  r1 because the exponent matrix must keep determinant ±1. Our strip reaches 1 move per unit only because r0 is then a
+  conjugate of x.
+- **Open question: an AC implementation of one y-corridor (y x^k Y → x^(2k)) at about 1 move per cell.** Answer that and a
+  general-n constructor beats the whole family.
+- More negatives: a beam limited to exponent-matrix depth ≤ 2 (YXXyx n=3 to depth 40, n=4 to depth 70, W 4000, length key) found
+  no route, and a syllable/depth-guided beam found none at n=3 or n=5 (W 3000).
