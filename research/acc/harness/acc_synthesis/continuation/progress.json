@@ -1,7 +1,7 @@
 {
-  "completed_batches": 99,
+  "completed_batches": 103,
   "model_worker_launches": 4,
-  "code_only_batches": 95,
+  "code_only_batches": 99,
   "new_improved_routes": 5,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -31,7 +31,7 @@
     "status": "active",
     "active": {
       "job": {
-        "row_id": "ac-00011",
+        "row_id": "ac-00024",
         "track": "AC",
         "helper": "kernel",
         "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
@@ -42,18 +42,18 @@
         },
         "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "baseline": null,
-        "target": 48,
+        "target": 96,
         "caps": {
           "wall_seconds": 180,
           "node_cap": 600000,
           "memory_mib": 1024
         },
-        "key": "7b4c933b000f8c569093d1ec40e7c838e83b64a601d5b06e270c43dfa41951ee"
+        "key": "bbea15c400b609ae76938e3ce43237776ff6f20c74e1b8ed191e8614f969bf30"
       },
-      "task_id": 115,
-      "lease_token": "28f57e6d882e4c25924b0a961e8c4bc2",
-      "expires_at": 1790807360.966581,
-      "repo_head": "0af01ecd6e20d9f6b60748d128d852d5c0f4746c",
+      "task_id": 119,
+      "lease_token": "f1047f1cea4543c0b1bb08337994f317",
+      "expires_at": 1790807593.8317373,
+      "repo_head": "8f32675e791c34f6af86365aade52dab47e54597",
       "phase": "reserved",
       "host_must_commit_before_execution": true
     }
@@ -61,7 +61,7 @@
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 99,
+      "completed": 103,
       "running": 1
     },
     "unconnected_roles": [
@@ -1358,6 +1358,66 @@
       "target": 68,
       "kind": "bounded_miss",
       "result_path": "runs/kernel_revival/code_9cd8695e0c237b37/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00011",
+      "baseline": null,
+      "target": 48,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_7b4c933b000f8c56/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00015",
+      "baseline": null,
+      "target": 150,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_7aff07d6b8bd8177/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00016",
+      "baseline": null,
+      "target": 79,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_53d9ef948c2948ad/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00017",
+      "baseline": null,
+      "target": 82,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_6316b1b0198353a0/worker_result.json",
       "limits": {
         "wall_seconds": 180.0,
         "node_cap": 600000,
