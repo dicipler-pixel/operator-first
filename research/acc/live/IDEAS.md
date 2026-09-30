@@ -1650,3 +1650,11 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
 - **k4–6 tier:** 55 rows within +4 (14 at +1) → loose DP lane midkdp (GROW 2, MAXC 16, SLACK 4 = session 1's winning setting).
 - **Beat hunt:** 60 rows where we HOLD the record with k 2–8 → DP on our record-length roads looking for −1 (a beat = 1.0 pt).
 - Lanes are restarted by $S/restart_lanes.sh (no kills; starts only missing lanes), which the :10/:25/:40 jobs run first.
+- 01:20Z session 2 negatives (so nobody repeats them):
+  - **(y,x)-target road DP** (yxdp): no (y,x) route on sac-02288 or sac-02528 along any of our AC roads. Relator positions are fixed by
+    the road (in-class moves cannot swap them), so AC roads rarely end in (y,x) order. Stopped. Use yx_mid (letter-swap beam restarts)
+    instead; that is now running for sac-04197/01962/02446/06872 (Stable = AC or AC+1, k4–6, where we hold AC).
+  - **Exact capped sweep** stopped: every +1 low-k row is predicted at 0.3–1B+ states even at the start cap (budget 120M).
+  - **Class-junction splice** (join road A to road B at a shared class, DP prices the join): ac-00145 has 59 candidates with estimate
+    <= record+1 but they collapse to 1 distinct road; no gain. Kept as a tool: $S/work/classsplice.py.
+  - Loose DP on the k4–6 tier: 07789, 06768 (34 -> 36 on another road), 03325: no gain yet.
