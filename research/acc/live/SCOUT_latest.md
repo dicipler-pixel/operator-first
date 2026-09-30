@@ -1,19 +1,21 @@
-# SCOUT: low-k rows where the team has a road (2026-09-30 18:54Z)
+# SCOUT: low-k rows where the team has a road (2026-09-30 19:22Z)
 
-Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20260930T1854Z.json.gz, stable_ac_20260930T1854Z.json.gz; 0 min old) and the UPG-H ledger. 0 API calls.
+Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20260930T1854Z.json.gz, stable_ac_20260930T1854Z.json.gz; 28 min old) and the UPG-H ledger. 0 API calls.
 Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) or `upgh (running)`. Take an unclaimed row by writing it in your WORKING file. Scoring lines go to `queue/`.
 
-## SEND: our road is at or under the record, not held yet (next send) (0)
-(none)
-
-## LOST: we held it, a rival moved the record 1-3 below our line (6)
+## SEND: our road is at or under the record, not held yet (next send) (2)
 | row | record | k | ours | held | gap | heat | who | value |
 |---|---|---|---|---|---|---|---|---|
-| ac-00145 | 39 | 1 | 40 | 40 | +1 | 12 | session1 | 0.500 |
-| ac-03714 | 50 | 1 | 51 | 51 | +1 | 12 |  | 0.500 |
-| ac-04086 | 34 | 1 | 35 | 35 | +1 | 13 | charlie_batch7 | 0.500 |
-| sac-03714 | 52 | 1 | 53 | 53 | +1 | 13 |  | 0.500 |
-| sac-04086 | 36 | 2 | 37 | 37 | +1 | 13 | charlie_batch7 | 0.250 |
+| sac-04086 | 36 | 2 | 36 | 37 | 0 | 12 | bob | 0.250 |
+| ac-08862 | 35 | 10 | 35 |  | 0 | 0 | session2 | 0.001 |
+
+## LOST: we held it, a rival moved the record 1-3 below our line (5)
+| row | record | k | ours | held | gap | heat | who | value |
+|---|---|---|---|---|---|---|---|---|
+| ac-00145 | 39 | 1 | 40 | 40 | +1 | 13 | bob | 0.500 |
+| ac-03714 | 50 | 1 | 51 | 51 | +1 | 12 | bob | 0.500 |
+| ac-04086 | 34 | 1 | 35 | 35 | +1 | 13 | bob | 0.500 |
+| sac-03714 | 52 | 1 | 53 | 53 | +1 | 13 | bob | 0.500 |
 | ac-06969 | 38 | 3 | 39 | 41 | +1 | 0 |  | 0.125 |
 
 ## TWIN: we hold the AC record, not the Stable twin (7)
@@ -27,35 +29,35 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | sac-08578 | 36 | 2 | 37 |  | +1 | 15 |  | 0.250 | (y,x) finish |
 | sac-07119 | 34 | 3 | 35 | 50 | +1 | 5 |  | 0.125 | (y,x) finish |
 
-## NEAR: 1-3 over, k <= 3 (84)
+## NEAR: 1-3 over, k <= 3 (85)
 | row | record | k | ours | held | gap | heat | who | value |
 |---|---|---|---|---|---|---|---|---|
-| ac-00975 | 34 | 1 | 35 |  | +1 | 14 | session1 | 0.800 |
-| ac-08995 | 45 | 1 | 46 |  | +1 | 12 | session1 | 0.800 |
-| ac-10098 | 40 | 1 | 41 |  | +1 | 12 | session1 | 0.800 |
-| sac-00975 | 36 | 1 | 37 |  | +1 | 14 | session1 | 0.800 |
+| ac-00975 | 34 | 1 | 35 |  | +1 | 14 | bob | 0.800 |
+| ac-08995 | 45 | 1 | 46 |  | +1 | 12 | bob | 0.800 |
+| ac-10098 | 40 | 1 | 41 |  | +1 | 12 | bob | 0.800 |
+| sac-00975 | 36 | 1 | 37 |  | +1 | 14 | bob | 0.800 |
 | sac-02528 | 36 | 1 | 37 |  | +1 | 6 |  | 0.800 |
-| sac-03871 | 32 | 1 | 33 |  | +1 | 13 | session1 | 0.800 |
+| sac-03871 | 32 | 1 | 33 |  | +1 | 13 | bob | 0.800 |
 | sac-05378 | 43 | 1 | 44 |  | +1 | 13 |  | 0.800 |
-| sac-06045 | 38 | 1 | 39 | 50 | +1 | 13 | session1 | 0.800 |
+| sac-06045 | 38 | 1 | 39 | 50 | +1 | 13 | bob | 0.800 |
 | sac-08078 | 34 | 1 | 35 |  | +1 | 14 | session1 | 0.800 |
-| sac-08995 | 47 | 1 | 48 |  | +1 | 13 | session1 | 0.800 |
-| sac-10098 | 42 | 1 | 43 |  | +1 | 13 | session1 | 0.800 |
-| ac-03719 | 35 | 1 | 37 |  | +2 | 0 |  | 0.650 |
+| sac-08995 | 47 | 1 | 48 |  | +1 | 13 | bob | 0.800 |
+| sac-10098 | 42 | 1 | 43 |  | +1 | 13 | bob | 0.800 |
+| ac-03719 | 35 | 1 | 37 |  | +2 | 0 | bob | 0.650 |
 | ac-03913 | 46 | 1 | 48 |  | +2 | 0 |  | 0.650 |
 | sac-02288 | 38 | 1 | 40 |  | +2 | 12 | session1 | 0.650 |
 | sac-02341 | 30 | 1 | 32 |  | +2 | 0 | session2 | 0.650 |
 | sac-02717 | 38 | 1 | 40 |  | +2 | 12 | session1 | 0.650 |
 | sac-08889 | 37 | 1 | 39 |  | +2 | 0 | session2 | 0.650 |
-| ac-00580 | 42 | 1 | 45 |  | +3 | 0 |  | 0.600 |
+| ac-00580 | 42 | 1 | 45 |  | +3 | 0 | bob | 0.600 |
 | ac-04581 | 47 | 1 | 50 |  | +3 | 0 |  | 0.600 |
-| ac-05726 | 35 | 1 | 38 |  | +3 | 0 |  | 0.600 |
+| ac-05726 | 35 | 1 | 38 |  | +3 | 0 | bob | 0.600 |
 | ac-08445 | 53 | 1 | 56 |  | +3 | 0 |  | 0.600 |
-| sac-00580 | 44 | 1 | 47 |  | +3 | 0 |  | 0.600 |
+| sac-00580 | 44 | 1 | 47 |  | +3 | 0 | bob | 0.600 |
 | sac-04882 | 53 | 1 | 56 |  | +3 | 0 |  | 0.600 |
 | sac-08445 | 55 | 1 | 58 |  | +3 | 0 |  | 0.600 |
 | sac-09390 | 37 | 1 | 40 |  | +3 | 0 |  | 0.600 |
-(59 more in research/acc/upgh/cache/scout_latest.json)
+(60 more in research/acc/upgh/cache/scout_latest.json)
 
 ## ROAD: 4-10 over, k <= 3 (shorten lanes) (228)
 | row | record | k | ours | held | gap | heat | who | value |
