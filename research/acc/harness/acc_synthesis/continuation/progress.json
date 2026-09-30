@@ -1,8 +1,8 @@
 {
-  "completed_batches": 59,
+  "completed_batches": 60,
   "model_worker_launches": 4,
-  "code_only_batches": 55,
-  "new_improved_routes": 4,
+  "code_only_batches": 56,
+  "new_improved_routes": 5,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
   "runs": [
@@ -30,31 +30,31 @@
   "next": {
     "status": "planned",
     "job": {
-      "row_id": "ac-00003",
+      "row_id": "ac-00020",
       "track": "AC",
-      "helper": "bob",
-      "algorithm_id": "bob-cross-class-generator-transfer-v1",
-      "script": "helpers/bob_lane_v1.py",
-      "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+      "helper": "charlie",
+      "algorithm_id": "charlie-exact-cap-ladder-v1",
+      "script": "helpers/charlie_lane_v1.py",
+      "method_sha256": "cbb26ebc7a610881ac4b08fdc56b4111e12dd5ef8bc68e6f51b22cff6b532c9b",
       "inputs": {
-        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
       },
-      "seed_sha256": "c79e30a493654b083fb4b97e778356514cd179cc1985b952ea8241e8401132da",
-      "baseline": 53,
-      "target": 40,
+      "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "baseline": null,
+      "target": 52,
       "caps": {
         "wall_seconds": 180,
         "node_cap": 600000,
         "memory_mib": 1024
       },
-      "key": "a36129206ffe2c00373e311f3cb566aa413b037cec179de6d5f9c7852523f19a"
+      "key": "91cbc13ee92a1c6aeacce3714f980d883f3c0be37efbcb8dbbde02f93da9079c"
     },
     "remaining_jobs": 47
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 59
+      "completed": 60
     },
     "unconnected_roles": [
       "luna_memory",
@@ -837,6 +837,15 @@
         "memory_mib": 1024,
         "fresh_radius": 2
       }
+    },
+    {
+      "helper": "bob",
+      "row_id": "ac-00003",
+      "baseline": 53,
+      "target": 40,
+      "kind": "candidate",
+      "result_path": "runs/bob_revival/code_a36129206ffe2c00/worker_result.json",
+      "limits": null
     }
   ],
   "implementation_failure": {
