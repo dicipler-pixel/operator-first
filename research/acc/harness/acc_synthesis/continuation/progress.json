@@ -28,33 +28,41 @@
     }
   ],
   "next": {
-    "status": "planned",
-    "job": {
-      "row_id": "ac-00015",
-      "track": "AC",
-      "helper": "bob",
-      "algorithm_id": "bob-cross-class-generator-transfer-v1",
-      "script": "helpers/bob_lane_v1.py",
-      "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
-      "inputs": {
-        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+    "status": "active",
+    "active": {
+      "job": {
+        "row_id": "ac-00020",
+        "track": "AC",
+        "helper": "bob",
+        "algorithm_id": "bob-cross-class-generator-transfer-v1",
+        "script": "helpers/bob_lane_v1.py",
+        "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+        "inputs": {
+          "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 52,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "692d4d0910392d03fe7bd028d39f2730869bee87bb674846259d207ddfe8b732"
       },
-      "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-      "baseline": null,
-      "target": 150,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "cff9c8fad8471333f63fdf62e6004d0dd3c6e5a7ad81774a9312cecf2afb7e23"
-    },
-    "remaining_jobs": 30
+      "task_id": 93,
+      "lease_token": "54d899d9ed634c4b907f49fcc9743702",
+      "expires_at": 1790804755.6343555,
+      "repo_head": "e5b939374661657a1839c0291938c7dfdc012397",
+      "phase": "reserved",
+      "host_must_commit_before_execution": true
+    }
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 77
+      "completed": 77,
+      "running": 1
     },
     "unconnected_roles": [
       "luna_memory",
