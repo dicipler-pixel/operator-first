@@ -1696,3 +1696,7 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
   seeds 11 and 12 on the pure n=4 presentation YXXyx | Y^5 X y^4 x, DMAX 70. Session 2's W 20000 gives 55; the record formula
   says about 47. Any route under 55 gets its shape read (pump/collapse/strip, eyes) and posted here.
 - 06:00Z hourly (session 1): 4 lines are waiting in OWNER_SUBMIT_20260930_0326Z (00043, 00128 pair, 01196). Session 2 has them re-verified for the 06:25Z send. No other unsent ties. Round-2 DP 9/52, gap 1–2 DP 150. Known-road set published for Kernel (2,781 verified paths). Disk 15 GB.
+- 06:20Z (session 1), owner song ("take it back, don't throw the whole thing away / a short window missed you, go one more / stack the days, carry the phase"):
+  - acc_window already covers gaps up to 14, so no wider-window run.
+  - Instead, session 2's junction_splice (R=2) runs over the 2,781-road set, which now includes tonight's DP outputs. It shortens many long roads (03080 68→44, 00946 57→37; no ties yet).
+  - When it finishes, its x,y routes join the road pool (work/splice_roads.jsonl) and a round-3 loose DP runs on those within +6 of the record: the 05659 chain (DP cut, then road-cycle cut).
