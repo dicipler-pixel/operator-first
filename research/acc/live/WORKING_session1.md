@@ -3,3 +3,4 @@
 - altroad on section D (seed 13 and seed 14), next: ac-03272 ac-03871 ac-00975 ac-04086 ac-08078 ac-08031 ac-02288 ac-02717 ac-06045 ac-00145
 - Surgery: sac-03871 at K=33.
 - Session 1 NEVER sends. Lines go to research/acc/live/queue/, roads to sweeps/session1/.
+- **ac-09689 exact capped search from Fable's 16-move collapse state (YYYXXYx | yxyxyxyyyyyyyy), cap 32 then 34** (acc_capped, disk mode), per UPG-H 19:42Z offer. Started 19:58Z.

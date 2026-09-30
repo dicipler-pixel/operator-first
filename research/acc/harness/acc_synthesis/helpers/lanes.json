@@ -109,6 +109,24 @@
         "ac-00034",
         "ac-00037"
       ]
+    },
+    {
+      "name": "named",
+      "algorithm_id": "named-exact-state-neighborhood-v1",
+      "script": "helpers/named_bridge_lane_v1.py",
+      "input_files": [
+        "helpers/named_queries.json",
+        "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz",
+        "runs/kernel_revival/code_a7e9bffde8b90533/captured_input.json"
+      ],
+      "enabled": true,
+      "rows": [
+        "ac-00028",
+        "ac-00003",
+        "ac-00013",
+        "ac-00029",
+        "ac-00018"
+      ]
     }
   ]
 }

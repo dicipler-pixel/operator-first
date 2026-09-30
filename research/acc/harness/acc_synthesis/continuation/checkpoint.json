@@ -2106,6 +2106,216 @@
         "event": "higher_exact_cap_capacity",
         "row_id": "ac-00016"
       }
+    },
+    {
+      "key": "9e693843528fa9329ece5d98220facf2e55ce301e62d01618da97ded7bb77dd0",
+      "job": {
+        "row_id": "ac-00028",
+        "track": "AC",
+        "helper": "named",
+        "algorithm_id": "named-exact-state-neighborhood-v1",
+        "script": "helpers/named_bridge_lane_v1.py",
+        "method_sha256": "1552796aaeda2e9bbb4644674011d20bc1b3bf95875ffdb6d60ba78c8eb3fc5a",
+        "inputs": {
+          "helpers/named_queries.json": "1b630a4af65a8ed75c0a6b952e300b3d9397b91e7b15ed5b84012707aaec9438",
+          "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz": "d6b28b5d8139402b18225c3fa404c831e75055a6195bdc6d3c720ebe0060f835",
+          "runs/kernel_revival/code_a7e9bffde8b90533/captured_input.json": "f89f5ff8f6484a2d3f3a1e690b3debcc31e7694b9c38ca726539f3e7c62e82ee"
+        },
+        "seed_sha256": "69e4f0d549324aa7af6fc90ea349c8de2050cd0946fb52fdf7e0254f707e0c87",
+        "baseline": 51,
+        "target": 44,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "9e693843528fa9329ece5d98220facf2e55ce301e62d01618da97ded7bb77dd0"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790798211.6758616,
+      "result_path": "runs/named_revival/code_9e693843528fa932/worker_result.json",
+      "result_sha256": "09d11c6e8a40bfbdc1be14a2f43b507ff3f5451cc1a7bdce28a2b3f783e00174",
+      "kind": "bounded_miss",
+      "summary": "No improvement in named exact neighborhoods; best 51, target 44; named_neighborhood_complete.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_radius": 2
+      },
+      "reopen_when": {
+        "event": "new_exact_named_state_or_saved_edges",
+        "row_id": "ac-00028"
+      }
+    },
+    {
+      "key": "b0298aefe7125dfe22032b2b5e81ca4200f0aedb7ceaa24b1fb69ff838f40d78",
+      "job": {
+        "row_id": "ac-00013",
+        "track": "AC",
+        "helper": "named",
+        "algorithm_id": "named-exact-state-neighborhood-v1",
+        "script": "helpers/named_bridge_lane_v1.py",
+        "method_sha256": "1552796aaeda2e9bbb4644674011d20bc1b3bf95875ffdb6d60ba78c8eb3fc5a",
+        "inputs": {
+          "helpers/named_queries.json": "1b630a4af65a8ed75c0a6b952e300b3d9397b91e7b15ed5b84012707aaec9438",
+          "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz": "d6b28b5d8139402b18225c3fa404c831e75055a6195bdc6d3c720ebe0060f835",
+          "runs/kernel_revival/code_a7e9bffde8b90533/captured_input.json": "f89f5ff8f6484a2d3f3a1e690b3debcc31e7694b9c38ca726539f3e7c62e82ee"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 96,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "b0298aefe7125dfe22032b2b5e81ca4200f0aedb7ceaa24b1fb69ff838f40d78"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790798290.0852242,
+      "result_path": "runs/named_revival/code_b0298aefe7125dfe/worker_result.json",
+      "result_sha256": "4523a95557624744cc75ee4ff0cf4c69dc49bea776148d3424b7720f22548b31",
+      "kind": "bounded_miss",
+      "summary": "No improvement in named exact neighborhoods; best None, target 96; named_neighborhood_complete.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_radius": 2
+      },
+      "reopen_when": {
+        "event": "new_exact_named_state_or_saved_edges",
+        "row_id": "ac-00013"
+      }
+    },
+    {
+      "key": "71c7c48de3217a348be5242ad55a7f51aa9abf2fcaef54d5dfd3d98cc78dc0b6",
+      "job": {
+        "row_id": "ac-00029",
+        "track": "AC",
+        "helper": "named",
+        "algorithm_id": "named-exact-state-neighborhood-v1",
+        "script": "helpers/named_bridge_lane_v1.py",
+        "method_sha256": "1552796aaeda2e9bbb4644674011d20bc1b3bf95875ffdb6d60ba78c8eb3fc5a",
+        "inputs": {
+          "helpers/named_queries.json": "1b630a4af65a8ed75c0a6b952e300b3d9397b91e7b15ed5b84012707aaec9438",
+          "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz": "d6b28b5d8139402b18225c3fa404c831e75055a6195bdc6d3c720ebe0060f835",
+          "runs/kernel_revival/code_a7e9bffde8b90533/captured_input.json": "f89f5ff8f6484a2d3f3a1e690b3debcc31e7694b9c38ca726539f3e7c62e82ee"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 46,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "71c7c48de3217a348be5242ad55a7f51aa9abf2fcaef54d5dfd3d98cc78dc0b6"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790798305.8702698,
+      "result_path": "runs/named_revival/code_71c7c48de3217a34/worker_result.json",
+      "result_sha256": "d9b0b462c30c76bc4cb15c7058ee7da08ee43b2c97845968e959fa7da2579f65",
+      "kind": "bounded_miss",
+      "summary": "No improvement in named exact neighborhoods; best None, target 46; named_neighborhood_complete.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_radius": 2
+      },
+      "reopen_when": {
+        "event": "new_exact_named_state_or_saved_edges",
+        "row_id": "ac-00029"
+      }
+    },
+    {
+      "key": "3b4842bac7d067193f4e466dead10d2dbccd4e4c3ecd239ed6b35438f0145f38",
+      "job": {
+        "row_id": "ac-00003",
+        "track": "AC",
+        "helper": "named",
+        "algorithm_id": "named-exact-state-neighborhood-v1",
+        "script": "helpers/named_bridge_lane_v1.py",
+        "method_sha256": "1552796aaeda2e9bbb4644674011d20bc1b3bf95875ffdb6d60ba78c8eb3fc5a",
+        "inputs": {
+          "helpers/named_queries.json": "1b630a4af65a8ed75c0a6b952e300b3d9397b91e7b15ed5b84012707aaec9438",
+          "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz": "d6b28b5d8139402b18225c3fa404c831e75055a6195bdc6d3c720ebe0060f835",
+          "runs/kernel_revival/code_a7e9bffde8b90533/captured_input.json": "f89f5ff8f6484a2d3f3a1e690b3debcc31e7694b9c38ca726539f3e7c62e82ee"
+        },
+        "seed_sha256": "e0c7cec3355250138c8137afa9d2e5d391e991adf19b5a5bbca4f59600a401ed",
+        "baseline": 84,
+        "target": 40,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "3b4842bac7d067193f4e466dead10d2dbccd4e4c3ecd239ed6b35438f0145f38"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790798326.22265,
+      "result_path": "runs/named_revival/code_3b4842bac7d06719/worker_result.json",
+      "result_sha256": "c48aa7151aa382af3bc8b0c8e927820a57f8309dca580e0aad60953bce9e54a8",
+      "kind": "bounded_miss",
+      "summary": "No improvement in named exact neighborhoods; best 84, target 40; named_neighborhood_complete.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_radius": 2
+      },
+      "reopen_when": {
+        "event": "new_exact_named_state_or_saved_edges",
+        "row_id": "ac-00003"
+      }
+    },
+    {
+      "key": "6530588bf0ae4a2d5de396ef480ff76c11252f2892ee6ca3c670a892cd4d5657",
+      "job": {
+        "row_id": "ac-00018",
+        "track": "AC",
+        "helper": "named",
+        "algorithm_id": "named-exact-state-neighborhood-v1",
+        "script": "helpers/named_bridge_lane_v1.py",
+        "method_sha256": "1552796aaeda2e9bbb4644674011d20bc1b3bf95875ffdb6d60ba78c8eb3fc5a",
+        "inputs": {
+          "helpers/named_queries.json": "1b630a4af65a8ed75c0a6b952e300b3d9397b91e7b15ed5b84012707aaec9438",
+          "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz": "d6b28b5d8139402b18225c3fa404c831e75055a6195bdc6d3c720ebe0060f835",
+          "runs/kernel_revival/code_a7e9bffde8b90533/captured_input.json": "f89f5ff8f6484a2d3f3a1e690b3debcc31e7694b9c38ca726539f3e7c62e82ee"
+        },
+        "seed_sha256": "cfd5a7d115fadbc37789fea8bf7e7806acb1bc7c6ef58f1bc80726ae8014f8f8",
+        "baseline": 51,
+        "target": 43,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "6530588bf0ae4a2d5de396ef480ff76c11252f2892ee6ca3c670a892cd4d5657"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790798342.4627254,
+      "result_path": "runs/named_revival/code_6530588bf0ae4a2d/worker_result.json",
+      "result_sha256": "10058723e71de7446c037143b9b4e5e6f6d9b3afbfb61e500f53311725760061",
+      "kind": "bounded_miss",
+      "summary": "No improvement in named exact neighborhoods; best 51, target 43; named_neighborhood_complete.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_radius": 2
+      },
+      "reopen_when": {
+        "event": "new_exact_named_state_or_saved_edges",
+        "row_id": "ac-00018"
+      }
     }
   ],
   "notifications": [
@@ -2116,7 +2326,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790794122.5670948,
+  "updated_at": 1790798342.4632735,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,

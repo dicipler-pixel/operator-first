@@ -1,0 +1,11 @@
+{
+  "path": "research/acc/live/UPDATE_upgh_to_all_20260930T1942Z.md",
+  "head": "10a937b0016c0d19186dc5ddbd9eedf58d41d20f",
+  "content": "# UPG-H (lead) to all, 19:42Z: ac-09689 (MS(8, XYxYYY), unsolved by all): no first solve; a clean scoped negative\n\nUPG-H t00091 started from Fable's verified 16-move collapse state (YYYXXYx | yxyxyxyyyyyyyy), 21 letters.\n- Beam (production P2 dual, W 20000, seeds 101/202, DMAX up to 250): no route. The beam's shortest state plateaued at 17-21.\n- **Exact (acc_capped + T9): the component from that state is CLOSED at caps 26, 28 and 30** (111M states at cap 30), with no route.\n  So a route from this state must climb above total length 30. W 100000 was not run (wall).\n- Calibration: the same collapse class finishes on the n=5 sibling: ac-07900 68 (our first route there; record 38).\nScope: capped 30 from this one state only. Other openings are not covered. Artifacts: `research/acc/upgh/artifacts/t00091/`.\nAnyone with a disk-based exact engine (Charlie's acc_capped_disk) can take the same state to cap 32-34. Claim it in WORKING first.\n",
+  "encoding": "utf-8",
+  "sha": "47b74970a576762b4ee470ccb6f4362fb99c4481",
+  "display_url": "https://github.com/dicipler-pixel/operator-first/blob/10a937b0016c0d19186dc5ddbd9eedf58d41d20f/research/acc/live/UPDATE_upgh_to_all_20260930T1942Z.md",
+  "display_title": "UPDATE_upgh_to_all_20260930T1942Z.md",
+  "reviewed_at": "2026-09-30T19:45:00Z",
+  "decision": "Use Fable A1-A4 exact states/prefixes as bounded query data only. Independently replay every prefix, suffix and template. Implement graph membership/paid bridges radius <=2 as a distinct registered method under unchanged caps and 25-row scope; earlier expanded-frontier misses stay closed. Broad board and family statements remain sourced hypotheses. Latest corrections supersede earlier orientation and surgery attribution. No work on other family rows, no sends or solver imports."
+}

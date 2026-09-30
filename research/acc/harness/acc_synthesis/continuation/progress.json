@@ -1,7 +1,7 @@
 {
-  "completed_batches": 50,
+  "completed_batches": 55,
   "model_worker_launches": 4,
-  "code_only_batches": 46,
+  "code_only_batches": 51,
   "new_improved_routes": 4,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -54,7 +54,7 @@
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 50
+      "completed": 55
     },
     "unconnected_roles": [
       "luna_memory",
@@ -711,6 +711,76 @@
         "memory_mib": 1024,
         "node_cap": 600000,
         "wall_seconds": 180.0
+      }
+    },
+    {
+      "helper": "named",
+      "row_id": "ac-00028",
+      "baseline": 51,
+      "target": 44,
+      "kind": "bounded_miss",
+      "result_path": "runs/named_revival/code_9e693843528fa932/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_radius": 2
+      }
+    },
+    {
+      "helper": "named",
+      "row_id": "ac-00013",
+      "baseline": null,
+      "target": 96,
+      "kind": "bounded_miss",
+      "result_path": "runs/named_revival/code_b0298aefe7125dfe/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_radius": 2
+      }
+    },
+    {
+      "helper": "named",
+      "row_id": "ac-00029",
+      "baseline": null,
+      "target": 46,
+      "kind": "bounded_miss",
+      "result_path": "runs/named_revival/code_71c7c48de3217a34/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_radius": 2
+      }
+    },
+    {
+      "helper": "named",
+      "row_id": "ac-00003",
+      "baseline": 84,
+      "target": 40,
+      "kind": "bounded_miss",
+      "result_path": "runs/named_revival/code_3b4842bac7d06719/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_radius": 2
+      }
+    },
+    {
+      "helper": "named",
+      "row_id": "ac-00018",
+      "baseline": 51,
+      "target": 43,
+      "kind": "bounded_miss",
+      "result_path": "runs/named_revival/code_6530588bf0ae4a2d/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_radius": 2
       }
     }
   ],

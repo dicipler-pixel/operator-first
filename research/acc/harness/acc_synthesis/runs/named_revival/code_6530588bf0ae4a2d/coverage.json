@@ -1,0 +1,216 @@
+{
+  "algorithm_id": "named-exact-state-neighborhood-v1",
+  "row_id": "ac-00018",
+  "graph_input": "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz",
+  "graph_sha256": "d6b28b5d8139402b18225c3fa404c831e75055a6195bdc6d3c720ebe0060f835",
+  "capture_sha256": "f89f5ff8f6484a2d3f3a1e690b3debcc31e7694b9c38ca726539f3e7c62e82ee",
+  "helper_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+  "queries_sha256": "1b630a4af65a8ed75c0a6b952e300b3d9397b91e7b15ed5b84012707aaec9438",
+  "limits": {
+    "wall_seconds": 180.0,
+    "node_cap": 600000,
+    "memory_mib": 1024,
+    "fresh_radius": 2
+  },
+  "admitted_records": 353426,
+  "generated_neighborhood_moves": 210,
+  "verified_graph_edges": 144916,
+  "graph_states": 69433,
+  "graph_directed_edges": 144916,
+  "complete_named_neighborhoods": true,
+  "termination_reason": "named_neighborhood_complete",
+  "best_saved_length": 51,
+  "best_length": 51,
+  "target_length": 43,
+  "queries": [
+    {
+      "label": "exit_46",
+      "state": [
+        "xxxxYxxxY",
+        "yXXX"
+      ],
+      "saved_node": true,
+      "saved_distance_from_start": 46,
+      "saved_distance_to_goal": 5,
+      "paid_prefix": null,
+      "paid_suffix": [
+        2,
+        2,
+        4,
+        4,
+        4
+      ],
+      "direction": "predecessor",
+      "hits": [
+        {
+          "state": [
+            "xxxxYxxxY",
+            "yXXX"
+          ],
+          "bridge": [],
+          "saved_distance_from_start": 46,
+          "saved_distance_to_goal": 5,
+          "complete_cost": 51
+        },
+        {
+          "state": [
+            "xxxxY",
+            "yXXX"
+          ],
+          "bridge": [
+            3
+          ],
+          "saved_distance_from_start": 47,
+          "saved_distance_to_goal": 4,
+          "complete_cost": 53
+        },
+        {
+          "state": [
+            "xxxxYxxxY",
+            "XyXX"
+          ],
+          "bridge": [
+            10
+          ],
+          "saved_distance_from_start": 45,
+          "saved_distance_to_goal": 6,
+          "complete_cost": 51
+        },
+        {
+          "state": [
+            "xxxxYxxxY",
+            "xyXXXX"
+          ],
+          "bridge": [
+            11
+          ],
+          "saved_distance_from_start": 47,
+          "saved_distance_to_goal": 6,
+          "complete_cost": 53
+        },
+        {
+          "state": [
+            "xxxxYxxxYxxxY",
+            "yXXX"
+          ],
+          "bridge": [
+            2
+          ],
+          "saved_distance_from_start": 47,
+          "saved_distance_to_goal": 6,
+          "complete_cost": 53
+        },
+        {
+          "state": [
+            "XyXXXyXXX",
+            "yXXX"
+          ],
+          "bridge": [
+            6,
+            0
+          ],
+          "saved_distance_from_start": 51,
+          "saved_distance_to_goal": 6,
+          "complete_cost": 58
+        },
+        {
+          "state": [
+            "x",
+            "yXXX"
+          ],
+          "bridge": [
+            3,
+            3
+          ],
+          "saved_distance_from_start": 48,
+          "saved_distance_to_goal": 3,
+          "complete_cost": 55
+        },
+        {
+          "state": [
+            "xxxYxxxYx",
+            "xyXXXX"
+          ],
+          "bridge": [
+            11,
+            6
+          ],
+          "saved_distance_from_start": 48,
+          "saved_distance_to_goal": 7,
+          "complete_cost": 55
+        },
+        {
+          "state": [
+            "xxxxY",
+            "yXXXyXXXX"
+          ],
+          "bridge": [
+            4,
+            3
+          ],
+          "saved_distance_from_start": 48,
+          "saved_distance_to_goal": 5,
+          "complete_cost": 55
+        },
+        {
+          "state": [
+            "xxxxYxxxY",
+            "XXyX"
+          ],
+          "bridge": [
+            10,
+            10
+          ],
+          "saved_distance_from_start": 44,
+          "saved_distance_to_goal": 7,
+          "complete_cost": 51
+        },
+        {
+          "state": [
+            "xxxxYxxxY",
+            "XyxxYxxxY"
+          ],
+          "bridge": [
+            5,
+            10
+          ],
+          "saved_distance_from_start": 46,
+          "saved_distance_to_goal": 7,
+          "complete_cost": 53
+        },
+        {
+          "state": [
+            "xxxxYxxxYxxxY",
+            "XyXX"
+          ],
+          "bridge": [
+            10,
+            2
+          ],
+          "saved_distance_from_start": 48,
+          "saved_distance_to_goal": 7,
+          "complete_cost": 55
+        },
+        {
+          "state": [
+            "yXXXX",
+            "yXXX"
+          ],
+          "bridge": [
+            0,
+            3
+          ],
+          "saved_distance_from_start": 48,
+          "saved_distance_to_goal": 5,
+          "complete_cost": 55
+        }
+      ],
+      "neighborhood_unique_states": 159,
+      "neighborhood_move_strings": 211
+    }
+  ],
+  "verified_compositions": [],
+  "elapsed_seconds": 1.5337883019965375,
+  "peak_rss_mib": 142.04296875,
+  "scope": "Only the pinned saved graph and declared exact 0..2-move neighborhoods; no global impossibility or live scoring claim."
+}
