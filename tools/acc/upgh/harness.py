@@ -19,6 +19,7 @@ import json
 import os
 import re
 import secrets
+import shutil
 import signal
 import subprocess
 import sys
@@ -204,6 +205,8 @@ class Harness:
             h = self.cfg["harvest"]
             paths = [Path(f).resolve() for f in files] if files else harvest_mod.scan(
                 self.repo, h["globs"], h["exclude"])
+            if not files:   # outputs of runs still in progress, or of lanes that died mid-run (S4)
+                paths += sorted((self.cache / "running").glob("*/out.jsonl"))
             found = []
             for p in paths:
                 rel = self._rel(p)
@@ -1150,8 +1153,9 @@ class Harness:
         if missing:
             return self.accept(tid, token, {"task": tid, "kind": "blocked",
                                             "summary": "missing %s in %s; run `upgh setup --t9`" % (missing, self.cache)})
-        art = self.repo / c["workspace"]["artifacts_dir"]
+        final_art = self.repo / c["workspace"]["artifacts_dir"]
         work = self.cache / "work" / tid
+        art = self.cache / "running" / tid          # live outputs stay out of the repo until the run ends
         art.mkdir(parents=True, exist_ok=True)
         work.mkdir(parents=True, exist_ok=True)
         targets = []
@@ -1217,9 +1221,13 @@ class Harness:
                 stamp = self.cache / (n + ".src.sha256")
                 provenance[n] = {"binary_sha256": sha256_file(self.cache / n),
                                  "source_sha256": stamp.read_text().strip() if stamp.exists() else None}
+        final_art.mkdir(parents=True, exist_ok=True)
+        for name in ("out.jsonl", "targets.json", "jobs.json", "stdout.log", "stderr.log"):
+            if (art / name).exists():
+                shutil.copyfile(art / name, final_art / name)
         arts = [{"path": self._rel(p), "sha256": sha256_file(p)}
-                for p in (art / "out.jsonl", art / "targets.json", art / "stdout.log", art / "stderr.log")
-                if p.exists()]
+                for p in (final_art / "out.jsonl", final_art / "targets.json", final_art / "stdout.log",
+                          final_art / "stderr.log") if p.exists()]
         if reason == "finished" and proc.returncode != 0:
             return self.accept(tid, token, {"task": tid, "kind": "blocked", "artifacts": arts,
                                             "summary": "%s exited %s after %ss: a tool error is not a miss; see "

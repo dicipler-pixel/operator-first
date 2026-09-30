@@ -5,4 +5,3 @@ Written by tools/acc/upgh on every claim and result. Rows below are being search
 - t00029: sac-02528, sac-07119 (method tail, seed None)
 - t00030: sac-04493, ac-05149 (method tail, seed None)
 - t00031: sac-04718, sac-02275 (method tail, seed None)
-- t00032: ac-06045 (method capped (exact capped BFS, acc_capped tail mode, uncapped T9 finish), seed None)

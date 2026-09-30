@@ -47,9 +47,15 @@ class Env:
             cfg["ladder"] = [cfg["default_strategy"]]   # one family unless a test asks for the ladder
         self.cfg_path = self.tmp / "config.json"
         self.cfg_path.write_text(json.dumps(cfg))
-        self.h = Harness(config_path=self.cfg_path, state_dir=self.repo / "state", repo=self.repo)
         self.t = [T0]
-        self.h.now = lambda: self.t[0]
+        self.h = self.harness()
+
+    def harness(self):
+        """A harness on this repo with the real pinned verifier but a private cache (no real lane output)."""
+        h = Harness(config_path=self.cfg_path, state_dir=self.repo / "state", repo=self.repo)
+        h.cache = self.tmp / "cache"
+        h.now = lambda: self.t[0]
+        return h
 
     def file(self, rel, text):
         p = self.repo / rel
@@ -380,8 +386,7 @@ class HarnessTests(unittest.TestCase):
         cfg["default_strategy"]["method"] = "broken"
         cfg["ladder"] = [cfg["default_strategy"]]
         e.cfg_path.write_text(json.dumps(cfg))
-        e.h = Harness(config_path=e.cfg_path, state_dir=e.repo / "state", repo=e.repo)
-        e.h.now = lambda: e.t[0]
+        e.h = e.harness()
         e.file("inbox/a.txt", "ac-01373: %s\n" % AC1373)
         e.h.harvest()
         e.boards(ac={"ac-01373": (29, 2)}, sac={}, held={})
@@ -453,8 +458,7 @@ class HarnessTests(unittest.TestCase):
         cfg["default_strategy"]["method"] = "fake"
         cfg["ladder"] = [cfg["default_strategy"]]
         e.cfg_path.write_text(json.dumps(cfg))
-        e.h = Harness(config_path=e.cfg_path, state_dir=e.repo / "state", repo=e.repo)
-        e.h.now = lambda: e.t[0]
+        e.h = e.harness()
         e.file("inbox/a.txt", "ac-00313: %s\n" % (AC313 + [0, 0]))   # our old best: 35
         e.h.harvest()
         e.boards(ac={"ac-00313": (33, 3)}, sac={}, held={})
