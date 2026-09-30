@@ -4,5 +4,4 @@ Written by tools/acc/upgh on every claim and result. Rows below are being search
 
 - t00115: ac-05598, ac-03913 (method middle_bridge, seed None)
 - t00116: ac-00020 (method beam_free, seed 101)
-- t00117: ac-00033 (method beam_free, seed 101)
 - t00118: ac-09726 (method beam_free, seed 101)
