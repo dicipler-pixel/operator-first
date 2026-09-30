@@ -1,0 +1,129 @@
+{
+  "admitted_records": 600000,
+  "generated_moves": 902678,
+  "collision_pairs": 154697,
+  "duplicate_or_dominated": 302831,
+  "replaced_labels": 0,
+  "length_pruned": 0,
+  "cost_pruned": 378,
+  "stale_queue_labels": 0,
+  "expanded_by_side_depth": [
+    [
+      76,
+      915,
+      8966,
+      45079,
+      0
+    ],
+    [
+      75,
+      888,
+      8478,
+      0,
+      0
+    ]
+  ],
+  "admitted_by_side_depth": [
+    [
+      77,
+      925,
+      9043,
+      84448,
+      416316
+    ],
+    [
+      77,
+      913,
+      8741,
+      79460,
+      0
+    ]
+  ],
+  "improvements": [],
+  "termination_reason": "node_cap",
+  "elapsed_seconds": 12.135496290997253,
+  "peak_rss_mib": 409.296875,
+  "unique_states_by_side": [
+    453533,
+    79460
+  ],
+  "latest_labels_by_side": [
+    510809,
+    89191
+  ],
+  "pending_by_side_depth": [
+    [
+      0,
+      0,
+      0,
+      39369,
+      416316
+    ],
+    [
+      0,
+      0,
+      0,
+      79460,
+      0
+    ]
+  ],
+  "partial_layer": {
+    "side": 0,
+    "depth": 3
+  },
+  "target_length": 41,
+  "best_length": 44,
+  "total_bridge_depth_cap": 8,
+  "per_side_depth_cap": 4,
+  "coverage_scope": "Only admitted exact labels and generated moves under caps; no impossibility claim.",
+  "row_id": "ac-00034",
+  "profile": "route-local",
+  "best_saved_length": 44,
+  "union_shortest_length": 44,
+  "union_states": 77,
+  "union_directed_edges": 156,
+  "saved_route_lengths": [
+    44,
+    45
+  ],
+  "phase_seconds": {
+    "saved_union_and_replay": 0.00787109700468136,
+    "fresh_search": 12.135496290997253
+  },
+  "limits": {
+    "wall_seconds": 180.0,
+    "node_cap": 600000,
+    "memory_mib": 1024,
+    "total_bridge_depth": 8
+  },
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "bridge_search.py",
+    "--row",
+    "ac-00034",
+    "--output-dir",
+    "/workspace/scratch/981699a2d5e1/acc_synthesis/runs/code_677063858da8fd7f",
+    "--wall-seconds",
+    "180",
+    "--node-cap",
+    "600000",
+    "--profile",
+    "route-local",
+    "--depth",
+    "8",
+    "--target-length",
+    "41",
+    "--memory-mib",
+    "1024",
+    "--routes",
+    "/workspace/scratch/981699a2d5e1/acc_synthesis/continuation/routes.json"
+  ],
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+  "route_source_sha256": "9ffa85c82623ae7675f86c23cbbe1c64fb43dc28ec9fe7675fd933b01fda2dcb",
+  "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+  "method_sha256": "83ba1aae847c148c7eb0fd214e7e2cb51bbe0ff0bf1ae83976f8183a486ecfc2",
+  "executed_method_path": "runs/code_677063858da8fd7f/executed_bridge_search.py",
+  "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+  "live_score_claim": false
+}

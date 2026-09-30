@@ -1,0 +1,105 @@
+{
+  "completed_batches": 2,
+  "model_worker_launches": 1,
+  "code_only_batches": 1,
+  "new_improved_routes": 0,
+  "model_worker_dispatch_budget": 0,
+  "submission_enabled": false,
+  "runs": [
+    {
+      "row_id": "ac-00037",
+      "best_length": 32,
+      "target_length": 31,
+      "admitted_records": 600000,
+      "generated_moves": 904295,
+      "elapsed_seconds": 15.258116714001517,
+      "peak_rss_mib": 459.6875,
+      "termination_reason": "node_cap"
+    },
+    {
+      "row_id": "ac-00034",
+      "best_length": 44,
+      "target_length": 41,
+      "admitted_records": 600000,
+      "generated_moves": 902678,
+      "elapsed_seconds": 12.135496290997253,
+      "peak_rss_mib": 409.296875,
+      "termination_reason": "node_cap"
+    }
+  ],
+  "next": {
+    "status": "planned",
+    "job": {
+      "row_id": "ac-00012",
+      "track": "AC",
+      "baseline": 52,
+      "target": 47,
+      "seed_sha256": "080bbe88ccf41c29ce20ff672ca310011ecc7a906bb7c957d6401f53b8b6b177",
+      "method_sha256": "83ba1aae847c148c7eb0fd214e7e2cb51bbe0ff0bf1ae83976f8183a486ecfc2",
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "depth": 8,
+        "profile": "route-local",
+        "memory_mib": 1024
+      },
+      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+      "key": "175db250bbb1b1d0dc5c555333d86563228399a6ba9a760ae0f6fa987ae933f7"
+    },
+    "remaining_jobs": 8
+  },
+  "harness_status": {
+    "stopped": false,
+    "tasks": {
+      "completed": 2,
+      "queued": 1
+    },
+    "unconnected_roles": [
+      "luna_memory",
+      "sol_builder",
+      "sol_checker",
+      "astra_advisor"
+    ],
+    "dispatch_budget": {
+      "total": 0,
+      "per_role": {
+        "sol_builder": 0,
+        "sol_checker": 0,
+        "luna_memory": 0,
+        "astra_advisor": 0
+      }
+    },
+    "reserved_worker_dispatches": 1,
+    "selected_rows": [
+      "ac-00001",
+      "ac-00003",
+      "ac-00005",
+      "ac-00006",
+      "ac-00009",
+      "ac-00010",
+      "ac-00011",
+      "ac-00012",
+      "ac-00013",
+      "ac-00015",
+      "ac-00016",
+      "ac-00017",
+      "ac-00018",
+      "ac-00020",
+      "ac-00021",
+      "ac-00022",
+      "ac-00024",
+      "ac-00027",
+      "ac-00028",
+      "ac-00029",
+      "ac-00031",
+      "ac-00032",
+      "ac-00033",
+      "ac-00034",
+      "ac-00037"
+    ],
+    "checker_connected": true,
+    "demo": false,
+    "submission_enabled": false,
+    "state": "/workspace/scratch/981699a2d5e1/acc_synthesis/state"
+  }
+}

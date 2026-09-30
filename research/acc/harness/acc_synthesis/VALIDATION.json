@@ -49,7 +49,7 @@
   "real_ACC_search_run": true,
   "submission_performed": false,
   "historical_ACC_fixtures_replayed": true,
-  "scope": "68 local tests; unchanged pinned verifier previously passed 63 upstream checks and 25 archived routes. One real bounded bridge miss on ac-00037; one authorized Sol file handoff; model-worker dispatch now zero. No submission or live scoring claim.",
+  "scope": "68 local tests pass; unchanged pinned verifier previously passed 63 upstream checks and 25 archived routes. Two real bounded bridge misses (ac-00037 and ac-00034), the second dispatched by the code continuation controller. One authorized Sol file handoff; future worker dispatch zero. No submission or live scoring claim.",
   "version": "1.4.0",
   "cost_scope": "Persistent worker dispatch caps; code-first verification; no provider currency/token enforcement.",
   "intake": {
@@ -61,5 +61,7 @@
   "official_conformance_cases": 63,
   "real_routes_replayed": 25,
   "real_rows_with_verified_paths": 10,
-  "source_commit": "d3351066a05bf6262cacc30fdcb055d2e0942a94"
+  "source_commit": "d3351066a05bf6262cacc30fdcb055d2e0942a94",
+  "bounded_real_searches": 2,
+  "code_only_continuation_tested": true
 }
