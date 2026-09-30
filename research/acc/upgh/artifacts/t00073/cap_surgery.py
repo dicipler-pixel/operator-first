@@ -263,7 +263,44 @@ def control():
         res['checks'].append(ent); json.dump(res, open(out, 'w'), indent=1)
     return res
 
-if __name__ == '__main__':
+def windows_cap():
+    """Independent exact capped window check (cap K): radius-5 balls B_5(s_i) under cap K (acc_disk layers, exact distances),
+    then for every pair i<j, j-i <= 11 (W), a connection of length d <= j-i-1 <= 10 exists iff some state m has
+    dist_i(m) + dist_j(m) <= j-i-1 with both distances <= 5.  Also flags pairs whose balls contain each other's state."""
+    out = os.path.join(ART, 'lane_windows_cap%d.json' % K); t0 = time.time(); W = 11
+    balls = []; sizes = []
+    for i in range(N + 1):
+        stop_check(); heartbeat()
+        d = os.path.join(WORK, 'wb'); subprocess.run(['rm', '-rf', d])
+        run(['nice', '-n', '10', BIN, 'bfs', d, st(S[i]), str(K), '--mem', '500', '--notarget', '--maxlayer', '5', '--minfree', '4'])
+        dist = {}
+        for t in range(6):
+            b = open(os.path.join(d, 'L_%04d.bin' % t), 'rb').read()
+            for o in range(0, len(b), 16): dist[b[o:o + 16]] = t
+        balls.append(dist); sizes.append(len(dist))
+    subprocess.run(['rm', '-rf', os.path.join(WORK, 'wb')])
+    pairs = []; shortcuts = []
+    for i in range(N + 1):
+        for j in range(i + 1, min(N, i + W) + 1):
+            gap = j - i; A, B = balls[i], balls[j]
+            if len(A) > len(B): A, B = B, A
+            best = 99
+            for k, da in A.items():
+                db = B.get(k)
+                if db is not None and da + db < best: best = da + db
+            pairs.append((i, j, gap, best))
+            if best < gap: shortcuts.append({'i': i, 'j': j, 'gap': gap, 'dist_upper': best})
+    rec = {'lane': 'windows_cap%d' % K, 'cap': K, 'W': W, 'method': 'exact radius-5 balls under cap, pairs j-i <= 11', 'ball_sizes': sizes,
+           'pairs_checked': len(pairs), 'shortcuts': shortcuts, 'wall_s': round(time.time() - t0, 1),
+           'control_pairs_gap_le_10': sum(1 for (_, _, g, b) in pairs if g <= 10), 'control_pairs_gap_le_10_with_dist_eq_gap': sum(1 for (_, _, g, b) in pairs if g <= 10 and b == g), 'verdict': 'shortcut' if shortcuts else 'certified: no window <= %d shortens the route under cap %d' % (W, K)}
+    json.dump(rec, open(out, 'w'), indent=1)
+    return rec
+
+def _main():
     kind = sys.argv[1]; os.makedirs(WORK, exist_ok=True); heartbeat(True)
-    r = {'head': lambda: lane('head'), 'tail': lambda: lane('tail'), 'windows': windows, 'control': control}[kind]()
+    r = {'head': lambda: lane('head'), 'tail': lambda: lane('tail'), 'windows': windows, 'control': control, 'windows_cap': windows_cap}[kind]()
     print(json.dumps({k: v for k, v in r.items() if k not in ('searches', 'checks')}, indent=1))
+
+
+if __name__ == '__main__':
+    _main()

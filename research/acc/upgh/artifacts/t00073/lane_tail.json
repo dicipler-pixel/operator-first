@@ -272,15 +272,40 @@
    "raw": "RESULT MAXLAYER states=42261080",
    "result": "MAXLAYER",
    "states": 42261080
+  },
+  {
+   "L": 20,
+   "root": "YYXXX,XYxyXYxyxxYXXX",
+   "root_total": 19,
+   "root_in_ball_depth": null,
+   "tag": "tail_L20",
+   "start": "YYXXX,XYxyXYxyxxYXXX",
+   "cap": 37,
+   "maxlayer": 10,
+   "secs": 110.5,
+   "layer_sizes": [
+    14,
+    141,
+    1136,
+    7748,
+    46500,
+    252716,
+    1240610,
+    5468989,
+    21622607
+   ],
+   "states_completed": 28640462,
+   "result": "BUDGET_STOP",
+   "reason": "budget: on-disk bytes 2.18 GB (> 1.5 x MAXST x 16 B) inside layer 10"
   }
  ],
- "certified_upto": 18,
+ "certified_upto": 19,
  "shortened": null,
- "ended_by": null,
+ "ended_by": "BUDGET_STOP at L=20: budget: on-disk bytes 2.18 GB (> 1.5 x MAXST x 16 B) inside layer 10",
  "ball": {
   "dir": "work/B37",
   "layers_0_9_total": 188404513,
   "meet": "layer 9 only"
  },
- "wall_s": 289.9
+ "wall_s": 402.9
 }
