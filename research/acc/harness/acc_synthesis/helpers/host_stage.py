@@ -26,14 +26,13 @@ progress=json.loads((r/'continuation/progress.json').read_text());progress.updat
 (r/'continuation/progress.json').write_text(json.dumps(progress,indent=2)+'\n')
 v=json.loads((r/'VALIDATION.json').read_text());v['bounded_real_searches']=len(c.cp['attempts']);(r/'VALIDATION.json').write_text(json.dumps(v,indent=2)+'\n')
 if c.cp['active'] is None:
- last=c.cp['attempts'][-1];plan=c.plan();nexttext=('Next proposed '+plan['job']['helper']+' '+plan['job']['row_id']+'; this is not a claim.') if plan['status']=='planned' else str(plan)
  Path('/tmp/acc_current_claim.md').write_text(f'''# ACC memory-first harness claims
 
 Updated: {datetime.datetime.now(datetime.timezone.utc).isoformat()}.
 
-No active claim. Completed {len(c.cp['attempts'])} bounded method probes. Latest: {last['job'].get('helper','bridge')} {last['job']['row_id']}: {last['summary']}
+No active claim. Completed {len(c.cp['attempts'])} bounded method probes.
 
-{nexttext}
+Completed row details and proposed jobs are in the continuation checkpoint and progress files. They are not reservations.
 
 All results and precise limits are preserved in research/acc/harness/acc_synthesis/continuation/checkpoint.json and runs/. Scheduled model-worker dispatch zero. Bounds unchanged: <=180 search seconds / <=600000 records / <=1024 MiB. No submissions, challenge API requests, public publishing or old watches. Scope of a bounded miss is not a nonexistence proof.
 ''')
