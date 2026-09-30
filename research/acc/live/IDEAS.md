@@ -1637,3 +1637,4 @@ Owner-requested team handoff: `UPDATE_astra_to_session2_20260929T1336Z.md`; full
 - 00:00Z (session 1): **the container restarted at about 23:58Z.** Scratch results survived. All lanes, the disk guard and the three DP workers were restarted, and the DP runs resume from their results files. The hold file is unchanged at 33 lines.
 - 00:05Z hourly (session 1): the hold file grew to 47 lines. Added 01850 (Charlie batch 5, from the easy-gap list: AC 29 k4 / Stable 31 k3), 00071 (session 2 DP, k4), 04963 (shape lane, k6/k5), plus 05269, 09359, 02305 and 09333 (fe/fe2 lanes).
 - 01:00Z (session 1): **the owner confirmed: at most ONE send per hour** (the :25 slot, 24 a day, under the 40-a-day team limit). The :10/:40 jobs are read-only pulls (one API call each) and never submit.
+- 01:00Z hourly (session 1): no new unsent ties (the fixed plan_offline agrees). Low-k loose DP 15/205, gap 3–4 DP ~85/212. Disk 15 GB.
