@@ -10,18 +10,16 @@ test_saved_union_exact_edges_and_inverse (test_bridge_search.BridgeTests.test_sa
 test_goal_ball_and_ordered_route (test_charlie_lane.CharlieLaneTests.test_goal_ball_and_ordered_route) ... ok
 test_partial_layer_never_closed (test_charlie_lane.CharlieLaneTests.test_partial_layer_never_closed) ... ok
 test_unseeded_row_reaches_bounded_search_with_absent_baseline (test_charlie_lane.CharlieLaneTests.test_unseeded_row_reaches_bounded_search_with_absent_baseline) ... ok
-test_wall_budget_cannot_be_increased_or_nan (test_charlie_lane.CharlieLaneTests.test_wall_budget_cannot_be_increased_or_nan) ... usage: python -m unittest [-h] --row ROW --output-dir OUTPUT_DIR
-                          [--wall-seconds WALL_SECONDS] [--node-cap NODE_CAP]
-                          [--target-length TARGET_LENGTH]
-                          [--memory-mib MEMORY_MIB] [--caps CAPS]
-                          [--goal-radius GOAL_RADIUS]
-python -m unittest: error: bounds: wall (0,180], nodes [1,600000], memory [64,1024], goal radius [0,5]
-usage: python -m unittest [-h] --row ROW --output-dir OUTPUT_DIR
-                          [--wall-seconds WALL_SECONDS] [--node-cap NODE_CAP]
-                          [--target-length TARGET_LENGTH]
-                          [--memory-mib MEMORY_MIB] [--caps CAPS]
-                          [--goal-radius GOAL_RADIUS]
-python -m unittest: error: bounds: wall (0,180], nodes [1,600000], memory [64,1024], goal radius [0,5]
+test_wall_budget_cannot_be_increased_or_nan (test_charlie_lane.CharlieLaneTests.test_wall_budget_cannot_be_increased_or_nan) ... usage: selftest.py [-h] --row ROW --output-dir OUTPUT_DIR
+                   [--wall-seconds WALL_SECONDS] [--node-cap NODE_CAP]
+                   [--target-length TARGET_LENGTH] [--memory-mib MEMORY_MIB]
+                   [--caps CAPS] [--goal-radius GOAL_RADIUS]
+selftest.py: error: bounds: wall (0,180], nodes [1,600000], memory [64,1024], goal radius [0,5]
+usage: selftest.py [-h] --row ROW --output-dir OUTPUT_DIR
+                   [--wall-seconds WALL_SECONDS] [--node-cap NODE_CAP]
+                   [--target-length TARGET_LENGTH] [--memory-mib MEMORY_MIB]
+                   [--caps CAPS] [--goal-radius GOAL_RADIUS]
+selftest.py: error: bounds: wall (0,180], nodes [1,600000], memory [64,1024], goal radius [0,5]
 ok
 test_changed_seed_cannot_run_under_old_reservation (test_continuation.ContinuationTests.test_changed_seed_cannot_run_under_old_reservation) ... ok
 test_code_batch_persists_miss_without_model_dispatch_and_never_repeats (test_continuation.ContinuationTests.test_code_batch_persists_miss_without_model_dispatch_and_never_repeats) ... ok
@@ -62,6 +60,8 @@ test_changed_foreign_pool_invalidates_reservation (test_helper_batch.HelperBatch
 test_distinct_lanes_share_negative_memory_without_dispatching_models (test_helper_batch.HelperBatchTests.test_distinct_lanes_share_negative_memory_without_dispatching_models) ... ok
 test_new_seed_does_not_repeat_charlie_when_search_target_is_unchanged (test_helper_batch.HelperBatchTests.test_new_seed_does_not_repeat_charlie_when_search_target_is_unchanged) ... ok
 test_out_of_contract_candidate_is_rejected_before_checker (test_helper_batch.HelperBatchTests.test_out_of_contract_candidate_is_rejected_before_checker) ... ok
+test_successful_exit_without_result_is_interrupted_not_a_miss (test_helper_batch.HelperBatchTests.test_successful_exit_without_result_is_interrupted_not_a_miss) ... ok
+test_worker_failure_after_result_write_is_interrupted_not_a_miss (test_helper_batch.HelperBatchTests.test_worker_failure_after_result_write_is_interrupted_not_a_miss) ... ok
 test_cap_and_stop_are_bounded_misses (test_kernel_lane.KernelLaneTests.test_cap_and_stop_are_bounded_misses) ... ok
 test_foreign_road_suffix_minimum_and_direction (test_kernel_lane.KernelLaneTests.test_foreign_road_suffix_minimum_and_direction) ... ok
 test_foreign_route_join_by_paid_bridge (test_kernel_lane.KernelLaneTests.test_foreign_route_join_by_paid_bridge) ... ok
@@ -98,7 +98,7 @@ test_stop_persists_and_prevents_dispatch (test_workflow.WorkflowTests.test_stop_
 test_zero_budget_blocks_run_and_file_handoff (test_workflow.WorkflowTests.test_zero_budget_blocks_run_and_file_handoff) ... ok
 
 ----------------------------------------------------------------------
-Ran 86 tests in 2.360s
+Ran 88 tests in 2.186s
 
 OK
 {"kind": "bounded_miss", "row_id": "ac-00001", "result_path": "run/worker_result.json", "coverage_path": "run/coverage.json", "termination_reason": "node_cap", "admitted_records": 3, "winner_length": null}

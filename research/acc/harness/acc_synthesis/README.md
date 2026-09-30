@@ -21,13 +21,13 @@ Python 3.10+ and the standard library suffice. No network or model account is ne
 
 ## Current bounded progress
 
-Current totals and exact coverage are in `continuation/progress.json` and `continuation/checkpoint.json`. Every completed method/row/input probe is retained. The first new independently checked improvement is **ac-00028, 58 -> 54 moves**, obtained by exact foreign-road overlay. The pasted target is 44, so it does not reach that target and no live scoring claim is made. The new route and official receipt are preserved in `continuation/routes.json` and its immutable run folder.
+Current totals and exact coverage are in `continuation/progress.json` and `continuation/checkpoint.json`. Every completed method/row/input probe is retained. Exact foreign-road overlay produced two independently checked improvements: **ac-00028, 58 -> 54 moves**, and **ac-00003, 92 -> 84 moves**. Their pasted targets are 44 and 40 respectively, so neither reaches its target and no live scoring claim is made. Both routes and official receipts are preserved in `continuation/routes.json` and immutable run folders.
 
 `helper_batch.py` rotates the recovered code lanes and keeps model dispatch at zero. Each batch remains <=180 search seconds, <=600000 records and <=1024 MiB. Workers read the portable stop flag; the controller owns SQLite and enforces live stops and leases. Source hardening does not reopen old probes. Charlie's search identity also ignores changed saved routes when its actual start/goal/target/caps are unchanged. Bob and Kernel retain seed-sensitive identities because they use those routes.
 
 ## Actual validation
 
-**86 local tests pass; the official checker passes all 63 upstream conformance cases. All 25 recovered routes across 10 selected rows replay correctly.**
+**88 local tests pass; the official checker passes all 63 upstream conformance cases. All 25 recovered routes across 10 selected rows replay correctly.**
 
 | Row | Best recovered length | Pasted record |
 | --- | ---: | ---: |
