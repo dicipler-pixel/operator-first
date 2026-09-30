@@ -2,6 +2,7 @@
 with DMAX = TARGET - i, map the tail back (conjugations by x and y trade places), and keep prefix + tail when it is a route
 from the row to (y,x) of length <= TARGET. The Stable AC line is that route + [15, 15], so TARGET = Stable record - 2 ties.
 usage: python3 tools/acc/ops/yx_mid.py ROW TARGET 'PATH_JSON' [W] [STEP]   (env BEAM_* passed to the beam; BIN via MR_BIN)
+env YX_START=i resumes at cut i; YX_CAP=file appends each new best route (JSON line) as soon as it is found.
 Prints one JSON line per cut; the last line is the best route found (or none)."""
 import json, os, re, subprocess, sys, time
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'scratch_utils')); from acmoves import move, run
@@ -17,7 +18,9 @@ BIN = os.environ.get('MR_BIN', S + '/p2ybin')
 st = [R0]
 for mv in path: st.append(move(st[-1], mv))
 best = None
-for i in range(0, min(len(path), T), STEP):
+START = int(os.environ.get('YX_START', '0'))  # resume: skip cuts a killed run already logged
+CAP = os.environ.get('YX_CAP')  # append each new best route here at once, so a killed run keeps its hit
+for i in range(START, min(len(path), T), STEP):
     if st[i] == ('y', 'x') and i <= T:
         best = list(path[:i]); print(json.dumps({'cut': i, 'route': i, 'note': 'path passes (y,x)'}), flush=True); break
     a, b = st[i][0].translate(SW), st[i][1].translate(SW); dmax = T - i
@@ -29,7 +32,10 @@ for i in range(0, min(len(path), T), STEP):
     tail = [BACK[x] for x in map(int, m.group(2).split())] if m else None
     full = list(path[:i]) + tail if tail is not None else None
     ok = full is not None and run(R0, full) == ('y', 'x')
-    if ok and len(full) <= T and (best is None or len(full) < len(best)): best = full
+    if ok and len(full) <= T and (best is None or len(full) < len(best)):
+        best = full
+        if CAP:
+            with open(CAP, 'a') as o: o.write(json.dumps({'id': row, 'target': T, 'best_route': len(best), 'sac_len': len(best) + 2, 'sac': best + [15, 15]}) + '\n')
     print(json.dumps({'cut': i, 'len_at_cut': len(a) + len(b), 'tail': len(tail) if tail is not None else None,
                       'route': len(full) if full else None, 'ok': ok, 'wall_s': round(time.time() - t0)}), flush=True)
 print(json.dumps({'id': row, 'target': T, 'best_route': len(best) if best else None,
