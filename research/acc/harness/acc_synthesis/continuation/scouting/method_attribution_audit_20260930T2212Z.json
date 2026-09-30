@@ -1,0 +1,81 @@
+{
+  "scope": "Completed candidate receipts only; external imports are separate provenance",
+  "rows": [
+    {
+      "row_id": "ac-00028",
+      "helper_label": "kernel",
+      "actual_mechanism": "saved_graph_union",
+      "before": 58,
+      "after": 54,
+      "successful_transfers": null,
+      "class_matches": null,
+      "best_origin": null,
+      "source_result": "runs/kernel_revival/code_6abe0e893a2057f7/worker_result.json",
+      "source_result_sha256": "c75dd319cbda4691cd2134bc097c00cf1b82bea56d483201af9262c0fcacf1fa",
+      "coverage_sha256": "29f28f3d61625517179168e89f8078daebe7999bd56e54965cabf157ad1ee30b",
+      "job_key": "6abe0e893a2057f7a53553f345cdafa273f0531e35c7b152b15f88c1a59b7c73"
+    },
+    {
+      "row_id": "ac-00003",
+      "helper_label": "kernel",
+      "actual_mechanism": "saved_graph_union",
+      "before": 92,
+      "after": 84,
+      "successful_transfers": null,
+      "class_matches": null,
+      "best_origin": null,
+      "source_result": "runs/kernel_revival/code_be150c4ff82d82e3/worker_result.json",
+      "source_result_sha256": "ca8a303e5eb17f7c4d81066d067bca83d3cd5b2ca8bd9a89f55e69b96f542188",
+      "coverage_sha256": "9009451ecc7040bea54f6938a17e668755effb1b9170048a355a70f03dbfed2e",
+      "job_key": "be150c4ff82d82e3c08ef056d181f8e09689020dc7aa6f1d865b07b6c1833523"
+    },
+    {
+      "row_id": "ac-00028",
+      "helper_label": "kernel",
+      "actual_mechanism": "saved_graph_union",
+      "before": 54,
+      "after": 52,
+      "successful_transfers": null,
+      "class_matches": null,
+      "best_origin": null,
+      "source_result": "runs/kernel_revival/code_14fba1d56d040444/worker_result.json",
+      "source_result_sha256": "842360c3244d5d0a71fbe55ced08edf527bff308d8f1a82004e5242b5b23f2a3",
+      "coverage_sha256": "0391d1eb0cd936ff2f9fb4b08cc08ac0515d07e59fb3d386dda406ec98c25907",
+      "job_key": "14fba1d56d0404442b796b5358a955e89552b4aa470a7ff431b1173a861d640d"
+    },
+    {
+      "row_id": "ac-00028",
+      "helper_label": "kernel",
+      "actual_mechanism": "saved_graph_union",
+      "before": 52,
+      "after": 51,
+      "successful_transfers": null,
+      "class_matches": null,
+      "best_origin": null,
+      "source_result": "runs/kernel_revival/code_a7e9bffde8b90533/worker_result.json",
+      "source_result_sha256": "025a6411b1ba4ab923998c309a063af610900b591414c2d7ee92952c7e42e989",
+      "coverage_sha256": "5945d688a0694f28cbff40da846f8a75ec250ede99900a0462141c75eb719f86",
+      "job_key": "a7e9bffde8b90533057ab65be6d380d34cc793f2fa0e2bc350a5e858f52af069"
+    },
+    {
+      "row_id": "ac-00003",
+      "helper_label": "bob",
+      "actual_mechanism": "saved_union",
+      "before": 53,
+      "after": 49,
+      "successful_transfers": 0,
+      "class_matches": 0,
+      "best_origin": "saved_union",
+      "source_result": "runs/bob_revival/code_a36129206ffe2c00/worker_result.json",
+      "source_result_sha256": "71d6599e2b502129a8bfaf4b9f68a502efb715619b09e1d678712777e4d7152c",
+      "coverage_sha256": "a5379c071ee6a23ba171dadfc8d29b13bd33b00d76c2b667c7390f90de89b4ec",
+      "job_key": "a36129206ffe2c00373e311f3cb566aa413b037cec179de6d5f9c7852523f19a"
+    }
+  ],
+  "interpretation": "Bob49 came from its saved-road union, not a cross-class transfer. These sequential unequal-input results are not a controlled lane-complementarity benchmark.",
+  "elapsed_seconds": 0.0009741039975779131,
+  "memory_limit_mib": 1024,
+  "model_dispatches": 0,
+  "new_searches": 0,
+  "checkpoint_unchanged": true
+}
