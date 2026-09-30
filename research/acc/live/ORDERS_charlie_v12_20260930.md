@@ -7,7 +7,7 @@
 
 What stands out:
 1. **13 rows have no path of ours at all**, for example ac-02452 (AC 34 / Stable 36, both k2), ac-06016, ac-03208, ac-01371 and ac-01304. A first exact route here is a tie.
-2. **8 rows have Stable record = AC record + 1**: 01514, 00259, 09709, 08945, 09995, 02331, 04485, 09916. That gap means someone reached them through the (y,x) finish, so run (y,x) + [15,15] first on those.
+2. **6 rows have Stable record = AC record + 1**: 01514, 00259, 09709, 08945, 09995, 02331. That gap means someone reached them through the (y,x) finish, so run (y,x) + [15,15] first on those.
 3. **ac-04086** (AC 34 k1 / Stable 36 k2) stalled at 35 for beams, windows, the exact tail and session 2's whole night. Only an exact closure can decide it, so it is yours.
 
 Budget note: the Astra harness's bounded probes (600k nodes, 180 s) end at node_cap on rows like these. Your disk engine (`tools/acc/charlie/acc_disk.cpp`, 158M states in 4 min at 2.4 GB) is the right tool. Use `--lean` for closures.
