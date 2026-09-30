@@ -1,0 +1,139 @@
+{
+  "kind": "candidate",
+  "summary": "Exact foreign-road overlay route 84 improves saved 92; requested target 40. No live score claim.",
+  "candidate": {
+    "row_id": "ac-00003",
+    "track": "AC",
+    "start": [
+      "YYYYXyyyx",
+      "YYYYYxYYXX"
+    ],
+    "moves": [
+      1,
+      12,
+      12,
+      11,
+      5,
+      12,
+      12,
+      4,
+      8,
+      10,
+      4,
+      11,
+      13,
+      13,
+      8,
+      4,
+      13,
+      13,
+      1,
+      4,
+      13,
+      13,
+      13,
+      13,
+      4,
+      9,
+      1,
+      9,
+      4,
+      10,
+      12,
+      4,
+      10,
+      13,
+      11,
+      5,
+      12,
+      12,
+      4,
+      10,
+      4,
+      10,
+      13,
+      11,
+      5,
+      12,
+      12,
+      4,
+      10,
+      8,
+      4,
+      11,
+      13,
+      13,
+      13,
+      4,
+      13,
+      0,
+      8,
+      2,
+      12,
+      12,
+      4,
+      10,
+      9,
+      9,
+      3,
+      9,
+      9,
+      7,
+      12,
+      5,
+      9,
+      9,
+      10,
+      4,
+      3,
+      0,
+      12,
+      3,
+      5,
+      5,
+      3,
+      3
+    ],
+    "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+    "evidence_grade": "V",
+    "family": "kernel-foreign-road-overlay"
+  },
+  "evidence": [
+    {
+      "path": "runs/kernel_revival/code_be150c4ff82d82e3/captured_input.json",
+      "sha256": "a3a12285e0db38a51ac4a808e391f168e689f72331576ce0acfb823ad86f711a"
+    },
+    {
+      "path": "runs/kernel_revival/code_be150c4ff82d82e3/exact_graph.json.gz",
+      "sha256": "948b22d39abd96849b934cc631a52db12fa7ab9a1593df1ff68db0b99e15c315"
+    },
+    {
+      "path": "runs/kernel_revival/code_be150c4ff82d82e3/coverage.json",
+      "sha256": "9009451ecc7040bea54f6938a17e668755effb1b9170048a355a70f03dbfed2e"
+    },
+    {
+      "path": "runs/kernel_revival/code_be150c4ff82d82e3/executed_kernel_lane_v1.py",
+      "sha256": "8bc03e7af7e9974f6115ec8506645b3ce5397274761ec53e0ed99967f2719ffd"
+    },
+    {
+      "path": "runs/kernel_revival/code_be150c4ff82d82e3/executed_test_kernel_lane.py",
+      "sha256": "b504e9b1eb73f4dec95e74f650e5fd64ab7490e40ca3ccea7e08ca81545c3316"
+    },
+    {
+      "path": "runs/kernel_revival/code_be150c4ff82d82e3/executed_kernel_protocol.json",
+      "sha256": "1b4c597545d8af753356651d2966a6e51d6c2ec0ff5fcbc0d46a8fc54db0e3d5"
+    },
+    {
+      "path": "runs/kernel_revival/code_be150c4ff82d82e3/executed_source_catalog.json",
+      "sha256": "33d71a5e6b54f0e3dc1d8f5af1419c637ef66a24a2737dcce1104cb341eaa46a"
+    },
+    {
+      "path": "runs/kernel_revival/code_be150c4ff82d82e3/candidate.json",
+      "sha256": "6886c00592695c7b9b68162f99948c3b9752d1e9993d1271473915f9637102fa"
+    },
+    {
+      "path": "runs/kernel_revival/code_be150c4ff82d82e3/receipt.json",
+      "sha256": "005a455e7ca5d64c8fc2b115b726df653ff8a2456bce00c40cd862b08cafa579"
+    }
+  ]
+}

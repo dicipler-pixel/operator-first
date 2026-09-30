@@ -1,34 +1,7 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": {
-    "job": {
-      "row_id": "ac-00003",
-      "track": "AC",
-      "helper": "kernel",
-      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
-      "script": "helpers/kernel_lane_v1.py",
-      "method_sha256": "8bc03e7af7e9974f6115ec8506645b3ce5397274761ec53e0ed99967f2719ffd",
-      "inputs": {
-        "helpers/kernel_sources/roads_input.json": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae"
-      },
-      "seed_sha256": "e5bcaca785f33eeffa39b1f540c4828120989fa0d5dd1e4817b75d0b6731b6a0",
-      "baseline": 92,
-      "target": 40,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "be150c4ff82d82e3c08ef056d181f8e09689020dc7aa6f1d865b07b6c1833523"
-    },
-    "task_id": 40,
-    "lease_token": "7c5faa703e68449c94dc174611dfcaa4",
-    "expires_at": 1790788032.095702,
-    "repo_head": "930421075d06136e6a8391b6e9442b7b566716d6",
-    "phase": "reserved",
-    "host_must_commit_before_execution": true
-  },
+  "active": null,
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -1009,6 +982,79 @@
         "event": "new_exact_crossclass_seed",
         "row_id": "ac-00003"
       }
+    },
+    {
+      "key": "be150c4ff82d82e3c08ef056d181f8e09689020dc7aa6f1d865b07b6c1833523",
+      "job": {
+        "row_id": "ac-00003",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "8bc03e7af7e9974f6115ec8506645b3ce5397274761ec53e0ed99967f2719ffd",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae"
+        },
+        "seed_sha256": "e5bcaca785f33eeffa39b1f540c4828120989fa0d5dd1e4817b75d0b6731b6a0",
+        "baseline": 92,
+        "target": 40,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "be150c4ff82d82e3c08ef056d181f8e09689020dc7aa6f1d865b07b6c1833523"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790787468.7229903,
+      "result_path": "runs/kernel_revival/code_be150c4ff82d82e3/worker_result.json",
+      "result_sha256": "ca8a303e5eb17f7c4d81066d067bca83d3cd5b2ca8bd9a89f55e69b96f542188",
+      "kind": "candidate",
+      "summary": "Exact foreign-road overlay route 84 improves saved 92; requested target 40. No live score claim.",
+      "gate": {
+        "exact_verified": true,
+        "checked_at": 1790787468.7201753,
+        "candidate_sha256": "9a028e3778ba0a208c824f630cb76415d2ffd6a397859a5e6291ce62d1ee42c1",
+        "row_id": "ac-00003",
+        "track": "AC",
+        "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+        "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+        "check_directory": "/workspace/scratch/981699a2d5e1/acc_synthesis/state/checks/check-zprleefh",
+        "evidence_grade": "V",
+        "cost": 84,
+        "peak_length": 22,
+        "exact_endpoint": [
+          "x",
+          "y"
+        ],
+        "board_observed_at": 1790752200.0,
+        "board_age_seconds": 35268.720175266266,
+        "status": "withheld",
+        "reason": "board_stale",
+        "official_receipt": {
+          "candidate_sha256": "9a028e3778ba0a208c824f630cb76415d2ffd6a397859a5e6291ce62d1ee42c1",
+          "checker_sha256": "2fa448d7af5690e9d860f8037abba7096314b1021a55ed3fc4887149f6700900",
+          "ruleset_sha256": "e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+          "valid": true,
+          "exact_endpoint": [
+            "x",
+            "y"
+          ],
+          "cost": 84,
+          "peak_length": 22,
+          "official_verdict": {
+            "ok": true,
+            "length": 84,
+            "peak_total_relator_length": 22,
+            "work": 1506,
+            "certificate_hash": "sha256:a992364899ad49ae768d64ec717f81dce91925b00bd3b6e6b71e8faa0828ebdc"
+          },
+          "instance_hash": "sha256:40dd745fe5ee208019252e3234cc97f8254cfe5d370d2fdf784f34b0726af6e8",
+          "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+        }
+      },
+      "limits": null,
+      "reopen_when": null
     }
   ],
   "notifications": [
@@ -1016,7 +1062,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790787432.096216,
+  "updated_at": 1790787468.7234647,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
