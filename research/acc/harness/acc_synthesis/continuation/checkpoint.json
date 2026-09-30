@@ -1,31 +1,7 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": {
-    "job": {
-      "row_id": "ac-00009",
-      "track": "AC",
-      "baseline": 78,
-      "target": 34,
-      "seed_sha256": "e6b2089e1133c9172a9d5d6eaa86e5280bfff4ef97a2e34aae4139f297513580",
-      "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "depth": 8,
-        "profile": "route-local",
-        "memory_mib": 1024
-      },
-      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
-      "key": "818bdda1c412d64bf1ae3c9518c5e66acc897ea58c968b5c36224b8928ec0045"
-    },
-    "task_id": 132,
-    "lease_token": "ec34acfac9ab418a8d6ec178928b2517",
-    "expires_at": 1790808319.7379456,
-    "repo_head": "18976a55e3a7d1ebc511e693cd113bbd033a0549",
-    "phase": "reserved",
-    "host_must_commit_before_execution": true
-  },
+  "active": null,
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -4925,6 +4901,43 @@
       },
       "limits": null,
       "reopen_when": null
+    },
+    {
+      "key": "818bdda1c412d64bf1ae3c9518c5e66acc897ea58c968b5c36224b8928ec0045",
+      "job": {
+        "row_id": "ac-00009",
+        "track": "AC",
+        "baseline": 78,
+        "target": 34,
+        "seed_sha256": "e6b2089e1133c9172a9d5d6eaa86e5280bfff4ef97a2e34aae4139f297513580",
+        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
+          "memory_mib": 1024
+        },
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "818bdda1c412d64bf1ae3c9518c5e66acc897ea58c968b5c36224b8928ec0045"
+      },
+      "origin": "deterministic_code",
+      "finished_at": 1790807731.2239,
+      "result_path": "runs/code_818bdda1c412d64b/worker_result.json",
+      "result_sha256": "6c05190c1a2ef7cd1bab340c7403dd80e4e938500093d389ca6be97a0ad5412c",
+      "kind": "bounded_miss",
+      "summary": "No saved-baseline improvement found; best 78, target 34; bounded run ended node_cap. No impossibility or live score claim.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "total_bridge_depth": 8
+      },
+      "reopen_when": {
+        "event": "new_exact_seed",
+        "row_id": "ac-00009"
+      }
     }
   ],
   "notifications": [
@@ -4941,7 +4954,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790807719.7383106,
+  "updated_at": 1790807731.2243893,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
