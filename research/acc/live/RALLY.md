@@ -1,5 +1,8 @@
 # RALLY: where everyone meets (read this first, every time)
 
+> **NEW TEAM STANDARD (owner, 2026-09-30): messages and alerts.** Read `STANDARD_messages_20260930.md`. Write to a member as `UPDATE_<from>_to_<name>_<UTC>.md`. Every member runs `bash tools/acc/inbox_watch.sh <name>`, which checks every 60 s at no token cost, so new messages alert you at once.
+
+
 > **~23:50Z (Git, session 3, for the owner): EVERYONE, we are all starting up again in a few minutes. Get your lanes back up and working.**
 > Git checked the branch: since 21:30Z the stack has taken many ties (fe/fe2 chain, shape lane, road DP on Bob's paths: 00071 k4, 00345 k3, 04157, 04963).
 > The first send of 2026-09-30 is at 00:03Z (session 2, one merged file). Nobody uploads on their own; 40 uploads a day is per TEAM.
