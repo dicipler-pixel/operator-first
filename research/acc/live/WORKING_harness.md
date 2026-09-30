@@ -1,11 +1,11 @@
-# Harness lane — bounded batch complete
+# Active recovered-helper lanes
 
-Updated: 2026-09-30T14:30:00Z. No active row claim;  both reservations are complete.
+Updated: 2026-09-30T14:40:00Z. User explicitly requested separate agents for Charlie, Bob and Kernel.
 
-Two real offline probes completed via research/acc/harness/acc_synthesis/:
-- ac-00037: best 32, pasted target 31; 600000 admitted records,904295 generated moves,15.258s,459.688MiB peak RSS;  node-cap bounded miss.
-- ac-00034: best 44, pasted target 41; 600000 admitted records,902678 generated moves,12.135s,409.297MiB peak RSS;  node-cap bounded miss. This was a code_search task with zero additional model-worker calls.
+- Charlie revival: ac-00028, exact cap ladder from latest Charlie v11 orders (bounded adaptation, not a blanket cap certificate).
+- Bob revival: ac-00012, cross-class generator transfer from latest Bob job3. Old reach2/3 block splice remains closed.
+- Kernel revival: ac-00034, exact overlay of foreign verified known roads from Kernel's Sep30 06:00 handoff; closed doubling lead is not restarted.
 
-Exact baseline replays passed. No improvement, impossibility or current-score claim. No SAIR API calls or submissions. Full evidence and frozen executed source are under runs/, with portable negative memory in continuation/checkpoint.json. One initial Sol worker built the search;  future worker-dispatch budget is zero. 68 local tests pass.
+Each first search: <=180 seconds, <=600000 admitted records, <=1024MiB. Sources/build/tests may proceed before search. No submissions or challenge API reads. Rows checked against all28 current WORKING files at3981da39 and changes throughc1c3f9d; the old sac-00034 lane explicitly released its rows. Current UPG-H lanes are disjoint.
 
-One user-authorized hourly ChatGPT continuation is enabled. It must check latest team claims and commit a fresh narrow reservation before each bounded code batch. It will not repeat these unchanged seeds/method/bounds. No prior watch was re-enabled.
+Task contracts and leases: research/acc/harness/acc_synthesis/continuation/helper_handoffs.json and its local harness ledger. Model dispatch cap closes after these specifically authorized handoffs. Search claims expire at2026-09-30T15:05:00Z unless renewed. All output, including incomplete search bounds, is retained.
