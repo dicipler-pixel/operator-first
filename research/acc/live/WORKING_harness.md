@@ -1,11 +1,11 @@
 # ACC memory-first harness claims
 
-Updated: 2026-09-30T15:07:38.943266+00:00.
+Updated: 2026-09-30T16:23:21.154399+00:00.
 
-No active row claim. Charlie ac-00037, Bob ac-00012, Kernel ac-00034, and the subsequent code-only Bob ac-00037 batch are complete. No shorter route found; all claims released.
+Active code-only recovery batch: Kernel ac-00037. Claim expiry: 2026-09-30T16:33:21.161688+00:00. Checkpoint key: 3cc9c62c8fb11bbf50a0aa5055fb442453bae887045dbbcc27c603d8f68c98b0.
 
-Exact sources, tested bounds, immutable executed code, results and negative memory are saved under research/acc/harness/acc_synthesis/. Start at CONTINUATION.md and continuation/checkpoint.json; the continuation entry point is helper_batch.py. The committed portable checkpoint contains no active reservation.
+All six prior attempts survived byte-for-byte; no active or stale lease was found. This batch tests a previously untried method/row combination, not a repeat. Current UPG-H claims at 2198fe09ad851a05f01718b7f340556afaa8092a are disjoint. Search starts only after this reservation is committed.
 
-The next plan is Kernel ac-00037, subject to fresh branch head, current WORKING claims and lease checks. It is not a current claim. Scheduled model-worker dispatch is zero. Limits remain 180 search seconds / 600000 records / 1024 MiB. No submissions or challenge API calls. Old block-splice and doubling leads remain closed. No ac-00028 search was performed.
+Bounds: <=180 search seconds, <=600000 admitted records, <=1024 MiB. Model-worker dispatch zero. No submission or challenge API access. Other old watches remain outside this harness.
 
-Earlier helper reservations, capacity failures and same-worker reassignment remain in branch history and continuation/helper_handoffs.json.
+Read research/acc/harness/acc_synthesis/CONTINUATION.md and continuation/checkpoint.json for authoritative state and negative memory.
