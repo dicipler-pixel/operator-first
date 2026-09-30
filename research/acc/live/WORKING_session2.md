@@ -1,11 +1,7 @@
-# Session 2: rows being searched now (updated 20:05Z 2026-09-30)
+# Session 2: rows being searched now (updated 21:15Z 2026-09-30)
 
 Session 2's own container. Other lanes please skip these rows (twins included). Session 2 never sends; verified scoring lines go to `queue/session2_*.txt`.
 
-- (y,x) mid-restart (yx_mid), UPG-H's list, Stable twins of: ac-02341, ac-08889, ac-06936, ac-06768, ac-08862, ac-02528, ac-04493, ac-02288, ac-02717, ac-08078, ac-08578
-- plan row 1 test (long k=1, records 60-99; smbeam2 W 6000 + compile_exact + road DP, 90 s/row, LCAP 2 x record): ac-01162, ac-02830, ac-01839, ac-00779, ac-10000, ac-01060, ac-06423, ac-06827, ac-03405, ac-00537, ac-03243, ac-00306, ac-03866, ac-02423, ac-03185, ac-06155, ac-04220, ac-09092, ac-06468, ac-07645, ac-07042, ac-09803, ac-00844, ac-00805, ac-08248
-- chain beam lane k3new (3-team rows, record <= 45; W 20000, DMAX record+2): ac-03697, ac-05125, ac-01974, ac-02456, ac-08793, ac-08353, ac-09923, ac-06249, ac-05195, ac-03702, ac-03736, ac-03466, ac-00152, ac-01257, ac-04616, ac-06446, ac-08897, ac-08411, ac-00068, ac-01595, ac-03401, ac-05662, ac-07912, ac-09614
-- chain beam lane k3newB (3-team rows, record <= 45; W 20000, DMAX record+2): ac-02304, ac-04747, ac-02685, ac-06002, ac-00441, ac-02018, ac-00516, ac-08903, ac-05947, ac-00226, ac-04981, ac-06400, ac-09647, ac-03996, ac-05544, ac-07285, ac-09496, ac-07288, ac-00608, ac-02078, ac-03998, ac-06537, ac-08037
-- chain beam lane k3newC (3-team rows, record <= 45; W 20000, DMAX record+2): ac-00261, ac-05321, ac-00370, ac-07111, ac-08862, ac-05909, ac-01208, ac-09165, ac-01553, ac-02026, ac-05534, ac-09032, ac-03944, ac-04334, ac-05816, ac-07715, ac-00076, ac-04002, ac-01348, ac-02136, ac-04799, ac-06788, ac-08485
-- chain beam lane k3newD (3-team rows, record <= 45; W 20000, DMAX record+2): ac-03186, ac-05372, ac-02191, ac-08603, ac-05064, ac-02028, ac-05268, ac-04198, ac-08156, ac-03617, ac-03106, ac-09182, ac-00722, ac-04595, ac-06178, ac-08404, ac-07667, ac-00182, ac-01356, ac-02666, ac-04872, ac-07284, ac-09112
-- finished today: k12newA/B/C (86 rows held by 1-2 teams): ac-01514 36 tie (sent 18:14Z). One-over rows: sac-01514, ac/sac-04908, ac/sac-06262, ac-08889, ac/sac-04586, ac/sac-00678. yx_mid found nothing for sac-01514 (T 35) or sac-04908 (T 33).
+- (y,x) mid-restart (yx_mid), Stable twins of: sac-04493, sac-02288, sac-02717, sac-03697, sac-04586, sac-09980
+- finished (y,x), no route unless noted: sac-02341, sac-08889, sac-06936, sac-06768, sac-08862, sac-02528, sac-08078, sac-08578, sac-07119 (sac-08862 36 TIE, sent #2914)
+- finished today: k12newA/B/C (86 rows held by 1-2 teams), k3new (100 rows held by 3 teams), plan row 1 long k=1 test (25 rows, killed 0/25).
