@@ -19,6 +19,10 @@ Python 3.10+ and the standard library suffice. No network or model account is ne
 - Owner evidence at `d3351066a05bf6262cacc30fdcb055d2e0942a94`: send ledger, archived acceptance logs, both 161-record pool files, the larger route archive and the 2,781-path known-roads export. Original files were checked against their Git blob hashes before extraction.
 - The saved AC board generated at 07:10Z and pulled at 07:11Z September 30. Its original timestamp is retained. Eligibility expires after 300 seconds; import time does not manufacture freshness. The user's later pasted records and team counts remain separate in `selected_rows.json`.
 
+## Current bounded progress
+
+Two real probes completed: ac-00037 remains 32 against pasted target 31; ac-00034 remains 44 against 41. Each stopped at 600,000 admitted records, with no shorter route found. The second ran through the code-only continuation controller without another model worker. Exact bounds, immutable executed source, baseline replay receipts and next-work selection are in `continuation/progress.json` and `runs/`. These are bounded misses, not impossibility results.
+
 ## Actual validation
 
 **68 local tests pass; the official checker passes all 63 upstream conformance cases. All 25 recovered routes across 10 selected rows replay correctly.**
