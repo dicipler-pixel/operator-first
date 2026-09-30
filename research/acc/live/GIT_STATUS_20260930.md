@@ -7,3 +7,4 @@
 - 01:23Z Eye setup 2: 1321 of 1,482 searches done, 0 found.
 - 01:32Z Eye setup 2: 1482 of 1,482 searches done, 0 found.
 - 01:41Z Setup 2 finished: 0 of 1,482 (from the start and 28/24 before the end, width 1000). New lane: eyes make NEW roads from the start, then the loose road-keeping DP (GROW2 MAXC16 SLACK4) shortens them. At width 1000, depth record+12, no eye-steered beam even reached (x,y) on 00145, 00975, 03871 (57 tries). Trying wider and deeper next.
+- 01:43Z Eye-steered roads from the start die in Python even at width 3000/depth 60 on ac-03871 (flat start; the beam closes in a basin). Stopping that lane. Loading the 10 untried eyes into Mixer 5.2 as group studies, plus same-eye-at-three-times studies.
