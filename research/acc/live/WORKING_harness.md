@@ -1,8 +1,8 @@
 # ACC memory-first harness claims
 
-Updated: 2026-09-30T21:47:28.432100+00:00.
+Updated: 2026-09-30T21:49:59.433538+00:00.
 
-No active claim. Completed 85 bounded method probes. Latest: charlie ac-00005: No saved-baseline improvement in bounded cap probe
+No active claim. Completed 86 bounded method probes. Latest: bridge ac-00022: No saved-baseline improvement found; best 56, target 44; bounded run ended node_cap. No impossibility or live score claim.
 
 Next proposed bob ac-00017; this is not a claim.
 
