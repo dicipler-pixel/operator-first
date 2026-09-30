@@ -4,7 +4,7 @@
   "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
   "source_branch": "claude/gallant-bardeen-0pgpae",
   "source_head": "3981da39a41834acf982336318cad2dde8d4b8a0",
-  "sourcepool_fingerprint": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae",
+  "sourcepool_fingerprint": "db55e346d84b31f4079afec46b611a683fe6b72211bd7e1745a01b6cdde9102b",
   "method": "Official-verify saved foreign roads before adding exact directed unit edges and inverse edges. BFS minimum saved suffixes; target saved-route states seeded with shortest graph prefixes; layered primitive forward bridge search joins exact states. No unpaid symmetry.",
   "historical_method": {
     "algorithm_ids": [
@@ -91,5 +91,18 @@
     "helpers/kernel_sources/roads_input.json"
   ],
   "own_seed_source": "continuation/routes.json (integration/recovered_routes.json fallback)",
-  "node_accounting": "Distinct saved graph states plus all fresh admitted labels are charged against node_cap"
+  "node_accounting": "Distinct saved graph states plus all fresh admitted labels are charged against node_cap",
+  "sourcepool_history": [
+    {
+      "sha256": "3175fb0b35bb057baab9ee094065577f2a34978f6fdff9fc8e3541bea2f9c7ae",
+      "reason": "original recovered roads"
+    }
+  ],
+  "latest_verified_pool_merge": {
+    "added_roads": 21,
+    "review": "continuation/pool_review_20260930T1715Z/review.json",
+    "source_head": "380090f6b91222420d29d1c525724a6e11cd75e2",
+    "source_blob": "a15d2037a1064b2aa8f9e1b072f4425be3bc9817",
+    "note": "Only saved paths on existing pinned donor starts; no imported solver recipe, new target row, or expanded cap."
+  }
 }
