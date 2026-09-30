@@ -102,3 +102,19 @@ Every physics reading stays `[H]` and authorises nothing. The papers enter as de
 - Only beam has a code runner. Splice, capped search and anything new go through the builder agent.
 - The ledger lock is per machine. Two containers appending on one branch will conflict in git. The rule for now is one writer per branch. A real `upgh merge` of two chains is future work.
 - Points (`beat` 1.0, `tie` 2^(1-k)) follow `tools/acc/HANDOFF_SAIR_ACC.md` `[C]`. The plan does not depend on them for correctness.
+
+## 7. After meeting the team (30 September, afternoon)
+
+The container had been cloned 1,498 commits behind a whole team of sessions (Git, Charlie, Luna, Kernel, session 1/2) and the user's own Astra harness. Five changes followed. Each came from a witnessed failure, which is the map's "one knob per batch" rule.
+
+| Witness | Change |
+|---|---|
+| The harness beamed rows the team had ground on all night ("every tool we have stalls on those rows", session 2's apology) | `upgh negative` imports failed work recorded outside the ledger as heat (grade C, with source file and hash). 31 rows were imported, and code no longer chooses them. |
+| The `beam` rung was the old H-beam at W200k; the team's winning P2 dual setting at W20k is faster and never longer (METHODS_PLAYBOOK) | A new `beam_p2` method. The ledger shows it as a new family, not a silent knob change. |
+| One family per row wastes the cheap exact moves | A **strategy ladder** per row: `yx` (SAC rows; exact meet in the middle to (y,x)) → `window` (shorten our own path) → `tail` (exact capped tail replacement with the T9 finish) → `beam_p2` (seeded; heat) → advisor. Deterministic rungs run once per row. Moving to the next rung is a real Φ switch. |
+| Another lane (Astra's harness) claimed a row through `WORKING_*.md` | Claims in any WORKING file committed within 6 hours are honoured, twins included. `WORKING_upgh.md` publishes ours, and Astra's harness has already read it. |
+| The server allows about 360 reads per UTC day; a normal send costs about 15 | Incremental history (1 call). Boards pulled by the team tool are imported for free. `cycle` spends calls only after a new best path. |
+
+**Sending.** The user asked for sends every 30–40 minutes. The auto-mode classifier blocked the harness from submitting by itself. That is a real-world transaction, so it was not routed around. The harness queues. A person, or a session the user has granted a permission rule for `tools/acc/sair_api.py send-queue`, sends. This matches the map: code prepares `[V]` lines against a `[C]` board, and the act of sending needs authority the harness does not hold.
+
+**Rivals** (`research/acc/upgh/briefs/`): the leader took the top spot overnight with a bulk shortening pass over long paths (records 81–300, median −3). Since then, 1–2-move shortenings on records 40–79 continue, and AC ties grew ten times faster than SAC ties. As of the 02:29Z leaderboard we were 14th on AC and 12th on SAC.
