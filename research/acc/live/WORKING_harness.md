@@ -1,8 +1,8 @@
 # ACC memory-first harness claims
 
-Updated: 2026-09-30T21:17:35.400351+00:00.
+Updated: 2026-09-30T21:20:05.970050+00:00.
 
-No active claim. Completed 66 bounded method probes. Latest: kernel ac-00012: No improvement under recorded foreign-road overlay scope; best 52, target 47.
+No active claim. Completed 67 bounded method probes. Latest: kernel ac-00001: No improvement under recorded foreign-road overlay scope; best None, target 404.
 
 Next proposed bob ac-00003; this is not a claim.
 
