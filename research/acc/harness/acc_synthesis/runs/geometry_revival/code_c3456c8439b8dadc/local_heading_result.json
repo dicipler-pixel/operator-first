@@ -1,0 +1,449 @@
+{
+  "arm": "local_heading",
+  "direction": "forward",
+  "status": "completed_bounded",
+  "termination_reason": "record_cap",
+  "best_length": 78,
+  "moves": [
+    1,
+    4,
+    7,
+    11,
+    8,
+    6,
+    4,
+    3,
+    7,
+    9,
+    3,
+    9,
+    7,
+    7,
+    13,
+    11,
+    11,
+    4,
+    11,
+    3,
+    8,
+    7,
+    11,
+    9,
+    2,
+    7,
+    7,
+    9,
+    3,
+    6,
+    8,
+    6,
+    3,
+    6,
+    4,
+    3,
+    6,
+    12,
+    8,
+    10,
+    2,
+    5,
+    13,
+    5,
+    13,
+    11,
+    12,
+    4,
+    7,
+    5,
+    10,
+    13,
+    5,
+    7,
+    12,
+    2,
+    5,
+    6,
+    2,
+    6,
+    1,
+    6,
+    4,
+    13,
+    4,
+    1,
+    7,
+    9,
+    5,
+    6,
+    8,
+    2,
+    6,
+    8,
+    5,
+    3,
+    3,
+    5
+  ],
+  "records": 60000,
+  "generated_moves": 28919,
+  "accepted_candidates": 24856,
+  "last_depth_entered": 45,
+  "completed_layers": 44,
+  "layers": [
+    {
+      "depth": 1,
+      "generated_total": 14,
+      "records": 58,
+      "candidate_histories": 11,
+      "beam_size": 11,
+      "best_length": 78
+    },
+    {
+      "depth": 2,
+      "generated_total": 168,
+      "records": 465,
+      "candidate_histories": 109,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 3,
+      "generated_total": 840,
+      "records": 1767,
+      "candidate_histories": 477,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 4,
+      "generated_total": 1512,
+      "records": 3067,
+      "candidate_histories": 483,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 5,
+      "generated_total": 2184,
+      "records": 4515,
+      "candidate_histories": 612,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 6,
+      "generated_total": 2856,
+      "records": 5969,
+      "candidate_histories": 618,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 7,
+      "generated_total": 3528,
+      "records": 7403,
+      "candidate_histories": 545,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 8,
+      "generated_total": 4200,
+      "records": 8826,
+      "candidate_histories": 546,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 9,
+      "generated_total": 4872,
+      "records": 10236,
+      "candidate_histories": 555,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 10,
+      "generated_total": 5544,
+      "records": 11642,
+      "candidate_histories": 568,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 11,
+      "generated_total": 6216,
+      "records": 13075,
+      "candidate_histories": 571,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 12,
+      "generated_total": 6888,
+      "records": 14501,
+      "candidate_histories": 556,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 13,
+      "generated_total": 7560,
+      "records": 15915,
+      "candidate_histories": 559,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 14,
+      "generated_total": 8232,
+      "records": 17344,
+      "candidate_histories": 590,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 15,
+      "generated_total": 8904,
+      "records": 18758,
+      "candidate_histories": 573,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 16,
+      "generated_total": 9576,
+      "records": 20173,
+      "candidate_histories": 559,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 17,
+      "generated_total": 10248,
+      "records": 21565,
+      "candidate_histories": 543,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 18,
+      "generated_total": 10920,
+      "records": 22957,
+      "candidate_histories": 538,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 19,
+      "generated_total": 11592,
+      "records": 24347,
+      "candidate_histories": 545,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 20,
+      "generated_total": 12264,
+      "records": 25733,
+      "candidate_histories": 538,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 21,
+      "generated_total": 12936,
+      "records": 27133,
+      "candidate_histories": 552,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 22,
+      "generated_total": 13608,
+      "records": 28537,
+      "candidate_histories": 541,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 23,
+      "generated_total": 14280,
+      "records": 29922,
+      "candidate_histories": 521,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 24,
+      "generated_total": 14952,
+      "records": 31320,
+      "candidate_histories": 553,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 25,
+      "generated_total": 15624,
+      "records": 32718,
+      "candidate_histories": 546,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 26,
+      "generated_total": 16296,
+      "records": 34106,
+      "candidate_histories": 532,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 27,
+      "generated_total": 16968,
+      "records": 35502,
+      "candidate_histories": 542,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 28,
+      "generated_total": 17640,
+      "records": 36891,
+      "candidate_histories": 538,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 29,
+      "generated_total": 18312,
+      "records": 38276,
+      "candidate_histories": 543,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 30,
+      "generated_total": 18984,
+      "records": 39674,
+      "candidate_histories": 544,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 31,
+      "generated_total": 19656,
+      "records": 41071,
+      "candidate_histories": 537,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 32,
+      "generated_total": 20328,
+      "records": 42443,
+      "candidate_histories": 511,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 33,
+      "generated_total": 21000,
+      "records": 43831,
+      "candidate_histories": 537,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 34,
+      "generated_total": 21672,
+      "records": 45214,
+      "candidate_histories": 521,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 35,
+      "generated_total": 22344,
+      "records": 46605,
+      "candidate_histories": 530,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 36,
+      "generated_total": 23016,
+      "records": 47985,
+      "candidate_histories": 524,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 37,
+      "generated_total": 23688,
+      "records": 49369,
+      "candidate_histories": 540,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 38,
+      "generated_total": 24360,
+      "records": 50766,
+      "candidate_histories": 536,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 39,
+      "generated_total": 25032,
+      "records": 52152,
+      "candidate_histories": 523,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 40,
+      "generated_total": 25704,
+      "records": 53535,
+      "candidate_histories": 522,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 41,
+      "generated_total": 26376,
+      "records": 54916,
+      "candidate_histories": 525,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 42,
+      "generated_total": 27048,
+      "records": 56293,
+      "candidate_histories": 521,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 43,
+      "generated_total": 27720,
+      "records": 57670,
+      "candidate_histories": 506,
+      "beam_size": 48,
+      "best_length": 78
+    },
+    {
+      "depth": 44,
+      "generated_total": 28392,
+      "records": 59043,
+      "candidate_histories": 515,
+      "beam_size": 48,
+      "best_length": 78
+    }
+  ],
+  "improvements": [],
+  "elapsed_seconds": 0.4066393359998983,
+  "peak_rss_mib": 20.4765625
+}
