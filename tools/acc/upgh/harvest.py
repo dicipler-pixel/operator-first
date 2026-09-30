@@ -20,7 +20,7 @@ from pathlib import Path
 CID = re.compile(r"^(ac|sac)-(\d{5})$")
 LINE = re.compile(r"\b((?:ac|sac)-\d{5})\s*:\s*\[([\d,\s]*)\]")
 NAMED = re.compile(r"((?:ac|sac)-\d{5})")
-AC_FIELDS = ("ac", "path", "final_path", "our_best_path", "moves", "best_path")
+AC_FIELDS = ("ac", "path", "final_path", "our_best_path", "moves", "best_path", "route", "line", "selected_path")
 SAC_FIELDS = ("sac", "sac_path")
 
 
@@ -30,9 +30,23 @@ def _moves(value):
     return None
 
 
-def _from_obj(obj, fallback_cid):
+def _from_obj(obj, fallback_cid, depth=0):
+    """Paths in one JSON object, including objects nested up to 4 levels deep (a nested object without its
+    own id inherits the enclosing row). The 20:35Z audit found valid routes skipped under nested keys."""
+    if isinstance(obj, list):
+        if depth < 4:
+            for x in obj:
+                if isinstance(x, (dict, list)):
+                    yield from _from_obj(x, fallback_cid, depth + 1)
+        return
     if not isinstance(obj, dict):
         return
+    if depth < 4:
+        own = next((obj.get(k) for k in ("id", "row", "cid", "challenge_id")
+                    if isinstance(obj.get(k), str) and CID.match(obj.get(k))), None)
+        for v in obj.values():
+            if isinstance(v, (dict, list)) and not _moves(v):
+                yield from _from_obj(v, own or fallback_cid, depth + 1)
     cid = None
     for key in ("id", "row", "cid", "challenge_id"):
         v = obj.get(key)
