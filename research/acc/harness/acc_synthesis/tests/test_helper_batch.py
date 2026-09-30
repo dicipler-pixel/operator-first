@@ -70,5 +70,31 @@ r={"kind":"bounded_miss","summary":"transport fixture only","limits":{"fixture":
         self.assertEqual({j['helper'] for j in c.jobs()},{'bob','kernel'})
         self.assertEqual(c.cp['attempts'][0]['key'],old_key)
 
+    def test_worker_failure_after_result_write_is_interrupted_not_a_miss(self):
+        from acc_synthesis.runtime import HarnessError
+        script=self.root/'helpers/fixture.py'
+        script.write_text(script.read_text()+'\nraise SystemExit(3)\n')
+        c=HelperContinuation(self.root);job=c.plan()['job']
+        c.reserve(job['key'],'a'*40)
+        with self.assertRaises(HarnessError) as caught:
+            c.run_reserved(job['key'],'b'*40)
+        self.assertEqual(caught.exception.code,'command_failed')
+        self.assertEqual(c.cp['attempts'][0]['kind'],'interrupted')
+        self.assertIsNone(c.cp['active'])
+        self.assertNotIn(job['key'],{j['key'] for j in c.jobs()})
+        self.assertEqual(c.h.status()['reserved_worker_dispatches'],0)
+
+    def test_successful_exit_without_result_is_interrupted_not_a_miss(self):
+        (self.root/'helpers/fixture.py').write_text('print("{}")\n')
+        c=HelperContinuation(self.root);job=c.plan()['job']
+        c.reserve(job['key'],'a'*40)
+        with self.assertRaises(FileNotFoundError):
+            c.run_reserved(job['key'],'b'*40)
+        self.assertEqual(c.cp['attempts'][0]['kind'],'interrupted')
+        self.assertIsNone(c.cp['active'])
+        fresh=HelperContinuation(self.root,state=self.root/'fresh_host')
+        self.assertNotIn(job['key'],{j['key'] for j in fresh.jobs()})
+        self.assertEqual(fresh.h.status()['reserved_worker_dispatches'],0)
+
 
 if __name__=='__main__':unittest.main()

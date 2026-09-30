@@ -1,0 +1,62 @@
+{
+  "schema": "acc-message-review/1",
+  "reviewed_at": "2026-09-30T17:07:20.010370+00:00",
+  "source": {
+    "path": "research/acc/live/UPDATE_upgh_to_astra_20260930T1700Z.md",
+    "blob_sha": "453c5d1268dfe7da08cab1b10c41ad864ee3ebb4",
+    "read_at_head": "4745f80cef406f4c0e88cef747af7754a7980c7d",
+    "sha256": "aaedfeb86a75661a3c96ce037c20a985d20d86cb77139cdf84e7f6c3e144a3a1"
+  },
+  "read_only": true,
+  "assessment": {
+    "current_attempts": 31,
+    "verified_improvements": [
+      {
+        "row": "ac-00028",
+        "old": 58,
+        "new": 54,
+        "pasted_target": 44
+      },
+      {
+        "row": "ac-00003",
+        "old": 92,
+        "new": 84,
+        "pasted_target": 40
+      }
+    ],
+    "message_checkpoint_is_older": true,
+    "bounded_cap_exhaustion_is_not_impossibility": true,
+    "new_row_suggestions_outside_current_pinned_scope": true,
+    "larger_search_budget_not_adopted": true,
+    "submission_queue_not_written": true,
+    "fresh_live_scoring_not_asserted": true
+  },
+  "failure_checks": [
+    {
+      "risk": "Stale executable or input",
+      "evidence": "helper_batch.py run_reserved checks source and donor fingerprints before and after command; every run preserves source and inputs. Python scripts have no compiled beam binary."
+    },
+    {
+      "risk": "Nonzero exit after a result file",
+      "evidence": "New integration test proves interrupted, not bounded_miss; task stays closed and model dispatch stays zero."
+    },
+    {
+      "risk": "Successful exit with missing result file",
+      "evidence": "New integration test proves interrupted, not bounded_miss, including a restored host."
+    },
+    {
+      "risk": "Deadline before result",
+      "evidence": "Existing runtime timeout and stop tests; run_reserved records interruption instead of mathematical miss."
+    },
+    {
+      "risk": "Held-route evidence disagreement",
+      "evidence": "Owner send ledger and archived acceptance evidence imported and hash pinned. No submission or current-held claim is authorized; stale-board readiness stays withheld."
+    }
+  ],
+  "tests": {
+    "passed": true,
+    "count": 88,
+    "seconds": 2.186
+  },
+  "pending_decision": "Owner may choose a new row scope later. Current selected_rows.json, limits, completed keys and negative memory are unchanged."
+}

@@ -1,9 +1,9 @@
 {
   "date": "2026-09-30",
   "suite": {
-    "tests": 86,
+    "tests": 88,
     "passed": true,
-    "seconds": 2.36
+    "seconds": 2.186
   },
   "demo": {
     "test": "complete-controller-toy-demonstration",
@@ -49,7 +49,7 @@
   "real_ACC_search_run": true,
   "submission_performed": false,
   "historical_ACC_fixtures_replayed": true,
-  "scope": "86 local tests pass. The pinned official checker previously passed all 63 conformance cases; checker pins are unchanged. Current completed attempts and results are in continuation/progress.json and checkpoint.json. ac-00028 improved from 58 to 54, independently verified; above pasted target 44, no scoring claim or submission.",
+  "scope": "88 local tests pass. Pinned official checker previously passed all 63 conformance cases; pins unchanged. Independently verified improvements: ac-00028 58 -> 54 and ac-00003 92 -> 84. Both above pasted targets; no scoring claim or submission. Exact attempt coverage is in continuation/progress.json and checkpoint.json.",
   "version": "1.5.0",
   "cost_scope": "Persistent worker dispatch caps; code-first verification; no provider currency/token enforcement.",
   "intake": {
@@ -62,7 +62,7 @@
   "real_routes_replayed": 25,
   "real_rows_with_verified_paths": 10,
   "source_commit": "d3351066a05bf6262cacc30fdcb055d2e0942a94",
-  "bounded_real_searches": 22,
+  "bounded_real_searches": 34,
   "code_only_continuation_tested": true,
   "helper_recovery": {
     "matching_source_paths": 185,
@@ -85,5 +85,6 @@
     "parent_control": "existing SQLite stop and lease enforcement retained",
     "test": "test_worker_control.WorkerControlTests.test_workers_stop_without_opening_sqlite",
     "cause_of_original_corruption": "not established"
-  }
+  },
+  "message_failure_regressions": "Nonzero exit even after result write, and successful exit without result: interrupted, never a miss; no replay after host restore."
 }
