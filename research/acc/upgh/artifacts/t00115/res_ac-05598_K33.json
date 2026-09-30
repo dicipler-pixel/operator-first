@@ -35,63 +35,57 @@
  ],
  "n_pairs": 83,
  "balls": {
-  "6": {
-   "tot": 27,
-   "radius": 15,
-   "cum": 11535410,
-   "stop": "budget cum 11535410 >= 8000000 after layer 15"
+  "3": {
+   "tot": 24,
+   "radius": 13,
+   "cum": 10839494,
+   "stop": "budget cum 10839494 >= 8000000 after layer 13"
   },
-  "30": {
-   "tot": 28,
-   "radius": 10,
-   "cum": 14257742,
-   "stop": "budget cum 14257742 >= 8000000 after layer 10"
+  "20": {
+   "tot": 33,
+   "radius": 16,
+   "cum": 4803466,
+   "stop": "finished"
   },
-  "7": {
-   "tot": 29,
-   "radius": 15,
-   "cum": 9470286,
-   "stop": "budget cum 9470286 >= 8000000 after layer 15"
-  },
-  "31": {
-   "tot": 28,
-   "radius": 9,
-   "cum": 9326150,
-   "stop": "budget cum 9326150 >= 8000000 after layer 9"
+  "19": {
+   "tot": 31,
+   "radius": 16,
+   "cum": 3030308,
+   "stop": "finished"
   }
  },
  "pairs": [
   {
-   "i": 6,
-   "j": 30,
-   "gap": 24,
-   "target_T": 23,
-   "tot_i": 27,
-   "tot_j": 28,
-   "Ri": 15,
-   "Rj": 10,
-   "a": 14,
-   "b": 9,
-   "states": 9231597,
+   "i": 3,
+   "j": 20,
+   "gap": 17,
+   "target_T": 16,
+   "tot_i": 24,
+   "tot_j": 33,
+   "Ri": 13,
+   "Rj": 16,
+   "a": 6,
+   "b": 10,
+   "states": 58445,
    "result": "CERTIFIED_NO_SHORTER_BRIDGE",
-   "secs": 0.7
+   "secs": 0.2
   },
   {
-   "i": 7,
-   "j": 31,
-   "gap": 24,
-   "target_T": 23,
-   "tot_i": 29,
-   "tot_j": 28,
-   "Ri": 15,
-   "Rj": 9,
-   "a": 15,
-   "b": 8,
-   "states": 11504768,
+   "i": 3,
+   "j": 19,
+   "gap": 16,
+   "target_T": 15,
+   "tot_i": 24,
+   "tot_j": 31,
+   "Ri": 13,
+   "Rj": 16,
+   "a": 6,
+   "b": 9,
+   "states": 41977,
    "result": "CERTIFIED_NO_SHORTER_BRIDGE",
-   "secs": 1.1
+   "secs": 0.1
   }
  ],
  "shortened": [],
- "wall_s": 56.7
+ "wall_s": 30.8
 }
