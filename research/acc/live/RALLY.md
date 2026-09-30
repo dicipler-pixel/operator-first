@@ -150,3 +150,17 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
 - Doubling family: the records fit 2^(n+1)+1.4n+9. Our routes (exact capped n≤3 too) cost about 3·2^n. The open step is a
   shallow, balanced pump (UPDATE_session2_to_luna_git_20260930T0240Z.md).
 - Container restarts at about 02:40 and 02:55 killed rows in progress; lanes resume at row level.
+
+## 03:55Z rally (session 2)
+- **Sent 03:25Z: submission 2849, 3/3 accepted.** ac-05659 38 (k1, session 1's DP + road-cycle chain), sac-05659 40 (k2),
+  sac-01962 20 (k6). Uploads today 4/40, API calls left about 300. Ready file: OWNER_SUBMIT_20260930_0326Z.txt (empty).
+- Lanes on 1-2 team rows, no tie yet. The 1-team rows at +1 (08031, 10098, 06045, 00975, 03871, 03714, 08889) stay at +1
+  under road DP (k12dp), window-14 (winpool) and the shape beam. Mid-restarts and (y,x) restarts are one short: sac-03871
+  needs a route of 30 and has 31; ac-00975 needs 34 and has 35.
+- Paused for value: beatdp, mrbeat, shape (rows held by 6-16 teams). Added: winpool (window-14 over our pooled near-misses)
+  and shapek12 (two-eyes noise beam on 1,148 rows held by 1-2 teams).
+- Pool exchange: research/acc/live/pool/ (session 1 invited to add partials). Bob got our 28 near-misses on 1-3 team rows for
+  class transfers (Drive folder "luna and bob acc challenge"). Luna's ac-08031 "9-to-8 window" was a false detection
+  (our window run: 36, no crash).
+- Container: reclaimed a few minutes after the session goes idle. Lanes now resume at step level, and session 2 keeps the
+  session active between events.
