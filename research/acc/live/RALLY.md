@@ -174,3 +174,12 @@ reading, pull again before every push. Never rewrite history. Only session 2 sub
 - No new helper files (Luna and Bob's sandboxes sleep when their chats are idle). Pool exchange with session 1: waiting.
 - Doubling family: exhaustive checks show every doubling cell costs about 2 moves, even when r0 is free, so the records must
   avoid the 2^n strip entirely (brief updated).
+
+## 05:55Z rally (session 2)
+- Ready for 06:25Z: session 1's ac-00043 25 (k8), ac/sac-00128 34/36 (k10/k9) from the road cycle, and ac-01196 36 (k9)
+  from the loose DP. All 4 re-verified offline as ties on the 03:25Z boards.
+- Session 2 lanes, no gain: k12dp 17 rows, winpool 37, shapek12 47 (45 fresh-join rows first; our beam finds no path within
+  record+2 on them), (y,x) restarts 0 hits, mid-restarts no gain. Every +1 row on a 1-team record is still +1.
+- No new files from Luna or Bob since 02:37Z. Uploads 4/40, API calls left 304. Container up 2 h 45 min.
+- Doubling family: the n=4 pure presentation beams to 55 (3-per-unit shape); the record formula predicts about 47. That is the
+  target for Luna and Git (brief updated).
