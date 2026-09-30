@@ -24,7 +24,7 @@ import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 LIVE = ROOT / "research" / "acc" / "live"
-NEVER = {"ac-09839", "sac-02257", "ac-09311", "ac-06403", "ac-04718", "ac-05378"}
+NEVER = {p + n for n in ("09839", "02257", "09311", "06403", "04718", "05378") for p in ("ac-", "sac-")}  # owner rows and their twins
 
 
 def load_board(stamp_glob):
@@ -46,7 +46,7 @@ def main():
     old = None
     for f in sorted(glob.glob(str(LIVE / "boards" / "ac_*.json.gz"))):
         t = dt.datetime.strptime(stamp_of(f), "%Y%m%dT%H%MZ")
-        if t <= t_now - dt.timedelta(hours=20):
+        if t <= t_now - dt.timedelta(hours=20) and (LIVE / "boards" / f"stable_ac_{stamp_of(f)}.json.gz").exists():
             old = stamp_of(f)
     old_board = load_board(old)[0] if old else {}
 
