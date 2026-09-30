@@ -2106,6 +2106,48 @@
         "event": "higher_exact_cap_capacity",
         "row_id": "ac-00016"
       }
+    },
+    {
+      "key": "9e693843528fa9329ece5d98220facf2e55ce301e62d01618da97ded7bb77dd0",
+      "job": {
+        "row_id": "ac-00028",
+        "track": "AC",
+        "helper": "named",
+        "algorithm_id": "named-exact-state-neighborhood-v1",
+        "script": "helpers/named_bridge_lane_v1.py",
+        "method_sha256": "1552796aaeda2e9bbb4644674011d20bc1b3bf95875ffdb6d60ba78c8eb3fc5a",
+        "inputs": {
+          "helpers/named_queries.json": "1b630a4af65a8ed75c0a6b952e300b3d9397b91e7b15ed5b84012707aaec9438",
+          "runs/kernel_revival/code_a7e9bffde8b90533/exact_graph.json.gz": "d6b28b5d8139402b18225c3fa404c831e75055a6195bdc6d3c720ebe0060f835",
+          "runs/kernel_revival/code_a7e9bffde8b90533/captured_input.json": "f89f5ff8f6484a2d3f3a1e690b3debcc31e7694b9c38ca726539f3e7c62e82ee"
+        },
+        "seed_sha256": "69e4f0d549324aa7af6fc90ea349c8de2050cd0946fb52fdf7e0254f707e0c87",
+        "baseline": 51,
+        "target": 44,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "9e693843528fa9329ece5d98220facf2e55ce301e62d01618da97ded7bb77dd0"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790798211.6758616,
+      "result_path": "runs/named_revival/code_9e693843528fa932/worker_result.json",
+      "result_sha256": "09d11c6e8a40bfbdc1be14a2f43b507ff3f5451cc1a7bdce28a2b3f783e00174",
+      "kind": "bounded_miss",
+      "summary": "No improvement in named exact neighborhoods; best 51, target 44; named_neighborhood_complete.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_radius": 2
+      },
+      "reopen_when": {
+        "event": "new_exact_named_state_or_saved_edges",
+        "row_id": "ac-00028"
+      }
     }
   ],
   "notifications": [
@@ -2116,7 +2158,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790794122.5670948,
+  "updated_at": 1790798211.6764672,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
