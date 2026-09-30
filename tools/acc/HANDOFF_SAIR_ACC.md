@@ -56,6 +56,7 @@ Without `--yes`, it's a dry run.
   (y,x) shortcut on our P2 path (`tools/acc/yx_shortcut.py`). 3/3 accepted, about +0.2.
 - Submission 2657 (11:07Z): sac-00487 27 (k3, atlas class quota B16/B17), ac-00487 26 (k14, overlap splice of two
   of our paths), sac-05091 26 (k10, (y,x) shortcut). 3/3 accepted, about +0.13.
+- **Submission 2898 (16:35Z 09-30, UPG-H harness): sac-06973 36 (tie, k1->2, about +0.5) and ac-06973 36 (tie, k5->6).** 2/2 accepted. Found by the harness `beam_free` rung (P2 dual beam, free depth record+20, W20k) on a new target where we had no path (task t00051; ledger research/acc/upgh/ledger.jsonl).
 - Board watcher: `changes` every 30 min into `research/acc/live/changes/`. It alerts on
   "LOST OUR TIE" or a newly solved row.
 
