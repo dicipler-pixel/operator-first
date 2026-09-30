@@ -52,6 +52,43 @@ Exact checks on the pinned core (`work/bfs.py`, all 14 moves, dedup):
 Scope: total length <= 24 and depth <= 11/12 only. The sibling search routes peak at 43 letters, so a route through
 longer states is not excluded by this.
 
-## Beam runs (acc_beam, T9 finish, `work/drive.py` = t00091 driver with ART repointed)
+## Beam runs (acc_beam + T9 finish; `work/drive.py`; logs `work/*.log`, raw `work/*_W*.out`)
 
-See the "beam" section below (appended after the runs).
+All from the manifest start, one process at a time under nice, <= 100 s each unless stated. Result "NONE" = no T9 hit at
+any depth (bestAC = -1 throughout).
+
+| row | settings | wall | kept lengths (d=20..end) | result |
+|---|---|---|---|---|
+| ac-08441 | W 20000, DMAX 200 | 79 s | 20..25 | NONE |
+| ac-08441 | W 20000, BEAM_CLIMB=10, DMAX 120 | 49 s | 993..2385 at d=10, 16..23 after d=30 | NONE |
+| ac-08441 | W 20000, BEAM_CLIMB=4 / 6 / 8, DMAX 80-120 | 31-48 s | 16..29 | NONE |
+| ac-08441 | W 20000, BEAM_H=1, DMAX 120 | 50 s | 17..35 | NONE |
+| ac-02255 | W 20000, DMAX 150 | 57 s | 14..19 | NONE |
+| ac-02255 | W 20000, BEAM_CLIMB=6 / 8, BEAM_H=1, DMAX 120 | 41-47 s | 14..31 | NONE |
+| ac-06010, ac-00724, ac-08692, ac-07069 | W 20000, DMAX 150 | 55-59 s each | (plain key) | NONE |
+| ac-08441, ac-02255 | BEAM_P2=1 | killed at 100 s | - | no result (too slow for the slot) |
+| ac-02255 | W 80000, BEAM_H=1, DMAX 100 | 161 s | 13..36 | NONE |
+
+`lines.txt` is empty: no route on any of the 6 rows replayed ok. Wall used: 19:03Z-19:33Z of the 60 min; ended by
+finishing the planned runs (the remaining budget could not fit another meaningful beam width under the 5-min slot).
+
+Reading of the miss: the sibling search routes (ac-00345 35, ac-09758 38) grow one relator to ~30 letters by repeated
+r1 <- r1 r0^-1 with conjugations (total peak 43), then collapse in ~8 moves. The plain-key beam never leaves 14-25
+letters; CLIMB either does nothing (c <= 8) or doubles to >1000 letters (c = 10); H=1 reaches 35 but not the right
+words. So the scope of every miss here is: beam width <= 80000, depth <= 200, the keys above, one core, <= 280 s.
+
+## Post-opening states (exact, pinned core) if Charlie wants to cap from them
+
+The ac-04662 opening on each row (shortest of [7,4], [6,4], [0,7,3], [0,6,3], [7,5], [6,5]); none collapses:
+
+- ac-08441 [7,4]: (XYYYYYxYX, YYYYYXYxYX) total 19 (start 20)
+- ac-00724 [7,4]: (XYYYYxYX, YYYYXYxYX) 17 (=start)
+- ac-08692 [7,4]: (XYYYYxxY, YYYYXYxxY) 17 (=start)
+- ac-06010 [0,7,3]: (XXyyyxxxyyyyy, YYYYYXyyyyx) 24 (start 21)
+- ac-02255 [0,7,3]: (XXXyyxxyyyy, YYYYXyyyx) 20 (start 17)
+- ac-07069 [0,7,3]: (XXyyxxxyyyy, YYYYXyyyx) 20 (start 17)
+
+`orders_charlie.md` is not written: the construction does not close as a rule, so there is no post-cancellation state
+to hand over. The lists above are the honest substitute. Recommendation for the 37-row list: drop the 102 wrong-
+orientation rows from the "hand construction" queue; the right-orientation 26 reduce in 3-4 moves to the same cores
+(e.g. ac-02572/ac-04158 -> ac-08441's core, ac-08954 -> ac-02255's core), so a solve of one core is worth several rows.
