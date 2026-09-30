@@ -1,8 +1,8 @@
 {
-  "completed_batches": 46,
+  "completed_batches": 47,
   "model_worker_launches": 4,
-  "code_only_batches": 42,
-  "new_improved_routes": 3,
+  "code_only_batches": 43,
+  "new_improved_routes": 4,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
   "runs": [
@@ -49,12 +49,12 @@
       },
       "key": "ab7688a3f2ec5b7584b6f71aa56a07f62768ec0a04fb0df787871c42491976eb"
     },
-    "remaining_jobs": 49
+    "remaining_jobs": 52
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 46
+      "completed": 47
     },
     "unconnected_roles": [
       "luna_memory",
@@ -664,6 +664,15 @@
         "node_cap": 600000,
         "wall_seconds": 180.0
       }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00028",
+      "baseline": 52,
+      "target": 44,
+      "kind": "candidate",
+      "result_path": "runs/kernel_revival/code_a7e9bffde8b90533/worker_result.json",
+      "limits": null
     }
   ],
   "implementation_failure": {

@@ -1,8 +1,8 @@
 # ACC memory-first harness claims
 
-Updated: 2026-09-30T18:22:40.524127+00:00.
+Updated: 2026-09-30T18:27:32.543238+00:00.
 
-No active claim. Completed 46 bounded method probes. Latest: bridge ac-00028: No saved-baseline improvement found; best 52, target 44; bounded run ended node_cap. No impossibility or live score claim.
+No active claim. Completed 47 bounded method probes. Latest: kernel ac-00028: Exact foreign-road overlay route 51 improves saved 52; requested target 44. No live score claim.
 
 Next proposed charlie ac-00015; this is not a claim.
 

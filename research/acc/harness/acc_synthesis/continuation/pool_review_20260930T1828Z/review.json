@@ -1,0 +1,1158 @@
+{
+  "schema": "acc-new-road-review/1",
+  "scope": "offline replay and graph comparison; not a new search or scoring claim",
+  "source_head": "408882ff72c48313eb152d71cbac32935f03fa08",
+  "source_blob": "multi-blob bundle; exact Git blob pins in sources",
+  "pool_sha256": "db55e346d84b31f4079afec46b611a683fe6b72211bd7e1745a01b6cdde9102b",
+  "events_sha256": "eb2159b089d3bb7ed86b3f28423c6fbf290a913c68d2c8dac33385e880f04353",
+  "script_sha256": "3207517674fedb17afe914d471d56041d013edff0015a3b8dde031c6e75420a0",
+  "bounds": {
+    "wall_seconds": 180,
+    "memory_mib": 1024,
+    "graph_states": 600000
+  },
+  "elapsed_seconds": 0.984975608997047,
+  "peak_rss_mib": 83.390625,
+  "before": {
+    "states": 69181,
+    "directed_edges": 144360
+  },
+  "after": {
+    "states": 69433,
+    "directed_edges": 144916
+  },
+  "decisions": [
+    {
+      "line": 1,
+      "row_id": "ac-00529",
+      "length": 73,
+      "status": "missing_pinned_start"
+    },
+    {
+      "line": 2,
+      "row_id": "ac-08623",
+      "length": 61,
+      "status": "missing_pinned_start"
+    },
+    {
+      "line": 3,
+      "row_id": "ac-06250",
+      "length": 65,
+      "status": "missing_pinned_start"
+    },
+    {
+      "line": 4,
+      "row_id": "ac-08948",
+      "length": 80,
+      "status": "missing_pinned_start"
+    },
+    {
+      "line": 5,
+      "row_id": "ac-02404",
+      "length": 70,
+      "status": "missing_pinned_start"
+    },
+    {
+      "line": 6,
+      "row_id": "ac-04478",
+      "length": 47,
+      "official_verdict": {
+        "ok": true,
+        "length": 47,
+        "peak_total_relator_length": 59,
+        "work": 1498,
+        "certificate_hash": "sha256:a7c8e3d7d9778ce9e4b031a2d5f6768794cb9eccdb68e0b8dbacaa36b4b14da7"
+      },
+      "novel_forward_edges": 21,
+      "status": "verified_new_edges"
+    },
+    {
+      "line": 7,
+      "row_id": "ac-08031",
+      "length": 35,
+      "official_verdict": {
+        "ok": true,
+        "length": 35,
+        "peak_total_relator_length": 41,
+        "work": 838,
+        "certificate_hash": "sha256:0c51da9f3abe1d2a656c397e29f2dc7897de24a719cc09e412c7e835df43c7ff"
+      },
+      "novel_forward_edges": 11,
+      "status": "verified_new_edges"
+    },
+    {
+      "line": 8,
+      "row_id": "sac-08031",
+      "length": 37,
+      "status": "outside_AC_donors"
+    },
+    {
+      "line": 9,
+      "row_id": "ac-01618",
+      "length": 41,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 10,
+      "row_id": "ac-01708",
+      "length": 43,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 11,
+      "row_id": "ac-01755",
+      "length": 38,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 12,
+      "row_id": "ac-03919",
+      "length": 27,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 13,
+      "row_id": "ac-03945",
+      "length": 28,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 14,
+      "row_id": "ac-04129",
+      "length": 39,
+      "official_verdict": {
+        "ok": true,
+        "length": 39,
+        "peak_total_relator_length": 28,
+        "work": 674,
+        "certificate_hash": "sha256:7b8b9ac9c8c107994a813b73dc8ed599cd0c98a8b50e29d6641c0afc5fd9677a"
+      },
+      "novel_forward_edges": 6,
+      "status": "verified_new_edges"
+    },
+    {
+      "line": 15,
+      "row_id": "ac-04139",
+      "length": 36,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 16,
+      "row_id": "ac-04416",
+      "length": 29,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 17,
+      "row_id": "ac-04539",
+      "length": 42,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 18,
+      "row_id": "ac-06653",
+      "length": 38,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 19,
+      "row_id": "ac-07434",
+      "length": 46,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 20,
+      "row_id": "ac-08259",
+      "length": 46,
+      "official_verdict": {
+        "ok": true,
+        "length": 46,
+        "peak_total_relator_length": 52,
+        "work": 1309,
+        "certificate_hash": "sha256:78a70ba2f86d4236302a351ebdca77ca9b132a71995105e46a00f762a90d0cd0"
+      },
+      "novel_forward_edges": 5,
+      "status": "verified_new_edges"
+    },
+    {
+      "line": 21,
+      "row_id": "ac-09762",
+      "length": 52,
+      "official_verdict": {
+        "ok": true,
+        "length": 52,
+        "peak_total_relator_length": 41,
+        "work": 1212,
+        "certificate_hash": "sha256:506aecff3a0856e6e4f9cce4d95ccf0d3ffaec9ffa8c482cf53b7aab41856f47"
+      },
+      "novel_forward_edges": 24,
+      "status": "verified_new_edges"
+    },
+    {
+      "line": 22,
+      "row_id": "ac-09762",
+      "length": 52,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 23,
+      "row_id": "ac-09762",
+      "length": 52,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 24,
+      "row_id": "ac-09762",
+      "length": 52,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 25,
+      "row_id": "ac-09762",
+      "length": 52,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 26,
+      "row_id": "ac-02593",
+      "length": 60,
+      "official_verdict": {
+        "ok": true,
+        "length": 60,
+        "peak_total_relator_length": 40,
+        "work": 1389,
+        "certificate_hash": "sha256:660f15a1efa767f92b1be4589a5b64377eeac2bb78eb04a773fb0de790ef3166"
+      },
+      "novel_forward_edges": 43,
+      "status": "verified_new_edges"
+    },
+    {
+      "line": 27,
+      "row_id": "ac-03364",
+      "length": 46,
+      "official_verdict": {
+        "ok": true,
+        "length": 46,
+        "peak_total_relator_length": 49,
+        "work": 1022,
+        "certificate_hash": "sha256:87a00b9e98b0bdebffee705ccfb962ba0590412e9713a9b5e1671fb282e695cf"
+      },
+      "novel_forward_edges": 26,
+      "status": "verified_new_edges"
+    },
+    {
+      "line": 28,
+      "row_id": "ac-03364",
+      "length": 46,
+      "status": "duplicate_move_array"
+    },
+    {
+      "line": 29,
+      "row_id": "ac-07365",
+      "length": 49,
+      "official_verdict": {
+        "ok": true,
+        "length": 49,
+        "peak_total_relator_length": 59,
+        "work": 1418,
+        "certificate_hash": "sha256:a63ebd1dadd3291b1e4050151b40ab9235c82efb0c59bed0d04982b575ceafa1"
+      },
+      "novel_forward_edges": 44,
+      "status": "verified_new_edges"
+    },
+    {
+      "line": 30,
+      "row_id": "ac-04478",
+      "length": 48,
+      "official_verdict": {
+        "ok": true,
+        "length": 48,
+        "peak_total_relator_length": 55,
+        "work": 1475,
+        "certificate_hash": "sha256:63710c2e15ac125b7ba65c91c35aa311d0506637fdb195a29d6e1944b16b724b"
+      },
+      "novel_forward_edges": 37,
+      "status": "verified_new_edges"
+    },
+    {
+      "line": 31,
+      "row_id": "ac-04909",
+      "length": 41,
+      "official_verdict": {
+        "ok": true,
+        "length": 41,
+        "peak_total_relator_length": 51,
+        "work": 1245,
+        "certificate_hash": "sha256:fb9f36a932cd2e8a486350bff012c7884361fd144f21026fec1ad364f211ce54"
+      },
+      "novel_forward_edges": 27,
+      "status": "verified_new_edges"
+    },
+    {
+      "line": 32,
+      "row_id": "ac-04219",
+      "length": 51,
+      "official_verdict": {
+        "ok": true,
+        "length": 51,
+        "peak_total_relator_length": 45,
+        "work": 1263,
+        "certificate_hash": "sha256:fe830c2ca31f90c84c606ff3855aed6923621e7db9fbfc6feceb67abc2cc7478"
+      },
+      "novel_forward_edges": 34,
+      "status": "verified_new_edges"
+    }
+  ],
+  "selected_graph_distances": [
+    {
+      "row_id": "ac-00001",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00003",
+      "old_graph_distance": 84,
+      "new_graph_distance": 84
+    },
+    {
+      "row_id": "ac-00005",
+      "old_graph_distance": 27,
+      "new_graph_distance": 27
+    },
+    {
+      "row_id": "ac-00006",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00009",
+      "old_graph_distance": 112,
+      "new_graph_distance": 112
+    },
+    {
+      "row_id": "ac-00010",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00011",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00012",
+      "old_graph_distance": 52,
+      "new_graph_distance": 52
+    },
+    {
+      "row_id": "ac-00013",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00015",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00016",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00017",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00018",
+      "old_graph_distance": 51,
+      "new_graph_distance": 51
+    },
+    {
+      "row_id": "ac-00020",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00021",
+      "old_graph_distance": 40,
+      "new_graph_distance": 40
+    },
+    {
+      "row_id": "ac-00022",
+      "old_graph_distance": 56,
+      "new_graph_distance": 56
+    },
+    {
+      "row_id": "ac-00024",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00027",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00028",
+      "old_graph_distance": 52,
+      "new_graph_distance": 51
+    },
+    {
+      "row_id": "ac-00029",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00031",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00032",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00033",
+      "old_graph_distance": null,
+      "new_graph_distance": null
+    },
+    {
+      "row_id": "ac-00034",
+      "old_graph_distance": 44,
+      "new_graph_distance": 44
+    },
+    {
+      "row_id": "ac-00037",
+      "old_graph_distance": 32,
+      "new_graph_distance": 32
+    }
+  ],
+  "accepted_roads": [
+    {
+      "row_id": "ac-04478",
+      "moves": [
+        0,
+        12,
+        12,
+        12,
+        2,
+        12,
+        12,
+        5,
+        10,
+        6,
+        8,
+        8,
+        3,
+        9,
+        9,
+        9,
+        9,
+        7,
+        9,
+        9,
+        3,
+        9,
+        9,
+        9,
+        9,
+        7,
+        2,
+        5,
+        8,
+        3,
+        8,
+        8,
+        6,
+        8,
+        8,
+        2,
+        13,
+        4,
+        1,
+        3,
+        5,
+        3,
+        3,
+        3,
+        6,
+        3,
+        3
+      ],
+      "sources": [
+        {
+          "archive": "continuation/pool_review_20260930T1828Z_inputs/events.json",
+          "source_blob": "multi-blob bundle; exact Git blob pins in sources",
+          "line": 6,
+          "independent_official_verdict": {
+            "ok": true,
+            "length": 47,
+            "peak_total_relator_length": 59,
+            "work": 1498,
+            "certificate_hash": "sha256:a7c8e3d7d9778ce9e4b031a2d5f6768794cb9eccdb68e0b8dbacaa36b4b14da7"
+          }
+        }
+      ]
+    },
+    {
+      "row_id": "ac-08031",
+      "moves": [
+        1,
+        2,
+        8,
+        8,
+        5,
+        10,
+        12,
+        12,
+        6,
+        3,
+        8,
+        8,
+        7,
+        8,
+        8,
+        3,
+        8,
+        8,
+        7,
+        2,
+        5,
+        9,
+        3,
+        9,
+        9,
+        6,
+        2,
+        12,
+        4,
+        2,
+        12,
+        4,
+        2,
+        2,
+        2
+      ],
+      "sources": [
+        {
+          "archive": "continuation/pool_review_20260930T1828Z_inputs/events.json",
+          "source_blob": "multi-blob bundle; exact Git blob pins in sources",
+          "line": 7,
+          "independent_official_verdict": {
+            "ok": true,
+            "length": 35,
+            "peak_total_relator_length": 41,
+            "work": 838,
+            "certificate_hash": "sha256:0c51da9f3abe1d2a656c397e29f2dc7897de24a719cc09e412c7e835df43c7ff"
+          }
+        }
+      ]
+    },
+    {
+      "row_id": "ac-04129",
+      "moves": [
+        6,
+        9,
+        9,
+        10,
+        3,
+        7,
+        5,
+        8,
+        7,
+        3,
+        7,
+        8,
+        8,
+        3,
+        10,
+        12,
+        12,
+        3,
+        9,
+        9,
+        5,
+        10,
+        2,
+        6,
+        4,
+        11,
+        4,
+        13,
+        2,
+        6,
+        3,
+        9,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "sources": [
+        {
+          "archive": "continuation/pool_review_20260930T1828Z_inputs/events.json",
+          "source_blob": "multi-blob bundle; exact Git blob pins in sources",
+          "line": 14,
+          "independent_official_verdict": {
+            "ok": true,
+            "length": 39,
+            "peak_total_relator_length": 28,
+            "work": 674,
+            "certificate_hash": "sha256:7b8b9ac9c8c107994a813b73dc8ed599cd0c98a8b50e29d6641c0afc5fd9677a"
+          }
+        }
+      ]
+    },
+    {
+      "row_id": "ac-08259",
+      "moves": [
+        0,
+        9,
+        9,
+        9,
+        2,
+        10,
+        12,
+        0,
+        12,
+        3,
+        6,
+        4,
+        7,
+        2,
+        6,
+        8,
+        8,
+        2,
+        8,
+        2,
+        5,
+        7,
+        9,
+        9,
+        3,
+        6,
+        8,
+        4,
+        8,
+        6,
+        8,
+        8,
+        6,
+        8,
+        13,
+        11,
+        5,
+        13,
+        2,
+        2,
+        2,
+        5,
+        9,
+        3,
+        5,
+        3
+      ],
+      "sources": [
+        {
+          "archive": "continuation/pool_review_20260930T1828Z_inputs/events.json",
+          "source_blob": "multi-blob bundle; exact Git blob pins in sources",
+          "line": 20,
+          "independent_official_verdict": {
+            "ok": true,
+            "length": 46,
+            "peak_total_relator_length": 52,
+            "work": 1309,
+            "certificate_hash": "sha256:78a70ba2f86d4236302a351ebdca77ca9b132a71995105e46a00f762a90d0cd0"
+          }
+        }
+      ]
+    },
+    {
+      "row_id": "ac-09762",
+      "moves": [
+        6,
+        9,
+        10,
+        12,
+        12,
+        12,
+        3,
+        9,
+        9,
+        9,
+        7,
+        8,
+        13,
+        3,
+        9,
+        6,
+        4,
+        7,
+        13,
+        2,
+        6,
+        8,
+        2,
+        0,
+        8,
+        13,
+        3,
+        7,
+        9,
+        3,
+        7,
+        9,
+        3,
+        7,
+        9,
+        3,
+        7,
+        4,
+        8,
+        4,
+        1,
+        11,
+        4,
+        8,
+        2,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3
+      ],
+      "sources": [
+        {
+          "archive": "continuation/pool_review_20260930T1828Z_inputs/events.json",
+          "source_blob": "multi-blob bundle; exact Git blob pins in sources",
+          "line": 21,
+          "independent_official_verdict": {
+            "ok": true,
+            "length": 52,
+            "peak_total_relator_length": 41,
+            "work": 1212,
+            "certificate_hash": "sha256:506aecff3a0856e6e4f9cce4d95ccf0d3ffaec9ffa8c482cf53b7aab41856f47"
+          }
+        }
+      ]
+    },
+    {
+      "row_id": "ac-02593",
+      "moves": [
+        1,
+        7,
+        9,
+        2,
+        8,
+        5,
+        8,
+        10,
+        2,
+        9,
+        6,
+        12,
+        12,
+        12,
+        3,
+        8,
+        8,
+        8,
+        7,
+        8,
+        8,
+        8,
+        5,
+        12,
+        11,
+        12,
+        5,
+        1,
+        7,
+        8,
+        4,
+        7,
+        4,
+        6,
+        9,
+        4,
+        6,
+        12,
+        4,
+        11,
+        12,
+        4,
+        1,
+        11,
+        12,
+        12,
+        3,
+        11,
+        12,
+        2,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        6,
+        2
+      ],
+      "sources": [
+        {
+          "archive": "continuation/pool_review_20260930T1828Z_inputs/events.json",
+          "source_blob": "multi-blob bundle; exact Git blob pins in sources",
+          "line": 26,
+          "independent_official_verdict": {
+            "ok": true,
+            "length": 60,
+            "peak_total_relator_length": 40,
+            "work": 1389,
+            "certificate_hash": "sha256:660f15a1efa767f92b1be4589a5b64377eeac2bb78eb04a773fb0de790ef3166"
+          }
+        }
+      ]
+    },
+    {
+      "row_id": "ac-03364",
+      "moves": [
+        0,
+        1,
+        9,
+        3,
+        8,
+        6,
+        10,
+        12,
+        4,
+        7,
+        12,
+        11,
+        4,
+        9,
+        13,
+        13,
+        4,
+        1,
+        11,
+        5,
+        1,
+        13,
+        4,
+        9,
+        10,
+        4,
+        8,
+        8,
+        11,
+        4,
+        13,
+        2,
+        6,
+        13,
+        13,
+        3,
+        9,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        3,
+        3
+      ],
+      "sources": [
+        {
+          "archive": "continuation/pool_review_20260930T1828Z_inputs/events.json",
+          "source_blob": "multi-blob bundle; exact Git blob pins in sources",
+          "line": 27,
+          "independent_official_verdict": {
+            "ok": true,
+            "length": 46,
+            "peak_total_relator_length": 49,
+            "work": 1022,
+            "certificate_hash": "sha256:87a00b9e98b0bdebffee705ccfb962ba0590412e9713a9b5e1671fb282e695cf"
+          }
+        }
+      ]
+    },
+    {
+      "row_id": "ac-07365",
+      "moves": [
+        1,
+        12,
+        12,
+        12,
+        4,
+        1,
+        8,
+        8,
+        8,
+        6,
+        10,
+        5,
+        9,
+        2,
+        0,
+        8,
+        8,
+        8,
+        8,
+        6,
+        5,
+        1,
+        12,
+        2,
+        0,
+        4,
+        7,
+        9,
+        11,
+        2,
+        0,
+        9,
+        5,
+        9,
+        9,
+        9,
+        9,
+        10,
+        4,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        5,
+        3,
+        3,
+        3
+      ],
+      "sources": [
+        {
+          "archive": "continuation/pool_review_20260930T1828Z_inputs/events.json",
+          "source_blob": "multi-blob bundle; exact Git blob pins in sources",
+          "line": 29,
+          "independent_official_verdict": {
+            "ok": true,
+            "length": 49,
+            "peak_total_relator_length": 59,
+            "work": 1418,
+            "certificate_hash": "sha256:a63ebd1dadd3291b1e4050151b40ab9235c82efb0c59bed0d04982b575ceafa1"
+          }
+        }
+      ]
+    },
+    {
+      "row_id": "ac-04478",
+      "moves": [
+        0,
+        12,
+        12,
+        12,
+        2,
+        6,
+        12,
+        12,
+        10,
+        5,
+        1,
+        8,
+        13,
+        2,
+        9,
+        9,
+        9,
+        7,
+        9,
+        9,
+        9,
+        2,
+        9,
+        9,
+        9,
+        7,
+        9,
+        5,
+        1,
+        9,
+        4,
+        12,
+        12,
+        12,
+        12,
+        10,
+        5,
+        1,
+        9,
+        2,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "sources": [
+        {
+          "archive": "continuation/pool_review_20260930T1828Z_inputs/events.json",
+          "source_blob": "multi-blob bundle; exact Git blob pins in sources",
+          "line": 30,
+          "independent_official_verdict": {
+            "ok": true,
+            "length": 48,
+            "peak_total_relator_length": 55,
+            "work": 1475,
+            "certificate_hash": "sha256:63710c2e15ac125b7ba65c91c35aa311d0506637fdb195a29d6e1944b16b724b"
+          }
+        }
+      ]
+    },
+    {
+      "row_id": "ac-04909",
+      "moves": [
+        1,
+        2,
+        5,
+        8,
+        8,
+        8,
+        6,
+        10,
+        5,
+        9,
+        12,
+        12,
+        3,
+        8,
+        5,
+        8,
+        8,
+        13,
+        13,
+        10,
+        13,
+        4,
+        13,
+        4,
+        9,
+        9,
+        9,
+        9,
+        9,
+        6,
+        3,
+        9,
+        5,
+        8,
+        2,
+        4,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "sources": [
+        {
+          "archive": "continuation/pool_review_20260930T1828Z_inputs/events.json",
+          "source_blob": "multi-blob bundle; exact Git blob pins in sources",
+          "line": 31,
+          "independent_official_verdict": {
+            "ok": true,
+            "length": 41,
+            "peak_total_relator_length": 51,
+            "work": 1245,
+            "certificate_hash": "sha256:fb9f36a932cd2e8a486350bff012c7884361fd144f21026fec1ad364f211ce54"
+          }
+        }
+      ]
+    },
+    {
+      "row_id": "ac-04219",
+      "moves": [
+        0,
+        7,
+        9,
+        9,
+        4,
+        3,
+        6,
+        12,
+        12,
+        10,
+        2,
+        8,
+        8,
+        8,
+        4,
+        8,
+        11,
+        12,
+        12,
+        12,
+        12,
+        12,
+        3,
+        6,
+        9,
+        5,
+        9,
+        9,
+        12,
+        11,
+        12,
+        5,
+        8,
+        13,
+        10,
+        3,
+        8,
+        5,
+        9,
+        12,
+        11,
+        4,
+        12,
+        2,
+        4,
+        4,
+        4,
+        4,
+        6,
+        2,
+        2
+      ],
+      "sources": [
+        {
+          "archive": "continuation/pool_review_20260930T1828Z_inputs/events.json",
+          "source_blob": "multi-blob bundle; exact Git blob pins in sources",
+          "line": 32,
+          "independent_official_verdict": {
+            "ok": true,
+            "length": 51,
+            "peak_total_relator_length": 45,
+            "work": 1263,
+            "certificate_hash": "sha256:fe830c2ca31f90c84c606ff3855aed6923621e7db9fbfc6feceb67abc2cc7478"
+          }
+        }
+      ]
+    }
+  ]
+}
