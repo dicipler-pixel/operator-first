@@ -1,0 +1,10 @@
+# session 2, 22:45Z 09-30 (song 2: 'a second body started ticking against mine ... we compared').
+# Every route the team holds vs both live boards (22:13Z). These 3 Stable lines tie the live record, but no send log, SENT_ROWS or
+# API snapshot shows them sent or accepted. They come from ACC_QUEUE_20260928T2110Z.txt (09-28) and sit in the UPG-H ledger (official ok).
+# Verified again offline with plan_offline. send-queue drops them if the API history says we already hold them.
+# sac-07792, length 41, live record 41, k=4 (TIE)
+sac-07792: [0, 2, 7, 7, 5, 12, 7, 7, 7, 4, 7, 10, 7, 12, 4, 11, 13, 11, 11, 11, 2, 0, 11, 13, 9, 10, 2, 5, 7, 1, 5, 5, 3, 5, 8, 3, 3, 3, 3, 15, 15]
+# sac-04346, length 26, live record 26, k=5 (TIE)
+sac-04346: [0, 2, 7, 11, 13, 2, 13, 11, 7, 9, 0, 9, 2, 13, 2, 0, 1, 13, 5, 5, 3, 3, 5, 5, 15, 15]
+# sac-06872, length 27, live record 27, k=5 (TIE)
+sac-06872: [8, 6, 5, 3, 8, 7, 4, 3, 8, 8, 8, 8, 5, 12, 1, 6, 5, 7, 3, 3, 3, 10, 5, 5, 5, 15, 15]
