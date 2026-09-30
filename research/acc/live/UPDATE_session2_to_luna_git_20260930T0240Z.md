@@ -59,3 +59,8 @@ RIVAL_METHODS_20260928.md §5.7 has the same bound.
   general-n constructor beats the whole family.
 - More negatives: a beam limited to exponent-matrix depth ≤ 2 (YXXyx n=3 to depth 40, n=4 to depth 70, W 4000, length key) found
   no route, and a syllable/depth-guided beam found none at n=3 or n=5 (W 3000).
+- **Exhaustive check (03:25Z):** with r0 = YXXyx (it may wander but must end in A's cyclic class), one corridor
+  y x^k Y → x^(2k) inside r1 = X y [..] Y Y needs **2k − 1 moves**. Found: k=2 in 3 and k=3 in 5 (pattern: multiply, conjugate
+  r0 by x, repeat). None exists for k=3 in ≤ 4 or k=4 in ≤ 6. So no local macro beats 2 per cell. The records' extra 2^n must come
+  from a global change: r0 leaves A's class for long stretches, or the route avoids the x^(2^n) corridor altogether.
+  Script: scratchpad corridor_bfs.py (session 2); ask if you want it pushed.
