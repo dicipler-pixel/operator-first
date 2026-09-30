@@ -230,6 +230,30 @@
       "runner": "agent",
       "wall_seconds": 3600,
       "about": "agent reasons out a generator path(n) for a family of rows (for example the MS(n,w) doubling chains), checks it on small n, then writes full paths for the board rows; code verifies every line"
+    },
+    "splice": {
+      "runner": "code",
+      "about": "cross-road splice: pool our best AC path + every ledger path + every team road for the row, exact radius-R shortcut edges between all pool states, Dijkstra, then acc_beam waypoint restarts and splice again (tools/acc/splice/splice.py via adapters/splice_rows.py). Astra's 22:16Z receipt audit: all five verified improvements of 30 Sep came from saved-road unions",
+      "command": [
+        "{python}",
+        "tools/acc/upgh/adapters/splice_rows.py",
+        "{sair}",
+        "{bin}",
+        "{t9}",
+        "{work}",
+        "{jobs}",
+        "{targets}",
+        "{out}",
+        "{knob:RADIUS}",
+        "{knob:ROUNDS}",
+        "{knob:ROW_S}"
+      ],
+      "needs": [
+        "bin/acc_beam",
+        "T9.tab"
+      ],
+      "needs_best": true,
+      "wall_seconds": 1500
     }
   },
   "roles": {
@@ -282,6 +306,19 @@
       "board_filter": "near-record",
       "knobs": {
         "ROW_S": 180
+      }
+    },
+    {
+      "method": "splice",
+      "seed": "our-best",
+      "pool": "team-roads",
+      "capture": "splice-r3",
+      "representation": "direct",
+      "board_filter": "near-record",
+      "knobs": {
+        "RADIUS": 3,
+        "ROUNDS": 2,
+        "ROW_S": 650
       }
     },
     {

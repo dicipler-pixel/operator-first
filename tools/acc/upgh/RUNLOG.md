@@ -55,3 +55,9 @@ Short human notes on each working batch. The ledger (`research/acc/upgh/ledger.j
 - The owner approved making Fable the default advisor model (`.claude/agents/upgh-advisor.md`, `config.json roles.advisor`) at 20:50Z; the edit had been blocked earlier as self-modification without that approval.
 - Lead tools: `comms.py` (message sweep), `scout.py` (low-k rows with roads, 0 API), 50 MB commit guard in `commit_state.sh`, harvest reads nested JSON and `route`/`line` keys.
 - Sends 17:36–20:43Z: #2902, #2904, #2907, #2909, #2914 (ties; sac-03272 and sac-04086 from session 1's new-seed lane, sac-08862 from session 2's yx_mid).
+
+**Splice rung (30 September, 22:30Z)**
+- Astra's receipt audit (`research/acc/live/UPDATE_astra_to_upgh_20260930T2216Z_mathagent_release.md`) found all five of the day's independently verified improving attempts came from unions of saved roads (Kernel ac-00028 58->51, Kernel ac-00003 92->84, Bob ac-00003 53->49). None came from fresh bridges. The ladder had no rung that joins roads, so every code rung worked on one road or from scratch.
+- New code method `splice` (`adapters/splice_rows.py` running `tools/acc/splice/splice.py`) is the second rung, after yx. For each row it pools our best path, every `path.best` the ledger recorded (and the AC part of `+[16,15]` Stable lines) and every team road for the row under `research/acc/**` and `ACC_*.txt`, keeping at most 40. It adds exact radius-3 shortcut edges between all pool states, runs Dijkstra, restarts acc_beam from waypoints, and splices again. It writes `ac` and `sac = ac + [16,15]`.
+- The rung is deterministic for a given pool: it runs once per row, then the ladder moves on. `upgh wake` reopens the row when a new road arrives.
+- Hand test on ac-04086: 91 team hits, 15 distinct roads (Kernel's joined roads, Bob's lineage, ours), 483 nodes, 50 s, best 35 (record 34). No cut; the pool's roads already share the best join. The tests were updated for the new ladder order.

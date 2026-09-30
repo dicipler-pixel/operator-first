@@ -266,7 +266,7 @@ class HarnessTests(unittest.TestCase):
         e = Env()
         e.boards(ac={"ac-01373": (29, 2)}, sac={}, held={})
         for strategy, expect in ((dict(CFG["default_strategy"], knobs={"W": 5}), "refused"),
-                                 (dict(CFG["default_strategy"], method="splice", pool="beam-pool"), "proposal")):
+                                 (dict(CFG["default_strategy"], method="bridge", pool="beam-pool"), "proposal")):
             tid = e.h.open({"role": "advisor", "rows": ["ac-01373"]})
             c = e.h.next(role="advisor")
             self.assertEqual(c["task"], tid)
@@ -278,8 +278,8 @@ class HarnessTests(unittest.TestCase):
         st = e.h.state()
         self.assertEqual(st.switches["ac-01373"], 1)
         queued = [t["contract"] for t in st.open_tasks("builder")]
-        self.assertEqual(queued[0]["strategy"]["method"], "splice")
-        self.assertEqual(queued[0]["runner"], "agent")       # no code runner for splice: an agent runs it
+        self.assertEqual(queued[0]["strategy"]["method"], "bridge")
+        self.assertEqual(queued[0]["runner"], "agent")       # no code runner for bridge: an agent runs it
 
     def test_stop_dominates_and_writing_z_still_works(self):
         e = Env()
@@ -399,7 +399,7 @@ class HarnessTests(unittest.TestCase):
         e.h.accept(c1["task"], c1["token"], {"kind": "ran", "summary": "x", "prediction": "p", "artifacts": [art]})
         c2 = e.h.next(role="builder")
         second = json.loads((e.repo / c2["contract"]).read_text())["strategy"]["method"]
-        self.assertEqual((first, second), ("window", "tail"))   # the next rung, not a repeat
+        self.assertEqual((first, second), ("splice", "window"))   # the next rung, not a repeat
 
     def test_a_tool_that_fails_is_blocked_not_a_miss_and_void_withdraws_false_misses(self):
         e = Env(methods={"broken": {"runner": "code", "wall_seconds": 30, "needs": [],
