@@ -1,7 +1,34 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": null,
+  "active": {
+    "job": {
+      "row_id": "ac-00028",
+      "track": "AC",
+      "helper": "bob",
+      "algorithm_id": "bob-cross-class-generator-transfer-v1",
+      "script": "helpers/bob_lane_v1.py",
+      "method_sha256": "b956a70a54c7d3fab304776581bb99afaf873099276f0515ea27af3d6ab4c470",
+      "inputs": {
+        "helpers/bob_sources/research/acc/live/bob/bob_crossclass_bundle2_20260929.json": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac"
+      },
+      "seed_sha256": "53946474113bccefa9cb273b5edfa40e042bb54f4bc0f4fe72b9a57de9c63309",
+      "baseline": 54,
+      "target": 44,
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "key": "4c57880a06ebf3da61849b32ceb8c8fd2dc413a3e7b90fdc99bef462f6bdc689"
+    },
+    "task_id": 36,
+    "lease_token": "2e9cf9d5388f4052a785c90373bb5cc8",
+    "expires_at": 1790787845.5164938,
+    "repo_head": "f5022fe80e263a3c77a1765585bca0d22b160bfd",
+    "phase": "reserved",
+    "host_must_commit_before_execution": true
+  },
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -826,10 +853,12 @@
       "reopen_when": null
     }
   ],
-  "notifications": [],
+  "notifications": [
+    "2b2613408847d16d2dc82e7b40c23c39b18bba10722c67b7674e8a8eca0c78b7"
+  ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790786991.097358,
+  "updated_at": 1790787245.5168407,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,

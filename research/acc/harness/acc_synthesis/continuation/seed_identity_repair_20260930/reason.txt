@@ -1,0 +1,1 @@
+After the verified ac-00028 improvement 58->54, Charlie still has the same official start, goal, target 44 and caps. Its search does not use route seeds. Coarsen only its memory identity to skip that identical search while retaining every old key and result unchanged. Bob and Kernel do use saved routes and retain their seed-sensitive identities.
