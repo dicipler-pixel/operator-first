@@ -1,0 +1,84 @@
+{
+ "row": "ac-03913",
+ "cap": 34,
+ "route_len": 48,
+ "over": 2,
+ "maxst_ball": 30000000,
+ "filter": {
+  "imin": 17,
+  "imax": 18,
+  "jmin": 41,
+  "gmin": 23,
+  "gmax": 24
+ },
+ "rmax": 16,
+ "eligible_states": [
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  32,
+  33,
+  39,
+  40,
+  41,
+  42,
+  43,
+  44,
+  45
+ ],
+ "n_pairs": 3,
+ "balls": {
+  "17": {
+   "tot": 19,
+   "radius": 13,
+   "cum": 47793180,
+   "stop": "budget cum 47793180 >= 30000000 after layer 13"
+  },
+  "41": {
+   "tot": 21,
+   "radius": 9,
+   "cum": 13421550,
+   "stop": "budget bytes inside layer 10"
+  }
+ },
+ "pairs": [
+  {
+   "i": 17,
+   "j": 41,
+   "gap": 24,
+   "target_T": 22,
+   "tot_i": 19,
+   "tot_j": 21,
+   "Ri": 13,
+   "Rj": 9,
+   "a": 13,
+   "b": 9,
+   "states": 61214730,
+   "result": "NOT_REACHED",
+   "why": "pair budget"
+  }
+ ],
+ "shortened": [],
+ "wall_s": 72.0
+}
