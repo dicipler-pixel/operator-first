@@ -56,14 +56,18 @@ def ledger_paths(num):
 
 
 def team_paths(num):
-    """AC roads for the row anywhere the team drops them (inbox, queue, exchange, sweeps, ledger notes)."""
+    """AC roads for the row anywhere the team drops them (inbox, queue, exchange, sweeps, ledger notes) and in
+    UPG-H task artifacts (lines.txt, out.jsonl)."""
     hits = subprocess.run(["grep", "-rlsF", "--exclude-dir=upgh", "-e", "-" + num, "research/acc", "--include=*.txt", "--include=*.jsonl",
                            "--include=*.json"], cwd=REPO, capture_output=True, text=True).stdout.split()
     hits += [p.name for p in REPO.glob("ACC_*.txt")]
+    # task artifacts hold other lineages (mirror starts, beams, constructions) that never became path.best
+    hits += subprocess.run(["grep", "-rlsF", "-e", "-" + num, "research/acc/upgh/artifacts", "--include=lines.txt",
+                            "--include=out.jsonl"], cwd=REPO, capture_output=True, text=True).stdout.split()
     out = []
     for rel in hits:
         p = REPO / rel
-        if "research/acc/upgh/" in rel or not p.is_file() or p.stat().st_size > MAX_FILE:
+        if not p.is_file() or p.stat().st_size > MAX_FILE:
             continue
         for cid, moves, _ in extract(p):
             if cid == "ac-" + num:
