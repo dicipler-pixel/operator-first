@@ -1,31 +1,7 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": {
-    "job": {
-      "row_id": "ac-00018",
-      "track": "AC",
-      "baseline": 51,
-      "target": 43,
-      "seed_sha256": "cfd5a7d115fadbc37789fea8bf7e7806acb1bc7c6ef58f1bc80726ae8014f8f8",
-      "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "depth": 8,
-        "profile": "route-local",
-        "memory_mib": 1024
-      },
-      "algorithm_id": "exact-layered-bidirectional-route-union-v1",
-      "key": "9868bc65744b21d8e6be7d5710ce65ffd18631f9bb959305d8bb947640fe6aa4"
-    },
-    "task_id": 60,
-    "lease_token": "d5ce2c4704dc47ed8d870e3d714ff852",
-    "expires_at": 1790793099.811334,
-    "repo_head": "43e7e28d0e91a456373690faa02156c78890c85b",
-    "phase": "reserved",
-    "host_must_commit_before_execution": true
-  },
+  "active": null,
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -1866,6 +1842,43 @@
         "event": "higher_exact_cap_capacity",
         "row_id": "ac-00013"
       }
+    },
+    {
+      "key": "9868bc65744b21d8e6be7d5710ce65ffd18631f9bb959305d8bb947640fe6aa4",
+      "job": {
+        "row_id": "ac-00018",
+        "track": "AC",
+        "baseline": 51,
+        "target": 43,
+        "seed_sha256": "cfd5a7d115fadbc37789fea8bf7e7806acb1bc7c6ef58f1bc80726ae8014f8f8",
+        "method_sha256": "3c1790dd3e04b389dd164bd229bedb4a95d771a8b9969d69b1e05a90add427f8",
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "depth": 8,
+          "profile": "route-local",
+          "memory_mib": 1024
+        },
+        "algorithm_id": "exact-layered-bidirectional-route-union-v1",
+        "key": "9868bc65744b21d8e6be7d5710ce65ffd18631f9bb959305d8bb947640fe6aa4"
+      },
+      "origin": "deterministic_code",
+      "finished_at": 1790792510.6698303,
+      "result_path": "runs/code_9868bc65744b21d8/worker_result.json",
+      "result_sha256": "94f1a8eb0815797bd5836efe65a81814e3fe03b17db2e2c114da7717ebabc219",
+      "kind": "bounded_miss",
+      "summary": "No saved-baseline improvement found; best 51, target 43; bounded run ended node_cap. No impossibility or live score claim.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "total_bridge_depth": 8
+      },
+      "reopen_when": {
+        "event": "new_exact_seed",
+        "row_id": "ac-00018"
+      }
     }
   ],
   "notifications": [
@@ -1875,7 +1888,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790792499.811659,
+  "updated_at": 1790792510.6703527,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
