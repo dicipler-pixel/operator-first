@@ -6,4 +6,5 @@ Written by tools/acc/upgh on every claim and result. Rows below are being search
 - t00108: ac-00003 (method bridge_to_tuple, seed None)
 - t00110: sac-02226 (method beam_free, seed 101)
 - t00111: ac-09726 (method beam_free, seed 101)
+- t00112: ac-07328 (method beam_free, seed 101)
 - t00115: ac-05598, ac-03913 (method middle_bridge, seed None)
