@@ -1,0 +1,15 @@
+== sac-03211: AC len 53, tail [16, 15]
+  conjugation runs (start,end,move,len): [(0, 4, 12, 4), (6, 9, 12, 3), (11, 15, 13, 4), (16, 19, 8, 3)]
+  longest run: 4 -> fully inside a window of length <= 9 (covered exactly at 3+3)
+  repeated blocks (block, positions): [([4, 12, 11, 4, 12, 11, 4], [21, 24]), ([4, 12, 11, 4, 12, 11], [21, 24]), ([12, 11, 4, 12, 11, 4], [22, 25]), ([2, 2, 2, 2, 2, 2], [45, 46]), ([4, 12, 11, 4, 12], [21, 24]), ([12, 11, 4, 12, 11], [22, 25])]
+  length-8 subwords absent for >= 10 moves then rebuilt: 1 [((2, 2, 2, 1, -2, -2, -2, -2), [(4, 22)])]
+== sac-02092: AC len 48, tail [15, 15]
+  conjugation runs (start,end,move,len): []
+  longest run: 0 -> fully inside a window of length <= 9 (covered exactly at 3+3)
+  repeated blocks (block, positions): []
+  length-8 subwords absent for >= 10 moves then rebuilt: 0 []
+== sac-00282: AC len 59, tail [16, 15]
+  conjugation runs (start,end,move,len): []
+  longest run: 0 -> fully inside a window of length <= 9 (covered exactly at 3+3)
+  repeated blocks (block, positions): [([2, 2, 2, 2, 2, 2, 2, 2], [47, 48, 49, 50, 51]), ([2, 2, 2, 2, 2, 2, 2], [47, 48, 49, 50, 51, 52]), ([2, 2, 2, 2, 2, 2], [47, 48, 49, 50, 51, 52, 53]), ([2, 2, 2, 2, 2], [47, 48, 49, 50, 51, 52, 53, 54]), ([8, 4, 8, 4], [33, 35]), ([2, 2, 2, 2], [47, 48, 49, 50, 51, 52, 53, 54, 55])]
+  length-8 subwords absent for >= 10 moves then rebuilt: 0 []

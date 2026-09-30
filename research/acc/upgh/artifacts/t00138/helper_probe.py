@@ -175,6 +175,7 @@ def main():
         cap = tot(S) + 1 + SLACK
         B = bfs([s for s, _ in seeds], DB, cap, inverse=True)
         jmax = tj if isinstance(tj, int) else len(states) - 1
+        out(f'  target j={tj} cap={cap} backward_states={len(B)} t={time.time()-t0:.1f}s')
         for i in range(0, jmax):
             Fi = F[i]
             if isinstance(tj, int):
