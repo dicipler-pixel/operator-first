@@ -1,7 +1,34 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": null,
+  "active": {
+    "job": {
+      "row_id": "ac-00005",
+      "track": "AC",
+      "helper": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "script": "helpers/kernel_lane_v1.py",
+      "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+      "inputs": {
+        "helpers/kernel_sources/roads_input.json": "25119337d1c8d3933de2fd236c4cd093484f4623eb1956381e1b4b0cafa7bc4c"
+      },
+      "seed_sha256": "4233a16d3b3247bf8f2830b8c1b3298df77b2111cbd5bfe8a96238cf7fe56696",
+      "baseline": 27,
+      "target": 26,
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "key": "63d4c67071a7c56f56de978cfb4732a305f5464f4b555c858f4815b837e37f17"
+    },
+    "task_id": 173,
+    "lease_token": "b657af70b0464cc7ab2c2e14c199c35d",
+    "expires_at": 1790820110.2670367,
+    "repo_head": "f6676e4115622e52f42edd7aa618eeeda7b93c6d",
+    "phase": "reserved",
+    "host_must_commit_before_execution": true
+  },
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -6582,7 +6609,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790819498.058457,
+  "updated_at": 1790819510.267386,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
