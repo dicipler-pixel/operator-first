@@ -7,3 +7,4 @@
 - ac-03055: RELEASED 01:00Z (r1-only pump + tail: no route <= 55 at r1<=26 for k=9,10; k=8 <=53 only). See UPDATE_session1_to_upgh_*ac-03055*.
 - FIRST-SOLVE (lead rebalance + 02:28Z approval): **ac-01449, ac-02598, ac-04923** (n=4 singletons) and **ac-00764, ac-06036** (their n=3 rows, unsolved): exact rising-cap acc_disk BFS. Tier A 02401 00675 09010 04621 released.
 - Seed-16 noisy beam (02:05Z) on near-record k<=3 rows outside section D: ac-06737, ac-06969, ac-09628, ac-03903, ac-02304; roads feed the yx finish.
+- ac-00525 / ac-08757 fixpoint: RELEASED 12:10Z (acc_window pass >30 min here; pool already at 69 / 78). ac-03871 exact min-peak MITM running.

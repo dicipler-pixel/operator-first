@@ -1,0 +1,120 @@
+{
+  "status": "complete",
+  "completed_utc": "2026-10-01T11:36:40.868745+00:00",
+  "competition_rows_used": false,
+  "exact_BFS_cases": [
+    {
+      "cap": 6,
+      "finish": "xy",
+      "states": 168,
+      "max_distance": 7,
+      "passed": true
+    },
+    {
+      "cap": 6,
+      "finish": "yx",
+      "states": 168,
+      "max_distance": 7,
+      "passed": true
+    },
+    {
+      "cap": 29,
+      "finish": "xy",
+      "states": 4296,
+      "max_distance": 30,
+      "passed": true
+    },
+    {
+      "cap": 29,
+      "finish": "yx",
+      "states": 4296,
+      "max_distance": 30,
+      "passed": true
+    },
+    {
+      "cap": 31,
+      "finish": "xy",
+      "states": 4904,
+      "max_distance": 32,
+      "passed": true
+    },
+    {
+      "cap": 31,
+      "finish": "yx",
+      "states": 4904,
+      "max_distance": 32,
+      "passed": true
+    },
+    {
+      "cap": 33,
+      "finish": "xy",
+      "states": 5480,
+      "max_distance": 34,
+      "passed": true
+    },
+    {
+      "cap": 33,
+      "finish": "yx",
+      "states": 5480,
+      "max_distance": 34,
+      "passed": true
+    },
+    {
+      "cap": 35,
+      "finish": "xy",
+      "states": 6120,
+      "max_distance": 36,
+      "passed": true
+    },
+    {
+      "cap": 35,
+      "finish": "yx",
+      "states": 6120,
+      "max_distance": 36,
+      "passed": true
+    },
+    {
+      "cap": 37,
+      "finish": "xy",
+      "states": 6888,
+      "max_distance": 38,
+      "passed": true
+    },
+    {
+      "cap": 37,
+      "finish": "yx",
+      "states": 6888,
+      "max_distance": 38,
+      "passed": true
+    },
+    {
+      "cap": 38,
+      "finish": "xy",
+      "states": 7176,
+      "max_distance": 39,
+      "passed": true
+    },
+    {
+      "cap": 38,
+      "finish": "yx",
+      "states": 7176,
+      "max_distance": 39,
+      "passed": true
+    }
+  ],
+  "labeled_closed_edges_checked": 887200,
+  "official_core_commutation_checks": 23576,
+  "exact_distance_admissibility_checks": 1684,
+  "example": {
+    "cap": 38,
+    "matrix": [
+      1,
+      0,
+      36,
+      1
+    ],
+    "exact_projected_distance": 36
+  },
+  "scope": "Admissible only for full paths whose total relator length stays <= the same cap. No unrestricted AC or Stable conclusion.",
+  "source_sha256": "e5b05aa2c780f0c8925e89c729537488d89aca57f82d01abef2d80e49ad30ac1"
+}
