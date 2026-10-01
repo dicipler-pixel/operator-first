@@ -1,0 +1,49 @@
+{
+  "checked_at": "2026-10-01T01:39:55.850Z",
+  "discovery_queries": [
+    {
+      "q": "Andrews Curtis search certified paths AI September 2026",
+      "domains": [
+        "arxiv.org"
+      ],
+      "recency_days": 14
+    },
+    {
+      "q": "Andrews Curtis search detour width learned value functions",
+      "domains": [
+        "github.com"
+      ],
+      "recency_days": 14
+    }
+  ],
+  "query_limit": 2,
+  "limitations": "Search results were noisy, with mostly irrelevant web results. Follow-up inspected primary sources; no claim of exhaustive latest-literature coverage.",
+  "paper": {
+    "key": "arxiv:2609.34069v1",
+    "title": "Towards Certificate-Driven Software Porting: A Self-Improving Agentic Harness for Scientific Program Optimization",
+    "published_at": "2026-09-28T00:50:30Z",
+    "url": "https://arxiv.org/abs/2609.34069v1",
+    "full_text": "https://arxiv.org/html/2609.34069v1",
+    "available": "Paper HTML/PDF/TeX; no implementation repository linked in the inspected manuscript.",
+    "finding": "Failed-candidate evidence becomes validated restrictions enforced by code, with compatible edits retained. This is a GPU-porting study, not an ACC search result or whole-program equivalence proof.",
+    "relevance": "Our negative-memory closure and the observed crash-as-miss failure: a failure record must support exactly the restriction it creates.",
+    "bounded_next_experiment": "Offline, feed one completed finite miss, one SIGILL record, one timeout, and one changed-input job into an isolated closure-gate fixture. Only the completed unchanged finite scope may suppress that job. Bound 180 seconds/1024 MiB/600000 records; no search keys reopened or production checkpoint changed.",
+    "implementation_or_dispatch": "None; UPGH review only"
+  },
+  "repository": {
+    "sha": "a19279446610550240181e3f8d0ed101b097d5c9",
+    "date": "2026-09-28T04:56:05Z",
+    "message": "Lineage-diverse beam (--lincap/--linper), cloud-side path polishing, outlier diagnostics\n\n- acs: cap slots per lineage per beam level so one route family cannot take the whole beam\n- focus loop + cloud workers rotate two lineage-cap settings\n- cloud workers polish our best paths (rebeam + window) every 3rd pass\n- check.py skips lines garbled by interrupted writes\n- experiment log: outlier diagnostic, relaxation ablation, lineage-cap results\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+    "tree": "76577b4124ec7989c5cc4eb727bbad770623f84f",
+    "key": "github:nahomar/andrews-curtis-solver@a19279446610550240181e3f8d0ed101b097d5c9",
+    "url": "https://github.com/nahomar/andrews-curtis-solver",
+    "available": "Commit tree includes C++ solver, Python training/evaluation code and draft proof-track data; README says competition solution paths are intentionally withheld.",
+    "limits": "Already reported by UPGH, so not a new lead. Published build defaults use -march=native and describe about 3 GB RAM for ball16, outside this harness's permitted resource profile. No external code downloaded or run, and none imported into harness.",
+    "reviewed_files": [
+      "README.md"
+    ],
+    "public_paths_only": true
+  },
+  "owner_notification": false,
+  "model_workers": 0
+}
