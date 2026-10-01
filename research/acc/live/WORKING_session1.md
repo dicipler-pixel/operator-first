@@ -5,4 +5,4 @@
 - Session 1 NEVER sends. Lines go to research/acc/live/queue/, roads to sweeps/session1/.
 - ac-09689: RELEASED 21:05Z (cap 32 CLOSED at 662.9M states; cap 34 DISKFULL at 667M, undecided).
 - ac-03055: RELEASED 01:00Z (r1-only pump + tail: no route <= 55 at r1<=26 for k=9,10; k=8 <=53 only). See UPDATE_session1_to_upgh_*ac-03055*.
-- FIRST-SOLVE: tier A rows 02401 00675 09010 04621 RELEASED 02:30Z (lead rebalance: known-hard open classes; beams found nothing). **Now: length-19 singletons ac-01449, ac-02598, ac-04923** via exact MITM (acc_disk: (x,y) ball cap 24 depth 9 + forward --meet).
+- FIRST-SOLVE (lead rebalance + 02:28Z approval): **ac-01449, ac-02598, ac-04923** (n=4 singletons) and **ac-00764, ac-06036** (their n=3 rows, unsolved): exact rising-cap acc_disk BFS. Tier A 02401 00675 09010 04621 released.
