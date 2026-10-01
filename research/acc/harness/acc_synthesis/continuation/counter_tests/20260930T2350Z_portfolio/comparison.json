@@ -1,0 +1,117 @@
+{
+  "type": "independent_readonly_graph_and_cycle_audit",
+  "row": "ac-00009",
+  "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "audits": [
+    {
+      "path": "runs/geometry_revival/code_c3456c8439b8dadc",
+      "coverage_sha256": "3cb84dd56928c5edb1aed3cb9bff5e769de75cbb8687752e1e7410e481af3f8d",
+      "checked_graph_edges": 2782,
+      "distinct_graph_states": 1027,
+      "labels_checked": 17799,
+      "cyclic_labels": 13792,
+      "by_arm": {
+        "length": {
+          "retained_labels": 2171,
+          "cyclic_labels": 1620,
+          "distinct_states": 217
+        },
+        "toward": {
+          "retained_labels": 2171,
+          "cyclic_labels": 1713,
+          "distinct_states": 235
+        },
+        "away": {
+          "retained_labels": 2939,
+          "cyclic_labels": 2555,
+          "distinct_states": 235
+        },
+        "fixed_heading": {
+          "retained_labels": 2075,
+          "cyclic_labels": 1574,
+          "distinct_states": 235
+        },
+        "local_heading": {
+          "retained_labels": 2075,
+          "cyclic_labels": 1557,
+          "distinct_states": 240
+        },
+        "local_heading_reverse": {
+          "retained_labels": 2027,
+          "cyclic_labels": 1616,
+          "distinct_states": 249
+        },
+        "layer_clock_heading": {
+          "retained_labels": 2075,
+          "cyclic_labels": 1590,
+          "distinct_states": 228
+        },
+        "reverse_toward": {
+          "retained_labels": 2266,
+          "cyclic_labels": 1567,
+          "distinct_states": 394
+        }
+      },
+      "elapsed_seconds": 2.6082179850000102,
+      "peak_rss_mib": 23.2890625,
+      "records": 482533,
+      "best_length": 78
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721",
+      "coverage_sha256": "b25d0f621c3ec08a593d6b730bd5e72a1bfd15f32b5b3fd7a1c3644ad20ba5d9",
+      "checked_graph_edges": 3924,
+      "distinct_graph_states": 1462,
+      "labels_checked": 17559,
+      "cyclic_labels": 0,
+      "by_arm": {
+        "length": {
+          "retained_labels": 2075,
+          "cyclic_labels": 0,
+          "distinct_states": 231
+        },
+        "toward": {
+          "retained_labels": 2075,
+          "cyclic_labels": 0,
+          "distinct_states": 268
+        },
+        "away": {
+          "retained_labels": 2891,
+          "cyclic_labels": 0,
+          "distinct_states": 370
+        },
+        "fixed_heading": {
+          "retained_labels": 2075,
+          "cyclic_labels": 0,
+          "distinct_states": 290
+        },
+        "local_heading": {
+          "retained_labels": 2075,
+          "cyclic_labels": 0,
+          "distinct_states": 257
+        },
+        "local_heading_reverse": {
+          "retained_labels": 2075,
+          "cyclic_labels": 0,
+          "distinct_states": 285
+        },
+        "layer_clock_heading": {
+          "retained_labels": 2027,
+          "cyclic_labels": 0,
+          "distinct_states": 262
+        },
+        "reverse_toward": {
+          "retained_labels": 2266,
+          "cyclic_labels": 0,
+          "distinct_states": 667
+        }
+      },
+      "elapsed_seconds": 3.3385435000000143,
+      "peak_rss_mib": 34.28125,
+      "records": 483217,
+      "best_length": 78
+    }
+  ],
+  "distinct_state_count_increase_pct": 42.35637779941577,
+  "decision": "No shorter route. Preserve both negatives. Reject these score variants as demonstrated improvements; retain exact loop prevention and diagnostics. No automatic unchanged-input rerun."
+}
