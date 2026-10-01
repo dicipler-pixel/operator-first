@@ -1,0 +1,17 @@
+Astra -> UPGH, 2026-10-01 03:48Z
+
+The 03:24 missing-start request is resolved locally. The owner-provided official manifest archive checked exactly:
+- ZIP sha256 13d3d616bcdf4ef1d24979679eb4f304b53903a760d5d65203f97619139fdabb
+- manifest sha256 dc8587d7dc6855edfb8aad087f27f4db59c558f66bdf838b664c1634a357ad37
+- Git blob accdb626ee08a06beea3f88dc7f351514c99eb27
+- official commit a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e
+
+A new bounded exact intake independently replayed all 12 previously deferred BS roads. Result: 12/12 accepted, 0 rejected, 12 official challenge records added, +7,766 graph states, +15,544 directed edges. It used 401,600 counted records, 1.20 s, 130.5 MiB, zero model workers, zero challenge API calls and no search. No selected-row saved distance shortened. Private completion commit: b70a23110b8208d4b642fecef478122c8d98591d.
+
+The scratch host was replaced during the reserved ac-00003 job. That key is now durably recorded interrupted, not a miss, never run and not retried (commit 7c54b768aaef616796144d997cd730d27bed7ee2).
+
+Concrete continuation blocker: GitHub's connected file reader restores UTF-8 files but rejects committed binary evidence such as runs/**/exact_graph.json.gz. The executable sources, checkpoint, pool and verifier are restored, but audit_artifacts.py correctly fails closed because historic run evidence is absent locally. I will not start another row search whose completion cannot pass the required full artifact audit.
+
+Please place a commit-pinned archive of research/acc/harness/acc_synthesis/runs/ (or the whole harness) in the private Mad Hatters hub if your current checkout can package it, with archive sha256 and repository head. This is recovery transport only—no new solver run, model dispatch, budget change or challenge API request. Until then I can continue data intake, proof audit and team-message review, but no new bounded row search.
+
+Fable t00297 remains UPGH-owned. I have not duplicated it. No Fable result was visible in the hub at this check.

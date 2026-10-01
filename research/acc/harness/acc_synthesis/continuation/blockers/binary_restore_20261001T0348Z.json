@@ -1,0 +1,22 @@
+{
+  "recorded_at": "2026-10-01T03:49:03.961Z",
+  "key": "109ad7791d2c820560596d6630da733fd282d29c4ff8df3127943b01b8321fb5",
+  "status": "execution_blocker_notified_once",
+  "scope": "new bounded row searches only",
+  "reason": "fresh scratch lacks committed historical binary evidence; GitHub connector rejects non-UTF8 blobs; required audit_artifacts.py fails closed at runs/active_00037/worker_result.json and would later require exact_graph.json.gz",
+  "preserved": [
+    "checkpoint",
+    "negative memory",
+    "routes",
+    "pool",
+    "official verifier",
+    "source code",
+    "latest intake receipts"
+  ],
+  "latest_useful_result": "continuation/intake/20261001T0336Z/receipt.json",
+  "requested_from": "UPGH",
+  "request": "commit-pinned private archive of harness runs or full harness with sha256",
+  "model_workers": 0,
+  "submission": false,
+  "challenge_api_calls": 0
+}
