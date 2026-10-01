@@ -82,3 +82,26 @@ r1^(+-1); the only shortening products are the single doubling/halving steps). T
 Cancellation table at m = 8 (all 2(m+4) rotations of r0^(+-1), r0 = x^m y y X Y class, times all 10 rotations of
 r1^(+-1)): only two products shorten r0, both by one letter: x^7 y y X Y x * X y x x Y = x^7 y y x Y and its mirror
 Y Y X^8 y x * X Y x y X = Y Y X^7 y X (the halving step X Y x -> x Y). No product strips an x from the x-block.
+
+### Level-change arithmetic (derived, not searched; relevant because the records' gap is linear in n, not in m)
+With rho = X y x x Y kept in r1 for both orientations (O2 uses move 3: U Y -> U X X Y x, which is the same cyclic
+rewrite as U' Y X -> U' X X Y), the O2 pass costs 2a (a multiplications + a conjugations) and the O2->O1 level change
+3 moves (invert, de-wrap, rotate); with the stored rotation of t00312 the pass costs 2a-1 and the change 4. Both give
+2a+3 per level. The y...Y wrapper after a pass is forced because the site Y|x occurs once in the cyclic word, so W
+must end with Y x and start with the y-block. A 3-move-per-level scheme (what the records' 4m+2n+3 suggests) needs a
+different representation (e.g. a longer r1 that doubles two letters at a time, or a pass whose last step is merged
+with the change); not explored here.
+
+## Scope, honestly (what is proved, what is measured, what is missing)
+- PROVED (exact enumeration, replayed on the official core): from A(8) = (x^8 y x^7 y, Y Y X^7 y X), no move
+  sequence with <= 3 multiplications, <= 9 moves and conjugation runs lengthening a relator by <= 2 reaches the
+  Y X^8 class; fin2's rotation route (10 moves) is the cheapest with <= 2 multiplications at m = 4 and m = 8.
+  Abelian floor from the fin2 entry: m+1 row ops (BFS over exponent matrices, entries <= 4M); fin2 uses m+7.
+- MEASURED (scoped misses): acc_beam from the four n=4 loop-end states (one and two levels early, both
+  orientations), W = 200000 (plain and BEAM_H=1) and W = 50000 (BEAM_CLIMB=6), depth cap = current finish - 1:
+  no finish. The control at depth cap = current finish does not reproduce the known finish at W = 50000, so these
+  probes do not cover grow-then-collapse finishes. n = 5 and m = 16 runs: see the end of this file (cut by the wall).
+- NOT FOUND: a different finish entry, or a paid finish, cheaper than bridge + fin2(m); nothing here says one does
+  not exist. No road shorter than the current row roads was produced, so lines.txt is not written.
+- Inference (not proof): the records 4m+2n+3 are consistent with 2m multiplications + ~2m conjugations and a 3-move
+  level change; the open m+O(1) finish is not something any board record demonstrates.
