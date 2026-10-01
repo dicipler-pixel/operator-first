@@ -1,9 +1,6 @@
 # ACC memory-first harness claims
 
-Updated: 2026-10-01T03:41:16.555Z.
-
-No active claim. The ac-00003 reservation d132d1b535debf835174646ba40cc93f9962a72ad650d4affe7b66f7ce9bdc61 expired after scratch replacement and is recorded as interrupted, not a miss and not retried.
-
-Completed 178 bounded method probes. Completed row details and proposed jobs are in the continuation checkpoint and progress files; they are not reservations.
-
-Bounds remain <=180 search seconds / <=600000 records / <=1024 MiB; model-worker dispatch zero. No challenge API calls, submissions, public publishing or old watches. Scope of a bounded miss is not a nonexistence proof.
+Active data-intake lease: 506b18ed187cece4e14660b1b048bfe6064788973e4f00686bd7a15bf420ab31. No row search running. Pinned official-manifest extraction and exact replay of 12 previously deferred team routes only.
+Expires 2026-10-01T03:54:49.295Z.
+Other continuations of this harness must honor continuation/checkpoint.json intake_lease. Expiry requires an interrupted record, never adoption or silent replay.
+Bounds <=180 seconds / <=600000 records / <=1024 MiB; zero model workers. No submissions or challenge API.
