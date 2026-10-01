@@ -60,6 +60,21 @@ class ApiError(SystemExit):
 RESERVE = 40
 RATE = {"remaining": None, "reset": None}
 ESSENTIAL = False
+# The last seen budget is kept on disk so a fresh process (each harness cycle) does not spend a read to
+# learn that the budget is already at the reserve. It is ignored once its reset time has passed.
+RATE_FILE = REPO / "research" / "acc" / "upgh" / "cache" / "rate.json"
+
+
+def _load_rate():
+    try:
+        d = json.loads(RATE_FILE.read_text())
+        if int(d["reset_epoch"]) > time.time():
+            RATE["remaining"], RATE["reset"] = int(d["remaining"]), d["reset"]
+    except (OSError, ValueError, KeyError, TypeError):
+        pass
+
+
+_load_rate()
 
 
 def explain(exc):
@@ -123,9 +138,17 @@ def call(method, path, body=None, retry=True, auth=True):
 def note_rate(h):
     try:
         RATE["remaining"] = int(h.get("X-Ratelimit-Remaining"))
-        RATE["reset"] = dt.datetime.fromtimestamp(int(h.get("X-Ratelimit-Reset")),
-                                                  dt.timezone.utc).strftime("%H:%MZ")
+        reset = int(h.get("X-Ratelimit-Reset"))
+        RATE["reset"] = dt.datetime.fromtimestamp(reset, dt.timezone.utc).strftime("%H:%MZ")
     except (TypeError, ValueError):
+        return
+    try:
+        RATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        tmp = RATE_FILE.with_suffix(".tmp")
+        tmp.write_text(json.dumps({"remaining": RATE["remaining"], "reset": RATE["reset"], "reset_epoch": reset,
+                                   "seen": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")}))
+        tmp.replace(RATE_FILE)
+    except OSError:
         pass
 
 
