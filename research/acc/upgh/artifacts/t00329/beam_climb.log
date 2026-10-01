@@ -1,0 +1,24 @@
+CMD /root/.cache/upgh/bin/acc_beam /root/.cache/upgh/T9.tab 50000 32 <state>
+ENV {'BEAM_CLIMB': '6'}
+climb: inverted length key for depths 1..6
+d=10 gen=492560 kept=50000 len[21..57] bestAC=-1 bestSAC=-1 arena=22MB
+d=20 gen=429034 kept=50000 len[15..22] bestAC=-1 bestSAC=-1 arena=37MB
+d=30 gen=468533 kept=50000 len[15..19] bestAC=-1 bestSAC=-1 arena=48MB
+
+AC NONE
+SAC NONE
+
+(35.7s)
+
+CMD /root/.cache/upgh/bin/acc_beam /root/.cache/upgh/T9.tab 50000 30 <state>
+ENV {'BEAM_CLIMB': '6'}
+climb: inverted length key for depths 1..6
+d=10 gen=488048 kept=50000 len[22..60] bestAC=-1 bestSAC=-1 arena=24MB
+d=20 gen=431969 kept=50000 len[15..22] bestAC=-1 bestSAC=-1 arena=38MB
+d=30 gen=462811 kept=50000 len[15..19] bestAC=-1 bestSAC=-1 arena=49MB
+
+AC NONE
+SAC NONE
+
+(32.3s)
+
