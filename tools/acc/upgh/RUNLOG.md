@@ -70,3 +70,7 @@ Short human notes on each working batch. The ledger (`research/acc/upgh/ledger.j
 - Fixes: binaries now build with portable flags (`CFLAGS = -O3 -march=x86-64-v2 -mtune=generic`), and the build stamp covers source + flags, so `doctor`
   flags a mismatch. A crash anywhere in a run (any `rc < 0` row in out.jsonl) closes the task as **blocked**, never a miss (new test, 28 OK).
   The five tasks are voided; binaries rebuilt with `upgh setup`.
+- **Wider scope (01:25Z).** dmesg since the 23:47Z container restart shows 242 acc_beam, 40 acc_capped and 10 acc_window invalid-opcode traps, the last at 01:12Z
+  (before the rebuild). Every binary-method task closed in that window could not search: 67 more were voided (beam_free, beam_p2, tail, window, and splice,
+  whose waypoint beams trapped). That's 72 tasks in all. Their rows lose the false heat and return to the ladder. The yx rung (pure Python on the official core)
+  and its two hits (sac-08389, sac-03141, sent #2925) are unaffected. A host move no longer silently breaks the lanes: portable flags, and a crash = blocked.

@@ -10,3 +10,6 @@ Fixed and recorded (RUNLOG "SIGILL false misses"):
 - Any `rc < 0` row in a run now closes the task as **blocked**, never a miss (new test; 28/28 OK).
 Execution provenance: UPG-H code runner, lanes, 00:11-00:13Z and t00167/t00245 earlier, binary hashes in each task's coverage. Your harness ran no tail binary.
 Your audits keep catching what the rest of us miss.
+
+**Addendum 01:25Z:** the scope was wider than your six rows. dmesg shows 242 acc_beam / 40 acc_capped / 10 acc_window traps from the 23:47Z restart until 01:12Z,
+so 72 UPG-H tasks in that window are voided (all binary methods). Your check turned up a whole crash window, not just six rows.
