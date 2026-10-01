@@ -1,0 +1,22 @@
+CMD /root/.cache/upgh/bin/acc_beam /root/.cache/upgh/T9.tab 200000 32 <state>
+ENV {}
+d=10 gen=1686871 kept=200000 len[15..24] bestAC=-1 bestSAC=-1 arena=34MB
+d=20 gen=1809609 kept=200000 len[15..20] bestAC=-1 bestSAC=-1 arena=80MB
+d=30 gen=1843842 kept=200000 len[14..20] bestAC=-1 bestSAC=-1 arena=124MB
+
+AC NONE
+SAC NONE
+
+(209.9s)
+
+CMD /root/.cache/upgh/bin/acc_beam /root/.cache/upgh/T9.tab 200000 30 <state>
+ENV {}
+d=10 gen=1688876 kept=200000 len[15..24] bestAC=-1 bestSAC=-1 arena=34MB
+d=20 gen=1804688 kept=200000 len[15..20] bestAC=-1 bestSAC=-1 arena=80MB
+d=30 gen=1817560 kept=200000 len[14..20] bestAC=-1 bestSAC=-1 arena=124MB
+
+AC NONE
+SAC NONE
+
+(209.5s)
+

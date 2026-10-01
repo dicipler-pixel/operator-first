@@ -1,0 +1,4 @@
+m=4 K=2 budget=6  r1 in class of Y X^m: cost 6 moves [4, 7, 7, 7, 12, 5] state (xyxxxyxxx, YXXXX)
+      any state of total length <= 10: none within budget
+m=8 K=2 budget=10  r1 in class of Y X^m: cost 10 moves [4, 7, 7, 7, 7, 7, 7, 7, 12, 5] state (xyxxxxxxxyxxxxxxx, YXXXXXXXX)
+      any state of total length <= 18: cost 4 moves [9, 2, 10, 2] state (YxyXX, xYYXXXXXXXyXX)

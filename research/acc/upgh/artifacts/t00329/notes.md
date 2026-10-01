@@ -40,3 +40,45 @@ gives 4m - n - 1 + 3(n-2) + c = 4m + 2n + 3 for c = 10, i.e. a prefix+finish con
 impossible for large n. So the records are consistent with 2m multiplications + ~2m conjugations; nobody on the board
 has an m+O(1) finish. The realistic target for this family is the level-change count and the finish constant, not
 the linear rotation.
+
+### 06:33Z-07:00Z  Candidates (a), (b): beam search from the loop-end states (fin_probe.py, acc_beam + T9 exact finish)
+States probed (exact words at the end of the alternating loop, from loop_levels(n, orient, levels)):
+  n=4 one level early  O1 (y^3 X Y x^8 Y, X y x x Y) current finish 33 = bridge 6 + fin2(8) 27
+                       O2 (y y x Y Y X^8 Y, y x x Y X) current finish 31 = bridge 4 + fin2(8) 27
+  n=4 two levels early O1 (y^3 x Y^3 X^4 Y, y x x Y X) current 44 ; O2 (y^4 X Y Y x^4 Y, X y x x Y) current 42
+  n=5 one/two levels early likewise (current finishes 47/49 and 62/64).
+Depth cap DMAX = current finish - 1 (a hit must be strictly shorter). Keys: plain length (W = 200000), BEAM_H=1
+(W = 200000), BEAM_CLIMB=6 (W = 50000). Results are in beam_summary.jsonl / beam_*.log (one JSON line per state):
+every run returned AC NONE within the cap (BEAM_H=1 returned finishes of 40 and 38 = depth + ball distance, longer
+than the current 33 / 31).
+CONTROL (beam_control.log): with DMAX = current finish (slack 1) the beam at W = 50000, with and without CLIMB, does
+NOT reproduce the known finish from either n=4 loop-end state. fin2 passes through total length 5m+3 = 43 at m = 8
+while the beam keeps states of length 9..41 and prefers short ones. So the beam null results only say: no finish whose
+states stay inside the beam's selection; they are NOT evidence against fin2-shaped (grow-then-collapse) finishes.
+Scoped miss, weak.
+
+### 06:38Z-06:46Z  Candidate (c): multiplications instead of the rotation (macro_probe.py, exact, replayed on the core)
+Model: from A(m) = (x^m y x^(m-1) y, Y Y X^(m-1) y X) (the state after fin2's first five moves [4,1,11,3,8]), a route is
+<= K blocks of [conjugation run on r0 (<= len+2), conjugation run on r1, optional inversions, one multiplication 2..5];
+cost = exact number of official moves (Dijkstra; conjugations of different relators commute, so this covers every move
+sequence with <= K multiplications whose conjugation runs lengthen a relator by at most 2). fin2 reaches the class of
+Y X^m (rotations of (Y X^m)^(+-1)) from A in m+2 moves: 4, [7]*(m-1), 12, 5.
+  m=4,  K=2, budget 6:  cheapest route to the Y X^m class = fin2's own [4,7,7,7,12,5] (cost 6). No other at that cost.
+  m=8,  K=2, budget 10: cheapest = fin2's own [4,7*7,12,5] (cost 10).
+  m=8,  K=3, budget 9:  NO route with <= 3 multiplications and <= 9 moves reaches the Y X^m class (exhaustive).
+  m=16, K=2, budget 17: (see macro_K2_m16.out; running at 06:46Z)
+So within three multiplications the [7]*(m-1) rotation cannot be bought by r1 <- r1 r0^(+-1) tricks at m = 8: the
+cheapest way to the collapse product Y X^m is the rotation. Scope: K <= 3, m <= 8 (m = 16 at K = 2), target = the
+Y X^m class only (a finish not passing through Y X^m is not excluded by this); conjugation runs that lengthen a
+relator by more than 2 letters are not enumerated.
+Side result: 4 moves [9,2,10,2] from A reach (Y x y X X, x Y Y X^(m-1) y X X) = (r1_0^-1, conj of Y Y X^(m-1) y X),
+total length m+9: the roles of the relators swap (short BS relator in r0, the x^(m-1) relator in r1). Not shorter
+to finish from; recorded because it is the only state of total length <= 2m+2 within 4 moves of A at m = 8.
+
+### Candidate (d): exponent-matrix guidance (table at 06:36Z)
+The row-op floor from the fin2 entry is m+1 and from two levels early m/2+1; fin2 uses m+7 row ops. The floor cannot be
+met by words with r1 = x x Y X y (cancellation table: max 6 letters cancel in any product of rotations of r0^(+-1) and
+r1^(+-1); the only shortening products are the single doubling/halving steps). The floor does not count conjugations.
+Cancellation table at m = 8 (all 2(m+4) rotations of r0^(+-1), r0 = x^m y y X Y class, times all 10 rotations of
+r1^(+-1)): only two products shorten r0, both by one letter: x^7 y y X Y x * X y x x Y = x^7 y y x Y and its mirror
+Y Y X^8 y x * X Y x y X = Y Y X^7 y X (the halving step X Y x -> x Y). No product strips an x from the x-block.
