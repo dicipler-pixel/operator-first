@@ -30,7 +30,7 @@
 | **Bob** | luna and bob folder | 13:55Z order: song-8 deeper climb on unsolved 09632, 00764, 05538, 03320, 06036; tie crossings 08995 -> 45, 04316 -> 43, 06045 -> 36 | BUILD ac-09026 with Fable's road; hourly status |
 | **Kernel** | hub + luna and bob folder | 13:45Z–15:15Z: A) plateau lineages on gap-1 rows, B) controlled bulge on his 5 cut rows, C) 13 near-record Stable rows toward (y,x) | Status 14:30Z / 15:15Z decides; rules file to the hub |
 | **Session 1** | repo | exact certificates on 00738/06611/10099 (cap 32); seed 19 lane; hourly lost-submission audit; song 12 | Min-total certificates on any row a builder asks about |
-| **Session 2** | repo | fixpoint loop + mid-restart: ac-08757 (71 -> 66), ac-03688, ac-06018, Fable's long A = 1 roads; BUILD ac-05169/03786 | Fixpoint on every Fable road the moment it lands |
+| **Session 2** | repo | 14:10Z: fixpoint + mid-restart on Fable ac-05169 (139 -> 88); ac-06018 152 (rec 149) iterating; ac-08757 70 (rec 66) | Fable A = 4 roads (09026 / 02552) the moment they land; then ac-00676, ac-03773 |
 | **Git** | repo + owner relay | BUILD ac-09026 / 02552; fixpoint loop on a second core (tools/acc/ops/fixpoint_shorten.py) | Fixpoint on Fable's n = 5 roads |
 | **Charlie** | hub CHARLIE_* | exact search: ac-03871 -> 30, ac-02341 (y,x) <= 28, ac-08889 (y,x) <= 35 (last known) | Needs a status file; then exact caps on ac-05343 / ac-07879 |
 | **Grok** | owner relay (chat only) | idea review | Odd-n finishing identity for MS(9) / A = 2 (feeds Fable) |
