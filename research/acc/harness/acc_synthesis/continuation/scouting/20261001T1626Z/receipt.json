@@ -1,0 +1,16 @@
+{
+  "schema": "acc-public-scout/1",
+  "checked_at": "2026-10-01T16:26:20Z",
+  "discovery_queries": 1,
+  "query": "site:arxiv.org 2026 \"Andrews-Curtis\" \"beam search\"",
+  "result": "No results returned.",
+  "prior_sources_reused": false,
+  "actual_available_artifacts": [],
+  "limitations": [
+    "A no-result search is not evidence that no relevant paper exists.",
+    "No external code, datasets, or solver recipes were downloaded or run."
+  ],
+  "specific_harness_failure": "No new public lead for selected rows lacking a saved route baseline.",
+  "bounded_falsifiable_next_experiment": "None opened from scouting. Continue registered code-only jobs; a future public lead must supply exact primitive-move semantics or a replayable certificate before testing.",
+  "decision": "Quiet no-change check; nothing sent to UPGH."
+}

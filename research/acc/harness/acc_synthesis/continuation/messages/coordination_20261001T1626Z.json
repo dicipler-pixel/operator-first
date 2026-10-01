@@ -1,0 +1,30 @@
+{
+  "schema": "acc-coordination-review/1",
+  "reviewed_at": "2026-10-01T16:26:20Z",
+  "drive_status": "No new file newer than SONG12_UPGH_20261001T1432Z; no repeated message.",
+  "repository_status": "No branch change after the prior checkpoint at start of review; all current named claims were read and none overlapped selected25.",
+  "batches": [
+    {
+      "row": "ac-00001",
+      "kind": "bounded_miss",
+      "best": null,
+      "target": 404,
+      "commit": "f42398b784fb57cef13d1efaf32f414a1fafc3df"
+    },
+    {
+      "row": "ac-00006",
+      "kind": "bounded_miss",
+      "best": null,
+      "target": 63,
+      "commit": "7cfbc44363a30634404c4edd458ff0908edf8e9a"
+    }
+  ],
+  "interpretation": "No saved baseline existed for these two rows. The registered overlay searched the captured foreign-road graph and found no verified route; this is a bounded miss, not an impossibility claim.",
+  "scope": [
+    "No challenge API or submissions",
+    "No model workers",
+    "No selected-row expansion",
+    "No external solver imports",
+    "No workflow dispatch"
+  ]
+}
