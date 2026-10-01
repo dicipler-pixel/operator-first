@@ -1,0 +1,35 @@
+{
+  "checked_at": "2026-10-01T10:28:00Z",
+  "query_count": 2,
+  "status": "one_bounded_method_lead_not_yet_tested",
+  "sources": [
+    {
+      "kind": "paper_and_released_repository",
+      "title": "Graph Neural Networks are Heuristics",
+      "identifier": "arXiv:2601.13465v1",
+      "published": "2026-01-19",
+      "artifacts": "paper and linked public implementation",
+      "limitation": "TSP-only learned heuristic; requires training and provides no exactness guarantee or demonstrated transfer to presentation moves. It is not an ACC result and is outside the zero-model-worker scheduled lane."
+    },
+    {
+      "kind": "public_repository",
+      "title": "skewb-ultimate-solver",
+      "inspected": "2026-10-01",
+      "artifacts": "runnable TypeScript solver, tests and benchmark commands; no release and zero stars observed",
+      "lead": "Take the maximum of several exact abstraction distances as an admissible IDA* lower bound; the repository reports exact pattern databases over projected piece subsets.",
+      "limitation": "Puzzle-specific code and claims; no ACC support and external solver code must not be imported."
+    }
+  ],
+  "deduplication": "No earlier scouting record mentions arXiv:2601.13465 or pattern-database abstraction.",
+  "harness_question": "Can a harness-native exact finite projection lower bound reduce expansions without pruning a known valid route?",
+  "bounded_falsifiable_experiment": {
+    "design": "On one already witnessed selected row, build exact distances in one small harness-native projected state space using the pinned move table; use max(projected distance, existing bound) only as an ordering/lower-bound control.",
+    "equal_budget_control": "Same selected row, seed, depth, wall, memory and 600000-record cap with the present ordering.",
+    "pass": "Official replay remains exact, every known route survives, and admitted records to the same reached depth decrease by at least 20 percent.",
+    "fail": "Any false pruning, shallower completed depth, or less than 20 percent record reduction.",
+    "authorization": "Proposal only; do not run until registered as a distinct harness method."
+  },
+  "private_data_in_queries": false,
+  "external_code_downloaded_or_run": false,
+  "model_workers": 0
+}
