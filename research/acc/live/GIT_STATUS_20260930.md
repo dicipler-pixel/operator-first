@@ -28,3 +28,4 @@
 - 23:28Z New-target lane: ac-06239 record 41 k 1 -> no route ; roads in sweeps/git/newtarget_roads_20260930.txt
 - 23:33Z New-target lane: ac-02491 record 41 k 1 -> no route ; roads in sweeps/git/newtarget_roads_20260930.txt
 - 23:43Z New-target lane: ac-06231 record 43 k 1 -> AC 61 (beam 61) ;ac-08500 record 43 k 1 -> no route ; roads in sweeps/git/newtarget_roads_20260930.txt
+- 00:03Z New-target lane: ac-09433 record 43 k 1 -> no route ;ac-00549 record 44 k 1 -> no route ; roads in sweeps/git/newtarget_roads_20260930.txt
