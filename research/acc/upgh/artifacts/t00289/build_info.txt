@@ -1,0 +1,6 @@
+build: g++ -O3 -std=c++20 -march=x86-64-v2 tools/acc/sol61/sol61_ida.cpp -o ~/.cache/upgh/work/t00289/sol61_ida
+compiler: g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+source sha256: 1d0aebf87bf133bf6f2a8006c6dd81652a7d3ebd07d8dd1e65ff87fd5307d3ce  tools/acc/sol61/sol61_ida.cpp
+binary sha256: bff7dcac244d6a617c9ac48efab35a9b7d41f71e65a5d5dc6f8feda0f5f891d7  ~/.cache/upgh/work/t00289/sol61_ida (built from source; no prebuilt binary used)
+manifest git blob: accdb626ee08a06beea3f88dc7f351514c99eb27 (~/.cache/upgh/sair/competition/tools/verifier/data/manifest.json, 12378899 bytes)
+verifier: ~/.cache/upgh/sair/competition/tools/verifier (pinned a0fd6e6), via unmodified run_control.py from scratch layout ~/.cache/upgh/work/t00289
