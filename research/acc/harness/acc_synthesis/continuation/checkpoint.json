@@ -8620,7 +8620,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790876416.5387638,
+  "updated_at": "2026-10-01T17:42:34.592169+00:00",
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
@@ -8636,7 +8636,7 @@
     "latest_selected25_intake": "continuation/intake/20261001T0113Z/import_receipt.json"
   },
   "scouting": {
-    "last_record": "continuation/scouting/scan_20261001T0038Z.json",
+    "last_record": "continuation/scouting/scan_20261001_grok_followthrough.json",
     "upgh_lead_commit": "f9c93d111f90f5c716426e2a2f19661b2c9f73cf"
   },
   "data_query_memory": "continuation/data_query_memory.json",
@@ -8756,5 +8756,17 @@
       "next_math_question": "Paid alternating updates of both current relators implementing T2/T3 critical pair;one-sided cleanup loops closed",
       "upgh_recovery_request": "1x_OvKyGM04Ra_mDzI4bfu2rihjEVacxn"
     }
+  },
+  "latest_hub_check": "continuation/messages/hub_check_20261001T1730Z.json",
+  "finite_certificates": {
+    "47f0dd1cbef829c5a7769ceed5ec4ee9e719acf8e236fac040ac674e019bc24e": {
+      "receipt": "runs/route_ball6_revival/code_47f0dd1cbef829c5/independent_radius_receipt.json",
+      "scope": "Exact fixed 42-move ac-00009 route has no shorter replacement of <=6 primitive moves between its fixed states.",
+      "lane_disabled_after_completed_experiment": true
+    }
+  },
+  "latest_run_review": "continuation/batch_review_20261001T1742Z.json",
+  "coordination_deliveries": {
+    "radius6_ac00009_frozen42": "continuation/messages/upgh_radius6_receipt_20261001T1742Z.json"
   }
 }

@@ -1,0 +1,23 @@
+{
+  "valid": true,
+  "row_id": "ac-00009",
+  "input_length": 42,
+  "complete_radius3_balls": 43,
+  "admitted_labels": 63722,
+  "pair_comparisons": 21960,
+  "checks": 362790,
+  "cheaper_fixed_endpoint_replacements": 0,
+  "scope": "No <=6-primitive replacement shortens any interval between the 43 fixed states of this exact 42-move route, under the official relator-length limit. Not a global optimality claim.",
+  "balls_sha256": "7775c5566dffa5815dd64da21b2ec023a5d6c82bd9fb213dd15c976946fe7228",
+  "input_sha256": "ded080caa87d90bdf15085561504b86749044933193c25d30290df55d17843d0",
+  "audit_source_sha256": "ca465ea37c7cd3c9c970a3187e7021fc49191482daa2fa8ebab4d1bcd5a98a9d",
+  "official_input_receipt": {
+    "ok": true,
+    "length": 42,
+    "peak_total_relator_length": 46,
+    "work": 962,
+    "certificate_hash": "sha256:c0f63957f0de8d2ba204aaa270557f6f2cc8da3a738f82885d8543e105e8d237"
+  },
+  "elapsed_seconds": 0.9564647750084987,
+  "peak_rss_mib": 108.59375
+}

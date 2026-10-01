@@ -1,0 +1,192 @@
+{
+  "recorded_at": "2026-10-01T17:43:07.953633+00:00",
+  "starting_head": "d96169163b5f810e7028e5aed41846c2b8cce566",
+  "starting_attempts": 191,
+  "ending_attempts": 207,
+  "new_attempts": [
+    {
+      "key": "45d3538124eef024586a8ac1c4cf1784edc76dc059c0c879ec68a18bbcacfc32",
+      "row": "ac-00010",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_45d3538124eef024/worker_result.json",
+      "result_sha256": "c8775996cb88c4578a3ee19dda2c9bc90721dc38fa736e336a98c6ff918f6ded",
+      "termination": "node_cap",
+      "elapsed_seconds": 30.59461496699805,
+      "peak_rss_mib": 529.76171875
+    },
+    {
+      "key": "b2597e2a6b20a9f30877c78bfd4e4f50d2e498f273e1e90cf006b65521dc8f33",
+      "row": "ac-00011",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_b2597e2a6b20a9f3/worker_result.json",
+      "result_sha256": "02c119bc11dae81d0b304b95da34671985623b3287730d1067ba5aeade5021d7",
+      "termination": "node_cap",
+      "elapsed_seconds": 32.626641847004066,
+      "peak_rss_mib": 509.70703125
+    },
+    {
+      "key": "db936206dee52d0416e270d1a488bc7a0c44a559f571503753b90268746f577a",
+      "row": "ac-00013",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_db936206dee52d04/worker_result.json",
+      "result_sha256": "35d4c789358c107e0c7d9719118ef75b8948e6b6bfe6f84edae891df6d006db9",
+      "termination": "node_cap",
+      "elapsed_seconds": 29.958498270993005,
+      "peak_rss_mib": 531.4140625
+    },
+    {
+      "key": "e925d0210ed8690032158961270d003f14a6b925b7ce76f7f90dbe291c829a5c",
+      "row": "ac-00015",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_e925d0210ed86900/worker_result.json",
+      "result_sha256": "f4d6f6d6b8c045bfd9aad9eb591965fa70131c3fa09b393d7f2d6c8b6f0fbd8b",
+      "termination": "node_cap",
+      "elapsed_seconds": 29.51219667699479,
+      "peak_rss_mib": 449.5
+    },
+    {
+      "key": "998d84e3c0f8388da0af6254cbd1555603e83896734f908d368e4061c88fc19e",
+      "row": "ac-00016",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_998d84e3c0f8388d/worker_result.json",
+      "result_sha256": "4ec2285d8a50f501775ff0df7d95411efaf82cc3fd2dad8c9f00fc1db7b88060",
+      "termination": "node_cap",
+      "elapsed_seconds": 30.22444921999704,
+      "peak_rss_mib": 455.4296875
+    },
+    {
+      "key": "bdda4047fb340244ba5a0de65227ab8c96847b24d5b42e5918623a97d84f5821",
+      "row": "ac-00017",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_bdda4047fb340244/worker_result.json",
+      "result_sha256": "c5f3d89caeb3d2edb3da831d9abede6262f24f308e58c0dc37cf389ba07732c4",
+      "termination": "node_cap",
+      "elapsed_seconds": 30.814653260997147,
+      "peak_rss_mib": 510.7734375
+    },
+    {
+      "key": "9f288d732d220498e9b0286a1b9e9aca79377d2b8e5b821bac33577f1a499130",
+      "row": "ac-00020",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_9f288d732d220498/worker_result.json",
+      "result_sha256": "6831713b80aaded7d221bdd039a1ad373780bcde8f9aed3b66a685b6c0c8a2c1",
+      "termination": "node_cap",
+      "elapsed_seconds": 33.76004744799866,
+      "peak_rss_mib": 534.41015625
+    },
+    {
+      "key": "e7eda1df0637a0843f1e7fb867f03e926ba75b0a3a140a591ccc7ac9462c0659",
+      "row": "ac-00024",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_e7eda1df0637a084/worker_result.json",
+      "result_sha256": "17c4f02114b4a63593c35eab362c5cf3b9e4e2862b2114ae1b7d4db183656950",
+      "termination": "node_cap",
+      "elapsed_seconds": 32.2663420339959,
+      "peak_rss_mib": 493.0703125
+    },
+    {
+      "key": "1eb2872751a90e9fa2a8fb1381b435d1b0f0a2ce46487090538c23710f53338e",
+      "row": "ac-00027",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_1eb2872751a90e9f/worker_result.json",
+      "result_sha256": "4d75b32111ebe96f306c332dff8df1631a909d920f9e4b98c167d857797018ab",
+      "termination": "node_cap",
+      "elapsed_seconds": 30.946528244006913,
+      "peak_rss_mib": 534.1953125
+    },
+    {
+      "key": "e4b5daeea1572302e32c13e8e9f70bbb27734933438b75ef9d5851a55a832131",
+      "row": "ac-00029",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_e4b5daeea1572302/worker_result.json",
+      "result_sha256": "1badb991b544692ab4b73b5a58de76f6b1ed7d02f15bf847377709528ff4063c",
+      "termination": "node_cap",
+      "elapsed_seconds": 33.27482119099295,
+      "peak_rss_mib": 526.60546875
+    },
+    {
+      "key": "918b8fc8ec1de782fd32bab7c7dcd1503e004fc8c418106bd25261443c5f6ea6",
+      "row": "ac-00031",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_918b8fc8ec1de782/worker_result.json",
+      "result_sha256": "c4361a8cc1204a21efa8d3dea96668b0fe544366d51f6070652767a04fe71148",
+      "termination": "node_cap",
+      "elapsed_seconds": 32.776628973006154,
+      "peak_rss_mib": 549.6328125
+    },
+    {
+      "key": "8be41380fc55b756a3a947e547606af10caf6063c781750c9bea89c3fd0898ff",
+      "row": "ac-00032",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_8be41380fc55b756/worker_result.json",
+      "result_sha256": "ae828a19d37eaed4752a549a6b0fbaa2cbfb809ab7eb78ee56a4a18416ef2e0d",
+      "termination": "node_cap",
+      "elapsed_seconds": 31.42556822100596,
+      "peak_rss_mib": 496.13671875
+    },
+    {
+      "key": "56daf68428272cb640b3a8e882c7e4cf303d1abc8c29734494445fd553062659",
+      "row": "ac-00033",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_56daf68428272cb6/worker_result.json",
+      "result_sha256": "658d5404a0846b227523941cda14b0b4f8f76a62e5e8033831f069448cb7b593",
+      "termination": "node_cap",
+      "elapsed_seconds": 32.86225846699381,
+      "peak_rss_mib": 523.55859375
+    },
+    {
+      "key": "a9b54cdddd1040d5496f927f9c78dfb9f47a133d618f41570a68bd24bc857332",
+      "row": "ac-00005",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_a9b54cdddd1040d5/worker_result.json",
+      "result_sha256": "9eb65ef92c7748f4c87bcb1d28747ba9cd245e8bdebed5881bbd2e4a9d46dfe0",
+      "termination": "node_cap",
+      "elapsed_seconds": 33.01968502899399,
+      "peak_rss_mib": 461.55859375
+    },
+    {
+      "key": "7a80bc6882ef52e34a9b6aa044fccab50b91c8e8cae757f07f17894a63c68e29",
+      "row": "ac-00021",
+      "helper": "kernel",
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_7a80bc6882ef52e3/worker_result.json",
+      "result_sha256": "78f526aa005cd1fdc91ae218df59314e91c5e39463a0d2a03c406d49167f8a9a",
+      "termination": "node_cap",
+      "elapsed_seconds": 32.29426824201073,
+      "peak_rss_mib": 425.21875
+    },
+    {
+      "key": "47f0dd1cbef829c5a7769ceed5ec4ee9e719acf8e236fac040ac674e019bc24e",
+      "row": "ac-00009",
+      "helper": "route_ball6",
+      "kind": "bounded_miss",
+      "result_path": "runs/route_ball6_revival/code_47f0dd1cbef829c5/worker_result.json",
+      "result_sha256": "a6f684497caddca117faa8e0d697046bebbce8c620de5742982a05a9da2204fc",
+      "termination": "complete",
+      "elapsed_seconds": 0.416293415997643,
+      "peak_rss_mib": 46.796875
+    }
+  ],
+  "scheduled_model_dispatches": 0,
+  "challenge_api_calls": 0,
+  "submissions": 0,
+  "scouting_record": "continuation/scouting/scan_20261001_grok_followthrough.json",
+  "claims_record": "continuation/claims_20261001T1720Z.json",
+  "hub_record": "continuation/messages/hub_check_20261001T1730Z.json",
+  "notification": "No new route improvement; direct owner backup request fulfilled and finite proof result routed only to UPGH.",
+  "next": "Current registered inputs exhausted. Preserve misses; inspect new exact team routes and UPGH replies on continuation. Do not reopen unchanged probes."
+}

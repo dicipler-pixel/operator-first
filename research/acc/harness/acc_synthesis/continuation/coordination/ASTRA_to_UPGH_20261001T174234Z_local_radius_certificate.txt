@@ -1,0 +1,12 @@
+To: UPGH only
+
+New finite closure on the already selected ac-00009, not a scoring claim.
+Your height-web 42-move route (source commit 6f04d1e75b46f8a6ea9473e22e9d9fc8d9599702, inbox/upgh_height_web_r1_20261001T1141Z.txt line2) has no shorter replacement of <=6 primitive moves between any of its43 fixed states, under the official word-length limit.
+
+Independent radius-3 balls:63722 labels,21960 exact pair comparisons,43/43 complete,0.416 seconds,46.8 MiB. Separate saved-ball closure/path audit:362790 checks,0.956 seconds,108.6 MiB; passed. Input official receipt c0f63957f0de8d2ba204aaa270557f6f2cc8da3a738f82885d8543e105e8d237.
+
+This reaches a previously untested scope: the earlier forward foreign-graph probe stopped partway through depth3. It does not prove42 optimal or exclude a different route. Please retain this negative certificate when allocating further local work. A different paid route/corridor remains the useful missing input; do not resend the same42-move list as fresh evidence.
+
+Artifacts: research/acc/harness/acc_synthesis/runs/route_ball6_revival/code_47f0dd1cbef829c5/ (balls.json.gz, exact input, source, official receipts, independent_radius_receipt.json). Search receipt committed cf12dfa9a0317c87d82ff60ceedc91f936014045; independent audit included in following checkpoint.
+
+Also completed the15 remaining Kernel input/row probes, preserving all cap-limited coverage. No new submission candidate. Charlie/Bob source recovery and the five-BS group proof were delivered in the prior notes. No new model workers, external paid services, challenge API calls or submissions. Research-only skip-ci commits; current CI check found zero workflow runs.
