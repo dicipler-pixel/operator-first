@@ -2,7 +2,7 @@
 
 **Purpose.** One place for every idea the team turned a line of the owner's songs into, with what it did, so anyone can re-run, widen or avoid it. The owner posted ten songs between 30 Sep ~20:30Z and 1 Oct ~10:55Z. For each song, members picked a line, made it one bounded ACC experiment, and reported idea and result (a scoped miss counts).
 
-**Updated: 2026-10-01 12:03Z.** Merged: session 1 (all ten), Kernel (all ten), Git (songs 1, 2, 4, 9), UPG-H (all revealed). Still due 12:30Z: session 2, Git (3, 5-8, 10), Astra, Bob, Charlie, Sol 6.1, Grok.
+**Updated: 2026-10-01 12:37Z.** Merged: session 1 (all ten), Kernel (all ten), session 2 (all ten: songs 1, 2, 4 RAN; others NOT RUN), UPG-H (all ten), Git (songs 1, 2, 4, 9). Still missing after the 12:30Z deadline (nudged 12:35Z): Git (3, 5-8, 10), Bob (3-7, 9, 10), Astra (2-10), Charlie, Sol 6.1, Grok.
 
 **How to read it.**
 - One row per idea. A member with two or three ideas on one song gets two or three rows.
@@ -67,8 +67,9 @@ A cosmic rap, one verse per problem (River, Tree, Sky, Mountain). Open anytime w
 | (none found) | not reported | no member idea found in the repo or the Drive hub | not reported | `SONG_20260930_3_bonus_four_constants.md` (rules only) |
 | session 1 | "Some trees measure themselves not by how high they climb, but by how deep they remember." | Deep-memory union graph per row: every state any verified road of the row ever visited (all members, all seeds) goes into one graph, with exact 1-move edges between states of different roads (hash join on state + its 14 neighbours), then Dijkstra start -> goal. Finds junctions exactly 1 move apart that no splice window looks at. Rows: k <= 2 one-over rows with >= 4 lineages (ac-10098, ac-03871, ac-08995, ac-06262). | **NOT RUN** (minutes per row; open to anyone). | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 | Kernel | "Four Constants, One Chain" | Four exact constants per state (the 2 relator lengths, exponent-sum matrix distance to I, which end is nearer: (x,y) or (y,x)); allow a web bridge only if the matrix distance never has to go back up; use it to PRUNE web nodes so radius 5-6 bridges fit in memory on gap-1 rows. | **NOT RUN** (open; Sol's 11:43Z integer bound is the exact matrix distance this needs). | Drive `SONG_IDEAS_KERNEL_20261001T1145Z.txt` |
+| session 2 | no line picked | Run the fixpoint loop on every constructed road before it is queued or posted (minutes; only shortens). | NOT RUN (offered as an idea for any song) | `SONG_IDEAS_SESSION2_20261001T1235Z.txt` |
 
-Missing: UPG-H, session 2, Git, Astra, Bob, Charlie, Sol 6.1, Grok, Fable.
+Missing: UPG-H, Git, Astra, Bob, Charlie, Sol 6.1, Grok, Fable.
 
 ---
 
@@ -82,8 +83,9 @@ One idea per hour. Text: `SONG_20261001_4_comutators.md`.
 | UPG-H #1 | "We commutate the chaos wherever it went" / "Non-normality born from the commutator clash" | Commutation cancellation: two AC moves commute when neither writes a relator the other reads or writes, so a move and its later inverse with only commuting moves between cancel (save 2) at any distance, which window searches of 7 to 14 miss. Scan every road we hold (`research/acc/upgh/cache/commute.py`, code only). | 5,059 team roads scanned, 95 contain a cancellation, 6 new bests (for example ac-05260 75 -> 71), none at a record. Follow-ups by others: session 2's own implementation later shortened ac-05698 128 -> 118 and ac-00525 80 -> 70; Git found 0 cuts on 146 DP-compiled roads (already clean) and added it before the DP. | `UPDATE_upgh_to_all_20261001T0211Z_song4.md`, `song_ideas.jsonl`, `TEAM_RESULTS_20261001.md`, `UPDATE_session2_to_upgh_20261001T0505Z.md`, `GIT_STATUS_20260930.md` |
 | session 1 | "We measure the difference and let the flow decide" | Canonical commute-sorting: stable-sort adjacent commuting moves in every road (r0-only before r1-only within each commuting block). Equal roads collapse (true lineage count), and window searches on the canonical form see interactions that interleaving hid. Then window14 on canonical roads of k <= 3 one-over rows. | **NOT RUN** (session 1 did run the commuting-cancellation cleanup: 86 roads shortened, none to a record). | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 | Kernel | "Comutators!" | Commute-normal form of every road, then look for cancellations the swaps expose (= session 2's commute_clean). Swapping adjacent moves changes only states within 2 moves of the road, so a radius-4 web already contains it: run commute_clean as a cheap pre-pass. | NOT RUN (covered by the web at R >= 2). | Drive `SONG_IDEAS_KERNEL_20261001T1145Z.txt` |
+| session 2 | "We commutate the chaos wherever it went" (own implementation) + fixpoint loop | `tools/acc/ops/commute_clean.py` (a move and a later inverse cancel when everything between commutes; Stable moves are barriers; 0/500 self-test mismatches), then the **fixpoint loop** `tools/acc/ops/fixpoint_shorten.py`: commute_clean + window-14 until neither shortens, then backward mid-restart from late cuts. Run on UPG-H's step-2 BS roads (P000013 section 4). | **2 BEAT pairs.** ac-05698 128 -> 110 (BEAT 111 k1) + sac 112 (BEAT 113), #2972 accepted; ac-06792 137 -> 119 -> 117 (BEAT 118 k1) + sac 119 (BEAT 120), queued 12:24Z. ac-08757 87 -> 71 (66). Lesson: constructed roads repeat one pattern, so long-range cancellation + windows collapse them far more than searched roads. | `SONG_IDEAS_SESSION2_20261001T1235Z.txt` |
 
-Missing: session 2 (only re-implemented UPG-H's rule), Astra, Bob, Charlie, Sol 6.1, Grok, Fable (his work is under UPG-H).
+Missing: Astra, Bob, Charlie, Sol 6.1, Grok, Fable (his work is under UPG-H).
 
 ---
 
@@ -96,8 +98,9 @@ One idea per hour. Text: `SONG_20261001_5_become_the_order.md`.
 | UPG-H #1 | "The universe reorganizes what no longer serves, / It don't destroy — it just makes room for what deserves." | Rank defence: re-attack rows we held whose record has since dropped below our line (LOST), close low-k ones first (gap 2 or less, k 3 or less), using any rung that is not hot. Targets ac-03714 and sac-03714, out of 487 LOST rows. | Miss. Splice t00281 (radius 3, 764 s, finished) found nothing shorter on ac-03714. The leader's 02:50Z batch then moved 03714 again (AC 50/51, Stable 52/53), and five rows from our holds were LOST in that batch. Lesson: on rows the leader just re-dropped our old lineage is spent, so the next rank defence needs a new seed (BS-doubling roads, twins). | `SONG_20261001_5_become_the_order.md`, `song_ideas.jsonl` |
 | session 1 | "The universe reorganizes what no longer serves" | Drop the prefix that no longer serves: on each one-over k <= 2 road, take the LOWEST-total intermediate state, restart a noisy beam there (3 seeds x 3 states) and prepend the kept prefix. Unlike Astra's fixed-cut restarts, the cut is where the beam has most room. | **NOT RUN** (open to anyone). | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 | Kernel | "The universe reorganizes what no longer serves" | MS family transfer the session-2 way: lift a held path from row n to n+-1 (KERNEL-LIFT tracks 9-18 moves then drifts) and, instead of repairing with short bridges, run window-14 + commute_clean + web to a fixed point on the drifted lift. | NOT RUN (the repair-bridge version RAN and missed: 1/14 control at W2000). | Drive `SONG_IDEAS_KERNEL_20261001T1145Z.txt` |
+| session 2 | no line picked | Run the fixpoint loop on every constructed road before it is queued or posted (minutes; only shortens). | NOT RUN (offered as an idea for any song) | `SONG_IDEAS_SESSION2_20261001T1235Z.txt` |
 
-Missing: session 2, Git, Astra, Bob, Charlie, Sol 6.1, Grok, Fable.
+Missing: Git, Astra, Bob, Charlie, Sol 6.1, Grok, Fable.
 
 ---
 
@@ -110,8 +113,9 @@ Text: `SONG_20261001_6_everything_breaks_quiet.md`.
 | UPG-H #1 | "It just remove what you been too scared to correct." / "It just stop holdin' up what you refused to fix." | Quiet wake: the harness re-runs a parked miss only when our best road on that row gets shorter, so a teammate's new road of the same or greater length arrives quietly and is never used in a splice. `tools/acc/upgh/quiet_wake.py` finds parked misses (k 3 or less, 1 to 2 over the record) whose row gained roads after parking and wakes them with a lineage-keyed event. | No tie. 12 rows woken, 15 tasks (t00355 to t00369; for example sac-10098 with 4 new roads, sac-03871 with 5, sac-02528 with 3, sac-08578 with 4): 12 finished as misses, 3 interrupted by lane restarts. The hook stays (cheap), but the value is a structurally different road, not more splicing of the same families. | `SONG_20261001_6_everything_breaks_quiet.md`, `song_ideas.jsonl` |
 | session 1 | "It just stop holdin' up what you refused to fix." | Raise the cap we refused to lift: session 1's raised-ceiling surgery certified heads/tails only at cap 22 on one-over rows (ac-02341, ac-08889, ac-06936, ac-10098 ...). Rerun the head/tail exact balls at cap 24-26 (acc_disk, ~2 GB each) on k1/k2 rows; a shorter end needing a peak of 23-26 shows up. | **NOT RUN** (session 1 can run it on request). | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 | Kernel | "Everything breaks quiet" | Plateau search: from every node of every held road expand ONLY length-neutral moves (total unchanged) for 6-8 steps; the quiet plateau is cheap and reaches outside the radius-4 tube where a tie must go. | NOT RUN (open to anyone). | Drive `SONG_IDEAS_KERNEL_20261001T1145Z.txt` |
+| session 2 | no line picked | Run the fixpoint loop on every constructed road before it is queued or posted (minutes; only shortens). | NOT RUN (offered as an idea for any song) | `SONG_IDEAS_SESSION2_20261001T1235Z.txt` |
 
-Missing: session 2, Git, Astra, Bob, Charlie, Sol 6.1, Grok, Fable.
+Missing: Git, Astra, Bob, Charlie, Sol 6.1, Grok, Fable.
 
 ---
 
@@ -124,8 +128,9 @@ Text: `SONG_20261001_7_pseudo_spectral_bulge.md`.
 | UPG-H #1 | "Caught in the pseudo spectral bulge where the anomalies hide" / "It's the vertical amplification, the non-modal surge" | Transient growth: a record road may have to grow its relators before collapsing, but every road we hold came from length-keyed beams that never climb first. New harness method `beam_climb` (acc_beam BEAM_CLIMB=8, length key inverted for depths 1 to 8) on ac-08889, ac-02341, ac-03714, ac-03871, ac-00975, ac-10098. | **Incomplete, not a miss.** t00370 (W 100000, 6 rows) hit the 1,800 s wall before finishing any row. Rerun t00381 (W 20000, rows ac-08889, ac-02341, ac-03714) queued; its result is not reported. Bob's song-8 beam is the same idea with his own tool (see song 8). Lesson: size the experiment to the wall first. | `SONG_20261001_7_pseudo_spectral_bulge.md`, `song_ideas.jsonl`, `research/acc/upgh/tasks/t00381.json` |
 | session 1 | "It's the vertical amplification, the non-modal surge" | Exact minimum-peak search on short k1 rows: the ac-09409 method (acc_disk forward to depth D + (x,y) ball depth 9, rising caps) on k1/k2 rows with record <= 26. Either finds the tie at the minimal peak or certifies no route <= record under each cap. | **NOT RUN** (method validated on ac-09409: all <= 23 routes need peak exactly 31). | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 | Kernel | "pseudo spectral bulge" / "non-modal surge" | Seed new roads from the PEAK states of held roads; beam allowed a bounded transient bulge (+k over the peak) that must come back down; feed every road into the web. New lineages where roads are thin (12 priority rows with 1-2 roads). | NOT RUN (open to anyone). | Drive `SONG_IDEAS_KERNEL_20261001T1145Z.txt` |
+| session 2 | no line picked | Run the fixpoint loop on every constructed road before it is queued or posted (minutes; only shortens). | NOT RUN (offered as an idea for any song) | `SONG_IDEAS_SESSION2_20261001T1235Z.txt` |
 
-Missing: session 2, Git, Astra, Bob (his song-8 beam covers the same idea), Charlie, Sol 6.1, Grok, Fable.
+Missing: Git, Astra, Bob (his song-8 beam covers the same idea), Charlie, Sol 6.1, Grok, Fable.
 
 ---
 
@@ -139,8 +144,9 @@ Text: `SONG_20261001_8_defy_gravity.md`.
 | Bob | "Every apparent wall is a threshold disguised." | "Defy gravity" beam: for the first K moves score with a length weight of 0 or less (free to climb), then switch back to the collapse score (fewest letters of one generator in one relator, plus length), drop into the one-letter collapse and finish with beam_traits. Grid (K, Bc) = (8,-1), (15,-1), (15,0), W 20000, depth 70, cap start + 50. | **Tool works.** Controls with no path given: ac-05653 solved at 48 (K=15, Bc=0: stage 1 at 42 plus 11; K=8 gives 36 plus 12), ac-07119 solved at 53 (K=8). Longer than the team's roads, so they are new lineages. Targets ac-03320, ac-00764, ac-09632: run stopped by the 10:25Z STOP order and a box restart before any grid finished, so not tested on open rows (no claim). Next, per UPG-H 11:00Z: the grid on ac-00764, ac-09632, ac-05538, ac-03320, 30 min each. | Drive `SONG8_BOB_20261001T1100Z.txt`, Drive `UPGH_to_BOB_20261001T1100Z_song8_thanks_core_back.txt` |
 | session 1 | "Every apparent wall is a threshold disguised" | Our certificates are the walls: first-solve singletons ac-01449/02598/04923 have no route at peak <= 32, n=3 ac-00764/06036 none at <= 30; cap 34 needs ~1e9 states (the disk wall). Cross it with storage-free search (Sol's IDA*/compact BFS with an exact goal ball at cap 34-36) or acc_disk on a bigger disk. | **NOT RUN** (the certificates RAN; files in sweeps/session1/levelmap/). | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 | Kernel | "Every apparent wall is a threshold disguised" | Is the Stable "+2" finish a wall made of laziness? Test whether a third generator breaks it. | RAN (as his song-9 run): a REAL wall at the finish. Radius 7 / rank 4, 74,220 rank-2 states, 0 shortcuts. A mid-route catalyst is untested. | Drive `SONG_IDEAS_KERNEL_20261001T1145Z.txt`, Drive `SONG9_KERNEL_20261001T1137Z.txt` |
+| session 2 | no line picked | Run the fixpoint loop on every constructed road before it is queued or posted (minutes; only shortens). | NOT RUN (offered as an idea for any song) | `SONG_IDEAS_SESSION2_20261001T1235Z.txt` |
 
-Missing: session 2, Git, Astra, Charlie, Sol 6.1, Grok, Fable.
+Missing: Git, Astra, Charlie, Sol 6.1, Grok, Fable.
 
 ---
 
@@ -155,8 +161,9 @@ Every member plays (owner's order). Pick at once, keep the idea private for an h
 | Bob | not reported | Picked 10:35Z; idea private until ~11:35Z. | not reported | Drive `BOB_status_20261001T1036Z.txt` |
 | Git | "It was always in the crossing." | Crossing splice with slot swap: the class splice failed on most joins because the donor road held OUR two relators in the OTHER slots, and AC moves never swap slots. On a swapped join, relabel the donor tail r0<->r1 (moves 0<->1, 2<->4, 3<->5, 6-9<->10-13): it lands on (y,x), which is the Stable finish. Price orientation first (per-slot BFS) and build the tail from the donor's state. Rows ac/sac-02288, 04493, 06969, 00145; 5,682 donor roads. Tool `sweeps/git/splice_orient.py`. | Scoped miss, no scoring line. Every join now lands (134/134 on 02288, 303/303 on 06969, 202 crossings on 06969 alone); best = what we hold (02288 38/40 vs record 37/38; 06969 39/41 vs 38/40; 04493 52/55; 00145 40/42). 676 joins pruned by the orientation price. Lesson: shared near-end classes sit 1-3 above our roads; a scoring crossing must glue EARLY (position < ~20). | `SONG9_git_20261001T1129Z.txt` |
 | Kernel | "The real growth come when you let something foreign touch the inside where the old self was warring." | Stabilization (a third generator g3) near the end of Stable routes. | Scoped miss: no Stable finish within 7 moves of the end beats AC route + 2. | Drive `SONG9_KERNEL_20261001T1137Z.txt` |
+| session 2 | no line picked | Run the fixpoint loop on every constructed road before it is queued or posted (minutes; only shortens). | NOT RUN (offered as an idea for any song) | `SONG_IDEAS_SESSION2_20261001T1235Z.txt` |
 
-Missing: session 2, Astra, Charlie, Sol 6.1, Grok, Fable. Picked but no idea text yet: Bob.
+Missing: Astra, Charlie, Sol 6.1, Grok, Fable. Picked but no idea text yet: Bob.
 
 ---
 
@@ -169,8 +176,9 @@ Every member plays. Same rules as song 9. Results are due ~11:54Z to 11:57Z. Tex
 | UPG-H | "That's the only thing that echo when the body decay, / the trace left behind from the bridges you made." | Bridge library: collect every (X, Y) segment swap from path.best history and same-row team roads, close under the 16 symmetries, apply as substring rewrites to every k <= 3 near-record road (official core decides). `tools/acc/upgh/bridge_library.py`. | Miss: 180 bridges (2,512 with symmetries), 0 shortenings. Lesson: bridges are state-bound; reusing the STATES (height web, from a paper idea at 11:41Z) paid: 364 roads shortened, 7 AC + 4 Stable ties. | `SONG_20261001_10_the_meeting_point.md` |
 | session 1 | "measured by how deep you let the other side invade" | Deep (y,x) finish: let the (y,x) side join 11-13 moves from the end (exact bidirectional bridge, cap 40, then [15,15]), not only the last 10; every session 1 + pool road at AC +0..+1 on lazy-Stable rows (Stable = AC + 2), k <= 3: 48 roads on 16 rows. Tool: scratch song10/yx_deep.py (DEEP env). | Scoped miss: 48/48 completed, 0 hits, 0 timeouts. With the shallow lane this covers the last 13 moves of every near-record road on those rows; remaining Stable ties need new AC roads at the record. | `SONG10_session1_20261001T1157Z.md` |
 | Kernel | "the trace left behind from the bridges you made" | Harvest the web's bridges as move-word REWRITE RULES: pairs (u, v), \|v\| < \|u\|, acting the same on EVERY state (universal identities); apply to every road of every row. (= paper idea P2.) | RUNNING (post at pick + 1 h). | Drive `SONG_IDEAS_KERNEL_20261001T1145Z.txt` |
+| session 2 | no line picked | Run the fixpoint loop on every constructed road before it is queued or posted (minutes; only shortens). | NOT RUN (offered as an idea for any song) | `SONG_IDEAS_SESSION2_20261001T1235Z.txt` |
 
-Missing: session 2, Git, Astra, Bob, Charlie, Sol 6.1, Grok, Fable. Picked but no idea text yet: none.
+Missing: Git, Astra, Bob, Charlie, Sol 6.1, Grok, Fable. Picked but no idea text yet: none.
 
 ---
 
