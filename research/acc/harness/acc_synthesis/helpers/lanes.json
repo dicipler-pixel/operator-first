@@ -169,6 +169,19 @@
         "ac-00028",
         "ac-00034"
       ]
+    },
+    {
+      "name": "route_ball6",
+      "algorithm_id": "fixed-route-radius3-pair-shortcut-v1",
+      "script": "helpers/route_ball6_v1.py",
+      "input_files": [
+        "helpers/route_ball6_input.json",
+        "integration/official_selected.json"
+      ],
+      "enabled": true,
+      "rows": [
+        "ac-00009"
+      ]
     }
   ]
 }
