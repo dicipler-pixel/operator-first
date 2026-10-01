@@ -148,3 +148,13 @@ Same row number = the Stable twin (sac-) is also unsolved: a first solve there i
 **02:00Z cross-check with Bob's independent comb list (ms1190_metadata + training_424, `BOB_ms_comb_90` on Drive):** 11 of his open rows are also tier A here:
 ac-02055, ac-02234, ac-02571, ac-03320, ac-03367, ac-07080, ac-08159, ac-08606, ac-09010, ac-09632, ac-09811. Two methods agree, so these come first.
 Bob's 11 'uncertified' (literature-solved) comb rows are all solved on the board (records 83-139, mostly k1): ties, not first solves.
+
+## 02:20Z reality check (deep scout + ms1190_metadata `reported_class`)
+The official metadata groups the 550 open MS rows into **261 known AC-equivalence classes** (the Two-Hump paper's "550 -> 261"). Every tier A row is in an OPEN class:
+**14_1** (36 rows; 12 of ours: 00474 01152 01335 02055 02190 02234 02912 03367 07080 07206 08159 09010), **15_1** (22 rows: 00273 02401 02710 04621),
+**15_10 / 15_11** (9 rows each: 00675 02415 02571 03131 03320 06469 06615 07430 08606 09310 09632 09811), and 8 singletons of minimal length 19
+(01449 02598 04515 04923 05007 05780 06673 08648). The class names give the minimal total relator length in the class: these are the literature's
+hard frontier (length 13 = AK(3)'s class, 14, 15). **A first solve here would be a research result, not a search trick.** Keep a small share on it
+(UPG-H's Fable builder, Charlie's exact search on short caps), but the team's main effort goes to **ties for rank** (`UPDATE_upgh_to_all_*_RANK.md`).
+Upside if it ever lands: a solve of one row in a class makes the whole class reachable via the class equivalences (36 rows in 14_1).
+The 8 singleton length-19 classes are the least studied; prefer those over 14_1/15_1 if you spend time on first solves.
