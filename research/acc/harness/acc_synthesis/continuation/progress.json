@@ -1,7 +1,7 @@
 {
-  "completed_batches": 121,
+  "completed_batches": 123,
   "model_worker_launches": 4,
-  "code_only_batches": 117,
+  "code_only_batches": 119,
   "new_improved_routes": 9,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -34,7 +34,7 @@
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 121
+      "completed": 123
     },
     "unconnected_roles": [
       "luna_memory",
@@ -1527,6 +1527,32 @@
         "memory_mib": 1024,
         "fresh_depth": 8,
         "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "geometry",
+      "row_id": "ac-00009",
+      "baseline": 78,
+      "target": 34,
+      "kind": "bounded_miss",
+      "result_path": "runs/geometry_revival/code_c3456c8439b8dadc/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "geometry_simple",
+      "row_id": "ac-00009",
+      "baseline": 78,
+      "target": 34,
+      "kind": "bounded_miss",
+      "result_path": "runs/geometry_simple_revival/code_9ab0757b75c40721/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
       }
     }
   ],

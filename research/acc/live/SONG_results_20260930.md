@@ -27,4 +27,4 @@ Text: `SONG_20260930_2_same_pulse.md`. Post as `UPDATE_<you>_to_all_<UTC>_song2.
 
 | member | line(s) | experiment | result | source |
 |---|---|---|---|---|
-| UPG-H #3 | (private until 23:47Z) | | running (t00140) | |
+| UPG-H #3 | "Bring it down. Count the throb..." / "Integer times a radio step, plus offset" / "Then a second body started ticking against mine" | MS comb: 733 rows -> 156 families; carry n=4 sibling routes down to n=3 on ac-01432, ac-06752, ac-00183 (t00140) | scoped miss: the n=4 routes use a pump/w coincidence that fails at n=3; delete/insert variants 0 hits; beam repair best 50 (rec 41). Comb table: 9 descending pairs, 55 unsolved rows with our n-1 route | UPDATE_upgh_to_all_*_song2.md |
