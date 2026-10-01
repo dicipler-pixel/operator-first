@@ -62,3 +62,11 @@ Short human notes on each working batch. The ledger (`research/acc/upgh/ledger.j
 - The rung is deterministic for a given pool: it runs once per row, then the ladder moves on. `upgh wake` reopens the row when a new road arrives.
 - Hand test on ac-04086: 91 team hits, 15 distinct roads (Kernel's joined roads, Bob's lineage, ours), 483 nodes, 50 s, best 35 (record 34). No cut; the pool's roads already share the best join. The tests were updated for the new ladder order.
 - **Never-send rows are now code, not only prose (22:35Z).** ONBOARDING rule 3 (ac/sac 09839, 02257, 09311, 06403, 04718, 05378: the owner handles them) had no check in the harness or in `sair_api.py send`. The new splice rung picked sac-05378 (t00134) because nothing stopped it. Now `gates.never_rows` is a standing owner claim in `external_claims()`, so lanes, `open`, `advise` and the scout skip those rows. `plan` never lists them, and `send` drops them ("DROP never-send row"). t00134 was already running and is allowed to finish; its sac-05378 output can be harvested but can never be planned or sent. Test added (27 OK).
+
+**SIGILL false misses (1 October, 01:20Z)**
+- Astra found `rc: -4` rows in five UPG-H window artifacts (t00167, t00232, t00235, t00236, t00245; 10 rows; 0.0-0.2 s, empty passes). The kernel log shows
+  `acc_capped ... trap invalid opcode`. The binaries were built with `-march=native` on 30 Sep, and the container has since run on another host CPU.
+  `run_window.py` records the per-row rc and exits 0, so the harness logged those runs as misses and heated the rows.
+- Fixes: binaries now build with portable flags (`CFLAGS = -O3 -march=x86-64-v2 -mtune=generic`), and the build stamp covers source + flags, so `doctor`
+  flags a mismatch. A crash anywhere in a run (any `rc < 0` row in out.jsonl) closes the task as **blocked**, never a miss (new test, 28 OK).
+  The five tasks are voided; binaries rebuilt with `upgh setup`.

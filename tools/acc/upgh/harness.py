@@ -40,6 +40,9 @@ from state import PHI_COORDS, ROLES, fold, family, phi_changes, wake_key  # noqa
 REPO = HERE.parents[2]
 KINDS = {"builder": ("ran", "blocked"), "checker": ("review", "blocked"),
          "advisor": ("proposal", "blocked"), "memory": ("context", "blocked")}
+# Portable code generation: -march=native binaries trapped with SIGILL (rc -4) after the container moved to another host
+# CPU on 1 Oct (t00167, t00232, t00235, t00236, t00245 were recorded as misses). x86-64-v2 runs on any current x86 host.
+CFLAGS = ["-O3", "-march=x86-64-v2", "-mtune=generic"]
 NEVER = ["submit to SAIR", "git push", "edit or delete ledger lines", "write outside artifacts_dir",
          "start background jobs that outlive the lease"]
 
@@ -156,12 +159,13 @@ class Harness:
                 src = self.repo / "research/acc/optimality" / (tool + ".c")
                 stamp = bindir / (tool + ".src.sha256")
                 have = stamp.read_text().strip() if stamp.exists() else None
-                if not (bindir / tool).exists() or have != sha256_file(src):
+                want = sha256_file(src) + " " + " ".join(CFLAGS)
+                if not (bindir / tool).exists() or have != want:
                     tmp = bindir / (tool + ".new")
-                    subprocess.run(["gcc", "-O3", "-march=native", "-Wno-misleading-indentation", "-o",
+                    subprocess.run(["gcc", *CFLAGS, "-Wno-misleading-indentation", "-o",
                                     str(tmp), str(src), "-lm"], check=True)
                     os.replace(tmp, bindir / tool)   # a running lane keeps the old inode
-                    stamp.write_text(sha256_file(src) + "\n")
+                    stamp.write_text(want + "\n")
                     log.append("compiled %s from source %s" % (tool, sha256_file(src)[:12]))
         t9 = self.cache / "T9.tab"
         if build_t9 and not t9.exists():
@@ -1312,8 +1316,9 @@ class Harness:
         for n in method.get("needs", []):
             if n.startswith("bin/"):
                 stamp = self.cache / (n + ".src.sha256")
-                provenance[n] = {"binary_sha256": sha256_file(self.cache / n),
-                                 "source_sha256": stamp.read_text().strip() if stamp.exists() else None}
+                parts = stamp.read_text().split() if stamp.exists() else [None]
+                provenance[n] = {"binary_sha256": sha256_file(self.cache / n), "source_sha256": parts[0],
+                                 "cflags": " ".join(parts[1:]) or None}
         final_art.mkdir(parents=True, exist_ok=True)
         for name in ("out.jsonl", "targets.json", "jobs.json", "stdout.log", "stderr.log"):
             if (art / name).exists():
@@ -1321,6 +1326,17 @@ class Harness:
         arts = [{"path": self._rel(p), "sha256": sha256_file(p)}
                 for p in (final_art / "out.jsonl", final_art / "targets.json", final_art / "stdout.log",
                           final_art / "stderr.log") if p.exists()]
+        crashed = []
+        if (final_art / "out.jsonl").exists():
+            for line in (final_art / "out.jsonl").read_text(encoding="utf-8", errors="replace").splitlines():
+                with contextlib.suppress(ValueError, AttributeError):
+                    rc = json.loads(line).get("rc")
+                    if isinstance(rc, int) and rc < 0:     # killed by a signal (-4 SIGILL on 1 Oct: binary built for another CPU)
+                        crashed.append("%s rc %d" % (json.loads(line).get("row"), rc))
+        if crashed:
+            return self.accept(tid, token, {"task": tid, "kind": "blocked", "artifacts": arts,
+                                            "summary": "%s: the tool was killed by a signal on %s; a crash is not a miss "
+                                                       "(rebuild with `upgh setup`)" % (c["strategy"]["method"], ", ".join(crashed))})
         if reason == "finished" and proc.returncode != 0:
             return self.accept(tid, token, {"task": tid, "kind": "blocked", "artifacts": arts,
                                             "summary": "%s exited %s after %ss: a tool error is not a miss; see "
@@ -1403,9 +1419,9 @@ class Harness:
             elif name.startswith("bin/"):
                 stamp = self.cache / (name + ".src.sha256")
                 src = self.repo / "research/acc/optimality" / (name[4:] + ".c")
-                if src.is_file() and (not stamp.exists() or stamp.read_text().strip() != sha256_file(src)):
-                    add("error", "tools", "%s was not built from the current %s; results would carry the wrong "
-                        "method label: run `upgh setup`" % (name, self._rel(src)))
+                if src.is_file() and (not stamp.exists() or stamp.read_text().strip() != sha256_file(src) + " " + " ".join(CFLAGS)):
+                    add("error", "tools", "%s was not built from the current %s with the portable flags; results would carry "
+                        "the wrong method label or trap on another CPU: run `upgh setup`" % (name, self._rel(src)))
         if st.stopped != self._stop_file().exists():
             add("warn", "stop", "STOP file and ledger disagree; the ledger wins (stopped=%s)" % st.stopped)
         if st.stopped:
