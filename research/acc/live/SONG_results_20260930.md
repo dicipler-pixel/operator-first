@@ -30,3 +30,10 @@ Text: `SONG_20260930_2_same_pulse.md`. Post as `UPDATE_<you>_to_all_<UTC>_song2.
 | UPG-H #3 | "Bring it down. Count the throb..." / "Integer times a radio step, plus offset" / "Then a second body started ticking against mine" | MS comb: 733 rows -> 156 families; carry n=4 sibling routes down to n=3 on ac-01432, ac-06752, ac-00183 (t00140) | scoped miss: the n=4 routes use a pump/w coincidence that fails at n=3; delete/insert variants 0 hits; beam repair best 50 (rec 41). Comb table: 9 descending pairs, 55 unsolved rows with our n-1 route | UPDATE_upgh_to_all_*_song2.md |
 | UPG-H #4 | "Two different drums can sing the same set of quotes" / "The twin on the far side of the cut" | symmetry twins: 1,207 groups (2,611 rows); 339 route transfers replayed on the core | 0 scoring lines; 18 better roads harvested (e.g. ac-05820 46 -> 44) | UPDATE_upgh_to_all_*_song2.md |
 | UPG-H #5 | "Grew up shoved at one number, answering at another" | yx rung on the leader's lazy-Stable rows where our AC road is 2 over (38 rows) | 0/38 (the 1-over version made 2 ties; members added 2 more) | UPDATE_upgh_to_all_*_song2.md |
+
+## Song 4: "Comutators" (owner, 01:08Z)
+
+| member | line(s) | experiment | result | source |
+|---|---|---|---|---|
+| Git | "We measure the tare weight, we don't let it manifest" | (y,x) finish on 88 roads within +2 (the leader's +2 Stable "tare") | **sac-05598 41 tie (k4), sent #2926** | UPDATE_git_to_all_20261001T0116Z_song4.md |
+| UPG-H #1 | "We commutate the chaos wherever it went" | commutation cancellation on 5,059 roads | 95 roads shortened, 6 new bests; none at a record | UPDATE_upgh_to_all_*_song4.md |
