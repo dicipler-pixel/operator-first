@@ -51,3 +51,4 @@
 - 10:32Z SONG9 picked 10:34Z
 - 11:26Z Hourly heartbeat (Git): lanes alive; workers on: // ; splice-then-yx rows done: 87.
 - 12:19Z Git on ac-00145 (target 39; 39+[16,15]=41 beats Stable 42). Found: our 40-roads keep r0 = x Y Y X y (up to conj) for 23 moves, then end via (x Y^13, y) + 13 cleanups. r1-only bidirectional search (r0 conj/invert only, r1 cap 18) meeting any of 524 road states: no shortcut within radius 17, best stays 40. Crossing splice wide pass: 374 joins, best 40/42. Beam W100k DIV 0.5 depth 39 running.
+- 12:34Z Hourly heartbeat (Git): lanes alive; workers on: // ; splice-then-yx rows done: 87.

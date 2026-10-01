@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-10-01T12:54:00Z",
+  "query_count": 2,
+  "queries": [
+    "site:github.com free group automorphism Nielsen transformations exact word images repository 2025 2026",
+    "site:arxiv.org 2025 2026 bidirectional heuristic search memory bounded exact graph search"
+  ],
+  "primary_sources": [
+    {
+      "kind": "repository",
+      "url": "https://github.com/kalmarek/Groups.jl",
+      "commit": "1fbd7b875bd8890674550a265c785fbdd4851960",
+      "commit_date": "2024-02-13T11:08:48Z",
+      "available_artifact": "Runnable Julia implementation of free-group automorphisms; equality falls back to exact images of the free generators and caches equality-data hashes.",
+      "limitation": "Already recorded in recheck_20261001T1212Z; no new commit or new harness input. External code was not downloaded or run.",
+      "harness_question": "Can sampled short-word identities be promoted to exact identities by comparing generator images?",
+      "bounded_experiment": "No new experiment opened: the exact-image idea is already assigned to UPGH/Kernel and this source adds no changed input."
+    },
+    {
+      "kind": "paper_and_code",
+      "paper_url": "https://arxiv.org/abs/2511.10272",
+      "paper_date": "2025-11-13",
+      "code_url": "https://github.com/SPL-BGU/Bounded-Suboptimal-BAE",
+      "code_commit": "c84d41731c147b62e194d08762945e8a5890eacf",
+      "code_commit_date": "2025-12-08T19:40:36Z",
+      "available_artifact": "Paper plus experiment scripts for weighted bidirectional BAE* variants and termination bounds.",
+      "limitation": "Guarantees require a consistent heuristic and a requested multiplicative suboptimality bound. The ACC harness currently has neither a proved consistent heuristic nor a need to certify bounded suboptimality, so importing this code would not justify a search change.",
+      "harness_question": "Could two-frontier error estimates reduce expansions in exact selected-row search?",
+      "bounded_experiment": "Before any implementation, measure heuristic consistency violations on one frozen completed graph; reject the idea if any edge violates h(u) <= 1 + h(v)."
+    }
+  ],
+  "decision": "quiet_no_change",
+  "reason": "The first lead is a deduplicated confirmation. The second is real released code but does not meet the harness's exact-search preconditions without a separate consistency gate."
+}
