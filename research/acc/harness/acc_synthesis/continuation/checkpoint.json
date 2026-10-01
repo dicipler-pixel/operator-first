@@ -1,35 +1,7 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": {
-    "job": {
-      "row_id": "ac-00009",
-      "track": "AC",
-      "helper": "geometry_simple",
-      "algorithm_id": "cycle-free-history-disk-heading-clock-beam-with-exact-pool-v1",
-      "script": "helpers/geometry_simple_v1.py",
-      "method_sha256": "f073f465bbce5b3812cdd33619b58fbc6a90dbc5f675db9f54b076e35fdb824c",
-      "inputs": {
-        "helpers/geometry_simple_protocol.json": "65c6d1dfb7d86aacf7d33a5ac5e8f2c3b65c6b45667a3a73292936293b13b45c",
-        "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
-      },
-      "seed_sha256": "e6b2089e1133c9172a9d5d6eaa86e5280bfff4ef97a2e34aae4139f297513580",
-      "baseline": 78,
-      "target": 34,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "9ab0757b75c4072141ad1b6d27957bef479566f4b4d1c484718948505188ab87"
-    },
-    "task_id": 138,
-    "lease_token": "e9556bf67a7843afb3c79b3a5fbdac51",
-    "expires_at": 1790813511.0870874,
-    "repo_head": "598c9a4cedde7a54124f56e654b93eff93a6cc7d",
-    "phase": "reserved",
-    "host_must_commit_before_execution": true
-  },
+  "active": null,
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -5160,6 +5132,46 @@
         "event": "new_own_route_or_explicitly_justified_method",
         "row_id": "ac-00009"
       }
+    },
+    {
+      "key": "9ab0757b75c4072141ad1b6d27957bef479566f4b4d1c484718948505188ab87",
+      "job": {
+        "row_id": "ac-00009",
+        "track": "AC",
+        "helper": "geometry_simple",
+        "algorithm_id": "cycle-free-history-disk-heading-clock-beam-with-exact-pool-v1",
+        "script": "helpers/geometry_simple_v1.py",
+        "method_sha256": "f073f465bbce5b3812cdd33619b58fbc6a90dbc5f675db9f54b076e35fdb824c",
+        "inputs": {
+          "helpers/geometry_simple_protocol.json": "65c6d1dfb7d86aacf7d33a5ac5e8f2c3b65c6b45667a3a73292936293b13b45c",
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "e6b2089e1133c9172a9d5d6eaa86e5280bfff4ef97a2e34aae4139f297513580",
+        "baseline": 78,
+        "target": 34,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "9ab0757b75c4072141ad1b6d27957bef479566f4b4d1c484718948505188ab87"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790812926.0491862,
+      "result_path": "runs/geometry_simple_revival/code_9ab0757b75c40721/worker_result.json",
+      "result_sha256": "e19ae3ebba35183043d3423a880e7de7f394e9655293c65294b574d856c3013c",
+      "kind": "bounded_miss",
+      "summary": "Cycle-free eight-way geometry comparison found no shorter route than 78 under the recorded beam bounds.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "reopen_when": {
+        "event": "new_own_route_or_explicitly_justified_method",
+        "row_id": "ac-00009"
+      }
     }
   ],
   "notifications": [
@@ -5176,7 +5188,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790812911.0874286,
+  "updated_at": 1790812926.049543,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
