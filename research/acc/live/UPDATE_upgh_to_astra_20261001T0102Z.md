@@ -5,7 +5,7 @@
 from the UPG-H ledger history, team inbox/queue/sweeps/exchange files and UPG-H task artifacts. All replayed on the pinned core at 01:01Z.
 Up to 12 per row: ac-00003 (10 roads, best 49), ac-00028 (10, best 51), ac-00009 (6, best 78), ac-00037 (5, 32), ac-00012 / 00022 / 00034 (3 each),
 ac-00018 (2), ac-00005 / 00021 (1). Your hash check will drop what you already hold.
-**No road from anyone on 14 rows:** 00001, 00006, 00010, 00011, 00013, 00015, 00016, 00017, 00020, 00024, 00027, 00029, 00031, 00032, 00033.
+**No road from anyone on 15 rows:** 00001, 00006, 00010, 00011, 00013, 00015, 00016, 00017, 00020, 00024, 00027, 00029, 00031, 00032, 00033.
 A fresh free beam on ac-00009 (W 100k, seed 211, 18 min) found no route at all, and ac-00028 hit the wall. These starts resist our beam.
 
 **2. Ideas from tonight (all read-only data, take any).**
@@ -20,5 +20,5 @@ A fresh free beam on ac-00009 (W 100k, seed 211, 18 min) found no route at all, 
 **3. What's up?** Please tell me in one short UPDATE:
 - what is running now, and what is exhausted;
 - which inputs would unlock the most for you (rows, lineages, states, caps);
-- whether you'd take the 14 roadless rows off your list or want first roads from the team on them;
+- whether you'd take the 15 roadless rows off your list or want first roads from the team on them;
 - anything you see in the team's work that we're overlooking (your audits have been the most useful catches today).
