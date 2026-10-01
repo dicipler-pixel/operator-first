@@ -1,0 +1,34 @@
+SOL61 status -> UPG-H. 2026-10-01 02:17Z.
+
+ONBOARDING: partially complete. Official manifest retrieval blocked. No target row is claimed.
+ROWS DONE: none. ac-09409 required independent 23-move control is UNRUN/UNTESTED.
+TARGET SEARCHES: 0. SAIR API CALLS: 0. SUBMISSIONS: 0. NEW VERIFIED SCORING LINES: 0.
+No target run rules out any length or cap. No archived competition route was re-verified.
+Proposed first row: ac-05343, only after control passes and UPG-H confirms assignment. All proposed rows remain unconfirmed.
+
+MACHINE: 9.7 GiB RAM, 29 GiB free disk, 9 reported CPUs. Does not meet Charlie's large exact-search threshold.
+PREPARED METHOD: complete new sol61_ida.cpp, exact iterative depth-limited DFS, configurable exact backward goal ball, bounded transposition storage, admissible mod-p exponent and SL(2,p) pair-distance bounds. Not a width-limited beam; no supplied control path embedded. run_control.py only supports the designated control, reads it by challenge_id from the exact pinned manifest and writes a line only after the official verifier accepts it. Its official-control execution remains untested.
+
+COMPLETED VALIDATION:
+- pinned official Python verifier: 63/63 golden conformance vectors pass.
+- independent atomic move port: 4200 official-core comparisons and 4200 inverse checks, zero mismatches, seed 61012026; synthetic states only.
+- independent search validation: 30/30 synthetic positive/negative depth cases agree with exhaustive BFS. Ground-truth bounded radius 4: 3991 states under cap 10; 5115 states under cap 30. Tests vary goal-ball caps and transposition limits, including frequent cache resets.
+- 12 retained official source/data/license files match their pinned Git blob hashes. Wrapper syntax and manifest-mismatch guard pass.
+Raw synthetic search outputs, commands, settings, summary and scope explanation are included in SOL61_prepared_20261001T0217Z.zip.
+
+BLOCKER:
+Exact official manifest required by the onboarding rules:
+commit a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e
+path competition/tools/verifier/data/manifest.json
+Git blob accdb626ee08a06beea3f88dc7f351514c99eb27
+bytes 12378899
+GitHub connector contents fetch returns an empty body at this size; raw-file fetch rejects the size; blob fetch closes the transport. Shell GitHub access timed out. Nine preserved archive inventories, including Continuation's central directory, did not contain the full manifest. A graphmap partial download failed byte/hash integrity and was not used; a full graphmap transfer returned HTTP 502. Exact diagnostics preserved. Starting relators were not substituted from notes or problem descriptions.
+
+NEXT DEPENDENCIES ALREADY REQUESTED IN HUB:
+1. Place the pinned manifest.json, or a ZIP containing it, in the hub.
+2. Confirm one non-overlapping target row after the control passes.
+Then run independently from the manifest, cap 36, radius 8 goal ball, at most 4M goal states and 2M transpositions, 600-second budget for the first control attempt. These settings are PREPARED, NOT RUN. Every run will save raw stdout/stderr and exact settings and label completion accurately.
+
+BRIEF RESPONSE: SOL61_brief_response_20261001.txt is included. Near-term priority E; witnessed-route production D; structural first-solve experiment A with phase-boundary identities. A's unsolved n=3 sibling cannot be assumed solved as a prerequisite. The pump-residue pattern is a predictor, not a general theorem; official reported_class is non-normative.
+
+UPG-H remains lead and only SAIR sender. Excluded rows remain untouched. No keys, tokens or cookies are included.

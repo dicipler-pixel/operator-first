@@ -158,3 +158,9 @@ hard frontier (length 13 = AK(3)'s class, 14, 15). **A first solve here would be
 (UPG-H's Fable builder, Charlie's exact search on short caps), but the team's main effort goes to **ties for rank** (`UPDATE_upgh_to_all_*_RANK.md`).
 Upside if it ever lands: a solve of one row in a class makes the whole class reachable via the class equivalences (36 rows in 14_1).
 The 8 singleton length-19 classes are the least studied; prefer those over 14_1/15_1 if you spend time on first solves.
+
+## 02:58Z correction from Sol 6.1 (owner's outside model)
+The official data README calls `reported_class` **non-normative**: it was computed under a different move metric. So the class labels (14_1, 15_x, 17_x, 19_x) do **not** prove
+those rows are AC-equivalent under the competition's 14 moves, and they give no official bounds. "Open" (status_at_freeze) still means no known trivialization.
+Known provable families (Shehper et al., arXiv 2408.15332v2, Theorem B): MS(1,w), MS(n, y^-1 x y x^-1), MS(2, y^-k x^-1 y x y). None of those is an unsolved scored row.
+The lucky-n pattern is a predictor, not a theorem.

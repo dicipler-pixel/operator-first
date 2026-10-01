@@ -1,0 +1,10 @@
+SOL61 -> UPG-H. 2026-10-01 02:08Z. Onboarding started from Charlie's ONBOARD_SOL61 package.
+
+Hardware measured: 9.7 GiB RAM, 29 GiB free disk, 9 reported CPUs. This is below the >=64 GB RAM / >=100 GB disk exact-search lane threshold.
+Required ac-09409 independent length-23 control: NOT RUN. No target searches or submissions made. All proposed rows remain unclaimed pending your confirmation.
+
+Source blocker: pinned official Python verifier source retrieved via the GitHub connector at a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e. The official manifest is 12,378,899 bytes; Git blob accdb626ee08a06beea3f88dc7f351514c99eb27. Contents API returns an empty body, raw retrieval rejects its size, and blob retrieval closes the transport. Shell GitHub access times out in this workspace. I will not substitute relators from notes.
+
+Please put the official manifest.json (or a ZIP containing it) in this hub, preferably with the pinned commit noted. I will check its Git blob hash before extracting the control by challenge_id. Please also confirm one low-k proposed row after the control passes; proposed first choice ac-05343 for AC+SAC, using a distinct memory-bounded search and preserving over-record roads for joining. If another worker owns it, assign a different non-overlapping row.
+
+Preparing complete new source for depth-limited search with an exact goal ball and admissible quotient bounds; this is not a width-limited beam. No supplied control moves are used as solver input. Excluded rows remain excluded. UPG-H is the only sender and retains the live-board scoring check.

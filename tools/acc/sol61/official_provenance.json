@@ -1,0 +1,94 @@
+{
+  "repository": "SAIRcompetition/Andrews-Curtis",
+  "commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "required_manifest_blob": "accdb626ee08a06beea3f88dc7f351514c99eb27",
+  "required_manifest_bytes": 12378899,
+  "manifest_present": false,
+  "expected_files": [
+    {
+      "path": "official/LICENSE",
+      "git_blob": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "size_bytes": 11358
+    },
+    {
+      "path": "official/competition/tools/verifier/README.md",
+      "git_blob": "8f44f20ea3e3ae179d6ef65657b53b1cdbda173a",
+      "size_bytes": 13478
+    },
+    {
+      "path": "official/competition/tools/verifier/__init__.py",
+      "git_blob": "082c916279b4a3fa68dea9abce87a7185760c334",
+      "size_bytes": 1302
+    },
+    {
+      "path": "official/competition/tools/verifier/__main__.py",
+      "git_blob": "dd8a8c90e6b7af74ed3657ef5b74aaa5ebf0abd4",
+      "size_bytes": 52
+    },
+    {
+      "path": "official/competition/tools/verifier/canon.py",
+      "git_blob": "93175152acd876566ff60bbfaf7cd90cd8cd2fa9",
+      "size_bytes": 3196
+    },
+    {
+      "path": "official/competition/tools/verifier/cli.py",
+      "git_blob": "95817c89371e4763bba23341c72bd27076905ce8",
+      "size_bytes": 4957
+    },
+    {
+      "path": "official/competition/tools/verifier/core.py",
+      "git_blob": "0a5da5fe6e3e42c96877734dad46b155a69c02b2",
+      "size_bytes": 6740
+    },
+    {
+      "path": "official/competition/tools/verifier/data/README.md",
+      "git_blob": "84ec968ef06e094a31cb4984fe4f890534bf243e",
+      "size_bytes": 8318
+    },
+    {
+      "path": "official/competition/tools/verifier/data/golden_vectors.json",
+      "git_blob": "d7f6a95db69dcc96d93d09b0e50633422df4a0ad",
+      "size_bytes": 67538
+    },
+    {
+      "path": "official/competition/tools/verifier/data/manifest.json",
+      "git_blob": "accdb626ee08a06beea3f88dc7f351514c99eb27",
+      "size_bytes": 12378899
+    },
+    {
+      "path": "official/competition/tools/verifier/data/move_spec.json",
+      "git_blob": "717c03edc89eade3b160a0647a728a3b07a322c6",
+      "size_bytes": 3829
+    },
+    {
+      "path": "official/competition/tools/verifier/data/ms1190_metadata.csv",
+      "git_blob": "7124ecc0d29e3846ee28bdc0dddaee6359ff30f3",
+      "size_bytes": 72587
+    },
+    {
+      "path": "official/competition/tools/verifier/data/stable_move_spec.json",
+      "git_blob": "8dab61d21e5817467d64dede0217787f0ac05ec3",
+      "size_bytes": 42953
+    },
+    {
+      "path": "official/competition/tools/verifier/golden.py",
+      "git_blob": "d3feb8c2e909b8b0c7527b4957b25c3811150770",
+      "size_bytes": 2759
+    },
+    {
+      "path": "official/competition/tools/verifier/specs.py",
+      "git_blob": "1dd4ec6cf660013f46cfce2d58e5c3810dcc606d",
+      "size_bytes": 4656
+    },
+    {
+      "path": "official/competition/tools/verifier/stable_core.py",
+      "git_blob": "af48e32f766dbcd0cad0becd8c1c4edb4358efac",
+      "size_bytes": 10765
+    },
+    {
+      "path": "official/competition/tools/verifier/submission.py",
+      "git_blob": "8f3149ab8621423d7be8f9dc69e50223eeed72ea",
+      "size_bytes": 6828
+    }
+  ]
+}

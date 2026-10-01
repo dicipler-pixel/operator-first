@@ -619,7 +619,9 @@ class Harness:
             events = []
             if queued:
                 contract = min(queued, key=lambda t: t["opened_seq"])["contract"]
-            elif role not in (None, "builder"):
+            elif role not in (None, "builder") or runner == "agent":
+                # an agent claims only queued agent work; code picks new rows only for code lanes (1 Oct: t00280, a code
+                # beam task, was handed to an agent builder this way, as t00114 was on 30 Sep)
                 return None
             else:
                 clocks = self._clocks(st)

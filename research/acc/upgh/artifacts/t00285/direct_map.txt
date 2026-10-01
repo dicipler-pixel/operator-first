@@ -1,0 +1,11 @@
+direct n=1 ms-train-0249: train 17 -> mapped 23 ok=True len=23 peak=13
+direct n=3 ms-train-0250: train 14 -> mapped 20 ok=True len=20 peak=17
+direct n=6 ms-train-0251: train 100 -> mapped 106 ok=True len=106 peak=23
+ac-09632 <- direct n=3 list: min tot 19 at step 0 (YYYxyyXX | YYYYYXyyyyx), end tot 58
+   totals: 19 19 19 19 24 22 22 22 25 23 21 21 31 31 32 45 58 
+ac-09632 <- direct n=6 list: min tot 19 at step 0 (YYYxyyXX | YYYYYXyyyyx), end tot 3384
+   totals: 19 19 19 19 19 19 19 19 19 19 19 19 19 21 21 21 23 25 27 29 29 29 29 29 29 27 27 27 27 27 27 27 35 33 33 33 33 33 48 48 ...
+ac-05538 <- direct n=3 list: min tot 21 at step 0 (YYYxyyXX | YYYYYYXyyyyyx), end tot 68
+   totals: 21 21 21 21 28 26 26 26 29 27 25 25 37 37 38 53 68 
+ac-05538 <- direct n=6 list: min tot 21 at step 0 (YYYxyyXX | YYYYYYXyyyyyx), end tot 3384
+   totals: 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 23 25 27 29 29 29 29 29 29 27 27 27 27 27 27 27 35 33 33 33 33 33 48 48 ...
