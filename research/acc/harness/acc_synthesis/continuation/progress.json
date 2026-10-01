@@ -28,13 +28,42 @@
     }
   ],
   "next": {
-    "status": "exhausted",
-    "reason": "All eligible helper/row/input probes are already recorded or claimed. New evidence or a justified method is required."
+    "status": "active",
+    "active": {
+      "job": {
+        "row_id": "ac-00009",
+        "track": "AC",
+        "helper": "geometry_simple",
+        "algorithm_id": "cycle-free-history-disk-heading-clock-beam-with-exact-pool-v1",
+        "script": "helpers/geometry_simple_v1.py",
+        "method_sha256": "f073f465bbce5b3812cdd33619b58fbc6a90dbc5f675db9f54b076e35fdb824c",
+        "inputs": {
+          "helpers/geometry_simple_protocol.json": "65c6d1dfb7d86aacf7d33a5ac5e8f2c3b65c6b45667a3a73292936293b13b45c",
+          "integration/official_selected.json": "6361ae02dd391d0767c512c8d6824edf8151b364df762ea6f4d941f2e98834ea"
+        },
+        "seed_sha256": "e6b2089e1133c9172a9d5d6eaa86e5280bfff4ef97a2e34aae4139f297513580",
+        "baseline": 78,
+        "target": 34,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "9ab0757b75c4072141ad1b6d27957bef479566f4b4d1c484718948505188ab87"
+      },
+      "task_id": 138,
+      "lease_token": "e9556bf67a7843afb3c79b3a5fbdac51",
+      "expires_at": 1790813511.0870874,
+      "repo_head": "598c9a4cedde7a54124f56e654b93eff93a6cc7d",
+      "phase": "reserved",
+      "host_must_commit_before_execution": true
+    }
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 122
+      "completed": 122,
+      "running": 1
     },
     "unconnected_roles": [
       "luna_memory",

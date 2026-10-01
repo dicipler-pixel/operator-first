@@ -1,0 +1,46 @@
+{
+  "kind": "synthetic_control_not_ACC_result",
+  "worker_sha256": "f073f465bbce5b3812cdd33619b58fbc6a90dbc5f675db9f54b076e35fdb824c",
+  "arms": [
+    {
+      "arm": "length",
+      "exact_shortening": 2,
+      "simple_retained_paths_checked": 8
+    },
+    {
+      "arm": "toward",
+      "exact_shortening": 2,
+      "simple_retained_paths_checked": 8
+    },
+    {
+      "arm": "away",
+      "exact_shortening": 2,
+      "simple_retained_paths_checked": 8
+    },
+    {
+      "arm": "fixed_heading",
+      "exact_shortening": 2,
+      "simple_retained_paths_checked": 8
+    },
+    {
+      "arm": "local_heading",
+      "exact_shortening": 2,
+      "simple_retained_paths_checked": 8
+    },
+    {
+      "arm": "local_heading_reverse",
+      "exact_shortening": 2,
+      "simple_retained_paths_checked": 8
+    },
+    {
+      "arm": "layer_clock_heading",
+      "exact_shortening": 2,
+      "simple_retained_paths_checked": 8
+    },
+    {
+      "arm": "reverse_toward",
+      "exact_shortening": 2,
+      "simple_retained_paths_checked": 8
+    }
+  ]
+}
