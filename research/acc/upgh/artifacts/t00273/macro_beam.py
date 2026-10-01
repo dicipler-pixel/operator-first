@@ -24,17 +24,21 @@ def conj_seqs(CL):
             if any(t[i + 1] == INV[t[i]] for i in range(L - 1)): continue
             out.append(t)
     return out
-SEQS = conj_seqs(CL)
+SEQS = conj_seqs(CL); CL2 = int(os.environ.get('CL2', '0')); SEQS2 = conj_seqs(CL2)
 def expand(s):
     for rel in (0, 1):
-        base = 6 if rel == 0 else 10
-        for t in SEQS:
-            u = s; mv = []
-            for k in t:
-                u = am(u, base + k); mv.append(base + k)
-            for mm in (2, 3, 4, 5):
-                v = am(u, mm)
-                yield v, mv + [mm]
+        base = 6 if rel == 0 else 10; base2 = 10 if rel == 0 else 6
+        for t2 in SEQS2:
+            s2 = s; mv2 = []
+            for k in t2:
+                s2 = am(s2, base2 + k); mv2.append(base2 + k)
+            for t in SEQS:
+                u = s2; mv = list(mv2)
+                for k in t:
+                    u = am(u, base + k); mv.append(base + k)
+                for mm in (2, 3, 4, 5):
+                    v = am(u, mm)
+                    yield v, mv + [mm]
 def finish(s, maxd=9):
     if s == GOAL: return []
     seen = {s: None}; q = deque([(s, 0)])
@@ -52,7 +56,7 @@ def finish(s, maxd=9):
             if len(v[0]) + len(v[1]) <= FIN + 6: q.append((v, d + 1))
     return None
 log = open(LOG, 'a'); t0 = time.time()
-log.write(f"# {row} WID={WID} CL={CL} DEPTH={DEPTH} FIN={FIN} KEEP={KEEP} seqs={len(SEQS)}\n"); log.flush()
+log.write(f"# {row} WID={WID} CL={CL} CL2={CL2} DEPTH={DEPTH} FIN={FIN} KEEP={KEEP} seqs={len(SEQS)}x{len(SEQS2)}\n"); log.flush()
 front = {S0: []}; seen = {S0}; cands = []; found = []
 for d in range(1, DEPTH + 1):
     if os.path.exists(STOP) or time.time() - t0 > WALL: log.write("# stop/wall\n"); break
@@ -64,7 +68,7 @@ for d in range(1, DEPTH + 1):
     ranked = sorted(nxt.items(), key=lambda kv: (len(kv[0][0]) + len(kv[0][1]), len(kv[1])))
     front = dict(ranked[:WID]); seen.update(front)
     tots = [len(s[0]) + len(s[1]) for s in front]
-    log.write(f"d={d} gen={len(nxt)} kept={len(front)} tot[{min(tots)}..{max(tots)}] t={time.time()-t0:.0f}s\n"); log.flush()
+    log.write(f"{row} d={d} gen={len(nxt)} kept={len(front)} tot[{min(tots)}..{max(tots)}] t={time.time()-t0:.0f}s\n"); log.flush()
     for s, pre in ranked[:KEEP]:
         cands.append({'tag': f'macro_d{d}_tot{len(s[0])+len(s[1])}', 'prefix': pre})
     for s, pre in front.items():
