@@ -1,17 +1,38 @@
-# Team roster: current job and next job per member (UPG-H keeps this current; updated 09:48Z)
+# Team roster: current job and next job per member (UPG-H keeps this current; rewritten 13:46Z, 1 Oct)
 
-Rule: nobody should ever have to ask the owner for work. UPG-H sweeps the Drive hub, Bob's folder and the repo inbox every 15 minutes, answers every message in the same sweep, and queues the next job before the current one ends.
+## Standing rules (owner, 13:44Z: "do it right, I thought this wasn't going to keep failing")
+
+1. **Every member always has a current job AND a next job, written here.** UPG-H updates this table in every sweep. When a member reports, that member gets the next job in the same turn, in the member's own channel (Bob: the "luna and bob acc challenge" folder; Drive members: the hub; repo members: an UPDATE note).
+2. **A quiet member keeps their rows.** Never reassign a member's rows because they are quiet. Send the next work into their channel and wait. Only the owner can move a member's rows. (13:45Z failure: Bob's rows were released after 3 h of quiet; reversed 13:55Z.)
+3. **The strongest members go on the hardest work:** Astra, Fable and Sol 6.1 get the unsolved rows, the no-road BUILD rows and the k1 records. Lighter lanes (scouts, audits, tie seeds) go to everyone else.
+4. **Fable is UPG-H's own builder and must never sit idle.** When a Fable job ends, UPG-H starts the next Fable job in the same turn. (Failure: the roster showed Fable "idle" from about 09:48Z to 13:46Z.)
+5. **When the owner relays a member's report, the member's next work goes out in that same turn.** Logging the report alone is not enough.
+6. Nobody should ever have to ask the owner for work. UPG-H sweeps the Drive hub, the luna and bob folder and the repo inbox every 15 minutes and answers every message in the same sweep.
+
+## Hard targets and who is on them
+
+| Target | Why it is hard | Builder | Support |
+|---|---|---|---|
+| Unsolved ac-00738 / ac-06611 (one component, 5-move bridge) | no road anywhere; the start is a local minimum; no route at caps <= 28 (and none of <= 54 moves at cap 30) | **Astra** | session 1 (exact certificates) |
+| Unsolved ac-10099 | no route at caps <= 30 (378M states); local minimum | **Astra** | session 1 |
+| Unsolved ac-06412 | shares r0 with ac-05698 (our doubling road) | **Astra** | — |
+| Unsolved ac-09632, 00764, 05538, 03320, 06036 | climb-first rows | **Bob** (song-8 deeper pass, his own plan) | — |
+| No-road BUILD ac-05169, 03786 (MS(9), A = 2) and ac-09026, 02552 (MS(5), A = 4): P000013 condition (T) fails | the doubling loop fragments; a new construction is needed | **Fable** (constructions, started 13:44Z) | session 2 + Git (fixpoint shortening on any Fable road) |
+| ac-03060 tie (record 27, k1) | no route <= 27 at peak <= 38 | **Sol 6.1** (storage-free caps 40–46) | session 1 |
+
+## Members
 
 | Member | Channel | Current job | Next job |
 |---|---|---|---|
-| **Sol 6.1** | hub SOL61_* | Control passed 09:30Z; GO sent 09:41Z; tool update zip posted 10:05Z | ac-05343 -> ac-09400 (any AC <= 38 ties/beats Stable 40) -> ac-08945 -> ac-07879 -> ac-00764 |
-| **Astra** | hub ASTRA_* | Selected-row bounded harness; restored 09:41Z | Independent replay of every SOL61_lines_* file as it lands |
-| **Session 1** | repo queue + notes | Seeds 15/17/18 noisy beams, Stable-finish lane, y-run | Same (the best tie source); export roads for Bob |
-| **Session 2** | repo notes | Step-2 BS roads: ac-05698 118 (rec 111), ac-06792 137 (rec 118), commute + window + mid_restart | ac-08757 87 (rec 66), ac-00525 70 (rec 62) |
-| **Git** | repo + owner relay | sac-02288 / sac-04493 (y,x) deep finish; splice on ac-06969 / ac-00145 | Cross-row splice on the MS(n,w*) roads (t00312 lines): ac-04042, ac-01784, ac-02033 |
-| **Bob** | Drive folder | **SILENT since ~10:40Z (owner, 13:41Z: gone 3 h).** Last relayed: song 8 climb pass missed on unsolved 09632/00764 (03320 partial), song 9 on 06045 matched 37; tie crossings 08995 -> 45 and 04316 -> 43 half done, no route | **Rows released at 13:45Z:** unsolved 09632, 00764, 03320, 05538, 06036 -> session 1 (exact min-total certificates, after 10099 cap 32); tie rows 08995, 04316, 06045 -> open to any member. On return: post the deeper-pass result + SONG9 file, then a BUILD row (restart order in his folder). |
-| **Charlie** | hub CHARLIE_* | Exact search: ac-03871 -> 30, ac-02341 (y,x) <= 28, ac-08889 (y,x) <= 35, sac-02288 (y,x) <= 36 | Exact caps on ac-05343 / ac-07879 if Sol stalls there |
-| **Kernel** | hub KERNEL_* | 10:25Z REDIRECT: fixpoint on 118 priority rows (k <= 3, by gap; exchange/KERNEL_priority_rows_20261001.txt) until 13:00Z | The same fixpoint on the BS roads (t00312 lines, inbox/upgh_bs_doubling2_*, session2_bs2_commute_*); scan5's 70 lines all verify, none at a record yet |
-| **Grok** | owner relay (chat only) | List of 09:5xZ: step-2 odd-n finish; 3-move level change | Idea review on whatever Sol / Charlie stall on |
-| **Fable** (UPG-H) | harness | idle (t00312 accepted, t00329 scoped miss) | Turn Grok's identity into code if Grok delivers one |
-| **Harness lanes** | harness | Code lanes + quiet-wake reopens + t00370 climb beam | Auto |
+| **Fable** (UPG-H) | harness (subagent) | 13:44Z–~15:00Z: build first roads on ac-05169, 03786, 09026, 02552 (P000013 (T)-fails rows); roads -> inbox/fable_build_20261001.txt | Shorten its roads with fixpoint_shorten; then unsolved ac-06412 alongside Astra |
+| **Astra** | hub ASTRA_* | 13:45Z: HARD ROWS ac-00738/06611 pair, ac-10099, ac-06412 (BUILD; selected25 paused) | selected25 rows again (non-overlap list of 12:00Z) |
+| **Sol 6.1** | hub SOL61_* | ac-03060 storage-free search, caps 40–46 (integer-bound pruning) | ac-09400 bounded pass; ac-05343 |
+| **Bob** | luna and bob folder | 13:55Z order: song-8 deeper climb on unsolved 09632, 00764, 05538, 03320, 06036; tie crossings 08995 -> 45, 04316 -> 43, 06045 -> 36 | BUILD ac-09026 with Fable's road; hourly status |
+| **Kernel** | hub + luna and bob folder | 13:45Z–15:15Z: A) plateau lineages on gap-1 rows, B) controlled bulge on his 5 cut rows, C) 13 near-record Stable rows toward (y,x) | Status 14:30Z / 15:15Z decides; rules file to the hub |
+| **Session 1** | repo | exact certificates on 00738/06611/10099 (cap 32); seed 19 lane; hourly lost-submission audit; song 12 | Min-total certificates on any row a builder asks about |
+| **Session 2** | repo | fixpoint loop + mid-restart: ac-08757 (71 -> 66), ac-03688, ac-06018, Fable's long A = 1 roads; BUILD ac-05169/03786 | Fixpoint on every Fable road the moment it lands |
+| **Git** | repo + owner relay | BUILD ac-09026 / 02552; fixpoint loop on a second core (tools/acc/ops/fixpoint_shorten.py) | Fixpoint on Fable's n = 5 roads |
+| **Charlie** | hub CHARLIE_* | exact search: ac-03871 -> 30, ac-02341 (y,x) <= 28, ac-08889 (y,x) <= 35 (last known) | Needs a status file; then exact caps on ac-05343 / ac-07879 |
+| **Grok** | owner relay (chat only) | idea review | Odd-n finishing identity for MS(9) / A = 2 (feeds Fable) |
+| **UPG-H** | everything | sole sender; global height / twist / Stable webs; sweeps every 15 min; song 12 reveal 14:32Z | Rerun the webs on every new outside road |
+| **Harness lanes** | harness | 3 code lanes (restarted 12:46Z) + cycle loop | Auto |
