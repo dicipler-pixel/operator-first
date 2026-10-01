@@ -144,3 +144,7 @@ bidirectional pump search (tools/acc/ms_pump/bidi.py) adapted to w; (3) a wide f
 
 Same row number = the Stable twin (sac-) is also unsolved: a first solve there is AC path + [16,15], so 2.0 points per row.
 
+
+**02:00Z cross-check with Bob's independent comb list (ms1190_metadata + training_424, `BOB_ms_comb_90` on Drive):** 11 of his open rows are also tier A here:
+ac-02055, ac-02234, ac-02571, ac-03320, ac-03367, ac-07080, ac-08159, ac-08606, ac-09010, ac-09632, ac-09811. Two methods agree, so these come first.
+Bob's 11 'uncertified' (literature-solved) comb rows are all solved on the board (records 83-139, mostly k1): ties, not first solves.
