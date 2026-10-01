@@ -48,3 +48,4 @@
 - 09:40Z Git on UPG-H new list. sac-02288: team yx_shortcut none on all 9 roads (37-40); DP-to-(y,x) and DP+ball(6/8) to (y,x) running, none on the 37s so far. ac-06969/ac-00145: fresh-lineage splice running (5,682 donor roads incl. session 1 roads_latest). Rows claimed in WORKING_git.md.
 - 10:12Z Git finding: class-splice joins were failing because the donor holds our relators in the SWAPPED slots (AC conj/invert moves can never swap slots); measured orientation cost at one junction = 7 moves. New splice_orient: relabels a swapped donor tail (r0<->r1) and ends at (y,x) = Stable line (+[15,15]); prices orientation per slot before the DP. Running on 02288/04493/06969/00145, one process each. No tie yet.
 - 10:17Z Hourly heartbeat (Git): lanes alive; workers on: // ; splice-then-yx rows done: 87.
+- 10:32Z SONG9 picked 10:34Z
