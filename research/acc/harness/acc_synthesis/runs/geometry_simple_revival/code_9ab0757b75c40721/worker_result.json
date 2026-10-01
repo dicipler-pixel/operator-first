@@ -1,0 +1,327 @@
+{
+  "kind": "bounded_miss",
+  "summary": "Cycle-free eight-way geometry comparison found no shorter route than 78 under the recorded beam bounds.",
+  "limits": {
+    "wall_seconds": 180.0,
+    "node_cap": 600000,
+    "memory_mib": 1024
+  },
+  "reopen_when": {
+    "event": "new_own_route_or_explicitly_justified_method",
+    "row_id": "ac-00009"
+  },
+  "actual_coverage": {
+    "row": "ac-00009",
+    "baseline": 78,
+    "best_length": 78,
+    "best_arm": null,
+    "elapsed_seconds": 3.3385435000000143,
+    "peak_rss_mib": 34.28125,
+    "records": 483217,
+    "pool": {
+      "termination_reason": "exact_goal",
+      "records": 3142,
+      "vertices": 1462,
+      "directed_edges": 3924,
+      "best_length": 78,
+      "moves": [
+        1,
+        4,
+        7,
+        8,
+        6,
+        11,
+        4,
+        3,
+        7,
+        9,
+        3,
+        9,
+        7,
+        7,
+        13,
+        11,
+        11,
+        4,
+        11,
+        3,
+        8,
+        7,
+        11,
+        9,
+        2,
+        7,
+        7,
+        9,
+        3,
+        6,
+        8,
+        6,
+        3,
+        6,
+        4,
+        3,
+        6,
+        12,
+        8,
+        10,
+        2,
+        5,
+        13,
+        5,
+        13,
+        11,
+        12,
+        4,
+        7,
+        5,
+        10,
+        13,
+        5,
+        7,
+        12,
+        2,
+        5,
+        6,
+        2,
+        6,
+        1,
+        6,
+        4,
+        13,
+        4,
+        1,
+        7,
+        9,
+        5,
+        6,
+        8,
+        2,
+        6,
+        8,
+        5,
+        3,
+        3,
+        5
+      ]
+    },
+    "arms": [
+      {
+        "arm": "length",
+        "direction": "forward",
+        "status": "completed_bounded",
+        "termination_reason": "record_cap",
+        "best_length": 78,
+        "records": 60000,
+        "generated_moves": 28539,
+        "accepted_candidates": 25236,
+        "last_depth_entered": 45,
+        "completed_layers": 44,
+        "elapsed_seconds": 0.3029755130000922,
+        "peak_rss_mib": 28.046875
+      },
+      {
+        "arm": "toward",
+        "direction": "forward",
+        "status": "completed_bounded",
+        "termination_reason": "record_cap",
+        "best_length": 78,
+        "records": 60000,
+        "generated_moves": 28420,
+        "accepted_candidates": 25355,
+        "last_depth_entered": 45,
+        "completed_layers": 44,
+        "elapsed_seconds": 0.33623340799977086,
+        "peak_rss_mib": 28.9921875
+      },
+      {
+        "arm": "away",
+        "direction": "forward",
+        "status": "completed_bounded",
+        "termination_reason": "record_cap",
+        "best_length": 78,
+        "records": 59999,
+        "generated_moves": 40488,
+        "accepted_candidates": 10709,
+        "last_depth_entered": 62,
+        "completed_layers": 61,
+        "elapsed_seconds": 0.2632021980002719,
+        "peak_rss_mib": 28.9921875
+      },
+      {
+        "arm": "fixed_heading",
+        "direction": "forward",
+        "status": "completed_bounded",
+        "termination_reason": "record_cap",
+        "best_length": 78,
+        "records": 60000,
+        "generated_moves": 28497,
+        "accepted_candidates": 25278,
+        "last_depth_entered": 45,
+        "completed_layers": 44,
+        "elapsed_seconds": 0.48625464599990664,
+        "peak_rss_mib": 30.390625
+      },
+      {
+        "arm": "local_heading",
+        "direction": "forward",
+        "status": "completed_bounded",
+        "termination_reason": "record_cap",
+        "best_length": 78,
+        "records": 60000,
+        "generated_moves": 28494,
+        "accepted_candidates": 25281,
+        "last_depth_entered": 45,
+        "completed_layers": 44,
+        "elapsed_seconds": 0.47943263399974967,
+        "peak_rss_mib": 30.44921875
+      },
+      {
+        "arm": "local_heading_reverse",
+        "direction": "forward",
+        "status": "completed_bounded",
+        "termination_reason": "record_cap",
+        "best_length": 78,
+        "records": 60000,
+        "generated_moves": 28465,
+        "accepted_candidates": 25310,
+        "last_depth_entered": 45,
+        "completed_layers": 44,
+        "elapsed_seconds": 0.5655877990002409,
+        "peak_rss_mib": 30.7265625
+      },
+      {
+        "arm": "layer_clock_heading",
+        "direction": "forward",
+        "status": "completed_bounded",
+        "termination_reason": "record_cap",
+        "best_length": 78,
+        "records": 59998,
+        "generated_moves": 28392,
+        "accepted_candidates": 25399,
+        "last_depth_entered": 44,
+        "completed_layers": 43,
+        "elapsed_seconds": 0.4928785430001881,
+        "peak_rss_mib": 30.8984375
+      },
+      {
+        "arm": "reverse_toward",
+        "direction": "backward",
+        "status": "completed_bounded",
+        "termination_reason": "record_cap",
+        "best_length": 78,
+        "records": 60000,
+        "generated_moves": 31067,
+        "accepted_candidates": 22135,
+        "last_depth_entered": 49,
+        "completed_layers": 48,
+        "elapsed_seconds": 0.31187487700026395,
+        "peak_rss_mib": 34.28125
+      }
+    ],
+    "limits": {
+      "wall_seconds": 180.0,
+      "node_cap": 600000,
+      "memory_mib": 1024
+    },
+    "interpretation": "Beam pruning makes every negative local to this exact policy/budget. Clocks and plots do not change paid costs. No physical dynamics or scoring claim."
+  },
+  "evidence": [
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/away_layers.jsonl.gz",
+      "sha256": "0c8b8b1ae2691e3dc52371c3c3058de44fc7e2bfbbdfdee30e37e506246248ec"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/away_result.json",
+      "sha256": "d5341ab2cc8c1bf8754c6a6f41b1fc37495f04a556fecacc496f9735b3cc78a3"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/captured_input.json",
+      "sha256": "44ab27bfcbd4bbde9dbafd0f238d4798bf58ebbcf2ec949a2f8d8c80c379a42d"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/coverage.json",
+      "sha256": "b25d0f621c3ec08a593d6b730bd5e72a1bfd15f32b5b3fd7a1c3644ad20ba5d9"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/exact_graph.json.gz",
+      "sha256": "1224716534a2a377f5417ced56994bbecfc857a487277968f6915b153a03d0c7"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/executed_geometry_simple_v1.py",
+      "sha256": "f073f465bbce5b3812cdd33619b58fbc6a90dbc5f675db9f54b076e35fdb824c"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/executed_protocol.json",
+      "sha256": "65c6d1dfb7d86aacf7d33a5ac5e8f2c3b65c6b45667a3a73292936293b13b45c"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/fixed_heading_layers.jsonl.gz",
+      "sha256": "37c6a33ef791f5f3652c24141faeca6a58b1c9cf52c16e81d6452b11f322131f"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/fixed_heading_result.json",
+      "sha256": "5e3a50e3e07c760310a1b2e849149223a3b144ed1eabfe1eb37462914c3905a7"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/heartbeat.json",
+      "sha256": "9637598ffbde7e8a85447b9e0032ae0a7cc7d06cdeed4af3b8ad12e448ba89a8"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/layer_clock_heading_layers.jsonl.gz",
+      "sha256": "c3d63fc85af32af907d58e418c8154f7f40d35411c026f197af889c840b56d0e"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/layer_clock_heading_result.json",
+      "sha256": "fa473b8f2fc2df6ab1da81642f1b9c9d9f8389cf211215e6bfa02f01e0202b06"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/length_layers.jsonl.gz",
+      "sha256": "50cb69f655f180d97a796ff3b77b2bfe5feddb2c9a105d96ca069c3f2538939a"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/length_result.json",
+      "sha256": "4f611f84a3693bcda4f9f1ce184316b4b09a508c42a6c433e3fc84be5d6bfc08"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/local_heading_layers.jsonl.gz",
+      "sha256": "daab6755287c8d40c0a8293cb8fd3de3fe1226978c445e1e9225a1a68994d902"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/local_heading_result.json",
+      "sha256": "5cb823d3b0538d000044fbeb402f95b2b5cdc9de0f07c701b998774b0c1b897e"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/local_heading_reverse_layers.jsonl.gz",
+      "sha256": "0e6796b60eb6a368f83f54519fdb40ff16952c7ed02a12d823a3031fb987c6cf"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/local_heading_reverse_result.json",
+      "sha256": "44a1a887ed4e7e0546e1a127353f56e2e20aac2272dba70a500af0c19f22a098"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/pool_result.json",
+      "sha256": "e10cd3b66c68536b58202ec5494dae5ca13e96910c54fd2c72ab32c80a11078c"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/portfolio_progress.json",
+      "sha256": "9119ae08c6b0989ce40d20722618bd22c661ff28147196df0ad10d29d0fafb57"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/reverse_toward_layers.jsonl.gz",
+      "sha256": "b5892297d269216b9d8606b43d66c2947cb58597d917145b225cabd75e8983fc"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/reverse_toward_result.json",
+      "sha256": "d579999e8b26dc32c2e0238da894081d4f39c66c5e5738f28acf0a84f943e600"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/toward_layers.jsonl.gz",
+      "sha256": "3c6b52222e3168a22e104991c83bd7105e44ccbc8de150bcba7947d07b42103a"
+    },
+    {
+      "path": "runs/geometry_simple_revival/code_9ab0757b75c40721/toward_result.json",
+      "sha256": "49c9d67597ad6150c20c47997c270caaa19423ded0e48f15c3ae80b3eb6084fb"
+    }
+  ]
+}
