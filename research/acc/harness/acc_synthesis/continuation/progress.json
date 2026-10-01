@@ -1,7 +1,7 @@
 {
-  "completed_batches": 164,
+  "completed_batches": 165,
   "model_worker_launches": 4,
-  "code_only_batches": 160,
+  "code_only_batches": 161,
   "new_improved_routes": 9,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -28,43 +28,35 @@
     }
   ],
   "next": {
-    "status": "active",
-    "active": {
-      "job": {
-        "row_id": "ac-00028",
-        "track": "AC",
-        "helper": "paid_phase",
-        "algorithm_id": "paid-canonical-interior-joins-v1",
-        "script": "helpers/paid_phase_lane_v1.py",
-        "method_sha256": "2aeeb72ca843a1934db0d54ab97c959a2047cfd73213bf6de0ebe86fdcf71b2c",
-        "inputs": {
-          "helpers/paid_phase_protocol.json": "69860f0d181b7268e68b1fa5ac987278a4d2534be6c3a1837d55512847a38f0b",
-          "runs/kernel_revival/code_f69127995db101bd/exact_graph.json.gz": "75618b35adda69157dc139b47b688692eb448082031bb5291b4f76d040abf912",
-          "runs/kernel_revival/code_f69127995db101bd/worker_result.json": "611314845d6f530510908127a67982701e45fe35bd14c9d36fc48ed76d7dddfc"
-        },
-        "seed_sha256": "69e4f0d549324aa7af6fc90ea349c8de2050cd0946fb52fdf7e0254f707e0c87",
-        "baseline": 51,
-        "target": 44,
-        "caps": {
-          "wall_seconds": 180,
-          "node_cap": 600000,
-          "memory_mib": 1024
-        },
-        "key": "6eb675a8368b8702bcd46776e809e99f42be78a1ac5dce78bf6e8ca01040e96f"
+    "status": "planned",
+    "job": {
+      "row_id": "ac-00003",
+      "track": "AC",
+      "helper": "paid_phase",
+      "algorithm_id": "paid-canonical-interior-joins-v1",
+      "script": "helpers/paid_phase_lane_v1.py",
+      "method_sha256": "2aeeb72ca843a1934db0d54ab97c959a2047cfd73213bf6de0ebe86fdcf71b2c",
+      "inputs": {
+        "helpers/paid_phase_protocol.json": "69860f0d181b7268e68b1fa5ac987278a4d2534be6c3a1837d55512847a38f0b",
+        "runs/kernel_revival/code_f69127995db101bd/exact_graph.json.gz": "75618b35adda69157dc139b47b688692eb448082031bb5291b4f76d040abf912",
+        "runs/kernel_revival/code_f69127995db101bd/worker_result.json": "611314845d6f530510908127a67982701e45fe35bd14c9d36fc48ed76d7dddfc"
       },
-      "task_id": 180,
-      "lease_token": "4155fdfd096f43ed8d6642f89e80bc03",
-      "expires_at": 1790821028.4915094,
-      "repo_head": "cbaa90ea175e32e38bdf32e6c0aebdad7c292162",
-      "phase": "reserved",
-      "host_must_commit_before_execution": true
-    }
+      "seed_sha256": "7914988d47a2aa50da91c882a20417bef5847597924ad773bb407898a12148a8",
+      "baseline": 49,
+      "target": 40,
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "key": "cd21314c73d78c74121c228da36d534325584c3c712a9c593eb298c9ec69a911"
+    },
+    "remaining_jobs": 21
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 164,
-      "running": 1
+      "completed": 165
     },
     "unconnected_roles": [
       "luna_memory",
@@ -2192,6 +2184,19 @@
       "target": 41,
       "kind": "bounded_miss",
       "result_path": "runs/paid_phase_revival/code_dec4697cd549d6cf/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "paid_phase",
+      "row_id": "ac-00028",
+      "baseline": 51,
+      "target": 44,
+      "kind": "bounded_miss",
+      "result_path": "runs/paid_phase_revival/code_6eb675a8368b8702/worker_result.json",
       "limits": {
         "wall_seconds": 180.0,
         "node_cap": 600000,

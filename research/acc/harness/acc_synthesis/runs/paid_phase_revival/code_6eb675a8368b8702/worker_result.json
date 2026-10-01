@@ -1,0 +1,73 @@
+{
+  "kind": "bounded_miss",
+  "summary": "Paid canonical interior recipes: best 51; coverage complete=True; complete.",
+  "limits": {
+    "wall_seconds": 180.0,
+    "node_cap": 600000,
+    "memory_mib": 1024
+  },
+  "actual_coverage": {
+    "graph_edges_checked": 148492,
+    "class_pairs_tested": 4825,
+    "complete": true,
+    "arm_best": {
+      "forward": 51,
+      "reverse": 51,
+      "mixed": 51
+    },
+    "arm_proposals": {
+      "forward": 4825,
+      "reverse": 4825,
+      "mixed": 4825
+    },
+    "exact_control_length": 51,
+    "entry_states": 351,
+    "classes": 13324,
+    "algorithm": "paid-canonical-interior-joins-v1",
+    "row": "ac-00028",
+    "baseline": 51,
+    "best_length": 51,
+    "best_arm": null,
+    "records": 529860,
+    "termination_reason": "complete",
+    "elapsed_seconds": 1.6294048630006728,
+    "peak_rss_mib": 139.7421875,
+    "limits": {
+      "wall_seconds": 180.0,
+      "node_cap": 600000,
+      "memory_mib": 1024
+    },
+    "scope": "Only frozen graph and fixed normalizer recipes; not all conjugators or all routes. Unit-cost clock; no physical time or free symmetries."
+  },
+  "termination_reason": "complete",
+  "reopen_when": {
+    "event": "new_witnessed_graph_or_entry_states",
+    "row_id": "ac-00028"
+  },
+  "evidence": [
+    {
+      "path": "runs/paid_phase_revival/code_6eb675a8368b8702/input.json",
+      "sha256": "da983ab1e6f6924c69989d1228c033ee1e2b2cd15d9b47c7304f77031b2c01fd"
+    },
+    {
+      "path": "runs/paid_phase_revival/code_6eb675a8368b8702/executed_paid_phase_lane_v1.py",
+      "sha256": "2aeeb72ca843a1934db0d54ab97c959a2047cfd73213bf6de0ebe86fdcf71b2c"
+    },
+    {
+      "path": "runs/paid_phase_revival/code_6eb675a8368b8702/executed_protocol.json",
+      "sha256": "69860f0d181b7268e68b1fa5ac987278a4d2534be6c3a1837d55512847a38f0b"
+    },
+    {
+      "path": "runs/paid_phase_revival/code_6eb675a8368b8702/coverage.json",
+      "sha256": "88c9a284fddbe851816dc7af44382b1e44fcc0c2815417f7ec0ca62685db58bb"
+    },
+    {
+      "path": "runs/kernel_revival/code_f69127995db101bd/exact_graph.json.gz",
+      "sha256": "75618b35adda69157dc139b47b688692eb448082031bb5291b4f76d040abf912"
+    },
+    {
+      "path": "runs/kernel_revival/code_f69127995db101bd/worker_result.json",
+      "sha256": "611314845d6f530510908127a67982701e45fe35bd14c9d36fc48ed76d7dddfc"
+    }
+  ]
+}
