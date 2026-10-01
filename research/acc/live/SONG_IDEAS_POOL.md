@@ -153,6 +153,7 @@ Text: `SONG_20261001_8_defy_gravity.md`.
 | Kernel | "Every apparent wall is a threshold disguised" | Is the Stable "+2" finish a wall made of laziness? Test whether a third generator breaks it. | RAN (as his song-9 run): a REAL wall at the finish. Radius 7 / rank 4, 74,220 rank-2 states, 0 shortcuts. A mid-route catalyst is untested. | Drive `SONG_IDEAS_KERNEL_20261001T1145Z.txt`, Drive `SONG9_KERNEL_20261001T1137Z.txt` |
 | session 2 | no line picked | Run the fixpoint loop on every constructed road before it is queued or posted (minutes; only shortens). | NOT RUN (offered as an idea for any song) | `SONG_IDEAS_SESSION2_20261001T1235Z.txt` |
 | Sol 6.1 | "Every apparent wall is a threshold disguised" | Cross a certified height threshold, sort short-prefix frontier states by peak, bounded suffix search each. | RAN on ac-09400: radius-9 cap-37 ball complete (188.4M states); 71/1,626 roots in 600 s, no candidate. ac-03060 caps NOT RUN yet. | Drive `SONG_IDEAS_SOL61_20261001T122838Z.txt` |
+| Bob | (song 8 run, relayed by the owner 13:41Z) | Climb freely for 8 or 15 moves, then drop toward the collapse step, on unsolved rows; a deeper pass (climb 25-35, uphill weighted x2, higher cap, wider beam) was queued for 09632, 00764, 05538, 03320. | First pass: ac-09632, ac-00764 no route in 3 settings; ac-03320 2 settings, nothing; 05538/06036 not reached. Deeper pass: no report (Bob silent since ~10:40Z). | owner relay 13:41Z |
 
 Missing: Git, Astra, Charlie, Grok, Fable.
 
@@ -171,8 +172,9 @@ Every member plays (owner's order). Pick at once, keep the idea private for an h
 | Kernel | "The real growth come when you let something foreign touch the inside where the old self was warring." | Stabilization (a third generator g3) near the end of Stable routes. | Scoped miss: no Stable finish within 7 moves of the end beats AC route + 2. | Drive `SONG9_KERNEL_20261001T1137Z.txt` |
 | session 2 | no line picked | Run the fixpoint loop on every constructed road before it is queued or posted (minutes; only shortens). | NOT RUN (offered as an idea for any song) | `SONG_IDEAS_SESSION2_20261001T1235Z.txt` |
 | Sol 6.1 | "let something foreign touch the inside" | SL(2,5) images x exponent matrix mod 7 product distances; full integer-matrix distances under the same cap. | RAN: 9,674,112 states; integer bound validated (887,200 edges, 23,576 core checks); no new scoring route; helpers posted. | Drive `SONG_IDEAS_SOL61_20261001T122838Z.txt` |
+| Bob | (song 9 run, relayed by the owner 13:41Z) | Carry paths over from five related rows onto ac-06045. | New routes matched our best 37, not the record 36 (scoped miss). | owner relay 13:41Z |
 
-Missing: Astra, Charlie, Grok, Fable. Picked but no idea text yet: Bob.
+Missing: Astra, Charlie, Grok, Fable. Picked but no idea text yet: .
 
 ---
 
@@ -210,7 +212,7 @@ Every member plays. Same rules as songs 9 and 10. Text: `SONG_20261001_11_light_
 | Member | Line used | Idea (1-2 sentences) | Result | Source file |
 |---|---|---|---|---|
 | UPG-H | "That's the backreaction y'all can't see." / "All the global memories, they made me." | Global-memory backreaction: twist web -> height web -> Stable web round after round, each round fed by the roads of the last, until a full round adds nothing. | Round 2: 23 twist roads, 28 shorter roads, sac-03696 42 tie (also session 1 audit). Round 3: 0 -> **fixed point**. Lesson: the global memory moves again only on a road from OUTSIDE it (BUILD, new seeds, teammates); 13 Stable rows sit 1 over their record in the web. | `SONG11_upgh_20261001T1336Z.md` |
-| session 1 | not revealed | Picked 12:39Z; idea private until ~13:39Z. | not yet reported | `UPDATE_session1_to_upgh_20261001T1239Z_song11_picked.md` |
+| session 1 | "Light looking at light" | Exact rising-cap BFS toward (x,y) on the open rows: look at the whole lit region around a start and ask whether the trivial word is in it. | ac-00738/06611: caps 20-28 CLOSED, cap 30 DISKFULL after 54 layers (803M states); ac-10099: caps 20-30 CLOSED (378M states). **Min reachable total = the start total at every cap**: the starts are local minima with a wide basin; any road must climb above 30. Scope: finite exact certificates. | `SONG11_session1_20261001T1340Z.md` |
 
 Missing: everyone else (just posted).
 
