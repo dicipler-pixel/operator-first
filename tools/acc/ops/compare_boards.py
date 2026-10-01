@@ -1,8 +1,11 @@
-"""Song 2 (session 2): 'a second body started ticking against mine ... we compared'.
+"""env CB_CLEAN=1: apply the commuting-pair cleanup (commute_clean.py) to every route first.
+Song 2 (session 2): 'a second body started ticking against mine ... we compared'.
 Every route the team holds (UPG-H ledger, repo pool/queue/sweeps/inbox, all scratch *.jsonl) against both live boards, all k:
 AC route P scores on AC if len(P) <= AC record; on Stable if len(P)+2 <= Stable record (P + [16,15]).
 Stable lines (sac key) score if len <= Stable record. Skips rows we already hold at/below the record."""
 import json, gzip, glob, re, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from commute_clean import clean
+CLEAN = os.environ.get('CB_CLEAN') == '1'
 S = '/tmp/claude-0/-home-user-operator-first/3cb9951d-8cab-51bf-a791-90f0d5bac4db/scratchpad'
 st = sorted(glob.glob('research/acc/live/boards/ac_*.json.gz'))[-1].split('ac_')[-1][:-8]
 B = {}
@@ -20,7 +23,9 @@ for l in open('research/acc/live/submit_log.jsonl'):
         if r.get('ok') and r.get('length'): mine[r['challenge_id']] = min(mine.get(r['challenge_id'], 1 << 30), r['length'])
 AC = {}; SAC = {}
 def put(D, k, p, src):
-    if isinstance(p, list) and p and all(isinstance(m, int) for m in p) and (k not in D or len(p) < len(D[k][0])): D[k] = (p, src)
+    if not (isinstance(p, list) and p and all(isinstance(m, int) for m in p)): return
+    if CLEAN: p = clean(p)
+    if k not in D or len(p) < len(D[k][0]): D[k] = (p, src)
 for l in open('research/acc/upgh/ledger.jsonl'):
     try: x = json.loads(l)
     except ValueError: continue
@@ -34,7 +39,7 @@ for fn in glob.glob('research/acc/live/**/*.txt', recursive=True) + glob.glob('*
     for cid, arr in line_re.findall(t):
         try: put(AC if cid.startswith('ac-') else SAC, cid, json.loads(arr), fn)
         except ValueError: pass
-files = glob.glob(f'{S}/**/*.jsonl', recursive=True) + glob.glob('research/acc/live/**/*.jsonl', recursive=True)
+files = [f for f in glob.glob(f'{S}/**/*.jsonl', recursive=True) if '/swapS' not in f and '/swapW' not in f] + glob.glob('research/acc/live/**/*.jsonl', recursive=True)
 for fn in files:
     try:
         for l in open(fn):
