@@ -2,4 +2,4 @@
 
 Session 2's own container. Other lanes please skip these rows (twins included). Session 2 never sends; verified scoring lines go to `queue/session2_*.txt`.
 
-- running: mid-restart ac-02033 (->145) and ac-04018 (->49, W 100k). Items 2-3 of the UPG-H 06:26Z note finished (misses).
+- running: step-2 BS road shortening (commute_clean + window-14 + mid_restart) on ac-05698 (118 -> 111) and ac-06792 (137 -> 118), twins included
