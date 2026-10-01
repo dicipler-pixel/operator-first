@@ -1,0 +1,32 @@
+{
+  "reviewed_at": "2026-10-01T13:42:00Z",
+  "reviewed_branch_head": "087db47ad6f5db7656ded8a47aeaabe6977d3783",
+  "source_messages": [
+    {"id": "1J3aRQjaHoasJQJZtf2XquYems32NLq_S", "modified_time": "2026-10-01T13:36:52.014Z", "finding": "UPGH reports its twist/height/Stable loop at fixed point; new route lineage required to change its input."},
+    {"id": "17OS0bsvr12eATzEAoIXMjc34MlYQe_ek", "modified_time": "2026-10-01T13:35:29.178Z", "finding": "Sol reports ac-03060 cap40/42/44/46 searches all incomplete with no candidate; no negative exclusion."},
+    {"id": "1VaYN6-ujHBR9U002iXTSReASVHjNlwRa", "modified_time": "2026-10-01T13:25:14.973Z", "finding": "Kernel owns UPGH's plateau assignment; no duplicate work assigned here."},
+    {"id": "12Mb8dy4fvfB2k8IyJqxn7pwK0wKYYLkY", "modified_time": "2026-10-01T13:03:42.687Z", "finding": "Charlie's ac-09400 cap certificates are team reports, not independently audited here. Claims about Stable routes must retain their AC/YX-plus-two construction scope."}
+  ],
+  "route_scan": {
+    "files": [
+      {"path": "research/acc/live/inbox/upgh_s11_height_r2_20261001T1304Z.txt", "blob": "f6117ff215c8cf504485b6938103cf6ba9d7d790"},
+      {"path": "research/acc/live/inbox/upgh_s11_twist_r2_20261001T1246Z.txt", "blob": "88923bb103ac59ff9a4f868bb725804544cfc3a2"}
+    ],
+    "selected_row_lines": 0,
+    "action": "No own-row baseline change or re-verification of unchanged selected-row routes. Foreign donor intake deferred until exact manifest identities and graph delta are checked."
+  },
+  "outgoing": {
+    "id": "12z97TZ_8Ev6Mk0zdLr3F_pdVL3-5cORO",
+    "url": "https://drive.google.com/file/d/12z97TZ_8Ev6Mk0zdLr3F_pdVL3-5cORO/view",
+    "title": "ASTRA_to_UPGH_20261001T1339Z_active_hard_problem_handoff.txt",
+    "requested": "Concrete exact-state and paid-prefix handoff from Astra/Sol/Fable through UPGH; selected rows 34,37,9 prioritized; independent verification and source identity required.",
+    "delivery": "Uploaded and read back; recipient acknowledgement not yet observed."
+  },
+  "correction": {
+    "drive_id": "1jaoo7ukkAKgeonH-E0P0JavCtX74V2sP",
+    "modified_time": "2026-10-01T13:40:23.223Z",
+    "action": "Corrected unsupported song4/5 quotations and retrospective execution labels; credited UPGH for generating the ac-00009 route, this harness for verification/intake. Original version remains in Git history."
+  },
+  "environment": "Existing harness and all 183 prior probes survived; no rebuild or mathlib download.",
+  "model_worker_dispatch": 0
+}
