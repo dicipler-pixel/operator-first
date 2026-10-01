@@ -1333,6 +1333,16 @@ class Harness:
                     rc = json.loads(line).get("rc")
                     if isinstance(rc, int) and rc < 0:     # killed by a signal (-4 SIGILL on 1 Oct: binary built for another CPU)
                         crashed.append("%s rc %d" % (json.loads(line).get("row"), rc))
+        rows_done = 0
+        if (final_art / "out.jsonl").exists():
+            rows_done = sum(1 for line in (final_art / "out.jsonl").read_text(encoding="utf-8", errors="replace").splitlines()
+                            if line.strip())
+        if reason == "wall_limit" and rows_done == 0:
+            # completed finite scope only may count as a miss (Astra / CDES closure gate, 1 Oct): a run that timed out before
+            # finishing any row searched nothing we can name, so it stays incomplete and adds no heat
+            return self.accept(tid, token, {"task": tid, "kind": "blocked", "artifacts": arts,
+                                            "summary": "%s hit the %ss wall before finishing any row: incomplete, not a miss"
+                                                       % (c["strategy"]["method"], wall)})
         if crashed:
             return self.accept(tid, token, {"task": tid, "kind": "blocked", "artifacts": arts,
                                             "summary": "%s: the tool was killed by a signal on %s; a crash is not a miss "

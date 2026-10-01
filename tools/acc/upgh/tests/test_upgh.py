@@ -414,6 +414,21 @@ class HarnessTests(unittest.TestCase):
         second = json.loads((e.repo / c2["contract"]).read_text())["strategy"]["method"]
         self.assertEqual((first, second), ("splice", "window"))   # the next rung, not a repeat
 
+    def test_a_run_that_times_out_before_any_row_is_incomplete_not_a_miss(self):
+        e = Env(methods={"slow": {"runner": "code", "wall_seconds": 1, "needs": [],
+                                  "command": ["{python}", "-c", "import time; time.sleep(30)"]}})
+        cfg = json.loads(e.cfg_path.read_text())
+        cfg["default_strategy"]["method"] = "slow"
+        cfg["ladder"] = [cfg["default_strategy"]]
+        e.cfg_path.write_text(json.dumps(cfg))
+        e.h = e.harness()
+        e.file("inbox/a.txt", "ac-01373: %s\n" % AC1373)
+        e.h.harvest()
+        e.boards(ac={"ac-01373": (29, 2)}, sac={}, held={})
+        out = e.h.run(max_tasks=1)[0]
+        self.assertEqual(out["outcome"], "blocked")
+        self.assertEqual(sum(e.h.state().heat.values()), 0)
+
     def test_a_tool_killed_by_a_signal_is_blocked_not_a_miss(self):
         # 1 Oct: run_window.py recorded rc -4 (SIGILL, binary built for another CPU) per row and exited 0
         crash = "import json,sys; open(sys.argv[1],'a').write(json.dumps({'row':'ac-01373','rc':-4,'passes':[]})+chr(10))"

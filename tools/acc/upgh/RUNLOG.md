@@ -74,3 +74,5 @@ Short human notes on each working batch. The ledger (`research/acc/upgh/ledger.j
   (before the rebuild). Every binary-method task closed in that window could not search: 67 more were voided (beam_free, beam_p2, tail, window, and splice,
   whose waypoint beams trapped). That's 72 tasks in all. Their rows lose the false heat and return to the ladder. The yx rung (pure Python on the official core)
   and its two hits (sac-08389, sac-03141, sent #2925) are unaffected. A host move no longer silently breaks the lanes: portable flags, and a crash = blocked.
+- **Closure gate (02:10Z, Astra's CDES lead):** only a completed finite scope may count as a miss. A run that hits the wall before finishing any row now closes
+  as blocked (incomplete), like a crash. Test added (29 OK).
