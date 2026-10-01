@@ -96,17 +96,10 @@ def norm(s):
     return min(T.apply_g(g, s) for g in SYMS)
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--r2", action="store_true", help="add 2-move junctions")
-    ap.add_argument("--kmax", type=int, default=99)
-    ap.add_argument("--maxlen", type=int, default=70, help="skip states with relator total above this")
-    ap.add_argument("--out")
-    a = ap.parse_args()
+def build(maxlen=70, r2=False, log=print):
+    """The web over every team road: returns (W, dist, roads, st). dist[node] = height (BFS distance to the goal)."""
     t0 = time.time()
     st = T.h.state()
-    A = load_board(sorted(glob.glob(str(T.REPO / "research/acc/live/boards/ac_2026*.json.gz")))[-1])
-    never = set(T.h.cfg["gates"].get("never_rows", []))
     roads = T.team_roads()
     for c, b in st.best.items():
         if c.startswith("ac-"):
@@ -129,19 +122,19 @@ def main():
                 continue
             nroads += 1
             for s in q:
-                if sum(map(len, s)) <= a.maxlen or s == q[0]:
+                if sum(map(len, s)) <= maxlen or s == q[0]:
                     W.add_base(s)
     nb = len(W.base)
-    print("roads %d, base junctions %d, nodes with images %d (%.0fs)" % (nroads, nb, len(W.node_src), time.time() - t0))
+    log("roads %d, base junctions %d, nodes with images %d (%.0fs)" % (nroads, nb, len(W.node_src), time.time() - t0))
     ne = W.join()
-    print("1-move edges (with images) %d (%.0fs)" % (ne, time.time() - t0))
-    if a.r2:
+    log("1-move edges (with images) %d (%.0fs)" % (ne, time.time() - t0))
+    if r2:
         seen, extra = {}, []
         for bi in range(nb):
             s = W.base[bi]
             for m in MOVES:
                 c = core.apply_move(s, m)
-                if enc(c) in W.id or sum(map(len, c)) > a.maxlen:
+                if enc(c) in W.id or sum(map(len, c)) > maxlen:
                     continue
                 k = enc(norm(c))
                 if k in seen:
@@ -154,7 +147,7 @@ def main():
         for c in extra:
             W.add_base(c)
         ne2 = W.join(first_base=nb)
-        print("2-move junctions %d, extra edges %d, nodes %d (%.0fs)" % (len(extra), ne2, len(W.node_src), time.time() - t0))
+        log("2-move junctions %d, extra edges %d, nodes %d (%.0fs)" % (len(extra), ne2, len(W.node_src), time.time() - t0))
     goal = W.id[enc(T.GOAL)]
     dist = [-1] * len(W.node_src)
     dist[goal] = 0
@@ -165,7 +158,38 @@ def main():
             if dist[v] < 0:
                 dist[v] = dist[u] + 1
                 dq.append(v)
-    print("heights computed (%.0fs)" % (time.time() - t0))
+    log("heights computed (%.0fs)" % (time.time() - t0))
+    return W, dist, roads, st
+
+
+def descend(W, dist, s):
+    """Moves from state s (a junction) down the heights to the goal, or None."""
+    path, cur = [], s
+    while cur != T.GOAL:
+        hc = dist[W.id[enc(cur)]]
+        for m in MOVES:
+            c = core.apply_move(cur, m)
+            v = W.id.get(enc(c))
+            if v is not None and 0 <= dist[v] == hc - 1:
+                path.append(m)
+                cur = c
+                break
+        else:
+            return None
+    return path
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--r2", action="store_true", help="add 2-move junctions")
+    ap.add_argument("--kmax", type=int, default=99)
+    ap.add_argument("--maxlen", type=int, default=70, help="skip states with relator total above this")
+    ap.add_argument("--out")
+    a = ap.parse_args()
+    t0 = time.time()
+    A = load_board(sorted(glob.glob(str(T.REPO / "research/acc/live/boards/ac_2026*.json.gz")))[-1])
+    never = set(T.h.cfg["gates"].get("never_rows", []))
+    W, dist, roads, st = build(a.maxlen, a.r2)
     hits = []
     for cid in sorted(roads):
         if cid not in T.REL or cid.split("-")[1] in never:
@@ -176,19 +200,7 @@ def main():
         ours = min(len(p) for p in roads[cid])
         if dist[sid] >= ours:
             continue
-        cur, path = T.REL[cid], []
-        while cur != T.GOAL:
-            hc = dist[W.id[enc(cur)]]
-            for m in MOVES:
-                c = core.apply_move(cur, m)
-                v = W.id.get(enc(c))
-                if v is not None and dist[v] == hc - 1:
-                    path.append(m)
-                    cur = c
-                    break
-            else:
-                path = None
-                break
+        path = descend(W, dist, T.REL[cid])
         ver = core.verify(T.CH[cid], path, "ac-r2-v1", T.man["limits"]) if path is not None else {"ok": False, "why": "no descent"}
         if not ver["ok"]:
             print("  %s: web height %d but the route did not replay (%s; ours %d)" % (cid, dist[sid], str(ver)[:160], ours))
