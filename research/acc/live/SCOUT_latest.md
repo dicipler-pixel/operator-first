@@ -1,6 +1,6 @@
-# SCOUT: low-k rows where the team has a road (2026-10-01 06:09Z)
+# SCOUT: low-k rows where the team has a road (2026-10-01 06:24Z)
 
-Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20261001T0537Z.json.gz, stable_ac_20261001T0537Z.json.gz; 32 min old) and the UPG-H ledger. 0 API calls.
+Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20261001T0623Z.json.gz, stable_ac_20261001T0623Z.json.gz; 0 min old) and the UPG-H ledger. 0 API calls.
 Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) or `upgh (running)`. Take an unclaimed row by writing it in your WORKING file. Scoring lines go to `queue/`.
 
 ## SEND: our road is at or under the record, not held yet (next send) (1)
@@ -28,7 +28,7 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | sac-08578 | 36 | 2 | 37 |  | +1 | 16 |  | 0.250 | (y,x) finish |
 | sac-07119 | 34 | 3 | 35 | 50 | +1 | 5 |  | 0.125 | (y,x) finish |
 
-## NEAR: 1-3 over, k <= 3 (82)
+## NEAR: 1-3 over, k <= 3 (83)
 | row | record | k | ours | held | gap | heat | who | value |
 |---|---|---|---|---|---|---|---|---|
 | ac-00975 | 34 | 1 | 35 |  | +1 | 14 | session1 | 0.800 |
@@ -56,7 +56,7 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | ac-03871 | 30 | 2 | 31 |  | +1 | 12 | session1 | 0.550 |
 | ac-05598 | 39 | 2 | 40 |  | +1 | 14 |  | 0.550 |
 | ac-06045 | 36 | 2 | 37 | 48 | +1 | 12 | session1 | 0.550 |
-(57 more in research/acc/upgh/cache/scout_latest.json)
+(58 more in research/acc/upgh/cache/scout_latest.json)
 
 ## ROAD: 4-10 over, k <= 3 (shorten lanes) (228)
 | row | record | k | ours | held | gap | heat | who | value |
