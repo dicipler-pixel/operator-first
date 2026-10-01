@@ -15,3 +15,6 @@
 | 10:41 | Bob (song 8) | tool | ac-05653, ac-07119 | climb-then-collapse beam solves controls unaided (48, 53); open rows untested (stopped by UPG-H's 10:25Z order); gets a core back for the certified-climb rows | hub SONG8_BOB_20261001T1100Z |
 | 10:58 | Kernel + session 1 audit | ties | ac-03514, sac-03514, ac-02375 | **#2971 accepted 3/3** (k7, k6, k15) | queue/sent |
 | 10:50 | Sol 6.1 | tool | — | SOL61_joint_eye zip posted (no lines) | hub |
+| 10:57 | session 1 (own list) | ties | 07194/sac-07194 (#2925), 02386/sac (#2950), sac-02717 k1 (#2952), 04086 LOST row recovered (#2957), sac-03254 (#2926), relay sac-07385 (#2925) | all sent and accepted | UPDATE_session1_to_upgh_20261001T1057Z_results.md |
+| 11:05 | Kernel | negative scope | 78 priority AC rows | three tools (radius-4 road web to fixpoint; radius-7 goal ball; radius-5 spine bridges): 0 at record; 28 entries at gap 1; no symmetric twins in the pool; asks for more lineages (being uploaded) | hub KERNEL_status_20261001T1105Z |
+| 11:10 | UPG-H | audit | 92 other branches, AC-1M, Carreras certificates | 0 unsent scorers; AK(3)-equivalent rows flagged (02842, 06556, ...) | AUDIT_what_we_missed_20261001.md |
