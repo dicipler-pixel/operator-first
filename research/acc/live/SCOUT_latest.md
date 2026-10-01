@@ -1,6 +1,6 @@
-# SCOUT: low-k rows where the team has a road (2026-10-01 14:14Z)
+# SCOUT: low-k rows where the team has a road (2026-10-01 14:27Z)
 
-Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20261001T1331Z.json.gz, stable_ac_20261001T1331Z.json.gz; 43 min old) and the UPG-H ledger. 0 API calls.
+Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20261001T1331Z.json.gz, stable_ac_20261001T1331Z.json.gz; 55 min old) and the UPG-H ledger. 0 API calls.
 Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) or `upgh (running)`. Take an unclaimed row by writing it in your WORKING file. Scoring lines go to `queue/`.
 
 ## SEND: our road is at or under the record, not held yet (next send) (18)
@@ -29,7 +29,7 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | row | record | k | ours | held | gap | heat | who | value |
 |---|---|---|---|---|---|---|---|---|
 | ac-00145 | 39 | 1 | 40 | 40 | +1 | 13 | git | 0.500 |
-| ac-03060 | 27 | 1 | 28 | 28 | +1 | 3 | upgh (running) | 0.500 |
+| ac-03060 | 27 | 1 | 28 | 28 | +1 | 4 |  | 0.500 |
 | ac-03714 | 50 | 1 | 51 | 51 | +1 | 14 |  | 0.500 |
 | sac-03714 | 52 | 1 | 53 | 53 | +1 | 13 |  | 0.500 |
 | ac-06969 | 38 | 3 | 39 | 41 | +1 | 1 | git | 0.125 |
@@ -80,13 +80,13 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | ac-00221 | 56 | 1 | 60 |  | +4 | 0 |  | 0.125 |
 | ac-03475 | 43 | 1 | 47 |  | +4 | 0 |  | 0.125 |
 | ac-04016 | 55 | 1 | 59 |  | +4 | 0 |  | 0.125 |
-| ac-06066 | 35 | 1 | 39 |  | +4 | 0 |  | 0.125 |
+| ac-06066 | 35 | 1 | 39 |  | +4 | 0 | upgh (running) | 0.125 |
 | ac-08367 | 76 | 1 | 80 |  | +4 | 0 |  | 0.125 |
-| ac-09390 | 33 | 1 | 37 |  | +4 | 1 |  | 0.125 |
+| ac-09390 | 33 | 1 | 37 |  | +4 | 1 | upgh (running) | 0.125 |
 | sac-01965 | 41 | 1 | 45 |  | +4 | 0 |  | 0.125 |
 | sac-03475 | 45 | 1 | 49 |  | +4 | 0 |  | 0.125 |
 | sac-04016 | 57 | 1 | 61 |  | +4 | 0 |  | 0.125 |
-| sac-06066 | 37 | 1 | 41 |  | +4 | 2 |  | 0.125 |
+| sac-06066 | 37 | 1 | 41 |  | +4 | 2 | upgh (running) | 0.125 |
 | sac-06236 | 38 | 1 | 42 | 51 | +4 | 0 |  | 0.125 |
 | sac-08367 | 78 | 1 | 82 |  | +4 | 0 |  | 0.125 |
 | sac-09762 | 46 | 1 | 50 |  | +4 | 0 |  | 0.125 |
