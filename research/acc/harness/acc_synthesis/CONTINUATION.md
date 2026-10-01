@@ -88,11 +88,20 @@ A probe key contains the mathematical algorithm ID, helper, selected row, donor 
    concrete execution/access/persistence blocker once if the work cannot run.
 
 Every scheduled iteration should do useful new bounded code work if a valid job
-exists. Do not burn a run re-verifying the unchanged original 25 routes or produce
-another architecture essay. If all registered probes are exhausted, retain their
-precise coverage and request the smallest justified next input or strategy
-decision; never increase worker/spend limits automatically. A bounded miss is
-not a theorem that no shorter route exists.
+exists, continuing successive justified jobs and persisting between them during
+active execution. Before declaring the registered work exhausted, compare the
+fresh branch head against the last reviewed team intake, inspect UPGH's messages
+and changed team route artifacts, and test whether authenticated exact routes
+add consumed graph states or edges. Preserve source head/path/line, exact inputs,
+pinned replay receipts and graph delta. Unknown starts are deferred, not guessed;
+new donor data does not expand the pinned selected rows. Changed prose, duplicate
+routes, unchanged consumed data and crashed processes do not reopen old keys.
+Do not burn a run re-verifying the unchanged original 25 routes or produce
+another architecture essay. If no justified job or new input remains, retain
+precise coverage and route the smallest concrete missing input or decision only
+to UPGH; never increase worker/spend limits automatically. An exhausted current
+input is not completion of the research project or reason to disable its existing
+continuation. A bounded miss is not a theorem that no shorter route exists.
 
 To stop this continuation, pause the named scheduled task and run
 `python3 helper_batch.py stop`, then commit its checkpoint. Do not reactivate

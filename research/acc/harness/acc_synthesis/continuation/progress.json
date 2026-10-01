@@ -1,7 +1,7 @@
 {
-  "completed_batches": 124,
+  "completed_batches": 129,
   "model_worker_launches": 4,
-  "code_only_batches": 120,
+  "code_only_batches": 125,
   "new_improved_routes": 9,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -31,7 +31,7 @@
     "status": "active",
     "active": {
       "job": {
-        "row_id": "ac-00037",
+        "row_id": "ac-00022",
         "track": "AC",
         "helper": "kernel",
         "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
@@ -40,20 +40,20 @@
         "inputs": {
           "helpers/kernel_sources/roads_input.json": "055c99cc0029b6bfd4861caf21e9f22954c37d4848520d2457a63062e298ad97"
         },
-        "seed_sha256": "5b683f21874f6c092ad127c4deb51021114a10ae95f7e4845c64c87de6ada3e3",
-        "baseline": 32,
-        "target": 31,
+        "seed_sha256": "cddef9ac7f402b48f74b941a7ffbd5c62b1b55bc52ec59d85ce7ba9fd476cf55",
+        "baseline": 56,
+        "target": 44,
         "caps": {
           "wall_seconds": 180,
           "node_cap": 600000,
           "memory_mib": 1024
         },
-        "key": "4f9fc0364db0b82acdbfbf88596af3fc71f9844982003d9feba719dd63d82d37"
+        "key": "6981771c934498d238d4785c38853a2b09d9f775c873b372001dbc030e79cab1"
       },
-      "task_id": 140,
-      "lease_token": "ad5e755a96974ff9b7c20028b1404bc4",
-      "expires_at": 1790815304.066485,
-      "repo_head": "f9ee7ae56a52fe2c9b6fdf1e2abee93cbe90fe1e",
+      "task_id": 145,
+      "lease_token": "942e947997634952b8cda1c5e251088d",
+      "expires_at": 1790815798.4882343,
+      "repo_head": "dd8e1e43ac89935d1ce1ab457e7a60901afbe1bc",
       "phase": "reserved",
       "host_must_commit_before_execution": true
     }
@@ -61,7 +61,7 @@
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 124,
+      "completed": 129,
       "running": 1
     },
     "unconnected_roles": [
@@ -1590,6 +1590,81 @@
       "target": 40,
       "kind": "bounded_miss",
       "result_path": "runs/kernel_revival/code_59893381bc22d4d9/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00037",
+      "baseline": 32,
+      "target": 31,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_4f9fc0364db0b82a/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00034",
+      "baseline": 44,
+      "target": 41,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_60a49aa92aa911aa/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00012",
+      "baseline": 52,
+      "target": 47,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_f6157a807ff18733/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00028",
+      "baseline": 51,
+      "target": 44,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_244b13b4cea15bf2/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00018",
+      "baseline": 51,
+      "target": 43,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_ebba3d2800eaa79f/worker_result.json",
       "limits": {
         "wall_seconds": 180.0,
         "node_cap": 600000,

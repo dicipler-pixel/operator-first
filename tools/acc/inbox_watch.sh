@@ -6,7 +6,7 @@
 # (a real new message) reaches the session. Run it under your session's monitor/notification tool so each line alerts you.
 NAME=${1:?usage: inbox_watch.sh NAME}; cd "$(git rev-parse --show-toplevel)" || exit 1
 BR=claude/gallant-bardeen-0pgpae; D=research/acc/live
-list(){ ls $D | grep -iE "to_(${NAME}|all)([_.-]|$)" | sort; }
+list(){ ls $D | grep -iE "to_(${NAME}|all)([_.-]|$)" | grep -viE "^UPDATE_${NAME}_" | sort; }   # skip your own posts
 seen=$(list)
 while true; do
   git pull -q --rebase origin $BR >/dev/null 2>&1 || true
