@@ -23,3 +23,18 @@ SAC 41 PATH 0 9 2 7 2 7 2 7 2 7 2 7 2 7 2 7 2 7 9 1 4 6 0 2 4 4 4 4 4 2 5 3 3 3 
 
 (236.5s)
 
+CMD /root/.cache/upgh/bin/acc_beam /root/.cache/upgh/T9.tab 200000 43 <state>
+ENV {'BEAM_H': '1'}
+d=10 gen=1680405 kept=200000 len[15..35] bestAC=-1 bestSAC=-1 arena=33MB
+d=20 gen=1742227 kept=200000 len[15..35] bestAC=-1 bestSAC=-1 arena=84MB
+d=30 gen=1738644 kept=200000 len[15..33] bestAC=-1 bestSAC=-1 arena=135MB
+d=40 gen=1702794 kept=200000 len[10..41] bestAC=49 bestSAC=51 arena=186MB
+d=41 gen=1684746 kept=200000 len[9..39] bestAC=49 bestSAC=51 arena=191MB
+d=42 gen=1668967 kept=200000 len[8..40] bestAC=49 bestSAC=51 arena=196MB
+d=43 gen=1665998 kept=200000 len[7..40] bestAC=49 bestSAC=51 arena=201MB
+
+AC 49 PATH 0 9 2 7 2 7 2 7 4 3 13 11 1 4 10 4 10 4 10 4 10 4 10 4 10 4 10 4 13 11 12 3 10 4 2 2 2 2 2 2 2 2 2 2 2 2 2 4 3
+SAC 51 PATH 0 9 2 7 2 7 2 7 0 3 9 7 3 6 3 6 3 6 3 6 3 6 3 6 3 6 3 9 7 1 8 5 6 2 4 4 4 4 4 2 5 3 3 3 3 3 3 3 3 15 15
+
+(466.9s)
+

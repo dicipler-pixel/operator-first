@@ -20,3 +20,15 @@ SAC NONE
 
 (209.5s)
 
+CMD /root/.cache/upgh/bin/acc_beam /root/.cache/upgh/T9.tab 200000 43 <state>
+ENV {}
+d=10 gen=1677987 kept=200000 len[15..23] bestAC=-1 bestSAC=-1 arena=32MB
+d=20 gen=1746266 kept=200000 len[15..21] bestAC=-1 bestSAC=-1 arena=77MB
+d=30 gen=1852369 kept=200000 len[15..20] bestAC=-1 bestSAC=-1 arena=122MB
+d=40 gen=1848875 kept=200000 len[14..20] bestAC=-1 bestSAC=-1 arena=166MB
+
+AC NONE
+SAC NONE
+
+(432.3s)
+
