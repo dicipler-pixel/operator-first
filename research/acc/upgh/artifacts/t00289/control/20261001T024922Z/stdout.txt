@@ -1,0 +1,14 @@
+SOL61_IDA ac-r2-v1 start=YYXXX,YYXXXYxxyxyxxyXXyx goal=x,y depth=23 cap=36 ball=8 ball_cap=36 ball_states=4000000 tt_states=2000000 seconds=600
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.117003
+ball layer=2 total=88 complete=yes elapsed=0.1174
+ball layer=3 total=662 complete=yes elapsed=0.117664
+ball layer=4 total=5115 complete=yes elapsed=0.119514
+ball layer=5 total=40779 complete=yes elapsed=0.158784
+ball layer=6 total=336469 complete=yes elapsed=0.583917
