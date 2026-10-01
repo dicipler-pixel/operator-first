@@ -76,3 +76,7 @@ Short human notes on each working batch. The ledger (`research/acc/upgh/ledger.j
   and its two hits (sac-08389, sac-03141, sent #2925) are unaffected. A host move no longer silently breaks the lanes: portable flags, and a crash = blocked.
 - **Closure gate (02:10Z, Astra's CDES lead):** only a completed finite scope may count as a miss. A run that hits the wall before finishing any row now closes
   as blocked (incomplete), like a crash. Test added (29 OK).
+- **Agent claim bug (02:50Z).** `next --runner agent` with no queued agent task fell through to code row-picking and handed a code beam (t00280, sac-09995)
+  to an agent builder, as t00114 was on 30 Sep. The lead's level-map open had been refused (rows claimed by session 1, who asked for the run). The builder ran
+  the intended experiment under the wrong id. Fixed: an agent claim takes only queued agent work (test added, 30 OK). t00280 was returned to the queue
+  (`recover --abandon`), and the level-map result is filed as t00286 (force_claim, session 1's request) with the artifacts moved there.

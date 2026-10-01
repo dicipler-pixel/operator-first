@@ -414,6 +414,14 @@ class HarnessTests(unittest.TestCase):
         second = json.loads((e.repo / c2["contract"]).read_text())["strategy"]["method"]
         self.assertEqual((first, second), ("splice", "window"))   # the next rung, not a repeat
 
+    def test_agent_claim_takes_only_queued_agent_work(self):
+        e = Env()
+        e.file("inbox/a.txt", "ac-01373: %s\n" % AC1373)
+        e.h.harvest()
+        e.boards(ac={"ac-01373": (29, 2)}, sac={}, held={})
+        self.assertIsNone(e.h.next(role="builder", runner="agent"))   # nothing queued for an agent: no invented code task
+        self.assertIsNotNone(e.h.next(role="builder", runner="code"))
+
     def test_a_run_that_times_out_before_any_row_is_incomplete_not_a_miss(self):
         e = Env(methods={"slow": {"runner": "code", "wall_seconds": 1, "needs": [],
                                   "command": ["{python}", "-c", "import time; time.sleep(30)"]}})
