@@ -1,0 +1,760 @@
+{
+  "status": "completed_restricted_optimum",
+  "checker_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "core_sha256": "d2972711dc7008679127a987a8965d41ea1606b0fc50bf67e2e06c71c456b3b5",
+  "source_sha256": "b53c1e9f29ae74227b1430865bb5b2d1c494b4969096277926c916eadd185d39",
+  "reservation_commit": "9ad348cbbe861127764bfced9562f67a0bbebceb",
+  "bounds": {
+    "seconds": 20,
+    "memory_bytes": 201326592,
+    "primitive_records": 600000,
+    "rewrite_layers": 15
+  },
+  "start": [
+    "XyyyyyyyyyyxYYYYYYYYYYY",
+    "xxYYXyy"
+  ],
+  "target": [
+    "YYxxxxxxxxxxxxxxxxyyyX",
+    "xxYYXyy"
+  ],
+  "rewrite_necklaces": [
+    "yyyyyyyyyyyXYYYYYYYYYYx",
+    "xxyyyyyyyyyXYYYYYYYY",
+    "xxYYxyyyyyyyyyXYYYYYY",
+    "xxyyyyyyyXYYYYYYxx",
+    "xxYYxxxyyyyyyyXYYYY",
+    "xxYYxxyyyyyyyXYYYYxx",
+    "xxYYxyyyyyyyXYYYYxxxx",
+    "xxyyyyyXYYYYxxxxxx",
+    "xxYYxxxxxxxyyyyyXYY",
+    "xxYYxxxxxxyyyyyXYYxx",
+    "xxYYxxxxxyyyyyXYYxxxx",
+    "xxYYxxxxyyyyyXYYxxxxxx",
+    "xxYYxxxyyyyyXYYxxxxxxxx",
+    "xxYYxxyyyyyXYYxxxxxxxxxx",
+    "xxYYxyyyyyXYYxxxxxxxxxxxx",
+    "xxyyyXYYxxxxxxxxxxxxxx"
+  ],
+  "rewrite_rotation_offsets": [
+    20,
+    18,
+    2,
+    14,
+    2,
+    2,
+    2,
+    10,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "rewrite_branch_counts": [
+    1,
+    1,
+    2,
+    1,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "rewrite_order": "first admissible cut at each layer; other rewrite orders not searched",
+  "frame_moves": [
+    0,
+    1,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "multiplication_moves": [
+    2,
+    3
+  ],
+  "layer_stats": [
+    {
+      "layer": 0,
+      "cyclic_r0_length": 23,
+      "exact_frames_reached": 644,
+      "min_cost": 0,
+      "max_cost": 16,
+      "records": 6440
+    },
+    {
+      "layer": 1,
+      "cyclic_r0_length": 20,
+      "exact_frames_reached": 560,
+      "min_cost": 4,
+      "max_cost": 18,
+      "records": 13328
+    },
+    {
+      "layer": 2,
+      "cyclic_r0_length": 21,
+      "exact_frames_reached": 588,
+      "min_cost": 7,
+      "max_cost": 20,
+      "records": 20328
+    },
+    {
+      "layer": 3,
+      "cyclic_r0_length": 18,
+      "exact_frames_reached": 504,
+      "min_cost": 10,
+      "max_cost": 24,
+      "records": 26544
+    },
+    {
+      "layer": 4,
+      "cyclic_r0_length": 19,
+      "exact_frames_reached": 532,
+      "min_cost": 15,
+      "max_cost": 26,
+      "records": 32872
+    },
+    {
+      "layer": 5,
+      "cyclic_r0_length": 20,
+      "exact_frames_reached": 560,
+      "min_cost": 18,
+      "max_cost": 29,
+      "records": 39536
+    },
+    {
+      "layer": 6,
+      "cyclic_r0_length": 21,
+      "exact_frames_reached": 588,
+      "min_cost": 20,
+      "max_cost": 32,
+      "records": 46536
+    },
+    {
+      "layer": 7,
+      "cyclic_r0_length": 18,
+      "exact_frames_reached": 504,
+      "min_cost": 24,
+      "max_cost": 37,
+      "records": 52752
+    },
+    {
+      "layer": 8,
+      "cyclic_r0_length": 19,
+      "exact_frames_reached": 532,
+      "min_cost": 33,
+      "max_cost": 44,
+      "records": 59080
+    },
+    {
+      "layer": 9,
+      "cyclic_r0_length": 20,
+      "exact_frames_reached": 560,
+      "min_cost": 36,
+      "max_cost": 47,
+      "records": 65744
+    },
+    {
+      "layer": 10,
+      "cyclic_r0_length": 21,
+      "exact_frames_reached": 588,
+      "min_cost": 38,
+      "max_cost": 50,
+      "records": 72744
+    },
+    {
+      "layer": 11,
+      "cyclic_r0_length": 22,
+      "exact_frames_reached": 616,
+      "min_cost": 40,
+      "max_cost": 53,
+      "records": 80080
+    },
+    {
+      "layer": 12,
+      "cyclic_r0_length": 23,
+      "exact_frames_reached": 644,
+      "min_cost": 42,
+      "max_cost": 56,
+      "records": 87752
+    },
+    {
+      "layer": 13,
+      "cyclic_r0_length": 24,
+      "exact_frames_reached": 672,
+      "min_cost": 44,
+      "max_cost": 59,
+      "records": 95760
+    },
+    {
+      "layer": 14,
+      "cyclic_r0_length": 25,
+      "exact_frames_reached": 700,
+      "min_cost": 46,
+      "max_cost": 62,
+      "records": 104104
+    },
+    {
+      "layer": 15,
+      "cyclic_r0_length": 22,
+      "exact_frames_reached": 616,
+      "min_cost": 52,
+      "max_cost": 66,
+      "records": 111664
+    }
+  ],
+  "records": 111664,
+  "best_cost": 58,
+  "meets_entry_budget_48": false,
+  "moves": [
+    6,
+    9,
+    9,
+    3,
+    9,
+    9,
+    3,
+    7,
+    7,
+    3,
+    6,
+    6,
+    9,
+    9,
+    3,
+    7,
+    7,
+    3,
+    7,
+    7,
+    3,
+    7,
+    7,
+    3,
+    12,
+    12,
+    11,
+    6,
+    6,
+    6,
+    6,
+    6,
+    0,
+    2,
+    7,
+    2,
+    7,
+    2,
+    7,
+    2,
+    7,
+    2,
+    7,
+    2,
+    7,
+    2,
+    7,
+    9,
+    9,
+    13,
+    13,
+    2,
+    9,
+    9,
+    9,
+    6,
+    10,
+    10
+  ],
+  "trace": [
+    {
+      "step": 0,
+      "state": [
+        "XyyyyyyyyyyxYYYYYYYYYYY",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 1,
+      "move": 6,
+      "state": [
+        "yyyyyyyyyyxYYYYYYYYYYYX",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 2,
+      "move": 9,
+      "state": [
+        "yyyyyyyyyxYYYYYYYYYYYXy",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 3,
+      "move": 9,
+      "state": [
+        "yyyyyyyyxYYYYYYYYYYYXyy",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 4,
+      "move": 3,
+      "state": [
+        "yyyyyyyyxYYYYYYYYYXX",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 5,
+      "move": 9,
+      "state": [
+        "yyyyyyyxYYYYYYYYYXXy",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 6,
+      "move": 9,
+      "state": [
+        "yyyyyyxYYYYYYYYYXXyy",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 7,
+      "move": 3,
+      "state": [
+        "yyyyyyxYYYYYYYYYXyyXX",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 8,
+      "move": 7,
+      "state": [
+        "XyyyyyyxYYYYYYYYYXyyX",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 9,
+      "move": 7,
+      "state": [
+        "XXyyyyyyxYYYYYYYYYXyy",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 10,
+      "move": 3,
+      "state": [
+        "XXyyyyyyxYYYYYYYXX",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 11,
+      "move": 6,
+      "state": [
+        "XyyyyyyxYYYYYYYXXX",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 12,
+      "move": 6,
+      "state": [
+        "yyyyyyxYYYYYYYXXXX",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 13,
+      "move": 9,
+      "state": [
+        "yyyyyxYYYYYYYXXXXy",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 14,
+      "move": 9,
+      "state": [
+        "yyyyxYYYYYYYXXXXyy",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 15,
+      "move": 3,
+      "state": [
+        "yyyyxYYYYYYYXXXyyXX",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 16,
+      "move": 7,
+      "state": [
+        "XyyyyxYYYYYYYXXXyyX",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 17,
+      "move": 7,
+      "state": [
+        "XXyyyyxYYYYYYYXXXyy",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 18,
+      "move": 3,
+      "state": [
+        "XXyyyyxYYYYYYYXXyyXX",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 19,
+      "move": 7,
+      "state": [
+        "XXXyyyyxYYYYYYYXXyyX",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 20,
+      "move": 7,
+      "state": [
+        "XXXXyyyyxYYYYYYYXXyy",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 21,
+      "move": 3,
+      "state": [
+        "XXXXyyyyxYYYYYYYXyyXX",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 22,
+      "move": 7,
+      "state": [
+        "XXXXXyyyyxYYYYYYYXyyX",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 23,
+      "move": 7,
+      "state": [
+        "XXXXXXyyyyxYYYYYYYXyy",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 24,
+      "move": 3,
+      "state": [
+        "XXXXXXyyyyxYYYYYXX",
+        "xxYYXyy"
+      ]
+    },
+    {
+      "step": 25,
+      "move": 12,
+      "state": [
+        "XXXXXXyyyyxYYYYYXX",
+        "yxxYYXy"
+      ]
+    },
+    {
+      "step": 26,
+      "move": 12,
+      "state": [
+        "XXXXXXyyyyxYYYYYXX",
+        "yyxxYYX"
+      ]
+    },
+    {
+      "step": 27,
+      "move": 11,
+      "state": [
+        "XXXXXXyyyyxYYYYYXX",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 28,
+      "move": 6,
+      "state": [
+        "XXXXXyyyyxYYYYYXXX",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 29,
+      "move": 6,
+      "state": [
+        "XXXXyyyyxYYYYYXXXX",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 30,
+      "move": 6,
+      "state": [
+        "XXXyyyyxYYYYYXXXXX",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 31,
+      "move": 6,
+      "state": [
+        "XXyyyyxYYYYYXXXXXX",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 32,
+      "move": 6,
+      "state": [
+        "XyyyyxYYYYYXXXXXXX",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 33,
+      "move": 0,
+      "state": [
+        "xxxxxxxyyyyyXYYYYx",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 34,
+      "move": 2,
+      "state": [
+        "xxxxxxxyyyyyXYYxxYY",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 35,
+      "move": 7,
+      "state": [
+        "xxxxxxyyyyyXYYxxYYx",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 36,
+      "move": 2,
+      "state": [
+        "xxxxxxyyyyyXYYxxxxYY",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 37,
+      "move": 7,
+      "state": [
+        "xxxxxyyyyyXYYxxxxYYx",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 38,
+      "move": 2,
+      "state": [
+        "xxxxxyyyyyXYYxxxxxxYY",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 39,
+      "move": 7,
+      "state": [
+        "xxxxyyyyyXYYxxxxxxYYx",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 40,
+      "move": 2,
+      "state": [
+        "xxxxyyyyyXYYxxxxxxxxYY",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 41,
+      "move": 7,
+      "state": [
+        "xxxyyyyyXYYxxxxxxxxYYx",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 42,
+      "move": 2,
+      "state": [
+        "xxxyyyyyXYYxxxxxxxxxxYY",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 43,
+      "move": 7,
+      "state": [
+        "xxyyyyyXYYxxxxxxxxxxYYx",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 44,
+      "move": 2,
+      "state": [
+        "xxyyyyyXYYxxxxxxxxxxxxYY",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 45,
+      "move": 7,
+      "state": [
+        "xyyyyyXYYxxxxxxxxxxxxYYx",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 46,
+      "move": 2,
+      "state": [
+        "xyyyyyXYYxxxxxxxxxxxxxxYY",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 47,
+      "move": 7,
+      "state": [
+        "yyyyyXYYxxxxxxxxxxxxxxYYx",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 48,
+      "move": 9,
+      "state": [
+        "yyyyXYYxxxxxxxxxxxxxxYYxy",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 49,
+      "move": 9,
+      "state": [
+        "yyyXYYxxxxxxxxxxxxxxYYxyy",
+        "XyyxxYY"
+      ]
+    },
+    {
+      "step": 50,
+      "move": 13,
+      "state": [
+        "yyyXYYxxxxxxxxxxxxxxYYxyy",
+        "YXyyxxY"
+      ]
+    },
+    {
+      "step": 51,
+      "move": 13,
+      "state": [
+        "yyyXYYxxxxxxxxxxxxxxYYxyy",
+        "YYXyyxx"
+      ]
+    },
+    {
+      "step": 52,
+      "move": 2,
+      "state": [
+        "yyyXYYxxxxxxxxxxxxxxxx",
+        "YYXyyxx"
+      ]
+    },
+    {
+      "step": 53,
+      "move": 9,
+      "state": [
+        "yyXYYxxxxxxxxxxxxxxxxy",
+        "YYXyyxx"
+      ]
+    },
+    {
+      "step": 54,
+      "move": 9,
+      "state": [
+        "yXYYxxxxxxxxxxxxxxxxyy",
+        "YYXyyxx"
+      ]
+    },
+    {
+      "step": 55,
+      "move": 9,
+      "state": [
+        "XYYxxxxxxxxxxxxxxxxyyy",
+        "YYXyyxx"
+      ]
+    },
+    {
+      "step": 56,
+      "move": 6,
+      "state": [
+        "YYxxxxxxxxxxxxxxxxyyyX",
+        "YYXyyxx"
+      ]
+    },
+    {
+      "step": 57,
+      "move": 10,
+      "state": [
+        "YYxxxxxxxxxxxxxxxxyyyX",
+        "xYYXyyx"
+      ]
+    },
+    {
+      "step": 58,
+      "move": 10,
+      "state": [
+        "YYxxxxxxxxxxxxxxxxyyyX",
+        "xxYYXyy"
+      ]
+    }
+  ],
+  "error": null,
+  "elapsed_seconds": 0.1744710160055547,
+  "peak_rss_mib": 14.60546875,
+  "scope": "Exact optimum only for specified 15 rewrite necklaces, r0/r1 cyclic rotations and inverses; no conjugating tails, alternate normal-closure derivations or changes of r1 beyond these frames. No scored-row route claim."
+}

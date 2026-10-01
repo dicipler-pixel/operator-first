@@ -1,0 +1,41 @@
+{
+  "method": "cyclic_inverse_source_insertion_unit_residue_v1",
+  "row": "ac-07824",
+  "reservation_commit": "9ad348cbbe861127764bfced9562f67a0bbebceb",
+  "bounds": {
+    "wall_seconds": 30,
+    "memory_mib": 256,
+    "admitted_states": 100000,
+    "macrodepth": 3,
+    "peak_total_length": 64
+  },
+  "initial_relators": [
+    "YYYXyyx",
+    "YXXXXyxxxxx"
+  ],
+  "elapsed_seconds": 3.962770702994021,
+  "stop_reason": "admitted_state_cap",
+  "admitted_states": 100003,
+  "generated_macros": 749560,
+  "determinant_rejections": 0,
+  "frontier_states": 99230,
+  "hits": [],
+  "best_length_state": {
+    "moves": [],
+    "endpoint": [
+      "YYYXyyx",
+      "YXXXXyxxxxx"
+    ],
+    "macrodepth": 0,
+    "paid_moves": 0,
+    "peak_total_relator_length": 18,
+    "determinant": 1,
+    "structure_codes": [
+      2,
+      2
+    ]
+  },
+  "negative_scope": "Only completed enumerated macros in this exact run; cap stop is not depth exhaustion or an impossibility result.",
+  "scored_route_found": false,
+  "source_sha256": "975e97184a6785f85af397d5d5fc78d45601b87922c968a70809c87b1288fba1"
+}

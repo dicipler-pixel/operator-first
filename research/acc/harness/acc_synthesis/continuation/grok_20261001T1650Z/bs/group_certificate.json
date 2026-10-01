@@ -1,0 +1,1412 @@
+{
+  "method": "finite original-relator normal-closure certificate",
+  "row": "ac-07824",
+  "initial_relators": [
+    "YYYXyyx",
+    "YXXXXyxxxxx"
+  ],
+  "core_sha256": "d2972711dc7008679127a987a8965d41ea1606b0fc50bf67e2e06c71c456b3b5",
+  "x_to_identity": {
+    "start": "x",
+    "end": "",
+    "steps": 49,
+    "peak_word_length": 52,
+    "trace": [
+      {
+        "before": "x",
+        "after": "XXXXYxxxxy",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXYxxxxy",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYxxxxy",
+        "after": "XXXXYXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxy",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "YXXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxy",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxy",
+        "after": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxyxxxxxxxxxxy",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "YXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxy",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxyxxxxxxxxxxy",
+        "after": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxyxxxxxy",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "YXXXXXXXXXXYxxxxyxxxxxy",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxyxxxxxy",
+        "after": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyy",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "YXXXXXYxxxxyy",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyy",
+        "after": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxyyxY",
+        "original_relator": 0,
+        "relator_sign": 1,
+        "difference": "YYXyyxY",
+        "cyclic_reduced_difference": "YYYXyyx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxyyxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxxxxxyyxY",
+        "original_relator": 0,
+        "relator_sign": -1,
+        "difference": "yXYYXXXXXXXXXXXXXXXyyyXYYxxxxxxxxxxxxxxxxyyxY",
+        "cyclic_reduced_difference": "YYxyyyX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxxxxxyyxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxyxxxxxyxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXYYXXXXyxxxxxyxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxyxxxxxyxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxyxxxxxxxxxxyxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXYXXXXXYXXXXyxxxxxxxxxxyxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxyxxxxxxxxxxyxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxyxxxxxxxxxxxxxxxyxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXYXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxyxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxyxxxxxxxxxxxxxxxyxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxxxxxyxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXYXXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxxxxxyxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxxxxxyxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxyxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXYXXXXyxxxxxxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxyxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxyxxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXXXXXXYXXXXyxxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxyxxxxxxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxyxxxxxxxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxyxxxxxxxxxxxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxyxxxxxxxxxxxxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXXXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxyxxxxxxxxxxxxxxxxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXXXXXXXXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyxxxxyxxxxxxxxxxxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yXXXXXXXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyxxxxyxxxxxxxxxxxxxxxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxyxxxxxxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yXXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxyxxxxxxxxxxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxyxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxyxxxxxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxxY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yXXXXXXXXXXYxxxxyxxxxxY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yXXXXXYxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxxxxx",
+        "after": "XXXXYXXXXXXXXXXXXyxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXyxxxxxxxxxxxxxxx",
+        "after": "XXXXYXXXXXXXXyxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXYxxxxyxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXyxxxxxxxxxx",
+        "after": "XXXXYXXXXyxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXYxxxxyxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXyxxxxx",
+        "after": "XXXX",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXYxxxxy",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXX",
+        "after": "XXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxx",
+        "after": "XXXXXXXXXXYXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXYxxxxyxxxxxYXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXXXXXXYXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "after": "XXXXXYXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXYxxxxxxxxyxxxxxYXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXYXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "after": "YXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXYxxxxxxxxxxxxyxxxxxYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "after": "yyXYYXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "original_relator": 0,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyyyXYYXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YYxyyyX"
+      },
+      {
+        "before": "yyXYYXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "after": "yyXYYXXXXXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 0,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXYXyyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YYYXyyx"
+      },
+      {
+        "before": "yyXYYXXXXXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXYXXXXXYXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxxxxxyXXXXXYXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXYXXXXXYXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXYXXXXXXXXXXYXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxyXXXXXYXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXYXXXXXXXXXXYXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXYXXXXXXXXXXXXXXXYXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYYxxxxxxxxyXXXXXYXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXYXXXXXXXXXXXXXXXYXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXYXXXXXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYYxxxxyXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXYXXXXXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXYXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxxxxxyXXXXXYXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXXXXXXYXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXXXXXXYXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxyXXXXXYXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXXXXXXXXXXXYXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXXXXXXXXXXXYXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxyXXXXXYXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXXXXXXXXXXXXXXXXYXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXXXXXXXXXXXXXXXXYXXXXyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxyXXXXXYXXXXyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXXXXXXXXXXXXXXXXXXXXXYXXXXyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXXXXXXXXXXXXXXXXXXXXYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYxxxxyXXXXYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXXXXXXXXXXXXXXXXXXXXXXXXXYYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXXXXXXXXXXXXXXXYXXXXYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXyyxxxxxYXXXXYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yyXXXXXXXXXXXXXXXXXXXXYXXXXYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXXXXXXXXXXYXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXyxxxxyxxxxxYXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yyXXXXXXXXXXXXXXXYXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXXXXXYXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXyxxxxxxxxyxxxxxYXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yyXXXXXXXXXXYXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXyxxxxxxxxxxxxyxxxxxYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yyXXXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "after": "yXXXXXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxxYXXXXXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yXXXXXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "after": "yXXXXXXXXXXXXXXXYxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXyxxxxxYxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yXXXXXXXXXXXXXXXYxxxxxxxxxxxx",
+        "after": "yXXXXXXXXXXYxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXyxxxxxYxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yXXXXXXXXXXYxxxxxxxx",
+        "after": "yXXXXXYxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXyxxxxxYxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yXXXXXYxxxx",
+        "after": "",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXyxxxxxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      }
+    ]
+  },
+  "y_to_identity": {
+    "start": "y",
+    "end": "",
+    "steps": 99,
+    "peak_word_length": 55,
+    "trace": [
+      {
+        "before": "y",
+        "after": "YYXyyx",
+        "original_relator": 0,
+        "relator_sign": 1,
+        "difference": "YYYXyyx",
+        "cyclic_reduced_difference": "YYYXyyx"
+      },
+      {
+        "before": "YYXyyx",
+        "after": "YYYXXXXyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XYYxYXXXXyxxxxyyx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYYXXXXyxxxxyyx",
+        "after": "YYYXXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XYYXXXXYXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYYXXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YYYXXXXXXXXXXYXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXYxxxxyxxxxxYXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYYXXXXXXXXXXYXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YYYXXXXXYXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXYxxxxxxxxyxxxxxYXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYYXXXXXYXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YYYYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxyxxxxxYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYYYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXYYXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 0,
+        "relator_sign": -1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyyyXYYXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YYxyyyX"
+      },
+      {
+        "before": "YXYYXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXYYXXXXXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 0,
+        "relator_sign": 1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXYXyyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YYYXyyx"
+      },
+      {
+        "before": "YXYYXXXXXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXYXXXXXYXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxxxxxyXXXXXYXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YXYXXXXXYXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXYXXXXXXXXXXYXXXXXXXXyyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxyXXXXXYXXXXXXXXyyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YXYXXXXXXXXXXYXXXXXXXXyyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXYXXXXXXXXXXXXXXXYXXXXyyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxyXXXXXYXXXXyyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YXYXXXXXXXXXXXXXXXYXXXXyyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXYXXXXXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyyXYYxxxxyXXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YXYXXXXXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXXXXXXYXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxxxxxyXXXXXYXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YXXXXXXYXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXXXXXXXXXXXYXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxyXXXXXYXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YXXXXXXXXXXXYXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXXXXXXXXXXXXXXXXYXXXXXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxyXXXXXYXXXXXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YXXXXXXXXXXXXXXXXYXXXXXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXXXXXXXXXXXXXXXXXXXXXYXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxyXXXXXYXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YXXXXXXXXXXXXXXXXXXXXXYXXXXyxYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXXXXXXXXXXXXXXXXXXXXXXXXXYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyyXYxxxxyXXXXYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YXXXXXXXXXXXXXXXXXXXXXXXXXYYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXXXXXXXXXXXXXXXXXXXXYXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyyxxxxxYXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YXXXXXXXXXXXXXXXXXXXXYXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXXXXXXXXXXXXXXXYXXXXXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyxxxxyxxxxxYXXXXXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YXXXXXXXXXXXXXXXYXXXXXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXXXXXXXXXXYXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyxxxxxxxxyxxxxxYXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YXXXXXXXXXXYXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YXXXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxyxxxxxYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YXXXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YYXXXXXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxxYXXXXXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyxxxxyyx",
+        "after": "YYXXXXXXXXXXXXXXXYxxxxxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXXXXXyxxxxxYxxxxxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXYxxxxxxxxxxxxyxxxxyyx",
+        "after": "YYXXXXXXXXXXYxxxxxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XYYXXXXYXXXXXXXXXXXXyxxxxxYxxxxxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYXXXXXXXXXXYxxxxxxxxyxxxxyyx",
+        "after": "YYXXXXXYxxxxyxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XYYXXXXYXXXXXXXXyxxxxxYxxxxyxxxxyyx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYXXXXXYxxxxyxxxxyyx",
+        "after": "YYxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XYYXXXXYXXXXyxxxxxxxxxyyx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYxxxxyyx",
+        "after": "YYXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYYXXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxyyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxyyx",
+        "after": "YYXXXXXXXXXXXXXXXXYxxxxxxxxyxxxxxxxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYYXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxyyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXYxxxxxxxxyxxxxxxxxxxyyx",
+        "after": "YYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxyxxxxxyyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYYXXXXXXXXXXYxxxxyxxxxxyyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxyxxxxxyyx",
+        "after": "YYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyyyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYYXXXXXYxxxxyyyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyyyx",
+        "after": "YYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxyyxx",
+        "original_relator": 0,
+        "relator_sign": 1,
+        "difference": "XYYYXyyxx",
+        "cyclic_reduced_difference": "YYYXyyx"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxyyxx",
+        "after": "YYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxxxxxyyxx",
+        "original_relator": 0,
+        "relator_sign": -1,
+        "difference": "XXYYXXXXXXXXXXXXXXXyyyXYYxxxxxxxxxxxxxxxxyyxx",
+        "cyclic_reduced_difference": "YYxyyyX"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxxxxxyyxx",
+        "after": "YYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxyxxxxxyxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXYYXXXXyxxxxxyxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxyxxxxxyxx",
+        "after": "YYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxyxxxxxxxxxxyxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXYXXXXXYXXXXyxxxxxxxxxxyxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxyxxxxxxxxxxyxx",
+        "after": "YYXXXXXXXXXXXXXXXXyyXYYxxxxyxxxxxxxxxxxxxxxyxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXYXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxyxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyyXYYxxxxyxxxxxxxxxxxxxxxyxx",
+        "after": "YYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxxxxxyxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXYXXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxxxxxyxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxxxxxyxx",
+        "after": "YYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxyxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXYXXXXyxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxyxxxxxxx",
+        "after": "YYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxyxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXYXXXXyxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxyxxxxxxxxxxxx",
+        "after": "YYXXXXXXXXXXXXXXXXyyXYxxxxxxxxyxxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyyXYxxxxxxxxyxxxxxxxxxxxxxxxxx",
+        "after": "YYXXXXXXXXXXXXXXXXyyXYxxxxyxxxxxxxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyyXYxxxxyxxxxxxxxxxxxxxxxxxxxxx",
+        "after": "YYXXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "after": "YYXXXXXXXXXXXXXXXXyxxxxyxxxxxxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyxxxxyxxxxxxxxxxxxxxxxxxxxx",
+        "after": "YYXXXXXXXXXXXXXXXXyxxxxxxxxyxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyxxxxxxxxyxxxxxxxxxxxxxxxx",
+        "after": "YYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxyxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxyxxxxxxxxxxx",
+        "after": "YYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXYxxxxyxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxxx",
+        "after": "YYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxxxxxyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXYxxxxyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxxxxxyx",
+        "after": "YYXXXXXXXXXXXXyxxxxxxxxxxxxxxxyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYXXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YYXXXXXXXXXXXXyxxxxxxxxxxxxxxxyx",
+        "after": "YYXXXXXXXXyxxxxxxxxxxyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YYXXXXXXXXyxxxxxxxxxxyx",
+        "after": "YYXXXXyxxxxxyx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYXXXXXXXXXXYxxxxyxxxxxyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "YYXXXXyxxxxxyx",
+        "after": "x",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XYXXXXXYxxxxyyx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "x",
+        "after": "XXXXYxxxxy",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXYxxxxy",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYxxxxy",
+        "after": "XXXXYXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxy",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "YXXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxy",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxy",
+        "after": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxyxxxxxxxxxxy",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "YXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxy",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxyxxxxxxxxxxy",
+        "after": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxyxxxxxy",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "YXXXXXXXXXXYxxxxyxxxxxy",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxyxxxxxy",
+        "after": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyy",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "YXXXXXYxxxxyy",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyy",
+        "after": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxyyxY",
+        "original_relator": 0,
+        "relator_sign": 1,
+        "difference": "YYXyyxY",
+        "cyclic_reduced_difference": "YYYXyyx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxyyxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxxxxxyyxY",
+        "original_relator": 0,
+        "relator_sign": -1,
+        "difference": "yXYYXXXXXXXXXXXXXXXyyyXYYxxxxxxxxxxxxxxxxyyxY",
+        "cyclic_reduced_difference": "YYxyyyX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxxxxxyyxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxyxxxxxyxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXYYXXXXyxxxxxyxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxyxxxxxyxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxyxxxxxxxxxxyxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXYXXXXXYXXXXyxxxxxxxxxxyxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxxxxxyxxxxxxxxxxyxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxyxxxxxxxxxxxxxxxyxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXYXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxyxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYYxxxxyxxxxxxxxxxxxxxxyxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxxxxxyxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXYXXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxxxxxyxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxxxxxyxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxyxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXYXXXXyxxxxxxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxyxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxyxxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXXXXXXYXXXXyxxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxyxxxxxxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxyxxxxxxxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxxxxxyxxxxxxxxxxxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxyxxxxxxxxxxxxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXXXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyXYxxxxyxxxxxxxxxxxxxxxxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yXXXXXXXXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyxxxxyxxxxxxxxxxxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yXXXXXXXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyxxxxyxxxxxxxxxxxxxxxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxyxxxxxxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yXXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxyxxxxxxxxxxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxyxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxyxxxxxxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxxY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yXXXXXXXXXXYxxxxyxxxxxY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxxY",
+        "after": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yXXXXXYxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxxxxx",
+        "after": "XXXXYXXXXXXXXXXXXyxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXXXXXyxxxxxxxxxxxxxxx",
+        "after": "XXXXYXXXXXXXXyxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXYxxxxyxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXXXXXyxxxxxxxxxx",
+        "after": "XXXXYXXXXyxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXYxxxxyxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXYXXXXyxxxxx",
+        "after": "XXXX",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXYxxxxy",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXX",
+        "after": "XXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxx",
+        "after": "XXXXXXXXXXYXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXYxxxxyxxxxxYXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXXXXXXYXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "after": "XXXXXYXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXYxxxxxxxxyxxxxxYXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXYXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "after": "YXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXYxxxxxxxxxxxxyxxxxxYXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "YXXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "after": "yyXYYXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "original_relator": 0,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxyyyXYYXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YYxyyyX"
+      },
+      {
+        "before": "yyXYYXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxx",
+        "after": "yyXYYXXXXXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 0,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXYXyyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YYYXyyx"
+      },
+      {
+        "before": "yyXYYXXXXXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXYXXXXXYXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxxxxxyXXXXXYXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXYXXXXXYXXXXXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXYXXXXXXXXXXYXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxyXXXXXYXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXYXXXXXXXXXXYXXXXXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXYXXXXXXXXXXXXXXXYXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYYxxxxxxxxyXXXXXYXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXYXXXXXXXXXXXXXXXYXXXXyyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXYXXXXXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYYxxxxyXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXYXXXXXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXYXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxxxxxyXXXXXYXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXXXXXXYXXXXXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXXXXXXYXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxyXXXXXYXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXXXXXXXXXXXYXXXXXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXXXXXXXXXXXYXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxyXXXXXYXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXXXXXXXXXXXXXXXXYXXXXXXXXyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXXXXXXXXXXXXXXXXYXXXXyxYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxyXXXXXYXXXXyxYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXXXXXXXXXXXXXXXXXXXXXYXXXXyxYYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXXXXXXXXXXXXXXXXXXXXYYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXyyXYxxxxyXXXXYYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "yyXXXXXXXXXXXXXXXXXXXXXXXXXYYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXXXXXXXXXXXXXXXYXXXXYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXyyxxxxxYXXXXYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yyXXXXXXXXXXXXXXXXXXXXYXXXXYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXXXXXXXXXXYXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXyxxxxyxxxxxYXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yyXXXXXXXXXXXXXXXYXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXXXXXXYXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXyxxxxxxxxyxxxxxYXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yyXXXXXXXXXXYXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "after": "yyXXXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXyxxxxxxxxxxxxyxxxxxYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yyXXXXXYXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "after": "yXXXXXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxxYXXXXXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yXXXXXXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxx",
+        "after": "yXXXXXXXXXXXXXXXYxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXXXXXyxxxxxYxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yXXXXXXXXXXXXXXXYxxxxxxxxxxxx",
+        "after": "yXXXXXXXXXXYxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXXXXXyxxxxxYxxxxxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yXXXXXXXXXXYxxxxxxxx",
+        "after": "yXXXXXYxxxx",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXXXXXyxxxxxYxxxx",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "yXXXXXYxxxx",
+        "after": "",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "XXXXyxxxxxY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      }
+    ]
+  },
+  "power4_to_identity": {
+    "start": "xxxx",
+    "end": "",
+    "steps": 24,
+    "peak_word_length": 48,
+    "trace": [
+      {
+        "before": "xxxx",
+        "after": "XXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxx",
+        "after": "XXXXXXXXXXXXXXXXYxxxxxxxxyxxxxxxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXXXXXXYxxxxyxxxxxxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXYxxxxxxxxyxxxxxxxxxx",
+        "after": "XXXXXXXXXXXXXXXXYxxxxxxxxxxxxyxxxxx",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXXXXXXYxxxxyxxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXYxxxxxxxxxxxxyxxxxx",
+        "after": "XXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxy",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "XXXXXYxxxxy",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxxy",
+        "after": "XXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxyyxYY",
+        "original_relator": 0,
+        "relator_sign": 1,
+        "difference": "YXyyxYY",
+        "cyclic_reduced_difference": "YYYXyyx"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXYxxxxxxxxxxxxxxxyyxYY",
+        "after": "XXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxxxxxyyxYY",
+        "original_relator": 0,
+        "relator_sign": -1,
+        "difference": "yyXYYXXXXXXXXXXXXXXXyyyXYYxxxxxxxxxxxxxxxxyyxYY",
+        "cyclic_reduced_difference": "YYxyyyX"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxxxxxyyxYY",
+        "after": "XXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxyxxxxxyxYY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yyXYYXXXXyxxxxxyxYY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyyXYYxxxxxxxxxxxxyxxxxxyxYY",
+        "after": "XXXXXXXXXXXXXXXXyyXYYxxxxxxxxyxxxxxxxxxxyxYY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yyXYXXXXXYXXXXyxxxxxxxxxxyxYY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyyXYYxxxxxxxxyxxxxxxxxxxyxYY",
+        "after": "XXXXXXXXXXXXXXXXyyXYYxxxxyxxxxxxxxxxxxxxxyxYY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yyXYXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxyxYY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyyXYYxxxxyxxxxxxxxxxxxxxxyxYY",
+        "after": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxxxxxyxYY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yyXYXXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxxxxxyxYY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxxxxxyxYY",
+        "after": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxyxxxxxxYY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yyXYXXXXyxxxxxxYY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxxxxxyxxxxxxYY",
+        "after": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxyxxxxxxxxxxxYY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yyXXXXXXYXXXXyxxxxxxxxxxxYY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxxxxxyxxxxxxxxxxxYY",
+        "after": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxyxxxxxxxxxxxxxxxxYY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yyXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxYY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyyXYxxxxxxxxyxxxxxxxxxxxxxxxxYY",
+        "after": "XXXXXXXXXXXXXXXXyyXYxxxxyxxxxxxxxxxxxxxxxxxxxxYY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yyXXXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxxxxxxYY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyyXYxxxxyxxxxxxxxxxxxxxxxxxxxxYY",
+        "after": "XXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxxxxxxxxxxxYY",
+        "original_relator": 1,
+        "relator_sign": 1,
+        "difference": "yyXXXXXXXXXXXXXXXXXXXXXYXXXXyxxxxxxxxxxxxxxxxxxxxxxxxxxYY",
+        "cyclic_reduced_difference": "YXXXXyxxxxx"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxxxxxxxxxxxYY",
+        "after": "XXXXXXXXXXXXXXXXyxxxxyxxxxxxxxxxxxxxxxxxxxYY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yyXXXXXXXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxxxxxxYY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyxxxxyxxxxxxxxxxxxxxxxxxxxYY",
+        "after": "XXXXXXXXXXXXXXXXyxxxxxxxxyxxxxxxxxxxxxxxxYY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yyXXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxYY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyxxxxxxxxyxxxxxxxxxxxxxxxYY",
+        "after": "XXXXXXXXXXXXXXXXyxxxxxxxxxxxxyxxxxxxxxxxYY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yyXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxYY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyxxxxxxxxxxxxyxxxxxxxxxxYY",
+        "after": "XXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxxYY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yyXXXXXXXXXXYxxxxyxxxxxYY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxyxxxxxYY",
+        "after": "XXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yyXXXXXYxxxxY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXXXXXXXXXXXXXyxxxxxxxxxxxxxxxxxxxxY",
+        "after": "XXXXXXXXXXXXyxxxxxxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yXXXXXXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXXXXXXXXXyxxxxxxxxxxxxxxxY",
+        "after": "XXXXXXXXyxxxxxxxxxxY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yXXXXXXXXXXXXXXXYxxxxyxxxxxxxxxxY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXXXXXyxxxxxxxxxxY",
+        "after": "XXXXyxxxxxY",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yXXXXXXXXXXYxxxxyxxxxxY",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      },
+      {
+        "before": "XXXXyxxxxxY",
+        "after": "",
+        "original_relator": 1,
+        "relator_sign": -1,
+        "difference": "yXXXXXYxxxx",
+        "cyclic_reduced_difference": "YxxxxyXXXXX"
+      }
+    ]
+  },
+  "group_triviality_verified": true,
+  "ac_triviality_verified": false,
+  "is_scored_move_list": false
+}

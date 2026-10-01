@@ -45,20 +45,52 @@ def main():
         moves = [0] + [3, 7, 7] * k + [0]
         doubling.append(replay(["YY" + "x" * k + "y" * (d + 3) + "X" + "Y" * d, "xxYYXyy"],
                                moves, ["y" * (d + 1) + "X" + "Y" * d + "x" * (2 * k), "xxYYXyy"]))
+    def finish(m):
+        # Formula relayed by UPGH; no solver code was imported or run.
+        return ([4, 1, 11, 3, 8, 8, 4] + [7] * (m - 1) + [12, 5, 12, 5]
+                + [6] * (m - 2) + [8, 11, 4, 12, 2, 4, 4, 6, 3] + [5] * (m - 2))
+
+    def cyclic_entry(n):
+        # Invert r0, and rotate r1 to XyyxxYY in three paid conjugations.
+        moves = [0, 12, 12, 11]
+        power = 1
+        for _ in range(n // 2 - 1):
+            # For y^q X Y^(q-1) x^power, cut after the first x.
+            # Each multiply rewrites a suffix YYx to xxYY.
+            moves += [6] * (power - 1) + [2]
+            moves += [m for _ in range(power - 1) for m in [7, 2]]
+            moves += [9, 9]
+            power *= 2
+        # Restore r1, then move yyyX from the beginning to the end.
+        moves += [10, 13, 13, 9, 9, 9, 6]
+        return moves
+
+    finishes = [replay(["YY" + "x" * m + "yyyX", "xxYYXyy"], finish(m), ["x", "y"])
+                for m in [4, 16]]
+    n6_full = replay(["XyyyyyyxYYYYYYY", "xxYYXyy"], BLOCK + finish(4), ["x", "y"])
+    n10_start = ["X" + "y" * 10 + "x" + "Y" * 11, "xxYYXyy"]
+    n10_entry = replay(n10_start, cyclic_entry(10), ["YY" + "x" * 16 + "yyyX", "xxYYXyy"])
+    n10_full = replay(n10_start, cyclic_entry(10) + finish(16), ["x", "y"])
     report = {
         "official_core_sha256": CORE_PIN,
         "grade": "V",
         "scope": "synthetic family endpoints; no scored route claim",
         "quoted_block_checks": cases,
         "derived_doubling_identity": doubling,
+        "finish_formula_source_git_blob": "080073cb572109daf66f58641de2326e709ba22d",
+        "finish_formula_checks": finishes,
+        "n6_full_verified": n6_full,
+        "n10_constructive_entry56_verified": n10_entry,
+        "n10_full119_verified_not_competitive": n10_full,
         "interpretation": {
             "n6_entry_14_verified": True,
             "n10_entry_14_reaches_x_run": 4,
             "n10_entry_48_verified": False,
-            "finA2_not_supplied_and_not_verified": True,
+            "finA2_verified_for_m4_m16": True,
             "derived_doubling_preserves_r1": True,
             "derived_doubling_ends_in_rotated_frame": True,
             "temporary_r1_changes": "legal in full AC graph; frozen r1 is a construction restriction",
+            "n10_entry56_is_scaffold_only": "exceeds entry48 budget; known team routes are reported shorter",
         },
     }
     (HERE / "replay_receipt.json").write_text(json.dumps(report, indent=2) + "\n")

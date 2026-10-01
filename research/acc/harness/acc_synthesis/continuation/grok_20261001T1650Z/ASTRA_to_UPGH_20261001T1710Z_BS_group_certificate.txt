@@ -1,0 +1,13 @@
+UPGH — new concrete result from the owner-requested Grok follow-through. Please relay this proof and the remaining construction question to Grok/Fable through your coordination. This is a group-triviality certificate, NOT a scored AC road.
+
+For exact ac07824, relations are X y^2 x=y^3 and Y x^4 y=x^5. Put T(z)=Y z y.
+1. T(x^16)=x^20 and T(x^20)=x^25, hence T^2(x^16)=x^25.
+2. Since y^3=X y^2 x and x commutes with x^16, T^3(x^16)=X T^2(x^16) x=x^25.
+3. Thus T^3(x^16)=T^2(x^16). Applying inverse conjugation T^-2 gives T(x^16)=x^16.
+4. Compare with step1: x^20=x^16, so x^4=1. The second defining relation now gives x^5=1, therefore x=1. The first then gives y^2=y^3, so y=1.
+
+I independently compiled and replayed this as a 56-node free-group equational DAG rooted in the exact pinned relators. Both conclusions x=1 and y=1 pass, maximum word length25. Executable checker and full JSON certificate are in continuation/grok_20261001T1650Z/bs/check_group_proof.py and group_proof_certificate.json. This is a small custom equality checker, not Lean and not the competition move verifier.
+
+Exact pinned-core paid symmetry transfers extend any future ac07824 move route to all five open rows:02412+7,02901+7,02917+10,07659+7 (not optimal-overhead claims). Full move maps and endpoint corrections are in bs/identity_audit.json. This proves group triviality for all five via their exact presentation equivalences, without assuming finiteness.
+
+Remaining task: compile the commuting conjugation certificate into unimodular AC pair operations. A whole doubled relator has nonprimitive exponent vector and cannot be used as a replacement; preserve the unit residue in both evolving words. A new bounded paid-macro probe is testing that avenue. No route yet, no first-solve/score claim, no API calls or sends. n10 has a verified119-move canonical scaffold; not competitive with reported110/117 and not offered for sending.

@@ -1,0 +1,1401 @@
+{
+  "official_core_sha256": "d2972711dc7008679127a987a8965d41ea1606b0fc50bf67e2e06c71c456b3b5",
+  "bounds": {
+    "seconds": 10,
+    "memory_bytes": 201326592,
+    "generated_records": 100000,
+    "old_window_lengths": [
+      3,
+      8
+    ],
+    "new_max_length": 2
+  },
+  "cases": [
+    {
+      "m": 4,
+      "original": [
+        4,
+        1,
+        11,
+        3,
+        8,
+        8,
+        4,
+        7,
+        7,
+        7,
+        12,
+        5,
+        12,
+        5,
+        6,
+        6,
+        8,
+        11,
+        4,
+        12,
+        2,
+        4,
+        4,
+        6,
+        3,
+        5,
+        5
+      ],
+      "original_length": 27,
+      "final_length": 27,
+      "replacements": [],
+      "verified": {
+        "start": [
+          "YYxxxxyyyX",
+          "xxYYXyy"
+        ],
+        "moves": [
+          4,
+          1,
+          11,
+          3,
+          8,
+          8,
+          4,
+          7,
+          7,
+          7,
+          12,
+          5,
+          12,
+          5,
+          6,
+          6,
+          8,
+          11,
+          4,
+          12,
+          2,
+          4,
+          4,
+          6,
+          3,
+          5,
+          5
+        ],
+        "length": 27,
+        "final": [
+          "x",
+          "y"
+        ],
+        "peak_total_length": 27,
+        "trace": [
+          {
+            "step": 0,
+            "state": [
+              "YYxxxxyyyX",
+              "xxYYXyy"
+            ]
+          },
+          {
+            "step": 1,
+            "move": 4,
+            "state": [
+              "YYxxxxyyyX",
+              "xxYYxxxyyyX"
+            ]
+          },
+          {
+            "step": 2,
+            "move": 1,
+            "state": [
+              "YYxxxxyyyX",
+              "xYYYXXXyyXX"
+            ]
+          },
+          {
+            "step": 3,
+            "move": 11,
+            "state": [
+              "YYxxxxyyyX",
+              "YYYXXXyyX"
+            ]
+          },
+          {
+            "step": 4,
+            "move": 3,
+            "state": [
+              "YYxxxxyxxxyyy",
+              "YYYXXXyyX"
+            ]
+          },
+          {
+            "step": 5,
+            "move": 8,
+            "state": [
+              "Yxxxxyxxxyy",
+              "YYYXXXyyX"
+            ]
+          },
+          {
+            "step": 6,
+            "move": 8,
+            "state": [
+              "xxxxyxxxy",
+              "YYYXXXyyX"
+            ]
+          },
+          {
+            "step": 7,
+            "move": 4,
+            "state": [
+              "xxxxyxxxy",
+              "YYYXXXyyxxxyxxxy"
+            ]
+          },
+          {
+            "step": 8,
+            "move": 7,
+            "state": [
+              "xxxyxxxyx",
+              "YYYXXXyyxxxyxxxy"
+            ]
+          },
+          {
+            "step": 9,
+            "move": 7,
+            "state": [
+              "xxyxxxyxx",
+              "YYYXXXyyxxxyxxxy"
+            ]
+          },
+          {
+            "step": 10,
+            "move": 7,
+            "state": [
+              "xyxxxyxxx",
+              "YYYXXXyyxxxyxxxy"
+            ]
+          },
+          {
+            "step": 11,
+            "move": 12,
+            "state": [
+              "xyxxxyxxx",
+              "YYXXXyyxxxyxxx"
+            ]
+          },
+          {
+            "step": 12,
+            "move": 5,
+            "state": [
+              "xyxxxyxxx",
+              "YYXXXyX"
+            ]
+          },
+          {
+            "step": 13,
+            "move": 12,
+            "state": [
+              "xyxxxyxxx",
+              "YXXXyXY"
+            ]
+          },
+          {
+            "step": 14,
+            "move": 5,
+            "state": [
+              "xyxxxyxxx",
+              "YXXXyXYXXXYXXXYX"
+            ]
+          },
+          {
+            "step": 15,
+            "move": 6,
+            "state": [
+              "xxyxxxyxx",
+              "YXXXyXYXXXYXXXYX"
+            ]
+          },
+          {
+            "step": 16,
+            "move": 6,
+            "state": [
+              "xxxyxxxyx",
+              "YXXXyXYXXXYXXXYX"
+            ]
+          },
+          {
+            "step": 17,
+            "move": 8,
+            "state": [
+              "yxxxyxxxyxY",
+              "YXXXyXYXXXYXXXYX"
+            ]
+          },
+          {
+            "step": 18,
+            "move": 11,
+            "state": [
+              "yxxxyxxxyxY",
+              "XYXXXyXYXXXYXXXY"
+            ]
+          },
+          {
+            "step": 19,
+            "move": 4,
+            "state": [
+              "yxxxyxxxyxY",
+              "XYXXX"
+            ]
+          },
+          {
+            "step": 20,
+            "move": 12,
+            "state": [
+              "yxxxyxxxyxY",
+              "yXYXXXY"
+            ]
+          },
+          {
+            "step": 21,
+            "move": 2,
+            "state": [
+              "yxxx",
+              "yXYXXXY"
+            ]
+          },
+          {
+            "step": 22,
+            "move": 4,
+            "state": [
+              "yxxx",
+              "yXY"
+            ]
+          },
+          {
+            "step": 23,
+            "move": 4,
+            "state": [
+              "yxxx",
+              "yxx"
+            ]
+          },
+          {
+            "step": 24,
+            "move": 6,
+            "state": [
+              "xyxx",
+              "yxx"
+            ]
+          },
+          {
+            "step": 25,
+            "move": 3,
+            "state": [
+              "x",
+              "yxx"
+            ]
+          },
+          {
+            "step": 26,
+            "move": 5,
+            "state": [
+              "x",
+              "yx"
+            ]
+          },
+          {
+            "step": 27,
+            "move": 5,
+            "state": [
+              "x",
+              "y"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "m": 8,
+      "original": [
+        4,
+        1,
+        11,
+        3,
+        8,
+        8,
+        4,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        12,
+        5,
+        12,
+        5,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        8,
+        11,
+        4,
+        12,
+        2,
+        4,
+        4,
+        6,
+        3,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "original_length": 39,
+      "final_length": 39,
+      "replacements": [],
+      "verified": {
+        "start": [
+          "YYxxxxxxxxyyyX",
+          "xxYYXyy"
+        ],
+        "moves": [
+          4,
+          1,
+          11,
+          3,
+          8,
+          8,
+          4,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          12,
+          5,
+          12,
+          5,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          8,
+          11,
+          4,
+          12,
+          2,
+          4,
+          4,
+          6,
+          3,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "length": 39,
+        "final": [
+          "x",
+          "y"
+        ],
+        "peak_total_length": 47,
+        "trace": [
+          {
+            "step": 0,
+            "state": [
+              "YYxxxxxxxxyyyX",
+              "xxYYXyy"
+            ]
+          },
+          {
+            "step": 1,
+            "move": 4,
+            "state": [
+              "YYxxxxxxxxyyyX",
+              "xxYYxxxxxxxyyyX"
+            ]
+          },
+          {
+            "step": 2,
+            "move": 1,
+            "state": [
+              "YYxxxxxxxxyyyX",
+              "xYYYXXXXXXXyyXX"
+            ]
+          },
+          {
+            "step": 3,
+            "move": 11,
+            "state": [
+              "YYxxxxxxxxyyyX",
+              "YYYXXXXXXXyyX"
+            ]
+          },
+          {
+            "step": 4,
+            "move": 3,
+            "state": [
+              "YYxxxxxxxxyxxxxxxxyyy",
+              "YYYXXXXXXXyyX"
+            ]
+          },
+          {
+            "step": 5,
+            "move": 8,
+            "state": [
+              "Yxxxxxxxxyxxxxxxxyy",
+              "YYYXXXXXXXyyX"
+            ]
+          },
+          {
+            "step": 6,
+            "move": 8,
+            "state": [
+              "xxxxxxxxyxxxxxxxy",
+              "YYYXXXXXXXyyX"
+            ]
+          },
+          {
+            "step": 7,
+            "move": 4,
+            "state": [
+              "xxxxxxxxyxxxxxxxy",
+              "YYYXXXXXXXyyxxxxxxxyxxxxxxxy"
+            ]
+          },
+          {
+            "step": 8,
+            "move": 7,
+            "state": [
+              "xxxxxxxyxxxxxxxyx",
+              "YYYXXXXXXXyyxxxxxxxyxxxxxxxy"
+            ]
+          },
+          {
+            "step": 9,
+            "move": 7,
+            "state": [
+              "xxxxxxyxxxxxxxyxx",
+              "YYYXXXXXXXyyxxxxxxxyxxxxxxxy"
+            ]
+          },
+          {
+            "step": 10,
+            "move": 7,
+            "state": [
+              "xxxxxyxxxxxxxyxxx",
+              "YYYXXXXXXXyyxxxxxxxyxxxxxxxy"
+            ]
+          },
+          {
+            "step": 11,
+            "move": 7,
+            "state": [
+              "xxxxyxxxxxxxyxxxx",
+              "YYYXXXXXXXyyxxxxxxxyxxxxxxxy"
+            ]
+          },
+          {
+            "step": 12,
+            "move": 7,
+            "state": [
+              "xxxyxxxxxxxyxxxxx",
+              "YYYXXXXXXXyyxxxxxxxyxxxxxxxy"
+            ]
+          },
+          {
+            "step": 13,
+            "move": 7,
+            "state": [
+              "xxyxxxxxxxyxxxxxx",
+              "YYYXXXXXXXyyxxxxxxxyxxxxxxxy"
+            ]
+          },
+          {
+            "step": 14,
+            "move": 7,
+            "state": [
+              "xyxxxxxxxyxxxxxxx",
+              "YYYXXXXXXXyyxxxxxxxyxxxxxxxy"
+            ]
+          },
+          {
+            "step": 15,
+            "move": 12,
+            "state": [
+              "xyxxxxxxxyxxxxxxx",
+              "YYXXXXXXXyyxxxxxxxyxxxxxxx"
+            ]
+          },
+          {
+            "step": 16,
+            "move": 5,
+            "state": [
+              "xyxxxxxxxyxxxxxxx",
+              "YYXXXXXXXyX"
+            ]
+          },
+          {
+            "step": 17,
+            "move": 12,
+            "state": [
+              "xyxxxxxxxyxxxxxxx",
+              "YXXXXXXXyXY"
+            ]
+          },
+          {
+            "step": 18,
+            "move": 5,
+            "state": [
+              "xyxxxxxxxyxxxxxxx",
+              "YXXXXXXXyXYXXXXXXXYXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 19,
+            "move": 6,
+            "state": [
+              "xxyxxxxxxxyxxxxxx",
+              "YXXXXXXXyXYXXXXXXXYXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 20,
+            "move": 6,
+            "state": [
+              "xxxyxxxxxxxyxxxxx",
+              "YXXXXXXXyXYXXXXXXXYXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 21,
+            "move": 6,
+            "state": [
+              "xxxxyxxxxxxxyxxxx",
+              "YXXXXXXXyXYXXXXXXXYXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 22,
+            "move": 6,
+            "state": [
+              "xxxxxyxxxxxxxyxxx",
+              "YXXXXXXXyXYXXXXXXXYXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 23,
+            "move": 6,
+            "state": [
+              "xxxxxxyxxxxxxxyxx",
+              "YXXXXXXXyXYXXXXXXXYXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 24,
+            "move": 6,
+            "state": [
+              "xxxxxxxyxxxxxxxyx",
+              "YXXXXXXXyXYXXXXXXXYXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 25,
+            "move": 8,
+            "state": [
+              "yxxxxxxxyxxxxxxxyxY",
+              "YXXXXXXXyXYXXXXXXXYXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 26,
+            "move": 11,
+            "state": [
+              "yxxxxxxxyxxxxxxxyxY",
+              "XYXXXXXXXyXYXXXXXXXYXXXXXXXY"
+            ]
+          },
+          {
+            "step": 27,
+            "move": 4,
+            "state": [
+              "yxxxxxxxyxxxxxxxyxY",
+              "XYXXXXXXX"
+            ]
+          },
+          {
+            "step": 28,
+            "move": 12,
+            "state": [
+              "yxxxxxxxyxxxxxxxyxY",
+              "yXYXXXXXXXY"
+            ]
+          },
+          {
+            "step": 29,
+            "move": 2,
+            "state": [
+              "yxxxxxxx",
+              "yXYXXXXXXXY"
+            ]
+          },
+          {
+            "step": 30,
+            "move": 4,
+            "state": [
+              "yxxxxxxx",
+              "yXY"
+            ]
+          },
+          {
+            "step": 31,
+            "move": 4,
+            "state": [
+              "yxxxxxxx",
+              "yxxxxxx"
+            ]
+          },
+          {
+            "step": 32,
+            "move": 6,
+            "state": [
+              "xyxxxxxx",
+              "yxxxxxx"
+            ]
+          },
+          {
+            "step": 33,
+            "move": 3,
+            "state": [
+              "x",
+              "yxxxxxx"
+            ]
+          },
+          {
+            "step": 34,
+            "move": 5,
+            "state": [
+              "x",
+              "yxxxxx"
+            ]
+          },
+          {
+            "step": 35,
+            "move": 5,
+            "state": [
+              "x",
+              "yxxxx"
+            ]
+          },
+          {
+            "step": 36,
+            "move": 5,
+            "state": [
+              "x",
+              "yxxx"
+            ]
+          },
+          {
+            "step": 37,
+            "move": 5,
+            "state": [
+              "x",
+              "yxx"
+            ]
+          },
+          {
+            "step": 38,
+            "move": 5,
+            "state": [
+              "x",
+              "yx"
+            ]
+          },
+          {
+            "step": 39,
+            "move": 5,
+            "state": [
+              "x",
+              "y"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "m": 16,
+      "original": [
+        4,
+        1,
+        11,
+        3,
+        8,
+        8,
+        4,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        12,
+        5,
+        12,
+        5,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        8,
+        11,
+        4,
+        12,
+        2,
+        4,
+        4,
+        6,
+        3,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "original_length": 63,
+      "final_length": 63,
+      "replacements": [],
+      "verified": {
+        "start": [
+          "YYxxxxxxxxxxxxxxxxyyyX",
+          "xxYYXyy"
+        ],
+        "moves": [
+          4,
+          1,
+          11,
+          3,
+          8,
+          8,
+          4,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          12,
+          5,
+          12,
+          5,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          8,
+          11,
+          4,
+          12,
+          2,
+          4,
+          4,
+          6,
+          3,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "length": 63,
+        "final": [
+          "x",
+          "y"
+        ],
+        "peak_total_length": 87,
+        "trace": [
+          {
+            "step": 0,
+            "state": [
+              "YYxxxxxxxxxxxxxxxxyyyX",
+              "xxYYXyy"
+            ]
+          },
+          {
+            "step": 1,
+            "move": 4,
+            "state": [
+              "YYxxxxxxxxxxxxxxxxyyyX",
+              "xxYYxxxxxxxxxxxxxxxyyyX"
+            ]
+          },
+          {
+            "step": 2,
+            "move": 1,
+            "state": [
+              "YYxxxxxxxxxxxxxxxxyyyX",
+              "xYYYXXXXXXXXXXXXXXXyyXX"
+            ]
+          },
+          {
+            "step": 3,
+            "move": 11,
+            "state": [
+              "YYxxxxxxxxxxxxxxxxyyyX",
+              "YYYXXXXXXXXXXXXXXXyyX"
+            ]
+          },
+          {
+            "step": 4,
+            "move": 3,
+            "state": [
+              "YYxxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxyyy",
+              "YYYXXXXXXXXXXXXXXXyyX"
+            ]
+          },
+          {
+            "step": 5,
+            "move": 8,
+            "state": [
+              "Yxxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxyy",
+              "YYYXXXXXXXXXXXXXXXyyX"
+            ]
+          },
+          {
+            "step": 6,
+            "move": 8,
+            "state": [
+              "xxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy",
+              "YYYXXXXXXXXXXXXXXXyyX"
+            ]
+          },
+          {
+            "step": 7,
+            "move": 4,
+            "state": [
+              "xxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 8,
+            "move": 7,
+            "state": [
+              "xxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxyx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 9,
+            "move": 7,
+            "state": [
+              "xxxxxxxxxxxxxxyxxxxxxxxxxxxxxxyxx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 10,
+            "move": 7,
+            "state": [
+              "xxxxxxxxxxxxxyxxxxxxxxxxxxxxxyxxx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 11,
+            "move": 7,
+            "state": [
+              "xxxxxxxxxxxxyxxxxxxxxxxxxxxxyxxxx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 12,
+            "move": 7,
+            "state": [
+              "xxxxxxxxxxxyxxxxxxxxxxxxxxxyxxxxx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 13,
+            "move": 7,
+            "state": [
+              "xxxxxxxxxxyxxxxxxxxxxxxxxxyxxxxxx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 14,
+            "move": 7,
+            "state": [
+              "xxxxxxxxxyxxxxxxxxxxxxxxxyxxxxxxx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 15,
+            "move": 7,
+            "state": [
+              "xxxxxxxxyxxxxxxxxxxxxxxxyxxxxxxxx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 16,
+            "move": 7,
+            "state": [
+              "xxxxxxxyxxxxxxxxxxxxxxxyxxxxxxxxx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 17,
+            "move": 7,
+            "state": [
+              "xxxxxxyxxxxxxxxxxxxxxxyxxxxxxxxxx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 18,
+            "move": 7,
+            "state": [
+              "xxxxxyxxxxxxxxxxxxxxxyxxxxxxxxxxx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 19,
+            "move": 7,
+            "state": [
+              "xxxxyxxxxxxxxxxxxxxxyxxxxxxxxxxxx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 20,
+            "move": 7,
+            "state": [
+              "xxxyxxxxxxxxxxxxxxxyxxxxxxxxxxxxx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 21,
+            "move": 7,
+            "state": [
+              "xxyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 22,
+            "move": 7,
+            "state": [
+              "xyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxx",
+              "YYYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxy"
+            ]
+          },
+          {
+            "step": 23,
+            "move": 12,
+            "state": [
+              "xyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxx",
+              "YYXXXXXXXXXXXXXXXyyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxx"
+            ]
+          },
+          {
+            "step": 24,
+            "move": 5,
+            "state": [
+              "xyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxx",
+              "YYXXXXXXXXXXXXXXXyX"
+            ]
+          },
+          {
+            "step": 25,
+            "move": 12,
+            "state": [
+              "xyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxx",
+              "YXXXXXXXXXXXXXXXyXY"
+            ]
+          },
+          {
+            "step": 26,
+            "move": 5,
+            "state": [
+              "xyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 27,
+            "move": 6,
+            "state": [
+              "xxyxxxxxxxxxxxxxxxyxxxxxxxxxxxxxx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 28,
+            "move": 6,
+            "state": [
+              "xxxyxxxxxxxxxxxxxxxyxxxxxxxxxxxxx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 29,
+            "move": 6,
+            "state": [
+              "xxxxyxxxxxxxxxxxxxxxyxxxxxxxxxxxx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 30,
+            "move": 6,
+            "state": [
+              "xxxxxyxxxxxxxxxxxxxxxyxxxxxxxxxxx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 31,
+            "move": 6,
+            "state": [
+              "xxxxxxyxxxxxxxxxxxxxxxyxxxxxxxxxx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 32,
+            "move": 6,
+            "state": [
+              "xxxxxxxyxxxxxxxxxxxxxxxyxxxxxxxxx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 33,
+            "move": 6,
+            "state": [
+              "xxxxxxxxyxxxxxxxxxxxxxxxyxxxxxxxx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 34,
+            "move": 6,
+            "state": [
+              "xxxxxxxxxyxxxxxxxxxxxxxxxyxxxxxxx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 35,
+            "move": 6,
+            "state": [
+              "xxxxxxxxxxyxxxxxxxxxxxxxxxyxxxxxx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 36,
+            "move": 6,
+            "state": [
+              "xxxxxxxxxxxyxxxxxxxxxxxxxxxyxxxxx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 37,
+            "move": 6,
+            "state": [
+              "xxxxxxxxxxxxyxxxxxxxxxxxxxxxyxxxx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 38,
+            "move": 6,
+            "state": [
+              "xxxxxxxxxxxxxyxxxxxxxxxxxxxxxyxxx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 39,
+            "move": 6,
+            "state": [
+              "xxxxxxxxxxxxxxyxxxxxxxxxxxxxxxyxx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 40,
+            "move": 6,
+            "state": [
+              "xxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxyx",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 41,
+            "move": 8,
+            "state": [
+              "yxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxyxY",
+              "YXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXYX"
+            ]
+          },
+          {
+            "step": 42,
+            "move": 11,
+            "state": [
+              "yxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxyxY",
+              "XYXXXXXXXXXXXXXXXyXYXXXXXXXXXXXXXXXYXXXXXXXXXXXXXXXY"
+            ]
+          },
+          {
+            "step": 43,
+            "move": 4,
+            "state": [
+              "yxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxyxY",
+              "XYXXXXXXXXXXXXXXX"
+            ]
+          },
+          {
+            "step": 44,
+            "move": 12,
+            "state": [
+              "yxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxxyxY",
+              "yXYXXXXXXXXXXXXXXXY"
+            ]
+          },
+          {
+            "step": 45,
+            "move": 2,
+            "state": [
+              "yxxxxxxxxxxxxxxx",
+              "yXYXXXXXXXXXXXXXXXY"
+            ]
+          },
+          {
+            "step": 46,
+            "move": 4,
+            "state": [
+              "yxxxxxxxxxxxxxxx",
+              "yXY"
+            ]
+          },
+          {
+            "step": 47,
+            "move": 4,
+            "state": [
+              "yxxxxxxxxxxxxxxx",
+              "yxxxxxxxxxxxxxx"
+            ]
+          },
+          {
+            "step": 48,
+            "move": 6,
+            "state": [
+              "xyxxxxxxxxxxxxxx",
+              "yxxxxxxxxxxxxxx"
+            ]
+          },
+          {
+            "step": 49,
+            "move": 3,
+            "state": [
+              "x",
+              "yxxxxxxxxxxxxxx"
+            ]
+          },
+          {
+            "step": 50,
+            "move": 5,
+            "state": [
+              "x",
+              "yxxxxxxxxxxxxx"
+            ]
+          },
+          {
+            "step": 51,
+            "move": 5,
+            "state": [
+              "x",
+              "yxxxxxxxxxxxx"
+            ]
+          },
+          {
+            "step": 52,
+            "move": 5,
+            "state": [
+              "x",
+              "yxxxxxxxxxxx"
+            ]
+          },
+          {
+            "step": 53,
+            "move": 5,
+            "state": [
+              "x",
+              "yxxxxxxxxxx"
+            ]
+          },
+          {
+            "step": 54,
+            "move": 5,
+            "state": [
+              "x",
+              "yxxxxxxxxx"
+            ]
+          },
+          {
+            "step": 55,
+            "move": 5,
+            "state": [
+              "x",
+              "yxxxxxxxx"
+            ]
+          },
+          {
+            "step": 56,
+            "move": 5,
+            "state": [
+              "x",
+              "yxxxxxxx"
+            ]
+          },
+          {
+            "step": 57,
+            "move": 5,
+            "state": [
+              "x",
+              "yxxxxxx"
+            ]
+          },
+          {
+            "step": 58,
+            "move": 5,
+            "state": [
+              "x",
+              "yxxxxx"
+            ]
+          },
+          {
+            "step": 59,
+            "move": 5,
+            "state": [
+              "x",
+              "yxxxx"
+            ]
+          },
+          {
+            "step": 60,
+            "move": 5,
+            "state": [
+              "x",
+              "yxxx"
+            ]
+          },
+          {
+            "step": 61,
+            "move": 5,
+            "state": [
+              "x",
+              "yxx"
+            ]
+          },
+          {
+            "step": 62,
+            "move": 5,
+            "state": [
+              "x",
+              "yx"
+            ]
+          },
+          {
+            "step": 63,
+            "move": 5,
+            "state": [
+              "x",
+              "y"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "classification": "completed_local_scope",
+  "generated_records": 25830,
+  "elapsed_seconds": 0.05145629899925552
+}

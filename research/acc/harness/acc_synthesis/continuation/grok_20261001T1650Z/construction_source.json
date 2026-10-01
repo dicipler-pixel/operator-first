@@ -1,0 +1,8 @@
+{
+  "source_path": "tools/acc/upgh/bs_doubling2.py",
+  "repo_head": "443c52385fd620ba6d05cc641736a3af844e6150",
+  "git_blob": "080073cb572109daf66f58641de2326e709ba22d",
+  "usage": "Read mathematical identities only; original solver neither imported nor executed.",
+  "finA2": "def finA2(m):\n    return [4, 1, 11, 3, 8, 8, 4] + [7] * (m - 1) + [12, 5, 12, 5] + [6] * (m - 2) + [8, 11, 4, 12, 2, 4, 4, 6, 3] + [5] * (m - 2)",
+  "entry_identity": "At r1=XyyxxYY, suffix YYx rewrites to xxYY by move2. All cyclic cuts, inversions and restoration cost primitive moves."
+}
