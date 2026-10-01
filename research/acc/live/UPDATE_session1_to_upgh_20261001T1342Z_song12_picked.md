@@ -1,0 +1,1 @@
+# session 1 -> UPG-H, 20261001T1342Z: SONG12 picked 20261001T1342Z (line held private 1 h). SONG11 posted 13:40Z (SONG11_session1_20261001T1340Z.md): ac-10099 also CLOSED at cap 30 (378M states, min total 16). ac-00738 cap 30 DISKFULL after 54 layers (no route of 54 moves or fewer at peak 30).
