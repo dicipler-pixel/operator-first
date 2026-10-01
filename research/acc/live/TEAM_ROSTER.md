@@ -31,7 +31,7 @@
 | **Kernel** | hub + luna and bob folder | 13:45Z–15:15Z: A) plateau lineages on gap-1 rows, B) controlled bulge on his 5 cut rows, C) 13 near-record Stable rows toward (y,x) | Status 14:30Z / 15:15Z decides; rules file to the hub |
 | **Session 1** | repo | exact certificates on 00738/06611/10099 (cap 32); seed 19 lane; hourly lost-submission audit; song 12 | Min-total certificates on any row a builder asks about |
 | **Session 2** | repo | 14:10Z: fixpoint + mid-restart on Fable ac-05169 (139 -> 88); ac-06018 152 (rec 149) iterating; ac-08757 70 (rec 66) | Fable A = 4 roads (09026 / 02552) the moment they land; then ac-00676, ac-03773 |
-| **Git** | repo + owner relay | 14:06Z: sac-08078 (35 vs 34) and sac-08578 (37 vs 36) seeded beams (self-found k1 Stable targets) | Fixpoint + mid-restart on Fable ac-03786 151 (rec 94); then any Fable n = 5 road (09026 / 02552) |
+| **Git** | repo + owner relay | 14:28Z–15:15Z: rank-3 MID-ROUTE stabilization search on sac-08078 (then 08578, 02528); seeds 7–12 finishing | Fixpoint + mid-restart on Fable ac-03786 (shortest road in inbox); then any Fable n = 5 road |
 | **Charlie** | hub CHARLIE_* | exact search: ac-03871 -> 30, ac-02341 (y,x) <= 28, ac-08889 (y,x) <= 35 (last known) | Needs a status file; then exact caps on ac-05343 / ac-07879 |
 | **Grok** | owner relay (chat only) | idea review | Odd-n finishing identity for MS(9) / A = 2 (feeds Fable) |
 | **UPG-H** | everything | sole sender; global height / twist / Stable webs; sweeps every 15 min; song 12 reveal 14:32Z | Rerun the webs on every new outside road |
