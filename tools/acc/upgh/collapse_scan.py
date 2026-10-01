@@ -27,6 +27,23 @@ def ridge(k):
     return (r0, r1), [1, 8, 2, 4] + [2] * (k - 1)
 
 
+def maybe_ridge(s):
+    """C_k up to symmetry: one relator has exactly 1 letter of some generator g and the other exactly 2 (same sign), every other letter in both is the
+    same signed letter of the other generator, and the lengths are k+1 and 2k+1."""
+    for a, b in ((s[0], s[1]), (s[1], s[0])):
+        if len(b) != 2 * len(a) - 1 or len(a) < 3:
+            continue
+        for g in (1, 2):
+            ga = [t for t in a if abs(t) == g]
+            gb = [t for t in b if abs(t) == g]
+            if len(ga) != 1 or len(gb) != 2 or gb[0] != gb[1]:
+                continue
+            rest = {t for t in a + b if abs(t) != g}
+            if len(rest) == 1:
+                return True
+    return False
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--kmax", type=int, default=24)
@@ -55,6 +72,8 @@ def main():
         best = None
         for i, s in enumerate(states[:-1]):
             scanned += 1
+            if not maybe_ridge(s):        # O(length) letter-pattern filter before the canonical-form key
+                continue
             kk = T.key(s)
             if kk not in keys:
                 continue
