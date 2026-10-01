@@ -1,0 +1,202 @@
+{
+  "completed_utc": "2026-10-01T11:38:18.594483+00:00",
+  "status": "complete",
+  "competition_rows_used": false,
+  "cases": [
+    {
+      "case": 0,
+      "distance": 3,
+      "requested_depth": 2,
+      "cache_limit": 0,
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "case": 1,
+      "distance": 3,
+      "requested_depth": 2,
+      "cache_limit": 3,
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "case": 2,
+      "distance": 3,
+      "requested_depth": 2,
+      "cache_limit": 10000,
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "case": 3,
+      "distance": 3,
+      "requested_depth": 3,
+      "cache_limit": 0,
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "case": 4,
+      "distance": 3,
+      "requested_depth": 3,
+      "cache_limit": 3,
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "case": 5,
+      "distance": 3,
+      "requested_depth": 3,
+      "cache_limit": 10000,
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "case": 6,
+      "distance": 5,
+      "requested_depth": 4,
+      "cache_limit": 0,
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "case": 7,
+      "distance": 5,
+      "requested_depth": 4,
+      "cache_limit": 3,
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "case": 8,
+      "distance": 5,
+      "requested_depth": 4,
+      "cache_limit": 10000,
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "case": 9,
+      "distance": 5,
+      "requested_depth": 5,
+      "cache_limit": 0,
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "case": 10,
+      "distance": 5,
+      "requested_depth": 5,
+      "cache_limit": 3,
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "case": 11,
+      "distance": 5,
+      "requested_depth": 5,
+      "cache_limit": 10000,
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "case": 12,
+      "distance": 7,
+      "requested_depth": 6,
+      "cache_limit": 0,
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "case": 13,
+      "distance": 7,
+      "requested_depth": 6,
+      "cache_limit": 3,
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "case": 14,
+      "distance": 7,
+      "requested_depth": 6,
+      "cache_limit": 10000,
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "case": 15,
+      "distance": 7,
+      "requested_depth": 7,
+      "cache_limit": 0,
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "case": 16,
+      "distance": 7,
+      "requested_depth": 7,
+      "cache_limit": 3,
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "case": 17,
+      "distance": 7,
+      "requested_depth": 7,
+      "cache_limit": 10000,
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "case": 18,
+      "distance": 8,
+      "requested_depth": 7,
+      "cache_limit": 0,
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "case": 19,
+      "distance": 8,
+      "requested_depth": 7,
+      "cache_limit": 3,
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "case": 20,
+      "distance": 8,
+      "requested_depth": 7,
+      "cache_limit": 10000,
+      "passed": true,
+      "exit": 2
+    },
+    {
+      "case": 21,
+      "distance": 8,
+      "requested_depth": 8,
+      "cache_limit": 0,
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "case": 22,
+      "distance": 8,
+      "requested_depth": 8,
+      "cache_limit": 3,
+      "passed": true,
+      "exit": 0
+    },
+    {
+      "case": 23,
+      "distance": 8,
+      "requested_depth": 8,
+      "cache_limit": 10000,
+      "passed": true,
+      "exit": 0
+    }
+  ],
+  "ground_truth": "Official-core BFS distances in the fully checked cap-6 component",
+  "covers": "Positive/negative bounds at distances 3/5/7/8; disabled, saturated, and ample exact cache",
+  "source_sha256": "e5b05aa2c780f0c8925e89c729537488d89aca57f82d01abef2d80e49ad30ac1"
+}

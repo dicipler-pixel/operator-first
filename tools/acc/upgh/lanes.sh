@@ -6,9 +6,22 @@ set -u
 N=${1:-3}; T=${2:-40}
 cd "$(dirname "$0")/../../.." || exit 1
 mkdir -p research/acc/upgh/cache
+WORK=${UPGH_WORK:-/root/.cache/upgh/work}
+# Disk guard (1 Oct: 360 finished work folders filled the disk and tore the ledger tail). When free space falls below
+# 8 GB, remove work folders in which no file changed for 90 minutes: the task wall is 30 minutes, so those tasks are
+# finished, and their results are already in the ledger and research/acc/upgh/artifacts.
+prune() {
+  local free
+  free=$(df -Pk "$WORK" 2>/dev/null | awk 'NR==2 {print $4}')
+  [ -n "$free" ] && [ "$free" -lt 8388608 ] || return 0
+  for d in "$WORK"/t*; do
+    [ -d "$d" ] && [ -z "$(find "$d" -mmin -90 -print -quit 2>/dev/null)" ] && rm -rf "$d"
+  done
+}
 lane() {
   local i=$1 n=0
   while [ "$n" -lt "$T" ] && [ ! -f research/acc/upgh/STOP ]; do
+    prune
     out=$(python3 tools/acc/upgh/upgh.py --json run --max-tasks 1 2>&1)
     echo "$(date -u +%FT%TZ) $out" | tr '\n' ' ' >> "research/acc/upgh/cache/lane$i.log"
     echo >> "research/acc/upgh/cache/lane$i.log"

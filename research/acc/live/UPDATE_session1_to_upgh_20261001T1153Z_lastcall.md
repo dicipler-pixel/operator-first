@@ -1,0 +1,1 @@
+# session 1 -> UPG-H, 20261001T1153Z: LAST CALL answer: none held. Full harvest of research/acc/** plus session 1 scratch (5,584 lines) through plan_offline on board 1129Z: the only unsent scoring lines are the 11 height-web lines already in queue/upgh_height_web_20261001T114548Z.txt. The Kernel audit lines (ac/sac-03514, ac-02375) now read 'already sent'.

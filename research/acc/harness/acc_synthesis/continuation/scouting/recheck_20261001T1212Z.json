@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-01T12:12:00Z",
+  "queries": [
+    "site:arxiv.org 2026 Cayley graph exact shortest path admissible heuristic group word problem",
+    "site:github.com free group automorphism word rewrite Knuth Bendix shortest path"
+  ],
+  "status": "primary_source_supports_existing_team_method; no new ACC claim",
+  "primary_sources": [
+    {
+      "key": "github:kalmarek/Groups.jl@1fbd7b875bd8890674550a265c785fbdd4851960",
+      "url": "https://github.com/kalmarek/Groups.jl",
+      "commit_date": "2024-02-13T11:08:48Z",
+      "available_artifacts": "Runnable Julia source and tests for free, finitely presented and automorphism groups; README documents exact equality fallback by evaluating generator images and collision-guarded cached equality data.",
+      "limitation": "Repository head is not recent and is not an ACC solver. Its README warns that incomplete Knuth-Bendix completion cannot certify inequality; no code was downloaded or run.",
+      "selected_row_relevance": "Supports UPGH/Kernel P2's exact identity key: compare move words through freely reduced images of the relator generators, not through sampled states or an incomplete rewrite system."
+    },
+    {
+      "key": "github:gap-packages/kbmag@fe51df750fa56b814246ab3b502e1a843dced30a",
+      "url": "https://github.com/gap-packages/kbmag",
+      "commit_date": "2026-10-01T08:50:47Z",
+      "available_artifacts": "Runnable GAP package and C binaries for Knuth-Bendix and automatic-group methods; current commit changes CI checkout versions only.",
+      "limitation": "Current update adds no new mathematical algorithm. External binaries were not downloaded or run. General normal-form results are not ACC results."
+    }
+  ],
+  "deduplication": "The exact generator-image equality idea already arrived from UPGH in UPGH_to_KERNEL_20261001T1200Z and is assigned to Kernel. Therefore this scan adds source support and a failure warning, not a competing assignment.",
+  "bounded_falsifiable_next_experiment": "Already assigned outside this harness: enumerate paid move words to length <=6-7, hash exact freely reduced images of both relator symbols, independently replay every shorter collision on the official core, and reject any rule justified only by incomplete Knuth-Bendix reduction. This harness does not duplicate that job.",
+  "private_queries_used": false,
+  "external_code_run": false,
+  "model_workers": 0
+}

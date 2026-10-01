@@ -1,0 +1,47 @@
+{
+  "status": "complete",
+  "completed_utc": "2026-10-01T11:24:26.106703+00:00",
+  "competition_rows_used": false,
+  "known_exact_distance": 8,
+  "requested_depth": 8,
+  "prefix_node_budget": 1,
+  "cases": [
+    {
+      "prefix_depth": 0,
+      "cache_limit": 0,
+      "status": "incomplete",
+      "passed": true
+    },
+    {
+      "prefix_depth": 0,
+      "cache_limit": 3,
+      "status": "incomplete",
+      "passed": true
+    },
+    {
+      "prefix_depth": 0,
+      "cache_limit": 10000,
+      "status": "incomplete",
+      "passed": true
+    },
+    {
+      "prefix_depth": 4,
+      "cache_limit": 0,
+      "status": "incomplete",
+      "passed": true
+    },
+    {
+      "prefix_depth": 4,
+      "cache_limit": 3,
+      "status": "incomplete",
+      "passed": true
+    },
+    {
+      "prefix_depth": 4,
+      "cache_limit": 10000,
+      "status": "incomplete",
+      "passed": true
+    }
+  ],
+  "assertion": "Every deliberately interrupted positive case remains incomplete; none is mislabeled complete_no_path."
+}

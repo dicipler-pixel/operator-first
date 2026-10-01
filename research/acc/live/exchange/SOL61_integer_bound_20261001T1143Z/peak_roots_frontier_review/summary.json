@@ -1,0 +1,151 @@
+{
+  "status": "complete",
+  "completed_utc": "2026-10-01T11:22:40.181882+00:00",
+  "competition_rows_used": false,
+  "exact_frontier_cases": [
+    {
+      "fixture": 0,
+      "depth": 0,
+      "roots": 1,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 0,
+      "depth": 1,
+      "roots": 11,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 0,
+      "depth": 2,
+      "roots": 58,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 0,
+      "depth": 3,
+      "roots": 0,
+      "early": true,
+      "passed": true
+    },
+    {
+      "fixture": 0,
+      "depth": 4,
+      "roots": 0,
+      "early": true,
+      "passed": true
+    },
+    {
+      "fixture": 1,
+      "depth": 0,
+      "roots": 1,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 1,
+      "depth": 1,
+      "roots": 10,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 1,
+      "depth": 2,
+      "roots": 39,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 1,
+      "depth": 3,
+      "roots": 81,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 1,
+      "depth": 4,
+      "roots": 147,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 2,
+      "depth": 0,
+      "roots": 1,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 2,
+      "depth": 1,
+      "roots": 4,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 2,
+      "depth": 2,
+      "roots": 10,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 2,
+      "depth": 3,
+      "roots": 16,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 2,
+      "depth": 4,
+      "roots": 26,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 3,
+      "depth": 0,
+      "roots": 1,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 3,
+      "depth": 1,
+      "roots": 4,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 3,
+      "depth": 2,
+      "roots": 10,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 3,
+      "depth": 3,
+      "roots": 16,
+      "early": false,
+      "passed": true
+    },
+    {
+      "fixture": 3,
+      "depth": 4,
+      "roots": 26,
+      "early": false,
+      "passed": true
+    }
+  ],
+  "roots_checked": 462,
+  "ground_truth": "Independent official-core cap-6 BFS, depths 0 through 4",
+  "state_keys_and_cache_unchanged": true,
+  "source_sha256": "1cd41f0291457d5184a335b9db5e8c800b2dfacd0f77238747125f5f288608ac"
+}
