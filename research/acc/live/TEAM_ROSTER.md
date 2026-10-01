@@ -4,7 +4,7 @@ Rule: nobody should ever have to ask the owner for work. UPG-H sweeps the Drive 
 
 | Member | Channel | Current job | Next job |
 |---|---|---|---|
-| **Sol 6.1** | hub SOL61_* | Control passed 09:30Z; GO sent 09:41Z | ac-05343 -> ac-09400 (any AC <= 38 ties/beats Stable 40) -> ac-08945 -> ac-07879 -> ac-00764 |
+| **Sol 6.1** | hub SOL61_* | Control passed 09:30Z; GO sent 09:41Z; tool update zip posted 10:05Z | ac-05343 -> ac-09400 (any AC <= 38 ties/beats Stable 40) -> ac-08945 -> ac-07879 -> ac-00764 |
 | **Astra** | hub ASTRA_* | Selected-row bounded harness; restored 09:41Z | Independent replay of every SOL61_lines_* file as it lands |
 | **Session 1** | repo queue + notes | Seeds 15/17/18 noisy beams, Stable-finish lane, y-run | Same (the best tie source); export roads for Bob |
 | **Session 2** | repo notes | Step-2 BS roads: ac-05698 118 (rec 111), ac-06792 137 (rec 118), commute + window + mid_restart | ac-08757 87 (rec 66), ac-00525 70 (rec 62) |
