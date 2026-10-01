@@ -1,0 +1,1835 @@
+{
+  "head": "7e049620548986eecc33e70a9e2a8784486c3706",
+  "path": "research/acc/upgh/ledger.jsonl",
+  "sha": "1f86cf3ad700c1be8877e0a444efbc90656a17be",
+  "records": [
+    {
+      "line": 2652,
+      "at": "2026-09-30T14:43:03Z",
+      "data": {
+        "heat": [
+          [
+            "sac-02528",
+            "f-c2142d135f"
+          ],
+          [
+            "sac-07119",
+            "f-c2142d135f"
+          ]
+        ],
+        "reason": "adapter bug: tail_replace_rows.py pointed one directory too high, so tail_replace.py never started; the recorded 'finished, 0 splices' was not a search (fixed; adapters now exit non-zero on tool errors)",
+        "task": "t00018"
+      },
+      "grade": "V",
+      "hash": "493dbc7177cbe001d660084c1e530b554c3ed63db5c0358a9f811a9e569eb19f",
+      "kind": "task.voided",
+      "prev": "78dd9bb04b6195053962f013db808edc2f6b412dc6d4a345493a79a6b494976c",
+      "seq": 2652
+    },
+    {
+      "line": 2653,
+      "at": "2026-09-30T14:43:03Z",
+      "data": {
+        "heat": [
+          [
+            "sac-04718",
+            "f-c2142d135f"
+          ]
+        ],
+        "reason": "adapter bug: tail_replace_rows.py pointed one directory too high, so tail_replace.py never started; the recorded 'finished, 0 splices' was not a search (fixed; adapters now exit non-zero on tool errors)",
+        "task": "t00022"
+      },
+      "grade": "V",
+      "hash": "bf392971d6a9775ec31d2c7d704939ffb6927899882ced772a94b8800e90d3ef",
+      "kind": "task.voided",
+      "prev": "493dbc7177cbe001d660084c1e530b554c3ed63db5c0358a9f811a9e569eb19f",
+      "seq": 2653
+    },
+    {
+      "line": 2654,
+      "at": "2026-09-30T14:43:03Z",
+      "data": {
+        "heat": [
+          [
+            "sac-02275",
+            "f-c2142d135f"
+          ]
+        ],
+        "reason": "adapter bug: tail_replace_rows.py pointed one directory too high, so tail_replace.py never started; the recorded 'finished, 0 splices' was not a search (fixed; adapters now exit non-zero on tool errors)",
+        "task": "t00025"
+      },
+      "grade": "V",
+      "hash": "c5fe330f9a2e78a47f0460825623c404e548e55fdc484f66539f3bda8b0ffa21",
+      "kind": "task.voided",
+      "prev": "bf392971d6a9775ec31d2c7d704939ffb6927899882ced772a94b8800e90d3ef",
+      "seq": 2654
+    },
+    {
+      "line": 2655,
+      "at": "2026-09-30T14:44:41Z",
+      "data": {
+        "heat": [
+          [
+            "sac-04718",
+            "f-acc075239b"
+          ],
+          [
+            "ac-04067",
+            "f-acc075239b"
+          ],
+          [
+            "sac-04067",
+            "f-acc075239b"
+          ]
+        ],
+        "reason": "acc_beam was compiled at 13:43 from the pre-merge source, which has no BEAM_P2/DUAL/QUOTA code; these runs were the old beam at W20k, not beam_p2 (binaries rebuilt 14:44 from current source; provenance now recorded per run)",
+        "task": "t00023"
+      },
+      "grade": "V",
+      "hash": "0312e4cf83c6ab67085b94d1272bce848d56ccd750735232cf2f45cf69ccc5ef",
+      "kind": "task.voided",
+      "prev": "c5fe330f9a2e78a47f0460825623c404e548e55fdc484f66539f3bda8b0ffa21",
+      "seq": 2655
+    },
+    {
+      "line": 2656,
+      "at": "2026-09-30T14:44:41Z",
+      "data": {
+        "heat": [
+          [
+            "sac-02275",
+            "f-acc075239b"
+          ],
+          [
+            "ac-04735",
+            "f-acc075239b"
+          ],
+          [
+            "sac-04735",
+            "f-acc075239b"
+          ]
+        ],
+        "reason": "acc_beam was compiled at 13:43 from the pre-merge source, which has no BEAM_P2/DUAL/QUOTA code; these runs were the old beam at W20k, not beam_p2 (binaries rebuilt 14:44 from current source; provenance now recorded per run)",
+        "task": "t00026"
+      },
+      "grade": "V",
+      "hash": "35bc054321f65ffd25da5a5fe63a4b8caefac1c700279c71437ff664733ec005",
+      "kind": "task.voided",
+      "prev": "0312e4cf83c6ab67085b94d1272bce848d56ccd750735232cf2f45cf69ccc5ef",
+      "seq": 2656
+    },
+    {
+      "line": 2726,
+      "at": "2026-09-30T15:26:04Z",
+      "data": {
+        "heat": [
+          [
+            "sac-02528",
+            "f-acc075239b"
+          ],
+          [
+            "sac-07119",
+            "f-acc075239b"
+          ]
+        ],
+        "reason": "killed at the 900 s wall before run_beam_raw.py wrote any row (it writes only after beam + window finish); the beam's result is unobservable, so this is not a miss; budget being resized",
+        "task": "t00033"
+      },
+      "grade": "V",
+      "hash": "4955e3e870c6c587378283090c6046c1357e7a3f2ab1f815d1f83e273dcab0d0",
+      "kind": "task.voided",
+      "prev": "cdeb9a98da3d37b3055e2b4345f4c5b9add430dad941d29b725ef50bab06e2a7",
+      "seq": 2726
+    },
+    {
+      "line": 2727,
+      "at": "2026-09-30T15:26:04Z",
+      "data": {
+        "heat": [
+          [
+            "sac-04493",
+            "f-acc075239b"
+          ],
+          [
+            "ac-05149",
+            "f-acc075239b"
+          ]
+        ],
+        "reason": "killed at the 900 s wall before run_beam_raw.py wrote any row (it writes only after beam + window finish); the beam's result is unobservable, so this is not a miss; budget being resized",
+        "task": "t00034"
+      },
+      "grade": "V",
+      "hash": "e71f7ec9a8e1a4e8ee480f6f24c8cf4cca1fb684c363e4a7f1ffc11d966f6d28",
+      "kind": "task.voided",
+      "prev": "4955e3e870c6c587378283090c6046c1357e7a3f2ab1f815d1f83e273dcab0d0",
+      "seq": 2727
+    },
+    {
+      "line": 2728,
+      "at": "2026-09-30T15:26:04Z",
+      "data": {
+        "heat": [
+          [
+            "sac-04718",
+            "f-acc075239b"
+          ],
+          [
+            "sac-02275",
+            "f-acc075239b"
+          ]
+        ],
+        "reason": "killed at the 900 s wall before run_beam_raw.py wrote any row (it writes only after beam + window finish); the beam's result is unobservable, so this is not a miss; budget being resized",
+        "task": "t00035"
+      },
+      "grade": "V",
+      "hash": "a4093d33e3cf34cdf370cd5227fe659c9dfbead1209543d8e8d993c52e80d98c",
+      "kind": "task.voided",
+      "prev": "e71f7ec9a8e1a4e8ee480f6f24c8cf4cca1fb684c363e4a7f1ffc11d966f6d28",
+      "seq": 2728
+    },
+    {
+      "line": 3088,
+      "at": "2026-09-30T17:49:52Z",
+      "data": {
+        "after_stop": false,
+        "result": {
+          "builder_notes": "Not a known method: build an adapter around /home/user/operator-first/research/acc/live/charlie/v45/tools/surgery.py (line 111 sets K = peak + 2; expose K as an env/arg) and /home/user/operator-first/tools/acc/charlie/acc_disk.cpp (rebuild on this CPU; -march=native binaries died with SIGILL after a host move, IDEAS.md 02:55Z 2026-09-29). Head ball at cap 37 stays small near the start (multiplications need >= 6 letters of cancellation to stay under 37; conjugation chains dominate), so the cost sits in the forward acc_disk searches, which MAXST bounds. Write only under research/acc/upgh/artifacts/t00070.",
+          "discriminating_test": {
+            "inputs": "Row ac-00975, start [[-2,-2,-1,2,-1,-2,1,2,1,1,-2,-1,2,-1],[-2,-2,-1,2,-1,-2,1,2,-1,-1,-2,-2,1,-2,-1,2,-1]], harvested AC35 route from ledger seq 648 (research/acc/live/charlie/charlie_surgery_bundle_20260929.json:[3].moves; identical to charlie_surgery.jsonl:4 route). Tool: Charlie's surgery.py (research/acc/live/charlie/v45/tools/surgery.py) with acc_disk (tools/acc/charlie/acc_disk.cpp), cap forced to 37 instead of peak+2, MAXST 80000000 per search, W 11, MEM 2500. Three parallel lanes: HEAD (radius-9 ball around s_0 under cap 37, then acc_disk from s_L for L = 10..22 to depth L-10 meeting the ball), TAIL (from s_{35-L}, L = 10..22, meeting B36), WINDOWS (all stretches <=11 under cap 37). Fourth core replays any shortened route through the pinned official AC verifier (SAIR a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e, per CODEX note). Optional rider at no extra ball cost: the Stable (y,x) route of sac-00975 (charlie_surgery.jsonl:5) through the same head ball.",
+            "limits": "Wall 2400 s total on 4 cores; MAXST 80000000 states per acc_disk search; cap 37; W 11; head/tail L <= 22. Cap-33 reference: 579.3 s single process, head/tail 22, windows 11 (charlie_surgery.jsonl:4). A budget stop is a scoped miss, not an impossibility claim; nothing here proves the 35 route optimal.",
+            "observe": "Per lane and per L: 'shortened' (with the new verified route and its peak length), 'certified' (search closed under cap 37 with no meet), or 'budget stop' (MAXST hit; inconclusive at that L). Record the largest certified L for head and tail, the windows verdict, wall time and state counts. Any shortened route is a new_path event for the row (ledger reopen_when, seq 2532).",
+            "outcomes": {
+              "a head, tail or window shortens at cap 37 (new route <= 34, or a 35 with a different climbing shape)": "the record climbs above start+2; the length key and the cap-33 certificates were the bottleneck. Keep the ceiling: rerun surgery at cap 39 on the new route, add it to the pool, and run window/tail on it; do not return to the beam family on this row.",
+              "budget stop before L = 22 in head or tail at cap 37": "scope-limited: report certified L only. Next action is the same seed switch as above, plus a second surgery pass at cap 35 to close the gap between 33 and 37 where the state count allows; no cap-37 claim beyond the certified L.",
+              "head 22, tail 22 and windows 11 all certified at cap 37 with no budget stop": "the 34-route shares no state with ours in 13..22 even with a +6 climb: it is non-local, not a climbing variant. Next switch is seed: off-corridor start-ball seeds (exact ball radius 5-6 around s_0, stratified by total length including 32-36, excluding states within 2 moves of any of our routes) fed to beam_p2 with DMAX = 34 - r; acc_beam already accepts any start pair (acc_beam.c:6, run_beam_raw.py enc())."
+            }
+          },
+          "disputed_assumption": "The 34-move route never exceeds total relator length 33 (start 31 + 2) and passes near our route. If false, every exact certificate on this row (all at cap 33 or local) and every length-keyed beam are blind in the same place, and further seed/pool/window changes inside that ceiling cannot change what scores. Supporting but not justifying [H]: the team's pool profile puts record/start = 34/31 = 1.10 in the buckets where 28/39 and 54/73 record routes climb above the start (median +2, max far higher) (IDEAS.md, 2026-09-28 15:00Z Smith-chart section), while our routes on this row never rise above the start (IDEAS.md:1648).",
+          "file_refs": [
+            "/home/user/operator-first/research/acc/live/charlie/v45/charlie_surgery.jsonl:4-5",
+            "/home/user/operator-first/research/acc/live/charlie/v45/tools/surgery.py:1-12,36-38,111",
+            "/home/user/operator-first/research/acc/live/ledger/CODEX_C16_REVERSE_20260928.md:24-27,33,37",
+            "/home/user/operator-first/research/acc/live/IDEAS.md:971,1283,1458,1648,1677",
+            "/home/user/operator-first/research/acc/live/GIT_STATUS_20260930.md:16-18",
+            "/home/user/operator-first/research/acc/optimality/tail_replace.py:21",
+            "/home/user/operator-first/research/acc/optimality/acc_beam.c:6,304",
+            "/home/user/operator-first/research/acc/optimality/run_beam_raw.py",
+            "/home/user/operator-first/research/acc/live/pool/session2_best_k1to3_20260930T0645Z.jsonl (ac-00975: 5 merged routes, all 35)",
+            "/home/user/operator-first/tools/acc/charlie/acc_disk.cpp"
+          ],
+          "kind": "proposal",
+          "ledger_refs": [
+            648,
+            2531,
+            2532,
+            2547,
+            2580,
+            2582,
+            3039
+          ],
+          "not_proposed": [
+            "beam/beam_p2 wider or reseeded: W 200000 miss (seq 2531-2532, 222.7 s), W 100000 miss (IDEAS.md:1677), family f-acc075239b heat 3 (seq 2547) - knobs only",
+            "window14: exact, no shortcut, 207.6 s (CODEX_C16_REVERSE_20260928.md:26)",
+            "tail-replace with larger slack: cap = peak + slack is a knob of a spent family (tail_replace.py:21; seq 2547)",
+            "crossover/splice among our three AC35 routes: 318538 states, none <= 34 (CODEX_C16_REVERSE_20260928.md:37)",
+            "on-path restarts and climb at the opening: negative (IDEAS.md:1458, IDEAS.md:971, GIT_STATUS_20260930.md:18)",
+            "yx: SAC rows only, miss on sac-00975 (seq 2580, 2582)",
+            "exact capped search from the start: ~657M states predicted, budget 120M (IDEAS.md:1648)"
+          ],
+          "strategy": {
+            "board_filter": "near-record",
+            "capture": "head-ball9+tail-B36+window11@cap37",
+            "knobs": {
+              "CAP": 37,
+              "CORES": 4,
+              "HEAD_MAX_L": 22,
+              "MAXST": 80000000,
+              "MEM": 2500,
+              "TAIL_MAX_L": 22,
+              "W": 11,
+              "WALL_S": 2400
+            },
+            "method": "surgery",
+            "pool": "none",
+            "representation": "direct",
+            "seed": "our-best-ac"
+          },
+          "summary": "Every exact negative on ac-00975 is either local (uncapped acc_window over pairs <=14 apart on our own route, plus depth-3 crossovers among our three AC35 routes) or capped at total length 33: Charlie's surgery certified windows<=11, head 22 and tail 22 with cap = peak+2 = 33 (/home/user/operator-first/research/acc/live/charlie/v45/charlie_surgery.jsonl:4; cap rule at /home/user/operator-first/research/acc/live/charlie/v45/tools/surgery.py:111). Every heuristic family (beam from start at W 20000/100000/200000, on-path restarts, climb-at-opening) uses a length key whose routes never rise above the start length 31 (IDEAS.md:1648). Together these say: a 34-route either shares no state with ours in positions 13..22 and diverges over a span >=15, or it climbs above 33 inside a head/tail segment, a region no run on this row has ever examined. The C16 note already recommended 'a different bridge, rank/heuristic, or higher ceiling' (CODEX_C16_REVERSE_20260928.md:33). I propose switching method and capture: exact surgery (start-side radius-9 head ball + B36 tail meet + windows 11) on the harvested AC35 route at ceiling 37 (start+6) with a per-search state budget, run as three parallel lanes. It is deterministic, bounded, finishes well under 40 minutes on 4 cores (the cap-33 pass took 579 s in one process, charlie_surgery.jsonl:4), and its outcomes point to different next actions. More beam width, seeds, window14, tail-replace with a bigger slack (cap = peak+slack is a knob, tail_replace.py:21), or yx (SAC-only, seq 2582) would all stay inside the ceiling-33 / local blind spot.",
+          "task": "t00070"
+        },
+        "task": "t00070"
+      },
+      "grade": "H",
+      "hash": "39e7833c9a32a6890753137c82d18c58e4fe442a75c5d5542861d587f1fbbd34",
+      "kind": "task.result",
+      "prev": "af5dc442ae881ede1105395987a68edb371610a073ee69859e4a2dda660cf2ba",
+      "seq": 3088
+    },
+    {
+      "line": 3448,
+      "at": "2026-09-30T20:43:30Z",
+      "data": {
+        "heat": [
+          [
+            "ac-06045",
+            "f-270a96a15a"
+          ]
+        ],
+        "reason": "audit 20:35Z: wall-limited (t00032 capped 874 s, t00089 beam_free exit -9 at 1800 s); incomplete coverage, not a miss; heat removed so the rows are not gated on a non-result",
+        "task": "t00032"
+      },
+      "grade": "V",
+      "hash": "ff5444298745e2443887a6e91c02487a1c00d3a3ed46d8c159a4dc28896801cc",
+      "kind": "task.voided",
+      "prev": "a16357f527cc0637c95bc93a3ba81ec69a68720962d8088892d595a715a28a99",
+      "seq": 3448
+    },
+    {
+      "line": 3449,
+      "at": "2026-09-30T20:43:30Z",
+      "data": {
+        "heat": [
+          [
+            "sac-01349",
+            "f-15791216a7"
+          ],
+          [
+            "ac-01349",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "audit 20:35Z: wall-limited (t00032 capped 874 s, t00089 beam_free exit -9 at 1800 s); incomplete coverage, not a miss; heat removed so the rows are not gated on a non-result",
+        "task": "t00089"
+      },
+      "grade": "V",
+      "hash": "e3a8325035abf0bf38920150bba22e1bb66938afb089856b735e23809cdcaa4e",
+      "kind": "task.voided",
+      "prev": "ff5444298745e2443887a6e91c02487a1c00d3a3ed46d8c159a4dc28896801cc",
+      "seq": 3449
+    },
+    {
+      "line": 4494,
+      "at": "2026-10-01T01:13:15Z",
+      "data": {
+        "heat": [
+          [
+            "sac-06768",
+            "f-5026169b46"
+          ],
+          [
+            "ac-07730",
+            "f-5026169b46"
+          ]
+        ],
+        "reason": "tool killed by SIGILL (rc -4 per row, 0.0-0.2 s, empty passes): -march=native binaries after a host CPU change; not a miss. Found by Astra 01:11Z.",
+        "task": "t00167"
+      },
+      "grade": "V",
+      "hash": "efdf89ac68583f7df99941e73bf7832050f24d0d7429f85683be6193d04c0451",
+      "kind": "task.voided",
+      "prev": "67ab8f1e7cf44112ac9ca80525c267ba2467a7d4dc00f7e4782ed6b41eada6d4",
+      "seq": 4494
+    },
+    {
+      "line": 4495,
+      "at": "2026-10-01T01:13:15Z",
+      "data": {
+        "heat": [
+          [
+            "ac-09390",
+            "f-5026169b46"
+          ],
+          [
+            "ac-09243",
+            "f-5026169b46"
+          ]
+        ],
+        "reason": "tool killed by SIGILL (rc -4 per row, 0.0-0.2 s, empty passes): -march=native binaries after a host CPU change; not a miss. Found by Astra 01:11Z.",
+        "task": "t00232"
+      },
+      "grade": "V",
+      "hash": "6ddd33107d103237f9f797f25be4ab7d527cb0f04192b4f83b3abb72a55dff62",
+      "kind": "task.voided",
+      "prev": "efdf89ac68583f7df99941e73bf7832050f24d0d7429f85683be6193d04c0451",
+      "seq": 4495
+    },
+    {
+      "line": 4496,
+      "at": "2026-10-01T01:13:15Z",
+      "data": {
+        "heat": [
+          [
+            "sac-01514",
+            "f-5026169b46"
+          ],
+          [
+            "sac-09312",
+            "f-5026169b46"
+          ]
+        ],
+        "reason": "tool killed by SIGILL (rc -4 per row, 0.0-0.2 s, empty passes): -march=native binaries after a host CPU change; not a miss. Found by Astra 01:11Z.",
+        "task": "t00235"
+      },
+      "grade": "V",
+      "hash": "066364707f85dcfc6dbb97af4c2b5251435a8e496ed9e2c8bb8b8f60cd0dccb4",
+      "kind": "task.voided",
+      "prev": "6ddd33107d103237f9f797f25be4ab7d527cb0f04192b4f83b3abb72a55dff62",
+      "seq": 4496
+    },
+    {
+      "line": 4497,
+      "at": "2026-10-01T01:13:15Z",
+      "data": {
+        "heat": [
+          [
+            "sac-04566",
+            "f-5026169b46"
+          ],
+          [
+            "sac-06066",
+            "f-5026169b46"
+          ]
+        ],
+        "reason": "tool killed by SIGILL (rc -4 per row, 0.0-0.2 s, empty passes): -march=native binaries after a host CPU change; not a miss. Found by Astra 01:11Z.",
+        "task": "t00236"
+      },
+      "grade": "V",
+      "hash": "0de5c3d4c7d772786792ead181cf12e7c0b8d7b46b722ea4aeb9d2ef5e548bea",
+      "kind": "task.voided",
+      "prev": "066364707f85dcfc6dbb97af4c2b5251435a8e496ed9e2c8bb8b8f60cd0dccb4",
+      "seq": 4497
+    },
+    {
+      "line": 4498,
+      "at": "2026-10-01T01:13:15Z",
+      "data": {
+        "heat": [
+          [
+            "sac-07031",
+            "f-5026169b46"
+          ],
+          [
+            "ac-02925",
+            "f-5026169b46"
+          ]
+        ],
+        "reason": "tool killed by SIGILL (rc -4 per row, 0.0-0.2 s, empty passes): -march=native binaries after a host CPU change; not a miss. Found by Astra 01:11Z.",
+        "task": "t00245"
+      },
+      "grade": "V",
+      "hash": "af767e91170123d540e11b4dbcf7f328fb247d304d6cf4d1783db54f19af4651",
+      "kind": "task.voided",
+      "prev": "0de5c3d4c7d772786792ead181cf12e7c0b8d7b46b722ea4aeb9d2ef5e548bea",
+      "seq": 4498
+    },
+    {
+      "line": 4505,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-02574",
+            "f-15791216a7"
+          ],
+          [
+            "sac-02574",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00149"
+      },
+      "grade": "V",
+      "hash": "e70e4cd07c8f5adb02a1429b721020418b75d621ea6d325d098f18e0a36d405f",
+      "kind": "task.voided",
+      "prev": "ebec532d63f075cff3214a0acbb0258505c91e12bc9714dac5fdd81ab0341de0",
+      "seq": 4505
+    },
+    {
+      "line": 4506,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-09995",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00148"
+      },
+      "grade": "V",
+      "hash": "65c07ef04c3e300ecfe48914448f605b8eb7ba4a10be09a35ac033a646d3091b",
+      "kind": "task.voided",
+      "prev": "e70e4cd07c8f5adb02a1429b721020418b75d621ea6d325d098f18e0a36d405f",
+      "seq": 4506
+    },
+    {
+      "line": 4507,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-01104",
+            "f-15791216a7"
+          ],
+          [
+            "sac-01104",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00150"
+      },
+      "grade": "V",
+      "hash": "2ba95cb5fbe521de9b12895025db2155b3f58099017f0571e96a22c3f9754031",
+      "kind": "task.voided",
+      "prev": "65c07ef04c3e300ecfe48914448f605b8eb7ba4a10be09a35ac033a646d3091b",
+      "seq": 4507
+    },
+    {
+      "line": 4508,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-02275",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "sac-05818",
+            "f-eb7a1d2d7f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00147"
+      },
+      "grade": "V",
+      "hash": "0537a56337f83084f1470f1904d0c49b59c2d6df1b8a860386c2efdb78200c95",
+      "kind": "task.voided",
+      "prev": "2ba95cb5fbe521de9b12895025db2155b3f58099017f0571e96a22c3f9754031",
+      "seq": 4508
+    },
+    {
+      "line": 4509,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-05461",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00152"
+      },
+      "grade": "V",
+      "hash": "8fe125843d709276847001f050f9f3db4653c30980905b7d11217228f12473f5",
+      "kind": "task.voided",
+      "prev": "0537a56337f83084f1470f1904d0c49b59c2d6df1b8a860386c2efdb78200c95",
+      "seq": 4509
+    },
+    {
+      "line": 4510,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-08428",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00153"
+      },
+      "grade": "V",
+      "hash": "1f482c93a0739952369508aa32ea4f289205c1f01504fb40e17e99e0d33845f4",
+      "kind": "task.voided",
+      "prev": "8fe125843d709276847001f050f9f3db4653c30980905b7d11217228f12473f5",
+      "seq": 4510
+    },
+    {
+      "line": 4511,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-02528",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "sac-08578",
+            "f-eb7a1d2d7f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00151"
+      },
+      "grade": "V",
+      "hash": "78696b58a9cce910389e0548eef4736c75acc9ecc775fdd922b9199a542d2ccf",
+      "kind": "task.voided",
+      "prev": "1f482c93a0739952369508aa32ea4f289205c1f01504fb40e17e99e0d33845f4",
+      "seq": 4511
+    },
+    {
+      "line": 4512,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-09736",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00154"
+      },
+      "grade": "V",
+      "hash": "95e3d270ef694cc9deefe436fa85fbf9ee708fec249a6d0f249fbbd02c1cab10",
+      "kind": "task.voided",
+      "prev": "78696b58a9cce910389e0548eef4736c75acc9ecc775fdd922b9199a542d2ccf",
+      "seq": 4512
+    },
+    {
+      "line": 4513,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-07215",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00156"
+      },
+      "grade": "V",
+      "hash": "4a8af34147b932c74ceb90c7e9eb9ef392c33c00d35b0950c9ef88d1a0644aa7",
+      "kind": "task.voided",
+      "prev": "95e3d270ef694cc9deefe436fa85fbf9ee708fec249a6d0f249fbbd02c1cab10",
+      "seq": 4513
+    },
+    {
+      "line": 4514,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-01655",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00157"
+      },
+      "grade": "V",
+      "hash": "ca6f9597a6335eae970a995747d252418d94086c88d34c6bb390e27a1fce11ad",
+      "kind": "task.voided",
+      "prev": "4a8af34147b932c74ceb90c7e9eb9ef392c33c00d35b0950c9ef88d1a0644aa7",
+      "seq": 4514
+    },
+    {
+      "line": 4515,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-03048",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00158"
+      },
+      "grade": "V",
+      "hash": "f497c93532dc7dbe8ae0b11fedbccad10a3e2f0c1ff156bd9e6f904c0872c51a",
+      "kind": "task.voided",
+      "prev": "ca6f9597a6335eae970a995747d252418d94086c88d34c6bb390e27a1fce11ad",
+      "seq": 4515
+    },
+    {
+      "line": 4516,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-09916",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00160"
+      },
+      "grade": "V",
+      "hash": "54fe9b0beb2b711f6c977aa0779f3aab70675606a4bea225580e9a7677bc39ec",
+      "kind": "task.voided",
+      "prev": "f497c93532dc7dbe8ae0b11fedbccad10a3e2f0c1ff156bd9e6f904c0872c51a",
+      "seq": 4516
+    },
+    {
+      "line": 4517,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-01304",
+            "f-15791216a7"
+          ],
+          [
+            "sac-01304",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00161"
+      },
+      "grade": "V",
+      "hash": "24c67cadc463664d0e6888d2bd6b652dcf90d16d9cf621f9d9dfa41733944706",
+      "kind": "task.voided",
+      "prev": "54fe9b0beb2b711f6c977aa0779f3aab70675606a4bea225580e9a7677bc39ec",
+      "seq": 4517
+    },
+    {
+      "line": 4518,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-06768",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "sac-04493",
+            "f-eb7a1d2d7f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00159"
+      },
+      "grade": "V",
+      "hash": "0244db4bab0b35eb5b39897cf794a16f070308fa2758d86eb8062600f08efdc3",
+      "kind": "task.voided",
+      "prev": "24c67cadc463664d0e6888d2bd6b652dcf90d16d9cf621f9d9dfa41733944706",
+      "seq": 4518
+    },
+    {
+      "line": 4519,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-04699",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00162"
+      },
+      "grade": "V",
+      "hash": "415c95f1c18a0189ef407ad3b560555a3e8f48601510a7bac0ad5dfc17b8b74d",
+      "kind": "task.voided",
+      "prev": "0244db4bab0b35eb5b39897cf794a16f070308fa2758d86eb8062600f08efdc3",
+      "seq": 4519
+    },
+    {
+      "line": 4520,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-06238",
+            "f-15791216a7"
+          ],
+          [
+            "sac-06238",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00164"
+      },
+      "grade": "V",
+      "hash": "0cf6bf6aba1588ccc2f6cdb55a628ecd94d7096cf175fd8099306347fdb1f032",
+      "kind": "task.voided",
+      "prev": "415c95f1c18a0189ef407ad3b560555a3e8f48601510a7bac0ad5dfc17b8b74d",
+      "seq": 4520
+    },
+    {
+      "line": 4521,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-08094",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "sac-08429",
+            "f-eb7a1d2d7f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00163"
+      },
+      "grade": "V",
+      "hash": "68111e431f02ef45af500c33b3847b2787fd67dbe9f4e01a1730e3b62fc084a2",
+      "kind": "task.voided",
+      "prev": "0cf6bf6aba1588ccc2f6cdb55a628ecd94d7096cf175fd8099306347fdb1f032",
+      "seq": 4521
+    },
+    {
+      "line": 4522,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-06921",
+            "f-15791216a7"
+          ],
+          [
+            "sac-06921",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00165"
+      },
+      "grade": "V",
+      "hash": "d4371c19b3ec3d0a18f2c993fb96943155d0ef9f1001abb78f5c8b1abb2d9f2d",
+      "kind": "task.voided",
+      "prev": "68111e431f02ef45af500c33b3847b2787fd67dbe9f4e01a1730e3b62fc084a2",
+      "seq": 4522
+    },
+    {
+      "line": 4523,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-07879",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00166"
+      },
+      "grade": "V",
+      "hash": "b9223690adf51754f93a676260c65dd3cb7183d36230234f86596afd3e52bb3b",
+      "kind": "task.voided",
+      "prev": "d4371c19b3ec3d0a18f2c993fb96943155d0ef9f1001abb78f5c8b1abb2d9f2d",
+      "seq": 4523
+    },
+    {
+      "line": 4524,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-01106",
+            "f-15791216a7"
+          ],
+          [
+            "sac-01106",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00168"
+      },
+      "grade": "V",
+      "hash": "b33ae6698532d50f5c52b1a65099a92ef8df05d0c90c63c031388555fafb3e2d",
+      "kind": "task.voided",
+      "prev": "b9223690adf51754f93a676260c65dd3cb7183d36230234f86596afd3e52bb3b",
+      "seq": 4524
+    },
+    {
+      "line": 4525,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-07155",
+            "f-15791216a7"
+          ],
+          [
+            "sac-07155",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00169"
+      },
+      "grade": "V",
+      "hash": "4e51bb2a3c9fbf67ea56de302305a240156a49096c2c51e440dd257ff0a3e742",
+      "kind": "task.voided",
+      "prev": "b33ae6698532d50f5c52b1a65099a92ef8df05d0c90c63c031388555fafb3e2d",
+      "seq": 4525
+    },
+    {
+      "line": 4526,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-01860",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00170"
+      },
+      "grade": "V",
+      "hash": "1622195e3a9477bf31e09e218f14dbd17cd6452a251659bdaa852086afde6b6d",
+      "kind": "task.voided",
+      "prev": "4e51bb2a3c9fbf67ea56de302305a240156a49096c2c51e440dd257ff0a3e742",
+      "seq": 4526
+    },
+    {
+      "line": 4527,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-05353",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00172"
+      },
+      "grade": "V",
+      "hash": "0f80a2f604fa9bbb5815d3d34000dd017168a6f255c8bdd8f9267a07dfd3629c",
+      "kind": "task.voided",
+      "prev": "1622195e3a9477bf31e09e218f14dbd17cd6452a251659bdaa852086afde6b6d",
+      "seq": 4527
+    },
+    {
+      "line": 4528,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-08353",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00173"
+      },
+      "grade": "V",
+      "hash": "59135db913f54bd928f3dd6b5efd628428a71196289968004640ebb444945d2e",
+      "kind": "task.voided",
+      "prev": "0f80a2f604fa9bbb5815d3d34000dd017168a6f255c8bdd8f9267a07dfd3629c",
+      "seq": 4528
+    },
+    {
+      "line": 4529,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-00753",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00174"
+      },
+      "grade": "V",
+      "hash": "82da8290089bb2fcb533a6675a422ccf9e98976303d5f46167a20a7f6579cb67",
+      "kind": "task.voided",
+      "prev": "59135db913f54bd928f3dd6b5efd628428a71196289968004640ebb444945d2e",
+      "seq": 4529
+    },
+    {
+      "line": 4530,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-08094",
+            "f-acc075239b"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00175"
+      },
+      "grade": "V",
+      "hash": "9ca6fbed34e9070b591a3bfc69ebf409fabb356f7287ec05bc5191f0384c49e1",
+      "kind": "task.voided",
+      "prev": "82da8290089bb2fcb533a6675a422ccf9e98976303d5f46167a20a7f6579cb67",
+      "seq": 4530
+    },
+    {
+      "line": 4531,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-01729",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00176"
+      },
+      "grade": "V",
+      "hash": "49cf0e87684914b27077ba1ccac84e51395cb8fd08bf0533977991d622090161",
+      "kind": "task.voided",
+      "prev": "9ca6fbed34e9070b591a3bfc69ebf409fabb356f7287ec05bc5191f0384c49e1",
+      "seq": 4531
+    },
+    {
+      "line": 4532,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-01754",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00177"
+      },
+      "grade": "V",
+      "hash": "4e150d3dbf0be7fcdebd3b613dc1d8488b66a20ac249e1da0205e907e0945888",
+      "kind": "task.voided",
+      "prev": "49cf0e87684914b27077ba1ccac84e51395cb8fd08bf0533977991d622090161",
+      "seq": 4532
+    },
+    {
+      "line": 4533,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-02368",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00202"
+      },
+      "grade": "V",
+      "hash": "aa35bbb7edbd10d602a763a77f1649f6738b7f808e95bef87a1d11e971f4cb83",
+      "kind": "task.voided",
+      "prev": "4e150d3dbf0be7fcdebd3b613dc1d8488b66a20ac249e1da0205e907e0945888",
+      "seq": 4533
+    },
+    {
+      "line": 4534,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-02420",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00204"
+      },
+      "grade": "V",
+      "hash": "7910abaa7b1e0dcb99b27129bc497efe32ec7eb2587d1151c2302f32b6fa0dd1",
+      "kind": "task.voided",
+      "prev": "aa35bbb7edbd10d602a763a77f1649f6738b7f808e95bef87a1d11e971f4cb83",
+      "seq": 4534
+    },
+    {
+      "line": 4535,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-05659",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "ac-05659",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "sac-03305",
+            "f-eb7a1d2d7f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00203"
+      },
+      "grade": "V",
+      "hash": "406cab8a5536ea55289e18366c7abe15f65e59e9e6d09a82bc550eaf8cc5971f",
+      "kind": "task.voided",
+      "prev": "7910abaa7b1e0dcb99b27129bc497efe32ec7eb2587d1151c2302f32b6fa0dd1",
+      "seq": 4535
+    },
+    {
+      "line": 4536,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-04331",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00205"
+      },
+      "grade": "V",
+      "hash": "4cd3de13d81b694d731175b7fba594b9f4a9f98ec710057308a97401633a8ac0",
+      "kind": "task.voided",
+      "prev": "406cab8a5536ea55289e18366c7abe15f65e59e9e6d09a82bc550eaf8cc5971f",
+      "seq": 4536
+    },
+    {
+      "line": 4537,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-05909",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00206"
+      },
+      "grade": "V",
+      "hash": "cf6c9023e1bb06b7437ec7c1a5803cfaee5aa7b3f314b84ecc901bf1eea8ef23",
+      "kind": "task.voided",
+      "prev": "4cd3de13d81b694d731175b7fba594b9f4a9f98ec710057308a97401633a8ac0",
+      "seq": 4537
+    },
+    {
+      "line": 4538,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-03305",
+            "f-acc075239b"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00207"
+      },
+      "grade": "V",
+      "hash": "d0562acaa5500cfacdf35fb05ecf2f73c42ce7577d7f93dbf5329f6efc2c136a",
+      "kind": "task.voided",
+      "prev": "cf6c9023e1bb06b7437ec7c1a5803cfaee5aa7b3f314b84ecc901bf1eea8ef23",
+      "seq": 4538
+    },
+    {
+      "line": 4539,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-08811",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00208"
+      },
+      "grade": "V",
+      "hash": "19fc98375a4c46f837c1a6a13033b3d9a048b0b41e868727e3bbc0361f2507ec",
+      "kind": "task.voided",
+      "prev": "d0562acaa5500cfacdf35fb05ecf2f73c42ce7577d7f93dbf5329f6efc2c136a",
+      "seq": 4539
+    },
+    {
+      "line": 4540,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-02988",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00209"
+      },
+      "grade": "V",
+      "hash": "2496d1fb709aa343defabf5da669920413bdc3f709c1b5d056c7cc0dfc2ca903",
+      "kind": "task.voided",
+      "prev": "19fc98375a4c46f837c1a6a13033b3d9a048b0b41e868727e3bbc0361f2507ec",
+      "seq": 4540
+    },
+    {
+      "line": 4541,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-04133",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00210"
+      },
+      "grade": "V",
+      "hash": "7250a5e17e05f768dbf18047c7fa6a651fd54ad4fe91bf8c938f16233f7b782d",
+      "kind": "task.voided",
+      "prev": "2496d1fb709aa343defabf5da669920413bdc3f709c1b5d056c7cc0dfc2ca903",
+      "seq": 4541
+    },
+    {
+      "line": 4542,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-00261",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00212"
+      },
+      "grade": "V",
+      "hash": "624889a87ca2d871a5963e0c6a58ba2a7250df9a11dcfbea62edfdd187530cfd",
+      "kind": "task.voided",
+      "prev": "7250a5e17e05f768dbf18047c7fa6a651fd54ad4fe91bf8c938f16233f7b782d",
+      "seq": 4542
+    },
+    {
+      "line": 4543,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-03060",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "sac-03060",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "sac-07119",
+            "f-eb7a1d2d7f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00211"
+      },
+      "grade": "V",
+      "hash": "b43eb6c5608e870eb9b8c17e7c3d4a815974066c7cfb8c68910895242ab7e491",
+      "kind": "task.voided",
+      "prev": "624889a87ca2d871a5963e0c6a58ba2a7250df9a11dcfbea62edfdd187530cfd",
+      "seq": 4543
+    },
+    {
+      "line": 4544,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-00516",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00213"
+      },
+      "grade": "V",
+      "hash": "be40caa042fd78fb7b784602dfd7ecd72611a99b8c2753bd81501ec51ff8f61d",
+      "kind": "task.voided",
+      "prev": "b43eb6c5608e870eb9b8c17e7c3d4a815974066c7cfb8c68910895242ab7e491",
+      "seq": 4544
+    },
+    {
+      "line": 4545,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-03186",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00214"
+      },
+      "grade": "V",
+      "hash": "ac1661288fd8bd0b12736e31d6f7aff3206654d9567222a9ae23d6519cba318f",
+      "kind": "task.voided",
+      "prev": "be40caa042fd78fb7b784602dfd7ecd72611a99b8c2753bd81501ec51ff8f61d",
+      "seq": 4545
+    },
+    {
+      "line": 4546,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-03060",
+            "f-acc075239b"
+          ],
+          [
+            "sac-03060",
+            "f-acc075239b"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00215"
+      },
+      "grade": "V",
+      "hash": "8df6afaa9d95e48e27c018599677642684efacc0aa42636c642c5cc44a485e9d",
+      "kind": "task.voided",
+      "prev": "ac1661288fd8bd0b12736e31d6f7aff3206654d9567222a9ae23d6519cba318f",
+      "seq": 4546
+    },
+    {
+      "line": 4547,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-04404",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00216"
+      },
+      "grade": "V",
+      "hash": "03572495912f8b0b3d5affeda37598c41abb13d6b4df373aca476e019b43f501",
+      "kind": "task.voided",
+      "prev": "8df6afaa9d95e48e27c018599677642684efacc0aa42636c642c5cc44a485e9d",
+      "seq": 4547
+    },
+    {
+      "line": 4548,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-05125",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00217"
+      },
+      "grade": "V",
+      "hash": "b5e217b13fbccbc6696c56088496f5289f19bb3fabd90ed2db6cb0ff93e6211c",
+      "kind": "task.voided",
+      "prev": "03572495912f8b0b3d5affeda37598c41abb13d6b4df373aca476e019b43f501",
+      "seq": 4548
+    },
+    {
+      "line": 4549,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-07596",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00218"
+      },
+      "grade": "V",
+      "hash": "aa443f02ff911b2b272de7c8163c4a10f7a88baa62313d0fd47a3ed91d498b4a",
+      "kind": "task.voided",
+      "prev": "b5e217b13fbccbc6696c56088496f5289f19bb3fabd90ed2db6cb0ff93e6211c",
+      "seq": 4549
+    },
+    {
+      "line": 4550,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-08158",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00220"
+      },
+      "grade": "V",
+      "hash": "6df7123b16c66c956432a71154fa2c324a21f2354c1de39ed360ae8e8dea4f46",
+      "kind": "task.voided",
+      "prev": "aa443f02ff911b2b272de7c8163c4a10f7a88baa62313d0fd47a3ed91d498b4a",
+      "seq": 4550
+    },
+    {
+      "line": 4551,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-09067",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00221"
+      },
+      "grade": "V",
+      "hash": "9a2953693e67da1916272998b110b12b1ecf3cb44e583e0061748a76f5e23c51",
+      "kind": "task.voided",
+      "prev": "6df7123b16c66c956432a71154fa2c324a21f2354c1de39ed360ae8e8dea4f46",
+      "seq": 4551
+    },
+    {
+      "line": 4552,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-03564",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00222"
+      },
+      "grade": "V",
+      "hash": "6fd339dd72879622b57fd11fa4db74841a6cd3109284ebd430c3f0cf0b044c50",
+      "kind": "task.voided",
+      "prev": "9a2953693e67da1916272998b110b12b1ecf3cb44e583e0061748a76f5e23c51",
+      "seq": 4552
+    },
+    {
+      "line": 4553,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-02452",
+            "f-15791216a7"
+          ],
+          [
+            "sac-02452",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00224"
+      },
+      "grade": "V",
+      "hash": "ef678ff67de366070ed3cdb0c9a9cd0d4ff60f703c2a531e9c78cbc0ae648470",
+      "kind": "task.voided",
+      "prev": "6fd339dd72879622b57fd11fa4db74841a6cd3109284ebd430c3f0cf0b044c50",
+      "seq": 4553
+    },
+    {
+      "line": 4554,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-09312",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "ac-08889",
+            "f-eb7a1d2d7f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00223"
+      },
+      "grade": "V",
+      "hash": "582cec460c7509adef146c43cda2368a2106005e2c8c6b15a927c27b26ac8c72",
+      "kind": "task.voided",
+      "prev": "ef678ff67de366070ed3cdb0c9a9cd0d4ff60f703c2a531e9c78cbc0ae648470",
+      "seq": 4554
+    },
+    {
+      "line": 4555,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-06016",
+            "f-15791216a7"
+          ],
+          [
+            "ac-06016",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00225"
+      },
+      "grade": "V",
+      "hash": "aaef79f61fc8ada1bfd529cc47685f0316111dfc89c8c33b4c88d415d88d3625",
+      "kind": "task.voided",
+      "prev": "582cec460c7509adef146c43cda2368a2106005e2c8c6b15a927c27b26ac8c72",
+      "seq": 4555
+    },
+    {
+      "line": 4556,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-01371",
+            "f-15791216a7"
+          ],
+          [
+            "sac-01371",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00226"
+      },
+      "grade": "V",
+      "hash": "8b6734b0924445607770c6038c5972e24059796533445823f4326b92f036849b",
+      "kind": "task.voided",
+      "prev": "aaef79f61fc8ada1bfd529cc47685f0316111dfc89c8c33b4c88d415d88d3625",
+      "seq": 4556
+    },
+    {
+      "line": 4557,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-03208",
+            "f-15791216a7"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00228"
+      },
+      "grade": "V",
+      "hash": "bc277092213b0acc6ed50a00c197bd5e33cfbf3fdbd3a7b231eb0a7d2b1e6f0f",
+      "kind": "task.voided",
+      "prev": "8b6734b0924445607770c6038c5972e24059796533445823f4326b92f036849b",
+      "seq": 4557
+    },
+    {
+      "line": 4558,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-09390",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "ac-09243",
+            "f-eb7a1d2d7f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00229"
+      },
+      "grade": "V",
+      "hash": "7fdc34eb2e42ff761c9739568315b885e3c1a72b8b2c9ff6cc83a3d968edc6fa",
+      "kind": "task.voided",
+      "prev": "bc277092213b0acc6ed50a00c197bd5e33cfbf3fdbd3a7b231eb0a7d2b1e6f0f",
+      "seq": 4558
+    },
+    {
+      "line": 4559,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-01514",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "ac-06969",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "sac-06969",
+            "f-eb7a1d2d7f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00231"
+      },
+      "grade": "V",
+      "hash": "1a7f6e036d2f23effd32af0ee9f1045d1bab488e77a6c05cca129ff6fa619cf6",
+      "kind": "task.voided",
+      "prev": "7fdc34eb2e42ff761c9739568315b885e3c1a72b8b2c9ff6cc83a3d968edc6fa",
+      "seq": 4559
+    },
+    {
+      "line": 4560,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-04566",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "sac-06066",
+            "f-eb7a1d2d7f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00234"
+      },
+      "grade": "V",
+      "hash": "ae1b0f4c2986cb0cba5367a78654013cbb947330abf4128607f3ae476b283505",
+      "kind": "task.voided",
+      "prev": "1a7f6e036d2f23effd32af0ee9f1045d1bab488e77a6c05cca129ff6fa619cf6",
+      "seq": 4560
+    },
+    {
+      "line": 4561,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-06768",
+            "f-c2142d135f"
+          ],
+          [
+            "ac-07730",
+            "f-c2142d135f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00171"
+      },
+      "grade": "V",
+      "hash": "06fec212d81d82cd6125e1a8b6898bd89c459ea31bf98642d3516a20fd3ca706",
+      "kind": "task.voided",
+      "prev": "ae1b0f4c2986cb0cba5367a78654013cbb947330abf4128607f3ae476b283505",
+      "seq": 4561
+    },
+    {
+      "line": 4562,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-09390",
+            "f-c2142d135f"
+          ],
+          [
+            "ac-09243",
+            "f-c2142d135f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00233"
+      },
+      "grade": "V",
+      "hash": "2911bad10a0d4b489cfa2851b25ffeab358d0e03b6e817ae874a321f85f1de7c",
+      "kind": "task.voided",
+      "prev": "06fec212d81d82cd6125e1a8b6898bd89c459ea31bf98642d3516a20fd3ca706",
+      "seq": 4562
+    },
+    {
+      "line": 4563,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-04566",
+            "f-c2142d135f"
+          ],
+          [
+            "sac-06066",
+            "f-c2142d135f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00237"
+      },
+      "grade": "V",
+      "hash": "71c505879d3b58e0e2493774fd23e911c42758b1454eb0b700478ed5a278927e",
+      "kind": "task.voided",
+      "prev": "2911bad10a0d4b489cfa2851b25ffeab358d0e03b6e817ae874a321f85f1de7c",
+      "seq": 4563
+    },
+    {
+      "line": 4564,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-09390",
+            "f-acc075239b"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00238"
+      },
+      "grade": "V",
+      "hash": "38f5657422b49c16c3f7b6c55aff027b45e7e7f1231c5250a8e4a8d0dcb36147",
+      "kind": "task.voided",
+      "prev": "71c505879d3b58e0e2493774fd23e911c42758b1454eb0b700478ed5a278927e",
+      "seq": 4564
+    },
+    {
+      "line": 4565,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-06768",
+            "f-acc075239b"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00239"
+      },
+      "grade": "V",
+      "hash": "6e9b773134addfff9cca6f35a188813fba4e66ffd052bb3250acf95940f35b6f",
+      "kind": "task.voided",
+      "prev": "38f5657422b49c16c3f7b6c55aff027b45e7e7f1231c5250a8e4a8d0dcb36147",
+      "seq": 4565
+    },
+    {
+      "line": 4566,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-04566",
+            "f-acc075239b"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00240"
+      },
+      "grade": "V",
+      "hash": "2df529a1a5c807d98d153357f674fc2fe1befffb6a64ec3198a9ee92e276ffc2",
+      "kind": "task.voided",
+      "prev": "6e9b773134addfff9cca6f35a188813fba4e66ffd052bb3250acf95940f35b6f",
+      "seq": 4566
+    },
+    {
+      "line": 4567,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-06066",
+            "f-acc075239b"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00241"
+      },
+      "grade": "V",
+      "hash": "56807d8a417a693ac32b5c71462044b4edb9ef7dad8bcdf62cfe7e4299cf686c",
+      "kind": "task.voided",
+      "prev": "2df529a1a5c807d98d153357f674fc2fe1befffb6a64ec3198a9ee92e276ffc2",
+      "seq": 4567
+    },
+    {
+      "line": 4568,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-01514",
+            "f-c2142d135f"
+          ],
+          [
+            "sac-09312",
+            "f-c2142d135f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00243"
+      },
+      "grade": "V",
+      "hash": "a9338f5a065f93dc969d43171bd77e653d2061edf5af74d6a57d130f63db4a33",
+      "kind": "task.voided",
+      "prev": "56807d8a417a693ac32b5c71462044b4edb9ef7dad8bcdf62cfe7e4299cf686c",
+      "seq": 4568
+    },
+    {
+      "line": 4569,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-07031",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "ac-02925",
+            "f-eb7a1d2d7f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00244"
+      },
+      "grade": "V",
+      "hash": "5e827b516efcc4dd2670b0896063b8c5954382b1233d2c18017a4525f0cdd089",
+      "kind": "task.voided",
+      "prev": "a9338f5a065f93dc969d43171bd77e653d2061edf5af74d6a57d130f63db4a33",
+      "seq": 4569
+    },
+    {
+      "line": 4570,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "sac-07031",
+            "f-c2142d135f"
+          ],
+          [
+            "ac-02925",
+            "f-c2142d135f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00246"
+      },
+      "grade": "V",
+      "hash": "1eeea4fe92e0f892ad9750ddf724f1bcb752f2ea4c60277d5bfcc2e0ee0ea060",
+      "kind": "task.voided",
+      "prev": "5e827b516efcc4dd2670b0896063b8c5954382b1233d2c18017a4525f0cdd089",
+      "seq": 4570
+    },
+    {
+      "line": 4571,
+      "at": "2026-10-01T01:14:11Z",
+      "data": {
+        "heat": [
+          [
+            "ac-10098",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "sac-10098",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "ac-08995",
+            "f-eb7a1d2d7f"
+          ],
+          [
+            "sac-08995",
+            "f-eb7a1d2d7f"
+          ]
+        ],
+        "reason": "binaries trapped with SIGILL from the 23:47Z container restart (new host CPU) until the 01:20Z portable rebuild: dmesg shows 242 acc_beam, 40 acc_capped, 10 acc_window invalid-opcode traps; the runs could not search, so these are not misses",
+        "task": "t00266"
+      },
+      "grade": "V",
+      "hash": "33c0761b521d3dc5fb74027bca26adf2a8fe220727c52f3664234d8ddb505982",
+      "kind": "task.voided",
+      "prev": "1eeea4fe92e0f892ad9750ddf724f1bcb752f2ea4c60277d5bfcc2e0ee0ea060",
+      "seq": 4571
+    }
+  ],
+  "bad": [],
+  "total_lines": 4577,
+  "parsed": 4576,
+  "read_method": "Git blob by exact SHA; contents endpoint returned no body for this large file"
+}
