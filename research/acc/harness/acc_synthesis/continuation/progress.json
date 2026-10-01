@@ -28,28 +28,20 @@
     }
   ],
   "next": {
-    "status": "planned",
-    "job": {
-      "row_id": "ac-00012",
-      "track": "AC",
-      "helper": "kernel",
-      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
-      "script": "helpers/kernel_lane_v1.py",
-      "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
-      "inputs": {
-        "helpers/kernel_sources/roads_input.json": "f10748695d7a8cf906df7cda342e8d4d9d82bbae04f60ffe8a63241b2bde063c"
-      },
-      "seed_sha256": "080bbe88ccf41c29ce20ff672ca310011ecc7a906bb7c957d6401f53b8b6b177",
-      "baseline": 52,
-      "target": 47,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "b778cd9bba6f95770e5d901690b7679830f4793f7ff1df3464a3296fc0d20278"
-    },
-    "remaining_jobs": 23
+    "status": "intake_reserved",
+    "lease": {
+      "key": "13370f65fb09aec887c2bd923264d21ffba6d7870ee6ff1347c682d896787664",
+      "owner": "d4541e1a5c764baaa040fa07f0566652",
+      "expires_at": 1790857304.9219246,
+      "phase": "reserved",
+      "directory": "continuation/intake/20261001T1210Z_height_web_selected",
+      "source_head": "6f04d1e75b46f8a6ea9473e22e9d9fc8d9599702",
+      "pool_before_sha256": "f10748695d7a8cf906df7cda342e8d4d9d82bbae04f60ffe8a63241b2bde063c",
+      "own_before_sha256": "ff93a9ecbba27401dc2b5ca21aac85f52038d994b4e5681b85b9263936a506a9",
+      "input_sha256": "692739b1e356a0b337bd9b4a42cc7b1bcdf8ddbcec985286c60755b29251f471",
+      "validator_sha256": "03cebcf9a429027e48d75055cfb02ca6a4f892ff46126085ef6f9fec09c524e2",
+      "controller_sha256": "af23d946a22a17b0b78b65b7cc3a2c86e8cd80df02a88ca3033f32d6f5ee469f"
+    }
   },
   "harness_status": {
     "stopped": false,
