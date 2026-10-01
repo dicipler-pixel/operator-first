@@ -54,3 +54,4 @@
 - 12:34Z Hourly heartbeat (Git): lanes alive; workers on: // ; splice-then-yx rows done: 87.
 - 13:13Z Git: list done (see UPDATE_git_to_upgh). New self-found Stable targets where we hold AC=record but NO Stable and Stable rec = AC+1 (k1, 0.5 each): sac-08078 (rec 34; our best (y,x) line 35), sac-08578 (rec 36; ours 37), sac-02528 (rec 36). Claiming these 3 rows. Deeper (y,x) hop (window 14) running on 08078/08578.
 - 13:43Z Hourly heartbeat (Git): lanes alive; workers on: // ; splice-then-yx rows done: 87.
+- 14:06Z Git: sac-08078/08578 still 1 over (35 vs 34, 37 vs 36): crossing splice, DP+(y,x) ball squeeze, (y,x) hop window 14 (window 18 ran out of time), production beam W100k (SAC 35). Now: seeded+noised beams (seeds 1-12, W50k) on both rows, about 5 min per seed.
