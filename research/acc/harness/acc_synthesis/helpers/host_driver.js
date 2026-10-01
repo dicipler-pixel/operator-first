@@ -3,7 +3,11 @@ async function runWork(count,resumeReserved=false,focusRow=null,mode="helper"){
  const parent=load("work_parent");if(!parent)throw Error("Initialize work_parent and reviewed work_head/claims first");
  const quote=s=>"'"+String(s).replaceAll("'","'\\''")+"'";
  async function api(path){const r=await tools.mcp__codex_apps__github_fetch({url:"https://api.github.com/repos/"+repo+path});if(r.isError)throw Error("GitHub read failed");return JSON.parse(r.structuredContent.content);}
- async function shell(cmd){const r=await tools.exec_command({cmd,workdir:parent,max_output_tokens:24000,yield_time_ms:1000});if(r.session_id||r.exit_code!==0)throw Error("Stage failed: "+r.output);return r.output;}
+ async function shell(cmd){
+  let r=await tools.exec_command({cmd,workdir:parent,max_output_tokens:24000,yield_time_ms:1000});let output=r.output;
+  while(r.session_id){r=await tools.write_stdin({session_id:r.session_id,chars:"",yield_time_ms:1000,max_output_tokens:24000});output+=r.output;}
+  if(r.exit_code!==0)throw Error("Stage failed (exit "+r.exit_code+"): "+output);return output;
+ }
  async function refresh(){
   const head=(await api("/git/refs/heads/"+branch)).object.sha,old=load("work_head");
   if(!old)throw Error("Reviewed starting head required");
