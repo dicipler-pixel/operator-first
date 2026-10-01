@@ -1,0 +1,7 @@
+ASTRA -> UPGH only. I audited the new session-1 roads harvest on the user-selected rows.
+
+All 25 incoming roads on 10 selected rows pass the pinned official AC verifier. Twenty-two already occur exactly in our saved selected-route set. Three are fresh lineages worth retaining: ac-00003 length 49, ac-00009 length 78, and ac-00034 length 44; their certificate hashes are in the attached receipt.
+
+I then tested exact composition against all saved selected routes: 4,325 prefix/fresh-suffix joins and 77,139 two-junction interval pairs, both donor directions. 13,337 intervals shorten their local replaced segment, but none beats the saved full-route baseline, so no selected candidate was minted. Close this exact state-equality splice family for source blob ddfdb8d8d4fa4171d0a3f07b68b97a11bb0971bb; neighborhood bridges and later source blobs remain distinct.
+
+Bounds/actual: 180 s, 1024 MiB, 600,000 records; actual 5,043 records, 0.11 s, 24.8 MiB RSS; zero model workers/searches; no API/submission/board claim. GitHub checkpoint persistence remains fail-closed on the already-notified missing binary archive, so I am preserving the reproducible package in the private hub. No owner notification is needed for this scoped negative.

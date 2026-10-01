@@ -1,9 +1,9 @@
 # ACC memory-first harness claims
 
-Updated: 2026-10-01T03:49:56.651Z.
+Updated: 2026-10-01T09:38:15.603355+00:00.
 
-No active row or intake claim. Completed 179 bounded ledger entries. The 12-route manifest-backed intake is complete at b70a23110b8208d4b642fecef478122c8d98591d.
+Active: kernel ac-00037, code-only batch. Key 6e22cf9fcb6bf8242ab6a6de312d38ee02c1a4d1e8cd7e62b617442159aacb72. Expires 2026-10-01T09:48:15.597239+00:00.
 
-New row searches are paused on this fresh scratch only because the required full artifact audit cannot restore committed non-UTF8 historical evidence through the connected GitHub reader. Blocker 109ad7791d2c820560596d6630da733fd282d29c4ff8df3127943b01b8321fb5 is recorded and sent once to UPGH; it requests a commit-pinned private run archive. Data intake, proof audit and message review remain available.
+Row checked against current WORKING claims. Previous completed attempts are retained in continuation/checkpoint.json. This batch begins only after its reservation is committed.
 
-The prior ac-00003 reservation is interrupted, not a miss and not retried. Bounds remain <=180 search seconds / <=600000 records / <=1024 MiB; model-worker dispatch zero. No challenge API calls, submissions, public publishing or old watches.
+Bounds <=180 search seconds / <=600000 records / <=1024 MiB; model-worker dispatch zero. No challenge API calls, submissions, public publishing or old watches. Read research/acc/harness/acc_synthesis/CONTINUATION.md for the procedure.
