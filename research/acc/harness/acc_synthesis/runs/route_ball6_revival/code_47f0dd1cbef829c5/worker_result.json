@@ -1,0 +1,61 @@
+{
+  "kind": "bounded_miss",
+  "summary": "Fixed radius-3 pair shortcut audit: 42 -> 42 moves; complete. No global lower bound.",
+  "limits": {
+    "wall_seconds": 180.0,
+    "node_cap": 600000,
+    "memory_mib": 1024,
+    "radius": 3,
+    "max_replacement_length": 6,
+    "fixed_route_states": 43
+  },
+  "actual_coverage": {
+    "admitted_labels": 63722,
+    "pair_comparisons": 21960,
+    "generated_moves": 93282,
+    "completed_balls": 43,
+    "shortcut_edges": 0,
+    "radius": 3,
+    "input_length": 42,
+    "source_sha256": "ded080caa87d90bdf15085561504b86749044933193c25d30290df55d17843d0",
+    "termination_reason": "complete",
+    "best_length": 42,
+    "elapsed_seconds": 0.416293415997643,
+    "peak_rss_mib": 46.796875
+  },
+  "termination_reason": "complete",
+  "reopen_when": {
+    "event": "different_exact_input_route_or_distinct_justified_method",
+    "row_id": "ac-00009"
+  },
+  "evidence": [
+    {
+      "path": "runs/route_ball6_revival/code_47f0dd1cbef829c5/balls.json.gz",
+      "sha256": "7775c5566dffa5815dd64da21b2ec023a5d6c82bd9fb213dd15c976946fe7228"
+    },
+    {
+      "path": "runs/route_ball6_revival/code_47f0dd1cbef829c5/captured_input.json",
+      "sha256": "ded080caa87d90bdf15085561504b86749044933193c25d30290df55d17843d0"
+    },
+    {
+      "path": "runs/route_ball6_revival/code_47f0dd1cbef829c5/coverage.json",
+      "sha256": "47e2de916ab076af067619bf199133e4e78c9a62fc6eab751a024bc6e6009c17"
+    },
+    {
+      "path": "runs/route_ball6_revival/code_47f0dd1cbef829c5/executed_route_ball6_v1.py",
+      "sha256": "831d15440a444e30f3d8ecd4def15cf6fb7fd173c7efea7dbb00db05b57e82d0"
+    },
+    {
+      "path": "runs/route_ball6_revival/code_47f0dd1cbef829c5/input_receipt.json",
+      "sha256": "ab7848f22b93300da8be3bcb2e57ad829833780c6f499191a70764736a1e0149"
+    },
+    {
+      "path": "runs/route_ball6_revival/code_47f0dd1cbef829c5/output_receipt.json",
+      "sha256": "ab7848f22b93300da8be3bcb2e57ad829833780c6f499191a70764736a1e0149"
+    },
+    {
+      "path": "runs/route_ball6_revival/code_47f0dd1cbef829c5/shortcuts.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  ]
+}
