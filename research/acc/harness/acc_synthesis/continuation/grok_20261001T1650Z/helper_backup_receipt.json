@@ -1,0 +1,232 @@
+{
+  "checks": [
+    {
+      "worker": "charlie",
+      "source_path": "research/acc/live/CHARLIE_HANDOFF_CHECKPOINT_20260928.md",
+      "git_blob": "30eaa10858bb430504610c3def57ee257284e500",
+      "sha256": "0d00bd92d0d922f1e495cda57346ebdd56287431f5f806dd57b11b2af1044c2b",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "research/acc/live/ORDERS_charlie_v10_20260929.md",
+      "git_blob": "c4b02d79b4b6fd5c0988eccc88ffbfd093508582",
+      "sha256": "8261f54e1d387cc5d10b167efabefe0feb9c75133e0ac0dcd5e4ebf77473fa9e",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "research/acc/live/ORDERS_charlie_v11_20260930.md",
+      "git_blob": "409a77d37185c62dcdf5ab184ba97bb98f5627ad",
+      "sha256": "742cb9cddf95232f750c494be153703f9cad10c57633eb9f351ce5b4bd630f1d",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "research/acc/live/charlie/charlie_easy_exact_5_20260929.json",
+      "git_blob": "04f5e825a7b4f632a5d6306d53768a1955209a8d",
+      "sha256": "ac79862809050797caa2d2daa1cd7888863b08fc29fba61181f60eb633a263ad",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "research/acc/live/charlie/charlie_lowk_exact_6_20260930.json",
+      "git_blob": "1d8c576ae00f93e135cd0fe55368e91a7e03c14d",
+      "sha256": "eac51b1ee18097c32934438056709064a61b6ef1befb3e6527bacfb716f9592a",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "research/acc/live/charlie/v7/negatives_summary.md",
+      "git_blob": "3f70e3be019380cb50e3ab44afb3b7a1f6691b0d",
+      "sha256": "35e309e6a5546653f7ec650dca2c31bdc79e4188eccafec66e960a5e889abb40",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "research/acc/live/charlie/v7/tools/easy_exact.py",
+      "git_blob": "797b7fe55cec2265d12bf8119d1e806772d6a170",
+      "sha256": "dd9c2869125f68e828283629da8792f896be9fe5019a6e33c9eecc873fc912ac",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "research/acc/live/charlie/v7/tools/surgery.py",
+      "git_blob": "3448b7e29f79e6444a57e4e731b8830ade1e16f7",
+      "sha256": "76bc88191d0579b8238d3432c1d5090a8362c2a2b788169f8fae8edf9c658ef3",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "research/acc/live/charlie/v9/ledger/STACK_charlie_for_lunch.txt",
+      "git_blob": "0f1f5d50ab41466bbfc76bb1d20cf67e7e6712a3",
+      "sha256": "b8ee51394ceb7f1e5a89cb75b6365bba7bcc893729ac575b7faf8c628767f846",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "research/acc/live/charlie/v9/ledger/charlie_easy_exact.jsonl",
+      "git_blob": "c51296d8c4e32a106130ccc9f0d074759c044098",
+      "sha256": "571fca5a9dc9d7d7406a5f4d0faff677448bf8d4bfdadc89483764dc7db560f5",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "tools/acc/charlie/README_charlie.md",
+      "git_blob": "0f5eecff4e90a7294f1db261d1d4ad54e32e806c",
+      "sha256": "d33de78b0a05a4bd4e832b37a92af38fee7efed23f648380531c3e833e10fbf0",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "tools/acc/charlie/acc_disk.cpp",
+      "git_blob": "66399c99459dd0235bafef3efd71f9af612ec6e3",
+      "sha256": "3e1a2ab0721e5c5b56bafee1a7581871e52199959fc608b92e75a93ff86950b6",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "tools/acc/charlie/charlie_run.py",
+      "git_blob": "1e2f3a15df65939ccbc5188dd8de69030a69b9c7",
+      "sha256": "f4078c7ea53b37e267926c0f7aa9bfef48c1b6120fcce0edcb7c4766cd090eef",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "tools/acc/charlie/ledger_run.py",
+      "git_blob": "9b620b79c181a50038d8c3f03978baecbb4482fe",
+      "sha256": "9ff05cd121fb7f7cd550e73d838e94547f53bef0f6e6ca0b34c0549f62b4f5ec",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "tools/acc/charlie/ref_bfs.py",
+      "git_blob": "6f514f115278ebf03d467404d23b759f2c36e2e8",
+      "sha256": "9ac6f5842d4c208e2b54070c606ab2c4959c45799916559dea7e123710b447ac",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "charlie",
+      "source_path": "tools/acc/charlie/sac_yx.py",
+      "git_blob": "e7b4bffc0a2b434e61a13568d6f8e4007373ae29",
+      "sha256": "dab38f5b91617f32f3b94b698cac5d9fd53c88bb7cf8dd561c58c23402e6debf",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/bob/bob_crossclass_bundle2_20260929.json",
+      "git_blob": "5416aa7ac271d9b82545fb4706fd7b547aa5a991",
+      "sha256": "e19277748af7278224530ebb8a998e8f11fda51804a79cee910d53e2156e29ac",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/ledger/bob_macro_library_20260928.json",
+      "git_blob": "8b51930f59aa6255e1df153b49e17885be5a67ac",
+      "sha256": "ef1813a65b23ffe590723dc8ecd4d097c227aaf3192ab4654f20bcfdca5b7a2f",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/sweeps/kernel_bob_xclass_20260929.jsonl",
+      "git_blob": "dc9f4d11bc65dd5b1c9b4581003917c3b977c80c",
+      "sha256": "ea4567971c4cca5005f30f9ca98b782d13f785ed1dab600b19c3dc2d657e65d6",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/inbox/20260930T0156Z_bob_nearmiss_1over.txt",
+      "git_blob": "fd150b394827e2d75d2044fca16490646b8c3ed1",
+      "sha256": "7a50b1573495ed9376485f5b32f8bdb9d16be32529c0a8599df68a9eece00810",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/inbox/20260929T2330Z_bob_best86.txt",
+      "git_blob": "877cf442d154e969928a381219b042bd4d446bfb",
+      "sha256": "15652f5ceb5375432f0b300ee603017e4956a0386dc99293c2b4ab26f99b81c6",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/inbox/20260930T0230Z_bob_ready_v4.txt",
+      "git_blob": "10102e7b14d5b545d6db782bf6ff9e88636e6665",
+      "sha256": "1a5fa11d38913fed4f1a089ab88b31e1b3886bceccbdbc41a5260cb0464e8bf9",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/ledger/bob_job3_20260929/bob_dp.py",
+      "git_blob": "13d61ece0e935a3752804e989c9df47857b2a363",
+      "sha256": "3a4117430cd64861bf7fe6310c39c0adb9d30771a096efdf31cf14fe93b433b3",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/ledger/bob_job3_20260929/bob_job3_checked.json",
+      "git_blob": "73a45bd1e15f639fcecbb6ca94f7577d12cb6bec",
+      "sha256": "1b201d6756874f5f1137fe56c98949bbea62625978574fafb82b69bae7e175f2",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/ledger/bob_job3_20260929/bob_check.py",
+      "git_blob": "98652226af28002441d9c09fcbd35146a55c7af2",
+      "sha256": "3940f17174ffb49ca964c0b563000f2829b47c82aebc625f61595edb444a83dd",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/ledger/bob_job3_20260929/bob_job3_final.txt",
+      "git_blob": "2229876ab0e76fa43e70b1f8dbf77e27d533133c",
+      "sha256": "9551f6529fdfc7f04fc301731478ef7e6ce844329934de9f9ce05635728e524c",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/ledger/kernel_bob_20260929/scripts/cross_class_v1.py",
+      "git_blob": "89e8c4d3125fbb5d389809171828c7f627eff84c",
+      "sha256": "8ba56ebe86bd4e1529cab9c07e76e9ab2f146e4e1a8615ada6f0a748c8c9272e",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/ledger/kernel_bob_20260929/scripts/load_bundle_v1.py",
+      "git_blob": "bb2b637408413e82e6febd1e3b3f55232d497488",
+      "sha256": "0443c7a11b60d9c713d9ad92a1868ff0ca02243cb00e008ef32aa5a3579daf24",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/ledger/kernel_bob_20260929/scripts/twin_transfer.py",
+      "git_blob": "625b937fdf0ee94dcd58a9f7aa0702678d450099",
+      "sha256": "be644676a4e40ab9eb5bc96ab0cc1025ab688e5463aa13d20442b83e5a8e75d9",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/ledger/kernel_bob_20260929/scripts/ms_route.py",
+      "git_blob": "82eb908d65232f1aeeb268353fa625914ed43c85",
+      "sha256": "60f56b8fc42e5d3bce2650eff63e502364badb1fcd1bdd4599dbcb9078ce490c",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/ledger/kernel_bob_20260929/scripts/block_splice_v1.py",
+      "git_blob": "b46c8d1ec8df8dbc333ac1eb4e5a16d6e3d3c51f",
+      "sha256": "253b24615cdf0f89b1f29a1d80a0943a9f84a4cdb0c4c18cb8bc665188a2351c",
+      "local_copy_intact": true
+    },
+    {
+      "worker": "bob",
+      "source_path": "research/acc/live/ledger/kernel_bob_20260929/scripts/ms_detect.py",
+      "git_blob": "477397110206dd1807218f81a96526788fdb404e",
+      "sha256": "421a06cafdfeb325f64926da8c9df5470880cb52cbfcbcf070bfe58a51ec7e26",
+      "local_copy_intact": true
+    }
+  ],
+  "intact_source_files": 32,
+  "rebuilt_environments": 0,
+  "archived_solvers_executed": 0,
+  "data_loss_scope": "Source and saved route copies intact. Charlie handoff explicitly excludes T16 and B36 large binary frontiers; Bob 775-row ladder reported on his machine but not yet located in indexed shared folders."
+}

@@ -1,0 +1,335 @@
+{
+  "check_time": "2026-10-01",
+  "head": "92dfe961f4c15376a472458fe87257fc45720f47",
+  "charlie": [
+    {
+      "name": "README_charlie.md",
+      "path": "tools/acc/charlie/README_charlie.md",
+      "sha": "0f5eecff4e90a7294f1db261d1d4ad54e32e806c",
+      "size": 4327,
+      "type": "file"
+    },
+    {
+      "name": "acc_disk.cpp",
+      "path": "tools/acc/charlie/acc_disk.cpp",
+      "sha": "66399c99459dd0235bafef3efd71f9af612ec6e3",
+      "size": 16399,
+      "type": "file"
+    },
+    {
+      "name": "charlie_run.py",
+      "path": "tools/acc/charlie/charlie_run.py",
+      "sha": "1e2f3a15df65939ccbc5188dd8de69030a69b9c7",
+      "size": 4160,
+      "type": "file"
+    },
+    {
+      "name": "cores.py",
+      "path": "tools/acc/charlie/cores.py",
+      "sha": "f978ae5feb32bc7534174cc539c5bc1eb11bfde0",
+      "size": 2073,
+      "type": "file"
+    },
+    {
+      "name": "cutchain.py",
+      "path": "tools/acc/charlie/cutchain.py",
+      "sha": "8bc3ebc401cc05843a025888423ca87048ccdf4d",
+      "size": 2593,
+      "type": "file"
+    },
+    {
+      "name": "cutfirst.py",
+      "path": "tools/acc/charlie/cutfirst.py",
+      "sha": "f9dd503aaa2a7d79fc673ab1ed88dc72b1ed88b4",
+      "size": 4444,
+      "type": "file"
+    },
+    {
+      "name": "ledger_run.py",
+      "path": "tools/acc/charlie/ledger_run.py",
+      "sha": "9b620b79c181a50038d8c3f03978baecbb4482fe",
+      "size": 4437,
+      "type": "file"
+    },
+    {
+      "name": "ref_bfs.py",
+      "path": "tools/acc/charlie/ref_bfs.py",
+      "sha": "6f514f115278ebf03d467404d23b759f2c36e2e8",
+      "size": 748,
+      "type": "file"
+    },
+    {
+      "name": "rows.py",
+      "path": "tools/acc/charlie/rows.py",
+      "sha": "eec2ec437d13346ccd00be9baf62700cf2a205ce",
+      "size": 1019,
+      "type": "file"
+    },
+    {
+      "name": "sac_yx.py",
+      "path": "tools/acc/charlie/sac_yx.py",
+      "sha": "e7b4bffc0a2b434e61a13568d6f8e4007373ae29",
+      "size": 3936,
+      "type": "file"
+    },
+    {
+      "name": "twins.py",
+      "path": "tools/acc/charlie/twins.py",
+      "sha": "edd7c3ceffa4ef659d4a838063504d25730ba1dc",
+      "size": 2302,
+      "type": "file"
+    },
+    {
+      "name": "xcheck_moves.py",
+      "path": "tools/acc/charlie/xcheck_moves.py",
+      "sha": "f0affed5f1458695b73f7b39e1cdf9a88e0e238f",
+      "size": 1202,
+      "type": "file"
+    }
+  ],
+  "bob": [
+    {
+      "name": "beam.cpp",
+      "path": "research/acc/live/ledger/kernel_bob_20260929/scripts/beam.cpp",
+      "sha": "40e52d569816e61b3ace51c6b7d895f75ad8ed74",
+      "size": 5598
+    },
+    {
+      "name": "block_splice_v1.py",
+      "path": "research/acc/live/ledger/kernel_bob_20260929/scripts/block_splice_v1.py",
+      "sha": "b46c8d1ec8df8dbc333ac1eb4e5a16d6e3d3c51f",
+      "size": 3635
+    },
+    {
+      "name": "class_search.py",
+      "path": "research/acc/live/ledger/kernel_bob_20260929/scripts/class_search.py",
+      "sha": "e3f8d9302ba8582f5d669cf7c0a385d0305c2b9a",
+      "size": 2483
+    },
+    {
+      "name": "cross_class_v1.py",
+      "path": "research/acc/live/ledger/kernel_bob_20260929/scripts/cross_class_v1.py",
+      "sha": "89e8c4d3125fbb5d389809171828c7f627eff84c",
+      "size": 3435
+    },
+    {
+      "name": "drive.py",
+      "path": "research/acc/live/ledger/kernel_bob_20260929/scripts/drive.py",
+      "sha": "dbcbb04eed6697c7552d9471bdc7e0d61f32c4e6",
+      "size": 1706
+    },
+    {
+      "name": "load_bundle_v1.py",
+      "path": "research/acc/live/ledger/kernel_bob_20260929/scripts/load_bundle_v1.py",
+      "sha": "bb2b637408413e82e6febd1e3b3f55232d497488",
+      "size": 1374
+    },
+    {
+      "name": "ms_detect.py",
+      "path": "research/acc/live/ledger/kernel_bob_20260929/scripts/ms_detect.py",
+      "sha": "477397110206dd1807218f81a96526788fdb404e",
+      "size": 2990
+    },
+    {
+      "name": "ms_route.py",
+      "path": "research/acc/live/ledger/kernel_bob_20260929/scripts/ms_route.py",
+      "sha": "82eb908d65232f1aeeb268353fa625914ed43c85",
+      "size": 3015
+    },
+    {
+      "name": "splice3.cpp",
+      "path": "research/acc/live/ledger/kernel_bob_20260929/scripts/splice3.cpp",
+      "sha": "1a16f5ef7997f3ce88c8433f408692a52852f6ba",
+      "size": 5348
+    },
+    {
+      "name": "splice3_drive_v1.py",
+      "path": "research/acc/live/ledger/kernel_bob_20260929/scripts/splice3_drive_v1.py",
+      "sha": "78ffb9e3a8e607c5d0135e0b312efcdcb020f1ac",
+      "size": 1493
+    },
+    {
+      "name": "twin_transfer.py",
+      "path": "research/acc/live/ledger/kernel_bob_20260929/scripts/twin_transfer.py",
+      "sha": "625b937fdf0ee94dcd58a9f7aa0702678d450099",
+      "size": 2992
+    }
+  ],
+  "charlie_bundles": [
+    {
+      "name": "CHARLIE_surgery_bundle_20260928T2335Z.txt",
+      "path": "research/acc/live/charlie/CHARLIE_surgery_bundle_20260928T2335Z.txt",
+      "sha": "23def2413d3a8d4e1548ae0223aa072a80f0a23c",
+      "size": 10511,
+      "type": "file"
+    },
+    {
+      "name": "IDEAS_charlie_entry.md",
+      "path": "research/acc/live/charlie/IDEAS_charlie_entry.md",
+      "sha": "c72fd1aafb50220269e0040d0f4c5104a1f73f19",
+      "size": 3184,
+      "type": "file"
+    },
+    {
+      "name": "IDEAS_charlie_entry2.md",
+      "path": "research/acc/live/charlie/IDEAS_charlie_entry2.md",
+      "sha": "82b706487f6fbf1d06ce985b6860694fed683ee7",
+      "size": 1628,
+      "type": "file"
+    },
+    {
+      "name": "WORKING_charlie_source.md",
+      "path": "research/acc/live/charlie/WORKING_charlie_source.md",
+      "sha": "ab140f95a41daa387233ad21a5328c1dbd4f522b",
+      "size": 606,
+      "type": "file"
+    },
+    {
+      "name": "charlie_b6_routes_20260930.txt",
+      "path": "research/acc/live/charlie/charlie_b6_routes_20260930.txt",
+      "sha": "2b3fcf1cbde3353a6846d19c9bce0c7f25bbefdc",
+      "size": 985,
+      "type": "file"
+    },
+    {
+      "name": "charlie_easy_exact_20260929.json",
+      "path": "research/acc/live/charlie/charlie_easy_exact_20260929.json",
+      "sha": "ecfa27d2da13fdf2d0df2623c772bd37604f7027",
+      "size": 2274,
+      "type": "file"
+    },
+    {
+      "name": "charlie_easy_exact_2_20260929.json",
+      "path": "research/acc/live/charlie/charlie_easy_exact_2_20260929.json",
+      "sha": "b0e36cb9d230ff4dd7890429d39658b681b80e2c",
+      "size": 3019,
+      "type": "file"
+    },
+    {
+      "name": "charlie_easy_exact_3_20260929.json",
+      "path": "research/acc/live/charlie/charlie_easy_exact_3_20260929.json",
+      "sha": "73a39da758ba34e5ea55d16a49566325539261d8",
+      "size": 5096,
+      "type": "file"
+    },
+    {
+      "name": "charlie_easy_exact_4_20260929.json",
+      "path": "research/acc/live/charlie/charlie_easy_exact_4_20260929.json",
+      "sha": "db5f13fca69f24475d3e9deafba5c29b48eed8cd",
+      "size": 2591,
+      "type": "file"
+    },
+    {
+      "name": "charlie_easy_exact_5_20260929.json",
+      "path": "research/acc/live/charlie/charlie_easy_exact_5_20260929.json",
+      "sha": "04f5e825a7b4f632a5d6306d53768a1955209a8d",
+      "size": 6593,
+      "type": "file"
+    },
+    {
+      "name": "charlie_lowk_exact_6_20260930.json",
+      "path": "research/acc/live/charlie/charlie_lowk_exact_6_20260930.json",
+      "sha": "1d8c576ae00f93e135cd0fe55368e91a7e03c14d",
+      "size": 4557,
+      "type": "file"
+    },
+    {
+      "name": "charlie_lowk_exact_7_20260930.json",
+      "path": "research/acc/live/charlie/charlie_lowk_exact_7_20260930.json",
+      "sha": "c1d075bb643f6261b6e1f66ee68eeaf1542d3318",
+      "size": 12202,
+      "type": "file"
+    },
+    {
+      "name": "charlie_surgery_bundle_20260929.json",
+      "path": "research/acc/live/charlie/charlie_surgery_bundle_20260929.json",
+      "sha": "f1c797c392199d59fb15e64ece23b4004fe0233b",
+      "size": 40823,
+      "type": "file"
+    },
+    {
+      "name": "cores_groups.json",
+      "path": "research/acc/live/charlie/cores_groups.json",
+      "sha": "064b5b62e1e58a5c1a8896b7be1dfafe89e1a3fb",
+      "size": 157752,
+      "type": "file"
+    },
+    {
+      "name": "cutchain_lines_ac.txt",
+      "path": "research/acc/live/charlie/cutchain_lines_ac.txt",
+      "sha": "10adf2422d5547bbbb642a64462a315acd5b922c",
+      "size": 46721,
+      "type": "file"
+    },
+    {
+      "name": "cutchain_lines_sac.txt",
+      "path": "research/acc/live/charlie/cutchain_lines_sac.txt",
+      "sha": "9d0f39d9335953ca85f6beb4376c2ccb9e53c0df",
+      "size": 49151,
+      "type": "file"
+    },
+    {
+      "name": "source_inbox",
+      "path": "research/acc/live/charlie/source_inbox",
+      "sha": "efde1be77317b398ea28fd5f103ad2eaaaf87bb8",
+      "size": 0,
+      "type": "dir"
+    },
+    {
+      "name": "v45",
+      "path": "research/acc/live/charlie/v45",
+      "sha": "dfbb9e3b79d36ee900037eff6b98305faf6a9dbb",
+      "size": 0,
+      "type": "dir"
+    },
+    {
+      "name": "v6",
+      "path": "research/acc/live/charlie/v6",
+      "sha": "44ce6563a2c6f2b7bb81272e76b0657543434deb",
+      "size": 0,
+      "type": "dir"
+    },
+    {
+      "name": "v7",
+      "path": "research/acc/live/charlie/v7",
+      "sha": "f8e314ac53c3aa421b8a98f42a1dbf635435fda1",
+      "size": 0,
+      "type": "dir"
+    },
+    {
+      "name": "v9",
+      "path": "research/acc/live/charlie/v9",
+      "sha": "23e5f02a1881efba21e887d2faecbc057dece608",
+      "size": 0,
+      "type": "dir"
+    }
+  ],
+  "bob_bundles": [
+    {
+      "name": "bob_blocks_bundle_20260928.json",
+      "path": "research/acc/live/bob/bob_blocks_bundle_20260928.json",
+      "sha": "8fe245b1a699a1ee4b5112576f037c7402c7201f",
+      "size": 105592,
+      "type": "file"
+    },
+    {
+      "name": "bob_crossclass_bundle2_20260929.json",
+      "path": "research/acc/live/bob/bob_crossclass_bundle2_20260929.json",
+      "sha": "5416aa7ac271d9b82545fb4706fd7b547aa5a991",
+      "size": 300484,
+      "type": "file"
+    }
+  ],
+  "drive_hub": "1FKL3CsdhkxC6iSiV3YA7Hj5Cgk7eMP89",
+  "bob_drive_folder": "1bhjg6e5Eodb1H-9VVh_XEg112euDC1B6",
+  "newer_charlie_orders": {
+    "path": "research/acc/live/ORDERS_charlie_v12_20260930.md",
+    "sha": "ae905cad215bc11fb462b4bedd2caf10d9a8664b"
+  },
+  "bob_new_ladder_file": "BOB_ms_ladder_comb_775_v1.txt reported on Bob machine; not found in hub or luna/bob listings",
+  "missing_charlie_large_artifacts": [
+    "T16 complete binary component",
+    "B36 radius9 binary layers"
+  ],
+  "note": "Archive recovery is source/data inspection. No old watch or archived solver executed."
+}

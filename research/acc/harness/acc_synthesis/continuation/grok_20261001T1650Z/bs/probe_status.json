@@ -1,0 +1,16 @@
+{
+  "status": "instrumentation_error_admission_limit_overrun",
+  "negative_memory_export_allowed": false,
+  "attempt_may_repeat_unchanged": false,
+  "allowed_admitted_states": 100000,
+  "actual_admitted_states": 100003,
+  "overrun": 3,
+  "elapsed_seconds": 3.962770702994021,
+  "search_hit": false,
+  "original_result": "unit_residue_probe_result.json",
+  "original_executed_source": "unit_residue_probe_executed.py",
+  "original_executed_source_sha256": "975e97184a6785f85af397d5d5fc78d45601b87922c968a70809c87b1288fba1",
+  "cause": "The admission cap was polled every 256 generated macros instead of checked before each admission.",
+  "repair": "Added exact guard before each new admission in unit_residue_probe.py. It has not been rerun.",
+  "scope": "No theorem or absence-of-route claim follows. No structural hit was observed in the actual enumerated records."
+}

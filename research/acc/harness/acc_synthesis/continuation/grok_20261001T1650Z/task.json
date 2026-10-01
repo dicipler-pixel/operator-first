@@ -11,5 +11,81 @@
   "model_dispatches": 3,
   "authorization": "Direct owner: use the whole team you have your harness of agents and finish this and try to get me some submissions",
   "state_path": "continuation/grok_20261001T1650Z/",
-  "upgh_message_id": "13bb2CRlFrHgf2Emh1KpW1k80yTlc_Olu"
+  "upgh_message_id": "13bb2CRlFrHgf2Emh1KpW1k80yTlc_Olu",
+  "status": "authorized_batches_completed",
+  "completed_at": "2026-10-01T17:15:08.040310+00:00",
+  "receipts": [
+    {
+      "path": "continuation/grok_20261001T1650Z/frame/receipt.json",
+      "sha256": "f51b0ae3061e0da939c21840cae378988b454e628d076d4f2004f1c2267299df"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/frame/paid_frame_dp_receipt.json",
+      "sha256": "b5787e2a8f3cd42ba080a375ade73a691b890781ef53c59bb3c7b7929549236d"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/frame/all_order_receipt.json",
+      "sha256": "0e57249b16bfe52faa916b7d905d56d4ea70fd0416372b1cfa9ec898a9b8bfae"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/n10/bounded_entry_receipt.json",
+      "sha256": "5a232e1d1566613820cb35604413673fcdc0ba51b15068cb436bab7634a17c66"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/n10/finish_shortcuts_receipt.json",
+      "sha256": "ea8c69895681270d49b770e4ddc64ce6263c4bc5d564f3b056f804230e08185b"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/n10/replay_receipt.json",
+      "sha256": "f13c14f446506db823e32ad4ebcf76b08bd1759ed796160bfa994e05af792cd9"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/n10/trajectory_splice_receipt.json",
+      "sha256": "63bcacc6e8c77ebafb37c6a312cb39edcf6d9a3beabe532ff4f7eea0005e0bd5"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/n10/bob_exact_overlay_receipt.json",
+      "sha256": "e9503aa9991550954fce41e4030d350c9ed60250877d4a3bc6f4f259ced1705f"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/bs/identity_audit.json",
+      "sha256": "8a041fb9dba5c694cb0d9de442c51b7b78bc2fc6a6aabd67bdc78359269021c1"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/bs/group_proof_certificate.json",
+      "sha256": "5213a7d71aaf0eebd877058ea16563be14c8dd52f29dfbd72c57ba0c804b93d2"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/bs/group_certificate.json",
+      "sha256": "836cf2ceaa59d5d6697b40593f355ca0f24bec34c306edbb8f1b082e64f4c9e9"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/bs/probe_status.json",
+      "sha256": "cddf989b55b8b4d4b55af3605610fb1f1ec9233292d07cf62b3e1ca86fdef3c4"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/bs/critical_pair/receipt.json",
+      "sha256": "8c650882be0ee44d63adc49f2ef0791c5d82e6eb8965c74619c6881589427d3d"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/independent_receipt.json",
+      "sha256": "6ec33230ebbbb416540645c51bfe3e339d49b801e8067c8cd8a51718a6f749fc"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/helper_backup_receipt.json",
+      "sha256": "6140faaba3a43e9a0108970f7a50e77d309ce7eba20ebaac9dde192b38602c30"
+    },
+    {
+      "path": "continuation/grok_20261001T1650Z/communications.json",
+      "sha256": "969783d88d0341c11466df00446770c9184fe09129dcdc31770d52240a1fc3a1"
+    }
+  ],
+  "no_new_submission_candidate": true,
+  "new_result": "Independently checked group-triviality certificates and paid transfers for five BS rows;32 helper backup copies verified intact.",
+  "do_not_repeat_unchanged": true,
+  "scheduled_model_dispatches": 0,
+  "scheduled_scope_unchanged": true,
+  "instrumentation_error": "bs/probe_status.json preserves100003/100000admission overrun;not negative evidence;not rerun",
+  "next_math_question": "Paid alternating updates of both current relators implementing T2/T3 critical pair;one-sided cleanup loops closed",
+  "upgh_recovery_request": "1x_OvKyGM04Ra_mDzI4bfu2rihjEVacxn"
 }

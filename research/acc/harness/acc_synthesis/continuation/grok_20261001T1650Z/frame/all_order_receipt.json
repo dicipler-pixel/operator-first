@@ -1,0 +1,2037 @@
+{
+  "status": "completed_no_route_within48_in_restricted_graph",
+  "error": null,
+  "source_sha256": "d778f417f7f34f2eb12dccd45751e9e5a0dedb8f78793f21683133209d030329",
+  "checker_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "core_sha256": "d2972711dc7008679127a987a8965d41ea1606b0fc50bf67e2e06c71c456b3b5",
+  "start": [
+    "XyyyyyyyyyyxYYYYYYYYYYY",
+    "xxYYXyy"
+  ],
+  "target": [
+    "YYxxxxxxxxxxxxxxxxyyyX",
+    "xxYYXyy"
+  ],
+  "entry_budget": 48,
+  "scope": "All generated YYx->xxYY rewrite orders through15 additions, with >=3 positive y; exact cyclic/inverse frames and moves0,1,6..13, transition multiplications2,3. No conjugating tails, changed r1 normal-closure class, or other derivations.",
+  "bounds": {
+    "seconds": 20,
+    "memory_bytes": 201326592,
+    "records": 600000,
+    "rewrite_layers": 15
+  },
+  "necklaces_per_layer": [
+    1,
+    1,
+    1,
+    2,
+    3,
+    5,
+    8,
+    10,
+    11,
+    13,
+    13,
+    12,
+    13,
+    13,
+    12,
+    12
+  ],
+  "necklaces": [
+    [
+      "YYYYYYYYYYxyyyyyyyyyyyX"
+    ],
+    [
+      "YYYYYYYYxxyyyyyyyyyX"
+    ],
+    [
+      "YYYYYYxxYYxyyyyyyyyyX"
+    ],
+    [
+      "YYYYYYxxxxyyyyyyyX",
+      "YYYYxxYYxYYxyyyyyyyyyX"
+    ],
+    [
+      "YYYYxxYYxxxyyyyyyyX",
+      "YYYYxxxxYYYYxyyyyyyyyyX",
+      "YYxYYxYYxyyyyyyyyyXYYxx"
+    ],
+    [
+      "YYYYxYYxyyyyyyyyyXYYxxxx",
+      "YYYYxxxxYYxxyyyyyyyX",
+      "YYYYxyyyyyyyyyXYYxxYYxxx",
+      "YYxYYxYYxYYxyyyyyyyyyx",
+      "YYxYYxxxyyyyyyyXYYxx"
+    ],
+    [
+      "YYYYxYYxYYxyyyyyyyyyxxx",
+      "YYYYxYYxyyyyyyyyyxYYxxx",
+      "YYYYxxxxxxYYxyyyyyyyX",
+      "YYYYxxxyyyyyyyXYYxxxx",
+      "YYYYxyyyyyyyyyXYYxxxxYYxx",
+      "YYYYxyyyyyyyyyxYYxYYxxx",
+      "YYxYYxYYxxxyyyyyyyx",
+      "YYxxYYxxxYYxxyyyyyyyX"
+    ],
+    [
+      "YYYYxYYxxxyyyyyyyxxx",
+      "YYYYxYYxyyyyyyyyyxxxYYxx",
+      "YYYYxxxYYYYxyyyyyyyyyxxx",
+      "YYYYxxxxxxxxyyyyyX",
+      "YYYYxxxyyyyyyyxYYxxx",
+      "YYYYxyyyyyyyyyXYYxxxxxxYYx",
+      "YYYYxyyyyyyyyyxYYxxxYYxx",
+      "YYxYYxxxYYxxyyyyyyyx",
+      "YYxxYYxxxxxYYxyyyyyyyX",
+      "YYxxYYxxyyyyyyyXYYxxxx"
+    ],
+    [
+      "YYYYYYxyyyyyyyyyXYYxxxxxxxx",
+      "YYYYxYYxyyyyyyyyyxxxxxYYx",
+      "YYYYxxxYYxxyyyyyyyxxx",
+      "YYYYxxxyyyyyyyxxxYYxx",
+      "YYYYxyyyyyyyyyxYYxxxxxYYx",
+      "YYYYxyyyyyyyyyxxxYYxxYYxx",
+      "YYxYYxxxxxYYxyyyyyyyx",
+      "YYxYYxxyyyyyyyXYYxxxxxx",
+      "YYxxYYxxxxxxxyyyyyX",
+      "YYxxYYxxyyyyyyyxYYxxx",
+      "YYxxxxYYxxxxYYxyyyyyyyX"
+    ],
+    [
+      "YYYYYYxYYxyyyyyyyyyxxxxxxx",
+      "YYYYYYxyyyyyyyyyxYYxxxxxxx",
+      "YYYYxxxxxYYxyyyyyyyxxx",
+      "YYYYxxxyyyyyyyxxxxxYYx",
+      "YYYYxxyyyyyyyXYYxxxxxxxx",
+      "YYYYxyyyyyyyyyxxxYYxxxxYYx",
+      "YYYYxyyyyyyyyyxxxxxYYxYYxx",
+      "YYxYYxxxxxxxyyyyyx",
+      "YYxYYxxyyyyyyyxYYxxxxx",
+      "YYxxYYxxYYxxyyyyyyyxxx",
+      "YYxxxYYxxxxYYxyyyyyyyx",
+      "YYxxxYYxyyyyyyyXYYxxxxxx",
+      "YYxxxxYYxxxxxxyyyyyX"
+    ],
+    [
+      "YYYYYYxxxyyyyyyyxxxxxxx",
+      "YYYYYYxyyyyyyyyyxxxYYxxxxxx",
+      "YYYYxxYYYYxyyyyyyyyyxxxxxxx",
+      "YYYYxxxxxxxyyyyyxxx",
+      "YYYYxxyyyyyyyxYYxxxxxxx",
+      "YYYYxyyyyyyyyyxxxxxYYxxxYYx",
+      "YYxYYxxYYxxyyyyyyyxxxxx",
+      "YYxYYxxyyyyyyyxxxYYxxxx",
+      "YYxxYYxxxxYYxyyyyyyyxxx",
+      "YYxxYYxyyyyyyyXYYxxxxxxxx",
+      "YYxxxYYxxxxxxyyyyyx",
+      "YYxxxYYxyyyyyyyxYYxxxxx",
+      "YYxxxxxxYYxxxxxyyyyyX"
+    ],
+    [
+      "YYYYYYxyyyyyyyyyxxxxxYYxxxxx",
+      "YYYYxxYYxxyyyyyyyxxxxxxx",
+      "YYYYxxyyyyyyyxxxYYxxxxxx",
+      "YYYYxyyyyyyyyyxxxxxxxYYxxYYx",
+      "YYxYYxxxxYYxyyyyyyyxxxxx",
+      "YYxYYxxyyyyyyyxxxxxYYxxx",
+      "YYxYYxyyyyyyyXYYxxxxxxxxxx",
+      "YYxxYYxxxxxxyyyyyxxx",
+      "YYxxYYxyyyyyyyxYYxxxxxxx",
+      "YYxxxYYxyyyyyyyxxxYYxxxx",
+      "YYxxxxxYYxxxxxyyyyyx",
+      "YYxxxxxxxxYYxxxxyyyyyX"
+    ],
+    [
+      "YYYYYYxyyyyyyyyyxxxxxxxYYxxxx",
+      "YYYYxxxxYYxyyyyyyyxxxxxxx",
+      "YYYYxxyyyyyyyxxxxxYYxxxxx",
+      "YYYYxyyyyyyyXYYxxxxxxxxxxxx",
+      "YYYYxyyyyyyyyyxxxxxxxxxYYxYYx",
+      "YYxYYxxxxxxyyyyyxxxxx",
+      "YYxYYxxyyyyyyyxxxxxxxYYxx",
+      "YYxYYxyyyyyyyxYYxxxxxxxxx",
+      "YYxxYYxyyyyyyyxxxYYxxxxxx",
+      "YYxxxYYxxxYYxyyyyyyyxxxxx",
+      "YYxxxxYYxxxxxyyyyyxxx",
+      "YYxxxxxxxYYxxxxyyyyyx",
+      "YYxxxxxxxxxxYYxxxyyyyyX"
+    ],
+    [
+      "YYYYYYxyyyyyyyyyxxxxxxxxxYYxxx",
+      "YYYYxYYYYxyyyyyyyyyxxxxxxxxxxx",
+      "YYYYxxxxxxyyyyyxxxxxxx",
+      "YYYYxxyyyyyyyxxxxxxxYYxxxx",
+      "YYYYxyyyyyyyxYYxxxxxxxxxxx",
+      "YYxYYxYYxxyyyyyyyxxxxxxxxx",
+      "YYxYYxyyyyyyyxxxYYxxxxxxxx",
+      "YYxxYYxxxYYxyyyyyyyxxxxxxx",
+      "YYxxYYxyyyyyyyxxxxxYYxxxxx",
+      "YYxxxYYxxxxxyyyyyxxxxx",
+      "YYxxxxxxYYxxxxyyyyyxxx",
+      "YYxxxxxxxxxYYxxxyyyyyx",
+      "YYxxxxxxxxxxxxYYxxyyyyyX"
+    ],
+    [
+      "YYYYYYxyyyyyyyyyxxxxxxxxxxxYYxx",
+      "YYYYxYYxxyyyyyyyxxxxxxxxxxx",
+      "YYYYxxyyyyyyyxxxxxxxxxYYxxx",
+      "YYYYxyyyyyyyxxxYYxxxxxxxxxx",
+      "YYxYYxxxYYxyyyyyyyxxxxxxxxx",
+      "YYxYYxyyyyyyyxxxxxYYxxxxxxx",
+      "YYxxYYxxxxxyyyyyxxxxxxx",
+      "YYxxYYxyyyyyyyxxxxxxxYYxxxx",
+      "YYxxxxxYYxxxxyyyyyxxxxx",
+      "YYxxxxxxxxYYxxxyyyyyxxx",
+      "YYxxxxxxxxxxxYYxxyyyyyx",
+      "YYxxxxxxxxxxxxxxYYxyyyyyX"
+    ],
+    [
+      "YYYYYYxyyyyyyyyyxxxxxxxxxxxxxYYx",
+      "YYYYxxxYYxyyyyyyyxxxxxxxxxxx",
+      "YYYYxxyyyyyyyxxxxxxxxxxxYYxx",
+      "YYYYxyyyyyyyxxxxxYYxxxxxxxxx",
+      "YYxYYxxxxxyyyyyxxxxxxxxx",
+      "YYxYYxyyyyyyyxxxxxxxYYxxxxxx",
+      "YYxxYYxyyyyyyyxxxxxxxxxYYxxx",
+      "YYxxxxYYxxxxyyyyyxxxxxxx",
+      "YYxxxxxxxYYxxxyyyyyxxxxx",
+      "YYxxxxxxxxxxYYxxyyyyyxxx",
+      "YYxxxxxxxxxxxxxYYxyyyyyx",
+      "YYxxxxxxxxxxxxxxxxyyyX"
+    ]
+  ],
+  "rewrite_edges": [
+    {
+      "layer": 0,
+      "from": "YYYYYYYYYYxyyyyyyyyyyyX",
+      "cut": 8,
+      "to": "YYYYYYYYxxyyyyyyyyyX"
+    },
+    {
+      "layer": 1,
+      "from": "YYYYYYYYxxyyyyyyyyyX",
+      "cut": 6,
+      "to": "YYYYYYxxYYxyyyyyyyyyX"
+    },
+    {
+      "layer": 2,
+      "from": "YYYYYYxxYYxyyyyyyyyyX",
+      "cut": 4,
+      "to": "YYYYxxYYxYYxyyyyyyyyyX"
+    },
+    {
+      "layer": 2,
+      "from": "YYYYYYxxYYxyyyyyyyyyX",
+      "cut": 8,
+      "to": "YYYYYYxxxxyyyyyyyX"
+    },
+    {
+      "layer": 3,
+      "from": "YYYYYYxxxxyyyyyyyX",
+      "cut": 4,
+      "to": "YYYYxxYYxxxyyyyyyyX"
+    },
+    {
+      "layer": 3,
+      "from": "YYYYxxYYxYYxyyyyyyyyyX",
+      "cut": 2,
+      "to": "YYxYYxYYxyyyyyyyyyXYYxx"
+    },
+    {
+      "layer": 3,
+      "from": "YYYYxxYYxYYxyyyyyyyyyX",
+      "cut": 6,
+      "to": "YYYYxxxxYYYYxyyyyyyyyyX"
+    },
+    {
+      "layer": 3,
+      "from": "YYYYxxYYxYYxyyyyyyyyyX",
+      "cut": 9,
+      "to": "YYYYxxYYxxxyyyyyyyX"
+    },
+    {
+      "layer": 4,
+      "from": "YYYYxxYYxxxyyyyyyyX",
+      "cut": 2,
+      "to": "YYxYYxxxyyyyyyyXYYxx"
+    },
+    {
+      "layer": 4,
+      "from": "YYYYxxYYxxxyyyyyyyX",
+      "cut": 6,
+      "to": "YYYYxxxxYYxxyyyyyyyX"
+    },
+    {
+      "layer": 4,
+      "from": "YYYYxxxxYYYYxyyyyyyyyyX",
+      "cut": 2,
+      "to": "YYYYxyyyyyyyyyXYYxxYYxxx"
+    },
+    {
+      "layer": 4,
+      "from": "YYYYxxxxYYYYxyyyyyyyyyX",
+      "cut": 10,
+      "to": "YYYYxxxxYYxxyyyyyyyX"
+    },
+    {
+      "layer": 4,
+      "from": "YYxYYxYYxyyyyyyyyyXYYxx",
+      "cut": 0,
+      "to": "YYYYxYYxyyyyyyyyyXYYxxxx"
+    },
+    {
+      "layer": 4,
+      "from": "YYxYYxYYxyyyyyyyyyXYYxx",
+      "cut": 3,
+      "to": "YYYYxyyyyyyyyyXYYxxYYxxx"
+    },
+    {
+      "layer": 4,
+      "from": "YYxYYxYYxyyyyyyyyyXYYxx",
+      "cut": 6,
+      "to": "YYxYYxxxyyyyyyyXYYxx"
+    },
+    {
+      "layer": 4,
+      "from": "YYxYYxYYxyyyyyyyyyXYYxx",
+      "cut": 19,
+      "to": "YYxYYxYYxYYxyyyyyyyyyx"
+    },
+    {
+      "layer": 5,
+      "from": "YYYYxYYxyyyyyyyyyXYYxxxx",
+      "cut": 2,
+      "to": "YYYYxyyyyyyyyyXYYxxxxYYxx"
+    },
+    {
+      "layer": 5,
+      "from": "YYYYxYYxyyyyyyyyyXYYxxxx",
+      "cut": 5,
+      "to": "YYYYxxxyyyyyyyXYYxxxx"
+    },
+    {
+      "layer": 5,
+      "from": "YYYYxYYxyyyyyyyyyXYYxxxx",
+      "cut": 18,
+      "to": "YYYYxYYxyyyyyyyyyxYYxxx"
+    },
+    {
+      "layer": 5,
+      "from": "YYYYxxxxYYxxyyyyyyyX",
+      "cut": 2,
+      "to": "YYxxYYxxxYYxxyyyyyyyX"
+    },
+    {
+      "layer": 5,
+      "from": "YYYYxxxxYYxxyyyyyyyX",
+      "cut": 8,
+      "to": "YYYYxxxxxxYYxyyyyyyyX"
+    },
+    {
+      "layer": 5,
+      "from": "YYYYxyyyyyyyyyXYYxxYYxxx",
+      "cut": 2,
+      "to": "YYxxYYxxxYYxxyyyyyyyX"
+    },
+    {
+      "layer": 5,
+      "from": "YYYYxyyyyyyyyyXYYxxYYxxx",
+      "cut": 15,
+      "to": "YYYYxyyyyyyyyyxYYxYYxxx"
+    },
+    {
+      "layer": 5,
+      "from": "YYYYxyyyyyyyyyXYYxxYYxxx",
+      "cut": 19,
+      "to": "YYYYxyyyyyyyyyXYYxxxxYYxx"
+    },
+    {
+      "layer": 5,
+      "from": "YYxYYxYYxYYxyyyyyyyyyx",
+      "cut": 0,
+      "to": "YYYYxYYxYYxyyyyyyyyyxxx"
+    },
+    {
+      "layer": 5,
+      "from": "YYxYYxYYxYYxyyyyyyyyyx",
+      "cut": 3,
+      "to": "YYYYxYYxyyyyyyyyyxYYxxx"
+    },
+    {
+      "layer": 5,
+      "from": "YYxYYxYYxYYxyyyyyyyyyx",
+      "cut": 6,
+      "to": "YYYYxyyyyyyyyyxYYxYYxxx"
+    },
+    {
+      "layer": 5,
+      "from": "YYxYYxYYxYYxyyyyyyyyyx",
+      "cut": 9,
+      "to": "YYxYYxYYxxxyyyyyyyx"
+    },
+    {
+      "layer": 5,
+      "from": "YYxYYxxxyyyyyyyXYYxx",
+      "cut": 0,
+      "to": "YYYYxxxyyyyyyyXYYxxxx"
+    },
+    {
+      "layer": 5,
+      "from": "YYxYYxxxyyyyyyyXYYxx",
+      "cut": 3,
+      "to": "YYxxYYxxxYYxxyyyyyyyX"
+    },
+    {
+      "layer": 5,
+      "from": "YYxYYxxxyyyyyyyXYYxx",
+      "cut": 16,
+      "to": "YYxYYxYYxxxyyyyyyyx"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxYYxYYxyyyyyyyyyxxx",
+      "cut": 2,
+      "to": "YYYYxYYxyyyyyyyyyxxxYYxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxYYxYYxyyyyyyyyyxxx",
+      "cut": 5,
+      "to": "YYYYxxxYYYYxyyyyyyyyyxxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxYYxYYxyyyyyyyyyxxx",
+      "cut": 8,
+      "to": "YYYYxYYxxxyyyyyyyxxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxYYxyyyyyyyyyxYYxxx",
+      "cut": 2,
+      "to": "YYYYxyyyyyyyyyxYYxxxYYxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxYYxyyyyyyyyyxYYxxx",
+      "cut": 5,
+      "to": "YYYYxxxyyyyyyyxYYxxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxYYxyyyyyyyyyxYYxxx",
+      "cut": 18,
+      "to": "YYYYxYYxyyyyyyyyyxxxYYxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxxxxxxYYxyyyyyyyX",
+      "cut": 2,
+      "to": "YYxxYYxxxxxYYxyyyyyyyX"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxxxxxxYYxyyyyyyyX",
+      "cut": 10,
+      "to": "YYYYxxxxxxxxyyyyyX"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxxxyyyyyyyXYYxxxx",
+      "cut": 2,
+      "to": "YYxxYYxxyyyyyyyXYYxxxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxxxyyyyyyyXYYxxxx",
+      "cut": 15,
+      "to": "YYYYxxxyyyyyyyxYYxxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxyyyyyyyyyXYYxxxxYYxx",
+      "cut": 2,
+      "to": "YYxxYYxxyyyyyyyXYYxxxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxyyyyyyyyyXYYxxxxYYxx",
+      "cut": 15,
+      "to": "YYYYxyyyyyyyyyxYYxxxYYxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxyyyyyyyyyXYYxxxxYYxx",
+      "cut": 21,
+      "to": "YYYYxyyyyyyyyyXYYxxxxxxYYx"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxyyyyyyyyyxYYxYYxxx",
+      "cut": 2,
+      "to": "YYxYYxxxYYxxyyyyyyyx"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxyyyyyyyyyxYYxYYxxx",
+      "cut": 15,
+      "to": "YYYYxxxYYYYxyyyyyyyyyxxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYYYxyyyyyyyyyxYYxYYxxx",
+      "cut": 18,
+      "to": "YYYYxyyyyyyyyyxYYxxxYYxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYxYYxYYxxxyyyyyyyx",
+      "cut": 0,
+      "to": "YYYYxYYxxxyyyyyyyxxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYxYYxYYxxxyyyyyyyx",
+      "cut": 3,
+      "to": "YYYYxxxyyyyyyyxYYxxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYxYYxYYxxxyyyyyyyx",
+      "cut": 6,
+      "to": "YYxYYxxxYYxxyyyyyyyx"
+    },
+    {
+      "layer": 6,
+      "from": "YYxxYYxxxYYxxyyyyyyyX",
+      "cut": 0,
+      "to": "YYxYYxxxYYxxyyyyyyyx"
+    },
+    {
+      "layer": 6,
+      "from": "YYxxYYxxxYYxxyyyyyyyX",
+      "cut": 4,
+      "to": "YYxxYYxxyyyyyyyXYYxxxx"
+    },
+    {
+      "layer": 6,
+      "from": "YYxxYYxxxYYxxyyyyyyyX",
+      "cut": 9,
+      "to": "YYxxYYxxxxxYYxyyyyyyyX"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxYYxxxyyyyyyyxxx",
+      "cut": 2,
+      "to": "YYYYxxxyyyyyyyxxxYYxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxYYxxxyyyyyyyxxx",
+      "cut": 5,
+      "to": "YYYYxxxYYxxyyyyyyyxxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxYYxyyyyyyyyyxxxYYxx",
+      "cut": 2,
+      "to": "YYYYxyyyyyyyyyxxxYYxxYYxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxYYxyyyyyyyyyxxxYYxx",
+      "cut": 5,
+      "to": "YYYYxxxyyyyyyyxxxYYxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxYYxyyyyyyyyyxxxYYxx",
+      "cut": 20,
+      "to": "YYYYxYYxyyyyyyyyyxxxxxYYx"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxxxYYYYxyyyyyyyyyxxx",
+      "cut": 2,
+      "to": "YYYYxyyyyyyyyyxxxYYxxYYxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxxxYYYYxyyyyyyyyyxxx",
+      "cut": 9,
+      "to": "YYYYxxxYYxxyyyyyyyxxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxxxxxxxxyyyyyX",
+      "cut": 2,
+      "to": "YYxxYYxxxxxxxyyyyyX"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxxxyyyyyyyxYYxxx",
+      "cut": 2,
+      "to": "YYxxYYxxyyyyyyyxYYxxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxxxyyyyyyyxYYxxx",
+      "cut": 15,
+      "to": "YYYYxxxyyyyyyyxxxYYxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxyyyyyyyyyXYYxxxxxxYYx",
+      "cut": 2,
+      "to": "YYxYYxxyyyyyyyXYYxxxxxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxyyyyyyyyyXYYxxxxxxYYx",
+      "cut": 15,
+      "to": "YYYYxyyyyyyyyyxYYxxxxxYYx"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxyyyyyyyyyXYYxxxxxxYYx",
+      "cut": 23,
+      "to": "YYYYYYxyyyyyyyyyXYYxxxxxxxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxyyyyyyyyyxYYxxxYYxx",
+      "cut": 2,
+      "to": "YYxxYYxxyyyyyyyxYYxxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxyyyyyyyyyxYYxxxYYxx",
+      "cut": 15,
+      "to": "YYYYxyyyyyyyyyxxxYYxxYYxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYYYxyyyyyyyyyxYYxxxYYxx",
+      "cut": 20,
+      "to": "YYYYxyyyyyyyyyxYYxxxxxYYx"
+    },
+    {
+      "layer": 7,
+      "from": "YYxYYxxxYYxxyyyyyyyx",
+      "cut": 0,
+      "to": "YYYYxxxYYxxyyyyyyyxxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYxYYxxxYYxxyyyyyyyx",
+      "cut": 3,
+      "to": "YYxxYYxxyyyyyyyxYYxxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYxYYxxxYYxxyyyyyyyx",
+      "cut": 8,
+      "to": "YYxYYxxxxxYYxyyyyyyyx"
+    },
+    {
+      "layer": 7,
+      "from": "YYxxYYxxxxxYYxyyyyyyyX",
+      "cut": 0,
+      "to": "YYxYYxxxxxYYxyyyyyyyx"
+    },
+    {
+      "layer": 7,
+      "from": "YYxxYYxxxxxYYxyyyyyyyX",
+      "cut": 4,
+      "to": "YYxxxxYYxxxxYYxyyyyyyyX"
+    },
+    {
+      "layer": 7,
+      "from": "YYxxYYxxxxxYYxyyyyyyyX",
+      "cut": 11,
+      "to": "YYxxYYxxxxxxxyyyyyX"
+    },
+    {
+      "layer": 7,
+      "from": "YYxxYYxxyyyyyyyXYYxxxx",
+      "cut": 0,
+      "to": "YYxYYxxyyyyyyyXYYxxxxxx"
+    },
+    {
+      "layer": 7,
+      "from": "YYxxYYxxyyyyyyyXYYxxxx",
+      "cut": 4,
+      "to": "YYxxxxYYxxxxYYxyyyyyyyX"
+    },
+    {
+      "layer": 7,
+      "from": "YYxxYYxxyyyyyyyXYYxxxx",
+      "cut": 16,
+      "to": "YYxxYYxxyyyyyyyxYYxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYYYxyyyyyyyyyXYYxxxxxxxx",
+      "cut": 4,
+      "to": "YYYYxxyyyyyyyXYYxxxxxxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYYYxyyyyyyyyyXYYxxxxxxxx",
+      "cut": 17,
+      "to": "YYYYYYxyyyyyyyyyxYYxxxxxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYxYYxyyyyyyyyyxxxxxYYx",
+      "cut": 2,
+      "to": "YYYYxyyyyyyyyyxxxxxYYxYYxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYxYYxyyyyyyyyyxxxxxYYx",
+      "cut": 5,
+      "to": "YYYYxxxyyyyyyyxxxxxYYx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYxYYxyyyyyyyyyxxxxxYYx",
+      "cut": 22,
+      "to": "YYYYYYxYYxyyyyyyyyyxxxxxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYxxxYYxxyyyyyyyxxx",
+      "cut": 2,
+      "to": "YYxxYYxxYYxxyyyyyyyxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYxxxYYxxyyyyyyyxxx",
+      "cut": 7,
+      "to": "YYYYxxxxxYYxyyyyyyyxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYxxxyyyyyyyxxxYYxx",
+      "cut": 2,
+      "to": "YYxxYYxxYYxxyyyyyyyxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYxxxyyyyyyyxxxYYxx",
+      "cut": 17,
+      "to": "YYYYxxxyyyyyyyxxxxxYYx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYxyyyyyyyyyxYYxxxxxYYx",
+      "cut": 2,
+      "to": "YYxYYxxyyyyyyyxYYxxxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYxyyyyyyyyyxYYxxxxxYYx",
+      "cut": 15,
+      "to": "YYYYxyyyyyyyyyxxxYYxxxxYYx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYxyyyyyyyyyxYYxxxxxYYx",
+      "cut": 22,
+      "to": "YYYYYYxyyyyyyyyyxYYxxxxxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYxyyyyyyyyyxxxYYxxYYxx",
+      "cut": 2,
+      "to": "YYxxYYxxYYxxyyyyyyyxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYxyyyyyyyyyxxxYYxxYYxx",
+      "cut": 17,
+      "to": "YYYYxyyyyyyyyyxxxxxYYxYYxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYYYxyyyyyyyyyxxxYYxxYYxx",
+      "cut": 21,
+      "to": "YYYYxyyyyyyyyyxxxYYxxxxYYx"
+    },
+    {
+      "layer": 8,
+      "from": "YYxYYxxxxxYYxyyyyyyyx",
+      "cut": 0,
+      "to": "YYYYxxxxxYYxyyyyyyyxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYxYYxxxxxYYxyyyyyyyx",
+      "cut": 3,
+      "to": "YYxxxYYxxxxYYxyyyyyyyx"
+    },
+    {
+      "layer": 8,
+      "from": "YYxYYxxxxxYYxyyyyyyyx",
+      "cut": 10,
+      "to": "YYxYYxxxxxxxyyyyyx"
+    },
+    {
+      "layer": 8,
+      "from": "YYxYYxxyyyyyyyXYYxxxxxx",
+      "cut": 0,
+      "to": "YYYYxxyyyyyyyXYYxxxxxxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYxYYxxyyyyyyyXYYxxxxxx",
+      "cut": 3,
+      "to": "YYxxxYYxyyyyyyyXYYxxxxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYxYYxxyyyyyyyXYYxxxxxx",
+      "cut": 15,
+      "to": "YYxYYxxyyyyyyyxYYxxxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYxxYYxxxxxxxyyyyyX",
+      "cut": 0,
+      "to": "YYxYYxxxxxxxyyyyyx"
+    },
+    {
+      "layer": 8,
+      "from": "YYxxYYxxxxxxxyyyyyX",
+      "cut": 4,
+      "to": "YYxxxxYYxxxxxxyyyyyX"
+    },
+    {
+      "layer": 8,
+      "from": "YYxxYYxxyyyyyyyxYYxxx",
+      "cut": 0,
+      "to": "YYxYYxxyyyyyyyxYYxxxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYxxYYxxyyyyyyyxYYxxx",
+      "cut": 4,
+      "to": "YYxxxYYxxxxYYxyyyyyyyx"
+    },
+    {
+      "layer": 8,
+      "from": "YYxxYYxxyyyyyyyxYYxxx",
+      "cut": 16,
+      "to": "YYxxYYxxYYxxyyyyyyyxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYxxxxYYxxxxYYxyyyyyyyX",
+      "cut": 0,
+      "to": "YYxxxYYxxxxYYxyyyyyyyx"
+    },
+    {
+      "layer": 8,
+      "from": "YYxxxxYYxxxxYYxyyyyyyyX",
+      "cut": 6,
+      "to": "YYxxxYYxyyyyyyyXYYxxxxxx"
+    },
+    {
+      "layer": 8,
+      "from": "YYxxxxYYxxxxYYxyyyyyyyX",
+      "cut": 12,
+      "to": "YYxxxxYYxxxxxxyyyyyX"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYYYxYYxyyyyyyyyyxxxxxxx",
+      "cut": 4,
+      "to": "YYYYxxYYYYxyyyyyyyyyxxxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYYYxYYxyyyyyyyyyxxxxxxx",
+      "cut": 7,
+      "to": "YYYYYYxxxyyyyyyyxxxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYYYxyyyyyyyyyxYYxxxxxxx",
+      "cut": 4,
+      "to": "YYYYxxyyyyyyyxYYxxxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYYYxyyyyyyyyyxYYxxxxxxx",
+      "cut": 17,
+      "to": "YYYYYYxyyyyyyyyyxxxYYxxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYxxxxxYYxyyyyyyyxxx",
+      "cut": 2,
+      "to": "YYxxYYxxxxYYxyyyyyyyxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYxxxxxYYxyyyyyyyxxx",
+      "cut": 9,
+      "to": "YYYYxxxxxxxyyyyyxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYxxxyyyyyyyxxxxxYYx",
+      "cut": 2,
+      "to": "YYxYYxxYYxxyyyyyyyxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYxxxyyyyyyyxxxxxYYx",
+      "cut": 19,
+      "to": "YYYYYYxxxyyyyyyyxxxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYxxyyyyyyyXYYxxxxxxxx",
+      "cut": 2,
+      "to": "YYxxYYxyyyyyyyXYYxxxxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYxxyyyyyyyXYYxxxxxxxx",
+      "cut": 14,
+      "to": "YYYYxxyyyyyyyxYYxxxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYxyyyyyyyyyxxxYYxxxxYYx",
+      "cut": 2,
+      "to": "YYxYYxxyyyyyyyxxxYYxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYxyyyyyyyyyxxxYYxxxxYYx",
+      "cut": 17,
+      "to": "YYYYxyyyyyyyyyxxxxxYYxxxYYx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYxyyyyyyyyyxxxYYxxxxYYx",
+      "cut": 23,
+      "to": "YYYYYYxyyyyyyyyyxxxYYxxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYxyyyyyyyyyxxxxxYYxYYxx",
+      "cut": 2,
+      "to": "YYxYYxxYYxxyyyyyyyxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYxyyyyyyyyyxxxxxYYxYYxx",
+      "cut": 19,
+      "to": "YYYYxxYYYYxyyyyyyyyyxxxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYYYxyyyyyyyyyxxxxxYYxYYxx",
+      "cut": 22,
+      "to": "YYYYxyyyyyyyyyxxxxxYYxxxYYx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxYYxxxxxxxyyyyyx",
+      "cut": 0,
+      "to": "YYYYxxxxxxxyyyyyxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxYYxxxxxxxyyyyyx",
+      "cut": 3,
+      "to": "YYxxxYYxxxxxxyyyyyx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxYYxxyyyyyyyxYYxxxxx",
+      "cut": 0,
+      "to": "YYYYxxyyyyyyyxYYxxxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxYYxxyyyyyyyxYYxxxxx",
+      "cut": 3,
+      "to": "YYxxxYYxyyyyyyyxYYxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxYYxxyyyyyyyxYYxxxxx",
+      "cut": 15,
+      "to": "YYxYYxxyyyyyyyxxxYYxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxxYYxxYYxxyyyyyyyxxx",
+      "cut": 0,
+      "to": "YYxYYxxYYxxyyyyyyyxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxxYYxxYYxxyyyyyyyxxx",
+      "cut": 4,
+      "to": "YYxYYxxyyyyyyyxxxYYxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxxYYxxYYxxyyyyyyyxxx",
+      "cut": 8,
+      "to": "YYxxYYxxxxYYxyyyyyyyxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxxxYYxxxxYYxyyyyyyyx",
+      "cut": 0,
+      "to": "YYxxYYxxxxYYxyyyyyyyxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxxxYYxxxxYYxyyyyyyyx",
+      "cut": 5,
+      "to": "YYxxxYYxyyyyyyyxYYxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxxxYYxxxxYYxyyyyyyyx",
+      "cut": 11,
+      "to": "YYxxxYYxxxxxxyyyyyx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxxxYYxyyyyyyyXYYxxxxxx",
+      "cut": 0,
+      "to": "YYxxYYxyyyyyyyXYYxxxxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxxxYYxyyyyyyyXYYxxxxxx",
+      "cut": 5,
+      "to": "YYxxxxxxYYxxxxxyyyyyX"
+    },
+    {
+      "layer": 9,
+      "from": "YYxxxYYxyyyyyyyXYYxxxxxx",
+      "cut": 16,
+      "to": "YYxxxYYxyyyyyyyxYYxxxxx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxxxxYYxxxxxxyyyyyX",
+      "cut": 0,
+      "to": "YYxxxYYxxxxxxyyyyyx"
+    },
+    {
+      "layer": 9,
+      "from": "YYxxxxYYxxxxxxyyyyyX",
+      "cut": 6,
+      "to": "YYxxxxxxYYxxxxxyyyyyX"
+    },
+    {
+      "layer": 10,
+      "from": "YYYYYYxxxyyyyyyyxxxxxxx",
+      "cut": 4,
+      "to": "YYYYxxYYxxyyyyyyyxxxxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYYYYYxyyyyyyyyyxxxYYxxxxxx",
+      "cut": 4,
+      "to": "YYYYxxyyyyyyyxxxYYxxxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYYYYYxyyyyyyyyyxxxYYxxxxxx",
+      "cut": 19,
+      "to": "YYYYYYxyyyyyyyyyxxxxxYYxxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYYYxxYYYYxyyyyyyyyyxxxxxxx",
+      "cut": 2,
+      "to": "YYYYxyyyyyyyyyxxxxxxxYYxxYYx"
+    },
+    {
+      "layer": 10,
+      "from": "YYYYxxYYYYxyyyyyyyyyxxxxxxx",
+      "cut": 8,
+      "to": "YYYYxxYYxxyyyyyyyxxxxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYYYxxxxxxxyyyyyxxx",
+      "cut": 2,
+      "to": "YYxxYYxxxxxxyyyyyxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYYYxxyyyyyyyxYYxxxxxxx",
+      "cut": 2,
+      "to": "YYxxYYxyyyyyyyxYYxxxxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYYYxxyyyyyyyxYYxxxxxxx",
+      "cut": 14,
+      "to": "YYYYxxyyyyyyyxxxYYxxxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYYYxyyyyyyyyyxxxxxYYxxxYYx",
+      "cut": 2,
+      "to": "YYxYYxxyyyyyyyxxxxxYYxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYYYxyyyyyyyyyxxxxxYYxxxYYx",
+      "cut": 19,
+      "to": "YYYYxyyyyyyyyyxxxxxxxYYxxYYx"
+    },
+    {
+      "layer": 10,
+      "from": "YYYYxyyyyyyyyyxxxxxYYxxxYYx",
+      "cut": 24,
+      "to": "YYYYYYxyyyyyyyyyxxxxxYYxxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxYYxxYYxxyyyyyyyxxxxx",
+      "cut": 0,
+      "to": "YYYYxxYYxxyyyyyyyxxxxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxYYxxYYxxyyyyyyyxxxxx",
+      "cut": 3,
+      "to": "YYxYYxxyyyyyyyxxxxxYYxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxYYxxYYxxyyyyyyyxxxxx",
+      "cut": 7,
+      "to": "YYxYYxxxxYYxyyyyyyyxxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxYYxxyyyyyyyxxxYYxxxx",
+      "cut": 0,
+      "to": "YYYYxxyyyyyyyxxxYYxxxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxYYxxyyyyyyyxxxYYxxxx",
+      "cut": 3,
+      "to": "YYxxxYYxyyyyyyyxxxYYxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxYYxxyyyyyyyxxxYYxxxx",
+      "cut": 17,
+      "to": "YYxYYxxyyyyyyyxxxxxYYxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxxYYxxxxYYxyyyyyyyxxx",
+      "cut": 0,
+      "to": "YYxYYxxxxYYxyyyyyyyxxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxxYYxxxxYYxyyyyyyyxxx",
+      "cut": 4,
+      "to": "YYxxxYYxyyyyyyyxxxYYxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxxYYxxxxYYxyyyyyyyxxx",
+      "cut": 10,
+      "to": "YYxxYYxxxxxxyyyyyxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxxYYxyyyyyyyXYYxxxxxxxx",
+      "cut": 0,
+      "to": "YYxYYxyyyyyyyXYYxxxxxxxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxxYYxyyyyyyyXYYxxxxxxxx",
+      "cut": 4,
+      "to": "YYxxxxxxxxYYxxxxyyyyyX"
+    },
+    {
+      "layer": 10,
+      "from": "YYxxYYxyyyyyyyXYYxxxxxxxx",
+      "cut": 15,
+      "to": "YYxxYYxyyyyyyyxYYxxxxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxxxYYxxxxxxyyyyyx",
+      "cut": 0,
+      "to": "YYxxYYxxxxxxyyyyyxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxxxYYxxxxxxyyyyyx",
+      "cut": 5,
+      "to": "YYxxxxxYYxxxxxyyyyyx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxxxYYxyyyyyyyxYYxxxxx",
+      "cut": 0,
+      "to": "YYxxYYxyyyyyyyxYYxxxxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxxxYYxyyyyyyyxYYxxxxx",
+      "cut": 5,
+      "to": "YYxxxxxYYxxxxxyyyyyx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxxxYYxyyyyyyyxYYxxxxx",
+      "cut": 16,
+      "to": "YYxxxYYxyyyyyyyxxxYYxxxx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxxxxxxYYxxxxxyyyyyX",
+      "cut": 0,
+      "to": "YYxxxxxYYxxxxxyyyyyx"
+    },
+    {
+      "layer": 10,
+      "from": "YYxxxxxxYYxxxxxyyyyyX",
+      "cut": 8,
+      "to": "YYxxxxxxxxYYxxxxyyyyyX"
+    },
+    {
+      "layer": 11,
+      "from": "YYYYYYxyyyyyyyyyxxxxxYYxxxxx",
+      "cut": 4,
+      "to": "YYYYxxyyyyyyyxxxxxYYxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYYYYYxyyyyyyyyyxxxxxYYxxxxx",
+      "cut": 21,
+      "to": "YYYYYYxyyyyyyyyyxxxxxxxYYxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYYYxxYYxxyyyyyyyxxxxxxx",
+      "cut": 2,
+      "to": "YYxYYxxyyyyyyyxxxxxxxYYxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYYYxxYYxxyyyyyyyxxxxxxx",
+      "cut": 6,
+      "to": "YYYYxxxxYYxyyyyyyyxxxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYYYxxyyyyyyyxxxYYxxxxxx",
+      "cut": 2,
+      "to": "YYxxYYxyyyyyyyxxxYYxxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYYYxxyyyyyyyxxxYYxxxxxx",
+      "cut": 16,
+      "to": "YYYYxxyyyyyyyxxxxxYYxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYYYxyyyyyyyyyxxxxxxxYYxxYYx",
+      "cut": 2,
+      "to": "YYxYYxxyyyyyyyxxxxxxxYYxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYYYxyyyyyyyyyxxxxxxxYYxxYYx",
+      "cut": 21,
+      "to": "YYYYxyyyyyyyyyxxxxxxxxxYYxYYx"
+    },
+    {
+      "layer": 11,
+      "from": "YYYYxyyyyyyyyyxxxxxxxYYxxYYx",
+      "cut": 25,
+      "to": "YYYYYYxyyyyyyyyyxxxxxxxYYxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxYYxxxxYYxyyyyyyyxxxxx",
+      "cut": 0,
+      "to": "YYYYxxxxYYxyyyyyyyxxxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxYYxxxxYYxyyyyyyyxxxxx",
+      "cut": 3,
+      "to": "YYxxxYYxxxYYxyyyyyyyxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxYYxxxxYYxyyyyyyyxxxxx",
+      "cut": 9,
+      "to": "YYxYYxxxxxxyyyyyxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxYYxxyyyyyyyxxxxxYYxxx",
+      "cut": 0,
+      "to": "YYYYxxyyyyyyyxxxxxYYxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxYYxxyyyyyyyxxxxxYYxxx",
+      "cut": 3,
+      "to": "YYxxxYYxxxYYxyyyyyyyxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxYYxxyyyyyyyxxxxxYYxxx",
+      "cut": 19,
+      "to": "YYxYYxxyyyyyyyxxxxxxxYYxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxYYxyyyyyyyXYYxxxxxxxxxx",
+      "cut": 0,
+      "to": "YYYYxyyyyyyyXYYxxxxxxxxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxYYxyyyyyyyXYYxxxxxxxxxx",
+      "cut": 3,
+      "to": "YYxxxxxxxxxxYYxxxyyyyyX"
+    },
+    {
+      "layer": 11,
+      "from": "YYxYYxyyyyyyyXYYxxxxxxxxxx",
+      "cut": 14,
+      "to": "YYxYYxyyyyyyyxYYxxxxxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxxYYxxxxxxyyyyyxxx",
+      "cut": 0,
+      "to": "YYxYYxxxxxxyyyyyxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxxYYxxxxxxyyyyyxxx",
+      "cut": 4,
+      "to": "YYxxxxYYxxxxxyyyyyxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxxYYxyyyyyyyxYYxxxxxxx",
+      "cut": 0,
+      "to": "YYxYYxyyyyyyyxYYxxxxxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxxYYxyyyyyyyxYYxxxxxxx",
+      "cut": 4,
+      "to": "YYxxxxxxxYYxxxxyyyyyx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxxYYxyyyyyyyxYYxxxxxxx",
+      "cut": 15,
+      "to": "YYxxYYxyyyyyyyxxxYYxxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxxxYYxyyyyyyyxxxYYxxxx",
+      "cut": 0,
+      "to": "YYxxYYxyyyyyyyxxxYYxxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxxxYYxyyyyyyyxxxYYxxxx",
+      "cut": 5,
+      "to": "YYxxxxYYxxxxxyyyyyxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxxxYYxyyyyyyyxxxYYxxxx",
+      "cut": 18,
+      "to": "YYxxxYYxxxYYxyyyyyyyxxxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxxxxxYYxxxxxyyyyyx",
+      "cut": 0,
+      "to": "YYxxxxYYxxxxxyyyyyxxx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxxxxxYYxxxxxyyyyyx",
+      "cut": 7,
+      "to": "YYxxxxxxxYYxxxxyyyyyx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxxxxxxxxYYxxxxyyyyyX",
+      "cut": 0,
+      "to": "YYxxxxxxxYYxxxxyyyyyx"
+    },
+    {
+      "layer": 11,
+      "from": "YYxxxxxxxxYYxxxxyyyyyX",
+      "cut": 10,
+      "to": "YYxxxxxxxxxxYYxxxyyyyyX"
+    },
+    {
+      "layer": 12,
+      "from": "YYYYYYxyyyyyyyyyxxxxxxxYYxxxx",
+      "cut": 4,
+      "to": "YYYYxxyyyyyyyxxxxxxxYYxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYYYYYxyyyyyyyyyxxxxxxxYYxxxx",
+      "cut": 23,
+      "to": "YYYYYYxyyyyyyyyyxxxxxxxxxYYxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYYYxxxxYYxyyyyyyyxxxxxxx",
+      "cut": 2,
+      "to": "YYxxYYxxxYYxyyyyyyyxxxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYYYxxxxYYxyyyyyyyxxxxxxx",
+      "cut": 8,
+      "to": "YYYYxxxxxxyyyyyxxxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYYYxxyyyyyyyxxxxxYYxxxxx",
+      "cut": 2,
+      "to": "YYxxYYxyyyyyyyxxxxxYYxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYYYxxyyyyyyyxxxxxYYxxxxx",
+      "cut": 18,
+      "to": "YYYYxxyyyyyyyxxxxxxxYYxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYYYxyyyyyyyXYYxxxxxxxxxxxx",
+      "cut": 2,
+      "to": "YYxxxxxxxxxxxxYYxxyyyyyX"
+    },
+    {
+      "layer": 12,
+      "from": "YYYYxyyyyyyyXYYxxxxxxxxxxxx",
+      "cut": 13,
+      "to": "YYYYxyyyyyyyxYYxxxxxxxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYYYxyyyyyyyyyxxxxxxxxxYYxYYx",
+      "cut": 2,
+      "to": "YYxYYxYYxxyyyyyyyxxxxxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYYYxyyyyyyyyyxxxxxxxxxYYxYYx",
+      "cut": 23,
+      "to": "YYYYxYYYYxyyyyyyyyyxxxxxxxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYYYxyyyyyyyyyxxxxxxxxxYYxYYx",
+      "cut": 26,
+      "to": "YYYYYYxyyyyyyyyyxxxxxxxxxYYxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxYYxxxxxxyyyyyxxxxx",
+      "cut": 0,
+      "to": "YYYYxxxxxxyyyyyxxxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxYYxxxxxxyyyyyxxxxx",
+      "cut": 3,
+      "to": "YYxxxYYxxxxxyyyyyxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxYYxxyyyyyyyxxxxxxxYYxx",
+      "cut": 0,
+      "to": "YYYYxxyyyyyyyxxxxxxxYYxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxYYxxyyyyyyyxxxxxxxYYxx",
+      "cut": 3,
+      "to": "YYxxYYxxxYYxyyyyyyyxxxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxYYxxyyyyyyyxxxxxxxYYxx",
+      "cut": 21,
+      "to": "YYxYYxYYxxyyyyyyyxxxxxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxYYxyyyyyyyxYYxxxxxxxxx",
+      "cut": 0,
+      "to": "YYYYxyyyyyyyxYYxxxxxxxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxYYxyyyyyyyxYYxxxxxxxxx",
+      "cut": 3,
+      "to": "YYxxxxxxxxxYYxxxyyyyyx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxYYxyyyyyyyxYYxxxxxxxxx",
+      "cut": 14,
+      "to": "YYxYYxyyyyyyyxxxYYxxxxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxxYYxyyyyyyyxxxYYxxxxxx",
+      "cut": 0,
+      "to": "YYxYYxyyyyyyyxxxYYxxxxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxxYYxyyyyyyyxxxYYxxxxxx",
+      "cut": 4,
+      "to": "YYxxxxxxYYxxxxyyyyyxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxxYYxyyyyyyyxxxYYxxxxxx",
+      "cut": 17,
+      "to": "YYxxYYxyyyyyyyxxxxxYYxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxxxYYxxxYYxyyyyyyyxxxxx",
+      "cut": 0,
+      "to": "YYxxYYxxxYYxyyyyyyyxxxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxxxYYxxxYYxyyyyyyyxxxxx",
+      "cut": 5,
+      "to": "YYxxYYxyyyyyyyxxxxxYYxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxxxYYxxxYYxyyyyyyyxxxxx",
+      "cut": 10,
+      "to": "YYxxxYYxxxxxyyyyyxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxxxxYYxxxxxyyyyyxxx",
+      "cut": 0,
+      "to": "YYxxxYYxxxxxyyyyyxxxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxxxxYYxxxxxyyyyyxxx",
+      "cut": 6,
+      "to": "YYxxxxxxYYxxxxyyyyyxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxxxxxxxYYxxxxyyyyyx",
+      "cut": 0,
+      "to": "YYxxxxxxYYxxxxyyyyyxxx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxxxxxxxYYxxxxyyyyyx",
+      "cut": 9,
+      "to": "YYxxxxxxxxxYYxxxyyyyyx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxxxxxxxxxxYYxxxyyyyyX",
+      "cut": 0,
+      "to": "YYxxxxxxxxxYYxxxyyyyyx"
+    },
+    {
+      "layer": 12,
+      "from": "YYxxxxxxxxxxYYxxxyyyyyX",
+      "cut": 12,
+      "to": "YYxxxxxxxxxxxxYYxxyyyyyX"
+    },
+    {
+      "layer": 13,
+      "from": "YYYYYYxyyyyyyyyyxxxxxxxxxYYxxx",
+      "cut": 4,
+      "to": "YYYYxxyyyyyyyxxxxxxxxxYYxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYYYYYxyyyyyyyyyxxxxxxxxxYYxxx",
+      "cut": 25,
+      "to": "YYYYYYxyyyyyyyyyxxxxxxxxxxxYYxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYYYxYYYYxyyyyyyyyyxxxxxxxxxxx",
+      "cut": 2,
+      "to": "YYYYYYxyyyyyyyyyxxxxxxxxxxxYYxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYYYxYYYYxyyyyyyyyyxxxxxxxxxxx",
+      "cut": 7,
+      "to": "YYYYxYYxxyyyyyyyxxxxxxxxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYYYxxxxxxyyyyyxxxxxxx",
+      "cut": 2,
+      "to": "YYxxYYxxxxxyyyyyxxxxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYYYxxyyyyyyyxxxxxxxYYxxxx",
+      "cut": 2,
+      "to": "YYxxYYxyyyyyyyxxxxxxxYYxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYYYxxyyyyyyyxxxxxxxYYxxxx",
+      "cut": 20,
+      "to": "YYYYxxyyyyyyyxxxxxxxxxYYxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYYYxyyyyyyyxYYxxxxxxxxxxx",
+      "cut": 2,
+      "to": "YYxxxxxxxxxxxYYxxyyyyyx"
+    },
+    {
+      "layer": 13,
+      "from": "YYYYxyyyyyyyxYYxxxxxxxxxxx",
+      "cut": 13,
+      "to": "YYYYxyyyyyyyxxxYYxxxxxxxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxYYxYYxxyyyyyyyxxxxxxxxx",
+      "cut": 0,
+      "to": "YYYYxYYxxyyyyyyyxxxxxxxxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxYYxYYxxyyyyyyyxxxxxxxxx",
+      "cut": 3,
+      "to": "YYYYxxyyyyyyyxxxxxxxxxYYxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxYYxYYxxyyyyyyyxxxxxxxxx",
+      "cut": 6,
+      "to": "YYxYYxxxYYxyyyyyyyxxxxxxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxYYxyyyyyyyxxxYYxxxxxxxx",
+      "cut": 0,
+      "to": "YYYYxyyyyyyyxxxYYxxxxxxxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxYYxyyyyyyyxxxYYxxxxxxxx",
+      "cut": 3,
+      "to": "YYxxxxxxxxYYxxxyyyyyxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxYYxyyyyyyyxxxYYxxxxxxxx",
+      "cut": 16,
+      "to": "YYxYYxyyyyyyyxxxxxYYxxxxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxxYYxxxYYxyyyyyyyxxxxxxx",
+      "cut": 0,
+      "to": "YYxYYxxxYYxyyyyyyyxxxxxxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxxYYxxxYYxyyyyyyyxxxxxxx",
+      "cut": 4,
+      "to": "YYxxYYxyyyyyyyxxxxxxxYYxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxxYYxxxYYxyyyyyyyxxxxxxx",
+      "cut": 9,
+      "to": "YYxxYYxxxxxyyyyyxxxxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxxYYxyyyyyyyxxxxxYYxxxxx",
+      "cut": 0,
+      "to": "YYxYYxyyyyyyyxxxxxYYxxxxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxxYYxyyyyyyyxxxxxYYxxxxx",
+      "cut": 4,
+      "to": "YYxxxxxYYxxxxyyyyyxxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxxYYxyyyyyyyxxxxxYYxxxxx",
+      "cut": 19,
+      "to": "YYxxYYxyyyyyyyxxxxxxxYYxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxxxYYxxxxxyyyyyxxxxx",
+      "cut": 0,
+      "to": "YYxxYYxxxxxyyyyyxxxxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxxxYYxxxxxyyyyyxxxxx",
+      "cut": 5,
+      "to": "YYxxxxxYYxxxxyyyyyxxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxxxxxxYYxxxxyyyyyxxx",
+      "cut": 0,
+      "to": "YYxxxxxYYxxxxyyyyyxxxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxxxxxxYYxxxxyyyyyxxx",
+      "cut": 8,
+      "to": "YYxxxxxxxxYYxxxyyyyyxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxxxxxxxxxYYxxxyyyyyx",
+      "cut": 0,
+      "to": "YYxxxxxxxxYYxxxyyyyyxxx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxxxxxxxxxYYxxxyyyyyx",
+      "cut": 11,
+      "to": "YYxxxxxxxxxxxYYxxyyyyyx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxxxxxxxxxxxxYYxxyyyyyX",
+      "cut": 0,
+      "to": "YYxxxxxxxxxxxYYxxyyyyyx"
+    },
+    {
+      "layer": 13,
+      "from": "YYxxxxxxxxxxxxYYxxyyyyyX",
+      "cut": 14,
+      "to": "YYxxxxxxxxxxxxxxYYxyyyyyX"
+    },
+    {
+      "layer": 14,
+      "from": "YYYYYYxyyyyyyyyyxxxxxxxxxxxYYxx",
+      "cut": 4,
+      "to": "YYYYxxyyyyyyyxxxxxxxxxxxYYxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYYYYYxyyyyyyyyyxxxxxxxxxxxYYxx",
+      "cut": 27,
+      "to": "YYYYYYxyyyyyyyyyxxxxxxxxxxxxxYYx"
+    },
+    {
+      "layer": 14,
+      "from": "YYYYxYYxxyyyyyyyxxxxxxxxxxx",
+      "cut": 2,
+      "to": "YYYYxxyyyyyyyxxxxxxxxxxxYYxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYYYxYYxxyyyyyyyxxxxxxxxxxx",
+      "cut": 5,
+      "to": "YYYYxxxYYxyyyyyyyxxxxxxxxxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYYYxxyyyyyyyxxxxxxxxxYYxxx",
+      "cut": 2,
+      "to": "YYxxYYxyyyyyyyxxxxxxxxxYYxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYYYxxyyyyyyyxxxxxxxxxYYxxx",
+      "cut": 22,
+      "to": "YYYYxxyyyyyyyxxxxxxxxxxxYYxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYYYxyyyyyyyxxxYYxxxxxxxxxx",
+      "cut": 2,
+      "to": "YYxxxxxxxxxxYYxxyyyyyxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYYYxyyyyyyyxxxYYxxxxxxxxxx",
+      "cut": 15,
+      "to": "YYYYxyyyyyyyxxxxxYYxxxxxxxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxYYxxxYYxyyyyyyyxxxxxxxxx",
+      "cut": 0,
+      "to": "YYYYxxxYYxyyyyyyyxxxxxxxxxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxYYxxxYYxyyyyyyyxxxxxxxxx",
+      "cut": 3,
+      "to": "YYxxYYxyyyyyyyxxxxxxxxxYYxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxYYxxxYYxyyyyyyyxxxxxxxxx",
+      "cut": 8,
+      "to": "YYxYYxxxxxyyyyyxxxxxxxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxYYxyyyyyyyxxxxxYYxxxxxxx",
+      "cut": 0,
+      "to": "YYYYxyyyyyyyxxxxxYYxxxxxxxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxYYxyyyyyyyxxxxxYYxxxxxxx",
+      "cut": 3,
+      "to": "YYxxxxxxxYYxxxyyyyyxxxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxYYxyyyyyyyxxxxxYYxxxxxxx",
+      "cut": 18,
+      "to": "YYxYYxyyyyyyyxxxxxxxYYxxxxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxxYYxxxxxyyyyyxxxxxxx",
+      "cut": 0,
+      "to": "YYxYYxxxxxyyyyyxxxxxxxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxxYYxxxxxyyyyyxxxxxxx",
+      "cut": 4,
+      "to": "YYxxxxYYxxxxyyyyyxxxxxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxxYYxyyyyyyyxxxxxxxYYxxxx",
+      "cut": 0,
+      "to": "YYxYYxyyyyyyyxxxxxxxYYxxxxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxxYYxyyyyyyyxxxxxxxYYxxxx",
+      "cut": 4,
+      "to": "YYxxxxYYxxxxyyyyyxxxxxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxxYYxyyyyyyyxxxxxxxYYxxxx",
+      "cut": 21,
+      "to": "YYxxYYxyyyyyyyxxxxxxxxxYYxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxxxxxYYxxxxyyyyyxxxxx",
+      "cut": 0,
+      "to": "YYxxxxYYxxxxyyyyyxxxxxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxxxxxYYxxxxyyyyyxxxxx",
+      "cut": 7,
+      "to": "YYxxxxxxxYYxxxyyyyyxxxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxxxxxxxxYYxxxyyyyyxxx",
+      "cut": 0,
+      "to": "YYxxxxxxxYYxxxyyyyyxxxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxxxxxxxxYYxxxyyyyyxxx",
+      "cut": 10,
+      "to": "YYxxxxxxxxxxYYxxyyyyyxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxxxxxxxxxxxYYxxyyyyyx",
+      "cut": 0,
+      "to": "YYxxxxxxxxxxYYxxyyyyyxxx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxxxxxxxxxxxYYxxyyyyyx",
+      "cut": 13,
+      "to": "YYxxxxxxxxxxxxxYYxyyyyyx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxxxxxxxxxxxxxxYYxyyyyyX",
+      "cut": 0,
+      "to": "YYxxxxxxxxxxxxxYYxyyyyyx"
+    },
+    {
+      "layer": 14,
+      "from": "YYxxxxxxxxxxxxxxYYxyyyyyX",
+      "cut": 16,
+      "to": "YYxxxxxxxxxxxxxxxxyyyX"
+    }
+  ],
+  "stats": [
+    {
+      "layer": 0,
+      "necklaces": 1,
+      "exact_frames_reached": 644,
+      "min_cost": 0,
+      "records": 9286
+    },
+    {
+      "layer": 1,
+      "necklaces": 1,
+      "exact_frames_reached": 560,
+      "min_cost": 4,
+      "records": 16174
+    },
+    {
+      "layer": 2,
+      "necklaces": 1,
+      "exact_frames_reached": 588,
+      "min_cost": 7,
+      "records": 23174
+    },
+    {
+      "layer": 3,
+      "necklaces": 2,
+      "exact_frames_reached": 1120,
+      "min_cost": 10,
+      "records": 35550
+    },
+    {
+      "layer": 4,
+      "necklaces": 3,
+      "exact_frames_reached": 1820,
+      "min_cost": 13,
+      "records": 55990
+    },
+    {
+      "layer": 5,
+      "necklaces": 5,
+      "exact_frames_reached": 3080,
+      "min_cost": 16,
+      "records": 90430
+    },
+    {
+      "layer": 6,
+      "necklaces": 8,
+      "exact_frames_reached": 4928,
+      "min_cost": 20,
+      "records": 145870
+    },
+    {
+      "layer": 7,
+      "necklaces": 10,
+      "exact_frames_reached": 6124,
+      "min_cost": 23,
+      "records": 216966
+    },
+    {
+      "layer": 8,
+      "necklaces": 11,
+      "exact_frames_reached": 6362,
+      "min_cost": 25,
+      "records": 292834
+    },
+    {
+      "layer": 9,
+      "necklaces": 13,
+      "exact_frames_reached": 5661,
+      "min_cost": 28,
+      "records": 362168
+    },
+    {
+      "layer": 10,
+      "necklaces": 13,
+      "exact_frames_reached": 3336,
+      "min_cost": 33,
+      "records": 406850
+    },
+    {
+      "layer": 11,
+      "necklaces": 12,
+      "exact_frames_reached": 1383,
+      "min_cost": 36,
+      "records": 427352
+    },
+    {
+      "layer": 12,
+      "necklaces": 13,
+      "exact_frames_reached": 573,
+      "min_cost": 38,
+      "records": 435848
+    },
+    {
+      "layer": 13,
+      "necklaces": 13,
+      "exact_frames_reached": 102,
+      "min_cost": 41,
+      "records": 438014
+    },
+    {
+      "layer": 14,
+      "necklaces": 12,
+      "exact_frames_reached": 8,
+      "min_cost": 46,
+      "records": 438298
+    }
+  ],
+  "records": 438314,
+  "states_retained": 36289,
+  "moves": null,
+  "trace": null,
+  "elapsed_seconds": 1.2331641310011037,
+  "peak_rss_mib": 32.79296875,
+  "reached_sha256": "3094db82bba7e800201ffb035109d900ceb256b4e3dd987ffec3c47848aa8fe1"
+}

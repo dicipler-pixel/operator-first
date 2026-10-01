@@ -40,10 +40,10 @@ class Continuation:
         return read_json(self.root/'continuation/routes.json')
 
     def plan(self, excluded=()):
-        if self.cp.get('interactive_lease'):
-            return {'status':'interactive_reserved', 'lease':self.cp['interactive_lease']}
         if self.cp['stopped'] or self.h.store.stopped():
             return {'status':'stopped'}
+        if self.cp.get('interactive_lease'):
+            return {'status':'interactive_reserved', 'lease':self.cp['interactive_lease']}
         if self.cp.get('active'):
             return {'status':'active', 'active':self.cp['active']}
         selected = read_json(self.root/'integration/selected_rows.json')['rows']

@@ -62,7 +62,33 @@ the full resulting relation has exponent vector (0,±k) or (±k,0).
 This determinant gate is cheap enough to apply to every proposed symbolic stage
 before spending any route-search budget.
 
-## Finite quotient scope
+## Constructive group-triviality proof and exact certificates
+
+The initial finite-quotient argument below was superseded during this audit by
+a proof of full group triviality. Let T(z)=y^-1 z y. The second exact relator gives
+T(x^4)=x^5, whence T^2(x^16)=x^25. The first relator says X y^2 x=y^3.
+As x commutes with x^16, it follows that
+
+T^3(x^16) = X T^2(x^16) x = x^25 = T^2(x^16).
+
+Apply T^-2 to obtain T(x^16)=x^16. But T(x^16)=x^20 by the second relator.
+Thus x^4=1, and the same relator yields x^5=1. Hence x=1, and the first
+relator reduces to y^2=y^3, giving y=1. No finiteness assumption is used.
+
+Root independently compiled and checked this argument as a 56-node equational
+DAG (`check_group_proof.py`, `group_proof_certificate.json`), which I reviewed.
+My separate compiler (`group_certificate.py`, `group_certificate.json`) produces
+49 primitive original-relator rewrites x→empty and 99 rewrites y→empty, with
+peak word lengths 52 and 55. Every adjacent word difference is independently
+checked to be a conjugate of an original relator or its inverse.
+
+These are **group-triviality certificates**, not legal AC move routes. They prove
+that the two relators normally generate the free group. Compiling that normal
+generation into an allowed sequence of two-relator Nielsen operations is the
+remaining constructive task. The exact family equivalences transfer the group
+result to all five rows.
+
+## Finite quotient scope (earlier, weaker argument)
 
 For the representative relations X y^2 x = y^3 and Y x^4 y = x^5,
 every finite quotient is trivial. Here is a self-contained argument, conditional
@@ -80,7 +106,8 @@ The exact signed-generator equivalences transfer this argument to all five rows.
 In an infinite group, the crucial passage from <y^2> to <y> is unavailable.
 Consequently finite permutation/finite-field quotient searches cannot distinguish
 a nontrivial infinite group here; a failure to find a quotient would add no route.
-This audit does **not** establish that the full group is trivial.
+This finite-quotient argument alone does not establish full group triviality;
+the stronger certificate above does establish it separately.
 
 ## Concrete next construction question
 
@@ -90,5 +117,21 @@ even-power rewrite must be embedded in that full word, with the residual odd pow
 recorded. The missing step is a paid process that removes that residual while
 retaining unimodularity; the supplied substitutions do not provide it.
 
-Artifacts: `audit_bs.py`, `identity_audit.json`. No checkpoint, global claims,
-external communication, old solver recipe or other agent's files were changed.
+## One authorized macro experiment
+
+Root authorized a single 30-second / 256-MiB / 100,000-state / peak-64 experiment
+on the representative, under reservation 9ad348cbbe861127764bfced9562f67a0bbebceb.
+The method used paid cyclic/inverse source frames and productive relator
+insertions with actual boundary cancellation, maximum macrodepth three; every
+admitted endpoint and all intermediate paid moves were checked by the pinned core.
+
+It stopped after 3.963 seconds with no BS(1,k) or single-generator structural hit.
+**An instrumentation defect admitted 100,003 states, three above the limit.**
+This attempt is classified as an admission-cap instrumentation error, not a
+budget-conforming negative. The original executed source and exact result are
+preserved. The implementation now has an exact per-admission guard, but it has
+not been rerun and this probe must not be reset or exported as a valid negative.
+`probe_status.json` records the defect and scope.
+
+No checkpoint, global claims, external communication, old solver recipe or other
+agent's files were changed.

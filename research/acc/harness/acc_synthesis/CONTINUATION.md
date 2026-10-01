@@ -17,6 +17,12 @@ grant new model dispatch, search budgets, targets or submission rights.
 
 ## Durable state and limits
 
+An `interactive_lease` in the portable checkpoint reserves a separately owner-directed
+task. Both continuation planners honor it. Scheduled runs neither adopt its model
+workers nor expand their selected rows. Completion or interruption must be recorded
+in `owner_directed_tasks` before releasing the lease; expiry alone never permits a
+silent reset or replay.
+
 October 1 control note: `auto_intake.py` and `host_supervisor.js` are unfinished
 drafts from before the owner's brief pause. `auto_intake_policy.json` keeps intake
 disabled pending validation. Continue using the established `helper_batch.py`

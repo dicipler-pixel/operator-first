@@ -62,6 +62,7 @@ while q:
                 for m in macro:test=c.apply_move(test,m);peak=max(peak,sum(map(len,test)))
                 assert test==ns
                 if peak>CAP:continue
+                if len(records)>=MAX:break
                 seen.add(ns);n=len(records);records.append((ns,idx,macro,depth+1))
                 score=min(structure(ns[0]),structure(ns[1]));ln=sum(map(len,ns))
                 if (ln,n)<best:best=(ln,n)

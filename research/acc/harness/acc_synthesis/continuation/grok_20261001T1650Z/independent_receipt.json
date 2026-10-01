@@ -1,0 +1,52 @@
+{
+  "route_receipts": [
+    {
+      "row_id": "ac-05698",
+      "length": 118,
+      "official_receipt": {
+        "ok": true,
+        "length": 118,
+        "peak_total_relator_length": 87,
+        "work": 5167,
+        "certificate_hash": "sha256:9becf956cebeff14c0e38a2e23eb0d79260fbd5056a694882ad2189565efd578"
+      },
+      "submission_candidate": false,
+      "reason": "longer than latest available reported team best"
+    },
+    {
+      "row_id": "ac-06792",
+      "length": 134,
+      "official_receipt": {
+        "ok": true,
+        "length": 134,
+        "peak_total_relator_length": 87,
+        "work": 5564,
+        "certificate_hash": "sha256:9d9c3deda12e41b48fbadaa83599565d4c283fc40ec91443654d1404f4d43b49"
+      },
+      "submission_candidate": false,
+      "reason": "longer than latest available reported team best"
+    }
+  ],
+  "normal_closure_certificates": [
+    {
+      "generator": "x",
+      "checked_original_relator_rewrites": 49,
+      "end": ""
+    },
+    {
+      "generator": "y",
+      "checked_original_relator_rewrites": 99,
+      "end": ""
+    }
+  ],
+  "reached_states_archive": {
+    "path": "frame/all_order_reached.jsonl.gz",
+    "original_path": "frame/all_order_reached.jsonl",
+    "uncompressed_sha256": "3094db82bba7e800201ffb035109d900ceb256b4e3dd987ffec3c47848aa8fe1",
+    "compressed_sha256": "e7779674428b7362d87f6bc2c25efbdf8d1152338485610ccd67bf5a97b756d2",
+    "original_bytes": 5237535,
+    "compressed_bytes": 311927,
+    "roundtrip_exact": true
+  },
+  "claims": "group proofs and noncompetitive routes only; no new scored route"
+}
