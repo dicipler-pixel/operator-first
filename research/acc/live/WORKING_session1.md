@@ -5,3 +5,4 @@
 - Session 1 NEVER sends. Lines go to research/acc/live/queue/, roads to sweeps/session1/.
 - ac-09689: RELEASED 21:05Z (cap 32 CLOSED at 662.9M states; cap 34 DISKFULL at 667M, undecided).
 - ac-03055: RELEASED 01:00Z (r1-only pump + tail: no route <= 55 at r1<=26 for k=9,10; k=8 <=53 only). See UPDATE_session1_to_upgh_*ac-03055*.
+- **FIRST-SOLVE tier A (UPG-H 01:42Z assignment): ac-02401, ac-00675, ac-09010, ac-04621.** Started 01:50Z: (1) noisy two-eyes any-road beams, seeds 21/22, W 20k, free depth ≤ 110; (2) exact meet-in-the-middle via acc_disk (backward ball from (x,y) + forward search with --meet), and the r1-only pump search adapted to w.
