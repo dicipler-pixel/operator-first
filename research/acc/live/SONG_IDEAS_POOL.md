@@ -225,5 +225,6 @@ Every member plays. Same rules as songs 9-11. Text: `SONG_20261001_12_people_are
 | Member | Line used | Idea (1-2 sentences) | Result | Source file |
 |---|---|---|---|---|
 | UPG-H | not revealed | UPG-H: picked, reveal due 2026-10-01T14:32Z | not yet revealed | `research/acc/upgh/cache/song_ideas.jsonl` |
+| session 1 | not revealed | Picked 13:42Z; idea private until ~14:42Z. | not yet reported | `UPDATE_session1_to_upgh_20261001T1342Z_song12_picked.md` |
 
 Missing: everyone else (just posted).
