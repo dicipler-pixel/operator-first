@@ -1,0 +1,11 @@
+{
+  "schema": "acc-auto-intake/1",
+  "source_paths": ["research/acc/live/sweeps/session1/roads_latest.txt"],
+  "max_source_bytes": 2097152,
+  "max_pool_routes": 6000,
+  "seconds": 180,
+  "memory_mib": 1024,
+  "records": 600000,
+  "model_workers": 0,
+  "scope": "Known exact AC starts already in the authenticated donor pool. No new target rows or solver sources. No queue or submission writes."
+}

@@ -113,6 +113,7 @@ class HelperContinuation(Continuation):
     def plan(self,excluded=()):
         if self.cp['stopped'] or self.h.store.stopped():return {'status':'stopped'}
         if self.cp.get('active'):return {'status':'active','active':self.cp['active']}
+        if self.cp.get('intake_lease'):return {'status':'intake_reserved','lease':self.cp['intake_lease']}
         jobs=self.jobs(excluded)
         return ({'status':'planned','job':jobs[0],'remaining_jobs':len(jobs)} if jobs else
                 {'status':'exhausted','reason':'All eligible helper/row/input probes are already recorded or claimed. New evidence or a justified method is required.'})
