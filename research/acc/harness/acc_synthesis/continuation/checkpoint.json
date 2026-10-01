@@ -1,36 +1,7 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": {
-    "job": {
-      "row_id": "ac-00003",
-      "track": "AC",
-      "helper": "paid_phase",
-      "algorithm_id": "paid-canonical-interior-joins-v1",
-      "script": "helpers/paid_phase_lane_v1.py",
-      "method_sha256": "2aeeb72ca843a1934db0d54ab97c959a2047cfd73213bf6de0ebe86fdcf71b2c",
-      "inputs": {
-        "helpers/paid_phase_protocol.json": "69860f0d181b7268e68b1fa5ac987278a4d2534be6c3a1837d55512847a38f0b",
-        "runs/kernel_revival/code_f69127995db101bd/exact_graph.json.gz": "75618b35adda69157dc139b47b688692eb448082031bb5291b4f76d040abf912",
-        "runs/kernel_revival/code_f69127995db101bd/worker_result.json": "611314845d6f530510908127a67982701e45fe35bd14c9d36fc48ed76d7dddfc"
-      },
-      "seed_sha256": "7914988d47a2aa50da91c882a20417bef5847597924ad773bb407898a12148a8",
-      "baseline": 49,
-      "target": 40,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "cd21314c73d78c74121c228da36d534325584c3c712a9c593eb298c9ec69a911"
-    },
-    "task_id": 181,
-    "lease_token": "f12299c77fa34a0d8126a0f3010e24de",
-    "expires_at": 1790821047.3210688,
-    "repo_head": "f2607c94d85fa406026ff3543cd04de8ae1250ac",
-    "phase": "reserved",
-    "host_must_commit_before_execution": true
-  },
+  "active": null,
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -6923,6 +6894,47 @@
         "event": "new_witnessed_graph_or_entry_states",
         "row_id": "ac-00028"
       }
+    },
+    {
+      "key": "cd21314c73d78c74121c228da36d534325584c3c712a9c593eb298c9ec69a911",
+      "job": {
+        "row_id": "ac-00003",
+        "track": "AC",
+        "helper": "paid_phase",
+        "algorithm_id": "paid-canonical-interior-joins-v1",
+        "script": "helpers/paid_phase_lane_v1.py",
+        "method_sha256": "2aeeb72ca843a1934db0d54ab97c959a2047cfd73213bf6de0ebe86fdcf71b2c",
+        "inputs": {
+          "helpers/paid_phase_protocol.json": "69860f0d181b7268e68b1fa5ac987278a4d2534be6c3a1837d55512847a38f0b",
+          "runs/kernel_revival/code_f69127995db101bd/exact_graph.json.gz": "75618b35adda69157dc139b47b688692eb448082031bb5291b4f76d040abf912",
+          "runs/kernel_revival/code_f69127995db101bd/worker_result.json": "611314845d6f530510908127a67982701e45fe35bd14c9d36fc48ed76d7dddfc"
+        },
+        "seed_sha256": "7914988d47a2aa50da91c882a20417bef5847597924ad773bb407898a12148a8",
+        "baseline": 49,
+        "target": 40,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "cd21314c73d78c74121c228da36d534325584c3c712a9c593eb298c9ec69a911"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790820455.7879038,
+      "result_path": "runs/paid_phase_revival/code_cd21314c73d78c74/worker_result.json",
+      "result_sha256": "ce4f36c8a0924e78a3a68927ccf3b562d8676b45a7eb664fe959c6bb88b08a58",
+      "kind": "bounded_miss",
+      "summary": "Paid canonical interior recipes: best 49; coverage complete=True; complete.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "reopen_when": {
+        "event": "new_witnessed_graph_or_entry_states",
+        "row_id": "ac-00003"
+      }
     }
   ],
   "notifications": [
@@ -6939,7 +6951,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790820447.32141,
+  "updated_at": 1790820455.788293,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
