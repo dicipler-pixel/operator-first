@@ -81,3 +81,29 @@ siblings whose routes stay within start+3.
   (d=60 reached) or hit the 100 s cap under contention. Exact states and prefixes are in the log lines.
 ### n=3 sibling route transfer: replayed each held n=3 route on its n=4 start (see Inputs); no prefix survives the
   first r1-mixing move, so there is no direct template to repair, only restart states (used above).
+
+## Step 4: late results (filled in)
+- Wide start beams W 60000 DMAX 70 (beam_wide.log): all three rows hit the 400 s per-run cap (6-10 acc_beam
+  processes on 4 cores for the whole task) -> timeout, no path, no scope beyond "not finished".
+- ac-09310 CAP 25: cut by the 400 s timeout at depth 27, 36,570,702 states, AC NONE: no path of length <= 36 whose
+  capped prefix stays within total 25.
+- ac-09310 CAP 26: cut at depth 27, 44,218,833 states, AC NONE: no path of length <= 36 within total 26.
+
+## Outcome and exact scope of the miss (code decides; this is what was covered)
+No verified AC path was found on ac-09310, ac-07430 or ac-08606 (lines.txt holds no row lines). The control row
+ac-08510 did yield verified AC 43 / 45 paths with the same pipeline (control_08510.lines), so the pipeline is live.
+Per target:
+- ac-09310 (start tot 17): exact - no route with peak <= 22 (closed); none of length <= 54 with peak <= 24; none of
+  length <= 36 with peak <= 25 or 26. Beams: W 50000/DMAX 80 none; W 30000 LOOK and W 60000 timed out; restarts from
+  macro states (tot 17) and n=3-prefix states (tot 17/19): none or timeout. Macro beam: no reduction below 17.
+- ac-07430 (start tot 19): exact - no route of length <= 40 with peak <= 22. Beams: W 50000/DMAX 80 none; LOOK and
+  wide timed out; restarts none/timeout. Macro beam: no reduction below 19.
+- ac-08606 (start tot 19): exact - no route of length <= 38 with peak <= 22. Same beam/macro picture as ac-07430.
+What this says about the lead's hypothesis: for the solved lucky rows a short phase A (<= 6 conjugations + one
+multiplication, repeated 2-4 times) lowers the total quickly (control: 18 -> 14 in 8 moves, routes with peak 23-26).
+For these three w no such reduction exists within 10 macro steps, and for ac-09310 any route must climb to at least
+25 (exactly: peak >= 25 for any route, peak >= 27 for any route of length <= 36). So the y^2-next-to-x pattern alone
+does not give the shortcut here; whatever solves these rows needs a longer or higher-climbing phase A than the three
+solved lucky rows used. Not covered: caps >= 27 (and 25/26 beyond depth 27) on ac-09310, caps >= 23 on the other two,
+uncontended beams at W >= 60000, macro beams with CL >= 6 or width >= 200, twins/symmetries, splice (nothing to splice:
+no partial route reached the goal).

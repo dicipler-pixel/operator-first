@@ -1,7 +1,7 @@
 {
-  "completed_batches": 158,
+  "completed_batches": 161,
   "model_worker_launches": 4,
-  "code_only_batches": 154,
+  "code_only_batches": 157,
   "new_improved_routes": 9,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -31,7 +31,7 @@
     "status": "active",
     "active": {
       "job": {
-        "row_id": "ac-00037",
+        "row_id": "ac-00028",
         "track": "AC",
         "helper": "kernel",
         "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
@@ -40,20 +40,20 @@
         "inputs": {
           "helpers/kernel_sources/roads_input.json": "b17fa39ce0333205e92b466a5b45357682a76a9f1bcca6036e078e639b1e2e58"
         },
-        "seed_sha256": "5b683f21874f6c092ad127c4deb51021114a10ae95f7e4845c64c87de6ada3e3",
-        "baseline": 32,
-        "target": 31,
+        "seed_sha256": "69e4f0d549324aa7af6fc90ea349c8de2050cd0946fb52fdf7e0254f707e0c87",
+        "baseline": 51,
+        "target": 44,
         "caps": {
           "wall_seconds": 180,
           "node_cap": 600000,
           "memory_mib": 1024
         },
-        "key": "f69127995db101bde74f70a6ed867bb6566e3f857dc7d0cf58d5240a6475c0cd"
+        "key": "b7db4f8d1eff80091ccdce8873397f540c2307f60d242232994ce01886729c63"
       },
-      "task_id": 174,
-      "lease_token": "6c5bb1659f1b4e5cbb42cd35ced072eb",
-      "expires_at": 1790820343.9622707,
-      "repo_head": "0cbc045fff93ad86936bd57adf9ee48e4365d6d1",
+      "task_id": 177,
+      "lease_token": "83f337d28a1349aeb00997ea04e37b5e",
+      "expires_at": 1790820534.8907704,
+      "repo_head": "f33a1a3c74141e65dda0fd04da7db55e7dbe4e40",
       "phase": "reserved",
       "host_must_commit_before_execution": true
     }
@@ -61,7 +61,7 @@
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 158,
+      "completed": 161,
       "running": 1
     },
     "unconnected_roles": [
@@ -2100,6 +2100,51 @@
       "target": 26,
       "kind": "bounded_miss",
       "result_path": "runs/kernel_revival/code_63d4c67071a7c56f/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00037",
+      "baseline": 32,
+      "target": 31,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_f69127995db101bd/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00034",
+      "baseline": 44,
+      "target": 41,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_1464a3cf321952b1/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00012",
+      "baseline": 52,
+      "target": 47,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_090ce55dd24c69db/worker_result.json",
       "limits": {
         "wall_seconds": 180.0,
         "node_cap": 600000,
