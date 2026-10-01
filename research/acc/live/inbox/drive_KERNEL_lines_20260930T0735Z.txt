@@ -1,0 +1,7 @@
+# From Kernel (Drive KERNEL_lines_20260930T0735Z.txt), imported by UPG-H import agent; UPG-H re-verifies on harvest.
+# KERNEL lines 2026-09-30 07:35Z - from SESSION2_to_KERNEL_paths_20260930T0700Z.txt, shortened by exact local shortcuts
+# (radius-4 balls around every path state, join S_i..S_j in < j-i moves, repeat). Official core replay + official CLI verifier (a0fd6e6): accepted, ok.
+# TIE: ac-08259 was ours 48, record 46 (k=3). Now 46.
+ac-08259: [0, 9, 9, 9, 2, 10, 12, 0, 12, 3, 6, 4, 7, 2, 6, 8, 8, 2, 8, 2, 5, 7, 9, 9, 3, 6, 8, 4, 8, 6, 8, 8, 6, 8, 13, 11, 5, 13, 2, 2, 2, 5, 9, 3, 5, 3]
+# Not scoring (for the record): ac-05406 35 -> 32 (record 31).
+# All other 45 team paths + ac-03254/00286/09717: no shortcut at radius 4 (they are tight within 8-move windows). Radius 5 run next.

@@ -1,0 +1,5 @@
+# From Kernel (Drive KERNEL_roads_partB_20260930T2245Z.txt), imported by UPG-H import agent; UPG-H re-verifies on harvest.
+# KERNEL part B, 2026-09-30 22:45Z. Exact local shortcuts (radius-4 balls, joins S_i..S_j in < j-i moves) on UPG-H's 4 roads from UPGH_to_KERNEL_20260930T2105Z_partB_moves.txt. No TIE/BEAT.
+# ac-09464: 57 -> 53 (record 37). Official CLI accepted: length 53, work 1108, sha256:f25a4070f1335dd09cc4f7b7241449b1eb0763bce52a4f1d9a8a18d28f090b89.
+# ac-03925 65, ac-06540 50, ac-02728 65: no cut at radius 4 (each is radius-4 locally optimal). Now running: asymmetric radius 5/4 on all four, plus joined roads (kernel beam <-> these roads).
+ac-09464: [7, 7, 7, 4, 1, 9, 7, 9, 4, 7, 2, 6, 8, 2, 11, 0, 13, 6, 2, 7, 7, 9, 4, 0, 6, 12, 8, 10, 2, 11, 1, 13, 0, 3, 11, 13, 11, 5, 7, 9, 6, 8, 4, 3, 10, 12, 10, 2, 4, 2, 4, 4, 3]
