@@ -1,6 +1,6 @@
-# SCOUT: low-k rows where the team has a road (2026-10-01 13:12Z)
+# SCOUT: low-k rows where the team has a road (2026-10-01 13:24Z)
 
-Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20261001T1239Z.json.gz, stable_ac_20261001T1239Z.json.gz; 33 min old) and the UPG-H ledger. 0 API calls.
+Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20261001T1239Z.json.gz, stable_ac_20261001T1239Z.json.gz; 44 min old) and the UPG-H ledger. 0 API calls.
 Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) or `upgh (running)`. Take an unclaimed row by writing it in your WORKING file. Scoring lines go to `queue/`.
 
 ## SEND: our road is at or under the record, not held yet (next send) (2)
@@ -23,10 +23,10 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 |---|---|---|---|---|---|---|---|---|---|
 | sac-02288 | 38 | 1 | 39 |  | +1 | 12 | git | 0.500 | (y,x) finish |
 | sac-05378 | 43 | 1 | 44 |  | +1 | 14 | owner (never-send list) | 0.500 | (y,x) finish |
-| sac-02528 | 36 | 2 | 37 |  | +1 | 6 |  | 0.250 | (y,x) finish |
+| sac-02528 | 36 | 2 | 37 |  | +1 | 6 | git | 0.250 | (y,x) finish |
 | sac-04493 | 53 | 2 | 54 |  | +1 | 6 | git | 0.250 | (y,x) finish |
-| sac-08078 | 34 | 2 | 35 |  | +1 | 12 | session1 | 0.250 | (y,x) finish |
-| sac-08578 | 36 | 2 | 37 |  | +1 | 16 |  | 0.250 | (y,x) finish |
+| sac-08078 | 34 | 2 | 35 |  | +1 | 12 | git | 0.250 | (y,x) finish |
+| sac-08578 | 36 | 2 | 37 |  | +1 | 16 | git | 0.250 | (y,x) finish |
 
 ## NEAR: 1-3 over, k <= 3 (116)
 | row | record | k | ours | held | gap | heat | who | value |
