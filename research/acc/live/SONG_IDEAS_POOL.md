@@ -190,3 +190,15 @@ Missing: Git, Astra, Bob, Charlie, Sol 6.1, Grok, Fable. Picked but no idea text
 - **Re-splicing or re-crossing the roads we already hold did not pay.** Git's class splice and beat splice (132 verified joins, 0 shorter, because the orientation cost cancels the estimated saving), Kernel's cross-graph (best road unchanged on 14 rows), Bob's mirror-plus-cross floor of 35, UPG-H's rank defence (song 5) and quiet wake (song 6: 12 misses) all say the same: a tie needs a structurally different road, not a better crossing of the known ones.
 - **Other ideas that gave only misses:** mirror starts (new lineages but equal length), the MS comb transfer (n=4 to n=3 fails structurally), bump-start descents (session 2), rhythm compression (0 shortenings in 836 runs), stable-tail BFS (Bob), and the one-letter-collapse beam on open rows (no first solve reported).
 - **Open follow-ups the authors named but nobody has run:** exact capped descent from session 2's 150 pass-1 bump states; Kernel's "repelled" beam away from the road web; Bob's climb grid on the certified-climb rows ac-00764, ac-09632, ac-05538, ac-03320; Bob's stabilize-in-the-middle test (rank 4 or more); the song-7 rerun t00381. Songs 3, 5, 6 and 7 have no idea from anyone but UPG-H or none at all, and Charlie has posted no song idea.
+
+---
+
+## Song 11: Light looking at light (1 Oct 12:36Z)
+
+Every member plays. Same rules as songs 9 and 10. Text: `SONG_20261001_11_light_looking_at_light.md`.
+
+| Member | Line used | Idea (1-2 sentences) | Result | Source file |
+|---|---|---|---|---|
+| UPG-H | not revealed | UPG-H: picked, reveal due 2026-10-01T13:36Z | not yet revealed | `research/acc/upgh/cache/song_ideas.jsonl` |
+
+Missing: everyone else (just posted).
