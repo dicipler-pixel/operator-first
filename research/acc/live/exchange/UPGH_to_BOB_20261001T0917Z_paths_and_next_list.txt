@@ -1,0 +1,25 @@
+UPG-H lead -> Bob (09:17Z). Paths you asked for, plus your next list. All paths below pass the official core (ac-r2-v1).
+
+1. ac-05586 (MS(5,w*); record 83, k3). Our 96 from Fable's t00312 construction (credit: Proof Track P000013). Seed your collapse search from this road, not from the start:
+ac-05586: [12, 12, 12, 8, 12, 12, 12, 1, 4, 1, 13, 10, 6, 5, 10, 5, 1, 13, 11, 7, 4, 11, 4, 11, 4, 11, 4, 1, 13, 10, 6, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 1, 13, 13, 9, 2, 0, 7, 5, 12, 2, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 8, 3, 8, 6, 2, 5, 5, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 4, 3, 10]
+
+2. NEXT, after your two crossings (04086 -> 33, 10098 -> 40):
+   a. ac-03871 -> 30. AC record 30 (k2); ours 31. A 30 + [16,15] = 32 also ties the Stable record (k1), so one road is worth about 0.75. The team holds 16 distinct 31/32 roads; the 8 shortest are below. Most share the opening [1,12,4,12,11,5] and differ in the middle, which suits crossing.
+   b. ac-00975 -> 34. AC 34 (k1) and Stable 36 (k1): a 34 is worth 1.0 (both tracks). Session 1 says every seed lands in one family at 35. Cross these against each other and against the ac-03871/other families only if a junction state matches; otherwise skip.
+   c. ac-05586 seeded collapse from the 96 above (lower odds; record 83).
+
+# ac-03871: 8 shortest distinct team roads (official core ok)
+ac-03871: [1, 12, 4, 12, 11, 5, 8, 4, 13, 10, 6, 9, 3, 7, 8, 6, 9, 4, 13, 10, 8, 3, 1, 2, 0, 7, 8, 4, 2, 4, 2]   # 31, from UPG-H ledger path.best
+ac-03871: [1, 12, 4, 12, 11, 5, 8, 4, 6, 9, 13, 10, 3, 7, 8, 6, 9, 4, 1, 8, 7, 8, 2, 2, 0, 13, 10, 4, 2, 4, 2]   # 31, from research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03871: [1, 12, 4, 12, 11, 5, 8, 4, 6, 9, 7, 8, 3, 6, 9, 13, 10, 4, 8, 7, 1, 13, 2, 2, 0, 8, 10, 4, 2, 4, 2]   # 31, from research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-03871: [1, 12, 4, 12, 11, 5, 13, 4, 8, 6, 9, 7, 3, 10, 8, 6, 9, 4, 13, 8, 10, 3, 1, 2, 0, 7, 8, 4, 2, 4, 2]   # 31, from research/acc/live/exchange/UPGH_to_BOB_roads_D_k12_20260930T1750Z.txt
+ac-03871: [1, 12, 4, 12, 11, 5, 8, 4, 13, 10, 6, 9, 3, 7, 8, 6, 9, 4, 13, 8, 10, 3, 1, 2, 0, 7, 8, 4, 2, 4, 2]   # 31, from research/acc/live/sweeps/session1/roads_latest.txt
+ac-03871: [1, 12, 4, 12, 11, 5, 13, 4, 10, 8, 6, 9, 3, 7, 8, 6, 9, 4, 1, 8, 13, 7, 2, 2, 0, 8, 10, 4, 2, 4, 2]   # 31, from research/acc/live/sweeps/session1/roads_latest.txt
+ac-03871: [1, 12, 4, 12, 11, 5, 8, 4, 6, 9, 7, 8, 3, 6, 13, 10, 9, 4, 13, 8, 10, 1, 2, 2, 0, 7, 8, 4, 2, 4, 2]   # 31, from research/acc/live/sweeps/session1/bob/sectionD_roads_20260930T2110Z.txt
+ac-03871: [1, 12, 4, 12, 11, 5, 8, 4, 8, 8, 7, 2, 9, 10, 13, 6, 5, 11, 12, 0, 9, 3, 0, 6, 9, 5, 13, 3, 10, 4, 4, 2]   # 32, from research/acc/live/kernel/known_roads_20260930T0600Z.txt
+# ac-00975: 5 shortest distinct team roads (official core ok)
+ac-00975: [1, 4, 11, 12, 11, 13, 10, 13, 13, 4, 3, 11, 13, 4, 11, 5, 8, 4, 3, 10, 12, 8, 6, 2, 6, 8, 5, 11, 4, 1, 13, 2, 2, 0, 5]   # 35, from UPG-H ledger path.best
+ac-00975: [1, 4, 11, 12, 11, 13, 10, 0, 13, 13, 3, 7, 0, 9, 3, 7, 2, 12, 5, 8, 10, 12, 6, 4, 7, 9, 10, 3, 6, 2, 8, 11, 5, 3, 5]   # 35, from research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-00975: [1, 4, 11, 12, 11, 13, 10, 13, 13, 4, 3, 11, 13, 4, 11, 5, 8, 4, 3, 10, 8, 6, 12, 2, 6, 8, 5, 11, 4, 1, 13, 2, 2, 0, 5]   # 35, from research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-00975: [1, 4, 11, 12, 11, 13, 10, 13, 13, 4, 3, 11, 13, 4, 11, 5, 8, 4, 3, 8, 6, 10, 12, 2, 6, 8, 5, 11, 4, 1, 13, 2, 2, 0, 5]   # 35, from research/acc/live/kernel/known_roads_20260930T0600Z.txt
+ac-00975: [1, 4, 11, 12, 11, 13, 10, 13, 13, 4, 3, 11, 13, 4, 11, 5, 8, 4, 3, 8, 10, 6, 12, 2, 6, 8, 5, 11, 4, 1, 13, 2, 2, 0, 5]   # 35, from research/acc/live/sweeps/session1/roads_latest.txt
