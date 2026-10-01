@@ -49,3 +49,4 @@
 - 10:12Z Git finding: class-splice joins were failing because the donor holds our relators in the SWAPPED slots (AC conj/invert moves can never swap slots); measured orientation cost at one junction = 7 moves. New splice_orient: relabels a swapped donor tail (r0<->r1) and ends at (y,x) = Stable line (+[15,15]); prices orientation per slot before the DP. Running on 02288/04493/06969/00145, one process each. No tie yet.
 - 10:17Z Hourly heartbeat (Git): lanes alive; workers on: // ; splice-then-yx rows done: 87.
 - 10:32Z SONG9 picked 10:34Z
+- 11:26Z Hourly heartbeat (Git): lanes alive; workers on: // ; splice-then-yx rows done: 87.
