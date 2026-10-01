@@ -1,7 +1,7 @@
 {
-  "completed_batches": 180,
+  "completed_batches": 181,
   "model_worker_launches": 4,
-  "code_only_batches": 175,
+  "code_only_batches": 176,
   "new_improved_routes": 9,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -30,7 +30,7 @@
   "next": {
     "status": "planned",
     "job": {
-      "row_id": "ac-00034",
+      "row_id": "ac-00012",
       "track": "AC",
       "helper": "kernel",
       "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
@@ -39,22 +39,22 @@
       "inputs": {
         "helpers/kernel_sources/roads_input.json": "f10748695d7a8cf906df7cda342e8d4d9d82bbae04f60ffe8a63241b2bde063c"
       },
-      "seed_sha256": "bc2df84804504ea95dbc700666e1ac7ba54bf3091d42c57a958299015541baa4",
-      "baseline": 44,
-      "target": 41,
+      "seed_sha256": "080bbe88ccf41c29ce20ff672ca310011ecc7a906bb7c957d6401f53b8b6b177",
+      "baseline": 52,
+      "target": 47,
       "caps": {
         "wall_seconds": 180,
         "node_cap": 600000,
         "memory_mib": 1024
       },
-      "key": "ad061f1111537030519a3b7e6eec1e840e603147cab37d5e0e88ab6004f5edbd"
+      "key": "b778cd9bba6f95770e5d901690b7679830f4793f7ff1df3464a3296fc0d20278"
     },
-    "remaining_jobs": 24
+    "remaining_jobs": 23
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 180
+      "completed": 181
     },
     "unconnected_roles": [
       "luna_memory",
@@ -2410,6 +2410,21 @@
       "target": 31,
       "kind": "bounded_miss",
       "result_path": "runs/kernel_revival/code_6e22cf9fcb6bf824/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00034",
+      "baseline": 44,
+      "target": 41,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_ad061f1111537030/worker_result.json",
       "limits": {
         "wall_seconds": 180.0,
         "node_cap": 600000,

@@ -7494,6 +7494,47 @@
         "event": "new_verified_foreign_road",
         "row_id": "ac-00037"
       }
+    },
+    {
+      "key": "ad061f1111537030519a3b7e6eec1e840e603147cab37d5e0e88ab6004f5edbd",
+      "job": {
+        "row_id": "ac-00034",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "f10748695d7a8cf906df7cda342e8d4d9d82bbae04f60ffe8a63241b2bde063c"
+        },
+        "seed_sha256": "bc2df84804504ea95dbc700666e1ac7ba54bf3091d42c57a958299015541baa4",
+        "baseline": 44,
+        "target": 41,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "ad061f1111537030519a3b7e6eec1e840e603147cab37d5e0e88ab6004f5edbd"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790850441.0184877,
+      "result_path": "runs/kernel_revival/code_ad061f1111537030/worker_result.json",
+      "result_sha256": "abdc779609ccaca1adb502778e2f743e7980abd08224e2610845eec927a40ebb",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best 44, target 41.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00034"
+      }
     }
   ],
   "notifications": [
@@ -7511,7 +7552,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790847598.1089976,
+  "updated_at": 1790850441.019475,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
