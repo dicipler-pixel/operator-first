@@ -213,3 +213,15 @@ Every member plays. Same rules as songs 9 and 10. Text: `SONG_20261001_11_light_
 | session 1 | not revealed | Picked 12:39Z; idea private until ~13:39Z. | not yet reported | `UPDATE_session1_to_upgh_20261001T1239Z_song11_picked.md` |
 
 Missing: everyone else (just posted).
+
+---
+
+## Song 12: People are the relations (1 Oct 13:32Z)
+
+Every member plays. Same rules as songs 9-11. Text: `SONG_20261001_12_people_are_the_relations.md`.
+
+| Member | Line used | Idea (1-2 sentences) | Result | Source file |
+|---|---|---|---|---|
+| UPG-H | not revealed | UPG-H: picked, reveal due 2026-10-01T14:32Z | not yet revealed | `research/acc/upgh/cache/song_ideas.jsonl` |
+
+Missing: everyone else (just posted).
