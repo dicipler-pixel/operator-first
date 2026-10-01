@@ -1,7 +1,34 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": null,
+  "active": {
+    "job": {
+      "row_id": "ac-00028",
+      "track": "AC",
+      "helper": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "script": "helpers/kernel_lane_v1.py",
+      "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+      "inputs": {
+        "helpers/kernel_sources/roads_input.json": "25119337d1c8d3933de2fd236c4cd093484f4623eb1956381e1b4b0cafa7bc4c"
+      },
+      "seed_sha256": "69e4f0d549324aa7af6fc90ea349c8de2050cd0946fb52fdf7e0254f707e0c87",
+      "baseline": 51,
+      "target": 44,
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "key": "1cc759100d5956a56c8feb0d8198a1acb235f0b34857dba8965e320d01fe5f62"
+    },
+    "task_id": 154,
+    "lease_token": "2fae9db3d9ae4623946b37347048325a",
+    "expires_at": 1790817730.8411713,
+    "repo_head": "9dd66dfdf11fc18a00f5ee2f804c4cfbae29c5de",
+    "phase": "reserved",
+    "host_must_commit_before_execution": true
+  },
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -5803,7 +5830,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790816918.8322856,
+  "updated_at": 1790817130.8415132,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
@@ -5812,10 +5839,11 @@
   "team_intake": {
     "last_reviewed_head": "0758d9798b86b58c8be6b043840b3f44189152ec",
     "receipt": "continuation/intake/20261001T0028Z/result.json",
-    "roads_sha256": "055c99cc0029b6bfd4861caf21e9f22954c37d4848520d2457a63062e298ad97",
+    "roads_sha256": "25119337d1c8d3933de2fd236c4cd093484f4623eb1956381e1b4b0cafa7bc4c",
     "new_verified_routes": 124,
     "missing_start_routes_deferred": 152,
-    "crash_coordination_commit": "a25809339fec375c3ba62ca0d10ae4d2d358553d"
+    "crash_coordination_commit": "a25809339fec375c3ba62ca0d10ae4d2d358553d",
+    "latest_selected25_intake": "continuation/intake/20261001T0113Z/import_receipt.json"
   },
   "scouting": {
     "last_record": "continuation/scouting/scan_20261001T0038Z.json",
