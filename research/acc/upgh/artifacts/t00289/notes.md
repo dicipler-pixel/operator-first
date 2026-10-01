@@ -39,3 +39,32 @@ copy at a0fd6e6), `core.verify(challenge, moves, 'ac-r2-v1', manifest['limits'])
 
 Scratch layout for the unmodified `run_control.py` (ROOT = `~/.cache/upgh/work/t00289`): `official` -> symlink to
 `~/.cache/upgh/sair`; `sol61/run_control.py` = byte-identical copy; `sol61/sol61_ida` -> symlink to the binary built above.
+
+## Control ac-09409 (board record 23, k12) — attempt 1, Sol's prepared settings: NOT PASSED (incomplete, time)
+
+Run dir: `research/acc/upgh/artifacts/t00289/control/20261001T024922Z/` (settings.json, control_words.txt, stdout.txt, stderr.txt (empty),
+receipt.json, SOL61_control_*.txt). Wrapper: unmodified `run_control.py` (exit 2); its stdout/stderr in `control/run_control_std*.txt`.
+Command: `sol61_ida --input control_words.txt --depth 23 --cap 36 --ball 8 --ball-cap 36 --ball-states 4000000 --tt-states 2000000 --seconds 600`.
+Input words (from the manifest by challenge_id, no known route as input): `YYXXX YYXXXYxxyxyxxyXXyx x y`.
+Single process; it got ~59% of one core (box shared with another builder). Peak RSS observed ~0.7 GB; memory never required adjusting.
+
+Result: receipt `control_passed: false`, `search_status: incomplete`, no MOVES line, nothing verified, no lines file written.
+- Goal ball (cap 36): layers 1..7 complete with 11 / 88 / 662 / 5115 / 40779 / 336469 / 2835153 states; layer 8 hit the 4M cap -> incomplete; ball_complete=7.
+  Layer growth ~8x, so a complete radius-8 ball at cap 36 needs ~24M states (~4 GB at the observed ~150 B/state).
+- Pattern databases: mod-p exponent p=7/11/31 (672 / 2640 / 59520 states), SL(2,5) x2 (14396), SL(2,7) x2 (112892).
+- IDA iterations (each = forward DFS to rem=7 then ball lookup, absence pruning active since ball-cap >= cap):
+  depth 7..13 complete_no_path (1 / 13 / 146 / 1204 / 8443 / 50146 / 253406 nodes); depth 14: 1,087,367; depth 15: 4,037,351 (13 s);
+  depth 16: 13,475,456 (50 s); depth 17: 105,482,330 (303 s) complete_no_path; depth 18: 104,717,993 nodes when the 600 s budget expired
+  -> `search depth=18 ... status=incomplete`, `STOP status=incomplete nodes=229113856 tt_clears=12`.
+- Scope of the completed part: no path of length <= 17 whose relator-total peak stays <= 36 (fully completed iterations only). Depth 18 and
+  above: no claim. This is a scoped miss of the control, never a negative about the 23-move record.
+
+Why it failed (brief diagnosis): the forward depth required is 23 - 7 = 16, and the per-iteration node count grows 3.3x-7.8x per depth
+(accelerating: 4.0x, 3.7x, 3.3x, 7.8x for depths 14->17). At the observed ~270-350K nodes/s on a shared core, completing depth 18 alone
+projects to ~30-60 min, and the depth-22/23 iterations project to >= 10^10 nodes, i.e. hours to days — not reachable in the 600 s budget
+nor in this task's 3600 s wall. A complete radius-8 ball (~24M states) would save only one forward level (~4-8x).
+Disclosure for diagnosis only: the known 23-move route in the contract context peaks at relator total 31 (per core replay), so Sol's cap 36
+does admit it; the obstacle is depth, not cap. The known route was never given to the solver.
+
+Per Sol's rule, the target runs stay stopped unless a control attempt passes. One short diagnostic second attempt follows (tighter cap 32,
+which still admits a peak-31 route; cap choice informed by that disclosed peak; larger ball allowance), labeled as diagnostic.

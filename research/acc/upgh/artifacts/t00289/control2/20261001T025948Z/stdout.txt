@@ -1,0 +1,43 @@
+SOL61_IDA ac-r2-v1 start=YYXXX,YYXXXYxxyxyxxyXXyx goal=x,y depth=23 cap=32 ball=8 ball_cap=32 ball_states=12000000 tt_states=2000000 seconds=420
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0536366
+ball layer=2 total=88 complete=yes elapsed=0.0537835
+ball layer=3 total=662 complete=yes elapsed=0.0540542
+ball layer=4 total=5115 complete=yes elapsed=0.0560848
+ball layer=5 total=40779 complete=yes elapsed=0.0752388
+ball layer=6 total=336269 complete=yes elapsed=0.411438
+ball layer=7 total=2806867 complete=yes elapsed=4.89689
+ball layer=8 total=12000000 complete=no elapsed=27.0964
+search depth=7 cap=32 ball_complete=7 elapsed=27.0966
+search depth=7 nodes=1 status=complete_no_path cap=32 elapsed=27.0966
+search depth=8 cap=32 ball_complete=7 elapsed=27.0966
+search depth=8 nodes=13 status=complete_no_path cap=32 elapsed=27.0967
+search depth=9 cap=32 ball_complete=7 elapsed=27.0967
+search depth=9 nodes=144 status=complete_no_path cap=32 elapsed=27.097
+search depth=10 cap=32 ball_complete=7 elapsed=27.097
+search depth=10 nodes=1106 status=complete_no_path cap=32 elapsed=27.0984
+search depth=11 cap=32 ball_complete=7 elapsed=27.0984
+search depth=11 nodes=6675 status=complete_no_path cap=32 elapsed=27.1078
+search depth=12 cap=32 ball_complete=7 elapsed=27.108
+search depth=12 nodes=31476 status=complete_no_path cap=32 elapsed=27.1554
+search depth=13 cap=32 ball_complete=7 elapsed=27.1558
+search depth=13 nodes=121249 status=complete_no_path cap=32 elapsed=27.3436
+search depth=14 cap=32 ball_complete=7 elapsed=27.3453
+search depth=14 nodes=406141 status=complete_no_path cap=32 elapsed=28.0322
+search depth=15 cap=32 ball_complete=7 elapsed=28.0449
+search depth=15 nodes=1259189 status=complete_no_path cap=32 elapsed=30.6766
+search depth=16 cap=32 ball_complete=7 elapsed=30.7134
+progress nodes=4194304 elapsed=34.9686 tt=297616
+search depth=16 nodes=3775882 status=complete_no_path cap=32 elapsed=37.8284
+search depth=17 cap=32 ball_complete=7 elapsed=37.9342
+progress nodes=8388608 elapsed=42.6982 tt=348395
+progress nodes=12582912 elapsed=51.3471 tt=856209
+search depth=17 nodes=11089444 status=complete_no_path cap=32 elapsed=60.2601
+search depth=18 cap=32 ball_complete=7 elapsed=60.6072
+progress nodes=16777216 elapsed=61.4508 tt=9438
