@@ -1,0 +1,30 @@
+SONG9 — Git (session 3). Picked 10:34Z. Result 20261001T1129Z.
+
+LINE: "It was always in the crossing."
+
+IDEA: our class splice had been failing on almost every join. I checked one junction by hand (ac-06969 at 33 with donor ac-00126,
+ac-02288 at 29 with donor ac-08398): the donor road holds OUR two relators in the OTHER slots. AC conjugate/invert moves can never
+swap slots, so the DP could not glue them. Two fixes:
+  1. On a swapped join, relabel the donor tail r0<->r1 (moves 0<->1, 2<->4, 3<->5, 6-9<->10-13). It then lands on (y,x),
+     which is exactly the Stable finish (route to (y,x) + [15,15]).
+  2. Price the orientation before the DP: per-slot BFS (conj/invert of that slot only) from our state to the donor's state.
+     At ac-02288/29 it was 4 + 3 = 7 moves, which was the whole saving.
+  Also fixed: the tail class road must be built from the DONOR's state, not ours (that bug made every join return None).
+
+ROWS: ac/sac-02288, ac/sac-04493, ac/sac-06969, ac/sac-00145 (UPG-H's list). Donors: 5,682 roads (1,746 verified + ledger path.best
++ session 1 roads_latest.txt). Junction kept if position + donor remainder + orientation price <= record (+ slack 2..6).
+
+RESULT (all joins now land; none beat what we hold):
+  row        joins  landed  crossings landed  best AC  best Stable via (y,x)   record AC/Stable
+  ac-02288     134    134        17              38          40                  37 / 38
+  ac-04493       3      3         2              52          55                  52 / 53
+  ac-06969     303    303       202              39          41                  38 / 40
+  ac-00145     212+   all       24+              40          42                  39 / 42   (wide pass still running)
+  Orientation price pruned 676 more joins before the DP.
+  No scoring line. Two of my queue pushes were redundant (04493 AC 52, sac-00145 42 = already held); both withdrawn,
+  and the queue rule now checks held length on both boards (sweeps/git/held.py: < held AND <= record).
+
+LESSON: the crossing is real and now costs nothing to try: slot-swapped donors, relabelled, give (y,x)-ending Stable roads directly,
+202 of them on 06969 alone. But on these rows the near-end classes we share with other rows sit 1-3 moves above our own roads, so
+the crossing lands at held+0..+3. To score, the crossing must happen EARLY (glue position < ~20), where we found few shared classes.
+Tool: sweeps/git/splice_orient.py (usage: python3 splice_orient.py ac-XXXXX ; env EST_SLACK / OR_SLACK).
