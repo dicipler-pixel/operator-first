@@ -2,7 +2,7 @@
 
 **Purpose.** One place for every idea the team turned a line of the owner's songs into, with what it did, so anyone can re-run, widen or avoid it. The owner posted ten songs between 30 Sep ~20:30Z and 1 Oct ~10:55Z. For each song, members picked a line, made it one bounded ACC experiment, and reported idea and result (a scoped miss counts).
 
-**Updated: 2026-10-01 11:22Z.** Interim pool built from the repo and the Drive hub before the members' own `SONG_IDEAS_<YOU>_<UTC>.txt` files (due 12:30Z, request `UPDATE_upgh_to_all_20261001T1117Z_SONG_IDEAS_POOL_request.md`). Merge those in when they land.
+**Updated: 2026-10-01 11:33Z.** Merged so far: session 1 (all ten songs). Still due 12:30Z: everyone else (`UPDATE_upgh_to_all_20261001T1117Z_SONG_IDEAS_POOL_request.md`). UPG-H song 9 revealed 11:30Z.
 
 **How to read it.**
 - One row per idea. A member with two or three ideas on one song gets two or three rows.
@@ -65,8 +65,9 @@ A cosmic rap, one verse per problem (River, Tree, Sky, Mountain). Open anytime w
 | Member | Line used | Idea (1-2 sentences) | Result | Source file |
 |---|---|---|---|---|
 | (none found) | not reported | no member idea found in the repo or the Drive hub | not reported | `SONG_20260930_3_bonus_four_constants.md` (rules only) |
+| session 1 | "Some trees measure themselves not by how high they climb, but by how deep they remember." | Deep-memory union graph per row: every state any verified road of the row ever visited (all members, all seeds) goes into one graph, with exact 1-move edges between states of different roads (hash join on state + its 14 neighbours), then Dijkstra start -> goal. Finds junctions exactly 1 move apart that no splice window looks at. Rows: k <= 2 one-over rows with >= 4 lineages (ac-10098, ac-03871, ac-08995, ac-06262). | **NOT RUN** (minutes per row; open to anyone). | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 
-Missing: UPG-H, session 1, session 2, Git, Astra, Bob, Charlie, Kernel, Sol 6.1, Grok, Fable.
+Missing: UPG-H, session 2, Git, Astra, Bob, Charlie, Kernel, Sol 6.1, Grok, Fable.
 
 ---
 
@@ -78,8 +79,9 @@ One idea per hour. Text: `SONG_20261001_4_comutators.md`.
 |---|---|---|---|---|
 | Git | "We measure the tare weight, we don't let it manifest" | The leader's Stable line is its AC line + 2 on 98.7% of rows, a "tare" nobody measures. Run `tools/acc/yx_shortcut.py` unchanged with target = the Stable record on every road of ours within +2 of its AC record whose Stable record we do not hold: 88 roads, including the class-splice roads. | **1 hit: sac-05598 41 = Stable record 41 (k4)**, from Git's class-splice road ac-05598 40 (tail from ac-00145's road); the route reaches (y,x) in 39. Sent #2926 per the scoreboard. The other 87 roads: scoped miss (meet-in-the-middle, length cap 40, last 10 prefixes). A different-lineage road plus the tare measurement made a tie that neither made alone. | `UPDATE_git_to_all_20261001T0116Z_song4.md`, `SONG_results_20260930.md` |
 | UPG-H #1 | "We commutate the chaos wherever it went" / "Non-normality born from the commutator clash" | Commutation cancellation: two AC moves commute when neither writes a relator the other reads or writes, so a move and its later inverse with only commuting moves between cancel (save 2) at any distance, which window searches of 7 to 14 miss. Scan every road we hold (`research/acc/upgh/cache/commute.py`, code only). | 5,059 team roads scanned, 95 contain a cancellation, 6 new bests (for example ac-05260 75 -> 71), none at a record. Follow-ups by others: session 2's own implementation later shortened ac-05698 128 -> 118 and ac-00525 80 -> 70; Git found 0 cuts on 146 DP-compiled roads (already clean) and added it before the DP. | `UPDATE_upgh_to_all_20261001T0211Z_song4.md`, `song_ideas.jsonl`, `TEAM_RESULTS_20261001.md`, `UPDATE_session2_to_upgh_20261001T0505Z.md`, `GIT_STATUS_20260930.md` |
+| session 1 | "We measure the difference and let the flow decide" | Canonical commute-sorting: stable-sort adjacent commuting moves in every road (r0-only before r1-only within each commuting block). Equal roads collapse (true lineage count), and window searches on the canonical form see interactions that interleaving hid. Then window14 on canonical roads of k <= 3 one-over rows. | **NOT RUN** (session 1 did run the commuting-cancellation cleanup: 86 roads shortened, none to a record). | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 
-Missing: session 1, session 2 (only re-implemented UPG-H's rule), Astra, Bob, Charlie, Kernel, Sol 6.1, Grok, Fable (his work is under UPG-H).
+Missing: session 2 (only re-implemented UPG-H's rule), Astra, Bob, Charlie, Kernel, Sol 6.1, Grok, Fable (his work is under UPG-H).
 
 ---
 
@@ -90,8 +92,9 @@ One idea per hour. Text: `SONG_20261001_5_become_the_order.md`.
 | Member | Line used | Idea (1-2 sentences) | Result | Source file |
 |---|---|---|---|---|
 | UPG-H #1 | "The universe reorganizes what no longer serves, / It don't destroy — it just makes room for what deserves." | Rank defence: re-attack rows we held whose record has since dropped below our line (LOST), close low-k ones first (gap 2 or less, k 3 or less), using any rung that is not hot. Targets ac-03714 and sac-03714, out of 487 LOST rows. | Miss. Splice t00281 (radius 3, 764 s, finished) found nothing shorter on ac-03714. The leader's 02:50Z batch then moved 03714 again (AC 50/51, Stable 52/53), and five rows from our holds were LOST in that batch. Lesson: on rows the leader just re-dropped our old lineage is spent, so the next rank defence needs a new seed (BS-doubling roads, twins). | `SONG_20261001_5_become_the_order.md`, `song_ideas.jsonl` |
+| session 1 | "The universe reorganizes what no longer serves" | Drop the prefix that no longer serves: on each one-over k <= 2 road, take the LOWEST-total intermediate state, restart a noisy beam there (3 seeds x 3 states) and prepend the kept prefix. Unlike Astra's fixed-cut restarts, the cut is where the beam has most room. | **NOT RUN** (open to anyone). | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 
-Missing: session 1, session 2, Git, Astra, Bob, Charlie, Kernel, Sol 6.1, Grok, Fable.
+Missing: session 2, Git, Astra, Bob, Charlie, Kernel, Sol 6.1, Grok, Fable.
 
 ---
 
@@ -102,8 +105,9 @@ Text: `SONG_20261001_6_everything_breaks_quiet.md`.
 | Member | Line used | Idea (1-2 sentences) | Result | Source file |
 |---|---|---|---|---|
 | UPG-H #1 | "It just remove what you been too scared to correct." / "It just stop holdin' up what you refused to fix." | Quiet wake: the harness re-runs a parked miss only when our best road on that row gets shorter, so a teammate's new road of the same or greater length arrives quietly and is never used in a splice. `tools/acc/upgh/quiet_wake.py` finds parked misses (k 3 or less, 1 to 2 over the record) whose row gained roads after parking and wakes them with a lineage-keyed event. | No tie. 12 rows woken, 15 tasks (t00355 to t00369; for example sac-10098 with 4 new roads, sac-03871 with 5, sac-02528 with 3, sac-08578 with 4): 12 finished as misses, 3 interrupted by lane restarts. The hook stays (cheap), but the value is a structurally different road, not more splicing of the same families. | `SONG_20261001_6_everything_breaks_quiet.md`, `song_ideas.jsonl` |
+| session 1 | "It just stop holdin' up what you refused to fix." | Raise the cap we refused to lift: session 1's raised-ceiling surgery certified heads/tails only at cap 22 on one-over rows (ac-02341, ac-08889, ac-06936, ac-10098 ...). Rerun the head/tail exact balls at cap 24-26 (acc_disk, ~2 GB each) on k1/k2 rows; a shorter end needing a peak of 23-26 shows up. | **NOT RUN** (session 1 can run it on request). | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 
-Missing: session 1, session 2, Git, Astra, Bob, Charlie, Kernel, Sol 6.1, Grok, Fable.
+Missing: session 2, Git, Astra, Bob, Charlie, Kernel, Sol 6.1, Grok, Fable.
 
 ---
 
@@ -114,8 +118,9 @@ Text: `SONG_20261001_7_pseudo_spectral_bulge.md`.
 | Member | Line used | Idea (1-2 sentences) | Result | Source file |
 |---|---|---|---|---|
 | UPG-H #1 | "Caught in the pseudo spectral bulge where the anomalies hide" / "It's the vertical amplification, the non-modal surge" | Transient growth: a record road may have to grow its relators before collapsing, but every road we hold came from length-keyed beams that never climb first. New harness method `beam_climb` (acc_beam BEAM_CLIMB=8, length key inverted for depths 1 to 8) on ac-08889, ac-02341, ac-03714, ac-03871, ac-00975, ac-10098. | **Incomplete, not a miss.** t00370 (W 100000, 6 rows) hit the 1,800 s wall before finishing any row. Rerun t00381 (W 20000, rows ac-08889, ac-02341, ac-03714) queued; its result is not reported. Bob's song-8 beam is the same idea with his own tool (see song 8). Lesson: size the experiment to the wall first. | `SONG_20261001_7_pseudo_spectral_bulge.md`, `song_ideas.jsonl`, `research/acc/upgh/tasks/t00381.json` |
+| session 1 | "It's the vertical amplification, the non-modal surge" | Exact minimum-peak search on short k1 rows: the ac-09409 method (acc_disk forward to depth D + (x,y) ball depth 9, rising caps) on k1/k2 rows with record <= 26. Either finds the tie at the minimal peak or certifies no route <= record under each cap. | **NOT RUN** (method validated on ac-09409: all <= 23 routes need peak exactly 31). | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 
-Missing: session 1, session 2, Git, Astra, Bob (his song-8 beam covers the same idea), Charlie, Kernel, Sol 6.1, Grok, Fable.
+Missing: session 2, Git, Astra, Bob (his song-8 beam covers the same idea), Charlie, Kernel, Sol 6.1, Grok, Fable.
 
 ---
 
@@ -127,8 +132,9 @@ Text: `SONG_20261001_8_defy_gravity.md`.
 |---|---|---|---|---|
 | UPG-H #1 | "Spirals of power in the unseen design, steady rhythms shaping the grander line." / "Every apparent wall is a threshold disguised" | Rhythm compression: long roads carry one short block repeated r times (for example [3,9,9,7] x9, [10,5] x8, [11] x15). For every run in our best road on k 3 or less rows that are 1 to 12 over the record, replay the block r-1 or r-2 times and look for an exact bridge of 6 or fewer moves (bidirectional BFS, cap = road peak + 4) back to the state after the run (`tools/acc/upgh/rhythm.py`). | 836 runs tried on near-record roads, 0 shortenings. Entry revealed because its `reveal_at` (11:03Z) has passed. | `research/acc/upgh/cache/song_ideas.jsonl` |
 | Bob | "Every apparent wall is a threshold disguised." | "Defy gravity" beam: for the first K moves score with a length weight of 0 or less (free to climb), then switch back to the collapse score (fewest letters of one generator in one relator, plus length), drop into the one-letter collapse and finish with beam_traits. Grid (K, Bc) = (8,-1), (15,-1), (15,0), W 20000, depth 70, cap start + 50. | **Tool works.** Controls with no path given: ac-05653 solved at 48 (K=15, Bc=0: stage 1 at 42 plus 11; K=8 gives 36 plus 12), ac-07119 solved at 53 (K=8). Longer than the team's roads, so they are new lineages. Targets ac-03320, ac-00764, ac-09632: run stopped by the 10:25Z STOP order and a box restart before any grid finished, so not tested on open rows (no claim). Next, per UPG-H 11:00Z: the grid on ac-00764, ac-09632, ac-05538, ac-03320, 30 min each. | Drive `SONG8_BOB_20261001T1100Z.txt`, Drive `UPGH_to_BOB_20261001T1100Z_song8_thanks_core_back.txt` |
+| session 1 | "Every apparent wall is a threshold disguised" | Our certificates are the walls: first-solve singletons ac-01449/02598/04923 have no route at peak <= 32, n=3 ac-00764/06036 none at <= 30; cap 34 needs ~1e9 states (the disk wall). Cross it with storage-free search (Sol's IDA*/compact BFS with an exact goal ball at cap 34-36) or acc_disk on a bigger disk. | **NOT RUN** (the certificates RAN; files in sweeps/session1/levelmap/). | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 
-Missing: session 1, session 2, Git, Astra, Charlie, Kernel, Sol 6.1, Grok, Fable.
+Missing: session 2, Git, Astra, Charlie, Kernel, Sol 6.1, Grok, Fable.
 
 ---
 
@@ -138,12 +144,12 @@ Every member plays (owner's order). Pick at once, keep the idea private for an h
 
 | Member | Line used | Idea (1-2 sentences) | Result | Source file |
 |---|---|---|---|---|
-| UPG-H | not revealed | UPG-H: picked, reveal due 2026-10-01T11:30Z | not yet revealed | `research/acc/upgh/cache/song_ideas.jsonl` |
-| session 1 | not reported | All-pairs crossing of the noisy-seed lineages (bridges of 8 or fewer, 10 or fewer on k1/k2 rows) on 8 one-over rows. Picked 10:32Z. Session 1's formal post is due 11:32Z; this comes from its 10:57Z results note. | No route below best on the 8 one-over rows (scope: those bridge radii). Rows not named in the note. | `UPDATE_session1_to_upgh_20261001T1057Z_results.md`, `UPDATE_session1_to_upgh_20261001T1032Z_song9_picked.md` |
+| UPG-H | "The real growth come when you let something foreign / touch the inside where the old self was warring." / "the meeting that happened and the lesson it burned" | Foreign meeting: index every intermediate state of every team road on every row by canonical key (16 symmetries + per-relator rotation/inversion); for each k <= 3 row 1-6 over, look up each state of our road and splice in a FOREIGN row's shorter suffix through the same state (paid prefix + relabelled suffix + finish). `tools/acc/upgh/foreign_meet.py`. | **3 roads shortened, none at record**: ac-03364 46 -> 42 (record 41, k1), ac-04469 47 -> 46 (42, k2), ac-05460 47 -> 45 (42, k3). 168,296 states, 21,556 keys. (Quoted early in the 10:54Z note: a slip.) | `SONG_20261001_9_the_crossing.md`, `inbox/upgh_foreign_meet_20261001T1030Z.txt` |
+| session 1 | "It was always in the crossing. / The place where two souls decide to remain." | Exact all-pairs lineage crossing: forward balls from every state of every road meet backward balls from every state of every other road (bridge <= 2R). 8 one-over rows (k <= 4) at R = 4, and the 4 k1/k2 rows at R = 5. Tool `tools/acc/cross_lineage.py` (posted 11:32Z). | Scoped miss: every row's best = our best road (+1). All of tonight's lineages share one basin; a tie needs a road differing by more than a 10-move bridge. | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 | Bob | not reported | Picked 10:35Z; idea private until ~11:35Z. | not reported | Drive `BOB_status_20261001T1036Z.txt` |
-| Git | not reported | Picked 10:34Z; idea private until ~11:34Z. | not reported | `GIT_STATUS_20260930.md` |
+| Git | "It was always in the crossing." | Crossing splice with slot swap: the class splice failed on most joins because the donor road held OUR two relators in the OTHER slots, and AC moves never swap slots. On a swapped join, relabel the donor tail r0<->r1 (moves 0<->1, 2<->4, 3<->5, 6-9<->10-13): it lands on (y,x), which is the Stable finish. Price orientation first (per-slot BFS) and build the tail from the donor's state. Rows ac/sac-02288, 04493, 06969, 00145; 5,682 donor roads. Tool `sweeps/git/splice_orient.py`. | Scoped miss, no scoring line. Every join now lands (134/134 on 02288, 303/303 on 06969, 202 crossings on 06969 alone); best = what we hold (02288 38/40 vs record 37/38; 06969 39/41 vs 38/40; 04493 52/55; 00145 40/42). 676 joins pruned by the orientation price. Lesson: shared near-end classes sit 1-3 above our roads; a scoring crossing must glue EARLY (position < ~20). | `SONG9_git_20261001T1129Z.txt` |
 
-Missing: session 2, Astra, Charlie, Kernel, Sol 6.1, Grok, Fable. Picked but no idea text yet: UPG-H, Bob, Git.
+Missing: session 2, Astra, Charlie, Kernel, Sol 6.1, Grok, Fable. Picked but no idea text yet: Bob.
 
 ---
 
@@ -154,9 +160,9 @@ Every member plays. Same rules as song 9. Results are due ~11:54Z to 11:57Z. Tex
 | Member | Line used | Idea (1-2 sentences) | Result | Source file |
 |---|---|---|---|---|
 | UPG-H | not revealed | UPG-H: picked, reveal due 2026-10-01T11:54Z | not yet revealed | `research/acc/upgh/cache/song_ideas.jsonl` |
-| session 1 | not reported | Picked 10:57Z; no line or idea stated; result due 11:57Z. | not reported | `UPDATE_session1_to_upgh_20261001T1057Z_results.md` |
+| session 1 | "measured by how deep you let the other side invade" | Deep (y,x) finish: let the yx shortcut invade 11-13 moves deep (exact bidirectional bridge), not just the last 10, on our roads at AC +0..+1 of lazy-Stable rows (Stable = AC + 2), k <= 3: 48 roads on 16 rows. | RUNNING (result 11:57Z). 42 of 48 roads so far: 0 hits, 0 timeouts. | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 
-Missing: session 2, Git, Astra, Bob, Charlie, Kernel, Sol 6.1, Grok, Fable. Picked but no idea text yet: UPG-H, session 1.
+Missing: session 2, Git, Astra, Bob, Charlie, Kernel, Sol 6.1, Grok, Fable. Picked but no idea text yet: UPG-H (reveal 11:54Z).
 
 ---
 
