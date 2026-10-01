@@ -1,6 +1,6 @@
-# SCOUT: low-k rows where the team has a road (2026-10-01 10:05Z)
+# SCOUT: low-k rows where the team has a road (2026-10-01 10:10Z)
 
-Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20261001T0924Z.json.gz, stable_ac_20261001T0924Z.json.gz; 40 min old) and the UPG-H ledger. 0 API calls.
+Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20261001T0924Z.json.gz, stable_ac_20261001T0924Z.json.gz; 45 min old) and the UPG-H ledger. 0 API calls.
 Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) or `upgh (running)`. Take an unclaimed row by writing it in your WORKING file. Scoring lines go to `queue/`.
 
 ## SEND: our road is at or under the record, not held yet (next send) (0)
@@ -10,7 +10,7 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | row | record | k | ours | held | gap | heat | who | value |
 |---|---|---|---|---|---|---|---|---|
 | ac-00145 | 39 | 1 | 40 | 40 | +1 | 13 | git | 0.500 |
-| ac-03714 | 50 | 1 | 51 | 51 | +1 | 14 | upgh (running) | 0.500 |
+| ac-03714 | 50 | 1 | 51 | 51 | +1 | 14 |  | 0.500 |
 | sac-03714 | 52 | 1 | 53 | 53 | +1 | 13 |  | 0.500 |
 | ac-06969 | 38 | 3 | 39 | 41 | +1 | 1 | git | 0.125 |
 
@@ -21,7 +21,7 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | sac-05378 | 43 | 1 | 44 |  | +1 | 14 | owner (never-send list) | 0.500 | (y,x) finish |
 | sac-02528 | 36 | 2 | 37 |  | +1 | 6 |  | 0.250 | (y,x) finish |
 | sac-04493 | 53 | 2 | 54 |  | +1 | 6 | git | 0.250 | (y,x) finish |
-| sac-08078 | 34 | 2 | 35 |  | +1 | 11 |  | 0.250 | (y,x) finish |
+| sac-08078 | 34 | 2 | 35 |  | +1 | 11 | upgh (running) | 0.250 | (y,x) finish |
 | sac-08578 | 36 | 2 | 37 |  | +1 | 16 |  | 0.250 | (y,x) finish |
 | sac-07119 | 34 | 3 | 35 | 50 | +1 | 5 |  | 0.125 | (y,x) finish |
 
@@ -29,7 +29,7 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | row | record | k | ours | held | gap | heat | who | value |
 |---|---|---|---|---|---|---|---|---|
 | ac-00975 | 34 | 1 | 35 |  | +1 | 13 | upgh (running) | 0.800 |
-| ac-10098 | 40 | 1 | 41 |  | +1 | 13 | upgh (running) | 0.800 |
+| ac-10098 | 40 | 1 | 41 |  | +1 | 13 |  | 0.800 |
 | sac-00975 | 36 | 1 | 37 |  | +1 | 15 |  | 0.800 |
 | sac-02288 | 38 | 1 | 39 |  | +1 | 12 | git | 0.800 |
 | sac-03871 | 32 | 1 | 33 |  | +1 | 14 |  | 0.800 |
@@ -51,7 +51,7 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | sac-04780 | 40 | 1 | 43 |  | +3 | 0 |  | 0.600 |
 | sac-04882 | 53 | 1 | 56 |  | +3 | 0 |  | 0.600 |
 | sac-08445 | 55 | 1 | 58 |  | +3 | 0 |  | 0.600 |
-| ac-03871 | 30 | 2 | 31 |  | +1 | 13 | upgh (running) | 0.550 |
+| ac-03871 | 30 | 2 | 31 |  | +1 | 13 |  | 0.550 |
 | ac-05598 | 39 | 2 | 40 |  | +1 | 14 |  | 0.550 |
 (59 more in research/acc/upgh/cache/scout_latest.json)
 
