@@ -62,15 +62,18 @@ def sites_YAX(w, A):
     return out
 
 
-def collapse_block(s, path, A, max_steps=100000):
-    """Rewrite Y^A X -> X X Y^A in r0 until no site remains.  r1 must be y^A x x Y^A X."""
+def collapse_block(s, path, A, max_steps=100000, max_rewrites=None):
+    """Rewrite Y^A X -> X X Y^A in r0 until no site remains (or after max_rewrites rewrites: 2^j - 1 rewrites = level j).
+    r1 must be y^A x x Y^A X."""
     r1_form = tuple([y] * A + [x, x] + [Y] * A + [X])
     s = rotate(s, 1, r1_form, path)
+    done = 0
     for _ in range(max_steps):
         s = cyc_reduce(s, 0, path)
         st = sites_YAX(s[0], A)
-        if not st:
+        if not st or (max_rewrites is not None and done >= max_rewrites):
             return s
+        done += 1
         L = len(s[0])
         # rotate so the site occupies the suffix: new word = w[j+1:] + w[:j+1]
         best = min(st, key=lambda j: min((j + 1) % L, L - (j + 1) % L))
