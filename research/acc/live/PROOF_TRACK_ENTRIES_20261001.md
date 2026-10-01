@@ -67,3 +67,12 @@ No ties yet. Two kinds of overhead remain:
 - This is a scoped miss; it does not show that no such finish exists.
 
 Artifacts: research/acc/upgh/artifacts/t00312/ (bs_alt.py, notes.md, lines.txt).
+
+## Update 07:05Z: Fable t00329 (finish entry), scoped miss
+
+No finish was found that is cheaper than bridge + fin2.
+- **Exact enumeration from A(m)**, the state after fin2's first 5 moves. At m = 8 with ≤ 3 multiplications there is no route of ≤ 9 moves. With ≤ 2 multiplications (m = 4, 8), the cheapest route is fin2's own rotation.
+- **Beam probes** from the loop-end states one or two levels early found nothing at n = 4, or on the one n = 5 state covered. This is weak evidence: the control run did not reproduce the known finish.
+- **Exponent matrix.** The floor from the fin2 entry is m+1 row operations; fin2 uses m+7. No rotation product strips an x, though, so the word-level finish stays 2m+O(1).
+- **Reading (inference, not proof).** The records grow like 4m+O(n), so no record holder shows an m+O(1) finish either. The realistic gains are a 3-move level change and a smaller finish constant.
+- **Step-2 family** (UPG-H, tools/acc/upgh/bs_doubling2.py, credit P000013 §4). These are our first roads on these rows: ac-05698 128 (record 111, k1), ac-06792 137 (118, k1), ac-00525 80 (62), ac-08757 87 (66). The greedy loop still pays the n² level change.

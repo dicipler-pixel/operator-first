@@ -105,3 +105,14 @@ with the change); not explored here.
   not exist. No road shorter than the current row roads was produced, so lines.txt is not written.
 - Inference (not proof): the records 4m+2n+3 are consistent with 2m multiplications + ~2m conjugations and a 3-move
   level change; the open m+O(1) finish is not something any board record demonstrates.
+
+### 07:04Z  End of run (stopped by me at 07:04Z, 21 min before the hard wall, to leave time for the write-up)
+- n=5, one level early, O1 start state (y y x Y Y X^16 Y, y x x Y X), current finish 47, W = 200000, DMAX 46:
+  plain key AC NONE; BEAM_H=1 AC NONE. The remaining n=5 states (O2 one level early; both two levels early) were
+  cut by the wall: not covered.
+- macro_probe m=16 K=2 budget 17: cut by the wall after 22 min (Python); not covered.
+- No STOP file appeared. All background jobs (fin_probe.py x2, macro_probe.py, their acc_beam children) killed.
+- lines.txt: not written (no road shorter than any current row road).
+Files: fin_probe.py (beam probe + transfer/replay), macro_probe.py (exact macro enumeration), beam_summary.jsonl
+(one line per beam run), beam_len.log / beam_h1.log / beam_climb.log / beam_control.log / beam_test.log (raw acc_beam
+output), macro_K2.out / macro_K3_m8.out (macro results), run_*.out (stdout of the background runs).
