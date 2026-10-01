@@ -1,0 +1,405 @@
+{
+  "status": "complete",
+  "scope": "finite graph-lemma checks and exact GL2(Z) word distances only; not an ACC route search or a general proof",
+  "graph_cases": 46080,
+  "matrix_ball_radius": 9,
+  "matrix_ball_states": 7648,
+  "matrix_generators": [
+    [
+      1,
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      -1,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      0,
+      -1,
+      1
+    ],
+    [
+      -1,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      0,
+      -1
+    ]
+  ],
+  "matrix_rows": [
+    {
+      "M": 1,
+      "row_signs": [
+        1,
+        1
+      ],
+      "start_to_intermediate": 2,
+      "intermediate_to_identity": 3,
+      "sum": 5,
+      "claimed_sum": 5,
+      "matches": true
+    },
+    {
+      "M": 1,
+      "row_signs": [
+        1,
+        -1
+      ],
+      "start_to_intermediate": 3,
+      "intermediate_to_identity": 2,
+      "sum": 5,
+      "claimed_sum": 5,
+      "matches": true
+    },
+    {
+      "M": 1,
+      "row_signs": [
+        -1,
+        1
+      ],
+      "start_to_intermediate": 1,
+      "intermediate_to_identity": 4,
+      "sum": 5,
+      "claimed_sum": 5,
+      "matches": true
+    },
+    {
+      "M": 1,
+      "row_signs": [
+        -1,
+        -1
+      ],
+      "start_to_intermediate": 2,
+      "intermediate_to_identity": 3,
+      "sum": 5,
+      "claimed_sum": 5,
+      "matches": true
+    },
+    {
+      "M": 2,
+      "row_signs": [
+        1,
+        1
+      ],
+      "start_to_intermediate": 3,
+      "intermediate_to_identity": 4,
+      "sum": 7,
+      "claimed_sum": 7,
+      "matches": true
+    },
+    {
+      "M": 2,
+      "row_signs": [
+        1,
+        -1
+      ],
+      "start_to_intermediate": 4,
+      "intermediate_to_identity": 3,
+      "sum": 7,
+      "claimed_sum": 7,
+      "matches": true
+    },
+    {
+      "M": 2,
+      "row_signs": [
+        -1,
+        1
+      ],
+      "start_to_intermediate": 2,
+      "intermediate_to_identity": 5,
+      "sum": 7,
+      "claimed_sum": 7,
+      "matches": true
+    },
+    {
+      "M": 2,
+      "row_signs": [
+        -1,
+        -1
+      ],
+      "start_to_intermediate": 3,
+      "intermediate_to_identity": 4,
+      "sum": 7,
+      "claimed_sum": 7,
+      "matches": true
+    },
+    {
+      "M": 3,
+      "row_signs": [
+        1,
+        1
+      ],
+      "start_to_intermediate": 4,
+      "intermediate_to_identity": 5,
+      "sum": 9,
+      "claimed_sum": 9,
+      "matches": true
+    },
+    {
+      "M": 3,
+      "row_signs": [
+        1,
+        -1
+      ],
+      "start_to_intermediate": 5,
+      "intermediate_to_identity": 4,
+      "sum": 9,
+      "claimed_sum": 9,
+      "matches": true
+    },
+    {
+      "M": 3,
+      "row_signs": [
+        -1,
+        1
+      ],
+      "start_to_intermediate": 3,
+      "intermediate_to_identity": 6,
+      "sum": 9,
+      "claimed_sum": 9,
+      "matches": true
+    },
+    {
+      "M": 3,
+      "row_signs": [
+        -1,
+        -1
+      ],
+      "start_to_intermediate": 4,
+      "intermediate_to_identity": 5,
+      "sum": 9,
+      "claimed_sum": 9,
+      "matches": true
+    },
+    {
+      "M": 4,
+      "row_signs": [
+        1,
+        1
+      ],
+      "start_to_intermediate": 5,
+      "intermediate_to_identity": 6,
+      "sum": 11,
+      "claimed_sum": 11,
+      "matches": true
+    },
+    {
+      "M": 4,
+      "row_signs": [
+        1,
+        -1
+      ],
+      "start_to_intermediate": 6,
+      "intermediate_to_identity": 5,
+      "sum": 11,
+      "claimed_sum": 11,
+      "matches": true
+    },
+    {
+      "M": 4,
+      "row_signs": [
+        -1,
+        1
+      ],
+      "start_to_intermediate": 4,
+      "intermediate_to_identity": 7,
+      "sum": 11,
+      "claimed_sum": 11,
+      "matches": true
+    },
+    {
+      "M": 4,
+      "row_signs": [
+        -1,
+        -1
+      ],
+      "start_to_intermediate": 5,
+      "intermediate_to_identity": 6,
+      "sum": 11,
+      "claimed_sum": 11,
+      "matches": true
+    },
+    {
+      "M": 5,
+      "row_signs": [
+        1,
+        1
+      ],
+      "start_to_intermediate": 6,
+      "intermediate_to_identity": 7,
+      "sum": 13,
+      "claimed_sum": 13,
+      "matches": true
+    },
+    {
+      "M": 5,
+      "row_signs": [
+        1,
+        -1
+      ],
+      "start_to_intermediate": 7,
+      "intermediate_to_identity": 6,
+      "sum": 13,
+      "claimed_sum": 13,
+      "matches": true
+    },
+    {
+      "M": 5,
+      "row_signs": [
+        -1,
+        1
+      ],
+      "start_to_intermediate": 5,
+      "intermediate_to_identity": 8,
+      "sum": 13,
+      "claimed_sum": 13,
+      "matches": true
+    },
+    {
+      "M": 5,
+      "row_signs": [
+        -1,
+        -1
+      ],
+      "start_to_intermediate": 6,
+      "intermediate_to_identity": 7,
+      "sum": 13,
+      "claimed_sum": 13,
+      "matches": true
+    },
+    {
+      "M": 6,
+      "row_signs": [
+        1,
+        1
+      ],
+      "start_to_intermediate": 7,
+      "intermediate_to_identity": 8,
+      "sum": 15,
+      "claimed_sum": 15,
+      "matches": true
+    },
+    {
+      "M": 6,
+      "row_signs": [
+        1,
+        -1
+      ],
+      "start_to_intermediate": 8,
+      "intermediate_to_identity": 7,
+      "sum": 15,
+      "claimed_sum": 15,
+      "matches": true
+    },
+    {
+      "M": 6,
+      "row_signs": [
+        -1,
+        1
+      ],
+      "start_to_intermediate": 6,
+      "intermediate_to_identity": 9,
+      "sum": 15,
+      "claimed_sum": 15,
+      "matches": true
+    },
+    {
+      "M": 6,
+      "row_signs": [
+        -1,
+        -1
+      ],
+      "start_to_intermediate": 7,
+      "intermediate_to_identity": 8,
+      "sum": 15,
+      "claimed_sum": 15,
+      "matches": true
+    }
+  ],
+  "matrix_claim_all_finite_cases_match": true,
+  "capped_backward_prefix_counterexample": {
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "heights": [
+      0,
+      0,
+      2,
+      0
+    ],
+    "cap": 0,
+    "forward_radius": 1,
+    "backward_radius": 2,
+    "forward_capped_ball": {
+      "0": 0,
+      "1": 1
+    },
+    "backward_capped_ball": {
+      "3": 0
+    },
+    "uncapped_path": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "prefix_through_step1_within_cap": true
+  },
+  "partial_ball_counterexample": {
+    "forward_ball": [
+      0,
+      1
+    ],
+    "backward_stored": [
+      3,
+      2
+    ],
+    "advertised_back_radius": 2,
+    "actually_complete_back_radius": 1,
+    "missing_vertex": 1,
+    "real_path": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "records_or_comparisons": 68928,
+  "limits": {
+    "wall_seconds": 180,
+    "records": 600000,
+    "memory_mib": 1024
+  },
+  "elapsed_seconds": 0.08733988799940562,
+  "peak_rss_kib": 11904,
+  "source_sha256": "bdbc134c76d3add279b3a39b6104612717f096908c848f2df7ce599837837cc1",
+  "model_workers": 0,
+  "network_calls": 0
+}

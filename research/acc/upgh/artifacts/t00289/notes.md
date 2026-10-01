@@ -68,3 +68,37 @@ does admit it; the obstacle is depth, not cap. The known route was never given t
 
 Per Sol's rule, the target runs stay stopped unless a control attempt passes. One short diagnostic second attempt follows (tighter cap 32,
 which still admits a peak-31 route; cap choice informed by that disclosed peak; larger ball allowance), labeled as diagnostic.
+
+## Control ac-09409 — attempt 2 (diagnostic, tighter cap): NOT PASSED (incomplete, time)
+
+Run dir: `research/acc/upgh/artifacts/t00289/control2/20261001T025948Z/` (same file set; wrapper stdout/stderr in `control2/run_control_std*.txt`).
+Command: `sol61_ida --input control_words.txt --depth 23 --cap 32 --ball 8 --ball-cap 32 --ball-states 12000000 --tt-states 2000000 --seconds 420`
+(unmodified `run_control.py --cap 32 --ball 8 --ball-states 12000000 --tt-states 2000000 --seconds 420`; exit 2). Single process, ~94% of one core
+this time, RSS ~1.6 GB. Cap 32 was chosen knowing the known route peaks at 31 (disclosed above); the solver still received only the manifest words.
+
+Result: receipt `control_passed: false`, `search_status: incomplete`, no MOVES line, nothing verified, no lines file written.
+- Goal ball (cap 32): layers 1..7 complete (11 / 88 / 662 / 5115 / 40779 / 336269 / 2806867); layer 8 hit the 12M cap -> incomplete; ball_complete=7.
+  (At cap 32 the radius-7 ball is barely smaller than at cap 36, so radius 8 still needs >12M, probably ~20M+ states.)
+- IDA iterations: depth 7..16 complete_no_path (1 / 13 / 144 / 1106 / 6675 / 31476 / 121249 / 406141 / 1259189 / 3775882 nodes);
+  depth 17: 11,089,444 (22 s); depth 18: 62,295,412 (128 s) complete_no_path; depth 19: 109,937,172 nodes when the 420 s budget expired
+  -> `search depth=19 ... status=incomplete`, `STOP status=incomplete nodes=188923904 tt_clears=9`.
+- Scope of the completed part: no path of length <= 18 whose relator-total peak stays <= 32. Depth 19 and above: no claim.
+- Growth per depth at cap 32: 3.1x, 3.0x, 2.9x, 5.6x (depths 15->18) and still >= 1.8x partway into 19; four more levels (20..23) at >= 5x
+  each project to >= 10^10 nodes for the final iterations — hours or more, not reachable within this task's wall.
+
+## Control verdict and consequence
+
+Both attempts ended as `incomplete` (time), never `complete_no_path` at depth 23. No 23-move path was found, so by Sol's rule the control
+did NOT pass. Nothing was verified; no path lines exist. `lines.txt` is intentionally empty (verified paths only; there are none).
+
+Target runs: NOT STARTED, per Sol's rule "no target search may begin before the specified control passes". Planned (and not run):
+ac-09400 (cap 36-38, depth 35) and ac-00764 (cap 32-36). ac-05343 was removed from this task by the lead at ~03:05Z (Sol 6.1 runs it on its
+own machine). A faithful generalization of run_control.py for those rows was prepared at `~/.cache/upgh/work/t00289/sol61/run_target.py`
+(copy saved here as `run_target_UNUSED.py`); it was never executed. 0 target rows searched, 0 SAIR calls, 0 submissions.
+
+What would make this worth repeating: a machine where sol61_ida can hold a complete radius-8 or radius-9 goal ball (>= 24M / ~200M states at
+cap 36) and run a single iteration for hours, or a solver revision with a much stronger admissible bound; or a shorter-record control row.
+No claim is made about any row's record or about the absence of any route beyond the fully completed depths and caps listed above.
+
+Wall: builder started ~02:46Z; attempt 1 02:49:22Z-02:59:33Z; attempt 2 02:59:48Z-03:06:54Z; finalization 03:07Z-03:09Z. Max 1 solver
+process at any time (limit was 2). Heartbeats sent at 02:49Z and 02:59Z.

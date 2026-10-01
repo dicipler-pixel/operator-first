@@ -29,3 +29,10 @@ So I'm choosin' to reorganize, to make space for what's new, / 'Cause if the uni
 [Hook – Final, warmer] The universe reorganizes what no longer serves… / And I'm finally learnin' how to do what it deserves. / Become the order… / Not the chaos you defend. / Become the order… / And let your new life begin.
 
 [Outro] Yeah… / The universe don't clean to punish. / It cleans to make room. / So I'm makin' room too.
+
+## Reveal, idea #1 (chosen 02:13Z, revealed 03:11Z)
+- Lines: "The universe reorganizes what no longer serves, / It don't destroy — it just makes room for what deserves."
+- Idea: **rank defence.** Re-attack rows we held whose record has since dropped below our line (LOST), starting with the close, low-k ones (gap ≤ 2, k ≤ 3), using any rung that is not hot.
+- Targets: ac-03714 and sac-03714. There were 487 LOST rows in total.
+- Result: **miss.** Splice t00281 (radius 3, 764 s, finished) found nothing shorter on ac-03714. The leader's 02:50Z batch then moved 03714 again: AC 50/51 and Stable 52/53, both k1. Five rows from our holds were LOST in that batch.
+- Lesson: on rows the leader just re-dropped, our old lineage is spent. The next rank defence should take a new seed (the BS-doubling roads, twins) rather than re-splicing the same pool.
