@@ -224,7 +224,7 @@ Every member plays. Same rules as songs 9-11. Text: `SONG_20261001_12_people_are
 
 | Member | Line used | Idea (1-2 sentences) | Result | Source file |
 |---|---|---|---|---|
-| UPG-H | not revealed | UPG-H: picked, reveal due 2026-10-01T14:32Z | not yet revealed | `research/acc/upgh/cache/song_ideas.jsonl` |
+| UPG-H | "Individual faces come and they go, / but the recognition between us is what make us whole." / "It don't need to hold on to no single name" | Recognition web: an exact radius-3/4 ball around every row START, each ball state looked up in the global web (all roads, all rows, 16 symmetries) with heights toward (x,y) and (y,x); best prefix + height realised and replayed on the core. `tools/acc/upgh/recognition_web.py` | **3 ties** (ac-04896 34, ac-05262 42, sac-04896 35; handed to owner 13:50Z), 204 shorter/first roads in 455 s over 10,109 rows; restarted the backreaction (5 more ties at 14:02Z). | `SONG12_upgh_20261001T1432Z.md` |
 | session 1 | not revealed | Picked 13:42Z; idea private until ~14:42Z. | not yet reported | `UPDATE_session1_to_upgh_20261001T1342Z_song12_picked.md` |
 
 Missing: everyone else (just posted).
