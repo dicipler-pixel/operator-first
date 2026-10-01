@@ -1,7 +1,7 @@
 {
-  "completed_batches": 157,
+  "completed_batches": 159,
   "model_worker_launches": 4,
-  "code_only_batches": 153,
+  "code_only_batches": 155,
   "new_improved_routes": 9,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -31,29 +31,29 @@
     "status": "active",
     "active": {
       "job": {
-        "row_id": "ac-00005",
+        "row_id": "ac-00034",
         "track": "AC",
         "helper": "kernel",
         "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
         "script": "helpers/kernel_lane_v1.py",
         "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
         "inputs": {
-          "helpers/kernel_sources/roads_input.json": "25119337d1c8d3933de2fd236c4cd093484f4623eb1956381e1b4b0cafa7bc4c"
+          "helpers/kernel_sources/roads_input.json": "b17fa39ce0333205e92b466a5b45357682a76a9f1bcca6036e078e639b1e2e58"
         },
-        "seed_sha256": "4233a16d3b3247bf8f2830b8c1b3298df77b2111cbd5bfe8a96238cf7fe56696",
-        "baseline": 27,
-        "target": 26,
+        "seed_sha256": "bc2df84804504ea95dbc700666e1ac7ba54bf3091d42c57a958299015541baa4",
+        "baseline": 44,
+        "target": 41,
         "caps": {
           "wall_seconds": 180,
           "node_cap": 600000,
           "memory_mib": 1024
         },
-        "key": "63d4c67071a7c56f56de978cfb4732a305f5464f4b555c858f4815b837e37f17"
+        "key": "1464a3cf321952b11c5a6f5858244906be0187f86dffe675ed364a1309a8b43b"
       },
-      "task_id": 173,
-      "lease_token": "b657af70b0464cc7ab2c2e14c199c35d",
-      "expires_at": 1790820110.2670367,
-      "repo_head": "f6676e4115622e52f42edd7aa618eeeda7b93c6d",
+      "task_id": 175,
+      "lease_token": "efd590bb8a08432a8ea5454bb55cb8fd",
+      "expires_at": 1790820434.5704348,
+      "repo_head": "976171800af1ac983b1fe15e1cf239fdaf9dd71c",
       "phase": "reserved",
       "host_must_commit_before_execution": true
     }
@@ -61,7 +61,7 @@
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 157,
+      "completed": 159,
       "running": 1
     },
     "unconnected_roles": [
@@ -2085,6 +2085,36 @@
       "target": 79,
       "kind": "bounded_miss",
       "result_path": "runs/kernel_revival/code_2bfca288012a5c9a/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00005",
+      "baseline": 27,
+      "target": 26,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_63d4c67071a7c56f/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00037",
+      "baseline": 32,
+      "target": 31,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_f69127995db101bd/worker_result.json",
       "limits": {
         "wall_seconds": 180.0,
         "node_cap": 600000,

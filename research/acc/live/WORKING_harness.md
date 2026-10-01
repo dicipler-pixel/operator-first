@@ -1,8 +1,8 @@
 # ACC memory-first harness claims
 
-Updated: 2026-10-01T01:51:50.275124+00:00.
+Updated: 2026-10-01T01:57:14.575729+00:00.
 
-Active: kernel ac-00005, code-only batch. Key 63d4c67071a7c56f56de978cfb4732a305f5464f4b555c858f4815b837e37f17. Expires 2026-10-01T02:01:50.267037+00:00.
+Active: kernel ac-00034, code-only batch. Key 1464a3cf321952b11c5a6f5858244906be0187f86dffe675ed364a1309a8b43b. Expires 2026-10-01T02:07:14.570435+00:00.
 
 Row checked against current WORKING claims. Previous completed attempts are retained in continuation/checkpoint.json. This batch begins only after its reservation is committed.
 

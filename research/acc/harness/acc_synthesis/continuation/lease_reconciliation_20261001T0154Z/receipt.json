@@ -1,0 +1,15 @@
+{
+  "task_id": 173,
+  "key": "63d4c67071a7c56f56de978cfb4732a305f5464f4b555c858f4815b837e37f17",
+  "reservation_commit": "a0345e5b50e77a169b1da651a2748d2ef65ddf83",
+  "observed_state_before": "running despite completed command/checkpoint",
+  "repaired_state": "completed using existing own token-fenced lease",
+  "cause": "Not established; adding same-process terminal durability barrier separately",
+  "result_sha256": "c1a1183d2b6ffc0e62921e4ae35f501b2d11dec9f826ad406ad5ed325d2cd1bd",
+  "artifact_hashes_verified": 8,
+  "attempts_unchanged": 158,
+  "new_searches": 0,
+  "model_dispatches": 0,
+  "budgets_changed": false,
+  "at": 1790819652.4871924
+}

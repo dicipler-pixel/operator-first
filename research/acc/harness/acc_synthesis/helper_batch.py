@@ -185,6 +185,13 @@ class HelperContinuation(Continuation):
             entry=self.record(job,out/'worker_result.json','deterministic_helper_code',lease['id'])
             self.h.store.finish(lease['id'],lease['token'],result)
             self.h.store.event('task.handled',{'task_id':lease['id']})
+            # Flush and read back evidence plus terminal lease before reporting success.
+            # Cross-process audits remain required; this is not a root-cause claim.
+            try:
+                from .helpers.audit_artifacts import audit_all
+            except ImportError:
+                from helpers.audit_artifacts import audit_all
+            audit_all(self.root,sync=True)
             return {'status':'completed','attempt':entry,'worker_summary':summary}
         except Exception as exc:
             code=exc.code if isinstance(exc,HarnessError) else type(exc).__name__
