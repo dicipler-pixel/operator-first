@@ -7238,7 +7238,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790824463.1888177,
+  "updated_at": 1790824882.4026031,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
@@ -7263,5 +7263,18 @@
       "status": "verified_new_graph",
       "receipt": "continuation/intake/20261001T0151Z/receipt.json"
     }
+  },
+  "intake_lease": {
+    "key": "a319bb6a931b264b55bff9a1d32885042fa368fc94ac6a1bc07e5b277809071e",
+    "owner": "12f47b6b00304c268472ddffb5d4dbb1",
+    "expires_at": 1790825482.3984332,
+    "phase": "reserved",
+    "directory": "continuation/intake/20261001T0316Z",
+    "source_head": "b5fbd1355153e6767820dbc7646ac5755b3d9aa6",
+    "pool_before_sha256": "b17fa39ce0333205e92b466a5b45357682a76a9f1bcca6036e078e639b1e2e58",
+    "own_before_sha256": "ff93a9ecbba27401dc2b5ca21aac85f52038d994b4e5681b85b9263936a506a9",
+    "input_sha256": "8eae0153108489d88e3aafcb76861504189789f4bcfc1fc1f3c131bee01eb045",
+    "validator_sha256": "03cebcf9a429027e48d75055cfb02ca6a4f892ff46126085ef6f9fec09c524e2",
+    "controller_sha256": "967dfadaecdd13e0f132c14fed4ad38fb4072b1a670ebcd5f02b99014aa6d004"
   }
 }
