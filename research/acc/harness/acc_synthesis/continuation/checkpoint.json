@@ -1,34 +1,7 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": {
-    "job": {
-      "row_id": "ac-00034",
-      "track": "AC",
-      "helper": "kernel",
-      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
-      "script": "helpers/kernel_lane_v1.py",
-      "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
-      "inputs": {
-        "helpers/kernel_sources/roads_input.json": "25119337d1c8d3933de2fd236c4cd093484f4623eb1956381e1b4b0cafa7bc4c"
-      },
-      "seed_sha256": "bc2df84804504ea95dbc700666e1ac7ba54bf3091d42c57a958299015541baa4",
-      "baseline": 44,
-      "target": 41,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "ddbad0e18b655afdb64e329c4353d0414be4922f80dff2216cca16948325990c"
-    },
-    "task_id": 155,
-    "lease_token": "66261804931f4f90a844248da253b9eb",
-    "expires_at": 1790817855.7117963,
-    "repo_head": "6862d885627f788a232c03d5253d4dd65ca46ea9",
-    "phase": "reserved",
-    "host_must_commit_before_execution": true
-  },
+  "active": null,
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -5855,6 +5828,47 @@
         "event": "new_verified_foreign_road",
         "row_id": "ac-00028"
       }
+    },
+    {
+      "key": "ddbad0e18b655afdb64e329c4353d0414be4922f80dff2216cca16948325990c",
+      "job": {
+        "row_id": "ac-00034",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "25119337d1c8d3933de2fd236c4cd093484f4623eb1956381e1b4b0cafa7bc4c"
+        },
+        "seed_sha256": "bc2df84804504ea95dbc700666e1ac7ba54bf3091d42c57a958299015541baa4",
+        "baseline": 44,
+        "target": 41,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "ddbad0e18b655afdb64e329c4353d0414be4922f80dff2216cca16948325990c"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790817292.6405785,
+      "result_path": "runs/kernel_revival/code_ddbad0e18b655afd/worker_result.json",
+      "result_sha256": "acb422438fc6bfef0ed9d1e1b7c333968cd62a5011749a5f90a06795e0b38282",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best 44, target 41.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00034"
+      }
     }
   ],
   "notifications": [
@@ -5871,7 +5885,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790817255.712185,
+  "updated_at": 1790817292.641022,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
