@@ -4,3 +4,4 @@ Written by tools/acc/upgh on every claim and result. Rows below are being search
 
 - t00397: ac-03208 (method beam_free, seed 109)
 - t00398: sac-02988 (method beam_free, seed 109)
+- t00399: ac-08158 (method beam_free, seed 102)
