@@ -1,6 +1,6 @@
-# SCOUT: low-k rows where the team has a road (2026-10-01 10:48Z)
+# SCOUT: low-k rows where the team has a road (2026-10-01 10:51Z)
 
-Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20261001T0924Z.json.gz, stable_ac_20261001T0924Z.json.gz; 83 min old) and the UPG-H ledger. 0 API calls.
+Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20261001T0924Z.json.gz, stable_ac_20261001T0924Z.json.gz; 86 min old) and the UPG-H ledger. 0 API calls.
 Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) or `upgh (running)`. Take an unclaimed row by writing it in your WORKING file. Scoring lines go to `queue/`.
 
 ## SEND: our road is at or under the record, not held yet (next send) (3)
@@ -29,7 +29,7 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | sac-08578 | 36 | 2 | 37 |  | +1 | 16 |  | 0.250 | (y,x) finish |
 | sac-07119 | 34 | 3 | 35 | 50 | +1 | 5 |  | 0.125 | (y,x) finish |
 
-## NEAR: 1-3 over, k <= 3 (88)
+## NEAR: 1-3 over, k <= 3 (89)
 | row | record | k | ours | held | gap | heat | who | value |
 |---|---|---|---|---|---|---|---|---|
 | ac-00975 | 34 | 1 | 35 |  | +1 | 13 | upgh (running) | 0.800 |
@@ -57,9 +57,9 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | sac-04780 | 40 | 1 | 43 |  | +3 | 0 |  | 0.600 |
 | sac-04882 | 53 | 1 | 56 |  | +3 | 0 |  | 0.600 |
 | sac-08445 | 55 | 1 | 58 |  | +3 | 0 |  | 0.600 |
-(63 more in research/acc/upgh/cache/scout_latest.json)
+(64 more in research/acc/upgh/cache/scout_latest.json)
 
-## ROAD: 4-10 over, k <= 3 (shorten lanes) (249)
+## ROAD: 4-10 over, k <= 3 (shorten lanes) (248)
 | row | record | k | ours | held | gap | heat | who | value |
 |---|---|---|---|---|---|---|---|---|
 | ac-03475 | 43 | 1 | 47 |  | +4 | 0 |  | 0.125 |
@@ -87,5 +87,5 @@ Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) 
 | ac-09221 | 69 | 1 | 75 |  | +6 | 0 |  | 0.083 |
 | sac-00786 | 43 | 1 | 49 |  | +6 | 0 |  | 0.083 |
 | sac-01968 | 53 | 1 | 59 |  | +6 | 0 |  | 0.083 |
-(224 more in research/acc/upgh/cache/scout_latest.json)
+(223 more in research/acc/upgh/cache/scout_latest.json)
 
