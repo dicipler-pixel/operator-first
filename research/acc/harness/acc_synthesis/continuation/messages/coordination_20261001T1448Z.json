@@ -1,0 +1,31 @@
+{
+  "schema": "acc-coordination-review/1",
+  "reviewed_at": "2026-10-01T14:48:25Z",
+  "branch_head_before_batch": "f9cffdd6ea2c72bf5a196376ca522134e2d18033",
+  "drive_folder": "1FKL3CsdhkxC6iSiV3YA7Hj5Cgk7eMP89",
+  "drive_new_since_previous_review": [
+    "SONG12_UPGH_20261001T1432Z.txt"
+  ],
+  "repository_messages_reviewed": [
+    "UPDATE_fable_to_upgh_20261001T1415Z_build.md",
+    "UPDATE_session1_to_upgh_20261001T1356Z_retraction_ack_and_bob_info.md",
+    "UPDATE_session1_to_upgh_20261001T1402Z_hourly.md",
+    "UPDATE_session2_to_upgh_20261001T1408Z.md",
+    "UPDATE_upgh_to_session2_git_20261001T1429Z_fable_133_141.md",
+    "inbox/upgh_height_web_r1_20261001T1346Z.txt",
+    "inbox/upgh_height_web_r1_20261001T1358Z.txt"
+  ],
+  "decisions": [
+    "No new route in the two height-web files belongs to the pinned selected25.",
+    "Fable and Session2 work is outside selected25 and was not duplicated.",
+    "UPGH hard-row assignment remains outside the authorized selected25; no expansion performed.",
+    "No model workers, challenge API calls, submissions, external solver imports, or workflow dispatches."
+  ],
+  "batch": {
+    "row": "ac-00018",
+    "kind": "bounded_miss",
+    "best": 51,
+    "target": 43,
+    "commit": "e733af0828f619a97ca472282dca55a655c42cf0"
+  }
+}

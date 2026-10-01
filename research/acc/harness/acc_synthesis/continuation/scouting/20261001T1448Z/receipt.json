@@ -1,0 +1,64 @@
+{
+  "schema": "acc-public-scout/1",
+  "checked_at": "2026-10-01T14:48:25Z",
+  "discovery_queries": 2,
+  "sources": [
+    {
+      "kind": "paper",
+      "title": "The Two-Hump Problem: Bridging the Difficulty Gap in Mathematical Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2606.21611",
+      "version": "v1",
+      "submitted_at": "2026-06-19T17:14:47Z",
+      "artifacts": [
+        "paper",
+        "linked public code",
+        "AC-19 dataset",
+        "AC-1M dataset",
+        "pretrained checkpoint"
+      ],
+      "limitations": [
+        "substitution supermoves are not ACC primitive moves",
+        "released model evaluation requires external code/model execution, forbidden in this scheduled harness",
+        "reported benchmark solutions are not ACC row results"
+      ]
+    },
+    {
+      "kind": "repository",
+      "repository": "Math-AI-Caltech/ACSolverX",
+      "url": "https://github.com/Math-AI-Caltech/ACSolverX",
+      "commit": "6a12515fe1d95178a483b76d5553266e61122417",
+      "commit_date": "2026-06-23T17:26:33Z",
+      "artifacts": [
+        "JAX environment",
+        "beam search",
+        "greedy notebook",
+        "datasets",
+        "checkpoint"
+      ],
+      "limitations": [
+        "external solver recipe; inspected read-only and not downloaded or run",
+        "action semantics require paid primitive expansion before any ACC use"
+      ]
+    },
+    {
+      "kind": "repository",
+      "repository": "NullLabTests/Andrews-Curtis",
+      "url": "https://github.com/NullLabTests/Andrews-Curtis",
+      "commit": "057573668397d60bb2ba597ec52f1133d42b1bb1",
+      "commit_date": "2026-07-26T20:39:51Z",
+      "artifacts": [
+        "search scripts",
+        "results",
+        "5-step AK(3) bridge verifier"
+      ],
+      "limitations": [
+        "self-reported exploratory searches, not complete exclusions",
+        "July correction says earlier positive-power AK(3) work was vacuous",
+        "not selected-row evidence and external solver import is forbidden"
+      ]
+    }
+  ],
+  "assessment": "No concrete new lead beyond already known Two-Hump/supermove material. Nothing was imported, downloaded, or executed. NullLab's corrected AK(3) repository is unrelated to the pinned selected rows and its beam misses cannot support impossibility claims.",
+  "harness_failure_addressed": "The only potentially relevant lesson is to keep compressed actions distinct from paid primitive paths; the existing verifier and grade gate already enforce this.",
+  "bounded_next_experiment": "No experiment opened this iteration. If a future team message supplies a selected-row supermove certificate, expand exactly one certificate into pinned primitive moves, replay it, and compare total paid cost under the existing 180-second/1-GiB envelope."
+}
