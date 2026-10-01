@@ -6,7 +6,7 @@ replays every route on the official verifier before anything is sent. **You neve
 ## The game
 A row is a pair of relators (r0, r1), words in x, y and their inverses. Notation: `X` = x^-1, `Y` = y^-1. A route is a list of move ids (below). After every move
 each relator is freely reduced (xX and Yy cancel). **Goal:** reach r0 = `x`, r1 = `y` exactly (in that order). Score: a route shorter than the record = beat (1.0);
-equal = tie (2^-k, k = teams holding it after you join); any route on an unsolved row = first solve (1.0, plus 1.0 on the Stable track).
+equal = tie (official: each of the k tied teams gets 2^(1-k), so joining a record held by m teams pays 2^-m: 0.5 if one team holds it); any route on an unsolved row = first solve (1.0, plus 1.0 on the Stable track).
 Stable track: the same route + `[16, 15]` is a Stable route (+2 moves). If you end at r0 = `y`, r1 = `x` instead, `[16, 15]` also finishes Stable, and that
 (y,x) finish is often 1-5 moves cheaper.
 

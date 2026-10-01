@@ -1,0 +1,88 @@
+SOL61_IDA ac-r2-v1 start=YYXXX,YYXXXYxxyxyxxyXXyx goal=x,y depth=23 cap=32 ball=8 ball_cap=32 ball_states=12000000 tt_states=2000000 seconds=420
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0536366
+ball layer=2 total=88 complete=yes elapsed=0.0537835
+ball layer=3 total=662 complete=yes elapsed=0.0540542
+ball layer=4 total=5115 complete=yes elapsed=0.0560848
+ball layer=5 total=40779 complete=yes elapsed=0.0752388
+ball layer=6 total=336269 complete=yes elapsed=0.411438
+ball layer=7 total=2806867 complete=yes elapsed=4.89689
+ball layer=8 total=12000000 complete=no elapsed=27.0964
+search depth=7 cap=32 ball_complete=7 elapsed=27.0966
+search depth=7 nodes=1 status=complete_no_path cap=32 elapsed=27.0966
+search depth=8 cap=32 ball_complete=7 elapsed=27.0966
+search depth=8 nodes=13 status=complete_no_path cap=32 elapsed=27.0967
+search depth=9 cap=32 ball_complete=7 elapsed=27.0967
+search depth=9 nodes=144 status=complete_no_path cap=32 elapsed=27.097
+search depth=10 cap=32 ball_complete=7 elapsed=27.097
+search depth=10 nodes=1106 status=complete_no_path cap=32 elapsed=27.0984
+search depth=11 cap=32 ball_complete=7 elapsed=27.0984
+search depth=11 nodes=6675 status=complete_no_path cap=32 elapsed=27.1078
+search depth=12 cap=32 ball_complete=7 elapsed=27.108
+search depth=12 nodes=31476 status=complete_no_path cap=32 elapsed=27.1554
+search depth=13 cap=32 ball_complete=7 elapsed=27.1558
+search depth=13 nodes=121249 status=complete_no_path cap=32 elapsed=27.3436
+search depth=14 cap=32 ball_complete=7 elapsed=27.3453
+search depth=14 nodes=406141 status=complete_no_path cap=32 elapsed=28.0322
+search depth=15 cap=32 ball_complete=7 elapsed=28.0449
+search depth=15 nodes=1259189 status=complete_no_path cap=32 elapsed=30.6766
+search depth=16 cap=32 ball_complete=7 elapsed=30.7134
+progress nodes=4194304 elapsed=34.9686 tt=297616
+search depth=16 nodes=3775882 status=complete_no_path cap=32 elapsed=37.8284
+search depth=17 cap=32 ball_complete=7 elapsed=37.9342
+progress nodes=8388608 elapsed=42.6982 tt=348395
+progress nodes=12582912 elapsed=51.3471 tt=856209
+search depth=17 nodes=11089444 status=complete_no_path cap=32 elapsed=60.2601
+search depth=18 cap=32 ball_complete=7 elapsed=60.6072
+progress nodes=16777216 elapsed=61.4508 tt=9438
+progress nodes=20971520 elapsed=69.1495 tt=528492
+progress nodes=25165824 elapsed=77.471 tt=1058073
+progress nodes=29360128 elapsed=87.3215 tt=1572605
+progress nodes=33554432 elapsed=98.0463 tt=95628
+progress nodes=37748736 elapsed=105.794 tt=619077
+progress nodes=41943040 elapsed=113.77 tt=1098062
+progress nodes=46137344 elapsed=122.021 tt=1604638
+progress nodes=50331648 elapsed=130.725 tt=129565
+progress nodes=54525952 elapsed=138.327 tt=669856
+progress nodes=58720256 elapsed=145.992 tt=1210433
+progress nodes=62914560 elapsed=154.588 tt=1762457
+progress nodes=67108864 elapsed=164.027 tt=335176
+progress nodes=71303168 elapsed=172.004 tt=909723
+progress nodes=75497472 elapsed=180.829 tt=1402663
+search depth=18 nodes=62295412 status=complete_no_path cap=32 elapsed=188.003
+search depth=19 cap=32 ball_complete=7 elapsed=188.416
+progress nodes=79691776 elapsed=190.249 tt=81478
+progress nodes=83886080 elapsed=197.934 tt=609739
+progress nodes=88080384 elapsed=205.676 tt=1140403
+progress nodes=92274688 elapsed=213.744 tt=1702188
+progress nodes=96468992 elapsed=222.418 tt=241847
+progress nodes=100663296 elapsed=229.815 tt=764091
+progress nodes=104857600 elapsed=237.964 tt=1324023
+progress nodes=109051904 elapsed=246.488 tt=1830362
+progress nodes=113246208 elapsed=255.415 tt=365005
+progress nodes=117440512 elapsed=263.097 tt=853551
+progress nodes=121634816 elapsed=271.308 tt=1354724
+progress nodes=125829120 elapsed=279.225 tt=1858742
+progress nodes=130023424 elapsed=287.986 tt=383316
+progress nodes=134217728 elapsed=296.237 tt=948307
+progress nodes=138412032 elapsed=305.047 tt=1490148
+progress nodes=142606336 elapsed=315.181 tt=54759
+progress nodes=146800640 elapsed=323.338 tt=621088
+progress nodes=150994944 elapsed=332.408 tt=1181225
+progress nodes=155189248 elapsed=341.015 tt=1717894
+progress nodes=159383552 elapsed=349.643 tt=238536
+progress nodes=163577856 elapsed=357.709 tt=739063
+progress nodes=167772160 elapsed=365.698 tt=1227337
+progress nodes=171966464 elapsed=374.517 tt=1701137
+progress nodes=176160768 elapsed=385.654 tt=202899
+progress nodes=180355072 elapsed=396.916 tt=751401
+progress nodes=184549376 elapsed=408.616 tt=1277799
+progress nodes=188743680 elapsed=419.639 tt=1729766
+search depth=19 nodes=109937172 status=incomplete cap=32 elapsed=420.004
+STOP status=incomplete nodes=188923904 tt_clears=9 elapsed=420.004
