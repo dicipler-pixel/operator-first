@@ -1,0 +1,1387 @@
+{
+  "kind": "deterministic_frame_audit",
+  "checker_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "manifest_sha256": "dc8587d7dc6855edfb8aad087f27f4db59c558f66bdf838b664c1634a357ad37",
+  "source_route": {
+    "row": "ac-04042",
+    "length": 53,
+    "moves": [
+      10,
+      10,
+      10,
+      10,
+      5,
+      6,
+      12,
+      0,
+      4,
+      13,
+      4,
+      1,
+      11,
+      12,
+      8,
+      5,
+      12,
+      5,
+      12,
+      5,
+      12,
+      5,
+      1,
+      11,
+      11,
+      7,
+      2,
+      0,
+      9,
+      5,
+      10,
+      2,
+      13,
+      13,
+      13,
+      13,
+      13,
+      13,
+      13,
+      6,
+      3,
+      6,
+      8,
+      2,
+      5,
+      5,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "receipt": {
+      "ok": true,
+      "length": 53,
+      "peak_total_relator_length": 43,
+      "work": 1122,
+      "certificate_hash": "sha256:7921ebeaa4928bb0d7f87cf3e7a4c6432875d4d8c2d6d43a8665b6987d360ac9"
+    },
+    "before_move9": [
+      {
+        "before_move_index_zero_based": 28,
+        "state": [
+          "yXXYYYYYYYxYY",
+          "XyyyyyyyyxxY"
+        ],
+        "next_moves": [
+          9,
+          5,
+          10,
+          2,
+          13,
+          13
+        ]
+      }
+    ],
+    "trace": [
+      {
+        "index": 0,
+        "state": [
+          "YYXyx",
+          "YXXXXyxxxxx"
+        ]
+      },
+      {
+        "index": 1,
+        "move": 10,
+        "state": [
+          "YYXyx",
+          "xYXXXXyxxxx"
+        ]
+      },
+      {
+        "index": 2,
+        "move": 10,
+        "state": [
+          "YYXyx",
+          "xxYXXXXyxxx"
+        ]
+      },
+      {
+        "index": 3,
+        "move": 10,
+        "state": [
+          "YYXyx",
+          "xxxYXXXXyxx"
+        ]
+      },
+      {
+        "index": 4,
+        "move": 10,
+        "state": [
+          "YYXyx",
+          "xxxxYXXXXyx"
+        ]
+      },
+      {
+        "index": 5,
+        "move": 5,
+        "state": [
+          "YYXyx",
+          "xxxxYXXXyy"
+        ]
+      },
+      {
+        "index": 6,
+        "move": 6,
+        "state": [
+          "xYYXy",
+          "xxxxYXXXyy"
+        ]
+      },
+      {
+        "index": 7,
+        "move": 12,
+        "state": [
+          "xYYXy",
+          "yxxxxYXXXy"
+        ]
+      },
+      {
+        "index": 8,
+        "move": 0,
+        "state": [
+          "YxyyX",
+          "yxxxxYXXXy"
+        ]
+      },
+      {
+        "index": 9,
+        "move": 4,
+        "state": [
+          "YxyyX",
+          "yxxxxYXXyyX"
+        ]
+      },
+      {
+        "index": 10,
+        "move": 13,
+        "state": [
+          "YxyyX",
+          "xxxxYXXyyXy"
+        ]
+      },
+      {
+        "index": 11,
+        "move": 4,
+        "state": [
+          "YxyyX",
+          "xxxxYXXyyyyX"
+        ]
+      },
+      {
+        "index": 12,
+        "move": 1,
+        "state": [
+          "YxyyX",
+          "xYYYYxxyXXXX"
+        ]
+      },
+      {
+        "index": 13,
+        "move": 11,
+        "state": [
+          "YxyyX",
+          "YYYYxxyXXX"
+        ]
+      },
+      {
+        "index": 14,
+        "move": 12,
+        "state": [
+          "YxyyX",
+          "YYYxxyXXXY"
+        ]
+      },
+      {
+        "index": 15,
+        "move": 8,
+        "state": [
+          "xyyXY",
+          "YYYxxyXXXY"
+        ]
+      },
+      {
+        "index": 16,
+        "move": 5,
+        "state": [
+          "xyyXY",
+          "YYYxxyXXYYX"
+        ]
+      },
+      {
+        "index": 17,
+        "move": 12,
+        "state": [
+          "xyyXY",
+          "YYxxyXXYYXY"
+        ]
+      },
+      {
+        "index": 18,
+        "move": 5,
+        "state": [
+          "xyyXY",
+          "YYxxyXXYYYYX"
+        ]
+      },
+      {
+        "index": 19,
+        "move": 12,
+        "state": [
+          "xyyXY",
+          "YxxyXXYYYYXY"
+        ]
+      },
+      {
+        "index": 20,
+        "move": 5,
+        "state": [
+          "xyyXY",
+          "YxxyXXYYYYYYX"
+        ]
+      },
+      {
+        "index": 21,
+        "move": 12,
+        "state": [
+          "xyyXY",
+          "xxyXXYYYYYYXY"
+        ]
+      },
+      {
+        "index": 22,
+        "move": 5,
+        "state": [
+          "xyyXY",
+          "xxyXXYYYYYYYYX"
+        ]
+      },
+      {
+        "index": 23,
+        "move": 1,
+        "state": [
+          "xyyXY",
+          "xyyyyyyyyxxYXX"
+        ]
+      },
+      {
+        "index": 24,
+        "move": 11,
+        "state": [
+          "xyyXY",
+          "yyyyyyyyxxYX"
+        ]
+      },
+      {
+        "index": 25,
+        "move": 11,
+        "state": [
+          "xyyXY",
+          "XyyyyyyyyxxY"
+        ]
+      },
+      {
+        "index": 26,
+        "move": 7,
+        "state": [
+          "yyXYx",
+          "XyyyyyyyyxxY"
+        ]
+      },
+      {
+        "index": 27,
+        "move": 2,
+        "state": [
+          "yyXyyyyyyyxxY",
+          "XyyyyyyyyxxY"
+        ]
+      },
+      {
+        "index": 28,
+        "move": 0,
+        "state": [
+          "yXXYYYYYYYxYY",
+          "XyyyyyyyyxxY"
+        ]
+      },
+      {
+        "index": 29,
+        "move": 9,
+        "state": [
+          "XXYYYYYYYxY",
+          "XyyyyyyyyxxY"
+        ]
+      },
+      {
+        "index": 30,
+        "move": 5,
+        "state": [
+          "XXYYYYYYYxY",
+          "Xyyyyyyyyxyyyyyyyxx"
+        ]
+      },
+      {
+        "index": 31,
+        "move": 10,
+        "state": [
+          "XXYYYYYYYxY",
+          "yyyyyyyyxyyyyyyyx"
+        ]
+      },
+      {
+        "index": 32,
+        "move": 2,
+        "state": [
+          "XXYYYYYYYxyyyyyyyxyyyyyyyx",
+          "yyyyyyyyxyyyyyyyx"
+        ]
+      },
+      {
+        "index": 33,
+        "move": 13,
+        "state": [
+          "XXYYYYYYYxyyyyyyyxyyyyyyyx",
+          "yyyyyyyxyyyyyyyxy"
+        ]
+      },
+      {
+        "index": 34,
+        "move": 13,
+        "state": [
+          "XXYYYYYYYxyyyyyyyxyyyyyyyx",
+          "yyyyyyxyyyyyyyxyy"
+        ]
+      },
+      {
+        "index": 35,
+        "move": 13,
+        "state": [
+          "XXYYYYYYYxyyyyyyyxyyyyyyyx",
+          "yyyyyxyyyyyyyxyyy"
+        ]
+      },
+      {
+        "index": 36,
+        "move": 13,
+        "state": [
+          "XXYYYYYYYxyyyyyyyxyyyyyyyx",
+          "yyyyxyyyyyyyxyyyy"
+        ]
+      },
+      {
+        "index": 37,
+        "move": 13,
+        "state": [
+          "XXYYYYYYYxyyyyyyyxyyyyyyyx",
+          "yyyxyyyyyyyxyyyyy"
+        ]
+      },
+      {
+        "index": 38,
+        "move": 13,
+        "state": [
+          "XXYYYYYYYxyyyyyyyxyyyyyyyx",
+          "yyxyyyyyyyxyyyyyy"
+        ]
+      },
+      {
+        "index": 39,
+        "move": 13,
+        "state": [
+          "XXYYYYYYYxyyyyyyyxyyyyyyyx",
+          "yxyyyyyyyxyyyyyyy"
+        ]
+      },
+      {
+        "index": 40,
+        "move": 6,
+        "state": [
+          "XYYYYYYYxyyyyyyyxyyyyyyy",
+          "yxyyyyyyyxyyyyyyy"
+        ]
+      },
+      {
+        "index": 41,
+        "move": 3,
+        "state": [
+          "XYYYYYYYY",
+          "yxyyyyyyyxyyyyyyy"
+        ]
+      },
+      {
+        "index": 42,
+        "move": 6,
+        "state": [
+          "YYYYYYYYX",
+          "yxyyyyyyyxyyyyyyy"
+        ]
+      },
+      {
+        "index": 43,
+        "move": 8,
+        "state": [
+          "YYYYYYYXY",
+          "yxyyyyyyyxyyyyyyy"
+        ]
+      },
+      {
+        "index": 44,
+        "move": 2,
+        "state": [
+          "xyyyyyyy",
+          "yxyyyyyyyxyyyyyyy"
+        ]
+      },
+      {
+        "index": 45,
+        "move": 5,
+        "state": [
+          "xyyyyyyy",
+          "yxyyyyyyy"
+        ]
+      },
+      {
+        "index": 46,
+        "move": 5,
+        "state": [
+          "xyyyyyyy",
+          "y"
+        ]
+      },
+      {
+        "index": 47,
+        "move": 3,
+        "state": [
+          "xyyyyyy",
+          "y"
+        ]
+      },
+      {
+        "index": 48,
+        "move": 3,
+        "state": [
+          "xyyyyy",
+          "y"
+        ]
+      },
+      {
+        "index": 49,
+        "move": 3,
+        "state": [
+          "xyyyy",
+          "y"
+        ]
+      },
+      {
+        "index": 50,
+        "move": 3,
+        "state": [
+          "xyyy",
+          "y"
+        ]
+      },
+      {
+        "index": 51,
+        "move": 3,
+        "state": [
+          "xyy",
+          "y"
+        ]
+      },
+      {
+        "index": 52,
+        "move": 3,
+        "state": [
+          "xy",
+          "y"
+        ]
+      },
+      {
+        "index": 53,
+        "move": 3,
+        "state": [
+          "x",
+          "y"
+        ]
+      }
+    ]
+  },
+  "finite_cases": [
+    {
+      "a": 1,
+      "b": 2,
+      "c": 2,
+      "old_boundary": [
+        "yyXYxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 5,
+      "monomial_frame_cost": 5
+    },
+    {
+      "a": 1,
+      "b": 2,
+      "c": 3,
+      "old_boundary": [
+        "yyXYYxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XyyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXyyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 5,
+      "monomial_frame_cost": 5
+    },
+    {
+      "a": 1,
+      "b": 2,
+      "c": 4,
+      "old_boundary": [
+        "yyXYYYxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XyyyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXyyyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 5,
+      "monomial_frame_cost": 5
+    },
+    {
+      "a": 1,
+      "b": 3,
+      "c": 2,
+      "old_boundary": [
+        "yyyXYxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 5,
+      "monomial_frame_cost": 5
+    },
+    {
+      "a": 1,
+      "b": 3,
+      "c": 3,
+      "old_boundary": [
+        "yyyXYYxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XyyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXyyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 5,
+      "monomial_frame_cost": 5
+    },
+    {
+      "a": 1,
+      "b": 3,
+      "c": 4,
+      "old_boundary": [
+        "yyyXYYYxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XyyyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXyyyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 5,
+      "monomial_frame_cost": 5
+    },
+    {
+      "a": 1,
+      "b": 4,
+      "c": 2,
+      "old_boundary": [
+        "yyyyXYxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 5,
+      "monomial_frame_cost": 5
+    },
+    {
+      "a": 1,
+      "b": 4,
+      "c": 3,
+      "old_boundary": [
+        "yyyyXYYxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XyyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXyyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 5,
+      "monomial_frame_cost": 5
+    },
+    {
+      "a": 1,
+      "b": 4,
+      "c": 4,
+      "old_boundary": [
+        "yyyyXYYYxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XyyyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXyyyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 5,
+      "monomial_frame_cost": 5
+    },
+    {
+      "a": 2,
+      "b": 2,
+      "c": 2,
+      "old_boundary": [
+        "yyXYxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 7,
+      "monomial_frame_cost": 7
+    },
+    {
+      "a": 2,
+      "b": 2,
+      "c": 3,
+      "old_boundary": [
+        "yyXYYxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXyyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXyyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 7,
+      "monomial_frame_cost": 7
+    },
+    {
+      "a": 2,
+      "b": 2,
+      "c": 4,
+      "old_boundary": [
+        "yyXYYYxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXyyyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXyyyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 7,
+      "monomial_frame_cost": 7
+    },
+    {
+      "a": 2,
+      "b": 3,
+      "c": 2,
+      "old_boundary": [
+        "yyyXYxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 7,
+      "monomial_frame_cost": 7
+    },
+    {
+      "a": 2,
+      "b": 3,
+      "c": 3,
+      "old_boundary": [
+        "yyyXYYxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXyyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXyyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 7,
+      "monomial_frame_cost": 7
+    },
+    {
+      "a": 2,
+      "b": 3,
+      "c": 4,
+      "old_boundary": [
+        "yyyXYYYxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXyyyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXyyyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 7,
+      "monomial_frame_cost": 7
+    },
+    {
+      "a": 2,
+      "b": 4,
+      "c": 2,
+      "old_boundary": [
+        "yyyyXYxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 7,
+      "monomial_frame_cost": 7
+    },
+    {
+      "a": 2,
+      "b": 4,
+      "c": 3,
+      "old_boundary": [
+        "yyyyXYYxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXyyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXyyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 7,
+      "monomial_frame_cost": 7
+    },
+    {
+      "a": 2,
+      "b": 4,
+      "c": 4,
+      "old_boundary": [
+        "yyyyXYYYxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXyyyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXyyyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 7,
+      "monomial_frame_cost": 7
+    },
+    {
+      "a": 4,
+      "b": 2,
+      "c": 2,
+      "old_boundary": [
+        "yyXYxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 11,
+      "monomial_frame_cost": 11
+    },
+    {
+      "a": 4,
+      "b": 2,
+      "c": 3,
+      "old_boundary": [
+        "yyXYYxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXyyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXyyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 11,
+      "monomial_frame_cost": 11
+    },
+    {
+      "a": 4,
+      "b": 2,
+      "c": 4,
+      "old_boundary": [
+        "yyXYYYxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXyyyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXyyyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 11,
+      "monomial_frame_cost": 11
+    },
+    {
+      "a": 4,
+      "b": 3,
+      "c": 2,
+      "old_boundary": [
+        "yyyXYxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 11,
+      "monomial_frame_cost": 11
+    },
+    {
+      "a": 4,
+      "b": 3,
+      "c": 3,
+      "old_boundary": [
+        "yyyXYYxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXyyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXyyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 11,
+      "monomial_frame_cost": 11
+    },
+    {
+      "a": 4,
+      "b": 3,
+      "c": 4,
+      "old_boundary": [
+        "yyyXYYYxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXyyyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXyyyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 11,
+      "monomial_frame_cost": 11
+    },
+    {
+      "a": 4,
+      "b": 4,
+      "c": 2,
+      "old_boundary": [
+        "yyyyXYxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 11,
+      "monomial_frame_cost": 11
+    },
+    {
+      "a": 4,
+      "b": 4,
+      "c": 3,
+      "old_boundary": [
+        "yyyyXYYxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXyyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXyyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 11,
+      "monomial_frame_cost": 11
+    },
+    {
+      "a": 4,
+      "b": 4,
+      "c": 4,
+      "old_boundary": [
+        "yyyyXYYYxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXyyyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXyyyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 11,
+      "monomial_frame_cost": 11
+    },
+    {
+      "a": 8,
+      "b": 2,
+      "c": 2,
+      "old_boundary": [
+        "yyXYxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 19,
+      "monomial_frame_cost": 19
+    },
+    {
+      "a": 8,
+      "b": 2,
+      "c": 3,
+      "old_boundary": [
+        "yyXYYxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXyyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXyyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 19,
+      "monomial_frame_cost": 19
+    },
+    {
+      "a": 8,
+      "b": 2,
+      "c": 4,
+      "old_boundary": [
+        "yyXYYYxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXyyyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXyyyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 19,
+      "monomial_frame_cost": 19
+    },
+    {
+      "a": 8,
+      "b": 3,
+      "c": 2,
+      "old_boundary": [
+        "yyyXYxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 19,
+      "monomial_frame_cost": 19
+    },
+    {
+      "a": 8,
+      "b": 3,
+      "c": 3,
+      "old_boundary": [
+        "yyyXYYxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXyyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXyyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 19,
+      "monomial_frame_cost": 19
+    },
+    {
+      "a": 8,
+      "b": 3,
+      "c": 4,
+      "old_boundary": [
+        "yyyXYYYxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXyyyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXyyyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 19,
+      "monomial_frame_cost": 19
+    },
+    {
+      "a": 8,
+      "b": 4,
+      "c": 2,
+      "old_boundary": [
+        "yyyyXYxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 19,
+      "monomial_frame_cost": 19
+    },
+    {
+      "a": 8,
+      "b": 4,
+      "c": 3,
+      "old_boundary": [
+        "yyyyXYYxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXyyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXyyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 19,
+      "monomial_frame_cost": 19
+    },
+    {
+      "a": 8,
+      "b": 4,
+      "c": 4,
+      "old_boundary": [
+        "yyyyXYYYxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXyyyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXyyyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 19,
+      "monomial_frame_cost": 19
+    },
+    {
+      "a": 16,
+      "b": 2,
+      "c": 2,
+      "old_boundary": [
+        "yyXYxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 35,
+      "monomial_frame_cost": 35
+    },
+    {
+      "a": 16,
+      "b": 2,
+      "c": 3,
+      "old_boundary": [
+        "yyXYYxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 35,
+      "monomial_frame_cost": 35
+    },
+    {
+      "a": 16,
+      "b": 2,
+      "c": 4,
+      "old_boundary": [
+        "yyXYYYxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyyyxYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyyyxYY",
+        "yxxYX"
+      ],
+      "old_cost": 35,
+      "monomial_frame_cost": 35
+    },
+    {
+      "a": 16,
+      "b": 3,
+      "c": 2,
+      "old_boundary": [
+        "yyyXYxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 35,
+      "monomial_frame_cost": 35
+    },
+    {
+      "a": 16,
+      "b": 3,
+      "c": 3,
+      "old_boundary": [
+        "yyyXYYxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 35,
+      "monomial_frame_cost": 35
+    },
+    {
+      "a": 16,
+      "b": 3,
+      "c": 4,
+      "old_boundary": [
+        "yyyXYYYxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyyyxYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyyyxYYY",
+        "yxxYX"
+      ],
+      "old_cost": 35,
+      "monomial_frame_cost": 35
+    },
+    {
+      "a": 16,
+      "b": 4,
+      "c": 2,
+      "old_boundary": [
+        "yyyyXYxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 35,
+      "monomial_frame_cost": 35
+    },
+    {
+      "a": 16,
+      "b": 4,
+      "c": 3,
+      "old_boundary": [
+        "yyyyXYYxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 35,
+      "monomial_frame_cost": 35
+    },
+    {
+      "a": 16,
+      "b": 4,
+      "c": 4,
+      "old_boundary": [
+        "yyyyXYYYxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxY",
+        "XyxxY"
+      ],
+      "old_next": [
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyyyxYYYX",
+        "yxxYX"
+      ],
+      "cheap_next": [
+        "yXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXyyyxYYYY",
+        "yxxYX"
+      ],
+      "old_cost": 35,
+      "monomial_frame_cost": 35
+    }
+  ],
+  "frame_identity_cases": 45,
+  "improved_route": null,
+  "search_performed": false,
+  "elapsed_seconds": 0.10251687799609499,
+  "peak_rss_mib": 58.3203125,
+  "bounds": {
+    "seconds": 10,
+    "memory_mib": 192
+  }
+}

@@ -111,6 +111,7 @@ class HelperContinuation(Continuation):
         return jobs
 
     def plan(self,excluded=()):
+        if self.cp.get('interactive_lease'):return {'status':'interactive_reserved','lease':self.cp['interactive_lease']}
         if self.cp['stopped'] or self.h.store.stopped():return {'status':'stopped'}
         if self.cp.get('active'):return {'status':'active','active':self.cp['active']}
         if self.cp.get('intake_lease'):return {'status':'intake_reserved','lease':self.cp['intake_lease']}

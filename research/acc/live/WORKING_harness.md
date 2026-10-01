@@ -1,9 +1,8 @@
 # ACC memory-first harness claims
 
-Updated: 2026-10-01T16:26:53.838204+00:00.
-
-No active claim. Completed 191 bounded method probes.
-
-Completed row details and proposed jobs are in the continuation checkpoint and progress files. They are not reservations.
-
-All results and precise limits are preserved in research/acc/harness/acc_synthesis/continuation/checkpoint.json and runs/. Scheduled model-worker dispatch zero. Bounds unchanged: <=180 search seconds / <=600000 records / <=1024 MiB. No submissions, challenge API requests, public publishing or old watches. Scope of a bounded miss is not a nonexistence proof.
+Active owner-directed interactive task: owner_grok_20261001T1650Z.
+Scope: Grok n10 entry/frame construction and BS family07824/07659/02412/02917/02901; selected25 unchanged.
+Expires: 2026-10-01T17:39:59.626103+00:00.
+Three model agents were authorized by the direct owner request for this task only. Scheduled dispatch remains zero.
+Bounded code jobs remain <=180 seconds, <=600000 records and <=1024 MiB. No challenge API or submission.
+Both continuation planners honor checkpoint.interactive_lease. An expired lease must be recorded as interrupted, not silently adopted.

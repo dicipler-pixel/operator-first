@@ -1,0 +1,420 @@
+{
+  "manifest_sha256": "dc8587d7dc6855edfb8aad087f27f4db59c558f66bdf838b664c1634a357ad37",
+  "checker_core_sha256": "d2972711dc7008679127a987a8965d41ea1606b0fc50bf67e2e06c71c456b3b5",
+  "instances": {
+    "ac-02412": {
+      "start": [
+        "YXXyxxx",
+        "YYYYYXyyyyx"
+      ],
+      "instance_hash": "sha256:77b177fa216772caa44220830febef28d10e0219edbba366654871cc3a39d3f8",
+      "abelianization": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ]
+    },
+    "ac-02901": {
+      "start": [
+        "YYYXyyx",
+        "YXXXXXyxxxx"
+      ],
+      "instance_hash": "sha256:91d50568b49b5a01934cfe221bf628d1cca675584eb6e623f80fa804eb9f60e5",
+      "abelianization": [
+        [
+          0,
+          -1
+        ],
+        [
+          -1,
+          0
+        ]
+      ]
+    },
+    "ac-02917": {
+      "start": [
+        "YXXXyxx",
+        "YYYYYXyyyyx"
+      ],
+      "instance_hash": "sha256:73899eef71e95c9ed4929c741890a33eccb3e68b0fc999980436749847e612ef",
+      "abelianization": [
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ]
+    },
+    "ac-07659": {
+      "start": [
+        "YYYxyyX",
+        "YXXXXyxxxxx"
+      ],
+      "instance_hash": "sha256:a9ff85acf559db1856cddeaad1f6bdf08019d58d66c87399a115b8c3b08ec673",
+      "abelianization": [
+        [
+          0,
+          -1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "ac-07824": {
+      "start": [
+        "YYYXyyx",
+        "YXXXXyxxxxx"
+      ],
+      "instance_hash": "sha256:4ad79add20eaeefae551186447779fb2ef1f6f9378e832246ee1b680bc72a682",
+      "abelianization": [
+        [
+          0,
+          -1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "from_ac07824_signed_cyclic_equivalences": [
+    {
+      "to": "ac-02412",
+      "generator_images": [
+        "y",
+        "x"
+      ],
+      "swap_relators": false,
+      "matches": [
+        [
+          {
+            "invert": true,
+            "rotate_left": 0,
+            "prefix": ""
+          }
+        ],
+        [
+          {
+            "invert": true,
+            "rotate_left": 0,
+            "prefix": ""
+          }
+        ]
+      ]
+    },
+    {
+      "to": "ac-02901",
+      "generator_images": [
+        "x",
+        "Y"
+      ],
+      "swap_relators": false,
+      "matches": [
+        [
+          {
+            "invert": true,
+            "rotate_left": 4,
+            "prefix": "Xyyx"
+          }
+        ],
+        [
+          {
+            "invert": true,
+            "rotate_left": 10,
+            "prefix": "XXXXXyxxxx"
+          }
+        ]
+      ]
+    },
+    {
+      "to": "ac-02917",
+      "generator_images": [
+        "Y",
+        "x"
+      ],
+      "swap_relators": false,
+      "matches": [
+        [
+          {
+            "invert": false,
+            "rotate_left": 6,
+            "prefix": "XXXyxx"
+          }
+        ],
+        [
+          {
+            "invert": false,
+            "rotate_left": 6,
+            "prefix": "Xyyyyx"
+          }
+        ]
+      ]
+    },
+    {
+      "to": "ac-07659",
+      "generator_images": [
+        "X",
+        "y"
+      ],
+      "swap_relators": false,
+      "matches": [
+        [
+          {
+            "invert": false,
+            "rotate_left": 0,
+            "prefix": ""
+          }
+        ],
+        [
+          {
+            "invert": true,
+            "rotate_left": 5,
+            "prefix": "xxxxx"
+          }
+        ]
+      ]
+    },
+    {
+      "to": "ac-07824",
+      "generator_images": [
+        "x",
+        "y"
+      ],
+      "swap_relators": false,
+      "matches": [
+        [
+          {
+            "invert": false,
+            "rotate_left": 0,
+            "prefix": ""
+          }
+        ],
+        [
+          {
+            "invert": false,
+            "rotate_left": 0,
+            "prefix": ""
+          }
+        ]
+      ]
+    }
+  ],
+  "endpoint_YX_to_XY": {
+    "moves": [
+      0,
+      2,
+      5,
+      2,
+      8
+    ],
+    "visited": 1460,
+    "depth_limit": 6,
+    "total_length_cap": 6,
+    "max_states": 50000,
+    "time_limit_s": 5
+  },
+  "first_solve_search_performed": false,
+  "scored_candidate": null,
+  "transfers": [
+    {
+      "from_route_row": "ac-07824",
+      "to_route_row": "ac-02412",
+      "prefix_from_target_start_to_mapped_source": [
+        1,
+        0
+      ],
+      "source_move_to_target_move": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        6,
+        7,
+        12,
+        13,
+        10,
+        11
+      ],
+      "suffix_to_exact_xy": [
+        0,
+        2,
+        5,
+        2,
+        8
+      ],
+      "total_additional_moves": 7,
+      "exact_join_state": [
+        "XXXYxxy",
+        "XYYYYxyyyyy"
+      ],
+      "replay_identity_passed": true
+    },
+    {
+      "from_route_row": "ac-07824",
+      "to_route_row": "ac-02901",
+      "prefix_from_target_start_to_mapped_source": [
+        12,
+        1,
+        8,
+        8,
+        8,
+        0
+      ],
+      "source_move_to_target_move": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        8,
+        10,
+        11,
+        13,
+        12
+      ],
+      "suffix_to_exact_xy": [
+        1
+      ],
+      "total_additional_moves": 7,
+      "exact_join_state": [
+        "yyyXYYx",
+        "yXXXXYxxxxx"
+      ],
+      "replay_identity_passed": true
+    },
+    {
+      "from_route_row": "ac-07824",
+      "to_route_row": "ac-02917",
+      "prefix_from_target_start_to_mapped_source": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        8
+      ],
+      "source_move_to_target_move": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        8,
+        6,
+        7,
+        13,
+        12,
+        10,
+        11
+      ],
+      "suffix_to_exact_xy": [
+        2,
+        5,
+        2,
+        8
+      ],
+      "total_additional_moves": 10,
+      "exact_join_state": [
+        "XXXyxxY",
+        "XyyyyxYYYYY"
+      ],
+      "replay_identity_passed": true
+    },
+    {
+      "from_route_row": "ac-07824",
+      "to_route_row": "ac-07659",
+      "prefix_from_target_start_to_mapped_source": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        1
+      ],
+      "source_move_to_target_move": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        6,
+        8,
+        9,
+        11,
+        10,
+        12,
+        13
+      ],
+      "suffix_to_exact_xy": [
+        0
+      ],
+      "total_additional_moves": 7,
+      "exact_join_state": [
+        "YYYxyyX",
+        "YxxxxyXXXXX"
+      ],
+      "replay_identity_passed": true
+    },
+    {
+      "from_route_row": "ac-07824",
+      "to_route_row": "ac-07824",
+      "prefix_from_target_start_to_mapped_source": [],
+      "source_move_to_target_move": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "suffix_to_exact_xy": [],
+      "total_additional_moves": 0,
+      "exact_join_state": [
+        "YYYXyyx",
+        "YXXXXyxxxxx"
+      ],
+      "replay_identity_passed": true
+    }
+  ],
+  "scaled_relator_obstruction": {
+    "example": "XyyyyxYYYYYY",
+    "exponent_vector": [
+      0,
+      -2
+    ],
+    "all_start_determinants_abs": 1,
+    "verdict": "Cannot occur as an entire relator in this AC orbit: determinant would be divisible by two.",
+    "scope": "Does not forbid the scaled identity as a subword rewrite with a retained paid derivation."
+  }
+}

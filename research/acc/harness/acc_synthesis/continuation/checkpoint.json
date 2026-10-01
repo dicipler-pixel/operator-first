@@ -7962,7 +7962,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790871941.535663,
+  "updated_at": "2026-10-01T16:59:59.626111+00:00",
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
@@ -8004,5 +8004,20 @@
     "receipt": "continuation/recovery_20261001T0940Z/receipt.json",
     "resolved_blocker": "109ad7791d2c820560596d6630da733fd282d29c4ff8df3127943b01b8321fb5",
     "read_only_evidence_restored": 33
+  },
+  "interactive_lease": {
+    "key": "owner_grok_20261001T1650Z",
+    "scope": "Grok n10 entry/frame construction and BS family07824/07659/02412/02917/02901; selected25 unchanged",
+    "created_at": 1790873999.6261017,
+    "expires_at": 1790876399.626103,
+    "model_agents": [
+      "grok_frame",
+      "grok_n10_entry",
+      "grok_bs_structure"
+    ],
+    "model_dispatches": 3,
+    "authorization": "Direct owner: use the whole team you have your harness of agents and finish this and try to get me some submissions",
+    "state_path": "continuation/grok_20261001T1650Z/",
+    "upgh_message_id": "13bb2CRlFrHgf2Emh1KpW1k80yTlc_Olu"
   }
 }

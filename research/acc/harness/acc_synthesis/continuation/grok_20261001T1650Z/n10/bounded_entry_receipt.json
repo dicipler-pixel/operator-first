@@ -1,0 +1,214 @@
+{
+  "core_sha256": "d2972711dc7008679127a987a8965d41ea1606b0fc50bf67e2e06c71c456b3b5",
+  "start": [
+    "YYxxxxyyyyyyyXYYYY",
+    "xxYYXyy"
+  ],
+  "target": [
+    "YYxxxxxxxxxxxxxxxxyyyX",
+    "xxYYXyy"
+  ],
+  "prefix_moves": [
+    6,
+    9,
+    9,
+    3,
+    7,
+    9,
+    9,
+    3,
+    0,
+    6,
+    6,
+    2,
+    9,
+    9
+  ],
+  "method": "frozen-r1 heuristic beam",
+  "bounds": {
+    "wall_seconds": 20,
+    "memory_bytes": 201326592,
+    "max_states": 100000,
+    "max_depth": 34,
+    "beam_width": 600,
+    "max_total_relator_length": 80
+  },
+  "classification": "depth_cap",
+  "miss_is_proof": false,
+  "layers": [
+    {
+      "depth": 1,
+      "generated_new": 7,
+      "seen": 8
+    },
+    {
+      "depth": 2,
+      "generated_new": 38,
+      "seen": 46
+    },
+    {
+      "depth": 3,
+      "generated_new": 204,
+      "seen": 250
+    },
+    {
+      "depth": 4,
+      "generated_new": 1092,
+      "seen": 1342
+    },
+    {
+      "depth": 5,
+      "generated_new": 3201,
+      "seen": 4543
+    },
+    {
+      "depth": 6,
+      "generated_new": 3197,
+      "seen": 7740
+    },
+    {
+      "depth": 7,
+      "generated_new": 3205,
+      "seen": 10945
+    },
+    {
+      "depth": 8,
+      "generated_new": 3214,
+      "seen": 14159
+    },
+    {
+      "depth": 9,
+      "generated_new": 3187,
+      "seen": 17346
+    },
+    {
+      "depth": 10,
+      "generated_new": 3176,
+      "seen": 20522
+    },
+    {
+      "depth": 11,
+      "generated_new": 3202,
+      "seen": 23724
+    },
+    {
+      "depth": 12,
+      "generated_new": 3223,
+      "seen": 26947
+    },
+    {
+      "depth": 13,
+      "generated_new": 3137,
+      "seen": 30084
+    },
+    {
+      "depth": 14,
+      "generated_new": 3192,
+      "seen": 33276
+    },
+    {
+      "depth": 15,
+      "generated_new": 3180,
+      "seen": 36456
+    },
+    {
+      "depth": 16,
+      "generated_new": 3147,
+      "seen": 39603
+    },
+    {
+      "depth": 17,
+      "generated_new": 3183,
+      "seen": 42786
+    },
+    {
+      "depth": 18,
+      "generated_new": 3182,
+      "seen": 45968
+    },
+    {
+      "depth": 19,
+      "generated_new": 3187,
+      "seen": 49155
+    },
+    {
+      "depth": 20,
+      "generated_new": 3184,
+      "seen": 52339
+    },
+    {
+      "depth": 21,
+      "generated_new": 3166,
+      "seen": 55505
+    },
+    {
+      "depth": 22,
+      "generated_new": 3176,
+      "seen": 58681
+    },
+    {
+      "depth": 23,
+      "generated_new": 3171,
+      "seen": 61852
+    },
+    {
+      "depth": 24,
+      "generated_new": 3150,
+      "seen": 65002
+    },
+    {
+      "depth": 25,
+      "generated_new": 3177,
+      "seen": 68179
+    },
+    {
+      "depth": 26,
+      "generated_new": 3149,
+      "seen": 71328
+    },
+    {
+      "depth": 27,
+      "generated_new": 3178,
+      "seen": 74506
+    },
+    {
+      "depth": 28,
+      "generated_new": 3206,
+      "seen": 77712
+    },
+    {
+      "depth": 29,
+      "generated_new": 3225,
+      "seen": 80937
+    },
+    {
+      "depth": 30,
+      "generated_new": 3222,
+      "seen": 84159
+    },
+    {
+      "depth": 31,
+      "generated_new": 3143,
+      "seen": 87302
+    },
+    {
+      "depth": 32,
+      "generated_new": 3181,
+      "seen": 90483
+    },
+    {
+      "depth": 33,
+      "generated_new": 3217,
+      "seen": 93700
+    },
+    {
+      "depth": 34,
+      "generated_new": 3205,
+      "seen": 96905
+    }
+  ],
+  "generated": 127750,
+  "seen": 96905,
+  "solution": null,
+  "elapsed_seconds": 1.3363841620011954
+}
