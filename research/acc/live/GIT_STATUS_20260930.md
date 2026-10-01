@@ -41,3 +41,4 @@
 - 02:28Z Git follows the 02:14Z CI rule: every commit and merge carries [skip ci], merge instead of rebase, one batched push about every 20 min (queue lines at once). tools/acc/inbox_watch.sh now only fetches (no pull, no commits, no CI). First-solve ac-00474 and Astra's ac-00029: no route (DMAX 80 / record+40).
 - 02:48Z New-target lane: ac-02710 record None k 0 -> no route ;
 - 03:12Z New-target lane: ac-00011 record 48 k 3 -> no route ;
+- 03:12Z Hourly heartbeat (Git): lanes alive; workers on: ac-00029,ac-00011,ac-00020,ac-00033,ac-00006,ac-00010 ac-00474,ac-02710,ac-00273,ac-02571 // ; splice-then-yx rows done: 78.
