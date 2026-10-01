@@ -1,0 +1,158 @@
+{
+  "algorithm_id": "exact-two-junction-donor-interval-splice-v1",
+  "best_by_row": [],
+  "donor_receipts": [
+    {
+      "length": 80,
+      "row_id": "ac-00525",
+      "verdict": {
+        "certificate_hash": "sha256:c67641e2b95d160b41cb3df76bd3d0f11929e898ed484f04b96b20b00e843bd0",
+        "length": 80,
+        "ok": true,
+        "peak_total_relator_length": 47,
+        "work": 2106
+      }
+    },
+    {
+      "length": 87,
+      "row_id": "ac-08757",
+      "verdict": {
+        "certificate_hash": "sha256:ecb01b3c99e8bfa21fc3da44384711c9db20e8cb2b03d9861675ef052f2af842",
+        "length": 87,
+        "ok": true,
+        "peak_total_relator_length": 47,
+        "work": 2264
+      }
+    },
+    {
+      "length": 128,
+      "row_id": "ac-05698",
+      "verdict": {
+        "certificate_hash": "sha256:65bd75b164c0794bb28303138efaf41348f1cf166672026f7b323f1e179af045",
+        "length": 128,
+        "ok": true,
+        "peak_total_relator_length": 87,
+        "work": 5412
+      }
+    },
+    {
+      "length": 137,
+      "row_id": "ac-06792",
+      "verdict": {
+        "certificate_hash": "sha256:f3345def9c305b0766f35978e835edbc60ec5a8b4bc40af219c9b4d5379d3f32",
+        "length": 137,
+        "ok": true,
+        "peak_total_relator_length": 87,
+        "work": 5654
+      }
+    }
+  ],
+  "elapsed_seconds": 0.12341527399985353,
+  "examined_intervals": 176,
+  "kind": "completed_read_only_exact_two_junction_splice",
+  "limits": {
+    "memory_mib": 1024,
+    "records": 600000,
+    "seconds": 180
+  },
+  "manifest_sha256": "dc8587d7dc6855edfb8aad087f27f4db59c558f66bdf838b664c1634a357ad37",
+  "model_workers": 0,
+  "new_move_searches": 0,
+  "nontrivial_intervals": 176,
+  "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "pair_summaries": [
+    {
+      "best_segment_saving": 0,
+      "distinct_common_states": 2,
+      "donor_row": "ac-00525",
+      "exact_match_occurrences": 2,
+      "examined_pair_intervals": 1,
+      "nontrivial_intervals": 1,
+      "selected_route_index": 1,
+      "selected_row": "ac-00022"
+    },
+    {
+      "best_segment_saving": 0,
+      "distinct_common_states": 2,
+      "donor_row": "ac-08757",
+      "exact_match_occurrences": 2,
+      "examined_pair_intervals": 1,
+      "nontrivial_intervals": 1,
+      "selected_route_index": 1,
+      "selected_row": "ac-00022"
+    },
+    {
+      "best_segment_saving": 0,
+      "distinct_common_states": 2,
+      "donor_row": "ac-05698",
+      "exact_match_occurrences": 2,
+      "examined_pair_intervals": 1,
+      "nontrivial_intervals": 1,
+      "selected_route_index": 1,
+      "selected_row": "ac-00022"
+    },
+    {
+      "best_segment_saving": 0,
+      "distinct_common_states": 2,
+      "donor_row": "ac-06792",
+      "exact_match_occurrences": 2,
+      "examined_pair_intervals": 1,
+      "nontrivial_intervals": 1,
+      "selected_route_index": 1,
+      "selected_row": "ac-00022"
+    },
+    {
+      "best_segment_saving": 0,
+      "distinct_common_states": 5,
+      "donor_row": "ac-00525",
+      "exact_match_occurrences": 6,
+      "examined_pair_intervals": 15,
+      "nontrivial_intervals": 14,
+      "selected_route_index": 1,
+      "selected_row": "ac-00028"
+    },
+    {
+      "best_segment_saving": 0,
+      "distinct_common_states": 12,
+      "donor_row": "ac-08757",
+      "exact_match_occurrences": 12,
+      "examined_pair_intervals": 66,
+      "nontrivial_intervals": 66,
+      "selected_route_index": 1,
+      "selected_row": "ac-00028"
+    },
+    {
+      "best_segment_saving": 0,
+      "distinct_common_states": 5,
+      "donor_row": "ac-05698",
+      "exact_match_occurrences": 6,
+      "examined_pair_intervals": 15,
+      "nontrivial_intervals": 14,
+      "selected_route_index": 1,
+      "selected_row": "ac-00028"
+    },
+    {
+      "best_segment_saving": 0,
+      "distinct_common_states": 13,
+      "donor_row": "ac-06792",
+      "exact_match_occurrences": 13,
+      "examined_pair_intervals": 78,
+      "nontrivial_intervals": 78,
+      "selected_route_index": 1,
+      "selected_row": "ac-00028"
+    }
+  ],
+  "peak_rss_mib": 60.0078125,
+  "pool_mutated": false,
+  "pool_sha256": "f10748695d7a8cf906df7cda342e8d4d9d82bbae04f60ffe8a63241b2bde063c",
+  "primitive_records": 3282,
+  "schema": "acc-step2-interval-splice-audit/1",
+  "scope": "Exact interval substitution only between two identical saved states; no neighborhood search, board claim, API call, or submission.",
+  "selected_routes_sha256": "ff93a9ecbba27401dc2b5ca21aac85f52038d994b4e5681b85b9263936a506a9",
+  "shortening_interval_derivations": 0,
+  "source_git_blob": "c7702f14dcf3334a1706c5c78714c7da2c027106",
+  "source_head_reviewed": "5f0208687c7654abbf554d3d4ee1a3bb3dffcdb1",
+  "source_sha256": "c740509b1a9c3107f58d316bf0997b333b8313af1b8e7a4da50ab604e13e41e5",
+  "verified_improvement_count": 0,
+  "verified_improvement_rows": []
+}
