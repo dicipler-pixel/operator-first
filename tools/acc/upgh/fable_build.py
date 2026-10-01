@@ -130,6 +130,33 @@ def eliminate_y(s, path):
     return s
 
 
+def finB(m):
+    """Finishing identity from the level state (X^m y x Y Y, y y x x Y Y X), m >= 2, 4m + 8 moves (read off T9 beam finishes at
+    m = 4 and m = 8, then checked at every m = 2..40 with core.apply_move).  Mechanism:
+        6,5,10,2            r0 = X^(m-1) y x x Y x^(m-2),  r1 = x y y x Y x^(m-2)
+        [6,4]*(m-2)         each pair: r0 loses one X and one x, r1 r0 cancels and grows the x-block by 2
+        11,4,13             r1 = y x^(2m-1)   (y = x^(1-2m)),  r0 = X y x x Y
+        0,6,1,3,10,4        r1 = X,  r0 = x y x^(2m-3)
+        [2]*(2m-3), 4, 3    r0 = x y -> (x, y)"""
+    return [6, 5, 10, 2] + [6, 4] * (m - 2) + [11, 4, 13] + [0, 6, 1, 3, 10, 4] + [2] * (2 * m - 3) + [4, 3]
+
+
+def build_level(n, A, levels, fin=finB):
+    """Collapse the (n+1)-block for `levels` levels (2^levels - 1 rewrites), then apply fin(m), m = 2^levels."""
+    m = 2 ** levels
+    s, path = msA(n, A), []
+    s = collapse_block(s, path, A, max_rewrites=m - 1)
+    s = cyc_reduce(s, 0, path)
+    target = tuple([X] * m + [y, x, Y, Y])
+    if T.ccanon(s[0]) != T.ccanon(target):
+        return None
+    if target not in [s[0][k:] + s[0][:k] for k in range(len(s[0]))]:
+        s = apply(s, path, [0])
+    s = rotate(s, 0, target, path)
+    s = apply(s, path, fin(m))
+    return path if s == T.GOAL else None
+
+
 def build(n, A):
     """Canonical road for msA(n, A) when A | n+1.  Returns the move list (verified to reach GOAL up to the BFS finish)."""
     s, path = msA(n, A), []
