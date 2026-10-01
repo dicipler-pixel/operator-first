@@ -45,3 +45,4 @@
 - 03:27Z New-target lane: ac-00273 record None k 0 -> no route ;
 - 09:14Z New-target lane: ac-00020 record 52 k 2 -> no route ;
 - 09:14Z Hourly heartbeat (Git): lanes alive; workers on: // ; splice-then-yx rows done: 87.
+- 09:40Z Git on UPG-H new list. sac-02288: team yx_shortcut none on all 9 roads (37-40); DP-to-(y,x) and DP+ball(6/8) to (y,x) running, none on the 37s so far. ac-06969/ac-00145: fresh-lineage splice running (5,682 donor roads incl. session 1 roads_latest). Rows claimed in WORKING_git.md.
