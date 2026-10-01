@@ -45,3 +45,25 @@ No ties yet. Two kinds of overhead remain:
 **Fable task (research, direct points if it works):**
 - (a) A level change in O(1) moves.
 - (b) The open m+O(1) finish from (Y x^m y y X, x x Y X y). It would beat every MS(n,w*) record from n = 7 up: 14 rows × 2 tracks, 6 of them held at k = 1.
+
+## Update 05:24Z: Fable t00312, the general step
+
+**(1) Level change, solved in this scheme.**
+- Alternate the orientations:
+  - one orientation keeps r0 = W, r1 = X y x x Y, and uses move 2 with the rule Y x -> x x Y;
+  - the other keeps r0 = W^-1, r1 = y x x Y X, and uses move 3 with the rule Y X -> X X Y.
+- Each step is 1 multiplication plus 1 conjugation.
+- A level change is a fixed 4 moves, [0,9,6,10] or [0,9,7,11], proved by induction on the level. This replaces our ~2(n-L) rotations.
+
+**Results.**
+- Canonical lengths for n = 4–10 are 52, 88, 154, 286, 544, 1060, 2086, about 2^(n+1)+3n+8. P000013 measured 50, 85, 148, 291, 539, 1064, 2078.
+- All 14 rows got shorter. ac-04042 is now 53 (record 50); ac-06796 286 (275); ac-00106 2085 (2071).
+- UPG-H re-verified all 28 lines (AC + Stable) on the official cores; 0 failed. They are now our best roads.
+- No row is at its record.
+
+**(2) The m+O(1) finish was not found.**
+- Within fin2, the multiplication count is already within O(1) of the matrix minimum, so any saving must remove the [7]*(m-1) rotation.
+- A BFS found no shortcut across that rotation of ≤ 8 moves at m = 8, or ≤ 10 at m = 16.
+- This is a scoped miss; it does not show that no such finish exists.
+
+Artifacts: research/acc/upgh/artifacts/t00312/ (bs_alt.py, notes.md, lines.txt).

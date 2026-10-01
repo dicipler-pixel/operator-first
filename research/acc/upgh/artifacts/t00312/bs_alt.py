@@ -51,6 +51,7 @@ def bridge(state, target, limit=12):
     """Shortest sequence of inversion / single-letter conjugation moves (0,1,6..13) taking state to target exactly."""
     if state == target:
         return []
+    cap = (max(len(state[0]), len(target[0])), max(len(state[1]), len(target[1])))
     seen, q = {state: []}, deque([state])
     while q:
         s = q.popleft()
@@ -58,6 +59,8 @@ def bridge(state, target, limit=12):
             continue
         for mv in (0, 1, 6, 7, 8, 9, 10, 11, 12, 13):
             t = core.apply_move(s, mv)
+            if len(t[0]) > cap[0] or len(t[1]) > cap[1]:
+                continue
             if t not in seen:
                 seen[t] = seen[s] + [mv]
                 if t == target:
@@ -109,6 +112,49 @@ def alt_loop(n, orient, s=None):
 
 
 FIN_ENTRY = lambda m: (tuple([Y] + [x] * m + [y, y, X]), R1)  # noqa: E731
+INV = {0: 0, 1: 1, 2: 3, 3: 2, 4: 5, 5: 4, 6: 7, 7: 6, 8: 9, 9: 8, 10: 11, 11: 10, 12: 13, 13: 12}
+
+
+def _expand(frontier, seen, cap):
+    nxt = {}
+    for s, p in frontier.items():
+        for mv in range(14):
+            t = core.apply_move(s, mv)
+            if len(t[0]) + len(t[1]) > cap or t in seen:
+                continue
+            seen[t] = p + [mv]
+            nxt[t] = p + [mv]
+    return nxt
+
+
+def mitm(src, dst, depth=4, slack=6):
+    """Shortest move sequence (all 14 moves, total length capped) from src to dst, bidirectional BFS, <= 2*depth moves."""
+    if src == dst:
+        return []
+    cap = max(sum(map(len, src)), sum(map(len, dst))) + slack
+    fs, bs, ff, bf = {src: []}, {dst: []}, {src: []}, {dst: []}
+    for _ in range(depth):
+        ff = _expand(ff, fs, cap)
+        for t in ff:
+            if t in bs:
+                return fs[t] + [INV[m] for m in reversed(bs[t])]
+        bf = _expand(bf, bs, cap)
+        for t in bf:
+            if t in fs:
+                return fs[t] + [INV[m] for m in reversed(bs[t])]
+    return None
+
+
+def reopt_suffix(start, path, k_max=8):
+    """Replace the last k moves of path by a BFS-shortest finish to GOAL, best k in 0..k_max (all replayed)."""
+    best = path
+    for k in range(0, k_max + 1):
+        s = apply(start, path[:len(path) - k])
+        fin = T.finish(s, limit=7)
+        if fin is not None and len(path) - k + len(fin) < len(best):
+            best = path[:len(path) - k] + fin
+    assert apply(start, best) == T.GOAL
+    return best
 
 
 def build(n, orient):
@@ -130,14 +176,23 @@ def road_from(state, n, g_inv_state_is_canon=True):
     m = 2 ** (n - 1)
     best = None
     for orient in (1, 2):
-        pre = bridge(state, loop_entry(n, orient))
-        if pre is None:
-            continue
+        entry = loop_entry(n, orient)
         body, s = alt_loop(n, orient)
         br = bridge(s, FIN_ENTRY(m))
-        path = pre + body + br + fin2(m)
-        if best is None or len(path) < len(best):
-            best = path
+        tail = br + fin2(m)
+        # prefix re-optimisation: enter the loop after its first k moves by the shortest bridge from the row state
+        for k in range(0, 7):
+            target = apply(entry, body[:k])
+            pre = mitm(state, target, depth=4, slack=4)
+            if pre is None:
+                pre = bridge(state, target, limit=20)   # rotation/inversion-only bridge when the 8-move search fails
+            if pre is None:
+                continue
+            path = pre + body[k:] + tail
+            if best is None or len(path) < len(best):
+                best = path
+    if best is not None:
+        assert apply(state, best) == T.GOAL
     return best
 
 
@@ -164,7 +219,7 @@ def transfer(cid, n):
             fin = T.finish(e)
             if fin is None:
                 continue
-            p = body + fin
+            p = reopt_suffix(T.REL[cid], body + fin)
             if core.verify(T.CH[cid], p, "ac-r2-v1", T.man["limits"])["ok"] and (best is None or len(p) < len(best)):
                 best = p
     return best
