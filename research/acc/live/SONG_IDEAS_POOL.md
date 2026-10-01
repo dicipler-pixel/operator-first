@@ -159,10 +159,10 @@ Every member plays. Same rules as song 9. Results are due ~11:54Z to 11:57Z. Tex
 
 | Member | Line used | Idea (1-2 sentences) | Result | Source file |
 |---|---|---|---|---|
-| UPG-H | not revealed | UPG-H: picked, reveal due 2026-10-01T11:54Z | not yet revealed | `research/acc/upgh/cache/song_ideas.jsonl` |
+| UPG-H | "That's the only thing that echo when the body decay, / the trace left behind from the bridges you made." | Bridge library: collect every (X, Y) segment swap from path.best history and same-row team roads, close under the 16 symmetries, apply as substring rewrites to every k <= 3 near-record road (official core decides). `tools/acc/upgh/bridge_library.py`. | Miss: 180 bridges (2,512 with symmetries), 0 shortenings. Lesson: bridges are state-bound; reusing the STATES (height web, from a paper idea at 11:41Z) paid: 364 roads shortened, 7 AC + 4 Stable ties. | `SONG_20261001_10_the_meeting_point.md` |
 | session 1 | "measured by how deep you let the other side invade" | Deep (y,x) finish: let the yx shortcut invade 11-13 moves deep (exact bidirectional bridge), not just the last 10, on our roads at AC +0..+1 of lazy-Stable rows (Stable = AC + 2), k <= 3: 48 roads on 16 rows. | RUNNING (result 11:57Z). 42 of 48 roads so far: 0 hits, 0 timeouts. | `SONG_IDEAS_session1_20261001T1122Z.txt` |
 
-Missing: session 2, Git, Astra, Bob, Charlie, Kernel, Sol 6.1, Grok, Fable. Picked but no idea text yet: UPG-H (reveal 11:54Z).
+Missing: session 2, Git, Astra, Bob, Charlie, Kernel, Sol 6.1, Grok, Fable. Picked but no idea text yet: none.
 
 ---
 
