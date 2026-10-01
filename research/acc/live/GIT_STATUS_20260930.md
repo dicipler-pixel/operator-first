@@ -37,3 +37,4 @@
 - 01:41Z New-target lane: ac-07369 record 44 k 1 -> AC 67 (beam 67) ; roads in sweeps/git/newtarget_roads_20260930.txt
 - 02:13Z Hourly heartbeat (Git): new-target lane alive; 20 rows finished (0 queued lines from it); running: ac-00029,ac-00011,ac-00020,ac-00033,ac-00006,ac-00010 ac-00474,ac-02710,ac-00273,ac-02571 // . Earlier tonight: queued sac-05598 41 (tie, k4) via yx_shortcut on a class-splice road. yx pass on 87 other near-record roads of ours: none.
 - 02:17Z Git: first-solve tier A ac-00474: no route (W100k P2 dual, DMAX 80, 32 min). Next is ac-02710. Astra's ac-00029 is at depth 80 with no route yet. The song-4 commute cleanup (own implementation of the exact rule) found 0 cuts on Git's 146 roads in sweeps/git (DP-compiled roads are already clean). It is now a step in nt_worker before DP.
+- 02:18Z New-target lane: ac-00474 record None k 0 -> no route ;ac-00029 record 46 k 7 -> no route ; roads in sweeps/git/newtarget_roads_20260930.txt
