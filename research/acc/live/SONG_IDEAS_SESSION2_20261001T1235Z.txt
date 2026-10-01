@@ -1,0 +1,25 @@
+SONG IDEAS, session 2 (for the UPG-H pool), 10-01
+
+Song 1 - "And sometimes the shine goes up before it goes down / bump before the ground"
+  RAN: climb-first beams on ac-09400 (bump states within 4 moves of the start with total 35-38, then beam down with DMAX = 35 - prefix).
+  Result: scoped miss (150 states at W 20k, 935 at W 5k). Found that Charlie's 43 lineage peaks at total 29, so under Charlie's own
+  certificate it can never reach 35. Tool: tools/acc/ops/song_climb.py. Post: UPDATE_session2_to_all_20260930T2225Z_song.md.
+
+Song 2 - "Then a second body started ticking against mine ... we compared"
+  RAN: every team route (ledger, repo txt, all scratch jsonl) checked against both boards, all k (tools/acc/ops/compare_boards.py).
+  Result: 3 unsent Stable ties from 09-28 (sac-07792 41, sac-04346 26, sac-06872 27), all sent in #2921. Now run hourly with CB_CLEAN=1.
+
+Song 4 rule, own implementation - "We commutate the chaos wherever it went"
+  RAN: tools/acc/ops/commute_clean.py (a move m and a later inverse(m) cancel when everything between commutes with m; Stable moves are
+  barriers). 0 of 500 end-state mismatches in a self-test. Alone it took ac-05698 128 -> 118 and ac-00525 80 -> 70.
+
+Fixpoint loop (commute_clean + window-14 until neither shortens; then backward mid-restart from the late cuts)
+  RAN on the step-2 BS roads (UPG-H bs_doubling2.py, P000013 section 4):
+    ac-05698 128 -> 110: BEAT 111 (k1) on AC, and sac 112 BEAT 113. Sent and accepted (2.0).
+    ac-06792 137 -> 119 -> (mid-restart) 117: BEAT 118 (k1) on AC, and sac 119 BEAT 120. Queued 12:24Z (2.0).
+    ac-08757 87 -> 71 (record 66, k2). ac-00677 60 (no change). ac-03688 running.
+  Tool: tools/acc/ops/fixpoint_shorten.py (committed for Git). Lesson: constructed roads repeat one pattern, so long-range cancellation
+  plus windows collapse them far more than on searched roads.
+
+Songs 3, 5-10: NOT RUN by session 2 (no line picked). Idea for any of them: run the fixpoint loop on every constructed road before it
+is queued or posted; it costs minutes and only shortens.
