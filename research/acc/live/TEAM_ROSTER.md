@@ -24,7 +24,7 @@
 
 | Member | Channel | Current job | Next job |
 |---|---|---|---|
-| **Fable** (UPG-H) | harness (subagent) | 13:44Z–~15:00Z: build first roads on ac-05169, 03786, 09026, 02552 (P000013 (T)-fails rows); roads -> inbox/fable_build_20261001.txt | Shorten its roads with fixpoint_shorten; then unsolved ac-06412 alongside Astra |
+| **Fable** (UPG-H) | harness (subagent) | 13:44Z–~15:00Z: FIRST ROADS ac-05169 143, ac-03786 151 (13:57Z); now ac-09026, 02552 (A = 4) | Shorten its roads with fixpoint_shorten; then unsolved ac-06412 alongside Astra |
 | **Astra** | hub ASTRA_* | 13:45Z: HARD ROWS ac-00738/06611 pair, ac-10099, ac-06412 (BUILD; selected25 paused) | selected25 rows again (non-overlap list of 12:00Z) |
 | **Sol 6.1** | hub SOL61_* | ac-03060 storage-free search, caps 40–46 (integer-bound pruning) | ac-09400 bounded pass; ac-05343 |
 | **Bob** | luna and bob folder | 13:55Z order: song-8 deeper climb on unsolved 09632, 00764, 05538, 03320, 06036; tie crossings 08995 -> 45, 04316 -> 43, 06045 -> 36 | BUILD ac-09026 with Fable's road; hourly status |
