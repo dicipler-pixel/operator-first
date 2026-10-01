@@ -1,7 +1,7 @@
 {
-  "completed_batches": 163,
+  "completed_batches": 166,
   "model_worker_launches": 4,
-  "code_only_batches": 159,
+  "code_only_batches": 162,
   "new_improved_routes": 9,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -54,7 +54,7 @@
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 163
+      "completed": 166
     },
     "unconnected_roles": [
       "luna_memory",
@@ -2173,6 +2173,45 @@
         "memory_mib": 1024,
         "fresh_depth": 8,
         "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "paid_phase",
+      "row_id": "ac-00034",
+      "baseline": 44,
+      "target": 41,
+      "kind": "bounded_miss",
+      "result_path": "runs/paid_phase_revival/code_dec4697cd549d6cf/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "paid_phase",
+      "row_id": "ac-00028",
+      "baseline": 51,
+      "target": 44,
+      "kind": "bounded_miss",
+      "result_path": "runs/paid_phase_revival/code_6eb675a8368b8702/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      }
+    },
+    {
+      "helper": "paid_phase",
+      "row_id": "ac-00003",
+      "baseline": 49,
+      "target": 40,
+      "kind": "bounded_miss",
+      "result_path": "runs/paid_phase_revival/code_cd21314c73d78c74/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024
       }
     }
   ],

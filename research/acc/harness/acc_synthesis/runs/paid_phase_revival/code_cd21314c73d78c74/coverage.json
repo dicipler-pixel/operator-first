@@ -1,0 +1,33 @@
+{
+  "graph_edges_checked": 148492,
+  "class_pairs_tested": 2198,
+  "complete": true,
+  "arm_best": {
+    "forward": 49,
+    "reverse": 49,
+    "mixed": 49
+  },
+  "arm_proposals": {
+    "forward": 2198,
+    "reverse": 2198,
+    "mixed": 2198
+  },
+  "exact_control_length": 49,
+  "entry_states": 365,
+  "classes": 13324,
+  "algorithm": "paid-canonical-interior-joins-v1",
+  "row": "ac-00003",
+  "baseline": 49,
+  "best_length": 49,
+  "best_arm": null,
+  "records": 519445,
+  "termination_reason": "complete",
+  "elapsed_seconds": 1.4777322309982992,
+  "peak_rss_mib": 139.49609375,
+  "limits": {
+    "wall_seconds": 180.0,
+    "node_cap": 600000,
+    "memory_mib": 1024
+  },
+  "scope": "Only frozen graph and fixed normalizer recipes; not all conjugators or all routes. Unit-cost clock; no physical time or free symmetries."
+}
