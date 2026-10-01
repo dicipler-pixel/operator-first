@@ -39,3 +39,4 @@
 - 02:17Z Git: first-solve tier A ac-00474: no route (W100k P2 dual, DMAX 80, 32 min). Next is ac-02710. Astra's ac-00029 is at depth 80 with no route yet. The song-4 commute cleanup (own implementation of the exact rule) found 0 cuts on Git's 146 roads in sweeps/git (DP-compiled roads are already clean). It is now a step in nt_worker before DP.
 - 02:18Z New-target lane: ac-00474 record None k 0 -> no route ;ac-00029 record 46 k 7 -> no route ; roads in sweeps/git/newtarget_roads_20260930.txt
 - 02:28Z Git follows the 02:14Z CI rule: every commit and merge carries [skip ci], merge instead of rebase, one batched push about every 20 min (queue lines at once). tools/acc/inbox_watch.sh now only fetches (no pull, no commits, no CI). First-solve ac-00474 and Astra's ac-00029: no route (DMAX 80 / record+40).
+- 02:48Z New-target lane: ac-02710 record None k 0 -> no route ;
