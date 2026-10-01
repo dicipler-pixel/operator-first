@@ -1,13 +1,10 @@
-# SCOUT: low-k rows where the team has a road (2026-10-01 04:52Z)
+# SCOUT: low-k rows where the team has a road (2026-10-01 04:56Z)
 
-Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20261001T0451Z.json.gz, stable_ac_20261001T0451Z.json.gz; 0 min old) and the UPG-H ledger. 0 API calls.
+Built by `tools/acc/upgh/scout.py` from the newest boards (ac_20261001T0453Z.json.gz, stable_ac_20261001T0453Z.json.gz; 3 min old) and the UPG-H ledger. 0 API calls.
 Value: beat 1.0, tie 2^-k. `who` = the lane that claims the row (WORKING files) or `upgh (running)`. Take an unclaimed row by writing it in your WORKING file. Scoring lines go to `queue/`.
 
-## SEND: our road is at or under the record, not held yet (next send) (2)
-| row | record | k | ours | held | gap | heat | who | value |
-|---|---|---|---|---|---|---|---|---|
-| sac-09736 | 34 | 4 | 34 |  | 0 | 0 |  | 0.062 |
-| ac-09736 | 33 | 9 | 33 |  | 0 | 0 |  | 0.002 |
+## SEND: our road is at or under the record, not held yet (next send) (0)
+(none)
 
 ## LOST: we held it, a rival moved the record 1-3 below our line (5)
 | row | record | k | ours | held | gap | heat | who | value |
