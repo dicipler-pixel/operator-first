@@ -144,6 +144,36 @@ def build(n, A):
     return path if s == T.GOAL else None
 
 
+def reduce_n5_A4():
+    """The (5, 4) pair: neither 5 nor 6 is divisible by 4, so the loop stops after ONE rewrite on the 6-block:
+        (X y^5 x Y^6, B4)  ->  S5 = (y x Y Y X X, y^4 x x Y^4 X)            [10 moves, 17 letters]
+    then two rewrites of r1 by the rule x Y Y -> Y x x read off r0 = X X y x Y Y (r1 -> r1 r0^-1, move 5):
+        -> (X X y x Y Y, y^4 x Y x Y x)                                      [20 moves, 15 letters]
+    Returns (state, prefix) in the canonical msA(5, 4) frame; both are exact replays on the official core.
+    Beam searches (acc_beam, T9 finish, W = 100k/250k, depth 50/60) from both states found no road: see the UPDATE note."""
+    s, path = msA(5, 4), []
+    s = rotate(s, 1, tuple([y] * 4 + [x, x] + [Y] * 4 + [X]), path)
+    s = cyc_reduce(s, 0, path)
+    j = sites_YAX(s[0], 4)[0]
+    k = (j + 1) % len(s[0])
+    s = rotate(s, 0, s[0][k:] + s[0][:k], path)
+    s = apply(s, path, [3])
+    s = cyc_reduce(s, 0, path)
+    S5 = s
+    s = rotate(s, 0, (X, X, y, x, Y, Y), path)
+    for _ in range(2):
+        r1 = s[1]
+        L = len(r1)
+        st = [j for j in range(L) if r1[j] == Y and r1[(j - 1) % L] == Y and r1[(j - 2) % L] == x]
+        j = min(st, key=lambda j: min((j + 1) % L, L - (j + 1) % L))
+        k = (j + 1) % L
+        if k:
+            s = rotate(s, 1, r1[k:] + r1[:k], path)
+        s = apply(s, path, [5])
+        s = cyc_reduce(s, 1, path)
+    return S5, s, path
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=9)
