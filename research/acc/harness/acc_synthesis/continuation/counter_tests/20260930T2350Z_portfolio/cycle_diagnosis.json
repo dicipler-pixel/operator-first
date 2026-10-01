@@ -1,0 +1,54 @@
+{
+  "kind": "read_only_diagnosis",
+  "rows": [
+    {
+      "arm": "away",
+      "retained_labels": 2939,
+      "labels_with_exact_state_cycle": 2555,
+      "distinct_retained_states": 235
+    },
+    {
+      "arm": "fixed_heading",
+      "retained_labels": 2075,
+      "labels_with_exact_state_cycle": 1574,
+      "distinct_retained_states": 235
+    },
+    {
+      "arm": "layer_clock_heading",
+      "retained_labels": 2075,
+      "labels_with_exact_state_cycle": 1590,
+      "distinct_retained_states": 228
+    },
+    {
+      "arm": "length",
+      "retained_labels": 2171,
+      "labels_with_exact_state_cycle": 1620,
+      "distinct_retained_states": 217
+    },
+    {
+      "arm": "local_heading",
+      "retained_labels": 2075,
+      "labels_with_exact_state_cycle": 1557,
+      "distinct_retained_states": 240
+    },
+    {
+      "arm": "local_heading_reverse",
+      "retained_labels": 2027,
+      "labels_with_exact_state_cycle": 1616,
+      "distinct_retained_states": 249
+    },
+    {
+      "arm": "reverse_toward",
+      "retained_labels": 2266,
+      "labels_with_exact_state_cycle": 1567,
+      "distinct_retained_states": 394
+    },
+    {
+      "arm": "toward",
+      "retained_labels": 2171,
+      "labels_with_exact_state_cycle": 1713,
+      "distinct_retained_states": 235
+    }
+  ],
+  "rule": "Any repeated exact state in a complete route permits deletion of the intervening cycle with fewer paid moves and unchanged endpoint. Therefore cycle-free path restriction preserves existence of a shortest route, though a pruned beam remains incomplete."
+}

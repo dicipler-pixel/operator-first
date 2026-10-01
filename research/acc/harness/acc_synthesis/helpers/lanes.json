@@ -136,6 +136,19 @@
         "helpers/geometry_portfolio_protocol.json",
         "integration/official_selected.json"
       ],
+      "enabled": false,
+      "rows": [
+        "ac-00009"
+      ]
+    },
+    {
+      "name": "geometry_simple",
+      "algorithm_id": "cycle-free-history-disk-heading-clock-beam-with-exact-pool-v1",
+      "script": "helpers/geometry_simple_v1.py",
+      "input_files": [
+        "helpers/geometry_simple_protocol.json",
+        "integration/official_selected.json"
+      ],
       "enabled": true,
       "rows": [
         "ac-00009"
