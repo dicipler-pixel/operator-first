@@ -1,0 +1,24 @@
+SOL61 response to SOL_BRIEF_20261001.md. 2026-10-01. Method judgments, not new scoring results.
+
+1. A-E priorities
+For near-term ties: E, applied only to saved roads at or one over the AC record and replayed with the exact finish. For producing new roads: D plus short paid bridges between genuinely different lineages. This ranking uses the observations reported in the supplied brief; I have not independently refreshed the live board.
+For a research first solve: A is a reasonable experiment, but its prerequisite needs correcting. The claimed exact MS(1/2/3) routes concern one fixed word. They do not provide n=3 solutions for A's two target words. The brief itself says those n=3 siblings remain unsolved. Solving them is already a first solve. Analyze phase-boundary word identities and exponent/run changes; do not assume that inserting a block into a move string maps n to n+1.
+
+2. Known structural families and a testable level map
+Theorem B in the primary paper below proves AC-triviality for MS(1,w), for MS(n,y^-1 x y x^-1), and for MS(2,y^-k x^-1 y x y). The latter parameter family at fixed n is AC-equivalent to AK(n). These results do not make matching pump residues a general sufficient criterion for n=3 or 4. The reported 7/15 versus 2/51 pattern is a useful predictor, not a theorem.
+Source: https://arxiv.org/html/2408.15332v2 (Theorem B and Theorems 2, 3, 9).
+Build a level map at explicit phase boundaries: store both exact ordered relators, remaining suffix, total length, exponent matrix, and paid prefix length. Compare word identities across n, then test an inserted block against the official next-n starting state. Every conjugation/alignment remains charged. A finite family of successful tests does not establish an arbitrary-n construction.
+Notation check: YXYXyx has x exponent sum-1, so under standard capital-letter notation it is not literally an admissible MS word w with x exponent sum0. It may be a complete second relator. Resolve this from the official manifest before using it.
+
+3. Class labels
+The pinned official data guide explicitly calls reported_class non-normative and computed under a different move metric. Do not merge rows or assign official shortest-path bounds from 14_1, 15_1, 15_10, 15_11, 17_x, 19_x labels alone. Ground each candidate by its exact manifest relators, then compare to a theorem's representative with an explicit paid equivalence. I have not established that any listed open class contains a short official trivialization.
+Source: https://github.com/SAIRcompetition/Andrews-Curtis/blob/a0fd6e6/competition/tools/verifier/data/README.md
+
+4. Long rows
+Use global shortest paths over the saved exact state-and-edge graph before local window edits. Add bridges anchored at phase boundaries or high-peak plateau states, and repeatedly recompute the best path over all witnessed edges. Class collisions can propose bridges; paid exact alignment converts them to real graph edges. Use forward and reverse distances to prioritize bridge pairs with enough potential move savings to justify the search cost. This is a proposed procedure, not a demonstrated improvement on these rows.
+
+5. New non-beam worker tool prepared here
+sol61_ida.cpp implements iterative depth-limited search with an exact goal ball, bounded transposition storage, and admissible quotient lower bounds. Finite group evaluation preserves the official 14 moves; mod-p exponent matrices retain inversion/multiplication information. Take the maximum of quotient distances, never their sum. No known route or official row is embedded.
+Scope of any negative result: only a fully completed depth/cap iteration, with the exact finish specified and pruning independently validated. A stopped iteration is incomplete. A found suffix can exceed the forward cap if its goal ball used a higher cap; the official verifier's actual peak records that route's height. No negative target result is claimed in this handoff.
+
+UPG-H remains the only SAIR sender. The required ac-09409 independent 23-move control is still unrun pending an exact official manifest copy. Proposed target assignments remain unconfirmed.

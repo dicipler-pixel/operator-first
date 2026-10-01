@@ -1,0 +1,1421 @@
+{
+  "started_utc": "2026-10-01T02:14:09.586985+00:00",
+  "completed_utc": "2026-10-01T02:14:10.497077+00:00",
+  "status": "complete",
+  "competition_rows_used": false,
+  "ground_truth": "official core bounded BFS radius4; cap10 and globally complete cap30",
+  "bounded_BFS_states": 3991,
+  "global_radius4_states": 5115,
+  "selected_states": 5,
+  "cases": 30,
+  "passed": 30,
+  "results": [
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          1,
+          2,
+          2
+        ],
+        [
+          -2,
+          -1,
+          2,
+          2
+        ]
+      ],
+      "true_depth": 3,
+      "requested_depth": 2,
+      "cap": 10,
+      "ball_cap": 8,
+      "tt_limit": 3,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_0.txt",
+        "--depth",
+        "2",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "8",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          1,
+          2,
+          2
+        ],
+        [
+          -2,
+          -1,
+          2,
+          2
+        ]
+      ],
+      "true_depth": 3,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 8,
+      "tt_limit": 3,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_0.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "8",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        4,
+        8,
+        8
+      ],
+      "peak": 9
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          1,
+          2,
+          2
+        ],
+        [
+          -2,
+          -1,
+          2,
+          2
+        ]
+      ],
+      "true_depth": 3,
+      "requested_depth": 2,
+      "cap": 10,
+      "ball_cap": 10,
+      "tt_limit": 10000,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_0.txt",
+        "--depth",
+        "2",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "10",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "10000",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          1,
+          2,
+          2
+        ],
+        [
+          -2,
+          -1,
+          2,
+          2
+        ]
+      ],
+      "true_depth": 3,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 10,
+      "tt_limit": 10000,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_0.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "10",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "10000",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        4,
+        8,
+        8
+      ],
+      "peak": 9
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          1,
+          2,
+          2
+        ],
+        [
+          -2,
+          -1,
+          2,
+          2
+        ]
+      ],
+      "true_depth": 3,
+      "requested_depth": 2,
+      "cap": 10,
+      "ball_cap": 14,
+      "tt_limit": 3,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_0.txt",
+        "--depth",
+        "2",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "14",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          1,
+          2,
+          2
+        ],
+        [
+          -2,
+          -1,
+          2,
+          2
+        ]
+      ],
+      "true_depth": 3,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 14,
+      "tt_limit": 3,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_0.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "14",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        4,
+        8,
+        8
+      ],
+      "peak": 9
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          1,
+          2,
+          2
+        ],
+        [
+          -2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "true_depth": 3,
+      "requested_depth": 2,
+      "cap": 10,
+      "ball_cap": 8,
+      "tt_limit": 3,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_1.txt",
+        "--depth",
+        "2",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "8",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          1,
+          2,
+          2
+        ],
+        [
+          -2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "true_depth": 3,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 8,
+      "tt_limit": 3,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_1.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "8",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        5,
+        8,
+        8
+      ],
+      "peak": 9
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          1,
+          2,
+          2
+        ],
+        [
+          -2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "true_depth": 3,
+      "requested_depth": 2,
+      "cap": 10,
+      "ball_cap": 10,
+      "tt_limit": 10000,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_1.txt",
+        "--depth",
+        "2",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "10",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "10000",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          1,
+          2,
+          2
+        ],
+        [
+          -2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "true_depth": 3,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 10,
+      "tt_limit": 10000,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_1.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "10",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "10000",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        5,
+        8,
+        8
+      ],
+      "peak": 9
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          1,
+          2,
+          2
+        ],
+        [
+          -2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "true_depth": 3,
+      "requested_depth": 2,
+      "cap": 10,
+      "ball_cap": 14,
+      "tt_limit": 3,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_1.txt",
+        "--depth",
+        "2",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "14",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          1,
+          2,
+          2
+        ],
+        [
+          -2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "true_depth": 3,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 14,
+      "tt_limit": 3,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_1.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "14",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        5,
+        8,
+        8
+      ],
+      "peak": 9
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 8,
+      "tt_limit": 3,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_2.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "8",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 4,
+      "cap": 10,
+      "ball_cap": 8,
+      "tt_limit": 3,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_2.txt",
+        "--depth",
+        "4",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "8",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "peak": 10
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 10,
+      "tt_limit": 10000,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_2.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "10",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "10000",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 4,
+      "cap": 10,
+      "ball_cap": 10,
+      "tt_limit": 10000,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_2.txt",
+        "--depth",
+        "4",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "10",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "10000",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "peak": 10
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 14,
+      "tt_limit": 3,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_2.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "14",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 4,
+      "cap": 10,
+      "ball_cap": 14,
+      "tt_limit": 3,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_2.txt",
+        "--depth",
+        "4",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "14",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "peak": 10
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          -1,
+          2,
+          1
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 8,
+      "tt_limit": 3,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_3.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "8",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          -1,
+          2,
+          1
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 4,
+      "cap": 10,
+      "ball_cap": 8,
+      "tt_limit": 3,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_3.txt",
+        "--depth",
+        "4",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "8",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        8,
+        8,
+        10,
+        8
+      ],
+      "peak": 10
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          -1,
+          2,
+          1
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 10,
+      "tt_limit": 10000,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_3.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "10",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "10000",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          -1,
+          2,
+          1
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 4,
+      "cap": 10,
+      "ball_cap": 10,
+      "tt_limit": 10000,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_3.txt",
+        "--depth",
+        "4",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "10",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "10000",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        8,
+        8,
+        10,
+        8
+      ],
+      "peak": 10
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          -1,
+          2,
+          1
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 14,
+      "tt_limit": 3,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_3.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "14",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          -1,
+          2,
+          1
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 4,
+      "cap": 10,
+      "ball_cap": 14,
+      "tt_limit": 3,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_3.txt",
+        "--depth",
+        "4",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "14",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        8,
+        8,
+        10,
+        8
+      ],
+      "peak": 10
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          -1
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 8,
+      "tt_limit": 3,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_4.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "8",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          -1
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 4,
+      "cap": 10,
+      "ball_cap": 8,
+      "tt_limit": 3,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_4.txt",
+        "--depth",
+        "4",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "8",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        8,
+        8,
+        11,
+        8
+      ],
+      "peak": 10
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          -1
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 10,
+      "tt_limit": 10000,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_4.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "10",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "10000",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          -1
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 4,
+      "cap": 10,
+      "ball_cap": 10,
+      "tt_limit": 10000,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_4.txt",
+        "--depth",
+        "4",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "10",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "10000",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        8,
+        8,
+        11,
+        8
+      ],
+      "peak": 10
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          -1
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 3,
+      "cap": 10,
+      "ball_cap": 14,
+      "tt_limit": 3,
+      "exit_code": 2,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_4.txt",
+        "--depth",
+        "3",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "14",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "complete_no_path_agrees_with_exact_BFS"
+    },
+    {
+      "state": [
+        [
+          -2,
+          -2,
+          -2,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          -1
+        ]
+      ],
+      "true_depth": 4,
+      "requested_depth": 4,
+      "cap": 10,
+      "ball_cap": 14,
+      "tt_limit": 3,
+      "exit_code": 0,
+      "command": [
+        "/workspace/scratch/a2742225776d/sol61/sol61_ida",
+        "--input",
+        "/workspace/scratch/a2742225776d/sol61/synthetic_exact_4.txt",
+        "--depth",
+        "4",
+        "--cap",
+        "10",
+        "--ball",
+        "2",
+        "--ball-cap",
+        "14",
+        "--ball-states",
+        "5000",
+        "--tt-states",
+        "3",
+        "--seconds",
+        "10"
+      ],
+      "outcome": "exact_depth_route_core_replayed",
+      "moves": [
+        8,
+        8,
+        11,
+        8
+      ],
+      "peak": 10
+    }
+  ]
+}

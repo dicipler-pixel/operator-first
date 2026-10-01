@@ -1,0 +1,10 @@
+{
+  "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "command": "PYTHONPATH=official/competition/tools python -m verifier --golden official/competition/tools/verifier/data/golden_vectors.json",
+  "exit_code": 0,
+  "passed": 63,
+  "total": 63,
+  "run_status": "complete",
+  "report_type": "summary of observed command output",
+  "does_not_satisfy_ac_09409_independent_control": true
+}

@@ -1,0 +1,44 @@
+SOL61 original synthetic smoke test — copied original output
+
+This file preserves the original command, settings, and stdout copied from
+the tool result already present in this conversation. It is not a rerun.
+The original tool reported exit_code=0. The original UTC start timestamp
+and original binary/source hashes were not recorded.
+
+Original command:
+/workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/smoke_words.txt --depth 9 --cap 40 --ball 3 --ball-cap 40 --ball-states 100000 --tt-states 100000 --seconds 30
+
+Original input file contents:
+xyyXY yyyxyxYYXY x y
+
+Original stdout, copied verbatim:
+SOL61_IDA ac-r2-v1 start=xyyXY,yyyxyxYYXY goal=x,y depth=9 cap=40 ball=3 ball_cap=40 ball_states=100000 tt_states=100000 seconds=30
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0261037
+ball layer=2 total=88 complete=yes elapsed=0.02618
+ball layer=3 total=662 complete=yes elapsed=0.0262595
+search depth=6 cap=40 ball_complete=3 elapsed=0.0262641
+search depth=6 nodes=2 status=complete_no_path cap=40 elapsed=0.0262795
+search depth=7 cap=40 ball_complete=3 elapsed=0.0262805
+search depth=7 nodes=14 status=complete_no_path cap=40 elapsed=0.0263193
+search depth=8 cap=40 ball_complete=3 elapsed=0.0263204
+search depth=8 nodes=154 status=complete_no_path cap=40 elapsed=0.0265746
+search depth=9 cap=40 ball_complete=3 elapsed=0.0265872
+FOUND length=9 elapsed=0.026864 nodes=340
+MOVES [13, 4, 0, 7, 2, 6, 5, 6, 3]
+
+Separate original replay-check stdout, copied verbatim:
+Synthetic recovered route matches exact official core target.
+
+Summary (not original stdout):
+The state was generated synthetically from ((x),(y)) by official core moves
+[2,8,4,10,3,11,0,5,12]. Its relator lengths were (5,10). The independently
+recovered route above was then replayed through the official core and ended
+at ((x),(y)). This smoke test used no competition row and does not satisfy
+the required ac-09409 onboarding control.

@@ -1,0 +1,431 @@
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_0.txt --depth 2 --cap 10 --ball 2 --ball-cap 8 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYxyy,YXyy goal=x,y depth=2 cap=10 ball=2 ball_cap=8 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0283873
+ball layer=2 total=88 complete=yes elapsed=0.028455
+STOP status=complete_no_path nodes=0 tt_clears=0 elapsed=0.0284589
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_0.txt --depth 3 --cap 10 --ball 2 --ball-cap 8 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYxyy,YXyy goal=x,y depth=3 cap=10 ball=2 ball_cap=8 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0279716
+ball layer=2 total=88 complete=yes elapsed=0.0280317
+search depth=3 cap=10 ball_complete=2 elapsed=0.0280343
+FOUND length=3 elapsed=0.0280427 nodes=2
+MOVES [4, 8, 8]
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_0.txt --depth 2 --cap 10 --ball 2 --ball-cap 10 --ball-states 5000 --tt-states 10000 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYxyy,YXyy goal=x,y depth=2 cap=10 ball=2 ball_cap=10 ball_states=5000 tt_states=10000 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0289905
+ball layer=2 total=88 complete=yes elapsed=0.0290551
+STOP status=complete_no_path nodes=0 tt_clears=0 elapsed=0.029058
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_0.txt --depth 3 --cap 10 --ball 2 --ball-cap 10 --ball-states 5000 --tt-states 10000 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYxyy,YXyy goal=x,y depth=3 cap=10 ball=2 ball_cap=10 ball_states=5000 tt_states=10000 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0319521
+ball layer=2 total=88 complete=yes elapsed=0.0320069
+search depth=3 cap=10 ball_complete=2 elapsed=0.0320096
+FOUND length=3 elapsed=0.0320177 nodes=2
+MOVES [4, 8, 8]
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_0.txt --depth 2 --cap 10 --ball 2 --ball-cap 14 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYxyy,YXyy goal=x,y depth=2 cap=10 ball=2 ball_cap=14 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0248661
+ball layer=2 total=88 complete=yes elapsed=0.0249191
+STOP status=complete_no_path nodes=0 tt_clears=0 elapsed=0.0249216
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_0.txt --depth 3 --cap 10 --ball 2 --ball-cap 14 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYxyy,YXyy goal=x,y depth=3 cap=10 ball=2 ball_cap=14 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.028396
+ball layer=2 total=88 complete=yes elapsed=0.0284555
+search depth=3 cap=10 ball_complete=2 elapsed=0.0284584
+FOUND length=3 elapsed=0.0284664 nodes=2
+MOVES [4, 8, 8]
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_1.txt --depth 2 --cap 10 --ball 2 --ball-cap 8 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYxyy,Yxyy goal=x,y depth=2 cap=10 ball=2 ball_cap=8 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0239927
+ball layer=2 total=88 complete=yes elapsed=0.0240437
+STOP status=complete_no_path nodes=0 tt_clears=0 elapsed=0.0240461
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_1.txt --depth 3 --cap 10 --ball 2 --ball-cap 8 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYxyy,Yxyy goal=x,y depth=3 cap=10 ball=2 ball_cap=8 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0277633
+ball layer=2 total=88 complete=yes elapsed=0.0278229
+search depth=3 cap=10 ball_complete=2 elapsed=0.0278259
+FOUND length=3 elapsed=0.0278339 nodes=2
+MOVES [5, 8, 8]
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_1.txt --depth 2 --cap 10 --ball 2 --ball-cap 10 --ball-states 5000 --tt-states 10000 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYxyy,Yxyy goal=x,y depth=2 cap=10 ball=2 ball_cap=10 ball_states=5000 tt_states=10000 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.024494
+ball layer=2 total=88 complete=yes elapsed=0.0245502
+STOP status=complete_no_path nodes=0 tt_clears=0 elapsed=0.0245526
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_1.txt --depth 3 --cap 10 --ball 2 --ball-cap 10 --ball-states 5000 --tt-states 10000 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYxyy,Yxyy goal=x,y depth=3 cap=10 ball=2 ball_cap=10 ball_states=5000 tt_states=10000 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0263748
+ball layer=2 total=88 complete=yes elapsed=0.0264307
+search depth=3 cap=10 ball_complete=2 elapsed=0.0264332
+FOUND length=3 elapsed=0.0264413 nodes=2
+MOVES [5, 8, 8]
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_1.txt --depth 2 --cap 10 --ball 2 --ball-cap 14 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYxyy,Yxyy goal=x,y depth=2 cap=10 ball=2 ball_cap=14 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0260157
+ball layer=2 total=88 complete=yes elapsed=0.0260759
+STOP status=complete_no_path nodes=0 tt_clears=0 elapsed=0.0260791
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_1.txt --depth 3 --cap 10 --ball 2 --ball-cap 14 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYxyy,Yxyy goal=x,y depth=3 cap=10 ball=2 ball_cap=14 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.024787
+ball layer=2 total=88 complete=yes elapsed=0.0248575
+search depth=3 cap=10 ball_complete=2 elapsed=0.0248608
+FOUND length=3 elapsed=0.0248688 nodes=2
+MOVES [5, 8, 8]
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_2.txt --depth 3 --cap 10 --ball 2 --ball-cap 8 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYYxyyyy,y goal=x,y depth=3 cap=10 ball=2 ball_cap=8 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0269136
+ball layer=2 total=88 complete=yes elapsed=0.0269793
+search depth=3 cap=10 ball_complete=2 elapsed=0.026984
+search depth=3 nodes=1 status=complete_no_path cap=10 elapsed=0.0269903
+STOP status=complete_no_path nodes=1 tt_clears=0 elapsed=0.026991
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_2.txt --depth 4 --cap 10 --ball 2 --ball-cap 8 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYYxyyyy,y goal=x,y depth=4 cap=10 ball=2 ball_cap=8 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0248532
+ball layer=2 total=88 complete=yes elapsed=0.0249182
+search depth=3 cap=10 ball_complete=2 elapsed=0.0249224
+search depth=3 nodes=1 status=complete_no_path cap=10 elapsed=0.0249292
+search depth=4 cap=10 ball_complete=2 elapsed=0.0249299
+FOUND length=4 elapsed=0.0249372 nodes=4
+MOVES [8, 8, 8, 8]
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_2.txt --depth 3 --cap 10 --ball 2 --ball-cap 10 --ball-states 5000 --tt-states 10000 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYYxyyyy,y goal=x,y depth=3 cap=10 ball=2 ball_cap=10 ball_states=5000 tt_states=10000 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0264439
+ball layer=2 total=88 complete=yes elapsed=0.0265281
+search depth=3 cap=10 ball_complete=2 elapsed=0.026533
+search depth=3 nodes=1 status=complete_no_path cap=10 elapsed=0.0265402
+STOP status=complete_no_path nodes=1 tt_clears=0 elapsed=0.026541
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_2.txt --depth 4 --cap 10 --ball 2 --ball-cap 10 --ball-states 5000 --tt-states 10000 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYYxyyyy,y goal=x,y depth=4 cap=10 ball=2 ball_cap=10 ball_states=5000 tt_states=10000 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0294801
+ball layer=2 total=88 complete=yes elapsed=0.0295462
+search depth=3 cap=10 ball_complete=2 elapsed=0.0295497
+search depth=3 nodes=1 status=complete_no_path cap=10 elapsed=0.0295565
+search depth=4 cap=10 ball_complete=2 elapsed=0.0295573
+FOUND length=4 elapsed=0.0295641 nodes=4
+MOVES [8, 8, 8, 8]
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_2.txt --depth 3 --cap 10 --ball 2 --ball-cap 14 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYYxyyyy,y goal=x,y depth=3 cap=10 ball=2 ball_cap=14 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0288816
+ball layer=2 total=88 complete=yes elapsed=0.0291631
+search depth=3 cap=10 ball_complete=2 elapsed=0.0291684
+search depth=3 nodes=1 status=complete_no_path cap=10 elapsed=0.0291766
+STOP status=complete_no_path nodes=1 tt_clears=0 elapsed=0.0291773
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_2.txt --depth 4 --cap 10 --ball 2 --ball-cap 14 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYYxyyyy,y goal=x,y depth=4 cap=10 ball=2 ball_cap=14 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0255813
+ball layer=2 total=88 complete=yes elapsed=0.0256669
+search depth=3 cap=10 ball_complete=2 elapsed=0.0256706
+search depth=3 nodes=1 status=complete_no_path cap=10 elapsed=0.0256769
+search depth=4 cap=10 ball_complete=2 elapsed=0.0256777
+FOUND length=4 elapsed=0.025684 nodes=4
+MOVES [8, 8, 8, 8]
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_3.txt --depth 3 --cap 10 --ball 2 --ball-cap 8 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYxyyy,Xyx goal=x,y depth=3 cap=10 ball=2 ball_cap=8 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0237508
+ball layer=2 total=88 complete=yes elapsed=0.0238119
+STOP status=complete_no_path nodes=0 tt_clears=0 elapsed=0.0238151
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_3.txt --depth 4 --cap 10 --ball 2 --ball-cap 8 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYxyyy,Xyx goal=x,y depth=4 cap=10 ball=2 ball_cap=8 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0300351
+ball layer=2 total=88 complete=yes elapsed=0.0301001
+search depth=4 cap=10 ball_complete=2 elapsed=0.0301036
+FOUND length=4 elapsed=0.0301153 nodes=3
+MOVES [8, 8, 10, 8]
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_3.txt --depth 3 --cap 10 --ball 2 --ball-cap 10 --ball-states 5000 --tt-states 10000 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYxyyy,Xyx goal=x,y depth=3 cap=10 ball=2 ball_cap=10 ball_states=5000 tt_states=10000 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0390815
+ball layer=2 total=88 complete=yes elapsed=0.0391471
+STOP status=complete_no_path nodes=0 tt_clears=0 elapsed=0.0391503
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_3.txt --depth 4 --cap 10 --ball 2 --ball-cap 10 --ball-states 5000 --tt-states 10000 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYxyyy,Xyx goal=x,y depth=4 cap=10 ball=2 ball_cap=10 ball_states=5000 tt_states=10000 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0281965
+ball layer=2 total=88 complete=yes elapsed=0.028361
+search depth=4 cap=10 ball_complete=2 elapsed=0.0283657
+FOUND length=4 elapsed=0.0283789 nodes=3
+MOVES [8, 8, 10, 8]
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_3.txt --depth 3 --cap 10 --ball 2 --ball-cap 14 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYxyyy,Xyx goal=x,y depth=3 cap=10 ball=2 ball_cap=14 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0259072
+ball layer=2 total=88 complete=yes elapsed=0.0261319
+STOP status=complete_no_path nodes=0 tt_clears=0 elapsed=0.0261406
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_3.txt --depth 4 --cap 10 --ball 2 --ball-cap 14 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYxyyy,Xyx goal=x,y depth=4 cap=10 ball=2 ball_cap=14 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0271156
+ball layer=2 total=88 complete=yes elapsed=0.0272498
+search depth=4 cap=10 ball_complete=2 elapsed=0.027254
+FOUND length=4 elapsed=0.027267 nodes=3
+MOVES [8, 8, 10, 8]
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_4.txt --depth 3 --cap 10 --ball 2 --ball-cap 8 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYxyyy,xyX goal=x,y depth=3 cap=10 ball=2 ball_cap=8 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0255744
+ball layer=2 total=88 complete=yes elapsed=0.0256343
+STOP status=complete_no_path nodes=0 tt_clears=0 elapsed=0.0256378
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_4.txt --depth 4 --cap 10 --ball 2 --ball-cap 8 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYxyyy,xyX goal=x,y depth=4 cap=10 ball=2 ball_cap=8 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0251336
+ball layer=2 total=88 complete=yes elapsed=0.0251965
+search depth=4 cap=10 ball_complete=2 elapsed=0.0251993
+FOUND length=4 elapsed=0.0252107 nodes=3
+MOVES [8, 8, 11, 8]
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_4.txt --depth 3 --cap 10 --ball 2 --ball-cap 10 --ball-states 5000 --tt-states 10000 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYxyyy,xyX goal=x,y depth=3 cap=10 ball=2 ball_cap=10 ball_states=5000 tt_states=10000 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0367012
+ball layer=2 total=88 complete=yes elapsed=0.0367592
+STOP status=complete_no_path nodes=0 tt_clears=0 elapsed=0.0367617
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_4.txt --depth 4 --cap 10 --ball 2 --ball-cap 10 --ball-states 5000 --tt-states 10000 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYxyyy,xyX goal=x,y depth=4 cap=10 ball=2 ball_cap=10 ball_states=5000 tt_states=10000 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0319717
+ball layer=2 total=88 complete=yes elapsed=0.0320389
+search depth=4 cap=10 ball_complete=2 elapsed=0.0320418
+FOUND length=4 elapsed=0.0320547 nodes=3
+MOVES [8, 8, 11, 8]
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_4.txt --depth 3 --cap 10 --ball 2 --ball-cap 14 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYxyyy,xyX goal=x,y depth=3 cap=10 ball=2 ball_cap=14 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0271043
+ball layer=2 total=88 complete=yes elapsed=0.0272153
+STOP status=complete_no_path nodes=0 tt_clears=0 elapsed=0.0272212
+
+COMMAND /workspace/scratch/a2742225776d/sol61/sol61_ida --input /workspace/scratch/a2742225776d/sol61/synthetic_exact_4.txt --depth 4 --cap 10 --ball 2 --ball-cap 14 --ball-states 5000 --tt-states 3 --seconds 10
+SOL61_IDA ac-r2-v1 start=YYYxyyy,xyX goal=x,y depth=4 cap=10 ball=2 ball_cap=14 ball_states=5000 tt_states=3 seconds=10
+mod_pdb p=7 states=672
+mod_pdb p=11 states=2640
+mod_pdb p=31 states=59520
+finite_pdb SL2 p=5 x=25 y=21 states=14396
+finite_pdb SL2 p=5 x=40 y=21 states=14396
+finite_pdb SL2 p=7 x=49 y=43 states=112892
+finite_pdb SL2 p=7 x=84 y=43 states=112892
+ball layer=1 total=11 complete=yes elapsed=0.0282163
+ball layer=2 total=88 complete=yes elapsed=0.0282859
+search depth=4 cap=10 ball_complete=2 elapsed=0.0282897
+FOUND length=4 elapsed=0.0283028 nodes=3
+MOVES [8, 8, 11, 8]

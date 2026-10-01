@@ -1,0 +1,67 @@
+{
+  "at_utc": "2026-10-01T02:13:25.970450+00:00",
+  "requested_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "requested_manifest_blob": "accdb626ee08a06beea3f88dc7f351514c99eb27",
+  "requested_manifest_bytes": 12378899,
+  "source_found": false,
+  "source_archive_inspections": [
+    {
+      "path": "/workspace/scratch/a2742225776d/attachments/d3e2e872-1adc-4e8f-ba34-b0b424c24d75/ACC_Continuation_20260915.zip.part007.bin",
+      "name": "ACC_Continuation_20260915.zip.part007.bin",
+      "bytes": 16878079,
+      "sha256": "282c913a376941c3516317f6b7cae50d3a89af13b030074351e3cb9dc045943c",
+      "archive_inspection": "complete central directory from final part only; earlier parts not downloaded",
+      "full_manifest_found": false,
+      "entries": 862,
+      "potential_manifest_files": []
+    },
+    {
+      "path": "/workspace/scratch/a2742225776d/attachments/7fd45324-7a45-4380-84cd-b24385d3d1ca/ACC_LENGTH14_BASIN_20260916.zip",
+      "name": "ACC_LENGTH14_BASIN_20260916.zip",
+      "bytes": 7453179,
+      "sha256": "934359bcb0af800255835dd2cff079fbe87e529bf8eae8e0644b764377f50e4e",
+      "archive_inspection": "complete central-directory inventory",
+      "full_manifest_found": false,
+      "entries": 85,
+      "potential_manifest_files": []
+    },
+    {
+      "path": "/workspace/scratch/a2742225776d/attachments/0947ef3c-d813-43fa-a1cb-99f88039ae07/ACC_Replay_Idea_Pool_20260915.zip",
+      "name": "ACC_Replay_Idea_Pool_20260915.zip",
+      "bytes": 3642752,
+      "sha256": "d5a6884537509523a5f1aa31581eb322370d70c5ca4adb30665b90a21138645d",
+      "archive_inspection": "complete central-directory inventory",
+      "full_manifest_found": false,
+      "entries": 168,
+      "potential_manifest_files": []
+    },
+    {
+      "path": "/workspace/scratch/a2742225776d/attachments/502c7ff5-8818-4da9-8c8a-527205cc12ee/ACC_AMEY_PRIORITY_AUDIT_20260915.zip",
+      "name": "ACC_AMEY_PRIORITY_AUDIT_20260915.zip",
+      "bytes": 4530777,
+      "sha256": "89c2449537fb93748f31d64dceaac93e52511f1ce9a3f25fcf73920113bc016e",
+      "archive_inspection": "complete central-directory inventory",
+      "full_manifest_found": false,
+      "entries": 96,
+      "potential_manifest_files": []
+    },
+    {
+      "path": "/workspace/scratch/a2742225776d/team_sources/ACC-graphmaps-bundle.tar.zst.part00",
+      "name": "ACC-graphmaps-bundle.tar.zst.part00",
+      "expected_bytes": 83886080,
+      "actual_bytes": 71098368,
+      "expected_sha256": "daa43f28f655d3dedb4dd9e49676dec56ebba0fec57b8cca423950284213b5f7",
+      "actual_sha256": "4b44286bf1170c609cc019d4fbbbb8eead43e99925a9fbbe5a06aa2a3de67688",
+      "status": "incomplete/unusable; connector file_uri download truncated although curl returned0",
+      "notes": "README describes graph-map checkpoint/trace archive, not official verifier source; no full archive download attempted after reading README."
+    }
+  ],
+  "library_source_attempt": {
+    "library_file_id": "libfile_4325a55fd464819199a3ffca182f75d1",
+    "name": "ACC-graphmaps-bundle.tar.zst",
+    "expected_bytes": 321004283,
+    "download_outcome": "HTTP502; curl exit22; no usable bytes",
+    "further_attempts": "stopped after partial archive README established checkpoint-map scope"
+  },
+  "activity_scope": "source discovery only; no row searches, no verifier replays, no SAIR API calls, no target mutations"
+}
