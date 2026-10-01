@@ -1,0 +1,48 @@
+{
+  "created_utc": "20261001T114321Z",
+  "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "move_spec": "ac-r2-v1",
+  "scope": "full AC paths under the same total-height cap",
+  "files": {
+    "integer_bound.py": {
+      "bytes": 2561,
+      "sha256": "48bdafaada56517977b25e08a0681663f4cebf25cd2c83efe404ecdce2cb45a2"
+    },
+    "integer_bound_README.txt": {
+      "bytes": 3199,
+      "sha256": "f15c7f4281a8a84bb180aa42211e705f001df09ccca7f78be2b0d159eb857f8e"
+    },
+    "sol61_integer_peak.cpp": {
+      "bytes": 19023,
+      "sha256": "e5b05aa2c780f0c8925e89c729537488d89aca57f82d01abef2d80e49ad30ac1"
+    },
+    "sol61_compact.cpp": {
+      "bytes": 11690,
+      "sha256": "0d4e8d048be2ce57aa441e0486125c4fb79019f7dd5eec175da189c4e3277c0c"
+    },
+    "sol61_ida_strong.cpp": {
+      "bytes": 13371,
+      "sha256": "f0d25115bfdd81c2ed416213324f054131eaf7939767be1d355e1259c89f1ccb"
+    },
+    "integer_projection_review/summary.json": {
+      "bytes": 2317,
+      "sha256": "cc397a3370557d20375903a59015bb5484a4938304d20056d5d7bb7567fbddda"
+    },
+    "integer_projection_review/lookup_summary.json": {
+      "bytes": 233,
+      "sha256": "8a7d56ca7c1b7434eb4b1824671a8d2c499db0e6c7e04757395ee5e48350e2a0"
+    },
+    "integer_peak_search_review/summary.json": {
+      "bytes": 3841,
+      "sha256": "0a79b98ed04b872bdbdd88b7ae25c14aece637980e344e45a1154e635507e686"
+    },
+    "peak_roots_frontier_review/summary.json": {
+      "bytes": 2629,
+      "sha256": "8dce254bbbd7d5a2e41c00bf6e57bf5dc733c19de14e50a0ce7f264c7476d0bc"
+    },
+    "peak_roots_interrupt_review/summary.json": {
+      "bytes": 1019,
+      "sha256": "eb84e87ac1f35fe6674e22833983e5c69a529b428d823ffd10795fd2c64e915f"
+    }
+  }
+}
