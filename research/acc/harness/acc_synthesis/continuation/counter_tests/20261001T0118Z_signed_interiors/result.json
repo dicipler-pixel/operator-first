@@ -1,0 +1,1500 @@
+{
+  "kind": "completed_finite_data_query",
+  "key": "604b25bbb5f84d30592e2bc9fd8c653caa30d7e1acc2b191e0339bf5e72c8576",
+  "graph_path": "runs/kernel_revival/code_1cc759100d5956a5/exact_graph.json.gz",
+  "graph_sha256": "bea429d3c55f7030690e305713ce97ddae99771dba1ae65a6fa809f9a53a9fdb",
+  "source_worker_result_sha256": "cc1aa48e395157c757fa6c7758ef4b77245d3df2768e31326665ab2bf3b0b1cd",
+  "executed_script_sha256": "8dda2efa28117da438017807c8f16f1740a6756a87fbc5b085ddfa89c6eec8ed",
+  "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "states": 70818,
+  "checked_edges": 148042,
+  "queries": [
+    {
+      "row": "ac-00001",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00001",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00001",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00001",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00003",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": 1608,
+      "saved_graph_distance": 49,
+      "paid_finish": [],
+      "total_cost": 49,
+      "baseline": 49,
+      "status": "witnessed_transfer"
+    },
+    {
+      "row": "ac-00003",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": 49,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00003",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": 49,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00003",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": 49,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00005",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": 10669,
+      "saved_graph_distance": 27,
+      "paid_finish": [],
+      "total_cost": 27,
+      "baseline": 27,
+      "status": "witnessed_transfer"
+    },
+    {
+      "row": "ac-00005",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": 27,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00005",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": 27,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00005",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": 27,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00006",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00006",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00006",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00006",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00009",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": 11826,
+      "saved_graph_distance": 78,
+      "paid_finish": [],
+      "total_cost": 78,
+      "baseline": 78,
+      "status": "witnessed_transfer"
+    },
+    {
+      "row": "ac-00009",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": 78,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00009",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": 78,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00009",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": 78,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00010",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00010",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00010",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00010",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00011",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00011",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00011",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00011",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00012",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": 7124,
+      "saved_graph_distance": 52,
+      "paid_finish": [],
+      "total_cost": 52,
+      "baseline": 52,
+      "status": "witnessed_transfer"
+    },
+    {
+      "row": "ac-00012",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": 52,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00012",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": 52,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00012",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": 52,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00013",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00013",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00013",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00013",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00015",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00015",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00015",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00015",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00016",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00016",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00016",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00016",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00017",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00017",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00017",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00017",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00018",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": 21960,
+      "saved_graph_distance": 51,
+      "paid_finish": [],
+      "total_cost": 51,
+      "baseline": 51,
+      "status": "witnessed_transfer"
+    },
+    {
+      "row": "ac-00018",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": 51,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00018",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": 51,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00018",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": 51,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00020",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00020",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00020",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00020",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00021",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": 4899,
+      "saved_graph_distance": 40,
+      "paid_finish": [],
+      "total_cost": 40,
+      "baseline": 40,
+      "status": "witnessed_transfer"
+    },
+    {
+      "row": "ac-00021",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": 40,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00021",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": 40,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00021",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": 40,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00022",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": 16965,
+      "saved_graph_distance": 56,
+      "paid_finish": [],
+      "total_cost": 56,
+      "baseline": 56,
+      "status": "witnessed_transfer"
+    },
+    {
+      "row": "ac-00022",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": 56,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00022",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": 56,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00022",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": 56,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00024",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00024",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00024",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00024",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00027",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00027",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00027",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00027",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00028",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": 3236,
+      "saved_graph_distance": 51,
+      "paid_finish": [],
+      "total_cost": 51,
+      "baseline": 51,
+      "status": "witnessed_transfer"
+    },
+    {
+      "row": "ac-00028",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": 51,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00028",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": 51,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00028",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": 51,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00029",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00029",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00029",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00029",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00031",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00031",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00031",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00031",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00032",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00032",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00032",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00032",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00033",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00033",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00033",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00033",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": null,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00034",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": 7298,
+      "saved_graph_distance": 44,
+      "paid_finish": [],
+      "total_cost": 44,
+      "baseline": 44,
+      "status": "witnessed_transfer"
+    },
+    {
+      "row": "ac-00034",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": 44,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00034",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": 44,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00034",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": 44,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00037",
+      "signs": [
+        1,
+        1
+      ],
+      "source_index": 9887,
+      "saved_graph_distance": 32,
+      "paid_finish": [],
+      "total_cost": 32,
+      "baseline": 32,
+      "status": "witnessed_transfer"
+    },
+    {
+      "row": "ac-00037",
+      "signs": [
+        -1,
+        1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0
+      ],
+      "total_cost": null,
+      "baseline": 32,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00037",
+      "signs": [
+        1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        1
+      ],
+      "total_cost": null,
+      "baseline": 32,
+      "status": "absent_exact_interior"
+    },
+    {
+      "row": "ac-00037",
+      "signs": [
+        -1,
+        -1
+      ],
+      "source_index": null,
+      "saved_graph_distance": null,
+      "paid_finish": [
+        0,
+        1
+      ],
+      "total_cost": null,
+      "baseline": 32,
+      "status": "absent_exact_interior"
+    }
+  ],
+  "candidates": [],
+  "records": 437820,
+  "elapsed_seconds": 0.7488948009995511,
+  "peak_rss_mib": 127.65234375,
+  "limits": {
+    "seconds": 180,
+    "records": 600000,
+    "memory_mib": 1024
+  },
+  "model_workers": 0,
+  "new_neighborhood_expansions": 0,
+  "scope": "Only exact signed matches to this captured graph; no cyclic/class normalization, permutation, fresh bridges, or global impossibility claim."
+}

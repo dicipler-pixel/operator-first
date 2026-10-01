@@ -1,0 +1,14 @@
+{
+  "method": "signed-exact-interior-queries-v1",
+  "source_graph": "runs/kernel_revival/code_1cc759100d5956a5/exact_graph.json.gz",
+  "motivation": "UPGH's official-start twin census does not decide signed matches to interior states of witnessed donor roads. The old Bob lane compares donor starts from its fixed bundle, not this new full graph.",
+  "prediction": "A signed-generator reflection may expose an interior donor suffix hidden from a census of official starting presentations.",
+  "ordinary_control": "Identity transformation, exact lookup of all pinned25 starts in the same saved graph.",
+  "counter_cases": [[-1,1],[1,-1],[-1,-1]],
+  "costs": "Each transformed edge is one checked official primitive. Endpoints require explicit relator inversion moves; no free class identification.",
+  "outcome": "Retain every one of the 100 exact lookup results; compile and independently replay any shorter or first route. A miss is only absence of a useful exact signed match in this particular witnessed graph.",
+  "bounds": {"seconds":180,"records":600000,"memory_mib":1024},
+  "model_workers":0,
+  "new_neighborhood_expansions":0,
+  "no_repeat": "Existing result or interrupted record closes this exact query; no unchanged input rerun. Preserve script and source graph hashes."
+}
