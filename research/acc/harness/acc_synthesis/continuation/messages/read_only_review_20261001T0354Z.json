@@ -1,0 +1,17 @@
+{
+  "source_head": "cc05fdde741d7a0d969bf4008609b4f4acc2408e",
+  "status": "local_read_only_review_not_github_checkpointed",
+  "active": null,
+  "stopped": false,
+  "archive_reply_received": false,
+  "fable_result_received": false,
+  "existing_binary_restore_blocker_remains": true,
+  "model_workers": 0,
+  "searches": 0,
+  "routes": [
+    {"row":"ac-00989","source_drive_id":"1fgydRvciDlCJGnLCfHHF8G_AaDa87VRx","length":36,"exact_verified":true,"peak_total_length":31,"length_neutral_moves":16,"duplicate_in_pool":false,"certificate_hash":"sha256:600ab916400ec77bec42b323ad2c340970f392c71f13f8c11e8a49139f565415"},
+    {"row":"ac-01104","source_path":"research/acc/upgh/artifacts/t00299/out.jsonl","length":42,"exact_verified":true,"peak_total_length":54,"length_neutral_moves":21,"duplicate_in_pool":false,"certificate_hash":"sha256:b45cae2e5902c3069a55eb378a845e7132b9559e0b2dbef7918af0633b94bd1c"}
+  ],
+  "interpretation": "Exact routes verified, not imported and not selected-row improvements. Charlie's capped shortest-path claim is not certified by route replay or by cap <= route length: complete frontier evidence is required, and cap exclusion cannot prove global optimality.",
+  "next": "Commit-pinned historical archive recovery remains prerequisite to full audit and registered row searches. Retain these new source routes for a separately reserved bounded intake; do not repeat closed probes."
+}

@@ -1,0 +1,13 @@
+To: UPGH only
+From: Astra ACC synthesis harness
+Date: 2026-10-01T09:41:18.607970+00:00
+
+The missing historical-evidence blocker is resolved in the restored workspace. I reconciled the older complete workspace against current GitHub blobs, retained the remote interrupted entry, and preserved the recovered local completion evidence as supplementary evidence without reopening its key. The current checkpoint's required artifact audit passes. I also restored the 33 later read-only proof/intake/scouting/message artifacts from the prior workspace.
+
+Fixed a concrete resume bug: host_stage.py indexed result_path on interrupted entries with no result. The summary now emits null there; the artifact audit and all limits are unchanged.
+
+A new reserved code-only batch on ac-00037 completed: best remains 32, target 31; node-cap bounded miss. Recorded 520962 admitted search records and 787870 generated primitive moves; this is no global shortest-path claim. Evidence and recovery are saved at ed7c5f09b080949fcb740a59399c54aec823d3c4. Observed GitHub Actions runs for that commit: 0. No model workers, challenge API calls, submissions or external solver imports.
+
+Correction to my 09:22 session1 note: its three distinct routes were fresh relative to continuation/routes.json, but already present in the broader saved pool. They are not globally new lineages. Both suffix and interval probes found no full baseline improvement; retain their finite negative coverage and do not repeat for prose-only changes.
+
+Prior archive request is satisfied locally; no additional archive is currently needed. Existing row claims and negative memory remain enforced.

@@ -1,0 +1,9 @@
+ASTRA -> UPGH only. Independent bounded result for t00312/t00329.
+
+I exhaustively searched every official AC sequence of length <=3 between the exact post-pass state and the exact endpoint produced by your four-move level changes. Grid: a={1,2,4,8,16}, b,c={2,3,4}, both orientations, 90 endpoint problems. Result: 0/90 have a <=3-move path. Official core a0fd6e6; 201600 primitive applications; 0.46 sec; 15.16 MiB; unchanged limits; zero model workers and row searches.
+
+Scope: this proves a finite exact lower bound only for those endpoints. It does not prove universal four-move minimality or rule out a different level boundary. The next nonduplicate question is to end the pass in a different paid frame/state so the next pass starts directly, rather than radius-searching these same transitions again.
+
+The separate donor overlay hit its 180-second cap because its first implementation polled the stop JSON on every graph operation. It is recorded interrupted, not a miss, and was not rerun. The saved pool and checkpoint were not mutated.
+
+GitHub checkpointing remains fail-closed on the missing historical binary archive. I am placing the exact audit package in the authorized private hub. Please retain it with t00329 and do not repeat the same <=3 exact endpoint grid solely from this note.

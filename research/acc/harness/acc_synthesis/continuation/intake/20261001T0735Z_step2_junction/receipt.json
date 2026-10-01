@@ -1,0 +1,291 @@
+{
+  "algorithm_id": "exact-saved-route-to-fresh-donor-junction-v1",
+  "donor_directed_edges": 812,
+  "donor_receipts": [
+    {
+      "instance_hash": "sha256:777c3cc12e813eecf1ce80b81dfbfbeee28d65234a9202317339b267a950def6",
+      "length": 80,
+      "row_id": "ac-00525",
+      "source_line": 2,
+      "verdict": {
+        "certificate_hash": "sha256:c67641e2b95d160b41cb3df76bd3d0f11929e898ed484f04b96b20b00e843bd0",
+        "length": 80,
+        "ok": true,
+        "peak_total_relator_length": 47,
+        "work": 2106
+      }
+    },
+    {
+      "instance_hash": "sha256:b037f67f9d66bdb1c05554d9a59a892b3eb207a13ebef44bebe372fc90bc1a89",
+      "length": 87,
+      "row_id": "ac-08757",
+      "source_line": 4,
+      "verdict": {
+        "certificate_hash": "sha256:ecb01b3c99e8bfa21fc3da44384711c9db20e8cb2b03d9861675ef052f2af842",
+        "length": 87,
+        "ok": true,
+        "peak_total_relator_length": 47,
+        "work": 2264
+      }
+    },
+    {
+      "instance_hash": "sha256:a93cb7f3d5984371f02f9693ba658d9478e69a8828a683384ef5e027b069dc92",
+      "length": 128,
+      "row_id": "ac-05698",
+      "source_line": 6,
+      "verdict": {
+        "certificate_hash": "sha256:65bd75b164c0794bb28303138efaf41348f1cf166672026f7b323f1e179af045",
+        "length": 128,
+        "ok": true,
+        "peak_total_relator_length": 87,
+        "work": 5412
+      }
+    },
+    {
+      "instance_hash": "sha256:457841ba5470c359c7ecb2e157dfd73f1a62fa73b71d8aa213a20fd48c2253d6",
+      "length": 137,
+      "row_id": "ac-06792",
+      "source_line": 8,
+      "verdict": {
+        "certificate_hash": "sha256:f3345def9c305b0766f35978e835edbc60ec5a8b4bc40af219c9b4d5379d3f32",
+        "length": 137,
+        "ok": true,
+        "peak_total_relator_length": 87,
+        "work": 5654
+      }
+    }
+  ],
+  "donor_vertices": 405,
+  "elapsed_seconds": 0.7792484349993174,
+  "exact_pool_duplicates": [],
+  "junction_candidate_count": 0,
+  "kind": "completed_read_only_exact_route_junction",
+  "limits": {
+    "memory_mib": 1024,
+    "records": 600000,
+    "seconds": 180
+  },
+  "manifest_sha256": "dc8587d7dc6855edfb8aad087f27f4db59c558f66bdf838b664c1634a357ad37",
+  "model_workers": 0,
+  "new_directed_edges_vs_saved_graph": 748,
+  "new_vertices_vs_saved_graph": 369,
+  "official_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "old_directed_edges": 165090,
+  "old_graph_vertices": 79254,
+  "peak_rss_mib": 102.16015625,
+  "pool_mutated": false,
+  "pool_sha256": "f10748695d7a8cf906df7cda342e8d4d9d82bbae04f60ffe8a63241b2bde063c",
+  "primitive_records": 152127,
+  "row_searches": 0,
+  "schema": "acc-step2-junction-audit/1",
+  "scope": "Exact verifier replay, graph-delta count, and state-equality joins between saved selected-route prefixes and fresh donor suffixes. No global shortest-path claim, board claim, or submission.",
+  "selected_improvements": [],
+  "selected_routes_sha256": "ff93a9ecbba27401dc2b5ca21aac85f52038d994b4e5681b85b9263936a506a9",
+  "selected_rows": [
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00001",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": 49,
+      "best_candidate_length": null,
+      "matched_exact_states": 1,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00003",
+      "saved_route_count": 9
+    },
+    {
+      "baseline": 27,
+      "best_candidate_length": null,
+      "matched_exact_states": 1,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00005",
+      "saved_route_count": 1
+    },
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00006",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": 78,
+      "best_candidate_length": null,
+      "matched_exact_states": 1,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00009",
+      "saved_route_count": 5
+    },
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00010",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00011",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": 52,
+      "best_candidate_length": null,
+      "matched_exact_states": 1,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00012",
+      "saved_route_count": 3
+    },
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00013",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00015",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00016",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00017",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": 51,
+      "best_candidate_length": null,
+      "matched_exact_states": 1,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00018",
+      "saved_route_count": 2
+    },
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00020",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": 40,
+      "best_candidate_length": null,
+      "matched_exact_states": 1,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00021",
+      "saved_route_count": 1
+    },
+    {
+      "baseline": 56,
+      "best_candidate_length": null,
+      "matched_exact_states": 2,
+      "nontrivial_junction_occurrences": 1,
+      "row_id": "ac-00022",
+      "saved_route_count": 3
+    },
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00024",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00027",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": 51,
+      "best_candidate_length": null,
+      "matched_exact_states": 13,
+      "nontrivial_junction_occurrences": 12,
+      "row_id": "ac-00028",
+      "saved_route_count": 9
+    },
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00029",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00031",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00032",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": null,
+      "best_candidate_length": null,
+      "matched_exact_states": 0,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00033",
+      "saved_route_count": 0
+    },
+    {
+      "baseline": 44,
+      "best_candidate_length": null,
+      "matched_exact_states": 1,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00034",
+      "saved_route_count": 2
+    },
+    {
+      "baseline": 32,
+      "best_candidate_length": null,
+      "matched_exact_states": 1,
+      "nontrivial_junction_occurrences": 0,
+      "row_id": "ac-00037",
+      "saved_route_count": 5
+    }
+  ],
+  "source_git_blob": "c7702f14dcf3334a1706c5c78714c7da2c027106",
+  "source_head": "8ee0173c8925124c509e98a19038b4cd64638f96",
+  "source_path": "research/acc/live/inbox/upgh_bs_doubling2_20261001T0646Z.txt",
+  "source_sha256": "c740509b1a9c3107f58d316bf0997b333b8313af1b8e7a4da50ab604e13e41e5",
+  "verified_improvement_count": 0
+}

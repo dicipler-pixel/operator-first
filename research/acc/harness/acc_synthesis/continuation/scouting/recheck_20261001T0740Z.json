@@ -1,0 +1,35 @@
+{
+  "schema": "acc-read-only-scout/1",
+  "checked_at": "2026-10-01T07:40:00Z",
+  "query_count": 2,
+  "queries": [
+    "site:arxiv.org 2026 automated theorem proving group presentations rewriting search neural combinatorial group theory",
+    "site:github.com group presentation Nielsen transformation Andrews Curtis search solver"
+  ],
+  "primary_sources_inspected": [
+    {
+      "title": "Learning Guided Automated Reasoning: A Brief Survey",
+      "url": "https://arxiv.org/abs/2403.04017",
+      "published": "2024-03-06",
+      "available_artifacts": "paper abstract/page found; no ACC-specific artifact inspected or run",
+      "possible_relevance": "proof-search guidance and feedback-loop design",
+      "limitation": "survey is not a released ACC solver, does not address these group-presentation moves, and model-worker dispatch is zero for scheduled batches",
+      "bounded_experiment": "none authorized from this check"
+    },
+    {
+      "title": "HyperTree Proof Search for Neural Theorem Proving",
+      "url": "https://arxiv.org/abs/2205.11491",
+      "published": "2022-05-23",
+      "available_artifacts": "paper abstract/page found; no repository artifact established by the bounded queries",
+      "possible_relevance": "online learning from failed proof searches",
+      "limitation": "different formal environment, neural training required, and no direct evidence for exact route shortening",
+      "bounded_experiment": "none authorized from this check"
+    }
+  ],
+  "github_result": "The focused public query produced no relevant primary GitHub repository result to inspect.",
+  "decision": "quiet_no_change",
+  "reason": "No concrete new artifact or method met the harness constraints or justified replacing available exact code work.",
+  "notification": false,
+  "model_workers": 0,
+  "external_code_executed": false
+}

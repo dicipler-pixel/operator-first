@@ -7453,6 +7453,47 @@
       "kind": "interrupted",
       "reason": "expired_portable_reservation",
       "finished_at": 1790825998.351189
+    },
+    {
+      "key": "6e22cf9fcb6bf8242ab6a6de312d38ee02c1a4d1e8cd7e62b617442159aacb72",
+      "job": {
+        "row_id": "ac-00037",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "f10748695d7a8cf906df7cda342e8d4d9d82bbae04f60ffe8a63241b2bde063c"
+        },
+        "seed_sha256": "5b683f21874f6c092ad127c4deb51021114a10ae95f7e4845c64c87de6ada3e3",
+        "baseline": 32,
+        "target": 31,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "6e22cf9fcb6bf8242ab6a6de312d38ee02c1a4d1e8cd7e62b617442159aacb72"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790847598.10826,
+      "result_path": "runs/kernel_revival/code_6e22cf9fcb6bf824/worker_result.json",
+      "result_sha256": "8fc89bf3c174741a1e21e58a35b6ad9e748299f3cd0ab49e7e1c273f89e65aca",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best 32, target 31.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00037"
+      }
     }
   ],
   "notifications": [
@@ -7470,7 +7511,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790826522.4554253,
+  "updated_at": 1790847598.1089976,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
@@ -7503,5 +7544,10 @@
       "status": "verified_new_graph",
       "receipt": "continuation/intake/20261001T0336Z/receipt.json"
     }
+  },
+  "artifact_recovery": {
+    "receipt": "continuation/recovery_20261001T0940Z/receipt.json",
+    "resolved_blocker": "109ad7791d2c820560596d6630da733fd282d29c4ff8df3127943b01b8321fb5",
+    "read_only_evidence_restored": 33
   }
 }

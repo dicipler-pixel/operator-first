@@ -1,0 +1,26 @@
+{
+  "schema": "acc-read-only-scout/1",
+  "checked_at": "2026-10-01T09:24:00Z",
+  "query_count": 2,
+  "queries": [
+    {
+      "surface": "public GitHub repository search",
+      "query": "Nielsen transformations group presentations search",
+      "result": "zero repositories returned"
+    },
+    {
+      "surface": "web discovery restricted toward arXiv",
+      "query": "site:arxiv.org/abs 2025 2026 group presentations Nielsen transformations computational search rewriting systems",
+      "result": "no relevant 2025/2026 primary paper returned"
+    }
+  ],
+  "primary_sources_inspected": [],
+  "artifacts_available": [],
+  "limitations": "The bounded searches produced no relevant primary repository or recent paper; unrelated results were rejected rather than treated as leads.",
+  "harness_failure_or_question": "No external artifact was found that addresses exact selected-route neighborhood bridges or verified group-presentation shortening.",
+  "bounded_falsifiable_next_experiment": null,
+  "decision": "quiet_no_change",
+  "notification": false,
+  "model_workers": 0,
+  "external_code_downloaded_or_run": false
+}

@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-01T09:38:40.728323+00:00",
+  "failure": "KeyError result_path while summarizing preserved interrupted attempt; reservation not committed and no search started",
+  "fix": "Summary emits null for an interrupted attempt with no result; artifact audit remains unchanged and still requires results for completed attempts",
+  "changes": [
+    {
+      "path": "acc_synthesis/helpers/host_stage.py",
+      "before_sha256": "fa76681fb5f4718e472d99734255e448d8a30db823de7bfd45505b16f74e7bd5",
+      "after_sha256": "35345da4a1ede64b3acafdd4cadf3c5c6b2da4afd0b74492d95b7411451416fb"
+    },
+    {
+      "path": "/tmp/acc_work_stage.py",
+      "before_sha256": "e1b763dd59c16ab5d7bdc83d6f3485cf804e19e425a273724152477271580f73",
+      "after_sha256": "2007a4d6ce5c80ef111c2ff20cf3dcf6730c44cb00cdaed0d22850504dfe8e86"
+    }
+  ],
+  "budgets_unchanged": true,
+  "checkpoint_not_reset": true
+}
