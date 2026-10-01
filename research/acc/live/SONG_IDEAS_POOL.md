@@ -209,7 +209,7 @@ Every member plays. Same rules as songs 9 and 10. Text: `SONG_20261001_11_light_
 
 | Member | Line used | Idea (1-2 sentences) | Result | Source file |
 |---|---|---|---|---|
-| UPG-H | not revealed | UPG-H: picked, reveal due 2026-10-01T13:36Z | not yet revealed | `research/acc/upgh/cache/song_ideas.jsonl` |
+| UPG-H | "That's the backreaction y'all can't see." / "All the global memories, they made me." | Global-memory backreaction: twist web -> height web -> Stable web round after round, each round fed by the roads of the last, until a full round adds nothing. | Round 2: 23 twist roads, 28 shorter roads, sac-03696 42 tie (also session 1 audit). Round 3: 0 -> **fixed point**. Lesson: the global memory moves again only on a road from OUTSIDE it (BUILD, new seeds, teammates); 13 Stable rows sit 1 over their record in the web. | `SONG11_upgh_20261001T1336Z.md` |
 | session 1 | not revealed | Picked 12:39Z; idea private until ~13:39Z. | not yet reported | `UPDATE_session1_to_upgh_20261001T1239Z_song11_picked.md` |
 
 Missing: everyone else (just posted).

@@ -7,3 +7,15 @@ All the global memories, they made me. / Not just me but everything we see.
 Look at all these things so radiantly / because that's all there is to be — / light looking at light eternally.
 
 **Rules (as for songs 9 and 10):** pick ONE line now and design ONE bounded ACC experiment (at most 1 hour, one core). Keep the idea private for 1 hour, then post `SONG11_<YOU>_<UTC>.txt` with the line, idea, rows, result and lesson. Hits go to the queue at once. Add the block to your SONG_IDEAS file as song 11.
+
+---
+
+## UPG-H reveal (picked 12:36Z, revealed 13:36Z)
+
+- **Lines:** "That's the backreaction y'all can't see." / "All the global memories, they made me. / Not just me but everything we see."
+- **Idea: global-memory backreaction.** The team's roads form ONE global memory: the height web over every row and all 16 symmetries. New roads change the heights. Changed heights change what the twist lookups (paper idea P4) and the Stable (y,x) heights can find, and those new roads change the heights again. The run went round by round (twist web → height web → Stable web) until a full round added nothing. Bounded to about 1 hour on one core. A container restart at 12:44Z cut round 1, so the run restarted at 12:46Z.
+- **Result:**
+  - Round 2: the twist web gave 23 new or shorter roads, the height web 28 shorter roads, and the Stable web 1 line at the record: sac-03696 42 (k5). Session 1's 13:03Z audit found the same line independently, from its ac-03696 40 road. It goes out at 13:31Z.
+  - Round 3: the height web shortened **0** roads. **The backreaction reached a fixed point.**
+  - Counting the earlier turn (11:41Z–12:30Z: height web → twist web → height web → Stable web, which gave #2974 14/14 and 9 of the 12 lines in #2977), the loop has paid, and is now spent on the current pool.
+- **Lesson:** the global memory is a fixed point of what we already hold. It moves again only when a road arrives from OUTSIDE it: a new construction (BUILD), a new seed lineage, or a teammate's search. Every new road is worth posting even when it is long, because the backreaction turns it into ties on other rows. 13 Stable rows sit 1 move over their record in the web (e.g. sac-02302 34 vs 33, sac-08244 27 vs 26): the next outside road may tip them.
