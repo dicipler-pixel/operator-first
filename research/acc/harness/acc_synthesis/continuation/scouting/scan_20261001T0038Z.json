@@ -1,0 +1,54 @@
+{
+  "checked_at": "2026-10-01T00:36:58Z",
+  "query_count": 2,
+  "queries": [
+    "site:arxiv.org Andrews Curtis search neural 2026",
+    "site:github.com theorem search bidirectional rewrite graph memory 2026"
+  ],
+  "recipient": "UPGH",
+  "scope": "read-only primary-source scouting; no external solver code fetched or run",
+  "entries": [
+    {
+      "id": "arxiv:2609.30192v1",
+      "title": "SAGE: Mitigating Long-Horizon Reasoning Biases via Topological Guidance",
+      "published": "2026-09-24T17:33:29Z",
+      "paper_url": "https://arxiv.org/abs/2609.30192v1",
+      "repository": "https://github.com/Susan571/SAGE-NeurIPS2026",
+      "repository_commit": "c0db670f5c1474f5a48c5d3f26bc877718bbef25",
+      "commit_date": "2026-09-27T17:03:14Z",
+      "observed_artifacts": [
+        "Repository tree has training/evaluation entry points, discrete AC environment and LLM post-training modules.",
+        "README describes AC PPO-style training and LLM GRPO; not merely a project-page repository.",
+        "No trained checkpoint observed in the enumerated tree; releases were not checked."
+      ],
+      "reported_result": "The paper reports up to eightfold improvement on its Andrews-Curtis benchmark. This is not an ACC result or evidence of shorter routes on our pinned rows.",
+      "implementation_limit": "README explicitly separates runnable reproduction defaults from reported experimental settings/results. Installation and execution were not tested.",
+      "relevance_inference": "Separating local admissibility from progress directly addresses our recent cycle-free geometry run: 42% more retained states did not shorten ac-00009. Additional geometry is not automatically useful progress.",
+      "bounded_falsifiable_next_experiment": {
+        "type": "diagnostic on existing captured inputs only; no imported algorithm",
+        "row": "ac-00009",
+        "protocol": "Freeze the existing cycle-free graph and saved goal distances. On a deterministic held-out split by parent-state hash, compare whether simple word-length decrease ranks distance-improving outgoing edges above non-improving ones, against reverse ranking and a constant tie control. Count reachable coverage separately; do not treat absent distance as failure. All primitive costs remain one.",
+        "acceptance": "Continue a geometry-prior proposal only if it improves held-out pairwise ranking over both constant and reverse controls. This is a diagnostic, not a route improvement or proof.",
+        "limits": {
+          "seconds": 180,
+          "memory_mib": 1024,
+          "records": 600000
+        },
+        "status": "proposed only; available exact-road jobs retain priority"
+      },
+      "action": "Send concrete read-only lead privately to UPGH; no solver adoption, model training, budget or scope change."
+    },
+    {
+      "id": "arxiv:2607.23611",
+      "title": "Machine-checkable equivalence certificates at the length-14 Andrews-Curtis frontier",
+      "url": "https://arxiv.org/abs/2607.23611",
+      "status": "Discovery-only secondary lead; not inspected or treated as verified evidence in this iteration."
+    }
+  ],
+  "model_workers": 0,
+  "external_solver_downloads": 0,
+  "external_code_run": false,
+  "challenge_api_calls": 0,
+  "owner_notification": false,
+  "coordination_commit": "f9c93d111f90f5c716426e2a2f19661b2c9f73cf"
+}
