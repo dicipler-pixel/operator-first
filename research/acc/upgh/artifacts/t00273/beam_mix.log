@@ -16,3 +16,9 @@ tag=n3pref1 i=1 tot=19 -> timeout (101s) last= state=8 1 2 2 1 2 0 2 2 11 3 3 3 
 tag=n3pref3 i=3 tot=21 -> timeout (100s) last= state=8 3 3 1 3 3 1 3 0 13 3 3 3 1 2 2 2 2 2 0 2 2 0 prefix=[5,12,12]
 tag=n3pref1 i=1 tot=17 -> timeout (100s) last= state=6 1 2 0 0 2 2 11 3 3 3 3 3 1 2 2 2 2 0 prefix=[0]
 tag=n3pref8 i=8 tot=21 -> timeout (101s) last= state=8 2 1 2 0 2 2 1 2 13 3 0 3 3 3 3 3 3 0 2 2 2 1 prefix=[0,4,1,6,9,12,12,10]
+tag=n3pref7 i=7 tot=23 -> timeout (100s) last= state=8 3 3 1 3 3 1 3 0 15 0 3 1 2 2 2 2 2 0 2 2 2 0 2 2 prefix=[5,12,12,5,12,12,10]
+# done ac-08606 best=None wall=576s
+tag=n3pref7 i=7 tot=19 -> timeout (101s) last= state=6 1 2 0 0 2 2 13 1 3 3 3 3 0 2 1 1 3 0 2 2 prefix=[0,1,9,12,5,8,13]
+# done ac-09310 best=None wall=578s
+tag=n3pref7 i=7 tot=21 -> timeout (100s) last= state=8 2 1 2 0 2 2 1 2 13 1 3 0 3 3 3 3 3 3 0 2 2 2 prefix=[0,4,1,6,9,12,12]
+# done ac-07430 best=None wall=580s
