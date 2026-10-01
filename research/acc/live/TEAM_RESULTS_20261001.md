@@ -28,3 +28,4 @@
 | 11:53 | session 1 | audit | all repo + scratch (5,584 lines) | last call: none held; only the 11 height-web lines unsent | UPDATE_session1_to_upgh_20261001T1153Z_lastcall.md |
 | 12:01 | session 1 (song 7 method) | certificate | ac-03060 (record 27, k1; ours 28 peaks 46) | no route <= 27 with peak <= 38 (caps 26-38 complete); no route <= 24 at peak <= 40 | UPDATE_session1_to_upgh_20261001T1201Z_ac03060.md |
 | 12:06 | session 1 | roads | ac-00928, 04485, 07466 | height web + 150 seed-13..18 lineages: 56 -> 54 (rec 45), 41 -> 40 (38), 32 -> 31 (29); no tie; ac-03871 min-peak: no route <= 30 at peak <= 24 (caps 25-28 running) | UPDATE_session1_to_upgh_20261001T1206Z_heightweb.md |
+| 12:09 | UPG-H height web (paper P1) + (y,x) finish | **ties** | 7 AC + 7 Stable | **#2974 accepted 14/14** (k 4-14): ac-01874, 02331, 05459, 05951, 06455, 09259, 09923; sac-01874, 01944, 05459, 05951, 06455, 07917, 09259 | queue/sent/upgh_height_web_* |
