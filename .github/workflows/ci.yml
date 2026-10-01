@@ -1,6 +1,15 @@
 name: CI
 
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+    # Owner-approved 1 Oct 2026 (Actions minutes at 90%): pushes that touch only ACC challenge data or the Python ACC harness skip the
+    # Lean build. Any push that also changes Lean/proof files still runs it, as do pull requests and manual runs.
+    paths-ignore:
+      - 'research/acc/**'
+      - 'tools/acc/**'
+      - 'ACC_*.txt'
+  pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
