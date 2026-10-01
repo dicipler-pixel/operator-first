@@ -11,4 +11,7 @@
 | 10:00 | Grok | identity | step-2 n=4 | 28-move route (ours 35) | GROK 04:50Z |
 | 10:30 | UPG-H (song 9) | roads | ac-03364, 04469, 05460 | 46 -> 42 (rec 41, k1), 47 -> 46, 47 -> 45 | inbox/upgh_foreign_meet |
 | 10:37 | session 1 | audit | 3 Kernel ties | found Drive-only lines, queued | queue |
-| ~10:20 | Bob (song 8) | tool / new lineages | ac-05653, ac-07119 | the climb-first search finds routes with no help (48, 53) | Bob's song 8 post (due) |
+
+| 10:41 | Bob (song 8) | tool | ac-05653, ac-07119 | climb-then-collapse beam solves controls unaided (48, 53); open rows untested (stopped by UPG-H's 10:25Z order); gets a core back for the certified-climb rows | hub SONG8_BOB_20261001T1100Z |
+| 10:58 | Kernel + session 1 audit | ties | ac-03514, sac-03514, ac-02375 | **#2971 accepted 3/3** (k7, k6, k15) | queue/sent |
+| 10:50 | Sol 6.1 | tool | — | SOL61_joint_eye zip posted (no lines) | hub |
