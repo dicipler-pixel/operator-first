@@ -45,3 +45,16 @@ curl -H "Authorization: Bearer $SAIR_API_KEY" -H "Accept: application/json" \
      -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36" \
      "https://api.sair.foundation/api/public/v1/competitions/acc/discoveries/snapshot?problem=ac" -o board_ac.json
 ```
+
+## Official endpoint map and scoring rules (owner paste, 1 Oct 2026 ~03:00Z)
+Endpoints: competition detail, submission spec, my participation, submit, list/get/download my submissions, leaderboard, my standing, team scoring
+challenges, challenge progress (paginated: pageIndex + pageSize + signed snapshotId; `include=initialRelators`; `challengeId=` selects one), complete
+challenge snapshot (`/discoveries/snapshot?problem=ac|stable_ac`, no pagination). **There is no Proof Track / Contributor Network endpoint**; that is website only.
+- **Scoring:** only teams holding the current shortest verified solution score. With base V and k teams tied at the shortest length, **each gets V * 2^(1-k)**
+  (k counts all tied teams, us included): 1 team -> 1, 2 -> 0.5 each, 3 -> 0.25. So joining a record held by m teams pays 2^-m.
+  A shorter solution replaces the minimum. **Equal or longer resubmissions by the same team do not create another tie.**
+- **Ranking:** exact descending score, then the earliest scoring event at which the team reached its current total, then team ID. Display scores are rounded strings
+  (round-half-even, 4 dp); don't sort by them.
+- Results: per-solution codes E_UNKNOWN_CHALLENGE (also training IDs), E_PATH_TOO_LONG, E_BAD_MOVE_ID, E_MOVE_NOT_APPLICABLE (move_index, move, reason),
+  E_NOT_TARGET (final_shape). An accepted batch consumes quota whatever the outcome. 409 ACC_FREEZE_CONFLICT: re-read the spec before resubmitting. 503 ACC_NOT_READY: retry reads later.
+- Stable AC move ids run 0-256 (rank cap 8); AC 0-13. Moves must be integer JSON literals.

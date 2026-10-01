@@ -100,3 +100,26 @@ core; verify_log.txt holds its log.  Nothing verified, so no lines.txt.
   automorphism y -> y^-1 (move ids 8<->9, 12<->13).  Transfer: [0,1] + swap(yinv(moves)) + [2,5,2,8]; verified n=1
   17->23, n=3 14->20, n=6 100->106 (ok=True).  Replaying the direct n=3/n=6 lists on the n=4/n=5 rows never goes
   below the start total, so they give no restart states.
+- acc_capped CAP 24 ac-05538 (capped_05538_cap24.*): **CLOSED at depth 109, 9,632,608 states, AC NONE, SAC NONE.**
+  Exact: no AC path from ac-05538 whose prefix stays within total length 24 (start 21): any route has a peak >= 25.
+- acc_capped CAP 25 ac-09632 (capped_09632_cap25.*): **CLOSED at depth 159, 118,139,720 states, AC NONE, SAC NONE**
+  (budget 150M, 840 s).  Exact: no AC path from ac-09632 whose prefix stays within total length 25: any route has a
+  peak >= 26, i.e. a hump of at least +7 over the start 19.
+
+## 6. Summary and what would reopen this
+
+- Prediction before running: null (no verified path on either row within the limits); outcome: null, as predicted.
+- The interpolation premise does not hold for this family: the certified n=3 and n=6 routes use n-specific
+  cancellations (y^3 against Y^n at n=3; Y^(n-3) against y^3 at n=6) and have different middle games; the n=2 route is
+  a third mechanism.  There is no pumped block and no growth law; literal replays diverge at step 5 (n=1,2,3 lists) or
+  step 11 (n=6 list).  The common 8-move prefix of the n=6 route is the only transferable piece (it reaches the
+  lowest totals seen: 15 on n=4, 17 on n=5).
+- Exact negative scope established with the pinned tools and an independent Python kernel: ac-09632 has no route
+  with peak <= 25 (118M-state closure), ac-05538 none with peak <= 24 (9.6M-state closure); the one-x collapse set
+  is unreachable within cap 22 on ac-09632 (closed) and within 4.5M states at cap 23 on ac-05538 (bounded).
+  All certified anchors have zero hump, so n=4/5 routes are qualitatively different from the anchors.
+- Worth doing next (not done here): a cap-26/27 closure on ac-09632 needs > 150M states (growth x3.7 per cap unit:
+  3.65M -> 32M -> 118M) and more than one lease; beams with BEAM_BAL / high-hump tolerance from the total-15 and
+  total-17 restart states; a 3-x-relator target set (phi(y) = x y^3 at n=4, phi(y^5) = (y^2 X)^3 at n=5) instead of
+  the one-x set.  A real n=4 or n=5 anchor from any team (event new_path on ac-09632 / ac-05538) would make the
+  alignment worth redoing with a third mechanism in hand.
