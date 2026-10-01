@@ -7,3 +7,4 @@ Written by tools/acc/upgh on every claim and result. Rows below are being search
 - t00314: ac-06238, sac-06238 (method beam_free, seed 102)
 - t00316: ac-06921, sac-06921 (method beam_free, seed 102)
 - t00317: sac-07879 (method beam_free, seed 102)
+- t00319: sac-01514 (method tail, seed None)
