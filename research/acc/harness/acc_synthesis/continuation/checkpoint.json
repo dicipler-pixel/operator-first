@@ -1,7 +1,34 @@
 {
   "schema": "acc-continuation/1",
   "stopped": false,
-  "active": null,
+  "active": {
+    "job": {
+      "row_id": "ac-00037",
+      "track": "AC",
+      "helper": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "script": "helpers/kernel_lane_v1.py",
+      "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+      "inputs": {
+        "helpers/kernel_sources/roads_input.json": "f10748695d7a8cf906df7cda342e8d4d9d82bbae04f60ffe8a63241b2bde063c"
+      },
+      "seed_sha256": "5b683f21874f6c092ad127c4deb51021114a10ae95f7e4845c64c87de6ada3e3",
+      "baseline": 32,
+      "target": 31,
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "key": "6e22cf9fcb6bf8242ab6a6de312d38ee02c1a4d1e8cd7e62b617442159aacb72"
+    },
+    "task_id": 195,
+    "lease_token": "fe156fcbd4c94419a4792b31d74d0942",
+    "expires_at": 1790848095.597239,
+    "repo_head": "45ccb589da9df8fcc8468a882f13d2edd40b49aa",
+    "phase": "reserved",
+    "host_must_commit_before_execution": true
+  },
   "attempts": [
     {
       "key": "73ef356f6a0543c20e68e73cd077ce7a0f80c2d6f96c2877a098e76b9d122e11",
@@ -7470,7 +7497,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790826522.4554253,
+  "updated_at": 1790847495.5977879,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
@@ -7503,5 +7530,10 @@
       "status": "verified_new_graph",
       "receipt": "continuation/intake/20261001T0336Z/receipt.json"
     }
+  },
+  "artifact_recovery": {
+    "receipt": "continuation/recovery_20261001T0940Z/receipt.json",
+    "resolved_blocker": "109ad7791d2c820560596d6630da733fd282d29c4ff8df3127943b01b8321fb5",
+    "read_only_evidence_restored": 33
   }
 }

@@ -1,5 +1,5 @@
 {
-  "completed_batches": 178,
+  "completed_batches": 179,
   "model_worker_launches": 4,
   "code_only_batches": 174,
   "new_improved_routes": 9,
@@ -31,29 +31,29 @@
     "status": "active",
     "active": {
       "job": {
-        "row_id": "ac-00003",
+        "row_id": "ac-00037",
         "track": "AC",
         "helper": "kernel",
         "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
         "script": "helpers/kernel_lane_v1.py",
         "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
         "inputs": {
-          "helpers/kernel_sources/roads_input.json": "6ab0007ec4f6c845ac352a395e4a5ea058b8ce245cab921b904af8f8443ad683"
+          "helpers/kernel_sources/roads_input.json": "f10748695d7a8cf906df7cda342e8d4d9d82bbae04f60ffe8a63241b2bde063c"
         },
-        "seed_sha256": "7914988d47a2aa50da91c882a20417bef5847597924ad773bb407898a12148a8",
-        "baseline": 49,
-        "target": 40,
+        "seed_sha256": "5b683f21874f6c092ad127c4deb51021114a10ae95f7e4845c64c87de6ada3e3",
+        "baseline": 32,
+        "target": 31,
         "caps": {
           "wall_seconds": 180,
           "node_cap": 600000,
           "memory_mib": 1024
         },
-        "key": "d132d1b535debf835174646ba40cc93f9962a72ad650d4affe7b66f7ce9bdc61"
+        "key": "6e22cf9fcb6bf8242ab6a6de312d38ee02c1a4d1e8cd7e62b617442159aacb72"
       },
-      "task_id": 194,
-      "lease_token": "01264dbef1a44e3384e5444fdbd0dc13",
-      "expires_at": 1790825845.0693877,
-      "repo_head": "e7088d3c5ec7e621e6d8ddc12a5f801867f63912",
+      "task_id": 195,
+      "lease_token": "fe156fcbd4c94419a4792b31d74d0942",
+      "expires_at": 1790848095.597239,
+      "repo_head": "45ccb589da9df8fcc8468a882f13d2edd40b49aa",
       "phase": "reserved",
       "host_must_commit_before_execution": true
     }
@@ -61,7 +61,7 @@
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 178,
+      "completed": 179,
       "running": 1
     },
     "unconnected_roles": [
@@ -2401,6 +2401,15 @@
         "fresh_depth": 8,
         "pool_route_cap": 6000
       }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00003",
+      "baseline": 49,
+      "target": 40,
+      "kind": "interrupted",
+      "result_path": null,
+      "limits": null
     }
   ],
   "implementation_failure": {

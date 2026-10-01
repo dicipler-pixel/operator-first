@@ -1,0 +1,14 @@
+{
+  "status": "interrupted",
+  "method": "read-only exact t00312 donor overlay v1",
+  "input_sha256": "3369d2dd3a960529a6e08921651c7d3dae1eba3e1c82ad54e443a0d7b46526ff",
+  "pool_sha256": "f10748695d7a8cf906df7cda342e8d4d9d82bbae04f60ffe8a63241b2bde063c",
+  "reason": "180-second wall cap during BFS; stop-file JSON polling was performed for every counted graph operation",
+  "classification": "interrupted implementation, not a miss, not mathematical evidence",
+  "pool_mutated": false,
+  "checkpoint_mutated": false,
+  "model_workers": 0,
+  "row_searches": 0,
+  "limits": {"seconds": 180, "memory_mib": 1024, "records": 600000},
+  "replay_policy": "Do not rerun this exact key merely by throttling polling. A future overlay needs a separately justified method or genuinely changed donor input and must retain this interruption."
+}

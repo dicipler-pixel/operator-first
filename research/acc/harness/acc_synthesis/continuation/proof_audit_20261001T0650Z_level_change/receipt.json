@@ -1,0 +1,39 @@
+{
+  "kind": "completed_bounded_exact_level_change_search",
+  "source": "UPGH t00312/t00329",
+  "checker_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e",
+  "cases": 90,
+  "parameter_grid": {
+    "a": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "b": [
+      2,
+      3,
+      4
+    ],
+    "c": [
+      2,
+      3,
+      4
+    ]
+  },
+  "depth": 3,
+  "hits": [],
+  "no_path_le_3": 90,
+  "records": 201600,
+  "elapsed_seconds": 0.4615121740025643,
+  "peak_rss_mib": 15.15234375,
+  "limits": {
+    "seconds": 180,
+    "memory_mib": 1024,
+    "records": 600000
+  },
+  "model_workers": 0,
+  "row_searches": 0,
+  "scope": "Exact endpoints only on finite grid; does not prove global four-move minimum for every parameter or alternate construction."
+}
