@@ -28,33 +28,41 @@
     }
   ],
   "next": {
-    "status": "planned",
-    "job": {
-      "row_id": "ac-00012",
-      "track": "AC",
-      "helper": "kernel",
-      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
-      "script": "helpers/kernel_lane_v1.py",
-      "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
-      "inputs": {
-        "helpers/kernel_sources/roads_input.json": "6ab0007ec4f6c845ac352a395e4a5ea058b8ce245cab921b904af8f8443ad683"
+    "status": "active",
+    "active": {
+      "job": {
+        "row_id": "ac-00012",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "6ab0007ec4f6c845ac352a395e4a5ea058b8ce245cab921b904af8f8443ad683"
+        },
+        "seed_sha256": "080bbe88ccf41c29ce20ff672ca310011ecc7a906bb7c957d6401f53b8b6b177",
+        "baseline": 52,
+        "target": 47,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "a09606159dadc91020c45655ae9018fb13f206f704b3e67ad2afc46b6e6cb006"
       },
-      "seed_sha256": "080bbe88ccf41c29ce20ff672ca310011ecc7a906bb7c957d6401f53b8b6b177",
-      "baseline": 52,
-      "target": 47,
-      "caps": {
-        "wall_seconds": 180,
-        "node_cap": 600000,
-        "memory_mib": 1024
-      },
-      "key": "a09606159dadc91020c45655ae9018fb13f206f704b3e67ad2afc46b6e6cb006"
-    },
-    "remaining_jobs": 23
+      "task_id": 191,
+      "lease_token": "e64e770025b544e39094592598daf043",
+      "expires_at": 1790825667.663666,
+      "repo_head": "bba3d8df7340a22d6a2bb43328fae4e145fe5a86",
+      "phase": "reserved",
+      "host_must_commit_before_execution": true
+    }
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 175
+      "completed": 175,
+      "running": 1
     },
     "unconnected_roles": [
       "luna_memory",
