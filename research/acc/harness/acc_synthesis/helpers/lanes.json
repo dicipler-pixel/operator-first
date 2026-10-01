@@ -153,6 +153,22 @@
       "rows": [
         "ac-00009"
       ]
+    },
+    {
+      "name": "paid_phase",
+      "algorithm_id": "paid-canonical-interior-joins-v1",
+      "script": "helpers/paid_phase_lane_v1.py",
+      "input_files": [
+        "helpers/paid_phase_protocol.json",
+        "runs/kernel_revival/code_f69127995db101bd/exact_graph.json.gz",
+        "runs/kernel_revival/code_f69127995db101bd/worker_result.json"
+      ],
+      "enabled": true,
+      "rows": [
+        "ac-00003",
+        "ac-00028",
+        "ac-00034"
+      ]
     }
   ]
 }
