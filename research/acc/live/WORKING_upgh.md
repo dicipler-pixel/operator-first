@@ -4,4 +4,5 @@ Written by tools/acc/upgh on every claim and result. Rows below are being search
 
 - t00274: ac-05007, ac-07080 (method beam_free, seed 301)
 - t00275: ac-02415, ac-09632 (method beam_free, seed 301)
+- t00279: sac-03714 (method splice, seed None)
 - t00280: sac-09995 (method beam_free, seed 103)
