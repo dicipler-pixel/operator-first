@@ -1,0 +1,50 @@
+{
+  "status": "completed",
+  "attempt": {
+    "key": "6dc9475d8d9e85f1f1f6a7bf8dc0bedc8e534f67b6722cb43f9c9e19e10e69c7",
+    "job": {
+      "row_id": "ac-00017",
+      "track": "AC",
+      "helper": "kernel",
+      "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+      "script": "helpers/kernel_lane_v1.py",
+      "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+      "inputs": {
+        "helpers/kernel_sources/roads_input.json": "25119337d1c8d3933de2fd236c4cd093484f4623eb1956381e1b4b0cafa7bc4c"
+      },
+      "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "baseline": null,
+      "target": 82,
+      "caps": {
+        "wall_seconds": 180,
+        "node_cap": 600000,
+        "memory_mib": 1024
+      },
+      "key": "6dc9475d8d9e85f1f1f6a7bf8dc0bedc8e534f67b6722cb43f9c9e19e10e69c7"
+    },
+    "origin": "deterministic_helper_code",
+    "finished_at": 1790817940.9908864,
+    "result_path": "runs/kernel_revival/code_6dc9475d8d9e85f1/worker_result.json",
+    "result_sha256": "d11346abb4d287c0ca9f1218bcce2cfdcf83de0f0caa0dc263a18bbe470ae783",
+    "kind": "bounded_miss",
+    "summary": "No improvement under recorded foreign-road overlay scope; best None, target 82.",
+    "gate": null,
+    "limits": {
+      "wall_seconds": 180.0,
+      "node_cap": 600000,
+      "memory_mib": 1024,
+      "fresh_depth": 8,
+      "pool_route_cap": 6000
+    },
+    "reopen_when": {
+      "event": "new_verified_foreign_road",
+      "row_id": "ac-00017"
+    }
+  },
+  "worker_summary": {
+    "result_path": "runs/kernel_revival/code_6dc9475d8d9e85f1/worker_result.json",
+    "kind": "bounded_miss",
+    "best_length": null,
+    "termination_reason": "node_cap"
+  }
+}

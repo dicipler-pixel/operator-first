@@ -1,0 +1,15 @@
+{
+  "task_id": 157,
+  "key": "6dc9475d8d9e85f1f1f6a7bf8dc0bedc8e534f67b6722cb43f9c9e19e10e69c7",
+  "reservation_commit": "218fcf700d253d2cd150cb053ac13d856e4617ea",
+  "observed_state_before": "running despite completed command/checkpoint",
+  "repaired_state": "completed via existing own token-fenced lease",
+  "cause": "Not established; terminal events absent at later read",
+  "result_sha256": "d11346abb4d287c0ca9f1218bcce2cfdcf83de0f0caa0dc263a18bbe470ae783",
+  "artifact_hashes_verified": 8,
+  "attempts_unchanged": 142,
+  "new_searches": 0,
+  "model_dispatches": 0,
+  "budgets_changed": false,
+  "at": 1790818353.6195304
+}
