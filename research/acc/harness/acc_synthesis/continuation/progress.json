@@ -1,7 +1,7 @@
 {
-  "completed_batches": 137,
+  "completed_batches": 138,
   "model_worker_launches": 4,
-  "code_only_batches": 133,
+  "code_only_batches": 134,
   "new_improved_routes": 9,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -30,7 +30,7 @@
   "next": {
     "status": "planned",
     "job": {
-      "row_id": "ac-00016",
+      "row_id": "ac-00017",
       "track": "AC",
       "helper": "kernel",
       "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
@@ -41,20 +41,20 @@
       },
       "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
       "baseline": null,
-      "target": 79,
+      "target": 82,
       "caps": {
         "wall_seconds": 180,
         "node_cap": 600000,
         "memory_mib": 1024
       },
-      "key": "676d1917fc9225fff5e930dba49c63f9cc4c8a77a1d32cd075fa5ffaf07ea337"
+      "key": "c433cc52e125df5428eabecad6b97371258ae11c024b16b25201db849461aedb"
     },
-    "remaining_jobs": 11
+    "remaining_jobs": 10
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 137
+      "completed": 138
     },
     "unconnected_roles": [
       "luna_memory",
@@ -1777,6 +1777,21 @@
       "target": 150,
       "kind": "bounded_miss",
       "result_path": "runs/kernel_revival/code_3a65ef0205eeea17/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00016",
+      "baseline": null,
+      "target": 79,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_676d1917fc9225ff/worker_result.json",
       "limits": {
         "wall_seconds": 180.0,
         "node_cap": 600000,

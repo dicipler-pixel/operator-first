@@ -19,6 +19,7 @@ def relative(p):return str(p.relative_to(ROOT))
 def emit(x):print(json.dumps(x));return x
 def prepare(feed_path):
  c=read(CP); policy=read(POLICY)
+ if not policy.get('enabled',False):return emit({'status':'intake_disabled_draft'})
  if c['stopped'] or c['active']:return emit({'status':'blocked_existing_stop_or_search'})
  if c.get('intake_lease'):return emit({'status':'blocked_intake_lease','lease':c['intake_lease']})
  feed=read(feed_path);pool=read(POOL)
@@ -64,6 +65,7 @@ def prepare(feed_path):
  save(CP,c);return emit({'status':'reserved_intake','lease':c['intake_lease']})
 def run(key,commit):
  c=read(CP);lease=c.get('intake_lease');policy=read(POLICY)
+ assert policy.get('enabled',False),'Draft intake is disabled pending validation'
  assert not c['stopped'] and c['active'] is None
  assert lease and lease['key']==key and lease['expires_at']>time.time()
  assert read(OWNER)=={'owner':lease['owner'],'key':key},'Foreign intake reservation cannot be adopted'

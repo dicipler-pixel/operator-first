@@ -17,6 +17,13 @@ grant new model dispatch, search budgets, targets or submission rights.
 
 ## Durable state and limits
 
+October 1 control note: `auto_intake.py` and `host_supervisor.js` are unfinished
+drafts from before the owner's brief pause. `auto_intake_policy.json` keeps intake
+disabled pending validation. Continue using the established `helper_batch.py`
+and `host_driver.js` procedure; do not enable the draft solely because it exists.
+The owner resumed the existing bounded harness at 01:02Z; previous probe keys
+remain closed and no search or model-worker budget was reset.
+
 `continuation/checkpoint.json` is the portable continuation index and stop flag.
 `continuation/routes.json` contains exact seed paths plus independently verified
 improvements. `runs/` contains bounded-search artifacts. The SQLite ledger in
