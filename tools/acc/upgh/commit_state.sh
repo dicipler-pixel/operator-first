@@ -5,7 +5,7 @@
 # usage: bash tools/acc/upgh/commit_state.sh "message"
 set -u
 cd "$(dirname "$0")/../../.." || exit 1
-MSG=${1:-"UPG-H: state"}
+MSG="${1:-"UPG-H: state"} [skip ci]"   # 1 Oct 02:15Z: every push ran the full Lean CI; the owner is at 90% of Actions minutes
 BR=$(git rev-parse --abbrev-ref HEAD)
 mkdir -p research/acc/upgh/cache
 exec 9>research/acc/upgh/cache/git.lock
@@ -26,7 +26,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_019Eg5822oBrr1G75rKvNXKh" || exit 1
 fi
 for i in 1 2 3 4; do
-  git fetch -q origin "$BR" && git merge -q --no-edit "origin/$BR" >/dev/null 2>&1
+  git fetch -q origin "$BR" && git merge -q -m "Merge origin/$BR [skip ci]" "origin/$BR" >/dev/null 2>&1
   git push -q origin "$BR" 2>/dev/null && exit 0
   sleep $((2 ** i))
 done
