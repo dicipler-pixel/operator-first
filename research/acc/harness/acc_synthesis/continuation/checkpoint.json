@@ -6623,7 +6623,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790819709.3601074,
+  "updated_at": 1790819724.5992162,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,
@@ -6643,17 +6643,10 @@
     "upgh_lead_commit": "f9c93d111f90f5c716426e2a2f19661b2c9f73cf"
   },
   "data_query_memory": "continuation/data_query_memory.json",
-  "intake_lease": {
-    "key": "8659639fccbbc9bbab65359167b56f929af8bda54e3c94c7864f94ccb5a3221b",
-    "owner": "2ad56fd620ed4482b30bf3b295a6d2c7",
-    "expires_at": 1790820309.3561864,
-    "phase": "reserved",
-    "directory": "continuation/intake/20261001T0151Z",
-    "source_head": "db49c974f2ef3adc0b4f594edefd027b692d635f",
-    "pool_before_sha256": "25119337d1c8d3933de2fd236c4cd093484f4623eb1956381e1b4b0cafa7bc4c",
-    "own_before_sha256": "ff93a9ecbba27401dc2b5ca21aac85f52038d994b4e5681b85b9263936a506a9",
-    "input_sha256": "e4b1227c00d54364418a1438e400e8443acea8b815643945311548ccfbe65599",
-    "validator_sha256": "03cebcf9a429027e48d75055cfb02ca6a4f892ff46126085ef6f9fec09c524e2",
-    "controller_sha256": "32ccff857544f59af17b99fc3f2041f767133e049e13c3a8ae8990e643a77700"
+  "manual_intakes": {
+    "8659639fccbbc9bbab65359167b56f929af8bda54e3c94c7864f94ccb5a3221b": {
+      "status": "verified_new_graph",
+      "receipt": "continuation/intake/20261001T0151Z/receipt.json"
+    }
   }
 }

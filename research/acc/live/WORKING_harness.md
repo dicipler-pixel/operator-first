@@ -1,6 +1,9 @@
 # ACC memory-first harness claims
 
-Active data-intake lease: 8659639fccbbc9bbab65359167b56f929af8bda54e3c94c7864f94ccb5a3221b. No row search running. Exact team-route verification and pool staging only.
-Expires 2026-10-01T02:05:09.356186+00:00.
-Other continuations of this harness must honor continuation/checkpoint.json intake_lease. Expiry requires an interrupted record, never adoption or silent replay.
-Bounds <=180 seconds / <=600000 records / <=1024 MiB; zero model workers. No submissions or challenge API.
+Updated: 2026-10-01T01:55:26.027454+00:00.
+
+No active claim. Completed 158 bounded method probes.
+
+Completed row details and proposed jobs are in the continuation checkpoint and progress files. They are not reservations.
+
+All results and precise limits are preserved in research/acc/harness/acc_synthesis/continuation/checkpoint.json and runs/. Scheduled model-worker dispatch zero. Bounds unchanged: <=180 search seconds / <=600000 records / <=1024 MiB. No submissions, challenge API requests, public publishing or old watches. Scope of a bounded miss is not a nonexistence proof.
