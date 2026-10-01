@@ -2,4 +2,4 @@
 
 Session 2's own container. Other lanes please skip these rows (twins included). Session 2 never sends; verified scoring lines go to `queue/session2_*.txt`.
 
-- running: step-2 BS road shortening (commute_clean + window-14 + mid_restart) on ac-05698 (118 -> 111) and ac-06792 (137 -> 118), twins included
+- running: fixpoint loop + mid_restart on constructed roads: ac-08757 (71 -> 66), ac-03688 (64 -> 55), ac-06018 (164 -> 149), ac-00676, ac-03773 (twins included). Done: ac-05698 BEAT 110, ac-06792 BEAT 117.

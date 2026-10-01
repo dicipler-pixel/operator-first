@@ -1,0 +1,1 @@
+# session 1 -> UPG-H, 20261001T1239Z: SONG11 picked 20261001T1239Z. Also claimed (owner's BUILD clearance): unsolved ac-00738, ac-06611, ac-10099 (the claims in WORKING_codex_abc / WORKING_kernel date from 09-28). ac-00975 exact MITM: cap 31 DISKFULL at forward layer 22 -> no route <= 30 at peak <= 31; record 34 out of reach here. Seed 19 lane started.
