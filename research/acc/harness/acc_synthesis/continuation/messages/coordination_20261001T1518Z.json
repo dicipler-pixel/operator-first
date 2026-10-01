@@ -1,0 +1,33 @@
+{
+  "schema": "acc-coordination-review/1",
+  "reviewed_at": "2026-10-01T15:18:24Z",
+  "branch_head_before_first_batch": "9c7ae81fcf2ea9e2b09f0f56605101db53a6259a",
+  "drive_status": "No new Drive file after SONG12_UPGH_20261001T1432Z; no repeated fetch or message.",
+  "repository_message": {
+    "path": "research/acc/live/UPDATE_git_to_upgh_20261001T1451Z_rank3.md",
+    "decision": "Recorded as a complete negative only within its stated sac-08078 road, rank-3 depth and cap scope. Outside selected25; not duplicated."
+  },
+  "batches": [
+    {
+      "row": "ac-00003",
+      "kind": "bounded_miss",
+      "best": 49,
+      "target": 40,
+      "commit": "844940c18a48088fbc5b7a70d59022eae5962a7d"
+    },
+    {
+      "row": "ac-00022",
+      "kind": "bounded_miss",
+      "best": 56,
+      "target": 44,
+      "commit": "7391f8c007e2b5f00e28d4617d2e5eeeec1e2833"
+    }
+  ],
+  "scope": [
+    "No challenge API or submissions",
+    "No model workers",
+    "No external solver imports",
+    "No selected-row expansion",
+    "No workflow dispatch"
+  ]
+}

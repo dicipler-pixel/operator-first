@@ -1,0 +1,31 @@
+{
+  "schema": "acc-public-scout/1",
+  "checked_at": "2026-10-01T15:18:24Z",
+  "discovery_queries": 1,
+  "query": "site:arxiv.org Andrews-Curtis 2026 supermoves cyclic relators search October 2026",
+  "best_result": {
+    "id": "arxiv:2607.23611",
+    "title": "Machine-checkable equivalence certificates at the length-14 Andrews-Curtis frontier",
+    "submitted_at": "2026-07-26T11:35:27Z",
+    "url": "https://arxiv.org/abs/2607.23611",
+    "available_artifacts": [
+      "paper reports elementary-move certificates",
+      "dependency-free verifier",
+      "search engines",
+      "one-command reproduction archive"
+    ],
+    "limitations": [
+      "Already recorded in continuation/scouting at 00:38Z, 03:27Z and 05:40Z",
+      "AK(3)/length-14 equivalences are not selected-row ACC improvements",
+      "External verifier/search archive was not downloaded or executed"
+    ]
+  },
+  "deduplication": [
+    "continuation/scouting/scan_20261001T0038Z.json",
+    "continuation/scouting/recheck_20261001T0327Z.json",
+    "continuation/scouting/recheck_20261001T0540Z.json"
+  ],
+  "specific_harness_failure": "No new information for the current foreign-road overlay misses. The certificate discipline agrees with the existing exact paid-move replay gate.",
+  "bounded_falsifiable_next_experiment": "None opened: repeating the already-recorded equivalence test would violate negative-memory and no-repeat rules.",
+  "decision": "Quiet no-change scout; nothing sent to UPGH."
+}
