@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-01T01:45:20.440054+00:00",
+  "observed": "Yielded staging session was mistaken for failure before awaiting completion; ac-00018 reserved and unlaunched.",
+  "change": "Await yielded staging sessions and preserve chunks; still reject nonzero or signal exits.",
+  "before_sha256": "ce53b179a7383268b739ea3bfde92f0dc545ba3659a3ecdb0cab4b3ad0bf4fe6",
+  "after_sha256": "1a06fb279a213605551b263939347888b5c882735434269cb27359bc3a5d9b8b",
+  "verified": {
+    "multi_yield_chunk_preservation": true,
+    "negative_exit_rejected": true
+  },
+  "search_keys_reset": false,
+  "search_budgets_changed": false,
+  "model_workers": 0
+}
