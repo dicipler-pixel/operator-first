@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-01T03:07:25.290916+00:00",
+  "authorization": "Owner directly requests active work and coordination on 2026-10-01T03:03Z; shared CI path filter read at current branch head.",
+  "old_driver_sha256": "1a06fb279a213605551b263939347888b5c882735434269cb27359bc3a5d9b8b",
+  "replacement_driver_sha256": "c23484faa98f9fbb412b16c7a590799b7573fc233e81ccab74ee5a44006f7909",
+  "cost_controls": [
+    "all research commits include [skip ci]",
+    "reject entries outside harness and WORKING_harness.md",
+    "shared CI paths-ignore independently observed"
+  ],
+  "budgets_unchanged": true,
+  "completed_attempts_preserved": 167,
+  "model_worker_dispatch": 0,
+  "automation_reenabled": false
+}
