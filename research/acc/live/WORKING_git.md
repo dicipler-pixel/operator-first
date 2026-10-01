@@ -6,3 +6,4 @@
 - ac-00145 / sac-00145 (one splice pass, target AC 39)
 
 Old rows released (Astra, first-solve, new-target): stopped per UPG-H.
+- sac-08078 / sac-08578 / sac-02528 (Stable only; (y,x) finish; we hold AC = record, no Stable) — claimed 12:50Z
