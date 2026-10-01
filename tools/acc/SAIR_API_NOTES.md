@@ -58,3 +58,8 @@ challenge snapshot (`/discoveries/snapshot?problem=ac|stable_ac`, no pagination)
 - Results: per-solution codes E_UNKNOWN_CHALLENGE (also training IDs), E_PATH_TOO_LONG, E_BAD_MOVE_ID, E_MOVE_NOT_APPLICABLE (move_index, move, reason),
   E_NOT_TARGET (final_shape). An accepted batch consumes quota whatever the outcome. 409 ACC_FREEZE_CONFLICT: re-read the spec before resubmitting. 503 ACC_NOT_READY: retry reads later.
 - Stable AC move ids run 0-256 (rank cap 8); AC 0-13. Moves must be integer JSON literals.
+
+## Read budget, 1 Oct (UPG-H, 09:27Z)
+- A full `mine` pull costs one read per 20 submissions, so 169 submissions cost 9 reads. Pull it only after 00:00Z, or when it is really needed.
+- At the 40-read reserve, `boards`, `mine` and `upgh board` are refused, so `upgh plan` refuses too (stale clocks, S3, by design).
+- Until the reset, use `tools/acc/upgh/offline_send_file.py`: scout SEND rows plus queue lines, minus rows we hold, with 0 reads. Then send with `send FILE --lean --yes`, an essential read path of about 4-5 reads per send.
