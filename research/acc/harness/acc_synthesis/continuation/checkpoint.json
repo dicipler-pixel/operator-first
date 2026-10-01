@@ -7099,6 +7099,129 @@
         "event": "new_verified_foreign_road",
         "row_id": "ac-00001"
       }
+    },
+    {
+      "key": "8fb2b02fba873f2353d2bb4b87004afc3041379a85ce39f6f2a3fbcfc9948cbd",
+      "job": {
+        "row_id": "ac-00013",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "b17fa39ce0333205e92b466a5b45357682a76a9f1bcca6036e078e639b1e2e58"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 96,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "8fb2b02fba873f2353d2bb4b87004afc3041379a85ce39f6f2a3fbcfc9948cbd"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790824360.5094872,
+      "result_path": "runs/kernel_revival/code_8fb2b02fba873f23/worker_result.json",
+      "result_sha256": "6e87d43df0949acb4097f98bf412fa5050d5108ea60d3a276f80a2c68419574a",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best None, target 96.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00013"
+      }
+    },
+    {
+      "key": "635791fb338f29887d193b041f4ff4e8fcd27784e87923410a5d62a9a166cc5d",
+      "job": {
+        "row_id": "ac-00015",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "b17fa39ce0333205e92b466a5b45357682a76a9f1bcca6036e078e639b1e2e58"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 150,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "635791fb338f29887d193b041f4ff4e8fcd27784e87923410a5d62a9a166cc5d"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790824413.1673007,
+      "result_path": "runs/kernel_revival/code_635791fb338f2988/worker_result.json",
+      "result_sha256": "d9ad23f405f6b1e555c1783231de992d6072ca6b8ca0ac58361e180756e26031",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best None, target 150.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00015"
+      }
+    },
+    {
+      "key": "5d1317099259e3c11a1d425bfe9b21ece9f060f11066adf03714a4def3be30bc",
+      "job": {
+        "row_id": "ac-00016",
+        "track": "AC",
+        "helper": "kernel",
+        "algorithm_id": "kernel-exact-foreign-road-overlay-v1",
+        "script": "helpers/kernel_lane_v1.py",
+        "method_sha256": "ca9bfee637f01768a622f51a0b01e130e0729baed91e01c0038952b57955d4ca",
+        "inputs": {
+          "helpers/kernel_sources/roads_input.json": "b17fa39ce0333205e92b466a5b45357682a76a9f1bcca6036e078e639b1e2e58"
+        },
+        "seed_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "baseline": null,
+        "target": 79,
+        "caps": {
+          "wall_seconds": 180,
+          "node_cap": 600000,
+          "memory_mib": 1024
+        },
+        "key": "5d1317099259e3c11a1d425bfe9b21ece9f060f11066adf03714a4def3be30bc"
+      },
+      "origin": "deterministic_helper_code",
+      "finished_at": 1790824463.1883094,
+      "result_path": "runs/kernel_revival/code_5d1317099259e3c1/worker_result.json",
+      "result_sha256": "37f266dbfe4e6ad82c5cc2acddf00f5b542bec64e5057ea1b391979ac8ca6d09",
+      "kind": "bounded_miss",
+      "summary": "No improvement under recorded foreign-road overlay scope; best None, target 79.",
+      "gate": null,
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      },
+      "reopen_when": {
+        "event": "new_verified_foreign_road",
+        "row_id": "ac-00016"
+      }
     }
   ],
   "notifications": [
@@ -7115,7 +7238,7 @@
   ],
   "automation_id": "6abd199835188191bd6a3c6ac1bb7f42",
   "model_dispatches_authorized_for_scheduled_batches": 0,
-  "updated_at": 1790824199.2779884,
+  "updated_at": 1790824463.1888177,
   "initial_model_worker_launches": 1,
   "helper_model_worker_launches": 3,
   "helper_capacity_failures": 2,

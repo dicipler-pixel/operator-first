@@ -1,7 +1,7 @@
 {
-  "completed_batches": 170,
+  "completed_batches": 173,
   "model_worker_launches": 4,
-  "code_only_batches": 166,
+  "code_only_batches": 169,
   "new_improved_routes": 9,
   "model_worker_dispatch_budget": 0,
   "submission_enabled": false,
@@ -49,12 +49,12 @@
       },
       "key": "ec2efa6246b7d55987356f3709610a53bed969a3a1157543b8fc3d2f2bc63f8f"
     },
-    "remaining_jobs": 16
+    "remaining_jobs": 13
   },
   "harness_status": {
     "stopped": false,
     "tasks": {
-      "completed": 170
+      "completed": 173
     },
     "unconnected_roles": [
       "luna_memory",
@@ -2266,6 +2266,51 @@
       "target": 404,
       "kind": "bounded_miss",
       "result_path": "runs/kernel_revival/code_88166d18d4d3994b/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00013",
+      "baseline": null,
+      "target": 96,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_8fb2b02fba873f23/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00015",
+      "baseline": null,
+      "target": 150,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_635791fb338f2988/worker_result.json",
+      "limits": {
+        "wall_seconds": 180.0,
+        "node_cap": 600000,
+        "memory_mib": 1024,
+        "fresh_depth": 8,
+        "pool_route_cap": 6000
+      }
+    },
+    {
+      "helper": "kernel",
+      "row_id": "ac-00016",
+      "baseline": null,
+      "target": 79,
+      "kind": "bounded_miss",
+      "result_path": "runs/kernel_revival/code_5d1317099259e3c1/worker_result.json",
       "limits": {
         "wall_seconds": 180.0,
         "node_cap": 600000,
