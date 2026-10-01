@@ -5,6 +5,5 @@ Written by tools/acc/upgh on every claim and result. Rows below are being search
 - t00379: ac-03208 (method beam_free, seed 107)
 - t00380: sac-02988 (method beam_free, seed 107)
 - t00381: ac-08889, ac-02341, ac-03714 (method beam_climb, seed 212)
-- t00382: ac-00516 (method beam_free, seed 102)
 - t00384: ac-03186 (method beam_free, seed 102)
 - t00385: ac-04404 (method beam_free, seed 102)
