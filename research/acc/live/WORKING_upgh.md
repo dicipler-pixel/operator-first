@@ -7,4 +7,3 @@ Written by tools/acc/upgh on every claim and result. Rows below are being search
 - t00388: sac-02988 (method beam_free, seed 108)
 - t00394: ac-05125 (method beam_free, seed 102)
 - t00395: ac-07596 (method beam_free, seed 102)
-- t00396: ac-04469, sac-09312 (method splice, seed None)
