@@ -1,3 +1,9 @@
 # ac-09310 W=30000 DMAX=80 cands=1 env={"BEAM_DIV": "0.7", "BEAM_NOV": null, "BEAM_LOOK": "1", "BEAM_SEED": null, "BEAM_NOISE": null} per_run_s=240.0 wall_s=240.0
 # ac-08606 W=30000 DMAX=80 cands=1 env={"BEAM_DIV": "0.7", "BEAM_NOV": null, "BEAM_LOOK": "1", "BEAM_SEED": null, "BEAM_NOISE": null} per_run_s=240.0 wall_s=240.0
 # ac-07430 W=30000 DMAX=80 cands=1 env={"BEAM_DIV": "0.7", "BEAM_NOV": null, "BEAM_LOOK": "1", "BEAM_SEED": null, "BEAM_NOISE": null} per_run_s=240.0 wall_s=240.0
+tag=start i=0 tot=17 -> timeout (240s) last= state=6 3 3 1 1 3 0 11 3 3 3 3 3 1 2 2 2 2 0 prefix=[]
+tag=start i=0 tot=19 -> timeout (240s) last= state=8 3 3 1 3 0 3 3 0 11 3 3 3 3 3 1 2 2 2 2 0 prefix=[]
+# done ac-07430 best=None wall=240s
+# done ac-09310 best=None wall=240s
+tag=start i=0 tot=19 -> timeout (240s) last= state=8 3 3 1 3 3 1 3 0 11 3 3 3 3 3 1 2 2 2 2 0 prefix=[]
+# done ac-08606 best=None wall=240s

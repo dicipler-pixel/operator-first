@@ -47,3 +47,37 @@ has to carry the hump states; a beam over macro moves scores only after the mult
   and tot 13 at depth 6, then stalls at 13 (phase B climbs). beam_from from the tot-14 depth-4 states with W 20000
   DMAX 45 found verified AC 43 and AC 45 paths for ac-08510 (control_08510.lines / control_08510.log; not a record,
   the record is 33, but it shows macro-reduce + atomic finish does solve a lucky row from scratch).
+
+## Step 3: what was run on the targets (all with the pinned core for verification; every attempt logged)
+### Atomic beams from the start (beam_from.py, beam_start.log / beam_look.log / beam_wide.log)
+- W 50000, DMAX 80, default DIV: ac-09310 none (219 s, d=80 reached, kept len[19..23]); ac-07430 none (219 s,
+  len[17..22]); ac-08606 none (220 s, len[21..23]).
+- BEAM_LOOK=1, BEAM_DIV=0.7, W 30000, DMAX 80: all three rows hit the 240 s per-run cap under CPU contention
+  (4 cores shared with other builders' beams) -> timeout, no scope beyond "not finished".
+- W 60000, DMAX 70, default DIV, 400 s cap: see beam_wide.log (filled in below).
+### Exact capped BFS (acc_capped = exhaustive BFS over states with total length <= CAP, T9 lookup on every state)
+- ac-09310 CAP 22: CLOSED at 639,344 states, depth 40, AC NONE / SAC NONE. Exact: no AC path of any length whose
+  prefix stays within total length 22 (the T9 tail is uncapped).
+- ac-09310 CAP 24: 13,435,029 states, STOPPED by MAXD=45 (frontier still shrinking: +180k at d=45), AC NONE.
+  Exact: no AC path of length <= 54 whose capped prefix stays within total 24.
+- ac-07430 CAP 22: cut by my 240 s timeout at depth 31 (10.7M states), AC NONE: no path of length <= 40 within cap 22.
+- ac-08606 CAP 22: cut at depth 29 (12.1M states), AC NONE: no path of length <= 38 within cap 22.
+- ac-09310 CAP 25 and CAP 26 (budget 60M states, 400-420 s): filled in below.
+Reading: the control row ac-08510 (start tot 18) is solved by routes with peak 23..26; the targets have NO route
+with a peak within start+5 (09310: start 17, cap 22 closed) and none of length <= 54 with peak <= 24. So the
+"lucky n" shortcut, if it exists for these w, needs a hump of at least +8 over the start (09310), unlike the n=3
+siblings whose routes stay within start+3.
+### Macro beam (macro_beam.py, macro.log, cands_macro_*.json)
+- WID 40, CL 5, DEPTH 10, FIN 8: best total per macro depth
+  control ac-08510: 19,16,17,14,14,13,13,13,13,13 (reaches the phase-A end state class quickly)
+  ac-09310: 19,17,17,17,17,17,17,17,17,17 (never below the start 17)
+  ac-07430: 21,19,21,19,...; ac-08606: 21,19,21,19,... (never below the start 19)
+  No single-relator macro (<=5 conjugations + one multiplication) reduces any target in <= 10 macro steps; on the
+  control the same beam reduces 18 -> 14 in 4 macro steps. This is the concrete difference from the solved lucky rows.
+- CL2=2 (other relator conjugated by <= 2 first), WID 120, CL 4 on ac-09310: 320 s wall reached at macro depth 3,
+  best total 17 (macro2.log). No reduction either.
+### Restarts (beam_from.py, beam_mix.log): per row 3 best macro states (tot 17/19, 3 moves) + 3 lowest-total
+  n=3-route prefix states (tot 17..21), W 15000, DMAX 60, BEAM_DIV 0.5, 100 s per run: every run ended "none"
+  (d=60 reached) or hit the 100 s cap under contention. Exact states and prefixes are in the log lines.
+### n=3 sibling route transfer: replayed each held n=3 route on its n=4 start (see Inputs); no prefix survives the
+  first r1-mixing move, so there is no direct template to repair, only restart states (used above).
