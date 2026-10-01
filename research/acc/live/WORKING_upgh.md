@@ -5,6 +5,5 @@ Written by tools/acc/upgh on every claim and result. Rows below are being search
 - t00356: sac-03714 (method splice, seed None)
 - t00359: sac-10098 (method splice, seed None)
 - t00361: sac-10098 (method splice, seed None)
-- t00364: sac-02528 (method beam, seed 102)
 - t00366: sac-02528 (method beam_p2, seed 103)
 - t00367: sac-06768 (method beam_p2, seed 102)
