@@ -12,11 +12,16 @@ def state(x):return tuple(tuple(w) for w in x)
 
 def main():
  a=argparse.ArgumentParser();a.add_argument('--input',required=True);a.add_argument('--output',required=True);args=a.parse_args()
- resource.setrlimit(resource.RLIMIT_AS,(1024**3,1024**3));begin=time.monotonic();count=0
+ resource.setrlimit(resource.RLIMIT_AS,(1024**3,1024**3));begin=time.monotonic();count=0;last_stop_check=0
  def tick(n=1):
-  nonlocal count
+  nonlocal count,last_stop_check
   count+=n
   if count>600000 or time.monotonic()-begin>180:raise RuntimeError('Intake interrupted at resource bound; not a miss')
+  now=time.monotonic()
+  if now-last_stop_check>=0.1:
+   current=json.loads((ROOT/'continuation/checkpoint.json').read_text())
+   if current['stopped'] or current['active'] is not None:raise RuntimeError('Stop or competing search during intake')
+   last_stop_check=now
  cp=json.loads((ROOT/'continuation/checkpoint.json').read_text());assert cp['active'] is None and cp['stopped'] is False
  source=json.loads(Path(args.input).read_text());pool=json.loads((ROOT/'helpers/kernel_sources/roads_input.json').read_text());own=json.loads((ROOT/'continuation/routes.json').read_text())
  core,spec,doc,selected=load_kernel();from verifier.canon import instance_hash

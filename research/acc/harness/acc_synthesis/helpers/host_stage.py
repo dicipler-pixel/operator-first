@@ -37,6 +37,15 @@ Completed row details and proposed jobs are in the continuation checkpoint and p
 All results and precise limits are preserved in research/acc/harness/acc_synthesis/continuation/checkpoint.json and runs/. Scheduled model-worker dispatch zero. Bounds unchanged: <=180 search seconds / <=600000 records / <=1024 MiB. No submissions, challenge API requests, public publishing or old watches. Scope of a bounded miss is not a nonexistence proof.
 ''')
 paths=set(remote)
+if c.cp.get('intake_lease'):
+ lease=c.cp['intake_lease']
+ Path('/tmp/acc_current_claim.md').write_text(f'''# ACC memory-first harness claims
+
+Active data-intake lease: {lease['key']}. No row search running. Exact team-route verification and pool staging only.
+Expires {datetime.datetime.fromtimestamp(lease['expires_at'],datetime.timezone.utc).isoformat()}.
+Other continuations of this harness must honor continuation/checkpoint.json intake_lease. Expiry requires an interrupted record, never adoption or silent replay.
+Bounds <=180 seconds / <=600000 records / <=1024 MiB; zero model workers. No submissions or challenge API.
+''')
 for f in r.rglob('*'):
  if f.is_file() and '__pycache__' not in f.parts and f.suffix!='.pyc' and f.relative_to(r).parts[0] in {'helpers','runs','continuation','tests'}:paths.add(f.relative_to(r).as_posix())
 paths.discard('SHA256SUMS.txt')

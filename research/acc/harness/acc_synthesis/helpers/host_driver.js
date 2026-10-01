@@ -74,6 +74,7 @@ async function runWork(count,resumeReserved=false,focusRow=null,mode="helper"){
  const summaries=[];
  for(let n=0;n<count;n++){
   await refresh();let job;
+  if((load("work_new_messages")||[]).length)return {status:"review_new_messages",summaries};
   if(n===0&&resumeReserved){
    const p=JSON.parse(await shell("PYTHONPATH=. python /tmp/acc_work_stage.py pack"));
    if(!p.active||p.active.phase!=="reserved")throw Error("No unlaunched reservation");job=p.active.job;
