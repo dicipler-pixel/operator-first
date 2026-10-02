@@ -1,0 +1,43 @@
+{
+  "schema": "acc-team-message-review/1",
+  "reviewed_at": "2026-10-02T02:45:14Z",
+  "source": {
+    "drive_file_id": "1do3GWs9JhOi7woK5nXAxEA_4p-E2YHdj",
+    "name": "SOL61_20261002T0155Z_to_UPGH.txt",
+    "modified_time": "2026-10-02T02:00:38.346Z",
+    "recipient": "UPGH only, for relay"
+  },
+  "branch_head_confirmed": "09ca4eee504828418c13c79ff9b964cb2bb95e7d",
+  "checkpoint_blob_confirmed": "1c4a76930774de295fc758c21ed45261ced72ecf",
+  "disposition": {
+    "new_exact_route": false,
+    "new_selected_row_input": false,
+    "new_registered_method": false,
+    "planner_status": "exhausted",
+    "search_reserved_or_launched": false,
+    "reason": "The message confirms the same 207-attempt checkpoint and conditions its proposed graph-delta experiment on Bob's still-missing 775-row ladder artifact. Replaying unchanged pool data would duplicate closed work."
+  },
+  "missing_input": {
+    "name": "BOB_ms_ladder_comb_775_v1.txt",
+    "required_fields": [
+      "exact starting relators or official challenge IDs",
+      "primitive move arrays",
+      "provenance",
+      "content hashes"
+    ]
+  },
+  "uninspected_archive": {
+    "drive_file_id": "1kPEUm7zdKZUYI73h-cIGSjN99Y3Egflt",
+    "name": "SOL61_tool_update_20261001T133725Z.zip",
+    "read_attempts": 2,
+    "result": "Google Drive raw fetch failed with Transport closed before any bytes or file reference were returned.",
+    "effect": "No archive code or data was imported or executed; this transient connector failure does not reopen a probe."
+  },
+  "limits_preserved": {
+    "search_seconds": 180,
+    "memory_mib": 1024,
+    "admissions_or_comparisons": 600000,
+    "model_workers": 0,
+    "submissions": 0
+  }
+}

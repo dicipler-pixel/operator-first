@@ -1,0 +1,39 @@
+{
+  "schema": "acc-public-scout/1",
+  "checked_at": "2026-10-02T02:45:14Z",
+  "discovery_queries": 2,
+  "queries": [
+    "site:github.com Andrews Curtis conjecture Tietze transformations search solver 2025 2026",
+    "site:arxiv.org Andrews Curtis conjecture computational search reinforcement learning 2025 2026"
+  ],
+  "primary_sources_inspected": [
+    {
+      "id": "arxiv:2606.21611",
+      "title": "The Two-Hump Problem: Bridging the Difficulty Gap in Mathematical Reinforcement Learning",
+      "published": "2026-06-19",
+      "artifacts": [
+        "ACSolverX project repository",
+        "AC-19 dataset",
+        "AC-1M dataset"
+      ],
+      "deduplication": "Already recorded in continuation/scouting/20261001T1448Z/receipt.json.",
+      "limitation": "Reported benchmark improvements are not ACC route improvements, and external solver code was not downloaded or run."
+    },
+    {
+      "id": "arxiv:2607.23611v1",
+      "title": "Machine-checkable equivalence certificates at the length-14 Andrews-Curtis frontier",
+      "published": "2026-07-26",
+      "artifacts": [
+        "explicit elementary-move certificates",
+        "dependency-free verifier",
+        "search engines",
+        "one-command reproduction scripts"
+      ],
+      "deduplication": "Already recorded and audited under continuation/scouting/recheck_20261001T0540Z.json and continuation/proof_audit_20261001/.",
+      "limitation": "Certificates establish stated equivalences; they do not supply a new selected-row route or current scoring claim."
+    }
+  ],
+  "specific_harness_failure": "All registered helper/row/input probes are closed at the current exact pool; Bob's exact 775-row ladder artifact remains absent.",
+  "bounded_falsifiable_next_experiment": "Only after receipt of a genuinely new exact ladder route: replay it with the pinned official checker, compare literal vertices and primitive directed edges against the consumed selected-row pool, and test whether any new paid corridor lowers an exact selected-start-to-goal distance under the unchanged 600000-comparison cap.",
+  "decision": "Quiet no-change scout; no public lead was imported and nothing was sent to UPGH because the actionable missing-input request is already addressed to UPGH in the new Sol message."
+}

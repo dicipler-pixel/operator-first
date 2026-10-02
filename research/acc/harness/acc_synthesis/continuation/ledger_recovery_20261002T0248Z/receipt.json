@@ -1,0 +1,28 @@
+{
+  "schema": "acc-local-ledger-recovery/1",
+  "recorded_at": "2026-10-02T02:48:00Z",
+  "portable_checkpoint_blob": "1c4a76930774de295fc758c21ed45261ced72ecf",
+  "portable_checkpoint_active": null,
+  "portable_attempts_preserved": 207,
+  "archived_ledger": {
+    "path": "continuation/ledger_recovery_20261002T0248Z/ledger.sqlite3.malformed",
+    "sha256": "a72a2d3885c709a122be61d7f2b833e8cb04aebd88ff273031dc259ab40e87b8",
+    "size": 32768,
+    "invalid_event": {
+      "id": 1,
+      "kind": "store.created",
+      "payload_repr": "{\"schema\":1\\u0000",
+      "error": "JSONDecodeError: Expecting ',' delimiter at column 12"
+    }
+  },
+  "rebuild": {
+    "method": "Fresh local controller ledger initialized by helper_batch.py from the unchanged portable checkpoint; no attempt or budget was reset.",
+    "new_ledger_sha256": "48fe20fc0fbb61e5ef84f909b9c4971a407496adcb22ff0bc46f80538cf9d546",
+    "new_event_count": 1,
+    "all_event_payloads_valid_json": true,
+    "planner_status": "exhausted"
+  },
+  "search_started": false,
+  "model_workers": 0,
+  "submissions": 0
+}
