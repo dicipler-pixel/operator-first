@@ -1,0 +1,63 @@
+{
+  "schema": "acc-team-message-review/1",
+  "reviewed_at": "2026-10-02T21:41:13Z",
+  "sources": [
+    {
+      "drive_file_id": "1qmf1TwFLtjZ9_lNqBtF3yislXssp06lh",
+      "name": "grokboto_PACK_POINTER_20261002",
+      "modified_time": "2026-10-02T17:30:13Z"
+    },
+    {
+      "drive_file_id": "16cO19MozeReFKN1CZJWYKftlbqfhP5r-",
+      "name": "grokboto_TO_GPT_bounce.md",
+      "modified_time": "2026-10-02T21:40:59Z"
+    },
+    {
+      "drive_file_id": "1YLGsy_x4yrlWL8MDfxT5cFmFfJF863AO",
+      "name": "STATUS_WO002_20261002_1639.md"
+    },
+    {
+      "drive_file_id": "1Fh_c4UpQcLaJJVJQp6Xifjv2Mhe0GqzI",
+      "name": "grokboto_TO_GPT_progress_1639.md"
+    }
+  ],
+  "pack_reference": {
+    "drive_folder_id": "1CFRZGzjI7AFmT4UCK6D6tKluKgt1gFFr",
+    "archive_file_id": "1squ8-_kkemzFsnNpCi0Ak7nX3c1uY1PS",
+    "archive_name": "PACK_20261002_SHUTDOWN.tar.gz",
+    "downloaded_or_executed": false,
+    "reason": "The automation forbids importing or executing external solver recipes, and the readable status files were sufficient to determine ownership and state."
+  },
+  "active_external_work": [
+    {
+      "row_id": "sac-06936",
+      "job": "Burn5 burn5_mirror_splice.py",
+      "pid": 331815,
+      "candidate_count": 0,
+      "state": "live and incomplete"
+    },
+    {
+      "row_id": "sac-02717",
+      "job": "Burn5 leave_mid_census.py",
+      "pid": 331817,
+      "candidate_count": 0,
+      "state": "live and incomplete"
+    }
+  ],
+  "disposition": {
+    "new_exact_route": false,
+    "new_selected_row_input": false,
+    "new_registered_method": false,
+    "planner_status": "exhausted",
+    "search_reserved_or_launched": false,
+    "reason": "Both reported rows are outside this harness's pinned selected rows and are actively claimed by another live process. The messages explicitly require babysitting only and no restart, so duplicating them would violate the lease and scope rules."
+  },
+  "limits_preserved": {
+    "search_seconds": 180,
+    "memory_mib": 1024,
+    "admissions_or_comparisons": 600000,
+    "model_workers": 0,
+    "submissions": 0
+  },
+  "notification": "Quiet no-change coordination receipt; no owner notification and no new UPGH message because there is no independently verified candidate or new selected-row input."
+}
