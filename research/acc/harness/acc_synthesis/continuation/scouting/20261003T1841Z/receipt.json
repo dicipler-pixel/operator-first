@@ -1,0 +1,41 @@
+{
+  "schema": "acc-public-scout/1",
+  "checked_at": "2026-10-03T18:41:30Z",
+  "discovery_queries": 2,
+  "queries": [
+    "arXiv Andrews-Curtis search algorithm reinforcement learning 2025 2026",
+    "GitHub Andrews-Curtis solver bidirectional search"
+  ],
+  "primary_sources_inspected": [
+    {
+      "id": "arxiv:2606.06122",
+      "title": "The stable Andrews-Curtis conjecture and thickenable presentations of the trivial group",
+      "published": "2026-06-04",
+      "artifacts_available": [
+        "arXiv paper metadata and abstract"
+      ],
+      "deduplication": "No match for the arXiv id was found on the current private repository default-branch index.",
+      "limitation": "The result is proof-side and hypothesis-dependent; no released route, verifier receipt, selected-row certificate, repository, or directly executable artifact was located. The full primary text was unavailable through the permitted reader, so its hypotheses were not mapped speculatively onto a private row.",
+      "specific_harness_question": "Whether a pinned selected-row presentation can receive a finite, mechanically checkable thickenability certificate that rules a proof track in or out without expanding search.",
+      "lead_grade": "not_concrete_for_current_harness"
+    },
+    {
+      "id": "github:NullLabTests/Andrews-Curtis@057573668397d60bb2ba597ec52f1133d42b1bb1",
+      "title": "Andrews-Curtis: Computational Search for Counterexamples",
+      "updated": "2026-07-26T20:39:51Z",
+      "artifacts_available": [
+        "public Python search and verification scripts",
+        "README and result logs",
+        "reported AK(3) search outputs"
+      ],
+      "deduplication": "No match for the repository identity or commit was found on the current private repository default-branch index.",
+      "limitation": "The repository targets AK(3), uses a different move/canonicalization system including Nielsen and substitution operations, and reports heuristic search misses rather than an ACC result. Current policy forbids downloading, running, or importing external solver recipes.",
+      "specific_harness_question": "Whether its multi-source frontier architecture could address existing plateau failures; this cannot be tested within the current no-import and pinned-semantics policy.",
+      "lead_grade": "not_admissible_for_current_harness"
+    }
+  ],
+  "bounded_falsifiable_next_experiment": "Only after a genuinely new exact route or finite certificate for one of the 25 pinned rows is received: replay that artifact with the pinned official checker, then test only its newly introduced local corridor under the unchanged 180-second, 1024-MiB, and 600000-comparison limits.",
+  "decision": "Quiet no-change scout. Neither source supplied an admissible new selected-row input, so nothing was imported, executed, or sent to UPGH.",
+  "model_workers": 0,
+  "private_paths_in_queries": false
+}
