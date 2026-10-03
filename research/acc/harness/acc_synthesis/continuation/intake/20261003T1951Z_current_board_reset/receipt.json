@@ -1,0 +1,86 @@
+{
+  "schema": "acc-current-board-reset-intake-v1",
+  "recorded_at": "2026-10-03T20:26:23Z",
+  "source": {
+    "drive_folder_id": "1FKL3CsdhkxC6iSiV3YA7Hj5Cgk7eMP89",
+    "board_snapshot_as_of": "2026-10-03T19:05:00Z",
+    "files": [
+      {
+        "drive_file_id": "1TFRd4PwxnasO_fKdAehykRoMdFhYafmP",
+        "name": "ACC_PRICE_CURRENT_ROADS_20261003_ALL_ROWS.csv",
+        "sha256": "0e68c54cd9439c8d9302733580510c731ec6cc2ec92b3ec3b755c2bcdc1d80ec"
+      },
+      {
+        "drive_file_id": "1ZjasbN7-fAsuoQg68ttM2RVjxzLcegKO",
+        "name": "ACC_CURRENT_RESEARCH_RESET_20261003.txt",
+        "sha256": "848f13247810ec32cf97d6c6db7f99bff51adda1bc7ac3ab813ec05ffe00e4d2"
+      },
+      {
+        "drive_file_id": "18EL4D6d8mfi4bJsTPIhjBhMuwHNCPvI3",
+        "name": "ACC_CURRENT_TARGETS_AND_VERIFIED_ROADS_20261003.zip",
+        "sha256": "a084ca5ea1d93f64163d875c6f157b379cd622a1b79832bb361282f318755a71"
+      }
+    ]
+  },
+  "scope": {
+    "selected_rows_count": 25,
+    "model_worker_dispatches": 0,
+    "challenge_api_calls": 0,
+    "submissions": 0,
+    "public_scout_repeated": false,
+    "bounded_search_executed": false
+  },
+  "selected_row_pricing": [
+    {"row_id":"ac-00001","record":342,"positive_target":342,"owned":false,"held":null,"saving_needed":null,"gain":"1/2"},
+    {"row_id":"ac-00003","record":39,"positive_target":39,"owned":false,"held":49,"saving_needed":10,"gain":"1/2"},
+    {"row_id":"ac-00005","record":27,"positive_target":26,"owned":true,"held":27,"saving_needed":1,"gain":"8191/8192"},
+    {"row_id":"ac-00006","record":63,"positive_target":63,"owned":false,"held":null,"saving_needed":null,"gain":"1/2"},
+    {"row_id":"ac-00009","record":34,"positive_target":34,"owned":false,"held":78,"saving_needed":44,"gain":"1/128"},
+    {"row_id":"ac-00010","record":68,"positive_target":68,"owned":false,"held":null,"saving_needed":null,"gain":"1/4"},
+    {"row_id":"ac-00011","record":48,"positive_target":48,"owned":false,"held":null,"saving_needed":null,"gain":"1/16"},
+    {"row_id":"ac-00012","record":47,"positive_target":47,"owned":false,"held":52,"saving_needed":5,"gain":"1/256"},
+    {"row_id":"ac-00013","record":93,"positive_target":93,"owned":false,"held":null,"saving_needed":null,"gain":"1/2"},
+    {"row_id":"ac-00015","record":143,"positive_target":143,"owned":false,"held":null,"saving_needed":null,"gain":"1/2"},
+    {"row_id":"ac-00016","record":79,"positive_target":79,"owned":false,"held":null,"saving_needed":null,"gain":"1/4"},
+    {"row_id":"ac-00017","record":82,"positive_target":82,"owned":false,"held":null,"saving_needed":null,"gain":"1/8"},
+    {"row_id":"ac-00018","record":43,"positive_target":43,"owned":false,"held":51,"saving_needed":8,"gain":"1/4"},
+    {"row_id":"ac-00020","record":49,"positive_target":49,"owned":false,"held":null,"saving_needed":null,"gain":"1/2"},
+    {"row_id":"ac-00021","record":40,"positive_target":39,"owned":true,"held":40,"saving_needed":1,"gain":"1023/1024"},
+    {"row_id":"ac-00022","record":44,"positive_target":44,"owned":false,"held":56,"saving_needed":12,"gain":"1/8"},
+    {"row_id":"ac-00024","record":96,"positive_target":96,"owned":false,"held":null,"saving_needed":null,"gain":"1/2"},
+    {"row_id":"ac-00027","record":73,"positive_target":73,"owned":false,"held":null,"saving_needed":null,"gain":"1/2"},
+    {"row_id":"ac-00028","record":44,"positive_target":44,"owned":false,"held":50,"saving_needed":6,"gain":"1/4"},
+    {"row_id":"ac-00029","record":46,"positive_target":46,"owned":false,"held":null,"saving_needed":null,"gain":"1/128"},
+    {"row_id":"ac-00031","record":93,"positive_target":93,"owned":false,"held":null,"saving_needed":null,"gain":"1/8"},
+    {"row_id":"ac-00032","record":72,"positive_target":72,"owned":false,"held":null,"saving_needed":null,"gain":"1/4"},
+    {"row_id":"ac-00033","record":53,"positive_target":53,"owned":false,"held":null,"saving_needed":null,"gain":"1/16"},
+    {"row_id":"ac-00034","record":41,"positive_target":41,"owned":false,"held":44,"saving_needed":3,"gain":"1/128"},
+    {"row_id":"ac-00037","record":31,"positive_target":31,"owned":false,"held":32,"saving_needed":1,"gain":"1/512"}
+  ],
+  "target_changes_since_last_attempt": [
+    {"row_id":"ac-00001","old_target":404,"snapshot_target":342},
+    {"row_id":"ac-00003","old_target":40,"snapshot_target":39},
+    {"row_id":"ac-00013","old_target":96,"snapshot_target":93},
+    {"row_id":"ac-00015","old_target":150,"snapshot_target":143},
+    {"row_id":"ac-00020","old_target":52,"snapshot_target":49},
+    {"row_id":"ac-00027","old_target":77,"snapshot_target":73}
+  ],
+  "fresh_package_findings": {
+    "verified_saved_routes": 1872,
+    "recorded_graph_nodes": 103313,
+    "recorded_graph_edges": 240786,
+    "held_roads_shortened": 384,
+    "verified_scoring_candidates": 0,
+    "selected_rows_with_held_roads": 10,
+    "selected_rows_with_newly_relaxed_target": 0,
+    "selected_rows_with_tightened_target": 6
+  },
+  "decision": {
+    "status": "quiet_no_candidate",
+    "reason": "The fresh private snapshot tightens six selected-row targets and supplies no independently verified scoring route. Existing negative-memory keys remain closed; a repeated search on unchanged or stricter targets is not justified.",
+    "next_reopen_event": "a new exact verified road for a selected row or a distinct bounded method with a new completeness claim",
+    "owner_notification": false,
+    "upgh_message": false,
+    "stale_board_warning": "These prices are evidence only for the 2026-10-03T19:05:00Z snapshot and are not a later scoring claim."
+  }
+}
