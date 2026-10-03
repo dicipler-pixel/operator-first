@@ -1,0 +1,37 @@
+{
+  "schema": "acc-intake-receipt/1",
+  "recorded_at": "2026-10-03T23:12:49Z",
+  "branch": "claude/gallant-bardeen-0pgpae",
+  "reviewed_head": "9bd2f5760433d89205769a2b654d7aa8070279ec",
+  "source_files": [
+    {"id": "1_sR31bVXcgRxzJzD7L7DhvaQ4DD9uAu_", "scope": "gb_02717_L16_save2_i12_mt70_d14_20261003"},
+    {"id": "1FuMCwc2IyGefRLESMSuwH4Vbj87EtXF1", "scope": "gb_02717_L16_save2_i13_mt70_d14_20261003"},
+    {"id": "1UG_9v2fQtL0B4yRIOSj6kAbL2GfRRcbz", "scope": "gb_02717_L16_save2_i14_mt70_d14_20261003"},
+    {"id": "1M0LdjE7So_1dwjgZQTtbBQrK5Qzfvtej", "scope": "gb_02717_L16_save2_i15_mt70_d14_20261003"},
+    {"id": "1fSiLVrDoBHy38HDN3ZAn-EGUlqaewtPN", "scope": "dot_to_grokboto_survey_and_plan"}
+  ],
+  "review": {
+    "row": "sac-02717",
+    "windows": [12, 13, 14, 15],
+    "segment_length": 16,
+    "replacement_depth_cap": 14,
+    "total_relator_length_cap": 70,
+    "status": "incomplete_timeout",
+    "candidate": null,
+    "complete_miss": false,
+    "replay_performed": false,
+    "checkpoints": "local_only_open_frontiers",
+    "pinned_source_commit": "a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e"
+  },
+  "scope_decision": {
+    "classification": "outside_pinned_harness_scope",
+    "reason": "sac-02717 is not one of the 25 pinned AC rows in integration/selected_rows.json. The four open-frontier timeouts are not mathematical negatives and do not justify reopening a selected-row key.",
+    "search_executed": false,
+    "model_worker_dispatches": 0,
+    "challenge_api_calls": 0,
+    "submissions": 0,
+    "scouting_queries": 0
+  },
+  "decision": "quiet_no_job",
+  "next_reopen_event": "A new exact verified route for a pinned selected row, a distinct bounded selected-row method with a new completeness claim, or a non-conflicting selected-row assignment."
+}
