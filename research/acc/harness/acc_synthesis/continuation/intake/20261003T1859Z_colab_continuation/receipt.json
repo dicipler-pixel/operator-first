@@ -1,0 +1,58 @@
+{
+  "schema": "acc-intake/1",
+  "reviewed_at": "2026-10-03T19:38:07Z",
+  "source": "Mad Hatters ACC Shared Hub",
+  "deduplication": {
+    "drive_ids": [
+      "1O8EF4yooaJE74p0nq5gaP7qdZG2UUUaL",
+      "1Skhgm7ffEpP9PRyCbzhYIelQu9UDgFpJ",
+      "1CkCyF97aOgt5TbpuxTU2PrE9ERNLIktI",
+      "1vrDn6_YoIE4hpbEeCA5kepsCqoeaWqbR"
+    ],
+    "branch_head_before_intake": "a1e1f270400727691d05561346aaa49432ad557d"
+  },
+  "files": [
+    {
+      "name": "ACC_CONTINUATION_VALIDATION_20261003.json",
+      "drive_id": "1O8EF4yooaJE74p0nq5gaP7qdZG2UUUaL",
+      "sha256": "926d3c16972fbfb9d2184805720ccaf292dc218c873420ea5b5396503c272388"
+    },
+    {
+      "name": "ACC_CONTINUE_LAUNCH_20261003.py",
+      "drive_id": "1Skhgm7ffEpP9PRyCbzhYIelQu9UDgFpJ",
+      "sha256": "9be442ff03582d94ad37f6fb0d435724e02f4c58bf1bb9e4248918fc68918ad5"
+    },
+    {
+      "name": "ACC_CONTINUE_CELL_20261003.py",
+      "drive_id": "1CkCyF97aOgt5TbpuxTU2PrE9ERNLIktI",
+      "sha256": "dddb95ac16c4b32a8c7aab8ceb8d7d04b8b65d8329e1aab771d628c606a77e74"
+    },
+    {
+      "name": "ACC_CONTINUE_20261003.ipynb",
+      "drive_id": "1vrDn6_YoIE4hpbEeCA5kepsCqoeaWqbR",
+      "sha256": "cb19ea22b4f1d582c000ebe0d6dfae50eb6380f29988af50f8a16a9d91515a4d"
+    }
+  ],
+  "reported_status": "READY_TO_RUN_NOT_EXECUTED_IN_COLAB",
+  "validation": {
+    "checks_passed": 14,
+    "test_environment": "isolated toy checkpoints and mocked dispatch only",
+    "live_colab_execution_verified": false,
+    "original_package_and_worker_unchanged": true,
+    "frozen_batch_package_sha256": "5fb2cbd06ca678e0ea605d9f75730403c1ce7fe1c9828e29c119b679632e76c3"
+  },
+  "rows": [
+    "sac-06768",
+    "sac-09312",
+    "sac-00259"
+  ],
+  "limits": {
+    "total_states_per_existing_scope": 2000000,
+    "worker_seconds_per_job": 300,
+    "batch_dispatch_seconds": 1200
+  },
+  "scope_decision": "No scheduled-harness batch launched. These three rows are outside integration/selected_rows.json, and the validation receipt proves readiness rather than execution or a candidate.",
+  "submission": false,
+  "model_workers_dispatched_by_this_harness": 0,
+  "owner_notification": "deduplicated; the live-Colab blocker was already reported"
+}
