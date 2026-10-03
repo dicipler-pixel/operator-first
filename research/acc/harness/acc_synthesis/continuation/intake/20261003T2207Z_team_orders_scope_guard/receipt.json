@@ -1,0 +1,68 @@
+{
+  "schema": "acc-intake-receipt/1",
+  "recorded_at": "2026-10-03T22:07:20Z",
+  "branch": "claude/gallant-bardeen-0pgpae",
+  "reviewed_head": "b816bfd54ade5ad65752e90ee365d4f3b4f0b221",
+  "checkpoint": {
+    "active": null,
+    "attempts": 207,
+    "stopped": false,
+    "next_status": "exhausted"
+  },
+  "drive_intake": {
+    "team_version": "TEAM-20261003-04",
+    "exact_inputs_file_id": "1jPBsXabQBLW-lJ_Bl6LpUaKht_vDcrWM",
+    "order_packet_file_id": "1PuzMHqEymm1OfRRpX3P-yAB_N9z_Y2_o",
+    "team1_order_file_ids": [
+      "1obO056sCGyjlvJR4FiaUKl0AP7WW5B1U",
+      "1ifv3udh8CdLC1UyE9YPjET4ScalzfXQl"
+    ],
+    "team2_order_file_id": "16I_3tuM5BQSnqhXNM9cX8IHSNJR_rWni",
+    "status": "assigned_awaiting_ack",
+    "new_ack_or_result_observed": false
+  },
+  "assigned_rows": [
+    "ac-03871",
+    "ac-00975",
+    "sac-00145",
+    "sac-07337"
+  ],
+  "pinned_selected_rows": [
+    "ac-00001",
+    "ac-00003",
+    "ac-00005",
+    "ac-00006",
+    "ac-00009",
+    "ac-00010",
+    "ac-00011",
+    "ac-00012",
+    "ac-00013",
+    "ac-00015",
+    "ac-00016",
+    "ac-00017",
+    "ac-00018",
+    "ac-00020",
+    "ac-00021",
+    "ac-00022",
+    "ac-00024",
+    "ac-00027",
+    "ac-00028",
+    "ac-00029",
+    "ac-00031",
+    "ac-00032",
+    "ac-00033",
+    "ac-00034",
+    "ac-00037"
+  ],
+  "scope_decision": {
+    "classification": "outside_pinned_harness_scope",
+    "reason": "The new team orders target rows outside integration/selected_rows.json. The scheduled harness may not expand selected rows or duplicate external worker lanes.",
+    "search_executed": false,
+    "model_worker_dispatches": 0,
+    "challenge_api_calls": 0,
+    "submissions": 0,
+    "scouting_queries": 0
+  },
+  "decision": "quiet_no_job",
+  "next_reopen_event": "A new exact verified route for a pinned selected row, a distinct bounded method with a new completeness claim, or a non-conflicting selected-row assignment."
+}
