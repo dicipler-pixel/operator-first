@@ -1,0 +1,30 @@
+{
+  "schema": "acc-intake-receipt/1",
+  "recorded_at": "2026-10-04T02:28:01Z",
+  "branch": "claude/gallant-bardeen-0pgpae",
+  "reviewed_head": "5896fa4997012ebf17c8fe1788546bba637bf35c",
+  "source_files": [
+    {"id": "10UHWQN4xNmkwzeVG3HaCWWcAGJTdyJnXWCqKnHllUz0", "title": "AU_SONG8_AC10098_S0S20_CONTINUE_20261003"},
+    {"id": "1jvsw-ZUqmvoCspmtAGAqsDp-vlM36nWejnCGXz2EHKw", "title": "grokboto_ac-06045_glass_20261003"},
+    {"id": "16QuKgNi6CKYfKeA24iR5A-ieKkTAUZ5iqN5L8lH9zvU", "title": "grokboto_sac-04493_leave5_20261003"},
+    {"id": "1PkdxfHjGI5gPQPQAsjxy8Q9MsPxu_BeUk825BZdTZnc", "title": "grokboto_LIVE_BOARD_20261003"},
+    {"id": "1rFhHKDI7ub5CX_5ND6aUkdkrVpWT2oIY", "title": "SONG_COATS_LEFTOVER_POINTS_20261003.md"}
+  ],
+  "review": [
+    {"row": "ac-10098", "scope": "S0_to_S20_length_le_16_total_le_48", "status": "complete_miss", "candidate": null, "states_forward": 1384840, "states_backward": 2164704, "tested_edges": 14359926},
+    {"row": "ac-06045", "scope": "mirrored_start_depth_le_8_total_le_80", "status": "incomplete_timeout", "candidate": null, "states": 12015885, "tested_edges": 22510726},
+    {"row": "sac-04493", "scope": "leave5_from_saved_state_18", "status": "incomplete_state_cap", "candidate": null, "states": 600000, "tested_edges": 1227995},
+    {"row": "sac-07730", "scope": "S0_to_S8_external_assignment", "status": "reported_complete_miss", "candidate": null}
+  ],
+  "scope_decision": {
+    "classification": "outside_pinned_harness_scope",
+    "reason": "All newly reported rows are outside integration/selected_rows.json. Complete misses and incomplete frontiers are retained only for deduplication and do not reopen any registered selected-row key.",
+    "search_executed": false,
+    "model_worker_dispatches": 0,
+    "challenge_api_calls": 0,
+    "submissions": 0,
+    "scouting_queries": 0
+  },
+  "decision": "quiet_no_job",
+  "next_reopen_event": "A new exact verified route for a pinned selected row, a distinct bounded selected-row method with a new completeness claim, or a non-conflicting selected-row assignment."
+}
