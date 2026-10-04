@@ -1,0 +1,63 @@
+{
+  "schema": "acc_synthesis.external_intake_scope_guard.v1",
+  "recorded_at_utc": "2026-10-04T05:46:00Z",
+  "source": {
+    "kind": "owner_conversation_team_result",
+    "drive_hub_checked_after": "2026-10-04T04:36:05Z",
+    "new_drive_artifact_found": false,
+    "note": "The exact frontier report was relayed in the owner's ACC coordination conversation and was not yet present in a newly modified hub file."
+  },
+  "reported_scope": {
+    "challenge_id": "sac-07492",
+    "saved_route_moves": 40,
+    "saved_snapshot_record": 37,
+    "stable_terminal_moves": [15, 15],
+    "closed_scope": {
+      "start_state": "S23",
+      "target": ["xy", "yx"],
+      "depth_max": 12,
+      "relator_length_cap": 56,
+      "result": "COMPLETE_MISS"
+    },
+    "preserved_negative_memory": {
+      "original_complete_misses": 74,
+      "original_checkpoints_preserved": true
+    },
+    "remaining_scope": {
+      "start_state": "S22",
+      "target": ["xy", "yx"],
+      "depth": 12,
+      "candidate_total_moves_if_hit": 36,
+      "resume_parent": 90901,
+      "resume_move": 7,
+      "remaining_edges": 67725,
+      "retained_reverse_map_states": 607020,
+      "status": "INCOMPLETE_PRESERVED",
+      "cold_restart_forbidden": true
+    },
+    "candidate": null,
+    "submission": null
+  },
+  "fixed_harness_scope": {
+    "selected_row_count": 25,
+    "row_selected": false,
+    "adopted_rows": [],
+    "reason": "sac-07492 is outside selected_rows.json. This scheduled harness cannot expand its targets, steal the external lease, or restart the preserved frontier."
+  },
+  "portable_checkpoint": {
+    "attempt_count": 207,
+    "active": null,
+    "stopped": false,
+    "new_justified_selected_row_job": null
+  },
+  "limits": {
+    "scheduled_model_workers": 0,
+    "harness_search_seconds": 0,
+    "harness_states": 0,
+    "challenge_api_calls": 0,
+    "submissions": 0,
+    "public_scout_queries": 0
+  },
+  "decision": "quiet_external_frontier_only",
+  "notification": "none"
+}
