@@ -1,0 +1,61 @@
+{
+  "schema": "acc_synthesis.external_intake_scope_guard.v1",
+  "recorded_at_utc": "2026-10-04T04:44:00Z",
+  "source": {
+    "kind": "private_drive_coordination_update",
+    "drive_file_id": "1hf9CIhKuQXuahgQherrXXpasoxkudDw0tAVfu2e8Bqo",
+    "drive_file_title": "GROKBOTO_PING_20261003_1908CT",
+    "drive_file_modified_time": "2026-10-04T04:36:05.128Z",
+    "campaign_package_id": "1G6kFKPBNabfjxaN0P7PIr3GwoiIxApeg",
+    "gemini_notebook_id": "120bKZsal-a3kEbTWkfdd2yMSC8P9en0B",
+    "continuation_archive_id": "1LSS5xS9JDet-UzjyaQscsY7CFqXm7vb1"
+  },
+  "reported_campaign": {
+    "name": "GPT / GEMINI SPLIT30",
+    "queue_sizes": {
+      "gpt": 30,
+      "gemini": 30
+    },
+    "named_priority_row": "sac-07492",
+    "gpt_first_pass": {
+      "stored_state_insertions": 17707754,
+      "edges": 30465287,
+      "completed_exact_window_misses": 1527,
+      "fully_completed_rows": 1,
+      "rows_stopped_at_state_limit": 29,
+      "shorter_certificates": 0,
+      "lease_released": true
+    },
+    "gpt_follow_up": {
+      "heuristic_runs": 54,
+      "shorter_certificates": 0,
+      "classification": "heuristic no-candidate receipts, not complete misses",
+      "lease_released": true
+    },
+    "gemini_status": "QUEUED_AWAITING_RUNTIME_ACK",
+    "submission": null,
+    "challenge_api_call": false
+  },
+  "fixed_harness_scope": {
+    "selected_row_count": 25,
+    "named_priority_row_selected": false,
+    "adopted_rows": [],
+    "reason": "The Drive campaign is a separate owner-directed sixty-row split. Scheduled continuation may not expand selected_rows.json, replay its incomplete frontiers, or adopt its external executor. No shorter certificate was reported."
+  },
+  "portable_checkpoint": {
+    "attempt_count": 207,
+    "active": null,
+    "stopped": false,
+    "new_justified_selected_row_job": null
+  },
+  "limits": {
+    "scheduled_model_workers": 0,
+    "harness_search_seconds": 0,
+    "harness_states": 0,
+    "challenge_api_calls": 0,
+    "submissions": 0,
+    "public_scout_queries": 0
+  },
+  "decision": "quiet_no_job",
+  "notification": "none"
+}
