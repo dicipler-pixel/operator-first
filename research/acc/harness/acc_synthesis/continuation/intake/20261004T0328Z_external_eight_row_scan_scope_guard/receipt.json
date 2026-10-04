@@ -1,0 +1,46 @@
+{
+  "schema": "acc_synthesis.external_intake_scope_guard.v1",
+  "recorded_at_utc": "2026-10-04T03:28:00Z",
+  "source": {
+    "kind": "owner_relayed_team_update",
+    "drive_file_id_checked": "1hf9CIhKuQXuahgQherrXXpasoxkudDw0tAVfu2e8Bqo",
+    "drive_file_modified_time": "2026-10-04T03:27:17.498Z",
+    "drive_note": "The checked Drive document did not contain the relayed claim/result IDs or the reported sac-07492 scan, so no unseen row identities were inferred from it.",
+    "claim_id": "AAACH-oV360",
+    "result_id": "AAACH-oV364"
+  },
+  "reported_batch": {
+    "row_count": 8,
+    "identifiable_rows": [
+      "sac-07492",
+      "sac-04667"
+    ],
+    "unidentified_rows": 6,
+    "method": {
+      "window_length": "6 + gap",
+      "replacement_max_moves": 6,
+      "total_length_cap": 56,
+      "hit_condition": "exact snapshot tie"
+    },
+    "reported_outcome": "all eight scopes empty",
+    "candidate": null,
+    "submission": null,
+    "sair_call": false
+  },
+  "fixed_harness_scope": {
+    "selected_row_count": 25,
+    "identifiable_row_intersection": [],
+    "adopted_rows": [],
+    "reason": "The two named rows are outside selected_rows.json; the six truncated identities were not guessed. A reported external miss is not a justified pinned-row harness job."
+  },
+  "limits": {
+    "scheduled_model_workers": 0,
+    "harness_search_seconds": 0,
+    "harness_states": 0,
+    "challenge_api_calls": 0,
+    "submissions": 0,
+    "public_scout_queries": 0
+  },
+  "decision": "quiet_no_job",
+  "notification": "none"
+}
