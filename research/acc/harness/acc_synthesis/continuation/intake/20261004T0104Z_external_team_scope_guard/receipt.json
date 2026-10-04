@@ -1,0 +1,41 @@
+{
+  "schema": "acc-intake-receipt/1",
+  "recorded_at": "2026-10-04T01:04:31Z",
+  "branch": "claude/gallant-bardeen-0pgpae",
+  "reviewed_head": "1efc3705901969935f75c4b076c0d33e93e0784d",
+  "source_files": [
+    {"id": "1GxFAVO6mXXwYeTiBZ16FdDx2IIQM55bX", "title": "T1_ACK_20261003_04.txt", "modified_at": "2026-10-04T00:25:42.044Z"},
+    {"id": "1hf9CIhKuQXuahgQherrXXpasoxkudDw0tAVfu2e8Bqo", "title": "GROKBOTO_PING_20261003_1908CT", "modified_at": "2026-10-04T00:59:18.360Z"},
+    {"id": "1kWsIb5JGHH_MJsOj7WZE7Red9-VBMW2GecKnbYj7B3s", "title": "grokboto_NEED_held_roads_20261003", "modified_at": "2026-10-04T00:47:25.811Z"}
+  ],
+  "external_team_state": {
+    "team1_ack": {
+      "rows": ["ac-03871", "ac-00975"],
+      "status": "acknowledged_ready_to_monitor",
+      "candidate": null
+    },
+    "explicit_exact_assignments": [
+      {"executor": "GrokBoto", "row": "sac-07730", "window": "S0_to_S8", "depth_cap": 7, "wall_seconds": 180, "memory_mib": 1024, "state_cap": 600000},
+      {"executor": "Gemini", "row": "sac-08995", "window": "S0_to_S8", "depth_cap": 7, "wall_seconds": 180, "memory_mib": 1024, "state_cap": 600000}
+    ],
+    "separate_grok_started_claim": {
+      "rows": ["ac-06045", "ac-10098", "sac-07730", "sac-08995", "sac-04493"],
+      "reported_depth_cap": 12,
+      "reported_wall_seconds": 300,
+      "status": "external_overlap_to_preserve_and_not_duplicate"
+    },
+    "candidate": null,
+    "submission": false
+  },
+  "scope_decision": {
+    "classification": "outside_pinned_harness_scope_and_externally_claimed",
+    "reason": "None of the acknowledged or assigned rows is in integration/selected_rows.json. External team claims also make duplication unsafe. The scheduled harness retains its 25-row scope and fixed limits.",
+    "search_executed": false,
+    "model_worker_dispatches": 0,
+    "challenge_api_calls": 0,
+    "submissions": 0,
+    "scouting_queries": 0
+  },
+  "decision": "quiet_no_job",
+  "next_reopen_event": "A new exact verified route for a pinned selected row, a distinct bounded selected-row method with a new completeness claim, or a non-conflicting selected-row assignment."
+}
