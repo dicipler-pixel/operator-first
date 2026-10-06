@@ -20,3 +20,13 @@ The full paste-ready text was handed to Jeremy in chat at about 03:40Z. Summary:
 - **B2.** Target any state where one relator is primitive (Whitehead test; primitive-coordinate lemma). Cap start + 20…30, above the closed 07824/07659 beam (cap 34).
 
 **Last:** the old Stable lane (sac-06936, 02717, 09980), routes to (y,x).
+
+## 04:20Z: Grok is chat-only (no code execution), so UPG-H ran Lane A in the container
+
+- **A1:** COMPLETE miss. No source is within 13 moves of any state of the 00766 road (radius 7+6, 36 sources).
+- **A2:** COMPLETE miss. No start is within 12 moves of any of the 760 collapse-family states, k = 4..12 (radius 8+4, 16 frames).
+- Both are in `catalog/closed_upgh_j5.jsonl`. The engine is `research/acc/optimality/meet_chain/`.
+- **Grok's job from now on:** paper work with checkable outputs:
+  - explicit move lists (the substitution loops, B1);
+  - explicit intermediate target states.
+  UPG-H replays and searches toward them in the container.
