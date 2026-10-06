@@ -37,7 +37,7 @@ def starts(repo):
 def verify(repo,cand,out):
     if not cand.exists(): return False,''
     sub=out/'verify.txt';shutil.copy2(cand,sub)
-    p=subprocess.run(['python3','-m','verifier','--manifest','competition/tools/verifier/data/manifest.json','--submission',str(sub)],cwd=repo/'competition/tools',env={**os.environ,'PYTHONPATH':str(repo/'competition/tools')},capture_output=True,text=True)
+    p=subprocess.run(['python3','-m','verifier','--manifest','competition/tools/verifier/data/manifest.json','--submission',str(sub)],cwd=repo,env={**os.environ,'PYTHONPATH':str(repo/'competition/tools')},capture_output=True,text=True)
     t=p.stdout+'\n'+p.stderr
     return '"ok": true' in t.lower() or "'ok': True" in t,t
 def main():
@@ -54,5 +54,5 @@ def main():
         stamp=time.strftime('%Y%m%dT%H%M%SZ',time.gmtime());status=(out/f'{cid}_status.txt').read_text() if (out/f'{cid}_status.txt').exists() else ''
         (pathlib.Path(a.hub)/f'J12_GPT_REPORT_{stamp}.txt').write_text(f'J12 GPT reverse-tube lane\nTarget {cid}, record {rec}\nMethod: exact reverse tube cap={a.rev_cap}, depth={a.rev_depth}; forward climb guided by reverse signatures and one-step valley score.\n{status}\nCandidate present={cand.exists()} official_ok={ok}\n')
         if ok:
-            (pathlib.Path(a.hub)/f'J12_GPT_HIT_{stamp}.txt').write_text(cand.read_text()+'\n'+vt);print('VERIFIED HIT',cid,cand.read_text().strip());break
+            (pathlib.Path(a.hub)/f'J12_GPT_HIT_{stamp}.txt').write_text(cand.read_text()+'\n'+vt);print('VERIFIED HIT',cid,cand.read_text().strip())
 if __name__=='__main__':main()
