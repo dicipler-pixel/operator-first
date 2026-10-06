@@ -25,3 +25,7 @@ if [ "$n5" -lt 24 ] && ! ps -eo args | grep -q "^python3 $S5/song5_drop_prefix.p
   setsid nohup python3 $S5/song5_drop_prefix.py > /dev/null 2>&1 < /dev/null &
 fi
 echo "song5 done $n5/24"
+# 4. song 7 (after song 5 finishes): exact min-peak on short k<=2 rows we do not hold
+if [ "$n5" -ge 24 ] && ! ps -eo args | grep -q "song7_minpeak.sh" && [ "$(cat $S5/song7_done.txt 2>/dev/null | wc -l)" -lt 6 ]; then
+  setsid nohup $S5/song7_minpeak.sh > /dev/null 2>&1 < /dev/null &
+fi
