@@ -38,8 +38,11 @@ fi
 if ! ps -eo args | grep -q "[c]olab_j12_rival.py" && ! grep -q "J12 finished" /root/.cache/j12/capped.log 2>/dev/null; then
   setsid nohup python3 /root/.cache/j12/scripts/colab_j12_rival.py --root /root/.cache/j12/root --outdir /root/.cache/j12/out --lane capped --targets-file $RV/capped_targets.json --caps 3,5,7 --budget 150000000 --hours 20 >> /root/.cache/j12/capped.log 2>&1 < /dev/null &
 fi
-# 6. ladder fixpoint shortening (resumable) once the mid-restart lane is done
-if [ "$done_n" -ge "$total" ] && ! ps -eo args | grep -q "[r]un_fixpt.sh"; then
-  setsid nohup /root/.cache/fixpt/run_fixpt.sh > /dev/null 2>&1 < /dev/null &
+# 6. (20:35Z) the ladder fixpoint is parked (06018 stayed 153 vs 149; -5 needed); its core goes to mid-restart v3 on Always Ready rows
+V3=research/acc/live/sweeps/mid_restart_lane_v3
+n3=$(python3 -c "import json;print(len(json.load(open('$V3/jobs.json'))))" 2>/dev/null || echo 0)
+d3=$(cat $V3/done_*.txt 2>/dev/null | wc -l)
+if [ "$d3" -lt "$n3" ] && ! ps -eo args | grep -q "^python3 $V3/mr_lane.py run 0 1"; then
+  setsid nohup python3 $V3/mr_lane.py run 0 1 60000 > /dev/null 2>&1 < /dev/null &
 fi
-echo "rival beam $(cat $RV/rival_beam_done.txt 2>/dev/null | wc -l)/$(python3 -c "import json;print(len(json.load(open('$RV/jobs.json'))))") | j12 capped $(python3 -c "import json;print(len(json.load(open('/root/.cache/j12/out/j12_state_capped.json'))['done']))" 2>/dev/null) | fixpt $(wc -l < /root/.cache/fixpt/out.jsonl)/10"
+echo "rival beam $(cat $RV/rival_beam_done.txt 2>/dev/null | wc -l)/$(python3 -c "import json;print(len(json.load(open('$RV/jobs.json'))))") | j12 capped $(python3 -c "import json;print(len(json.load(open('/root/.cache/j12/out/j12_state_capped.json'))['done']))" 2>/dev/null) | mr_v3 $(cat $V3/done_*.txt 2>/dev/null | wc -l)/$n3"
