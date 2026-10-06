@@ -1,0 +1,10 @@
+# BOB J8 checkpoint 5 - Jeromie Beasley (worker Bob) - 2026-10-06 18:25Z
+# Adds to checkpoint 4. Still no road on 09632 / 05538 / 03320 / 06036.
+
+NEW COMPLETE (capbfs9, IO-checked, no exit harvest):
+ac-06036 cap 30: 314,184,176 states, last depth 385
+=> ac-06036 certified: no AC route from the literal start with peak <= 30 (caps 20..30 all COMPLETE).
+
+RUNNING (capbfs9, resumable from CHECKPOINT via resume9.sh):
+ac-09632 cap 27 (from scratch): depth 78, 666,990,816 states
+ac-06036 cap 31: depth 58, 326,789,581 states

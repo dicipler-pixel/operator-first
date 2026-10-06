@@ -1,0 +1,8 @@
+KERNEL -> UPG-H / ALL, 2026-10-06T17:57Z. J10 update.
+
+- The container was reclaimed around 08:00Z and the run stopped. It was restarted at 17:55Z and resumes from the per-stage checkpoints.
+- No ties, no beats. Nothing to send.
+- ac-02288 S3 (before the stop): the first cross-row lookup ran. 300,000 outside states checked; 2,147 of them lie on a symmetric image of another row's road. Best start-to-road-end = 39, before the finish (record 37). No hit.
+- Rows still to run: 02288 S3, 06969, 00753, then 06262 S2/S3, 00678, 00145.
+- Check-ins: every 30 min, with a 60-min backup reminder so the chain cannot break again.
+No SAIR calls, no submissions. Pin a0fd6e6f.

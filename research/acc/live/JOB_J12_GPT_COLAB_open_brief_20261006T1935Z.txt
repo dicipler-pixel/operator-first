@@ -1,0 +1,64 @@
+JOB J12 for GPT on Colab: find the method the new #3 player uses (from UPG-H, 6 Oct 2026 19:35Z)
+
+THIS IS AN OPEN PROBLEM. We are not giving you a method on purpose. Our own engines fail on these rows (evidence below),
+so the point is for you to think it through independently and try your own ideas. Report what you tried, what worked,
+what failed, and why you think so. A clear failed experiment is a useful result.
+
+THE PROBLEM (SAIR Andrews-Curtis Challenge, AC track, move spec ac-r2-v1)
+- A state is two freely reduced words (r0, r1) over x, y. Integers: x=1, x^-1=-1, y=2, y^-1=-2.
+- 14 moves (each followed by free reduction, NOT cyclic reduction):
+  0: r0 <- r0^-1   1: r1 <- r1^-1   2: r0 <- r0 r1   3: r0 <- r0 r1^-1   4: r1 <- r1 r0   5: r1 <- r1 r0^-1
+  6..9: r0 <- g r0 g^-1 for g = x, x^-1, y, y^-1      10..13: r1 <- g r1 g^-1 for g = x, x^-1, y, y^-1
+- Goal: reach exactly (r0, r1) = ([1], [2]) i.e. (x, y). Score = number of moves. Shorter is better.
+- Stable AC track (sac-ids, spec sac-r8-v1) has its own move numbering (stabilise/destabilise moves). The simple rule
+  we use: an AC road + [16,15] is accepted as a Stable road 2 longer; an AC-move road ending at (y, x) + [15,15] too.
+- Points: beat the record = 1.0; tie a record held by k teams = 2^-k. A tie also halves the holder's points on that row.
+- Official checker (the only judge): git clone https://github.com/SAIRcompetition/Andrews-Curtis, checkout
+  a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e, then from the repo root:
+  PYTHONPATH=competition/tools python3 -m verifier --manifest competition/tools/verifier/data/manifest.json --submission YOURFILE.txt
+  Submission lines look like:  ac-00018: [3,13,8,...]   (one per line). Only lines it accepts count.
+
+THE TARGETS: the rows where the new #3 player holds the record and k is small (board 18:27Z today)
+(ac_record = record length, ac_k = teams on it; start = official start relators)
+{"ac": "ac-00023", "ac_record": 86, "ac_k": 1, "sac_record": 89, "sac_k": 1, "start": [[-2, -1, 2, -1, 2, 1], [-2, -2, -1, -2, -1, 2, 2, -1, 2, 1, -2, -1, 2, -1, 2, 2, 1, -2, -1, -1, 2, 2, 1, 1, 1]]}
+{"ac": "ac-00059", "ac_record": 124, "ac_k": 1, "sac_record": 132, "sac_k": 1, "start": [[-2, -1, 2, 1, -2, 1, 1], [-2, -1, -1, -1, 2, -1, -2, 1, 1, -2, 1, 1, -2, 1, 1, -2, 1, 1, 1, -2, 1, 1, 1, 1]]}
+{"ac": "ac-00073", "ac_record": 110, "ac_k": 1, "sac_record": 114, "sac_k": 1, "start": [[-2, -1, 2, 1, -2, -1, -1], [-2, -1, -2, -1, 2, 1, -2, -1, -1, 2, -1, 2, -1, -1, -2, 1, 1, 1]]}
+{"ac": "ac-00018", "ac_record": 43, "ac_k": 2, "sac_record": 45, "sac_k": 1, "start": [[-2, 1, 1, -2, 1, 1, 1, 1, 1], [-2, -2, -1, -1, 2, -1, -1, 2, -1, 2, 2, 1, -2, 1]]}
+{"ac": "ac-00048", "ac_record": 90, "ac_k": 2, "sac_record": 92, "sac_k": 1, "start": [[-2, -2, -2, -1, 2, 2, 2, -1, 2, -1, 2, 2, -1, -1, 2, 2, -1], [-2, -2, -2, 1, 2, 2, 1, -2, 1, -2, 1, 1, -2, -2, 1, -2, 1]]}
+{"ac": "ac-00022", "ac_record": 44, "ac_k": 3, "sac_record": 46, "sac_k": 2, "start": [[-2, -1, 2, -1, 2, 1], [-2, -2, -1, 2, 2, 1, -2, 1, -2, 1, -2, 1, -2, -1, 2, 2, -1]]}
+{"ac": "ac-00032", "ac_record": 72, "ac_k": 3, "sac_record": 74, "sac_k": 2, "start": [[-2, -1, -2, 1, 2, -1], [-2, -2, -2, 1, 2, 1, -2, -1, 2, -1, 2, -1, -1, 2, 1, 2, 2, 1, 1]]}
+{"ac": "ac-00052", "ac_record": 49, "ac_k": 4, "sac_record": 51, "sac_k": 6, "start": [[-2, -2, -1, -1, -2, 1, 1, 1, 1, 1, 1], [-2, -2, -1, -1, -2, 1, 1, 2, -1, -2, -2, 1, 1, 1, 1, 1, 1]]}
+{"ac": "ac-00058", "ac_record": 61, "ac_k": 4, "sac_record": 61, "sac_k": 1, "start": [[-2, -2, -1, 2, 1], [-2, -1, -2, 1, -2, -1, 2, 1, 2, 1, -2, -1, -1, -1, 2, -1, 2, 1, 1, -2, 1, -2, 1]]}
+{"ac": "ac-00011", "ac_record": 48, "ac_k": 5, "sac_record": 50, "sac_k": 4, "start": [[-2, -2, 1, 1, 1], [-2, -2, -1, 2, -1, 2, 1, 2, 1, -2, -1, 2, -1, 2, -1, -1, 2, -1, 2, 2, -1, -1]]}
+{"ac": "ac-00076", "ac_record": 45, "ac_k": 6, "sac_record": 47, "sac_k": 5, "start": [[-2, -1, 2, 1, 1], [-2, -2, -1, 2, 2, 1, 1, -2, -1, 2, 2, -1, 2, -1, 2, 1, -2, -2, 1]]}
+
+WHAT WE KNOW ABOUT THE #3 PLAYER (facts, not guesses)
+- Their 25 scored rows are ac-00005 ... ac-00076: they seem to sweep the board in row order.
+- They match the record on every one of the 25, and hold three alone: 00023 (86), 00059 (124), 00073 (110).
+- Record history: 00023 95 -> 88 -> 86; 00059 133 -> 124; 00073 118 -> 116 -> 112 -> 110; 00022 45 -> 44; 00048 96 -> 92 -> 90.
+- They also tie 2087 on ac-00025 (a Miller-Schupp ladder row); that length is the best known doubling construction.
+
+WHAT FAILED FOR US (so you do not repeat it as your main idea)
+- Our beam search (width 20,000, three orientations, exact 8-move finish table): 00018 no road at all (record 43),
+  00052 no road (record 49), 00022 road of 61 (record 44). Our older stored roads: 00018 51, 00022 56, 00076 51, 00058 72.
+- Our exact BFS with a cap on total word length (cap = start length + 3): 00018 has NO road of length <= 43 whose
+  words stay within total length 26 for the first 35 moves (6.7M states). So the record road climbs higher than that.
+
+WHAT WE WOULD LIKE FROM YOU
+1. Spend the first hour thinking and on small experiments (start with 00018, 00022, 00052: short starts, records 43-49).
+   Your own ideas first. Look at the rows themselves before choosing a tool.
+2. Pick your best idea and run it as a long job (Colab: aim for 8-11 hours; save progress to Drive so a disconnect
+   loses nothing).
+3. Every 30-40 minutes put a short report in the team Drive folder: J12_GPT_REPORT_<UTC>.txt with
+   (a) what you are running and why, (b) best length per row so far, (c) any line the OFFICIAL checker accepts that is
+   <= the record above, written as ready-to-send lines. Post a tie/beat immediately; UPG-H checks the live board and submits.
+4. At the end: a one-page METHOD note: the idea, the evidence for it, the numbers, and what you would try next.
+
+OPTIONAL CONTROL ARM (only if you have a spare CPU; do not read its code before you have your own idea)
+- colab_j12_rival.py (the owner sends it; repo path tools/acc/colab/colab_j12_rival.py) is OUR baseline: beam + capped BFS. Run it in the background with
+  !python3 colab_j12_rival.py --setup-only   then
+  !nohup python3 colab_j12_rival.py --lane capped --hours 10 --outdir /content/drive/MyDrive/J12 > cap.log 2>&1 &
+  It writes J12_REPORT_capped_*.txt. Its numbers are the bar your method should beat.
+
+RULES: never touch rows 09839, 02257, 09311, 06403, 04718, 05378 or their twins. Do not submit to SAIR yourself;
+send lines to UPG-H through Drive. Keep the official checker pinned at a0fd6e6f.

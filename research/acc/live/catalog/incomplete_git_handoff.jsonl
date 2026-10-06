@@ -1,3 +1,5 @@
 {"row": "ac-00145", "status": "INCOMPLETE", "scope": "beam W100k DIV 0.5 to depth 39; died on container restart 1 Oct; no checkpoint", "value": "low", "source": "HANDOFF_Git_20261006T0322Z"}
 {"row": "ac-03786", "status": "INCOMPLETE", "scope": "fixpoint + mid-restart on Fable's road never started; best held now 135 vs record 92 (k1)", "value": "low (gap 43)", "source": "HANDOFF_Git_20261006T0322Z"}
 {"row": "ac-03714", "status": "INCOMPLETE", "scope": "class-splice junction not compiled at tight DP (1,3,8); loose (2,4,16) / wide (2,6,24) never tried", "value": "low", "source": "HANDOFF_Git_20261006T0322Z"}
+{"row": "ac-00631", "method": "mid_restart.py W 20000 from every road point", "status": "INCOMPLETE", "note": "cuts 1-5 nothing; running from cut 6", "source": "Git_longrows_status_20261006.xlsx"}
+{"row": "ac-03786", "method": "fixpoint_shorten on 6 roads (135-151)", "status": "INCOMPLETE", "note": "stopped after ~1 h on pass 1; 43 over record", "source": "Git_longrows_status_20261006.xlsx"}
