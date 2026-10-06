@@ -1,0 +1,18 @@
+# BOB J8 checkpoint 4 - Jeromie Beasley (worker Bob) - 2026-10-06
+# Certificate = exhaustive capped BFS from literal start, all 14 ac-r2-v1 moves, every state total <= cap, goal = one-letter-collapse set. COMPLETE = no AC route with peak <= cap.
+# Still no road on 09632 / 05538 / 03320 / 06036.
+
+NEW COMPLETE (capbfs8, disk healthy during run):
+ac-06036 cap 26: 9,052,976 states, last depth 247
+ac-06036 cap 27: 29,643,472 states, last depth 261
+ac-06036 cap 28: 51,633,888 states, last depth 310
+ac-06036 cap 29: 164,769,856 states, last depth 321
+(earlier: 06036 caps 20-25; 09310 caps 22-26; 09632 cap 26; 05538 caps 25-28)
+
+WITHDRAWN / NOT CERTIFIED:
+ac-09632 cap 27: capbfs8 printed COMPLETE (3,973,006,599 states, depth 375) but the disk filled during the last ~12 depths; capbfs8 did not check write errors, so the result is untrusted. Never posted before this note.
+ac-06036 cap 30: disk-full, no result.
+
+FIX: capbfs9 = capbfs8 + every fwrite/fclose checked (failure -> IOERROR, exit 3, never COMPLETE) + 2 GB free-disk guard + optional exit harvest ("-"). Control: 09310 cap 22 reproduces 639,344 exactly.
+RUNNING (capbfs9): 09632 cap 27 from scratch; 06036 caps 30..34.
+INCOMPLETE still: 05538 cap 29 (killed at depth 32, 178,575,697 states).
