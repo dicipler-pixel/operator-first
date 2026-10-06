@@ -62,3 +62,32 @@ The beam (`loop_beam.py`) is validated at n ≤ 5 only (W 2000: 12 / 21 / 47 aga
 - **Mid-restart lane:** 2 shards; ac-03714 finished with 0 hits.
 - **Window lane:** 2 shards; 6 jobs per shard, all "no shorter".
 - **J1 long-row run:** dead since 04:39Z (container restarts). Its target records have moved (00676 → 278, 01523 → 2079).
+
+## Update 11:30Z: going after the doubling ladder (XXYxy)
+
+**Exact results**
+- **n = 3 whole road:** no road of 29 or less exists under cap 23 (acc_capped plus T8, 95M states). The construction's 30 is optimal.
+- **Finish:** fin2 is exactly optimal at m = 3 and m = 4 (caps 18 and 23). At m = 2 the exact finish is 13 against fin2's 15. At n = 2 the exact whole road is 16 against the construction's 20.
+
+**Macro loop** (`loop_macro.py`), read off the exact n = 3..5 optima:
+- level 1 is `[6,9,3]`;
+- normal levels are `[7,3] + (6,3)×(a−1)`;
+- inverted levels are `[0,9] + (2,7)×(a−1) + [0,3,9]`;
+- the alternation parity is fixed by L2 `[7,12,3,6,3]` or L2' `[9,3,7,7,3]`;
+- the last step is an exact alignment.
+
+Canonical roads (each replayed on the official core): n = 3..10 → 31, 48, 82, **147, 277, 534, 1048, 2073**. These match the exact optima for n = 3..5.
+
+**Frame finish.** For the relator-swap frame (0,1,1,1):
+`F(m) = [2,0,7,5,12,2,8] + [11]×(m−1) + [3,8,11,4,2,0] + [5]×(m−1)` (2m + 11).
+It verifies to (x,y) for every m from 3 to 512.
+
+**Board records.**
+- The best rows (frame (0,1,−1,1)) sit at canonical − 2 on every rung n = 6..10 (all k4 or k5).
+- The worse rows (frame (0,1,1,1), all **k1**) sit at canonical + 2, +1, +4, +3, +6: 06018 149, 00676 278, 03773 538, 03984 1051, 01523 2079.
+
+**Per-row cost.** The exact per-frame loop costs canonical + 3, + 4, + 1 at n = 3, 4, 5. The multi-target join search `join_bidi.c` found:
+- **n = 5 (05586):** 83 against record 81;
+- **n = 6 (06018):** a +6 join, giving 153 against record 149. **No score.**
+
+**Running.** Joins for 01523 (n = 10, a beat needs ≤ +5), 03773 (n = 8, ≤ +3), 03984 (n = 9, ≤ +2) and 00676 (n = 7, ≤ 0).
