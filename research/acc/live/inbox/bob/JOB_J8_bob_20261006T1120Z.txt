@@ -1,0 +1,34 @@
+JOB J8 - Bob - report 6 Oct 11:20Z. Jeromie Beasley team. Pin a0fd6e6. Nothing submitted, no SAIR calls.
+STATUS: INCOMPLETE overall (no road yet on 09632 / 05538 / 03320 / 06036). Box limit found: this box only computes while Bob is inside a tool call, and the cgroup kills jobs above ~5-6 GB. Long runs belong on Colab / Jeremy's PC (kit below).
+
+ROADS: none on the four rows.
+
+COMPLETE (queue emptied; start = literal manifest start; all 14 ac-r2-v1 moves; every state total <= cap; goal = one-letter-collapse set = a relator with exactly one letter of one generator whose substitution leaves the other relator at exponent +-1; (x,y) and (y,x) are in the set, so each line also proves "no AC route with peak <= cap"):
+- ac-05538 cap 25: 32,270,032 states, last depth 119.
+- ac-05538 cap 26: 62,212,896 states, depth 112.
+- ac-05538 cap 27: 208,865,600 states, depth 142.
+- ac-05538 cap 28: 379,452,336 states, depth 151 (run twice with two different programs, hash-table capbfs2 and external-memory capbfs7: identical count and depth).
+- ac-09632 cap 26: 588,367,824 states, depth 355.
+=> any route of 05538 has peak >= 29; any route of 09632 has peak >= 27. (Team bounds before: 24 / 25.)
+- Class keys (Aut(F2), Whitehead descent + equal-length level, 8 letter symmetries) for all 10,115 rows: 7,724 classes. AC balls radius 6, cap start+10 (41k-52k states each, complete) linking classes:
+  09632 cluster (21 rows): {09632,03131} | {00675,02415,02571,03320,06469,06615,07430,08606,09310,09811} | {02576,04420,08477} | {00132,02196,03121,04045,09194,10105}; 09632 -[10,2]-> 03320-class, -[9,7,4]-> 08477-class, -[0,9,7,3]-> 10105-class; 03320 -[3]-> 10105-class.
+  05538 cluster (8 rows): {05538,01124} -[0,7,3]-> {00936,01616,04857,05076,08571,09002}.
+  06036: class {02024,03479,06036,07239,09314}; no other class within radius 6.
+  None of these rows has a team road in the 30-Sep pool or in Bob's roads. One road on any row of a cluster transports to all of it.
+- No cluster row has a Baumslag-Solitar second relator, so P1/P2 constructions do not apply directly.
+
+INCOMPLETE (with scope and where the frontier is):
+- ac-09632 cap 27, external-memory BFS (capbfs7): stopped at depth 218, 1,951,515,874 states, frontier ~30M; frontier files Lprev/Lcur + CHECKPOINT on Bob's box (w7_09632_c27), resumable with capbfs8. An earlier in-RAM run (capbfs3) reached depth 240 / 2,306,938,970 states (frontier still growing, 26M) before an OOM kill. Expect several billion states.
+- ac-05538 cap 29: stopped (killed by Bob to free the core) at depth 32, 178,575,697 states. A first in-RAM attempt was OOM-killed at depth 42 / 495M.
+- Heuristic (NOT certificates):
+  a) climb-then-collapse beam from 5 Nielsen representatives (change of generators depth 1-3, lengths 29-71) of 09632 and of 05538, grid (A,K,Bc) = (2,0,1),(2,15,0),(2,25,-1), W 20000, depth 90, cap rep+30, exact pull-back through psi^-1: 14 of 15 runs per row done, no collapse state (box restart stopped the 15th). 03320 / 06036 not started.
+  b) exit-seeded beam (song 8, Sol: cross the certified wall): 6,761,045 unique exit states over the 05538 cap-28 wall (total 29-30, a relator with <= 2 letters of one generator); beams from the best 5k-200k exits, W 50k-200k, depth 120-150, cap 58, climb K 0/15/25/30/40, Bc 1/-1/-2, A 2/3/4: 7 completed configs, all NONE. One cap-70 config reported a GOAL that was a key-overflow artefact (keys hold <= 58 letters); the tool now refuses cap > 58.
+
+KIT FOR COLAB / JEREMY'S PC (luna and bob folder): BOB_J8_kit_capbfs8.cpp (8,426 bytes; same file as on Bob's box).
+  g++ -O2 -o capbfs8 BOB_J8_kit_capbfs8.cpp
+  printf '%s\n%s\n' "-2 -2 -2 1 2 2 -1 -1" "-2 -2 -2 -2 -2 -1 2 2 2 2 1" > s09632.txt
+  printf '%s\n%s\n' "-2 -2 -2 1 2 2 -1 -1" "-2 -2 -2 -2 -2 -2 -1 2 2 2 2 2 1" > s05538.txt
+  mkdir -p w_09632_c27 && ./capbfs8 27 100000 20000000 w_09632_c27 ex_09632_c27.bin < s09632.txt
+  mkdir -p w_05538_c29 && ./capbfs8 29 100000 20000000 w_05538_c29 ex_05538_c29.bin < s05538.txt
+  Memory ~0.4 GB (run buffer 20M states x 16 B); disk: two layer files + runs (a few GB) + exit file. Rerunning the same command after a stop resumes from CHECKPOINT. Output: COMPLETE (certificate) / GOAL depth d state ... (a collapse state at peak <= cap: any such state finishes to (x,y); post it and Bob rebuilds the route) / INCOMPLETE.
+  Control: ac-05653 cap 22 gives "depth 20 frontier 2971683 seen 11709509" (identical to the hash-table version).
