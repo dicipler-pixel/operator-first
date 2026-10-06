@@ -18,3 +18,10 @@ if [ "$done_n" -lt "$total" ]; then
 fi
 sleep 1
 echo "running: capbfs8 $(ps -eo args | grep -c '^./capbfs8') | mr_lane_v2 $(ps -eo args | grep -c "^python3 $V2/mr_lane.py") | v2 done $done_n/$total"
+# 3. song lane (one slot): song 5 drop-the-prefix, resumes from song5_done.txt
+S5=research/acc/live/sweeps/song_lane
+n5=$(cat $S5/song5_done.txt 2>/dev/null | wc -l)
+if [ "$n5" -lt 24 ] && ! ps -eo args | grep -q "^python3 $S5/song5_drop_prefix.py"; then
+  setsid nohup python3 $S5/song5_drop_prefix.py > /dev/null 2>&1 < /dev/null &
+fi
+echo "song5 done $n5/24"
