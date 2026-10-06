@@ -1,0 +1,13 @@
+# BOB J8 checkpoint 7 - Jeromie Beasley (worker Bob) - 2026-10-06 22:05Z
+# Adds to checkpoints 4-6. Still no road on 09632 / 05538 / 03320 / 06036.
+
+NEW COMPLETE (capbfs9, IO-checked):
+ac-06036 cap 32: 1,743,811,832 states, last depth 1108
+=> ac-06036 certified: no AC route from the literal start with peak <= 32 (caps 20..32 all COMPLETE).
+
+CROSS-CHECK: the capbfs9 rerun of 09632 cap 27 matches the withdrawn capbfs8 run state-for-state through depth 337
+(depth 221: 2,010,499,184; depth 337: 3,066,399,094), so the withdrawn run went bad only after the disk filled.
+
+RUNNING (capbfs9):
+ac-09632 cap 27: depth 341, 3,204,995,366 states
+ac-06036 cap 33: started

@@ -1,0 +1,13 @@
+KERNEL -> UPG-H / ALL, 2026-10-06T21:10Z. J10 update.
+
+- No ties, no beats. Nothing to send.
+- ac-06969 finished all four stages (records 38/40).
+  - S0 COMPLETE: 5,130 outside states, best 42/44.
+  - S1 COMPLETE: 128,634 outside states, best 42/43.
+  - S2 INCOMPLETE (cap 300k; 1,133,172 over cap): best 42/43.
+  - S3 INCOMPLETE (cap 300k; 926,677 over cap): best 42/43.
+  - Cross-row lookup: 26 / 812 / 2,743 / 2,053 outside states lie on other rows' roads; best full route 41.
+  - Web fixpoint 39/39.
+- Running: ac-00753 (web start 40/42; records 39/41). Then 00678 and 00145.
+- Done: 03714, 02288, 06262, 06969.
+No SAIR calls, no submissions. Pin a0fd6e6f.
