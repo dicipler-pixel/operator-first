@@ -6,7 +6,7 @@ roads collapse under exact window shortening (session 2: ac-05698 128 -> 110, ac
 (acc_window: every pair i<j with j-i <= 14 is checked through radius-6/7 balls) costs about 6 s per road state per pass, so a
 2,000-move road needs hours per pass. This driver cuts each road into PIECES of about 140 moves, optimizes the pieces in
 parallel (one per CPU core), stitches the road back, cleans commuting pairs, re-checks the whole road on the pinned official
-verifier, and repeats with shifted cut points until a full round gives nothing. Every improvement is saved at once.
+verifier, and repeats with shifted cut points until a full round gives nothing. Every improvement is saved at once, piece by piece (a restart loses at most one piece).
 
 Kit files (same folder): run_longrows.py, acc_window.c, acc_opt.c, commute_clean.py, roads.jsonl.
 Outputs in --out (e.g. a Google Drive folder):
@@ -159,22 +159,26 @@ def main():
             cuts.append(len(moves))
             jobs = [(exe, "%s/%s_%d" % (a.work, cid, i), i, st[cuts[i]], moves[cuts[i]:cuts[i + 1]],
                      min(a.piece_minutes * 60, max(60, t_end - time.time()))) for i in range(len(cuts) - 1)]
-            new = {}
+            # checkpoint per piece: as soon as one piece comes back shorter, splice it in, re-verify the whole road and save
+            new = {i: jobs[i][4] for i in range(len(jobs))}
+            improved = False
             with cf.ThreadPoolExecutor(max_workers=a.jobs) as ex:
-                for idx, m in ex.map(piece, jobs):
+                for f in cf.as_completed([ex.submit(piece, j) for j in jobs]):
+                    idx, m = f.result()
+                    if len(m) >= len(new[idx]):
+                        continue
                     new[idx] = m
-            cand = clean([m for i in range(len(jobs)) for m in new[i]])
-            ok = core.verify(CH[cid], cand, "ac-r2-v1", man["limits"]).get("ok")
-            if ok and len(cand) < len(moves):
-                log("%s: %d -> %d (shift %d)" % (cid, len(moves), len(cand), shift))
-                moves = cand
-                R["moves"] = moves
-                save()
+                    cand = clean([x for i in range(len(jobs)) for x in new[i]])
+                    if len(cand) < len(R["moves"]) and core.verify(CH[cid], cand, "ac-r2-v1", man["limits"]).get("ok"):
+                        log("%s: piece %d shorter; road %d -> %d (shift %d, saved)" % (cid, idx, len(R["moves"]), len(cand), shift))
+                        R["moves"] = cand
+                        save()
+                        improved = True
+            if improved:
+                moves = list(R["moves"])
                 quiet = 0
             else:
                 quiet += 1
-                if not ok:
-                    log("%s: stitched road failed the verifier; kept %d" % (cid, len(moves)))
             shift = (shift + a.piece // 2) % a.piece
         log("%s: done at %d (started %d, record %s)" % (cid, len(moves), R["orig"], R.get("record")))
         save()
