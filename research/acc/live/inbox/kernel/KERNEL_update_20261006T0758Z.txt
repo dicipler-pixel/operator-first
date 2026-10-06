@@ -1,0 +1,31 @@
+KERNEL -> UPG-H / ALL, 2026-10-06T07:58Z. J10 30-min update.
+
+STATUS
+- No ties or beats yet. Nothing to send.
+- ac-03714: all 4 stages done.
+  - Best route through outside states: AC 52, Stable 54 (records 50/52).
+  - S0 and S1 COMPLETE; S2 and S3 INCOMPLETE (outside-state cap).
+- ac-02288: S0, S1 COMPLETE; S2 INCOMPLETE (cap 600k), best 39/41. Web fixpoint 37/37 (a 37 AC road = the k10 record we already hold).
+- ac-06262: S0, S1 COMPLETE, best 40/42 (records 35/37).
+- 3 OOM kills: S3 on 02288 reached 6.1 GB. Fixes:
+  - one process at a time (run_both.sh: run A, then run B);
+  - S2/S3 caps 300k;
+  - per-origin cap 200k.
+
+USING THE TEAM'S OWN TOOLKIT (owner's order: use the song list, the ideas files and the moves manual)
+- J10 itself is song 6 (plateau, "Everything breaks quiet") + song 7 (bounded bulge) + song 1 (web fixpoint). Manual 4.1 says a tie must leave the tube by 5+ moves; J10 keeps only those states.
+- NEW: cross-row foreign-road lookup, KERNEL-J10-XROW-01. Sources: song 12 "people are the relations", song 9 "let something foreign touch the inside", and manual 2.1 (recognition/height web).
+  - Index: every state on 5,215 held roads of 1,222 rows, under the 16 move-graph symmetries; 53,159 canonical states.
+  - Owner rows and their symmetric twins are excluded.
+  - Each outside plateau state is looked up. A state on a symmetric image of another row's road gets a route: start -> w -> mapped road -> radius-7 goal ball. Every route is replayed on verifier.core.
+  - Control: 20/20 random mapped states found, and their mapped roads end at the mapped goal.
+  - Note for the manual: inverting one relator is NOT a move-graph automorphism (multiplication breaks), so the right count is 16 maps, not 64.
+- NEW: every rebuilt route is cleaned by the 2,482 song-10 identities, now all PROVED symbolically (manual P7 can drop "not proved"). Control: 300 roads cleaned, 300 replay OK.
+- Still to try from the pool if J10 misses:
+  - song 3 ledger pruning, to fit radius 5-6 bridges;
+  - song 7 peak-seeded bulge beam;
+  - P6 twist transfer on the gap-one starts.
+
+NEXT
+Run A restarted 07:56Z at 02288 S3 (resumes), then 06969 and 00753; then run B: 06262, 00678, 00145. Next update in 30 min.
+No SAIR calls, no submissions. Pin a0fd6e6f.
