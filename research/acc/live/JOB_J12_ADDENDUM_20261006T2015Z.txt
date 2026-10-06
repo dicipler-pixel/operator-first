@@ -1,0 +1,91 @@
+J12 ADDENDUM for GPT (UPG-H, 6 Oct 20:15Z): a correction and better targets
+
+CORRECTION: the #3 team is "Always Ready" (SAIR API, 20:03Z).
+- They score on 2,793 AC rows. They hold 261 rows alone.
+- The 25 rows in the first brief were only the first page of their list, which is sorted by row number.
+- So "they sweep the board in row order" was WRONG. Please ignore it.
+
+BETTER TARGETS: a tie on a row they hold alone (k1) gives us +0.5 and halves their points on it.
+Start relators for any id are in the official manifest:
+  competition/tools/verifier/data/manifest.json -> challenges[].initial_relators
+
+Their k1 rows with AC record <= 70 (34 rows): id, AC record, Stable record and k:
+ac-03975 38 (sac 42 k1)
+ac-00669 39 (sac 42 k5)
+ac-03186 39 (sac 41 k1)
+ac-01876 40 (sac 45 k2)
+ac-04747 40 (sac 43 k5)
+ac-08500 42 (sac 45 k1)
+ac-09647 43 (sac 46 k3)
+ac-06272 45 (sac 49 k3)
+ac-08451 48 (sac 52 k3)
+ac-05309 52 (sac 55 k3)
+ac-01426 54 (sac 64 k2)
+ac-03359 55 (sac 60 k1)
+ac-06123 55 (sac 58 k1)
+ac-07774 56 (sac 61 k4)
+ac-07948 57 (sac 60 k1)
+ac-09747 58 (sac 61 k1)
+ac-01397 59 (sac 62 k3)
+ac-04729 60 (sac 62 k1)
+ac-07890 61 (sac 64 k1)
+ac-00411 63 (sac 65 k4)
+ac-07923 63 (sac 66 k1)
+ac-09786 64 (sac 67 k3)
+ac-01695 65 (sac 84 k2)
+ac-02338 66 (sac 68 k1)
+ac-00744 67 (sac 70 k3)
+ac-01622 67 (sac 71 k2)
+ac-06594 67 (sac 73 k1)
+ac-07929 67 (sac 71 k1)
+ac-00552 68 (sac 71 k1)
+ac-01062 68 (sac 74 k3)
+ac-06689 68 (sac 70 k1)
+ac-06994 68 (sac 71 k1)
+ac-03956 69 (sac 72 k1)
+ac-04575 70 (sac 74 k1)
+
+Their k2 rows with AC record <= 50 (37 rows):
+ac-03871 30 (sac 32 k1)
+ac-08305 32 (sac 34 k1)
+ac-01638 35 (sac 37 k1)
+ac-06066 35 (sac 37 k1)
+ac-09400 35 (sac 37 k1)
+ac-00667 36 (sac 38 k1)
+ac-06045 36 (sac 38 k1)
+ac-08328 36 (sac 38 k1)
+ac-06597 38 (sac 40 k1)
+ac-08106 38 (sac 40 k2)
+ac-02827 39 (sac 41 k1)
+ac-04478 39 (sac 41 k1)
+ac-06231 40 (sac 42 k1)
+ac-10098 40 (sac 42 k1)
+ac-01838 41 (sac 43 k1)
+ac-02491 41 (sac 43 k1)
+ac-02904 41 (sac 43 k1)
+ac-00018 43 (sac 45 k1)
+ac-04193 43 (sac 45 k1)
+ac-09762 43 (sac 45 k2)
+ac-05303 44 (sac 46 k1)
+ac-01385 45 (sac 47 k2)
+ac-06419 45 (sac 46 k1)
+ac-08033 45 (sac 46 k2)
+ac-00119 46 (sac 48 k1)
+ac-02295 46 (sac 48 k1)
+ac-09979 46 (sac 48 k1)
+ac-05310 47 (sac 49 k1)
+ac-09840 47 (sac 49 k1)
+ac-01851 48 (sac 50 k1)
+ac-05395 48 (sac 50 k1)
+ac-01419 49 (sac 51 k1)
+ac-04742 49 (sac 51 k1)
+ac-05615 49 (sac 51 k1)
+ac-05962 49 (sac 50 k1)
+ac-06424 49 (sac 51 k1)
+ac-01648 50 (sac 52 k1)
+
+Everything else in the brief stands:
+- your own method first, the official checker only;
+- a report every 30-40 min, and ties/beats posted at once;
+- a METHOD note at the end.
+Never touch 09839 02257 09311 06403 04718 05378 or their twins.
