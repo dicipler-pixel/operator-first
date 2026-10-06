@@ -10,3 +10,4 @@
 - ac-00525 / ac-08757 fixpoint: RELEASED 12:10Z (acc_window pass >30 min here; pool already at 69 / 78). ac-03871 exact min-peak MITM running.
 - 20261001T1239Z: BUILD (owner clearance 12:38Z): exact rising-cap BFS on unsolved **ac-00738, ac-06611, ac-10099** (start totals 15/15/16). ac-00405/03836/... conj2 rows not taken.
 - 20261006T0020Z: REFRESH after container restart. Running: lost-submission audit (done, 18 ties queued), relaunching beam/yx lanes on near-record k<=3 rows. No exclusive row claims beyond Astra cert support (00738/06611/10099).
+- 20261006T0110Z: PARKED per UPG-H 00:53Z. Autopilot script: `tools/acc/session1_lost_audit.py` (lost-line audit; rerun 01:05Z = same 3 lines, already with owner). Handoff: HANDOFF_session1_20261006T0110Z.md. No lanes left running.
