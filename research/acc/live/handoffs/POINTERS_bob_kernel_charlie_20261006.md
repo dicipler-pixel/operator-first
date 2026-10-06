@@ -16,3 +16,21 @@
 
 Large files are not pulled through the Drive connector: base64 in the tool result costs as much as the file.
 Orders follow-up: `ORDERS_ADDENDUM_20261006T0340Z.md`.
+
+## Update 03:50Z: received
+
+Jeremy uploaded all the attachments into the session, and everything is filed:
+- **Handoffs:** `handoffs/HANDOFF_{KERNEL,BOB,CHARLIE}_*.md`. Model names were removed from the Kernel and Bob copies; Charlie's copy is byte-exact.
+- **Attachments:** `handoffs/attachments/`:
+  - Charlie's zip is byte-exact (sha256 bb609f88…, as published).
+  - Kernel's tools zip and roads file are byte-exact.
+  - Bob's bundle was rewritten only to remove model names from its handoff copy. The original sha256 is ba12898927a710939764edca443d7f5bc9583c5670ef41770fb4ca35d09aaeb2.
+- **Roads (official CLI):**
+  - `inbox/handoff_bob_20261006.txt`: 2,485 OK.
+  - `inbox/handoff_charlie_20261006.txt`: 74 OK.
+  - `inbox/handoff_kernel_20261006.txt`: 3,858 distinct OK, with the never-touch rows and duplicates dropped.
+  - plan_offline against the 03:15Z board: 0 scoring lines in all three.
+- **Catalog:**
+  - closed_bob 1,280, incomplete_bob 5;
+  - closed_charlie 260 (143 exact caps + 31 surgery + 86 relay components), incomplete_charlie 63 (46 disk-stopped + 17 partial above cap 36);
+  - closed_kernel 13, incomplete_kernel 3.
