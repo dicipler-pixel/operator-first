@@ -13,3 +13,10 @@ When the current move finishes:
 | 4 | Song 6, "stop holdin' up what you refused to fix" | Raise the cap: head/tail exact balls at cap 24–26 on k1/k2 one-over rows. | queued |
 | 5 | Song 2, "Integer times a radio step, plus offset" | Extend the ladder macro (loop_macro.py) to the other four doubling ladders (XYXYxy, XYYXyxY, XYYXYxy, XYXyxY), where we hold no roads on n ≥ 6. | queued. 19:20Z finding: XYXYxy MS(n) is the image of our XXYxy MS(n) under x → yx (y fixed); a direct transfer costs +1 move per x-conjugation, so it needs its own macro. Target: 00025 / 06610 (2087, n = 10). |
 | 6 | Song 3, "Four Constants, One Chain" (Kernel's idea) | Four-constants pruning, so radius 5–6 bridges fit on the gap-1 rows. | queued |
+
+## 23:05Z (end of the owner's workday block)
+| # | Move | Result |
+|---|---|---|
+| 3b | Song 7 on the Always Ready rows (J12 capped lane, caps +3/+5/+7, 150M states per cap) | 28 jobs so far, no road at record length on any row (depth-limited, INCOMPLETE). |
+| 4 | Our own history, "two bodies compared": foreign meet (`tools/acc/upgh/foreign_meet.py --gap 11 --kmax 2`), our road states matched against roads we hold on other rows | 9 roads shortened (01385 55 -> 46 vs record 45; 08106 48 -> 44 vs 38), 0 at record. |
+| 5 | Next: splice of saved roads (`adapters/splice_rows.py`; the 30 Sep receipt audit found all five improving attempts came from unions of saved roads), then the (y,x) Stable shortcut (`adapters/yx_rows.py`) on Always Ready rows whose Stable record is k1 | queued |
