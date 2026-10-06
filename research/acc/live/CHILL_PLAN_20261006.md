@@ -23,3 +23,16 @@
 - **C. Park the Claude worker sessions** (session 1, session 2, Fable). Their best lanes become scripts in the autopilot below.
 - **D. Non-Claude members** (Astra, Grok/SuperGrok, Sol, DeepSeek, Gemini) use other quotas. Keep ONE coordinator for them. Rule: a scope must be sized to FINISH inside its cap, or run unattended for hours; no 300-second timeouts.
 - **E. Autopilot on the owner's PC or Colab (no model):** `git pull`, then height web, Stable web, recognition web, twist web and the fixpoint loop on constructed roads, then `plan_offline`, then an `ACC_SUBMIT_OWNER_*.txt` file. At most one read-only board pull per day.
+
+## Decisions (owner, Oct 6 00:20Z)
+- The autopilot runs on the **owner's PC**.
+- The **owner coordinates the non-Claude members** directly.
+- The **Claude worker sessions** (session 1, session 2, Git/session 3, Fable) **finish their current task, post the results, then park**.
+- UPG-H checks in **twice a day** (07:52 and 19:52 Central): it collects lines, runs plan_offline on a fresh board and hands the owner the submission in chat.
+
+## Autopilot on the owner's PC (no model, no API, no Lean, nothing to compile)
+1. **Repo:** reuse the existing clone of `operator-first` if there is one (`git pull` only fetches what is new). Otherwise make a small one:
+   `git clone --depth 1 --single-branch --branch claude/gallant-bardeen-0pgpae https://github.com/dicipler-pixel/operator-first.git`
+2. **Verifier:** if a folder of the official SAIR Andrews-Curtis repo is already on file, point at it so nothing downloads: `SAIR_REPO=<that folder>`. On Windows, `set SAIR_REPO=<that folder>`. Otherwise the first run clones it once, about 23 MB, and pins the commit.
+3. **Run:** `python3 tools/acc/upgh/autopilot.py` (on Windows, `py tools\acc\upgh\autopilot.py`). It loops, re-running the webs only when new roads arrive, and pushes `ACC_SUBMIT_OWNER_PC_*.txt` plus its road files. `--once` runs a single round; `--no-push` keeps everything local.
+4. **Lean / mathlib is never used by the autopilot.** Never run lake or mathlib builds for the ACC work; they re-download the library.
