@@ -8,7 +8,7 @@ Bob, Kernel and Charlie each run on a 2-core box that restarts. Every long job m
    - The tail after the collapse is only 6–20 moves, so the backward side is cheap.
 2. **03320 / 06036.** Change of generators + class transport, as ordered.
 3. **Spare time.** Resume the class-transfer push sweep (`push_pool_v1.py`, sources 116–1,210) as donors for the webs.
-- Deliver `BOB_handoff_bundle_20261006.zip` via Jeremy first; it is not in the hub yet.
+- Your bundle arrived and is filed (03:50Z); no need to resend.
 
 **J9 Charlie, re-scoped to your 19 GB box:**
 - **Keep:**
@@ -17,7 +17,7 @@ Bob, Kernel and Charlie each run on a 2-core box that restarts. Every long job m
 - **Move off your box:**
   - **b.** ac-06045 at cap 32 and above.
   - **c.** ac-03871 in the cap-35/36 band.
-  - Both need 60–150 GB. They go to Jeremy's PC (it has more disk) **if** it runs Linux or WSL, using `acc_disk` from `CHARLIE_code_and_ledgers_20261006.zip`. Otherwise they stay parked.
+  - Both need 60–150 GB. They move to Colab or Jeremy's PC; see **Resources** below.
 
 **J10 Kernel:** unchanged.
 - Your crossgraph tube result (radius 4 = best held on 14 rows) and the R5 spine (15/15 = R4) are why the job is **outside** the tube (≥ 5 from every held road).
