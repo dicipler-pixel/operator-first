@@ -70,7 +70,7 @@ def roads_signature():
             "research/acc/upgh/ledger.jsonl"]
     for pat in pats:
         for f in sorted(glob.glob(str(REPO / pat), recursive=True)):
-            if "/pc_" in f.replace("\\", "/"):
+            if "/pc_" in f.replace("\\", "/") or "/colab_" in f.replace("\\", "/"):
                 continue
             st = os.stat(f)
             h.update(("%s %d %d" % (f, st.st_size, int(st.st_mtime))).encode())
@@ -127,24 +127,32 @@ def push(paths, msg):
 
 def one_round(n, args):
     stamp = utc()
+    tag = args.tag
     INBOX.mkdir(parents=True, exist_ok=True)
-    outs = [web("height_web.py", INBOX / ("pc_height_%s.txt" % stamp)),
-            web("stable_web.py", INBOX / ("pc_stable_%s.txt" % stamp)),
-            web("recognition_web.py", INBOX / ("pc_recognition_%s.txt" % stamp), ["--deadline-min", str(args.recog_min)])]
+    outs = [web("height_web.py", INBOX / ("%s_height_%s.txt" % (tag, stamp))),
+            web("stable_web.py", INBOX / ("%s_stable_%s.txt" % (tag, stamp))),
+            web("recognition_web.py", INBOX / ("%s_recognition_%s.txt" % (tag, stamp)), ["--deadline-min", str(args.recog_min)])]
     if args.twist_every and n % args.twist_every == 0:
-        outs.append(web("twist_web.py", INBOX / ("pc_twist_%s.txt" % stamp), ["--rows", "all"], timeout=4 * 3600))
+        outs.append(web("twist_web.py", INBOX / ("%s_twist_%s.txt" % (tag, stamp)), ["--rows", "all"], timeout=4 * 3600))
     outs = [o for o in outs if o]
     keep = plan(outs, stamp)
     written = list(outs)
     if keep:
-        owner = REPO / ("ACC_SUBMIT_OWNER_PC_%s.txt" % stamp)
+        owner = REPO / ("ACC_SUBMIT_OWNER_%s_%s.txt" % (tag.upper(), stamp))
         owner.write_text("".join("%s: %s\n" % (c, keep[c]) for c in sorted(keep)))
         written.append(owner)
         log("SCORING LINES: %d -> %s (UPG-H re-checks them against the live board before you submit)" % (len(keep), owner.name))
     else:
         log("no scoring lines this round")
+    if args.copy_to and written:
+        import shutil
+        dest = Path(args.copy_to)
+        dest.mkdir(parents=True, exist_ok=True)
+        for w in written:
+            shutil.copy2(w, dest / w.name)
+        log("copied %d file(s) to %s" % (len(written), dest))
     if args.push and written:
-        push(written, "autopilot (owner PC): round %d, %d road files, %d scoring lines" % (n, len(outs), len(keep)))
+        push(written, "autopilot (%s): round" % tag + " %d, %d road files, %d scoring lines" % (n, len(outs), len(keep)))
 
 
 def main():
@@ -154,10 +162,16 @@ def main():
     ap.add_argument("--poll", type=float, default=30, help="minutes between checks for new roads")
     ap.add_argument("--twist-every", type=int, default=3, help="run the (slow, ~25 min) twist web every N rounds; 0 = never")
     ap.add_argument("--recog-min", type=float, default=30, help="time cap for the recognition web, minutes")
+    ap.add_argument("--tag", default="pc", help="file name tag: pc (owner's PC) or colab")
+    ap.add_argument("--hours", type=float, default=0, help="stop after this many hours (0 = never); for Colab")
+    ap.add_argument("--copy-to", help="also copy each round's outputs into this folder (e.g. a mounted Google Drive folder)")
     args = ap.parse_args()
     ensure_verifier()
-    n, last = 0, None
+    n, last, t0 = 0, None, time.time()
     while True:
+        if args.hours and time.time() - t0 > args.hours * 3600:
+            log("time limit reached (%.1f h); stopping" % args.hours)
+            break
         git_pull()
         sig = roads_signature()
         if sig != last:
