@@ -1,0 +1,122 @@
+START HERE: GPT onboarding and handoff, job J12 (from UPG-H, the team coordinator, 6 Oct 2026 20:20Z)
+Paste all of this into a new GPT chat. It is self-contained. It replaces the earlier J12 brief and addendum, which
+stay in Drive for reference only.
+
+=====================================================================
+1. WHO YOU ARE AND WHO WE ARE
+=====================================================================
+- You are GPT, joining the team "Mad Hatters" (team T00051) in the SAIR Andrews-Curtis Challenge (ACC).
+- The owner (the person pasting this) runs the team. Your compute is Google Colab in the owner's Google account.
+- UPG-H (Claude) coordinates. It reads the team Drive, checks every line against the live board and does all the
+  submitting. Other members are Bob, Charlie, Kernel, Git, Grok, Sol and Luna. They post reports to the same Drive.
+- Where we stand (20:03Z): AC rank 15 (1.73 points), Stable rank 12 (9.52).
+  - #3 on AC is "Always Ready" with 425.6 points. They score on 2,793 rows and hold 261 of them alone.
+  - Your job is aimed at their rows.
+
+=====================================================================
+2. WHERE EVERYTHING IS
+=====================================================================
+- Team Drive hub (owner's My Drive): folder "Mad Hatters ACC Shared Hub"
+  https://drive.google.com/drive/folders/1FKL3CsdhkxC6iSiV3YA7Hj5Cgk7eMP89
+  In Colab after mounting Drive:  /content/drive/MyDrive/Mad Hatters ACC Shared Hub/
+  - UPGH_UPDATE_*.txt: the coordinator's team updates every 30-40 min (read the newest one).
+  - JOB_J12_GPT_COLAB_open_brief_*.txt and JOB_J12_ADDENDUM_*.txt: the earlier versions of this job (reference only).
+  - Put YOUR reports here (section 6).
+- Official rules and checker (public): https://github.com/SAIRcompetition/Andrews-Curtis
+  ALWAYS check out commit a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e. It is the only judge we trust.
+- Team code (private GitHub, owner access): dicipler-pixel/operator-first, branch claude/gallant-bardeen-0pgpae.
+  You do not need it. Our baseline Colab kit is tools/acc/colab/colab_j12_rival.py there (optional, section 5).
+
+=====================================================================
+3. THE PROBLEM (AC track, move spec ac-r2-v1)
+=====================================================================
+- A state is two freely reduced words (r0, r1) in x, y. Integers: x=1, x^-1=-1, y=2, y^-1=-2.
+- There are 14 moves. Each is followed by free reduction only (no cyclic reduction):
+  0: r0 <- r0^-1   1: r1 <- r1^-1   2: r0 <- r0 r1   3: r0 <- r0 r1^-1   4: r1 <- r1 r0   5: r1 <- r1 r0^-1
+  6..9:   r0 <- g r0 g^-1 for g = x, x^-1, y, y^-1
+  10..13: r1 <- g r1 g^-1 for g = x, x^-1, y, y^-1
+- Goal: reach exactly (r0, r1) = ([1], [2]), i.e. (x, y). The score is the number of moves; shorter is better.
+- Each row ac-NNNNN has a fixed start (the official manifest) and a public record (shortest known length) held by
+  k teams.
+  - Beat the record: 1.0 point.
+  - Tie it: 2^-k, and every holder's share halves.
+  - So tying a row that Always Ready holds alone (k1) gives us +0.5 and halves theirs.
+- Stable track (sac-NNNNN, spec sac-r8-v1) uses different move numbers. Our rule: an accepted AC road + [16,15] is an
+  accepted Stable road 2 moves longer, and an AC-move road that ends at (y, x), + [15,15], is one too.
+
+=====================================================================
+4. YOUR JOB (J12): AN OPEN PROBLEM, YOUR OWN METHOD
+=====================================================================
+We are NOT giving you a method on purpose. Our tools fall far short on these rows, so we want an independent idea.
+Think first, test small, then run your best idea as a long job (8-11 h on Colab).
+
+TARGETS. Rows Always Ready holds alone (k1), with short records. Start with these 10:
+  ac-03975 38 | ac-00669 39 | ac-03186 39 | ac-01876 40 | ac-04747 40 | ac-08500 42 | ac-09647 43 | ac-06272 45 | ac-08451 48 | ac-05309 52
+  (id, AC record). The full list is in JOB_J12_ADDENDUM_20261006T2015Z.txt in the hub:
+  34 k1 rows with record <= 70, and 37 k2 rows with record <= 50.
+  Start words for any id: manifest.json -> challenges[] where challenge_id == id -> initial_relators.
+
+FACTS (not guesses):
+- Always Ready also holds k1 rows at 86 (ac-00023), 124 (ac-00059) and 110 (ac-00073), and keeps cutting them
+  (00059 went from 133 to 124 between 1 and 6 Oct).
+- On many low-numbered rows, 7-9 teams share the record and we are about 2x worse.
+  Example: ac-00009 record 34 (7 teams), our best 52.
+WHAT WE ALREADY TRIED, AND IT FAILED (do not repeat it as your main idea):
+- Layered beam search, word-length score, exact 8-move finish table, widths 20k-200k, three symmetric orientations:
+  ac-00009 68 -> 52 (rec 34); ac-00022 61 (rec 44); ac-00018 / 00052 / 03975 no road at all.
+- Exact BFS with a cap on total word length (cap = start + 3..7): no record-length road within 150M states on 00018,
+  00022, 00076 and 00073.
+- Best-first search, priority = word length + w * depth (w = 8, 12, 16), 60M nodes: nothing <= record on 00009, 00018.
+Look at the rows themselves before choosing a tool.
+
+=====================================================================
+5. COLAB SETUP (first cell, copy as is)
+=====================================================================
+from google.colab import drive; drive.mount('/content/drive')
+import os, subprocess, json
+HUB = '/content/drive/MyDrive/Mad Hatters ACC Shared Hub'
+os.makedirs('/content/j12', exist_ok=True); os.chdir('/content/j12')
+if not os.path.isdir('sair'):
+    subprocess.run('git clone -q https://github.com/SAIRcompetition/Andrews-Curtis sair && cd sair && git checkout -q a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e', shell=True, check=True)
+# checker self-test with a line the board accepted today (ac-00975, 34 moves):
+open('selftest.txt','w').write('ac-00975: [1,4,11,12,11,13,10,10,7,8,2,10,0,9,3,12,10,3,8,6,5,6,8,6,6,8,4,11,2,0,3,5,3,5]\n')
+print(subprocess.run('cd sair && PYTHONPATH=competition/tools python3 -m verifier --manifest competition/tools/verifier/data/manifest.json --submission /content/j12/selftest.txt', shell=True, capture_output=True, text=True).stdout[:400])
+# expect "ok": true for ac-00975. Start words: json.load(open('sair/competition/tools/verifier/data/manifest.json'))
+
+Colab tips:
+- Save progress to Drive (the HUB folder or a subfolder), so a disconnect loses nothing.
+- Write long runs as resumable scripts started with nohup.
+- Optional control arm: only after you have your own idea, and only if you have a spare CPU. Run our baseline kit
+  colab_j12_rival.py (the owner can download it from the repo):
+    python3 colab_j12_rival.py --setup-only
+    nohup python3 colab_j12_rival.py --lane capped --targets-file targets.json --hours 10 --outdir "$HUB/J12" &
+  Its numbers are the bar your method must beat.
+
+=====================================================================
+6. HOW TO REPORT
+=====================================================================
+- Every 30-40 minutes, save J12_GPT_REPORT_<UTC>.txt in the hub folder. Include:
+  (a) what you are running and why, in plain words;
+  (b) the best length per row so far, even when it is over the record;
+  (c) every line the OFFICIAL checker accepts that is <= the record, written ready to send:  ac-03975: [m1,m2,...]
+- On a tie or beat, save J12_GPT_HIT_<UTC>.txt at once with the line(s) and the checker output.
+  UPG-H checks the live board and submits within the cycle.
+- At the end, save J12_GPT_METHOD_<UTC>.txt: the idea, the evidence, the numbers, what failed, and what to try next.
+  A clear failed experiment is a useful result.
+
+=====================================================================
+7. RULES
+=====================================================================
+- Never touch rows 09839, 02257, 09311, 06403, 04718 or 05378, or their twins.
+- Do not submit to SAIR yourself. No API keys. Lines go to UPG-H through Drive.
+- Use only the official checker at commit a0fd6e6f. A line counts only if it prints ok: true.
+- Never claim a proof or a certificate from a finite run. Say "no road found within <budget>".
+- Report honestly: what ran, for how long, and what it found.
+
+=====================================================================
+8. YOUR FIRST 30 MINUTES
+=====================================================================
+1. Run the setup cell. The self-test should accept ac-00975.
+2. Load 2-3 target rows (ac-03975, ac-08451, ac-06272) and look at their words.
+3. Decide on your idea, write it in 3 lines in your first report, then start it.
+4. Post J12_GPT_REPORT_<UTC>.txt within the first hour, then every 30-40 minutes.

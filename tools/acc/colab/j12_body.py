@@ -11,6 +11,7 @@ ap.add_argument("--seeds", default="0,1,2,3")
 ap.add_argument("--caps", default="3,5,7,9", help="capped lane: caps = start total + each value")
 ap.add_argument("--budget", default="100000000", help="capped lane: states per cap (100M ~ 4-5 GB RAM; High-RAM: 250000000)")
 ap.add_argument("--only", default=None, help="comma list of ac-ids to restrict to")
+ap.add_argument("--targets-file", default=None, help="JSON list [[ac-id, record, k, sac_record, sac_k, tag], ...] replacing the built-in targets")
 ap.add_argument("--setup-only", action="store_true", help="clone, compile, build T8, then exit (run this once first)")
 a = ap.parse_args()
 T0 = time.time(); DEADLINE = T0 + a.hours * 3600
@@ -154,6 +155,8 @@ def report(urgent=False):
     open(fn, "w").write("\n".join(txt) + "\n"); print("report ->", fn, flush=True)
 
 
+if a.targets_file:
+    TARGETS = [t[:6] for t in json.load(open(a.targets_file))]
 ids = [t[0] for t in TARGETS]
 if a.only:
     ids = [i for i in ids if i in set(a.only.split(","))]

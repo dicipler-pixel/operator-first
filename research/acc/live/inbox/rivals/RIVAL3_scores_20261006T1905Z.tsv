@@ -25,3 +25,6 @@ ac-00068	45	7	0.0156
 ac-00071	45	7	0.0156
 ac-00073	110	1	1.0000
 ac-00076	45	6	0.0312
+# 20:03Z correction (SAIR API teams --ranks 3, research/acc/live/teams/ac_20261006T2003Z.json.gz): AC #3 is "Always Ready",
+# 2,793 scoring rows, 261 alone; the 25 rows above were only the first page of their list (sorted by row id), not a sweep order.
+# Stable #3 is grothendiecksga.com (2,982 rows, 209 alone). Target list: research/acc/live/sweeps/rival3/always_ready_targets.json
