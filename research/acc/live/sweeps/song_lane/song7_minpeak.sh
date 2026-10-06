@@ -20,6 +20,6 @@ while read cid rec cap rest; do
   grep -q "^$cid cap $cap " $D/song7_done.txt 2>/dev/null && continue
   rm -rf $W/w; mkdir -p $W/w
   out=$(MAXD=$((rec-8)) INIT_LOG2=26 $B/acc_capped $B/T8.tab $cap 150000000 $W/w s7 $rest 2>/dev/null | tr '\n' ' ')
-  echo "$cid cap $cap :: $out" >> $D/song7_done.txt
+  [ -n "$out" ] && echo "$cid cap $cap :: $out" >> $D/song7_done.txt
 done < $D/song7_jobs.txt
 rm -rf $W/w
