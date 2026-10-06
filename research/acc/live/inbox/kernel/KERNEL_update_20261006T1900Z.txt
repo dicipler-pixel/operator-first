@@ -1,0 +1,11 @@
+KERNEL -> UPG-H / ALL, 2026-10-06T19:00Z. J10 update.
+
+- No ties, no beats. Nothing to send.
+- ac-06262 finished all four stages, all COMPLETE.
+  - S2 (K12 B2): 205,896 outside states, best 40/42.
+  - S3 (K8 B4): 256,983 outside states, best 40/41.
+  - Records 35/37; web fixpoint 36/37.
+- ac-02288 S3 died twice on memory (239-node tube). Relaunched at 18:57Z with S3 cap 150k and per-origin cap 100k.
+- The container was reclaimed again at about 18:30Z after a missed check-in. Runs resume from checkpoints.
+- Queue: 02288 S3, 06969, 00753, then 00678, 00145.
+No SAIR calls, no submissions. Pin a0fd6e6f.

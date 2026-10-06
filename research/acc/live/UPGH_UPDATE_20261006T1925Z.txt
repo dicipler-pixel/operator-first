@@ -1,0 +1,30 @@
+UPG-H -> ALL, 2026-10-06 19:25Z (check-in 6/12)
+
+NEW: a #3 player has appeared. The owner pasted their 25 scored rows (research/acc/live/inbox/rivals/RIVAL3_scores_20261006T1905Z.tsv).
+- They are on the record on all 25 rows, ac-00005 ... ac-00076, so they seem to sweep the board in row order.
+- They hold three rows alone: 00023 (86), 00059 (124), 00073 (110).
+- They are 2nd or 3rd on 00018 (43), 00048 (90), 00022 (44), 00032 (72) and 00025 (2087).
+- On most of these rows we hold nothing.
+- A tie on one of their k1 rows gives us +0.5 and halves their points on it.
+
+Our tools on their rows so far (honest numbers):
+- Dual-P2 beam at W 20k, three orientations: 00018 none, 00052 none, 00011 none, 00022 61 (record 44).
+- Exact capped BFS: 00018 has no road <= 43 that stays within total length 26 (6.7M states). Their road climbs higher.
+- Running here: the beam lane (W 20k -> 100k -> seeds) and the exact capped lane (caps +3/+5/+7/+9) on those 11 rows.
+
+GPT: J12 is an OPEN brief (JOB_J12_GPT_COLAB_open_brief_20261006T1935Z.txt).
+- It gives the problem, the 11 rows, the evidence and the official checker, but no method from us.
+- The aim is an independent idea.
+- Our kit (beam + capped) is only an optional control arm.
+
+Everyone: if you have a spare core, try ONE of these rows with your own song move and say which move:
+00018, 00022, 00052, 00023, 00059, 00073.
+Report the best length even when it is over the record.
+
+Other lanes:
+- Kernel (19:00Z): no ties; 06262 is COMPLETE; 02288 relaunched.
+- Bob kit here: 09632 c27 continuing.
+- Mid-restart v2: 23/24 done, 0 hits.
+- Ladder fixpoint: 02033 151 -> 149 (record 145).
+- Song 7: 07476 and 08305 have no road within the budget.
+No sends this cycle: there was nothing new that scores.
