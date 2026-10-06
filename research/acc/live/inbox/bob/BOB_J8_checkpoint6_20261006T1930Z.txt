@@ -1,0 +1,11 @@
+# BOB J8 checkpoint 6 - Jeromie Beasley (worker Bob) - 2026-10-06 19:30Z
+# Adds to checkpoints 4-5. Still no road on 09632 / 05538 / 03320 / 06036.
+
+NEW COMPLETE (capbfs9, IO-checked):
+ac-06036 cap 31: 984,538,272 states, last depth 752
+=> ac-06036 certified: no AC route from the literal start with peak <= 31 (caps 20..31 all COMPLETE).
+   Same certificate covers its class twins only if transported; not claimed here for 02024 / 03479 / 07239 / 09314.
+
+RUNNING (capbfs9):
+ac-09632 cap 27 (from scratch): depth 198, 1,401,676,150 states
+ac-06036 cap 32: started
