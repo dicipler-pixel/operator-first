@@ -1,4 +1,5 @@
-// ACC exact window shortening, ac-r2-v1 (SAIR a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e).
+// ACC exact window shortening, ac-r2-v1 (Colab kit copy: ACC_ANY_END allows road pieces; end state kept fixed)
+// Original: (SAIR a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e).
 // Kernel, fingerprint and table are shared verbatim with acc_opt.c (included).
 //
 // For path states s_0..s_n: for every pair i<j with j-i <= 14 decide exactly
@@ -33,7 +34,9 @@ int main(int argc,char**argv){
     const char*dir=argv[1]; St s0; int ai=parse_state(argv,2,&s0); n=atoi(argv[ai++]);
     for(int k=0;k<n;k++) moves[k]=atoi(argv[ai++]);
     P=malloc(sizeof(St)*(4096+1)); states_from_moves(&s0);
-    if(!(P[n].l[0]==1&&P[n].l[1]==1&&P[n].w[0][0]==0&&P[n].w[1][0]==2)) die("path does not reach (x,y)");
+    // Colab kit: with ACC_ANY_END set, a PIECE of a road (any end state) may be optimized; the end state is kept fixed.
+    const int any_end=getenv("ACC_ANY_END")!=NULL; St END=P[n];
+    if(!any_end&&!(P[n].l[0]==1&&P[n].l[1]==1&&P[n].w[0][0]==0&&P[n].w[1][0]==2)) die("path does not reach (x,y)");
     printf("START length %d\n",n); fflush(stdout); double T0=now(); int pass=0;
     for(;;){ pass++; double tp=now();
         int bi=-1,bj=-1,bd=0,bsave=0,seg[32],bseg[32]; uint64_t maxball=0;
@@ -60,7 +63,7 @@ int main(int argc,char**argv){
         if(bsave==0) break;
         int nm[4096],L=0; for(int k=0;k<bi;k++) nm[L++]=moves[k]; for(int k=0;k<bd;k++) nm[L++]=bseg[k]; for(int k=bj;k<n;k++) nm[L++]=moves[k];
         memcpy(moves,nm,sizeof(int)*L); n=L; states_from_moves(&s0);
-        if(!(P[n].l[0]==1&&P[n].l[1]==1&&P[n].w[0][0]==0&&P[n].w[1][0]==2)) die("spliced path does not reach (x,y)");
+        if(!st_eq(&P[n],&END)) die("spliced path changed its end state");
         printf("SPLICE window [%d,%d] %d -> %d moves; new length %d\n",bi,bj,bj-bi,bd,n);
         printf("PATH"); for(int k=0;k<n;k++) printf(" %d",moves[k]); printf("\n"); fflush(stdout);
     }

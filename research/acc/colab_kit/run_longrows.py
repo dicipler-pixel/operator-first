@@ -59,7 +59,7 @@ def ensure_sair(path):
 
 
 def ensure_bin(workdir):
-    exe = Path(workdir) / "acc_window"
+    exe = Path(workdir) / "acc_window_kit"
     if not exe.exists():
         subprocess.run(["gcc", "-O3", "-march=native", "-Wno-misleading-indentation", "-o", str(exe),
                         str(KIT / "acc_window.c"), "-lm"], check=True, cwd=str(KIT))
@@ -75,7 +75,8 @@ def piece(job):
     os.makedirs(work, exist_ok=True)
     best = list(moves)
     try:
-        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True)
+        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True,
+                             env=dict(os.environ, ACC_ANY_END="1"))
         t0 = time.time()
         for line in p.stdout:
             if line.startswith(("PATH ", "FINALPATH")):
