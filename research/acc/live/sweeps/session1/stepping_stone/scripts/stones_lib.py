@@ -192,9 +192,12 @@ class Store:
         self.d = {}
         self.src = []
 
-    def add_path(self, start, moves, end, maxlen=10 ** 9):
+    def add_path(self, start, moves, end, maxlen=10 ** 9, tag=None):
         i = len(self.src)
         self.src.append((start, list(moves), end))
+        if not hasattr(self, "tag"):
+            self.tag = []
+        self.tag.append(tag)
         s, n, added = start, len(moves), 0
         for pos in range(n + 1):
             if L(s) <= maxlen or pos == 0:
@@ -235,6 +238,12 @@ class Store:
                 if pos < len(moves):
                     s = apply(s, moves[pos])
         return added
+
+    def tag_of(self, t):
+        h, i, pos = self.d[norm(t)]
+        if i < 0:
+            i = self.halo[-i - 1][0]
+        return self.tag[i]
 
     def get(self, t):
         return self.d.get(norm(t))

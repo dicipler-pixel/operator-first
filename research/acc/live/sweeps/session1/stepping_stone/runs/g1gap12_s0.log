@@ -1,0 +1,12 @@
+store: 7372 road paths -> 79401 normal-form states
+store: radius-1 halo around road states (len<=40) -> +700762 states (total 780163)
+store built 13s
+sac-03714 L=27 cap=37 states=5240438 depth=10 complete=False hits road/walk=254/0 best road/walk=53/None ours=53 rec=52 foreign=0(best est None)  (116s)
+ac-03714 L=27 cap=37 states=5240438 depth=10 complete=False hits road/walk=254/0 best road/walk=51/None ours=51 rec=50 foreign=0(best est None)  (116s)
+sac-00580 L=28 cap=38 states=6356381 depth=10 complete=False hits road/walk=262/0 best road/walk=46/None ours=46 rec=44 foreign=1(best est 46)  (137s)
+ac-00580 L=28 cap=38 states=6356381 depth=10 complete=False hits road/walk=262/0 best road/walk=44/None ours=44 rec=42 foreign=1(best est 46)  (137s)
+sac-05598 L=19 cap=29 states=5672179 depth=14 complete=False hits road/walk=1247/0 best road/walk=41/None ours=41 rec=40 foreign=759(best est 40)  (153s)
+ac-05598 L=19 cap=29 states=5672179 depth=14 complete=False hits road/walk=1247/0 best road/walk=39/None ours=39 rec=38 foreign=759(best est 40)  (153s)
+sac-06045 L=26 cap=36 states=7383872 depth=12 complete=False hits road/walk=973/0 best road/walk=39/None ours=39 rec=38 foreign=301(best est 37)  (167s)
+sac-08078 L=33 cap=43 states=22522171 depth=10 complete=False hits road/walk=571/0 best road/walk=35/None ours=35 rec=34 foreign=38(best est 34)  (499s)
+done 1095s

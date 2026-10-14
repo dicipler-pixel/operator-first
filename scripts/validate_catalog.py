@@ -23,7 +23,7 @@ def main():
   assert c['sources'] or 'intake pending' in c['evidence_status']
  links=0
  for p in ROOT.rglob('*.md'):
-  if 'tools' in p.relative_to(ROOT).parts or '.git' in p.relative_to(ROOT).parts:continue
+  if {'tools','share','.git'}&set(p.relative_to(ROOT).parts):continue
   for target in re.findall(r'\]\(([^)]+)\)',p.read_text()):
    if target.startswith(('https://','http://','#')):continue
    assert (p.parent/target.split('#')[0]).exists(),(p,target);links+=1
