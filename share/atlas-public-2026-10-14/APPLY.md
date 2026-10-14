@@ -1,6 +1,6 @@
 # Publish the Atlas to `dicipler-pixel/relational-atlas-lean`
 
-Prepared 14 October 2026. The automated session was not permitted to write private-repository
+Prepared 14 October 2026. **Applied the same day:** pushed to `relational-atlas-lean` main at commit `9357538` (209 files, the whole card edition including PNG renders). The instructions below remain for re-application. The automated session was not permitted to write private-repository
 content into the public repository, so the payload is staged here. Everything below is the
 author's own work (CC BY 4.0 text, MIT code); the live-competition section of the candidates file
 is withheld in the public copy.
