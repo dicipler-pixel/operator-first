@@ -2,3 +2,11 @@
 - 2026-10-14 08:22Z key XXXXXXXYYYxyy|XYYYXyxyy... Lmin 22 drop 14 rows 01477,05013,05916,08939,09258 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 478s
 - 2026-10-14 08:29Z key XXXYYxxxy|XYXyxYY... Lmin 16 drop 8 rows 02370,02854,05427,06022,07101,07324,10099 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 391s
 - 2026-10-14 08:30Z key XXXYxYxy|XXyyxYY... Lmin 15 drop 14 rows 00738,01574,03266,03623,03628,05221,06008,06611,07574,07727,08933,09920 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 358s
+- 2026-10-14 08:36Z key XXXXYYYxyy|XYYXYxyyy... Lmin 19 drop 7 rows 01002,02720 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 411s
+- 2026-10-14 08:37Z key XXXXXXXYYYY|XXYxxYXXy... Lmin 20 drop 9 rows 00741,00984,01447,03607,05231 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 389s
+- 2026-10-14 08:41Z key XXXXXXXXYYYYYYY|XYxYXy... Lmin 21 drop 7 rows 03247,04302,05119,07431,07844 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 316s
+- 2026-10-14 08:42Z key XXXXYYXYYxy|XXXyxxYY... Lmin 19 drop 7 rows 00299,03410,05133,05921 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 329s
+- 2026-10-14 08:47Z key XXXXXXYYXyyy|XYYXYxyyy... Lmin 21 drop 7 rows 04510,08546 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 356s
+- 2026-10-14 08:48Z key XXXYYXYYxxy|XXXyxxYY... Lmin 19 drop 7 rows 02631,03183,03920,09579 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 321s
+- 2026-10-14 08:53Z key XXXXXXXYYXyyy|XYYXYxyyy... Lmin 22 drop 7 rows 01161,04477,04757,07257,09665 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 365s
+- 2026-10-14 08:54Z key XXXXXXYYXyyy|XYYYXyxyy... Lmin 21 drop 7 rows 04474,06820,07795,08645 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 365s
