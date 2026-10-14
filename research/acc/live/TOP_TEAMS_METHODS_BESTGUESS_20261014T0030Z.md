@@ -59,3 +59,26 @@
    - We already have the exact ladder tools in `research/acc/live/sweeps/ladder_law/` (loop_bidi, loop_macro, join_bidi, frame finishes).
    - Plan: search the small rungs (n = 3–5) for loops that leave our restricted model (r1 is multiplied; blocks are rotated together). Read off the block structure, then extend it like loop_macro.
 3. For the few-team over-record rows (Bob's list and the sub-agent's 18 rows), keep shortening our own roads. Those pay 0.25–0.5 per tie.
+
+## Addendum 00:55Z: where memcon's ladder gain sits (UPG-H)
+
+**1. One construction, five ladders.** On every rung, the other four ladders sit a near-constant amount above XXYxy:
+- XYXYxy: +11 (n=5), +12, +12, +14, +16, +16 (n=10);
+- the other three ladders: about +15 to +35.
+- So they build one construction and convert each ladder to it with a fixed-cost opening. Our `join_bidi` does exactly this kind of join.
+
+**2. The gain looks like it is in the finish.** Suppose they keep a doubling loop like ours, which costs about 2m with m = 2^(n-1). Then their finish costs:
+
+| n | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---:|---:|---:|---:|---:|---:|
+| Their finish (est.) | 35 | 52 | 83 | 139 | 185 | 294 |
+| As a multiple of √m | 8.8 | 9.2 | 10.4 | 12.3 | 11.6 | 13.0 |
+| fin2 = 2m + 11 | 43 | 75 | 139 | 267 | 523 | 1035 |
+
+That shape fits a baby-step / giant-step finish:
+- first build a "block rule" that halves x^(2k) to x^k in one multiplication, at a cost of about k;
+- then apply it about m/k times, for a total of about √m.
+
+**3. Probe.** A plain beam (W 200k) from our pre-finish state at m = 16 finds no finish at all, not even fin2's 43. A beam will not discover this; it needs a constructed finish.
+
+**Open question to solve next:** an AC-move schedule that turns r1 = x x Y X y into a k-block rule, using r0 as the helper, at a cost of about k. AC moves cannot multiply r1 by itself, so r0 must carry the intermediate.
