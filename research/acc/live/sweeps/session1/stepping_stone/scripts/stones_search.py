@@ -39,7 +39,7 @@ def build_store(roads_file, walk_files, REL, log):
         end = S.run(start, a)
         if end not in (S.GOAL, S.YX):
             continue
-        st.add_path(start, a, end)
+        st.add_path(start, a, end, tag="ac-" + cid.split("-")[1])
         n += 1
     log("store: %d road paths -> %d normal-form states" % (n, len(st.d)))
     st.n_road = len(st.src)
@@ -56,7 +56,7 @@ def build_store(roads_file, walk_files, REL, log):
             fw = json.loads(line.split(":", 1)[1])          # forward walk moves from the goal
             end = S.run(S.GOAL, fw)
             back = [S.INV[m] for m in reversed(fw)]          # road from the walk's end back to the goal
-            st.add_path(end, back, S.GOAL)
+            st.add_path(end, back, S.GOAL, tag="walk")
             nw += 1
         log("store: +%d walks from %s -> +%d new states (total %d)" % (nw, wf, len(st.d) - k0, len(st.d)))
     return st
@@ -159,7 +159,7 @@ def main():
     roads_out = open(a.out + "_roads.txt", "w")
     summ = open(a.out + "_summary.tsv", "w")
     summ.write("row\tstart_len\tcap\tstates\tdepth_done\tcomplete\thits_road\thits_walk\tbest_road_src\t"
-               "best_walk_src\tour_best\trecord\tnote\n")
+               "best_walk_src\tour_best\trecord\tforeign_hits\tbest_foreign_est\tforeign_donors\tnote\n")
     for acid in keys:
         tt = time.time()
         start = REL[acid]
@@ -167,6 +167,8 @@ def main():
         par, hits, stats = search(st, start, a.depth, cap, a.maxstates)
         hr = {t: v for t, v in hits.items() if st.d[S.norm(t)][1] < n_road and True}
         hw = {t: v for t, v in hits.items() if st.d[S.norm(t)][1] >= n_road}
+        hf = {t: v for t, v in hr.items() if st.tag_of(t) != acid}
+        fdon = sorted({st.tag_of(t) for t in hf})
         for cid, ours, rec in groups[acid]:
             sac = cid.startswith("sac-")
             ends = (S.GOAL, S.YX) if sac else (S.GOAL,)
@@ -196,13 +198,14 @@ def main():
                 note += " NEW(shorter than ours)" if ours is not None else " NEW ROAD (row had none)"
             lr = len(res["road"]) if res.get("road") else None
             lw = len(res["walk"]) if res.get("walk") else None
-            summ.write("%s\t%d\t%d\t%d\t%d\t%s\t%d\t%d\t%s\t%s\t%s\t%s\t%s\n" % (
+            bf = min((v[0] for v in hf.values()), default=None)
+            summ.write("%s\t%d\t%d\t%d\t%d\t%s\t%d\t%d\t%s\t%s\t%s\t%s\t%d\t%s\t%s\t%s\n" % (
                 cid, S.L(start), cap, stats["states"], stats["depth_done"], stats["complete"], len(hr), len(hw), lr, lw,
-                ours, rec, note.strip()))
+                ours, rec, len(hf), bf, " ".join(fdon[:8]), note.strip()))
             summ.flush()
-            log("%s L=%d cap=%d states=%d depth=%d complete=%s hits road/walk=%d/%d best road/walk=%s/%s ours=%s rec=%s %s (%.0fs)" % (
+            log("%s L=%d cap=%d states=%d depth=%d complete=%s hits road/walk=%d/%d best road/walk=%s/%s ours=%s rec=%s foreign=%d(best est %s) %s (%.0fs)" % (
                 cid, S.L(start), cap, stats["states"], stats["depth_done"], stats["complete"], len(hr), len(hw), lr, lw,
-                ours, rec, note, time.time() - tt))
+                ours, rec, len(hf), bf, note, time.time() - tt))
         del par, hits
     log("done %.0fs" % (time.time() - t0))
 
