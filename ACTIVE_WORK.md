@@ -55,7 +55,7 @@ Light, Offset, peeling, projector/gravity, Kakeya, Diophantine, catalog and olde
 
 - Every Atlas edition was located and rechecked: see `atlas/ATLAS_VERSION_AUDIT_2026-10-14.md` (the 27 August volume, the 93-card edition of 7 September, the seven versions of `atlas/cards.json`, the PR #21 Lean kernels, the ACC applications).
 - The moves (Plates XII, XVII, XIX and the rule-card contract) are transcribed in `atlas/ORIGINAL_ATLAS_METHOD_PLATES.md`.
-- September/October work that belongs in the Atlas is assessed in `atlas/ATLAS_CANDIDATES_2026-10-14.md`, with draft records in `atlas/proposed_cards_2026-10-14.json`. Nothing is registered yet; the register still has 18 cards.
+- September/October work that belongs in the Atlas is assessed in `atlas/ATLAS_CANDIDATES_2026-10-14.md`; the draft records in `atlas/proposed_cards_2026-10-14.json` were registered the same day. The register now has 20 projects and 29 cards on this branch (main still carries 13 / 18 until a deliberate merge).
 - `scripts/validate_catalog.py` passes again on this branch (README generator template and ACC relative links repaired).
 
 ## Operating rule

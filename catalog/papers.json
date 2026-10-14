@@ -296,6 +296,165 @@
         }
       ],
       "publication_identity": "Supplied Sun v1.5, black-hole v2 and UPG v2 retained; no new publication identity inferred"
+    },
+    {
+      "id": "hypersurface",
+      "title": "The hypersurface organizing principle",
+      "state": "Original dossier recovered; 328 mathematical checks freshly replayed",
+      "scope": "Electronic-sheet response and exact interior/interface/exterior reduction, with explicit invertibility and physical assumptions. Distinct from a Fermi surface or an atomic shell.",
+      "next_step": "Fit the electronic-to-interface map to the same measured sample used for transport.",
+      "sources": [
+        {
+          "label": "Recovered hypersurface proof note",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/research/elemental-peel/tools/compound-eye/projects/elemental_peel/sources/hypersurface/proof_note.md"
+        }
+      ],
+      "publication_identity": "Recovered user dossier; formal and published identity reconciliation remains scoped"
+    },
+    {
+      "id": "elemental-peel",
+      "title": "Elemental peel: spacing, channels, and the surface",
+      "state": "Seven new eyes; 1,253 evaluations and four expected refusals; written derivations",
+      "scope": "Cu/Ag/Au/Pt evaluated ionization data, measured Au/Ag/Cu optics, fitted Pt optics, coherent film thinning, channel ambiguity and coupled-orbital removal controls.",
+      "next_step": "Acquire a geometry-calibrated elemental trajectory with electrical and optical measurements.",
+      "sources": [
+        {
+          "label": "Elemental findings and reproducible methods",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/research/elemental-peel/tools/compound-eye/projects/elemental_peel/FINDINGS.md"
+        },
+        {
+          "label": "Recovered hypersurface proof note",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/research/elemental-peel/tools/compound-eye/projects/elemental_peel/sources/hypersurface/proof_note.md"
+        }
+      ],
+      "publication_identity": "New computational supplement and manuscript section, 8 September 2026"
+    },
+    {
+      "id": "elemental-foundations",
+      "title": "Elemental Peeling and What the Boundary Retains",
+      "state": "Combined manuscript 1.0; new finite certificates and numerical evidence tracked separately",
+      "scope": "Exact response-pair non-identifiability, boundary graph geometry, scale references, Gram reconstruction and elemental calibrations. No measured atomic cascade or universal material law.",
+      "next_step": "Fit a specified physical intervention with fixed contacts and probe references; predict a held-out response.",
+      "sources": [
+        {
+          "label": "Combined manuscript source",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/research/elemental-foundations/research/elemental_foundations/Elemental_Peeling.tex"
+        },
+        {
+          "label": "Scoped finite certificates",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/research/elemental-foundations/research/elemental_foundations/formal/ElementalFoundations.lean"
+        }
+      ],
+      "publication_identity": "Combined user manuscript 1.0, 8 September 2026; publication pending"
+    },
+    {
+      "id": "atlas",
+      "title": "The Operator-First Atlas",
+      "state": "One-volume Atlas (27 Aug 2026, 84 bridges) and card edition 2026-09-07 (93 cards); finite Lean kernels of 15 cards on PR #21",
+      "scope": "Eight strata, graded bridges B1-B90 and B94-B96, the method and standing rules, and the atlas calculus. Cards are graded statements; the Lean kernels certify only exact finite fragments.",
+      "next_step": "Promote PR #21 in the certificate registry or record its exclusion; issue a B56 correction in the card edition; compile the second kernel batch.",
+      "sources": [
+        {
+          "label": "Card edition 2026-09-07 (main)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/5d06509713bb9348b4b63f9fe5877f3945537bcb/tools/compound-eye/preserved/original_modular_release/preserved/atlas-cards/cards/README.md"
+        },
+        {
+          "label": "Version audit 2026-10-14",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/claude/gallant-bardeen-0pgpae/atlas/ATLAS_VERSION_AUDIT_2026-10-14.md"
+        },
+        {
+          "label": "PR #21",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/21"
+        }
+      ],
+      "publication_identity": "Operator-First Atlas, author's volume; Zenodo deposit of the Lean kernels prepared on PR #58, not yet published"
+    },
+    {
+      "id": "collatz",
+      "title": "Collatz: exact finite certificates",
+      "state": "Bounded collapse merged to main (PR #40); prefix barriers, exceptional threshold and collapse cylinder certified on their own PRs",
+      "scope": "Finite, Lean-certified statements only: bounded ranges, valuation-word barriers, one-cylinder thresholds. No global convergence, cycle exclusion or divergence exclusion.",
+      "next_step": "Register LC-020, LC-024 and LC-026 as separate cards; keep finite statements separate from the conjecture.",
+      "sources": [
+        {
+          "label": "PR #40",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/40"
+        },
+        {
+          "label": "CollatzBounded.lean (pinned PR #40)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/9c403a91b7a6aa3e979283c676032ab70ff32017/research/collatz/formal/CollatzBounded.lean",
+          "pr": 40,
+          "path": "research/collatz/formal/CollatzBounded.lean",
+          "sha": "9c403a91b7a6aa3e979283c676032ab70ff32017"
+        },
+        {
+          "label": "PR #24",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/24"
+        },
+        {
+          "label": "PR #57",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/57"
+        },
+        {
+          "label": "PR #66",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/66"
+        }
+      ],
+      "publication_identity": "Collatz_Exact_Finite_Lean_v1.0.zip prepared on PR #58; publication pending"
+    },
+    {
+      "id": "yang-mills",
+      "title": "Yang-Mills finite operator certificates",
+      "state": "Parent workstream PR #18 (active); finite Lean chain on PRs #27, #51, #52, #54, #56, #60",
+      "scope": "Finite original-link multi-plaquette SU(3) models: exact lower-gap certificates, Schur spectral-floor transfer, allocation floors, PSD energy-resolved bounds. No volume-uniform gap, no continuum construction, no Clay statement.",
+      "next_step": "Spatial scaling and failure diagnosis with the same-operator comparison.",
+      "sources": [
+        {
+          "label": "PR #18",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/18"
+        },
+        {
+          "label": "NonuniformAllocationFloor.lean (pinned PR #56)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/37c08ade9bfd62f0efc4674d72fb49e287fc98fd/research/yang_mills_2026_09_09/cross_theorem/lean/NonuniformAllocationFloor.lean",
+          "pr": 56,
+          "path": "research/yang_mills_2026_09_09/cross_theorem/lean/NonuniformAllocationFloor.lean",
+          "sha": "37c08ade9bfd62f0efc4674d72fb49e287fc98fd"
+        },
+        {
+          "label": "LongestYangMillsChain.lean (pinned PR #60)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/3eb82d5f5dd50e4b7ba1493859e000f15cca3b86/research/yang_mills_2026_09_09/cross_theorem/lean/LongestYangMillsChain.lean",
+          "pr": 60,
+          "path": "research/yang_mills_2026_09_09/cross_theorem/lean/LongestYangMillsChain.lean",
+          "sha": "3eb82d5f5dd50e4b7ba1493859e000f15cca3b86"
+        },
+        {
+          "label": "PR #54",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/54"
+        }
+      ],
+      "publication_identity": "Yang_Mills_Finite_Operator_Lean_v1.0.zip prepared on PR #58; publication pending"
+    },
+    {
+      "id": "andrews-curtis",
+      "title": "Andrews-Curtis search: exact corridors, capped proofs and Atlas-derived keys",
+      "state": "Live competition work (SAIR ACC) on this branch and the ACC branches; proof track PR #69 draft",
+      "scope": "Official move set and verifier pinned at a0fd6e6f52d82c93ccc06ab91d81e8fa3678256e. Exact capped-corridor disconnections, exact capped exhaustion tables, and measured search keys with pre-registered kills. No proof or disproof of the Andrews-Curtis conjecture.",
+      "next_step": "Commit per-corridor certificates and pass the independent recheck gate on PR #69.",
+      "sources": [
+        {
+          "label": "Methods playbook (this branch)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/claude/gallant-bardeen-0pgpae/tools/acc/METHODS_PLAYBOOK.md"
+        },
+        {
+          "label": "Atlas-to-AC ledger (this branch)",
+          "url": "https://github.com/dicipler-pixel/operator-first/blob/claude/gallant-bardeen-0pgpae/research/acc/live/ATLAS_AC_LEDGER.md"
+        },
+        {
+          "label": "PR #69",
+          "url": "https://github.com/dicipler-pixel/operator-first/pull/69"
+        }
+      ],
+      "publication_identity": "Competition submissions under the Mad Hatters team; no paper identity yet"
     }
   ],
   "intake_queue": [
