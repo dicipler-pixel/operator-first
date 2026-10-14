@@ -214,3 +214,14 @@ If a relator-swap twin (`TWIN_MODE=yx2`) lands one move above a short Stable rec
 ## Watch Stable finishes from every AC and (y,x) sweep (2026-09-29)
 
 Run `tools/acc/ops/stable_finish_watch.py` on each new JSONL checkpoint with the pinned SAIR manifest and a Stable board snapshot. It officially replays AC or SAC input roads, checks legal early destabilization (including an inversion before deletion), and reports at-record lines. `--max-gap 1` also emits officially verified one-over lines as triggers for a different orientation or a junction restart; compare against the live board and `SENT_ROWS.txt` before inbox/send. On 36 AC roads from the Codex mirror sweep it recovered the already-sent sac-05818 and the new solo-held sac-09839 tie, plus five one-over triggers (`sweeps/codex_mirror_80_stable_near1_20260928.jsonl`). On the sac-08995 yx road, the early-peel scan confirmed 48 unchanged. The camera is an automatic check, not a claim that a path is globally shortest.
+
+## WARNING (14 Oct 02:20Z): the cached beam binary ignored most options for a week
+- `/root/.cache/acc_beam_bin/acc_beam` (29.8 KB, built 6 Oct 06:09) supports only `BEAM_DIV` (and the basic key).
+- It silently ignored `BEAM_P2`, `BEAM_DUAL`, `BEAM_ELITE`, `BEAM_NOISE`, `BEAM_SEED` and `BEAM_CLIMB`. Found by the sub-agent on sac-09501, confirmed with `strings`.
+- **Every "dual-P2", "seeded" or "climb" run on the container since 6 Oct was a plain beam.** That covers:
+  - the rival3 lane (`rival_beam.py`), mid-restart v2/v3, the orows lanes and the ladder probes;
+  - seed runs, which were identical repeats.
+- The J12 Colab kit compiles its own engine from `acc_beam.c`, so it is not affected.
+- **Fixed:** `acc_beam` is now built from `research/acc/optimality/acc_beam.c` (78 KB, all options). The old binary is kept as `acc_beam_plain_oct6`.
+- The two are different engines. On ac-00009 (BEAM_H=1, W 20k) the old gives 68 and the new 77. On sac-09501 (W 3k) the new finds AC 31 / Stable 33 and the old finds nothing. Use both as two eyes.
+- **Rule:** after (re)building any engine, check its options with `strings BIN | grep BEAM_` before trusting a lane.
