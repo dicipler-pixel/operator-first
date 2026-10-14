@@ -16,11 +16,11 @@ A positive-rank cover does not imply infinitely many integer solutions on the or
 
 ## Evidence status
 
-Lean-checked cleared identity; written non-torsion/integrality proof with exact checks
+Lean-checked cleared identity; two-point integer image Lean-certified on PR #30 (LC-014, run 34698650631); written non-torsion proof with exact checks
 
 ## Verification scope
 
-Lean verifies the denominator-free identity and positive denominator, not the complete non-torsion or integrality classification.
+Lean verifies the denominator-free identity and positive denominator, not the complete non-torsion or integrality classification. SectionIntegrality.lean on PR #30 at 3847f7669303a0fd1dc55eeed9e0a84728fc13eb certifies the two-point integer image.
 
 ## Credit
 
@@ -34,6 +34,7 @@ Seek unbounded integral parameter orbits, with denominators retained.
 
 - [PR #13 audit and complete backup](https://github.com/dicipler-pixel/operator-first/pull/13)
 - [Seven algebraic certificates (verified source)](https://github.com/dicipler-pixel/operator-first/blob/e055123f8e4b9fa23452197a32634b25a7e8a455/research/diophantine/formal/Certificates.lean)
+- [SectionIntegrality.lean (pinned PR #30)](https://github.com/dicipler-pixel/operator-first/blob/3847f7669303a0fd1dc55eeed9e0a84728fc13eb/research/diophantine/formal/SectionIntegrality.lean)
 
 ## Paper applications
 
