@@ -1,0 +1,10 @@
+store: 7372 road paths -> 79401 normal-form states
+store: +10000 walks from /tmp/claude-0/-home-user-operator-first/211fc7c6-f60e-5702-90d7-e59337b51555/scratchpad/walks/w_g1_band.txt -> +1279619 new states (total 1359020)
+store: +10000 walks from /tmp/claude-0/-home-user-operator-first/211fc7c6-f60e-5702-90d7-e59337b51555/scratchpad/walks/w_g1_profile.txt -> +1118168 new states (total 2477188)
+store built 30s
+sac-02932 L=21 cap=29 states=2559786 depth=11 complete=False hits road/walk=207/0 best road/walk=99/None ours=100 rec=94  NEW(shorter than ours) (51s)
+ac-02932 L=21 cap=29 states=2559786 depth=11 complete=False hits road/walk=207/0 best road/walk=97/None ours=97 rec=92  (51s)
+sac-07869 L=20 cap=28 states=1702237 depth=10 complete=False hits road/walk=229/0 best road/walk=97/None ours=97 rec=92  (28s)
+ac-07869 L=20 cap=28 states=1702237 depth=10 complete=False hits road/walk=229/0 best road/walk=95/None ours=95 rec=90  (28s)
+sac-00640 L=22 cap=30 states=3163323 depth=11 complete=False hits road/walk=211/0 best road/walk=96/None ours=96 rec=91  (58s)
+ac-00640 L=22 cap=30 states=3163323 depth=11 complete=False hits road/walk=211/0 best road/walk=95/None ours=95 rec=89  (59s)
