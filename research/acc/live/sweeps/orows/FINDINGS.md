@@ -41,3 +41,7 @@ One dated line per result: row, method, length found, record, verdict (budget). 
 - 2026-10-14 03:33Z sac-05598 / ac-05598, mid-restart, dual-P2 (new engine), W 20000, from every state of our road 39 (depth 38 - i; AC record 38 k1, Stable 40 k1): 0 hits, 2319 s. MISS.
 - 2026-10-14 03:55Z sac-02288, mid-restart, dual-P2 (new engine), W 20000, from every state of our (x,y) road 37 (depth 36 - i; Stable record 38 k2): 0 hits, 1291 s. MISS.
 - 2026-10-14 03:59Z sac-03714 / ac-03714, mid-restart, dual-P2 (new engine), W 20000, from every state of our road 51 (depth 50 - i; AC record 50 k1, Stable 52 k1): 0 hits, 2914 s. MISS.
+- 2026-10-14 04:25Z ac-01871 / sac-01871, mid-restart, dual-P2 (new engine), W 20000, from every state of UPG-H's web road 42 (depth 41 - i; AC record 41 k3, Stable 43 k3): 0 hits, 1820 s. MISS.
+- 2026-10-14 04:33Z sac-08995 / ac-08995, mid-restart, dual-P2 (new engine), W 20000, from every state of our road 46 (depth 45 - i; AC record 45 k6, Stable 47 k2): 0 hits, 2072 s. MISS.
+- 2026-10-14 04:38Z sac-09501, mid-restart, dual-P2 (new engine), W 20000, from every state of our road 30 (depth 29 - i; Stable record 31 k4): 0 hits, 755 s. MISS. Shard 0 of mr_lane_new is done.
+- 2026-10-14 04:40Z second lane on the freed core (orows/mr_lane_new2, dual-P2 (new engine), W 20000, one shard): ac/sac-06969 xy39 (AC 38 k3, Stable 40 k3), sac-04493 xy52 (Stable 53 k4), ac/sac-08578 xy35 (AC 34 k4, Stable 36 k4), ac/sac-07385 xy44 (AC 43 k5, Stable 44 k2). None of these is in UPG-H's mr_upgh queue.
