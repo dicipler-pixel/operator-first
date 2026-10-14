@@ -96,3 +96,19 @@ That shape fits a baby-step / giant-step finish:
 - A pre-finish state where the x-block is already at the end would save about m rotations. That gives about 3m in total, the P000013 bound.
 - Getting to about 2m (memcon) also needs a loop that does not end in our pre-finish shape.
 - Next, search for a pre-finish shape whose exact finish at m = 4 and m = 8 has no rotation phase.
+
+## Addendum 03:10Z: where the top teams' points actually are (UPG-H)
+
+Solo (k1) rows on the AC board, bucketed by record length (team rows pulled 00:22Z, board 00:13Z):
+
+| Team | k1 rows | <=40 | 41-60 | 61-100 | 101-300 | >300 |
+|---|---:|---:|---:|---:|---:|---:|
+| memcon.ai | 653 | 2 | 21 | 171 | 370 | 89 |
+| AC-Solver =D | 493 | 1 | 21 | 158 | 244 | 69 |
+| ACC01-T00118 | 188 | 0 | 34 | 93 | 53 | 8 |
+
+- **About 70% of memcon's solo points (459 of 653) and about 63% of AC-Solver's (313 of 493) are on rows with record > 100.** Almost none are on rows <= 40, where our gap-1 lanes spend most of their time.
+- The board has **1,333 AC rows with record > 100**. 1,005 of them are k1, 209 are k2 and 65 are k3.
+- **We hold a verified road on only 20 of those 1,333 rows**, searching every road store in the repo (not just `live/`). On those 20 we are 1.16x to 1.75x the record. Git's "long rows" lane (6 Oct) used records of 60-100, not > 100.
+- The rows with records of 101-103 are diverse presentations, not one family, so their records come from search, not a construction. 2,672 rows are unsolved by everyone, the same count as on 6 Oct, so first solves are the hard frontier, not a cheap pool.
+- Test started 03:05Z: the real dual-P2 beam (W 20000, depth record + 20) on 6 long rows with record 101 and k2-3 (`sweeps/rival3/jobs_longrows_test.json`). It measures how far our search is from the record on these rows before any lane is opened.
