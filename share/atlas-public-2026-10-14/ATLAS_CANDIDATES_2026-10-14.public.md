@@ -55,6 +55,6 @@ The Andrews–Curtis section describes search methods for a competition that is 
 
 1. Add project records to `catalog/papers.json` for `collatz`, `yang-mills`, `andrews-curtis`, `elemental-peel`, `elemental-foundations` and `hypersurface` (cards must cite existing project ids; the validator enforces it).
 2. Add the PR heads cited above to `catalog/source_snapshot.json` (the validator requires a PR-pinned source's `sha` to equal the snapshot's `head_sha` and its `path` to be in the snapshot tree).
-3. Decide the B56 correction mechanism for the card edition (a `corrections` entry in `manifest.json` plus a reviewed card, as for B94–B96).
+3. B56 correction: done 14 October 2026 in the public card edition (`corrections` entry in `manifest.json`, reviewed card, original preserved), as for B94–B96.
 4. Ask the certificate registry to either tag PR #21 (`ATLAS-FINITE-KERNELS`) or state why it is excluded, since the release index already ships it as certified.
 5. Only then run `scripts/build_catalog.py` and `scripts/validate_catalog.py` and update `ACTIVE_WORK.md` / `MASTER_STATUS.md` in the same pass, as `BRANCH_STATUS.md` rule 7 requires.

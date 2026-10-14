@@ -54,7 +54,7 @@ Rechecks run in this session:
 | "B1–B90 byte-for-byte unchanged" | Stated by the manifest (`old_cards_unchanged: true`, original archive SHA-256 `11183b06…`). The original archive is not in the repository, so this statement is **source-reported, not re-verified** here. |
 | Display checks (`evidence/DISPLAY_CHECKS.md`) | Node DOM-adapter checks of event logic and diagram coordinates; browser layout was not checked by the edition and was not checked here. |
 
-Known content corrections carried by the edition: B94 (padding scope), B95 (spectral count is not packing), B96 (rails need maps). Known correction **not** carried by the edition: B56 still reads "A curve and a point do not meet"; PR #21 withdrew that wording as false without hypotheses and certifies only the nontransversality kernel (see §5). The card edition should be re-issued with a B56 correction note the same way B94–B96 were corrected.
+Known content corrections carried by the edition: B94 (padding scope), B95 (spectral count is not packing), B96 (rails need maps). Known correction **not** carried by the edition: B56 still reads "A curve and a point do not meet"; PR #21 withdrew that wording as false without hypotheses and certifies only the nontransversality kernel (see §5). Done on 14 October 2026 in the public edition (`relational-atlas-lean/atlas/cards`, edition `2026-10-14`): B56 is a reviewed card, the original is preserved under `sources/2026-10-14/` with its SHA-256 in the manifest, and the private preserved archive of the 2026-09-07 edition is left untouched because `UNIVERSAL_MANIFEST.json` pins its hashes.
 
 ## 4. Layer C — the repository reusable-results Atlas (`atlas/cards.json`)
 
@@ -112,7 +112,7 @@ Recorded wins traceable to an Atlas card: ac/sac-03060 ties at 28/30 on 28 Septe
 | Manifest source hashes | Pass, 5/5 |
 | Card inventory | 93 HTML + 90 PNG present; B91–B93 absent from all history |
 | Card grades vs volume | 80/81 parsed bridges agree; B73 lowered T→D; three bridges not auto-parsed |
-| B56 | Wording withdrawn by PR #21; card edition not yet corrected |
+| B56 | Wording withdrawn by PR #21; corrected in the public card edition 2026-10-14; private 2026-09-07 archive unchanged by design |
 | Repo Atlas versions | 7 versions located; 18 shared cards byte-identical; 3 cards only on elemental branches |
 | Source pins | All commit-pinned paths resolve; several branch-name sources remain unpinned |
 | PR #21 Lean kernels | CI success at head (source-reported); not recompiled here; not yet LC-tagged |

@@ -23,7 +23,7 @@ The volume itself, *The Operator-First Atlas* (eight strata, eighty-four bridges
 - `cards/manifest.json` source hashes: 5 of 5 match the preserved originals.
 - Cards B91–B93 were never supplied; the numbering is left open.
 - B73 is stamped THEOREM in the volume and `derived` on the card: a recorded grade change, per Plate XIX rule VI.
-- B56's caption "A curve and a point do not meet" was withdrawn by the formalization; only the nontransversality kernel is proved (`b56_combined_derivative_not_surjective`). The card edition does not yet carry that correction.
+- B56's caption "A curve and a point do not meet" was withdrawn by the formalization; only the nontransversality kernel is proved (`b56_combined_derivative_not_surjective`). The card edition of 14 October 2026 carries the correction: `cards/html/B56.html` is the reviewed card and the original is preserved at `cards/sources/2026-10-14/B56-original.html`.
 
 Run the card checks with Python 3.10 or later:
 
