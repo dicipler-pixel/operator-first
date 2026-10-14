@@ -56,6 +56,8 @@ def beam(t0, t1, W, D):
     a = [str(len(t0)), *[E[c] for c in t0], str(len(t1)), *[E[c] for c in t1]]
     p = subprocess.run([BIN + "/acc_beam", BIN + "/T8.tab", str(W), str(D), *a], capture_output=True, text=True, env=ENV)
     m = re.search(r"^AC \d+ PATH ([\d ]+)", p.stdout, re.M)
+    lens = [int(x) for x in re.findall(r"len\[(\d+)\.\.", p.stderr)]
+    beam.closest = min(lens) if lens else None          # min total length of the kept beam, sampled every 10 depths
     return list(map(int, m.group(1).split())) if m else None
 def replay_to_xy(M, road):
     s = tuple(CT.w(x) for x in M)
@@ -97,7 +99,7 @@ def run(sh, ns, nkeys, W, D):
         t0 = time.time()
         S0 = tuple(SR.w2s(r) for r in SR.CH[rep]["initial_relators"])
         M, chain = CT.descend(S0)
-        road, how = None, None
+        road, how = None, None; close = []
         for mode, (tw, back) in MODES.items():
             a, b = tw(M[0], M[1]); tb = time.time()
             out = beam(a, b, W, D)
@@ -107,7 +109,8 @@ def run(sh, ns, nkeys, W, D):
                 if replay_to_xy(M, rd):
                     got = len(rd)
                     if road is None or len(rd) < len(road): road, how = rd, mode
-            print("  %s %s W%s D%s -> %s (%.0fs)" % (rep, mode, W, D, got, time.time() - tb), flush=True)
+            close.append(beam.closest if beam.closest is not None else 999)
+            print("  %s %s W%s D%s -> %s, closest total length %s (%.0fs)" % (rep, mode, W, D, got, beam.closest, time.time() - tb), flush=True)
         res = []
         if road:
             for cid in k["rows"]:
@@ -124,7 +127,7 @@ def run(sh, ns, nkeys, W, D):
                 res.append("%s:%s%s" % (cid, (len(full) if full else "-"), "" if status == "ok" else "(" + status + ")"))
         line = "- %s key %s... Lmin %d drop %d rows %s MS-open %s | beam on M (W %s, D %s, direct/twin/yx): %s | transfer: %s | %ds\n" % (
             datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%MZ"), k["key"][:40], k["Lmin"], k["drop"], ",".join(c[3:] for c in k["rows"]),
-            k["ms_open"], W, D, ("road %d (%s)" % (len(road), how)) if road else "no road", "; ".join(res) if res else "-", time.time() - t0)
+            k["ms_open"], W, D, ("road %d (%s)" % (len(road), how)) if road else "no road (closest total length on M: %s, start %d)" % ("/".join(map(str, close)), total(M)), "; ".join(res) if res else "-", time.time() - t0)
         with open(R + "research/acc/live/sweeps/cov/FINDINGS_unsolved.md", "a") as f: f.write(line)
         print(line, end="", flush=True)
         with open(donef, "a") as f: f.write(rep + "\n")
