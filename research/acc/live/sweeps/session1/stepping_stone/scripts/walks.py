@@ -45,6 +45,9 @@ def main():
     ap.add_argument("--targets")
     ap.add_argument("--sair")
     ap.add_argument("--temp", type=float, default=1.0)
+    ap.add_argument("--seed-roads", help="start each walk at a random state of a random held road (waypoint seeding); "
+                    "the line then begins with the reversed inverted road tail, so it is still a walk from the goal")
+    ap.add_argument("--seed-minlen", type=int, default=0, help="waypoints must have relator total >= this")
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
     kind, lo, hi = a.bias.split(":")
@@ -55,13 +58,38 @@ def main():
         _, man = S.load_core(a.sair)
         REL = S.rel_of(man)
         P = sorted({prof(REL["ac-" + l.split(",")[0].split("-")[1]]) for l in open(a.targets) if l.strip()})
+    WP = None
+    if a.seed_roads:
+        _, man = S.load_core(a.sair)
+        REL = S.rel_of(man)
+        WP = []
+        for cid, mv in S.read_roads(a.seed_roads):
+            mv = [m for m in mv if m < 14] if all(m < 14 for m in mv[:-2]) else None
+            if not mv:
+                continue
+            st = REL["ac-" + cid.split("-")[1]]
+            seq = [st]
+            for m in mv:
+                seq.append(S.apply(seq[-1], m))
+            if seq[-1] != S.GOAL:
+                continue
+            for pos in range(len(mv)):
+                if S.L(seq[pos]) >= a.seed_minlen and S.L(seq[pos]) <= hi:
+                    WP.append((mv, pos))
+        print("waypoints:", len(WP))
     out = open(a.out, "w")
     out.write("# walks.py bias=%s walks=%d steps=%d seed=%d temp=%s\n" % (a.bias, a.walks, a.steps, a.seed, a.temp))
     tot = 0
     for _ in range(a.walks):
         s, mv, last = S.GOAL, [], None
+        if WP:
+            road, pos = WP[rng.randrange(len(WP))]
+            mv = [S.INV[m] for m in reversed(road[pos:])]
+            s = S.run(S.GOAL, mv)
+            last = mv[-1] if mv else None
+        n0 = len(mv)
         tries = 0
-        while len(mv) < a.steps and tries < a.steps * 30:
+        while len(mv) - n0 < a.steps and tries < a.steps * 30:
             tries += 1
             m = rng.randrange(14)
             if last is not None and m == S.INV[last]:
