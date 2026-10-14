@@ -135,7 +135,7 @@ No scientific branch is deleted merely to reduce the branch count.
 
 ## Source synchronization
 
-Earlier branch/PR counts in older master files are historical. Live counts change and are not proof metadata. The current generated catalog on the integrated baseline has **13 projects and 18 Atlas cards**. Research added after the main merge is not automatically part of those generated indexes until a deliberate catalog reconciliation occurs.
+Earlier branch/PR counts in older master files are historical. Live counts change and are not proof metadata. The generated catalog on the integrated baseline had **13 projects and 18 Atlas cards**. On 14 October 2026 the Atlas reconciliation on branch `claude/gallant-bardeen-0pgpae` registered seven further project records (atlas, collatz, yang-mills, andrews-curtis, hypersurface, elemental-peel, elemental-foundations) and eleven further cards, giving **20 projects and 29 Atlas cards** on that branch; see `atlas/ATLAS_VERSION_AUDIT_2026-10-14.md` and `atlas/ATLAS_CANDIDATES_2026-10-14.md`. Each registered card carries the evidence status it actually has (Lean certificate, exact finite computation, written proof or measured A/B); registration raises no grade.
 
 Original 3.1 uploads remain backed up in `backups/2026-09-08-universal-3-1/`. The earlier 2,009-file backup remains in `backups/2026-09-08/`; its restoration was checked at the Universal 3.2 integration. The large original QHE dataset remains stored in verified repository pieces with `scripts/restore_large_files.py` as the offline reconstruction path.
 

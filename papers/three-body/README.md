@@ -10,6 +10,7 @@ Relational Gram family, distinct rank/gap loci, reciprocity and orbit records. U
 ## Reusable results
 
 - [Projector susceptibility and the separating gap](../../atlas/UPG-GAP-RANK.md)
+- [PSD null-vector bridge closing the four-body wall](../../atlas/FOURBODY-PSD-WALL.md)
 
 ## Next step
 

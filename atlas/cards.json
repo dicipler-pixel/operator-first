@@ -194,8 +194,8 @@
     "statement": "For an orthogonal split of a finite Hermitian H, F=0 iff cross block B=0 iff K(t)=B exp(-itD) B*=0 identically; norm(F)^2=2 Tr K(0).",
     "assumptions": "Finite Hermitian fixed generator, orthogonal retained/hidden split, hbar=1; initial hidden forcing treated separately.",
     "failure_mode": "Non-Hermitian one-way coupling can give F nonzero and zero feedback. Elimination memory does not alone imply lack of CP divisibility.",
-    "evidence_status": "Written proof plus 213-case integration suite; no new Lean compilation",
-    "verification_scope": "See research/upg/verification.json and integration report; original UPG gates are numerical, and paper interpretations are not certified by them.",
+    "evidence_status": "Written proof plus 213-case integration suite; finite redistribution/zero-time feedback kernel Lean-certified on PR #28 (LC-019, runs 34698809495 and 34698809497 at 70c4aea5)",
+    "verification_scope": "See research/upg/verification.json and integration report; original UPG gates are numerical, and paper interpretations are not certified by them. The Lean kernel UPGFeedback.lean certifies the finite redistribution-feedback identities at commit 70c4aea59f42feb591b628a0e7dff1d0653cc31d; the pinned path below is at the PR #28 head e8734d2d. PRs #32, #48 and #50 extend it and are not promoted.",
     "credit": "Jeromie N. Beasley research program; standard projector, Schur, spectral and knot methods retain their original attribution. No broad novelty claim.",
     "sources": [
       {
@@ -205,6 +205,13 @@
       {
         "label": "Input identities and hashes",
         "url": "https://github.com/dicipler-pixel/operator-first/blob/catalog/upg-cascade-sync-20260907/research/upg/input_manifest.json"
+      },
+      {
+        "label": "UPGFeedback.lean (pinned PR #28 head)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/e8734d2d32565c26e83d2fcc9a0d2bf2045eac1a/research/upg/formal/UPGFeedback.lean",
+        "pr": 28,
+        "path": "research/upg/formal/UPGFeedback.lean",
+        "sha": "e8734d2d32565c26e83d2fcc9a0d2bf2045eac1a"
       }
     ],
     "next_step": "Run the exact block equivalence through Lean, then formalize its connection to existing Schur results."
@@ -324,8 +331,8 @@
     "statement": "An explicit non-torsion section on the ±3/2 circle cover has exactly two integer triples in its image.",
     "assumptions": "Rational parameter; declared affine coordinates; nonsingular specialization for the non-torsion argument.",
     "failure_mode": "A positive-rank cover does not imply infinitely many integer solutions on the original surface.",
-    "evidence_status": "Lean-checked cleared identity; written non-torsion/integrality proof with exact checks",
-    "verification_scope": "Lean verifies the denominator-free identity and positive denominator, not the complete non-torsion or integrality classification.",
+    "evidence_status": "Lean-checked cleared identity; two-point integer image Lean-certified on PR #30 (LC-014, run 34698650631); written non-torsion proof with exact checks",
+    "verification_scope": "Lean verifies the denominator-free identity and positive denominator, not the complete non-torsion or integrality classification. SectionIntegrality.lean on PR #30 at 3847f7669303a0fd1dc55eeed9e0a84728fc13eb certifies the two-point integer image.",
     "credit": "User-supplied sweep preserved. Published families credited to Epoch; tangent method credited to Grechuk–Agbanwa. Audit and reconstruction do not assert novelty.",
     "sources": [
       {
@@ -338,6 +345,13 @@
         "pr": 13,
         "path": "research/diophantine/formal/Certificates.lean",
         "sha": "e055123f8e4b9fa23452197a32634b25a7e8a455"
+      },
+      {
+        "label": "SectionIntegrality.lean (pinned PR #30)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/3847f7669303a0fd1dc55eeed9e0a84728fc13eb/research/diophantine/formal/SectionIntegrality.lean",
+        "pr": 30,
+        "path": "research/diophantine/formal/SectionIntegrality.lean",
+        "sha": "3847f7669303a0fd1dc55eeed9e0a84728fc13eb"
       }
     ],
     "next_step": "Seek unbounded integral parameter orbits, with denominators retained."
@@ -473,5 +487,306 @@
       }
     ],
     "next_step": "Establish the application-specific model and observation map before a physical claim."
+  },
+  {
+    "id": "ATLAS-FINITE-KERNELS",
+    "title": "Finite Lean kernels of fifteen Atlas cards, with B56 repaired",
+    "papers": [
+      "atlas"
+    ],
+    "statement": "Exact finite kernels of cards B2, B16, B31, B32, B48, B51, B57, B60, B61, B66, B68, B74, B85 and B90 compile in Lean/mathlib; B56 is replaced by the corrected statement that a regular codimension-one wall and a regular codimension-two coalescence locus in a two-real-parameter model cannot meet transversely, because the combined derivative is a linear map from R^2 to R^3 and cannot be surjective.",
+    "assumptions": "Finite real matrices and polynomial identities over the stated rings; two real parameters for B56; B90 is restricted to explicit local normal forms.",
+    "failure_mode": "The English card captions are stronger than the kernels. B56 makes no disjointness claim. The generic n=2 versus n=1 exponent statement of B90, measurements, continuum statements and physical readings are not certified.",
+    "evidence_status": "Lean source compiled on PR #21 with axiom audit, leanchecker and four mathematical false controls; GitHub Actions run 34684818137 succeeded at the pinned head. Not yet assigned an LC tag in the certificate registry.",
+    "verification_scope": "proofs/atlas_formal/AtlasFormalCore.lean at f4e682ff428b5e941a3da7d2a1b211dc925bdbc6: 21 theorem declarations, 5 definitions. Source-reported CI; not recompiled during this audit.",
+    "credit": "Jeromie N. Beasley, Operator-First Atlas; standard finite linear algebra and polynomial identities are not claimed as new.",
+    "sources": [
+      {
+        "label": "AtlasFormalCore.lean (pinned PR #21)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/f4e682ff428b5e941a3da7d2a1b211dc925bdbc6/proofs/atlas_formal/AtlasFormalCore.lean",
+        "pr": 21,
+        "path": "proofs/atlas_formal/AtlasFormalCore.lean",
+        "sha": "f4e682ff428b5e941a3da7d2a1b211dc925bdbc6"
+      },
+      {
+        "label": "FORMALIZATION_MAP.md (pinned PR #21)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/f4e682ff428b5e941a3da7d2a1b211dc925bdbc6/proofs/atlas_formal/FORMALIZATION_MAP.md",
+        "pr": 21,
+        "path": "proofs/atlas_formal/FORMALIZATION_MAP.md",
+        "sha": "f4e682ff428b5e941a3da7d2a1b211dc925bdbc6"
+      },
+      {
+        "label": "Atlas formal verification run",
+        "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34684818137"
+      }
+    ],
+    "next_step": "Promote in the certificate registry or record the exclusion; compile the second batch B1, B18, B22, B23, B39, B46, B54, B70, B75, B84, B89."
+  },
+  {
+    "id": "COLLATZ-BOUNDED-COLLAPSE",
+    "title": "Bounded Collatz collapse certificate for 1 to 100000",
+    "papers": [
+      "collatz"
+    ],
+    "statement": "For every natural number n with 1 <= n <= 100000 there exists k <= 400 such that the k-th ordinary Collatz iterate of n is 1. An executable bounded checker is connected to the trajectory statement by the soundness theorem reachesOneB_sound, and the finite range is discharged with native_decide.",
+    "assumptions": "Ordinary Collatz step; the stated finite range and step bound.",
+    "failure_mode": "Does not prove the global Collatz conjecture, a global contraction theorem, exclusion of nontrivial cycles or exclusion of divergent trajectories. Finite range only.",
+    "evidence_status": "Lean source merged to main (PR #40); dedicated Collatz workflow run 34724307086 and CI run 34724307093 succeeded at the merge commit. Registry tag CL-001 / LC-021.",
+    "verification_scope": "research/collatz/formal/CollatzBounded.lean at 82f1c4c03102a9dfee005314f4301a6d52db5485 under Lean 4.33.0 / mathlib v4.33.0. Related finite results LC-020 (prefix barriers, PR #24), LC-024 (one-cylinder exceptional threshold, PR #57) and LC-026 (collapse cylinder law, PR #66) are separate certificates and are not summed here.",
+    "credit": "Jeromie N. Beasley; the Collatz map and native_decide range checking are standard.",
+    "sources": [
+      {
+        "label": "CollatzBounded.lean (pinned PR #40 head)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/9c403a91b7a6aa3e979283c676032ab70ff32017/research/collatz/formal/CollatzBounded.lean",
+        "pr": 40,
+        "path": "research/collatz/formal/CollatzBounded.lean",
+        "sha": "9c403a91b7a6aa3e979283c676032ab70ff32017"
+      },
+      {
+        "label": "Merged certificate commit 82f1c4c0, run 34724307086",
+        "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34724307086"
+      }
+    ],
+    "next_step": "Register LC-020, LC-024 and LC-026 as their own cards once the collatz project record exists; keep each finite statement separate."
+  },
+  {
+    "id": "YM-SCHUR-SPECTRAL-FLOOR",
+    "title": "Finite Schur spectral-floor transfer and allocation floor for multi-plaquette SU(3) models",
+    "papers": [
+      "yang-mills"
+    ],
+    "statement": "For the branch's finite original-link gauge models, a Schur spectral floor transfers to the retained block, and a nonuniform overlapping allocation gives a lower floor on the compared operator; the longest finite Lean chain recombines these with the PSD energy-resolved boundary bound.",
+    "assumptions": "Finite-dimensional Hermitian blocks with the stated positivity and overlap hypotheses; the branch's declared spatial models at the stated couplings.",
+    "failure_mode": "Finite-model lower certificates only. No volume-uniform moderate-coupling gap, no four-dimensional continuum construction, no Clay Yang-Mills statement.",
+    "evidence_status": "Lean: PR #54 run 34744360038 (spectral-floor transfer); LC-023 PR #56 at 37c08ade9bfd62f0efc4674d72fb49e287fc98fd (allocation floor, runs 34744922404 / 34744922445); LC-025 PR #60 at 3eb82d5f5dd50e4b7ba1493859e000f15cca3b86 (longest chain, runs 34780947094 / 34780947177); LC-018 PR #27 (PSD matrix bound).",
+    "verification_scope": "research/yang_mills_2026_09_09/cross_theorem/lean/ modules named in the registry; PR #60's 56-declaration inventory includes inherited lineages and only its seven bridge theorems are new at LC-025. Numerical gap comparisons on PR #18 (for example 1.649349 to 2.109917 on the cube) are separate finite diagnostics.",
+    "credit": "Jeromie N. Beasley; Schur complement and interlacing inequalities are standard.",
+    "sources": [
+      {
+        "label": "NonuniformAllocationFloor.lean (pinned PR #56)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/37c08ade9bfd62f0efc4674d72fb49e287fc98fd/research/yang_mills_2026_09_09/cross_theorem/lean/NonuniformAllocationFloor.lean",
+        "pr": 56,
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/NonuniformAllocationFloor.lean",
+        "sha": "37c08ade9bfd62f0efc4674d72fb49e287fc98fd"
+      },
+      {
+        "label": "LongestYangMillsChain.lean (pinned PR #60)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/3eb82d5f5dd50e4b7ba1493859e000f15cca3b86/research/yang_mills_2026_09_09/cross_theorem/lean/LongestYangMillsChain.lean",
+        "pr": 60,
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/LongestYangMillsChain.lean",
+        "sha": "3eb82d5f5dd50e4b7ba1493859e000f15cca3b86"
+      }
+    ],
+    "next_step": "Spatial scaling and failure diagnosis with the same-operator comparison, not a larger finite table."
+  },
+  {
+    "id": "FOURBODY-PSD-WALL",
+    "title": "PSD null-vector bridge closing the four-body wall",
+    "papers": [
+      "three-body"
+    ],
+    "statement": "The explicit block-triangular four-body wall is bridged by a positive-semidefinite null-vector argument that identifies the wall's normal eigenvalue with the stated finite kernel (B30 and B36 lineage).",
+    "assumptions": "Explicit finite four-body model with the stated symmetric blocks and positivity hypotheses.",
+    "failure_mode": "The co-location of mechanisms claimed by B36 is certified only for the explicit model; universality is not asserted.",
+    "evidence_status": "Lean: LC-016, PR #26 at 8857c79744063ba3c8c1809508390c2811683334, run 34697778888.",
+    "verification_scope": "OperatorFirst.FourBodyPSDWallBridge module on PR #26; axiom audit and kernel recheck per the registry contract.",
+    "credit": "Jeromie N. Beasley; standard PSD and Schur-complement algebra.",
+    "sources": [
+      {
+        "label": "FourBodyPSDWallBridge.lean (pinned PR #26)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/8857c79744063ba3c8c1809508390c2811683334/OperatorFirst/FourBodyPSDWallBridge.lean",
+        "pr": 26,
+        "path": "OperatorFirst/FourBodyPSDWallBridge.lean",
+        "sha": "8857c79744063ba3c8c1809508390c2811683334"
+      },
+      {
+        "label": "Verification run 34697778888 (LC-016)",
+        "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34697778888"
+      }
+    ],
+    "next_step": "Pin the exact module path in the source snapshot; relate to card B30/B36 in the card edition."
+  },
+  {
+    "id": "DISCRETE-CONTINUOUS-OBSTRUCTION",
+    "title": "A continuous observable into a discrete codomain cannot change value",
+    "papers": [
+      "compound-eye"
+    ],
+    "statement": "A continuous map from a preconnected parameter space into a discrete space is constant; in particular a globally continuous natural-number crossing count cannot climb 0, 1, 2, ... without leaving the continuous/discrete hypotheses, for example at a wall, stratum or jump.",
+    "assumptions": "Preconnected domain; discrete codomain topology; continuity of the observable.",
+    "failure_mode": "The historical physical interpretation of the crossing-number question is not asserted; the theorem says where a count may step, not that it does.",
+    "evidence_status": "Lean source merged to main on 17 September 2026 by PR #65 (three theorems). The push-triggered main CI run 35248227416 failed at runner level after 3 seconds, so the certificate must be cited from PR #65's own workflow evidence, which was not inspected in this audit.",
+    "verification_scope": "research/mastery-equations/lean/DiscreteContinuousObstruction.lean at 5d06509713bb9348b4b63f9fe5877f3945537bcb; dedicated workflow discrete-continuous-obstruction.yml.",
+    "credit": "Jeromie N. Beasley; the underlying topological fact is standard (locally constant functions on connected spaces).",
+    "sources": [
+      {
+        "label": "DiscreteContinuousObstruction.lean (pinned PR #65 head)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/3dc16317d6abc00a4c1ca32809caa8366aa4ddd8/research/mastery-equations/lean/DiscreteContinuousObstruction.lean",
+        "pr": 65,
+        "path": "research/mastery-equations/lean/DiscreteContinuousObstruction.lean",
+        "sha": "3dc16317d6abc00a4c1ca32809caa8366aa4ddd8"
+      },
+      {
+        "label": "PR #65 (merged to main at 5d065097)",
+        "url": "https://github.com/dicipler-pixel/operator-first/pull/65"
+      }
+    ],
+    "next_step": "Recover the PR #65 workflow run id and record it; rerun main CI."
+  },
+  {
+    "id": "ACC-CORRIDOR-DISCONNECTION",
+    "title": "A closed capped corridor is a disconnection, not a distance",
+    "papers": [
+      "andrews-curtis"
+    ],
+    "statement": "If breadth-first search over presentations of total relator length at most the cap exhausts its frontier from the start without reaching the target, and the target lies inside the cap, then the start and the target lie in different connected components of the length-capped move graph. For every official AC row the target has length 2 and every cap is at least 9, so every exhausted corridor is such a disconnection.",
+    "assumptions": "The move set and cancellation rule of the official verifier; the cap applied to total relator length; exhaustive enumeration of the start's component within the cap.",
+    "failure_mode": "Component size says nothing about whether the target is in that component, so a large corridor does not make a certificate likely. A cap proof excludes only paths inside the cap. The closed-set bottleneck method itself is not novel; the candidate contribution is the reproducible instance table on hard official rows.",
+    "evidence_status": "Exact finite computation with the official verifier: six pairwise-disjoint components and twelve closed corridors on the complete length-39 profile (15 September 2026). A target-outside Lean barrier theorem exists on PR #69 (draft); its numerical rows are release-gate pending.",
+    "verification_scope": "claude/confident-fermi-09rd02 commits b8ec58b5, 452ead28, ec60f90e, 0eedd1fb, e56bd253; tools/acc/ATLAS_TRANSFER_TRANSPORT_v1.md section 1; ACCSublevelBarrier.lean on proof/acc-sublevel-barriers-2026-09-19 at 471cdc6f84c6b1b9702ead754106de94a36c3264.",
+    "credit": "Jeromie N. Beasley and the Mad Hatters ACC team; the reading was prompted by the Atlas card GRAPH-SUBGRAPH-CAPACITY.",
+    "sources": [
+      {
+        "label": "ATLAS_TRANSFER_TRANSPORT_v1.md (branch claude/confident-fermi-09rd02)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/claude/confident-fermi-09rd02/tools/acc/ATLAS_TRANSFER_TRANSPORT_v1.md"
+      },
+      {
+        "label": "PR #69 ACC proof track",
+        "url": "https://github.com/dicipler-pixel/operator-first/pull/69"
+      }
+    ],
+    "next_step": "Commit the exact finite certificates for each closed corridor and pass the independent recheck gate on PR #69 before promoting any row."
+  },
+  {
+    "id": "ACC-CAPPED-EXHAUSTION-TABLE",
+    "title": "Exact capped exhaustion table for six hard Andrews-Curtis rows",
+    "papers": [
+      "andrews-curtis"
+    ],
+    "statement": "For six official rows no record-length path stays within the stated total-length cap: ac-06969 (start 27, record 38) empty through cap 32; ac-00145 (15, 39) through 22; ac-06936 (25, 26/27) through 33; ac-03305 (24, 23/24) through 36, with the Stable path first at cap 37 and the AC path at cap 40 with 133M states; ac-03871 (23, 30/32) through 32; ac-05818 (25, 34/36) through 26.",
+    "assumptions": "Official move set and verifier; exhaustive capped search with the recorded state budgets.",
+    "failure_mode": "Each row excludes only paths inside its cap; the state budget (about 180M states in 15 GB) is the binding wall at the next cap, not a mathematical limit. Short rows held by few teams need humps of 10 or more letters above the start.",
+    "evidence_status": "Exact finite computations recorded in tools/acc/METHODS_PLAYBOOK.md (section 'Exact capped proofs so far'), rerunnable with run_capped_sweep.py; probe-and-predict validated on ac-05818 (cap 26 predicted 80M, actual 87M).",
+    "verification_scope": "This branch (claude/gallant-bardeen-0pgpae), 27-28 September 2026 war-room files tools/acc/WARROOM_2026-09-25_capped_proofs.md and the playbook table. Not Lean-certified.",
+    "credit": "Mad Hatters ACC team sessions 1 and 2.",
+    "sources": [
+      {
+        "label": "METHODS_PLAYBOOK.md (this branch)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/claude/gallant-bardeen-0pgpae/tools/acc/METHODS_PLAYBOOK.md"
+      },
+      {
+        "label": "WARROOM_2026-09-25_capped_proofs.md (this branch)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/claude/gallant-bardeen-0pgpae/tools/acc/WARROOM_2026-09-25_capped_proofs.md"
+      }
+    ],
+    "next_step": "Pin the commit, save per-row certificates (inputs, cap, state count, seed) with the table."
+  },
+  {
+    "id": "ACC-P2-CLASS-KEY",
+    "title": "Rank by the best length after two multiplications: the B31 reading as a beam key",
+    "papers": [
+      "andrews-curtis"
+    ],
+    "statement": "Conjugations and inversions keep a presentation in its conjugacy class; multiplications cross to another class (card B31, Plate IV). Keying the beam by the best total length reachable after two multiplications with free rotations (P2), then by length, finds record-length paths that length-first keys prune at the hump.",
+    "assumptions": "The official move set; beam width and depth as recorded; the P2 lookahead computed with free rotations.",
+    "failure_mode": "A search heuristic, not a bound. No signal at records 46-60; P2 ties the best sibling on 62% of steps so plateaus are common; offline sibling-rank proxies for breaking the ties (Tests A and B of the ledger) and the trace-chain eye (B69/B79/B83) were negative; the Whitehead-minimal frame as a score was weaker than P2.",
+    "evidence_status": "Measured with pre-registered kill conditions: ties ac-03060 at 28 and sac-03060 at 30 on a one-team row (+1.0, submission 2638, 28 September 2026); record ties for ac-03305 and ac-01629 in A/B; negatives recorded at full size.",
+    "verification_scope": "tools/acc/METHODS_PLAYBOOK.md win log; research/acc/live/ATLAS_AC_LEDGER.md (B31 line, Tests A and B); research/acc/live/IDEAS.md entries 07:20Z and 08:55Z of 28 September and line 1668 (trace-chain A/B). Official verifier on every submitted line.",
+    "credit": "Idea from the Atlas bridge B31 (Jeromie N. Beasley); implementation and tests by the ACC sessions.",
+    "sources": [
+      {
+        "label": "ATLAS_AC_LEDGER.md (this branch)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/claude/gallant-bardeen-0pgpae/research/acc/live/ATLAS_AC_LEDGER.md"
+      },
+      {
+        "label": "METHODS_PLAYBOOK.md win log (this branch)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/claude/gallant-bardeen-0pgpae/tools/acc/METHODS_PLAYBOOK.md"
+      }
+    ],
+    "next_step": "Per-class beam quota under P2 (ledger top-8 item 1) with its fixed kill condition; pin commits before registering."
+  },
+  {
+    "id": "ELEMENTAL-SPACING-COUPLING",
+    "title": "Elemental spacing and probe-dependent channels",
+    "papers": [
+      "elemental-peel",
+      "light"
+    ],
+    "statement": "The fixed-gap electronic-sheet Hamiltonian has optical strength sin²θ and, for the declared leads at E=0, G/G₀=γ²a²sin²θ/(a²+γ²/4)². Atomic and optical elemental comparisons remain distinct observations.",
+    "assumptions": "Two-level model, fixed dipole and contact orientations, elastic wide-band leads; optical data and continuum film assumptions are separately stated.",
+    "failure_mode": "Energy spacing alone does not identify transition strength; atomic ionization thresholds are not conducting-solid band gaps.",
+    "evidence_status": "Written derivation and fresh numerical checks; no new Lean compilation",
+    "verification_scope": "Seven new eyes, 1,253 evaluations, four expected refusals and 846 assertions; recorded NIST/optical data replay. No measured atom-by-atom cascade.",
+    "credit": "Recovered user hypersurface/color programme; standard Landauer, Maxwell and CIE methods; NIST, Johnson–Christy and Rakić sources attributed in the supplement.",
+    "sources": [
+      {
+        "label": "Elemental findings and reproducible methods",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/research/elemental-peel/tools/compound-eye/projects/elemental_peel/FINDINGS.md"
+      },
+      {
+        "label": "Recovered hypersurface proof note",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/research/elemental-peel/tools/compound-eye/projects/elemental_peel/sources/hypersurface/proof_note.md"
+      }
+    ],
+    "next_step": "Calibrate orbital and boundary evolution against a shared physical dataset."
+  },
+  {
+    "id": "HYPERSURFACE-RETAINED-FEEDBACK",
+    "title": "Boundary reduction retains eliminated-sector feedback",
+    "papers": [
+      "hypersurface",
+      "elemental-peel",
+      "light"
+    ],
+    "statement": "Exact interface reduction retains KΣ=D−CA⁻¹B−GE⁻¹F. Removing a coupled side orbital can raise conductance by releasing interference.",
+    "assumptions": "Invertible eliminated blocks away from their poles; specified Hermitian model and contacts for the transport example.",
+    "failure_mode": "Bare deletion drops self-energy; fixed-positive-channel monotonicity does not apply when amplitudes change.",
+    "evidence_status": "Recovered source verifier: 328 checks passed; finite transport controls freshly reproduced",
+    "verification_scope": "Exact Schur identities and finite-model observation checks, with original source archives preserved. No continuum existence proof or new Lean certification.",
+    "credit": "Standard Schur complement and Fano transport identities; application follows the recovered hypersurface and peeling programmes.",
+    "sources": [
+      {
+        "label": "Elemental findings and reproducible methods",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/research/elemental-peel/tools/compound-eye/projects/elemental_peel/FINDINGS.md"
+      },
+      {
+        "label": "Recovered hypersurface proof note",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/research/elemental-peel/tools/compound-eye/projects/elemental_peel/sources/hypersurface/proof_note.md"
+      }
+    ],
+    "next_step": "Read out the retained feedback in a calibrated elemental contact or film experiment."
+  },
+  {
+    "id": "predictive-boundary-record",
+    "title": "Identical reduced observations can conceal opposite response slopes",
+    "papers": [
+      "elemental-foundations",
+      "light",
+      "upg"
+    ],
+    "statement": "A specified two-orbital pair has equal initial conductance and equal isolated optical transition strength, yet has distinct displaced transmissions and opposite local response directions. For the joint record R(s)=(T_s(0), 1/(s^2+4)), R(+1)=R(-1)=(1/2,1/5) while T_+(1/10)=8100/19981 and T_-(1/10)=12100/20021; their exact separation is 79600000/400039601. No deterministic function of the joint record predicts both later values, and any single prediction assigned to that record has worst-case absolute error at least half the separation.",
+    "assumptions": "Fixed two-orbital Hamiltonian family, wide-band contacts, physical reference basis, noninteracting coherent scattering and the declared isolated optical probe. The robustness theorem uses independent absolute response errors bounded by 1/20 per model.",
+    "failure_mode": "A reduced snapshot can be exact and still be non-identifying. Additional coordinates help only if they carry information not already factored out by the observation map. Arbitrary future response cannot be reconstructed from one boundary snapshot without a model.",
+    "evidence_status": "Revision-4 finite theorem/certificate result; joint-record equality, no-predictor theorem, exact separation, minimax lower bound and robustness margin compile in Lean/mathlib on PR #25 (LC-012)",
+    "verification_scope": "Certified source commit 6955e481b15b25bb2a615a93f27573713adcfcea, GitHub Actions run 34691594067, Lean 4.33.0 / Mathlib db584cd6; leanchecker and axiom audit passed. The pinned path below is at the PR #25 head 7e9f1ddc, which postdates the certified commit. Finite model mathematics, not a universal physical prediction theorem.",
+    "credit": "Classical Feshbach, Fano and graph-projector identities; Beasley source manuscripts supply the observation architecture. The Revision-4 contribution sharpens the benchmark into an exact joint-record minimax obstruction with formal certificates.",
+    "next_step": "Calibrated held-out physical prediction with recorded geometry, phase reference, intervention and denominator-bearing boundary labels.",
+    "sources": [
+      {
+        "label": "ElementalFoundations.lean (pinned PR #25 head)",
+        "url": "https://github.com/dicipler-pixel/operator-first/blob/7e9f1ddc85d3eada5c449069bd2a3893655432f0/research/elemental_foundations/formal/ElementalFoundations.lean",
+        "pr": 25,
+        "path": "research/elemental_foundations/formal/ElementalFoundations.lean",
+        "sha": "7e9f1ddc85d3eada5c449069bd2a3893655432f0"
+      },
+      {
+        "label": "Certified run 34691594067 (LC-012 at 6955e481)",
+        "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34691594067"
+      },
+      {
+        "label": "PR #25",
+        "url": "https://github.com/dicipler-pixel/operator-first/pull/25"
+      }
+    ]
   }
 ]

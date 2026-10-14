@@ -18,6 +18,7 @@ Versioned research instrument with explicit source stages, scoped diagnostics an
 - [Declared metric and finite wall path](../../atlas/HORIZON-METRIC-WALL.md)
 - [Different interiors with identical exterior response](../../atlas/OBS-INTERIOR-AMBIGUITY.md)
 - [Reproducible composition of chosen eye traces](../../atlas/DISPLAY-EYE-MIXER.md)
+- [A continuous observable into a discrete codomain cannot change value](../../atlas/DISCRETE-CONTINUOUS-OBSTRUCTION.md)
 
 ## Next step
 

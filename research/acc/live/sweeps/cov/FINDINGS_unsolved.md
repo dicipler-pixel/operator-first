@@ -1,2 +1,40 @@
 - 2026-10-14 08:14Z key XXXXXYYYxyy|XYYXYxyyy... Lmin 20 drop 17 rows 02691,03085,06253,08759,09949 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 402s
 - 2026-10-14 08:22Z key XXXXXXXYYYxyy|XYYYXyxyy... Lmin 22 drop 14 rows 01477,05013,05916,08939,09258 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 478s
+- 2026-10-14 08:29Z key XXXYYxxxy|XYXyxYY... Lmin 16 drop 8 rows 02370,02854,05427,06022,07101,07324,10099 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 391s
+- 2026-10-14 08:30Z key XXXYxYxy|XXyyxYY... Lmin 15 drop 14 rows 00738,01574,03266,03623,03628,05221,06008,06611,07574,07727,08933,09920 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 358s
+- 2026-10-14 08:36Z key XXXXYYYxyy|XYYXYxyyy... Lmin 19 drop 7 rows 01002,02720 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 411s
+- 2026-10-14 08:37Z key XXXXXXXYYYY|XXYxxYXXy... Lmin 20 drop 9 rows 00741,00984,01447,03607,05231 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 389s
+- 2026-10-14 08:41Z key XXXXXXXXYYYYYYY|XYxYXy... Lmin 21 drop 7 rows 03247,04302,05119,07431,07844 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 316s
+- 2026-10-14 08:42Z key XXXXYYXYYxy|XXXyxxYY... Lmin 19 drop 7 rows 00299,03410,05133,05921 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 329s
+- 2026-10-14 08:47Z key XXXXXXYYXyyy|XYYXYxyyy... Lmin 21 drop 7 rows 04510,08546 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 356s
+- 2026-10-14 08:48Z key XXXYYXYYxxy|XXXyxxYY... Lmin 19 drop 7 rows 02631,03183,03920,09579 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 321s
+- 2026-10-14 08:53Z key XXXXXXXYYXyyy|XYYXYxyyy... Lmin 22 drop 7 rows 01161,04477,04757,07257,09665 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 365s
+- 2026-10-14 08:54Z key XXXXXXYYXyyy|XYYYXyxyy... Lmin 21 drop 7 rows 04474,06820,07795,08645 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 365s
+- 2026-10-14 09:00Z key XXXXXXXYYxYxYxYxy|XXYYYxyy... Lmin 25 drop 7 rows 01123,03620 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 445s
+- 2026-10-14 09:00Z key XXXXXYYYxyy|XXYYXyxyyxY... Lmin 22 drop 7 rows 00788,02495,05837,05904,05985 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 394s
+- 2026-10-14 09:10Z key XXXXXYxYxy|XXYXyyxxY... Lmin 19 drop 6 rows 01515,02272,04597,06534 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road (closest total length on M: 19/19/19, start 19) | transfer: - | 323s
+- 2026-10-14 09:12Z key XXXYXyXyXyXYxYxyy|XXYYXyyy... Lmin 25 drop 7 rows 00294,08724 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road (closest total length on M: 25/25/25, start 25) | transfer: - | 428s
+- 2026-10-14 09:12Z closest-approach pass (key rep ac-02691, direct only, W 5000, D 200): no road; closest total length on M 20 (start 20), 112s
+- 2026-10-14 09:14Z closest-approach pass (key rep ac-01477, direct only, W 5000, D 200): no road; closest total length on M 22 (start 22), 119s
+- 2026-10-14 09:16Z closest-approach pass (key rep ac-02370, direct only, W 5000, D 200): no road; closest total length on M 16 (start 16), 97s
+- 2026-10-14 09:16Z key XXXXXXYYYxyy|XYYXYxyyy... Lmin 21 drop 6 rows 01725,04560,04868,06447,09363 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road (closest total length on M: 21/21/21, start 21) | transfer: - | 350s
+- 2026-10-14 09:17Z key XXXXXXXYYYYYY|XYxYXy... Lmin 19 drop 6 rows 00649,06362 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road (closest total length on M: 19/17/19, start 19) | transfer: - | 291s
+- 2026-10-14 09:17Z closest-approach pass (key rep ac-00738, direct only, W 5000, D 200): no road; closest total length on M 15 (start 15), 89s
+- 2026-10-14 09:19Z closest-approach pass (key rep ac-01002, direct only, W 5000, D 200): no road; closest total length on M 19 (start 19), 103s
+- 2026-10-14 09:21Z closest-approach pass (key rep ac-00741, direct only, W 5000, D 200): no road; closest total length on M 20 (start 20), 108s
+- 2026-10-14 09:22Z key XXXXXYYxxxyXyxyxY|XXyXYY... Lmin 23 drop 6 rows 05903,07960 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road (closest total length on M: 20/20/21, start 23) | transfer: - | 346s
+- 2026-10-14 09:22Z key XXXXYYxYYxxy|XYxYYXy... Lmin 19 drop 6 rows 03616,07072 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road (closest total length on M: 17/17/17, start 19) | transfer: - | 291s
+- 2026-10-14 09:23Z closest-approach pass (key rep ac-03247, direct only, W 5000, D 200): no road; closest total length on M 21 (start 21), 104s
+- 2026-10-14 09:24Z closest-approach pass (key rep ac-00299, direct only, W 5000, D 200): no road; closest total length on M 19 (start 19), 109s
+- 2026-10-14 09:26Z closest-approach pass (key rep ac-02631, direct only, W 5000, D 200): no road; closest total length on M 19 (start 19), 107s
+- 2026-10-14 09:27Z key XXXXYYxxy|XYXyXYY... Lmin 16 drop 5 rows 00830,02247,08829 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road (closest total length on M: 16/16/16, start 16) | transfer: - | 291s
+- 2026-10-14 09:28Z closest-approach pass (key rep ac-04474, direct only, W 5000, D 200): no road; closest total length on M 21 (start 21), 120s
+- 2026-10-14 09:29Z key XXXXXYXyXyXYxyy|XXYYXyyy... Lmin 23 drop 6 rows 05735,06475 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road (closest total length on M: 23/23/23, start 23) | transfer: - | 409s
+- 2026-10-14 09:30Z closest-approach pass (key rep ac-04510, direct only, W 5000, D 200): no road; closest total length on M 21 (start 21), 117s
+- 2026-10-14 09:32Z key XXXXXXYxyxY|XYYxyXy... Lmin 18 drop 5 rows 03648,07339 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road (closest total length on M: 18/18/18, start 18) | transfer: - | 299s
+- 2026-10-14 09:32Z closest-approach pass (key rep ac-00788, direct only, W 5000, D 200): no road; closest total length on M 22 (start 22), 134s
+- 2026-10-14 09:33Z key XXXYYxxy|XXXyxYY... Lmin 15 drop 5 rows 02576,04420,08477 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road (closest total length on M: 15/15/15, start 15) | transfer: - | 263s
+- 2026-10-14 09:35Z closest-approach pass (key rep ac-01123, direct only, W 5000, D 200): no road; closest total length on M 25 (start 25), 151s
+- 2026-10-14 09:37Z closest-approach pass (key rep ac-01161, direct only, W 5000, D 200): no road; closest total length on M 22 (start 22), 127s
+- 2026-10-14 09:37Z key XXXXYxYxy|XXYXyyXYxY... Lmin 19 drop 5 rows 07315,07406 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road (closest total length on M: 19/19/19, start 19) | transfer: - | 330s
+- 2026-10-14 09:38Z key XXXYXyxyxYY|XXYYxy... Lmin 17 drop 5 rows 03646,07245 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road (closest total length on M: 17/17/17, start 17) | transfer: - | 285s
