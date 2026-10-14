@@ -4,6 +4,18 @@ Scope: locate every edition of the Atlas (the one-volume Atlas, its cards, its m
 
 This is an inventory and recheck. It does not upgrade any grade, merge any branch, or register new cards. Candidate additions from the September and October work are in [`ATLAS_CANDIDATES_2026-10-14.md`](ATLAS_CANDIDATES_2026-10-14.md). The moves (Plate XVII and Plate XIX of the volume, plus the rule-card contract of the calculus note) are transcribed into [`ORIGINAL_ATLAS_METHOD_PLATES.md`](ORIGINAL_ATLAS_METHOD_PLATES.md) so they live beside the cards.
 
+## 0. Three things are called "Atlas": read this first
+
+| Name in use | Means | Size | Where to find it |
+|---|---|---|---|
+| **The Operator-First Atlas** (the volume, the cards) | The author's one-volume Atlas of 27 August 2026 and its 93-card edition of 7 September 2026 | 84 bridges / 93 cards | Private `operator-first`, preserved inside the Compound Eye archive: [card edition README at the `main` commit](https://github.com/dicipler-pixel/operator-first/blob/5d06509713bb9348b4b63f9fe5877f3945537bcb/tools/compound-eye/preserved/original_modular_release/preserved/atlas-cards/cards/README.md); volume text at `research/acc/atlas_drive/` on branch `claude/gallant-bardeen-0pgpae` |
+| **The reusable-results Atlas** (the register, `atlas/cards.json`) | The repository's catalog of result cards with pinned sources; a different object with a different count | 18 cards on `main`; 29 cards and 20 projects on branch `claude/gallant-bardeen-0pgpae` since 14 October | [Atlas project page on the branch](https://github.com/dicipler-pixel/operator-first/blob/claude/gallant-bardeen-0pgpae/papers/atlas/README.md). GitHub code search indexes the default branch only, so a search for the 29-card register will miss it until it is merged. |
+| **Atlas Lean proofs** | Finite theorem kernels of Atlas cards in Lean | 21 theorems on private PR #21; the public repository `dicipler-pixel/relational-atlas-lean` reports 37 theorems in its README | PR #21 (`formal/atlas-cards-2026-09-11`); public: https://github.com/dicipler-pixel/relational-atlas-lean |
+
+The 29 registered cards are not the size of the Atlas. The register points at the 93-card edition and the volume; it does not contain them.
+
+The public `relational-atlas-lean` repository was **not inspected in this session** (it is outside the session's repository scope and attaching it was refused by the permission layer). Its 37-theorem count is reported by the author's other assistant from that README. Whether those 37 are the 21 PR #21 kernels plus 16 more, a different formalization, or an overlapping set is an open reconciliation item: the two sources must be compared theorem by theorem before either count is cited as "the" Atlas formalization.
+
 ## 1. What "the Atlas" is: three layers plus derived surfaces
 
 | Layer | What it is | Where it lives | Count |
@@ -12,6 +24,7 @@ This is an inventory and recheck. It does not upgrade any grade, merge any branc
 | B. The card edition | Standalone HTML cards B1–B90 plus the reviewed additions B94–B96, with the atlas calculus note, exact implementation, verifier and evidence | `tools/compound-eye/preserved/original_modular_release/preserved/atlas-cards/cards/` (edition `2026-09-07`, `manifest.json`), on `main` and 66 other branches, tree `cca54860…` everywhere | 93 cards (B91–B93 never supplied) |
 | C. The repository reusable-results Atlas | Result cards with statement, assumptions, failure mode, evidence status, verification scope, credit, pinned sources and next step; generated index `atlas/README.md` | `atlas/cards.json` + one Markdown page per card; 7 distinct versions across branches (table in §3) | 7 → 12 → 15 → 18 (main) → 20 → 21 cards |
 | D1. Lean kernels v0.2 | Finite theorem kernels of 15 cards plus a 90-card formalization map and a repaired B56 | branch `formal/atlas-cards-2026-09-11`, PR #21 (open draft), head `f4e682ff` | 21 theorem declarations, 5 definitions |
+| D1-public. Public Atlas Lean repository | `dicipler-pixel/relational-atlas-lean` (public); README reports 37 theorems; not inspected here, see §0 | GitHub, outside this repository | 37 theorems (reported) |
 | D2. Release package | `Operator_First_Atlas_Lean_v0.2.zip` with Zenodo metadata | branch `release/lean-certified-works-2026-09-13`, PR #58 | 1 archive |
 | D3. ACC applications | The Atlas read against the Andrews–Curtis search: full 93-card sweep, transport note, 132-line ledger, session-2 study, moves manual | `claude/confident-fermi-09rd02` (`tools/acc/ATLAS_CARDS_FULL_SWEEP_v1.md`, `ATLAS_TRANSFER_TRANSPORT_v1.md`, `SHAPE_ATLAS.md`); this branch (`research/acc/live/ATLAS_AC_LEDGER.md`, `ATLAS_STUDY_session2_20260930.md`, `research/acc/MOVES_MANUAL.md`) | 4 documents + 1 manual |
 | D4. Compound Eye Atlas console | "The screen": ten controls over the event ledger, published 14 Sep | `claude/confident-fermi-09rd02`: `ledger/atlas/console_v1.html`, `ledger/atlas/README.md` | 1 page |
