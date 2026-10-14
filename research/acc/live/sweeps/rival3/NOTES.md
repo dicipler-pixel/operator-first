@@ -1,0 +1,1 @@
+- 2026-10-14 07:37Z rival3 real-binary rerun stopped by PID (owner: give the sub-agent room). Done: 03975, 00669, 03186 (none within D 221). Not run: 01876, 04747, 08500, 09647, 00018.
