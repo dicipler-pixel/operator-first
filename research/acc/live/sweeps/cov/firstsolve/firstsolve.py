@@ -99,11 +99,15 @@ def run(sh, ns, nkeys, W, D):
         M, chain = CT.descend(S0)
         road, how = None, None
         for mode, (tw, back) in MODES.items():
-            a, b = tw(M[0], M[1])
+            a, b = tw(M[0], M[1]); tb = time.time()
             out = beam(a, b, W, D)
+            got = None
             if out:
                 rd = [back[m] for m in out]
-                if replay_to_xy(M, rd) and (road is None or len(rd) < len(road)): road, how = rd, mode
+                if replay_to_xy(M, rd):
+                    got = len(rd)
+                    if road is None or len(rd) < len(road): road, how = rd, mode
+            print("  %s %s W%s D%s -> %s (%.0fs)" % (rep, mode, W, D, got, time.time() - tb), flush=True)
         res = []
         if road:
             for cid in k["rows"]:
