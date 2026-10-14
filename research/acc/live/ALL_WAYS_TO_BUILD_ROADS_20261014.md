@@ -67,3 +67,25 @@ Status words:
 2. **Cyclic-space planning** (substitution supermoves) with cheapest-rotation realization. Never built. It is the best match for memcon's "almost no rotations" signature.
 3. **Public learned solvers and data** (AC-SolverX weights, stored solve paths, AC-19). Not mined.
 4. The ACC Drive hub has not been re-inventoried since 1 Oct (see `HUB_INVENTORY_20261014.md` once written).
+
+## Addendum 03:05Z: other people's GitHubs, read (read only, never run)
+
+Searched GitHub for "Andrews-Curtis" (25 repos; the SAIR-relevant ones are below). Paper hosts (arxiv, easychair, sciencedirect) are blocked by this environment's network policy; GitHub and Drive work.
+
+| Repo | What it does | Use to us |
+|---|---|---|
+| Math-AI-Caltech/acsolverx (ICML 2026, "Two-Hump") | PPO transformer over **substitution supermoves**: rotate both relators, multiply, store in least rotation. Beam W 1024. Data: 1190MS benchmark, AC-19, AC-1M (CC BY 4.0). | The 610model's stored paths index the **AC-19 training set**, not SAIR rows. Running its beam on 1190MS needs JAX. Probably the method of team "AC-Solver =D" (#2). |
+| ElliotSteffen/ACSolverES | Greedy search with substitutions plus **automorphism change of variables (COV)**: apply a Nielsen automorphism (e.g. x -> x y) to both relators mid-search. Solves all 640 of a GS benchmark. | **NEW to us.** Multiplications and inversions transfer one for one under an automorphism. A rotation by a letter becomes a conjugation by its image, so it costs that image's length. The end state (phi^-1(x), phi^-1(y)) needs a short Nielsen finish. Not tried anywhere in our lanes. |
+| nahomar/andrews-curtis-solver (team nahom, 10th AC / 9th Stable) | C++: ball16/17 lookup, macro beam, power macros, splice, rebeam, window shortcuts, GS class-distance oracle, lineage-cap beam; RL guides. | Same family as ours. Their log agrees with our verdicts: windows r5/r6 give **no gain** on near-misses; **width saturates** (W 60k and W 100k gave 0 beats); noise is useless at small budget. Lineage-cap diversity and GS-oracle settings help only for **route diversity**. "Local polishing cannot close a 2.5x global gap; needs a different route." |
+| proof_track/ms_lisitsa_ak3_20260928 (ours, 28 Sep) + Lisitsa 2024/2025 | Lisitsa's MS_n(w*) family **is our XXYxy ladder** (second relator ABabA = XYxyX ~ XXYxy). Archive roads n=3..9, with the second relator fixed throughout. | Lengths about 2^(n+4) (MS(9) 8,634 vs record 710), so not memcon's source. One idea is new: **fixed-second-relator search** (Lisitsa's Conjecture 3). It is a one-relator search: state = r0 only, moves 0, 2, 3, 6-9. |
+| Robby955/ac-square-divisibility | Explicit constructions for G(p,s) = (u^2 y^-(2s+1), u y^p u y^-s u^-1 y^-p), Lean + SAIR-id paths. | Only G(1,1) is a SAIR row (ac/sac-04359, 08327, 09594, up to symmetry). No lever. |
+| ph4ge/ac-detour-width | Lean: detour width (peak length) is independent of graph distance. | Confirms roads must climb; no roads. |
+| Amey-Thakur, alejandrozarco (ms14), joe-carr-data (certificates), HkHk2Prod/AlphaAC | Baseline search / length-14 certificates / AlphaZero prototype. | No record-level roads. |
+| rosie-0525/acc-challenge (team Catsitter) | Listed by search, but not reachable from here (add_repo: not found). | Unknown. |
+
+**"New OpenAI ideas"**: a web search turned up no public OpenAI or GPT-based ACC work. The one LLM study (OpenReview) finds LLMs rarely produce correct paths. Top teams' gains look like **constructions + search in a different space** (substitution / change of variables), not chat-model path generation.
+
+**What we still have not tried, from this read:**
+1. COV frames: search phi(start) for a few elementary Nielsen automorphisms phi, then map back. The cost changes only through conjugations and the finish.
+2. Fixed-second-relator one-relator search on the five exponential ladders (the r1 = ABabA-type rows).
+3. Lineage-cap beam (nahomar's lc60p8 / lc20p4) for route diversity on gap-1 rows; our acc_beam has DIV but no lineage cap.

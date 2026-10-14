@@ -18,7 +18,7 @@ Song: "Same pulse underneath / How often it returns ..." (owner, 14 Oct). My tar
    - Test: exact bidirectional search from our pre-finish state P_8 to (y,x).
    - If the finish to (y,x) is 26 or less (fin2 is 27), map it into 01784's frame and add [15,15]. That ties at 49 (0.5).
 
-## Results (written 02:55Z, before reading the partner's ideas)
+## Results (written 02:51Z, before reading the partner's ideas)
 
 1. **Heterodyne (beat our law against theirs): partly run, no scorer.**
    - Ladder offsets over XXYxy are near-constant (XYXYxy +11..+16; others +15..+35), so it is one construction plus a fixed-cost opening per ladder (addendum 00:55Z in TOP_TEAMS_METHODS_BESTGUESS).
