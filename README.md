@@ -1,6 +1,6 @@
 # Operator-first research master
 
-Jeromie N. Beasley’s current research directory: **13 projects**, **18 Atlas cards**, and **Compound Eye Universal 3.2**.
+Jeromie N. Beasley’s current research directory: **20 projects**, **29 Atlas cards**, and **Compound Eye Universal 3.2**.
 
 Start with [current project status](MASTER_STATUS.md), the [paper register](catalog/README.md), the [reusable-results Atlas](atlas/README.md), or the [DIRECT DEPOSIT Lean-certified results hub](DIRECT_DEPOSIT/README.md).
 
