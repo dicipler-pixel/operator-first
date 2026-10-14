@@ -68,7 +68,7 @@ The two readable repositories belong to mid-table teams. The one team near the t
 | 44 | suii0x | T00022 | 0.00 | 40 | 0.00 | No AC material | Hugging Face `mac-cell-sair` (undated) |
 | 45 | t | T00001 | 0.00 | 42 | 0.00 | No | Board only |
 
-**The board moved more today than any publication did.** From the 15:43Z snapshot in the earlier rival report ([RIVAL_METHODS_20260928.md](../research/acc/live/RIVAL_METHODS_20260928.md)) to the 17:37Z board, the changes were as follows (AC / SAC points):
+**The board moved more today than any publication did.** From the 15:43Z snapshot in the earlier rival report ([RIVAL_METHODS_20260928.md](RIVAL_METHODS_20260928.md)) to the 17:37Z board, the changes were as follows (AC / SAC points):
 
 | Team | AC change | SAC change |
 |---|---|---|
@@ -80,7 +80,7 @@ The two readable repositories belong to mid-table teams. The one team near the t
 | T00118 | **+8.5** | **+25.4** |
 | Mad Hatters | 0 | +0.50 |
 
-A beat, or a tie that turns a k=1 row into a k=2 row, moves points between teams without creating or destroying them. The losses and gains above roughly offset, so the pattern fits T00096 and T00118 taking records from the leaders during those two hours [G]. T00118 deserves attention on the Stable AC board: its **SAC total is 212 points above its AC total**. On 88% of rows the SAC record equals the AC record plus 2, so a surplus that large means T00118 either finishes SAC paths some other way or submits SAC lines that AC record holders have skipped [G]. Our own board study found **95 rows** where the AC holder never sent the AC+2 line ([IDEAS.md](../research/acc/live/IDEAS.md)).
+A beat, or a tie that turns a k=1 row into a k=2 row, moves points between teams without creating or destroying them. The losses and gains above roughly offset, so the pattern fits T00096 and T00118 taking records from the leaders during those two hours [G]. T00118 deserves attention on the Stable AC board: its **SAC total is 212 points above its AC total**. On 88% of rows the SAC record equals the AC record plus 2, so a surplus that large means T00118 either finishes SAC paths some other way or submits SAC lines that AC record holders have skipped [G]. Our own board study found **95 rows** where the AC holder never sent the AC+2 line ([IDEAS.md](IDEAS.md)).
 
 ## Catsitter climbs in the dark while nahom and AMEY stall
 
@@ -120,7 +120,7 @@ Within each group below, teams are listed newest dated activity first.
 *Inferences.*
 - The team was renamed and its repository taken private after indexing, possibly because the repository held `best_ac.json` (5,728 paths) and notes about "unauthenticated snapshot endpoints" and "recovered organiser materials" [G]. **We must not use any of these.**
 - Its rise today fits converting class-level constructions into outright records on long k=1 rows [G]. Our 11:40Z team file shows 35 k=1 rows above 300 moves and 176 k=1 rows at 81–300 moves held by T00096.
-- Our cached records put the n=10 doubling-chain row at **2,071** moves ([codex_yxxyx_generator ledger](../research/acc/live/ledger/codex_yxxyx_generator_20260928.json)). Catsitter's "~3100-move records" are therefore not today's n=10 record. They may refer to other BS(n,n+1) rows or to an older state [G].
+- Our cached records put the n=10 doubling-chain row at **2,071** moves ([codex_yxxyx_generator ledger](ledger/codex_yxxyx_generator_20260928.json)). Catsitter's "~3100-move records" are therefore not today's n=10 record. They may refer to other BS(n,n+1) rows or to an older state [G].
 
 **ACC01-T00129, nahom** (AC 10, SAC 9; latest commit 2026-09-27 21:56 −0700, i.e. 2026-09-28 04:56Z).
 
@@ -330,7 +330,7 @@ The notes in this folder correct three facts from earlier notes:
 
 ## Five new tests, cheapest first
 
-**Selection rule.** An idea qualifies only if it appears in neither the earlier rival report ([RIVAL_METHODS_20260928.md](../research/acc/live/RIVAL_METHODS_20260928.md)) nor the playbook ([METHODS_PLAYBOOK.md](../tools/acc/METHODS_PLAYBOOK.md)).
+**Selection rule.** An idea qualifies only if it appears in neither the earlier rival report ([RIVAL_METHODS_20260928.md](RIVAL_METHODS_20260928.md)) nor the playbook ([METHODS_PLAYBOOK.md](../../../tools/acc/METHODS_PLAYBOOK.md)).
 
 **Candidates dropped because our internal work already covers them:**
 
@@ -338,7 +338,7 @@ The notes in this folder correct three facts from earlier notes:
 |---|---|
 | Pinch macros for the doubling chain | They are the BS-cell crossing that `yxxyx_chain.py` already uses. |
 | σ-mirror (y↦y⁻¹) twins | The idea cycler already runs four twins, including letters inverted. |
-| Two-layer disk BFS | Charlie's `acc_disk.cpp` already keeps sorted 128-bit layers and subtracts the previous two ([handoff](../research/acc/live/CHARLIE_HANDOFF_CHECKPOINT_20260928.md)). |
+| Two-layer disk BFS | Charlie's `acc_disk.cpp` already keeps sorted 128-bit layers and subtracts the previous two ([handoff](CHARLIE_HANDOFF_CHECKPOINT_20260928.md)). |
 | AK(3)-attractor pruning | Fails on logic; see the next section. |
 
 **Table 3. Ranked new tests.**
@@ -355,7 +355,7 @@ The notes in this folder correct three facts from earlier notes:
 
 *The board fact.* Among the 7,443 rows solved on both boards at 15:43Z, the SAC record equals AC+2 on 88%, equals AC+1 on 9%, and is **at or below the AC record on 101 rows (1.4%)** [V, our cache].
 
-*The competing explanations.* The research notes read those 101 rows as the only evidence of genuinely stable moves [G]. There is a simpler explanation. At rank 2, a SAC optimum is min(d to (x,y), d to (y,x)) + 2. So SAC ≤ AC means (y,x) is reachable **at least two moves sooner** than (x,y) [G]. Our own exact probe supports this for short rows. On the 9 shortest rows with SAC ≤ AC+1, the four finished so far all reached their SAC record at rank 2 via (y,x) + [15,15] ([IDEAS.md](../research/acc/live/IDEAS.md)).
+*The competing explanations.* The research notes read those 101 rows as the only evidence of genuinely stable moves [G]. There is a simpler explanation. At rank 2, a SAC optimum is min(d to (x,y), d to (y,x)) + 2. So SAC ≤ AC means (y,x) is reachable **at least two moves sooner** than (x,y) [G]. Our own exact probe supports this for short rows. On the 9 shortest rows with SAC ≤ AC+1, the four finished so far all reached their SAC record at rank 2 via (y,x) + [15,15] ([IDEAS.md](IDEAS.md)).
 
 *Why these rows need the lane.* Our default lanes aim the T8 table at (x,y), so on these rows they are at least two moves behind on the SAC board by construction. Only the (y,x)-aimed lane can tie them. That lane scored on its first real run (sac-08429, 36, k=1, +0.5), but its current target lists hold only the SAC = AC+1 rows.
 
@@ -379,13 +379,13 @@ The notes in this folder correct three facts from earlier notes:
 
 ### 3. Close long tails with a single-letter donor-clear finish
 
-*The evidence.* Stage B of the SURF cascade drives one relator down to a single-letter "primitive donor" and then deletes that letter from the companion one occurrence at a time [V]. Our path-shape study found that one word reaches length 1 at 84% of a record path on average ([playbook](../tools/acc/METHODS_PLAYBOOK.md)). On a 150-move path, the last ~24 moves are therefore a donor phase, three times deeper than T8 reaches [G].
+*The evidence.* Stage B of the SURF cascade drives one relator down to a single-letter "primitive donor" and then deletes that letter from the companion one occurrence at a time [V]. Our path-shape study found that one word reaches length 1 at 84% of a record path on average ([playbook](../../../tools/acc/METHODS_PLAYBOOK.md)). On a 150-move path, the last ~24 moves are therefore a donor phase, three times deeper than T8 reaches [G].
 
 *The construction* [G]. With the official moves, suppose r_i = g^±1. Then each occurrence of g^±1 in r_j can be removed in two steps:
 1. Rotate r_j until the occurrence is last. Each conjugation that cancels a letter is one move.
 2. Multiply once by r_i^∓1.
 
-The best order of deletions is a small DP over positions on the cycle. It gives an exact upper bound on the tail. The IDEAS log already records a "primitive-relator finish" whose "path builder [was] not written" ([IDEAS.md](../research/acc/live/IDEAS.md)). This is the builder for the simplest case, and it must respect the AC endpoint order.
+The best order of deletions is a small DP over positions on the cycle. It gives an exact upper bound on the tail. The IDEAS log already records a "primitive-relator finish" whose "path builder [was] not written" ([IDEAS.md](IDEAS.md)). This is the builder for the simplest case, and it must respect the AC endpoint order.
 
 *The test.* Run it offline over every verified path in `path_memory`. At the first single-letter state, compare depth + DP cost with the actual remaining length. If it ever wins, add it to `acc_beam` as a stop test and upper-bound finish for long rows.
 
@@ -417,9 +417,9 @@ The best order of deletions is a small DP over positions on the cycle. It gives 
 
 *Four objections.*
 - **The metric is different.** 2607.23611 runs it on the canonical GS-substitution graph, where results are engine-relative. The paper states they are *not* lower bounds for elementary paths [V].
-- **We already measure height.** The Codex reverse-ceiling pilot and every "no path ≤ L under ceiling C" proof treat height as a coordinate ([IDEAS.md](../research/acc/live/IDEAS.md)).
+- **We already measure height.** The Codex reverse-ceiling pilot and every "no path ≤ L under ceiling C" proof treat height as a coordinate ([IDEAS.md](IDEAS.md)).
 - **Flat rails gain nothing.** 35% of shortest paths never rise above their start length, so their minimal peak is simply the start.
-- **Hump rows are too big.** On hump rows, a sublevel set with no depth limit at a peak 13–16 letters above the start dwarfs our depth-limited runs. The identity component alone is 129,247,304 states at cap 16 ([handoff](../research/acc/live/CHARLIE_HANDOFF_CHECKPOINT_20260928.md)).
+- **Hump rows are too big.** On hump rows, a sublevel set with no depth limit at a peak 13–16 letters above the start dwarfs our depth-limited runs. The identity component alone is 129,247,304 states at cap 16 ([handoff](CHARLIE_HANDOFF_CHECKPOINT_20260928.md)).
 
 *What survives.* The idea survives only as a Proof Track tool: a heuristic-free statement that "no path at any length stays below total length c".
 
@@ -450,7 +450,7 @@ The best order of deletions is a small DP over positions on the cycle. It gives 
 
 *Value nets and stable tricks* stay low priority. Value nets carry nahom's reproduced 69.5% growth-step bias [V]. Change of variables solves 0/124 [V], and short SAC gaps are the swap finish, not rank 3.
 
-*The MS doubling chain.* No reachable source gives a ~2^(n+1) construction. The pinch rule is the BS-cell crossing that `yxxyx_chain.py` already uses. Lisitsa's routes compile to 1,332–49,926 scored moves against records of 80–1,046 for n=5–9 ([IDEAS.md](../research/acc/live/IDEAS.md)).
+*The MS doubling chain.* No reachable source gives a ~2^(n+1) construction. The pinch rule is the BS-cell crossing that `yxxyx_chain.py` already uses. Lisitsa's routes compile to 1,332–49,926 scored moves against records of 80–1,046 for n=5–9 ([IDEAS.md](IDEAS.md)).
 
 ### Do not test
 
