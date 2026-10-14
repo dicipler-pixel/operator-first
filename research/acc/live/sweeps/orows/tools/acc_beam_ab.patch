@@ -1,0 +1,55 @@
+--- /home/user/operator-first/research/acc/optimality/acc_beam.c	2026-09-30 14:09:43.741998559 +0000
++++ acc_beam_ab.c	2026-10-14 02:09:15.546278910 +0000
+@@ -280,7 +280,29 @@
+     if(CHAIN==2){ double t=fabs(a+d)/2; tot+=t<=1?0:acosh(t); }
+     else { double n2=(a*a+b*b+c*c+d*d)/2; tot+=n2<=1?0:acosh(n2); } }
+   double q=tot*4; return q>1023?1023u:(uint32_t)q; }
++
++// ---- song idea 2 (orows partner, 2026-10-14): abelian shadow. E = exponent-sum matrix (rows = relators, cols = x,y sums).
++// Multiplications/inversions are row ops, conjugations keep E. ABD[E] = exact row-op distance of E to the target matrix
++// (I for (x,y), J for (y,x); env BEAM_ABT=I|J), by BFS over |entries| <= 24 (outside: 40).
++// BEAM_AB=w adds w (length units) * ABD to the plain key; BEAM_ABP=w2 adds w2 * ABD to the P2 field of the key.
++#define ABM 24
++#define ABS (2*ABM+1)
++static uint8_t*ABD; static double ABW=0, ABP=0;
++static inline int ab_idx(int a,int b,int c,int d){ if(a<-ABM||a>ABM||b<-ABM||b>ABM||c<-ABM||c>ABM||d<-ABM||d>ABM) return -1;
++  return (((a+ABM)*ABS+(b+ABM))*ABS+(c+ABM))*ABS+(d+ABM); }
++static void ab_build(int J){ size_t N=(size_t)ABS*ABS*ABS*ABS; ABD=malloc(N); memset(ABD,255,N); int*q=malloc(sizeof(int)*N*4); size_t h=0,tl=0;
++  int g0=J?0:1,g1=J?1:0,g2=J?1:0,g3=J?0:1; int i0=ab_idx(g0,g1,g2,g3); ABD[i0]=0; q[tl++]=g0; q[tl++]=g1; q[tl++]=g2; q[tl++]=g3;
++  while(h<tl){ int a=q[h++],b=q[h++],c=q[h++],d=q[h++]; int dd=ABD[ab_idx(a,b,c,d)];
++    int nb[6][4]={{-a,-b,c,d},{a,b,-c,-d},{a+c,b+d,c,d},{a-c,b-d,c,d},{a,b,c+a,d+b},{a,b,c-a,d-b}};
++    for(int m=0;m<6;m++){ int k=ab_idx(nb[m][0],nb[m][1],nb[m][2],nb[m][3]); if(k<0||ABD[k]!=255) continue; ABD[k]=dd+1;
++      q[tl++]=nb[m][0]; q[tl++]=nb[m][1]; q[tl++]=nb[m][2]; q[tl++]=nb[m][3]; } }
++  free(q); }
++static inline int abd(const St*s){ int e[2][2]={{0,0},{0,0}};
++  for(int j=0;j<2;j++) for(int i=0;i<s->l[j];i++){ uint8_t c=s->w[j][i]; e[j][c>>1]+=(c&1)?-1:1; }
++  int k=ab_idx(e[0][0],e[0][1],e[1][0],e[1][1]); if(k<0) return 40; int v=ABD[k]; return v==255?40:v; }
+ int main(int argc,char**argv){
++  ABW=getenv("BEAM_AB")?atof(getenv("BEAM_AB")):0; ABP=getenv("BEAM_ABP")?atof(getenv("BEAM_ABP")):0;
++  if(ABW>0||ABP>0){ const char*tt=getenv("BEAM_ABT"); ab_build(tt&&tt[0]=='J'); fprintf(stderr,"abelian shadow: target %s, w=%.2f, wP2=%.2f\n",tt&&tt[0]=='J'?"J":"I",ABW,ABP); }
+   const char*tf=argv[1]; uint64_t W=strtoull(argv[2],0,10); int DMAX=atoi(argv[3]); St s0; parse_state(argv,4,&s0);
+   struct stat stt; int fd=open(tf,O_RDONLY); if(fd<0||fstat(fd,&stt)) die("tfile");
+   TT.t=mmap(0,stt.st_size,PROT_READ,MAP_SHARED|MAP_POPULATE,fd,0); if(TT.t==MAP_FAILED) die("mmap"); TT.N=stt.st_size/16;
+@@ -348,15 +370,17 @@
+         tmpN[nt]=(Node){SAn,(uint32_t)i,(uint8_t)m,len,(uint16_t)ctd,cp2}; SAn+=need;
+         // BEAM_NOISE=n, BEAM_SEED=s: add a seeded pseudo-random 0..n to the length key (route diversity)
+         uint32_t klen=HP?hprio(&nx):len; if(SHW>0) klen+=(uint32_t)(SHW*(HP?16.0:1.0)*shadow(&nx)+0.5); if(NMAC) klen+=(uint32_t)(MACW*(HP?16.0:1.0)*(ctd-d)+0.5); if(NOISE){ uint64_t z=(h1^SEED)*0x9E3779B97F4A7C15ULL; z^=z>>29; klen+=(uint32_t)(z%(uint64_t)(NOISE+1)); }
++        int abv=(ABW>0||ABP>0)?abd(&nx):0; if(ABW>0) klen+=(uint32_t)(ABW*(HP?16.0:1.0)*abv+0.5);
++        uint64_t cpk=cp2; if(ABP>0){ cpk+=(uint64_t)(ABP*abv+0.5); if(cpk>511) cpk=511; }
+         uint64_t key=((uint64_t)klen<<40)|((h1^SEED)>>24); if(tK2) tK2[nt]=key;   /* BEAM_DUAL: the plain key of the second eye */
+         if(WHM) key=((uint64_t)klen<<40)|((uint64_t)tWH[nt]<<30)|((h1^SEED)>>34);   /* BEAM_WH: klen | WH (10 bits) | 30 fp bits */
+         // BEAM_P2: P2 (9 bits) | P1m (10 bits, mode 1 only) | existing klen (18 bits, saturated) | 27 fingerprint bits
+         if(P2M){ uint64_t kl=klen>0x3FFFFu?0x3FFFFu:klen, pm=P2M!=2?p1m_of(&nx):0;
+-          key=((uint64_t)cp2<<55)|(pm<<45)|(kl<<27)|((h1^SEED)>>37);
+-          if(CHAIN&&P2M==2&&!WHM) key=((uint64_t)cp2<<55)|(kl<<37)|((uint64_t)chain_q(&nx)<<27)|((h1^SEED)>>37);  /* BEAM_CHAIN: P2 | klen | chain | 27 fp */
+-          if(P2M==3) key=((uint64_t)cp2<<55)|((uint64_t)comm_len(&nx)<<45)|(pm<<35)|(kl<<17)|((h1^SEED)>>47);  /* P2 | comm_len | P1m | klen | 17 fp */
+-          if(WHM){ uint64_t wv=tWH[nt]; key=P2M==2?(((uint64_t)cp2<<55)|(wv<<45)|(kl<<27)|((h1^SEED)>>37))      /* P2 | WH | klen | 27 fp */
+-                                                :(((uint64_t)cp2<<55)|(wv<<45)|(pm<<35)|(kl<<17)|((h1^SEED)>>47)); } }  /* P2 | WH | P1m | klen | 17 fp */
++          key=(cpk<<55)|(pm<<45)|(kl<<27)|((h1^SEED)>>37);
++          if(CHAIN&&P2M==2&&!WHM) key=(cpk<<55)|(kl<<37)|((uint64_t)chain_q(&nx)<<27)|((h1^SEED)>>37);  /* BEAM_CHAIN: P2 | klen | chain | 27 fp */
++          if(P2M==3) key=(cpk<<55)|((uint64_t)comm_len(&nx)<<45)|(pm<<35)|(kl<<17)|((h1^SEED)>>47);  /* P2 | comm_len | P1m | klen | 17 fp */
++          if(WHM){ uint64_t wv=tWH[nt]; key=P2M==2?((cpk<<55)|(wv<<45)|(kl<<27)|((h1^SEED)>>37))      /* P2 | WH | klen | 27 fp */
++                                                :((cpk<<55)|(wv<<45)|(pm<<35)|(kl<<17)|((h1^SEED)>>47)); } }  /* P2 | WH | P1m | klen | 17 fp */
+         if(CLIMB&&d<=CLIMB){ uint32_t kc=klen>=0xFFFFFu?0:0xFFFFFu-klen; key=((uint64_t)kc<<40)|((h1^SEED)>>24); if(tK2) tK2[nt]=key; }
+         if(LOOK){ uint32_t best=len; St y; for(int m2=0;m2<14;m2++){ apply(&nx,m2,&y); uint32_t l2=y.l[0]+y.l[1]; if(l2<best) best=l2; }
+           key=((uint64_t)best<<52)|((uint64_t)(len&4095)<<40)|(h1>>24); }
