@@ -421,6 +421,218 @@
           "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/33976523757"
         }
       ]
+    },
+    {
+      "number": 21,
+      "title": "Formalize Atlas theorem kernels card by card",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/21",
+      "head_ref": "formal/atlas-cards-2026-09-11",
+      "head_sha": "f4e682ff428b5e941a3da7d2a1b211dc925bdbc6",
+      "base_ref": "main",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "created": "",
+          "id": 34684818137,
+          "name": "Atlas formal verification",
+          "sha": "f4e682ff428b5e941a3da7d2a1b211dc925bdbc6",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34684818137"
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "title": "Elemental foundations v4: joint-record limits, boundary ledgers, and nonlinear recovery",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/25",
+      "head_ref": "research/elemental-foundations-v4",
+      "head_sha": "7e9f1ddc85d3eada5c449069bd2a3893655432f0",
+      "base_ref": "main",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "created": "",
+          "id": 34691594067,
+          "name": "Elemental formal verification (LC-012 at 6955e481)",
+          "sha": "7e9f1ddc85d3eada5c449069bd2a3893655432f0",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34691594067"
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "title": "Four-body wall: close the PSD null-vector bridge",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/26",
+      "head_ref": "formal/fourbody-psd-wall-bridge-2026-09-12",
+      "head_sha": "8857c79744063ba3c8c1809508390c2811683334",
+      "base_ref": "main",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "created": "",
+          "id": 34697778888,
+          "name": "Four-body PSD wall verification",
+          "sha": "8857c79744063ba3c8c1809508390c2811683334",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34697778888"
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "title": "UPG: formalize the finite redistribution-feedback kernel",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/28",
+      "head_ref": "formal/upg-feedback-bridge-2026-09-12",
+      "head_sha": "e8734d2d32565c26e83d2fcc9a0d2bf2045eac1a",
+      "base_ref": "catalog/upg-cascade-sync-20260907",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "created": "",
+          "id": 34698809495,
+          "name": "UPG feedback verification (LC-019 at 70c4aea5)",
+          "sha": "e8734d2d32565c26e83d2fcc9a0d2bf2045eac1a",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34698809495"
+        },
+        {
+          "conclusion": "success",
+          "created": "",
+          "id": 34698809497,
+          "name": "CI (LC-019 at 70c4aea5)",
+          "sha": "e8734d2d32565c26e83d2fcc9a0d2bf2045eac1a",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34698809497"
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "title": "Diophantine section: formalize the two-point integer image",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/30",
+      "head_ref": "formal/diophantine-section-integrality-2026-09-12",
+      "head_sha": "3847f7669303a0fd1dc55eeed9e0a84728fc13eb",
+      "base_ref": "backup/compound-eye-diophantine-20260907",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "created": "",
+          "id": 34698650631,
+          "name": "Diophantine verification (LC-014)",
+          "sha": "3847f7669303a0fd1dc55eeed9e0a84728fc13eb",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34698650631"
+        }
+      ]
+    },
+    {
+      "number": 40,
+      "title": "Formalize Collatz bounded-collapse certificate",
+      "state": "merged",
+      "draft": false,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/40",
+      "head_ref": "formal/collatz-bounded-collapse",
+      "head_sha": "9c403a91b7a6aa3e979283c676032ab70ff32017",
+      "base_ref": "main",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "created": "",
+          "id": 34724307086,
+          "name": "Collatz bounded-collapse certificate (merged 82f1c4c0)",
+          "sha": "9c403a91b7a6aa3e979283c676032ab70ff32017",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34724307086"
+        },
+        {
+          "conclusion": "success",
+          "created": "",
+          "id": 34724307093,
+          "name": "CI (merged 82f1c4c0)",
+          "sha": "9c403a91b7a6aa3e979283c676032ab70ff32017",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34724307093"
+        }
+      ]
+    },
+    {
+      "number": 56,
+      "title": "Yang-Mills: certify nonuniform overlapping allocation floor",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/56",
+      "head_ref": "formal/yang-mills-allocation-floor-2026-09-13",
+      "head_sha": "37c08ade9bfd62f0efc4674d72fb49e287fc98fd",
+      "base_ref": "main",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "created": "",
+          "id": 34744922404,
+          "name": "Dedicated (LC-023)",
+          "sha": "37c08ade9bfd62f0efc4674d72fb49e287fc98fd",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34744922404"
+        },
+        {
+          "conclusion": "success",
+          "created": "",
+          "id": 34744922445,
+          "name": "CI",
+          "sha": "37c08ade9bfd62f0efc4674d72fb49e287fc98fd",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34744922445"
+        }
+      ]
+    },
+    {
+      "number": 60,
+      "title": "Yang-Mills: recombine the longest finite Lean chain",
+      "state": "open",
+      "draft": true,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/60",
+      "head_ref": "formal/yang-mills-longest-chain-2026-09-13",
+      "head_sha": "3eb82d5f5dd50e4b7ba1493859e000f15cca3b86",
+      "base_ref": "main",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "created": "",
+          "id": 34780947094,
+          "name": "Dedicated (LC-025)",
+          "sha": "3eb82d5f5dd50e4b7ba1493859e000f15cca3b86",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34780947094"
+        },
+        {
+          "conclusion": "success",
+          "created": "",
+          "id": 34780947177,
+          "name": "CI",
+          "sha": "3eb82d5f5dd50e4b7ba1493859e000f15cca3b86",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/34780947177"
+        }
+      ]
+    },
+    {
+      "number": 65,
+      "title": "Formalize discrete-continuous obstruction",
+      "state": "merged",
+      "draft": false,
+      "url": "https://github.com/dicipler-pixel/operator-first/pull/65",
+      "head_ref": "formal/discrete-continuous-obstruction",
+      "head_sha": "3dc16317d6abc00a4c1ca32809caa8366aa4ddd8",
+      "base_ref": "main",
+      "workflows": [
+        {
+          "conclusion": "failure",
+          "created": "",
+          "id": 35248227416,
+          "name": "CI on main after merge (runner-level failure, 3 s)",
+          "sha": "3dc16317d6abc00a4c1ca32809caa8366aa4ddd8",
+          "url": "https://github.com/dicipler-pixel/operator-first/actions/runs/35248227416"
+        }
+      ]
     }
   ],
   "trees": {
@@ -2720,6 +2932,1182 @@
       {
         "path": "lean-toolchain"
       }
+    ],
+    "21": [
+      {
+        "path": ".github/workflows/atlas-formal.yml"
+      },
+      {
+        "path": "proofs/atlas_formal/AtlasFormalCore.lean"
+      },
+      {
+        "path": "proofs/atlas_formal/FORMALIZATION_MAP.md"
+      },
+      {
+        "path": "proofs/atlas_formal/lakefile.toml"
+      },
+      {
+        "path": "proofs/atlas_formal/lean-toolchain"
+      },
+      {
+        "path": "proofs/atlas_formal/verify.py"
+      }
+    ],
+    "25": [
+      {
+        "path": ".github/workflows/all-eyes.yml"
+      },
+      {
+        "path": ".github/workflows/elemental-foundations-numerics.yml"
+      },
+      {
+        "path": ".github/workflows/elemental-foundations.yml"
+      },
+      {
+        "path": ".github/workflows/elemental-peel.yml"
+      },
+      {
+        "path": ".gitignore"
+      },
+      {
+        "path": "MASTER_STATUS.md"
+      },
+      {
+        "path": "README.md"
+      },
+      {
+        "path": "atlas/ELEMENTAL-SPACING-COUPLING.md"
+      },
+      {
+        "path": "atlas/HYPERSURFACE-RETAINED-FEEDBACK.md"
+      },
+      {
+        "path": "atlas/README.md"
+      },
+      {
+        "path": "atlas/cards.json"
+      },
+      {
+        "path": "atlas/predictive-boundary-record.md"
+      },
+      {
+        "path": "catalog/README.md"
+      },
+      {
+        "path": "catalog/papers.json"
+      },
+      {
+        "path": "papers/elemental-foundations/README.md"
+      },
+      {
+        "path": "papers/elemental-peel/README.md"
+      },
+      {
+        "path": "papers/hypersurface/README.md"
+      },
+      {
+        "path": "papers/light/README.md"
+      },
+      {
+        "path": "papers/upg/README.md"
+      },
+      {
+        "path": "research/elemental_foundations/.gitignore"
+      },
+      {
+        "path": "research/elemental_foundations/Elemental_Peeling.html"
+      },
+      {
+        "path": "research/elemental_foundations/Elemental_Peeling.pdf"
+      },
+      {
+        "path": "research/elemental_foundations/Elemental_Peeling.tex"
+      },
+      {
+        "path": "research/elemental_foundations/PROOF_STATUS.md"
+      },
+      {
+        "path": "research/elemental_foundations/README.md"
+      },
+      {
+        "path": "research/elemental_foundations/REVISION4_ADDENDUM.md"
+      },
+      {
+        "path": "research/elemental_foundations/SOURCE_AUDIT.md"
+      },
+      {
+        "path": "research/elemental_foundations/build_figures.py"
+      },
+      {
+        "path": "research/elemental_foundations/figures/predictive_pair.pdf"
+      },
+      {
+        "path": "research/elemental_foundations/figures/predictive_pair.png"
+      },
+      {
+        "path": "research/elemental_foundations/figures/reduction_controls.pdf"
+      },
+      {
+        "path": "research/elemental_foundations/figures/reduction_controls.png"
+      },
+      {
+        "path": "research/elemental_foundations/formal/ElementalBoundaryLedger.lean"
+      },
+      {
+        "path": "research/elemental_foundations/formal/ElementalForceRecovery.lean"
+      },
+      {
+        "path": "research/elemental_foundations/formal/ElementalFoundations.lean"
+      },
+      {
+        "path": "research/elemental_foundations/formal/FalseControl.lean"
+      },
+      {
+        "path": "research/elemental_foundations/formal/lakefile.toml"
+      },
+      {
+        "path": "research/elemental_foundations/formal/lean-toolchain"
+      },
+      {
+        "path": "research/elemental_foundations/foundation_eyes.py"
+      },
+      {
+        "path": "research/elemental_foundations/reading.css"
+      },
+      {
+        "path": "research/elemental_foundations/reduction_eyes.py"
+      },
+      {
+        "path": "research/elemental_foundations/register.py"
+      },
+      {
+        "path": "research/elemental_foundations/register_reductions.py"
+      },
+      {
+        "path": "research/elemental_foundations/reproduce.py"
+      },
+      {
+        "path": "research/elemental_foundations/results/VERIFICATION_SUMMARY.json"
+      },
+      {
+        "path": "research/elemental_foundations/results/combined_results.json"
+      },
+      {
+        "path": "research/elemental_foundations/results/execution_records.json.gz"
+      },
+      {
+        "path": "research/elemental_foundations/results/foft_original_gradient.log"
+      },
+      {
+        "path": "research/elemental_foundations/results/lean_verified_job.log"
+      },
+      {
+        "path": "research/elemental_foundations/results/sofic_new_routes.log"
+      },
+      {
+        "path": "research/elemental_foundations/results/source_controls.json"
+      },
+      {
+        "path": "research/elemental_foundations/results/source_execution_records.json.gz"
+      },
+      {
+        "path": "research/elemental_foundations/run_experiments.py"
+      },
+      {
+        "path": "research/elemental_foundations/run_source_controls.py"
+      },
+      {
+        "path": "research/elemental_foundations/source_integration.tex"
+      },
+      {
+        "path": "research/elemental_foundations/source_inventory.json"
+      },
+      {
+        "path": "research/elemental_foundations/sources/Light_Research_Edition_4.html"
+      },
+      {
+        "path": "research/elemental_foundations/sources/Light_v30_historical.html"
+      },
+      {
+        "path": "research/elemental_foundations/sources/Matter_v5.html"
+      },
+      {
+        "path": "research/elemental_foundations/sources/Matter_v5_release.zip"
+      },
+      {
+        "path": "research/elemental_foundations/sources/SOFIC-NEW-ROUTES-01.py"
+      },
+      {
+        "path": "research/elemental_foundations/sources/Sofic_Torsion_Atlas_Working_Note.md"
+      },
+      {
+        "path": "research/elemental_foundations/sources/Soficity_Trace.pdf"
+      },
+      {
+        "path": "research/elemental_foundations/sources/UPG_v2.pdf"
+      },
+      {
+        "path": "research/elemental_foundations/sources/UPG_v2_source.zip"
+      },
+      {
+        "path": "research/elemental_foundations/sources/foft_v2.pdf"
+      },
+      {
+        "path": "research/elemental_foundations/sources/foft_v2_2_bundle.zip"
+      },
+      {
+        "path": "research/elemental_foundations/sources/foft_v2_scripts_and_figures.zip"
+      },
+      {
+        "path": "research/elemental_foundations/sources/gram_reduction_infographic_FIXED.png"
+      },
+      {
+        "path": "research/elemental_foundations/sources/ladder_v4.pdf"
+      },
+      {
+        "path": "research/elemental_foundations/sources/prop4_angle_insert.pdf"
+      },
+      {
+        "path": "research/elemental_foundations/sources/text/foft_v2.txt"
+      },
+      {
+        "path": "research/elemental_foundations/sources/text/ladder_v4.txt"
+      },
+      {
+        "path": "research/elemental_foundations/sources/text/light30.txt"
+      },
+      {
+        "path": "research/elemental_foundations/sources/text/light4.txt"
+      },
+      {
+        "path": "research/elemental_foundations/sources/text/matter.txt"
+      },
+      {
+        "path": "research/elemental_foundations/sources/text/prop4_angle_insert.txt"
+      },
+      {
+        "path": "research/elemental_foundations/sources/text/sofic.txt"
+      },
+      {
+        "path": "research/elemental_foundations/sources/text/upg.txt"
+      },
+      {
+        "path": "research/elemental_foundations/zenodo_access.json"
+      },
+      {
+        "path": "scripts/verify_compound_eye_release.py"
+      },
+      {
+        "path": "tools/compound-eye/CHAT_HANDOFF.md"
+      },
+      {
+        "path": "tools/compound-eye/START_HERE.html"
+      },
+      {
+        "path": "tools/compound-eye/START_HERE.md"
+      },
+      {
+        "path": "tools/compound-eye/UNIVERSAL_MANIFEST.json"
+      },
+      {
+        "path": "tools/compound-eye/build_portal.py"
+      },
+      {
+        "path": "tools/compound-eye/catalog/eyes/ce.elemental.channels@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/eyes/ce.elemental.color@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/eyes/ce.elemental.components@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/eyes/ce.elemental.film@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/eyes/ce.elemental.junction@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/eyes/ce.elemental.side_peel@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/eyes/ce.elemental.spacing@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/eyes/ce.foundation.graph@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/eyes/ce.foundation.response_pair@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/eyes/ce.reduction.gram@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/eyes/ce.reduction.ladder@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/eyes/ce.reduction.relaxation@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/eyes/ce.reduction.singular_angle@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/history.jsonl"
+      },
+      {
+        "path": "tools/compound-eye/catalog/set_history.jsonl"
+      },
+      {
+        "path": "tools/compound-eye/catalog/sets/ce.set.elemental@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/sets/ce.set.foundation@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/catalog/sets/ce.set.reduction@1.0.0.json"
+      },
+      {
+        "path": "tools/compound-eye/machine.py"
+      },
+      {
+        "path": "tools/compound-eye/plugins/installed/123676ec5c1a65737331e4ca3ec5b2291423cdbf00277d7e9fda41f645c49fc0.py"
+      },
+      {
+        "path": "tools/compound-eye/plugins/installed/20b677526a3d7ecade37bf50bb5e24fdb1d00fec1894fdfe87948a3e5a57cf6d.py"
+      },
+      {
+        "path": "tools/compound-eye/plugins/installed/37bcb90234a554a4a8c5bf6629a064e8d8c99969325a7f795d03f98fcc17b66a.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/All_Eyes_Observatory.html"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/FINDINGS.md"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/README.md"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/build_viewer.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/coverage.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/package.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/records.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/boundary.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/coverage.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/coverage_runs.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/dio.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/earth.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/findings.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/kakeya.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/knot.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/optical.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/otto.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/peeling.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/qhe_data.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/quantum.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/shape.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/skew.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/sweeps.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/ui_checks.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/results/weak.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/serve.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/sweeps.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/test_ui.js"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/verify_findings.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/verify_live.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/all_eyes/viewer.html"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/Elemental_Peel_Findings.png"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/Elemental_Peel_Observatory.html"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/Elemental_Peel_Paper_Section.md"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/FINDINGS.md"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/METHODS.md"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/README.md"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/build_artifacts.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/check_viewer.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/data/Ag_Johnson.yml"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/data/Ag_Rakic-LD.yml"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/data/Au_Johnson.yml"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/data/Au_Rakic-LD.yml"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/data/CIE_std_illum_D65.csv"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/data/CIE_xyz_1931_2deg.csv"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/data/CIE_xyz_1931_2deg.csv_metadata.json"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/data/Cu_Johnson.yml"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/data/Cu_Rakic-LD.yml"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/data/Pt_Rakic-LD.yml"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/data/cie_manifest.json"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/data/manifest.json"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/data/nist_first12.json"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/data/rakic_parameters.json"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/elemental_eyes.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/extend_observations.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/fetch_data.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/package.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/register.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/requirements.txt"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/results/execution_records.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/results/extension.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/results/extension_records.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/results/observations.json.gz"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/results/summary.json"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/results/viewer_verification.json"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/run_study.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/Ag_LD_source.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/Au_LD_source.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/Cu_LD_source.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/HYPERSURFACE-TESTS-01.zip"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/Hypersurface_Organizing_Principle_Research_Dossier.zip"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/Hypersurface_Research_Goals.zip"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/Pt_LD_source.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/check_environment.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/color_check.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/color_rerun.log"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/README.md"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/RUN_ALL_WINDOWS.cmd"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/SHA256SUMS.txt"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/STATUS.json"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/checks/environment_attempts.json"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/checks/lean_attempt_output.txt"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/checks/lean_checks.log"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/checks/lean_status.json"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/checks/output.txt"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/checks/pdf_build.log"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/checks/render_log.txt"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/checks/results.json"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/checks/run_tests.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/lean/Audit.lean"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/lean/Hypersurface.lean"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/lean/Hypersurface/Boundary.lean"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/lean/Hypersurface/Hall.lean"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/lean/Hypersurface/ScopeControls.lean"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/lean/lakefile.toml"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/lean/lean-toolchain"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/lean/negative/FalseExterior.lean"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/lean/negative/FalseHall.lean"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/lean/theorems.json"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/proof_note.md"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/proof_note.pdf"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/requirements.txt"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/run_all.sh"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface/verify.py"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/hypersurface_rerun.log"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/ld_sources.json"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/sources/requirements.txt"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/viewer.js"
+      },
+      {
+        "path": "tools/compound-eye/projects/elemental_peel/viewer_data.json"
+      },
+      {
+        "path": "tools/compound-eye/release_counts.json"
+      }
+    ],
+    "26": [
+      {
+        "path": ".github/workflows/ci.yml"
+      },
+      {
+        "path": "OperatorFirst.lean"
+      },
+      {
+        "path": "OperatorFirst/FourBodyPSDWallBridge.lean"
+      },
+      {
+        "path": "OperatorFirst/FourBodyWallInvariant.lean"
+      },
+      {
+        "path": "OperatorFirst/HypersurfaceSquareLineage.lean"
+      },
+      {
+        "path": "OperatorFirst/ProjectionTraceBridge.lean"
+      }
+    ],
+    "28": [
+      {
+        "path": ".github/workflows/upg-feedback-lean.yml"
+      },
+      {
+        "path": "OperatorFirst.lean"
+      },
+      {
+        "path": "lakefile.toml"
+      },
+      {
+        "path": "research/upg/formal/FalseControl.lean"
+      },
+      {
+        "path": "research/upg/formal/UPGFeedback.lean"
+      },
+      {
+        "path": "research/upg/formal/lakefile.toml"
+      },
+      {
+        "path": "research/upg/formal/lean-toolchain"
+      }
+    ],
+    "30": [
+      {
+        "path": ".github/workflows/diophantine.yml"
+      },
+      {
+        "path": "research/diophantine/formal/FalseIntegralityControl.lean"
+      },
+      {
+        "path": "research/diophantine/formal/SectionIntegrality.lean"
+      },
+      {
+        "path": "research/diophantine/formal/lakefile.toml"
+      }
+    ],
+    "40": [
+      {
+        "path": ".github/workflows/collatz-bounded.yml"
+      },
+      {
+        "path": "research/collatz/README.md"
+      },
+      {
+        "path": "research/collatz/formal/CollatzBounded.lean"
+      }
+    ],
+    "56": [
+      {
+        "path": ".github/workflows/yang-mills-cross-theorem-evidence.yml"
+      },
+      {
+        "path": ".github/workflows/yang-mills-cross-theorem-lean.yml"
+      },
+      {
+        "path": ".github/workflows/yang-mills-native-whole-eye.yml"
+      },
+      {
+        "path": ".github/workflows/yang-mills-report-audit.yml"
+      },
+      {
+        "path": ".github/workflows/yang-mills-september9.yml"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/README.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/README.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/REPORT.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/CrossTheorem.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/FalseControl.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/MatrixResolvedBoundary.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/NonuniformAllocationFloor.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/README.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/SchurCongruence.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/SchurFloorTransfer.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/TailGapTransfer.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/lakefile.toml"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/lean-toolchain"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/native/machine.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/native/recheck.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/native/targets.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/native/ym_energy_bins.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/native/ym_eyes.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/native/ym_forcing_eye.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/proofs/BOUNDARY_OBSERVABILITY.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/proofs/EXACT_KAKEYA_GAUGE_INSTANCE.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/proofs/FIXED_COUPLING_STABILITY_MAP.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/proofs/PARAMETER_AND_POLE_BOUNDS.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/proofs/POSITIVE_ENERGY_COARSENING.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/proofs/RESOLVED_BOUNDARY.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/proofs/SPATIAL_BASES.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/scripts/gauge_polynomials.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/scripts/spatial_certificates.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/scripts/spatial_gauge.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/sources/KakeyaForcingLinear.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/lean/FalseControl.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/lean/GaugeCertificates.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/lean/README.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/lean/lakefile.toml"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/lean/lean-toolchain"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/proofs/LOCAL_ENERGY_FLOORS.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/proofs/LOCAL_WINDOW_AND_GAP_TRANSFER.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/proofs/SCALING_AND_OBSTRUCTIONS.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/proofs/TWO_PLAQUETTES.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/recovered_uncommitted/README.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/recovered_uncommitted/run_all.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/recovered_uncommitted/scripts/scaling_controls.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/recovered_uncommitted/scripts/spatial_stability_checks.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/recovered_uncommitted/scripts/two_sided_spectral_checks.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/recovered_uncommitted/tests/test_local_window.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/recovered_uncommitted/tests/test_su3_independent.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/reports/01_recovery_and_rerun.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/reports/02_spatial_checkpoint.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/reports/03_lean_acceptance.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/reports/04_full_session_report.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/certificate_targets.json"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/lifted_two_plaquette_certificate.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/local_window_budget.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/su3_character_certificate.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_plaquette_19.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_plaquette_19_targets.json"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_plaquette_certificate.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_plaquette_extended.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_plaquette_extended_targets.json"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_plaquette_lifted_targets.json"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_plaquette_targets.json"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_sided_targets.json"
+      }
+    ],
+    "60": [
+      {
+        "path": ".github/workflows/yang-mills-cross-theorem-evidence.yml"
+      },
+      {
+        "path": ".github/workflows/yang-mills-cross-theorem-lean.yml"
+      },
+      {
+        "path": ".github/workflows/yang-mills-native-whole-eye.yml"
+      },
+      {
+        "path": ".github/workflows/yang-mills-report-audit.yml"
+      },
+      {
+        "path": ".github/workflows/yang-mills-september9.yml"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/README.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/FORMALIZATION_BOUNDARY.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/README.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/REPORT.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/CouplingFeedback.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/CrossTheorem.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/FalseControl.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/LongestYangMillsChain.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/MatrixResolvedBoundary.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/NonuniformAllocationFloor.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/ObservabilityKernel.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/ProjectorDynamics.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/ProjectorKernel.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/README.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/SchurCongruence.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/SchurFloorTransfer.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/TailGapTransfer.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/lakefile.toml"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/lean/lean-toolchain"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/native/machine.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/native/recheck.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/native/targets.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/native/ym_energy_bins.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/native/ym_eyes.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/native/ym_forcing_eye.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/proofs/BOUNDARY_OBSERVABILITY.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/proofs/EXACT_KAKEYA_GAUGE_INSTANCE.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/proofs/FIXED_COUPLING_STABILITY_MAP.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/proofs/PARAMETER_AND_POLE_BOUNDS.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/proofs/POSITIVE_ENERGY_COARSENING.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/proofs/RESOLVED_BOUNDARY.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/proofs/SPATIAL_BASES.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/scripts/gauge_polynomials.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/scripts/spatial_certificates.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/scripts/spatial_gauge.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/cross_theorem/sources/KakeyaForcingLinear.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/lean/FalseControl.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/lean/GaugeCertificates.lean"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/lean/README.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/lean/lakefile.toml"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/lean/lean-toolchain"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/proofs/LOCAL_ENERGY_FLOORS.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/proofs/LOCAL_WINDOW_AND_GAP_TRANSFER.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/proofs/SCALING_AND_OBSTRUCTIONS.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/proofs/TWO_PLAQUETTES.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/recovered_uncommitted/README.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/recovered_uncommitted/run_all.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/recovered_uncommitted/scripts/scaling_controls.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/recovered_uncommitted/scripts/spatial_stability_checks.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/recovered_uncommitted/scripts/two_sided_spectral_checks.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/recovered_uncommitted/tests/test_local_window.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/recovered_uncommitted/tests/test_su3_independent.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/reports/01_recovery_and_rerun.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/reports/02_spatial_checkpoint.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/reports/03_lean_acceptance.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/reports/04_full_session_report.md"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/certificate_targets.json"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/lifted_two_plaquette_certificate.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/local_window_budget.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/su3_character_certificate.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_plaquette_19.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_plaquette_19_targets.json"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_plaquette_certificate.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_plaquette_extended.py"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_plaquette_extended_targets.json"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_plaquette_lifted_targets.json"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_plaquette_targets.json"
+      },
+      {
+        "path": "research/yang_mills_2026_09_09/scripts/two_sided_targets.json"
+      }
+    ],
+    "65": [
+      {
+        "path": ".github/workflows/discrete-continuous-obstruction.yml"
+      },
+      {
+        "path": "research/mastery-equations/lean/DiscreteContinuousObstruction.lean"
+      }
     ]
   },
   "cmf": {
@@ -2841,5 +4229,9 @@
       "name": "proof-check/offset-endpoint-2026-09-05",
       "protected": false
     }
-  ]
+  ],
+  "atlas_registration_2026_10_14": {
+    "note": "PR entries 21,25,26,28,30,40,56,60,65 added from local full history and GitHub Actions listings on 2026-10-14; trees are the files changed against the merge-base with main; head_sha is the PR head at that date, which for 25, 28 and 40 differs from the certified commit named in the card.",
+    "retrieved_at_utc": "2026-10-14T08:35:14.277195Z"
+  }
 }
