@@ -12,4 +12,4 @@
 
 **Speed:** about 2.5 min per key at W 1024 on one CPU core (about 48 core-hours for all keys).
 
-**Results:** keys 0-2: not solved (02691, 00738/06611 family, 01477 keys).
+**Results:** keys 0-42 (first 43 keys of the ranked plan): 0 solved (progress log 10:59Z, 11:38Z). From 11:52Z, 4 workers in parallel.
