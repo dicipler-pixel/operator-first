@@ -19,3 +19,10 @@ Owner's hint: "look for what has been there this whole time right there". The tw
 **Lane (started 07:42Z):** real dual-P2 beam (rival3/rival_beam.py, direct + twin + (y,x), W 20000, depth = Stable record - 3) on the 16 rows with slack >= 1.10 (`sweeps/rival3/jobs_stablegap.json`). A verified Stable line under the record goes to `research/acc/live/inbox/upgh_rival3_<UTC>.txt`. Our long-row test (records ~101) reached 1.21x on one row and no road on five, so the 1.25x and 1.15x rows are the realistic ones.
 
 **Also checked, nothing there:** the official repo has no commits after our pin (a0fd6e6, 11 Sep). `ms1190_metadata.csv` (in the verifier data folder): the 550 "open" MS presentations are 1,440 of the 2,672 unsolved rows; all 366 rows of the 216 "uncertified" (literature-solved) presentations are already solved on the board.
+
+**Results so far**
+- 08:00Z ac-00590 (slack 1.25): no road within depth 145 (W 20000, three modes, 1,617 s). The beam cannot finish long rows at all.
+- 08:20Z change-of-variables transfer onto Stable-gap rows (`tools/acc/upgh/stablegap_cov.py`): 51 pairs (rows with a key-mate we hold a road on), all verified, **0 under the Stable record**. The mates sit on rows with only 3-5 moves of slack, and the transfers are 1.5-3x long.
+- Short Stable-gap rows (AC record <= 80): 60 rows, 25 of them accept an AC road 1-4 over the AC record (sac-01366 AC+4, sac-09799 AC+4, sac-08907 AC+3, sac-07160 AC+3, ...). The owner's other session already works several of these (08451, 09747, 00430, 02264, 05309); list in scratch `stable_gap_small.json`.
+
+**Mirror-copy check (symmetry recognition, all 10,109 rows, radius 1, 08:13Z):** 15,374 roads replayed, 2,003 matched start keys. Exactly 1 scoring line is new to us: **ac-06299 36** (via ac-05659; ties AC 36, k12, worth about 0.0002) and **sac-06299 38** (ties Stable 38, k9, worth about 0.002). Both verified on the official cores. Queued in `inbox/upgh_symrecog_20261014T081341Z_r1_all.txt`; not sent (owner's call). Mirror copies are otherwise fully exploited.
