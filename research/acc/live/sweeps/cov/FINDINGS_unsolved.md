@@ -10,3 +10,5 @@
 - 2026-10-14 08:48Z key XXXYYXYYxxy|XXXyxxYY... Lmin 19 drop 7 rows 02631,03183,03920,09579 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 321s
 - 2026-10-14 08:53Z key XXXXXXXYYXyyy|XYYXYxyyy... Lmin 22 drop 7 rows 01161,04477,04757,07257,09665 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 365s
 - 2026-10-14 08:54Z key XXXXXXYYXyyy|XYYYXyxyy... Lmin 21 drop 7 rows 04474,06820,07795,08645 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 365s
+- 2026-10-14 09:00Z key XXXXXXXYYxYxYxYxy|XXYYYxyy... Lmin 25 drop 7 rows 01123,03620 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 445s
+- 2026-10-14 09:00Z key XXXXXYYYxyy|XXYYXyxyyxY... Lmin 22 drop 7 rows 00788,02495,05837,05904,05985 MS-open False | beam on M (W 5000, D 200, direct/twin/yx): no road | transfer: - | 394s
