@@ -82,3 +82,17 @@ That shape fits a baby-step / giant-step finish:
 **3. Probe.** A plain beam (W 200k) from our pre-finish state at m = 16 finds no finish at all, not even fin2's 43. A beam will not discover this; it needs a constructed finish.
 
 **Open question to solve next:** an AC-move schedule that turns r1 = x x Y X y into a k-block rule, using r0 as the helper, at a cost of about k. AC moves cannot multiply r1 by itself, so r0 must carry the intermediate.
+
+## Addendum 01:25Z: tests run so far (all negative, all scoped)
+
+1. **Our loop cannot be shortened between its own level states.** I took the n = 5 canonical loop (39 moves) and ran exact bidirectional search, with loose caps and all 14 moves, between:
+   - steps 0 -> 20: still 20 moves at cap +0/+2/+4;
+   - the top doubling level, steps 19 -> 35: still 16 moves at cap +0/+3/+6.
+   So the 2-moves-per-doubled-letter cost is optimal between those states. memcon's road must avoid our level states, or win almost everything in the finish.
+2. **No cheap "block rule".** I searched for the shortest exact path from (P_4, r1 = x x Y X y) to (P_4, r1 = x^4 Y X^2 y), cap 26 and all moves. The budget (120M states) stopped it with no path of 23 moves or fewer.
+3. **A beam does not find a finish at m = 16.** Dual-P2 and plain-H beams at W 200k from P_16 found no finish at all, while fin2 is 43.
+
+**Still to try:** the finish is half rotations (fin2 = 6 + (m-1) x move 7 + 7 + (m-1) x move 5).
+- A pre-finish state where the x-block is already at the end would save about m rotations. That gives about 3m in total, the P000013 bound.
+- Getting to about 2m (memcon) also needs a loop that does not end in our pre-finish shape.
+- Next, search for a pre-finish shape whose exact finish at m = 4 and m = 8 has no rotation phase.
