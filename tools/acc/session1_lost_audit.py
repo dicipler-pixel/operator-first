@@ -37,4 +37,19 @@ with open(lines, 'w') as f:
     for i, ps in sorted(seen.items()):
         for q in sorted(ps, key=len)[:3]: f.write('%s: %s\n' % (i, json.dumps(list(q)).replace(' ', '')))
 print('harvested', sum(min(3, len(v)) for v in seen.values()), 'lines on', len(seen), 'rows ->', lines, file=sys.stderr)
-sys.exit(subprocess.run([sys.executable, R + '/tools/acc/plan_offline.py', '--sair', a.sair, '--out', a.out + '/plan.json', lines], cwd=R).returncode)
+# plan_offline checks only the shortest line per row, so a junk short line (a doc example) would hide a real
+# road on the same row. Verify every line first and hand plan_offline only the verified ones.
+good = []; items = [l.split(': ', 1) for l in open(lines).read().splitlines()]
+for c in range(0, len(items), 400):
+    pending = items[c:c + 400]
+    while pending:
+        ids = set(); batch = []; rest = []
+        for i, p in pending: (rest if i in ids else batch).append((i, p)); ids.add(i)
+        tmp = a.out + '/chunk.txt'; open(tmp, 'w').write(''.join(f'{i}: {p}\n' for i, p in batch))
+        r = json.loads(subprocess.run([sys.executable, '-m', 'verifier', '--manifest', 'competition/tools/verifier/data/manifest.json', '--submission', tmp],
+                                      cwd=a.sair, env=dict(os.environ, PYTHONPATH='competition/tools'), capture_output=True, text=True).stdout)
+        ok = {x['challenge_id'] for x in r.get('results', []) if x.get('ok')}
+        good += [(i, p) for i, p in batch if i in ok]; pending = rest
+vf = a.out + '/verified.txt'; open(vf, 'w').write(''.join(f'{i}: {p}\n' for i, p in good))
+print('verified', len(good), 'of', len(items), '->', vf, file=sys.stderr)
+sys.exit(subprocess.run([sys.executable, R + '/tools/acc/plan_offline.py', '--sair', a.sair, '--out', a.out + '/plan.txt', vf], cwd=R).returncode)
