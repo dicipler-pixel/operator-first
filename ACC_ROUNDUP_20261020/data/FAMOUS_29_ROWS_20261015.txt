@@ -1,0 +1,43 @@
+THE 29 SHORT UNSOLVED ROWS: 4 known hard problems (board 2026-10-15 21:07Z: all unsolved on AC and Stable)
+
+Sources in the repo:
+  research/acc/live/AK3_CLASS_ROWS.json            - 47 unsolved rows in the AK(3) class (groups A+B here); says skip on both boards
+  research/acc/live/NOTE_ms14_external_20260930.md - ac-02089 and ac-08126 (groups C, D); any solution must climb past 33 letters
+  research/acc/live/SCOUT_AI_SOLVES_20261001.md    - outside repo alejandrozarco/andrews-curtis-ms14 and the papers
+  research/acc/live/sweeps/cov/whitehead_min_20261014.json.gz - our Whitehead reduction; groups = same reduced form
+Papers: Akbulut & Kirby 1985 (AK(n) family); Miller & Schupp 1999 (MS(n,w) family); Shehper et al. arXiv 2408.15332; Lisitsa arXiv 2501.18601
+AK(3) = <x,y | x^3 y^-4, xyx y^-1 x^-1 y^-1>. X = x^-1, Y = y^-1 below.
+
+== Group A  AK(3) class   reduced form XXXXYYY|XYxYXy
+  ac-00137  start YYxyx , YxYxYxYxxxx   (length 16)  [in AK3 file]
+  ac-00399  start YXYxyx , YYYYxxx   (length 13)  [in AK3 file]
+  ac-06194  start YYxyXyx , YYXyXyXyX   (length 16)  [in AK3 file]
+  ac-06279  start YXyXYx , YYYXXXX   (length 13)  [in AK3 file]
+  ac-06945  start YXYxyx , YYYxxxx   (length 13)  [in AK3 file]
+== Group B  AK(3) class   reduced form XXXXYxxxy|XYXyy
+  ac-00320  start YYYXyxyX , YYYYXyyyx   (length 17)  [in AK3 file]
+  ac-00692  start YYXYxYX , YYYYXyyyx   (length 16)  [in AK3 file]
+  ac-01083  start YXYxYx , YYYYXyyyx   (length 15)  [in AK3 file]
+  ac-01399  start YYxYXYx , YYYYXyyyx   (length 16)  [in AK3 file]
+  ac-01558  start YXyXYx , YYYYXyyyx   (length 15)  [in AK3 file]
+  ac-02842  start YXXYx , YYYYXyyyx   (length 14)  [in AK3 file]
+  ac-02976  start YYxyXyx , YYYYXyyyx   (length 16)  [in AK3 file]
+  ac-03301  start YYXyxyX , YYYYXyyyx   (length 16)  [in AK3 file]
+  ac-03525  start YXYXYx , YYYYXyyyx   (length 15)  [in AK3 file]
+  ac-06257  start YYYxYXYx , YYYYXyyyx   (length 17)  [in AK3 file]
+  ac-06556  start YXYxx , YYYYXyyyx   (length 14)  [in AK3 file]
+  ac-06672  start YXYxyx , YYYYXyyyx   (length 15)  [in AK3 file]
+  ac-08882  start YYYxyXyx , YYYYXyyyx   (length 17)  [in AK3 file]
+  ac-09217  start YYYXYxYX , YYYYXyyyx   (length 17)  [in AK3 file]
+== Group C  MS(2, x^-2 y^-1 x^2 y)  (outside repo's P1)   reduced form XXXYxxy|XYYYxyy
+  ac-00413  start YYYXyyx , YXXXyxx   (length 14)
+  ac-02089  start YYYXyyx , YXXyxxx   (length 14)
+  ac-04376  start YYYxyyX , YXXXyxx   (length 14)
+  ac-05932  start YYYxyyX , YXXyxxx   (length 14)
+  ac-09205  start YXXyxxx , YXyXyXyxYx   (length 17)
+== Group D  MS(2, x^-2 y^-1 x^2 y^-1)  (outside repo's P2)   reduced form XXXYxxY|XYYYxyy
+  ac-03467  start YYYXyyx , YXXYxxx   (length 14)
+  ac-06293  start YYYxYYYxYYYxYXYx , YYYYxYYYYxyXyyyyXYx   (length 35)
+  ac-06747  start YXYxxxx , YXyXyxYxYx   (length 17)
+  ac-08126  start YYYXyyx , YXXXYxx   (length 14)
+  ac-09957  start YXXXYxx , YXYXYXyxyx   (length 17)
