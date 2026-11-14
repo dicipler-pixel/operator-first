@@ -2,7 +2,7 @@
 """Ball beam: a beam search scored by the ball map (mixer geometry) instead of letter count.
 Each state carries its words and the two hyperbolic motions; every AC move updates the motions in O(1)
 (conjugation = multiply by a generator, multiplication = product, inversion = inverse), so the score is cheap.
-score = size(r0) + size(r1) + LAM * letters (the goal (x,y) has size ln zx + ln zy). A radius-R exact goal table
+score (BALL_SCORE=loop, default) = letters + WK * log|2 - tr[r0, r1]| (the four-step loop; best predictor of moves-left at z=5); BALL_SCORE=size: size(r0)+size(r1)+LAM*letters (the goal (x,y) has size ln zx + ln zy). A radius-R exact goal table
 (BFS from (x,y) and (y,x)) finishes any state that falls inside it. Restarts from the road states with the smallest balls.
 usage: ballbeam.py CID ROAD.json TARGET_TOTAL [W] [CUTS] [stable]
   AC: finds (x,y) roads with total <= TARGET_TOTAL. stable: (y,x) or (x,y) roads with total + 2 <= TARGET_TOTAL."""
@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "../
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "../upgh"))
 import ballmap as BM, mini_ac, symmetry_recog as SR
 from verifier import core, stable_core
-ZX = ZY = float(os.environ.get("BALL_Z", "5")); LAM = float(os.environ.get("BALL_LAM", "0.15")); R = int(os.environ.get("BALL_R", "5"))
+ZX = ZY = float(os.environ.get("BALL_Z", "5")); LAM = float(os.environ.get("BALL_LAM", "0.15")); R = int(os.environ.get("BALL_R", "5")); WK = float(os.environ.get("BALL_WK", "2")); MODE = os.environ.get("BALL_SCORE", "loop")
 G = BM.mats(ZX, ZY)
 inv = lambda M: ((M[1][1], -M[0][1]), (-M[1][0], M[0][0]))
 CONJ = {6: "x", 7: "X", 8: "y", 9: "Y", 10: "x", 11: "X", 12: "y", 13: "Y"}
@@ -53,9 +53,12 @@ def main():
     s0 = tuple(SR.w2s(x) for x in SR.CH[cid]["initial_relators"])
     sts = [(s0, (BM.word(s0[0], G), BM.word(s0[1], G)))]
     for m in road: sts.append(step(sts[-1], m))
-    sc = lambda st: BM.size(st[1][0]) + BM.size(st[1][1]) + LAM * (len(st[0][0]) + len(st[0][1]))
-    cuts = sorted(range(1, len(road) - 3), key=lambda i: sc(sts[i]))[:K]
-    print("%s budget %d (road %d), restarts at the %d smallest balls: %s" % (cid, budget, len(road), K, cuts), flush=True)
+    def loopk(st):
+        A, B = st[1]; C = BM.mul(BM.mul(A, B), BM.mul(inv(A), inv(B))); return math.log(max(1e-9, abs(2 - (C[0][0] + C[1][1]))))
+    if MODE == "loop": sc = lambda st: (len(st[0][0]) + len(st[0][1])) + WK * loopk(st)   # mixer PAIR view: size of the four-step loop of r0, r1
+    else: sc = lambda st: BM.size(st[1][0]) + BM.size(st[1][1]) + LAM * (len(st[0][0]) + len(st[0][1]))
+    span = list(range(1, len(road) - 5)); cuts = sorted(set(span[int(j * (len(span) - 1) / max(1, K - 1))] for j in range(K)))  # K restart points spread along the road
+    print("%s budget %d (road %d), restarts at %d points along the road: %s" % (cid, budget, len(road), K, cuts), flush=True)
     best = None
     for c in sorted(cuts):
         layer = {sts[c][0]: (sts[c], road[:c])}; seen = set(layer)
