@@ -1,0 +1,49 @@
+# Fresh targets, board 14 Nov 19:56Z. Rows held by 1-3 teams that Mad Hatters does not hold. 'ours' = our best verified road (roundup, roads in ACC_ROUNDUP_20261020/moves/).
+# tie pays 0.5 (k1), 0.25 (k2), 0.125 (k3); a beat pays 1.0. [worked] = already hammered by us, lower odds.
+
+== held by 1 team (tie pays 0.5) — 14 rows within 4 moves
+sac-00989  ours  38 / record  37 (+1)
+ac-07337   ours  41 / record  40 (+1)
+sac-07541  ours  45 / record  44 (+1)  [worked]
+ac-03084   ours  43 / record  41 (+2)
+ac-07385   ours  44 / record  42 (+2)
+sac-03055  ours  58 / record  56 (+2)
+ac-06468   ours  83 / record  80 (+3)
+ac-00631   ours  86 / record  83 (+3)
+sac-01240  ours  46 / record  42 (+4)
+sac-07588  ours  53 / record  49 (+4)
+ac-08445   ours  56 / record  52 (+4)
+sac-08445  ours  58 / record  54 (+4)
+ac-07156   ours  91 / record  87 (+4)
+ac-02932   ours  96 / record  92 (+4)
+
+== held by 2 teams (tie pays 0.25) — 9 rows within 4 moves
+sac-00678  ours  44 / record  42 (+2)
+sac-00580  ours  46 / record  44 (+2)  [worked]
+ac-07541   ours  45 / record  42 (+3)  [worked]
+ac-00617   ours  61 / record  58 (+3)  [worked]
+ac-00956   ours  74 / record  71 (+3)  [worked]
+ac-04642   ours  80 / record  77 (+3)  [worked]
+ac-06229   ours  52 / record  48 (+4)
+sac-06229  ours  54 / record  50 (+4)
+ac-05586   ours  83 / record  79 (+4)
+
+== held by 3 teams (tie pays 0.125) — 7 rows within 4 moves
+sac-04628  ours  41 / record  40 (+1)
+sac-01784  ours  50 / record  49 (+1)  [worked]
+sac-03714  ours  53 / record  52 (+1)  [worked]
+ac-00580   ours  44 / record  42 (+2)  [worked]
+sac-07385  ours  46 / record  44 (+2)
+sac-09131  ours  50 / record  48 (+2)
+sac-04647  ours  58 / record  55 (+3)
+
+== NO ONE HAS IT (unsolved by every team; first solve pays 1.0 AC + 1.0 Stable per row). LONG SHOTS.
+# Board fact: 7,443 rows solved on 16 Oct and still 7,443 on 14 Nov. No team has made a first solve in a month.
+# Excluded as traps: 57 unsolved rows in the AK(3) class and the two length-14 Miller-Schupp classes (FAMOUS_29 + AK3 list).
+# Picked: unsolved rungs next to a cheaply solved rung of the same ladder (same pattern, different exponent).
+ladder X^nYx^ny|X^nyxyXY^n : rung n=5 solved in only 16 moves, but n=4 and n=6..11 unsolved (17 rows). n=6 rows: ac-02620 ac-06324 ac-07230
+ladder X^nYXy^n|X^nYx^ny   : n=4 solved 26, n=6 solved 36, n=7 unsolved: ac-08448
+ladder X^nYx^ny|X^nyXyXY^n : n=4 solved 58, n=5 solved 52, n=6 unsolved: ac-01906 ac-03199 ac-05553
+ladder X^nYx^ny|X^nyXy^nXY^n: n=5 solved 53, n=6 unsolved: ac-01090 ac-07010
+CAUTION ladder X^nYx^ny|X^nYXy^n: even rungs solved (26, 36, 48, 91) but every odd rung n>=7 unsolved (37 rows). That parity pattern
+looks like a real obstruction (trap-like); not recommended.
