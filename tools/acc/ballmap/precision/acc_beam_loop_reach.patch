@@ -1,0 +1,52 @@
+--- acc_beam.c	2026-11-14 19:55:40.703074825 +0000
++++ research/acc/optimality/acc_beam.c	2026-11-15 20:23:26.124977915 +0000
+@@ -280,6 +280,31 @@
+     if(CHAIN==2){ double t=fabs(a+d)/2; tot+=t<=1?0:acosh(t); }
+     else { double n2=(a*a+b*b+c*c+d*d)/2; tot+=n2<=1?0:acosh(n2); } }
+   double q=tot*4; return q>1023?1023u:(uint32_t)q; }
++static double LOOPW=0, LOOPZ=5;
++/* BEAM_LOOP=w, BEAM_LOOPZ=z (ball mixer pair loop): klen = 16*len + 16*w*(log|2 - tr[rho r0, rho r1]| + 25),
++   rho(x)=diag(e^a,e^-a), rho(y)=[[ch b,sh b],[sh b,ch b]], a=b=ln(z)/2. Off by default. */
++static double loop_k(const St*s){ double M[2][4]; double a=log(LOOPZ)/2, ea=exp(a), ch=cosh(a), sh=sinh(a);
++  for(int r=0;r<2;r++){ double p=1,q=0,u=0,v=1;
++    for(int k=0;k<s->l[r];k++){ double e,f,g,h; switch(s->w[r][k]){
++        case 0: e=ea;f=0;g=0;h=1/ea;break; case 1: e=1/ea;f=0;g=0;h=ea;break; case 2: e=ch;f=sh;g=sh;h=ch;break; default: e=ch;f=-sh;g=-sh;h=ch; }
++      double np=p*e+q*g, nq=p*f+q*h, nu=u*e+v*g, nv=u*f+v*h; p=np;q=nq;u=nu;v=nv; }
++    M[r][0]=p;M[r][1]=q;M[r][2]=u;M[r][3]=v; }
++  double *A=M[0],*B=M[1]; double Ai[4]={A[3],-A[1],-A[2],A[0]}, Bi[4]={B[3],-B[1],-B[2],B[0]};
++  double P[4]={A[0]*B[0]+A[1]*B[2],A[0]*B[1]+A[1]*B[3],A[2]*B[0]+A[3]*B[2],A[2]*B[1]+A[3]*B[3]};
++  double Q[4]={Ai[0]*Bi[0]+Ai[1]*Bi[2],Ai[0]*Bi[1]+Ai[1]*Bi[3],Ai[2]*Bi[0]+Ai[3]*Bi[2],Ai[2]*Bi[1]+Ai[3]*Bi[3]};
++  double tr=P[0]*Q[0]+P[1]*Q[2]+P[2]*Q[1]+P[3]*Q[3]; double k=fabs(2-tr);
++  if(!isfinite(k)) return 200; double l=log(k>1e-11?k:1e-11); return l>200?200:l; }
++static double REACHW=0, REACHZ=5;
++/* BEAM_REACH=w, BEAM_REACHZ=z (grid ball field, grid movement): klen += 16*w*(reach(r0)+reach(r1)), reach(M) = d(i, M i) =
++   acosh(|M|_F^2/2) for M = rho(word) at step ratio z. A sum of squares, so no cancellation; products rescaled to avoid overflow. */
++static double reach_w(const uint8_t*w,int n){ double a=log(REACHZ)/2, ea=exp(a), ch=cosh(a), sh=sinh(a), p=1,q=0,u=0,v=1, ls=0;
++  for(int k=0;k<n;k++){ double e,f,g,h; switch(w[k]){ case 0: e=ea;f=0;g=0;h=1/ea;break; case 1: e=1/ea;f=0;g=0;h=ea;break; case 2: e=ch;f=sh;g=sh;h=ch;break; default: e=ch;f=-sh;g=-sh;h=ch; }
++    double np=p*e+q*g, nq=p*f+q*h, nu=u*e+v*g, nv=u*f+v*h; p=np;q=nq;u=nu;v=nv;
++    double m=fabs(p); if(fabs(q)>m) m=fabs(q); if(fabs(u)>m) m=fabs(u); if(fabs(v)>m) m=fabs(v);
++    if(m>1e100){ p/=1e100;q/=1e100;u/=1e100;v/=1e100; ls+=log(1e100); } }
++  double lf=log(p*p+q*q+u*u+v*v)+2*ls-log(2.0);            /* ln(|M|_F^2/2) */
++  if(lf>20) return lf+log(2.0); double x=exp(lf); return x<=1?0:acosh(x); }
++static double reach_k(const St*s){ return reach_w(s->w[0],s->l[0])+reach_w(s->w[1],s->l[1]); }
+ int main(int argc,char**argv){
+   const char*tf=argv[1]; uint64_t W=strtoull(argv[2],0,10); int DMAX=atoi(argv[3]); St s0; parse_state(argv,4,&s0);
+   struct stat stt; int fd=open(tf,O_RDONLY); if(fd<0||fstat(fd,&stt)) die("tfile");
+@@ -297,6 +322,8 @@
+   int HP=getenv("BEAM_H")?atoi(getenv("BEAM_H")):0; BAL=getenv("BEAM_BAL")?atof(getenv("BEAM_BAL")):0;
+   if(getenv("BEAM_MACROS")){ load_macros(getenv("BEAM_MACROS")); MACW=getenv("BEAM_MACW")?atof(getenv("BEAM_MACW")):1.0; C=realloc(C,sizeof(Cand)*W*(14+NMAC)); fprintf(stderr,"macros: %d\n",NMAC); }
+   SHW=getenv("BEAM_SHADOW")?atof(getenv("BEAM_SHADOW")):0.0; if(SHW>0){ if(!getenv("BEAM_SHADOW_FILE")) die("BEAM_SHADOW_FILE"); load_probes(getenv("BEAM_SHADOW_FILE")); }
++  REACHW=getenv("BEAM_REACH")?atof(getenv("BEAM_REACH")):0; REACHZ=getenv("BEAM_REACHZ")?atof(getenv("BEAM_REACHZ")):5; if(REACHW>0) fprintf(stderr,"reach: w=%.3f z=%.4f\n",REACHW,REACHZ);
++  LOOPW=getenv("BEAM_LOOP")?atof(getenv("BEAM_LOOP")):0; LOOPZ=getenv("BEAM_LOOPZ")?atof(getenv("BEAM_LOOPZ")):5; if(LOOPW>0) fprintf(stderr,"loop: w=%.3f z=%.4f\n",LOOPW,LOOPZ);
+   P2M=getenv("BEAM_P2")?atoi(getenv("BEAM_P2")):0; CHAIN=getenv("BEAM_CHAIN")?atoi(getenv("BEAM_CHAIN")):0; if(CHAIN&&P2M!=2) die("BEAM_CHAIN needs BEAM_P2=2"); if(P2M&&P2M!=1&&P2M!=2&&P2M!=3) die("BEAM_P2 must be 1, 2 or 3"); if(getenv("BEAM_P2CUT")) P2CUT=atoi(getenv("BEAM_P2CUT"));
+   if(P2M){ nodes[0].p2=p2_of(&s0); fprintf(stderr,"p2: mode %d cut %d start P2=%u P1m=%u\n",P2M,P2CUT,nodes[0].p2,p1m_of(&s0)); }
+   QUOTA=getenv("BEAM_QUOTA")?atoi(getenv("BEAM_QUOTA")):0; WHM=getenv("BEAM_WH")?atoi(getenv("BEAM_WH")):0;
+@@ -348,6 +375,8 @@
+         tmpN[nt]=(Node){SAn,(uint32_t)i,(uint8_t)m,len,(uint16_t)ctd,cp2}; SAn+=need;
+         // BEAM_NOISE=n, BEAM_SEED=s: add a seeded pseudo-random 0..n to the length key (route diversity)
+         uint32_t klen=HP?hprio(&nx):len; if(SHW>0) klen+=(uint32_t)(SHW*(HP?16.0:1.0)*shadow(&nx)+0.5); if(NMAC) klen+=(uint32_t)(MACW*(HP?16.0:1.0)*(ctd-d)+0.5); if(NOISE){ uint64_t z=(h1^SEED)*0x9E3779B97F4A7C15ULL; z^=z>>29; klen+=(uint32_t)(z%(uint64_t)(NOISE+1)); }
++        if(LOOPW>0){ double lk=loop_k(&nx); klen=(HP?klen:16*len)+(uint32_t)(16*LOOPW*(lk+25)+0.5); }
++        if(REACHW>0){ if(LOOPW<=0&&!HP) klen=16*len; klen+=(uint32_t)(16*REACHW*reach_k(&nx)+0.5); }
+         uint64_t key=((uint64_t)klen<<40)|((h1^SEED)>>24); if(tK2) tK2[nt]=key;   /* BEAM_DUAL: the plain key of the second eye */
+         if(WHM) key=((uint64_t)klen<<40)|((uint64_t)tWH[nt]<<30)|((h1^SEED)>>34);   /* BEAM_WH: klen | WH (10 bits) | 30 fp bits */
+         // BEAM_P2: P2 (9 bits) | P1m (10 bits, mode 1 only) | existing klen (18 bits, saturated) | 27 fingerprint bits
