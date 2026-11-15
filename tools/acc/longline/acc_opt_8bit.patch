@@ -1,0 +1,31 @@
+--- acc_opt.c	2026-11-14 19:55:40.703074825 +0000
++++ research/acc/optimality/acc_opt.c	2026-11-14 23:41:45.022701817 +0000
+@@ -70,7 +70,7 @@
+             h1=fmix_a(h1^c^(idx*0xD6E8FEB86659FD93ULL));
+             h2=rotl(h2^fmix_b(c*0x9FB21C651E98DF25ULL+idx),29)*0x87C37B91114253D5ULL+0x52DCE729ULL; } }
+     h1=fmix_a(h1^0xA0761D6478BD642FULL); h2=fmix_b(h2^idx);
+-    *h1o=h1|1ULL; *h2o=h2&~0xFULL;
++    *h1o=h1|1ULL; *h2o=h2&~0xFFULL;
+ }
+ 
+ // ---- table (any slot count; home slot = mulhi(h1, nslots)) ----
+@@ -83,16 +83,16 @@
+ static int tab_find(const Tab*T,uint64_t h1,uint64_t h2){
+     uint64_t i=slot0(T,h1);
+     for(;;){ uint64_t a=T->t[2*i]; if(!a) return -1;
+-        if(a==h1&&(T->t[2*i+1]&~0xFULL)==h2) return (int)(T->t[2*i+1]&0xF);
++        if(a==h1&&(T->t[2*i+1]&~0xFFULL)==h2) return (int)(T->t[2*i+1]&0xFF);
+         if(++i==T->N) i=0; } }
+ static int tab_ins_raw(Tab*T,uint64_t h1,uint64_t h2,int d){ // returns existing dist, or -1 if inserted
+     uint64_t i=slot0(T,h1);
+     for(;;){ uint64_t a=T->t[2*i];
+         if(!a){ T->t[2*i]=h1; T->t[2*i+1]=h2|(uint64_t)d; T->n++; return -1; }
+-        if(a==h1&&(T->t[2*i+1]&~0xFULL)==h2) return (int)(T->t[2*i+1]&0xF);
++        if(a==h1&&(T->t[2*i+1]&~0xFFULL)==h2) return (int)(T->t[2*i+1]&0xFF);
+         if(++i==T->N) i=0; } }
+ static void tab_grow(Tab*T){ Tab G; tab_init(&G,T->N*2);
+-    for(uint64_t i=0;i<T->N;i++) if(T->t[2*i]) tab_ins_raw(&G,T->t[2*i],T->t[2*i+1]&~0xFULL,(int)(T->t[2*i+1]&0xF));
++    for(uint64_t i=0;i<T->N;i++) if(T->t[2*i]) tab_ins_raw(&G,T->t[2*i],T->t[2*i+1]&~0xFFULL,(int)(T->t[2*i+1]&0xFF));
+     munmap(T->t,(size_t)16*T->N); *T=G;
+     fprintf(stderr,"  grew table to %llu slots\n",(unsigned long long)T->N); }
+ // grow=1: double at load 0.80; grow=0: fixed size, refuse above load 0.90
