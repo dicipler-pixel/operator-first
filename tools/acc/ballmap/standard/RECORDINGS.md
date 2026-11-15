@@ -64,3 +64,55 @@ Compass = share of road steps where the road's real next move is in the top 3 of
 | V3 y=J with a 90deg twist | 57.7% / 0.444 | 57.5% / 0.463 | 58.0% / 0.454 | 59.8% / 0.458 | 58.0% / 0.452 | 59.7% / 0.460 | 58.0% / 0.450 | 59.6% / 0.461 | 57.9% / 0.448 | 59.3% / 0.462 |
 | V4 both twisted 90deg | 58.3% / 0.460 | 57.7% / 0.477 | 58.6% / 0.458 | 59.9% / 0.462 | 58.6% / 0.458 | 59.8% / 0.466 | 58.5% / 0.459 | 59.7% / 0.470 | 58.5% / 0.460 | 59.5% / 0.473 |
 | V5 y=J with a 30deg twist | 57.3% / 0.434 | 57.1% / 0.455 | 57.9% / 0.452 | 59.6% / 0.457 | 57.9% / 0.449 | 59.6% / 0.457 | 57.8% / 0.445 | 59.3% / 0.457 | 57.7% / 0.442 | 59.1% / 0.457 |
+
+## 4. Atlas candidates (z = 5, exact loop and matched loop)
+
+| Reading | Compass top 3 | Mean rank | Map |
+| --- | --- | --- | --- |
+| letters+0.5*MR+0.5*loop | 61.6% | 19.5% | 0.484 |
+| letters+0.25*peel+1*loop | 61.3% | 19.0% | 0.519 |
+| letters+0.5*MR+1*loop | 60.9% | 19.2% | 0.502 |
+| letters+0.25*peel | 60.4% | 20.6% | 0.475 |
+| letters+0.5*MR+2*loop | 60.3% | 19.6% | 0.518 |
+| letters+0.5*peel | 60.3% | 20.6% | 0.487 |
+| letters+1*peel | 60.1% | 20.5% | 0.500 |
+| letters+0.25*loop | 59.9% | 19.3% | 0.482 |
+| letters+reach+0.5*loop | 59.7% | 20.1% | 0.474 |
+| letters+0.25*rel | 59.7% | 21.3% | 0.458 |
+| letters+0.5*rel | 59.7% | 21.3% | 0.459 |
+| letters+2*peel | 59.4% | 20.7% | 0.509 |
+| letters+1*rel | 59.4% | 21.6% | 0.459 |
+| letters+reach+1*loop | 59.3% | 19.8% | 0.491 |
+| letters+0.25*off | 59.1% | 21.5% | 0.460 |
+| letters+0.5*loop | 59.0% | 19.1% | 0.498 |
+| letters+2*rel | 59.0% | 22.0% | 0.457 |
+| letters+0.25*T | 59.0% | 21.0% | 0.447 |
+| letters+0.25*MR | 58.8% | 21.1% | 0.453 |
+| letters+reach+2*loop | 58.8% | 19.8% | 0.509 |
+| letters+0.5*MR | 58.7% | 21.2% | 0.451 |
+| letters+0.5*MR+0.5*off | 58.6% | 21.9% | 0.457 |
+| letters+0.5*T | 58.6% | 21.5% | 0.442 |
+| letters+0.5*off | 58.6% | 21.9% | 0.462 |
+| letters+1*MR | 58.3% | 21.5% | 0.448 |
+| letters+1*loop | 58.2% | 19.3% | 0.515 |
+| letters+0.5*MR+2*ML | 58.0% | 22.3% | 0.439 |
+| letters+0.5*MR+1*ML | 58.0% | 21.9% | 0.445 |
+| letters+0.5*MR+0.5*ML | 57.9% | 21.6% | 0.448 |
+| letters+1*off | 57.8% | 22.4% | 0.463 |
+
+One-step lookahead (100 roads):
+
+- letters+reach: top 3 57.2%, mean rank 22.0% (4572 decisions)
+- lookahead letters+reach: top 3 58.3%, mean rank 22.4% (4572 decisions)
+- letters+0.5*MR: top 3 58.3%, mean rank 21.1% (4572 decisions)
+- lookahead letters+0.5*MR: top 3 58.6%, mean rank 22.2% (4572 decisions)
+
+Note: the 'along/off' readings measure both relators in X's frame; B should use Y's frame, so they are approximate.
+
+## C options (acc_beam_ballstd.c, build: gcc -O3 -march=native -o acc_beam acc_beam_ballstd.c -lgmp -lm, next to acc_opt.c and c16_table.inc)
+
+- BEAM_REACH=w, BEAM_REACHZ=z: grid movement d(O, A O) + d(O, B O)
+- BEAM_REL=w, BEAM_RELB=s: d(p, X^-1 A p) + d(p, Y^-1 B p), base point s steps along arm I
+- BEAM_PEEL=w, BEAM_PEELK=K: Schur peel, min over |k| <= K
+- BEAM_LOOPX=w: exact loop ln|2 - tr[A,B]| at z = 5 (GMP; children of moves 0-5 reuse the parent's value)
+- BEAM_LOOP=w, BEAM_LOOPZ=z: float loop (unreliable above ~40 letters)

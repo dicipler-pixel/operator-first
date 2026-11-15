@@ -12,6 +12,7 @@
 #define ACC_NO_MAIN
 #include "acc_opt.c"
 #include <math.h>
+#include <gmp.h>
 #include "c16_table.inc"
 // BEAM_C16=file (ceiling finish table from acc_c16.c; rival idea nahom §2.1): every new child whose total length is <= the
 // table's ceiling is also looked up there. Its distance c (BFS inside the ceiling, an upper bound on the true distance)
@@ -319,6 +320,47 @@ static double rel_w(int first,const uint8_t*w,int n){ double a=log(REACHZ)/2, ea
   double lf=log(gp*gp+gq*gq+gu*gu+gv*gv)+2*ls-log(2.0);
   if(lf>20) return lf+log(2.0); double x=exp(lf); return x<=1?0:acosh(x); }
 static double rel_k(const St*s){ return rel_w(1,s->w[0],s->l[0])+rel_w(2,s->w[1],s->l[1]); }
+static double PEELW=0; static int PEELK=3;
+/* BEAM_PEEL=w (ball standard, Schur peel): klen += 16*w*P, P = min over |k| <= BEAM_PEELK of
+   |k| ln z + d(p, X^-1 A p) + d(p, Y^-1 B A^k p), and the mirror |k| ln z + d(p, X^-1 A B^k p) + d(p, Y^-1 B p); p = centre, z = BEAM_REACHZ. */
+typedef struct { double m[4]; double ls; } SM;
+static SM sm_id(void){ SM r={{1,0,0,1},0}; return r; }
+static SM sm_mul(SM A,SM B){ SM r; r.m[0]=A.m[0]*B.m[0]+A.m[1]*B.m[2]; r.m[1]=A.m[0]*B.m[1]+A.m[1]*B.m[3]; r.m[2]=A.m[2]*B.m[0]+A.m[3]*B.m[2]; r.m[3]=A.m[2]*B.m[1]+A.m[3]*B.m[3]; r.ls=A.ls+B.ls;
+  double mx=fabs(r.m[0]); for(int i=1;i<4;i++) if(fabs(r.m[i])>mx) mx=fabs(r.m[i]); if(mx>1e60){ for(int i=0;i<4;i++) r.m[i]/=1e60; r.ls+=log(1e60); } return r; }
+static SM sm_inv(SM A){ SM r={{A.m[3],-A.m[1],-A.m[2],A.m[0]},-A.ls}; return r; }
+static SM sm_gen(int c){ double a=log(REACHZ)/2, ea=exp(a), ch=cosh(a), sh=sinh(a); SM r={{1,0,0,1},0};
+  switch(c){ case 0: r.m[0]=ea;r.m[3]=1/ea;break; case 1: r.m[0]=1/ea;r.m[3]=ea;break; case 2: r.m[0]=ch;r.m[1]=sh;r.m[2]=sh;r.m[3]=ch;break; default: r.m[0]=ch;r.m[1]=-sh;r.m[2]=-sh;r.m[3]=ch; } return r; }
+static SM sm_word(const uint8_t*w,int n){ SM r=sm_id(); for(int k=0;k<n;k++) r=sm_mul(r,sm_gen(w[k])); return r; }
+static double sm_d(SM M){ double lf=log(M.m[0]*M.m[0]+M.m[1]*M.m[1]+M.m[2]*M.m[2]+M.m[3]*M.m[3])+2*M.ls-log(2.0);
+  if(lf>20) return lf+log(2.0); double x=exp(lf); return x<=1?0:acosh(x); }
+static double peel_k(const St*s){ SM A=sm_word(s->w[0],s->l[0]), B=sm_word(s->w[1],s->l[1]), Xi=sm_gen(1), Yi=sm_gen(3);
+  SM XA=sm_mul(Xi,A), YB=sm_mul(Yi,B); double dA=sm_d(XA), dB=sm_d(YB), best=dA+dB, lz=log(REACHZ);
+  SM Ai=sm_inv(A), Bi=sm_inv(B), pB=B, nB=B, pA=A, nA=A;
+  for(int k=1;k<=PEELK;k++){ pB=sm_mul(pB,A); nB=sm_mul(nB,Ai); pA=sm_mul(pA,B); nA=sm_mul(nA,Bi);
+    double v; v=k*lz+dA+sm_d(sm_mul(Yi,pB)); if(v<best) best=v; v=k*lz+dA+sm_d(sm_mul(Yi,nB)); if(v<best) best=v;
+    v=k*lz+sm_d(sm_mul(Xi,pA))+dB; if(v<best) best=v; v=k*lz+sm_d(sm_mul(Xi,nA))+dB; if(v<best) best=v; }
+  return best; }
+static double LOOPXW=0;
+/* BEAM_LOOPX=w (ball standard, exact loop at z = 5): klen += 16*w*(L + 25), L = ln|2 - tr[rho r0, rho r1]| computed EXACTLY:
+   rho(w) = M(w)/5^(|w|/2) with integer M; k*5^n = 4*5^n - tA^2 5^|B| - tB^2 5^|A| - tAB^2 + tA tB tAB (GMP). Unchanged by moves 0-5. */
+static mpz_t P5[2*MAXW+8]; static int P5n=0;
+static void p5_init(void){ if(P5n) return; for(int i=0;i<2*MAXW+8;i++){ mpz_init(P5[i]); if(i==0) mpz_set_ui(P5[0],1); else mpz_mul_ui(P5[i],P5[i-1],5); } P5n=1; }
+static void iw_word(const uint8_t*w,int n,mpz_t M[4]){ static mpz_t t[4]; static int ini=0; if(!ini){ for(int i=0;i<4;i++) mpz_init(t[i]); ini=1; }
+  mpz_set_ui(M[0],1); mpz_set_ui(M[1],0); mpz_set_ui(M[2],0); mpz_set_ui(M[3],1);
+  for(int k=0;k<n;k++){ switch(w[k]){
+    case 0: mpz_mul_ui(M[0],M[0],5); mpz_mul_ui(M[2],M[2],5); break;            /* right-multiply by diag(5,1) */
+    case 1: mpz_mul_ui(M[1],M[1],5); mpz_mul_ui(M[3],M[3],5); break;            /* by diag(1,5) */
+    default: { long sg = (w[k]==2)?2:-2;                                        /* by [[3,sg],[sg,3]] */
+      for(int r=0;r<2;r++){ mpz_mul_si(t[0],M[2*r],3); mpz_addmul_ui(t[0],M[2*r+1],0); mpz_mul_si(t[1],M[2*r+1],sg); mpz_add(t[0],t[0],t[1]);
+        mpz_mul_si(t[2],M[2*r],sg); mpz_mul_si(t[3],M[2*r+1],3); mpz_add(t[2],t[2],t[3]); mpz_set(M[2*r],t[0]); mpz_set(M[2*r+1],t[2]); } } } } }
+static double loopx_k(const St*s){ static mpz_t A[4],B[4],tA,tB,tAB,K,u; static int ini=0;
+  if(!ini){ for(int i=0;i<4;i++){ mpz_init(A[i]); mpz_init(B[i]); } mpz_init(tA); mpz_init(tB); mpz_init(tAB); mpz_init(K); mpz_init(u); ini=1; p5_init(); }
+  int a=s->l[0], b=s->l[1], n=a+b; iw_word(s->w[0],a,A); iw_word(s->w[1],b,B);
+  mpz_add(tA,A[0],A[3]); mpz_add(tB,B[0],B[3]);
+  mpz_mul(tAB,A[0],B[0]); mpz_addmul(tAB,A[1],B[2]); mpz_addmul(tAB,A[2],B[1]); mpz_addmul(tAB,A[3],B[3]);
+  mpz_mul_ui(K,P5[n],4); mpz_mul(u,tA,tA); mpz_mul(u,u,P5[b]); mpz_sub(K,K,u); mpz_mul(u,tB,tB); mpz_mul(u,u,P5[a]); mpz_sub(K,K,u);
+  mpz_mul(u,tAB,tAB); mpz_sub(K,K,u); mpz_mul(u,tA,tB); mpz_mul(u,u,tAB); mpz_add(K,K,u);
+  if(mpz_sgn(K)==0) return -20.7; long ex; double mant=mpz_get_d_2exp(&ex,K); double L=log(fabs(mant))+ex*log(2.0)-n*log(5.0); return L<-20.7?-20.7:L; }
 int main(int argc,char**argv){
   const char*tf=argv[1]; uint64_t W=strtoull(argv[2],0,10); int DMAX=atoi(argv[3]); St s0; parse_state(argv,4,&s0);
   struct stat stt; int fd=open(tf,O_RDONLY); if(fd<0||fstat(fd,&stt)) die("tfile");
@@ -336,6 +378,8 @@ int main(int argc,char**argv){
   int HP=getenv("BEAM_H")?atoi(getenv("BEAM_H")):0; BAL=getenv("BEAM_BAL")?atof(getenv("BEAM_BAL")):0;
   if(getenv("BEAM_MACROS")){ load_macros(getenv("BEAM_MACROS")); MACW=getenv("BEAM_MACW")?atof(getenv("BEAM_MACW")):1.0; C=realloc(C,sizeof(Cand)*W*(14+NMAC)); fprintf(stderr,"macros: %d\n",NMAC); }
   SHW=getenv("BEAM_SHADOW")?atof(getenv("BEAM_SHADOW")):0.0; if(SHW>0){ if(!getenv("BEAM_SHADOW_FILE")) die("BEAM_SHADOW_FILE"); load_probes(getenv("BEAM_SHADOW_FILE")); }
+  LOOPXW=getenv("BEAM_LOOPX")?atof(getenv("BEAM_LOOPX")):0; if(LOOPXW>0) fprintf(stderr,"loopx: w=%.3f (exact)\n",LOOPXW);
+  PEELW=getenv("BEAM_PEEL")?atof(getenv("BEAM_PEEL")):0; PEELK=getenv("BEAM_PEELK")?atoi(getenv("BEAM_PEELK")):3; if(PEELW>0) fprintf(stderr,"peel: w=%.3f K=%d\n",PEELW,PEELK);
   RELW=getenv("BEAM_REL")?atof(getenv("BEAM_REL")):0; RELB=getenv("BEAM_RELB")?atof(getenv("BEAM_RELB")):0.5; if(RELW>0) fprintf(stderr,"rel: w=%.3f base=%.2f\n",RELW,RELB);
   REACHW=getenv("BEAM_REACH")?atof(getenv("BEAM_REACH")):0; REACHZ=getenv("BEAM_REACHZ")?atof(getenv("BEAM_REACHZ")):5; if(REACHW>0) fprintf(stderr,"reach: w=%.3f z=%.4f\n",REACHW,REACHZ);
   LOOPW=getenv("BEAM_LOOP")?atof(getenv("BEAM_LOOP")):0; LOOPZ=getenv("BEAM_LOOPZ")?atof(getenv("BEAM_LOOPZ")):5; if(LOOPW>0) fprintf(stderr,"loop: w=%.3f z=%.4f\n",LOOPW,LOOPZ);
@@ -363,7 +407,7 @@ int main(int argc,char**argv){
     uint64_t*tCL=ATL?malloc(8*((hi-lo)*(14+NMAC)+1)):NULL; uint16_t*tWH=ATL?malloc(2*((hi-lo)*(14+NMAC)+1)):NULL; ntrh=0;
     if(ATL&&(!tCL||!tWH)) die("atlas alloc");
     uint64_t*tK2=DUALF>0?malloc(8*((hi-lo)*(14+NMAC)+1)):NULL; if(DUALF>0&&!tK2) die("dual alloc");
-    for(uint64_t i=lo;i<hi;i++){ load(nodes[i].off,&cur);
+    for(uint64_t i=lo;i<hi;i++){ load(nodes[i].off,&cur); double parLX = LOOPXW>0 ? loopx_k(&cur) : 0;
       for(int m=0;m<14+NMAC;m++){ int ctd=nodes[i].td+1; if(m<14) apply(&cur,m,&nx); else { if(!apply_macro(&cur,m-14,&nx)) continue; ctd=nodes[i].td+MACL[m-14]; } fp(&nx,&h1,&h2);
         if(tab_find(&V,h1,h2)>=0){ if(NTR){ int ti=trace_find(h1,h2); if(ti>=0) fprintf(stderr,"TRACE d=%d i=%d visited\n",d,ti); } continue; }
         if(tab_ins(&L,h1,h2,1,1)>=0) continue;
@@ -393,6 +437,8 @@ int main(int argc,char**argv){
         if(LOOPW>0){ double lk=loop_k(&nx); klen=(HP?klen:16*len)+(uint32_t)(16*LOOPW*(lk+25)+0.5); }
         if(REACHW>0){ if(LOOPW<=0&&!HP) klen=16*len; klen+=(uint32_t)(16*REACHW*reach_k(&nx)+0.5); }
         if(RELW>0){ if(LOOPW<=0&&REACHW<=0&&!HP) klen=16*len; klen+=(uint32_t)(16*RELW*rel_k(&nx)+0.5); }
+        if(PEELW>0){ if(LOOPW<=0&&REACHW<=0&&RELW<=0&&!HP) klen=16*len; klen+=(uint32_t)(16*PEELW*peel_k(&nx)+0.5); }
+        if(LOOPXW>0){ if(LOOPW<=0&&REACHW<=0&&RELW<=0&&PEELW<=0&&!HP) klen=16*len; double lx=(m<=5)?parLX:loopx_k(&nx); klen+=(uint32_t)(16*LOOPXW*(lx+25)+0.5); }
         uint64_t key=((uint64_t)klen<<40)|((h1^SEED)>>24); if(tK2) tK2[nt]=key;   /* BEAM_DUAL: the plain key of the second eye */
         if(WHM) key=((uint64_t)klen<<40)|((uint64_t)tWH[nt]<<30)|((h1^SEED)>>34);   /* BEAM_WH: klen | WH (10 bits) | 30 fp bits */
         // BEAM_P2: P2 (9 bits) | P1m (10 bits, mode 1 only) | existing klen (18 bits, saturated) | 27 fingerprint bits
