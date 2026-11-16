@@ -116,3 +116,27 @@ Note: the 'along/off' readings measure both relators in X's frame; B should use 
 - BEAM_PEEL=w, BEAM_PEELK=K: Schur peel, min over |k| <= K
 - BEAM_LOOPX=w: exact loop ln|2 - tr[A,B]| at z = 5 (GMP; children of moves 0-5 reuse the parent's value)
 - BEAM_LOOP=w, BEAM_LOOPZ=z: float loop (unreliable above ~40 letters)
+
+## 5. Restart races (C beam, width 20,000)
+
+Earliest cut of our road from which the beam re-finds our length. Base ranker: BEAM_H=1, DIV 0.8, QUOTA 16,
+ELITE 5000, DUAL 0.75, P2=2. On ac-07337 the peel and combination races covered cuts 1–15 only, because both
+earlier full runs hit the background time limit.
+
+| Setting | ac-00989 | ac-07337 |
+|---|---|---|
+| usual ranking only | 13 | 23 |
+| grid movement 2 (`BEAM_REACH=2`) | **1** | **13** |
+| exact loop 2 (`BEAM_LOOPX=2`) | 5 | none ≤ 15 |
+| finish-relative 1 / 2 / 4 (`BEAM_REL`, base I.5) | 5 / 1 / 1 | 21 / 15 / 15 |
+| grid movement 1 + finish-relative 1 | 1 | 21 |
+| peel 0.25 / 0.5 / 1 / 2 (`BEAM_PEEL`) | 11 / 7 / 5 / 1 | – / – / none ≤ 15 / none ≤ 15 |
+| grid movement 1 + peel 0.5 | 1 | 15 |
+| peel 0.25 + exact loop 1 | 5 | none ≤ 15 |
+| finish-relative 0.5 (base O) + exact loop 0.5 | 5 | **13** |
+| grid movement 2 + exact loop 0.5 | 1 | none ≤ 15 |
+
+- Nothing beat grid movement 2 on ac-07337. Finish-relative 0.5 at base O with exact loop 0.5 tied it at cut 13.
+- The exact loop matched the float loop (cut 5 on ac-00989), so the float rounding was not the limit.
+- The full grid-movement 2 search, restarting from points on our roads at widths up to 60,000, found no tie or beat:
+  ac-07337 AC 41 / Stable 43, ac-00989 AC 36 / Stable 38.
