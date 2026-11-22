@@ -13,3 +13,7 @@ Real run 2026-11-22 (W 1500, G 1, lambda 1, budget = ours - 1, FROMEND = 14,18,2
 - 463 of 546 jobs finished before the 7000 s limit (the unfinished ones are the 22-from-end cuts).
 - One find: ac-00222 at 41 (tie, record 41). Sent as submission 6165, accepted 1/1.
   sac-00222 + [16,15] = 43 was dropped (we already hold 42).
+
+Follow-up run (DONEF = rtm_tail.json, same settings): 63 of the remaining 83 jobs finished, no finds.
+The other 20 (22-from-end cuts) were still running at the 7000 s limit: these hard rows grow the beam slowly.
+Total: 526 of 546 jobs, 1 tie (ac-00222).
