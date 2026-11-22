@@ -46,3 +46,29 @@ On rows they hold on both boards: their AC road + 2 minus their Stable road.
 2. Bluepug wins by running one strong general long-row shortener on every row, and keeps improving it (about 20 points a day on AC).
 3. On Stable they use stabilization, which is worth 25–40% on long roads. That is a concrete technique gap we can close.
 4. Others still beat them on 440 AC rows (structured families such as memcon's doubling ladders). A specialised construction can beat a general pipeline.
+
+## 5. Gap test (tools/acc/bluepug_gap.py, results in research/acc/bluepug/)
+- Our C beam (standard config: H, DIV 0.8, QUOTA 16, ELITE 5000, DUAL 0.75), width 5000, depth up to 2 × record, on 18 random rows Bluepug holds alone (6 each with records 80–110, 110–160 and 160–260).
+- **We found a road on 1 of 18 rows.** On ac-00700 we got 111 against their 86 (rank-2 Stable 113 against their 73).
+- On the other 17, the beam's shortest state stays at about 16–21 letters for 80+ moves and never reaches the finish table. These rows need the words to grow before they shrink, and our beam cannot get over that hump. Bluepug can.
+
+## 6. Where Stable beats AC: the BS(n, n+1) family
+- r1 = Y^(n+1) X y^n x, i.e. x⁻¹ yⁿ x = yⁿ⁺¹ (the Miller–Schupp first relator). 2,372 rows, n = 2..10.
+- For a fixed r0, AC records grow by about ×1.7 per step in n. Stable records grow by about +125 moves per step: **linear, not exponential**.
+
+| r0 | n=7 | n=8 | n=9 | n=10 |
+|---|---|---|---|---|
+| YXyXyx | 233 / 180 | 383 / 282 | 641 / 407 | 1122 / 534 |
+| YXYxyX | 240 / 168 | 396 / 284 | 635 / 414 | 1117 / 542 |
+| YYxyXYx | 249 / 195 | 403 / 296 | 659 / 424 | 1141 / 551 |
+
+(Each cell is AC / Stable.)
+
+- This family gives Bluepug 188 AC points and 333 Stable points. Their other Stable savings are spread over rows of 80+ moves.
+- The literature says Miller–Schupp presentations are stably AC-trivial (Myasnikov–Myasnikov–Shpilrain, arXiv math/0302080; Shehper et al., arXiv 2408.15332, Thm 7; AK(3) stably trivial, arXiv 2501.18601). The linear growth fits a uniform one-stabilization construction.
+- Not yet read: arxiv.org is blocked from this session's tools.
+
+## 7. Blind extra-generator beam (tools/acc/stab_beam.py)
+- A length-ranked beam that may stabilize to rank 3, against the same beam at rank 2, on ac-00700 at width 300.
+- Both get stuck at about 18 letters. The search spends its width on rank-3 states, but extra letters alone do not get it over the hump.
+- The saving needs the specific construction, not blind search.
