@@ -172,6 +172,9 @@ if __name__ == "__main__":
         for cut in cuts:
             for lam in LAMS: jobs.append((t, cut, lam))
     if os.environ.get("CUTS"): jobs = [j for j in jobs if j[1] in {int(x) for x in os.environ["CUTS"].split(",")}]
+    if os.environ.get("DONEF"):                          # skip jobs already finished in an earlier output file
+        dn = {(r["cid"], r["cut"], r["lam"]) for r in json.load(open(os.environ["DONEF"]))}
+        jobs = [j for j in jobs if (j[0]["cid"], j[1], j[2]) not in dn]
     jobs.sort(key=lambda j: -j[1])                       # late cuts first: small, near-exhaustive
     print("targets", len(tg), "jobs", len(jobs), "W", W, "G", G, "cutstep", CUTSTEP, "lams", LAMS, flush=True)
     res = []; t0 = time.time()
