@@ -122,10 +122,13 @@ def work(t):
         for v, path in ball(s, BK).items():   # path goes s -> v; reversed inverse goes v -> s
             br = tuple(INV[m] for m in reversed(path))
             put(v, rem + len(br), br, p, j)
-    best = None
+    best = None; done = set()
+    CUTMAX = int(os.environ.get("CUTMAX", "100000"))   # opening search: grow forward balls only near the start
     for p, st, e in lst:
         for i, s in enumerate(st):
-            if i + extra >= (best[0] if best else t["ours"]): break
+            if i > CUTMAX or i + extra >= (best[0] if best else t["ours"]): break
+            if (i, s) in done: continue              # the same start state is shared by many roads
+            done.add((i, s))
             for u, fpath in ball(s, FW).items():
                 h = back.get(u)
                 if not h: continue

@@ -61,7 +61,8 @@ def run(job):
 if __name__ == "__main__":
     jobs = []
     for num, p in best.items():
-        for c in range(0, max(1, len(p) - 14), 5):
+        cuts = [int(x) for x in os.environ["CUTS"].split(",")] if os.environ.get("CUTS") else range(0, max(1, len(p) - 14), 5)
+        for c in cuts:
             for mode in ("xy", "yx"):
                 for name in SETS: jobs.append((num, c, mode, name))
     print("rows", len(best), "beam runs", len(jobs), "width", W, flush=True)
