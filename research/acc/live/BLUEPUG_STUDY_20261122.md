@@ -29,8 +29,7 @@ On rows they hold on both boards: their AC road + 2 minus their Stable road.
 | < 40 | 1,051 | 0 | 0.00 | |
 | 40–80 | 4,249 | 0 | 0.01 | |
 | 80–150 | 1,134 | 3 | 0.40 | 0.96 |
-| 150–300 | 326 | ... | 0.91 (all 150+) | 0.74 |
-| 300+ | 123 | ... | ... | 0.60 |
+| 150+ | 449 | 69 | 0.91 | 0.74 (150–300), 0.60 (300+) |
 
 - If the saving came only from finishing at rank 2, they would have carried it over to AC. A saving of 8 or more (915 rows, about 900 Stable points) means the road goes above rank 2.
 - The saving grows with length: 26% on 150–300-move roads, 40% on 300+.
